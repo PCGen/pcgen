@@ -18,7 +18,7 @@ Flying Talon										TYPE:Exotic.Light.Melee.Piercing.Slashing.MeleePiercing.Me
 Drow Razor					KEY:Razor (Drow)				TYPE:Exotic.Light.Melee.Slashing.MeleeSlashing.Drow
 Sanpkhang											TYPE:Exotic.Light.Melee.Piercing.Slashing.MeleePiercing.MeleeSlashing
 Dwarven War-Shield			KEY:War-Shield (Dwarven/as Weapon)	TYPE:Exotic.Light.Melee.Piercing.Slashing.MeleePiercing.MeleeSlashing.Dwarven
-Waveblade											TYPE:Exotic.Light.Melee.Piercing.Slashing.MeleePiercing.MeleeSlashing
+Waveblade											TYPE:Exotic.Light.Melee.Piercing.Slashing.MeleePiercing.MeleeSlashing.Monk
 
 # -- 1-handers
 Sickle-Sword										TYPE:Exotic.OneHanded.Melee.Slashing.MeleeSlashing

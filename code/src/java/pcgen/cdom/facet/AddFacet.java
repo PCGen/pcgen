@@ -23,7 +23,6 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.facet.model.ClassLevelFacet;
-import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.facet.model.DomainFacet;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
@@ -39,8 +38,6 @@ public class AddFacet implements DataFacetChangeListener<CharID, CDOMObject>
 			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	private RaceFacet raceFacet;
-
-	private DeityFacet deityFacet;
 
 	private TemplateFacet templateFacet;
 
@@ -97,11 +94,6 @@ public class AddFacet implements DataFacetChangeListener<CharID, CDOMObject>
 		this.raceFacet = raceFacet;
 	}
 
-	public void setDeityFacet(DeityFacet deityFacet)
-	{
-		this.deityFacet = deityFacet;
-	}
-
 	public void setTemplateFacet(TemplateFacet templateFacet)
 	{
 		this.templateFacet = templateFacet;
@@ -126,7 +118,6 @@ public class AddFacet implements DataFacetChangeListener<CharID, CDOMObject>
 	public void init()
 	{
 		raceFacet.addDataFacetChangeListener(this);
-		deityFacet.addDataFacetChangeListener(this);
 		templateFacet.addDataFacetChangeListener(this);
 		domainFacet.addDataFacetChangeListener(this);
 		classLevelFacet.addDataFacetChangeListener(this);

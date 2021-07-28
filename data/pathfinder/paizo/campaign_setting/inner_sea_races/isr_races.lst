@@ -4,9 +4,59 @@ SOURCELONG:Inner Sea Races	SOURCESHORT:ISR	SOURCEWEB:http://paizo.com/products/b
 # ORIGINAL ENTRY: Gwen T. (evilpixie87)
 # ORIGINAL ENTRY DATE: 14 May 2016
 
-# ==============================
-# New Races
-# ==============================
 
-# Race Name		SORTKEY			Starting Feats	Size		Move				Reach		Bonus Languages									Stat bonus						Auto Language		Ability							Main Race Type	Race Subtype		Source Page		FACT
-Elf (Aquatic)	SORTKEY:a_base_pc4	STARTFEATS:1	SIZE:M	MOVE:Walk,30,Swim,30	REACH:5	LANGBONUS:Aboleth,Aklo,Aquan,Azlanti,Celestial,Draconic,Sylvan	BONUS:STAT|DEX,INT|2	BONUS:STAT|CON|-2	AUTO:LANG|Common|Elven	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Elf	RACETYPE:Humanoid	RACESUBTYPE:Elf|Aquatic	SOURCEPAGE:p.242	FACT:BaseSize|M	FACT:IsPC|true
+###Block: Core Playable Races
+# Race Name		Source Page
+Dwarf.MOD		SOURCEPAGE:p.236
+Elf.MOD		SOURCEPAGE:p.236
+Gnome.MOD		SOURCEPAGE:p.237
+Half-Elf.MOD	SOURCEPAGE:p.237
+Half-Orc.MOD	SOURCEPAGE:p.237
+Halfling.MOD	SOURCEPAGE:p.238
+Human.MOD		SOURCEPAGE:p.238
+
+
+###Block: Other Playable Races
+# Race Name			Source Page
+Aasimar.MOD			SOURCEPAGE:p.238
+Android.MOD			SOURCEPAGE:p.239
+Catfolk.MOD			SOURCEPAGE:p.239
+Changeling.MOD		SOURCEPAGE:p.240
+Dhampir.MOD			SOURCEPAGE:p.240
+Drow.MOD			SOURCEPAGE:p.241
+Duergar.MOD			SOURCEPAGE:p.241
+Elf (Aquatic).MOD		SOURCEPAGE:p.242
+Fetchling.MOD		SOURCEPAGE:p.242
+Gathlain.MOD		SOURCEPAGE:p.243
+Ghoran.MOD			SOURCEPAGE:p.243
+Gillman.MOD			SOURCEPAGE:p.243
+Goblin (Monkey).MOD	SOURCEPAGE:p.244
+Goblin.MOD			SOURCEPAGE:p.244
+Grippli.MOD			SOURCEPAGE:p.244
+Hobgoblin.MOD		SOURCEPAGE:p.244
+Ifrit.MOD			SOURCEPAGE:p.245
+Kasatha.MOD			SOURCEPAGE:p.245
+Kitsune.MOD			SOURCEPAGE:p.245
+Kobold.MOD			SOURCEPAGE:p.245
+Lashunta.MOD		SOURCEPAGE:p.246
+Merfolk.MOD			SOURCEPAGE:p.246
+Nagaji.MOD			SOURCEPAGE:p.246
+Orc.MOD			SOURCEPAGE:p.246
+Oread.MOD			SOURCEPAGE:p.247
+Ratfolk.MOD			SOURCEPAGE:p.247
+Samsaran.MOD		SOURCEPAGE:p.247
+Skinwalker.MOD		SOURCEPAGE:p.248
+Suli.MOD			SOURCEPAGE:p.250
+Svirfneblin.MOD		SOURCEPAGE:p.250
+Sylph.MOD			SOURCEPAGE:p.250
+Syrinx.MOD			SOURCEPAGE:p.251
+Tengu.MOD			SOURCEPAGE:p.251
+Tiefling.MOD		SOURCEPAGE:p.251
+Triaxian.MOD		SOURCEPAGE:p.252
+Trox.MOD			SOURCEPAGE:p.253
+Undine.MOD			SOURCEPAGE:p.253
+Vanara.MOD			SOURCEPAGE:p.253
+Vishkanya.MOD		SOURCEPAGE:p.253
+Wayang.MOD			SOURCEPAGE:p.254
+Wyrwood.MOD			SOURCEPAGE:p.254
+Wyvaran.MOD			SOURCEPAGE:p.254

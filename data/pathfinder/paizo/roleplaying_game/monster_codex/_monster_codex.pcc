@@ -7,7 +7,14 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
-PRECAMPAIGN:5,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic,INCLUDES=Ultimate Combat,INCLUDES=Advanced Race Guide
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+PRECAMPAIGN:1,INCLUDES=Ultimate Combat
+PRECAMPAIGN:1,INCLUDES=Bestiary,INCLUDES=Bestiary ~ Player Options Only
+PRECAMPAIGN:1,INCLUDES=Bestiary 2,INCLUDES=Bestiary 2 ~ Player Options Only
+PRECAMPAIGN:1,INCLUDES=Bestiary 3,INCLUDES=Bestiary 3 ~ Player Options Only
+PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -18,13 +25,6 @@ SOURCEDATE:2014-11
 RANK:201411
 ISOGL:YES
 
-
-#COVER:core_rulebook.jpg
-LOGO:@/publisher_logos/Paizo_Publishing.png
-URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
-URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
-#URL:Paizo Publishing|http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj|Buy this publication from Paizo Publishing!
-#DESC:The Pathfinder Roleplaying Game puts you in the role of a brave adventurer fighting to survive in a world beset by magic and evil. Will you cut your way through monster-filled ruins and cities rife with political intrigue to emerge as a famous hero laden with fabulous treasure, or will you fall victim to treacherous traps and fiendish monsters in a forgotten dungeon? Your fate is yours to decide with this giant Core Rulebook that provides everything a player needs to set out on a life of adventure and excitement!
 
 COVER:monster_codex.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
@@ -45,10 +45,10 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Monster Cod
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt
 
+ABILITY:mc_abilities.lst
 ABILITY:mc_abilities_class.lst
 ABILITY:mc_abilities_companion.lst
 ABILITY:mc_abilities_race.lst
-ABILITY:mc_abilities_race_arg.lst
 ABILITYCATEGORY:mc_abilitycategories.lst
 EQUIPMENT:mc_equip_arms_armor.lst
 EQUIPMENT:mc_equip_general.lst
@@ -72,6 +72,8 @@ ABILITY:support/mc_abilities_feat_arg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race G
 
 
 HIDETYPE:FEAT|GhoulBloodline
+FORWARDREF:CLASSSPELLLIST|Bloodrager,Shaman
+FORWARDREF:CLASSSPELLLIST|Medium,Mesmerist,Occultist,Psychic,Spiritualist
 
 # ENTRY DATE: 14 January 2018
 # LST MONKEY: Gwen T. (evilpixie87)

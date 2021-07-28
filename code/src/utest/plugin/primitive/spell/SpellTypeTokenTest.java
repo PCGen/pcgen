@@ -18,6 +18,7 @@ package plugin.primitive.spell;
 
 import java.net.URISyntaxException;
 
+import pcgen.TestConstants;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Race;
 import pcgen.core.spell.Spell;
@@ -25,10 +26,9 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import plugin.lsttokens.ChooseLst;
+
 import plugin.lsttokens.choose.SpellsToken;
 import plugin.lsttokens.testsupport.AbstractPrimitiveTokenTestCase;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -36,10 +36,7 @@ import org.junit.jupiter.api.BeforeEach;
 public class SpellTypeTokenTest extends
 		AbstractPrimitiveTokenTestCase<CDOMObject, Spell>
 {
-	static ChooseLst token = new ChooseLst();
-	static SpellsToken subtoken = new SpellsToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
-
+	private static final SpellsToken SUBTOKEN = new SpellsToken();
 	private static final SpellTypeToken SPELLTYPE_TOKEN = new SpellTypeToken();
 
 	public SpellTypeTokenTest()
@@ -60,7 +57,7 @@ public class SpellTypeTokenTest extends
 	@Override
 	public CDOMSecondaryToken<?> getSubToken()
 	{
-		return subtoken;
+		return SUBTOKEN;
 	}
 
 	@Override
@@ -78,13 +75,13 @@ public class SpellTypeTokenTest extends
 	@Override
 	public CDOMLoader<CDOMObject> getLoader()
 	{
-		return loader;
+		return TestConstants.TOKEN_LOADER;
 	}
 
 	@Override
 	public CDOMPrimaryToken<CDOMObject> getToken()
 	{
-		return token;
+		return TestConstants.CHOOSE_TOKEN;
 	}
 
 	public void testPrimitiveIllegalNullTarget()

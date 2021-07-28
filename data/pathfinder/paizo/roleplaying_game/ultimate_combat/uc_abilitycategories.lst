@@ -43,7 +43,6 @@ ABILITYCATEGORY:Ninja Archetype					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FR
 ABILITYCATEGORY:Crusader Feat						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:CrusaderBonusFeat																																		PLURAL:Crusader Feats				DISPLAYLOCATION:Feats
 # Monk
 ABILITYCATEGORY:Flowing Monk Bonus Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:FlowingMonkBonusFeat																																								DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Maneuver Master Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat.MonkBonusFeat																																					DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Master Of Many Styles Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:MasterOfManyStylesBonusFeat																																							DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Sohei Bonus Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:SoheiBonusFeat.MonkBonusFeat																																							DISPLAYLOCATION:Feats
 #
@@ -90,3 +89,5 @@ ABILITYCATEGORY:Controlled Rage Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:
 ABILITYCATEGORY:Controlled Rage Allocation			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO													CATEGORY:Special Ability	TYPE:Controlled Rage Allocation																																							DISPLAYLOCATION:Class Features
 
 ABILITYCATEGORY:Temp Ninja Trick					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_Temp_Ninja_Trick			CATEGORY:Special Ability	TYPE:NinjaTrickOnly																																		PLURAL:Ninja Tricks				DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Canny Foe						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Internal			TYPE:CannyFoeSelection																																		PLURAL:Canny Foe Selections			DISPLAYLOCATION:Class Features

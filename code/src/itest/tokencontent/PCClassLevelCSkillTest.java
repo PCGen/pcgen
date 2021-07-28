@@ -36,6 +36,7 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.chooser.ChooserFactory;
 import plugin.lsttokens.pcclass.level.CskillToken;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 import util.TestURI;
@@ -49,6 +50,7 @@ public class PCClassLevelCSkillTest extends AbstractTokenModelTest
 	private LocalSkillCostFacet lscFacet;
 
 	@Override
+	@BeforeEach
 	protected void setUp() throws Exception
 	{
 		super.setUp();

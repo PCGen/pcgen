@@ -762,7 +762,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 
 		@Override
 		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
-			final String matchedSection) throws TermEvaulatorException
+			final String matchedSection)
 		{
 
 			String classString;
@@ -821,7 +821,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 
 		@Override
 		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
-			final String matchedSection) throws TermEvaulatorException
+			final String matchedSection)
 		{
 
 			String exp = expressionString.replace('{', '(').replace('}', ')');
@@ -837,7 +837,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 
 		@Override
 		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
-			final String matchedSection) throws TermEvaulatorException
+			final String matchedSection)
 		{
 
 			return new PCHasClassTermEvaluator(expressionString, expressionString.substring(6));
@@ -1164,7 +1164,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 
 			String intString = TermUtilities.extractContentsOfBrackets(expressionString, src, 24);
 
-			int[] nums = new int[]{-1};
+			int[] nums = {-1};
 
 			if (intString.length() > 1 && intString.startsWith("."))
 			{
@@ -1205,7 +1205,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 
 			String intString = TermUtilities.extractContentsOfBrackets(expressionString, src, 16);
 
-			int[] nums = new int[]{-1};
+			int[] nums = {-1};
 
 			if (intString.length() > 1 && intString.startsWith("."))
 			{
@@ -1241,7 +1241,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 
 		@Override
 		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
-			final String matchedSection) throws TermEvaulatorException
+			final String matchedSection)
 		{
 
 			return new PCEqTypeTermEvaluator(expressionString);
@@ -1253,7 +1253,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 
 		@Override
 		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
-			final String matchedSection) throws TermEvaulatorException
+			final String matchedSection)
 		{
 
 			return new PCHasDeityTermEvaluator(expressionString, expressionString.substring(9));
@@ -1265,7 +1265,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 
 		@Override
 		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
-			final String matchedSection) throws TermEvaulatorException
+			final String matchedSection)
 		{
 
 			return new PCHasFeatTermEvaluator(expressionString, expressionString.substring(8));
@@ -1297,7 +1297,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 
 		@Override
 		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
-			final String matchedSection) throws TermEvaulatorException
+			final String matchedSection)
 		{
 
 			return new PCModEquipTermEvaluator(expressionString, expressionString.substring(8));
@@ -1348,7 +1348,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 
 		@Override
 		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
-			final String matchedSection) throws TermEvaulatorException
+			final String matchedSection)
 		{
 
 			String skillString = expressionString.substring(10).replace('{', '(').replace('}', ')');
@@ -1362,7 +1362,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 
 		@Override
 		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
-			final String matchedSection) throws TermEvaulatorException
+			final String matchedSection)
 		{
 
 			String skillString = expressionString.substring(11).replace('{', '(').replace('}', ')');
@@ -1376,7 +1376,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 
 		@Override
 		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
-			final String matchedSection) throws TermEvaulatorException
+			final String matchedSection)
 		{
 
 			String varString = expressionString.substring(11);

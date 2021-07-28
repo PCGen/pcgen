@@ -3,5 +3,5 @@
 
 # Equip
 # Equipment Name	Unique Key		Required Weapon Proficiency		Type													Weight	Crit Mult	Crit Range	Damage	Range		Special Property
-Vested Pistol	KEY:Vested Pistol	PROFICIENCY:WEAPON|Vested Pistol	TYPE:Weapon.Ranged.Pistol.OneHandedFirearm.Projectile.Bludgeoning.Piercing	WT:4		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	RANGE:30	SPROP:Misfire 1; Capacity 4
-Vested Rifle	KEY:Vested Rifle	PROFICIENCY:WEAPON|Vested Rifle	TYPE:Weapon.Ranged.Rifle.TwoHandedFirearm.Projectile.Bludgeoning.Piercing	WT:8		CRITMULT:x3	CRITRANGE:1	DAMAGE:1d8	RANGE:60	SPROP:Misfire 1; Capacity 1
+Vested Pistol	KEY:Vested Pistol	PROFICIENCY:WEAPON|Vested Pistol	TYPE:Weapon.Ranged.Firearm.Weapon Group Firearms.Pistol.OneHandedFirearm.Projectile.Bludgeoning.Piercing	WT:4		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	RANGE:30	SPROP:Misfire 1; Capacity 4
+Vested Rifle	KEY:Vested Rifle	PROFICIENCY:WEAPON|Vested Rifle	TYPE:Weapon.Ranged.Firearm.Weapon Group Firearms.Rifle.TwoHandedFirearm.Projectile.Bludgeoning.Piercing	WT:8		CRITMULT:x3	CRITRANGE:1	DAMAGE:1d8	RANGE:60	SPROP:Misfire 1; Capacity 1

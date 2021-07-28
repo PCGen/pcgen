@@ -1,0 +1,29 @@
+
+
+# ------------------------------
+# Skinwalker
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name							Define							Ability																			FACT
+CATEGORY=Internal|Racial Traits ~ Skinwalker.MOD	DEFINE:Skinwalker_ReplaceAbilityScores|0		ABILITY:Skinwalker Racial Trait|AUTOMATIC|Skinwalker ~ Ability Scores|PREVAREQ:Skinwalker_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Skinwalker.MOD	DEFINE:Skinwalker_ReplaceType|0			ABILITY:Skinwalker Racial Trait|AUTOMATIC|Skinwalker ~ Type|PREVAREQ:Skinwalker_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Skinwalker.MOD	DEFINE:Skinwalker_ReplaceSize|0			ABILITY:Skinwalker Racial Trait|AUTOMATIC|Skinwalker ~ Size|PREVAREQ:Skinwalker_ReplaceSize,0					FACT:RaceSizeAllowed_Medium|True
+CATEGORY=Internal|Racial Traits ~ Skinwalker.MOD	DEFINE:Skinwalker_ReplaceSpeed|0			ABILITY:Skinwalker Racial Trait|AUTOMATIC|Skinwalker ~ Speed|PREVAREQ:Skinwalker_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Skinwalker.MOD	DEFINE:Skinwalker_ReplaceVision|0			ABILITY:Skinwalker Racial Trait|AUTOMATIC|Skinwalker ~ Vision|PREVAREQ:Skinwalker_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Skinwalker.MOD	DEFINE:Skinwalker_ReplaceAnimalMinded|0		ABILITY:Skinwalker Racial Trait|AUTOMATIC|Skinwalker ~ Animal-Minded|PREVAREQ:Skinwalker_ReplaceAnimalMinded,0
+CATEGORY=Internal|Racial Traits ~ Skinwalker.MOD	DEFINE:Skinwalker_ReplaceChangeShape|0		ABILITY:Skinwalker Racial Trait|AUTOMATIC|Skinwalker ~ Change Shape|PREVAREQ:Skinwalker_ReplaceChangeShape,0
+CATEGORY=Internal|Racial Traits ~ Skinwalker.MOD	DEFINE:Skinwalker_ReplaceSpellLikeAbility|0	ABILITY:Skinwalker Racial Trait|AUTOMATIC|Skinwalker ~ Spell-Like Ability|PREVAREQ:Skinwalker_ReplaceSpellLikeAbility,0
+CATEGORY=Internal|Racial Traits ~ Skinwalker.MOD	DEFINE:Skinwalker_ReplaceLanguages|0		ABILITY:Skinwalker Racial Trait|AUTOMATIC|Skinwalker ~ Languages|PREVAREQ:Skinwalker_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name							Modify VAR
+CATEGORY=Internal|Racial Traits ~ Skinwalker.MOD	BONUS:VAR|Skinwalker_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Skinwalker_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Skinwalker.MOD	BONUS:VAR|Skinwalker_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Skinwalker_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Skinwalker.MOD	BONUS:VAR|Skinwalker_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Skinwalker_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Skinwalker.MOD	BONUS:VAR|Skinwalker_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Skinwalker_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Skinwalker.MOD	BONUS:VAR|Skinwalker_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Skinwalker_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Skinwalker.MOD	BONUS:VAR|Skinwalker_ReplaceAnimalMinded|1|TYPE=Boolean|PREFACT:1,ABILITIES,Skinwalker_ReplaceAnimalMinded=True
+CATEGORY=Internal|Racial Traits ~ Skinwalker.MOD	BONUS:VAR|Skinwalker_ReplaceChangeShape|1|TYPE=Boolean|PREFACT:1,ABILITIES,Skinwalker_ReplaceChangeShape=True
+CATEGORY=Internal|Racial Traits ~ Skinwalker.MOD	BONUS:VAR|Skinwalker_ReplaceSpellLikeAbility|1|TYPE=Boolean|PREFACT:1,ABILITIES,Skinwalker_ReplaceSpellLikeAbility=True
+CATEGORY=Internal|Racial Traits ~ Skinwalker.MOD	BONUS:VAR|Skinwalker_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Skinwalker_ReplaceLanguages=True

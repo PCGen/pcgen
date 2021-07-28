@@ -18,7 +18,6 @@
  */
 package plugin.exporttokens;
 
-import pcgen.cdom.enumeration.BiographyField;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
@@ -36,10 +35,6 @@ public class NameToken extends AbstractExportToken
 	@Override
 	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{
-		if (display.getSuppressBioField(BiographyField.NAME))
-		{
-			return "";
-		}
 		return display.getName();
 	}
 }

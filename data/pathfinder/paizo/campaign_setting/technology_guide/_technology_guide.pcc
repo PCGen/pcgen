@@ -48,6 +48,7 @@ SHIELDPROF:tg_profs_shield.lst
 WEAPONPROF:tg_profs_weapon.lst
 SPELL:tg_spells.lst
 TEMPLATE:tg_templates.lst
+SKILL:tg_skills.lst
 
 
 # ENTRY DATE: 2015-01

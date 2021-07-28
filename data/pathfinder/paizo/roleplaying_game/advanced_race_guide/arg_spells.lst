@@ -225,3 +225,6 @@ Shadow Anchor	TYPE:Arcane	CLASSES:Bard,Sorcerer,Witch,Wizard=2	SCHOOL:Illusion	S
 #
 # End
 #
+
+###Block: Restricted Use Spells
+Fins to Feet.COPY=Fins to Feet (self only)	CLASSES:.CLEARALL

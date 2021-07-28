@@ -27,7 +27,6 @@ import pcgen.cdom.facet.analysis.AgeSetFacet;
 import pcgen.cdom.facet.base.AbstractStorageFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
-import pcgen.cdom.facet.fact.AgeFacet;
 import pcgen.cdom.facet.model.BioSetFacet;
 import pcgen.core.AgeSet;
 import pcgen.core.BioSet;
@@ -42,8 +41,6 @@ public class AgeSetKitFacet extends AbstractStorageFacet<CharID> implements Data
 {
 	private final PlayerCharacterTrackingFacet trackingFacet =
 			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
-
-	private AgeFacet ageFacet;
 
 	private AgeSetFacet ageSetFacet;
 
@@ -188,11 +185,6 @@ public class AgeSetKitFacet extends AbstractStorageFacet<CharID> implements Data
 		}
 	}
 
-	public void setAgeFacet(AgeFacet ageFacet)
-	{
-		this.ageFacet = ageFacet;
-	}
-
 	public void setAgeSetFacet(AgeSetFacet ageSetFacet)
 	{
 		this.ageSetFacet = ageSetFacet;
@@ -201,17 +193,6 @@ public class AgeSetKitFacet extends AbstractStorageFacet<CharID> implements Data
 	public void setBioSetFacet(BioSetFacet bioSetFacet)
 	{
 		this.bioSetFacet = bioSetFacet;
-	}
-
-	/**
-	 * Initializes the connections for AgeSetKitFacet to other facets.
-	 * 
-	 * This method is automatically called by the Spring framework during
-	 * initialization of the AgeSetKitFacet.
-	 */
-	public void init()
-	{
-		ageFacet.addDataFacetChangeListener(this);
 	}
 
 	/**

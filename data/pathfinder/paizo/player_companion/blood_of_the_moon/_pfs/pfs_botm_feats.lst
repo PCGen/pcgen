@@ -1,19 +1,19 @@
 # CVS $Revision: $ $Author: $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
 
-# Ability Name					Type			Var. Min. Value
-CATEGORY=FEAT|Extra Feature.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=FEAT|Fast Change.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=FEAT|Bat Shape.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=FEAT|Bloodmarked Flight.MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=FEAT|Dire Bat Shape.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=FEAT|Bear Hug.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=FEAT|Beartrap Bite.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=FEAT|Ferocious Loyalty.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=FEAT|Swarm Scatter.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=FEAT|Swarm Strike.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=FEAT|Motivating Display.MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=FEAT|Surprising Combatant.MOD	TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=FEAT|Violent Display.MOD		TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=FEAT|Wolf Savage.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=FEAT|Wolf Style.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
-CATEGORY=FEAT|Wolf Trip.MOD			TYPE:PFSNotLegal	PREVARGTEQ:PFS_Race_Skinwalker_Enabled,1
+# Ability Name					Type
+CATEGORY=FEAT|Extra Feature.MOD		TYPE:PFSNotLegal
+CATEGORY=FEAT|Fast Change.MOD			TYPE:PFSNotLegal
+CATEGORY=FEAT|Bat Shape.MOD			TYPE:PFSNotLegal
+CATEGORY=FEAT|Bloodmarked Flight.MOD	TYPE:PFSNotLegal
+CATEGORY=FEAT|Dire Bat Shape.MOD		TYPE:PFSNotLegal
+CATEGORY=FEAT|Bear Hug.MOD			TYPE:PFSNotLegal
+CATEGORY=FEAT|Beartrap Bite.MOD		TYPE:PFSNotLegal
+CATEGORY=FEAT|Ferocious Loyalty.MOD		TYPE:PFSNotLegal
+CATEGORY=FEAT|Swarm Scatter.MOD		TYPE:PFSNotLegal
+CATEGORY=FEAT|Swarm Strike.MOD		TYPE:PFSNotLegal
+CATEGORY=FEAT|Motivating Display.MOD	TYPE:PFSNotLegal
+CATEGORY=FEAT|Surprising Combatant.MOD	TYPE:PFSNotLegal
+CATEGORY=FEAT|Violent Display.MOD		TYPE:PFSNotLegal
+CATEGORY=FEAT|Wolf Savage.MOD			TYPE:PFSNotLegal
+CATEGORY=FEAT|Wolf Style.MOD			TYPE:PFSNotLegal
+CATEGORY=FEAT|Wolf Trip.MOD			TYPE:PFSNotLegal

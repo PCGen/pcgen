@@ -1,28 +1,20 @@
 # CVS $Revision: 21418 $ $Author: evilmynex $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 #SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy85k5	SOURCEDATE:2009-09
 
-# For the Advanced Races Support -
-# Added Tiefling
-# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Specific choices list				Plural description for UI		Display Location
-ABILITYCATEGORY:Aasimar Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AasimarRacialTrait									PLURAL:Aasimar Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Drow Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DrowRacialTrait									PLURAL:Drow Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Goblin Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GoblinRacialTrait									PLURAL:Goblin Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Kobold Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:KoboldRacialTrait									PLURAL:Kobold Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Orc Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OrcRacialTrait									PLURAL:Orc Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Tengu Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TenguRacialTrait									PLURAL:Tengu Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Tiefling Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TieflingRacialTrait.Tiefling Racial Trait					PLURAL:Tiefling Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Tiefling Language				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TieflingLanguageTrait								PLURAL:Tiefling Languages		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Hobgoblin Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HobgoblinRacialTrait								PLURAL:Hobgoblin Racial Traits	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Duergar Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DuergarRacialTrait									PLURAL:Duergar Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Merfolk Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MerfolkRacialTrait									PLURAL:Merfolk Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Svirfneblin Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SvirfneblinRacialTrait								PLURAL:Svirfneblin Racial Traits	DISPLAYLOCATION:Racial Abilities
+###Block: Racial Trait Categories
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
+ABILITYCATEGORY:Aasimar Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Aasimar Racial Trait	PLURAL:Aasimar Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Drow Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Drow Racial Trait		PLURAL:Drow Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Duergar Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Duergar Racial Trait	PLURAL:Duergar Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Goblin Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Goblin Racial Trait	PLURAL:Goblin Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Hobgoblin Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Hobgoblin Racial Trait	PLURAL:Hobgoblin Racial Traits	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Kobold Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Kobold Racial Trait	PLURAL:Kobold Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Merfolk Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Merfolk Racial Trait	PLURAL:Merfolk Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Orc Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Orc Racial Trait		PLURAL:Orc Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Svirfneblin Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Svirfneblin Racial Trait	PLURAL:Svirfneblin Racial Traits	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Tengu Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Tengu Racial Trait		PLURAL:Tengu Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Tiefling Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Tiefling Racial Trait	PLURAL:Tiefling Racial Traits		DISPLAYLOCATION:Racial Abilities
 
-ABILITYCATEGORY:Tengu Linguistic Additional Languages	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Tengu Language Selections	PLURAL:Tengu Additional Languages	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Tiefling Subrace				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TieflingSubrace															DISPLAYLOCATION:Racial Abilities
-
-
-ABILITYCATEGORY:Goblin						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GoblinAlt										PLURAL:Goblin Alts		DISPLAYLOCATION:Racial Abilities
-
-#
-# End
-#
+###Block: Support Categories
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object	Type of Object			Display Location
+ABILITYCATEGORY:Tiefling Language Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Choice		TYPE:Tiefling Language Choice	DISPLAYLOCATION:Racial Abilities

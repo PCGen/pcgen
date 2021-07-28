@@ -40,14 +40,13 @@ public class SortedProperties extends Properties
 	 */
 	public void mystore(final FileOutputStream out, final String header)
 	{
-		BufferedWriter bw = null;
+
 		final SortedMap<Object, Object> aMap = new TreeMap<>(this);
 		final Iterator<Map.Entry<Object, Object>> entries = aMap.entrySet().iterator();
 		Map.Entry<Object, Object> entry;
 
-		try
+		try(BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(out, "8859_1")))
 		{
-			bw = new BufferedWriter(new OutputStreamWriter(out, "8859_1"));
 			bw.write(header);
 			bw.newLine();
 
@@ -67,26 +66,6 @@ public class SortedProperties extends Properties
 		catch (final IOException ex)
 		{
 			Logging.errorPrint("Error writing to the options.ini file: ", ex);
-		}
-		finally
-		{
-			try
-			{
-				if (bw != null)
-				{
-					bw.flush();
-					bw.close();
-				}
-			}
-			catch (IOException iox)
-			{
-				if (Logging.isDebugMode())
-				{
-					Logging.debugPrint("Caught exception trying to close writer in SortedProperties.mystore", iox);
-				}
-
-				// ignore
-			}
 		}
 	}
 

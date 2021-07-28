@@ -6,7 +6,11 @@ GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
 PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
-PRECAMPAIGN:4,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic,INCLUDES=Ultimate Combat
+PRECAMPAIGN:1,INCLUDES=Bestiary
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+PRECAMPAIGN:1,INCLUDES=Ultimate Combat
+!PRECAMPAIGN:1,INCLUDES=Bestiary 4 ~ Player Options Only
 
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
@@ -47,11 +51,15 @@ COPYRIGHT:Lurker Above from the Tome of Horrors Complete Copyright 2011, Necroma
 COPYRIGHT:Trapper from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc.; published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
 COPYRIGHT:PCGen dataset conversion for "Pathfinder Roleplaying Game Bestiary 4" Copyright 2013, PCGen Data team (Including, but not limited to Eric Smith (maredudd), & Gwen T. (evilpixie87)).
 
+DATACONTROL:b4__datacontrols.lst
+
 ABILITY:b4_abilities_class.lst
 ABILITY:b4_abilities_companion.lst
 ABILITY:b4_abilities_race.lst
+ABILITY:b4_abilities_race_ce_companion.lst
 ABILITY:b4_abilities_races_ce.lst
 ABILITYCATEGORY:b4_abilitycategories.lst
+ABILITYCATEGORY:b4_abilitycategories_companion.lst
 COMPANIONMOD:b4_companionmods.lst
 DOMAIN:b4_domains.lst
 EQUIPMENT:b4_equip_arms_armor.lst
@@ -65,9 +73,18 @@ WEAPONPROF:b4_profs_weapon.lst
 RACE:b4_races.lst
 RACE:b4_races_companion.lst
 SKILL:b4_skills.lst
+SPELL:b4_spells_companion.lst
 SPELL:b4_spells_modified.lst
 TEMPLATE:b4_templates.lst
+TEMPLATE:b4_templates_companion.lst
 
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\gathlain\_gathlain_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\kasatha\_kasatha_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\trox\_trox_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\wyrwood\_wyrwood_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\wyvaran\_wyvaran_race.pcc
+
+ABILITY:b4_abilities_globalvar_arg.lst|!PRECAMPAIGN:1,Advanced Race Guide
 ABILITY:b4_abilities_race_arg.lst|!PRECAMPAIGN:1,Advanced Race Guide
 ABILITYCATEGORY:b4_abilitycategories_arg.lst|!PRECAMPAIGN:1,Advanced Race Guide
 RACE:b4_races_arg.lst|!PRECAMPAIGN:1,Advanced Race Guide

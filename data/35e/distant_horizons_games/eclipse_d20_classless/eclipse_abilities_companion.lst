@@ -13,7 +13,7 @@ Other			KEY:Companion ~ Other			SORTKEY:Companion_5_Other			CATEGORY:Special Abi
 # Ability Name	Unique Key				SORTKEY			Category of Ability		Define				Description																																																						Modify VAR										Source Page
 Animal Companion	KEY:Master ~ Animal Companion	SORTKEY:Companion_2_a	CATEGORY:Special Ability	DEFINE:CompanionLvl|0		DESC:You have an Animal Companion	DESC:Handling or "pushing" an animal companion is a free action and the master gains a +4 bonus on Handle Animal checks or "social" checks involving the companion.	DESC:Their master opt to share the effects of spells and powers used on him or her with them if they're within five feet.	BONUS:VAR|CompanionLvl|BaseCompanionLvl|TYPE=Companion		SOURCEPAGE:p.27
 Familiar		KEY:Master ~ Familiar		SORTKEY:Companion_2_b	CATEGORY:Special Ability	DEFINE:FamiliarLvl|0		DESC:You have a familiar companion																																																		BONUS:VAR|MasterFamiliarLvl|BaseCompanionLvl|TYPE=Companion			SOURCEPAGE:p.27
-Psicrystal		KEY:Master ~ Psicrystal		SORTKEY:Companion_2_c	CATEGORY:Special Ability	DEFINE:PsiCrystalLvl|0		DESC:You have a Psicrystal companion																																																	BONUS:VAR|PsiCrystalLvl|BaseCompanionLvl|TYPE=Companion		SOURCEPAGE:p.27
+Psicrystal		KEY:Master ~ Psicrystal		SORTKEY:Companion_2_c	CATEGORY:Special Ability	DEFINE:PsiCrystalLvl|0		DESC:You have a Psicrystal companion																																																	BONUS:VAR|PsiCrystalLvl|BaseCompanionLvl|TYPE=Companion		SOURCEPAGE:p.27		BONUS:ABILITYPOOL|Psicrystal Personality|1
 Special Mount	KEY:Master ~ Special Mount	SORTKEY:Companion_2_d	CATEGORY:Special Ability	DEFINE:SpecialMountLvl|0	DESC:You have a Special Mount																																																			BONUS:VAR|SpecialMountLvl|BaseCompanionLvl|TYPE=Companion		SOURCEPAGE:p.27
 Mystic Companion	KEY:Master ~ Mystic Companion	SORTKEY:Companion_2_d	CATEGORY:Special Ability	DEFINE:MysticCompanionLvl|0	DESC:You have a Mystic companion																																																		BONUS:VAR|MysticCompanionLvl|BaseCompanionLvl|TYPE=Companion	SOURCEPAGE:p.27
 Other Companion	KEY:Master ~ Other Companion	SORTKEY:Companion_2_e	CATEGORY:Special Ability	DEFINE:OtherCompanionLvl|0	DESC:You have a Companion																																																			BONUS:VAR|OtherCompanionLvl|BaseCompanionLvl|TYPE=Companion		SOURCEPAGE:p.27
@@ -70,3 +70,23 @@ Rider / Battle Dance Wis AC BONUS +8	KEY:Mystic_Comp_Wis_8		SORTKEY:Rider_1lb	CA
 
 
 Spirited Selection												CATEGORY:Special Ability	TYPE:SpiritedSelection																				MULT:YES	CHOOSE:STRING|Burrow|Climb|Fly|Swim|Walk																BONUS:MOVEADD|TYPE.%LIST|10
+
+
+###Block: Psicrystal personalities
+# Ability Name			Unique Key				Category of Ability		Type							Stackable?	Multiple?	Choose				Combat bonus			Save bonus			Bonus to skill				Source Page
+Psicrystal (Artiste)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality																			BONUS:SKILL|TYPE.Craft|3		SOURCEPAGE:PsionicClasses
+Psicrystal (Bully)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality																			BONUS:SKILL|Intimidate|3		SOURCEPAGE:PsionicClasses
+Psicrystal (Coward)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality																			BONUS:SKILL|Hide|3			SOURCEPAGE:PsionicClasses
+Psicrystal (Friendly)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality																			BONUS:SKILL|Diplomacy|3			SOURCEPAGE:PsionicClasses
+Psicrystal (Hero)								CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality															BONUS:SAVE|Fortitude|2							SOURCEPAGE:PsionicClasses
+Psicrystal (Liar)								CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality																			BONUS:SKILL|Bluff|3			SOURCEPAGE:PsionicClasses
+Psicrystal (Meticulous)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality																			BONUS:SKILL|Search|3			SOURCEPAGE:PsionicClasses
+Psicrystal (Nimble)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality										BONUS:COMBAT|INITIATIVE|2											SOURCEPAGE:PsionicClasses
+Psicrystal (Observant)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality																			BONUS:SKILL|Spot|3			SOURCEPAGE:PsionicClasses
+Psicrystal (Poised)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality																			BONUS:SKILL|Balance|3			SOURCEPAGE:PsionicClasses
+Psicrystal (Resolved)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality															BONUS:SAVE|Will|2								SOURCEPAGE:PsionicClasses
+Psicrystal (Sage)								CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality																									SOURCEPAGE:PsionicClasses
+Psicrystal (Single Minded)						CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality																			BONUS:SKILL|Concentration|3		SOURCEPAGE:PsionicClasses
+Psicrystal (Sneaky)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality																			BONUS:SKILL|Move Silently|3		SOURCEPAGE:PsionicClasses
+Psicrystal (Sympathetic)						CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality																			BONUS:SKILL|Sense Motive|3		SOURCEPAGE:PsionicClasses
+

@@ -90,3 +90,6 @@ RACE:ce_races_familiar_apg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
 RACE:ce_races_familiar_cr.lst
 RACE:ce_races_familiar_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 TEMPLATE:ce_templates_familiar_cr.lst
+
+# Support for additional books:
+DATACONTROL:ce__datacontrols_book.lst

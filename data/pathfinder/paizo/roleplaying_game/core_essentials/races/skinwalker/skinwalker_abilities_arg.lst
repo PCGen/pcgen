@@ -1,0 +1,5 @@
+
+
+###Block: Race Builder Ability Score Modifier Qualities
+# Ability Name												Unique Key					Category of Ability	Type				Multiple Requirements																				Stat bonus									Modify VAR					Cost		Source Page		Aspects			Information
++2 Wisdom, -2 Intelligence, +2 to One Physical Ability Score While in Bestial Form	KEY:Skinwalker ~ Ability Scores	CATEGORY:Racial Traits	TYPE:RaceStatAbility	PREMULT:1,[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.RaceStatAbility],[PREABILITY:1,CATEGORY=Racial Traits,Skinwalker ~ Ability Scores]	BONUS:STAT|WIS|2|TYPE=Racial	BONUS:STAT|INT|-2|TYPE=Racial	BONUS:VAR|ARG_RaceBuilderPoints|-1	COST:0	SOURCEPAGE:p.xx	ASPECT:Racial Points|1	INFO:Racial Points|1

@@ -141,11 +141,11 @@ public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements C
 			try
 			{
 				level = Integer.parseInt(levelString);
-				if ((int) level < -1)
+				if (level < -1)
 				{
 					return new ParseResult.Fail(getTokenName() + " may not use a negative level: " + value);
 				}
-				else if ((int) level == -1)
+				else if (level == -1)
 				{
 					if (prereq != null)
 					{

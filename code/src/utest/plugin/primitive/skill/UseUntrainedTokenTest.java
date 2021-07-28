@@ -18,6 +18,7 @@ package plugin.primitive.skill;
 
 import java.net.URISyntaxException;
 
+import pcgen.TestConstants;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Race;
 import pcgen.core.Skill;
@@ -25,10 +26,9 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import plugin.lsttokens.ChooseLst;
+
 import plugin.lsttokens.choose.SkillToken;
 import plugin.lsttokens.testsupport.AbstractPrimitiveTokenTestCase;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -36,10 +36,7 @@ import org.junit.jupiter.api.BeforeEach;
 public class UseUntrainedTokenTest extends
 		AbstractPrimitiveTokenTestCase<CDOMObject, Skill>
 {
-	static ChooseLst token = new ChooseLst();
-	static SkillToken subtoken = new SkillToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
-
+	private static final SkillToken SUBTOKEN = new SkillToken();
 	private static final UseUntrainedToken USEUNTRAINED_TOKEN = new UseUntrainedToken();
 
 	public UseUntrainedTokenTest()
@@ -60,7 +57,7 @@ public class UseUntrainedTokenTest extends
 	@Override
 	public CDOMSecondaryToken<?> getSubToken()
 	{
-		return subtoken;
+		return SUBTOKEN;
 	}
 
 	@Override
@@ -78,12 +75,12 @@ public class UseUntrainedTokenTest extends
 	@Override
 	public CDOMLoader<CDOMObject> getLoader()
 	{
-		return loader;
+		return TestConstants.TOKEN_LOADER;
 	}
 
 	@Override
 	public CDOMPrimaryToken<CDOMObject> getToken()
 	{
-		return token;
+		return TestConstants.CHOOSE_TOKEN;
 	}
 }

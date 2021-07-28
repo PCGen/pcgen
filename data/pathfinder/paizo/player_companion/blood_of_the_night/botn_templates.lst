@@ -8,17 +8,17 @@ SOURCELONG:Pathfinder Player Companion: Blood of the Night	SOURCESHORT:BOTN	SOUR
 # Subrace
 # ==============================
 
-# Template Name		Unique Key				Visible	Bonus Ability Pool					Bonus Languages	Subrace
-Default-Dhampir		KEY:Dhampir ~ Default-Dhampir	VISIBLE:NO
-Jiang-shi-Born		KEY:Dhampir Jiang-shi-Born	VISIBLE:NO												SUBRACE:Jiang-shi-Born
-Moroi-Born			KEY:Dhampir Moroi-Born		VISIBLE:NO												SUBRACE:Moroi-Born
-Nosferatu-Born		KEY:Dhampir Nosferatu-Born	VISIBLE:NO												SUBRACE:Nosferatu-Born
-Vetala-Born			KEY:Dhampir Vetala-Born		VISIBLE:NO												SUBRACE:Vetala-Born
+###Block: Dhampir Subraces
+# Template Name	Unique Key				Visible	Source Page		Subrace
+Jiang-shi-Born	KEY:Dhampir ~ Jiang-shi-Born	VISIBLE:NO	SOURCEPAGE:p.20	SUBRACE:Jiang-shi-Born
+Moroi-Born		KEY:Dhampir ~ Moroi-Born	VISIBLE:NO	SOURCEPAGE:p.20	SUBRACE:Moroi-Born
+Nosferatu-Born	KEY:Dhampir ~ Nosferatu-Born	VISIBLE:NO	SOURCEPAGE:p.21	SUBRACE:Nosferatu-Born
+Vetala-Born		KEY:Dhampir ~ Vetala-Born	VISIBLE:NO	SOURCEPAGE:p.21	SUBRACE:Vetala-Born
 
 # ==============================
 # Trait Support
 # ==============================
 
-Linguistic Genius							VISIBLE:NO									LANGBONUS:ALL
-
-Half-Forgotten Secrets						VISIBLE:NO	BONUS:ABILITYPOOL|Half-Forgotten Secrets|1
+###Block:
+# Template Name		Visible	Bonus Ability Pool
+Half-Forgotten Secrets	VISIBLE:NO	BONUS:ABILITYPOOL|Half-Forgotten Secrets|1

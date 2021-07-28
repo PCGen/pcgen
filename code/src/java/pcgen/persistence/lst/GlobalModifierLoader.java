@@ -23,7 +23,6 @@ package pcgen.persistence.lst;
 import java.net.URI;
 
 import pcgen.cdom.inst.GlobalModifiers;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
@@ -36,7 +35,7 @@ public class GlobalModifierLoader extends LstLineFileLoader
 	public static final String GLOBAL_MODIFIERS = "Global Modifiers";
 
 	@Override
-	public void parseLine(LoadContext context, String lstLine, URI sourceURI) throws PersistenceLayerException
+	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
 	{
 		if (lstLine.indexOf('\t') != -1)
 		{

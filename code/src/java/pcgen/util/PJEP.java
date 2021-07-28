@@ -63,7 +63,7 @@ public final class PJEP extends JEP
 		{
 
 			@Override
-			public void loadPlugin(Class clazz) throws Exception
+			public void loadPlugin(Class clazz)
 			{
 				addCommand(clazz);
 			}
@@ -273,7 +273,7 @@ public final class PJEP extends JEP
 					cl += ";BEFORELEVEL=" + param2.toString();
 				}
 
-				inStack.push(new Double(aPC.getClassLevelString(cl, false)));
+				inStack.push(Double.valueOf(aPC.getClassLevelString(cl, false)));
 			}
 			else
 			{

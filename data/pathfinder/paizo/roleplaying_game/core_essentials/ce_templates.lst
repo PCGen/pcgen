@@ -1066,83 +1066,196 @@ Resolute Creature		VISIBLE:YES	DR:5/Chaotic|PRELEVEL:MIN=5	SOURCEPAGE:p.292	DEFI
 
 SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
-Aberration			VISIBLE:NO																																																																																																				RACETYPE:Aberration
-Dragon			VISIBLE:NO																																																																																																				RACETYPE:Dragon
-Fey				VISIBLE:NO																																																																																																				RACETYPE:Fey
-Half-Construct		VISIBLE:NO																																																																																																									RACESUBTYPE:Half-Construct
-Half-Undead			VISIBLE:NO																																																																																																									RACESUBTYPE:Half-Undead
-Humanoid			VISIBLE:NO																																																																																																				RACETYPE:Humanoid
-Monstrous Humanoid	VISIBLE:NO																																																																																																				RACETYPE:Monstrous Humanoid
-Outsider			VISIBLE:NO																																																																																																				RACETYPE:Outsider
-Plant				VISIBLE:NO																																																																																																				RACETYPE:Plant
-
+###Block: Creature Types
+# Template Name		Visible	Main Race Type			FACT
+Aberration			VISIBLE:NO	RACETYPE:Aberration		FACT:IsAberration|True
+Animal			VISIBLE:NO	RACETYPE:Animal			FACT:IsAnimal|True
+Construct			VISIBLE:NO	RACETYPE:Construct		FACT:IsConstruct|True
+Dragon			VISIBLE:NO	RACETYPE:Dragon			FACT:IsDragon|True
+Fey				VISIBLE:NO	RACETYPE:Fey			FACT:IsFey|True
+Humanoid			VISIBLE:NO	RACETYPE:Humanoid			FACT:IsHumanoid|True
+Magical Beast		VISIBLE:NO	RACETYPE:Magical Beast		FACT:IsMagicalBeast|True
+Monstrous Humanoid	VISIBLE:NO	RACETYPE:Monstrous Humanoid	FACT:IsMonstrousHumanoid|True
+Ooze				VISIBLE:NO	RACETYPE:Ooze			FACT:IsOoze|True
+Outsider			VISIBLE:NO	RACETYPE:Outsider			FACT:IsOutsider|True
+Plant				VISIBLE:NO	RACETYPE:Plant			FACT:IsPlant|True
+Undead			VISIBLE:NO	RACETYPE:Undead			FACT:IsUndead|True
+Vermin			VISIBLE:NO	RACETYPE:Vermin			FACT:IsVermin|True
 
 ###Block: Creature Subtypes
-# Template Name	Visible	Ability					Race Subtype			Type				MODIFY
-Air			VISIBLE:NO							RACESUBTYPE:Air
-Angel			VISIBLE:NO							RACESUBTYPE:Angel
-Aquatic		VISIBLE:NO	ABILITY:Class Skill|AUTOMATIC|Swim	RACESUBTYPE:Aquatic
-Archon		VISIBLE:NO							RACESUBTYPE:Archon
-Azata			VISIBLE:NO							RACESUBTYPE:Azata
-Chaotic		VISIBLE:NO							RACESUBTYPE:Chaotic
-Cold			VISIBLE:NO							RACESUBTYPE:Cold
-Demon			VISIBLE:NO							RACESUBTYPE:Demon
-Devil			VISIBLE:NO							RACESUBTYPE:Devil
-Dwarf			VISIBLE:NO							RACESUBTYPE:Dwarf			TYPE:Racial Heritage
-Earth			VISIBLE:NO							RACESUBTYPE:Earth
-Elemental		VISIBLE:NO							RACESUBTYPE:Elemental
-Elf			VISIBLE:NO							RACESUBTYPE:Elf			TYPE:Racial Heritage
-Evil			VISIBLE:NO							RACESUBTYPE:Evil
-Extraplanar		VISIBLE:NO							RACESUBTYPE:Extraplanar
-Fire			VISIBLE:NO							RACESUBTYPE:Fire
-Giant			VISIBLE:NO							RACESUBTYPE:Giant
-Gnome			VISIBLE:NO							RACESUBTYPE:Gnome			TYPE:Racial Heritage
-Gnoll			VISIBLE:NO							RACESUBTYPE:Gnoll
-Goblinoid		VISIBLE:NO							RACESUBTYPE:Goblinoid
-Good			VISIBLE:NO							RACESUBTYPE:Good
-Halfling		VISIBLE:NO							RACESUBTYPE:Halfling		TYPE:Racial Heritage
-Human			VISIBLE:NO							RACESUBTYPE:Human
-Lawful		VISIBLE:NO							RACESUBTYPE:Lawful
-Native		VISIBLE:NO							RACESUBTYPE:Native
-Oni			VISIBLE:NO							RACESUBTYPE:Oni
-Orc			VISIBLE:NO							RACESUBTYPE:Orc			TYPE:Racial Heritage
-Reptilian		VISIBLE:NO							RACESUBTYPE:Reptilian
-Shapechanger	VISIBLE:NO							RACESUBTYPE:Shapechanger
-Swarm			VISIBLE:NO							RACESUBTYPE:Swarm
-Water			VISIBLE:NO							RACESUBTYPE:Water
+# Template Name	Visible	Source Page		Ability					Race Subtype
+Air			VISIBLE:NO	SOURCEPAGE:p.310							RACESUBTYPE:Air
+Angel			VISIBLE:NO	SOURCEPAGE:p.310							RACESUBTYPE:Angel
+Aquatic		VISIBLE:NO	SOURCEPAGE:p.310	ABILITY:Class Skill|AUTOMATIC|Swim	RACESUBTYPE:Aquatic
+Archon		VISIBLE:NO	SOURCEPAGE:p.310							RACESUBTYPE:Archon
+Azata			VISIBLE:NO	SOURCEPAGE:p.311							RACESUBTYPE:Azata
+Chaotic		VISIBLE:NO	SOURCEPAGE:p.311							RACESUBTYPE:Chaotic
+Cold			VISIBLE:NO	SOURCEPAGE:p.311							RACESUBTYPE:Cold
+Demon			VISIBLE:NO	SOURCEPAGE:p.311							RACESUBTYPE:Demon
+Devil			VISIBLE:NO	SOURCEPAGE:p.311							RACESUBTYPE:Devil
+Dwarf			VISIBLE:NO	SOURCEPAGE:p.311							RACESUBTYPE:Dwarf
+Earth			VISIBLE:NO	SOURCEPAGE:p.311							RACESUBTYPE:Earth
+Elemental		VISIBLE:NO	SOURCEPAGE:p.311							RACESUBTYPE:Elemental
+Elf			VISIBLE:NO	SOURCEPAGE:p.311							RACESUBTYPE:Elf
+Evil			VISIBLE:NO	SOURCEPAGE:p.311							RACESUBTYPE:Evil
+Extraplanar		VISIBLE:NO	SOURCEPAGE:p.312							RACESUBTYPE:Extraplanar
+Fire			VISIBLE:NO	SOURCEPAGE:p.312							RACESUBTYPE:Fire
+Giant			VISIBLE:NO	SOURCEPAGE:p.312							RACESUBTYPE:Giant
+Gnoll			VISIBLE:NO	SOURCEPAGE:p.155							RACESUBTYPE:Gnoll
+Gnome			VISIBLE:NO	SOURCEPAGE:p.312							RACESUBTYPE:Gnome
+Goblinoid		VISIBLE:NO	SOURCEPAGE:p.312							RACESUBTYPE:Goblinoid
+Good			VISIBLE:NO	SOURCEPAGE:p.312							RACESUBTYPE:Good
+Halfling		VISIBLE:NO	SOURCEPAGE:p.312							RACESUBTYPE:Halfling
+Human			VISIBLE:NO	SOURCEPAGE:p.312							RACESUBTYPE:Human
+Incorporeal		VISIBLE:NO	SOURCEPAGE:p.312							RACESUBTYPE:Incorporeal
+Lawful		VISIBLE:NO	SOURCEPAGE:p.312							RACESUBTYPE:Lawful
+Native		VISIBLE:NO	SOURCEPAGE:p.312							RACESUBTYPE:Native
+Orc			VISIBLE:NO	SOURCEPAGE:p.312							RACESUBTYPE:Orc
+Reptilian		VISIBLE:NO	SOURCEPAGE:p.312							RACESUBTYPE:Reptilian
+Shapechanger	VISIBLE:NO	SOURCEPAGE:p.312							RACESUBTYPE:Shapechanger
+Swarm			VISIBLE:NO	SOURCEPAGE:p.312							RACESUBTYPE:Swarm
+Water			VISIBLE:NO	SOURCEPAGE:p.313							RACESUBTYPE:Water
+
+###Block: Augmented Subtypes
+# Template Name				Visible	Race Subtype						FACT
+Augmented (Aberration)			VISIBLE:NO	RACESUBTYPE:Augmented (Aberration)			FACT:IsAberration|True
+Augmented (Animal)			VISIBLE:NO	RACESUBTYPE:Augmented (Animal)			FACT:IsAnimal|True
+Augmented (Construct)			VISIBLE:NO	RACESUBTYPE:Augmented (Construct)			FACT:IsConstruct|True
+Augmented (Dragon)			VISIBLE:NO	RACESUBTYPE:Augmented (Dragon)			FACT:IsDragon|True
+Augmented (Fey)				VISIBLE:NO	RACESUBTYPE:Augmented (Fey)				FACT:IsFey|True
+Augmented (Humanoid)			VISIBLE:NO	RACESUBTYPE:Augmented (Humanoid)			FACT:IsHumanoid|True
+Augmented (Magical Beast)		VISIBLE:NO	RACESUBTYPE:Augmented (Magical Beast)		FACT:IsMagicalBeast|True
+Augmented (Monstrous Humanoid)	VISIBLE:NO	RACESUBTYPE:Augmented (Monstrous Humanoid)	FACT:IsMonstrousHumanoid|True
+Augmented (Ooze)				VISIBLE:NO	RACESUBTYPE:Augmented (Ooze)				FACT:IsOoze|True
+Augmented (Outsider)			VISIBLE:NO	RACESUBTYPE:Augmented (Outsider)			FACT:IsOutsider|True
+Augmented (Plant)				VISIBLE:NO	RACESUBTYPE:Augmented (Plant)				FACT:IsPlant|True
+Augmented (Undead)			VISIBLE:NO	RACESUBTYPE:Augmented (Undead)			FACT:IsUndead|True
+Augmented (Vermin)			VISIBLE:NO	RACESUBTYPE:Augmented (Vermin)			FACT:IsVermin|True
+
+SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8ddb	SOURCEDATE:2010-12
+
+###Block: Creature Subtypes
+# Template Name	Visible	Source Page		Race Subtype
+Aeon			VISIBLE:NO	SOURCEPAGE:p.305	RACESUBTYPE:Aeon
+Agathion		VISIBLE:NO	SOURCEPAGE:p.306	RACESUBTYPE:Agathion
+Daemon		VISIBLE:NO	SOURCEPAGE:p.306	RACESUBTYPE:Daemon
+Dark Folk		VISIBLE:NO	SOURCEPAGE:p.307	RACESUBTYPE:Dark Folk
+Dhampir		VISIBLE:NO	SOURCEPAGE:p.89	RACESUBTYPE:Dhampir
+Grippli		VISIBLE:NO	SOURCEPAGE:p.149	RACESUBTYPE:Grippli
+Inevitable		VISIBLE:NO	SOURCEPAGE:p.307	RACESUBTYPE:Inevitable
+Nightshade		VISIBLE:NO	SOURCEPAGE:p.308	RACESUBTYPE:Nightshade
+Protean		VISIBLE:NO	SOURCEPAGE:p.308	RACESUBTYPE:Protean
+Qlippoth		VISIBLE:NO	SOURCEPAGE:p.309	RACESUBTYPE:Qlippoth
+
+SOURCELONG:Bestiary 3	SOURCESHORT:B3	SOURCEWEB:http://paizo.com/products/btpy8odu?Pathfinder-Roleplaying-Game-Bestiary-3	SOURCEDATE:2012-01
+
+###Block: Creature Subtypes
+# Template Name	Visible	Source Page		Race Subtype
+Adlet			VISIBLE:NO	SOURCEPAGE:p.303	RACESUBTYPE:Adlet
+Asura			VISIBLE:NO	SOURCEPAGE:p.304	RACESUBTYPE:Asura
+Behemoth		VISIBLE:NO	SOURCEPAGE:p.304	RACESUBTYPE:Behemoth
+Catfolk		VISIBLE:NO	SOURCEPAGE:p.304	RACESUBTYPE:Catfolk
+Clockwork		VISIBLE:NO	SOURCEPAGE:p.304	RACESUBTYPE:Clockwork
+Demodand		VISIBLE:NO	SOURCEPAGE:p.305	RACESUBTYPE:Demodand
+Div			VISIBLE:NO	SOURCEPAGE:p.305	RACESUBTYPE:Div
+Kami			VISIBLE:NO	SOURCEPAGE:p.306	RACESUBTYPE:Kami
+Kyton			VISIBLE:NO	SOURCEPAGE:p.306	RACESUBTYPE:Kyton
+Leshy			VISIBLE:NO	SOURCEPAGE:p.307	RACESUBTYPE:Leshy
+Oni			VISIBLE:NO	SOURCEPAGE:p.307	RACESUBTYPE:Oni
+Rakshasa		VISIBLE:NO	SOURCEPAGE:p.307	RACESUBTYPE:Rakshasa
+Ratfolk		VISIBLE:NO	SOURCEPAGE:p.307	RACESUBTYPE:Ratfolk
+Sasquatch		VISIBLE:NO	SOURCEPAGE:p.307	RACESUBTYPE:Sasquatch
+Vanara		VISIBLE:NO	SOURCEPAGE:p.308	RACESUBTYPE:Vanara
+Vishkanya		VISIBLE:NO	SOURCEPAGE:p.308	RACESUBTYPE:Vishkanya
+
+SOURCELONG:Bestiary 4	SOURCESHORT:B4	SOURCEWEB:http://paizo.com/products/btpy91ds?Pathfinder-Roleplaying-Game-Bestiary-4	SOURCEDATE:2013-10
+
+###Block: Creature Subtypes
+# Template Name	Visible	Source Page		Race Subtype
+Changeling		VISIBLE:NO	SOURCEPAGE:p.304	RACESUBTYPE:Changeling
+Colossus		VISIBLE:NO	SOURCEPAGE:p.305	RACESUBTYPE:Colossus
+Great Old One	VISIBLE:NO	SOURCEPAGE:p.306	RACESUBTYPE:Great Old One
+Kaiju			VISIBLE:NO	SOURCEPAGE:p.307	RACESUBTYPE:Kaiju
+Kasatha		VISIBLE:NO	SOURCEPAGE:p.307	RACESUBTYPE:Kasatha
+Kitsune		VISIBLE:NO	SOURCEPAGE:p.307	RACESUBTYPE:Kitsune
+Mythic		VISIBLE:NO	SOURCEPAGE:p.307	RACESUBTYPE:Mythic
+Psychopomp		VISIBLE:NO	SOURCEPAGE:p.308	RACESUBTYPE:Psychopomp
+Samsaran		VISIBLE:NO	SOURCEPAGE:p.308	RACESUBTYPE:Samsaran
+Wayang		VISIBLE:NO	SOURCEPAGE:p.308	RACESUBTYPE:Wayang
+
+SOURCELONG:Bestiary 5	SOURCESHORT:B5	SOURCEWEB:http://paizo.com/products/btpy9g9x	SOURCEDATE:2015-12
+
+###Block: Creature Subtypes
+# Template Name	Visible	Source Page		Race Subtype
+Aether		VISIBLE:NO	SOURCEPAGE:p.303	RACESUBTYPE:Aether
+Android		VISIBLE:NO	SOURCEPAGE:p.304	RACESUBTYPE:Android
+Astomoi		VISIBLE:NO	SOURCEPAGE:p.304	RACESUBTYPE:Astomoi
+Deep One		VISIBLE:NO	SOURCEPAGE:p.305	RACESUBTYPE:Deep One
+Gray			VISIBLE:NO	SOURCEPAGE:p.306	RACESUBTYPE:Gray
+Manasaputra		VISIBLE:NO	SOURCEPAGE:p.307	RACESUBTYPE:Manasaputra
+Phantom		VISIBLE:NO	SOURCEPAGE:p.308	RACESUBTYPE:Phantom
+Robot			VISIBLE:NO	SOURCEPAGE:p.308	RACESUBTYPE:Robot
+Sahkil		VISIBLE:NO	SOURCEPAGE:p.308	RACESUBTYPE:Sahkil
+Skinwalker		VISIBLE:NO	SOURCEPAGE:p.309	RACESUBTYPE:Skinwalker
+
+SOURCELONG:Bestiary 6	SOURCESHORT:B6	SOURCEWEB:https://paizo.com/products/btpy9r1y	SOURCEDATE:2017-05
+
+###Block: Creature Subtypes
+# Template Name	Visible	Source Page		Race Subtype
+Blight		VISIBLE:NO	SOURCEPAGE:p.302	RACESUBTYPE:Blight
+Derro			VISIBLE:NO	SOURCEPAGE:p.303	RACESUBTYPE:Derro
+Munavri		VISIBLE:NO	SOURCEPAGE:p.305	RACESUBTYPE:Munavri
+Troop			VISIBLE:NO	SOURCEPAGE:p.307	RACESUBTYPE:Troop
+Wild Hunt		VISIBLE:NO	SOURCEPAGE:p.308	RACESUBTYPE:Wild Hunt
+
+SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
+
+###Block: Creature Subtypes
+# Template Name	Visible	Source Page		Race Subtype
+Strix			VISIBLE:NO	SOURCEPAGE:p.200	RACESUBTYPE:Strix
+
+###Block: Special Subtypes - ARG 216
+# Template Name	Visible	Source Page		Race Subtype
+Half-Construct	VISIBLE:NO	SOURCEPAGE:p.216	RACESUBTYPE:Half-Construct
+Half-Undead		VISIBLE:NO	SOURCEPAGE:p.216	RACESUBTYPE:Half-Undead
+
+#Hive				Source Horror Adventures pg. 233
+#Mortic			Source Pathfinder #139: The Dead Road pg. 72
+#Spawn of Rovagug		Source Inner Sea Gods pg. 275
+
+SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
 ###Block: Variable Type Traits
-# Template Name		Visible	Define Stat			Main Race Type
-Construct			VISIBLE:NO	DEFINESTAT:NONSTAT|CON
-Undead			VISIBLE:NO	DEFINESTAT:NONSTAT|CON	RACETYPE:Undead
+# Template Name		Visible	Define Stat
 Mindless			VISIBLE:NO	DEFINESTAT:NONSTAT|INT
-Incorporeal			VISIBLE:NO	DEFINESTAT:NONSTAT|STR
 
 No Strength Score		VISIBLE:NO	DEFINESTAT:NONSTAT|STR
 No Constitution Score	VISIBLE:NO	DEFINESTAT:NONSTAT|CON
 No Intelligence Score	VISIBLE:NO	DEFINESTAT:NONSTAT|INT
 
+SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
+
+###Block: Racial Heritage ~ Will be used to determine feat eligibiltiy
+# Template Name	Unique Key					Visible	Type				FACT
+Humanoid		KEY:Racial Heritage ~ Humanoid	VISIBLE:NO					FACT:IsHumanoid|True
+Dwarf			KEY:Racial Heritage ~ Dwarf		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsDwarf|True
+Elf			KEY:Racial Heritage ~ Elf		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsElf|True
+Gnome			KEY:Racial Heritage ~ Gnome		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsGnome|True
+Halfling		KEY:Racial Heritage ~ Halfling	VISIBLE:NO	TYPE:Racial Heritage	FACT:IsHalfling|True
+Human			KEY:Racial Heritage ~ Human		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsHuman|True
+Orc			KEY:Racial Heritage ~ Orc		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsOrc|True
+
+SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
+
+###Block: Racial Heritage ~ Will be used to determine feat eligibiltiy
+# Template Name	Unique Key					Visible	FACT
+Outsider		KEY:Racial Heritage ~ Outsider	VISIBLE:NO	FACT:IsOutsider|True
+Native		KEY:Racial Heritage ~ Native		VISIBLE:NO	FACT:IsNative|True
 
 SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8ddb	SOURCEDATE:2010-12
 
 # ORIGINAL ENTRY: ? and Douglas Limmer
 # ORIGINAL ENTRY DATE: Unknown
-
-###Block: Creature Subtypes
-# Template Name		Visible	Source Page		Race Subtype
-Aeon				VISIBLE:NO	SOURCEPAGE:p.305	RACESUBTYPE:Aeon
-Agathion			VISIBLE:NO	SOURCEPAGE:p.306	RACESUBTYPE:Agathion
-Angel ~ Cassisian		VISIBLE:NO	SOURCEPAGE:p.310	RACESUBTYPE:Angel
-Daemon			VISIBLE:NO	SOURCEPAGE:p.306	RACESUBTYPE:Daemon
-Dark Folk			VISIBLE:NO	SOURCEPAGE:p.307	RACESUBTYPE:Dark Folk
-Dhampir			VISIBLE:NO	SOURCEPAGE:p.89	RACESUBTYPE:Dhampir
-Grippli			VISIBLE:NO	SOURCEPAGE:p.149	RACESUBTYPE:Grippli
-Inevitable			VISIBLE:NO	SOURCEPAGE:p.307	RACESUBTYPE:Inevitable
-Nightshade			VISIBLE:NO	SOURCEPAGE:p.308	RACESUBTYPE:Nightshade
-Protean			VISIBLE:NO	SOURCEPAGE:p.308	RACESUBTYPE:Protean
-Protean ~ Voidworm	VISIBLE:NO	SOURCEPAGE:p.308	RACESUBTYPE:Protean
-Qlippoth			VISIBLE:NO	SOURCEPAGE:p.309	RACESUBTYPE:Qlippoth
-Qlippoth ~ Cythnigot	VISIBLE:NO	SOURCEPAGE:p.309	RACESUBTYPE:Qlippoth
 
 ###Block: Animal Companion templates
 # COMMENT: Some animal companions don't follow the standard die-increase
@@ -1161,20 +1274,6 @@ Awakened Vermin							DEFINESTAT:STAT|INT	PRERACE:1,RACETYPE=Vermin,TYPE=Vermin	
 Awakened Tree							DEFINESTAT:STAT|INT											PRETEXT:Inanimate Tree	BONUS:VAR|Mindless|-1	ADD:LANGUAGE|TYPE=Spoken	KIT:1|Awakened Tree	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Plant
 
 Monster is a PC																									BONUS:VAR|IsPC|1
-
-
-
-Assign RaceType ~ Aberration			VISIBLE:NO																																							RACETYPE:Aberration
-Assign RaceType ~ Construct			VISIBLE:NO																																							RACETYPE:Construct
-Assign RaceType ~ Dragon			VISIBLE:NO																																							RACETYPE:Dragon
-Assign RaceType ~ Outsider			VISIBLE:NO																																							RACETYPE:Outsider
-Assign RaceType ~ Fey				VISIBLE:NO																																							RACETYPE:Fey
-Assign RaceType ~ Plant				VISIBLE:NO																																							RACETYPE:Plant
-Assign RaceType ~ Humanoid			VISIBLE:NO																																							RACETYPE:Humanoid
-Assign RaceType ~ Monstrous Humanoid	VISIBLE:NO																																							RACETYPE:Monstrous Humanoid
-Assign RaceType ~ Undead			VISIBLE:NO																																							RACETYPE:Undead
-Assign RaceSubType ~ Extraplanar		VISIBLE:NO																																												RACESUBTYPE:Extraplanar
-
 
 
 ###Block: Limbs
@@ -1218,27 +1317,3 @@ Legs ~ 26						LEGS:26			VISIBLE:NO
 Legs ~ 27						LEGS:27			VISIBLE:NO
 Legs ~ 28						LEGS:28			VISIBLE:NO
 
-
-Race Bonus Language ~ Aboleth							VISIBLE:NO	LANGBONUS:Aboleth
-Race Bonus Language ~ Boggard							VISIBLE:NO	LANGBONUS:Boggard
-Race Bonus Language ~ Cyclops							VISIBLE:NO	LANGBONUS:Cyclops
-Race Bonus Language ~ Dark Folk						VISIBLE:NO	LANGBONUS:Dark Folk
-Race Bonus Language ~ Drow							VISIBLE:NO	LANGBONUS:Drow
-Race Bonus Language ~ Drow Sign Language					VISIBLE:NO	LANGBONUS:Drow Sign Language
-Race Bonus Language ~ Pidgin of Giant					VISIBLE:NO	LANGBONUS:Pidgin of Giant
-Race Bonus Language ~ Sahuagin						VISIBLE:NO	LANGBONUS:Sahuagin
-Race Bonus Language ~ Sphinx							VISIBLE:NO	LANGBONUS:Sphinx
-Race Bonus Language ~ Tengu							VISIBLE:NO	LANGBONUS:Tengu
-Race Bonus Language ~ Treant							VISIBLE:NO	LANGBONUS:Treant
-Race Bonus Language ~ Vegepygmy						VISIBLE:NO	LANGBONUS:Vegepygmy
-Race Bonus Language ~ Worg							VISIBLE:NO	LANGBONUS:Worg
-Race Bonus Language ~ Daemon							VISIBLE:NO	LANGBONUS:Daemon
-Race Bonus Language ~ D'ziriak						VISIBLE:NO	LANGBONUS:D'ziriak
-Race Bonus Language ~ Grippli							VISIBLE:NO	LANGBONUS:Grippli
-Race Bonus Language ~ Protean							VISIBLE:NO	LANGBONUS:Protean
-Race Bonus Language ~ Catfolk							VISIBLE:NO	LANGBONUS:Catfolk
-Race Bonus Language ~ Samsaran						VISIBLE:NO	LANGBONUS:Samsaran
-Race Bonus Language ~ Strix							VISIBLE:NO	LANGBONUS:Strix
-Race Bonus Language ~ Vanaran							VISIBLE:NO	LANGBONUS:Vanaran
-Race Bonus Language ~ Vishkanya						VISIBLE:NO	LANGBONUS:Vishkanya
-Race Bonus Language ~ Wayang							VISIBLE:NO	LANGBONUS:Wayang

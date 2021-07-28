@@ -8,7 +8,9 @@ BOOKTYPE:Supplement
 SETTING:Pathfinder
 PRECAMPAIGN:1,INCLUDES=Ultimate Combat
 PRECAMPAIGN:1,INCLUDES=Ultimate Magic
-PRECAMPAIGN:1,INCLUDES=Bestiary 2 ~ Player Options Only,INCLUDES=Bestiary 2
+PRECAMPAIGN:1,INCLUDES=Bestiary,INCLUDES=Bestiary ~ Player Options Only
+PRECAMPAIGN:1,INCLUDES=Bestiary 2,INCLUDES=Bestiary 2 ~ Player Options Only
+PRECAMPAIGN:1,INCLUDES=Bestiary 3,INCLUDES=Bestiary 3 ~ Player Options Only
 !PRECAMPAIGN:1,Pathfinder RPG Core Supplements
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
@@ -54,6 +56,7 @@ FORWARDREF:SPELL|Age Resistance (Lesser),Memory Lapse,Hydraulic Push
 
 ABILITY:arg_abilities_builder.lst
 ABILITY:arg_abilities_class.lst
+ABILITY:arg_abilities_globalvar.lst
 ABILITY:arg_abilities_race.lst
 ABILITYCATEGORY:arg_abilitycategories.lst
 BIOSET:arg_biosettings.lst
@@ -71,22 +74,22 @@ LANGUAGE:arg_languages.lst
 WEAPONPROF:arg_profs_weapon.lst
 
 # Base B1 races (if B1 not loaded)
-ABILITY:@/pathfinder/paizo/roleplaying_game/bestiary/b1_abilities_race_arg.lst|!PRECAMPAIGN:1,Bestiary
-ABILITYCATEGORY:@/pathfinder/paizo/roleplaying_game/bestiary/b1_abilitycategories_arg.lst|!PRECAMPAIGN:1,Bestiary
-RACE:@/pathfinder/paizo/roleplaying_game/bestiary/b1_races_arg.lst|!PRECAMPAIGN:1,Bestiary
-TEMPLATE:@/pathfinder/paizo/roleplaying_game/bestiary/b1_templates.lst|(INCLUDE:Default Language ~ Tengu|Tiefling (Base))|!PRECAMPAIGN:1,Bestiary
+#ABILITY:@/pathfinder/paizo/roleplaying_game/bestiary/b1_abilities_race_arg.lst|!PRECAMPAIGN:1,Bestiary
+#ABILITYCATEGORY:@/pathfinder/paizo/roleplaying_game/bestiary/b1_abilitycategories_arg.lst|!PRECAMPAIGN:1,Bestiary
+#RACE:@/pathfinder/paizo/roleplaying_game/bestiary/b1_races_arg.lst|!PRECAMPAIGN:1,Bestiary
+#TEMPLATE:@/pathfinder/paizo/roleplaying_game/bestiary/b1_templates.lst|(INCLUDE:Default Language ~ Tengu|Tiefling (Base))|!PRECAMPAIGN:1,Bestiary
 
 FORWARDREF:RACE|Companion (Dinosaur (Pteranodon)),Companion (Dinosaur (Stegosaurus)),Companion (Rhinoceros)
 
 # Base B2 races (if B2 not loaded)
-ABILITY:@/pathfinder/paizo/roleplaying_game/bestiary_2/b2_abilities_race_arg.lst|!PRECAMPAIGN:1,Bestiary 2
-ABILITYCATEGORY:@/pathfinder/paizo/roleplaying_game/bestiary_2/b2_abilitycategories_arg.lst|!PRECAMPAIGN:1,Bestiary 2
-RACE:@/pathfinder/paizo/roleplaying_game/bestiary_2/b2_races_arg.lst|!PRECAMPAIGN:1,Bestiary 2
+#ABILITY:@/pathfinder/paizo/roleplaying_game/bestiary_2/b2_abilities_race_arg.lst|!PRECAMPAIGN:1,Bestiary 2
+#ABILITYCATEGORY:@/pathfinder/paizo/roleplaying_game/bestiary_2/b2_abilitycategories_arg.lst|!PRECAMPAIGN:1,Bestiary 2
+#RACE:@/pathfinder/paizo/roleplaying_game/bestiary_2/b2_races_arg.lst|!PRECAMPAIGN:1,Bestiary 2
 
 # Base B3 races (if B3 not loaded)
-ABILITY:@/pathfinder/paizo/roleplaying_game/bestiary_3/b3_abilities_race_arg.lst|!PRECAMPAIGN:1,Bestiary 3
-ABILITYCATEGORY:@/pathfinder/paizo/roleplaying_game/bestiary_3/b3_abilitycategories_arg.lst|!PRECAMPAIGN:1,Bestiary 3
-RACE:@/pathfinder/paizo/roleplaying_game/bestiary_3/b3_races_arg.lst|!PRECAMPAIGN:1,Bestiary 3
+#ABILITY:@/pathfinder/paizo/roleplaying_game/bestiary_3/b3_abilities_race_arg.lst|!PRECAMPAIGN:1,Bestiary 3
+#ABILITYCATEGORY:@/pathfinder/paizo/roleplaying_game/bestiary_3/b3_abilitycategories_arg.lst|!PRECAMPAIGN:1,Bestiary 3
+#RACE:@/pathfinder/paizo/roleplaying_game/bestiary_3/b3_races_arg.lst|!PRECAMPAIGN:1,Bestiary 3
 
 # MOVE TO CORE_ESSENTIALS
 ABILITY:arg_abilities_companion.lst

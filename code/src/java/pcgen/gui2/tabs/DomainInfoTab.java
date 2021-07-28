@@ -47,11 +47,12 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.FactSetKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.util.CControl;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.PCAlignment;
+import pcgen.core.QualifiedObject;
 import pcgen.facade.core.CharacterFacade;
-import pcgen.facade.core.DomainFacade;
 import pcgen.facade.core.InfoFacade;
 import pcgen.facade.core.InfoFactory;
 import pcgen.facade.util.DefaultListFacade;
@@ -104,9 +105,9 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	private final JLabel selectedDomain;
 	private final InfoPane deityInfo;
 	private final InfoPane domainInfo;
-	private DisplayableFilter<CharacterFacade, DomainFacade> domainFilter;
+	private DisplayableFilter<CharacterFacade, QualifiedObject<Domain>> domainFilter;
 	private final FilterButton<Object, Deity> qDeityButton;
-	private final FilterButton<Object, DomainFacade> qDomainButton;
+	private final FilterButton<Object, QualifiedObject<Domain>> qDomainButton;
 	private final QualifiedTreeCellRenderer qualifiedRenderer;
 
 	public DomainInfoTab()
@@ -157,7 +158,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		splitPane.setLeftComponent(panel);
 
 		panel = new JPanel(new BorderLayout());
-		FilterBar<CharacterFacade, DomainFacade> dbar = new FilterBar<>();
+		FilterBar<CharacterFacade, QualifiedObject<Domain>> dbar = new FilterBar<>();
 		dbar.addDisplayableFilter(new SearchFilterPanel());
 		qDomainButton.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
 		dbar.addDisplayableFilter(qDomainButton);
@@ -299,7 +300,9 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			int row, int column)
 		{
 			super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-			if (value instanceof DomainFacade && !character.isQualifiedFor((DomainFacade) value))
+			if (value instanceof QualifiedObject
+				&& ((QualifiedObject<?>) value).getRawObject() instanceof Domain
+				&& !character.isQualifiedFor((QualifiedObject<Domain>) value))
 			{
 				setForeground(ColorUtilty.colorToAWTColor(UIPropertyContext.getNotQualifiedColor()));
 			}
@@ -396,10 +399,10 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 					domainRowHeaderTable.getCellEditor().cancelCellEditing();
 				}
 				int selectedRow = domainTable.getSelectedRow();
-				DomainFacade domain = null;
+				QualifiedObject<Domain> domain = null;
 				if (selectedRow != -1)
 				{
-					domain = (DomainFacade) domainTable.getModel().getValueAt(selectedRow, 0);
+					domain = (QualifiedObject<Domain>) domainTable.getModel().getValueAt(selectedRow, 0);
 				}
 				if (domain != null)
 				{
@@ -452,10 +455,10 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	private class QualifiedFilterHandler
 	{
 
-		private final Filter<Object, DomainFacade> domainFilter = new Filter<>()
+		private final Filter<Object, QualifiedObject<Domain>> domainFilter = new Filter<>()
 		{
 			@Override
-			public boolean accept(Object context, DomainFacade element)
+			public boolean accept(Object context, QualifiedObject<Domain> element)
 			{
 				return character.isQualifiedFor(element);
 			}
@@ -541,16 +544,22 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		public void install()
 		{
-			if (ref.get() != null)
+			if (ref != null)
 			{
-				label.setText(ref.get().toString());
+				if (ref.get() != null)
+				{
+					label.setText(ref.get().toString());
+				}
+				ref.addReferenceListener(this);
 			}
-			ref.addReferenceListener(this);
 		}
 
 		public void uninstall()
 		{
-			ref.removeReferenceListener(this);
+			if (ref != null)
+			{
+				ref.removeReferenceListener(this);
+			}
 		}
 
 		@Override
@@ -604,31 +613,31 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 	}
 
-	private static class DomainTableModel extends FilteredListFacadeTableModel<DomainFacade>
+	private static class DomainTableModel extends FilteredListFacadeTableModel<QualifiedObject<Domain>>
 	{
 
-		private final ListListener<DomainFacade> listListener = new ListListener<>()
+		private final ListListener<QualifiedObject<Domain>> listListener = new ListListener<>()
 		{
 			@Override
-			public void elementAdded(ListEvent<DomainFacade> e)
+			public void elementAdded(ListEvent<QualifiedObject<Domain>> e)
 			{
 				elementsChanged(e);
 			}
 
 			@Override
-			public void elementRemoved(ListEvent<DomainFacade> e)
+			public void elementRemoved(ListEvent<QualifiedObject<Domain>> e)
 			{
 				elementsChanged(e);
 			}
 
 			@Override
-			public void elementsChanged(ListEvent<DomainFacade> e)
+			public void elementsChanged(ListEvent<QualifiedObject<Domain>> e)
 			{
 				fireTableRowsUpdated(0, sortedList.getSize() - 1);
 			}
 
 			@Override
-			public void elementModified(ListEvent<DomainFacade> e)
+			public void elementModified(ListEvent<QualifiedObject<Domain>> e)
 			{
 			}
 
@@ -637,8 +646,11 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		public DomainTableModel(CharacterFacade character)
 		{
 			super(character);
-			setDelegate(character.getAvailableDomains());
-			character.getDomains().addListListener(listListener);
+			if (character.isFeatureEnabled(CControl.DOMAINFEATURE))
+			{
+				setDelegate(character.getAvailableDomains());
+				character.getDomains().addListListener(listListener);
+			}
 		}
 
 		@Override
@@ -652,7 +664,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		}
 
 		@Override
-		protected Object getValueAt(DomainFacade element, int column)
+		protected Object getValueAt(QualifiedObject<Domain> element, int column)
 		{
 			switch (column)
 			{
@@ -661,9 +673,9 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				case 0:
 					return element;
 				case 1:
-					return character.getInfoFactory().getDescription(element);
+					return character.getInfoFactory().getDescription(element.getRawObject());
 				case 2:
-					return element.getSource();
+					return element.getRawObject().getSource();
 				default:
 					return null;
 			}
@@ -686,14 +698,14 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			{
 				return true;
 			}
-			DomainFacade domain = sortedList.getElementAt(rowIndex);
+			QualifiedObject<Domain> domain = sortedList.getElementAt(rowIndex);
 			return character.getDomains().containsElement(domain);
 		}
 
 		@Override
 		public void setValueAt(Object aValue, int rowIndex, int columnIndex)
 		{
-			DomainFacade domain = sortedList.getElementAt(rowIndex);
+			QualifiedObject<Domain> domain = sortedList.getElementAt(rowIndex);
 			Boolean bool = (Boolean) aValue;
 			if (bool)
 			{

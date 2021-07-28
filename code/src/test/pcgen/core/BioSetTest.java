@@ -26,11 +26,14 @@ import java.util.Optional;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.LocaleDependentTestCase;
-import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.util.CControl;
 import pcgen.core.display.CharacterDisplay;
+import pcgen.output.channel.ChannelUtilities;
+import pcgen.output.channel.compat.HairColorCompat;
+import pcgen.output.channel.compat.HeightCompat;
 import pcgen.persistence.lst.BioSetLoader;
 import pcgen.persistence.lst.BioSetLoaderTest;
 
@@ -99,7 +102,7 @@ public class BioSetTest extends AbstractCharacterTestCase
 		for (int ageCat = 0; ageCat < MAX_AGE.length; ageCat++)
 		{
 			currBioSet.randomize("AGECAT" + ageCat, pc);
-			final int age = pc.getDisplay().getAge();
+			final int age = (Integer) getAge(pc);
 			//System.out.println("Age for cat " + ageCat + " is " + age + ".");
 			assertTrue(
 					(age >= BASE_AGE[ageCat] && age <= MAX_AGE[ageCat]), "Generated age " + age + " is not between "
@@ -108,20 +111,25 @@ public class BioSetTest extends AbstractCharacterTestCase
 		LocaleDependentTestCase.before(Locale.US);
 		currBioSet.randomize("AGE.HT.WT.EYES.HAIR.SKIN", pc);
 		LocaleDependentTestCase.after();
-		assertTrue((pc.getDisplay().getHeight() >= 58 && pc
-					.getDisplay().getHeight() <= 78), "Generated height " + pc.getDisplay().getHeight()
-						+ " is not in required range.");
+		Integer height = HeightCompat.getCurrentHeight(pc.getCharID());
+		assertTrue((height >= 58 && height <= 78),
+			"Generated height " + height + " is not in required range.");
 		assertTrue((pc.getDisplay().getWeight() >= 120 && pc
 					.getDisplay().getWeight() <= 280), "Generated weight " + pc.getDisplay().getWeight()
 						+ " is not in required range.");
 		assertEquals("Blue", pc.getSafeStringFor(PCStringKey.EYECOLOR), "Generated eye colour " + pc.getSafeStringFor(PCStringKey.EYECOLOR)
 				+ " is not valid.");
-		assertTrue(("Blond".equals(pc.getSafeStringFor(PCStringKey.HAIRCOLOR)) || "Brown"
-			.equals(pc.getSafeStringFor(PCStringKey.HAIRCOLOR))), "Generated hair colour " + pc.getSafeStringFor(PCStringKey.HAIRCOLOR)
+		assertTrue(
+			("Blond".equals(HairColorCompat.getCurrentHairColor(pc.getCharID()))
+				|| "Brown".equals(
+					HairColorCompat.getCurrentHairColor(pc.getCharID()))),
+			"Generated hair colour "
+				+ HairColorCompat.getCurrentHairColor(pc.getCharID())
 				+ " is not valid.");
-		assertTrue(("Pasty".equals(pc.getSafeStringFor(PCStringKey.SKINCOLOR)) || "Tanned"
-			.equals(pc.getSafeStringFor(PCStringKey.SKINCOLOR))), "Generated skin colour " + pc.getSafeStringFor(PCStringKey.SKINCOLOR)
-				+ " is not valid.");
+		String skinColor = (String) ChannelUtilities
+			.readControlledChannel(pc.getCharID(), CControl.SKINCOLORINPUT);
+		assertTrue(("Pasty".equals(skinColor) || "Tanned".equals(skinColor)),
+			"Generated skin colour " + skinColor + " is not valid.");
 	}
 
 	/**
@@ -135,29 +143,34 @@ public class BioSetTest extends AbstractCharacterTestCase
 		final Race human = new Race();
 		human.setName("Human");
 		pc.setRace(human);
-		pc.setPCAttribute(NumericPCAttribute.AGE, 12);
+		ChannelUtilities.setControlledChannel(pc.getCharID(), CControl.AGEINPUT, 12);
 		int idx = display.getAgeSetIndex();
-		assertEquals(0, idx, "Ageset for " + display.getAge() + ".");
+		assertEquals(0, idx, "Ageset for " + getAge(pc) + ".");
 
-		pc.setPCAttribute(NumericPCAttribute.AGE, 17);
+		ChannelUtilities.setControlledChannel(pc.getCharID(), CControl.AGEINPUT, 17);
 		idx = display.getAgeSetIndex();
-		assertEquals(0, idx, "Ageset for " + display.getAge() + ".");
+		assertEquals(0, idx, "Ageset for " + getAge(pc) + ".");
 
-		pc.setPCAttribute(NumericPCAttribute.AGE, 36);
+		ChannelUtilities.setControlledChannel(pc.getCharID(), CControl.AGEINPUT, 36);
 		idx = display.getAgeSetIndex();
-		assertEquals(1, idx, "Ageset for " + display.getAge() + ".");
+		assertEquals(1, idx, "Ageset for " + getAge(pc) + ".");
 
-		pc.setPCAttribute(NumericPCAttribute.AGE, 54);
+		ChannelUtilities.setControlledChannel(pc.getCharID(), CControl.AGEINPUT, 54);
 		idx = display.getAgeSetIndex();
-		assertEquals(2, idx, "Ageset for " + display.getAge() + ".");
+		assertEquals(2, idx, "Ageset for " + getAge(pc) + ".");
 
-		pc.setPCAttribute(NumericPCAttribute.AGE, 72);
+		ChannelUtilities.setControlledChannel(pc.getCharID(), CControl.AGEINPUT, 72);
 		idx = display.getAgeSetIndex();
-		assertEquals(3, idx, "Ageset for " + display.getAge() + ".");
+		assertEquals(3, idx, "Ageset for " + getAge(pc) + ".");
 
 		Optional<Region> region = pc.getDisplay().getRegion();
 		SettingsHandler.getGameAsProperty().get().getBioSet().getAgeSet(region, idx);
 
+	}
+
+	private Object getAge(final PlayerCharacter pc)
+	{
+		return ChannelUtilities.readControlledChannel(pc.getCharID(), CControl.AGEINPUT);
 	}
 
 	@Override

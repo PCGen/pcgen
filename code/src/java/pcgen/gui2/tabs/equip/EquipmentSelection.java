@@ -21,7 +21,6 @@ package pcgen.gui2.tabs.equip;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
-import java.io.IOException;
 
 import pcgen.facade.core.EquipmentFacade;
 
@@ -50,7 +49,7 @@ public class EquipmentSelection implements Transferable
 	}
 
 	@Override
-	public EquipmentFacade[] getTransferData(DataFlavor flavor) throws UnsupportedFlavorException, IOException
+	public EquipmentFacade[] getTransferData(DataFlavor flavor) throws UnsupportedFlavorException
 	{
 		if (!isDataFlavorSupported(flavor))
 		{

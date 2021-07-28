@@ -35,7 +35,9 @@ URL:Paizo Publishing|http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathf
 PCC:@/pathfinder/paizo/roleplaying_game/core_rulebook/core_rulebook.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/advanced_players_guide/advanced_players_guide.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/advanced_race_guide/advanced_race_guide.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/bestiary/_bestiary_for_players.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/bestiary_2/_bestiary_2_for_players.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/bestiary_3/_bestiary_3_for_players.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/ultimate_combat/_ultimate_combat.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/ultimate_magic/_ultimate_magic.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/ultimate_equipment/ultimate_equipment.pcc

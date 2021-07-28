@@ -28,7 +28,6 @@ import pcgen.output.base.OutputActor;
 import pcgen.output.model.CollectionModel;
 
 import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
 
 /**
  * A FactSetKeyActor is designed to process an interpolation and convert that
@@ -62,7 +61,7 @@ public class FactSetKeyActor<T> implements OutputActor<CDOMObject>
 	}
 
 	@Override
-	public TemplateModel process(CharID id, CDOMObject d) throws TemplateModelException
+	public TemplateModel process(CharID id, CDOMObject d)
 	{
 		Collection<T> c = new ArrayList<>();
 		for (Indirect<T> indirect : d.getSafeSetFor(fsk))

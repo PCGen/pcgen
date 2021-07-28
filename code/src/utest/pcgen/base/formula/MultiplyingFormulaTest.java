@@ -22,19 +22,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 
 class MultiplyingFormulaTest
 {
-    private MultiplyingFormula timesOne;
-
-	@BeforeEach
-	void setUp()
-	{
-        timesOne = new MultiplyingFormula(1);
-	}
 
 	@Test
 	void testToString()
@@ -102,18 +94,21 @@ class MultiplyingFormulaTest
 	@Test
 	void testInputNotNull()
 	{
+	    MultiplyingFormula timesOne = new MultiplyingFormula(1);
         assertThrows(IllegalArgumentException.class, () -> timesOne.resolve((Number[]) null));
 	}
 
 	@Test
 	void testInputNotEmpty()
 	{
+	    MultiplyingFormula timesOne = new MultiplyingFormula(1);
         assertThrows(IllegalArgumentException.class, () -> timesOne.resolve());
 	}
 
 	@Test
 	void testInputNotLongerThan1()
 	{
+	    MultiplyingFormula timesOne = new MultiplyingFormula(1);
         assertThrows(IllegalArgumentException.class, () -> timesOne.resolve(4, 2.5));
 	}
 

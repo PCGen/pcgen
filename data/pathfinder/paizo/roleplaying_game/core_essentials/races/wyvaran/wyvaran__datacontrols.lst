@@ -1,0 +1,21 @@
+
+
+# ------------------------------
+# Wyvaran
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsWyvaran	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Wyvaran	EXPLANATION:Determines whether the character is a Wyvaran
+
+###Block: Racial Traits
+# Name							Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Wyvaran_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wyvaran Ability Scores	EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Wyvaran_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wyvaran Type			EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Wyvaran_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wyvaran Size			EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Wyvaran_ReplaceSpeed		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wyvaran Speed			EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Wyvaran_ReplaceFlight		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wyvaran Flight			EXPLANATION:Replaces the Flight Racial Trait
+FACTDEF:ABILITY|Wyvaran_ReplaceSlappingTail	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wyvaran Slapping Tail		EXPLANATION:Replaces the Slapping Tail Racial Trait
+FACTDEF:ABILITY|Wyvaran_ReplaceDarkvision		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wyvaran Darkvision		EXPLANATION:Replaces the Darkvision Racial Trait
+FACTDEF:ABILITY|Wyvaran_ReplaceLowLightVision	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wyvaran Low-Light Vision	EXPLANATION:Replaces the Low-Light Vision Racial Trait
+FACTDEF:ABILITY|Wyvaran_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wyvaran Languages		EXPLANATION:Replaces the Languages Racial Trait

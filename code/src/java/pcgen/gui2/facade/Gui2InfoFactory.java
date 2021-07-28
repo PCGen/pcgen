@@ -77,6 +77,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.QualifiedObject;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SimpleMovement;
@@ -101,7 +102,6 @@ import pcgen.core.kit.BaseKit;
 import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.core.spell.Spell;
 import pcgen.facade.core.AbilityFacade;
-import pcgen.facade.core.DomainFacade;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.InfoFacade;
 import pcgen.facade.core.InfoFactory;
@@ -645,14 +645,9 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getHTMLInfo(DomainFacade domainFacade)
+	public String getHTMLInfo(QualifiedObject<Domain> domain)
 	{
-		if (!(domainFacade instanceof DomainFacadeImpl))
-		{
-			return EMPTY_STRING;
-		}
-		DomainFacadeImpl domainFI = (DomainFacadeImpl) domainFacade;
-		Domain aDomain = domainFI.getRawObject();
+		Domain aDomain = domain.getRawObject();
 
 		final HtmlInfoBuilder infoText = new HtmlInfoBuilder();
 
@@ -678,7 +673,7 @@ public class Gui2InfoFactory implements InfoFactory
 			}
 
 			aString =
-					PrerequisiteUtilities.preReqHTMLStringsForList(pc, aDomain, domainFI.getPrerequisiteList(), false);
+					PrerequisiteUtilities.preReqHTMLStringsForList(pc, aDomain, domain.getPrerequisiteList(), false);
 			if (!aString.isEmpty())
 			{
 				infoText.appendLineBreak();
@@ -826,7 +821,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 		int a = EqToken.getMaxDexTokenInt(pc, equip);
 
-		if ((int) a != Constants.MAX_MAXDEX)
+		if (a != Constants.MAX_MAXDEX)
 		{
 			b.appendSpacer();
 			b.appendI18nElement("in_igInfoLabelTextMaxDex", Integer.toString(a)); //$NON-NLS-1$
@@ -834,7 +829,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 		a = EqToken.getAcCheckTokenInt(pc, equip);
 
-		if (equip.isArmor() || equip.isShield() || ((int) a != 0))
+		if (equip.isArmor() || equip.isShield() || (a != 0))
 		{
 			b.appendSpacer();
 			b.appendI18nElement("in_igInfoLabelTextAcCheck", Integer.toString(a)); //$NON-NLS-1$
@@ -844,7 +839,7 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			a = equip.getACMod(pc);
 
-			if (equip.isArmor() || equip.isShield() || ((int) a != 0))
+			if (equip.isArmor() || equip.isShield() || (a != 0))
 			{
 				b.appendSpacer();
 				b.appendElement(LanguageBundle.getFormattedString("in_igInfoLabelTextAcBonus", //$NON-NLS-1$
@@ -856,7 +851,7 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			a = EqToken.getSpellFailureTokenInt(pc, equip);
 
-			if (equip.isArmor() || equip.isShield() || ((int) a != 0))
+			if (equip.isArmor() || equip.isShield() || (a != 0))
 			{
 				b.appendSpacer();
 				b.appendI18nElement("in_igInfoLabelTextArcaneFailure", Integer.toString(a)); //$NON-NLS-1$
@@ -869,7 +864,7 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			a = EqToken.getEdrTokenInt(pc, equip);
 
-			if (equip.isArmor() || equip.isShield() || ((int) a != 0))
+			if (equip.isArmor() || equip.isShield() || (a != 0))
 			{
 				b.appendSpacer();
 				b.appendElement(bString, Integer.toString(a));
@@ -956,8 +951,8 @@ public class Gui2InfoFactory implements InfoFactory
 			if (!bString.isEmpty())
 			{
 				b.appendSpacer();
-				b.appendI18nElement("in_igInfoLabelTextRange", bString + //$NON-NLS-1$
-					Globals.getGameModeUnitSet().getDistanceUnit());
+				b.appendI18nElement("in_igInfoLabelTextRange", bString //$NON-NLS-1$
+					+ Globals.getGameModeUnitSet().getDistanceUnit());
 			}
 		}
 
@@ -1396,10 +1391,6 @@ public class Gui2InfoFactory implements InfoFactory
 		if (facade instanceof PCClass)
 		{
 			return getHTMLInfo((PCClass) facade, null);
-		}
-		if (facade instanceof DomainFacade)
-		{
-			return getHTMLInfo((DomainFacade) facade);
 		}
 		if (facade instanceof EquipmentFacade)
 		{
@@ -1927,25 +1918,19 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	@Override
-	public String getDescription(DomainFacade domainFacade)
+	public String getDescription(Domain domain)
 	{
-		if (domainFacade == null || !(domainFacade instanceof DomainFacadeImpl))
+		if (domain == null)
 		{
 			return EMPTY_STRING;
 		}
 		try
 		{
-			DomainFacadeImpl domain = (DomainFacadeImpl) domainFacade;
-			Domain dom = domain.getRawObject();
-			if (dom == null)
-			{
-				return EMPTY_STRING;
-			}
-			return DescriptionFormatting.piWrapDesc(dom, pc.getDescription(dom), false);
+			return DescriptionFormatting.piWrapDesc(domain, pc.getDescription(domain), false);
 		}
 		catch (Exception e)
 		{
-			Logging.errorPrint("Failed to get description for " + domainFacade, e); //$NON-NLS-1$
+			Logging.errorPrint("Failed to get description for " + domain, e); //$NON-NLS-1$
 			return EMPTY_STRING;
 		}
 	}

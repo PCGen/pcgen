@@ -1,0 +1,11 @@
+SOURCELONG:Pathfinder Player Companion: Disciple's Doctrine	SOURCESHORT:DD	SOURCEWEB:http://paizo.com/products/btpy9xew	SOURCEDATE:2018-01
+# ORIGINAL ENTRY: Jason D. (GrimaceJD)
+# ORIGINAL ENTRY DATE: 27 June 2019
+
+# ==============================
+# New Spells
+# ==============================
+# Spell Name			Unique Key						Type					Classes of caster											School					Sub-School				Descriptors													Components		Casting Time				Range				Target Area or Effect						Duration											Save Info					Spell Resistance		Source Page			Description
+Fastidiousness.MOD														CLASSES:Mesmerist,Occultist,Psychic=1
+Hallucinatory Decor.MOD													CLASSES:Mesmerist,Psychic=3
+Unflappable Mien.MOD													CLASSES:Mesmerist,Occultist,Psychic=3

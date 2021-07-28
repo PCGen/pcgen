@@ -29,6 +29,7 @@ import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.race.LangbonusToken;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 import util.TestURI;
@@ -67,6 +68,7 @@ public class RaceLangbonusTest extends AbstractTokenModelTest
 	}
 
 	@Override
+	@BeforeEach
 	protected void setUp() throws Exception
 	{
 		super.setUp();

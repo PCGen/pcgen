@@ -17,16 +17,15 @@
  */
 package plugin.lsttokens.template;
 
-import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.SubRegion;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCTemplate;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractTypeSafeTokenTestCase;
+
+import plugin.lsttokens.testsupport.AbstractStringTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class SubregionTokenTest extends
-		AbstractTypeSafeTokenTestCase<PCTemplate, SubRegion>
+public class SubregionTokenTest extends AbstractStringTokenTestCase<PCTemplate>
 {
 
 	static SubregionToken token = new SubregionToken();
@@ -51,26 +50,14 @@ public class SubregionTokenTest extends
 	}
 
 	@Override
-	public SubRegion getConstant(String string)
-	{
-		return SubRegion.getConstant(string);
-	}
-
-	@Override
-	public ObjectKey<SubRegion> getObjectKey()
-	{
-		return ObjectKey.SUBREGION;
-	}
-
-	@Override
-	protected boolean requiresPreconstruction()
-	{
-		return false;
-	}
-
-	@Override
 	public boolean isClearLegal()
 	{
 		return false;
+	}
+
+	@Override
+	public StringKey getStringKey()
+	{
+		return StringKey.SUBREGION;
 	}
 }

@@ -12,7 +12,7 @@ SOURCELONG:Pathfinder Player Companion: Bastards of Golarion	SOURCESHORT:BOG	SOU
 
 # Race Name		Bonus Ability Pool
 Half-Elf.MOD	BONUS:ABILITYPOOL|Half-Elf Heritage|1
-Half-Orc.MOD	BONUS:ABILITYPOOL|Half-Orc Subrace|1
+Half-Orc.MOD	BONUS:ABILITYPOOL|Half-Orc Heritage|1
 
 #
 # End

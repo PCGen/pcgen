@@ -1,0 +1,111 @@
+# Sat Sep 21 13:31:46 2019 -- reformatted by PCGen TidyLst v1.04.00
+CAMPAIGN:Core Rulebook
+KEY:PF2 - Core Rulebook
+GAMEMODE:Pathfinder_2
+TYPE:Paizo Publishing.Pathfinder RPG
+RANK:201908
+STATUS:ALPHA
+GENRE:Fantasy
+BOOKTYPE:Core Rules
+SETTING:Pathfinder
+!PRECAMPAIGN:1,BOOKTYPE=Core Rules,[PF2 - Core Rulebook]
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Core Rulebook
+SOURCESHORT:CR
+#SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj
+SOURCEDATE:2019-08
+ISOGL:YES
+
+
+COVER:_pf2_cover.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+#URL:Paizo Publishing|http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj|Buy this publication from Paizo Publishing!
+DESC:PF2 system
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder RPG Core Rulebook. Copyright 2009, Paizo Inc.; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:The Book of Experimental Might. Copyright 2008, Monte J. Cook. All rights reserved.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Core Rulebook v2" Copyright 2019, PCGen Data team (Including, but not limited to Andrew Maitland (LegacyKing), Brad Grin (Beta tester), and Paul Grosse (License Review)).
+
+#Do Not Remove Comment
+#EXTRAFILE:OGL.txt
+
+# Defaults
+#RACE:*/_universal/races.lst
+
+
+# Game Files
+ALIGNMENT:c__align.lst
+DATACONTROL:c__datacontrols.lst
+DATATABLE:c__datatables.lst
+DYNAMIC:c__dynamics.lst
+GLOBALMODIFIER:c__globalmods.lst
+SAVE:c__saves.lst
+SIZE:c__sizes.lst
+STAT:c__stats.lst
+VARIABLE:c__variables.lst
+
+
+# Data Files - spliting
+ABILITY:c_abilities.lst
+ABILITY:c_abilities_ancestry.lst
+ABILITY:c_abilities_archetype.lst
+ABILITY:c_abilities_background.lst
+ABILITY:c_abilities_class.lst
+ABILITY:c_abilities_classfeats.lst
+ABILITY:c_abilities_companion.lst
+ABILITY:c_abilities_define.lst
+ABILITY:c_abilities_faction.lst
+ABILITY:c_abilities_feat.lst
+ABILITY:c_abilities_selector.lst
+ABILITY:c_abilities_skill.lst
+ABILITY:c_abilities_weapon.lst
+
+
+ABILITYCATEGORY:c_abilitycategories.lst
+
+BIOSET:c_biosettings.lst
+CLASS:c_classes.lst
+COMPANIONMOD:c_companionmods.lst
+DEITY:c_deities.lst
+DOMAIN:c_domains.lst
+EQUIPMENT:c_equip_arms.lst
+EQUIPMENT:c_equip_arms_armor.lst
+EQUIPMENT:c_equip_gear.lst
+EQUIPMENT:c_equip_magic.lst
+EQUIPMENT:c_equip_alchemical.lst
+EQUIPMENT:c_equipment.lst
+EQUIPMOD:c_equipmods.lst
+KIT:c_kits.lst
+LANGUAGE:c_languages.lst
+ARMORPROF:c_profs_armor.lst
+SHIELDPROF:c_profs_shield.lst
+WEAPONPROF:c_profs_weapon.lst
+RACE:c_races_ancestry.lst
+RACE:c_races_companion.lst
+SKILL:c_skills.lst
+SPELL:c_spells.lst
+SPELL:c_spells_class.lst
+TEMPLATE:c_templates.lst
+
+###Block: Revisions
+# LK - 0.01 Initial update
+
+INFOTEXT:Supports 6.08.00
+# ENTRY DATE: 2019-09
+# LST MONKEY: Andrew "LegacyKing" Maitland
+# RELEASE REVIEW #
+# LICENSE: Paul Grosse
+# BETA:
+# RELEASE:
+# Built for PCGen Version: 6.08.00
+# Updated to work with version: -
+# MINVER:6.08
+# MINDEVVER:6.08.00
+# COMMENTS:

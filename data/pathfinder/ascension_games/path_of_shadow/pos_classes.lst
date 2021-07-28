@@ -7,49 +7,49 @@ CLASS:Nightblade	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.6	DEFINE:Nightblade
 CLASS:Nightblade	STARTSKILLPTS:6	CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE=Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Intimidate|Knowledge (arcana)|Knowledge (local)|Knowledge (planes)|Linguistics|Perception|TYPE=Profession|Sense Motive|Sleight of Hand|Spellcraft|Stealth|Use Magic Device
 # Class Name	Spell Stat		Memorize	Caster level
 CLASS:Nightblade	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Nightblade|Caster_Level_BL_Stripped_Nightblade
-###Block
-1	CAST:0,1
-2	CAST:0,2
-3	CAST:0,3
-4	CAST:0,3,1
-5	CAST:0,4,2
-6	CAST:0,4,3
-7	CAST:0,4,3,1
-8	CAST:0,4,4,2
-9	CAST:0,5,4,3
-10	CAST:0,5,4,3,1
-11	CAST:0,5,4,4,2
-12	CAST:0,5,5,4,3
-13	CAST:0,5,5,4,3,1
-14	CAST:0,5,5,4,4,2
-15	CAST:0,5,5,5,4,3
-16	CAST:0,5,5,5,4,3,1
-17	CAST:0,5,5,5,4,4,2
-18	CAST:0,5,5,5,5,4,3
-19	CAST:0,5,5,5,5,5,4
-20	CAST:0,5,5,5,5,5,5
-###Block
-1	KNOWN:4,2
-2	KNOWN:5,3
-3	KNOWN:6,4
-4	KNOWN:6,4,2
-5	KNOWN:6,4,3
-6	KNOWN:6,4,4
-7	KNOWN:6,5,4,2
-8	KNOWN:6,5,4,3
-9	KNOWN:6,5,4,4
-10	KNOWN:6,5,5,4,2
-11	KNOWN:6,6,5,4,3
-12	KNOWN:6,6,5,4,4
-13	KNOWN:6,6,5,5,4,2
-14	KNOWN:6,6,6,5,4,3
-15	KNOWN:6,6,6,5,4,4
-16	KNOWN:6,6,6,5,5,4,2
-17	KNOWN:6,6,6,6,5,4,3
-18	KNOWN:6,6,6,6,5,4,4
-19	KNOWN:6,6,6,6,5,5,4
-20	KNOWN:6,6,6,6,6,5,5
-###Block
 1	ABILITY:Class|AUTOMATIC|Nightblade
+
+###Block: Level Progression Abilities
+1	ABILITY:Nightblade Class Feature|AUTOMATIC|Nightblade ~ Weapon and Armor Proficiency
+1	ABILITY:Nightblade Class Feature|AUTOMATIC|Nightblade ~ Spells|PREVAREQ:Nightblade_CF_Spells,0
+1	ABILITY:Nightblade Class Feature|AUTOMATIC|Nightblade ~ Cantrips|PREVAREQ:Nightblade_CF_Cantrips,0
+1	ABILITY:Nightblade Class Feature|AUTOMATIC|Nightblade ~ Path|PREVAREQ:Nightblade_CF_Path,0
+2	ABILITY:Nightblade Class Feature|AUTOMATIC|Nightblade ~ Evasion|PREVAREQ:Nightblade_CF_Evasion,0
+2	ABILITY:Nightblade Class Feature|AUTOMATIC|Nightblade ~ Shadow Surge|PREVAREQ:Nightblade_CF_ShadowSurge,0
+3	ABILITY:Nightblade Class Feature|AUTOMATIC|Nightblade ~ Nightblade Art|PREVAREQ:Nightblade_CF_NightbladeArt,0
+3	ABILITY:Nightblade Class Feature|AUTOMATIC|Nightblade ~ Nighteye|PREVAREQ:Nightblade_CF_Nighteye,0
+8	ABILITY:Nightblade Class Feature|AUTOMATIC|Nightblade ~ Hide in Plain Sight|PREVAREQ:Nightblade_CF_HideinPlainSight,0
+8	ABILITY:Nightblade Class Feature|AUTOMATIC|Nightblade ~ Twin Surge|PREVAREQ:Nightblade_CF_TwinSurge,0
+9	ABILITY:Nightblade Class Feature|AUTOMATIC|Nightblade ~ Shadow Shift|PREVAREQ:Nightblade_CF_ShadowShift,0
+11	ABILITY:Nightblade Class Feature|AUTOMATIC|Nightblade ~ Improved Evasion|PREVAREQ:Nightblade_CF_ImprovedEvasion,0
+14	ABILITY:Nightblade Class Feature|AUTOMATIC|Nightblade ~ See in Darkness|PREVAREQ:Nightblade_CF_SeeinDarkness,0
+17	ABILITY:Nightblade Class Feature|AUTOMATIC|Nightblade ~ Shadowy Realism|PREVAREQ:Nightblade_CF_ShadowyRealism,0
+17	ABILITY:Nightblade Class Feature|AUTOMATIC|Nightblade ~ Triple Surge|PREVAREQ:Nightblade_CF_TripleSurge,0
+
+###Block
+
+###Spell Block
+1	CAST:0,1			KNOWN:4,2
+2	CAST:0,2			KNOWN:5,3
+3	CAST:0,3			KNOWN:6,4
+4	CAST:0,3,1			KNOWN:6,4,2
+5	CAST:0,4,2			KNOWN:6,4,3
+6	CAST:0,4,3			KNOWN:6,4,4
+7	CAST:0,4,3,1		KNOWN:6,5,4,2
+8	CAST:0,4,4,2		KNOWN:6,5,4,3
+9	CAST:0,5,4,3		KNOWN:6,5,4,4
+10	CAST:0,5,4,3,1		KNOWN:6,5,5,4,2
+11	CAST:0,5,4,4,2		KNOWN:6,6,5,4,3
+12	CAST:0,5,5,4,3		KNOWN:6,6,5,4,4
+13	CAST:0,5,5,4,3,1		KNOWN:6,6,5,5,4,2
+14	CAST:0,5,5,4,4,2		KNOWN:6,6,6,5,4,3
+15	CAST:0,5,5,5,4,3		KNOWN:6,6,6,5,4,4
+16	CAST:0,5,5,5,4,3,1	KNOWN:6,6,6,5,5,4,2
+17	CAST:0,5,5,5,4,4,2	KNOWN:6,6,6,6,5,4,3
+18	CAST:0,5,5,5,5,4,3	KNOWN:6,6,6,6,5,4,4
+19	CAST:0,5,5,5,5,5,4	KNOWN:6,6,6,6,5,5,4
+20	CAST:0,5,5,5,5,5,5	KNOWN:6,6,6,6,6,5,5
+
+###Block
 CLASS:Druid.MOD	DEFINE:ProhibitSpell_Descriptor_Light|0
 1	PROHIBITSPELL:DESCRIPTOR.Light|PREVARGTEQ:ProhibitSpell_Descriptor_Light,1

@@ -32,7 +32,7 @@ LOGO:*/_images/logo/Paizo_Publishing.png
 INFOTEXT:Starfinder Alien Archive 2
 
 VARIABLE:saa2__variables.lst
-
+DATACONTROL:saa2__datacontrols.lst
 
 ABILITY:saa2_abilities.lst
 ABILITY:saa2_feats.lst

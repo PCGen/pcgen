@@ -8,6 +8,10 @@ ABILITYCATEGORY:Elemental Opposition School	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOO
 ABILITYCATEGORY:Favored Yokai				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FavoredYokai				PLURAL:Favored Yokai				DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:White-Haired Witch Rogue Talent	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WhiteHairedWitchRogueTalent	PLURAL:White-Haired Witch Rogue Talents	DISPLAYLOCATION:Class Abilities
 
+###Block: Language Selection
+# Ability Category			Visible		Editable?		Change Pool?	Fractional values?	Category of Object	Type of Object		Display Location
+ABILITYCATEGORY:Region Languages	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Choice		TYPE:Regional Language	DISPLAYLOCATION:Racial Abilities
+
 #
 # End
 #

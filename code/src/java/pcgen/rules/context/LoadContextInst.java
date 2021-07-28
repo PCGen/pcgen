@@ -325,7 +325,6 @@ abstract class LoadContextInst implements LoadContext
 
 	@Override
 	public <T extends Loadable> boolean processToken(T derivative, String typeStr, String argument)
-		throws PersistenceLayerException
 	{
 		return support.processToken(this, derivative, typeStr, argument);
 	}
@@ -333,23 +332,16 @@ abstract class LoadContextInst implements LoadContext
 	@Override
 	public <T extends Loadable> void unconditionallyProcess(T cdo, String key, String value)
 	{
-		try
+		if (processToken(cdo, key, value))
 		{
-			if (processToken(cdo, key, value))
-			{
-				commit();
-			}
-			else
-			{
-				rollback();
-				Logging.replayParsedMessages();
-			}
-			Logging.clearParseMessages();
+			commit();
 		}
-		catch (PersistenceLayerException e)
+		else
 		{
-			Logging.errorPrint("Error in token parse: " + e.getLocalizedMessage());
+			rollback();
+			Logging.replayParsedMessages();
 		}
+		Logging.clearParseMessages();
 	}
 
 	/**
@@ -435,7 +427,7 @@ abstract class LoadContextInst implements LoadContext
 	}
 
 	@Override
-	public boolean addStatefulToken(String s) throws PersistenceLayerException
+	public boolean addStatefulToken(String s)
 	{
 		int colonLoc = s.indexOf(':');
 		if (colonLoc == -1)
@@ -782,7 +774,6 @@ abstract class LoadContextInst implements LoadContext
 
 		@Override
 		public <T extends Loadable> boolean processToken(T derivative, String typeStr, String argument)
-			throws PersistenceLayerException
 		{
 			return support.processToken(this, derivative, typeStr, argument);
 		}

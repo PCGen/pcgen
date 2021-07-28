@@ -39,7 +39,6 @@ import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.LevelCommandFactory;
-import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -50,7 +49,6 @@ import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.SkillFilter;
-import pcgen.cdom.enumeration.SubRegion;
 import pcgen.cdom.facet.ActiveSpellsFacet;
 import pcgen.cdom.facet.AutoLanguageGrantedFacet;
 import pcgen.cdom.facet.AutoLanguageUnconditionalFacet;
@@ -101,24 +99,19 @@ import pcgen.cdom.facet.analysis.SubRaceFacet;
 import pcgen.cdom.facet.analysis.TotalWeightFacet;
 import pcgen.cdom.facet.analysis.UnarmedDamageFacet;
 import pcgen.cdom.facet.analysis.VisionFacet;
-import pcgen.cdom.facet.fact.AgeFacet;
-import pcgen.cdom.facet.fact.CharacterTypeFacet;
 import pcgen.cdom.facet.fact.ChronicleEntryFacet;
 import pcgen.cdom.facet.fact.FactFacet;
 import pcgen.cdom.facet.fact.FollowerFacet;
-import pcgen.cdom.facet.fact.HeightFacet;
 import pcgen.cdom.facet.fact.PortraitThumbnailRectFacet;
 import pcgen.cdom.facet.fact.PreviewSheetFacet;
 import pcgen.cdom.facet.fact.RegionFacet;
 import pcgen.cdom.facet.fact.SkillFilterFacet;
-import pcgen.cdom.facet.fact.SuppressBioFieldFacet;
 import pcgen.cdom.facet.fact.WeightFacet;
 import pcgen.cdom.facet.input.ProhibitedSchoolFacet;
 import pcgen.cdom.facet.input.UserSpecialAbilityFacet;
 import pcgen.cdom.facet.model.ArmorProfProviderFacet;
 import pcgen.cdom.facet.model.BioSetFacet;
 import pcgen.cdom.facet.model.ClassFacet;
-import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.facet.model.DomainFacet;
 import pcgen.cdom.facet.model.LanguageFacet;
 import pcgen.cdom.facet.model.RaceFacet;
@@ -133,7 +126,6 @@ import pcgen.core.AgeSet;
 import pcgen.core.ArmorProf;
 import pcgen.core.BioSet;
 import pcgen.core.ChronicleEntry;
-import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.FollowerOption;
@@ -177,15 +169,12 @@ public class CharacterDisplay
 	private ChronicleEntryFacet chronicleEntryFacet = FacetLibrary.getFacet(ChronicleEntryFacet.class);
 	private AgeSetFacet ageSetFacet = FacetLibrary.getFacet(AgeSetFacet.class);
 	private ActiveSpellsFacet activeSpellsFacet = FacetLibrary.getFacet(ActiveSpellsFacet.class);
-	private SuppressBioFieldFacet suppressBioFieldFacet = FacetLibrary.getFacet(SuppressBioFieldFacet.class);
 	private TemplateFacet templateFacet = FacetLibrary.getFacet(TemplateFacet.class);
 	private VisionFacet visionFacet = FacetLibrary.getFacet(VisionFacet.class);
 	private FormulaResolvingFacet formulaResolvingFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
 	private ArmorClassFacet armorClassFacet = FacetLibrary.getFacet(ArmorClassFacet.class);
-	private AgeFacet ageFacet = FacetLibrary.getFacet(AgeFacet.class);
 	private MovementResultFacet moveResultFacet = FacetLibrary.getFacet(MovementResultFacet.class);
 	private RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
-	private CharacterTypeFacet characterTypeFacet = FacetLibrary.getFacet(CharacterTypeFacet.class);
 	private ClassFacet classFacet = FacetLibrary.getFacet(ClassFacet.class);
 	private SubClassFacet subClassFacet = FacetLibrary.getFacet(SubClassFacet.class);
 	private FavoredClassFacet favClassFacet = FacetLibrary.getFacet(FavoredClassFacet.class);
@@ -228,7 +217,6 @@ public class CharacterDisplay
 	private NonProficiencyPenaltyFacet nonppFacet = FacetLibrary.getFacet(NonProficiencyPenaltyFacet.class);
 	private MasterFacet masterFacet = FacetLibrary.getFacet(MasterFacet.class);
 	private FollowerOptionFacet foFacet = FacetLibrary.getFacet(FollowerOptionFacet.class);
-	private HeightFacet heightFacet = FacetLibrary.getFacet(HeightFacet.class);
 	private StatCalcFacet statCalcFacet = FacetLibrary.getFacet(StatCalcFacet.class);
 	private EquipmentFacet equipmentFacet = FacetLibrary.getFacet(EquipmentFacet.class);
 	private EquipSetFacet equipSetFacet = FacetLibrary.getFacet(EquipSetFacet.class);
@@ -241,7 +229,6 @@ public class CharacterDisplay
 	private WeaponProfModelFacet weaponProfFacet = FacetLibrary.getFacet(WeaponProfModelFacet.class);
 	private LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
 	private InitiativeFacet initiativeFacet = FacetLibrary.getFacet(InitiativeFacet.class);
-	private DeityFacet deityFacet = FacetLibrary.getFacet(DeityFacet.class);
 	private PortraitThumbnailRectFacet portraitThumbnailRectFacet =
 			FacetLibrary.getFacet(PortraitThumbnailRectFacet.class);
 	private PreviewSheetFacet previewSheetFacet = FacetLibrary.getFacet(PreviewSheetFacet.class);
@@ -357,16 +344,6 @@ public class CharacterDisplay
 	public String getTrait2()
 	{
 		return getSafeStringFor(PCStringKey.PERSONALITY2);
-	}
-
-	/**
-	 * Check  whether the field should be hidden from output. 
-	 * @param field The BiographyField to check export suppression rules for.
-	 * @return true if the field should not be output, false if it may be.
-	 */
-	public boolean getSuppressBioField(BiographyField field)
-	{
-		return suppressBioFieldFacet.getSuppressField(id, field);
 	}
 
 	public Collection<Vision> getVisionList()
@@ -508,7 +485,7 @@ public class CharacterDisplay
 	 * 
 	 * @return character sub region
 	 */
-	public Optional<SubRegion> getSubRegion()
+	public Optional<String> getSubRegion()
 	{
 		return regionFacet.getSubRegion(id);
 	}
@@ -546,11 +523,6 @@ public class CharacterDisplay
 		return armorClassFacet.calcACOfType(id, type);
 	}
 
-	public int getAge()
-	{
-		return ageFacet.getAge(id);
-	}
-
 	public int getBaseMovement(MovementType moveType, Load load)
 	{
 		return moveResultFacet.getBaseMovement(id, moveType, load);
@@ -574,11 +546,6 @@ public class CharacterDisplay
 	public Race getRace()
 	{
 		return raceFacet.get(id);
-	}
-
-	public String getCharacterType()
-	{
-		return characterTypeFacet.get(id);
 	}
 
 	public String getPreviewSheet()
@@ -781,16 +748,6 @@ public class CharacterDisplay
 	}
 
 	/**
-	 * Get the deity.
-	 * 
-	 * @return deity
-	 */
-	public Deity getDeity()
-	{
-		return deityFacet.get(id);
-	}
-
-	/**
 	 * Get the list of equipment sets.
 	 * 
 	 * @return List
@@ -819,16 +776,6 @@ public class CharacterDisplay
 	public Set<Equipment> getEquipmentSet()
 	{
 		return equipmentFacet.getSet(id);
-	}
-
-	/**
-	 * Gets the character's height in inches.
-	 * 
-	 * @return The character's height in inches.
-	 */
-	public int getHeight()
-	{
-		return heightFacet.getHeight(id);
 	}
 
 	/**
@@ -1493,19 +1440,6 @@ public class CharacterDisplay
 	public Collection<NoteItem> getNotesList()
 	{
 		return noteItemFacet.getSet(id);
-	}
-
-	/**
-	 * Check if the character has the given Deity.
-	 * 
-	 * @param deity
-	 *            Deity to check for.
-	 * @return {@code true} if the character has the Deity,
-	 *         {@code false} otherwise.
-	 */
-	public boolean hasDeity(final Deity deity)
-	{
-		return deityFacet.matches(id, deity);
 	}
 
 	/**

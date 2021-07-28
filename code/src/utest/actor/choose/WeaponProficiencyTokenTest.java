@@ -27,12 +27,12 @@ public class WeaponProficiencyTokenTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<WeaponProf>
 {
 
-	static WeaponProficiencyToken pca = new WeaponProficiencyToken();
+	private static final WeaponProficiencyToken PCA = new WeaponProficiencyToken();
 
 	@Override
 	public Chooser<WeaponProf> getActor()
 	{
-		return pca;
+		return PCA;
 	}
 
 	@Override

@@ -46,7 +46,7 @@
 					</fo:table-cell>
 					<fo:table-cell padding-top="3pt">
 						<fo:block font-size="4pt">
-							---
+							AC
 						</fo:block>
 					</fo:table-cell>
 					<fo:table-cell padding-top="3pt">
@@ -90,7 +90,7 @@
 						</fo:table-cell>
 						<fo:table-cell text-align="center">
 							<fo:block font-size="8pt">
-								
+								<xsl:value-of select="totalac"/>
 							</fo:block>
 						</fo:table-cell>
 						<fo:table-cell text-align="center">

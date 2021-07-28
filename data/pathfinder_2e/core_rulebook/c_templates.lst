@@ -1,0 +1,99 @@
+# Mon Mar 30 11:44:41 2020 -- reformatted by PCGen TidyLst v1.04.00
+#Race Ability Boost
+
+
+
+# Template Name				Size		Visible	Template			Define					Required Movement Rate	Required Var. value			Var. Min. Value		Bonus Ability Pool					Add to base move			Modify VAR																																																	Choose								Ability								Auto Language				Bonus Languages									Clone Movement		Removable?		Type
+Automatic Languages ~ Dwarf				VISIBLE:NO																																																																																																	ABILITY:Language|AUTOMATIC|Common|Dwarven			AUTO:LANG|Common|Dwarven
+Bonus Languages ~ Dwarf					VISIBLE:NO																																						BONUS:VAR|AncestryBonusLang_Jotun,AncestryBonusLang_Gnomish,AncestryBonusLang_Goblin,AncestryBonusLang_Orcish,AncestryBonusLang_Terran,AncestryBonusLang_Undercommon|1																																															LANGBONUS:Jotun,Gnomish,Goblin,Orcish,Terran,Undercommon
+
+Automatic Languages ~ Elf				VISIBLE:NO																																																																																																	ABILITY:Language|AUTOMATIC|Common|Elven			AUTO:LANG|Common|Elven
+Bonus Languages ~ Elf					VISIBLE:NO																																						BONUS:VAR|AncestryBonusLang_Celestial,AncestryBonusLang_Draconic,AncestryBonusLang_Gnoll,AncestryBonusLang_Gnomish,AncestryBonusLang_Goblin,AncestryBonusLang_Orcish,AncestryBonusLang_Sylvan|1																																											LANGBONUS:Celestial,Draconic,Gnoll,Gnomish,Goblin,Orcish,Sylvan
+
+Automatic Languages ~ Gnome				VISIBLE:NO																																																																																																	ABILITY:Language|AUTOMATIC|Common|Gnomish|Sylvan	AUTO:LANG|Common|Gnomish|Sylvan
+Bonus Languages ~ Gnome					VISIBLE:NO																																						BONUS:VAR|AncestryBonusLang_Draconic,AncestryBonusLang_Dwarven,AncestryBonusLang_Elven,AncestryBonusLang_Goblin,AncestryBonusLang_Jotun,AncestryBonusLang_Orcish|1																																															LANGBONUS:Draconic,Dwarven,Elven,Goblin,Jotun,Orcish
+
+Automatic Languages ~ Goblin				VISIBLE:NO																																																																																																	ABILITY:Language|AUTOMATIC|Common|Goblin			AUTO:LANG|Common|Goblin
+Bonus Languages ~ Goblin				VISIBLE:NO																																						BONUS:VAR|AncestryBonusLang_Draconic,AncestryBonusLang_Dwarven,AncestryBonusLang_Gnoll,AncestryBonusLang_Gnomish,AncestryBonusLang_Halfling,AncestryBonusLang_Orcish|1																																															LANGBONUS:Draconic,Dwarven,Gnoll,Gnomish,Halfling,Orcish
+
+Automatic Languages ~ Halfling			VISIBLE:NO																																																																																																	ABILITY:Language|AUTOMATIC|Common|Halfling		AUTO:LANG|Common|Halfling
+Bonus Languages ~ Halfling				VISIBLE:NO																																						BONUS:VAR|AncestryBonusLang_Dwarven,AncestryBonusLang_Elven,AncestryBonusLang_Gnomish,AncestryBonusLang_Goblin|1																																																								LANGBONUS:Dwarven,Elven,Gnomish,Goblin
+
+Automatic Languages ~ Human				VISIBLE:NO																																																																																																	ABILITY:Language|AUTOMATIC|Common				AUTO:LANG|Common
+Bonus Languages ~ Human					VISIBLE:NO																																						BONUS:VAR|AncestryBonusLang_Common,AncestryBonusLang_Draconic,AncestryBonusLang_Dwarven,AncestryBonusLang_Elven,AncestryBonusLang_Gnomish,AncestryBonusLang_Goblin,AncestryBonusLang_Halfling,AncestryBonusLang_Jotun,AncestryBonusLang_Orcish,AncestryBonusLang_Sylvan,AncestryBonusLang_Undercommon|1																									LANGBONUS:TYPE=Common
+
+
+
+
+
+# Human Ethnicity Languages
+Bonus Language ~ Hallit					VISIBLE:NO																																						BONUS:VAR|AncestryBonusLang_Hallit|1																																																																				LANGBONUS:Hallit
+Bonus Language ~ Kelish					VISIBLE:NO																																						BONUS:VAR|AncestryBonusLang_Kelish|1																																																																				LANGBONUS:Kelish
+Bonus Language ~ Mwangi					VISIBLE:NO																																						BONUS:VAR|AncestryBonusLang_Mwangi|1																																																																				LANGBONUS:Mwangi
+Bonus Language ~ Osiriani				VISIBLE:NO																																						BONUS:VAR|AncestryBonusLang_Osiriani|1																																																																				LANGBONUS:Osiriani
+Bonus Language ~ Shoanti				VISIBLE:NO																																						BONUS:VAR|AncestryBonusLang_Shoanti|1																																																																				LANGBONUS:Shoanti
+Bonus Language ~ Skald					VISIBLE:NO																																						BONUS:VAR|AncestryBonusLang_Skald|1																																																																					LANGBONUS:Skald
+Bonus Language ~ Tien					VISIBLE:NO																																						BONUS:VAR|AncestryBonusLang_Tien|1																																																																					LANGBONUS:Tien
+Bonus Language ~ Varisian				VISIBLE:NO																																						BONUS:VAR|AncestryBonusLang_Varisian|1																																																																				LANGBONUS:Varisian
+Bonus Language ~ Vudrani				VISIBLE:NO																																						BONUS:VAR|AncestryBonusLang_Vudrani|1																																																																				LANGBONUS:Vudrani
+Bonus Language ~ Shadowtongue				VISIBLE:NO																																						BONUS:VAR|AncestryBonusLang_Shadowtongue|1																																																																			LANGBONUS:Shadowtongue
+Bonus Language ~ Taldane				VISIBLE:NO																																						BONUS:VAR|AncestryBonusLang_Taldane|1																																																																				LANGBONUS:Common
+
+
+1st Level Intelligence Score				VISIBLE:YES	TEMPLATE:%LIST		DEFINE:Locked1stLevelLanguages|0																																																																														CHOOSE:TEMPLATE|QUALIFIED[TYPE=BaseInt]																																	REMOVABLE:NO
+
+INT 06							VISIBLE:NO															PREVAREQ:INTSCORE,06																																																																																																													REMOVABLE:NO	TYPE:BaseInt
+INT 07							VISIBLE:NO															PREVAREQ:INTSCORE,07																																																																																																													REMOVABLE:NO	TYPE:BaseInt
+INT 08							VISIBLE:NO															PREVAREQ:INTSCORE,08																																																																																																													REMOVABLE:NO	TYPE:BaseInt
+INT 09							VISIBLE:NO															PREVAREQ:INTSCORE,09																																																																																																													REMOVABLE:NO	TYPE:BaseInt
+INT 10							VISIBLE:NO															PREVAREQ:INTSCORE,10																																																																																																													REMOVABLE:NO	TYPE:BaseInt
+INT 11							VISIBLE:NO															PREVAREQ:INTSCORE,11																																																																																																													REMOVABLE:NO	TYPE:BaseInt
+INT 12							VISIBLE:NO															PREVAREQ:INTSCORE,12																																																																																																													REMOVABLE:NO	TYPE:BaseInt
+INT 13							VISIBLE:NO															PREVAREQ:INTSCORE,13																																																																																																													REMOVABLE:NO	TYPE:BaseInt
+INT 14							VISIBLE:NO	TEMPLATE:Language +1											PREVAREQ:INTSCORE,14																																																																																																													REMOVABLE:NO	TYPE:BaseInt
+INT 15							VISIBLE:NO	TEMPLATE:Language +1											PREVAREQ:INTSCORE,15																																																																																																													REMOVABLE:NO	TYPE:BaseInt
+INT 16							VISIBLE:NO	TEMPLATE:Language +2											PREVAREQ:INTSCORE,16																																																																																																													REMOVABLE:NO	TYPE:BaseInt
+INT 17							VISIBLE:NO	TEMPLATE:Language +2											PREVAREQ:INTSCORE,17																																																																																																													REMOVABLE:NO	TYPE:BaseInt
+INT 18							VISIBLE:NO	TEMPLATE:Language +3																	PREVARGTEQ:INTSCORE,18																																																																																																							REMOVABLE:NO	TYPE:BaseInt
+
+# Set Race Size
+Size ~ T					SIZE:T	VISIBLE:NO
+Size ~ S					SIZE:S	VISIBLE:NO
+Size ~ M					SIZE:M	VISIBLE:NO
+Size ~ L					SIZE:L	VISIBLE:NO
+Size ~ H					SIZE:H	VISIBLE:NO
+Size ~ G					SIZE:G	VISIBLE:NO
+Size ~ C					SIZE:C	VISIBLE:NO
+
+
+
+
+
+
+
+
+Locked1stLevelLanguages																																																																																														CHOOSE:TEMPLATE|QUALIFIED[TYPE=1st Level Languages]																															REMOVABLE:NO
+Language +0																							PREVAREQ:Locked1stLevelLanguages,0																																																																																																														TYPE:1st Level Languages
+Language +1																							PREVAREQ:Locked1stLevelLanguages,1					BONUS:ABILITYPOOL|Ancestry Bonus Language|1																																																																																																		TYPE:1st Level Languages
+Language +2																							PREVAREQ:Locked1stLevelLanguages,2					BONUS:ABILITYPOOL|Ancestry Bonus Language|2																																																																																																		TYPE:1st Level Languages
+Language +3																							PREVAREQ:Locked1stLevelLanguages,3					BONUS:ABILITYPOOL|Ancestry Bonus Language|3																																																																																																		TYPE:1st Level Languages
+Language +4																							PREVAREQ:Locked1stLevelLanguages,4					BONUS:ABILITYPOOL|Ancestry Bonus Language|4																																																																																																		TYPE:1st Level Languages
+
+
+# Workaround
+#Alchemy	ADD:SPELLCASTER|Alchemy	BONUS:PCLEVEL|Alchemy|TL-1
+
+
+
+
+FT_Aquatic_HasSwim					VISIBLE:NO											PREMOVE:1,Swim=1																				BONUS:MOVEADD|TYPE.Swim|10
+FT_Aquatic_NoSwim						VISIBLE:NO											!PREMOVE:1,Swim=1																																																																																																														MOVECLONE:Walk,Swim,*1
+FT_HasClimb							VISIBLE:NO											PREMOVE:1,Climb=1																				BONUS:MOVEADD|TYPE.Climb|10
+FT_NoClimb							VISIBLE:NO											!PREMOVE:1,Climb=1																																																																																																													MOVECLONE:Walk,Climb,*1
+
+
+Alchemy
+
+
+01 - RULE - Display Lore Skills			VISIBLE:YES					DEFINE:DisplayLoreSkills|0																													BONUS:VAR|DisplayLoreSkills|1|TYPE=Boolean
+01 - RULE - Display SubSkills				VISIBLE:YES					DEFINE:DisplaySubSkills|0																													BONUS:VAR|DisplaySubSkills|1|TYPE=Boolean

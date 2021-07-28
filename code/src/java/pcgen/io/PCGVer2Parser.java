@@ -46,13 +46,11 @@ import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
-import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.Handed;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
-import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.Region;
@@ -72,6 +70,7 @@ import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.CompanionList;
 import pcgen.cdom.list.DomainSpellList;
+import pcgen.cdom.util.CControl;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.BonusManager;
@@ -132,8 +131,11 @@ import pcgen.io.migration.EquipmentMigration;
 import pcgen.io.migration.RaceMigration;
 import pcgen.io.migration.SourceMigration;
 import pcgen.io.migration.SpellMigration;
+import pcgen.output.channel.ChannelUtilities;
 import pcgen.output.channel.compat.AlignmentCompat;
+import pcgen.output.channel.compat.HairColorCompat;
 import pcgen.output.channel.compat.HandedCompat;
+import pcgen.output.channel.compat.HeightCompat;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.system.FacadeFactory;
@@ -479,8 +481,10 @@ final class PCGVer2Parser implements PCGParser
 	{
 		try
 		{
-			thePC.setPCAttribute(NumericPCAttribute.AGE,
-				Integer.parseInt(line.substring(IOConstants.TAG_AGE.length() + 1)));
+			int age = Integer
+				.parseInt(line.substring(IOConstants.TAG_AGE.length() + 1));
+			ChannelUtilities.setControlledChannel(thePC.getCharID(),
+				CControl.AGEINPUT, age);
 		}
 		catch (NumberFormatException nfe)
 		{
@@ -1355,11 +1359,11 @@ final class PCGVer2Parser implements PCGParser
 			}
 		}
 
-		if (cache.containsKey(IOConstants.TAG_SUPPRESS_BIO_FIELDS))
+		if(cache.containsKey(IOConstants.TAG_PREVIEWSHEETVAR))
 		{
-			for (final String line : cache.get(IOConstants.TAG_SUPPRESS_BIO_FIELDS))
+			for(final String line : cache.get(IOConstants.TAG_PREVIEWSHEETVAR))
 			{
-				parseSupressBioFieldsLine(line);
+				parsePreviewSheetVarLine(line);
 			}
 		}
 
@@ -2061,7 +2065,8 @@ final class PCGVer2Parser implements PCGParser
 				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Deity.class, deityKey);
 		if (aDeity != null)
 		{
-			thePC.setDeity(aDeity);
+			ChannelUtilities.setControlledChannel(thePC.getCharID(),
+				CControl.DEITYINPUT, aDeity);
 		}
 		else if (!Constants.NONE.equals(deityKey))
 		{
@@ -2290,15 +2295,24 @@ final class PCGVer2Parser implements PCGParser
 			final String message = "Character type " + wantedType + " not found. Using " + characterType; //$NON-NLS-1$
 			warnings.add(message);
 		}
-		thePC.setCharacterType(characterType);
+		ChannelUtilities.setControlledChannel(thePC.getCharID(),
+			CControl.CHARACTERTYPE, characterType);
 	}
 
 	private void parsePreviewSheetLine(final String line)
 	{
 		final StringTokenizer stok = new StringTokenizer(line.substring(IOConstants.TAG_PREVIEWSHEET.length() + 1),
-			IOConstants.TAG_END, false);
+				IOConstants.TAG_END, false);
 
 		thePC.setPreviewSheet(stok.nextToken());
+	}
+
+	private void parsePreviewSheetVarLine(final String line)
+	{
+		final String subLine = line.substring(IOConstants.TAG_PREVIEWSHEETVAR.length() + 1);
+		final StringTokenizer stok = new StringTokenizer(subLine, IOConstants.TAG_SEPARATOR, false);
+
+		thePC.addPreviewSheetVar(stok.nextToken(), stok.nextToken());
 	}
 
 	/*
@@ -2902,14 +2916,16 @@ final class PCGVer2Parser implements PCGParser
 
 	private void parseHairColorLine(final String line)
 	{
-		thePC.setPCAttribute(PCStringKey.HAIRCOLOR,
-			EntityEncoder.decode(line.substring(IOConstants.TAG_HAIRCOLOR.length() + 1)));
+		HairColorCompat.setCurrentHairColor(thePC.getCharID(), 
+				EntityEncoder.decode(line.substring(IOConstants.TAG_HAIRCOLOR.length() + 1)));
 	}
 
 	private void parseHairStyleLine(final String line)
 	{
-		thePC.setPCAttribute(PCStringKey.HAIRSTYLE,
-			EntityEncoder.decode(line.substring(IOConstants.TAG_HAIRSTYLE.length() + 1)));
+		String hairStyle = EntityEncoder
+			.decode(line.substring(IOConstants.TAG_HAIRSTYLE.length() + 1));
+		ChannelUtilities.setControlledChannel(thePC.getCharID(),
+			CControl.HAIRSTYLEINPUT, hairStyle);
 	}
 
 	private void parseHandedLine(final String line)
@@ -2935,7 +2951,8 @@ final class PCGVer2Parser implements PCGParser
 	{
 		try
 		{
-			thePC.setHeight(Integer.parseInt(line.substring(IOConstants.TAG_HEIGHT.length() + 1)));
+			int height = Integer.parseInt(line.substring(IOConstants.TAG_HEIGHT.length() + 1));
+			HeightCompat.setCurrentHeight(thePC.getCharID(), height);
 		}
 		catch (NumberFormatException nfe)
 		{
@@ -3315,23 +3332,6 @@ final class PCGVer2Parser implements PCGParser
 	}
 
 	/**
-	 * Biography fields that are to be hidden from output.
-	 * @param line The SUPPRESS_BIO_FIELDS line
-	 */
-	private void parseSupressBioFieldsLine(final String line)
-	{
-		String fieldNames = EntityEncoder.decode(line.substring(IOConstants.TAG_SUPPRESS_BIO_FIELDS.length() + 1));
-		if (!fieldNames.isEmpty())
-		{
-			String[] names = fieldNames.split("\\|");
-			for (String field : names)
-			{
-				thePC.setSuppressBioField(BiographyField.valueOf(field), true);
-			}
-		}
-	}
-
-	/**
 	 * # PDF Output Sheet location
 	 * @param line
 	 **/
@@ -3692,8 +3692,10 @@ final class PCGVer2Parser implements PCGParser
 
 	private void parseSkinColorLine(final String line)
 	{
-		thePC.setPCAttribute(PCStringKey.SKINCOLOR,
-			EntityEncoder.decode(line.substring(IOConstants.TAG_SKINCOLOR.length() + 1)));
+		String color = EntityEncoder
+			.decode(line.substring(IOConstants.TAG_SKINCOLOR.length() + 1));
+		ChannelUtilities.setControlledChannel(thePC.getCharID(),
+			CControl.SKINCOLORINPUT, color);
 	}
 
 	private void parseSpeechPatternLine(final String line)
@@ -4606,7 +4608,7 @@ final class PCGVer2Parser implements PCGParser
 	{
 		try
 		{
-			thePC.setPCAttribute(NumericPCAttribute.WEIGHT,
+			thePC.setWeight(
 				Integer.parseInt(line.substring(IOConstants.TAG_WEIGHT.length() + 1)));
 		}
 		catch (NumberFormatException nfe)
@@ -5024,7 +5026,10 @@ final class PCGVer2Parser implements PCGParser
 	 */
 	private void parseMoneyLine(final String line)
 	{
-		thePC.setGold(line.substring(IOConstants.TAG_MONEY.length() + 1));
+		BigDecimal bd = new BigDecimal(
+			line.substring(IOConstants.TAG_MONEY.length() + 1));
+		ChannelUtilities.setControlledChannel(thePC.getCharID(),
+			CControl.GOLDINPUT, bd);
 	}
 
 	/**

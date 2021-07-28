@@ -7,7 +7,6 @@ import java.time.LocalDateTime
  *
  * Usage: gradle builddist
  */
-
 ext {
     zipRootFolder = "pcgen"
 
@@ -42,11 +41,6 @@ ext {
     }
     
     programDistsImage = copySpec {
-        from("$buildDir/libs") {
-            include 'pcgen-*.jar'
-            // Use a regular expression to map the file name
-            rename "(.+)-$version(.+)", '$1$2'
-        }
         from("$buildDir/launch4j") {
             include 'pcgen.exe'
         }
@@ -60,10 +54,7 @@ ext {
         }
         from('code') {
             include 'LICENSE'
-	    include 'pcgen.bat'
-	    include 'pcgen_JREx32.bat'
-	    include 'pcgen_JREx64.bat'
-            include 'pcgen.sh'
+
             eachFile{ file ->
                 if(file.getName().endsWith(".sh")) {
                     file.setMode(0755)
@@ -92,23 +83,46 @@ ext {
     }
 }
 
-task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', 'copyToOutput', \
-'downloadJRE']) {
-    classifier = 'full'
-    into(zipRootFolder) {
-        with dataDistsImage
-        with docsDistsImage
-        with programDistsImage
-        with programScriptImage
-        with libsDistsImage
-        with autobuildSpec
-        with charactersImage
-        with jreImage
+applicationDistribution.with(dataDistsImage)
+applicationDistribution.with(docsDistsImage)
+applicationDistribution.with(autobuildSpec)
+applicationDistribution.with(charactersImage)
+applicationDistribution.with(programScriptImage)
+applicationDistribution.with(programDistsImage)
+
+application{
+    // Output the startScripts (.bat and .sh) in main distribute folder rather than .bin
+    executableDir = ""
+    applicationDefaultJvmArgs = ["-Dsun.java2d.d3d=false"]
+}
+
+run {
+    // Required to fixed incorrectly added "--module-path" and adds correct modules.
+    doFirst {
+        // -ea enables assertions
+        jvmArgs = ["-ea",
+                   "--enable-preview",
+                   "--module-path",
+                   "${projectDir}/mods/lib/",
+                   "--add-modules", "javafx.controls,javafx.web,javafx.swing,javafx.fxml",
+        ]
+
+    }
+}
+tasks.run.dependsOn(assemble)
+tasks.run.dependsOn(downloadJavaFXModules)
+
+installDist.doLast{
+    delete {
+        delete fileTree("${buildDir}/install/pcgen/lib") {
+            include 'javafx-*'
+        }
     }
 }
 
-task testZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', \
-'copyToOutput']) {
+[distZip, distTar, installDist]*.dependsOn createExe
+
+task testZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', 'copyToOutput']) {
     classifier = 'test'
     into(zipRootFolder) {
         with dataDistsImage
@@ -153,7 +167,6 @@ task libsZip(type: Zip, dependsOn: 'copyToLibs') {
     }
 }
 
-task buildDist(dependsOn: ['dataZip', 'docsZip', 'programZip', 'libsZip', \
-'fullZip']) {
+task buildDist(dependsOn: ['dataZip', 'docsZip', 'programZip', 'libsZip', 'runtimeZip']) {
     description = "Build the five zip files (docs, data, program, libs and full) which comprise the autobuild distribution."
 }

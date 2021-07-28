@@ -1,0 +1,17 @@
+# Sun Aug 23 16:50:57 2020 -- reformatted by PCGen TidyLst v1.04.00
+
+# Template Name	Size		Visible	Ability																		Subrace
+Imago			SIZE:M	VISIBLE:NO	ABILITY:Dessamar Imago Racial Trait|AUTOMATIC|Imago ~ IMAGO MOVEMENT|Imago ~ DREAM SKILL|Imago ~ FRAGILE LIMBS	SUBRACE:Imago
+Instar		SIZE:S	VISIBLE:NO	ABILITY:Dessamar Instar Racial Trait|AUTOMATIC|Instar ~ INSTAR MOVEMENT|Instar ~ DREAM DUST|Instar ~ POOR VISION	SUBRACE:Instar
+
+# Template Name		Visible	Ability
+Airjet Krikik		VISIBLE:NO	ABILITY:Racial Trait|AUTOMATIC|Cephalume Symbiote Selection ~ Airjet Krikik
+Electrostatic Kirkik	VISIBLE:NO	ABILITY:Racial Trait|AUTOMATIC|Cephalume Symbiote Selection ~ Electrostatic Kirkik
+Sharprock Krikik		VISIBLE:NO	ABILITY:Racial Trait|AUTOMATIC|Cephalume Symbiote Selection ~ Sharprock Krikik
+Siltsight Krikik		VISIBLE:NO	ABILITY:Racial Trait|AUTOMATIC|Cephalume Symbiote Selection ~ Siltsight Krikik
+Tentacle Krikik		VISIBLE:NO	ABILITY:Racial Trait|AUTOMATIC|Cephalume Symbiote Selection ~ Tentacle Krikik
+
+# Template Name	Visible	Ability
+Indigo Ijtikri	VISIBLE:NO	ABILITY:Racial Trait|AUTOMATIC|Ijtikri Mineral Signature Selection ~ Indigo
+Crimson Ijtikri	VISIBLE:NO	ABILITY:Racial Trait|AUTOMATIC|Ijtikri Mineral Signature Selection ~ Crimson
+Gray Ijtikri	VISIBLE:NO	ABILITY:Racial Trait|AUTOMATIC|Ijtikri Mineral Signature Selection ~ Gray

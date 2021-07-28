@@ -84,7 +84,10 @@ public abstract class AbstractPCQualifierTokenTestCase<T extends CDOMObject>
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		Collection<?> set = info.getSet(pc);
-		assertTrue(set.isEmpty());
+		if(!typeHasDefault())
+		{
+			assertTrue(set.isEmpty());
+		}
 		addToPCSet(pc, wp1);
 		set = info.getSet(pc);
 		assertFalse(set.isEmpty());
@@ -104,6 +107,11 @@ public abstract class AbstractPCQualifierTokenTestCase<T extends CDOMObject>
 			assertEquals(1, set.size());
 			assertTrue(set.contains(wp2));
 		}
+	}
+
+	protected boolean typeHasDefault()
+	{
+		return false;
 	}
 
 	@Override

@@ -10,6 +10,10 @@ It supports numerous game systems, most notably:
 - Starfinder
 
 # Table of Contents
+1. [Installing From Release 6.08](#installing-from-release-608)
+
+1. [Installing From Release 6.09 (Alpha)](#installing-from-release-609-alpha)
+
 1. [PCGen Needs You](#pcgen-needs-you)
 
 1. [The Old Wiki](#the-old-wiki)
@@ -22,9 +26,47 @@ It supports numerous game systems, most notably:
 
 1. [Essential Gradle Tasks](#essential-gradle-tasks)
 
+# Installing From Release 6.08
+1. Install Java.
+   - JDK 11 is recommended and has long term support, later versions should also work. 10 and below are not supported.
+   - To check if you have Java installed, see [Install Java](#install-java)
+   - If you don't have it already, you can get it from [AdoptOpenJDK](https://adoptopenjdk.net/installation.html?variant=openjdk11&jvmVariant=hotspot).
+   
+1. Download and extract the full zip file from https://github.com/PCGen/pcgen/releases/latest.
+
+1. You should now be able to run PCGen. The exact invocation depends on your operating system, but you should be able to either double-click to launch the file for your platform.
+    - Windows: `pcgen.exe` (`pcgen.bat` for command-line users)
+    - Linux: `pcgen.sh` 
+    - Mac: `pcgen.jar` (or `pcgen.dmg` if it exists)
+    
+# Installing From Release 6.09 (Alpha)
+> Note: Java does not need to be preinstalled with PcGen >6.09.05
+
+## Using Zip bundle
+1. Download and extract the full zip file from https://github.com/PCGen/pcgen/releases/ labled 6.09.xx.
+
+1. You should now be able to run PCGen. The exact invocation depends on your operating system, but you should be able to either double-click to launch the file for your platform.
+    - Windows: `pcgen.exe` (`pcgen.bat` for command-line users)
+    - Linux: `pcgen.sh`
+    - Mac: `pcgen.sh` (or `pcgen.dmg` if it exists. Launching .jar may throw java errors so generally avoid)
+
+## Using installer (windows and mac only)
+1. Download and extract the full installer from https://github.com/PCGen/pcgen/releases/ labled 6.09.xx. 
+    - Windows: `pcgen-6.09.xx_win_install.exe`
+    - Mac: `pcgen-6.09.xx.dmg` or `pcgen-6.09.xx.pkg`
+
+1. Run installer and follow instruction
+   - Windows: Open `pcgen-6.09.xx_win_install.exe`
+   - Mac:
+   - - `dmg`: Open `dmg` and drag into Applications. Right click on `PcGen` and click open.
+   - - `pkg`: Right click and `pkg` and click open and click `open` on security warning due to application being unsigned. 
+
+1. You should be able to launch PcGen as normal application.
+   -  Mac: You may need to on first launch right click on application and then click `open`.
+
 # PCGen Needs You
 
-PCGen is an open source program driven by cotributors, without your help no new fixes or content can be added.
+PCGen is an open source program driven by contributors, without your help no new fixes or content can be added.
 If you can program Java or want to contribute to expanding the book support please consider joining our team.
 Many of the original members have become inactive and we need new contributors to keep the project going.
 
@@ -69,7 +111,8 @@ Check the installed version with:
 
     java -version
 
-You will want Java with a minimum version of 11.
+For 6.08 development you will want Java with a minimum version of 11.
+For 6.09 development you will want Java with a minimum version of 14.
 You can install the latest version from [AdoptOpenJDK](https://adoptopenjdk.net) regardless of your OS, please see instructions there.
 
 ### Install Git

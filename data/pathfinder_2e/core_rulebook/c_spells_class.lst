@@ -1,0 +1,969 @@
+# Mon Mar 30 11:44:41 2020 -- reformatted by PCGen TidyLst v1.04.00
+# ARCANE SPELL LIST
+
+# Cantrips
+# Spell Name			Classes of caster
+
+# Spell Name			Classes of caster
+Acid splash.MOD			CLASSES:Arcane=0
+Chill touch.MOD			CLASSES:Arcane=0
+Dancing lights.MOD		CLASSES:Arcane=0
+Daze.MOD				CLASSES:Arcane=0
+Detect magic.MOD			CLASSES:Arcane=0
+Electric arc.MOD			CLASSES:Arcane=0
+Ghost sound.MOD			CLASSES:Arcane=0
+Light.MOD				CLASSES:Arcane=0
+Mage hand.MOD			CLASSES:Arcane=0
+Message.MOD				CLASSES:Arcane=0
+Prestidigitation.MOD		CLASSES:Arcane=0
+Produce flame.MOD			CLASSES:Arcane=0
+Ray of frost.MOD			CLASSES:Arcane=0
+Read aura.MOD			CLASSES:Arcane=0
+Shield.MOD				CLASSES:Arcane=0
+Sigil.MOD				CLASSES:Arcane=0
+Tanglefoot.MOD			CLASSES:Arcane=0
+Telekinetic projectile.MOD	CLASSES:Arcane=0
+#1st-Level Spells
+Air bubble.MOD			CLASSES:Arcane=1
+Alarm.MOD				CLASSES:Arcane=1
+Ant haul.MOD			CLASSES:Arcane=1
+Burning hands.MOD			CLASSES:Arcane=1
+Charm.MOD				CLASSES:Arcane=1
+Color spray.MOD			CLASSES:Arcane=1
+Command.MOD				CLASSES:Arcane=1
+Create water.MOD			CLASSES:Arcane=1
+Fear.MOD				CLASSES:Arcane=1
+Feather fall.MOD			CLASSES:Arcane=1
+Fleet step.MOD			CLASSES:Arcane=1
+Floating disk.MOD			CLASSES:Arcane=1
+Goblin pox.MOD			CLASSES:Arcane=1
+Grease.MOD				CLASSES:Arcane=1
+Grim tendrils.MOD			CLASSES:Arcane=1
+Gust of wind.MOD			CLASSES:Arcane=1
+Hydraulic push.MOD		CLASSES:Arcane=1
+Illusory disguise.MOD		CLASSES:Arcane=1
+Illusory object.MOD		CLASSES:Arcane=1
+Item facade.MOD			CLASSES:Arcane=1
+Jump.MOD				CLASSES:Arcane=1
+Lock.MOD				CLASSES:Arcane=1
+Longstrider.MOD			CLASSES:Arcane=1
+Mage armor.MOD			CLASSES:Arcane=1
+Magic aura.MOD			CLASSES:Arcane=1
+Magic missile.MOD			CLASSES:Arcane=1
+Magic weapon.MOD			CLASSES:Arcane=1
+Mending.MOD				CLASSES:Arcane=1
+Negate aroma.MOD			CLASSES:Arcane=1
+Pest form.MOD			CLASSES:Arcane=1
+Ray of enfeeblement.MOD		CLASSES:Arcane=1
+Shocking grasp.MOD		CLASSES:Arcane=1
+Sleep.MOD				CLASSES:Arcane=1
+Spider sting.MOD			CLASSES:Arcane=1
+Summon animal.MOD			CLASSES:Arcane=1
+Summon construct.MOD		CLASSES:Arcane=1
+True strike.MOD			CLASSES:Arcane=1
+Unseen servant.MOD		CLASSES:Arcane=1
+Ventriloquism.MOD			CLASSES:Arcane=1
+# 2nd-Level Spells
+Acid arrow.MOD			CLASSES:Arcane=2
+Blur.MOD				CLASSES:Arcane=2
+Comprehend language.MOD		CLASSES:Arcane=2
+Continual flame.MOD		CLASSES:Arcane=2
+Create food.MOD			CLASSES:Arcane=2
+Darkness.MOD			CLASSES:Arcane=2
+Darkvision.MOD			CLASSES:Arcane=2
+Deafness.MOD			CLASSES:Arcane=2
+Dispel magic.MOD			CLASSES:Arcane=2
+Endure elements.MOD		CLASSES:Arcane=2
+Enlarge.MOD				CLASSES:Arcane=2
+False life.MOD			CLASSES:Arcane=2
+Flaming sphere.MOD		CLASSES:Arcane=2
+Gentle repose.MOD			CLASSES:Arcane=2
+Glitterdust.MOD			CLASSES:Arcane=2
+Hideous laughter.MOD		CLASSES:Arcane=2
+Humanoid form.MOD			CLASSES:Arcane=2
+Illusory creature.MOD		CLASSES:Arcane=2
+Invisibility.MOD			CLASSES:Arcane=2
+Knock.MOD				CLASSES:Arcane=2
+Magic mouth.MOD			CLASSES:Arcane=2
+Mirror image.MOD			CLASSES:Arcane=2
+Misdirection.MOD			CLASSES:Arcane=2
+Obscuring mist.MOD		CLASSES:Arcane=2
+Phantom steed.MOD			CLASSES:Arcane=2
+Resist energy.MOD			CLASSES:Arcane=2
+See invisibility.MOD		CLASSES:Arcane=2
+Shrink.MOD				CLASSES:Arcane=2
+Spectral hand.MOD			CLASSES:Arcane=2
+Spider climb.MOD			CLASSES:Arcane=2
+Summon elemental.MOD		CLASSES:Arcane=2
+Telekinetic maneuver.MOD	CLASSES:Arcane=2
+Touch of idiocy.MOD		CLASSES:Arcane=2
+Water breathing.MOD		CLASSES:Arcane=2
+Water walk.MOD			CLASSES:Arcane=2
+Web.MOD				CLASSES:Arcane=2
+# 3rd-Level Spells
+Bind undead.MOD			CLASSES:Arcane=3
+Blindness.MOD			CLASSES:Arcane=3
+Clairaudience.MOD			CLASSES:Arcane=3
+Dream message.MOD			CLASSES:Arcane=3
+Earthbind.MOD			CLASSES:Arcane=3
+Enthrall.MOD			CLASSES:Arcane=3
+Feet to fins.MOD			CLASSES:Arcane=3
+Fireball.MOD			CLASSES:Arcane=3
+Ghostly weapon.MOD		CLASSES:Arcane=3
+Glyph of warding.MOD		CLASSES:Arcane=3
+Haste.MOD				CLASSES:Arcane=3
+Hypnotic pattern.MOD		CLASSES:Arcane=3
+Invisibility sphere.MOD		CLASSES:Arcane=3
+Levitate.MOD			CLASSES:Arcane=3
+Lightning bolt.MOD		CLASSES:Arcane=3
+Locate.MOD				CLASSES:Arcane=3
+Meld into stone.MOD		CLASSES:Arcane=3
+Mind reading.MOD			CLASSES:Arcane=3
+Nondetection.MOD			CLASSES:Arcane=3
+Paralyze.MOD			CLASSES:Arcane=3
+Secret page.MOD			CLASSES:Arcane=3
+Shrink item.MOD			CLASSES:Arcane=3
+Slow.MOD				CLASSES:Arcane=3
+Stinking cloud.MOD		CLASSES:Arcane=3
+Vampiric touch.MOD		CLASSES:Arcane=3
+Wall of wind.MOD			CLASSES:Arcane=3
+#4th-Level Spells
+Aerial form.MOD			CLASSES:Arcane=4
+Blink.MOD				CLASSES:Arcane=4
+Clairvoyance.MOD			CLASSES:Arcane=4
+Confusion.MOD			CLASSES:Arcane=4
+Creation.MOD			CLASSES:Arcane=4
+Detect scrying.MOD		CLASSES:Arcane=4
+Dimension door.MOD		CLASSES:Arcane=4
+Dimensional anchor.MOD		CLASSES:Arcane=4
+Discern lies.MOD			CLASSES:Arcane=4
+Fire shield.MOD			CLASSES:Arcane=4
+Fly.MOD				CLASSES:Arcane=4
+Freedom of movement.MOD		CLASSES:Arcane=4
+Gaseous form.MOD			CLASSES:Arcane=4
+Globe of invulnerability.MOD	CLASSES:Arcane=4
+Hallucinatory terrain.MOD	CLASSES:Arcane=4
+Nightmare.MOD			CLASSES:Arcane=4
+Outcast's curse.MOD		CLASSES:Arcane=4
+Phantasmal killer.MOD		CLASSES:Arcane=4
+Private sanctum.MOD		CLASSES:Arcane=4
+Resilient sphere.MOD		CLASSES:Arcane=4
+Rope trick.MOD			CLASSES:Arcane=4
+Shape stone.MOD			CLASSES:Arcane=4
+Solid fog.MOD			CLASSES:Arcane=4
+Spell immunity.MOD		CLASSES:Arcane=4
+Stoneskin.MOD			CLASSES:Arcane=4
+Suggestion.MOD			CLASSES:Arcane=4
+Telepathy.MOD			CLASSES:Arcane=4
+Veil.MOD				CLASSES:Arcane=4
+Wall of fire.MOD			CLASSES:Arcane=4
+Weapon storm.MOD			CLASSES:Arcane=4
+#5th-Level Spells
+Banishment.MOD			CLASSES:Arcane=5
+Black tentacles.MOD		CLASSES:Arcane=5
+Chromatic wall.MOD		CLASSES:Arcane=5
+Cloak of colors.MOD		CLASSES:Arcane=5
+Cloudkill.MOD			CLASSES:Arcane=5
+Cone of cold.MOD			CLASSES:Arcane=5
+Control water.MOD			CLASSES:Arcane=5
+Crushing despair.MOD		CLASSES:Arcane=5
+Drop dead.MOD			CLASSES:Arcane=5
+Elemental form.MOD		CLASSES:Arcane=5
+False vision.MOD			CLASSES:Arcane=5
+Hallucination.MOD			CLASSES:Arcane=5
+Illusory scene.MOD		CLASSES:Arcane=5
+Mariner's curse.MOD		CLASSES:Arcane=5
+Mind probe.MOD			CLASSES:Arcane=5
+Passwall.MOD			CLASSES:Arcane=5
+Prying eye.MOD			CLASSES:Arcane=5
+Sending.MOD				CLASSES:Arcane=5
+Shadow siphon.MOD			CLASSES:Arcane=5
+Shadow walk.MOD			CLASSES:Arcane=5
+Subconscious suggestion.MOD	CLASSES:Arcane=5
+Telekinetic haul.MOD		CLASSES:Arcane=5
+Telepathic bond.MOD		CLASSES:Arcane=5
+Tongues.MOD				CLASSES:Arcane=5
+Wall of ice.MOD			CLASSES:Arcane=5
+Wall of stone.MOD			CLASSES:Arcane=5
+# 6th-Level Spells
+Baleful polymorph.MOD		CLASSES:Arcane=6
+Chain lightning.MOD		CLASSES:Arcane=6
+Collective transposition.MOD	CLASSES:Arcane=6
+Disintegrate.MOD			CLASSES:Arcane=6
+Dominate.MOD			CLASSES:Arcane=6
+Dragon form.MOD			CLASSES:Arcane=6
+Feeblemind.MOD			CLASSES:Arcane=6
+Flesh to stone.MOD		CLASSES:Arcane=6
+Mislead.MOD				CLASSES:Arcane=6
+Phantasmal calamity.MOD		CLASSES:Arcane=6
+Purple worm sting.MOD		CLASSES:Arcane=6
+Repulsion.MOD			CLASSES:Arcane=6
+Scrying.MOD				CLASSES:Arcane=6
+Spellwrack.MOD			CLASSES:Arcane=6
+Teleport.MOD			CLASSES:Arcane=6
+True seeing.MOD			CLASSES:Arcane=6
+Vampiric exsanguination.MOD	CLASSES:Arcane=6
+Vibrant pattern.MOD		CLASSES:Arcane=6
+Wall of force.MOD			CLASSES:Arcane=6
+# 7th-Level Spells
+Contingency.MOD			CLASSES:Arcane=7
+Dimensional lock.MOD		CLASSES:Arcane=7
+Duplicate foe.MOD			CLASSES:Arcane=7
+Eclipse burst.MOD			CLASSES:Arcane=7
+Energy aegis.MOD			CLASSES:Arcane=7
+Fiery body.MOD			CLASSES:Arcane=7
+Magnificent mansion.MOD		CLASSES:Arcane=7
+Mask of terror.MOD		CLASSES:Arcane=7
+Plane shift.MOD			CLASSES:Arcane=7
+Power word blind.MOD		CLASSES:Arcane=7
+Prismatic spray.MOD		CLASSES:Arcane=7
+Project image.MOD			CLASSES:Arcane=7
+Reverse gravity.MOD		CLASSES:Arcane=7
+Spell turning.MOD			CLASSES:Arcane=7
+True target.MOD			CLASSES:Arcane=7
+Warp mind.MOD			CLASSES:Arcane=7
+#8th-Level Spells
+Antimagic field.MOD		CLASSES:Arcane=8
+Disappearance.MOD			CLASSES:Arcane=8
+Discern location.MOD		CLASSES:Arcane=8
+Dream council.MOD			CLASSES:Arcane=8
+Earthquake.MOD			CLASSES:Arcane=8
+Horrid wilting.MOD		CLASSES:Arcane=8
+Maze.MOD				CLASSES:Arcane=8
+Mind blank.MOD			CLASSES:Arcane=8
+Monstrosity form.MOD		CLASSES:Arcane=8
+Polar ray.MOD			CLASSES:Arcane=8
+Power word stun.MOD		CLASSES:Arcane=8
+Prismatic wall.MOD		CLASSES:Arcane=8
+Scintillating pattern.MOD	CLASSES:Arcane=8
+Uncontrollable dance.MOD	CLASSES:Arcane=8
+Unrelenting observation.MOD	CLASSES:Arcane=8
+#9th-Level Spells
+Disjunction.MOD			CLASSES:Arcane=9
+Foresight.MOD			CLASSES:Arcane=9
+Implosion.MOD			CLASSES:Arcane=9
+Massacre.MOD			CLASSES:Arcane=9
+Meteor swarm.MOD			CLASSES:Arcane=9
+Power word kill.MOD		CLASSES:Arcane=9
+Prismatic sphere.MOD		CLASSES:Arcane=9
+Resplendent mansion.MOD		CLASSES:Arcane=9
+Shapechange.MOD			CLASSES:Arcane=9
+Telepathic demand.MOD		CLASSES:Arcane=9
+Weird.MOD				CLASSES:Arcane=9
+#10th-Level Spells
+Cataclysm.MOD			CLASSES:Arcane=10
+Gate.MOD				CLASSES:Arcane=10
+Remake.MOD				CLASSES:Arcane=10
+Time stop.MOD			CLASSES:Arcane=10
+Wish.MOD				CLASSES:Arcane=10
+
+### Divine Spell List
+#Cantrips
+Chill touch.MOD			CLASSES:Divine=0
+Daze.MOD				CLASSES:Divine=0
+Detect magic.MOD			CLASSES:Divine=0
+Disrupt undead.MOD		CLASSES:Divine=0
+Divine lance.MOD			CLASSES:Divine=0
+Forbidding ward.MOD		CLASSES:Divine=0
+Guidance.MOD			CLASSES:Divine=0
+Know direction.MOD		CLASSES:Divine=0
+Light.MOD				CLASSES:Divine=0
+Message.MOD				CLASSES:Divine=0
+Prestidigitation.MOD		CLASSES:Divine=0
+Read aura.MOD			CLASSES:Divine=0
+Shield.MOD				CLASSES:Divine=0
+Sigil.MOD				CLASSES:Divine=0
+Stabilize.MOD			CLASSES:Divine=0
+#1st-Level Spells
+Air bubble.MOD			CLASSES:Divine=1
+Alarm.MOD				CLASSES:Divine=1
+Bane.MOD				CLASSES:Divine=1
+Bless.MOD				CLASSES:Divine=1
+Command.MOD				CLASSES:Divine=1
+Create water.MOD			CLASSES:Divine=1
+Detect alignment.MOD		CLASSES:Divine=1
+Detect poison.MOD			CLASSES:Divine=1
+Disrupting weapons.MOD		CLASSES:Divine=1
+Fear.MOD				CLASSES:Divine=1
+Harm.MOD				CLASSES:Divine=1
+Heal.MOD				CLASSES:Divine=1
+Lock.MOD				CLASSES:Divine=1
+Magic weapon.MOD			CLASSES:Divine=1
+Mending.MOD				CLASSES:Divine=1
+Protection.MOD			CLASSES:Divine=1
+Purify food and drink.MOD	CLASSES:Divine=1
+Ray of enfeeblement.MOD		CLASSES:Divine=1
+Sanctuary.MOD			CLASSES:Divine=1
+Spirit link.MOD			CLASSES:Divine=1
+Ventriloquism.MOD			CLASSES:Divine=1
+#2nd-Level Spells
+Augury.MOD				CLASSES:Divine=2
+Calm emotions.MOD			CLASSES:Divine=2
+Comprehend language.MOD		CLASSES:Divine=2
+Continual flame.MOD		CLASSES:Divine=2
+Create food.MOD			CLASSES:Divine=2
+Darkness.MOD			CLASSES:Divine=2
+Darkvision.MOD			CLASSES:Divine=2
+Deafness.MOD			CLASSES:Divine=2
+Death knell.MOD			CLASSES:Divine=2
+Dispel magic.MOD			CLASSES:Divine=2
+Endure elements.MOD		CLASSES:Divine=2
+Enhance victuals.MOD		CLASSES:Divine=2
+Faerie fire.MOD			CLASSES:Divine=2
+Gentle repose.MOD			CLASSES:Divine=2
+Ghoulish cravings.MOD		CLASSES:Divine=2
+Remove fear.MOD			CLASSES:Divine=2
+Remove paralysis.MOD		CLASSES:Divine=2
+Resist energy.MOD			CLASSES:Divine=2
+Restoration.MOD			CLASSES:Divine=2
+Restore senses.MOD		CLASSES:Divine=2
+See invisibility.MOD		CLASSES:Divine=2
+Shield other.MOD			CLASSES:Divine=2
+Silence.MOD				CLASSES:Divine=2
+Sound burst.MOD			CLASSES:Divine=2
+Spiritual weapon.MOD		CLASSES:Divine=2
+Status.MOD				CLASSES:Divine=2
+Undetectable alignment.MOD	CLASSES:Divine=2
+Water breathing.MOD		CLASSES:Divine=2
+Water walk.MOD			CLASSES:Divine=2
+#3rd-Level Spells
+Bind undead.MOD			CLASSES:Divine=3
+Blindness.MOD			CLASSES:Divine=3
+Chilling darkness.MOD		CLASSES:Divine=3
+Circle of protection.MOD	CLASSES:Divine=3
+Crisis of faith.MOD		CLASSES:Divine=3
+Dispel magic.MOD			CLASSES:Divine=3
+Dream message.MOD			CLASSES:Divine=3
+Glyph of warding.MOD		CLASSES:Divine=3
+Heroism.MOD				CLASSES:Divine=3
+Locate.MOD				CLASSES:Divine=3
+Neutralize poison.MOD		CLASSES:Divine=3
+Remove disease.MOD		CLASSES:Divine=3
+Sanctified ground.MOD		CLASSES:Divine=3
+Searing light.MOD			CLASSES:Divine=3
+Vampiric touch.MOD		CLASSES:Divine=3
+Wanderer's guide.MOD		CLASSES:Divine=3
+Zone of truth.MOD			CLASSES:Divine=3
+#4th-Level Spells
+Air walk.MOD			CLASSES:Divine=4
+Anathematic reprisal.MOD	CLASSES:Divine=4
+Dimensional anchor.MOD		CLASSES:Divine=4
+Discern lies.MOD			CLASSES:Divine=4
+Divine wrath.MOD			CLASSES:Divine=4
+Freedom of movement.MOD		CLASSES:Divine=4
+Globe of invulnerability.MOD	CLASSES:Divine=4
+Holy cascade.MOD			CLASSES:Divine=4
+Outcast's curse.MOD		CLASSES:Divine=4
+Read omens.MOD			CLASSES:Divine=4
+Remove curse.MOD			CLASSES:Divine=4
+Spell immunity.MOD		CLASSES:Divine=4
+Talking corpse.MOD		CLASSES:Divine=4
+Vital beacon.MOD			CLASSES:Divine=4
+#5th-Level Spells
+Abyssal plague.MOD		CLASSES:Divine=5
+Banishment.MOD			CLASSES:Divine=5
+Breath of life.MOD		CLASSES:Divine=5
+Death ward.MOD			CLASSES:Divine=5
+Drop dead.MOD			CLASSES:Divine=5
+Flame strike.MOD			CLASSES:Divine=5
+Prying eye.MOD			CLASSES:Divine=5
+Sending.MOD				CLASSES:Divine=5
+Shadow blast.MOD			CLASSES:Divine=5
+Spiritual guardian.MOD		CLASSES:Divine=5
+Summon celestial.MOD		CLASSES:Divine=5
+Summon fiend.MOD			CLASSES:Divine=5
+Tongues.MOD				CLASSES:Divine=5
+#6th-Level Spells
+Blade barrier.MOD			CLASSES:Divine=6
+Field of life.MOD			CLASSES:Divine=6
+Raise dead.MOD			CLASSES:Divine=6
+Repulsion.MOD			CLASSES:Divine=6
+Righteous might.MOD		CLASSES:Divine=6
+Spellwrack.MOD			CLASSES:Divine=6
+Spirit blast.MOD			CLASSES:Divine=6
+Stone tell.MOD			CLASSES:Divine=6
+Stone to flesh.MOD		CLASSES:Divine=6
+True seeing.MOD			CLASSES:Divine=6
+Vampiric exsanguination.MOD	CLASSES:Divine=6
+Zealous conviction.MOD		CLASSES:Divine=6
+#7th-Level Spells
+Dimensional lock.MOD		CLASSES:Divine=7
+Divine decree.MOD			CLASSES:Divine=7
+Divine vessel.MOD			CLASSES:Divine=7
+Eclipse burst.MOD			CLASSES:Divine=7
+Energy aegis.MOD			CLASSES:Divine=7
+Ethereal jaunt.MOD		CLASSES:Divine=7
+Finger of death.MOD		CLASSES:Divine=7
+Plane shift.MOD			CLASSES:Divine=7
+Regenerate.MOD			CLASSES:Divine=7
+Sunburst.MOD			CLASSES:Divine=7
+#8th-Level Spells
+Antimagic field.MOD		CLASSES:Divine=8
+Discern location.MOD		CLASSES:Divine=8
+Divine aura.MOD			CLASSES:Divine=8
+Divine inspiration.MOD		CLASSES:Divine=8
+Moment of renewal.MOD		CLASSES:Divine=8
+Spiritual epidemic.MOD		CLASSES:Divine=8
+#9th-Level Spells
+Bind soul.MOD			CLASSES:Divine=9
+Crusade.MOD				CLASSES:Divine=9
+Foresight.MOD			CLASSES:Divine=9
+Massacre.MOD			CLASSES:Divine=9
+Overwhelming presence.MOD	CLASSES:Divine=9
+Telepathic demand.MOD		CLASSES:Divine=9
+Wail of the banshee.MOD		CLASSES:Divine=9
+Weapon of judgment.MOD		CLASSES:Divine=9
+# 10th-Level Spells
+Avatar.MOD				CLASSES:Divine=10
+Gate.MOD				CLASSES:Divine=10
+Miracle.MOD				CLASSES:Divine=10
+Remake.MOD				CLASSES:Divine=10
+Revival.MOD				CLASSES:Divine=10
+
+# Occult Spell List
+#Cantrips
+Chill touch.MOD			CLASSES:Occult=0
+Dancing lights.MOD		CLASSES:Occult=0
+Daze.MOD				CLASSES:Occult=0
+Detect magic.MOD			CLASSES:Occult=0
+Forbidding ward.MOD		CLASSES:Occult=0
+Ghost sound.MOD			CLASSES:Occult=0
+Guidance.MOD			CLASSES:Occult=0
+Know direction.MOD		CLASSES:Occult=0
+Light.MOD				CLASSES:Occult=0
+Mage hand.MOD			CLASSES:Occult=0
+Message.MOD				CLASSES:Occult=0
+Prestidigitation.MOD		CLASSES:Occult=0
+Read aura.MOD			CLASSES:Occult=0
+Shield.MOD				CLASSES:Occult=0
+Sigil.MOD				CLASSES:Occult=0
+Telekinetic projectile.MOD	CLASSES:Occult=0
+#1st-Level Spells
+Alarm.MOD				CLASSES:Occult=1
+Bane.MOD				CLASSES:Occult=1
+Bless.MOD				CLASSES:Occult=1
+Charm.MOD				CLASSES:Occult=1
+Color spray.MOD			CLASSES:Occult=1
+Command.MOD				CLASSES:Occult=1
+Detect alignment.MOD		CLASSES:Occult=1
+Fear.MOD				CLASSES:Occult=1
+Floating disk.MOD			CLASSES:Occult=1
+Grim tendrils.MOD			CLASSES:Occult=1
+Illusory disguise.MOD		CLASSES:Occult=1
+Illusory object.MOD		CLASSES:Occult=1
+Item facade.MOD			CLASSES:Occult=1
+Lock.MOD				CLASSES:Occult=1
+Mage armor.MOD			CLASSES:Occult=1
+Magic aura.MOD			CLASSES:Occult=1
+Magic missile.MOD			CLASSES:Occult=1
+Magic weapon.MOD			CLASSES:Occult=1
+Mending.MOD				CLASSES:Occult=1
+Mindlink.MOD			CLASSES:Occult=1
+Phantom pain.MOD			CLASSES:Occult=1
+Protection.MOD			CLASSES:Occult=1
+Ray of enfeeblement.MOD		CLASSES:Occult=1
+Sanctuary.MOD			CLASSES:Occult=1
+Sleep.MOD				CLASSES:Occult=1
+Soothe.MOD				CLASSES:Occult=1
+Spirit link.MOD			CLASSES:Occult=1
+Summon fey.MOD			CLASSES:Occult=1
+True strike.MOD			CLASSES:Occult=1
+Unseen servant.MOD		CLASSES:Occult=1
+Ventriloquism.MOD			CLASSES:Occult=1
+#2nd-Level Spells
+Augury.MOD				CLASSES:Occult=2
+Blur.MOD				CLASSES:Occult=2
+Calm emotions.MOD			CLASSES:Occult=2
+Comprehend language.MOD		CLASSES:Occult=2
+Continual flame.MOD		CLASSES:Occult=2
+Darkness.MOD			CLASSES:Occult=2
+Darkvision.MOD			CLASSES:Occult=2
+Deafness.MOD			CLASSES:Occult=2
+Death knell.MOD			CLASSES:Occult=2
+Dispel Magic.MOD			CLASSES:Occult=2
+Faerie fire.MOD			CLASSES:Occult=2
+False life.MOD			CLASSES:Occult=2
+Gentle repose.MOD			CLASSES:Occult=2
+Ghoulish cravings.MOD		CLASSES:Occult=2
+Hideous laughter.MOD		CLASSES:Occult=2
+Humanoid form.MOD			CLASSES:Occult=2
+Illusory creature.MOD		CLASSES:Occult=2
+Invisibility.MOD			CLASSES:Occult=2
+Knock.MOD				CLASSES:Occult=2
+Magic mouth.MOD			CLASSES:Occult=2
+Mirror image.MOD			CLASSES:Occult=2
+Misdirection.MOD			CLASSES:Occult=2
+Paranoia.MOD			CLASSES:Occult=2
+Phantom steed.MOD			CLASSES:Occult=2
+Remove fear.MOD			CLASSES:Occult=2
+Remove paralysis.MOD		CLASSES:Occult=2
+Resist energy.MOD			CLASSES:Occult=2
+Restoration.MOD			CLASSES:Occult=2
+Restore senses.MOD		CLASSES:Occult=2
+See invisibility.MOD		CLASSES:Occult=2
+Shatter.MOD				CLASSES:Occult=2
+Silence.MOD				CLASSES:Occult=2
+Sound burst.MOD			CLASSES:Occult=2
+Spectral hand.MOD			CLASSES:Occult=2
+Spiritual weapon.MOD		CLASSES:Occult=2
+Status.MOD				CLASSES:Occult=2
+Telekinetic maneuver.MOD	CLASSES:Occult=2
+Touch of idiocy.MOD		CLASSES:Occult=2
+Undetectable alignment.MOD	CLASSES:Occult=2
+#3rd-Level Spells
+Bind undead.MOD			CLASSES:Occult=3
+Blindness.MOD			CLASSES:Occult=3
+Circle of protection.MOD	CLASSES:Occult=3
+Clairaudience.MOD			CLASSES:Occult=3
+Dream message.MOD			CLASSES:Occult=3
+Enthrall.MOD			CLASSES:Occult=3
+Ghostly weapon.MOD		CLASSES:Occult=3
+Haste.MOD				CLASSES:Occult=3
+Heroism.MOD				CLASSES:Occult=3
+Hypercognition.MOD		CLASSES:Occult=3
+Hypnotic pattern.MOD		CLASSES:Occult=3
+Invisibility sphere.MOD		CLASSES:Occult=3
+Levitate.MOD			CLASSES:Occult=3
+Locate.MOD				CLASSES:Occult=3
+Mind reading.MOD			CLASSES:Occult=3
+Nondetection.MOD			CLASSES:Occult=3
+Paralyze.MOD			CLASSES:Occult=3
+Secret page.MOD			CLASSES:Occult=3
+Slow.MOD				CLASSES:Occult=3
+Vampiric touch.MOD		CLASSES:Occult=3
+Wanderer's guide.MOD		CLASSES:Occult=3
+Zone of truth.MOD			CLASSES:Occult=3
+#4th-Level Spells
+Blink.MOD				CLASSES:Occult=4
+Clairvoyance.MOD			CLASSES:Occult=4
+Confusion.MOD			CLASSES:Occult=4
+Detect scrying.MOD		CLASSES:Occult=4
+Dimension door.MOD		CLASSES:Occult=4
+Dimensional anchor.MOD		CLASSES:Occult=4
+Discern lies.MOD			CLASSES:Occult=4
+Fly.MOD				CLASSES:Occult=4
+Gaseous form.MOD			CLASSES:Occult=4
+Glibness.MOD			CLASSES:Occult=4
+Globe of invulnerability.MOD	CLASSES:Occult=4
+Hallucinatory terrain.MOD	CLASSES:Occult=4
+Modify memory.MOD			CLASSES:Occult=4
+Nightmare.MOD			CLASSES:Occult=4
+Outcast's curse.MOD		CLASSES:Occult=4
+Phantasmal killer.MOD		CLASSES:Occult=4
+Private sanctum.MOD		CLASSES:Occult=4
+Read omens.MOD			CLASSES:Occult=4
+Remove curse.MOD			CLASSES:Occult=4
+Resilient sphere.MOD		CLASSES:Occult=4
+Rope trick.MOD			CLASSES:Occult=4
+Spell immunity.MOD		CLASSES:Occult=4
+Suggestion.MOD			CLASSES:Occult=4
+Talking corpse.MOD		CLASSES:Occult=4
+Telepathy.MOD			CLASSES:Occult=4
+Veil.MOD				CLASSES:Occult=4
+#5th-Level Spells
+Abyssal plague.MOD		CLASSES:Occult=5
+Banishment.MOD			CLASSES:Occult=5
+Black tentacles.MOD		CLASSES:Occult=5
+Chromatic wall.MOD		CLASSES:Occult=5
+Cloak of colors.MOD		CLASSES:Occult=5
+Crushing despair.MOD		CLASSES:Occult=5
+Death ward.MOD			CLASSES:Occult=5
+Dreaming potential.MOD		CLASSES:Occult=5
+False vision.MOD			CLASSES:Occult=5
+Hallucination.MOD			CLASSES:Occult=5
+Illusory scene.MOD		CLASSES:Occult=5
+Mariner's curse.MOD		CLASSES:Occult=5
+Mind probe.MOD			CLASSES:Occult=5
+Prying eye.MOD			CLASSES:Occult=5
+Sending.MOD				CLASSES:Occult=5
+Shadow blast.MOD			CLASSES:Occult=5
+Shadow siphon.MOD			CLASSES:Occult=5
+Shadow walk.MOD			CLASSES:Occult=5
+Subconscious suggestion.MOD	CLASSES:Occult=5
+Summon entity.MOD			CLASSES:Occult=5
+Synaptic pulse.MOD		CLASSES:Occult=5
+Synesthesia.MOD			CLASSES:Occult=5
+Telekinetic haul.MOD		CLASSES:Occult=5
+Telepathic bond.MOD		CLASSES:Occult=5
+Tongues.MOD				CLASSES:Occult=5
+#6th-Level Spells
+Collective transposition.MOD	CLASSES:Occult=6
+Dominate.MOD			CLASSES:Occult=6
+Feeblemind.MOD			CLASSES:Occult=6
+Mislead.MOD				CLASSES:Occult=6
+Phantasmal calamity.MOD		CLASSES:Occult=6
+Repulsion.MOD			CLASSES:Occult=6
+Scrying.MOD				CLASSES:Occult=6
+Spellwrack.MOD			CLASSES:Occult=6
+Spirit blast.MOD			CLASSES:Occult=6
+Teleport.MOD			CLASSES:Occult=6
+True seeing.MOD			CLASSES:Occult=6
+Vampiric exsanguination.MOD	CLASSES:Occult=6
+Vibrant pattern.MOD		CLASSES:Occult=6
+Wall of force.MOD			CLASSES:Occult=6
+Zealous conviction.MOD		CLASSES:Occult=6
+#7th-Level Spells
+Dimensional lock.MOD		CLASSES:Occult=7
+Duplicate foe.MOD			CLASSES:Occult=7
+Energy aegis.MOD			CLASSES:Occult=7
+Ethereal jaunt.MOD		CLASSES:Occult=7
+Magnificent mansion.MOD		CLASSES:Occult=7
+Mask of terror.MOD		CLASSES:Occult=7
+Plane shift.MOD			CLASSES:Occult=7
+Possession.MOD			CLASSES:Occult=7
+Prismatic spray.MOD		CLASSES:Occult=7
+Project image.MOD			CLASSES:Occult=7
+Retrocognition.MOD		CLASSES:Occult=7
+Reverse gravity.MOD		CLASSES:Occult=7
+True target.MOD			CLASSES:Occult=7
+Visions of danger.MOD		CLASSES:Occult=7
+Warp mind.MOD			CLASSES:Occult=7
+#8th-Level Spells
+Antimagic field.MOD		CLASSES:Occult=8
+Disappearance.MOD			CLASSES:Occult=8
+Discern location.MOD		CLASSES:Occult=8
+Dream council.MOD			CLASSES:Occult=8
+Maze.MOD				CLASSES:Occult=8
+Mind blank.MOD			CLASSES:Occult=8
+Prismatic wall.MOD		CLASSES:Occult=8
+Scintillating pattern.MOD	CLASSES:Occult=8
+Spirit song.MOD			CLASSES:Occult=8
+Spiritual epidemic.MOD		CLASSES:Occult=8
+Uncontrollable dance.MOD	CLASSES:Occult=8
+Unrelenting observation.MOD	CLASSES:Occult=8
+#9th-Level Spells
+Bind soul.MOD			CLASSES:Occult=9
+Foresight.MOD			CLASSES:Occult=9
+Overwhelming presence.MOD	CLASSES:Occult=9
+Prismatic sphere.MOD		CLASSES:Occult=9
+Resplendent mansion.MOD		CLASSES:Occult=9
+Telepathic demand.MOD		CLASSES:Occult=9
+Unfathomable song.MOD		CLASSES:Occult=9
+Wail of the banshee.MOD		CLASSES:Occult=9
+Weird.MOD				CLASSES:Occult=9
+#10th-Level Spells
+Alter reality.MOD			CLASSES:Occult=10
+Fabricated truth.MOD		CLASSES:Occult=10
+Gate.MOD				CLASSES:Occult=10
+Remake.MOD				CLASSES:Occult=10
+Time stop.MOD			CLASSES:Occult=10
+
+# Primal Spell List
+#Cantrips
+Acid splash.MOD			CLASSES:Primal=0
+Dancing lights.MOD		CLASSES:Primal=0
+Detect magic.MOD			CLASSES:Primal=0
+Disrupt undead.MOD		CLASSES:Primal=0
+Electric arc.MOD			CLASSES:Primal=0
+Guidance.MOD			CLASSES:Primal=0
+Know direction.MOD		CLASSES:Primal=0
+Light.MOD				CLASSES:Primal=0
+Prestidigitation.MOD		CLASSES:Primal=0
+Produce flame.MOD			CLASSES:Primal=0
+Ray of frost.MOD			CLASSES:Primal=0
+Read aura.MOD			CLASSES:Primal=0
+Sigil.MOD				CLASSES:Primal=0
+Stabilize.MOD			CLASSES:Primal=0
+Tanglefoot.MOD			CLASSES:Primal=0
+#1st-Level Spells
+Air bubble.MOD			CLASSES:Primal=1
+Alarm.MOD				CLASSES:Primal=1
+Ant haul.MOD			CLASSES:Primal=1
+Burning hands.MOD			CLASSES:Primal=1
+Charm.MOD				CLASSES:Primal=1
+Create water.MOD			CLASSES:Primal=1
+Detect poison.MOD			CLASSES:Primal=1
+Fear.MOD				CLASSES:Primal=1
+Feather fall.MOD			CLASSES:Primal=1
+Fleet step.MOD			CLASSES:Primal=1
+Goblin pox.MOD			CLASSES:Primal=1
+Grease.MOD				CLASSES:Primal=1
+Gust of wind.MOD			CLASSES:Primal=1
+Heal.MOD				CLASSES:Primal=1
+Hydraulic push.MOD		CLASSES:Primal=1
+Jump.MOD				CLASSES:Primal=1
+Longstrider.MOD			CLASSES:Primal=1
+Magic fang.MOD			CLASSES:Primal=1
+Mending.MOD				CLASSES:Primal=1
+Negate aroma.MOD			CLASSES:Primal=1
+Pass without trace.MOD		CLASSES:Primal=1
+Pest form.MOD			CLASSES:Primal=1
+Purify food and drink.MOD	CLASSES:Primal=1
+Shillelagh.MOD			CLASSES:Primal=1
+Shocking grasp.MOD		CLASSES:Primal=1
+Spider sting.MOD			CLASSES:Primal=1
+Summon animal.MOD			CLASSES:Primal=1
+Summon fey.MOD			CLASSES:Primal=1
+Summon plant or fungus.MOD	CLASSES:Primal=1
+Ventriloquism.MOD			CLASSES:Primal=1
+#2nd-Level Spells
+Acid arrow.MOD			CLASSES:Primal=2
+Animal form.MOD			CLASSES:Primal=2
+Animal messenger.MOD		CLASSES:Primal=2
+Barkskin.MOD			CLASSES:Primal=2
+Continual flame.MOD		CLASSES:Primal=2
+Create food.MOD			CLASSES:Primal=2
+Darkness.MOD			CLASSES:Primal=2
+Darkvision.MOD			CLASSES:Primal=2
+Deafness.MOD			CLASSES:Primal=2
+Dispel magic.MOD			CLASSES:Primal=2
+Endure elements.MOD		CLASSES:Primal=2
+Enhance victuals.MOD		CLASSES:Primal=2
+Enlarge.MOD				CLASSES:Primal=2
+Entangle.MOD			CLASSES:Primal=2
+Faerie fire.MOD			CLASSES:Primal=2
+Flaming sphere.MOD		CLASSES:Primal=2
+Gentle repose.MOD			CLASSES:Primal=2
+Glitterdust.MOD			CLASSES:Primal=2
+Humanoid form.MOD			CLASSES:Primal=2
+Obscuring mist.MOD		CLASSES:Primal=2
+Phantom steed.MOD			CLASSES:Primal=2
+Remove fear.MOD			CLASSES:Primal=2
+Remove paralysis.MOD		CLASSES:Primal=2
+Resist energy.MOD			CLASSES:Primal=2
+Restoration.MOD			CLASSES:Primal=2
+Restore senses.MOD		CLASSES:Primal=2
+Shape wood.MOD			CLASSES:Primal=2
+Shrink.MOD				CLASSES:Primal=2
+Speak with animals.MOD		CLASSES:Primal=2
+Spider climb.MOD			CLASSES:Primal=2
+Status.MOD				CLASSES:Primal=2
+Summon elemental.MOD		CLASSES:Primal=2
+Tree shape.MOD			CLASSES:Primal=2
+Water breathing.MOD		CLASSES:Primal=2
+Water walk.MOD			CLASSES:Primal=2
+Web.MOD				CLASSES:Primal=2
+#3rd-Level Spells
+Animal vision.MOD			CLASSES:Primal=3
+Blindness.MOD			CLASSES:Primal=3
+Earthbind.MOD			CLASSES:Primal=3
+Feet to fins.MOD			CLASSES:Primal=3
+Fireball.MOD			CLASSES:Primal=3
+Glyph of warding.MOD		CLASSES:Primal=3
+Haste.MOD				CLASSES:Primal=3
+Insect form.MOD			CLASSES:Primal=3
+Lightning bolt.MOD		CLASSES:Primal=3
+Meld into stone.MOD		CLASSES:Primal=3
+Neutralize poison.MOD		CLASSES:Primal=3
+Nondetection.MOD			CLASSES:Primal=3
+Remove disease.MOD		CLASSES:Primal=3
+Searing light.MOD			CLASSES:Primal=3
+Slow.MOD				CLASSES:Primal=3
+Stinking cloud.MOD		CLASSES:Primal=3
+Wall of thorns.MOD		CLASSES:Primal=3
+Wall of wind.MOD			CLASSES:Primal=3
+#4th-Level Spells
+Aerial form.MOD			CLASSES:Primal=4
+Air walk.MOD			CLASSES:Primal=4
+Creation.MOD			CLASSES:Primal=4
+Dinosaur form.MOD			CLASSES:Primal=4
+Fire shield.MOD			CLASSES:Primal=4
+Fly.MOD				CLASSES:Primal=4
+Freedom of movement.MOD		CLASSES:Primal=4
+Gaseous form.MOD			CLASSES:Primal=4
+Hallucinatory terrain.MOD	CLASSES:Primal=4
+Shape stone.MOD			CLASSES:Primal=4
+Solid fog.MOD			CLASSES:Primal=4
+Speak with plants.MOD		CLASSES:Primal=4
+Stoneskin.MOD			CLASSES:Primal=4
+Vital beacon.MOD			CLASSES:Primal=4
+Wall of fire.MOD			CLASSES:Primal=4
+Weapon storm.MOD			CLASSES:Primal=4
+#5th-Level Spells
+Banishment.MOD			CLASSES:Primal=5
+Cloudkill.MOD			CLASSES:Primal=5
+Cone of cold.MOD			CLASSES:Primal=5
+Control water.MOD			CLASSES:Primal=5
+Death ward.MOD			CLASSES:Primal=5
+Elemental form.MOD		CLASSES:Primal=5
+Mariner's curse.MOD		CLASSES:Primal=5
+Moon frenzy.MOD			CLASSES:Primal=5
+Passwall.MOD			CLASSES:Primal=5
+Plant form.MOD			CLASSES:Primal=5
+Summon giant.MOD			CLASSES:Primal=5
+Tree stride.MOD			CLASSES:Primal=5
+Wall of ice.MOD			CLASSES:Primal=5
+Wall of stone.MOD			CLASSES:Primal=5
+#6th-Level Spells
+Baleful polymorph.MOD		CLASSES:Primal=6
+Chain lightning.MOD		CLASSES:Primal=6
+Dragon form.MOD			CLASSES:Primal=6
+Field of life.MOD			CLASSES:Primal=6
+Fire seeds.MOD			CLASSES:Primal=6
+Flesh to stone.MOD		CLASSES:Primal=6
+Purple worm sting.MOD		CLASSES:Primal=6
+Stone tell.MOD			CLASSES:Primal=6
+Stone to flesh.MOD		CLASSES:Primal=6
+Tangling creepers.MOD		CLASSES:Primal=6
+True seeing.MOD			CLASSES:Primal=6
+#7th-Level Spells
+Eclipse burst.MOD			CLASSES:Primal=7
+Energy aegis.MOD			CLASSES:Primal=7
+Fiery body.MOD			CLASSES:Primal=7
+Finger of death.MOD		CLASSES:Primal=7
+Mask of terror.MOD		CLASSES:Primal=7
+Plane shift.MOD			CLASSES:Primal=7
+Regenerate.MOD			CLASSES:Primal=7
+Sunburst.MOD			CLASSES:Primal=7
+Unfettered pack.MOD		CLASSES:Primal=7
+Volcanic eruption.MOD		CLASSES:Primal=7
+#8th-Level Spells
+Earthquake.MOD			CLASSES:Primal=8
+Horrid wilting.MOD		CLASSES:Primal=8
+Moment of renewal.MOD		CLASSES:Primal=8
+Monstrosity form.MOD		CLASSES:Primal=8
+Polar ray.MOD			CLASSES:Primal=8
+Punishing winds.MOD		CLASSES:Primal=8
+Wind walk.MOD			CLASSES:Primal=8
+#9th-Level Spells
+Disjunction.MOD			CLASSES:Primal=9
+Implosion.MOD			CLASSES:Primal=9
+Massacre.MOD			CLASSES:Primal=9
+Meteor swarm.MOD			CLASSES:Primal=9
+Nature's enmity.MOD		CLASSES:Primal=9
+Shapechange.MOD			CLASSES:Primal=9
+Storm of vengeance.MOD		CLASSES:Primal=9
+#10th-Level Spells
+Cataclysm.MOD			CLASSES:Primal=10
+Nature incarnate.MOD		CLASSES:Primal=10
+Primal herd.MOD			CLASSES:Primal=10
+Primal phenomenon.MOD		CLASSES:Primal=10
+Remake.MOD				CLASSES:Primal=10
+Revival.MOD				CLASSES:Primal=10
+
+
+###Block: Alchemy
+# Spell Name						SORTKEY			Type			Classes of caster		Required Class		Source Page
+Level 1 Acid flask - lesser Bomb			SORTKEY:Alchemy 1		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=1	SOURCEPAGE:p.544
+Level 1 Alchemist's fire - lesser Bomb		SORTKEY:Alchemy 1		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=1	SOURCEPAGE:p.545
+Level 1 Bottled lightning - lesser Bomb		SORTKEY:Alchemy 1		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=1	SOURCEPAGE:p.545
+Level 1 Frost vial - lesser Bomb			SORTKEY:Alchemy 1		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=1	SOURCEPAGE:p.545
+Level 1 Tanglefoot bag - lesser Bomb		SORTKEY:Alchemy 1		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=1	SOURCEPAGE:p.545
+Level 1 Thunderstone - lesser Bomb			SORTKEY:Alchemy 1		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=1	SOURCEPAGE:p.546
+Level 1 Antidote - lesser Elixir			SORTKEY:Alchemy 1		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=1	SOURCEPAGE:p.546
+Level 1 Antiplague - lesser Elixir			SORTKEY:Alchemy 1		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=1	SOURCEPAGE:p.546
+Level 1 Bestial mutagen - lesser Elixir		SORTKEY:Alchemy 1		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=1	SOURCEPAGE:p.546
+Level 1 Cheetah's elixir - lesser Elixir		SORTKEY:Alchemy 1		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=1	SOURCEPAGE:p.547
+Level 1 Cognitive mutagen - lesser Elixir		SORTKEY:Alchemy 1		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=1	SOURCEPAGE:p.547
+Level 1 Eagle-eye elixir - lesser Elixir		SORTKEY:Alchemy 1		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=1	SOURCEPAGE:p.548
+Level 1 Elixir of life - lesser Elixir		SORTKEY:Alchemy 1		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=1	SOURCEPAGE:p.548
+Level 1 Juggernaut mutagen - lesser Elixir	SORTKEY:Alchemy 1		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=1	SOURCEPAGE:p.548
+Level 1 Leaper's elixir - lesser Elixir		SORTKEY:Alchemy 1		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=1	SOURCEPAGE:p.549
+Level 1 Quicksilver mutagen - lesser Elixir	SORTKEY:Alchemy 1		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=1	SOURCEPAGE:p.549
+Level 1 Serene mutagen - lesser Elixir		SORTKEY:Alchemy 1		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=1	SOURCEPAGE:p.549
+Level 1 Silvertongue mutagen - lesser Elixir	SORTKEY:Alchemy 1		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=1	SOURCEPAGE:p.550
+Level 1 Arsenic Poison					SORTKEY:Alchemy 1		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=1	SOURCEPAGE:p.550
+Level 1 Giant centipede venom Poison		SORTKEY:Alchemy 1		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=1	SOURCEPAGE:p.551
+Level 1 Smokestick - lesser Tool			SORTKEY:Alchemy 1		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=1	SOURCEPAGE:p.554
+Level 1 Snake oil Tool					SORTKEY:Alchemy 1		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=1	SOURCEPAGE:p.554
+Level 1 Sunrod Tool					SORTKEY:Alchemy 1		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=1	SOURCEPAGE:p.554
+Level 1 Tindertwig Tool					SORTKEY:Alchemy 1		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=1	SOURCEPAGE:p.554
+Level 2 Bravo's brew - lesser Elixir		SORTKEY:Alchemy 2		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=2	SOURCEPAGE:p.547
+Level 2 Cat's eye elixir Elixir			SORTKEY:Alchemy 2		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=2	SOURCEPAGE:p.547
+Level 2 Comprehension elixir - lesser Elixir	SORTKEY:Alchemy 2		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=2	SOURCEPAGE:p.547
+Level 2 Darkvision elixir - lesser Elixir		SORTKEY:Alchemy 2		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=2	SOURCEPAGE:p.547
+Level 2 Infiltrator's elixir Elixir			SORTKEY:Alchemy 2		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=2	SOURCEPAGE:p.548
+Level 2 Belladonna Poison				SORTKEY:Alchemy 2		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=2	SOURCEPAGE:p.551
+Level 2 Black adder venom Poison			SORTKEY:Alchemy 2		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=2	SOURCEPAGE:p.551
+Level 2 Lethargy poison Poison			SORTKEY:Alchemy 2		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=2	SOURCEPAGE:p.552
+Level 2 Silversheen Tool				SORTKEY:Alchemy 2		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=2	SOURCEPAGE:p.554
+Level 3 Acid flask - moderate Bomb			SORTKEY:Alchemy 3		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=3	SOURCEPAGE:p.544
+Level 3 Alchemist's fire - moderate Bomb		SORTKEY:Alchemy 3		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=3	SOURCEPAGE:p.545
+Level 3 Bottled lightning - moderate Bomb		SORTKEY:Alchemy 3		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=3	SOURCEPAGE:p.545
+Level 3 Frost vial - moderate Bomb			SORTKEY:Alchemy 3		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=3	SOURCEPAGE:p.545
+Level 3 Tanglefoot bag - moderate Bomb		SORTKEY:Alchemy 3		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=3	SOURCEPAGE:p.545
+Level 3 Thunderstone - moderate Bomb		SORTKEY:Alchemy 3		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=3	SOURCEPAGE:p.546
+Level 3 Bestial mutagen - moderate Elixir		SORTKEY:Alchemy 3		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=3	SOURCEPAGE:p.546
+Level 3 Cognitive mutagen - moderate Elixir	SORTKEY:Alchemy 3		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=3	SOURCEPAGE:p.547
+Level 3 Juggernaut mutagen - moderate Elixir	SORTKEY:Alchemy 3		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=3	SOURCEPAGE:p.548
+Level 3 Quicksilver mutagen - moderate Elixir	SORTKEY:Alchemy 3		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=3	SOURCEPAGE:p.549
+Level 3 Serene mutagen - moderate Elixir		SORTKEY:Alchemy 3		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=3	SOURCEPAGE:p.549
+Level 3 Silvertongue mutagen - moderate Elixir	SORTKEY:Alchemy 3		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=3	SOURCEPAGE:p.550
+Level 3 Cytillesh oil Poison				SORTKEY:Alchemy 3		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=3	SOURCEPAGE:p.551
+Level 3 Graveroot Poison				SORTKEY:Alchemy 3		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=3	SOURCEPAGE:p.552
+Level 4 Bomber's eye elixir - lesser Elixir	SORTKEY:Alchemy 4		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=4	SOURCEPAGE:p.547
+Level 4 Darkvision elixir - moderate Elixir	SORTKEY:Alchemy 4		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=4	SOURCEPAGE:p.547
+Level 4 Mistform elixir - lesser Elixir		SORTKEY:Alchemy 4		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=4	SOURCEPAGE:p.549
+Level 4 Salamander elixir - lesser Elixir		SORTKEY:Alchemy 4		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=4	SOURCEPAGE:p.549
+Level 4 Stone fist elixir Elixir			SORTKEY:Alchemy 4		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=4	SOURCEPAGE:p.550
+Level 4 Winter wolf elixir - lesser Elixir	SORTKEY:Alchemy 4		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=4	SOURCEPAGE:p.550
+Level 5 Cheetah's elixir - moderate Elixir	SORTKEY:Alchemy 5		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=5	SOURCEPAGE:p.547
+Level 5 Eagle-eye elixir - moderate Elixir	SORTKEY:Alchemy 5		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=5	SOURCEPAGE:p.548
+Level 5 Elixir of life - lesser Elixir		SORTKEY:Alchemy 5		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=5	SOURCEPAGE:p.548
+Level 5 Sea touch elixir - lesser Elixir		SORTKEY:Alchemy 5		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=5	SOURCEPAGE:p.549
+Level 5 Hunting spider venom Poison			SORTKEY:Alchemy 5		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=5	SOURCEPAGE:p.552
+Level 6 Antidote - moderate Elixir			SORTKEY:Alchemy 6		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=6	SOURCEPAGE:p.546
+Level 6 Antiplague - moderate Elixir		SORTKEY:Alchemy 6		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=6	SOURCEPAGE:p.546
+Level 6 Mistform elixir - moderate Elixir		SORTKEY:Alchemy 6		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=6	SOURCEPAGE:p.549
+Level 6 Giant scorpion venom Poison			SORTKEY:Alchemy 6		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=6	SOURCEPAGE:p.551
+Level 7 Comprehension elixir - greater Elixir	SORTKEY:Alchemy 7		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=7	SOURCEPAGE:p.547
+Level 7 Leaper's elixir - greater Elixir		SORTKEY:Alchemy 7		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=7	SOURCEPAGE:p.549
+Level 7 Giant wasp venom Poison			SORTKEY:Alchemy 7		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=7	SOURCEPAGE:p.552
+Level 7 Malyass root paste Poison			SORTKEY:Alchemy 7		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=7	SOURCEPAGE:p.552
+Level 7 Smokestick - greater Tool			SORTKEY:Alchemy 7		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=7	SOURCEPAGE:p.554
+Level 8 Darkvision elixir - greater Elixir	SORTKEY:Alchemy 8		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=8	SOURCEPAGE:p.547
+Level 8 Nettleweed residue Poison			SORTKEY:Alchemy 8		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=8	SOURCEPAGE:p.553
+Level 8 Wyvern poison Poison				SORTKEY:Alchemy 8		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=8	SOURCEPAGE:p.554
+Level 9 Cheetah's elixir - greater Elixir		SORTKEY:Alchemy 9		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=9	SOURCEPAGE:p.547
+Level 9 Elixir of life - moderate Elixir		SORTKEY:Alchemy 9		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=9	SOURCEPAGE:p.548
+Level 9 Lich dust Poison				SORTKEY:Alchemy 9		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=9	SOURCEPAGE:p.552
+Level 9 Spider root Poison				SORTKEY:Alchemy 9		TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=9	SOURCEPAGE:p.553
+Level 10 Antidote - greater Elixir			SORTKEY:Alchemy 10	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=10	SOURCEPAGE:p.546
+Level 10 Antiplague - greater Elixir		SORTKEY:Alchemy 10	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=10	SOURCEPAGE:p.546
+Level 10 Bravo's brew - moderate Elixir		SORTKEY:Alchemy 10	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=10	SOURCEPAGE:p.547
+Level 10 Eagle-eye elixir - greater Elixir	SORTKEY:Alchemy 10	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=10	SOURCEPAGE:p.548
+Level 10 Mistform elixir - greater Elixir		SORTKEY:Alchemy 10	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=10	SOURCEPAGE:p.549
+Level 10 Shadow essence Poison			SORTKEY:Alchemy 10	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=10	SOURCEPAGE:p.553
+Level 10 Wolfsbane Poison				SORTKEY:Alchemy 10	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=10	SOURCEPAGE:p.553
+Level 11 Acid flask - greater Bomb			SORTKEY:Alchemy 11	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=11	SOURCEPAGE:p.544
+Level 11 Alchemist's fire - greater Bomb		SORTKEY:Alchemy 11	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=11	SOURCEPAGE:p.545
+Level 11 Bottled lightning - greater Bomb		SORTKEY:Alchemy 11	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=11	SOURCEPAGE:p.545
+Level 11 Frost vial - greater Bomb			SORTKEY:Alchemy 11	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=11	SOURCEPAGE:p.545
+Level 11 Tanglefoot bag - greater Bomb		SORTKEY:Alchemy 11	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=11	SOURCEPAGE:p.545
+Level 11 Thunderstone - greater Bomb		SORTKEY:Alchemy 11	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=11	SOURCEPAGE:p.546
+Level 11 Bestial mutagen - greater Elixir		SORTKEY:Alchemy 11	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=11	SOURCEPAGE:p.546
+Level 11 Cognitive mutagen - greater Elixir	SORTKEY:Alchemy 11	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=11	SOURCEPAGE:p.547
+Level 11 Juggernaut mutagen - greater Elixir	SORTKEY:Alchemy 11	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=11	SOURCEPAGE:p.548
+Level 11 Quicksilver mutagen - greater Elixir	SORTKEY:Alchemy 11	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=11	SOURCEPAGE:p.549
+Level 11 Serene mutagen - greater Elixir		SORTKEY:Alchemy 11	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=11	SOURCEPAGE:p.549
+Level 11 Silvertongue mutagen - greater Elixir	SORTKEY:Alchemy 11	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=11	SOURCEPAGE:p.550
+Level 11 Blightburn resin Poison			SORTKEY:Alchemy 11	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=11	SOURCEPAGE:p.551
+Level 12 Salamander elixir - greater Elixir	SORTKEY:Alchemy 12	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=12	SOURCEPAGE:p.549
+Level 12 Sea touch elixir - moderate Elixir	SORTKEY:Alchemy 12	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=12	SOURCEPAGE:p.549
+Level 12 Winter wolf elixir - moderate Elixir	SORTKEY:Alchemy 12	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=12	SOURCEPAGE:p.550
+Level 12 Slumber wine Poison				SORTKEY:Alchemy 12	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=12	SOURCEPAGE:p.553
+Level 13 Elixir of life - greater Elixir		SORTKEY:Alchemy 13	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=13	SOURCEPAGE:p.548
+Level 13 Deathcap powder Poison			SORTKEY:Alchemy 13	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=13	SOURCEPAGE:p.551
+Level 13 Purple worm venom Poison			SORTKEY:Alchemy 13	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=13	SOURCEPAGE:p.553
+Level 14 Antidote - major Elixir			SORTKEY:Alchemy 14	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=14	SOURCEPAGE:p.546
+Level 14 Antiplague - major Elixir			SORTKEY:Alchemy 14	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=14	SOURCEPAGE:p.546
+Level 14 Bomber's eye elixir - greater Elixir	SORTKEY:Alchemy 14	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=14	SOURCEPAGE:p.547
+Level 15 Bravo's brew - greater Elixir		SORTKEY:Alchemy 15	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=15	SOURCEPAGE:p.547
+Level 15 Elixir of life - greater Elixir		SORTKEY:Alchemy 15	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=15	SOURCEPAGE:p.548
+Level 15 Sea touch elixir - greater Elixir	SORTKEY:Alchemy 15	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=15	SOURCEPAGE:p.549
+Level 15 Dragon bile Poison				SORTKEY:Alchemy 15	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=15	SOURCEPAGE:p.551
+Level 15 Mindfog mist Poison				SORTKEY:Alchemy 15	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=15	SOURCEPAGE:p.553
+Level 16 Eagle-eye elixir - major Elixir		SORTKEY:Alchemy 16	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=16	SOURCEPAGE:p.548
+Level 16 Salamander elixir - greater Elixir	SORTKEY:Alchemy 16	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=16	SOURCEPAGE:p.549
+Level 16 Winter wolf elixir - greater Elixir	SORTKEY:Alchemy 16	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=16	SOURCEPAGE:p.550
+Level 16 Brimstone fumes Poison			SORTKEY:Alchemy 16	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=16	SOURCEPAGE:p.551
+Level 16 Nightmare vapor Poison			SORTKEY:Alchemy 16	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=16	SOURCEPAGE:p.553
+Level 17 Acid flask - major Bomb			SORTKEY:Alchemy 17	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=17	SOURCEPAGE:p.544
+Level 17 Alchemist's fire - major Bomb		SORTKEY:Alchemy 17	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=17	SOURCEPAGE:p.545
+Level 17 Bottled lightning - major Bomb		SORTKEY:Alchemy 17	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=17	SOURCEPAGE:p.545
+Level 17 Frost vial - major Bomb			SORTKEY:Alchemy 17	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=17	SOURCEPAGE:p.545
+Level 17 Tanglefoot bag - major Bomb		SORTKEY:Alchemy 17	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=17	SOURCEPAGE:p.545
+Level 17 Thunderstone - major Bomb			SORTKEY:Alchemy 17	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=17	SOURCEPAGE:p.546
+Level 17 Bestial mutagen - major Elixir		SORTKEY:Alchemy 17	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=17	SOURCEPAGE:p.546
+Level 17 Cognitive mutagen - major Elixir		SORTKEY:Alchemy 17	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=17	SOURCEPAGE:p.547
+Level 17 Juggernaut mutagen - major Elixir	SORTKEY:Alchemy 17	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=17	SOURCEPAGE:p.548
+Level 17 Quicksilver mutagen - major Elixir	SORTKEY:Alchemy 17	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=17	SOURCEPAGE:p.549
+Level 17 Serene mutagen - major Elixir		SORTKEY:Alchemy 17	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=17	SOURCEPAGE:p.549
+Level 17 Silvertongue mutagen - major Elixir	SORTKEY:Alchemy 17	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=17	SOURCEPAGE:p.550
+Level 17 Hemlock Poison					SORTKEY:Alchemy 17	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=17	SOURCEPAGE:p.552
+Level 18 King's sleep Poison				SORTKEY:Alchemy 18	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=18	SOURCEPAGE:p.552
+Level 19 Elixir of life - true Elixir		SORTKEY:Alchemy 19	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=19	SOURCEPAGE:p.548
+Level 19 Black lotus extract Poison			SORTKEY:Alchemy 19	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=19	SOURCEPAGE:p.551
+Level 20 Elixir of rejuvenation Elixir		SORTKEY:Alchemy 20	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=20	SOURCEPAGE:p.548
+Level 20 Tears of death Poison			SORTKEY:Alchemy 20	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=20	SOURCEPAGE:p.553
+Level 20 Philosopher's stone Tool			SORTKEY:Alchemy 20	TYPE:Alchemy	CLASSES:Alchemist=1	PRECLASS:1,Alchemist=20	SOURCEPAGE:p.554

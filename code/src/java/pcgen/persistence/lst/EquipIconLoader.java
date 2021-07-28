@@ -24,7 +24,6 @@ import java.util.Map;
 
 import pcgen.core.GameMode;
 import pcgen.core.SystemCollections;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
@@ -37,7 +36,7 @@ public class EquipIconLoader extends LstLineFileLoader
 {
 
 	@Override
-	public void parseLine(LoadContext context, String lstLine, URI sourceURI) throws PersistenceLayerException
+	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
 	{
 		final int idxColon = lstLine.indexOf(':');
 		if (idxColon < 0)

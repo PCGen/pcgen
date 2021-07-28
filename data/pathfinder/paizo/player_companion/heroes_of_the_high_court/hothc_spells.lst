@@ -1,0 +1,39 @@
+SOURCELONG:Heroes of the High Court	SOURCESHORT:HOTHC	SOURCEWEB:http://paizo.com/products/btpy9qhp	SOURCEDATE:02-2017
+
+Enchantment Sight		TYPE:Arcane.Divine.Psychic	CLASSES:Alchemist,Bard,Cleric,Inquisitor,Medium,Mesmerist,Occultist,Paladin,Psychic,Sorcerer,Spiritualist,Witch,Wizard=2	SCHOOL:Divination						CASTTIME:1 standard action	COMPS:V,S		RANGE:Personal	TARGETAREA:You														DURATION:(CASTERLEVEL*10) minutes [D]											SOURCEPAGE:p.10	DESC:Your irises take on a purplish tinge and you can see whether creatures within 60 feet of you are affected by an enchantment effect. To your eyes only, a creature under the effects of an enchantment spell glows with a simple white light around its head. You can immediately discern whether the brightness of the light is faint, moderate, strong, or overwhelming depending on the highest spell level of enchantment currently in effect (as per detect magic). Enchantments of the charm or compulsion subschool glow with a scarlet or emerald hue, respectively. If a creature under an enchantment effect is in your line of sight, you can attempt a Spellcraft check as a move action to determine the highest-level spell or spell effect (DC = 15 + the spell level, or 15 + 1/2 the caster level for a non-spell effect). Effects that block divination magic also block this spell. Enchantment sight can be made permanent with a permanency spell cast by a caster of 9th level or higher, at a cost of 2,500 gp.
+False Face			TYPE:Arcane.Divine.Psychic	CLASSES:Alchemist,Bard,Inquisitor,Mesmerist,Sorcerer,Witch,Wizard=1										SCHOOL:Transmutation	SUBSCHOOL:Polymorph	CASTTIME:1 standard action	COMPS:V,S,M		RANGE:Personal	TARGETAREA:You														DURATION:(CASTERLEVEL) hours													SOURCEPAGE:p.25	DESC:This spell alters details of your appearance so that you are no longer recognizable as yourself. Your new appearance is within the norms for your race, ethnicity, and gender. You lack control over the details of your appearance; however, when casting false face, you can choose an appearance you previously used, allowing you to maintain specific identities. [Material Components] a folded-paper mask.
+Perceive Betrayal		TYPE:Arcane.Divine		CLASSES:Inquisitor=4|Cleric,Witch=6|Sorcerer,Wizard=7													SCHOOL:Divination						CASTTIME:1 minute			COMPS:V,S,M,F	RANGE:Personal	TARGETAREA:You														DURATION:(CASTERLEVEL) hours													SOURCEPAGE:p.25	DESC:By donning a silver circlet anointed with blood, you gain the ability to sense traitorous intent toward a single person to whom you defer, designated when you cast the spell. The spell alerts you when a creature with traitorous intent is within 200 feet, although it doesn’t identify the source. By concentrating, you can learn the strength of the greatest threat, based on the following categories. &nl; [Ill Will] Someone dislikes your liege, but isn’t planning to act against her. &nl; [Plotting] Someone is actively conspiring against your liege. &nl; [Imminent] Someone is in the process of carrying out a plot against your liege. Creatures that are immune to mind-affecting or thought-detecting effects cannot have their intent detected by perceive betrayal. [Material Components] 12 drops of blood [Spell Focus] a silver circlet worth 500 gp.
+Pierce Facade		TYPE:Arcane.Divine.Psychic	CLASSES:Alchemist,Bard,Cleric,Inquisitor,Psychic,Sorcerer,Witch,Wizard=1									SCHOOL:Divination						CASTTIME:1 standard action	COMPS:V,S,M/DF	RANGE:Touch		TARGETAREA:Creature touched												DURATION:(CASTERLEVEL*10) minutes		SAVEINFO:Will negates (harmless)	SPELLRES:Yes (harmless)	SOURCEPAGE:p.25	DESC:The target gains a +5 insight bonus on Perception checks to see through disguises. This bonus increases to +10 at caster level 7th. [Material Components] an eagle’s eye
+Reveal Emotions		TYPE:Psychic			CLASSES:Medium=3|Mesmerist,Occultist,Psychic,Spiritualist=4											SCHOOL:Divination						CASTTIME:1 minute			COMPS:V,S		RANGE:Close		TARGETAREA:40-ft.-radius spread											DURATION:(CASTERLEVEL) hours [D]		SAVEINFO:None				SPELLRES:Yes		SOURCEPAGE:p.10	DESC:You create an area that draws out a creature’s emotion aura (Pathfinder RPG Occult Adventures 198). Creatures within this area constantly glow with colors that represent their current overall emotional state and continue to do so for 1d4 rounds after leaving the area. This glow is clearly visible to any creature that can see the creature. Emotionless creatures or creatures unaffected by this spell glow with a dull purple hue while within the area.
+Shroud of Innocuity	TYPE:Arcane.Divine.Psychic	CLASSES:Bard,Medium,Mesmerist,Psychic,Shaman,Sorcerer,Witch,Wizard=3										SCHOOL:Illusion		SUBSCHOOL:Glamer		CASTTIME:1 minute			COMPS:V,S		RANGE:Close		TARGETAREA:(1+CASTERLEVEL/2) willing creatures, no two of which can be more than 30 ft. apart	DURATION:(CASTERLEVEL) hours [D]		SAVEINFO:None (harmless); see text	SPELLRES:No			SOURCEPAGE:p.10	DESC:All affected creatures are veiled with a commonplace appearance. This appearance varies based on the viewer, but is always an ordinary member of that viewer’s race, ethnicity, or nationality. This familiarity grants a +2 bonus on Diplomacy checks attempted by affected targets against those not affected by the spell. Creatures with an attitude of unfriendly or hostile toward an affected target can attempt a Will save to disbelieve the effect the first time they encounter that target.
+Speechreader's Sight	TYPE:Arcane.Divine.Psychic	CLASSES:Alchemist,Bard,Cleric,Inquisitor,Medium,Mesmerist,Occultist,Psychic,Sorcerer,Spiritualist,Witch,Wizard=1			SCHOOL:Divination						CASTTIME:1 standard action	COMPS:V,S		RANGE:Personal	TARGETAREA:You														DURATION:(CASTERLEVEL) hours [D]												SOURCEPAGE:p.10	DESC:If a creature within 100 feet that you can see is speaking a language you understand, you can read its lips with perfect accuracy. Reading lips in this manner gives the exact wording of conversation and does not assist in deciphering any obfuscated ideas such as secret messages or slang. Reading lips requires moderate concentration, and you take a –4 penalty on other Perception checks while doing so. Speechreader’s sight can be made permanent with a permanency spell cast by a caster of 9th level or higher, at a cost of 2,500 gp.
+
+# ==============================
+# Masterpieces
+# ==============================
+Masterpiece (Anthem of Pageantry)				CLASSES:Bard=3[PRESKILL:1,Perform (String Instruments)=7,Perform (Wind Instruments)=7]	SCHOOL:Masterpiece	CASTTIME:1 minute			SOURCEPAGE:p.7
+Masterpiece (Melody of Surrender)				CLASSES:Bard=2[PRESKILL:1,Perform (Wind Instruments)=4,Perform (Sing)=4]			SCHOOL:Masterpiece	CASTTIME:1 round			SOURCEPAGE:p.7
+Masterpiece (Wise King's Saga)				CLASSES:Bard=5[PRESKILL:1,Perform Perform (Oratory)=15,Perform (Sing)=15]			SCHOOL:Masterpiece	CASTTIME:10 minutes		SOURCEPAGE:p.7
+
+# ==============================
+# Support
+# ==============================
+Air Walk.COPY=Air Walk (self only)
+Cloak of Winds.COPY=Cloak of Winds (self only)
+Death Ward.COPY=Death Ward (self only)
+Dimension Door.COPY=Dimension Door (self only)
+Feather Step.COPY=Feather Step (self only)
+Foresight.COPY=Foresight (self only)
+Freedom of Movement.COPY=Freedom of Movement (self only)
+Gaseous Form.COPY=Gaseous Form (self only)
+Hide from Undead.COPY=Hide from Undead (self only)
+Neutralize Poison.COPY=Neutralize Poison (self only)
+Remove Disease.COPY=Remove Disease (self only)
+Regenerate.COPY=Regenerate (self only)
+Restoration.COPY=Restoration (self only)
+Restoration (Greater).COPY=Restoration (Greater) (self only)
+Sanctuary.COPY=Sanctuary (self only)
+#Shadow Walk.COPY=Shadow Walk (self only)
+Shield of Faith.COPY=Shield of Faith (self only)
+Spell Resistance.COPY=Spell Resistance (self only)
+Tongues.COPY=Tongues (self only)

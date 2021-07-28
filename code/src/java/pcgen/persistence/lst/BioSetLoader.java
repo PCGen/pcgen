@@ -104,16 +104,8 @@ public final class BioSetLoader extends LstLineFileLoader
 			ageSet.setName(colToken.nextToken());
 			while (colToken.hasMoreTokens())
 			{
-				try
-				{
-					LstUtils.processToken(context, ageSet, sourceURI,
-						colToken.nextToken());
-				}
-				catch (PersistenceLayerException e)
-				{
-					Logging.errorPrint(
-						"Error in token parse: " + e.getLocalizedMessage());
-				}
+				LstUtils.processToken(context, ageSet, sourceURI,
+					colToken.nextToken());
 			}
 
 			ageSet = bioSet.addToAgeMap(region, ageSet, sourceURI);

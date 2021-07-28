@@ -18,7 +18,6 @@
 package pcgen.io.exporttoken;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.math.BigDecimal;
@@ -60,6 +59,7 @@ import pcgen.core.character.WieldCategory;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
+
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 import org.junit.jupiter.api.AfterEach;
@@ -423,18 +423,18 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		//	1H-P
 		assertEquals("+14/+9/+4/-1", token.getToken(
 			"WEAPON.0.BASEHIT", character, null), "1H-P - BASEHIT");
-		assertNull(token.getToken(
+		assertEquals("N/A", token.getToken(
 				"WEAPON.1.BASEHIT", character, null), "1H-P - BASEHIT-H1");
-		assertNull(token.getToken(
+		assertEquals("N/A", token.getToken(
 				"WEAPON.2.BASEHIT", character, null), "1H-P - BASEHIT-H2");
 
 		//	1H-O
 		assertEquals("+10/+5/+0/-5", token.getToken(
 			"WEAPON.0.OHHIT", character, null), "1H-O - OHHIT");
-		assertNull(token.getToken("WEAPON.1.OHHIT",
+		assertEquals("N/A", token.getToken("WEAPON.1.OHHIT",
 				character, null
 		), "1H-O - OHHIT-H1");
-		assertNull(token.getToken("WEAPON.2.OHHIT",
+		assertEquals("N/A", token.getToken("WEAPON.2.OHHIT",
 				character, null
 		), "1H-O - OHHIT-H2");
 
@@ -449,9 +449,9 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		//	2W-P-(OH)
 		assertEquals("+8/+3/-2/-7", token.getToken(
 			"WEAPON.0.TWPHITH", character, null), "2W-P-(OH) - TWPHITH");
-		assertNull(token.getToken(
+		assertEquals("N/A", token.getToken(
 				"WEAPON.1.TWPHITH", character, null), "2W-P-(OH) - TWPHITH-H1");
-		assertNull(token.getToken(
+		assertEquals("N/A", token.getToken(
 				"WEAPON.2.TWPHITH", character, null), "2W-P-(OH) - TWPHITH-H2");
 
 		//	2W-P-(OL)
@@ -559,7 +559,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		WeaponToken token = new WeaponToken();
 		assertEquals("Sword, Bastard", token.getToken("WEAPON.3.NAME",
 			character, null), "Name");
-		assertNull(
+		assertEquals("N/A", 
 				token.getToken("WEAPON.3.BASEHIT", character, null),
 				"Not possible to weild the bastard sword one handed."
 		);
@@ -593,7 +593,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		assertEquals(
 				"+18/+13/+8/+3", token.getToken("WEAPON.3.THHIT", character, null),
 				"Large sword - Two handed should be fine");
-		assertNull(token
+		assertEquals("N/A", token
 				.getToken("WEAPON.3.BASEHIT", character, null), "Large sword - can't be wielded one handed");
 	}
 
@@ -638,7 +638,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 				"Large sword - can be wielded one handed with template weapon size bonus");
 		character.removeTemplate(longswordTemplate);
 		character.calcActiveBonuses();
-		assertNull(token
+		assertEquals("N/A", token
 				.getToken("WEAPON.3.BASEHIT", character, null), "Large sword - can't be wielded one handed");
 
 		PCTemplate martialTemplate = new PCTemplate();

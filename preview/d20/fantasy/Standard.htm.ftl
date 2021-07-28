@@ -232,7 +232,7 @@ $Date: 2014-06-12 11:36:12 +1000 (Thu, 12 Jun 2014) $
             <font style="font-size:5pt" color="white"><br />Stamina</font></td>
           <td align="center" class="border9"><b>${pcstring('HP')}</b></td>
           <td align="center"><br /></td>
-          <td align="center" class="border9"><input type="text"/></td>
+          <td align="center" class="border9"><input target_var="PC.HP" type="text"/></td>
           <td align="center"><br /></td>
           <td align="center" class="border9"><input type="text"/></td>
           <td align="center"><br /></td>
@@ -281,7 +281,7 @@ ${pcstring('MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}
             <span class="font6" ><br />Hit Points</span></td>
           <td align="center" class="border9"><b>${pcstring('HP')}</b></td>
           <td align="center"><br /></td>
-          <td align="center" class="border9"><input type="text"/></td>
+          <td align="center" class="border9"><input target_var="PC.HP" type="text"/></td>
           <td align="center"><br /></td>
           <td align="center" class="border9"><input type="text"/></td>
           <td align="center"><br /></td>
@@ -914,7 +914,14 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
     </tr>
     <tr>
      <td align="left" bgcolor="black" class="border" colspan="2"><font style="font-size:8pt" color="white"><b>&nbsp;Ammunition Used<br /></b></font></td>
-     <td align="center" valign="bottom" bgcolor="white" class="border" colspan="5"><font style="font-size: x-small">&#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744;</font></td>
+     <td align="center" valign="bottom" bgcolor="white" class="border" colspan="5"><font style="font-size: x-small">
+<@loop from=0 to=3 ; check_prim_iterator , check_prim_iterator_has_next>
+<@loop from=0 to=4 ; check_sec_iterator , check_sec_iterator_has_next>
+      <input target_var="${pcstring('WEAPON.${weap}.NAME')}_ammo_${check_prim_iterator}_${check_sec_iterator}" type="checkbox"/>
+</@loop>
+&nbsp;
+</@loop>
+     </font></td>
     </tr>
     <tr>
      <td align="left" bgcolor="black" class="border" colspan="2"><font style="font-size:8pt" color="white"><b>&nbsp;Special Properties<br /></b></font></td>
@@ -979,7 +986,14 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
     </tr>
     <tr>
      <td align="left" bgcolor="black" class="border" colspan="2"><font style="font-size:8pt" color="white"><b>&nbsp;Ammunition Used<br /></b></font></td>
-     <td align="center" valign="bottom" bgcolor="white" class="border" colspan="5"><font style="font-size: x-small">&#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744;</font></td>
+     <td align="center" valign="bottom" bgcolor="white" class="border" colspan="5"><font style="font-size: x-small">
+<@loop from=0 to=3 ; check_prim_iterator , check_prim_iterator_has_next>
+<@loop from=0 to=4 ; check_sec_iterator , check_sec_iterator_has_next>
+      <input target_var="${pcstring('WEAPON.${weap}.NAME')}_ammo_${check_prim_iterator}_${check_sec_iterator}" type="checkbox"/>
+</@loop>
+&nbsp;
+</@loop>
+     </font></td>
     </tr>
     <tr>
      <td align="left" bgcolor="black" class="border" colspan="2"><font style="font-size:8pt" color="white"><b>&nbsp;Special Properties<br /></b></font></td>
@@ -1016,7 +1030,14 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
     </tr>
     <tr>
      <td align="left" bgcolor="black" class="border" colspan="2"><font style="font-size:8pt" color="white"><b>&nbsp;Ammunition Used<br /></b></font></td>
-     <td align="center" valign="bottom" bgcolor="white" class="border" colspan="5"><font style="font-size: x-small">&#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744;</font></td>
+     <td align="center" valign="bottom" bgcolor="white" class="border" colspan="5"><font style="font-size: x-small">
+<@loop from=0 to=3 ; check_prim_iterator , check_prim_iterator_has_next>
+<@loop from=0 to=4 ; check_sec_iterator , check_sec_iterator_has_next>
+      <input target_var="${pcstring('WEAPON.${weap}.NAME')}_ammo_${check_prim_iterator}_${check_sec_iterator}" type="checkbox"/>
+</@loop>
+&nbsp;
+</@loop>
+     </font></td>
 </@loop>
     </tr>
     <tr>

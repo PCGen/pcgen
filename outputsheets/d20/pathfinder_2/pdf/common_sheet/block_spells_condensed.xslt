@@ -24,10 +24,10 @@
 				<xsl:attribute name="font-family"><xsl:value-of select="$PCGenFont"/></xsl:attribute>
 				<xsl:call-template name="page.footer"/>
 				<fo:flow flow-name="body" font-size="8pt">
+					<xsl:apply-templates select="memorized_spells"/>	
 					<xsl:apply-templates select="spells_innate/racial_innate"/>	
 					<xsl:apply-templates select="spells_innate/class_innate"/>	
 					<xsl:apply-templates select="known_spells"/>	
-					<xsl:apply-templates select="memorized_spells"/>	
 				</fo:flow>
 			</fo:page-sequence>	
 		</xsl:if>
@@ -964,7 +964,27 @@
 			</fo:table-row>
 			<xsl:if test="count(.//level) &gt; 5">
 				<fo:table-row>													<xsl:message>Test Levels 5+</xsl:message>
-					<xsl:apply-templates select="level[@number &gt;= 5]" mode="spells.memorized"/>
+					<xsl:apply-templates select="level[@number &gt;= 5 and @number &lt; 10]" mode="spells.memorized"/>
+				</fo:table-row>
+			</xsl:if>
+			<xsl:if test="count(.//level) &gt; 10">
+				<fo:table-row>													<xsl:message>Test Levels 10+</xsl:message>
+					<xsl:apply-templates select="level[@number &gt;= 10 and @number &lt; 15]" mode="spells.memorized"/>
+				</fo:table-row>
+			</xsl:if>
+			<xsl:if test="count(.//level) &gt; 15">
+				<fo:table-row>													<xsl:message>Test Levels 15+</xsl:message>
+					<xsl:apply-templates select="level[@number &gt;= 15 and @number &lt; 20]" mode="spells.memorized"/>
+				</fo:table-row>
+			</xsl:if>
+			<xsl:if test="count(.//level) &gt; 20">
+				<fo:table-row>													<xsl:message>Test Levels 20+</xsl:message>
+					<xsl:apply-templates select="level[@number &gt;= 20 and @number &lt; 25]" mode="spells.memorized"/>
+				</fo:table-row>
+			</xsl:if>
+			<xsl:if test="count(.//level) &gt; 25">
+				<fo:table-row>													<xsl:message>Test Levels 25+</xsl:message>
+					<xsl:apply-templates select="level[@number &gt;= 25 and @number &lt; 30]" mode="spells.memorized"/>
 				</fo:table-row>
 			</xsl:if>
 		</xsl:if>

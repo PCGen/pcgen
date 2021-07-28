@@ -58,7 +58,6 @@ import pcgen.cdom.content.Processor;
 import pcgen.cdom.content.RollMethod;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
-import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.cdom.enumeration.FactKey;
@@ -68,7 +67,6 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.Nature;
-import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.Region;
@@ -79,20 +77,25 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.ActiveSpellsFacet;
+import pcgen.cdom.facet.AddFacet;
 import pcgen.cdom.facet.AddedBonusFacet;
 import pcgen.cdom.facet.AddedTemplateFacet;
+import pcgen.cdom.facet.AgeSetKitFacet;
 import pcgen.cdom.facet.AppliedBonusFacet;
 import pcgen.cdom.facet.AutoEquipmentFacet;
 import pcgen.cdom.facet.AutoLanguageGrantedFacet;
 import pcgen.cdom.facet.AvailableSpellFacet;
+import pcgen.cdom.facet.BonusActiviationFacet;
 import pcgen.cdom.facet.BonusChangeFacet;
 import pcgen.cdom.facet.BonusSkillRankChangeFacet;
+import pcgen.cdom.facet.CalcBonusFacet;
 import pcgen.cdom.facet.CheckBonusFacet;
 import pcgen.cdom.facet.ClassSpellListFacet;
 import pcgen.cdom.facet.ConditionalAbilityFacet;
 import pcgen.cdom.facet.ConditionallyGrantedAbilityFacet;
 import pcgen.cdom.facet.ConditionallyGrantedAvailableSpellFacet;
 import pcgen.cdom.facet.ConditionallyGrantedKnownSpellFacet;
+import pcgen.cdom.facet.DeityWeaponProfFacet;
 import pcgen.cdom.facet.DirectAbilityFacet;
 import pcgen.cdom.facet.DomainSpellCountFacet;
 import pcgen.cdom.facet.EquipSetFacet;
@@ -102,6 +105,7 @@ import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.GlobalModifierFacet;
 import pcgen.cdom.facet.GrantedAbilityFacet;
 import pcgen.cdom.facet.HitPointFacet;
+import pcgen.cdom.facet.KitChoiceFacet;
 import pcgen.cdom.facet.KitFacet;
 import pcgen.cdom.facet.KnownSpellFacet;
 import pcgen.cdom.facet.LevelInfoFacet;
@@ -109,6 +113,7 @@ import pcgen.cdom.facet.MasterFacet;
 import pcgen.cdom.facet.NoteItemFacet;
 import pcgen.cdom.facet.PlayerCharacterTrackingFacet;
 import pcgen.cdom.facet.PrimaryWeaponFacet;
+import pcgen.cdom.facet.RemoveFacet;
 import pcgen.cdom.facet.SaveableBonusFacet;
 import pcgen.cdom.facet.SavedAbilitiesFacet;
 import pcgen.cdom.facet.ScopeFacet;
@@ -154,21 +159,16 @@ import pcgen.cdom.facet.analysis.StatLockFacet;
 import pcgen.cdom.facet.analysis.UnlockedStatFacet;
 import pcgen.cdom.facet.analysis.VariableFacet;
 import pcgen.cdom.facet.base.AbstractStorageFacet;
-import pcgen.cdom.facet.fact.AgeFacet;
 import pcgen.cdom.facet.fact.AllowDebtFacet;
-import pcgen.cdom.facet.fact.CharacterTypeFacet;
 import pcgen.cdom.facet.fact.ChronicleEntryFacet;
 import pcgen.cdom.facet.fact.FactFacet;
 import pcgen.cdom.facet.fact.FollowerFacet;
 import pcgen.cdom.facet.fact.GenderFacet;
-import pcgen.cdom.facet.fact.GoldFacet;
-import pcgen.cdom.facet.fact.HeightFacet;
 import pcgen.cdom.facet.fact.IgnoreCostFacet;
 import pcgen.cdom.facet.fact.PortraitThumbnailRectFacet;
 import pcgen.cdom.facet.fact.PreviewSheetFacet;
 import pcgen.cdom.facet.fact.RegionFacet;
 import pcgen.cdom.facet.fact.SkillFilterFacet;
-import pcgen.cdom.facet.fact.SuppressBioFieldFacet;
 import pcgen.cdom.facet.fact.WeightFacet;
 import pcgen.cdom.facet.fact.XPFacet;
 import pcgen.cdom.facet.input.AddLanguageFacet;
@@ -180,7 +180,6 @@ import pcgen.cdom.facet.input.AutoListWeaponProfFacet;
 import pcgen.cdom.facet.input.BonusWeaponProfFacet;
 import pcgen.cdom.facet.input.CampaignFacet;
 import pcgen.cdom.facet.input.DomainInputFacet;
-import pcgen.cdom.facet.input.FreeLanguageFacet;
 import pcgen.cdom.facet.input.GlobalAddedSkillCostFacet;
 import pcgen.cdom.facet.input.LocalAddedSkillCostFacet;
 import pcgen.cdom.facet.input.MonsterCSkillFacet;
@@ -193,7 +192,6 @@ import pcgen.cdom.facet.model.BioSetFacet;
 import pcgen.cdom.facet.model.CheckFacet;
 import pcgen.cdom.facet.model.ClassFacet;
 import pcgen.cdom.facet.model.CompanionModFacet;
-import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.facet.model.DomainFacet;
 import pcgen.cdom.facet.model.ExpandedCampaignFacet;
 import pcgen.cdom.facet.model.LanguageFacet;
@@ -291,13 +289,9 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	private final ChronicleEntryFacet chronicleEntryFacet = FacetLibrary.getFacet(ChronicleEntryFacet.class);
 	private final IgnoreCostFacet ignoreCostFacet = FacetLibrary.getFacet(IgnoreCostFacet.class);
 	private final GenderFacet genderFacet = FacetLibrary.getFacet(GenderFacet.class);
-	private final HeightFacet heightFacet = FacetLibrary.getFacet(HeightFacet.class);
 	private final WeightFacet weightFacet = FacetLibrary.getFacet(WeightFacet.class);
 	private final AddLanguageFacet addLangFacet = FacetLibrary.getFacet(AddLanguageFacet.class);
 	private final AutoLanguageListFacet autoLangListFacet = FacetLibrary.getFacet(AutoLanguageListFacet.class);
-	private final FreeLanguageFacet freeLangFacet = FacetLibrary.getFacet(FreeLanguageFacet.class);
-	private final CharacterTypeFacet characterTypeFacet = FacetLibrary.getFacet(CharacterTypeFacet.class);
-	private final SuppressBioFieldFacet suppressBioFieldFacet = FacetLibrary.getFacet(SuppressBioFieldFacet.class);
 	private final AutoListArmorProfFacet armorProfListFacet = FacetLibrary.getFacet(AutoListArmorProfFacet.class);
 	private final AutoListShieldProfFacet shieldProfListFacet = FacetLibrary.getFacet(AutoListShieldProfFacet.class);
 	private final AutoListWeaponProfFacet alWeaponProfFacet = FacetLibrary.getFacet(AutoListWeaponProfFacet.class);
@@ -316,7 +310,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	private final ClassSpellListFacet classSpellListFacet = FacetLibrary.getFacet(ClassSpellListFacet.class);
 	private final DomainSpellCountFacet domainSpellCountFacet = FacetLibrary.getFacet(DomainSpellCountFacet.class);
 	private final LegalDeityFacet legalDeityFacet = FacetLibrary.getFacet(LegalDeityFacet.class);
-	private final GoldFacet goldFacet = FacetLibrary.getFacet(GoldFacet.class);
 	private final MonsterCSkillFacet monCSkillFacet = FacetLibrary.getFacet(MonsterCSkillFacet.class);
 	private final NonAbilityFacet nonAbilityFacet = FacetLibrary.getFacet(NonAbilityFacet.class);
 	private final QualifyFacet qualifyFacet = FacetLibrary.getFacet(QualifyFacet.class);
@@ -358,7 +351,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	private final DomainInputFacet domainInputFacet = FacetLibrary.getFacet(DomainInputFacet.class);
 	private final TemplateFacet templateFacet = FacetLibrary.getFacet(TemplateFacet.class);
 	private final TemplateInputFacet templateInputFacet = FacetLibrary.getFacet(TemplateInputFacet.class);
-	private final DeityFacet deityFacet = FacetLibrary.getFacet(DeityFacet.class);
 	private final RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
 	private final RaceInputFacet raceInputFacet = FacetLibrary.getFacet(RaceInputFacet.class);
 	private final StatFacet statFacet = FacetLibrary.getFacet(StatFacet.class);
@@ -427,7 +419,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	private final AddedBonusFacet addedBonusFacet = FacetLibrary.getFacet(AddedBonusFacet.class);
 	private final SaveableBonusFacet saveableBonusFacet = FacetLibrary.getFacet(SaveableBonusFacet.class);
 	private final SpellSupportFacet spellSupportFacet = FacetLibrary.getFacet(SpellSupportFacet.class);
-	private final AgeFacet ageFacet = FacetLibrary.getFacet(AgeFacet.class);
 	private final ActiveSpellsFacet activeSpellsFacet = FacetLibrary.getFacet(ActiveSpellsFacet.class);
 	private final SpellListFacet spellListFacet = FacetLibrary.getFacet(SpellListFacet.class);
 	private final ChangeProfFacet changeProfFacet = FacetLibrary.getFacet(ChangeProfFacet.class);
@@ -511,6 +502,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			CNAbilityFactory.getCNAbility(AbilityCategory.LANGBONUS, Nature.VIRTUAL, Globals.getContext()
 				.getReferenceContext().getManufacturerId(AbilityCategory.LANGBONUS).getActiveObject("*LANGBONUS"));
 	private final CodeControl controller;
+	private Map<String, String> previewSheetVars = new HashMap<>();
 
 	/**
 	 * Constructor.
@@ -581,9 +573,10 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		checkFacet.addAll(id, refContext.getSortkeySortedCDOMObjects(PCCheck.class));
 		campaignFacet.addAll(id, loadedCampaigns);
 
-		setGold(BigDecimal.ZERO);
 		setXPTable(SettingsHandler.getGameAsProperty().get().getDefaultXPTableName());
-		setCharacterType(SettingsHandler.getGameAsProperty().get().getDefaultCharacterType());
+		ChannelUtilities.setControlledChannel(id, CControl.CHARACTERTYPE,
+			SettingsHandler.getGameAsProperty().get()
+				.getDefaultCharacterType());
 		setPreviewSheet(SettingsHandler.getGameAsProperty().get().getDefaultPreviewSheet());
 
 		setName(Constants.EMPTY_STRING);
@@ -619,11 +612,39 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		scopeFacet.set(id, formulaManager.getScopeInstanceFactory());
 		variableStoreFacet.set(id, varStore);
 		solverManagerFacet.set(id, variableContext.generateSolverManager(varStore));
+		ChannelUtilities.watchChannel(this, CControl.AGEINPUT, ageSetFacet);
+		ChannelUtilities.watchChannel(this, CControl.AGEINPUT, FacetLibrary.getFacet(AgeSetKitFacet.class));
+		ChannelUtilities.addListenerToChannel(this, CControl.AGEINPUT, x -> {
+			setDirty(true);
+			calcActiveBonuses();
+		});
 		if (isFeatureEnabled(CControl.ALIGNMENTFEATURE))
 		{
 			ChannelUtilities.setDirtyOnChannelChange(this, CControl.ALIGNMENTINPUT);
 		}
+		ChannelUtilities.setDirtyOnChannelChange(this, CControl.CHARACTERTYPE);
+		if (isFeatureEnabled(CControl.DOMAINFEATURE))
+		{
+			deityWatchSetup(context);
+		}
+		ChannelUtilities.setDirtyOnChannelChange(this, CControl.GOLDINPUT);
+		ChannelUtilities.setDirtyOnChannelChange(this, CControl.HAIRSTYLEINPUT);
+		ChannelUtilities.setDirtyOnChannelChange(this, CControl.HAIRCOLORINPUT);
 		ChannelUtilities.setDirtyOnChannelChange(this, CControl.HANDEDINPUT);
+		ChannelUtilities.setDirtyOnChannelChange(this, CControl.HEIGHTINPUT);
+		ChannelUtilities.setDirtyOnChannelChange(this, CControl.SKINCOLORINPUT);
+	}
+
+	private void deityWatchSetup(LoadContext context)
+	{
+		ChannelUtilities.watchChannel(this, CControl.DEITYINPUT, activeSpellsFacet);
+		ChannelUtilities.watchChannel(this, CControl.DEITYINPUT, FacetLibrary.getFacet(AddFacet.class));
+		ChannelUtilities.watchChannel(this, CControl.DEITYINPUT, FacetLibrary.getFacet(DeityWeaponProfFacet.class));
+		ChannelUtilities.watchChannel(this, CControl.DEITYINPUT, FacetLibrary.getFacet(KitChoiceFacet.class));
+		ChannelUtilities.watchChannel(this, CControl.DEITYINPUT, FacetLibrary.getFacet(RemoveFacet.class));
+		ChannelUtilities.watchChannel(this, CControl.DEITYINPUT, FacetLibrary.getFacet(BonusActiviationFacet.class), 1000);
+		ChannelUtilities.watchChannel(this, CControl.DEITYINPUT, FacetLibrary.getFacet(CalcBonusFacet.class), 5000);
+		ChannelUtilities.watchChannel(this, CControl.DEITYINPUT, moveResultFacet, 2000);
 	}
 
 	@Override
@@ -632,28 +653,13 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		return "PlayerCharacter [name=" + getName() + " @ " + getFileName() + " serial=" + serial + ']';
 	}
 
-	public void setPCAttribute(final NumericPCAttribute attr, final int value)
+	public void setWeight(int value)
 	{
-		boolean didChange = false;
-		switch (attr)
-		{
-			case WEIGHT:
-				didChange = weightFacet.set(id, value);
-				break;
-			case AGE:
-				didChange = ageFacet.set(id, value);
-				break;
-		}
-
+		boolean didChange = weightFacet.set(id, value);
 		if (didChange)
 		{
 			setDirty(true);
-			if (attr.shouldRecalcActiveBonuses())
-			{
-				calcActiveBonuses();
-			}
 		}
-
 	}
 
 	/**
@@ -959,16 +965,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	public void setCurrentEquipSetName(final String aName)
 	{
 		setStringFor(PCStringKey.CURRENT_EQUIP_SET_NAME, aName);
-	}
-
-	/**
-	 * Get the deity.
-	 *
-	 * @return deity
-	 */
-	public Deity getDeity()
-	{
-		return deityFacet.get(id);
 	}
 
 	/**
@@ -1290,77 +1286,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		if (genderFacet.getGender(id) != g)
 		{
 			genderFacet.set(id, g);
-			setDirty(true);
-		}
-	}
-
-	/**
-	 * Sets the character's wealth.
-	 *
-	 * <p>
-	 * Gold here is used as a character's total purchase power not actual gold
-	 * pieces.
-	 *
-	 * @param aString
-	 *            A String gold amount. TODO - Do this parsing elsewhere.
-	 */
-	public void setGold(final String aString)
-	{
-		BigDecimal gold = new BigDecimal(aString);
-		setGold(gold);
-	}
-
-	/**
-	 * Sets the character's wealth.
-	 *
-	 * <p>
-	 * Gold here is used as a character's total purchase power not actual gold
-	 * pieces.
-	 *
-	 * @param amt
-	 *            A gold amount.
-	 */
-	public final void setGold(final BigDecimal amt)
-	{
-		if (amt == null)
-		{
-			return;
-		}
-
-		// The equality comparison in AbstractItemFacet doesn't work on BigDecimal, need to use compareTo
-		BigDecimal oldAmt = goldFacet.get(id);
-		if (oldAmt == null || amt.compareTo(oldAmt) != 0)
-		{
-			goldFacet.set(id, amt);
-			setDirty(true);
-		}
-	}
-
-	/**
-	 * Returns the character's total wealth.
-	 *
-	 * @see pcgen.core.PlayerCharacter#setGold(String)
-	 *
-	 * @return A <tt>BigDecimal</tt> value for the character's wealth.
-	 */
-	public BigDecimal getGold()
-	{
-		BigDecimal g = goldFacet.get(id);
-		return (g == null) ? BigDecimal.ZERO : g;
-	}
-
-	/**
-	 * Sets the character's height in inches.
-	 *
-	 * @param i
-	 *            A height in inches.
-	 *
-	 * TODO - This should be a double value stored in CM
-	 */
-	public void setHeight(final int i)
-	{
-		if (heightFacet.set(id, i))
-		{
 			setDirty(true);
 		}
 	}
@@ -2111,19 +2036,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	}
 
 	/**
-	 * Set whether the field should be hidden from output.
-	 * @param field The BiographyField to set export suppression rules for.
-	 * @param suppress Should the field be hidden from output.
-	 */
-	public void setSuppressBioField(BiographyField field, boolean suppress)
-	{
-		if (suppressBioFieldFacet.setSuppressField(id, field, suppress))
-		{
-			setDirty(true);
-		}
-	}
-
-	/**
 	 * Temp Bonus list.
 	 *
 	 * @return List
@@ -2316,14 +2228,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	public LevelInfo getXPTableLevelInfo(int level)
 	{
 		return xpTableFacet.getLevelInfo(id, level);
-	}
-
-	public final void setCharacterType(final String characterType)
-	{
-		if (characterTypeFacet.set(id, characterType))
-		{
-			setDirty(true);
-		}
 	}
 
 	public final void setPreviewSheet(final String previewSheet)
@@ -2923,14 +2827,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	public double getBonusDueToType(final String mainType, final String subType, final String bonusType)
 	{
 		return bonusManager.getBonusDueToType(mainType, subType, bonusType);
-	}
-
-	public void setDeity(final Deity aDeity)
-	{
-		if (canSelectDeity(aDeity) && deityFacet.set(id, aDeity))
-		{
-			setDirty(true);
-		}
 	}
 
 	/**
@@ -4607,12 +4503,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		return true;
 	}
 
-	public void adjustGold(final double delta)
-	{
-		goldFacet.adjustGold(id, delta);
-		setDirty(true);
-	}
-
 	/**
 	 * recalculate all the move rates and modifiers
 	 */
@@ -5892,12 +5782,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		 */
 	}
 
-	public void addFreeLanguage(final Language aLang, CDOMObject source)
-	{
-		freeLangFacet.add(id, aLang, source);
-		setDirty(true);
-	}
-
 	public void addAddLanguage(final Language aLang, CDOMObject source)
 	{
 		addLangFacet.add(id, aLang, source);
@@ -6146,10 +6030,10 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		list.addAll(companionModFacet.getSet(id));
 
 		// Deity
-		Deity deity = deityFacet.get(id);
-		if (deity != null)
+		if (isFeatureEnabled(CControl.DOMAINFEATURE))
 		{
-			list.add(deity);
+			list.add((Deity) ChannelUtilities.readControlledChannel(getCharID(),
+				CControl.DEITYINPUT));
 		}
 
 		// Domain
@@ -9530,7 +9414,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			}
 
 			spMod *= getRace().getSafe(IntegerKey.INITIAL_SKILL_MULT);
-			if (ageFacet.getAge(id) <= 0)
+			if ((Integer) ChannelUtilities.readControlledChannel(getCharID(), CControl.AGEINPUT) <= 0)
 			{
 				// Only generate a random age if the user hasn't set one!
 				bioSetFacet.get(id).randomize("AGE", this);
@@ -10087,5 +9971,22 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	public Gender getGenderObject()
 	{
 		return genderFacet.getGender(id);
+	}
+
+
+	public void addPreviewSheetVar(String key, String value)
+	{
+		setDirty(true);
+		previewSheetVars.put(key, value);
+	}
+
+	public String getPreviewSheetVar(String key)
+	{
+		return previewSheetVars.get(key);
+	}
+
+	public Map<String, String> getPreviewSheetVars()
+	{
+		return previewSheetVars;
 	}
 }

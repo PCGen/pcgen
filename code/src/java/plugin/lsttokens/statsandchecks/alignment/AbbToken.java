@@ -19,7 +19,6 @@ package plugin.lsttokens.statsandchecks.alignment;
 
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCAlignment;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -45,16 +44,9 @@ public class AbbToken extends AbstractNonEmptyToken<PCAlignment> implements CDOM
 	@Override
 	protected ParseResult parseNonEmptyToken(LoadContext context, PCAlignment al, String value)
 	{
-		try
+		if (!context.processToken(al, "KEY", value))
 		{
-			if (!context.processToken(al, "KEY", value))
-			{
-				return new ParseResult.Fail("Internal Error");
-			}
-		}
-		catch (PersistenceLayerException e)
-		{
-			return new ParseResult.Fail(e.getLocalizedMessage());
+			return new ParseResult.Fail("Internal Error");
 		}
 		context.getObjectContext().put(al, StringKey.ABB_KR, value);
 		return ParseResult.SUCCESS;

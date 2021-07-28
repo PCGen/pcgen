@@ -160,8 +160,8 @@ public class SkillTreeViewModel
 				return skillBreakdown.ranks;
 			case 3:
 				return levels.getSkillCost(level, obj) == SkillCost.CLASS
-					? LanguageBundle.getString("in_yes") : //$NON-NLS-1$
-					LanguageBundle.getString("in_no"); //$NON-NLS-1$
+					? LanguageBundle.getString("in_yes") //$NON-NLS-1$
+					: LanguageBundle.getString("in_no"); //$NON-NLS-1$
 			case 4:
 				return levels.getSkillCost(level, obj).getCost();
 			case 5:

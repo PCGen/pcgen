@@ -1,103 +1,55 @@
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
-# CVS $Revision: 21574 $ $Author: amaitland $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 
-# Template name
-# Template Name					Visible	Source Page		Define							Modify VAR							Bonus Languages
-Truespeaker						VISIBLE:NO	SOURCEPAGE:p.85																	LANGBONUS:ALL
-
-###Block:
-# Template Name			Template																																																																																																									Define																																			Modify VAR																																Removable?
-Mystic Past Life Base Score	TEMPLATE:Mystic Past Life ~ INT|Mystic Past Life ~ WIS|Mystic Past Life ~ CHA																																																																																														DEFINE:MysticPastLifeScoreINT|0	DEFINE:MysticPastLifeScoreWIS|0	DEFINE:MysticPastLifeScoreCHA|0	DEFINE:MysticPastLifeINTBonus|0	DEFINE:MysticPastLifeWISBonus|0	DEFINE:MysticPastLifeCHABonus|0	BONUS:VAR|MysticPastLifeINTBonus|(MysticPastLifeScoreINT-10)/2	BONUS:VAR|MysticPastLifeWISBonus|(MysticPastLifeScoreWIS-10)/2	BONUS:VAR|MysticPastLifeCHABonus|(MysticPastLifeScoreCHA-10)/2	REMOVABLE:NO
-#
-Mystic Past Life ~ INT		TEMPLATE:CHOOSE:Mystic Past Life ~ INT 1|Mystic Past Life ~ INT 2|Mystic Past Life ~ INT 3|Mystic Past Life ~ INT 4|Mystic Past Life ~ INT 5|Mystic Past Life ~ INT 6|Mystic Past Life ~ INT 7|Mystic Past Life ~ INT 8|Mystic Past Life ~ INT 9|Mystic Past Life ~ INT 10|Mystic Past Life ~ INT 11|Mystic Past Life ~ INT 12|Mystic Past Life ~ INT 13|Mystic Past Life ~ INT 14|Mystic Past Life ~ INT 15|Mystic Past Life ~ INT 16|Mystic Past Life ~ INT 17|Mystic Past Life ~ INT 18|Mystic Past Life ~ INT 19|Mystic Past Life ~ INT 20|Mystic Past Life ~ INT 21|Mystic Past Life ~ INT 22|Mystic Past Life ~ INT 23|Mystic Past Life ~ INT 24																																																																						REMOVABLE:NO
-Mystic Past Life ~ WIS		TEMPLATE:CHOOSE:Mystic Past Life ~ WIS 1|Mystic Past Life ~ WIS 2|Mystic Past Life ~ WIS 3|Mystic Past Life ~ WIS 4|Mystic Past Life ~ WIS 5|Mystic Past Life ~ WIS 6|Mystic Past Life ~ WIS 7|Mystic Past Life ~ WIS 8|Mystic Past Life ~ WIS 9|Mystic Past Life ~ WIS 10|Mystic Past Life ~ WIS 11|Mystic Past Life ~ WIS 12|Mystic Past Life ~ WIS 13|Mystic Past Life ~ WIS 14|Mystic Past Life ~ WIS 15|Mystic Past Life ~ WIS 16|Mystic Past Life ~ WIS 17|Mystic Past Life ~ WIS 18|Mystic Past Life ~ WIS 19|Mystic Past Life ~ WIS 20|Mystic Past Life ~ WIS 21|Mystic Past Life ~ WIS 22|Mystic Past Life ~ WIS 23|Mystic Past Life ~ WIS 24																																																																						REMOVABLE:NO
-Mystic Past Life ~ CHA		TEMPLATE:CHOOSE:Mystic Past Life ~ CHA 1|Mystic Past Life ~ CHA 2|Mystic Past Life ~ CHA 3|Mystic Past Life ~ CHA 4|Mystic Past Life ~ CHA 5|Mystic Past Life ~ CHA 6|Mystic Past Life ~ CHA 7|Mystic Past Life ~ CHA 8|Mystic Past Life ~ CHA 9|Mystic Past Life ~ CHA 10|Mystic Past Life ~ CHA 11|Mystic Past Life ~ CHA 12|Mystic Past Life ~ CHA 13|Mystic Past Life ~ CHA 14|Mystic Past Life ~ CHA 15|Mystic Past Life ~ CHA 16|Mystic Past Life ~ CHA 17|Mystic Past Life ~ CHA 18|Mystic Past Life ~ CHA 19|Mystic Past Life ~ CHA 20|Mystic Past Life ~ CHA 21|Mystic Past Life ~ CHA 22|Mystic Past Life ~ CHA 23|Mystic Past Life ~ CHA 24																																																																						REMOVABLE:NO
-###Block: Scores
-# Template Name				Visible	Damage Reduction			Source Page		Define					Required Var. value	Bonus DR					Misc bonus		Modify VAR																																														Ability																		Auto Language			Bonus Languages																Removable?		Spell Res.	FACT
-Mystic Past Life ~ INT 1																		PREVAREQ:INTSCORE,1										BONUS:VAR|MysticPastLifeScoreINT|1|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ INT 2																		PREVAREQ:INTSCORE,2										BONUS:VAR|MysticPastLifeScoreINT|2|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ INT 3																		PREVAREQ:INTSCORE,3										BONUS:VAR|MysticPastLifeScoreINT|3|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ INT 4																		PREVAREQ:INTSCORE,4										BONUS:VAR|MysticPastLifeScoreINT|4|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ INT 5																		PREVAREQ:INTSCORE,5										BONUS:VAR|MysticPastLifeScoreINT|5|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ INT 6																		PREVAREQ:INTSCORE,6										BONUS:VAR|MysticPastLifeScoreINT|6|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ INT 7																		PREVAREQ:INTSCORE,7										BONUS:VAR|MysticPastLifeScoreINT|7|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ INT 8																		PREVAREQ:INTSCORE,8										BONUS:VAR|MysticPastLifeScoreINT|8|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ INT 9																		PREVAREQ:INTSCORE,9										BONUS:VAR|MysticPastLifeScoreINT|9|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ INT 10																		PREVAREQ:INTSCORE,10										BONUS:VAR|MysticPastLifeScoreINT|10|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ INT 11																		PREVAREQ:INTSCORE,11										BONUS:VAR|MysticPastLifeScoreINT|11|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ INT 12																		PREVAREQ:INTSCORE,12										BONUS:VAR|MysticPastLifeScoreINT|12|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ INT 13																		PREVAREQ:INTSCORE,13										BONUS:VAR|MysticPastLifeScoreINT|13|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ INT 14																		PREVAREQ:INTSCORE,14										BONUS:VAR|MysticPastLifeScoreINT|14|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ INT 15																		PREVAREQ:INTSCORE,15										BONUS:VAR|MysticPastLifeScoreINT|15|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ INT 16																		PREVAREQ:INTSCORE,16										BONUS:VAR|MysticPastLifeScoreINT|16|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ INT 17																		PREVAREQ:INTSCORE,17										BONUS:VAR|MysticPastLifeScoreINT|17|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ INT 18																		PREVAREQ:INTSCORE,18										BONUS:VAR|MysticPastLifeScoreINT|18|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ INT 19																		PREVAREQ:INTSCORE,19										BONUS:VAR|MysticPastLifeScoreINT|19|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ INT 20																		PREVAREQ:INTSCORE,20										BONUS:VAR|MysticPastLifeScoreINT|20|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ INT 21																		PREVAREQ:INTSCORE,21										BONUS:VAR|MysticPastLifeScoreINT|21|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ INT 22																		PREVAREQ:INTSCORE,22										BONUS:VAR|MysticPastLifeScoreINT|22|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ INT 23																		PREVAREQ:INTSCORE,23										BONUS:VAR|MysticPastLifeScoreINT|23|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ INT 24																		PREVAREQ:INTSCORE,24										BONUS:VAR|MysticPastLifeScoreINT|24|TYPE=BASE																																																																																		REMOVABLE:NO
-#
-Mystic Past Life ~ WIS 1																		PREVAREQ:WISSCORE,1										BONUS:VAR|MysticPastLifeScoreWIS|1|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ WIS 2																		PREVAREQ:WISSCORE,2										BONUS:VAR|MysticPastLifeScoreWIS|2|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ WIS 3																		PREVAREQ:WISSCORE,3										BONUS:VAR|MysticPastLifeScoreWIS|3|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ WIS 4																		PREVAREQ:WISSCORE,4										BONUS:VAR|MysticPastLifeScoreWIS|4|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ WIS 5																		PREVAREQ:WISSCORE,5										BONUS:VAR|MysticPastLifeScoreWIS|5|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ WIS 6																		PREVAREQ:WISSCORE,6										BONUS:VAR|MysticPastLifeScoreWIS|6|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ WIS 7																		PREVAREQ:WISSCORE,7										BONUS:VAR|MysticPastLifeScoreWIS|7|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ WIS 8																		PREVAREQ:WISSCORE,8										BONUS:VAR|MysticPastLifeScoreWIS|8|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ WIS 9																		PREVAREQ:WISSCORE,9										BONUS:VAR|MysticPastLifeScoreWIS|9|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ WIS 10																		PREVAREQ:WISSCORE,10										BONUS:VAR|MysticPastLifeScoreWIS|10|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ WIS 11																		PREVAREQ:WISSCORE,11										BONUS:VAR|MysticPastLifeScoreWIS|11|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ WIS 12																		PREVAREQ:WISSCORE,12										BONUS:VAR|MysticPastLifeScoreWIS|12|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ WIS 13																		PREVAREQ:WISSCORE,13										BONUS:VAR|MysticPastLifeScoreWIS|13|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ WIS 14																		PREVAREQ:WISSCORE,14										BONUS:VAR|MysticPastLifeScoreWIS|14|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ WIS 15																		PREVAREQ:WISSCORE,15										BONUS:VAR|MysticPastLifeScoreWIS|15|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ WIS 16																		PREVAREQ:WISSCORE,16										BONUS:VAR|MysticPastLifeScoreWIS|16|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ WIS 17																		PREVAREQ:WISSCORE,17										BONUS:VAR|MysticPastLifeScoreWIS|17|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ WIS 18																		PREVAREQ:WISSCORE,18										BONUS:VAR|MysticPastLifeScoreWIS|18|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ WIS 19																		PREVAREQ:WISSCORE,19										BONUS:VAR|MysticPastLifeScoreWIS|19|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ WIS 20																		PREVAREQ:WISSCORE,20										BONUS:VAR|MysticPastLifeScoreWIS|20|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ WIS 21																		PREVAREQ:WISSCORE,21										BONUS:VAR|MysticPastLifeScoreWIS|21|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ WIS 22																		PREVAREQ:WISSCORE,22										BONUS:VAR|MysticPastLifeScoreWIS|22|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ WIS 23																		PREVAREQ:WISSCORE,23										BONUS:VAR|MysticPastLifeScoreWIS|23|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ WIS 24																		PREVAREQ:WISSCORE,24										BONUS:VAR|MysticPastLifeScoreWIS|24|TYPE=BASE																																																																																		REMOVABLE:NO
-#
-Mystic Past Life ~ CHA 1																		PREVAREQ:CHASCORE,1										BONUS:VAR|MysticPastLifeScoreCHA|1|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ CHA 2																		PREVAREQ:CHASCORE,2										BONUS:VAR|MysticPastLifeScoreCHA|2|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ CHA 3																		PREVAREQ:CHASCORE,3										BONUS:VAR|MysticPastLifeScoreCHA|3|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ CHA 4																		PREVAREQ:CHASCORE,4										BONUS:VAR|MysticPastLifeScoreCHA|4|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ CHA 5																		PREVAREQ:CHASCORE,5										BONUS:VAR|MysticPastLifeScoreCHA|5|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ CHA 6																		PREVAREQ:CHASCORE,6										BONUS:VAR|MysticPastLifeScoreCHA|6|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ CHA 7																		PREVAREQ:CHASCORE,7										BONUS:VAR|MysticPastLifeScoreCHA|7|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ CHA 8																		PREVAREQ:CHASCORE,8										BONUS:VAR|MysticPastLifeScoreCHA|8|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ CHA 9																		PREVAREQ:CHASCORE,9										BONUS:VAR|MysticPastLifeScoreCHA|9|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ CHA 10																		PREVAREQ:CHASCORE,10										BONUS:VAR|MysticPastLifeScoreCHA|10|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ CHA 11																		PREVAREQ:CHASCORE,11										BONUS:VAR|MysticPastLifeScoreCHA|11|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ CHA 12																		PREVAREQ:CHASCORE,12										BONUS:VAR|MysticPastLifeScoreCHA|12|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ CHA 13																		PREVAREQ:CHASCORE,13										BONUS:VAR|MysticPastLifeScoreCHA|13|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ CHA 14																		PREVAREQ:CHASCORE,14										BONUS:VAR|MysticPastLifeScoreCHA|14|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ CHA 15																		PREVAREQ:CHASCORE,15										BONUS:VAR|MysticPastLifeScoreCHA|15|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ CHA 16																		PREVAREQ:CHASCORE,16										BONUS:VAR|MysticPastLifeScoreCHA|16|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ CHA 17																		PREVAREQ:CHASCORE,17										BONUS:VAR|MysticPastLifeScoreCHA|17|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ CHA 18																		PREVAREQ:CHASCORE,18										BONUS:VAR|MysticPastLifeScoreCHA|18|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ CHA 19																		PREVAREQ:CHASCORE,19										BONUS:VAR|MysticPastLifeScoreCHA|19|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ CHA 20																		PREVAREQ:CHASCORE,20										BONUS:VAR|MysticPastLifeScoreCHA|20|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ CHA 21																		PREVAREQ:CHASCORE,21										BONUS:VAR|MysticPastLifeScoreCHA|21|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ CHA 22																		PREVAREQ:CHASCORE,22										BONUS:VAR|MysticPastLifeScoreCHA|22|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ CHA 23																		PREVAREQ:CHASCORE,23										BONUS:VAR|MysticPastLifeScoreCHA|23|TYPE=BASE																																																																																		REMOVABLE:NO
-Mystic Past Life ~ CHA 24																		PREVAREQ:CHASCORE,24										BONUS:VAR|MysticPastLifeScoreCHA|24|TYPE=BASE																																																																																		REMOVABLE:NO
-
-Default Language ~ Kitsune		VISIBLE:NO																																																																																														AUTO:LANG|Common|Sylvan		LANGBONUS:Aklo,Celestial,Elven,Gnome,Tengu,TYPE=ModernHumanLanguage
-Default Language ~ Nagaji		VISIBLE:NO																																																																																														AUTO:LANG|Common|Draconic	LANGBONUS:Abyssal,Aklo,Celestial,Draconic,Giant,Infernal,Sylvan,TYPE=ModernHumanLanguage
-Default Language ~ Samsaran		VISIBLE:NO																																																																																														AUTO:LANG|Common|Samsaran	LANGBONUS:Abyssal,Aquan,Auran,Celestial,Draconic,Giant,Ignan,Infernal,Tengu,Terran,TYPE=ModernHumanLanguage
-Default Language ~ Wayang		VISIBLE:NO																																																																																														AUTO:LANG|Common|Wayang		LANGBONUS:Abyssal,Aklo,Draconic,Goblin,Infernal,Samsaran,Tengu,TYPE=ModernHumanLanguage
+###Block: Languages
+# Template Name			Visible	Bonus Languages
+Bonus Language ~ Azlanti	VISIBLE:NO	LANGBONUS:Azlanti
+Bonus Language ~ Nagaji		VISIBLE:NO	LANGBONUS:Nagaji
+Bonus Language ~ Samsaran	VISIBLE:NO	LANGBONUS:Samsaran
+Bonus Language ~ Strix		VISIBLE:NO	LANGBONUS:Strix
 
 
-Race Bonus Language ~ All Spoken	VISIBLE:NO																																																																																																			LANGBONUS:TYPE=Spoken
+###Block: Racial Heritage ~ Will be used to determine feat eligibiltiy
+# Template Name	Unique Key					Visible	Type				FACT
+Changeling		KEY:Racial Heritage ~ Changeling	VISIBLE:NO	TYPE:Racial Heritage	FACT:IsChangeling|True
+Gillman		KEY:Racial Heritage ~ Gillman		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsGillman|True
+Kitsune		KEY:Racial Heritage ~ Kitsune		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsKitsune|True
+Nagaji		KEY:Racial Heritage ~ Nagaji		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsNagaji|True
+Samsaran		KEY:Racial Heritage ~ Samsaran	VISIBLE:NO	TYPE:Racial Heritage	FACT:IsSamsaran|True
+Strix			KEY:Racial Heritage ~ Strix		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsStrix|True
+Wayang		KEY:Racial Heritage ~ Wayang		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsWayang|True
 
-Shadow Creature				VISIBLE:YES	DR:5/Magic|PRELEVEL:MIN=5	SOURCEPAGE:p.110	DEFINE:ShadowResistanceBonus|0					BONUS:DR|Magic|5|PRELEVEL:MIN=11	BONUS:MISC|CR|1	BONUS:VAR|ShadowResistanceBonus|5	BONUS:VAR|ColdResistanceBonus,ElectricityResistanceBonus|ShadowResistanceBonus|TYPE=Resistance	BONUS:VAR|ShadowResistanceBonus|5|PRELEVEL:MIN=5	BONUS:VAR|ShadowResistanceBonus|5|PRELEVEL:MIN=11	BONUS:VAR|DarkvisionRange|60|TYPE=Base	ABILITY:Special Ability|AUTOMATIC|Shadow Creature ~ Shadow Blend|Resistance to Cold|Resistance to Electricity																											SR:CR+5	FACT:AppliedName|Shadow
+
+###Block: Racial Subtypes
+# Template Name	Visible	Subrace
+Deep Delver		VISIBLE:NO	SUBRACE:Deep Delver
+Elder Dwarf		VISIBLE:NO	SUBRACE:Elder Dwarf
+Exiled Dwarf	VISIBLE:NO	SUBRACE:Exiled Dwarf
+Mountain Dwarf	VISIBLE:NO	SUBRACE:Mountain Dwarf
+Arctic Elf		VISIBLE:NO	SUBRACE:Arctic Elf
+Dusk Elf		VISIBLE:NO	SUBRACE:Dusk Elf
+Savage Elf		VISIBLE:NO	SUBRACE:Savage Elf
+Tower Elf		VISIBLE:NO	SUBRACE:Tower Elf
+Dread Gnome		VISIBLE:NO	SUBRACE:Dread Gnome
+Gear Gnome		VISIBLE:NO	SUBRACE:Gear Gnome
+Lava Gnome		VISIBLE:NO	SUBRACE:Lava Gnome
+Traveler Gnome	VISIBLE:NO	SUBRACE:Traveler Gnome
+Drow-Descended	VISIBLE:NO	SUBRACE:Drow-Descended
+Elf-Raised		VISIBLE:NO	SUBRACE:Elf-Raised
+Human-Raised	VISIBLE:NO	SUBRACE:Human-Raised
+Arena-Bred		VISIBLE:NO	SUBRACE:Arena-Bred
+Deep Kin		VISIBLE:NO	SUBRACE:Deep Kin
+Feral			VISIBLE:NO	SUBRACE:Feral
+Mountain Clan	VISIBLE:NO	SUBRACE:Mountain Clan
+Mystic		VISIBLE:NO	SUBRACE:Mystic
+Avenging		VISIBLE:NO	SUBRACE:Avenging
+Nomadic		VISIBLE:NO	SUBRACE:Nomadic
+Slave Born		VISIBLE:NO	SUBRACE:Slave Born
+Cosmopolitan	VISIBLE:NO	SUBRACE:Cosmopolitan
+Country Folk	VISIBLE:NO	SUBRACE:Country Folk
+Gutter Rat		VISIBLE:NO	SUBRACE:Gutter Rat
+Imperious Human	VISIBLE:NO	SUBRACE:Imperious Human
+Trailblazer		VISIBLE:NO	SUBRACE:Trailblazer
+Versatile Human	VISIBLE:NO	SUBRACE:Versatile Human
 
 ###Block: Race Builder Humanoid Subtypes
 # Template Name	Unique Key						Visible	Subrace			Race Subtype			Type
@@ -108,89 +60,37 @@ Halfling		KEY:Race Builder Subtype ~ Halfling		VISIBLE:NO					RACESUBTYPE:Halfli
 Human			KEY:Race Builder Subtype ~ Human		VISIBLE:NO					RACESUBTYPE:Human			TYPE:Race Builder Subtype
 #
 Adlet			KEY:Race Builder Subtype ~ Adlet		VISIBLE:NO					RACESUBTYPE:Adlet			TYPE:Race Builder Subtype
-Catfolk		KEY:Race Builder Subtype ~ Catfolk		VISIBLE:NO					RACESUBTYPE:Catfolk		TYPE:Race Builder Subtype.Racial Heritage
+Catfolk		KEY:Race Builder Subtype ~ Catfolk		VISIBLE:NO					RACESUBTYPE:Catfolk		TYPE:Race Builder Subtype
 Dark Folk		KEY:Race Builder Subtype ~ Dark Folk	VISIBLE:NO					RACESUBTYPE:Dark Folk		TYPE:Race Builder Subtype
 Goblinoid		KEY:Race Builder Subtype ~ Goblinoid	VISIBLE:NO					RACESUBTYPE:Goblinoid		TYPE:Race Builder Subtype
-Kasatha		KEY:Race Builder Subtype ~ Kasatha		VISIBLE:NO					RACESUBTYPE:Kasatha		TYPE:Race Builder Subtype.Racial Heritage
 Kitsune		KEY:Race Builder Subtype ~ Kitsune		VISIBLE:NO					RACESUBTYPE:Kitsune		TYPE:Race Builder Subtype
 Orc			KEY:Race Builder Subtype ~ Orc		VISIBLE:NO					RACESUBTYPE:Orc			TYPE:Race Builder Subtype
-Ratfolk		KEY:Race Builder Subtype ~ Ratfolk		VISIBLE:NO					RACESUBTYPE:Ratfolk		TYPE:Race Builder Subtype.Racial Heritage
-Samsaran		KEY:Race Builder Subtype ~ Samsaran		VISIBLE:NO					RACESUBTYPE:Samsaran		TYPE:Race Builder Subtype.Racial Heritage
+Ratfolk		KEY:Race Builder Subtype ~ Ratfolk		VISIBLE:NO					RACESUBTYPE:Ratfolk		TYPE:Race Builder Subtype
+Samsaran		KEY:Race Builder Subtype ~ Samsaran		VISIBLE:NO					RACESUBTYPE:Samsaran		TYPE:Race Builder Subtype
 Sasquatch		KEY:Race Builder Subtype ~ Sasquatch	VISIBLE:NO					RACESUBTYPE:Sasquatch		TYPE:Race Builder Subtype
-Vanara		KEY:Race Builder Subtype ~ Vanara		VISIBLE:NO					RACESUBTYPE:Vanara		TYPE:Race Builder Subtype.Racial Heritage
-Vishkanya		KEY:Race Builder Subtype ~ Vishkanya	VISIBLE:NO					RACESUBTYPE:Vishkanya		TYPE:Race Builder Subtype.Racial Heritage
-Changeling		KEY:Race Builder Subtype ~ Changeling	VISIBLE:NO					RACESUBTYPE:Changeling		TYPE:Race Builder Subtype.Racial Heritage
+Vanara		KEY:Race Builder Subtype ~ Vanara		VISIBLE:NO					RACESUBTYPE:Vanara		TYPE:Race Builder Subtype
+Vishkanya		KEY:Race Builder Subtype ~ Vishkanya	VISIBLE:NO					RACESUBTYPE:Vishkanya		TYPE:Race Builder Subtype
+Changeling		KEY:Race Builder Subtype ~ Changeling	VISIBLE:NO					RACESUBTYPE:Changeling		TYPE:Race Builder Subtype
 Reptilian		KEY:Race Builder Subtype ~ Reptilian	VISIBLE:NO					RACESUBTYPE:Reptilian		TYPE:Race Builder Subtype
-Strix			KEY:Race Builder Subtype ~ Strix		VISIBLE:NO					RACESUBTYPE:Strix			TYPE:Race Builder Subtype.Racial Heritage
-Wayang		KEY:Race Builder Subtype ~ Wayang		VISIBLE:NO					RACESUBTYPE:Wayang		TYPE:Race Builder Subtype.Racial Heritage
+Strix			KEY:Race Builder Subtype ~ Strix		VISIBLE:NO					RACESUBTYPE:Strix			TYPE:Race Builder Subtype
+Wayang		KEY:Race Builder Subtype ~ Wayang		VISIBLE:NO					RACESUBTYPE:Wayang		TYPE:Race Builder Subtype
 Aquatic		KEY:Race Builder Subtype ~ Aquatic		VISIBLE:NO					RACESUBTYPE:Aquatic		TYPE:Race Builder Subtype
 Shapechanger	KEY:Race Builder Subtype ~ Shapechanger	VISIBLE:NO					RACESUBTYPE:Shapechanger	TYPE:Race Builder Subtype
 Giant			KEY:Race Builder Subtype ~ Giant		VISIBLE:NO					RACESUBTYPE:Giant			TYPE:Race Builder Subtype
-Tengu			KEY:Race Builder Subtype ~ Tengu		VISIBLE:NO					RACESUBTYPE:Tengu			TYPE:Race Builder Subtype.Racial Heritage
+Tengu			KEY:Race Builder Subtype ~ Tengu		VISIBLE:NO					RACESUBTYPE:Tengu			TYPE:Race Builder Subtype
 Reptilian		KEY:Race Builder Subtype ~ Reptilian	VISIBLE:NO					RACESUBTYPE:Reptilian		TYPE:Race Builder Subtype
-Dhampir		KEY:Race Builder Subtype ~ Dhampir		VISIBLE:NO					RACESUBTYPE:Dhampir		TYPE:Race Builder Subtype.Racial Heritage
-Grippli		KEY:Race Builder Subtype ~ Grippli		VISIBLE:NO					RACESUBTYPE:Grippli		TYPE:Race Builder Subtype.Racial Heritage
+Dhampir		KEY:Race Builder Subtype ~ Dhampir		VISIBLE:NO					RACESUBTYPE:Dhampir		TYPE:Race Builder Subtype
+Grippli		KEY:Race Builder Subtype ~ Grippli		VISIBLE:NO					RACESUBTYPE:Grippli		TYPE:Race Builder Subtype
 Cold			KEY:Race Builder Subtype ~ Cold		VISIBLE:NO					RACESUBTYPE:Cold			TYPE:Race Builder Subtype
-Android		KEY:Race Builder Subtype ~ Android		VISIBLE:NO					RACESUBTYPE:Android		TYPE:Race Builder Subtype
-Lashunta		KEY:Race Builder Subtype ~ Lashunta		VISIBLE:NO					RACESUBTYPE:Lashunta		TYPE:Race Builder Subtype.Racial Heritage
-Triaxian		KEY:Race Builder Subtype ~ Triaxian		VISIBLE:NO					RACESUBTYPE:Triaxian		TYPE:Race Builder Subtype.Racial Heritage
+
 Snillorg		KEY:Race Builder Subtype ~ Snillorg		VISIBLE:NO					RACESUBTYPE:Snillorg		TYPE:Race Builder Subtype
 Zif			KEY:Race Builder Subtype ~ Zif		VISIBLE:NO					RACESUBTYPE:Zif			TYPE:Race Builder Subtype
 Taddol		KEY:Race Builder Subtype ~ Taddol		VISIBLE:NO					RACESUBTYPE:Taddol		TYPE:Race Builder Subtype
 Obitu			KEY:Race Builder Subtype ~ Obitu		VISIBLE:NO					RACESUBTYPE:Obitu			TYPE:Race Builder Subtype
 Mahrog		KEY:Race Builder Subtype ~ Mahrog		VISIBLE:NO					RACESUBTYPE:Mahrog		TYPE:Race Builder Subtype
 Anumus		KEY:Race Builder Subtype ~ Anumus		VISIBLE:NO					RACESUBTYPE:Anumus		TYPE:Race Builder Subtype
-Goblin		KEY:Race Builder Subtype ~ Goblin		VISIBLE:NO					RACESUBTYPE:Goblin		TYPE:Race Builder Subtype.Racial Heritage
+Goblin		KEY:Race Builder Subtype ~ Goblin		VISIBLE:NO					RACESUBTYPE:Goblin		TYPE:Race Builder Subtype
 Goblinoid		KEY:Race Builder Subtype ~ Goblinoid	VISIBLE:NO					RACESUBTYPE:Goblinoid		TYPE:Race Builder Subtype
 Boggle		KEY:Race Builder Subtype ~ Boggle		VISIBLE:NO					RACESUBTYPE:Boggle		TYPE:Race Builder Subtype
 Entobian		KEY:Race Builder Subtype ~ Entobian		VISIBLE:NO					RACESUBTYPE:Entobian		TYPE:Race Builder Subtype
 Charau-ka		KEY:Race Builder Subtype ~ Charau-ka	VISIBLE:NO					RACESUBTYPE:Charau-ka		TYPE:Race Builder Subtype
-
-
-# Template Name	Unique Key						Visible	Subrace			Race Subtype			Type
-Dwarf			KEY:Race Builder Subtype ~ Dwarf		VISIBLE:NO					RACESUBTYPE:Dwarf			TYPE:Race Builder Subtype
-Elf			KEY:Race Builder Subtype ~ Elf		VISIBLE:NO					RACESUBTYPE:Elf			TYPE:Race Builder Subtype
-Gnome			KEY:Race Builder Subtype ~ Gnome		VISIBLE:NO					RACESUBTYPE:Gnome			TYPE:Race Builder Subtype
-Halfling		KEY:Race Builder Subtype ~ Halfling		VISIBLE:NO					RACESUBTYPE:Halfling		TYPE:Race Builder Subtype
-Human			KEY:Race Builder Subtype ~ Human		VISIBLE:NO					RACESUBTYPE:Human			TYPE:Race Builder Subtype
-
-
-
-### Racial Subtypes
-Deep Delver									VISIBLE:NO	SUBRACE:Deep Delver
-Elder Dwarf									VISIBLE:NO	SUBRACE:Elder Dwarf
-Exiled Dwarf								VISIBLE:NO	SUBRACE:Exiled Dwarf
-Mountain Dwarf								VISIBLE:NO	SUBRACE:Mountain Dwarf
-Arctic Elf									VISIBLE:NO	SUBRACE:Arctic Elf
-Dusk Elf									VISIBLE:NO	SUBRACE:Dusk Elf
-Savage Elf									VISIBLE:NO	SUBRACE:Savage Elf
-Tower Elf									VISIBLE:NO	SUBRACE:Tower Elf
-Dread Gnome									VISIBLE:NO	SUBRACE:Dread Gnome
-Gear Gnome									VISIBLE:NO	SUBRACE:Gear Gnome
-Lava Gnome									VISIBLE:NO	SUBRACE:Lava Gnome
-Traveler Gnome								VISIBLE:NO	SUBRACE:Traveler Gnome
-Drow-Descended								VISIBLE:NO	SUBRACE:Drow-Descended
-Elf-Raised									VISIBLE:NO	SUBRACE:Elf-Raised
-Human-Raised								VISIBLE:NO	SUBRACE:Human-Raised
-Arena-Bred									VISIBLE:NO	SUBRACE:Arena-Bred
-Deep Kin									VISIBLE:NO	SUBRACE:Deep Kin
-Feral										VISIBLE:NO	SUBRACE:Feral
-Mountain Clan								VISIBLE:NO	SUBRACE:Mountain Clan
-Mystic									VISIBLE:NO	SUBRACE:Mystic
-Avenging									VISIBLE:NO	SUBRACE:Avenging
-Nomadic									VISIBLE:NO	SUBRACE:Nomadic
-Slave Born									VISIBLE:NO	SUBRACE:Slave Born
-Cosmopolitan								VISIBLE:NO	SUBRACE:Cosmopolitan
-Country Folk								VISIBLE:NO	SUBRACE:Country Folk
-Gutter Rat									VISIBLE:NO	SUBRACE:Gutter Rat
-Imperious Human								VISIBLE:NO	SUBRACE:Imperious Human
-Trailblazer									VISIBLE:NO	SUBRACE:Trailblazer
-Versatile Human								VISIBLE:NO	SUBRACE:Versatile Human
-
-
-
-
-Gathlain		KEY:RaceSubtype ~ Gathlain			VISIBLE:NO					RACESUBTYPE:Gathlain		TYPE:Racial Heritage
-Trox			KEY:RaceSubtype ~ Trox				VISIBLE:NO					RACESUBTYPE:Trox			TYPE:Racial Heritage
-Wyrwood		KEY:RaceSubtype ~ Wyrwood			VISIBLE:NO					RACESUBTYPE:Wyrwood		TYPE:Racial Heritage
-Wyvaran		KEY:RaceSubtype ~ Wyvaran			VISIBLE:NO					RACESUBTYPE:Wyvaran		TYPE:Racial Heritage

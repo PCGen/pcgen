@@ -65,6 +65,6 @@ Masterpiece Activation Bastard	VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Mast
 
 ###Block: Bonus Languages
 # Template Name			Visible	Bonus Languages
-Race Bonus Language ~ Erutaki	VISIBLE:NO	LANGBONUS:Erutaki
-Race Bonus Language ~ Hallit	VISIBLE:NO	LANGBONUS:Hallit
-Race Bonus Language ~ Varki	VISIBLE:NO	LANGBONUS:Varki
+Bonus Language ~ Erutaki	VISIBLE:NO	LANGBONUS:Erutaki
+Bonus Language ~ Hallit		VISIBLE:NO	LANGBONUS:Hallit
+Bonus Language ~ Varki		VISIBLE:NO	LANGBONUS:Varki

@@ -27,12 +27,12 @@ public class DeityTokenTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<Deity>
 {
 
-	static DeityToken pca = new DeityToken();
+	private static final DeityToken PCA = new DeityToken();
 
 	@Override
 	public Chooser<Deity> getActor()
 	{
-		return pca;
+		return PCA;
 	}
 
 	@Override

@@ -93,12 +93,19 @@ out/
 pcgendev.iml
 pcgen.iml
 
+# VS Code IDE
+.vscode/
+
+# jenv local version
+.java-version
+
 # pmd
 /.pmd
 /.ruleset
 
 # Misc
 jre/
+mods/
 code/manifest-tests
 .DS_Store
 

@@ -24,8 +24,10 @@ import static org.junit.Assert.assertTrue;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.cdom.util.CControl;
 import pcgen.core.Deity;
 import pcgen.core.PlayerCharacter;
+import pcgen.output.channel.ChannelUtilities;
 import pcgen.output.channel.compat.AlignmentCompat;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
@@ -51,9 +53,11 @@ public class PreDeityAlignTest extends AbstractCharacterTestCase
 	{
 		final PlayerCharacter character = getCharacter();
 		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
-		character.setDeity(deity);
+		ChannelUtilities.setControlledChannel(character.getCharID(),
+			CControl.DEITYINPUT, deity);
 		assertEquals("Deity should have been set for character.", deity,
-			character.getDeity());
+			ChannelUtilities.readControlledChannel(
+				character.getCharID(), CControl.DEITYINPUT));
 
 		Prerequisite prereq = new Prerequisite();
 		prereq.setKind("deityAlign");

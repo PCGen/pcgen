@@ -1,0 +1,133 @@
+# Mon Mar 30 11:44:41 2020 -- reformatted by PCGen TidyLst v1.04.00
+
+
+###Block:
+# Skill Name			Unique Key					Key Stat	Untrained?		Type
+Acrobatics				KEY:Acrobatics				KEYSTAT:DEX				TYPE:Acrobatics
+Arcana				KEY:Arcana					KEYSTAT:INT				TYPE:Arcana
+Athletics				KEY:Athletics				KEYSTAT:STR				TYPE:Athletics
+Crafting				KEY:Crafting				KEYSTAT:INT				TYPE:Crafting
+Deception				KEY:Deception				KEYSTAT:CHA				TYPE:Deception
+Diplomacy				KEY:Diplomacy				KEYSTAT:CHA				TYPE:Diplomacy
+Intimidation			KEY:Intimidation				KEYSTAT:CHA				TYPE:Intimidation
+Lore (Untrained)			KEY:Lore					KEYSTAT:INT				TYPE:Lore
+Medicine				KEY:Medicine				KEYSTAT:WIS				TYPE:Medicine
+Nature				KEY:Nature					KEYSTAT:WIS				TYPE:Nature
+Occultism				KEY:Occultism				KEYSTAT:INT				TYPE:Occultism
+Performance				KEY:Performance				KEYSTAT:CHA				TYPE:Performance
+Religion				KEY:Religion				KEYSTAT:WIS				TYPE:Religion
+Society				KEY:Society					KEYSTAT:INT				TYPE:Society
+Stealth				KEY:Stealth					KEYSTAT:DEX				TYPE:Stealth
+Survival				KEY:Survival				KEYSTAT:WIS				TYPE:Survival
+Thievery				KEY:Thievery				KEYSTAT:DEX				TYPE:Thievery
+
+
+
+
+# Other Lore
+Lore - Entertainment Lore	KEY:Lore - Entertainment Lore		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Other Lore
+Lore - Nobility Lore		KEY:Lore - Nobility Lore		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Other Lore
+
+Lore - Alcohol Lore		KEY:Lore - Alcohol Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Other Lore
+Lore - Animal Lore		KEY:Lore - Animal Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Other Lore
+Lore - Academia Lore		KEY:Lore - Academia Lore		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Other Lore
+Lore - Accounting Lore		KEY:Lore - Accounting Lore		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Other Lore
+Lore - Architecture Lore	KEY:Lore - Architecture Lore		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Other Lore
+Lore - Art Lore			KEY:Lore - Art Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Other Lore
+Lore - Circus Lore		KEY:Lore - Circus Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Other Lore
+Lore - Engineering Lore		KEY:Lore - Engineering Lore		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Other Lore
+Lore - Farming Lore		KEY:Lore - Farming Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Other Lore
+Lore - Fishing Lore		KEY:Lore - Fishing Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Other Lore
+Lore - Fortune-Telling Lore	KEY:Lore - Fortune-Telling Lore	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Other Lore
+Lore - Games Lore			KEY:Lore - Games Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Other Lore
+Lore - Genealogy Lore		KEY:Lore - Genealogy Lore		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Other Lore
+Lore - Gladiatorial Lore	KEY:Lore - Gladiatorial Lore		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Other Lore
+Lore - Guild Lore			KEY:Lore - Guild Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Other Lore
+Lore - Heraldry Lore		KEY:Lore - Heraldry Lore		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Other Lore
+Lore - Herbalism Lore		KEY:Lore - Herbalism Lore		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Other Lore
+Lore - Hunting Lore		KEY:Lore - Hunting Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Other Lore
+Lore - Labor Lore			KEY:Lore - Labor Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Other Lore
+Lore - Legal Lore			KEY:Lore - Legal Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Other Lore
+Lore - Library Lore		KEY:Lore - Library Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Other Lore
+Lore - Abyss Lore			KEY:Lore - Abyss Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Other Lore
+Lore - Heaven Lore		KEY:Lore - Heaven Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Other Lore
+Lore - Mercantile Lore		KEY:Lore - Mercantile Lore		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Other Lore
+Lore - Midwifery Lore		KEY:Lore - Midwifery Lore		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Other Lore
+Lore - Milling Lore		KEY:Lore - Milling Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Other Lore
+Lore - Mining Lore		KEY:Lore - Mining Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Other Lore
+Lore - Sailing Lore		KEY:Lore - Sailing Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Other Lore
+Lore - Scouting Lore		KEY:Lore - Scouting Lore		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Other Lore
+Lore - Scribing Lore		KEY:Lore - Scribing Lore		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Other Lore
+Lore - Stabling Lore		KEY:Lore - Stabling Lore		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Other Lore
+Lore - Tanning Lore		KEY:Lore - Tanning Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Other Lore
+Lore - Theater Lore		KEY:Lore - Theater Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Other Lore
+Lore - Underworld Lore		KEY:Lore - Underworld Lore		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Other Lore
+Lore - Warfare Lore		KEY:Lore - Warfare Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Other Lore
+Lore - specific settlement	KEY:Lore - specific settlement	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Other Lore
+Lore - specific terrain		KEY:Lore - specific terrain		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Other Lore
+Lore - specific food or drink	KEY:Lore - specific food or drink	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Other Lore
+Lore - Dessert Lore		KEY:Lore - Dessert Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Terrain Lore
+Lore - Hill Lore			KEY:Lore - Hill Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Terrain Lore
+Lore - Mountain Lore		KEY:Lore - Mountain Lore		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Terrain Lore
+Lore - Plain Lore			KEY:Lore - Plain Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Terrain Lore
+Lore - Forest Lore		KEY:Lore - Forest Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Terrain Lore
+Lore - Jungle Lore		KEY:Lore - Jungle Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Terrain Lore
+Lore - River Lore			KEY:Lore - River Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Terrain Lore
+Lore - Ocean Lore			KEY:Lore - Ocean Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Terrain Lore
+Lore - Underwater Lore		KEY:Lore - Underwater Lore		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Terrain Lore
+Lore - Swamp Lore			KEY:Lore - Swamp Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Terrain Lore
+Lore - Marsh Lore			KEY:Lore - Marsh Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Terrain Lore
+Lore - Canyon Lore		KEY:Lore - Canyon Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Terrain Lore
+Lore - Glacier Lore		KEY:Lore - Glacier Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Terrain Lore
+Lore - Tundra Lore		KEY:Lore - Tundra Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Terrain Lore
+Lore - Oasis Lore			KEY:Lore - Oasis Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Terrain Lore
+Lore - Valley Lore		KEY:Lore - Valley Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Terrain Lore
+Lore - Underground Lore		KEY:Lore - Underground Lore		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Terrain Lore
+Lore - Sky Lore			KEY:Lore - Sky Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Terrain Lore
+Lore - Abadar Lore		KEY:Lore - Abadar Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Deity Lore
+Lore - Asmodeus Lore		KEY:Lore - Asmodeus Lore		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Deity Lore
+Lore - Calistria Lore		KEY:Lore - Calistria Lore		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Deity Lore
+Lore - Cayden Cailean Lore	KEY:Lore - Cayden Cailean Lore	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Deity Lore
+Lore - Desna Lore			KEY:Lore - Desna Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Deity Lore
+Lore - Erastil Lore		KEY:Lore - Erastil Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Deity Lore
+Lore - Gorum Lore			KEY:Lore - Gorum Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Deity Lore
+Lore - Gozreh Lore		KEY:Lore - Gozreh Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Deity Lore
+Lore - Iomedae Lore		KEY:Lore - Iomedae Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Deity Lore
+Lore - Irori Lore			KEY:Lore - Irori Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Deity Lore
+Lore - Lama shtu Lore		KEY:Lore - Lama shtu Lore		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Deity Lore
+Lore - Nethys Lore		KEY:Lore - Nethys Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Deity Lore
+Lore - Norgorber Lore		KEY:Lore - Norgorber Lore		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Deity Lore
+Lore - Pharasma Lore		KEY:Lore - Pharasma Lore		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Deity Lore
+Lore - Rovagug Lore		KEY:Lore - Rovagug Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Deity Lore
+Lore - Sarenrae Lore		KEY:Lore - Sarenrae Lore		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Deity Lore
+Lore - Shelyn Lore		KEY:Lore - Shelyn Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Deity Lore
+Lore - Torag Lore			KEY:Lore - Torag Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Deity Lore
+Lore - Urgathoa Lore		KEY:Lore - Urgathoa Lore		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Deity Lore
+Lore - Zon-Kuthon Lore		KEY:Lore - Zon-Kuthon Lore		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Deity Lore
+Lore - Absalom Lore		KEY:Lore - Absalom Lore			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Settlement Lore
+Lore - Magnimar Lore		KEY:Lore - Magnimar Lore		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Settlement Lore
+Lore - Creature Lore 1		KEY:Lore - Creature Lore 1		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Settlement Lore
+Lore - Creature Lore 2		KEY:Lore - Creature Lore 2		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Settlement Lore
+Lore - Food Lore 1		KEY:Lore - Food Lore 1			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Settlement Lore
+Lore - Food Lore 2		KEY:Lore - Food Lore 2			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Settlement Lore
+Lore - Drink Lore 1		KEY:Lore - Drink Lore 1			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Settlement Lore
+Lore - Drink Lore 2		KEY:Lore - Drink Lore 2			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Settlement Lore
+Lore - Material Plane Lore	KEY:Lore - Material Plane Lore	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Plane Lore
+Lore - Elemental Plane Lore	KEY:Lore - Elemental Plane Lore	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Plane Lore
+Lore - Astral Plane Lore	KEY:Lore - Astral Plane Lore		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Plane Lore
+Lore - Ethereal Plane Lore	KEY:Lore - Ethereal Plane Lore	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Plane Lore
+Lore - Feywild Plane Lore	KEY:Lore - Feywild Plane Lore		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Plane Lore
+Lore - Hell Plane Lore		KEY:Lore - Hell Plane Lore		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Plane Lore
+Lore - Lower Plane Lore		KEY:Lore - Lower Plane Lore		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Plane Lore
+Lore - Upper Plane Lore		KEY:Lore - Upper Plane Lore		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Plane Lore
+Lore - Inner Plane Lore		KEY:Lore - Inner Plane Lore		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Plane Lore
+Lore - Outer Plane Lore		KEY:Lore - Outer Plane Lore		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Plane Lore
+_					KEY:Lore - Fill In the Blank 1	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Fill In Lore
+_					KEY:Lore - Fill In the Blank 2	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Lore.Fill In Lore
+
+
+
+# Lore - Lore about a specific creature or narrow category of creatures (Demon Lore, Owlbear Lore, Vampire Lore, etc.)
+# Lore - Lore of a specific plane other than the Material Plane, or the plane in which the game is set if not the Material Plane (
+# *
+# * Lore of a type of food or drink (Alcohol Lore, Baking Lore, Butchering Lore, Cooking Lore, Tea Lore, etc.)

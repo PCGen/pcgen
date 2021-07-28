@@ -123,33 +123,33 @@ Wahaika										TYPE:Exotic.Melee.OneHanded.Ranged.Thrown.Bludgeoning
 Firearms										TYPE:Exotic
 
 #-(Early) One-Handed Firearms
-Buckler Gun										TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm
-Pepperbox										TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm
-Pistol										TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
-Coat Pistol				KEY:Pistol (Coat)				TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
-Dagger Pistol			KEY:Pistol (Dagger)			TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
-Double-Barreled Pistol		KEY:Pistol (Double-Barreled)		TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
-Dragon Pistol			KEY:Pistol (Dragon)			TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
-Sword Cane Pistol			KEY:Pistol (Sword Cane)			TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
+Buckler Gun										TYPE:Ranged.Piercing.Bludgeoning.Firearm.Weapon Group Firearms.OneHandedFireArm
+Pepperbox										TYPE:Ranged.Piercing.Bludgeoning.Firearm.Weapon Group Firearms.OneHandedFireArm
+Pistol										TYPE:Ranged.Piercing.Bludgeoning.Firearm.Weapon Group Firearms.OneHandedFireArm.Pistol
+Coat Pistol				KEY:Pistol (Coat)				TYPE:Ranged.Piercing.Bludgeoning.Firearm.Weapon Group Firearms.OneHandedFireArm.Pistol
+Dagger Pistol			KEY:Pistol (Dagger)			TYPE:Ranged.Piercing.Bludgeoning.Firearm.Weapon Group Firearms.OneHandedFireArm.Pistol
+Double-Barreled Pistol		KEY:Pistol (Double-Barreled)		TYPE:Ranged.Piercing.Bludgeoning.Firearm.Weapon Group Firearms.OneHandedFireArm.Pistol
+Dragon Pistol			KEY:Pistol (Dragon)			TYPE:Ranged.Piercing.Bludgeoning.Firearm.Weapon Group Firearms.OneHandedFireArm.Pistol
+Sword Cane Pistol			KEY:Pistol (Sword Cane)			TYPE:Ranged.Piercing.Bludgeoning.Firearm.Weapon Group Firearms.OneHandedFireArm.Pistol
 
 # Early Two-Handed Firearms
-Blunderbuss										TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm			HANDS:2
-Culverin										TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm			HANDS:2
-Double Hackbut									TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm			HANDS:2
-Fire Lance										TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm			HANDS:2
-Musket										TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Musket		HANDS:2
-Axe Musket				KEY:Musket (Axe)				TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Musket		HANDS:2
-Double-Barreled Musket		KEY:Musket (Double-Barreled)		TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Musket		HANDS:2
-Warhammer Musket			KEY:Musket (Warhammer)			TYPE:Ranged.Piercing.Bludgeoning.Firearm.TwoHandedFireArm.Musket		HANDS:2
+Blunderbuss										TYPE:Ranged.Piercing.Bludgeoning.Firearm.Weapon Group Firearms.TwoHandedFireArm			HANDS:2
+Culverin										TYPE:Ranged.Piercing.Bludgeoning.Firearm.Weapon Group Firearms.TwoHandedFireArm			HANDS:2
+Double Hackbut									TYPE:Ranged.Piercing.Bludgeoning.Firearm.Weapon Group Firearms.TwoHandedFireArm			HANDS:2
+Fire Lance										TYPE:Ranged.Piercing.Bludgeoning.Firearm.Weapon Group Firearms.TwoHandedFireArm			HANDS:2
+Musket										TYPE:Ranged.Piercing.Bludgeoning.Firearm.Weapon Group Firearms.TwoHandedFireArm.Musket		HANDS:2
+Axe Musket				KEY:Musket (Axe)				TYPE:Ranged.Piercing.Bludgeoning.Firearm.Weapon Group Firearms.TwoHandedFireArm.Musket		HANDS:2
+Double-Barreled Musket		KEY:Musket (Double-Barreled)		TYPE:Ranged.Piercing.Bludgeoning.Firearm.Weapon Group Firearms.TwoHandedFireArm.Musket		HANDS:2
+Warhammer Musket			KEY:Musket (Warhammer)			TYPE:Ranged.Piercing.Bludgeoning.Firearm.Weapon Group Firearms.TwoHandedFireArm.Musket		HANDS:2
 
 ###Block: Advanced Firearms
 # One-Handed
 # Weapon Name	Type													Nb Hands
-Revolver		TYPE:Ranged.Piercing.Bludgeoning.Firearm.Revolver.OneHandedFireArm
+Revolver		TYPE:Ranged.Piercing.Bludgeoning.Firearm.Weapon Group Firearms.Revolver.OneHandedFireArm
 
 # Two-Handed
-Rifle			TYPE:Ranged.Piercing.Bludgeoning.Firearm.Rifle.TwoHandedFireArm			HANDS:2
-Shotgun		TYPE:Ranged.Piercing.Bludgeoning.Firearm.Shotgun.Scatter.TwoHandedFireArm	HANDS:2
+Rifle			TYPE:Ranged.Piercing.Bludgeoning.Firearm.Weapon Group Firearms.Rifle.TwoHandedFireArm			HANDS:2
+Shotgun		TYPE:Ranged.Piercing.Bludgeoning.Firearm.Weapon Group Firearms.Shotgun.Scatter.TwoHandedFireArm	HANDS:2
 
 ###Block: placeholder proficiency to make sure weapon always has nonproficiency penalty
 # Weapon Name		Type
@@ -169,21 +169,21 @@ Pata.MOD					TYPE:Axe.Weapon Group Axes.Bladelight.Weapon Group Blades Light
 #
 # Weapon Group Blades, Heavy
 #
-Chakram.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy
-Falcata.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy
-Khopesh.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy
-Rhoka Sword.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
-Sawtooth Sabre.MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy
-Temple Sword.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
-Double Chicken Saber.MOD		TYPE:Bladeheavy.Weapon Group Blades Heavy.Monk.Weapon Group Monk
+Chakram.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy.Weapon Group Melee OneHanded Slashing
+Falcata.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy.Weapon Group Melee OneHanded Slashing
+Khopesh.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy.Weapon Group Melee OneHanded Slashing
+Rhoka Sword.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy.Weapon Group Melee OneHanded Slashing
+Sawtooth Sabre.MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy.Weapon Group Melee OneHanded Slashing
+Temple Sword.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy.Weapon Group Melee OneHanded Slashing
+Double Chicken Saber.MOD		TYPE:Bladeheavy.Weapon Group Blades Heavy.Weapon Group Melee OneHanded Slashing.Monk.Weapon Group Monk
 Katana (Double Walking Stick).MOD	TYPE:Bladeheavy.Weapon Group Blades Heavy
-Terbutje (Great).MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy
-Katana.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy
-Broadsword (Nine Ring).MOD		TYPE:Bladeheavy.Weapon Group Blades Heavy
+Terbutje (Great).MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy.Weapon Group Melee OneHanded Slashing
+Katana.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy.Weapon Group Melee OneHanded Slashing
+Broadsword (Nine Ring).MOD		TYPE:Bladeheavy.Weapon Group Blades Heavy.Weapon Group Melee OneHanded Slashing
 Nodachi.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy.Polearm.Weapon Group Pole Arms
 Sword (Seven-Branched).MOD		TYPE:Bladeheavy.Weapon Group Blades Heavy.Monk.Weapon Group Monk
 Shotel.MOD					TYPE:Bladeheavy.Weapon Group Blades Heavy
-Terbutje.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
+Terbutje.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy.Weapon Group Melee OneHanded Slashing
 #
 # Weapon Group Blades, Light
 #

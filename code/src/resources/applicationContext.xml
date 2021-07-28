@@ -12,7 +12,6 @@
 	<bean id="activeEqHeadFacet" class="pcgen.cdom.facet.model.ActiveEqHeadFacet" />
 	<bean id="activeSpellsFacet" class="pcgen.cdom.facet.ActiveSpellsFacet">
 		<property name="raceFacet" ref="raceFacet"/>
-		<property name="deityFacet" ref="deityFacet"/>
 		<property name="templateFacet" ref="templateFacet"/>
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
 		<property name="spellsFacet" ref="spellsFacet"/>
@@ -24,7 +23,6 @@
 	</bean>
 	<bean id="addFacet" class="pcgen.cdom.facet.AddFacet">
 		<property name="raceFacet" ref="raceFacet"/>
-		<property name="deityFacet" ref="deityFacet"/>
 		<property name="templateFacet" ref="templateFacet"/>
 		<property name="domainFacet" ref="domainFacet"/>
 		<property name="classLevelFacet" ref="classLevelFacet"/>
@@ -35,15 +33,12 @@
 	<bean id="addLevelFacet" class="pcgen.cdom.facet.AddLevelFacet">
 		<property name="templateFacet" ref="templateFacet"/>
 	</bean>
-	<bean id="ageFacet" class="pcgen.cdom.facet.fact.AgeFacet" />
 	<bean id="ageSetFacet" class="pcgen.cdom.facet.analysis.AgeSetFacet">
-		<property name="ageFacet" ref="ageFacet"/>
 		<property name="regionFacet" ref="regionFacet"/>
 		<property name="raceFacet" ref="raceFacet"/>
 		<property name="bioSetFacet" ref="bioSetFacet"/>
 	</bean>
 	<bean id="ageSetKitFacet" class="pcgen.cdom.facet.AgeSetKitFacet">
-		<property name="ageFacet" ref="ageFacet"/>
 		<property name="ageSetFacet" ref="ageSetFacet"/>
 		<property name="bioSetFacet" ref="bioSetFacet"/>
 	</bean>
@@ -108,7 +103,6 @@
 	<bean id="bonusActiviationFacet" class="pcgen.cdom.facet.BonusActiviationFacet">
 		<property name="raceFacet" ref="raceFacet"/>
 		<property name="companionModFacet" ref="companionModFacet"/>
-		<property name="deityFacet" ref="deityFacet"/>
 		<property name="domainFacet" ref="domainFacet"/>
 		<property name="skillFacet" ref="skillFacet"/>
 		<property name="templateFacet" ref="templateFacet"/>
@@ -126,7 +120,6 @@
 	<!-- C -->
 	<bean id="calcBonusFacet" class="pcgen.cdom.facet.CalcBonusFacet">
 		<property name="raceFacet" ref="raceFacet"/>
-		<property name="deityFacet" ref="deityFacet"/>
 		<property name="templateFacet" ref="templateFacet"/>
 	</bean>
 	<bean id="campaignFacet" class="pcgen.cdom.facet.input.CampaignFacet">
@@ -159,7 +152,6 @@
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
-	<bean id="characterTypeFacet" class="pcgen.cdom.facet.fact.CharacterTypeFacet"/>
 	<bean id="checkFacet" class="pcgen.cdom.facet.model.CheckFacet" />
 	<bean id="checkBonusFacet" class="pcgen.cdom.facet.CheckBonusFacet">
 		<property name="checkFacet" ref="checkFacet"/>
@@ -218,10 +210,7 @@
 	<bean id="defaultClassSkillListFacet" class="pcgen.cdom.facet.DefaultClassSkillListFacet">
 		<property name="skillListFacet" ref="skillListFacet"/>
 	</bean>
-	<bean id="deityFacet" class="pcgen.cdom.facet.model.DeityFacet" />
-	<bean id="deityWeaponProfFacet" class="pcgen.cdom.facet.DeityWeaponProfFacet">
-		<property name="deityFacet" ref="deityFacet"/>
-	</bean>
+	<bean id="deityWeaponProfFacet" class="pcgen.cdom.facet.DeityWeaponProfFacet" />
 	<bean id="directAbilityFacet" class="pcgen.cdom.facet.DirectAbilityFacet" />
 	<bean id="directAbilityInputFacet" class="pcgen.cdom.facet.DirectAbilityInputFacet" />
 	<bean id="domainFacet" class="pcgen.cdom.facet.model.DomainFacet"/>
@@ -271,9 +260,6 @@
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<bean id="formulaResolvingFacet" class="pcgen.cdom.facet.FormulaResolvingFacet" />
-	<bean id="freeLanguageFacet" class="pcgen.cdom.facet.input.FreeLanguageFacet">
-		<property name="languageFacet" ref="languageFacet"/>
-	</bean>
 	<!-- G -->
 	<bean id="genderFacet" class="pcgen.cdom.facet.fact.GenderFacet">
 		<property name="templateFacet" ref="templateFacet"/>
@@ -289,7 +275,6 @@
 		<property name="globalAddedSkillCostFacet" ref="globalAddedSkillCostFacet"/>
 		<property name="masterUsableSkillFacet" ref="masterUsableSkillFacet"/>
 	</bean>
-	<bean id="goldFacet" class="pcgen.cdom.facet.fact.GoldFacet"/>
 	<bean id="grantedAbilityFacet" class="pcgen.cdom.facet.GrantedAbilityFacet"/>
 	<bean id="grantedVarFacet" class="pcgen.cdom.facet.GrantedVarFacet">
 		<property name="varScopedFacet" ref="varScopedFacet"/>
@@ -307,7 +292,6 @@
 	<bean id="hasDeityWeaponProfFacet" class="pcgen.cdom.facet.HasDeityWeaponProfFacet">
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
-	<bean id="heightFacet" class="pcgen.cdom.facet.fact.HeightFacet"/>
 	<bean id="hiddenTypeFacet" class="pcgen.cdom.facet.HiddenTypeFacet">
 		<property name="dataSetInitializationFacet" ref="dataSetInitializationFacet"/>
 	</bean>
@@ -328,7 +312,6 @@
 	<!-- K -->
 	<bean id="kitChoiceFacet" class="pcgen.cdom.facet.KitChoiceFacet">
 		<property name="raceFacet" ref="raceFacet"/>
-		<property name="deityFacet" ref="deityFacet"/>
 		<property name="domainFacet" ref="domainFacet"/>
 		<property name="skillFacet" ref="skillFacet"/>
 		<property name="templateFacet" ref="templateFacet"/>
@@ -423,7 +406,6 @@
 		<property name="moveCloneFacet" ref="moveCloneFacet"/>
 		<property name="baseMovementFacet" ref="baseMovementFacet"/>
 		<property name="raceFacet" ref="raceFacet"/>
-		<property name="deityFacet" ref="deityFacet"/>
 		<property name="templateFacet" ref="templateFacet"/>
 		<property name="equipmentFacet" ref="equipmentFacet"/>
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
@@ -509,7 +491,6 @@
 	</bean>
 	<bean id="removeFacet" class="pcgen.cdom.facet.RemoveFacet">
 		<property name="raceFacet" ref="raceFacet"/>
-		<property name="deityFacet" ref="deityFacet"/>
 		<property name="templateFacet" ref="templateFacet"/>
 		<property name="domainFacet" ref="domainFacet"/>
 		<property name="classLevelFacet" ref="classLevelFacet"/>
@@ -617,7 +598,6 @@
 	<bean id="subRaceFacet" class="pcgen.cdom.facet.analysis.SubRaceFacet">
 		<property name="templateFacet" ref="templateFacet"/>
 	</bean>
-	<bean id="suppressBioFieldFacet" class="pcgen.cdom.facet.fact.SuppressBioFieldFacet" />
 	<!-- T -->
 	<bean id="targetTrackingFacet" class="pcgen.cdom.facet.TargetTrackingFacet"/>
 	<bean id="templateFacet" class="pcgen.cdom.facet.model.TemplateFacet"/>

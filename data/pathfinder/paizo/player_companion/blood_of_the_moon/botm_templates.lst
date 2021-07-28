@@ -1,13 +1,12 @@
-#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 
-# Template Name	Visible	Subrace
-Werebat-Kin		VISIBLE:NO	SUBRACE:YES
-Werebear-Kin	VISIBLE:NO	SUBRACE:YES
-Wereboar-Kin	VISIBLE:NO	SUBRACE:YES
-Werecrocodile-Kin	VISIBLE:NO	SUBRACE:YES
-Wererat-Kin		VISIBLE:NO	SUBRACE:YES
-Wereshark-Kin	VISIBLE:NO	SUBRACE:YES
-Weretiger-Kin	VISIBLE:NO	SUBRACE:YES
-Werewolf-Kin	VISIBLE:NO	SUBRACE:YES
+###Block: Subraces
+# Template Name				Source Page
+Skinwalker ~ Werebat-Kin.MOD		SOURCEPAGE:p.8
+Skinwalker ~ Werebear-Kin.MOD		SOURCEPAGE:p.10
+Skinwalker ~ Wereboar-Kin.MOD		SOURCEPAGE:p.12
+Skinwalker ~ Werecrocodile-Kin.MOD	SOURCEPAGE:p.14
+Skinwalker ~ Wererat-Kin.MOD		SOURCEPAGE:p.16
+Skinwalker ~ Wereshark-Kin.MOD	SOURCEPAGE:p.18
+Skinwalker ~ Weretiger-Kin.MOD	SOURCEPAGE:p.20
+Skinwalker ~ Werewolf-Kin.MOD		SOURCEPAGE:p.22

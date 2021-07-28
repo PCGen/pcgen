@@ -21,7 +21,7 @@ RSRD Feat Gain Bypass							CATEGORY:Internal		DEFINE:CPBonusFeat|0											BO
 #Block: These are For Companion Support
 CATEGORY=Special Ability|Companion ~ Animal Companion.MOD																																																																												COMPANIONLIST:Animal Companion|Badger,Camel,Dog,Dog (Riding),Eagle,Hawk,Horse (Heavy),Horse (Light),Owl,Pony,Porpoise,Shark (Medium),Snake (Viper/Medium),Snake (Viper/Small),Squid,Wolf
 CATEGORY=Special Ability|Companion ~ Familiar.MOD																																																																													COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,Snake (Viper/Tiny),Toad,Weasel
-CATEGORY=Special Ability|Companion ~ Psicrystal.MOD																																																																													COMPANIONLIST:Psicrystal|Psicrystal (Artiste),Psicrystal (Bully),Psicrystal (Coward),Psicrystal (Friendly),Psicrystal (Hero),Psicrystal (Liar),Psicrystal (Meticulous),Psicrystal (Nimble),Psicrystal (Observant),Psicrystal (Poised),Psicrystal (Resolved),Psicrystal (Sage),Psicrystal (Single Minded),Psicrystal (Sneaky),Psicrystal (Sympathetic)
+CATEGORY=Special Ability|Companion ~ Psicrystal.MOD																																																																													COMPANIONLIST:Psicrystal|Psicrystal
 
 
 

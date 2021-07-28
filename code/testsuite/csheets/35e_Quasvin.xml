@@ -36,14 +36,14 @@ BIO
 			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
 		</classes>
 		<deity>
-			<name></name>
+			<name>None</name>
 			<alignment></alignment>
-			<description></description>
-			<domainlist></domainlist>
-			<favoredweapon></favoredweapon>
-			<holyitem></holyitem>
+			<description>Due to closed content PCGEN cannot provide a list of deities, sorry but you need to homebrew your own list; Please see the Documentation for how to do so - http://www.pcgen-test.org/autobuilds/pcgen-docs/listfilepages/lstfileclass/lfc_lesson14_deities.html</description>
+			<domainlist>Air, Animal, Artifice, Chaos, Charm, Community, Creation, Darkness, Death, Destruction, Earth, Evil, Fire, Glory, Good, Healing, Knowledge, Law, Liberation, Luck, Madness, Magic, Mind, Nobility, Plant, Protection, Repose, Rune, Scalykind, Strength, Sun, Travel, Trickery, War, Water, Weather</domainlist>
+			<favoredweapon>ANY</favoredweapon>
+			<holyitem>None</holyitem>
 			<pantheonlist></pantheonlist>
-			<source></source>
+			<source>Wizards of the Coast - Revised (v.3.5) System Reference Document</source>
 			<special_abilities></special_abilities>
 			<appearance></appearance>
 			<title></title>
@@ -333,7 +333,7 @@ BIO
 		</skillpoints>
 		<list_mods>Bluff +8, Concentration +8, Diplomacy +12, Gather Information +8, Hide +4, Intimidate +2, Listen +4, Psicraft +12, Sense Motive +10, Spot +4</list_mods>
 		<max_class_skill_level>8</max_class_skill_level>
-		<max_cross_class_skill_level>4</max_cross_class_skill_level>
+		<max_cross_class_skill_level>4.0</max_cross_class_skill_level>
 		<skill>
 			<name>Appraise</name>
 			<ranks>0.0</ranks>

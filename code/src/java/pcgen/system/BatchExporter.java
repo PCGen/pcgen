@@ -29,7 +29,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 
 import pcgen.cdom.base.Constants;
@@ -121,7 +121,7 @@ public class BatchExporter
 		SourceSelectionFacade sourcesForCharacter = CharacterManager.getRequiredSourcesForCharacter(file, uiDelegate);
 		Logging.log(Logging.INFO, "Loading sources " + sourcesForCharacter.getCampaigns() + " using game mode "
 			+ sourcesForCharacter.getGameMode());
-		SourceFileLoader loader = new SourceFileLoader(sourcesForCharacter, uiDelegate);
+		SourceFileLoader loader = new SourceFileLoader(uiDelegate, sourcesForCharacter.getCampaigns(), sourcesForCharacter.getGameMode().get().getName());
 		loader.run();
 
 		// Load character
@@ -175,7 +175,7 @@ public class BatchExporter
 
 		// Load data
 		SourceSelectionFacade sourcesForCharacter = CharacterManager.getRequiredSourcesForParty(file, uiDelegate);
-		SourceFileLoader loader = new SourceFileLoader(sourcesForCharacter, uiDelegate);
+		SourceFileLoader loader = new SourceFileLoader(uiDelegate, sourcesForCharacter.getCampaigns(), sourcesForCharacter.getGameMode().get().getName());
 		loader.run();
 
 		// Load party
@@ -264,23 +264,20 @@ public class BatchExporter
 	 */
 	public static boolean exportCharacterToNonPDF(CharacterFacade character, File outFile, File templateFile)
 	{
-		try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile), "UTF-8")))
+		try (BufferedWriter bw = new BufferedWriter(
+				new OutputStreamWriter(
+						new FileOutputStream(outFile),
+					StandardCharsets.UTF_8)
+		))
 		{
 			character.export(ExportHandler.createExportHandler(templateFile), bw);
 			character.setDefaultOutputSheet(false, templateFile);
 			return true;
-		}
-		catch (final UnsupportedEncodingException e)
+		} catch (final IOException e)
 		{
 			Logging.errorPrint("Unable to create output file " + outFile.getAbsolutePath(), e);
 			return false;
-		}
-		catch (final IOException e)
-		{
-			Logging.errorPrint("Unable to create output file " + outFile.getAbsolutePath(), e);
-			return false;
-		}
-		catch (final ExportException e)
+		} catch (final ExportException e)
 		{
 			// Error will already be reported to the log
 			return false;

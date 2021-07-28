@@ -1,0 +1,15 @@
+
+
+###Block: Racial Heritage
+# Template Name	Unique Key				Visible	Type				FACT
+Android		KEY:Racial Heritage ~ Android	VISIBLE:NO	TYPE:Racial Heritage	FACT:IsAndroid|True
+
+
+###Block: Creature Subtypes
+# Template Name	Visible	Race Subtype
+Android		VISIBLE:NO	RACESUBTYPE:Android
+
+
+###Block: Race Builder Humanoid Subtypes
+# Template Name	Unique Key					Visible	Race Subtype		Type
+Android		KEY:Race Builder Subtype ~ Android	VISIBLE:NO	RACESUBTYPE:Android	TYPE:Race Builder Subtype

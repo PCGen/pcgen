@@ -2,3 +2,22 @@
 
 # Ability Name	Category of Ability				Type					Ability																					Modify VAR
 Oni Bloodline	CATEGORY:Arcanist Bloodline Development	TYPE:SorcererBloodlineChoice	ABILITY:Special Ability|AUTOMATIC|TYPE=Oni Bloodline ~ Power LVL 01	ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Oni	BONUS:VAR|Sorcerer_Oni_BloodlineLVL|1
+
+
+###Block: School Understanding Exploit
+CATEGORY=Special Ability|Arcanist Exploit ~ School Understanding.MOD	DEFINE:ArcanistSchoolBoost_Void_Magic|0			BONUS:VAR|ArcanistSchoolBoost_Void_Magic|1|!PRECLASS:1,Wizard=1		
+CATEGORY=Special Ability|Arcanist Exploit ~ School Understanding.MOD	DEFINE:ArcanistSchoolBoost_Void_Awareness|0		BONUS:VAR|ArcanistSchoolBoost_Void_Awareness|1|!PRECLASS:1,Wizard=1	
+CATEGORY=Special Ability|Arcanist Exploit ~ School Understanding.MOD	DEFINE:ArcanistSchoolBoost_Reveal_Weakness|0		BONUS:VAR|ArcanistSchoolBoost_Reveal_Weakness|1|!PRECLASS:1,Wizard=1	
+CATEGORY=Special Ability|Arcanist Exploit ~ School Understanding.MOD	DEFINE:ArcanistSchoolBoost_Aura_of_Prescience|0		BONUS:VAR|ArcanistSchoolBoost_Aura_of_Prescience|1|!PRECLASS:1,Wizard=1
+
+
+###Block: Support
+
+Void School			KEY:Arcanist School ~ Void		CATEGORY:Special Ability	TYPE:SpecialQuality.ArcanistSchool	DEFINE:VoidSchoolLVL|0	DEFINE:VoidSchoolProgressionLVL|0					BONUS:VAR|VoidSchoolLVL|ArcaneSchoolLVL	BONUS:VAR|VoidSchoolProgressionLVL|ArcaneSchoolProgressionLVL
+
+###Block: Void Elemental School
+# Ability Name		Unique Key									Category of Ability		Type						Define										Description																																																																								Modify VAR																			Aspects																									List of Known Class Spells by Level
+Void Magic			KEY:Arcanist School Void ~ Void Magic				CATEGORY:Special Ability	TYPE:ArcanistSchoolChoice	PREABILITY:1,CATEGORY=Special Ability,Arcanist School ~ Void	DEFINE:ArcanistSchoolBoost_Void_Magic|0				ABILITY:Special Ability|AUTOMATIC|Void Elemental School ~ Void Magic|!PRECLASS:1,Wizard=1			BONUS:VAR|ArcanistSchoolBoost_Void_Magic|-1|!PRECLASS:1,Wizard=1			
+Void Awareness		KEY:Arcanist School Void ~ Void Awareness				CATEGORY:Special Ability	TYPE:ArcanistSchoolChoice	PREABILITY:1,CATEGORY=Special Ability,Arcanist School ~ Void	DEFINE:ArcanistSchoolBoost_Void_Awareness|0			ABILITY:Special Ability|AUTOMATIC|Void Elemental School ~ Void Awareness|!PRECLASS:1,Wizard=1		BONUS:VAR|ArcanistSchoolBoost_Void_Awareness|-1|!PRECLASS:1,Wizard=1		
+Reveal Weakness		KEY:Arcanist School Void ~ Reveal Weakness			CATEGORY:Special Ability	TYPE:ArcanistSchoolChoice	PREABILITY:1,CATEGORY=Special Ability,Arcanist School ~ Void	DEFINE:ArcanistSchoolBoost_Reveal_Weakness|0			ABILITY:Special Ability|AUTOMATIC|Void Elemental School ~ Reveal Weakness|!PRECLASS:1,Wizard=1		BONUS:VAR|ArcanistSchoolBoost_Reveal_Weakness|-1|!PRECLASS:1,Wizard=1		
+Aura of Prescience	KEY:Arcanist School Void ~ Aura of Prescience			CATEGORY:Special Ability	TYPE:ArcanistSchoolChoice	PREABILITY:1,CATEGORY=Special Ability,Arcanist School ~ Void	DEFINE:ArcanistSchoolBoost_Aura_of_Prescience|0			ABILITY:Special Ability|AUTOMATIC|Void Elemental School ~ Aura of Prescience|!PRECLASS:1,Wizard=1	BONUS:VAR|ArcanistSchoolBoost_Aura_of_Prescience|-1|!PRECLASS:1,Wizard=1	

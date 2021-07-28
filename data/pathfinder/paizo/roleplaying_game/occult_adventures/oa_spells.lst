@@ -2155,6 +2155,7 @@ telekinetic projectile.MOD			CLASSES:Psychic Detective=0
 virtue.MOD						CLASSES:Psychic Detective=0
 #Psychic Detective=1|
 Detect Chaos.MOD					CLASSES:Psychic Detective=1
+Detect Evil.MOD					CLASSES:Psychic Detective=1
 Detect Good.MOD					CLASSES:Psychic Detective=1
 Detect Law.MOD					CLASSES:Psychic Detective=1
 Find Traps.MOD					CLASSES:Psychic Detective=1

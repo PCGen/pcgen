@@ -117,8 +117,7 @@ public interface LoadContext
 	 */
 	public <T> ParseResult processSubToken(T cdo, String tokenName, String key, String value);
 
-	public <T extends Loadable> boolean processToken(T derivative, String typeStr, String argument)
-		throws PersistenceLayerException;
+	public <T extends Loadable> boolean processToken(T derivative, String typeStr, String argument);
 
 	public <T extends Loadable> void unconditionallyProcess(T cdo, String key, String value);
 

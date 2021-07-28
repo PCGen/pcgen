@@ -1,0 +1,4 @@
+SOURCELONG:Heroes of the High Court	SOURCESHORT:HOTHC	SOURCEWEB:http://paizo.com/products/btpy9qhp	SOURCEDATE:02-2017
+
+Masterpiece Activation High Court	VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Anthem of Pageantry|PREMULT:1,[PRESPELL:1,Masterpiece (Anthem of Pageantry)],[PREABILITY:1,CATEGORY=FEAT,Masterpiece (Anthem of Pageantry)]	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Melody of Surrender|PREMULT:1,[PRESPELL:1,Masterpiece (Melody of Surrender)],[PREABILITY:1,CATEGORY=FEAT,Masterpiece (Melody of Surrender)]	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Wise King's Saga|PREMULT:1,[PRESPELL:1,Masterpiece (Wise King's Saga)],[PREABILITY:1,CATEGORY=FEAT,Masterpiece (Wise King's Saga)]
+

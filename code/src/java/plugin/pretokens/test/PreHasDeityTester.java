@@ -24,11 +24,14 @@
 package plugin.pretokens.test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.util.CControl;
+import pcgen.core.Deity;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.prereq.PrerequisiteTest;
+import pcgen.output.channel.ChannelUtilities;
 
 public class PreHasDeityTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
@@ -37,7 +40,9 @@ public class PreHasDeityTester extends AbstractDisplayPrereqTest implements Prer
 	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 	{
 		int runningTotal;
-		final boolean charHasDeity = display.getDeity() != null;
+		Deity deity = (Deity) ChannelUtilities.readControlledChannel(display.getCharID(),
+			CControl.DEITYINPUT);
+		final boolean charHasDeity = !deity.getKeyName().equalsIgnoreCase("None");
 
 		final String ucOp = prereq.getKey().toUpperCase();
 		final boolean flag =

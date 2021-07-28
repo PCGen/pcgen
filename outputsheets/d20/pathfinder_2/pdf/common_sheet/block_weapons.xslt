@@ -40,7 +40,7 @@
 
 <!--		For now, just make it 3 weapons max.	-->
 		
-		<xsl:value-of select="4"/>
+		<xsl:value-of select="3"/>
 	</xsl:template>
 
 

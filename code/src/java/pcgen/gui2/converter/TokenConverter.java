@@ -32,7 +32,6 @@ import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.SubClassCategory;
 import pcgen.cdom.enumeration.SubRace;
-import pcgen.cdom.enumeration.SubRegion;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.core.Ability;
@@ -228,7 +227,6 @@ public final class TokenConverter
 		Region.clearConstants();
 		SubClassCategory.clearConstants();
 		SubRace.clearConstants();
-		SubRegion.clearConstants();
 		Type.buildMap();
 		VariableKey.clearConstants();
 	}

@@ -24,7 +24,6 @@ import java.util.Map;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Kit;
 import pcgen.core.kit.BaseKit;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
@@ -61,23 +60,11 @@ public class CDOMKitLoader
 				"Unsure what to do with line with prefix: " + prefix + ".  Line was: " + val + " in file: " + source);
 			return false;
 		}
-		try
-		{
-			if (!subParse(context, obj, loader, val))
-			{
-				return false;
-			}
-		}
-		catch (PersistenceLayerException ple)
-		{
-			Logging.errorPrint("Exception in Load: ", ple);
-			return false;
-		}
-		return true;
+		return subParse(context, obj, loader, val);
 	}
 
 	private <CC extends BaseKit> boolean subParse(LoadContext context, Kit kit, CDOMSubLineLoader<CC> loader,
-		String line) throws PersistenceLayerException
+		String line)
 	{
 		CC obj = loader.getCDOMObject();
 		context.getObjectContext().addToList(kit, ListKey.KIT_TASKS, obj);

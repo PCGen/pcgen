@@ -53,7 +53,7 @@ CLASS:Inquisitor	PREVARLT:ExInquisitor,1
 # Class Name	Skill Pts/Lvl
 CLASS:Inquisitor	STARTSKILLPTS:6
 # Class Name	Spell Stat		Memorize	Caster level
-CLASS:Inquisitor	SPELLSTAT:WIS	MEMORIZE:NO	BONUS:CASTERLEVEL|Inquisitor|Caster_Level_BL_Stripped_Inquisitor
+CLASS:Inquisitor	SPELLSTAT:WIS	MEMORIZE:NO	BONUS:CASTERLEVEL|Inquisitor|Caster_Level_BL_Stripped_Inquisitor	DEFINE:InquisitorKnownHack|0
 #COMMENT: Unable to enact properly for the Domain, Inquisitor does not get a domain slot, or bonus spells from it
 1	ABILITY:Class|AUTOMATIC|Inquisitor
 ###Block: Alignment Restrictions
@@ -62,26 +62,26 @@ CLASS:Inquisitor	SPELLSTAT:WIS	MEMORIZE:NO	BONUS:CASTERLEVEL|Inquisitor|Caster_L
 1	PROHIBITSPELL:ALIGNMENT.Lawful|PREVAREQ:ProhibitSpell_Alignment_Lawful,1
 1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREVAREQ:ProhibitSpell_Alignment_Chaotic,1
 ###Block: Casting
-1	CAST:0,1			KNOWN:4,2
-2	CAST:0,2			KNOWN:5,3
-3	CAST:0,3			KNOWN:6,4
-4	CAST:0,3,1			KNOWN:6,4,2
-5	CAST:0,4,2			KNOWN:6,4,3
-6	CAST:0,4,3			KNOWN:6,4,4
-7	CAST:0,4,3,1		KNOWN:6,5,4,2
-8	CAST:0,4,4,2		KNOWN:6,5,4,3
-9	CAST:0,5,4,3		KNOWN:6,5,4,4
-10	CAST:0,5,4,3,1		KNOWN:6,5,5,4,2
-11	CAST:0,5,4,4,2		KNOWN:6,6,5,4,3
-12	CAST:0,5,5,4,3		KNOWN:6,6,5,4,4
-13	CAST:0,5,5,4,3,1		KNOWN:6,6,5,5,4,2
-14	CAST:0,5,5,4,4,2		KNOWN:6,6,6,5,4,3
-15	CAST:0,5,5,5,4,3		KNOWN:6,6,6,5,4,4
-16	CAST:0,5,5,5,4,3,1	KNOWN:6,6,6,5,5,4,2
-17	CAST:0,5,5,5,4,4,2	KNOWN:6,6,6,6,5,4,3
-18	CAST:0,5,5,5,5,4,3	KNOWN:6,6,6,6,5,4,4
-19	CAST:0,5,5,5,5,5,4	KNOWN:6,6,6,6,5,5,4
-20	CAST:0,5,5,5,5,5,5	KNOWN:6,6,6,6,6,5,5
+1	CAST:0,1			KNOWN:4+InquisitorKnownHack,2+InquisitorKnownHack
+2	CAST:0,2			KNOWN:5+InquisitorKnownHack,3+InquisitorKnownHack
+3	CAST:0,3			KNOWN:6+InquisitorKnownHack,4+InquisitorKnownHack
+4	CAST:0,3,1			KNOWN:6+InquisitorKnownHack,4+InquisitorKnownHack,2+InquisitorKnownHack
+5	CAST:0,4,2			KNOWN:6+InquisitorKnownHack,4+InquisitorKnownHack,3+InquisitorKnownHack
+6	CAST:0,4,3			KNOWN:6+InquisitorKnownHack,4+InquisitorKnownHack,4+InquisitorKnownHack
+7	CAST:0,4,3,1		KNOWN:6+InquisitorKnownHack,5+InquisitorKnownHack,4+InquisitorKnownHack,2+InquisitorKnownHack
+8	CAST:0,4,4,2		KNOWN:6+InquisitorKnownHack,5+InquisitorKnownHack,4+InquisitorKnownHack,3+InquisitorKnownHack
+9	CAST:0,5,4,3		KNOWN:6+InquisitorKnownHack,5+InquisitorKnownHack,4+InquisitorKnownHack,4+InquisitorKnownHack
+10	CAST:0,5,4,3,1		KNOWN:6+InquisitorKnownHack,5+InquisitorKnownHack,5+InquisitorKnownHack,4+InquisitorKnownHack,2+InquisitorKnownHack
+11	CAST:0,5,4,4,2		KNOWN:6+InquisitorKnownHack,6+InquisitorKnownHack,5+InquisitorKnownHack,4+InquisitorKnownHack,3+InquisitorKnownHack
+12	CAST:0,5,5,4,3		KNOWN:6+InquisitorKnownHack,6+InquisitorKnownHack,5+InquisitorKnownHack,4+InquisitorKnownHack,4+InquisitorKnownHack
+13	CAST:0,5,5,4,3,1		KNOWN:6+InquisitorKnownHack,6+InquisitorKnownHack,5+InquisitorKnownHack,5+InquisitorKnownHack,4+InquisitorKnownHack,2+InquisitorKnownHack
+14	CAST:0,5,5,4,4,2		KNOWN:6+InquisitorKnownHack,6+InquisitorKnownHack,6+InquisitorKnownHack,5+InquisitorKnownHack,4+InquisitorKnownHack,3+InquisitorKnownHack
+15	CAST:0,5,5,5,4,3		KNOWN:6+InquisitorKnownHack,6+InquisitorKnownHack,6+InquisitorKnownHack,5+InquisitorKnownHack,4+InquisitorKnownHack,4+InquisitorKnownHack
+16	CAST:0,5,5,5,4,3,1	KNOWN:6+InquisitorKnownHack,6+InquisitorKnownHack,6+InquisitorKnownHack,5+InquisitorKnownHack,5+InquisitorKnownHack,4+InquisitorKnownHack,2+InquisitorKnownHack
+17	CAST:0,5,5,5,4,4,2	KNOWN:6+InquisitorKnownHack,6+InquisitorKnownHack,6+InquisitorKnownHack,6+InquisitorKnownHack,5+InquisitorKnownHack,4+InquisitorKnownHack,3+InquisitorKnownHack
+18	CAST:0,5,5,5,5,4,3	KNOWN:6+InquisitorKnownHack,6+InquisitorKnownHack,6+InquisitorKnownHack,6+InquisitorKnownHack,5+InquisitorKnownHack,4+InquisitorKnownHack,4+InquisitorKnownHack
+19	CAST:0,5,5,5,5,5,4	KNOWN:6+InquisitorKnownHack,6+InquisitorKnownHack,6+InquisitorKnownHack,6+InquisitorKnownHack,5+InquisitorKnownHack,5+InquisitorKnownHack,4+InquisitorKnownHack
+20	CAST:0,5,5,5,5,5,5	KNOWN:6+InquisitorKnownHack,6+InquisitorKnownHack,6+InquisitorKnownHack,6+InquisitorKnownHack,6+InquisitorKnownHack,5+InquisitorKnownHack,5+InquisitorKnownHack
 
 # Class Name		Hit Dice	Type			Max Level	Visible	Define			Combat bonus																	Save bonus																																		Modify VAR																																																																		FACT
 CLASS:Ex-Inquisitor	HD:8		TYPE:Base.PC	MAXLEVEL:20	VISIBLE:NO	DEFINE:InquisitorLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|InquisitorLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|Inq

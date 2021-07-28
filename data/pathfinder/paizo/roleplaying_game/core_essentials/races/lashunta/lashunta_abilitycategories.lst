@@ -1,0 +1,9 @@
+
+
+###Block: Racial Trait Categories
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI	Display Location
+ABILITYCATEGORY:Lashunta Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Lashunta Racial Trait	PLURAL:Lashunta Racial Traits	DISPLAYLOCATION:Racial Abilities
+
+###Block: Racial Trait Ability Categories
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object	Specific choices list					Display Location
+ABILITYCATEGORY:Lashunta Knowledgeable Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Choice		ABILITYLIST:Lashunta ~ Knowledgeable Selection	DISPLAYLOCATION:Racial Abilities

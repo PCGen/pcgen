@@ -1,0 +1,552 @@
+# Mon Mar 30 11:44:41 2020 -- reformatted by PCGen TidyLst v1.04.00
+
+###Block: Feat Support for now
+# Ability Name							Ability													Bonus Ability Pool
+#CATEGORY=Internal|Weapon Proficiency Tracker.MOD	ABILITY:Proficiency|AUTOMATIC|Simple Weapons
+#CATEGORY=Internal|Weapon Proficiency Tracker.MOD	ABILITY:Proficiency|AUTOMATIC|Martial Weapons|PREVARGTEQ:WeaponProficiencyCount,2
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD															BONUS:ABILITYPOOL|Advanced Weapon Choice|WeaponProficiencyCount-2|PREVARGTEQ:WeaponProficiencyCount,3
+
+
+###Block:
+# Ability Name							Modify VAR																			Weapon prof. bonus
+
+
+
+# TODO: Prof_Rank_WeaponName <- Group and Category to Add directly to that
+#	WeaponName_ToHit / WeaponName_Damage
+
+
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD	BONUS:WEAPONPROF=Unarmed Strike|TOHIT|if(Prof_Rank_UnarmedAttacks>=1,TL+(Prof_Rank_UnarmedAttacks*2),0)|TYPE=Class
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD	BONUS:WEAPONPROF=Unarmed Strike|DAMAGE|max(Prof_WeaponDamage_GroupBrawling,Prof_WeaponDamage_UnarmedAttacks)|TYPE=Class
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD	BONUS:VAR|Prof_Rank_UnarmedAttacks|Prof_Rank_UnarmedAttacks+ProfRank_WeaponGroup_Brawling|TYPE=Base
+
+
+
+
+
+# Fist
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD	DEFINE:ToHit_Fist|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD	BONUS:VAR|ToHit_Fist|if(ProfRank_Weapon_Fist>=1,TL+(ProfRank_Weapon_Fist*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD	BONUS:VAR|ProfRank_Weapon_Fist|min(4,Prof_Rank_UnarmedAttacks+ProfRank_WeaponGroup_Brawling)|TYPE=Base
+
+
+###Block
+# Simple
+# Club	WG_Club
+# Ability Name							Category of Ability	Type																									Define					Auto Weapon Prof					Modify VAR
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Club|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Club|if(ProfRank_Weapon_Club>=1,TL+(ProfRank_Weapon_Club*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Club|min(4,Prof_Rank_SimpleWeapons+ProfRank_WeaponGroup_Club)|TYPE=Base
+# Dagger	Knife
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Dagger|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Dagger|if(ProfRank_Weapon_Dagger>=1,TL+(ProfRank_Weapon_Dagger*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Dagger|min(4,Prof_Rank_SimpleWeapons+ProfRank_WeaponGroup_Knife)|TYPE=Base
+# Guantlet	Brawling
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Guantlet|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Guantlet|if(ProfRank_Weapon_Guantlet>=1,TL+(ProfRank_Weapon_Guantlet*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Guantlet|min(4,Prof_Rank_SimpleWeapons+ProfRank_WeaponGroup_Brawling)|TYPE=Base
+# Light Mace	Club
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_LightMace|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_LightMace|if(ProfRank_Weapon_LightMace>=1,TL+(ProfRank_Weapon_LightMace*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_LightMace|min(4,Prof_Rank_SimpleWeapons+ProfRank_WeaponGroup_Club)|TYPE=Base
+# Longspear	Spear
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Longspear|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Longspear|if(ProfRank_Weapon_Longspear>=1,TL+(ProfRank_Weapon_Longspear*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Longspear|min(4,Prof_Rank_SimpleWeapons+ProfRank_WeaponGroup_Spear)|TYPE=Base
+# Mace	Club
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Mace|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Mace|if(ProfRank_Weapon_Mace>=1,TL+(ProfRank_Weapon_Mace*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Mace|min(4,Prof_Rank_SimpleWeapons+ProfRank_WeaponGroup_Club)|TYPE=Base
+# Morningstar	Club
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Morningstar|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Morningstar|if(ProfRank_Weapon_Morningstar>=1,TL+(ProfRank_Weapon_Morningstar*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Morningstar|min(4,Prof_Rank_SimpleWeapons+ProfRank_WeaponGroup_Club)|TYPE=Base
+# Sickle	Knife
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Sickle|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Sickle|if(ProfRank_Weapon_Sickle>=1,TL+(ProfRank_Weapon_Sickle*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Sickle|min(4,Prof_Rank_SimpleWeapons+ProfRank_WeaponGroup_Knife)|TYPE=Base
+# Spear	Spear
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Spear|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Spear|if(ProfRank_Weapon_Spear>=1,TL+(ProfRank_Weapon_Spear*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Spear|min(4,Prof_Rank_SimpleWeapons+ProfRank_WeaponGroup_Spear)|TYPE=Base
+# Spiked Gauntlet	SpikedGauntlet	Brawling
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_SpikedGauntlet|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_SpikedGauntlet|if(ProfRank_Weapon_SpikedGauntlet>=1,TL+(ProfRank_Weapon_SpikedGauntlet*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_SpikedGauntlet|min(4,Prof_Rank_SimpleWeapons+ProfRank_WeaponGroup_Brawling)|TYPE=Base
+# Staff
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Staff|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Staff|if(ProfRank_Weapon_Staff>=1,TL+(ProfRank_Weapon_Staff*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Staff|min(4,Prof_Rank_SimpleWeapons+ProfRank_WeaponGroup_Club)|TYPE=Base
+
+# Uncommon Simple Weapons
+# Clan Dagger	ClanDagger
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_ClanDagger|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_ClanDagger|if(ProfRank_Weapon_ClanDagger>=1,TL+(ProfRank_Weapon_ClanDagger*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_ClanDagger|min(4,Prof_Rank_SimpleWeapons+ProfRank_WeaponGroup_Knife)|TYPE=Base
+# Katar
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Katar|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Katar|if(ProfRank_Weapon_Katar>=1,TL+(ProfRank_Weapon_Katar*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Katar|min(4,Prof_Rank_SimpleWeapons+ProfRank_WeaponGroup_Knife)|TYPE=Base
+
+# Martial Weapons
+# Bastard Sword	BastardSword
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_BastardSword|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_BastardSword|if(ProfRank_Weapon_BastardSword>=1,TL+(ProfRank_Weapon_BastardSword*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_BastardSword|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Sword)|TYPE=Base
+# Battle Axe	BattleAxe
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_BattleAxe|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_BattleAxe|if(ProfRank_Weapon_BattleAxe>=1,TL+(ProfRank_Weapon_BattleAxe*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_BattleAxe|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Axe)|TYPE=Base
+# Bo Staff
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_BoStaff|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_BoStaff|if(ProfRank_Weapon_BoStaff>=1,TL+(ProfRank_Weapon_BoStaff*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_BoStaff|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Club)|TYPE=Base
+# Flachion
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Flachion|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Flachion|if(ProfRank_Weapon_Flachion>=1,TL+(ProfRank_Weapon_Flachion*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Flachion|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Sword)|TYPE=Base
+# Flail
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Flail|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Flail|if(ProfRank_Weapon_Flail>=1,TL+(ProfRank_Weapon_Flail*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Flail|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Flail)|TYPE=Base
+# Glaive
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Glaive|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Glaive|if(ProfRank_Weapon_Glaive>=1,TL+(ProfRank_Weapon_Glaive*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Glaive|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Polearm)|TYPE=Base
+# Greataxe
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Greataxe|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Greataxe|if(ProfRank_Weapon_Greataxe>=1,TL+(ProfRank_Weapon_Greataxe*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Greataxe|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Axe)|TYPE=Base
+# Greatclub
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Greatclub|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Greatclub|if(ProfRank_Weapon_Greatclub>=1,TL+(ProfRank_Weapon_Greatclub*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Greatclub|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Club)|TYPE=Base
+# Greatpick
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Greatpick|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Greatpick|if(ProfRank_Weapon_Greatpick>=1,TL+(ProfRank_Weapon_Greatpick*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Greatpick|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Pick)|TYPE=Base
+# Greatsword
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Greatsword|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Greatsword|if(ProfRank_Weapon_Greatsword>=1,TL+(ProfRank_Weapon_Greatsword*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Greatsword|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Sword)|TYPE=Base
+# Guisarme
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Guisarme|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Guisarme|if(ProfRank_Weapon_Guisarme>=1,TL+(ProfRank_Weapon_Guisarme*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Guisarme|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Polearm)|TYPE=Base
+# Halberd
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Halberd|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Halberd|if(ProfRank_Weapon_Halberd>=1,TL+(ProfRank_Weapon_Halberd*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Halberd|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Polearm)|TYPE=Base
+# Hatchet
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Hatchet|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Hatchet|if(ProfRank_Weapon_Hatchet>=1,TL+(ProfRank_Weapon_Hatchet*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Hatchet|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Axe)|TYPE=Base
+# Lance
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Lance|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Lance|if(ProfRank_Weapon_Lance>=1,TL+(ProfRank_Weapon_Lance*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Lance|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Spear)|TYPE=Base
+# Light Hammer
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_LightHammer|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_LightHammer|if(ProfRank_Weapon_LightHammer>=1,TL+(ProfRank_Weapon_LightHammer*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_LightHammer|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Hammer)|TYPE=Base
+# Light pick
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Lightpick|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Lightpick|if(ProfRank_Weapon_Lightpick>=1,TL+(ProfRank_Weapon_Lightpick*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Lightpick|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Pick)|TYPE=Base
+# Longsword
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Longsword|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Longsword|if(ProfRank_Weapon_Longsword>=1,TL+(ProfRank_Weapon_Longsword*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Longsword|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Sword)|TYPE=Base
+# Main-guache
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Mainguache|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Mainguache|if(ProfRank_Weapon_Mainguache>=1,TL+(ProfRank_Weapon_Mainguache*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Mainguache|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Knife)|TYPE=Base
+# Maul
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Maul|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Maul|if(ProfRank_Weapon_Maul>=1,TL+(ProfRank_Weapon_Maul*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Maul|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Hammer)|TYPE=Base
+# Pick
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Pick|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Pick|if(ProfRank_Weapon_Pick>=1,TL+(ProfRank_Weapon_Pick*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Pick|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Pick)|TYPE=Base
+# Ranseur
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Ranseur|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Ranseur|if(ProfRank_Weapon_Ranseur>=1,TL+(ProfRank_Weapon_Ranseur*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Ranseur|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Polearm)|TYPE=Base
+# Rapier
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Rapier|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Rapier|if(ProfRank_Weapon_Rapier>=1,TL+(ProfRank_Weapon_Rapier*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Rapier|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Sword)|TYPE=Base
+# Sap
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Sap|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Sap|if(ProfRank_Weapon_Sap>=1,TL+(ProfRank_Weapon_Sap*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Sap|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Club)|TYPE=Base
+# Scimitar
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Scimitar|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Scimitar|if(ProfRank_Weapon_Scimitar>=1,TL+(ProfRank_Weapon_Scimitar*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Scimitar|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Sword)|TYPE=Base
+# Scythe
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Scythe|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Scythe|if(ProfRank_Weapon_Scythe>=1,TL+(ProfRank_Weapon_Scythe*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Scythe|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Polearm)|TYPE=Base
+# Shield bash
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Shieldbash|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Shieldbash|if(ProfRank_Weapon_Shieldbash>=1,TL+(ProfRank_Weapon_Shieldbash*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Shieldbash|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Shield)|TYPE=Base
+# Shield boss
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Shieldboss|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Shieldboss|if(ProfRank_Weapon_Shieldboss>=1,TL+(ProfRank_Weapon_Shieldboss*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Shieldboss|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Shield)|TYPE=Base
+# Shield spikes
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_ShieldSpikes|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_ShieldSpikes|if(ProfRank_Weapon_ShieldSpikes>=1,TL+(ProfRank_Weapon_ShieldSpikes*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_ShieldSpikes|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Shield)|TYPE=Base
+# Shortsword
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Shortsword|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Shortsword|if(ProfRank_Weapon_Shortsword>=1,TL+(ProfRank_Weapon_Shortsword*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Shortsword|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Sword)|TYPE=Base
+# Starknife
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Starknife|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Starknife|if(ProfRank_Weapon_Starknife>=1,TL+(ProfRank_Weapon_Starknife*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Starknife|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Knife)|TYPE=Base
+# Trident
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Trident|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Trident|if(ProfRank_Weapon_Trident>=1,TL+(ProfRank_Weapon_Trident*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Trident|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Spear)|TYPE=Base
+# War flail
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Warflail|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Warflail|if(ProfRank_Weapon_Warflail>=1,TL+(ProfRank_Weapon_Warflail*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Warflail|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Flail)|TYPE=Base
+# Warhammer
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Warhammer|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Warhammer|if(ProfRank_Weapon_Warhammer>=1,TL+(ProfRank_Weapon_Warhammer*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Warhammer|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Hammer)|TYPE=Base
+# Whip
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Whip|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Whip|if(ProfRank_Weapon_Whip>=1,TL+(ProfRank_Weapon_Whip*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Whip|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Flail)|TYPE=Base
+
+# Uncommon Martial Weapons
+# Dogslicer
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Dogslicer|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Dogslicer|if(ProfRank_Weapon_Dogslicer>=1,TL+(ProfRank_Weapon_Dogslicer*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Dogslicer|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Sword)|TYPE=Base
+# Elven curve blade
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Elvencurveblade|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Elvencurveblade|if(ProfRank_Weapon_Elvencurveblade>=1,TL+(ProfRank_Weapon_Elvencurveblade*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Elvencurveblade|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Sword)|TYPE=Base
+# Filcher's fork
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Filchersfork|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Filchersfork|if(ProfRank_Weapon_Filchersfork>=1,TL+(ProfRank_Weapon_Filchersfork*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Filchersfork|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Spear)|TYPE=Base
+# Gnome hooked hammer
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Gnomehookedhammer|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Gnomehookedhammer|if(ProfRank_Weapon_Gnomehookedhammer>=1,TL+(ProfRank_Weapon_Gnomehookedhammer*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Gnomehookedhammer|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Hammer)|TYPE=Base
+# Horsechopper
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Horsechopper|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Horsechopper|if(ProfRank_Weapon_Horsechopper>=1,TL+(ProfRank_Weapon_Horsechopper*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Horsechopper|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Polearm)|TYPE=Base
+# Kama
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Kama|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Kama|if(ProfRank_Weapon_Kama>=1,TL+(ProfRank_Weapon_Kama*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Kama|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Knife)|TYPE=Base
+# Katana
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Katana|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Katana|if(ProfRank_Weapon_Katana>=1,TL+(ProfRank_Weapon_Katana*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Katana|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Sword)|TYPE=Base
+# Kukri
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Kukri|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Kukri|if(ProfRank_Weapon_Kukri>=1,TL+(ProfRank_Weapon_Kukri*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Kukri|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Knife)|TYPE=Base
+# Nunchaku
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Nunchaku|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Nunchaku|if(ProfRank_Weapon_Nunchaku>=1,TL+(ProfRank_Weapon_Nunchaku*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Nunchaku|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Club)|TYPE=Base
+# Orc knuckle dagger
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Orcknuckledagger|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Orcknuckledagger|if(ProfRank_Weapon_Orcknuckledagger>=1,TL+(ProfRank_Weapon_Orcknuckledagger*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Orcknuckledagger|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Knife)|TYPE=Base
+# Sai
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Sai|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Sai|if(ProfRank_Weapon_Sai>=1,TL+(ProfRank_Weapon_Sai*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Sai|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Knife)|TYPE=Base
+# Spiked chain	SpikedChain
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_SpikedChain|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_SpikedChain|if(ProfRank_Weapon_SpikedChain>=1,TL+(ProfRank_Weapon_SpikedChain*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_SpikedChain|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Flail)|TYPE=Base
+# Temple sword
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Templesword|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Templesword|if(ProfRank_Weapon_Templesword>=1,TL+(ProfRank_Weapon_Templesword*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Templesword|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Sword)|TYPE=Base
+
+# Uncommon Advanced Weapons
+# Dwarven Waraxe
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_DwarvenWaraxe|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_DwarvenWaraxe|if(ProfRank_Weapon_DwarvenWaraxe>=1,TL+(ProfRank_Weapon_DwarvenWaraxe*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_DwarvenWaraxe|min(4,Prof_Rank_AdvancedWeapons+ProfRank_WeaponGroup_Axe)|TYPE=Base
+# Gnome Flickmace
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_GnomeFlickmace|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_GnomeFlickmace|if(ProfRank_Weapon_GnomeFlickmace>=1,TL+(ProfRank_Weapon_GnomeFlickmace*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_GnomeFlickmace|min(4,Prof_Rank_AdvancedWeapons+ProfRank_WeaponGroup_Flail)|TYPE=Base
+# Orc Necksplitter
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_OrcNecksplitter|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_OrcNecksplitter|if(ProfRank_Weapon_OrcNecksplitter>=1,TL+(ProfRank_Weapon_OrcNecksplitter*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_OrcNecksplitter|min(4,Prof_Rank_AdvancedWeapons+ProfRank_WeaponGroup_Axe)|TYPE=Base
+# Sawtooth Saber
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_SawtoothSaber|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_SawtoothSaber|if(ProfRank_Weapon_SawtoothSaber>=1,TL+(ProfRank_Weapon_SawtoothSaber*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_SawtoothSaber|min(4,Prof_Rank_AdvancedWeapons+ProfRank_WeaponGroup_Sword)|TYPE=Base
+
+
+# RANGED WEAPONS
+# Simple Weapons
+# Blowgun
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Blowgun|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Blowgun|if(ProfRank_Weapon_Blowgun>=1,TL+(ProfRank_Weapon_Blowgun*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Blowgun|min(4,Prof_Rank_SimpleWeapons+ProfRank_WeaponGroup_Dart)|TYPE=Base
+# Crossbow
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Crossbow|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Crossbow|if(ProfRank_Weapon_Crossbow>=1,TL+(ProfRank_Weapon_Crossbow*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Crossbow|min(4,Prof_Rank_SimpleWeapons+ProfRank_WeaponGroup_Bow)|TYPE=Base
+# Dart
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Dart|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Dart|if(ProfRank_Weapon_Dart>=1,TL+(ProfRank_Weapon_Dart*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Dart|min(4,Prof_Rank_SimpleWeapons+ProfRank_WeaponGroup_Dart)|TYPE=Base
+# Hand Crossbow
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_HandCrossbow|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_HandCrossbow|if(ProfRank_Weapon_HandCrossbow>=1,TL+(ProfRank_Weapon_HandCrossbow*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_HandCrossbow|min(4,Prof_Rank_SimpleWeapons+ProfRank_WeaponGroup_Bow)|TYPE=Base
+# Heavy Crossbow
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_HeavyCrossbow|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_HeavyCrossbow|if(ProfRank_Weapon_HeavyCrossbow>=1,TL+(ProfRank_Weapon_HeavyCrossbow*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_HeavyCrossbow|min(4,Prof_Rank_SimpleWeapons+ProfRank_WeaponGroup_Bow)|TYPE=Base
+# Javelin
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Javelin|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Javelin|if(ProfRank_Weapon_Javelin>=1,TL+(ProfRank_Weapon_Javelin*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Javelin|min(4,Prof_Rank_SimpleWeapons+ProfRank_WeaponGroup_Dart)|TYPE=Base
+# Sling
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Sling|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Sling|if(ProfRank_Weapon_Sling>=1,TL+(ProfRank_Weapon_Sling*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Sling|min(4,Prof_Rank_SimpleWeapons+ProfRank_WeaponGroup_Sling)|TYPE=Base
+
+# Martial Weapons
+# Alchemical Bomb
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_AlchemicalBomb|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_AlchemicalBomb|if(ProfRank_Weapon_AlchemicalBomb>=1,TL+(ProfRank_Weapon_AlchemicalBomb*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_AlchemicalBomb|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Bomb)|TYPE=Base
+# Composite Longbow
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_CompositeLongbow|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_CompositeLongbow|if(ProfRank_Weapon_CompositeLongbow>=1,TL+(ProfRank_Weapon_CompositeLongbow*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_CompositeLongbow|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Bow)|TYPE=Base
+# Composite Shortbow
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_CompositeShortbow|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_CompositeShortbow|if(ProfRank_Weapon_CompositeShortbow>=1,TL+(ProfRank_Weapon_CompositeShortbow*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_CompositeShortbow|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Bow)|TYPE=Base
+# Longbow
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Longbow|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Longbow|if(ProfRank_Weapon_Longbow>=1,TL+(ProfRank_Weapon_Longbow*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Longbow|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Bow)|TYPE=Base
+# Shortbow
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Shortbow|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Shortbow|if(ProfRank_Weapon_Shortbow>=1,TL+(ProfRank_Weapon_Shortbow*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Shortbow|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Bow)|TYPE=Base
+
+# Uncommon Martial Weapons
+# Halfling Sling Staff
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_HalflingSlingStaff|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_HalflingSlingStaff|if(ProfRank_Weapon_HalflingSlingStaff>=1,TL+(ProfRank_Weapon_HalflingSlingStaff*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_HalflingSlingStaff|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Sling)|TYPE=Base
+# Shuriken
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																														DEFINE:ToHit_Shuriken|0
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ToHit_Shuriken|if(ProfRank_Weapon_Shuriken>=1,TL+(ProfRank_Weapon_Shuriken*2),0)|TYPE=Base
+CATEGORY=Internal|Weapon Proficiency Tracker.MOD																																											BONUS:VAR|ProfRank_Weapon_Shuriken|min(4,Prof_Rank_MartialWeapons+ProfRank_WeaponGroup_Dart)|TYPE=Base
+
+
+###Block
+####
+#
+####
+# 6-4 Simple Melee Weapons
+
+Unarmed Attacks			MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Unarmed.Weapon Proficiency.Weapon Group ~ Brawling																						AUTO:WEAPONPROF|Unarmed Strike	ABILITY:Internal|AUTOMATIC|Unarmed Attacks
+
+#
+Club					MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Bludgeoning.Weapon.Melee.Simple Weapons.Simple Melee Weapon.Ranged.Thrown.Weapon Group ~ Club.Thrown 10													AUTO:WEAPONPROF|Club
+Light Mace				MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Bludgeoning.Weapon.Melee.Simple Weapons.Simple Melee Weapon.Weapon Group ~ Club.Agile.Finesse.Shove														AUTO:WEAPONPROF|Light Mace
+Mace					MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Bludgeoning.Weapon.Melee.Simple Weapons.Simple Melee Weapon.Weapon Group ~ Club.Shove																AUTO:WEAPONPROF|Mace
+Morningstar				MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Bludgeoning.Weapon.Melee.Simple Weapons.Simple Melee Weapon.Weapon Group ~ Club.Versatile P															AUTO:WEAPONPROF|Morningstar
+Staff					MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Bludgeoning.Weapon.Melee.Simple Weapons.Simple Melee Weapon.Weapon Group ~ Club.Two-hand d8															AUTO:WEAPONPROF|Staff
+Bo staff				MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Bludgeoning.Weapon.Melee.Martial Melee.Martial Weapons.Weapon Group ~ Club.Monk.Parry.Reach.Trip															AUTO:WEAPONPROF|Bo staff
+Greatclub				MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Bludgeoning.Weapon.Melee.Martial Melee.Martial Weapons.Weapon Group ~ Club.Backswing.Shove																AUTO:WEAPONPROF|Greatclub
+Sap					MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Bludgeoning.Weapon Group ~ Club.Agile.Nonlethal																AUTO:WEAPONPROF|Sap
+Nunchaku				MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Bludgeoning.Weapon Group ~ Club.Backswing.Disarm.Finesse.Monk													AUTO:WEAPONPROF|Nunchaku
+
+
+
+Dagger				MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Piercing.Weapon.Melee.Simple Weapons.Simple Melee Weapon.Ranged.Thrown.Weapon Group ~ Knife.Agile.Finesse.Thrown 10.Versatile S									AUTO:WEAPONPROF|Dagger
+Sickle				MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Slashing.Weapon.Melee.Simple Weapons.Simple Melee Weapon.Weapon Group ~ Knife.Agile.Finesse.Trip															AUTO:WEAPONPROF|Sickle
+Main-guache				MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Piercing.Weapon Group ~ Knife.Agile.Disarm.Finesse.Parry.Versatile S												AUTO:WEAPONPROF|Main-guache
+Starknife				MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Piercing.Ranged.Thrown.Weapon Group ~ Knife.Agile.Deadly d6.Finesse.Thrown 20.Versatile S									AUTO:WEAPONPROF|Starknife
+Clan dagger				MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Melee.Simple Melee.Simple Weapons.Piercing.Weapon Group ~ Knife.Dwarf.Parry.Versatile B															AUTO:WEAPONPROF|Clan dagger
+Katar					MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Melee.Simple Melee.Simple Weapons.Piercing.Weapon Group ~ Knife.Agile.Deadly d6.Monk															AUTO:WEAPONPROF|Katar
+Kama					MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Slashing.Weapon Group ~ Knife.Agile.Monk.Trip																AUTO:WEAPONPROF|Kama
+Kukri					MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Slashing.Weapon Group ~ Knife.Agile.Finesse.Trip															AUTO:WEAPONPROF|Kukri
+Orc knuckle dagger		MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Piercing.Weapon Group ~ Knife.Agile.Disarm.Orc																AUTO:WEAPONPROF|Orc knuckle dagger
+Sai					MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Piercing.Weapon Group ~ Knife.Agile.Disarm.Finesse.Monk.Versatile B												AUTO:WEAPONPROF|Sai
+Orc necksplitter			MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Melee.Exotic Melee.Advanced Weapons.Slashing.Weapon Group ~ Knife.Forceful.Orc.Versatile P														AUTO:WEAPONPROF|Orc necksplitter
+# Spear
+Longspear				MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Piercing.Weapon.Melee.Simple Weapons.Simple Melee Weapon.Weapon Group ~ Spear.Reach																	AUTO:WEAPONPROF|Longspear
+Spear					MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Piercing.Weapon.Melee.Simple Weapons.Simple Melee Weapon.Ranged.Thrown.Weapon Group ~ Spear.Thrown 20														AUTO:WEAPONPROF|Spear
+Lance					MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Piercing.Weapon.Melee.Martial Melee.Martial Weapons.Weapon Group ~ Spear.Charge.Deadly d8.Reach															AUTO:WEAPONPROF|Lance
+Trident				MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Piercing.Ranged.Thrown.Weapon Group ~ Spear.Thrown 20															AUTO:WEAPONPROF|Trident
+Filcher's fork			MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Piercing.Ranged.Thrown.Weapon Group ~ Spear.Agile.Backstabber.Deadly d6.Finesse.Halfling.Thrown 20							AUTO:WEAPONPROF|Filcher's fork
+# Sword
+Bastard sword			MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Piercing.Weapon.Melee.Martial Melee.Martial Weapons.Weapon Group ~ Sword.Two-hand d12																AUTO:WEAPONPROF|Bastard sword
+Falchion				MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Slashing.Weapon.Melee.Martial Melee.Martial Weapons.Weapon Group ~ Sword.Forceful.Sweep																AUTO:WEAPONPROF|Falchion
+Greatsword				MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Slashing.Weapon.Melee.Martial Melee.Martial Weapons.Weapon Group ~ Sword.Versatile P																	AUTO:WEAPONPROF|Greatsword
+Longsword				MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Slashing.Weapon Group ~ Sword.Versatile P																	AUTO:WEAPONPROF|Longsword
+Rapier				MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Piercing.Weapon Group ~ Sword.Deadly d8.Disarm.Finesse														AUTO:WEAPONPROF|Rapier
+Scimitar				MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Slashing.Weapon Group ~ Sword.Forceful.Sweep																AUTO:WEAPONPROF|Scimitar
+Shortsword				MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Piercing.Weapon Group ~ Sword.Agile.Finesse.Versatile S														AUTO:WEAPONPROF|Shortsword
+Dogslicer				MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Slashing.Weapon Group ~ Sword.Agile.Backstabber.Finesse.Goblin													AUTO:WEAPONPROF|Dogslicer
+Elven curve blade			MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Slashing.Weapon Group ~ Sword.Elf.Finesse.Forceful															AUTO:WEAPONPROF|Elven curve blade
+Katana				MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Slashing.Weapon Group ~ Sword.Versatile P																	AUTO:WEAPONPROF|Katana
+Temple sword			MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Slashing.Weapon Group ~ Sword.Monk.Trip																	AUTO:WEAPONPROF|Temple sword
+Sawtooth sabre			MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Melee.Exotic Melee.Advanced Weapons.Slashing.Weapon Group ~ Sword.Agile.Finesse.Twin															AUTO:WEAPONPROF|Sawtooth sabre
+
+Battle axe				MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Slashing.Weapon.Melee.Martial Melee.Martial Weapons.Weapon Group ~ Axe.Sweep																		AUTO:WEAPONPROF|Battle axe
+Greataxe				MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Slashing.Weapon.Melee.Martial Melee.Martial Weapons.Weapon Group ~ Axe.Sweep																		AUTO:WEAPONPROF|Greataxe
+Hatchet				MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Slashing.Weapon.Melee.Martial Melee.Martial Weapons.Ranged.Thrown.Weapon Group ~ Axe.Agile.Sweep.Thrown 10													AUTO:WEAPONPROF|Hatchet
+Dwarven waraxe			MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Melee.Exotic Melee.Advanced Weapons.Slashing.Weapon Group ~ Axe.Dwarf.Sweep.Two-hand d12															AUTO:WEAPONPROF|Dwarven waraxe
+# Flail
+Flail					MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Bludgeoning.Weapon.Melee.Martial Melee.Martial Weapons.Weapon Group ~ Flail.Disarm.Sweep.Trip															AUTO:WEAPONPROF|Flail
+War flail				MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Bludgeoning.Weapon Group ~ Flail.Disarm.Sweep.Trip															AUTO:WEAPONPROF|War flail
+Whip					MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Slashing.Weapon Group ~ Flail.Disarm.Finesse.Nonlethal.Reach.Trip													AUTO:WEAPONPROF|Whip
+Spiked chain			MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Slashing.Weapon Group ~ Flail.Disarm.Finesse.Trip															AUTO:WEAPONPROF|Spiked chain
+Gnome flickmace			MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Melee.Exotic Melee.Advanced Weapons.Bludgeoning.Weapon Group ~ Flail.Gnome.Reach																AUTO:WEAPONPROF|Gnome flickmace
+Glaive				MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Slashing.Weapon.Melee.Martial Melee.Martial Weapons.Weapon Group ~ Polearm.Deadly d8.Forceful.Reach														AUTO:WEAPONPROF|Glaive
+Guisarme				MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Slashing.Weapon.Melee.Martial Melee.Martial Weapons.Weapon Group ~ Polearm.Reach.Trip																AUTO:WEAPONPROF|Guisarme
+Halberd				MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Piercing.Weapon.Melee.Martial Melee.Martial Weapons.Weapon Group ~ Polearm.Reach.Versatile S															AUTO:WEAPONPROF|Halberd
+Ranseur				MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Piercing.Weapon Group ~ Polearm.Disarm.Reach																AUTO:WEAPONPROF|Ranseur
+Scythe				MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Slashing.Weapon Group ~ Polearm.Deadly d10.Trip																AUTO:WEAPONPROF|Scythe
+Horsechopper			MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Slashing.Weapon Group ~ Polearm.Goblin.Reach.Trip.Versatile P													AUTO:WEAPONPROF|Horsechopper
+# Pick
+Greatpick				MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Piercing.Weapon.Melee.Martial Melee.Martial Weapons.Weapon Group ~ Pick.Fatal d12																	AUTO:WEAPONPROF|Greatpick
+Light hammer			MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Bludgeoning.Weapon.Melee.Martial Melee.Martial Weapons.Ranged.Thrown.Weapon Group ~ Pick.Agile.Thrown 20													AUTO:WEAPONPROF|Light hammer
+Light pick				MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Piercing.Weapon.Melee.Martial Melee.Martial Weapons.Weapon Group ~ Pick.Agile.Fatal d8																AUTO:WEAPONPROF|Light pick
+Pick					MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Piercing.Weapon Group ~ Pick.Fatal d10																	AUTO:WEAPONPROF|Pick
+# Shield
+Heavy shield			MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Piercing.Weapon.Melee.Martial Melee.Martial Weapons.Weapon Group ~ Shield.Attached to heavy shield														AUTO:WEAPONPROF|Heavy shield
+Light shield			MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Bludgeoning.Weapon.Melee.Martial Melee.Martial Weapons.Weapon Group ~ Shield.Agile																	AUTO:WEAPONPROF|Light shield
+# Hammer
+Maul					MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Bludgeoning.Weapon Group ~ Hammer.Shove																	AUTO:WEAPONPROF|Maul
+Warhammer				MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Bludgeoning.Weapon Group ~ Hammer.Shove																	AUTO:WEAPONPROF|Warhammer
+Gnome hooked hammer		MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Bludgeoning.Weapon Group ~ Hammer.Gnome.Trip.Two-hand d10.Versatile P												AUTO:WEAPONPROF|Gnome hooked hammer
+# Dart
+Blowgun				MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Ranged.Simple Ranged.Simple Weapons.Ranged.Piercing.Ranged.Weapon Group ~ Dart.Agile.Nonlethal														AUTO:WEAPONPROF|Blowgun
+Dart					MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Ranged.Simple Ranged.Simple Weapons.Ranged.Piercing.Ranged.Thrown.Weapon Group ~ Dart.Agile.Thrown													AUTO:WEAPONPROF|Dart
+Javelin				MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Ranged.Simple Ranged.Simple Weapons.Ranged.Piercing.Ranged.Thrown.Weapon Group ~ Dart.Thrown														AUTO:WEAPONPROF|Javelin
+Shuriken				MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Ranged.Martial Ranged.Martial Weapons.Piercing.Piercing.Ranged.Thrown.Weapon Group ~ Dart.Agile.Monk.Thrown 20											AUTO:WEAPONPROF|Shuriken
+# Bow
+Crossbow				MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Ranged.Simple Ranged.Simple Weapons.Ranged.Piercing.Ranged.Weapon Group ~ Bow																	AUTO:WEAPONPROF|Crossbow
+Hand crossbow			MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Ranged.Simple Ranged.Simple Weapons.Ranged.Piercing.Ranged.Weapon Group ~ Bow																	AUTO:WEAPONPROF|Hand crossbow
+Heavy crossbow			MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Ranged.Simple Ranged.Simple Weapons.Ranged.Piercing.Ranged.Weapon Group ~ Bow																	AUTO:WEAPONPROF|Heavy crossbow
+Composite longbow			MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Ranged.Martial Ranged.Martial Weapons.Ranged.Piercing.Ranged.Weapon Group ~ Bow.Deadly d10.Propulsive.Volley											AUTO:WEAPONPROF|Composite longbow
+Composite shortbow		MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Ranged.Martial Ranged.Martial Weapons.Ranged.Piercing.Ranged.Weapon Group ~ Bow.Deadly d10.Propulsive													AUTO:WEAPONPROF|Composite shortbow
+Longbow				MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Ranged.Martial Ranged.Martial Weapons.Ranged.Piercing.Ranged.Weapon Group ~ Bow.Deadly d10.Volley													AUTO:WEAPONPROF|Longbow
+Shortbow				MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Ranged.Martial Ranged.Martial Weapons.Ranged.Piercing.Ranged.Weapon Group ~ Bow.Deadly d10														AUTO:WEAPONPROF|Shortbow
+# Sling
+Sling					MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Ranged.Simple Ranged.Simple Weapons.Ranged.Bludgeoning.Ranged.Weapon Group ~ Sling.Propulsive														AUTO:WEAPONPROF|Sling
+Halfling sling staff		MULT:YES	CHOOSE:NOCHOICE	STACK:YES				CATEGORY:Proficiency	TYPE:Weapon.Ranged.Martial Ranged.Martial Weapons.Piercing.Bludgeoning.Ranged.Weapon Group ~ Sling.Halfling.Propulsive												AUTO:WEAPONPROF|Halfling sling staff
+
+Fist	CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Special Ability|AUTOMATIC|Fist
+
+
+
+Fist	CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:Prof_Rank_Fist|0		BONUS:VAR|Prof_Rank_Fist|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Fist"))|TYPE=Base	ASPECT:NAME|Untrained in Fist|PREVAREQ:Prof_Rank_Fist,0		ASPECT:NAME|Trained in Fist|PREVAREQ:Prof_Rank_Fist,1		ASPECT:NAME|Expert in Fist|PREVAREQ:Prof_Rank_Fist,2		ASPECT:NAME|Mastery in Fist|PREVAREQ:Prof_Rank_Fist,3		ASPECT:NAME|Legendary in Fist|PREVAREQ:Prof_Rank_Fist,4	
+
+
+	
+Greatclub				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Greatclub|0				BONUS:VAR|ProfRank_Weapon_Greatclub|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Greatclub"))|TYPE=Base		ASPECT:NAME|Untrained in Greatclub|PREVAREQ:ProfRank_Weapon_Greatclub,0	ASPECT:NAME|Trained in Greatclub|PREVAREQ:ProfRank_Weapon_Greatclub,1	ASPECT:NAME|Expert in Greatclub|PREVAREQ:ProfRank_Weapon_Greatclub,2	ASPECT:NAME|Mastery in Greatclub|PREVAREQ:ProfRank_Weapon_Greatclub,3	ASPECT:NAME|Legendary in Greatclub|PREVAREQ:ProfRank_Weapon_Greatclub,4	
+Club					CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Club|0					BONUS:VAR|ProfRank_Weapon_Club|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Club"))|TYPE=Base		ASPECT:NAME|Untrained in Club|PREVAREQ:ProfRank_Weapon_Club,0	ASPECT:NAME|Trained in Club|PREVAREQ:ProfRank_Weapon_Club,1	ASPECT:NAME|Expert in Club|PREVAREQ:ProfRank_Weapon_Club,2	ASPECT:NAME|Mastery in Club|PREVAREQ:ProfRank_Weapon_Club,3	ASPECT:NAME|Legendary in Club|PREVAREQ:ProfRank_Weapon_Club,4	
+Dagger				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Dagger|0				BONUS:VAR|ProfRank_Weapon_Dagger|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Dagger"))|TYPE=Base		ASPECT:NAME|Untrained in Dagger|PREVAREQ:ProfRank_Weapon_Dagger,0	ASPECT:NAME|Trained in Dagger|PREVAREQ:ProfRank_Weapon_Dagger,1	ASPECT:NAME|Expert in Dagger|PREVAREQ:ProfRank_Weapon_Dagger,2	ASPECT:NAME|Mastery in Dagger|PREVAREQ:ProfRank_Weapon_Dagger,3	ASPECT:NAME|Legendary in Dagger|PREVAREQ:ProfRank_Weapon_Dagger,4	
+Fist					CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Fist|0					BONUS:VAR|ProfRank_Weapon_Fist|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Fist"))|TYPE=Base		ASPECT:NAME|Untrained in Fist|PREVAREQ:ProfRank_Weapon_Fist,0	ASPECT:NAME|Trained in Fist|PREVAREQ:ProfRank_Weapon_Fist,1	ASPECT:NAME|Expert in Fist|PREVAREQ:ProfRank_Weapon_Fist,2	ASPECT:NAME|Mastery in Fist|PREVAREQ:ProfRank_Weapon_Fist,3	ASPECT:NAME|Legendary in Fist|PREVAREQ:ProfRank_Weapon_Fist,4	
+Gauntlet				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Gauntlet|0				BONUS:VAR|ProfRank_Weapon_Gauntlet|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Gauntlet"))|TYPE=Base		ASPECT:NAME|Untrained in Gauntlet|PREVAREQ:ProfRank_Weapon_Gauntlet,0	ASPECT:NAME|Trained in Gauntlet|PREVAREQ:ProfRank_Weapon_Gauntlet,1	ASPECT:NAME|Expert in Gauntlet|PREVAREQ:ProfRank_Weapon_Gauntlet,2	ASPECT:NAME|Mastery in Gauntlet|PREVAREQ:ProfRank_Weapon_Gauntlet,3	ASPECT:NAME|Legendary in Gauntlet|PREVAREQ:ProfRank_Weapon_Gauntlet,4	
+LightMace				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_LightMace|0				BONUS:VAR|ProfRank_Weapon_LightMace|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=LightMace"))|TYPE=Base		ASPECT:NAME|Untrained in LightMace|PREVAREQ:ProfRank_Weapon_LightMace,0	ASPECT:NAME|Trained in LightMace|PREVAREQ:ProfRank_Weapon_LightMace,1	ASPECT:NAME|Expert in LightMace|PREVAREQ:ProfRank_Weapon_LightMace,2	ASPECT:NAME|Mastery in LightMace|PREVAREQ:ProfRank_Weapon_LightMace,3	ASPECT:NAME|Legendary in LightMace|PREVAREQ:ProfRank_Weapon_LightMace,4	
+Longspear				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Longspear|0				BONUS:VAR|ProfRank_Weapon_Longspear|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Longspear"))|TYPE=Base		ASPECT:NAME|Untrained in Longspear|PREVAREQ:ProfRank_Weapon_Longspear,0	ASPECT:NAME|Trained in Longspear|PREVAREQ:ProfRank_Weapon_Longspear,1	ASPECT:NAME|Expert in Longspear|PREVAREQ:ProfRank_Weapon_Longspear,2	ASPECT:NAME|Mastery in Longspear|PREVAREQ:ProfRank_Weapon_Longspear,3	ASPECT:NAME|Legendary in Longspear|PREVAREQ:ProfRank_Weapon_Longspear,4	
+Mace					CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Mace|0					BONUS:VAR|ProfRank_Weapon_Mace|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Mace"))|TYPE=Base		ASPECT:NAME|Untrained in Mace|PREVAREQ:ProfRank_Weapon_Mace,0	ASPECT:NAME|Trained in Mace|PREVAREQ:ProfRank_Weapon_Mace,1	ASPECT:NAME|Expert in Mace|PREVAREQ:ProfRank_Weapon_Mace,2	ASPECT:NAME|Mastery in Mace|PREVAREQ:ProfRank_Weapon_Mace,3	ASPECT:NAME|Legendary in Mace|PREVAREQ:ProfRank_Weapon_Mace,4	
+Morningstar				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Morningstar|0			BONUS:VAR|ProfRank_Weapon_Morningstar|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Morningstar"))|TYPE=Base		ASPECT:NAME|Untrained in Morningstar|PREVAREQ:ProfRank_Weapon_Morningstar,0	ASPECT:NAME|Trained in Morningstar|PREVAREQ:ProfRank_Weapon_Morningstar,1	ASPECT:NAME|Expert in Morningstar|PREVAREQ:ProfRank_Weapon_Morningstar,2	ASPECT:NAME|Mastery in Morningstar|PREVAREQ:ProfRank_Weapon_Morningstar,3	ASPECT:NAME|Legendary in Morningstar|PREVAREQ:ProfRank_Weapon_Morningstar,4	
+Sickle				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Sickle|0				BONUS:VAR|ProfRank_Weapon_Sickle|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Sickle"))|TYPE=Base		ASPECT:NAME|Untrained in Sickle|PREVAREQ:ProfRank_Weapon_Sickle,0	ASPECT:NAME|Trained in Sickle|PREVAREQ:ProfRank_Weapon_Sickle,1	ASPECT:NAME|Expert in Sickle|PREVAREQ:ProfRank_Weapon_Sickle,2	ASPECT:NAME|Mastery in Sickle|PREVAREQ:ProfRank_Weapon_Sickle,3	ASPECT:NAME|Legendary in Sickle|PREVAREQ:ProfRank_Weapon_Sickle,4	
+Spear					CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Spear|0				BONUS:VAR|ProfRank_Weapon_Spear|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Spear"))|TYPE=Base		ASPECT:NAME|Untrained in Spear|PREVAREQ:ProfRank_Weapon_Spear,0	ASPECT:NAME|Trained in Spear|PREVAREQ:ProfRank_Weapon_Spear,1	ASPECT:NAME|Expert in Spear|PREVAREQ:ProfRank_Weapon_Spear,2	ASPECT:NAME|Mastery in Spear|PREVAREQ:ProfRank_Weapon_Spear,3	ASPECT:NAME|Legendary in Spear|PREVAREQ:ProfRank_Weapon_Spear,4	
+Spikedgauntlet			CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Spikedgauntlet|0			BONUS:VAR|ProfRank_Weapon_Spikedgauntlet|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Spikedgauntlet"))|TYPE=Base		ASPECT:NAME|Untrained in Spikedgauntlet|PREVAREQ:ProfRank_Weapon_Spikedgauntlet,0	ASPECT:NAME|Trained in Spikedgauntlet|PREVAREQ:ProfRank_Weapon_Spikedgauntlet,1	ASPECT:NAME|Expert in Spikedgauntlet|PREVAREQ:ProfRank_Weapon_Spikedgauntlet,2	ASPECT:NAME|Mastery in Spikedgauntlet|PREVAREQ:ProfRank_Weapon_Spikedgauntlet,3	ASPECT:NAME|Legendary in Spikedgauntlet|PREVAREQ:ProfRank_Weapon_Spikedgauntlet,4	
+Staff					CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Staff|0				BONUS:VAR|ProfRank_Weapon_Staff|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Staff"))|TYPE=Base		ASPECT:NAME|Untrained in Staff|PREVAREQ:ProfRank_Weapon_Staff,0	ASPECT:NAME|Trained in Staff|PREVAREQ:ProfRank_Weapon_Staff,1	ASPECT:NAME|Expert in Staff|PREVAREQ:ProfRank_Weapon_Staff,2	ASPECT:NAME|Mastery in Staff|PREVAREQ:ProfRank_Weapon_Staff,3	ASPECT:NAME|Legendary in Staff|PREVAREQ:ProfRank_Weapon_Staff,4	
+Bastardsword			CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Bastardsword|0			BONUS:VAR|ProfRank_Weapon_Bastardsword|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Bastardsword"))|TYPE=Base		ASPECT:NAME|Untrained in Bastardsword|PREVAREQ:ProfRank_Weapon_Bastardsword,0	ASPECT:NAME|Trained in Bastardsword|PREVAREQ:ProfRank_Weapon_Bastardsword,1	ASPECT:NAME|Expert in Bastardsword|PREVAREQ:ProfRank_Weapon_Bastardsword,2	ASPECT:NAME|Mastery in Bastardsword|PREVAREQ:ProfRank_Weapon_Bastardsword,3	ASPECT:NAME|Legendary in Bastardsword|PREVAREQ:ProfRank_Weapon_Bastardsword,4	
+Battleaxe				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Battleaxe|0				BONUS:VAR|ProfRank_Weapon_Battleaxe|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Battleaxe"))|TYPE=Base		ASPECT:NAME|Untrained in Battleaxe|PREVAREQ:ProfRank_Weapon_Battleaxe,0	ASPECT:NAME|Trained in Battleaxe|PREVAREQ:ProfRank_Weapon_Battleaxe,1	ASPECT:NAME|Expert in Battleaxe|PREVAREQ:ProfRank_Weapon_Battleaxe,2	ASPECT:NAME|Mastery in Battleaxe|PREVAREQ:ProfRank_Weapon_Battleaxe,3	ASPECT:NAME|Legendary in Battleaxe|PREVAREQ:ProfRank_Weapon_Battleaxe,4	
+Bostaff				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Bostaff|0				BONUS:VAR|ProfRank_Weapon_Bostaff|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Bostaff"))|TYPE=Base		ASPECT:NAME|Untrained in Bostaff|PREVAREQ:ProfRank_Weapon_Bostaff,0	ASPECT:NAME|Trained in Bostaff|PREVAREQ:ProfRank_Weapon_Bostaff,1	ASPECT:NAME|Expert in Bostaff|PREVAREQ:ProfRank_Weapon_Bostaff,2	ASPECT:NAME|Mastery in Bostaff|PREVAREQ:ProfRank_Weapon_Bostaff,3	ASPECT:NAME|Legendary in Bostaff|PREVAREQ:ProfRank_Weapon_Bostaff,4	
+Falchion				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Falchion|0				BONUS:VAR|ProfRank_Weapon_Falchion|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Falchion"))|TYPE=Base		ASPECT:NAME|Untrained in Falchion|PREVAREQ:ProfRank_Weapon_Falchion,0	ASPECT:NAME|Trained in Falchion|PREVAREQ:ProfRank_Weapon_Falchion,1	ASPECT:NAME|Expert in Falchion|PREVAREQ:ProfRank_Weapon_Falchion,2	ASPECT:NAME|Mastery in Falchion|PREVAREQ:ProfRank_Weapon_Falchion,3	ASPECT:NAME|Legendary in Falchion|PREVAREQ:ProfRank_Weapon_Falchion,4	
+Flail					CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Flail|0				BONUS:VAR|ProfRank_Weapon_Flail|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Flail"))|TYPE=Base		ASPECT:NAME|Untrained in Flail|PREVAREQ:ProfRank_Weapon_Flail,0	ASPECT:NAME|Trained in Flail|PREVAREQ:ProfRank_Weapon_Flail,1	ASPECT:NAME|Expert in Flail|PREVAREQ:ProfRank_Weapon_Flail,2	ASPECT:NAME|Mastery in Flail|PREVAREQ:ProfRank_Weapon_Flail,3	ASPECT:NAME|Legendary in Flail|PREVAREQ:ProfRank_Weapon_Flail,4	
+Glaive				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Glaive|0				BONUS:VAR|ProfRank_Weapon_Glaive|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Glaive"))|TYPE=Base		ASPECT:NAME|Untrained in Glaive|PREVAREQ:ProfRank_Weapon_Glaive,0	ASPECT:NAME|Trained in Glaive|PREVAREQ:ProfRank_Weapon_Glaive,1	ASPECT:NAME|Expert in Glaive|PREVAREQ:ProfRank_Weapon_Glaive,2	ASPECT:NAME|Mastery in Glaive|PREVAREQ:ProfRank_Weapon_Glaive,3	ASPECT:NAME|Legendary in Glaive|PREVAREQ:ProfRank_Weapon_Glaive,4	
+Greataxe				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Greataxe|0				BONUS:VAR|ProfRank_Weapon_Greataxe|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Greataxe"))|TYPE=Base		ASPECT:NAME|Untrained in Greataxe|PREVAREQ:ProfRank_Weapon_Greataxe,0	ASPECT:NAME|Trained in Greataxe|PREVAREQ:ProfRank_Weapon_Greataxe,1	ASPECT:NAME|Expert in Greataxe|PREVAREQ:ProfRank_Weapon_Greataxe,2	ASPECT:NAME|Mastery in Greataxe|PREVAREQ:ProfRank_Weapon_Greataxe,3	ASPECT:NAME|Legendary in Greataxe|PREVAREQ:ProfRank_Weapon_Greataxe,4	
+Greatpick				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Greatpick|0				BONUS:VAR|ProfRank_Weapon_Greatpick|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Greatpick"))|TYPE=Base		ASPECT:NAME|Untrained in Greatpick|PREVAREQ:ProfRank_Weapon_Greatpick,0	ASPECT:NAME|Trained in Greatpick|PREVAREQ:ProfRank_Weapon_Greatpick,1	ASPECT:NAME|Expert in Greatpick|PREVAREQ:ProfRank_Weapon_Greatpick,2	ASPECT:NAME|Mastery in Greatpick|PREVAREQ:ProfRank_Weapon_Greatpick,3	ASPECT:NAME|Legendary in Greatpick|PREVAREQ:ProfRank_Weapon_Greatpick,4	
+Greatsword				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Greatsword|0				BONUS:VAR|ProfRank_Weapon_Greatsword|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Greatsword"))|TYPE=Base		ASPECT:NAME|Untrained in Greatsword|PREVAREQ:ProfRank_Weapon_Greatsword,0	ASPECT:NAME|Trained in Greatsword|PREVAREQ:ProfRank_Weapon_Greatsword,1	ASPECT:NAME|Expert in Greatsword|PREVAREQ:ProfRank_Weapon_Greatsword,2	ASPECT:NAME|Mastery in Greatsword|PREVAREQ:ProfRank_Weapon_Greatsword,3	ASPECT:NAME|Legendary in Greatsword|PREVAREQ:ProfRank_Weapon_Greatsword,4	
+Guisarme				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Guisarme|0				BONUS:VAR|ProfRank_Weapon_Guisarme|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Guisarme"))|TYPE=Base		ASPECT:NAME|Untrained in Guisarme|PREVAREQ:ProfRank_Weapon_Guisarme,0	ASPECT:NAME|Trained in Guisarme|PREVAREQ:ProfRank_Weapon_Guisarme,1	ASPECT:NAME|Expert in Guisarme|PREVAREQ:ProfRank_Weapon_Guisarme,2	ASPECT:NAME|Mastery in Guisarme|PREVAREQ:ProfRank_Weapon_Guisarme,3	ASPECT:NAME|Legendary in Guisarme|PREVAREQ:ProfRank_Weapon_Guisarme,4	
+Halberd				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Halberd|0				BONUS:VAR|ProfRank_Weapon_Halberd|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Halberd"))|TYPE=Base		ASPECT:NAME|Untrained in Halberd|PREVAREQ:ProfRank_Weapon_Halberd,0	ASPECT:NAME|Trained in Halberd|PREVAREQ:ProfRank_Weapon_Halberd,1	ASPECT:NAME|Expert in Halberd|PREVAREQ:ProfRank_Weapon_Halberd,2	ASPECT:NAME|Mastery in Halberd|PREVAREQ:ProfRank_Weapon_Halberd,3	ASPECT:NAME|Legendary in Halberd|PREVAREQ:ProfRank_Weapon_Halberd,4	
+Hatchet				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Hatchet|0				BONUS:VAR|ProfRank_Weapon_Hatchet|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Hatchet"))|TYPE=Base		ASPECT:NAME|Untrained in Hatchet|PREVAREQ:ProfRank_Weapon_Hatchet,0	ASPECT:NAME|Trained in Hatchet|PREVAREQ:ProfRank_Weapon_Hatchet,1	ASPECT:NAME|Expert in Hatchet|PREVAREQ:ProfRank_Weapon_Hatchet,2	ASPECT:NAME|Mastery in Hatchet|PREVAREQ:ProfRank_Weapon_Hatchet,3	ASPECT:NAME|Legendary in Hatchet|PREVAREQ:ProfRank_Weapon_Hatchet,4	
+HeavyShieldBash			CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_HeavyShieldBash|0			BONUS:VAR|ProfRank_Weapon_HeavyShieldBash|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=HeavyShieldBash"))|TYPE=Base		ASPECT:NAME|Untrained in HeavyShieldBash|PREVAREQ:ProfRank_Weapon_HeavyShieldBash,0	ASPECT:NAME|Trained in HeavyShieldBash|PREVAREQ:ProfRank_Weapon_HeavyShieldBash,1	ASPECT:NAME|Expert in HeavyShieldBash|PREVAREQ:ProfRank_Weapon_HeavyShieldBash,2	ASPECT:NAME|Mastery in HeavyShieldBash|PREVAREQ:ProfRank_Weapon_HeavyShieldBash,3	ASPECT:NAME|Legendary in HeavyShieldBash|PREVAREQ:ProfRank_Weapon_HeavyShieldBash,4	
+Heavyshieldboss			CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Heavyshieldboss|0			BONUS:VAR|ProfRank_Weapon_Heavyshieldboss|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Heavyshieldboss"))|TYPE=Base		ASPECT:NAME|Untrained in Heavyshieldboss|PREVAREQ:ProfRank_Weapon_Heavyshieldboss,0	ASPECT:NAME|Trained in Heavyshieldboss|PREVAREQ:ProfRank_Weapon_Heavyshieldboss,1	ASPECT:NAME|Expert in Heavyshieldboss|PREVAREQ:ProfRank_Weapon_Heavyshieldboss,2	ASPECT:NAME|Mastery in Heavyshieldboss|PREVAREQ:ProfRank_Weapon_Heavyshieldboss,3	ASPECT:NAME|Legendary in Heavyshieldboss|PREVAREQ:ProfRank_Weapon_Heavyshieldboss,4	
+Heavyshieldspikes			CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Heavyshieldspikes|0		BONUS:VAR|ProfRank_Weapon_Heavyshieldspikes|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Heavyshieldspikes"))|TYPE=Base		ASPECT:NAME|Untrained in Heavyshieldspikes|PREVAREQ:ProfRank_Weapon_Heavyshieldspikes,0	ASPECT:NAME|Trained in Heavyshieldspikes|PREVAREQ:ProfRank_Weapon_Heavyshieldspikes,1	ASPECT:NAME|Expert in Heavyshieldspikes|PREVAREQ:ProfRank_Weapon_Heavyshieldspikes,2	ASPECT:NAME|Mastery in Heavyshieldspikes|PREVAREQ:ProfRank_Weapon_Heavyshieldspikes,3	ASPECT:NAME|Legendary in Heavyshieldspikes|PREVAREQ:ProfRank_Weapon_Heavyshieldspikes,4	
+Lance					CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Lance|0				BONUS:VAR|ProfRank_Weapon_Lance|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Lance"))|TYPE=Base		ASPECT:NAME|Untrained in Lance|PREVAREQ:ProfRank_Weapon_Lance,0	ASPECT:NAME|Trained in Lance|PREVAREQ:ProfRank_Weapon_Lance,1	ASPECT:NAME|Expert in Lance|PREVAREQ:ProfRank_Weapon_Lance,2	ASPECT:NAME|Mastery in Lance|PREVAREQ:ProfRank_Weapon_Lance,3	ASPECT:NAME|Legendary in Lance|PREVAREQ:ProfRank_Weapon_Lance,4	
+Lighthammer				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Lighthammer|0			BONUS:VAR|ProfRank_Weapon_Lighthammer|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Lighthammer"))|TYPE=Base		ASPECT:NAME|Untrained in Lighthammer|PREVAREQ:ProfRank_Weapon_Lighthammer,0	ASPECT:NAME|Trained in Lighthammer|PREVAREQ:ProfRank_Weapon_Lighthammer,1	ASPECT:NAME|Expert in Lighthammer|PREVAREQ:ProfRank_Weapon_Lighthammer,2	ASPECT:NAME|Mastery in Lighthammer|PREVAREQ:ProfRank_Weapon_Lighthammer,3	ASPECT:NAME|Legendary in Lighthammer|PREVAREQ:ProfRank_Weapon_Lighthammer,4	
+Lightpick				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Lightpick|0				BONUS:VAR|ProfRank_Weapon_Lightpick|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Lightpick"))|TYPE=Base		ASPECT:NAME|Untrained in Lightpick|PREVAREQ:ProfRank_Weapon_Lightpick,0	ASPECT:NAME|Trained in Lightpick|PREVAREQ:ProfRank_Weapon_Lightpick,1	ASPECT:NAME|Expert in Lightpick|PREVAREQ:ProfRank_Weapon_Lightpick,2	ASPECT:NAME|Mastery in Lightpick|PREVAREQ:ProfRank_Weapon_Lightpick,3	ASPECT:NAME|Legendary in Lightpick|PREVAREQ:ProfRank_Weapon_Lightpick,4	
+Lightshieldbash			CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Lightshieldbash|0			BONUS:VAR|ProfRank_Weapon_Lightshieldbash|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Lightshieldbash"))|TYPE=Base		ASPECT:NAME|Untrained in Lightshieldbash|PREVAREQ:ProfRank_Weapon_Lightshieldbash,0	ASPECT:NAME|Trained in Lightshieldbash|PREVAREQ:ProfRank_Weapon_Lightshieldbash,1	ASPECT:NAME|Expert in Lightshieldbash|PREVAREQ:ProfRank_Weapon_Lightshieldbash,2	ASPECT:NAME|Mastery in Lightshieldbash|PREVAREQ:ProfRank_Weapon_Lightshieldbash,3	ASPECT:NAME|Legendary in Lightshieldbash|PREVAREQ:ProfRank_Weapon_Lightshieldbash,4	
+Lightshieldboss			CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Lightshieldboss|0			BONUS:VAR|ProfRank_Weapon_Lightshieldboss|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Lightshieldboss"))|TYPE=Base		ASPECT:NAME|Untrained in Lightshieldboss|PREVAREQ:ProfRank_Weapon_Lightshieldboss,0	ASPECT:NAME|Trained in Lightshieldboss|PREVAREQ:ProfRank_Weapon_Lightshieldboss,1	ASPECT:NAME|Expert in Lightshieldboss|PREVAREQ:ProfRank_Weapon_Lightshieldboss,2	ASPECT:NAME|Mastery in Lightshieldboss|PREVAREQ:ProfRank_Weapon_Lightshieldboss,3	ASPECT:NAME|Legendary in Lightshieldboss|PREVAREQ:ProfRank_Weapon_Lightshieldboss,4	
+Lightshieldspikes			CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Lightshieldspikes|0		BONUS:VAR|ProfRank_Weapon_Lightshieldspikes|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Lightshieldspikes"))|TYPE=Base		ASPECT:NAME|Untrained in Lightshieldspikes|PREVAREQ:ProfRank_Weapon_Lightshieldspikes,0	ASPECT:NAME|Trained in Lightshieldspikes|PREVAREQ:ProfRank_Weapon_Lightshieldspikes,1	ASPECT:NAME|Expert in Lightshieldspikes|PREVAREQ:ProfRank_Weapon_Lightshieldspikes,2	ASPECT:NAME|Mastery in Lightshieldspikes|PREVAREQ:ProfRank_Weapon_Lightshieldspikes,3	ASPECT:NAME|Legendary in Lightshieldspikes|PREVAREQ:ProfRank_Weapon_Lightshieldspikes,4	
+Longsword				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Longsword|0				BONUS:VAR|ProfRank_Weapon_Longsword|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Longsword"))|TYPE=Base		ASPECT:NAME|Untrained in Longsword|PREVAREQ:ProfRank_Weapon_Longsword,0	ASPECT:NAME|Trained in Longsword|PREVAREQ:ProfRank_Weapon_Longsword,1	ASPECT:NAME|Expert in Longsword|PREVAREQ:ProfRank_Weapon_Longsword,2	ASPECT:NAME|Mastery in Longsword|PREVAREQ:ProfRank_Weapon_Longsword,3	ASPECT:NAME|Legendary in Longsword|PREVAREQ:ProfRank_Weapon_Longsword,4	
+Mainguache				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Mainguache|0				BONUS:VAR|ProfRank_Weapon_Mainguache|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Mainguache"))|TYPE=Base		ASPECT:NAME|Untrained in Mainguache|PREVAREQ:ProfRank_Weapon_Mainguache,0	ASPECT:NAME|Trained in Mainguache|PREVAREQ:ProfRank_Weapon_Mainguache,1	ASPECT:NAME|Expert in Mainguache|PREVAREQ:ProfRank_Weapon_Mainguache,2	ASPECT:NAME|Mastery in Mainguache|PREVAREQ:ProfRank_Weapon_Mainguache,3	ASPECT:NAME|Legendary in Mainguache|PREVAREQ:ProfRank_Weapon_Mainguache,4	
+Maul					CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Maul|0					BONUS:VAR|ProfRank_Weapon_Maul|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Maul"))|TYPE=Base		ASPECT:NAME|Untrained in Maul|PREVAREQ:ProfRank_Weapon_Maul,0	ASPECT:NAME|Trained in Maul|PREVAREQ:ProfRank_Weapon_Maul,1	ASPECT:NAME|Expert in Maul|PREVAREQ:ProfRank_Weapon_Maul,2	ASPECT:NAME|Mastery in Maul|PREVAREQ:ProfRank_Weapon_Maul,3	ASPECT:NAME|Legendary in Maul|PREVAREQ:ProfRank_Weapon_Maul,4	
+Pick					CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Pick|0					BONUS:VAR|ProfRank_Weapon_Pick|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Pick"))|TYPE=Base		ASPECT:NAME|Untrained in Pick|PREVAREQ:ProfRank_Weapon_Pick,0	ASPECT:NAME|Trained in Pick|PREVAREQ:ProfRank_Weapon_Pick,1	ASPECT:NAME|Expert in Pick|PREVAREQ:ProfRank_Weapon_Pick,2	ASPECT:NAME|Mastery in Pick|PREVAREQ:ProfRank_Weapon_Pick,3	ASPECT:NAME|Legendary in Pick|PREVAREQ:ProfRank_Weapon_Pick,4	
+Ranseur				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Ranseur|0				BONUS:VAR|ProfRank_Weapon_Ranseur|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Ranseur"))|TYPE=Base		ASPECT:NAME|Untrained in Ranseur|PREVAREQ:ProfRank_Weapon_Ranseur,0	ASPECT:NAME|Trained in Ranseur|PREVAREQ:ProfRank_Weapon_Ranseur,1	ASPECT:NAME|Expert in Ranseur|PREVAREQ:ProfRank_Weapon_Ranseur,2	ASPECT:NAME|Mastery in Ranseur|PREVAREQ:ProfRank_Weapon_Ranseur,3	ASPECT:NAME|Legendary in Ranseur|PREVAREQ:ProfRank_Weapon_Ranseur,4	
+Rapier				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Rapier|0				BONUS:VAR|ProfRank_Weapon_Rapier|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Rapier"))|TYPE=Base		ASPECT:NAME|Untrained in Rapier|PREVAREQ:ProfRank_Weapon_Rapier,0	ASPECT:NAME|Trained in Rapier|PREVAREQ:ProfRank_Weapon_Rapier,1	ASPECT:NAME|Expert in Rapier|PREVAREQ:ProfRank_Weapon_Rapier,2	ASPECT:NAME|Mastery in Rapier|PREVAREQ:ProfRank_Weapon_Rapier,3	ASPECT:NAME|Legendary in Rapier|PREVAREQ:ProfRank_Weapon_Rapier,4	
+Sap					CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Sap|0					BONUS:VAR|ProfRank_Weapon_Sap|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Sap"))|TYPE=Base		ASPECT:NAME|Untrained in Sap|PREVAREQ:ProfRank_Weapon_Sap,0	ASPECT:NAME|Trained in Sap|PREVAREQ:ProfRank_Weapon_Sap,1	ASPECT:NAME|Expert in Sap|PREVAREQ:ProfRank_Weapon_Sap,2	ASPECT:NAME|Mastery in Sap|PREVAREQ:ProfRank_Weapon_Sap,3	ASPECT:NAME|Legendary in Sap|PREVAREQ:ProfRank_Weapon_Sap,4	
+Scimitar				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Scimitar|0				BONUS:VAR|ProfRank_Weapon_Scimitar|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Scimitar"))|TYPE=Base		ASPECT:NAME|Untrained in Scimitar|PREVAREQ:ProfRank_Weapon_Scimitar,0	ASPECT:NAME|Trained in Scimitar|PREVAREQ:ProfRank_Weapon_Scimitar,1	ASPECT:NAME|Expert in Scimitar|PREVAREQ:ProfRank_Weapon_Scimitar,2	ASPECT:NAME|Mastery in Scimitar|PREVAREQ:ProfRank_Weapon_Scimitar,3	ASPECT:NAME|Legendary in Scimitar|PREVAREQ:ProfRank_Weapon_Scimitar,4	
+Scythe				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Scythe|0				BONUS:VAR|ProfRank_Weapon_Scythe|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Scythe"))|TYPE=Base		ASPECT:NAME|Untrained in Scythe|PREVAREQ:ProfRank_Weapon_Scythe,0	ASPECT:NAME|Trained in Scythe|PREVAREQ:ProfRank_Weapon_Scythe,1	ASPECT:NAME|Expert in Scythe|PREVAREQ:ProfRank_Weapon_Scythe,2	ASPECT:NAME|Mastery in Scythe|PREVAREQ:ProfRank_Weapon_Scythe,3	ASPECT:NAME|Legendary in Scythe|PREVAREQ:ProfRank_Weapon_Scythe,4	
+Shortsword				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Shortsword|0				BONUS:VAR|ProfRank_Weapon_Shortsword|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Shortsword"))|TYPE=Base		ASPECT:NAME|Untrained in Shortsword|PREVAREQ:ProfRank_Weapon_Shortsword,0	ASPECT:NAME|Trained in Shortsword|PREVAREQ:ProfRank_Weapon_Shortsword,1	ASPECT:NAME|Expert in Shortsword|PREVAREQ:ProfRank_Weapon_Shortsword,2	ASPECT:NAME|Mastery in Shortsword|PREVAREQ:ProfRank_Weapon_Shortsword,3	ASPECT:NAME|Legendary in Shortsword|PREVAREQ:ProfRank_Weapon_Shortsword,4	
+Starknife				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Starknife|0				BONUS:VAR|ProfRank_Weapon_Starknife|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Starknife"))|TYPE=Base		ASPECT:NAME|Untrained in Starknife|PREVAREQ:ProfRank_Weapon_Starknife,0	ASPECT:NAME|Trained in Starknife|PREVAREQ:ProfRank_Weapon_Starknife,1	ASPECT:NAME|Expert in Starknife|PREVAREQ:ProfRank_Weapon_Starknife,2	ASPECT:NAME|Mastery in Starknife|PREVAREQ:ProfRank_Weapon_Starknife,3	ASPECT:NAME|Legendary in Starknife|PREVAREQ:ProfRank_Weapon_Starknife,4	
+Trident				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Trident|0				BONUS:VAR|ProfRank_Weapon_Trident|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Trident"))|TYPE=Base		ASPECT:NAME|Untrained in Trident|PREVAREQ:ProfRank_Weapon_Trident,0	ASPECT:NAME|Trained in Trident|PREVAREQ:ProfRank_Weapon_Trident,1	ASPECT:NAME|Expert in Trident|PREVAREQ:ProfRank_Weapon_Trident,2	ASPECT:NAME|Mastery in Trident|PREVAREQ:ProfRank_Weapon_Trident,3	ASPECT:NAME|Legendary in Trident|PREVAREQ:ProfRank_Weapon_Trident,4	
+Warflail				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Warflail|0				BONUS:VAR|ProfRank_Weapon_Warflail|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Warflail"))|TYPE=Base		ASPECT:NAME|Untrained in Warflail|PREVAREQ:ProfRank_Weapon_Warflail,0	ASPECT:NAME|Trained in Warflail|PREVAREQ:ProfRank_Weapon_Warflail,1	ASPECT:NAME|Expert in Warflail|PREVAREQ:ProfRank_Weapon_Warflail,2	ASPECT:NAME|Mastery in Warflail|PREVAREQ:ProfRank_Weapon_Warflail,3	ASPECT:NAME|Legendary in Warflail|PREVAREQ:ProfRank_Weapon_Warflail,4	
+Warhammer				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Warhammer|0				BONUS:VAR|ProfRank_Weapon_Warhammer|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Warhammer"))|TYPE=Base		ASPECT:NAME|Untrained in Warhammer|PREVAREQ:ProfRank_Weapon_Warhammer,0	ASPECT:NAME|Trained in Warhammer|PREVAREQ:ProfRank_Weapon_Warhammer,1	ASPECT:NAME|Expert in Warhammer|PREVAREQ:ProfRank_Weapon_Warhammer,2	ASPECT:NAME|Mastery in Warhammer|PREVAREQ:ProfRank_Weapon_Warhammer,3	ASPECT:NAME|Legendary in Warhammer|PREVAREQ:ProfRank_Weapon_Warhammer,4	
+Whip					CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Whip|0					BONUS:VAR|ProfRank_Weapon_Whip|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Whip"))|TYPE=Base		ASPECT:NAME|Untrained in Whip|PREVAREQ:ProfRank_Weapon_Whip,0	ASPECT:NAME|Trained in Whip|PREVAREQ:ProfRank_Weapon_Whip,1	ASPECT:NAME|Expert in Whip|PREVAREQ:ProfRank_Weapon_Whip,2	ASPECT:NAME|Mastery in Whip|PREVAREQ:ProfRank_Weapon_Whip,3	ASPECT:NAME|Legendary in Whip|PREVAREQ:ProfRank_Weapon_Whip,4	
+Blowgun				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Blowgun|0				BONUS:VAR|ProfRank_Weapon_Blowgun|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Blowgun"))|TYPE=Base		ASPECT:NAME|Untrained in Blowgun|PREVAREQ:ProfRank_Weapon_Blowgun,0	ASPECT:NAME|Trained in Blowgun|PREVAREQ:ProfRank_Weapon_Blowgun,1	ASPECT:NAME|Expert in Blowgun|PREVAREQ:ProfRank_Weapon_Blowgun,2	ASPECT:NAME|Mastery in Blowgun|PREVAREQ:ProfRank_Weapon_Blowgun,3	ASPECT:NAME|Legendary in Blowgun|PREVAREQ:ProfRank_Weapon_Blowgun,4	
+Crossbow				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Crossbow|0				BONUS:VAR|ProfRank_Weapon_Crossbow|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Crossbow"))|TYPE=Base		ASPECT:NAME|Untrained in Crossbow|PREVAREQ:ProfRank_Weapon_Crossbow,0	ASPECT:NAME|Trained in Crossbow|PREVAREQ:ProfRank_Weapon_Crossbow,1	ASPECT:NAME|Expert in Crossbow|PREVAREQ:ProfRank_Weapon_Crossbow,2	ASPECT:NAME|Mastery in Crossbow|PREVAREQ:ProfRank_Weapon_Crossbow,3	ASPECT:NAME|Legendary in Crossbow|PREVAREQ:ProfRank_Weapon_Crossbow,4	
+Dart					CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Dart|0					BONUS:VAR|ProfRank_Weapon_Dart|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Dart"))|TYPE=Base		ASPECT:NAME|Untrained in Dart|PREVAREQ:ProfRank_Weapon_Dart,0	ASPECT:NAME|Trained in Dart|PREVAREQ:ProfRank_Weapon_Dart,1	ASPECT:NAME|Expert in Dart|PREVAREQ:ProfRank_Weapon_Dart,2	ASPECT:NAME|Mastery in Dart|PREVAREQ:ProfRank_Weapon_Dart,3	ASPECT:NAME|Legendary in Dart|PREVAREQ:ProfRank_Weapon_Dart,4	
+Handcrossbow			CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Handcrossbow|0			BONUS:VAR|ProfRank_Weapon_Handcrossbow|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Handcrossbow"))|TYPE=Base		ASPECT:NAME|Untrained in Handcrossbow|PREVAREQ:ProfRank_Weapon_Handcrossbow,0	ASPECT:NAME|Trained in Handcrossbow|PREVAREQ:ProfRank_Weapon_Handcrossbow,1	ASPECT:NAME|Expert in Handcrossbow|PREVAREQ:ProfRank_Weapon_Handcrossbow,2	ASPECT:NAME|Mastery in Handcrossbow|PREVAREQ:ProfRank_Weapon_Handcrossbow,3	ASPECT:NAME|Legendary in Handcrossbow|PREVAREQ:ProfRank_Weapon_Handcrossbow,4	
+Heavycrossbow			CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Heavycrossbow|0			BONUS:VAR|ProfRank_Weapon_Heavycrossbow|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Heavycrossbow"))|TYPE=Base		ASPECT:NAME|Untrained in Heavycrossbow|PREVAREQ:ProfRank_Weapon_Heavycrossbow,0	ASPECT:NAME|Trained in Heavycrossbow|PREVAREQ:ProfRank_Weapon_Heavycrossbow,1	ASPECT:NAME|Expert in Heavycrossbow|PREVAREQ:ProfRank_Weapon_Heavycrossbow,2	ASPECT:NAME|Mastery in Heavycrossbow|PREVAREQ:ProfRank_Weapon_Heavycrossbow,3	ASPECT:NAME|Legendary in Heavycrossbow|PREVAREQ:ProfRank_Weapon_Heavycrossbow,4	
+Javelin				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Javelin|0				BONUS:VAR|ProfRank_Weapon_Javelin|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Javelin"))|TYPE=Base		ASPECT:NAME|Untrained in Javelin|PREVAREQ:ProfRank_Weapon_Javelin,0	ASPECT:NAME|Trained in Javelin|PREVAREQ:ProfRank_Weapon_Javelin,1	ASPECT:NAME|Expert in Javelin|PREVAREQ:ProfRank_Weapon_Javelin,2	ASPECT:NAME|Mastery in Javelin|PREVAREQ:ProfRank_Weapon_Javelin,3	ASPECT:NAME|Legendary in Javelin|PREVAREQ:ProfRank_Weapon_Javelin,4	
+Sling					CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Sling|0				BONUS:VAR|ProfRank_Weapon_Sling|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Sling"))|TYPE=Base		ASPECT:NAME|Untrained in Sling|PREVAREQ:ProfRank_Weapon_Sling,0	ASPECT:NAME|Trained in Sling|PREVAREQ:ProfRank_Weapon_Sling,1	ASPECT:NAME|Expert in Sling|PREVAREQ:ProfRank_Weapon_Sling,2	ASPECT:NAME|Mastery in Sling|PREVAREQ:ProfRank_Weapon_Sling,3	ASPECT:NAME|Legendary in Sling|PREVAREQ:ProfRank_Weapon_Sling,4	
+Compositelongbow			CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Compositelongbow|0			BONUS:VAR|ProfRank_Weapon_Compositelongbow|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Compositelongbow"))|TYPE=Base		ASPECT:NAME|Untrained in Compositelongbow|PREVAREQ:ProfRank_Weapon_Compositelongbow,0	ASPECT:NAME|Trained in Compositelongbow|PREVAREQ:ProfRank_Weapon_Compositelongbow,1	ASPECT:NAME|Expert in Compositelongbow|PREVAREQ:ProfRank_Weapon_Compositelongbow,2	ASPECT:NAME|Mastery in Compositelongbow|PREVAREQ:ProfRank_Weapon_Compositelongbow,3	ASPECT:NAME|Legendary in Compositelongbow|PREVAREQ:ProfRank_Weapon_Compositelongbow,4	
+Compositeshortbow			CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Compositeshortbow|0		BONUS:VAR|ProfRank_Weapon_Compositeshortbow|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Compositeshortbow"))|TYPE=Base		ASPECT:NAME|Untrained in Compositeshortbow|PREVAREQ:ProfRank_Weapon_Compositeshortbow,0	ASPECT:NAME|Trained in Compositeshortbow|PREVAREQ:ProfRank_Weapon_Compositeshortbow,1	ASPECT:NAME|Expert in Compositeshortbow|PREVAREQ:ProfRank_Weapon_Compositeshortbow,2	ASPECT:NAME|Mastery in Compositeshortbow|PREVAREQ:ProfRank_Weapon_Compositeshortbow,3	ASPECT:NAME|Legendary in Compositeshortbow|PREVAREQ:ProfRank_Weapon_Compositeshortbow,4	
+Longbow				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Longbow|0				BONUS:VAR|ProfRank_Weapon_Longbow|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Longbow"))|TYPE=Base		ASPECT:NAME|Untrained in Longbow|PREVAREQ:ProfRank_Weapon_Longbow,0	ASPECT:NAME|Trained in Longbow|PREVAREQ:ProfRank_Weapon_Longbow,1	ASPECT:NAME|Expert in Longbow|PREVAREQ:ProfRank_Weapon_Longbow,2	ASPECT:NAME|Mastery in Longbow|PREVAREQ:ProfRank_Weapon_Longbow,3	ASPECT:NAME|Legendary in Longbow|PREVAREQ:ProfRank_Weapon_Longbow,4	
+Shortbow				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Shortbow|0				BONUS:VAR|ProfRank_Weapon_Shortbow|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Shortbow"))|TYPE=Base		ASPECT:NAME|Untrained in Shortbow|PREVAREQ:ProfRank_Weapon_Shortbow,0	ASPECT:NAME|Trained in Shortbow|PREVAREQ:ProfRank_Weapon_Shortbow,1	ASPECT:NAME|Expert in Shortbow|PREVAREQ:ProfRank_Weapon_Shortbow,2	ASPECT:NAME|Mastery in Shortbow|PREVAREQ:ProfRank_Weapon_Shortbow,3	ASPECT:NAME|Legendary in Shortbow|PREVAREQ:ProfRank_Weapon_Shortbow,4	
+Clandagger				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Clandagger|0				BONUS:VAR|ProfRank_Weapon_Clandagger|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Clandagger"))|TYPE=Base		ASPECT:NAME|Untrained in Clandagger|PREVAREQ:ProfRank_Weapon_Clandagger,0	ASPECT:NAME|Trained in Clandagger|PREVAREQ:ProfRank_Weapon_Clandagger,1	ASPECT:NAME|Expert in Clandagger|PREVAREQ:ProfRank_Weapon_Clandagger,2	ASPECT:NAME|Mastery in Clandagger|PREVAREQ:ProfRank_Weapon_Clandagger,3	ASPECT:NAME|Legendary in Clandagger|PREVAREQ:ProfRank_Weapon_Clandagger,4	
+Katar					CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Katar|0				BONUS:VAR|ProfRank_Weapon_Katar|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Katar"))|TYPE=Base		ASPECT:NAME|Untrained in Katar|PREVAREQ:ProfRank_Weapon_Katar,0	ASPECT:NAME|Trained in Katar|PREVAREQ:ProfRank_Weapon_Katar,1	ASPECT:NAME|Expert in Katar|PREVAREQ:ProfRank_Weapon_Katar,2	ASPECT:NAME|Mastery in Katar|PREVAREQ:ProfRank_Weapon_Katar,3	ASPECT:NAME|Legendary in Katar|PREVAREQ:ProfRank_Weapon_Katar,4	
+Dogslicer				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Dogslicer|0				BONUS:VAR|ProfRank_Weapon_Dogslicer|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Dogslicer"))|TYPE=Base		ASPECT:NAME|Untrained in Dogslicer|PREVAREQ:ProfRank_Weapon_Dogslicer,0	ASPECT:NAME|Trained in Dogslicer|PREVAREQ:ProfRank_Weapon_Dogslicer,1	ASPECT:NAME|Expert in Dogslicer|PREVAREQ:ProfRank_Weapon_Dogslicer,2	ASPECT:NAME|Mastery in Dogslicer|PREVAREQ:ProfRank_Weapon_Dogslicer,3	ASPECT:NAME|Legendary in Dogslicer|PREVAREQ:ProfRank_Weapon_Dogslicer,4	
+Elvencurveblade			CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Elvencurveblade|0			BONUS:VAR|ProfRank_Weapon_Elvencurveblade|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Elvencurveblade"))|TYPE=Base		ASPECT:NAME|Untrained in Elvencurveblade|PREVAREQ:ProfRank_Weapon_Elvencurveblade,0	ASPECT:NAME|Trained in Elvencurveblade|PREVAREQ:ProfRank_Weapon_Elvencurveblade,1	ASPECT:NAME|Expert in Elvencurveblade|PREVAREQ:ProfRank_Weapon_Elvencurveblade,2	ASPECT:NAME|Mastery in Elvencurveblade|PREVAREQ:ProfRank_Weapon_Elvencurveblade,3	ASPECT:NAME|Legendary in Elvencurveblade|PREVAREQ:ProfRank_Weapon_Elvencurveblade,4	
+Filchersfork			CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Filchersfork|0			BONUS:VAR|ProfRank_Weapon_Filchersfork|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Filchersfork"))|TYPE=Base		ASPECT:NAME|Untrained in Filchersfork|PREVAREQ:ProfRank_Weapon_Filchersfork,0	ASPECT:NAME|Trained in Filchersfork|PREVAREQ:ProfRank_Weapon_Filchersfork,1	ASPECT:NAME|Expert in Filchersfork|PREVAREQ:ProfRank_Weapon_Filchersfork,2	ASPECT:NAME|Mastery in Filchersfork|PREVAREQ:ProfRank_Weapon_Filchersfork,3	ASPECT:NAME|Legendary in Filchersfork|PREVAREQ:ProfRank_Weapon_Filchersfork,4	
+Gnomehookedhammer			CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Gnomehookedhammer|0		BONUS:VAR|ProfRank_Weapon_Gnomehookedhammer|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Gnomehookedhammer"))|TYPE=Base		ASPECT:NAME|Untrained in Gnomehookedhammer|PREVAREQ:ProfRank_Weapon_Gnomehookedhammer,0	ASPECT:NAME|Trained in Gnomehookedhammer|PREVAREQ:ProfRank_Weapon_Gnomehookedhammer,1	ASPECT:NAME|Expert in Gnomehookedhammer|PREVAREQ:ProfRank_Weapon_Gnomehookedhammer,2	ASPECT:NAME|Mastery in Gnomehookedhammer|PREVAREQ:ProfRank_Weapon_Gnomehookedhammer,3	ASPECT:NAME|Legendary in Gnomehookedhammer|PREVAREQ:ProfRank_Weapon_Gnomehookedhammer,4	
+Horsechopper			CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Horsechopper|0			BONUS:VAR|ProfRank_Weapon_Horsechopper|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Horsechopper"))|TYPE=Base		ASPECT:NAME|Untrained in Horsechopper|PREVAREQ:ProfRank_Weapon_Horsechopper,0	ASPECT:NAME|Trained in Horsechopper|PREVAREQ:ProfRank_Weapon_Horsechopper,1	ASPECT:NAME|Expert in Horsechopper|PREVAREQ:ProfRank_Weapon_Horsechopper,2	ASPECT:NAME|Mastery in Horsechopper|PREVAREQ:ProfRank_Weapon_Horsechopper,3	ASPECT:NAME|Legendary in Horsechopper|PREVAREQ:ProfRank_Weapon_Horsechopper,4	
+Kama					CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Kama|0					BONUS:VAR|ProfRank_Weapon_Kama|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Kama"))|TYPE=Base		ASPECT:NAME|Untrained in Kama|PREVAREQ:ProfRank_Weapon_Kama,0	ASPECT:NAME|Trained in Kama|PREVAREQ:ProfRank_Weapon_Kama,1	ASPECT:NAME|Expert in Kama|PREVAREQ:ProfRank_Weapon_Kama,2	ASPECT:NAME|Mastery in Kama|PREVAREQ:ProfRank_Weapon_Kama,3	ASPECT:NAME|Legendary in Kama|PREVAREQ:ProfRank_Weapon_Kama,4	
+Katana				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Katana|0				BONUS:VAR|ProfRank_Weapon_Katana|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Katana"))|TYPE=Base		ASPECT:NAME|Untrained in Katana|PREVAREQ:ProfRank_Weapon_Katana,0	ASPECT:NAME|Trained in Katana|PREVAREQ:ProfRank_Weapon_Katana,1	ASPECT:NAME|Expert in Katana|PREVAREQ:ProfRank_Weapon_Katana,2	ASPECT:NAME|Mastery in Katana|PREVAREQ:ProfRank_Weapon_Katana,3	ASPECT:NAME|Legendary in Katana|PREVAREQ:ProfRank_Weapon_Katana,4	
+Kukri					CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Kukri|0				BONUS:VAR|ProfRank_Weapon_Kukri|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Kukri"))|TYPE=Base		ASPECT:NAME|Untrained in Kukri|PREVAREQ:ProfRank_Weapon_Kukri,0	ASPECT:NAME|Trained in Kukri|PREVAREQ:ProfRank_Weapon_Kukri,1	ASPECT:NAME|Expert in Kukri|PREVAREQ:ProfRank_Weapon_Kukri,2	ASPECT:NAME|Mastery in Kukri|PREVAREQ:ProfRank_Weapon_Kukri,3	ASPECT:NAME|Legendary in Kukri|PREVAREQ:ProfRank_Weapon_Kukri,4	
+Nunchaku				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Nunchaku|0				BONUS:VAR|ProfRank_Weapon_Nunchaku|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Nunchaku"))|TYPE=Base		ASPECT:NAME|Untrained in Nunchaku|PREVAREQ:ProfRank_Weapon_Nunchaku,0	ASPECT:NAME|Trained in Nunchaku|PREVAREQ:ProfRank_Weapon_Nunchaku,1	ASPECT:NAME|Expert in Nunchaku|PREVAREQ:ProfRank_Weapon_Nunchaku,2	ASPECT:NAME|Mastery in Nunchaku|PREVAREQ:ProfRank_Weapon_Nunchaku,3	ASPECT:NAME|Legendary in Nunchaku|PREVAREQ:ProfRank_Weapon_Nunchaku,4	
+Orcknuckledagger			CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Orcknuckledagger|0			BONUS:VAR|ProfRank_Weapon_Orcknuckledagger|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Orcknuckledagger"))|TYPE=Base		ASPECT:NAME|Untrained in Orcknuckledagger|PREVAREQ:ProfRank_Weapon_Orcknuckledagger,0	ASPECT:NAME|Trained in Orcknuckledagger|PREVAREQ:ProfRank_Weapon_Orcknuckledagger,1	ASPECT:NAME|Expert in Orcknuckledagger|PREVAREQ:ProfRank_Weapon_Orcknuckledagger,2	ASPECT:NAME|Mastery in Orcknuckledagger|PREVAREQ:ProfRank_Weapon_Orcknuckledagger,3	ASPECT:NAME|Legendary in Orcknuckledagger|PREVAREQ:ProfRank_Weapon_Orcknuckledagger,4	
+Sai					CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Sai|0					BONUS:VAR|ProfRank_Weapon_Sai|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Sai"))|TYPE=Base		ASPECT:NAME|Untrained in Sai|PREVAREQ:ProfRank_Weapon_Sai,0	ASPECT:NAME|Trained in Sai|PREVAREQ:ProfRank_Weapon_Sai,1	ASPECT:NAME|Expert in Sai|PREVAREQ:ProfRank_Weapon_Sai,2	ASPECT:NAME|Mastery in Sai|PREVAREQ:ProfRank_Weapon_Sai,3	ASPECT:NAME|Legendary in Sai|PREVAREQ:ProfRank_Weapon_Sai,4	
+Spikedchain				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Spikedchain|0			BONUS:VAR|ProfRank_Weapon_Spikedchain|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Spikedchain"))|TYPE=Base		ASPECT:NAME|Untrained in Spikedchain|PREVAREQ:ProfRank_Weapon_Spikedchain,0	ASPECT:NAME|Trained in Spikedchain|PREVAREQ:ProfRank_Weapon_Spikedchain,1	ASPECT:NAME|Expert in Spikedchain|PREVAREQ:ProfRank_Weapon_Spikedchain,2	ASPECT:NAME|Mastery in Spikedchain|PREVAREQ:ProfRank_Weapon_Spikedchain,3	ASPECT:NAME|Legendary in Spikedchain|PREVAREQ:ProfRank_Weapon_Spikedchain,4	
+Templesword				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Templesword|0			BONUS:VAR|ProfRank_Weapon_Templesword|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Templesword"))|TYPE=Base		ASPECT:NAME|Untrained in Templesword|PREVAREQ:ProfRank_Weapon_Templesword,0	ASPECT:NAME|Trained in Templesword|PREVAREQ:ProfRank_Weapon_Templesword,1	ASPECT:NAME|Expert in Templesword|PREVAREQ:ProfRank_Weapon_Templesword,2	ASPECT:NAME|Mastery in Templesword|PREVAREQ:ProfRank_Weapon_Templesword,3	ASPECT:NAME|Legendary in Templesword|PREVAREQ:ProfRank_Weapon_Templesword,4	
+Dwarvenwaraxe			CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Dwarvenwaraxe|0			BONUS:VAR|ProfRank_Weapon_Dwarvenwaraxe|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Dwarvenwaraxe"))|TYPE=Base		ASPECT:NAME|Untrained in Dwarvenwaraxe|PREVAREQ:ProfRank_Weapon_Dwarvenwaraxe,0	ASPECT:NAME|Trained in Dwarvenwaraxe|PREVAREQ:ProfRank_Weapon_Dwarvenwaraxe,1	ASPECT:NAME|Expert in Dwarvenwaraxe|PREVAREQ:ProfRank_Weapon_Dwarvenwaraxe,2	ASPECT:NAME|Mastery in Dwarvenwaraxe|PREVAREQ:ProfRank_Weapon_Dwarvenwaraxe,3	ASPECT:NAME|Legendary in Dwarvenwaraxe|PREVAREQ:ProfRank_Weapon_Dwarvenwaraxe,4	
+Gnomeflickmace			CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Gnomeflickmace|0			BONUS:VAR|ProfRank_Weapon_Gnomeflickmace|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Gnomeflickmace"))|TYPE=Base		ASPECT:NAME|Untrained in Gnomeflickmace|PREVAREQ:ProfRank_Weapon_Gnomeflickmace,0	ASPECT:NAME|Trained in Gnomeflickmace|PREVAREQ:ProfRank_Weapon_Gnomeflickmace,1	ASPECT:NAME|Expert in Gnomeflickmace|PREVAREQ:ProfRank_Weapon_Gnomeflickmace,2	ASPECT:NAME|Mastery in Gnomeflickmace|PREVAREQ:ProfRank_Weapon_Gnomeflickmace,3	ASPECT:NAME|Legendary in Gnomeflickmace|PREVAREQ:ProfRank_Weapon_Gnomeflickmace,4	
+Orcnecksplitter			CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Orcnecksplitter|0			BONUS:VAR|ProfRank_Weapon_Orcnecksplitter|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Orcnecksplitter"))|TYPE=Base		ASPECT:NAME|Untrained in Orcnecksplitter|PREVAREQ:ProfRank_Weapon_Orcnecksplitter,0	ASPECT:NAME|Trained in Orcnecksplitter|PREVAREQ:ProfRank_Weapon_Orcnecksplitter,1	ASPECT:NAME|Expert in Orcnecksplitter|PREVAREQ:ProfRank_Weapon_Orcnecksplitter,2	ASPECT:NAME|Mastery in Orcnecksplitter|PREVAREQ:ProfRank_Weapon_Orcnecksplitter,3	ASPECT:NAME|Legendary in Orcnecksplitter|PREVAREQ:ProfRank_Weapon_Orcnecksplitter,4	
+Sawtoothsabre			CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Sawtoothsabre|0			BONUS:VAR|ProfRank_Weapon_Sawtoothsabre|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Sawtoothsabre"))|TYPE=Base		ASPECT:NAME|Untrained in Sawtoothsabre|PREVAREQ:ProfRank_Weapon_Sawtoothsabre,0	ASPECT:NAME|Trained in Sawtoothsabre|PREVAREQ:ProfRank_Weapon_Sawtoothsabre,1	ASPECT:NAME|Expert in Sawtoothsabre|PREVAREQ:ProfRank_Weapon_Sawtoothsabre,2	ASPECT:NAME|Mastery in Sawtoothsabre|PREVAREQ:ProfRank_Weapon_Sawtoothsabre,3	ASPECT:NAME|Legendary in Sawtoothsabre|PREVAREQ:ProfRank_Weapon_Sawtoothsabre,4	
+Halflingslingstaff		CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Halflingslingstaff|0		BONUS:VAR|ProfRank_Weapon_Halflingslingstaff|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Halflingslingstaff"))|TYPE=Base		ASPECT:NAME|Untrained in Halflingslingstaff|PREVAREQ:ProfRank_Weapon_Halflingslingstaff,0	ASPECT:NAME|Trained in Halflingslingstaff|PREVAREQ:ProfRank_Weapon_Halflingslingstaff,1	ASPECT:NAME|Expert in Halflingslingstaff|PREVAREQ:ProfRank_Weapon_Halflingslingstaff,2	ASPECT:NAME|Mastery in Halflingslingstaff|PREVAREQ:ProfRank_Weapon_Halflingslingstaff,3	ASPECT:NAME|Legendary in Halflingslingstaff|PREVAREQ:ProfRank_Weapon_Halflingslingstaff,4	
+Shuriken				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:ProfRank_Weapon_Shuriken|0				BONUS:VAR|ProfRank_Weapon_Shuriken|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Shuriken"))|TYPE=Base		ASPECT:NAME|Untrained in Shuriken|PREVAREQ:ProfRank_Weapon_Shuriken,0	ASPECT:NAME|Trained in Shuriken|PREVAREQ:ProfRank_Weapon_Shuriken,1	ASPECT:NAME|Expert in Shuriken|PREVAREQ:ProfRank_Weapon_Shuriken,2	ASPECT:NAME|Mastery in Shuriken|PREVAREQ:ProfRank_Weapon_Shuriken,3	ASPECT:NAME|Legendary in Shuriken|PREVAREQ:ProfRank_Weapon_Shuriken,4	
+

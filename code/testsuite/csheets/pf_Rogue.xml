@@ -335,7 +335,7 @@ BIO
 	  ====================================-->
 	<armor_class>
 		<total>27</total>
-		<listing>ABILITY +6, DEFLECTION +2, ARMORENHANCEMENT +1, BASE +10, NATURALARMORENHANCEMENT +2, ARMOR +4, DODGE +1, SIZE +1</listing>
+		<listing>ABILITY +6, ARMOR +4, ARMORENHANCEMENT +1, BASE +10, DEFLECTION +2, DODGE +1, NATURALARMORENHANCEMENT +2, SIZE +1</listing>
 		<flat>27</flat>
 		<touch>20</touch>
 		<base>10</base>
@@ -3946,17 +3946,6 @@ BIO
 			<type>FAVOREDCLASSBONUS</type>
 			<associated>Handle Animal,Knowledge (Dungeoneering),Knowledge (Engineering),Knowledge (Geography),Knowledge (Local),Sense Motive</associated>
 			<count>6</count>
-			<auto>F</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Combat Trick</name>
-			<description>You gain a bonus combat feat.</description>
-			<type>ROGUECLASSFEATURES.SPECIALQUALITY.EXTRAORDINARY.ROGUETALENT</type>
-			<associated></associated>
-			<count>0</count>
 			<auto>F</auto>
 			<hidden>T</hidden>
 			<virtual>F</virtual>

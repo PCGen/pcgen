@@ -7,7 +7,7 @@ GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
 PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
-PRECAMPAIGN:1,INCLUDES=Bestiary
+PRECAMPAIGN:1,INCLUDES=Bestiary,INCLUDES=Bestiary ~ Player Options Only
 PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
 PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 PUBNAMELONG:Paizo Inc.
@@ -35,7 +35,7 @@ COPYRIGHT:PCGen dataset conversion for "Player Companion: Blood of Angels" Copyr
 
 
 ABILITY:boa_abilities.lst
-ABILITY:boa_abilities_variant.lst
+ABILITY:boa_abilities_race.lst
 ABILITYCATEGORY:boa_abilitycategories.lst
 CLASS:boa_classes.lst
 DOMAIN:boa_domains.lst

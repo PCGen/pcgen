@@ -5,5 +5,3 @@
 # Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Display Location
 ABILITYCATEGORY:Against the Technic League Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Against the Technic League	DISPLAYLOCATION:Traits
 ABILITYCATEGORY:Skymetal Smith Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Skymetal Smith			DISPLAYLOCATION:Traits
-
-ABILITYCATEGORY:Android Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Android Racial Trait		PLURAL:Android Racial Traits			DISPLAYLOCATION:Racial Abilities

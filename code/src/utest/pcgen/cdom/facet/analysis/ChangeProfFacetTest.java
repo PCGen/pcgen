@@ -46,7 +46,7 @@ public class ChangeProfFacetTest extends
 
 	@BeforeEach
 	@Override
-	public void setUp() throws Exception
+	public void setUp()
 	{
 		super.setUp();
 		context =

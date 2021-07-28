@@ -22,7 +22,6 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.facet.model.CompanionModFacet;
-import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.facet.model.DomainFacet;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.SkillFacet;
@@ -42,8 +41,6 @@ public class BonusActiviationFacet implements DataFacetChangeListener<CharID, CD
 	private RaceFacet raceFacet;
 
 	private CompanionModFacet companionModFacet;
-
-	private DeityFacet deityFacet;
 
 	private DomainFacet domainFacet;
 
@@ -105,11 +102,6 @@ public class BonusActiviationFacet implements DataFacetChangeListener<CharID, CD
 		this.companionModFacet = companionModFacet;
 	}
 
-	public void setDeityFacet(DeityFacet deityFacet)
-	{
-		this.deityFacet = deityFacet;
-	}
-
 	public void setDomainFacet(DomainFacet domainFacet)
 	{
 		this.domainFacet = domainFacet;
@@ -135,7 +127,6 @@ public class BonusActiviationFacet implements DataFacetChangeListener<CharID, CD
 	{
 		raceFacet.addDataFacetChangeListener(1000, this);
 		companionModFacet.addDataFacetChangeListener(1000, this);
-		deityFacet.addDataFacetChangeListener(1000, this);
 		domainFacet.addDataFacetChangeListener(1000, this);
 		skillFacet.addDataFacetChangeListener(1000, this);
 		templateFacet.addDataFacetChangeListener(1000, this);

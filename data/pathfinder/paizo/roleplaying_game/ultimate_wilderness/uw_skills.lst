@@ -1,6 +1,7 @@
 # CVS $Revision: $ $Author: $ -- Fri Jun 30 20:50:52 2017 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Ultimate Wilderness	SOURCESHORT:UW	SOURCEWEB:http://paizo.com/products/btpy9ujo	SOURCEDATE:2017-11
 
+###Block: Situational Modifiers
 # Skill Name			Situational Skill
 Acrobatics.MOD			SITUATION:On or near flowing water
 Acrobatics.MOD			SITUATION:Move between/through trees
@@ -34,97 +35,97 @@ Swim.MOD				SITUATION:On or near flowing water
 
 ###Block: Exotic Heritage skill bonus implementation
 # Skill Name					Bonus to skill
-Acrobatics.MOD					BONUS:SKILL|Acrobatics|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Acrobatics)|PRESKILL:1,Acrobatics=10
-Appraise.MOD					BONUS:SKILL|Appraise|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Appraise)|PRESKILL:1,Appraise=10
-Bluff.MOD						BONUS:SKILL|Bluff|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Bluff)|PRESKILL:1,Bluff=10
-Climb.MOD						BONUS:SKILL|Climb|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Climb)|PRESKILL:1,Climb=10
-Craft (Alchemy).MOD				BONUS:SKILL|Craft (Alchemy)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Alchemy))|PRESKILL:1,Craft (Alchemy)=10
-Craft (Armor).MOD					BONUS:SKILL|Craft (Armor)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Armor))|PRESKILL:1,Craft (Armor)=10
-Craft (Baskets).MOD				BONUS:SKILL|Craft (Baskets)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Baskets))|PRESKILL:1,Craft (Baskets)=10
-Craft (Books).MOD					BONUS:SKILL|Craft (Books)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Books))|PRESKILL:1,Craft (Books)=10
-Craft (Bows).MOD					BONUS:SKILL|Craft (Bows)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Bows))|PRESKILL:1,Craft (Bows)=10
-Craft (Calligraphy).MOD				BONUS:SKILL|Craft (Calligraphy)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Calligraphy))|PRESKILL:1,Craft (Calligraphy)=10
-Craft (Carpentry).MOD				BONUS:SKILL|Craft (Carpentry)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Carpentry))|PRESKILL:1,Craft (Carpentry)=10
-Craft (Cloth).MOD					BONUS:SKILL|Craft (Cloth)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Cloth))|PRESKILL:1,Craft (Cloth)=10
-Craft (Clothing).MOD				BONUS:SKILL|Craft (Clothing)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Clothing))|PRESKILL:1,Craft (Clothing)=10
-Craft (Glass).MOD					BONUS:SKILL|Craft (Glass)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Glass))|PRESKILL:1,Craft (Glass)=10
-Craft (Jewelry).MOD				BONUS:SKILL|Craft (Jewelry)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Jewelry))|PRESKILL:1,Craft (Jewelry)=10
-Craft (Leather).MOD				BONUS:SKILL|Craft (Leather)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Leather))|PRESKILL:1,Craft (Leather)=10
-Craft (Locks).MOD					BONUS:SKILL|Craft (Locks)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Locks))|PRESKILL:1,Craft (Locks)=10
-Craft (Paintings).MOD				BONUS:SKILL|Craft (Paintings)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Paintings))|PRESKILL:1,Craft (Paintings)=10
-Craft (Pottery).MOD				BONUS:SKILL|Craft (Pottery)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Pottery))|PRESKILL:1,Craft (Pottery)=10
-Craft (Sculptures).MOD				BONUS:SKILL|Craft (Sculptures)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Sculptures))|PRESKILL:1,Craft (Sculptures)=10
-Craft (Ships).MOD					BONUS:SKILL|Craft (Ships)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Ships))|PRESKILL:1,Craft (Ships)=10
-Craft (Shoes).MOD					BONUS:SKILL|Craft (Shoes)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Shoes))|PRESKILL:1,Craft (Shoes)=10
-Craft (Stonemasonry).MOD			BONUS:SKILL|Craft (Stonemasonry)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Stonemasonry))|PRESKILL:1,Craft (Stonemasonry)=10
-Craft (Traps).MOD					BONUS:SKILL|Craft (Traps)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Traps))|PRESKILL:1,Craft (Traps)=10
-Craft (Untrained).MOD				BONUS:SKILL|Craft (Untrained)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Untrained))|PRESKILL:1,Craft (Untrained)=10
-Craft (Weapons).MOD				BONUS:SKILL|Craft (Weapons)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Weapons))|PRESKILL:1,Craft (Weapons)=10
-Diplomacy.MOD					BONUS:SKILL|Diplomacy|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Diplomacy)|PRESKILL:1,Diplomacy=10
-Disable Device.MOD				BONUS:SKILL|Disable Device|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Disable Device)|PRESKILL:1,Disable Device=10
-Disguise.MOD					BONUS:SKILL|Disguise|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Disguise)|PRESKILL:1,Disguise=10
-Escape Artist.MOD					BONUS:SKILL|Escape Artist|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Escape Artist)|PRESKILL:1,Escape Artist=10
-Fly.MOD						BONUS:SKILL|Fly|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Fly)|PRESKILL:1,Fly=10
-Handle Animal.MOD					BONUS:SKILL|Handle Animal|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Handle Animal)|PRESKILL:1,Handle Animal=10
-Heal.MOD						BONUS:SKILL|Heal|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Heal)|PRESKILL:1,Heal=10
-Intimidate.MOD					BONUS:SKILL|Intimidate|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Intimidate)|PRESKILL:1,Intimidate=10
-Knowledge (Arcana).MOD				BONUS:SKILL|Knowledge (Arcana)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Knowledge (Arcana))|PRESKILL:1,Knowledge (Arcana)=10
-Knowledge (Dungeoneering).MOD			BONUS:SKILL|Knowledge (Dungeoneering)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Knowledge (Dungeoneering))|PRESKILL:1,Knowledge (Dungeoneering)=10
-Knowledge (Engineering).MOD			BONUS:SKILL|Knowledge (Engineering)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Knowledge (Engineering))|PRESKILL:1,Knowledge (Engineering)=10
-Knowledge (Geography).MOD			BONUS:SKILL|Knowledge (Geography)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Knowledge (Geography))|PRESKILL:1,Knowledge (Geography)=10
-Knowledge (History).MOD				BONUS:SKILL|Knowledge (History)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Knowledge (History))|PRESKILL:1,Knowledge (History)=10
-Knowledge (Local).MOD				BONUS:SKILL|Knowledge (Local)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Knowledge (Local))|PRESKILL:1,Knowledge (Local)=10
-Knowledge (Nature).MOD				BONUS:SKILL|Knowledge (Nature)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Knowledge (Nature))|PRESKILL:1,Knowledge (Nature)=10
-Knowledge (Nobility).MOD			BONUS:SKILL|Knowledge (Nobility)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Knowledge (Nobility))|PRESKILL:1,Knowledge (Nobility)=10
-Knowledge (Planes).MOD				BONUS:SKILL|Knowledge (Planes)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Knowledge (Planes))|PRESKILL:1,Knowledge (Planes)=10
-Knowledge (Religion).MOD			BONUS:SKILL|Knowledge (Religion)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Knowledge (Religion))|PRESKILL:1,Knowledge (Religion)=10
-Linguistics.MOD					BONUS:SKILL|Linguistics|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Linguistics)|PRESKILL:1,Linguistics=10
-Perception.MOD					BONUS:SKILL|Perception|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Perception)|PRESKILL:1,Perception=10
-Perform (Act).MOD					BONUS:SKILL|Perform (Act)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Perform (Act))|PRESKILL:1,Perform (Act)=10
-Perform (Comedy).MOD				BONUS:SKILL|Perform (Comedy)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Perform (Comedy))|PRESKILL:1,Perform (Comedy)=10
-Perform (Dance).MOD				BONUS:SKILL|Perform (Dance)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Perform (Dance))|PRESKILL:1,Perform (Dance)=10
-Perform (Keyboard Instruments).MOD		BONUS:SKILL|Perform (Keyboard Instruments)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Perform (Keyboard Instruments))|PRESKILL:1,Perform (Keyboard Instruments)=10
-Perform (Oratory).MOD				BONUS:SKILL|Perform (Oratory)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Perform (Oratory))|PRESKILL:1,Perform (Oratory)=10
-Perform (Percussion Instruments).MOD	BONUS:SKILL|Perform (Percussion Instruments)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Perform (Percussion Instruments))|PRESKILL:1,Perform (Percussion Instruments)=10
-Perform (Sing).MOD				BONUS:SKILL|Perform (Sing)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Perform (Sing))|PRESKILL:1,Perform (Sing)=10
-Perform (String Instruments).MOD		BONUS:SKILL|Perform (String Instruments)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Perform (String Instruments))|PRESKILL:1,Perform (String Instruments)=10
-Perform (Untrained).MOD				BONUS:SKILL|Perform (Untrained)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Perform (Untrained))|PRESKILL:1,Perform (Untrained)=10
-Perform (Wind Instruments).MOD		BONUS:SKILL|Perform (Wind Instruments)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Perform (Wind Instruments))|PRESKILL:1,Perform (Wind Instruments)=10
-Profession (Architect).MOD			BONUS:SKILL|Profession (Architect)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Architect))|PRESKILL:1,Profession (Architect)=10
-Profession (Baker).MOD				BONUS:SKILL|Profession (Baker)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Baker))|PRESKILL:1,Profession (Baker)=10
-Profession (Barrister).MOD			BONUS:SKILL|Profession (Barrister)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Barrister))|PRESKILL:1,Profession (Barrister)=10
-Profession (Brewer).MOD				BONUS:SKILL|Profession (Brewer)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Brewer))|PRESKILL:1,Profession (Brewer)=10
-Profession (Butcher).MOD			BONUS:SKILL|Profession (Butcher)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Butcher))|PRESKILL:1,Profession (Butcher)=10
-Profession (Clerk).MOD				BONUS:SKILL|Profession (Clerk)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Clerk))|PRESKILL:1,Profession (Clerk)=10
-Profession (Cook).MOD				BONUS:SKILL|Profession (Cook)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Cook))|PRESKILL:1,Profession (Cook)=10
-Profession (Courtesan).MOD			BONUS:SKILL|Profession (Courtesan)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Courtesan))|PRESKILL:1,Profession (Courtesan)=10
-Profession (Driver).MOD				BONUS:SKILL|Profession (Driver)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Driver))|PRESKILL:1,Profession (Driver)=10
-Profession (Engineer).MOD			BONUS:SKILL|Profession (Engineer)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Engineer))|PRESKILL:1,Profession (Engineer)=10
-Profession (Farmer).MOD				BONUS:SKILL|Profession (Farmer)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Farmer))|PRESKILL:1,Profession (Farmer)=10
-Profession (Fisherman).MOD			BONUS:SKILL|Profession (Fisherman)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Fisherman))|PRESKILL:1,Profession (Fisherman)=10
-Profession (Gambler).MOD			BONUS:SKILL|Profession (Gambler)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Gambler))|PRESKILL:1,Profession (Gambler)=10
-Profession (Gardener).MOD			BONUS:SKILL|Profession (Gardener)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Gardener))|PRESKILL:1,Profession (Gardener)=10
-Profession (Herbalist).MOD			BONUS:SKILL|Profession (Herbalist)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Herbalist))|PRESKILL:1,Profession (Herbalist)=10
-Profession (Innkeeper).MOD			BONUS:SKILL|Profession (Innkeeper)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Innkeeper))|PRESKILL:1,Profession (Innkeeper)=10
-Profession (Librarian).MOD			BONUS:SKILL|Profession (Librarian)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Librarian))|PRESKILL:1,Profession (Librarian)=10
-Profession (Merchant).MOD			BONUS:SKILL|Profession (Merchant)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Merchant))|PRESKILL:1,Profession (Merchant)=10
-Profession (Midwife).MOD			BONUS:SKILL|Profession (Midwife)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Midwife))|PRESKILL:1,Profession (Midwife)=10
-Profession (Miller).MOD				BONUS:SKILL|Profession (Miller)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Miller))|PRESKILL:1,Profession (Miller)=10
-Profession (Miner).MOD				BONUS:SKILL|Profession (Miner)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Miner))|PRESKILL:1,Profession (Miner)=10
-Profession (Porter).MOD				BONUS:SKILL|Profession (Porter)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Porter))|PRESKILL:1,Profession (Porter)=10
-Profession (Sailor).MOD				BONUS:SKILL|Profession (Sailor)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Sailor))|PRESKILL:1,Profession (Sailor)=10
-Profession (Scribe).MOD				BONUS:SKILL|Profession (Scribe)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Scribe))|PRESKILL:1,Profession (Scribe)=10
-Profession (Shepherd).MOD			BONUS:SKILL|Profession (Shepherd)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Shepherd))|PRESKILL:1,Profession (Shepherd)=10
-Profession (Soldier).MOD			BONUS:SKILL|Profession (Soldier)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Soldier))|PRESKILL:1,Profession (Soldier)=10
-Profession (Stable Master).MOD		BONUS:SKILL|Profession (Stable Master)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Stable Master))|PRESKILL:1,Profession (Stable Master)=10
-Profession (Tanner).MOD				BONUS:SKILL|Profession (Tanner)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Tanner))|PRESKILL:1,Profession (Tanner)=10
-Profession (Trapper).MOD			BONUS:SKILL|Profession (Trapper)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Trapper))|PRESKILL:1,Profession (Trapper)=10
-Profession (Woodcutter).MOD			BONUS:SKILL|Profession (Woodcutter)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Woodcutter))|PRESKILL:1,Profession (Woodcutter)=10
-Ride.MOD						BONUS:SKILL|Ride|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Ride)|PRESKILL:1,Ride=10
-Sense Motive.MOD					BONUS:SKILL|Sense Motive|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Sense Motive)|PRESKILL:1,Sense Motive=10
-Sleight of Hand.MOD				BONUS:SKILL|Sleight of Hand|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Sleight of Hand)|PRESKILL:1,Sleight of Hand=10
-Spellcraft.MOD					BONUS:SKILL|Spellcraft|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Spellcraft)|PRESKILL:1,Spellcraft=10
-Stealth.MOD						BONUS:SKILL|Stealth|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Stealth)|PRESKILL:1,Stealth=10
-Survival.MOD					BONUS:SKILL|Survival|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Survival)|PRESKILL:1,Survival=10
-Swim.MOD						BONUS:SKILL|Swim|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Swim)|PRESKILL:1,Swim=10
-Use Magic Device.MOD				BONUS:SKILL|Use Magic Device|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Use Magic Device)|PRESKILL:1,Use Magic Device=10
+#Acrobatics.MOD					BONUS:SKILL|Acrobatics|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Acrobatics)|PRESKILL:1,Acrobatics=10
+#Appraise.MOD					BONUS:SKILL|Appraise|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Appraise)|PRESKILL:1,Appraise=10
+#Bluff.MOD						BONUS:SKILL|Bluff|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Bluff)|PRESKILL:1,Bluff=10
+#Climb.MOD						BONUS:SKILL|Climb|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Climb)|PRESKILL:1,Climb=10
+#Craft (Alchemy).MOD				BONUS:SKILL|Craft (Alchemy)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Alchemy))|PRESKILL:1,Craft (Alchemy)=10
+#Craft (Armor).MOD					BONUS:SKILL|Craft (Armor)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Armor))|PRESKILL:1,Craft (Armor)=10
+#Craft (Baskets).MOD				BONUS:SKILL|Craft (Baskets)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Baskets))|PRESKILL:1,Craft (Baskets)=10
+#Craft (Books).MOD					BONUS:SKILL|Craft (Books)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Books))|PRESKILL:1,Craft (Books)=10
+#Craft (Bows).MOD					BONUS:SKILL|Craft (Bows)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Bows))|PRESKILL:1,Craft (Bows)=10
+#Craft (Calligraphy).MOD				BONUS:SKILL|Craft (Calligraphy)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Calligraphy))|PRESKILL:1,Craft (Calligraphy)=10
+#Craft (Carpentry).MOD				BONUS:SKILL|Craft (Carpentry)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Carpentry))|PRESKILL:1,Craft (Carpentry)=10
+#Craft (Cloth).MOD					BONUS:SKILL|Craft (Cloth)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Cloth))|PRESKILL:1,Craft (Cloth)=10
+#Craft (Clothing).MOD				BONUS:SKILL|Craft (Clothing)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Clothing))|PRESKILL:1,Craft (Clothing)=10
+#Craft (Glass).MOD					BONUS:SKILL|Craft (Glass)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Glass))|PRESKILL:1,Craft (Glass)=10
+#Craft (Jewelry).MOD				BONUS:SKILL|Craft (Jewelry)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Jewelry))|PRESKILL:1,Craft (Jewelry)=10
+#Craft (Leather).MOD				BONUS:SKILL|Craft (Leather)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Leather))|PRESKILL:1,Craft (Leather)=10
+#Craft (Locks).MOD					BONUS:SKILL|Craft (Locks)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Locks))|PRESKILL:1,Craft (Locks)=10
+#Craft (Paintings).MOD				BONUS:SKILL|Craft (Paintings)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Paintings))|PRESKILL:1,Craft (Paintings)=10
+#Craft (Pottery).MOD				BONUS:SKILL|Craft (Pottery)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Pottery))|PRESKILL:1,Craft (Pottery)=10
+#Craft (Sculptures).MOD				BONUS:SKILL|Craft (Sculptures)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Sculptures))|PRESKILL:1,Craft (Sculptures)=10
+#Craft (Ships).MOD					BONUS:SKILL|Craft (Ships)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Ships))|PRESKILL:1,Craft (Ships)=10
+#Craft (Shoes).MOD					BONUS:SKILL|Craft (Shoes)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Shoes))|PRESKILL:1,Craft (Shoes)=10
+#Craft (Stonemasonry).MOD			BONUS:SKILL|Craft (Stonemasonry)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Stonemasonry))|PRESKILL:1,Craft (Stonemasonry)=10
+#Craft (Traps).MOD					BONUS:SKILL|Craft (Traps)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Traps))|PRESKILL:1,Craft (Traps)=10
+#Craft (Untrained).MOD				BONUS:SKILL|Craft (Untrained)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Untrained))|PRESKILL:1,Craft (Untrained)=10
+#Craft (Weapons).MOD				BONUS:SKILL|Craft (Weapons)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Craft (Weapons))|PRESKILL:1,Craft (Weapons)=10
+#Diplomacy.MOD					BONUS:SKILL|Diplomacy|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Diplomacy)|PRESKILL:1,Diplomacy=10
+#Disable Device.MOD				BONUS:SKILL|Disable Device|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Disable Device)|PRESKILL:1,Disable Device=10
+#Disguise.MOD					BONUS:SKILL|Disguise|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Disguise)|PRESKILL:1,Disguise=10
+#Escape Artist.MOD					BONUS:SKILL|Escape Artist|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Escape Artist)|PRESKILL:1,Escape Artist=10
+#Fly.MOD						BONUS:SKILL|Fly|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Fly)|PRESKILL:1,Fly=10
+#Handle Animal.MOD					BONUS:SKILL|Handle Animal|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Handle Animal)|PRESKILL:1,Handle Animal=10
+#Heal.MOD						BONUS:SKILL|Heal|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Heal)|PRESKILL:1,Heal=10
+#Intimidate.MOD					BONUS:SKILL|Intimidate|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Intimidate)|PRESKILL:1,Intimidate=10
+#Knowledge (Arcana).MOD				BONUS:SKILL|Knowledge (Arcana)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Knowledge (Arcana))|PRESKILL:1,Knowledge (Arcana)=10
+#Knowledge (Dungeoneering).MOD			BONUS:SKILL|Knowledge (Dungeoneering)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Knowledge (Dungeoneering))|PRESKILL:1,Knowledge (Dungeoneering)=10
+#Knowledge (Engineering).MOD			BONUS:SKILL|Knowledge (Engineering)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Knowledge (Engineering))|PRESKILL:1,Knowledge (Engineering)=10
+#Knowledge (Geography).MOD			BONUS:SKILL|Knowledge (Geography)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Knowledge (Geography))|PRESKILL:1,Knowledge (Geography)=10
+#Knowledge (History).MOD				BONUS:SKILL|Knowledge (History)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Knowledge (History))|PRESKILL:1,Knowledge (History)=10
+#Knowledge (Local).MOD				BONUS:SKILL|Knowledge (Local)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Knowledge (Local))|PRESKILL:1,Knowledge (Local)=10
+#Knowledge (Nature).MOD				BONUS:SKILL|Knowledge (Nature)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Knowledge (Nature))|PRESKILL:1,Knowledge (Nature)=10
+#Knowledge (Nobility).MOD			BONUS:SKILL|Knowledge (Nobility)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Knowledge (Nobility))|PRESKILL:1,Knowledge (Nobility)=10
+#Knowledge (Planes).MOD				BONUS:SKILL|Knowledge (Planes)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Knowledge (Planes))|PRESKILL:1,Knowledge (Planes)=10
+#Knowledge (Religion).MOD			BONUS:SKILL|Knowledge (Religion)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Knowledge (Religion))|PRESKILL:1,Knowledge (Religion)=10
+#Linguistics.MOD					BONUS:SKILL|Linguistics|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Linguistics)|PRESKILL:1,Linguistics=10
+#Perception.MOD					BONUS:SKILL|Perception|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Perception)|PRESKILL:1,Perception=10
+#Perform (Act).MOD					BONUS:SKILL|Perform (Act)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Perform (Act))|PRESKILL:1,Perform (Act)=10
+#Perform (Comedy).MOD				BONUS:SKILL|Perform (Comedy)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Perform (Comedy))|PRESKILL:1,Perform (Comedy)=10
+#Perform (Dance).MOD				BONUS:SKILL|Perform (Dance)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Perform (Dance))|PRESKILL:1,Perform (Dance)=10
+#Perform (Keyboard Instruments).MOD		BONUS:SKILL|Perform (Keyboard Instruments)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Perform (Keyboard Instruments))|PRESKILL:1,Perform (Keyboard Instruments)=10
+#Perform (Oratory).MOD				BONUS:SKILL|Perform (Oratory)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Perform (Oratory))|PRESKILL:1,Perform (Oratory)=10
+#Perform (Percussion Instruments).MOD	BONUS:SKILL|Perform (Percussion Instruments)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Perform (Percussion Instruments))|PRESKILL:1,Perform (Percussion Instruments)=10
+#Perform (Sing).MOD				BONUS:SKILL|Perform (Sing)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Perform (Sing))|PRESKILL:1,Perform (Sing)=10
+#Perform (String Instruments).MOD		BONUS:SKILL|Perform (String Instruments)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Perform (String Instruments))|PRESKILL:1,Perform (String Instruments)=10
+#Perform (Untrained).MOD				BONUS:SKILL|Perform (Untrained)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Perform (Untrained))|PRESKILL:1,Perform (Untrained)=10
+#Perform (Wind Instruments).MOD		BONUS:SKILL|Perform (Wind Instruments)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Perform (Wind Instruments))|PRESKILL:1,Perform (Wind Instruments)=10
+#Profession (Architect).MOD			BONUS:SKILL|Profession (Architect)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Architect))|PRESKILL:1,Profession (Architect)=10
+#Profession (Baker).MOD				BONUS:SKILL|Profession (Baker)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Baker))|PRESKILL:1,Profession (Baker)=10
+#Profession (Barrister).MOD			BONUS:SKILL|Profession (Barrister)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Barrister))|PRESKILL:1,Profession (Barrister)=10
+#Profession (Brewer).MOD				BONUS:SKILL|Profession (Brewer)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Brewer))|PRESKILL:1,Profession (Brewer)=10
+#Profession (Butcher).MOD			BONUS:SKILL|Profession (Butcher)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Butcher))|PRESKILL:1,Profession (Butcher)=10
+#Profession (Clerk).MOD				BONUS:SKILL|Profession (Clerk)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Clerk))|PRESKILL:1,Profession (Clerk)=10
+#Profession (Cook).MOD				BONUS:SKILL|Profession (Cook)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Cook))|PRESKILL:1,Profession (Cook)=10
+#Profession (Courtesan).MOD			BONUS:SKILL|Profession (Courtesan)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Courtesan))|PRESKILL:1,Profession (Courtesan)=10
+#Profession (Driver).MOD				BONUS:SKILL|Profession (Driver)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Driver))|PRESKILL:1,Profession (Driver)=10
+#Profession (Engineer).MOD			BONUS:SKILL|Profession (Engineer)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Engineer))|PRESKILL:1,Profession (Engineer)=10
+#Profession (Farmer).MOD				BONUS:SKILL|Profession (Farmer)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Farmer))|PRESKILL:1,Profession (Farmer)=10
+#Profession (Fisherman).MOD			BONUS:SKILL|Profession (Fisherman)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Fisherman))|PRESKILL:1,Profession (Fisherman)=10
+#Profession (Gambler).MOD			BONUS:SKILL|Profession (Gambler)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Gambler))|PRESKILL:1,Profession (Gambler)=10
+#Profession (Gardener).MOD			BONUS:SKILL|Profession (Gardener)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Gardener))|PRESKILL:1,Profession (Gardener)=10
+#Profession (Herbalist).MOD			BONUS:SKILL|Profession (Herbalist)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Herbalist))|PRESKILL:1,Profession (Herbalist)=10
+#Profession (Innkeeper).MOD			BONUS:SKILL|Profession (Innkeeper)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Innkeeper))|PRESKILL:1,Profession (Innkeeper)=10
+#Profession (Librarian).MOD			BONUS:SKILL|Profession (Librarian)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Librarian))|PRESKILL:1,Profession (Librarian)=10
+#Profession (Merchant).MOD			BONUS:SKILL|Profession (Merchant)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Merchant))|PRESKILL:1,Profession (Merchant)=10
+#Profession (Midwife).MOD			BONUS:SKILL|Profession (Midwife)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Midwife))|PRESKILL:1,Profession (Midwife)=10
+#Profession (Miller).MOD				BONUS:SKILL|Profession (Miller)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Miller))|PRESKILL:1,Profession (Miller)=10
+#Profession (Miner).MOD				BONUS:SKILL|Profession (Miner)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Miner))|PRESKILL:1,Profession (Miner)=10
+#Profession (Porter).MOD				BONUS:SKILL|Profession (Porter)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Porter))|PRESKILL:1,Profession (Porter)=10
+#Profession (Sailor).MOD				BONUS:SKILL|Profession (Sailor)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Sailor))|PRESKILL:1,Profession (Sailor)=10
+#Profession (Scribe).MOD				BONUS:SKILL|Profession (Scribe)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Scribe))|PRESKILL:1,Profession (Scribe)=10
+#Profession (Shepherd).MOD			BONUS:SKILL|Profession (Shepherd)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Shepherd))|PRESKILL:1,Profession (Shepherd)=10
+#Profession (Soldier).MOD			BONUS:SKILL|Profession (Soldier)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Soldier))|PRESKILL:1,Profession (Soldier)=10
+#Profession (Stable Master).MOD		BONUS:SKILL|Profession (Stable Master)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Stable Master))|PRESKILL:1,Profession (Stable Master)=10
+#Profession (Tanner).MOD				BONUS:SKILL|Profession (Tanner)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Tanner))|PRESKILL:1,Profession (Tanner)=10
+#Profession (Trapper).MOD			BONUS:SKILL|Profession (Trapper)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Trapper))|PRESKILL:1,Profession (Trapper)=10
+#Profession (Woodcutter).MOD			BONUS:SKILL|Profession (Woodcutter)|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Profession (Woodcutter))|PRESKILL:1,Profession (Woodcutter)=10
+#Ride.MOD						BONUS:SKILL|Ride|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Ride)|PRESKILL:1,Ride=10
+#Sense Motive.MOD					BONUS:SKILL|Sense Motive|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Sense Motive)|PRESKILL:1,Sense Motive=10
+#Sleight of Hand.MOD				BONUS:SKILL|Sleight of Hand|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Sleight of Hand)|PRESKILL:1,Sleight of Hand=10
+#Spellcraft.MOD					BONUS:SKILL|Spellcraft|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Spellcraft)|PRESKILL:1,Spellcraft=10
+#Stealth.MOD						BONUS:SKILL|Stealth|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Stealth)|PRESKILL:1,Stealth=10
+#Survival.MOD					BONUS:SKILL|Survival|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Survival)|PRESKILL:1,Survival=10
+#Swim.MOD						BONUS:SKILL|Swim|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Swim)|PRESKILL:1,Swim=10
+#Use Magic Device.MOD				BONUS:SKILL|Use Magic Device|4|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Exotic Heritage (Use Magic Device)|PRESKILL:1,Use Magic Device=10

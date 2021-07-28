@@ -23,19 +23,19 @@ Monstrous Design												CATEGORY:Internal			TYPE:Race Builder Design								
 ###Block: Type Qualities
 #COMMENT: Humanoid (no subtype) assumed.
 # Ability Name		Unique Key						Category of Ability	Type									Multiple Requirements																					Description		Template										Ability										Bonus Ability Pool				Modify VAR					Cost
-Humanoid			KEY:Racial Type ~ Humanoid			CATEGORY:Racial Traits	TYPE:RacialQuality.RaceTypeQuality																															TEMPLATE:Humanoid|Assign RaceType ~ Humanoid				ABILITY:Humanoid Subrace|AUTOMATIC|Humanoid Subrace Placeholder
+Humanoid			KEY:Racial Type ~ Humanoid			CATEGORY:Racial Traits	TYPE:RacialQuality.RaceTypeQuality																															TEMPLATE:Humanoid				ABILITY:Humanoid Subrace|AUTOMATIC|Humanoid Subrace Placeholder
 # Ability Name		Unique Key						Category of Ability	Type									Multiple Requirements																					Description		Template										Ability										Bonus Ability Pool				Modify VAR					Cost
-Aberration			KEY:Racial Type ~ Aberration			CATEGORY:Racial Traits	TYPE:RacialQuality.RaceTypeQuality.AltRaceTypeQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Type ~ Aberration],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AltRaceTypeQuality]		DESC:[Cost: %1]|3	TEMPLATE:Aberration|Assign RaceType ~ Aberration																					BONUS:VAR|ARG_RaceBuilderPoints|-3	COST:0
-Construct			KEY:Racial Type ~ Construct			CATEGORY:Racial Traits	TYPE:RacialQuality.RaceTypeQuality.AltRaceTypeQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Type ~ Construct],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AltRaceTypeQuality]		DESC:[Cost: %1]|2	TEMPLATE:Construct|Assign RaceType ~ Construct																						BONUS:VAR|ARG_RaceBuilderPoints|-20	COST:0
+Aberration			KEY:Racial Type ~ Aberration			CATEGORY:Racial Traits	TYPE:RacialQuality.RaceTypeQuality.AltRaceTypeQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Type ~ Aberration],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AltRaceTypeQuality]		DESC:[Cost: %1]|3	TEMPLATE:Aberration																					BONUS:VAR|ARG_RaceBuilderPoints|-3	COST:0
+Construct			KEY:Racial Type ~ Construct			CATEGORY:Racial Traits	TYPE:RacialQuality.RaceTypeQuality.AltRaceTypeQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Type ~ Construct],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AltRaceTypeQuality]		DESC:[Cost: %1]|2	TEMPLATE:Construct																						BONUS:VAR|ARG_RaceBuilderPoints|-20	COST:0
 #PRERACE:1,TYPE.Monstrous
-Dragon			KEY:Racial Type ~ Dragon			CATEGORY:Racial Traits	TYPE:RacialQuality.RaceTypeQuality.AltRaceTypeQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Type ~ Dragon],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AltRaceTypeQuality]			DESC:[Cost: %1]|1	TEMPLATE:Dragon|Assign RaceType ~ Dragon																							BONUS:VAR|ARG_RaceBuilderPoints|-10	COST:0
+Dragon			KEY:Racial Type ~ Dragon			CATEGORY:Racial Traits	TYPE:RacialQuality.RaceTypeQuality.AltRaceTypeQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Type ~ Dragon],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AltRaceTypeQuality]			DESC:[Cost: %1]|1	TEMPLATE:Dragon																							BONUS:VAR|ARG_RaceBuilderPoints|-10	COST:0
 #PRERACE:1,TYPE.Advanced,TYPE.Monstrous
-Fey				KEY:Racial Type ~ Fey				CATEGORY:Racial Traits	TYPE:RacialQuality.RaceTypeQuality.AltRaceTypeQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Type ~ Fey],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AltRaceTypeQuality]			DESC:[Cost: %1]|2	TEMPLATE:Fey|Assign RaceType ~ Fey																								BONUS:VAR|ARG_RaceBuilderPoints|-2	COST:0
-Monstrous Humanoid	KEY:Racial Type ~ Monstrous Humanoid	CATEGORY:Racial Traits	TYPE:RacialQuality.RaceTypeQuality.AltRaceTypeQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Type ~ Monstrous Humanoid],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AltRaceTypeQuality]	DESC:[Cost: %1]|3	TEMPLATE:Monstrous Humanoid|Assign RaceType ~ Monstrous Humanoid																			BONUS:VAR|ARG_RaceBuilderPoints|-3	COST:0
-Outsider (Native)		KEY:Racial Type ~ Outsider (native)		CATEGORY:Racial Traits	TYPE:RacialQuality.RaceTypeQuality.AltRaceTypeQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Type ~ Outsider (native)],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AltRaceTypeQuality]	DESC:[Cost: %1]|3	TEMPLATE:Outsider|Native|Assign RaceType ~ Outsider														BONUS:ABILITYPOOL|Outsider Plane Choice|1	BONUS:VAR|ARG_RaceBuilderPoints|-3	COST:0
-Plant				KEY:Racial Type ~ Plant				CATEGORY:Racial Traits	TYPE:RacialQuality.RaceTypeQuality.AltRaceTypeQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Type ~ Plant],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AltRaceTypeQuality]			DESC:[Cost: %1]|1	TEMPLATE:Plant|Assign RaceType ~ Plant																							BONUS:VAR|ARG_RaceBuilderPoints|-10	COST:0
+Fey				KEY:Racial Type ~ Fey				CATEGORY:Racial Traits	TYPE:RacialQuality.RaceTypeQuality.AltRaceTypeQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Type ~ Fey],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AltRaceTypeQuality]			DESC:[Cost: %1]|2	TEMPLATE:Fey																								BONUS:VAR|ARG_RaceBuilderPoints|-2	COST:0
+Monstrous Humanoid	KEY:Racial Type ~ Monstrous Humanoid	CATEGORY:Racial Traits	TYPE:RacialQuality.RaceTypeQuality.AltRaceTypeQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Type ~ Monstrous Humanoid],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AltRaceTypeQuality]	DESC:[Cost: %1]|3	TEMPLATE:Monstrous Humanoid																			BONUS:VAR|ARG_RaceBuilderPoints|-3	COST:0
+Outsider (Native)		KEY:Racial Type ~ Outsider (native)		CATEGORY:Racial Traits	TYPE:RacialQuality.RaceTypeQuality.AltRaceTypeQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Type ~ Outsider (native)],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AltRaceTypeQuality]	DESC:[Cost: %1]|3	TEMPLATE:Outsider|Native														BONUS:ABILITYPOOL|Outsider Plane Choice|1	BONUS:VAR|ARG_RaceBuilderPoints|-3	COST:0
+Plant				KEY:Racial Type ~ Plant				CATEGORY:Racial Traits	TYPE:RacialQuality.RaceTypeQuality.AltRaceTypeQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Type ~ Plant],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AltRaceTypeQuality]			DESC:[Cost: %1]|1	TEMPLATE:Plant																							BONUS:VAR|ARG_RaceBuilderPoints|-10	COST:0
 #PRERACE:1,TYPE.Advanced,TYPE.Monstrous
-Undead			KEY:Racial Type ~ Undead			CATEGORY:Racial Traits	TYPE:RacialQuality.RaceTypeQuality.AltRaceTypeQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Type ~ Undead],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AltRaceTypeQuality]			DESC:[Cost: %1]|1	TEMPLATE:Undead|Assign RaceType ~ Undead																							BONUS:VAR|ARG_RaceBuilderPoints|-16	COST:0
+Undead			KEY:Racial Type ~ Undead			CATEGORY:Racial Traits	TYPE:RacialQuality.RaceTypeQuality.AltRaceTypeQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Type ~ Undead],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AltRaceTypeQuality]			DESC:[Cost: %1]|1	TEMPLATE:Undead																							BONUS:VAR|ARG_RaceBuilderPoints|-16	COST:0
 #PRERACE:1,TYPE.Advanced,TYPE.Monstrous
 Half-Construct		KEY:Racial Type ~ Half-Construct		CATEGORY:Racial Traits	TYPE:RacialQuality.RaceTypeQuality.AltRaceTypeQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Type ~ Half-Construct],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AltRaceTypeQuality]	DESC:[Cost: %1]|7	TEMPLATE:Half-Construct																										BONUS:VAR|ARG_RaceBuilderPoints|-7	COST:0
 Half-Undead			KEY:Racial Type ~ Half-Undead			CATEGORY:Racial Traits	TYPE:RacialQuality.RaceTypeQuality.AltRaceTypeQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Type ~ Half-Undead],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AltRaceTypeQuality]		DESC:[Cost: %1]|5	TEMPLATE:Half-Undead																										BONUS:VAR|ARG_RaceBuilderPoints|-5	COST:0
@@ -166,7 +166,7 @@ Specialized Ability Score Selection ~ Mental										CATEGORY:Internal		TYPE:Sp
 # Ability Name		Unique Key					Category of Ability		Type										Multiple Requirements																					Description		Auto Language	Ability									Bonus Ability Pool											Modify VAR					Cost
 Standard Languages	KEY:Racial Language ~ Standard	CATEGORY:Special Ability	TYPE:RacialQuality.LanguageQuality																																AUTO:LANG|Common											BONUS:ABILITYPOOL|Language|1	BONUS:ABILITYPOOL|Race Builder Bonus Race Languages|7
 # Ability Name		Unique Key					Category of Ability		Type										Multiple Requirements																					Description		Auto Language	Ability									Bonus Ability Pool											Modify VAR					Cost
-Linguist			KEY:Racial Language ~ Linguist	CATEGORY:Special Ability	TYPE:RacialQuality.LanguageQuality.RacialQualityLanguage	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Language ~ Linguist],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.RacialQualityLanguage]	DESC:[Cost: %1]|1	AUTO:LANG|Common	ABILITY:Internal|AUTOMATIC|Race Bonus Language ~ All Spoken	BONUS:ABILITYPOOL|Language|1										BONUS:VAR|ARG_RaceBuilderPoints|-1	COST:0
+Linguist			KEY:Racial Language ~ Linguist	CATEGORY:Special Ability	TYPE:RacialQuality.LanguageQuality.RacialQualityLanguage	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Language ~ Linguist],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.RacialQualityLanguage]	DESC:[Cost: %1]|1	AUTO:LANG|Common	ABILITY:Internal|AUTOMATIC|Bonus Language ~ Any Spoken	BONUS:ABILITYPOOL|Language|1										BONUS:VAR|ARG_RaceBuilderPoints|-1	COST:0
 Xenophobic			KEY:Racial Language ~ Xenophobic	CATEGORY:Special Ability	TYPE:RacialQuality.LanguageQuality.RacialQualityLanguage	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Language ~ Xenophobic],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.RacialQualityLanguage]																	BONUS:ABILITYPOOL|Language|1	BONUS:ABILITYPOOL|Race Builder Bonus Race Languages|4							COST:0
 
 
@@ -269,7 +269,7 @@ Damage Reduction ~ DR 10/Lawful	KEY:Builder Racial Trait ~ Damage Reduction 10/L
 # COMMENT: Set up Subtype?
 Elemental Immunity			KEY:Builder Racial Trait ~ Elemental Immunity										CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.RacialTrait.BuilderAdvancedDefenseTrait.Monstrous																																																			DESC:Choose an elemental damage type (Acid, Cold, Electricity, Fire): Immune to that type. Can be taken again, each time, choose a different element, and increase RP cost by 1. If you have Fire Immunity and Cold Vulnerability, or if you have Cold Immunity and Fire Vulnerability, you gain the fire subtype, or the cold subtype, respectively.	DESC:[Cost: %1]|4		STACK:NO	MULT:YES	CHOOSE:STRING|Acid|Cold|Electricity|Fire				ABILITY:Special Ability|AUTOMATIC|Immunity to Acid|PREABILITY:1,CATEGORY=Special Ability,Builder Racial Trait ~ Elemental Immunity(Acid)	ABILITY:Special Ability|AUTOMATIC|Immunity to Cold|PREABILITY:1,CATEGORY=Special Ability,Builder Racial Trait ~ Elemental Immunity(Cold)	ABILITY:Special Ability|AUTOMATIC|Immunity to Electricity|PREABILITY:1,CATEGORY=Special Ability,Builder Racial Trait ~ Elemental Immunity(Electricity)	ABILITY:Special Ability|AUTOMATIC|Immunity to Fire|PREABILITY:1,CATEGORY=Special Ability,Builder Racial Trait ~ Elemental Immunity(Fire)																				BONUS:VAR|ARG_RaceBuilderPoints|-4																																																																																																																							COST:0	SOURCEPAGE:p.224
 # COMMENT: Look up how fast healing is normally set up, and do the same.
-Fast Healing				KEY:Builder Racial Trait ~ Fast Healing											CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.RacialTrait.BuilderAdvancedDefenseTrait.Monstrous																																																			DESC:Fast Healing 1. Can be taken again, each time, increase RP cost by 1."	DESC:[Cost: %1]|6																																																																																																																																																																														BONUS:VAR|ARG_RaceBuilderPoints|-6																																																																																																																							COST:0	SOURCEPAGE:p.225
+Fast Healing				KEY:Builder Racial Trait ~ Fast Healing											CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.RacialTrait.BuilderAdvancedDefenseTrait.Monstrous																																																			DESC:Fast Healing 1. Can be taken again, each time, increase RP cost by 1.	DESC:[Cost: %1]|6																																																																																																																																																																														BONUS:VAR|ARG_RaceBuilderPoints|-6																																																																																																																							COST:0	SOURCEPAGE:p.225
 Rock Catching				KEY:Builder Racial Trait ~ Rock Catching											CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.RacialTrait.BuilderAdvancedDefenseTrait.Monstrous																																																			DESC:Can catch small, medium, or large rocks. 1/round, you can catch a rock (or similarly shaped projectile) that would hit you by making a reflex save to catch it as a free action. The DC is 15 for small, 20 for medium, and 25 for large. If the attack had a magic bonus, add it to the DC. You need to be aware of the attack to use this ability.	DESC:[Cost: %1]|2																																																																																																																																	BONUS:VAR|ARG_RaceBuilderPoints|-2																																																																																																																							COST:0	SOURCEPAGE:p.224
 
 ###Block: Feat & Skill Traits
@@ -617,30 +617,30 @@ Not Slowed By Encumberance	CATEGORY:Special Ability	TYPE:SpecialQuality
 
 
 ###Block: Language Bonus Selections - Race Grant
-#XXX		TYPE:RaceBuilderBonusLang		TEMPLATE:Race Bonus Language ~ xxx
+#XXX		TYPE:RaceBuilderBonusLang		TEMPLATE:Bonus Language ~ xxx
 # Ability Name				Unique Key					Category of Ability	Type					Multiple?	Choose				Template							Auto Language
-Race Bonus Language ~ All Spoken							CATEGORY:Internal														TEMPLATE:Race Bonus Language ~ All Spoken
+Bonus Language ~ Any Spoken							CATEGORY:Internal														TEMPLATE:Bonus Language ~ Any Spoken
 # Core Rule Book
-Abyssal											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Race Bonus Language ~ Abyssal
-Aklo												CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Race Bonus Language ~ Aklo
-Aquan												CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Race Bonus Language ~ Aquan
-Auran												CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Race Bonus Language ~ Auran
-Celestial											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Race Bonus Language ~ Celestial
-Common											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Race Bonus Language ~ Common
-Draconic											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Race Bonus Language ~ Draconic
-Dwarven											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Race Bonus Language ~ Dwarven
-Elven												CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Race Bonus Language ~ Elven
-Giant												CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Race Bonus Language ~ Giant
-Gnoll												CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Race Bonus Language ~ Gnoll
-Gnome												CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Race Bonus Language ~ Gnome
-Goblin											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Race Bonus Language ~ Goblin
-Halfling											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Race Bonus Language ~ Halfling
-Ignan												CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Race Bonus Language ~ Ignan
-Infernal											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Race Bonus Language ~ Infernal
-Orc												CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Race Bonus Language ~ Orc
-Sylvan											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Race Bonus Language ~ Sylvan
-Terran											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Race Bonus Language ~ Terran
-Undercommon											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Race Bonus Language ~ Undercommon
+Abyssal											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Bonus Language ~ Abyssal
+Aklo												CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Bonus Language ~ Aklo
+Aquan												CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Bonus Language ~ Aquan
+Auran												CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Bonus Language ~ Auran
+Celestial											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Bonus Language ~ Celestial
+Common											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Bonus Language ~ Common
+Draconic											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Bonus Language ~ Draconic
+Dwarven											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Bonus Language ~ Dwarven
+Elven												CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Bonus Language ~ Elven
+Giant												CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Bonus Language ~ Giant
+Gnoll												CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Bonus Language ~ Gnoll
+Gnome												CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Bonus Language ~ Gnome
+Goblin											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Bonus Language ~ Goblin
+Halfling											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Bonus Language ~ Halfling
+Ignan												CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Bonus Language ~ Ignan
+Infernal											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Bonus Language ~ Infernal
+Orc												CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Bonus Language ~ Orc
+Sylvan											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Bonus Language ~ Sylvan
+Terran											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Bonus Language ~ Terran
+Undercommon											CATEGORY:Internal		TYPE:RaceBuilderBonusLang								TEMPLATE:Bonus Language ~ Undercommon
 
 
 Choose Language				KEY:Race Builder ~ Choose Language	CATEGORY:Internal		TYPE:RaceBuilderLang		MULT:YES	CHOOSE:LANG|!PC,TYPE=Spoken									AUTO:LANG|%LIST

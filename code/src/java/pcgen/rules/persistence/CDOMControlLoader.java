@@ -26,7 +26,6 @@ import pcgen.cdom.content.UserFunction;
 import pcgen.cdom.content.fact.FactDefinition;
 import pcgen.cdom.content.factset.FactSetDefinition;
 import pcgen.cdom.inst.DynamicCategory;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.persistence.lst.LstLineFileLoader;
 import pcgen.rules.context.AbstractReferenceContext;
@@ -82,23 +81,14 @@ public class CDOMControlLoader extends LstLineFileLoader
 				"Unsure what to do with line with prefix: " + prefix + ".  Line was: " + val + " in file: " + source);
 			return false;
 		}
-		try
+		if (!subParse(context, loader, val))
 		{
-			if (!subParse(context, loader, val))
-			{
-				return false;
-			}
-		}
-		catch (PersistenceLayerException ple)
-		{
-			Logging.errorPrint("Exception in Load: ", ple);
 			return false;
 		}
 		return true;
 	}
 
 	private <CC extends Loadable> boolean subParse(LoadContext context, CDOMSubLineLoader<CC> loader, String line)
-		throws PersistenceLayerException
 	{
 		int tabLoc = line.indexOf(SystemLoader.TAB_DELIM);
 		String lineIdentifier;
@@ -130,7 +120,7 @@ public class CDOMControlLoader extends LstLineFileLoader
 	}
 
 	@Override
-	public void parseLine(LoadContext context, String inputLine, URI sourceURI) throws PersistenceLayerException
+	public void parseLine(LoadContext context, String inputLine, URI sourceURI)
 	{
 		context.rollback();
 		if (parseSubLine(context, inputLine, sourceURI))

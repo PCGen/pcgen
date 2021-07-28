@@ -21,7 +21,6 @@ import java.util.Objects;
 
 import pcgen.core.AgeSet;
 
-import freemarker.template.TemplateModelException;
 import freemarker.template.TemplateScalarModel;
 
 /**
@@ -48,7 +47,7 @@ public class AgeSetModel implements TemplateScalarModel
 	}
 
 	@Override
-	public String getAsString() throws TemplateModelException
+	public String getAsString()
 	{
 		return set.getKeyName();
 	}

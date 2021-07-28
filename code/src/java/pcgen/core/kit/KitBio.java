@@ -26,11 +26,12 @@ import java.util.stream.Collectors;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.Indirect;
 import pcgen.cdom.enumeration.Gender;
-import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.PCStringKey;
+import pcgen.cdom.util.CControl;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
+import pcgen.output.channel.ChannelUtilities;
 
 /**
  * Code to represent a bio setting choices for a Kit.
@@ -86,7 +87,7 @@ public class KitBio extends BaseKit
 		}
 		if (theCharacterAge != null)
 		{
-			aPC.setPCAttribute(NumericPCAttribute.AGE, theCharacterAge);
+			ChannelUtilities.setControlledChannel(aPC.getCharID(), CControl.AGEINPUT, theCharacterAge);
 		}
 		if (selectedGender != null)
 		{

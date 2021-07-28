@@ -1,0 +1,21 @@
+
+
+# ------------------------------
+# Android
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsAndroid	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Android	EXPLANATION:Determines whether the character is a Android
+
+###Block: Racial Traits
+# Name							Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Android_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Android Ability Scores	EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Android_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Android Type			EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Android_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Android Size			EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Android_ReplaceSpeed		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Android Speed			EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Android_ReplaceVision		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Android Vision			EXPLANATION:Replaces the Vision Racial Trait
+FACTDEF:ABILITY|Android_ReplaceConstructed	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Android Constructed		EXPLANATION:Replaces the Constructed Racial Trait
+FACTDEF:ABILITY|Android_ReplaceEmotionless	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Android Emotionless		EXPLANATION:Replaces the Emotionless Racial Trait
+FACTDEF:ABILITY|Android_ReplaceNaniteSurge	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Android Nanite Surge		EXPLANATION:Replaces the Nanite Surge Racial Trait
+FACTDEF:ABILITY|Android_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Android Languages		EXPLANATION:Replaces the Languages Racial Trait

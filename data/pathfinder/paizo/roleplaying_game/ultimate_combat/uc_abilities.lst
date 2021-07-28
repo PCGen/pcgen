@@ -1,0 +1,13 @@
+
+
+# ==============================
+# INNATE SPELL-LIKE ABILITIES
+# ==============================
+
+###Block: Innate Spell-Like Abilities L0
+# Ability Name		Category of Ability		Type						Define																																												Innate Spells																																																																																																	Modify VAR
+Haunted Fey Aspect	CATEGORY:Spell-Like Ability	TYPE:Innate Spell-Like Ability	DEFINE:SLA_HauntedFeyAspect_LVL|0	DEFINE:SLA_HauntedFeyAspect_SpellLVL|0	DEFINE:SLA_HauntedFeyAspect_Times|0	DEFINE:SLA_HauntedFeyAspect_DCMod|0	DEFINE:SLA_HauntedFeyAspect_DC|0	DEFINE:SLA_HauntedFeyAspect_AtWill|0	DEFINE:SLA_HauntedFeyAspect_Constant|0	SPELLS:Innate|TIMES=SLA_HauntedFeyAspect_Times|TIMEUNIT=Day|CASTERLEVEL=SLA_HauntedFeyAspect_LVL|Haunted Fey Aspect,SLA_HauntedFeyAspect_DC|PREVAREQ:SLA_HauntedFeyAspect_AtWill,0|PREVAREQ:SLA_HauntedFeyAspect_Constant,0	SPELLS:Innate|TIMES=ATWILL|TIMEUNIT=Day|CASTERLEVEL=SLA_HauntedFeyAspect_LVL|Haunted Fey Aspect,SLA_HauntedFeyAspect_DC|PREVAREQ:SLA_HauntedFeyAspect_AtWill,1|PREVAREQ:SLA_HauntedFeyAspect_Constant,0	SPELLS:Innate|TIMES=ATWILL|TIMEUNIT=Constant|CASTERLEVEL=SLA_HauntedFeyAspect_LVL|Haunted Fey Aspect,SLA_HauntedFeyAspect_DC|PREVAREQ:SLA_HauntedFeyAspect_Constant,1	BONUS:VAR|SLA_HauntedFeyAspect_LVL|SLA_Base_LVL|TYPE=Base	BONUS:VAR|SLA_HauntedFeyAspect_SpellLVL|zzz	BONUS:VAR|SLA_HauntedFeyAspect_Times|SLA_Base_Times|TYPE=Base	BONUS:VAR|SLA_HauntedFeyAspect_DCMod|SLA_DC_STAT|TYPE=Base	BONUS:VAR|SLA_HauntedFeyAspect_DC|10+SLA_HauntedFeyAspect_SpellLVL+SLA_HauntedFeyAspect_DCMod
+
+###Block:
+# Ability Name		Unique Key					Category of Ability	Type								Ability
+Haunted Fey Aspect	KEY:Spell ~ Haunted Fey Aspect	CATEGORY:Internal		TYPE:SLA_LVL0.Bard_SLA_LVL0.Wizard_SLA_LVL0	ABILITY:Spell-Like Ability|AUTOMATIC|Haunted Fey Aspect

@@ -26,6 +26,7 @@ import java.util.Set;
 
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.PCStringKey;
+import pcgen.cdom.util.CControl;
 import pcgen.core.ChronicleEntry;
 import pcgen.core.NoteItem;
 import pcgen.core.PlayerCharacter;
@@ -36,6 +37,7 @@ import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.WriteableReferenceFacade;
+import pcgen.gui2.util.CoreInterfaceUtilities;
 import pcgen.system.LanguageBundle;
 
 /**
@@ -106,7 +108,8 @@ class DescriptionFacadeImpl implements DescriptionFacade
 		bioData.put(BiographyField.CATCH_PHRASE,
 			new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.CATCHPHRASE)));
 		bioData.put(BiographyField.HAIR_STYLE,
-			new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.HAIRSTYLE)));
+			CoreInterfaceUtilities.getReferenceFacade(
+				charDisplay.getCharID(), CControl.HAIRSTYLEINPUT));
 		bioData.put(BiographyField.SPEECH_PATTERN,
 			new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.SPEECHTENDENCY)));
 	}
@@ -123,7 +126,7 @@ class DescriptionFacadeImpl implements DescriptionFacade
 
 	/**
 	 * @param noteName
-	 * @param value
+	 * @param key
 	 * @return note
 	 */
 	private NoteItem createDefaultNote(String noteName, PCStringKey key)

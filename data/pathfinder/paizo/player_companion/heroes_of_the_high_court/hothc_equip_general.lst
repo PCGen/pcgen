@@ -1,0 +1,6 @@
+SOURCELONG:Heroes of the High Court	SOURCESHORT:HOTHC	SOURCEWEB:http://paizo.com/products/btpy9qhp	SOURCEDATE:02-2017
+
+Long Gloves			TYPE:Goods.Clothing.Resizable.Hands.Glove											COST:15			SOURCEPAGE:28		SPROP:+4 on saves vs contact poisons on objects touched.
+Lover's Breath		TYPE:Goods.Alchemical														COST:200			SOURCEPAGE:28		SPROP:+2 on all Charisma checks and Charisma-based skill checks for 1 hour, –2 on saves vs charm and fascination effects originating from fey.
+Ostentatious Garment	TYPE:Goods.Clothing.Resizable.Belt.Body.Chest.Eyes.Feet.Hands.Head.Headband.Neck.Shoulders.Wrist	COST:10	WT:1		SOURCEPAGE:28
+Veil				TYPE:Goods.Clothing.Resizable.Head.Mask											COST:40			SOURCEPAGE:28		SPROP:+2 on Bluff checks; wearer treats all other creatures as having concealment, has 50%% chance to avoid gaze attacks, as if averting eyes.
