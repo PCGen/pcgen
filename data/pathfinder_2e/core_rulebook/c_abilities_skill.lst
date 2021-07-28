@@ -1,0 +1,148 @@
+# Mon Mar 30 11:44:41 2020 -- reformatted by PCGen TidyLst v1.04.00
+
+# Ability Name					Unique Key			Category of Ability	Type		Ability
+Display Skill Actions and Activities	KEY:Display Skills	CATEGORY:Rule		TYPE:Rule
+
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Acrobatics (Balance)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Acrobatics (Escape)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Acrobatics (Grab Edge)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Acrobatics (Maintain Balance)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Acrobatics (Squeeze)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Acrobatics (Tumble Through)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Acrobatics (Maneuver in Flight)|PRECSKILL:1,Acrobatics
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Arcana (Recall Knowledge)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Arcana (Borrow an Arcane Spell)|PRECSKILL:1,Arcana
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Arcana (Identify Magic)|PRECSKILL:1,Arcana
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Arcana (Learn an Arcane Spell)|PRECSKILL:1,Arcana
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Arcana (Read Magic)|PRECSKILL:1,Arcana
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Athletics (Break Grapple)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Athletics (Break Open)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Athletics (Climb)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Athletics (Grapple)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Athletics (High Jump)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Athletics (Long Jump)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Athletics (Shove)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Athletics (Swim)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Athletics (Trip)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Athletics (Disarm)|PRECSKILL:1,Athletics
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Crafting (Repair)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Crafting (Craft)|PRECSKILL:1,Crafting
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Crafting (Identify Alchemy)|PRECSKILL:1,Crafting
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Deception (Create a Diversion)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Deception (Impersonate)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Deception (Lie)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Deception (Feint)|PRECSKILL:1,Deception
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Diplomacy (Gather Information)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Diplomacy (Make an Impression)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Diplomacy (Request)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Intimidation (Demoralize)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Intimidation (Coerce)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Lore (Recall Knowledge)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Lore (Practice a Trade)|PRECSKILL:1,Lore
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Medicine (Administer First Aid)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Medicine (Treat Disease)|PRECSKILL:1,Medicine
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Medicine (Treat Poison)|PRECSKILL:1,Medicine
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Nature (Command an Animal)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Nature (Handle an Animal)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Nature (Recall Knowledge)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Nature (Identify Magic)|PRECSKILL:1,Nature
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Nature (Learn a Primal Spell)|PRECSKILL:1,Nature
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Occultism (Recall Knowledge)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Occultism (Identify Magic)|PRECSKILL:1,Occultism
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Occultism (Learn an Occult Spell)|PRECSKILL:1,Occultism
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Occultism (Read Esoterica)|PRECSKILL:1,Occultism
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Performance (Perform)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Performance (Stage a Performance)|PRECSKILL:1,Performance
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Religion (Recall Knowledge)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Religion (Identify Magic)|PRECSKILL:1,Religion
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Religion (Learn a Divine Spell)|PRECSKILL:1,Religion
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Religion (Read Scripture)|PRECSKILL:1,Religion
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Society (Recall Knowledge)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Society (Subsist on the Streets)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Society (Create Forgery)|PRECSKILL:1,Society
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Society (Decipher Writing)|PRECSKILL:1,Society
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Stealth (Conceal an Object)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Stealth (Hide)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Stealth (Sneak)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Survival (Sense Direction)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Survival (Survive in the Wild)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Survival (Cover Tracks)|PRECSKILL:1,Survival
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Survival (Track)|PRECSKILL:1,Survival
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Thievery (Palm an Object)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Thievery (Steal an Object)
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Thievery (Disable a Device)|PRECSKILL:1,Thievery
+CATEGORY=Rule|Display Skills.MOD												ABILITY:Skill|AUTOMATIC|Thievery (Pick a Lock)|PRECSKILL:1,Thievery
+
+
+###Block - Skill Displays
+# Acrobatics
+# Ability Name						SORTKEY						Unique Key						Category of Ability	Type
+Acrobatics  Balance (action)				SORTKEY:Acrobatics (Balance)			KEY:Acrobatics (Balance)			CATEGORY:SKILL		TYPE:Display.Acrobatics
+Acrobatics  Escape (action)				SORTKEY:Acrobatics (Escape)			KEY:Acrobatics (Escape)				CATEGORY:SKILL		TYPE:Display.Acrobatics
+Acrobatics  Grab Edge (reaction)			SORTKEY:Acrobatics (Grab Edge)		KEY:Acrobatics (Grab Edge)			CATEGORY:SKILL		TYPE:Display.Acrobatics
+Acrobatics  Maintain Balance (free action)	SORTKEY:Acrobatics (Maintain Balance)	KEY:Acrobatics (Maintain Balance)		CATEGORY:SKILL		TYPE:Display.Acrobatics
+Acrobatics  Squeeze (activity)			SORTKEY:Acrobatics (Squeeze)			KEY:Acrobatics (Squeeze)			CATEGORY:SKILL		TYPE:Display.Acrobatics
+Acrobatics  Tumble Through (action)			SORTKEY:Acrobatics (Tumble Through)		KEY:Acrobatics (Tumble Through)		CATEGORY:SKILL		TYPE:Display.Acrobatics
+Acrobatics  Maneuver in Flight (action)		SORTKEY:Acrobatics (Maneuver in Flight)	KEY:Acrobatics (Maneuver in Flight)		CATEGORY:SKILL		TYPE:Display.Acrobatics
+Arcana  Recall Knowledge (action)			SORTKEY:Arcana (Recall Knowledge)		KEY:Arcana (Recall Knowledge)			CATEGORY:SKILL		TYPE:Display.Arcana
+Arcana  Borrow an Arcane Spell (activity)		SORTKEY:Arcana (Borrow an Arcane Spell)	KEY:Arcana (Borrow an Arcane Spell)		CATEGORY:SKILL		TYPE:Display.Arcana
+Arcana  Identify Magic (activity)			SORTKEY:Arcana (Identify Magic)		KEY:Arcana (Identify Magic)			CATEGORY:SKILL		TYPE:Display.Arcana
+Arcana  Learn an Arcane Spell (activity)		SORTKEY:Arcana (Learn an Arcane Spell)	KEY:Arcana (Learn an Arcane Spell)		CATEGORY:SKILL		TYPE:Display.Arcana
+Arcana  Read Magic (activity)				SORTKEY:Arcana (Read Magic)			KEY:Arcana (Read Magic)				CATEGORY:SKILL		TYPE:Display.Arcana
+Athletics  Break Grapple (action)			SORTKEY:Athletics (Break Grapple)		KEY:Athletics (Break Grapple)			CATEGORY:SKILL		TYPE:Display.Athletics
+Athletics  Break Open (action)			SORTKEY:Athletics (Break Open)		KEY:Athletics (Break Open)			CATEGORY:SKILL		TYPE:Display.Athletics
+Athletics  Climb (action)				SORTKEY:Athletics (Climb)			KEY:Athletics (Climb)				CATEGORY:SKILL		TYPE:Display.Athletics
+Athletics  Grapple (action)				SORTKEY:Athletics (Grapple)			KEY:Athletics (Grapple)				CATEGORY:SKILL		TYPE:Display.Athletics
+Athletics  High Jump (activity)			SORTKEY:Athletics (High Jump)			KEY:Athletics (High Jump)			CATEGORY:SKILL		TYPE:Display.Athletics
+Athletics  Long Jump (activity)			SORTKEY:Athletics (Long Jump)			KEY:Athletics (Long Jump)			CATEGORY:SKILL		TYPE:Display.Athletics
+Athletics  Shove (action)				SORTKEY:Athletics (Shove)			KEY:Athletics (Shove)				CATEGORY:SKILL		TYPE:Display.Athletics
+Athletics  Swim (action)				SORTKEY:Athletics (Swim)			KEY:Athletics (Swim)				CATEGORY:SKILL		TYPE:Display.Athletics
+Athletics  Trip (action)				SORTKEY:Athletics (Trip)			KEY:Athletics (Trip)				CATEGORY:SKILL		TYPE:Display.Athletics
+Athletics  Disarm (action)				SORTKEY:Athletics (Disarm)			KEY:Athletics (Disarm)				CATEGORY:SKILL		TYPE:Display.Athletics
+Crafting  Repair (activity)				SORTKEY:Crafting (Repair)			KEY:Crafting (Repair)				CATEGORY:SKILL		TYPE:Display.Crafting
+Crafting  Craft (activity)				SORTKEY:Crafting (Craft)			KEY:Crafting (Craft)				CATEGORY:SKILL		TYPE:Display.Crafting
+Crafting  Identify Alchemy (activity)		SORTKEY:Crafting (Identify Alchemy)		KEY:Crafting (Identify Alchemy)		CATEGORY:SKILL		TYPE:Display.Crafting
+Deception  Create a Diversion (action)		SORTKEY:Deception (Create a Diversion)	KEY:Deception (Create a Diversion)		CATEGORY:SKILL		TYPE:Display.Deception
+Deception  Impersonate (activity)			SORTKEY:Deception (Impersonate)		KEY:Deception (Impersonate)			CATEGORY:SKILL		TYPE:Display.Deception
+Deception  Lie (activity)				SORTKEY:Deception (Lie)				KEY:Deception (Lie)				CATEGORY:SKILL		TYPE:Display.Deception
+Deception  Feint (action)				SORTKEY:Deception (Feint)			KEY:Deception (Feint)				CATEGORY:SKILL		TYPE:Display.Deception
+Diplomacy  Gather Information (activity)		SORTKEY:Diplomacy (Gather Information)	KEY:Diplomacy (Gather Information)		CATEGORY:SKILL		TYPE:Display.Diplomacy
+Diplomacy  Make an Impression (activity)		SORTKEY:Diplomacy (Make an Impression)	KEY:Diplomacy (Make an Impression)		CATEGORY:SKILL		TYPE:Display.Diplomacy
+Diplomacy  Request (action)				SORTKEY:Diplomacy (Request)			KEY:Diplomacy (Request)				CATEGORY:SKILL		TYPE:Display.Diplomacy
+Intimidation  Demoralize (action)			SORTKEY:Intimidation (Demoralize)		KEY:Intimidation (Demoralize)			CATEGORY:SKILL		TYPE:Display.Intimidation
+Intimidation  Coerce (activity)			SORTKEY:Intimidation (Coerce)			KEY:Intimidation (Coerce)			CATEGORY:SKILL		TYPE:Display.Intimidation
+Lore  Recall Knowledge (action)			SORTKEY:Lore (Recall Knowledge)		KEY:Lore (Recall Knowledge)			CATEGORY:SKILL		TYPE:Display.Lore
+Lore  Practice a Trade (activity)			SORTKEY:Lore (Practice a Trade)		KEY:Lore (Practice a Trade)			CATEGORY:SKILL		TYPE:Display.Lore
+Medicine  Administer First Aid (action)		SORTKEY:Medicine (Administer First Aid)	KEY:Medicine (Administer First Aid)		CATEGORY:SKILL		TYPE:Display.Medicine
+Medicine  Treat Disease (activity)			SORTKEY:Medicine (Treat Disease)		KEY:Medicine (Treat Disease)			CATEGORY:SKILL		TYPE:Display.Medicine
+Medicine  Treat Poison (action)			SORTKEY:Medicine (Treat Poison)		KEY:Medicine (Treat Poison)			CATEGORY:SKILL		TYPE:Display.Medicine
+Nature  Command an Animal (action)			SORTKEY:Nature (Command an Animal)		KEY:Nature (Command an Animal)		CATEGORY:SKILL		TYPE:Display.Nature
+Nature  Handle an Animal (action)			SORTKEY:Nature (Handle an Animal)		KEY:Nature (Handle an Animal)			CATEGORY:SKILL		TYPE:Display.Nature
+Nature  Recall Knowledge (action)			SORTKEY:Nature (Recall Knowledge)		KEY:Nature (Recall Knowledge)			CATEGORY:SKILL		TYPE:Display.Nature
+Nature  Identify Magic (activity)			SORTKEY:Nature (Identify Magic)		KEY:Nature (Identify Magic)			CATEGORY:SKILL		TYPE:Display.Nature
+Nature  Learn a Primal Spell (activity)		SORTKEY:Nature (Learn a Primal Spell)	KEY:Nature (Learn a Primal Spell)		CATEGORY:SKILL		TYPE:Display.Nature
+Occultism  Recall Knowledge (action)		SORTKEY:Occultism (Recall Knowledge)	KEY:Occultism (Recall Knowledge)		CATEGORY:SKILL		TYPE:Display.Occultism
+Occultism  Identify Magic (activity)		SORTKEY:Occultism (Identify Magic)		KEY:Occultism (Identify Magic)		CATEGORY:SKILL		TYPE:Display.Occultism
+Occultism  Learn an Occult Spell (activity)	SORTKEY:Occultism (Learn an Occult Spell)	KEY:Occultism (Learn an Occult Spell)	CATEGORY:SKILL		TYPE:Display.Occultism
+Occultism  Read Esoterica (activity)		SORTKEY:Occultism (Read Esoterica)		KEY:Occultism (Read Esoterica)		CATEGORY:SKILL		TYPE:Display.Occultism
+Performance  Perform (action)				SORTKEY:Performance (Perform)			KEY:Performance (Perform)			CATEGORY:SKILL		TYPE:Display.Performance
+Performance  Stage a Performance (activity)	SORTKEY:Performance (Stage a Performance)	KEY:Performance (Stage a Performance)	CATEGORY:SKILL		TYPE:Display.Performance
+Religion  Recall Knowledge (action)			SORTKEY:Religion (Recall Knowledge)		KEY:Religion (Recall Knowledge)		CATEGORY:SKILL		TYPE:Display.Religion
+Religion  Identify Magic (activity)			SORTKEY:Religion (Identify Magic)		KEY:Religion (Identify Magic)			CATEGORY:SKILL		TYPE:Display.Religion
+Religion  Learn a Divine Spell (activity)		SORTKEY:Religion (Learn a Divine Spell)	KEY:Religion (Learn a Divine Spell)		CATEGORY:SKILL		TYPE:Display.Religion
+Religion  Read Scripture (activity)			SORTKEY:Religion (Read Scripture)		KEY:Religion (Read Scripture)			CATEGORY:SKILL		TYPE:Display.Religion
+Society  Recall Knowledge (action)			SORTKEY:Society (Recall Knowledge)		KEY:Society (Recall Knowledge)		CATEGORY:SKILL		TYPE:Display.Society
+Society  Subsist on the Streets (activity)	SORTKEY:Society (Subsist on the Streets)	KEY:Society (Subsist on the Streets)	CATEGORY:SKILL		TYPE:Display.Society
+Society  Create Forgery (activity)			SORTKEY:Society (Create Forgery)		KEY:Society (Create Forgery)			CATEGORY:SKILL		TYPE:Display.Society
+Society  Decipher Writing (activity)		SORTKEY:Society (Decipher Writing)		KEY:Society (Decipher Writing)		CATEGORY:SKILL		TYPE:Display.Society
+Stealth  Conceal an Object (action)			SORTKEY:Stealth (Conceal an Object)		KEY:Stealth (Conceal an Object)		CATEGORY:SKILL		TYPE:Display.Stealth
+Stealth  Hide (action)					SORTKEY:Stealth (Hide)				KEY:Stealth (Hide)				CATEGORY:SKILL		TYPE:Display.Stealth
+Stealth  Sneak (action)					SORTKEY:Stealth (Sneak)				KEY:Stealth (Sneak)				CATEGORY:SKILL		TYPE:Display.Stealth
+Survival  Sense Direction (activity)		SORTKEY:Survival (Sense Direction)		KEY:Survival (Sense Direction)		CATEGORY:SKILL		TYPE:Display.Survival
+Survival  Survive in the Wild (activity)		SORTKEY:Survival (Survive in the Wild)	KEY:Survival (Survive in the Wild)		CATEGORY:SKILL		TYPE:Display.Survival
+Survival  Cover Tracks (action)			SORTKEY:Survival (Cover Tracks)		KEY:Survival (Cover Tracks)			CATEGORY:SKILL		TYPE:Display.Survival
+Survival  Track (action)				SORTKEY:Survival (Track)			KEY:Survival (Track)				CATEGORY:SKILL		TYPE:Display.Survival
+Thievery  Palm an Object (action)			SORTKEY:Thievery (Palm an Object)		KEY:Thievery (Palm an Object)			CATEGORY:SKILL		TYPE:Display.Thievery
+Thievery  Steal an Object (action)			SORTKEY:Thievery (Steal an Object)		KEY:Thievery (Steal an Object)		CATEGORY:SKILL		TYPE:Display.Thievery
+Thievery  Disable a Device (action)			SORTKEY:Thievery (Disable a Device)		KEY:Thievery (Disable a Device)		CATEGORY:SKILL		TYPE:Display.Thievery
+Thievery  Pick a Lock (action)			SORTKEY:Thievery (Pick a Lock)		KEY:Thievery (Pick a Lock)			CATEGORY:SKILL		TYPE:Display.Thievery

@@ -1,0 +1,12 @@
+# Sat Sep 21 13:31:46 2019 -- reformatted by PCGen TidyLst v1.04.00
+
+
+# Name	SORTKEY	Save bonus
+Fortitude	SORTKEY:1	BONUS:SAVE|Fortitude|CON
+Reflex	SORTKEY:2	BONUS:SAVE|Reflex|ReflexSave_Cap
+Will		SORTKEY:3	BONUS:SAVE|Will|WIS
+
+# TODO: Code Bug, FACT isn't taking "CHECKS" as a valid target.
+#FACT:MainStat|Constitution
+#FACT:MainStat|Dexterity
+#FACT:MainStat|Wisdom
