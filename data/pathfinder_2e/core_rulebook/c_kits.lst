@@ -1,0 +1,102 @@
+# Mon Oct 28 08:06:48 2019 -- reformatted by PCGen TidyLst v1.04.00
+STARTPACK:Adventurer's Pack	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:0.7
+GEAR:Backpack		QTY:1	SIZE:PC	LOCATION:Carried
+GEAR:Bedroll		QTY:1	SIZE:PC	LOCATION:Backpack
+GEAR:Belt Pouch		QTY:2	SIZE:PC	LOCATION:Carried
+GEAR:Chalk (10)		QTY:1	SIZE:PC	LOCATION:Backpack
+GEAR:Flint and Steel	QTY:1	SIZE:PC	LOCATION:Backpack
+GEAR:Rope			QTY:1	SIZE:PC	LOCATION:Backpack
+GEAR:Rations (1 week)	QTY:2	SIZE:PC	LOCATION:Backpack
+GEAR:Soap			QTY:1	SIZE:PC	LOCATION:Backpack
+GEAR:Torch			QTY:5	SIZE:PC	LOCATION:Backpack
+GEAR:Waterskin		QTY:1	SIZE:PC	LOCATION:Backpack
+
+STARTPACK:Alchemist's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:9.6
+KIT:Adventurer's Pack
+GEAR:Studded Leather Armor	QTY:1	SIZE:PC	LOCATION:Torso
+GEAR:Dagger				QTY:1	SIZE:PC	LOCATION:Carried
+GEAR:Sling				QTY:1	SIZE:PC	LOCATION:Carried
+GEAR:10 Sling Bullets		QTY:2	SIZE:PC	LOCATION:Pouch
+GEAR:Bandolier			QTY:1	SIZE:PC	LOCATION:Equipped
+GEAR:Basic Crafter's Book	QTY:1	SIZE:PC	LOCATION:Backpack
+GEAR:Caltrops			QTY:2	SIZE:PC	LOCATION:Backpack
+GEAR:Sheath				QTY:1	SIZE:PC	LOCATION:Equipped
+
+STARTPACK:Barbarian's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:3.2
+KIT:Adventurer's Pack
+GEAR:Hide Armor		QTY:1	SIZE:PC	LOCATION:Torso
+GEAR:Javelin		QTY:4	SIZE:PC	LOCATION:Carried
+GEAR:Grappling Hook	QTY:1	SIZE:PC	LOCATION:Backpack
+GEAR:Sheath			QTY:2	SIZE:PC	LOCATION:Equipped
+
+STARTPACK:Bard's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:6.8
+KIT:Adventurer's Pack
+GEAR:Studded Leather Armor		QTY:1	SIZE:PC	LOCATION:Torso
+GEAR:Dagger					QTY:1	SIZE:PC	LOCATION:Carried
+GEAR:Rapier					QTY:1	SIZE:PC	LOCATION:Carried
+GEAR:Sling					QTY:1	SIZE:PC	LOCATION:Carried
+GEAR:10 Sling Bullets			QTY:2	SIZE:PC	LOCATION:Pouch
+GEAR:Bandolier				QTY:1	SIZE:PC	LOCATION:Equipped
+GEAR:Musical Instrument (Handheld)	QTY:1	SIZE:PC	LOCATION:Carried
+GEAR:Sheath					QTY:1	SIZE:PC	LOCATION:Equipped
+
+STARTPACK:Champion's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:3.8
+KIT:Adventurer's Pack
+GEAR:Hide Armor		QTY:1	SIZE:PC	LOCATION:Torso
+GEAR:Dagger			QTY:1	SIZE:PC	LOCATION:Carried
+GEAR:Javelin		QTY:4	SIZE:PC	LOCATION:Carried
+GEAR:Crowbar		QTY:1	SIZE:PC	LOCATION:Backpack
+GEAR:Grappling Hook	QTY:1	SIZE:PC	LOCATION:Backpack
+GEAR:Sheath			QTY:1	SIZE:PC	LOCATION:Equipped
+
+STARTPACK:Cleric's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:1.5
+KIT:Adventurer's Pack
+GEAR:Bandolier				QTY:1	SIZE:PC	LOCATION:Equipped
+GEAR:Caltrops				QTY:2	SIZE:PC	LOCATION:Backpack
+GEAR:Religious Symbol (Wooden)	QTY:1	SIZE:PC	LOCATION:Equipped
+
+STARTPACK:Druid's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:3.7
+KIT:Adventurer's Pack
+GEAR:Leather Armor		QTY:1	SIZE:PC	LOCATION:Torso
+GEAR:Javelin			QTY:4	SIZE:PC	LOCATION:Carried
+GEAR:Longspear			QTY:1	SIZE:PC	LOCATION:Carried
+GEAR:Bandolier			QTY:1	SIZE:PC	LOCATION:Equipped
+GEAR:Holly and Mistletoe	QTY:1	SIZE:PC	LOCATION:Equipped
+
+STARTPACK:Fighter's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:3
+KIT:Adventurer's Pack
+GEAR:Hide Armor		QTY:1	SIZE:PC	LOCATION:Torso
+GEAR:Dagger			QTY:1	SIZE:PC	LOCATION:Carried
+GEAR:Grappling Hook	QTY:1	SIZE:PC	LOCATION:Backpack
+GEAR:Sheath			QTY:1	SIZE:PC	LOCATION:Equipped
+
+STARTPACK:Monk's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:4.9
+KIT:Adventurer's Pack
+GEAR:Longspear			QTY:1	SIZE:PC	LOCATION:Carried
+GEAR:Staff				QTY:1	SIZE:PC	LOCATION:Carried
+GEAR:Bandolier			QTY:1	SIZE:PC	LOCATION:Equipped
+GEAR:Grappling Hook		QTY:1	SIZE:PC	LOCATION:Backpack
+GEAR:Climbing Kit			QTY:1	SIZE:PC	LOCATION:Backpack
+GEAR:Smokestick (Lesser)	QTY:1	SIZE:PC	LOCATION:Backpack
+
+STARTPACK:Ranger's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:9.1
+KIT:Adventurer's Pack
+GEAR:Hide Armor	QTY:1	SIZE:PC	LOCATION:Torso
+GEAR:Dagger		QTY:1	SIZE:PC	LOCATION:Carried
+GEAR:Longbow	QTY:1	SIZE:PC	LOCATION:Carried
+GEAR:10 Arrows	QTY:2	SIZE:PC	LOCATION:Carried
+GEAR:Sheath		QTY:1	SIZE:PC	LOCATION:Equipped
+
+STARTPACK:Sorcerer's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:1.6
+KIT:Adventurer's Pack
+GEAR:Sling			QTY:1	SIZE:PC	LOCATION:Carried
+GEAR:10 Sling Bullets	QTY:2	SIZE:PC	LOCATION:Carried
+GEAR:Bandolier		QTY:1	SIZE:PC	LOCATION:Equipped
+GEAR:Caltrops		QTY:2	SIZE:PC	LOCATION:Backpack
+GEAR:Sheath			QTY:1	SIZE:PC	LOCATION:Equipped
+
+STARTPACK:Wizard's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:1.2
+KIT:Adventurer's Pack
+GEAR:Staff				QTY:1	SIZE:PC	LOCATION:Carried
+GEAR:Material Component Pouch	QTY:1	SIZE:PC	LOCATION:Equipped
+GEAR:Writing Set			QTY:1	SIZE:PC	LOCATION:Backpack

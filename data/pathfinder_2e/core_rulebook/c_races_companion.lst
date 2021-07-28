@@ -1,0 +1,34 @@
+# Mon Mar 30 11:44:41 2020 -- reformatted by PCGen TidyLst v1.04.00
+
+###NOTES:
+#		RaceSize_Base
+#		<=1 is Tiny
+#		==2 is Small
+#		==3 is Medium
+#		==4 is Large
+#		==5 is Huge
+#		==6 is Gargantuan
+#		==7 is Colossal
+
+
+###Block: Animal Companion
+# Race Name	Unique Key					Base Size		Size		Move		Bonus to HP					Modify VAR				Ability									Race Subtype	Type
+Badger	KEY:Animal Companion ~ Badger		FACT:BaseSize|S	SIZE:S	MOVE:Walk,0	BONUS:HP|CURRENTMAX|8|TYPE=Ancestry	BONUS:VAR|RaceSize_Base|2	ABILITY:Ancestry|AUTOMATIC|Animal Companion ~ Badger		RACETYPE:Animal Companion	TYPE:Animal Companion
+Bear		KEY:Animal Companion ~ Bear		FACT:BaseSize|S	SIZE:S	MOVE:Walk,0	BONUS:HP|CURRENTMAX|8|TYPE=Ancestry	BONUS:VAR|RaceSize_Base|2	ABILITY:Ancestry|AUTOMATIC|Animal Companion ~ Bear		RACETYPE:Animal Companion	TYPE:Animal Companion
+Bird		KEY:Animal Companion ~ Bird		FACT:BaseSize|S	SIZE:S	MOVE:Walk,0	BONUS:HP|CURRENTMAX|4|TYPE=Ancestry	BONUS:VAR|RaceSize_Base|2	ABILITY:Ancestry|AUTOMATIC|Animal Companion ~ Bird		RACETYPE:Animal Companion	TYPE:Animal Companion
+Cat		KEY:Animal Companion ~ Cat		FACT:BaseSize|S	SIZE:S	MOVE:Walk,0	BONUS:HP|CURRENTMAX|4|TYPE=Ancestry	BONUS:VAR|RaceSize_Base|2	ABILITY:Ancestry|AUTOMATIC|Animal Companion ~ Cat		RACETYPE:Animal Companion	TYPE:Animal Companion
+Dromaesaur	KEY:Animal Companion ~ Dromaesaur	FACT:BaseSize|S	SIZE:S	MOVE:Walk,0	BONUS:HP|CURRENTMAX|6|TYPE=Ancestry	BONUS:VAR|RaceSize_Base|2	ABILITY:Ancestry|AUTOMATIC|Animal Companion ~ Dromaesaur	RACETYPE:Animal Companion	TYPE:Animal Companion
+Horse		KEY:Animal Companion ~ Horse		FACT:BaseSize|S	SIZE:S	MOVE:Walk,0	BONUS:HP|CURRENTMAX|8|TYPE=Ancestry	BONUS:VAR|RaceSize_Base|2	ABILITY:Ancestry|AUTOMATIC|Animal Companion ~ Horse		RACETYPE:Animal Companion	TYPE:Animal Companion
+Snake		KEY:Animal Companion ~ Snake		FACT:BaseSize|S	SIZE:S	MOVE:Walk,0	BONUS:HP|CURRENTMAX|6|TYPE=Ancestry	BONUS:VAR|RaceSize_Base|2	ABILITY:Ancestry|AUTOMATIC|Animal Companion ~ Snake		RACETYPE:Animal Companion	TYPE:Animal Companion
+Wolf		KEY:Animal Companion ~ Wolf		FACT:BaseSize|S	SIZE:S	MOVE:Walk,0	BONUS:HP|CURRENTMAX|6|TYPE=Ancestry	BONUS:VAR|RaceSize_Base|2	ABILITY:Ancestry|AUTOMATIC|Animal Companion ~ Wolf		RACETYPE:Animal Companion	TYPE:Animal Companion
+
+###Block: Familiar
+# Race Name	Unique Key			Move		Ability							Race Subtype		Type
+Bat		KEY:Familiar ~ Bat	MOVE:Walk,0	ABILITY:Ancestry|AUTOMATIC|Familiar ~ Bat		RACESUBTYPE:Familiar	TYPE:Familiar
+Cat		KEY:Familiar ~ Cat	MOVE:Walk,0	ABILITY:Ancestry|AUTOMATIC|Familiar ~ Cat		RACESUBTYPE:Familiar	TYPE:Familiar
+Frog		KEY:Familiar ~ Frog	MOVE:Walk,0	ABILITY:Ancestry|AUTOMATIC|Familiar ~ Frog	RACESUBTYPE:Familiar	TYPE:Familiar
+Lizard	KEY:Familiar ~ Lizard	MOVE:Walk,0	ABILITY:Ancestry|AUTOMATIC|Familiar ~ Lizard	RACESUBTYPE:Familiar	TYPE:Familiar
+Raven		KEY:Familiar ~ Raven	MOVE:Walk,0	ABILITY:Ancestry|AUTOMATIC|Familiar ~ Raven	RACESUBTYPE:Familiar	TYPE:Familiar
+Snake		KEY:Familiar ~ Snake	MOVE:Walk,0	ABILITY:Ancestry|AUTOMATIC|Familiar ~ Snake	RACESUBTYPE:Familiar	TYPE:Familiar
+
+Leshy		KEY:Familiar ~ Leshy	MOVE:Walk,0	ABILITY:Ancestry|AUTOMATIC|Familiar ~ Leshy	RACESUBTYPE:Familiar	TYPE:Familiar

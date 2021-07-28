@@ -1,0 +1,109 @@
+# Sun Oct 20 14:45:41 2019 -- reformatted by PCGen TidyLst v1.04.00
+
+# 6-4 Simple Melee Weapons
+# Weapon Name	Type
+Unarmed		TYPE:Weapon.Unarmed
+Fist			TYPE:Weapon.Unarmed.Melee.Simple Weapons.Simple Melee Weapon.Weapon Group ~ Brawling.Agile
+
+# Weapon Name		Type
+Club				TYPE:Bludgeoning	TYPE:Weapon.Melee.Simple Weapons.Simple Melee Weapon.Ranged.Thrown.Weapon Group ~ Club.Thrown 10
+Dagger			TYPE:Piercing	TYPE:Weapon.Melee.Simple Weapons.Simple Melee Weapon.Ranged.Thrown.Weapon Group ~ Knife.Agile.Finesse.Thrown 10.Versatile S
+Unarmed Strike		TYPE:Bludgeoning	TYPE:Weapon.Melee.Simple Weapons.Simple Melee Weapon.Weapon Group ~ Brawling.Agile.Finesse.Nonlethal.Unarmed
+Gauntlet			TYPE:Bludgeoning	TYPE:Weapon.Melee.Simple Weapons.Simple Melee Weapon.Weapon Group ~ Brawling.Agile.Free-hand
+Light Mace			TYPE:Bludgeoning	TYPE:Weapon.Melee.Simple Weapons.Simple Melee Weapon.Weapon Group ~ Club.Agile.Finesse.Shove
+Longspear			TYPE:Piercing	TYPE:Weapon.Melee.Simple Weapons.Simple Melee Weapon.Weapon Group ~ Spear.Reach
+Mace				TYPE:Bludgeoning	TYPE:Weapon.Melee.Simple Weapons.Simple Melee Weapon.Weapon Group ~ Club.Shove
+Morningstar			TYPE:Bludgeoning	TYPE:Weapon.Melee.Simple Weapons.Simple Melee Weapon.Weapon Group ~ Club.Versatile P
+Sickle			TYPE:Slashing	TYPE:Weapon.Melee.Simple Weapons.Simple Melee Weapon.Weapon Group ~ Knife.Agile.Finesse.Trip
+Spear				TYPE:Piercing	TYPE:Weapon.Melee.Simple Weapons.Simple Melee Weapon.Ranged.Thrown.Weapon Group ~ Spear.Thrown 20
+Gauntlet			TYPE:Piercing	TYPE:Weapon.Melee.Simple Weapons.Simple Melee Weapon.Weapon Group ~ Brawling.Agile.Free-hand
+Staff				TYPE:Bludgeoning	TYPE:Weapon.Melee.Simple Weapons.Simple Melee Weapon.Weapon Group ~ Club.Two-hand d8
+
+# 6-5 Martial Melee Weapons
+#
+Bastard sword		TYPE:Piercing	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Weapon Group ~ Sword.Two-hand d12
+Battle axe			TYPE:Slashing	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Weapon Group ~ Axe.Sweep
+Bo staff			TYPE:Bludgeoning	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Weapon Group ~ Club.Monk.Parry.Reach.Trip
+Falchion			TYPE:Slashing	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Weapon Group ~ Sword.Forceful.Sweep
+Flail				TYPE:Bludgeoning	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Weapon Group ~ Flail.Disarm.Sweep.Trip
+Glaive			TYPE:Slashing	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Weapon Group ~ Polearm.Deadly d8.Forceful.Reach
+Greataxe			TYPE:Slashing	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Weapon Group ~ Axe.Sweep
+Greatclub			TYPE:Bludgeoning	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Weapon Group ~ Club.Backswing.Shove
+Greatpick			TYPE:Piercing	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Weapon Group ~ Pick.Fatal d12
+Greatsword			TYPE:Slashing	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Weapon Group ~ Sword.Versatile P
+Guisarme			TYPE:Slashing	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Weapon Group ~ Polearm.Reach.Trip
+Halberd			TYPE:Piercing	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Weapon Group ~ Polearm.Reach.Versatile S
+Hatchet			TYPE:Slashing	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Ranged.Thrown.Weapon Group ~ Axe.Agile.Sweep.Thrown 10
+Lance				TYPE:Piercing	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Weapon Group ~ Spear.Charge.Deadly d8.Reach
+Light hammer		TYPE:Bludgeoning	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Ranged.Thrown.Weapon Group ~ Pick.Agile.Thrown 20
+Light pick			TYPE:Piercing	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Weapon Group ~ Pick.Agile.Fatal d8
+Longsword			TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Slashing	TYPE:Weapon Group ~ Sword.Versatile P
+Main-guache			TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Piercing	TYPE:Weapon Group ~ Knife.Agile.Disarm.Finesse.Parry.Versatile S
+Maul				TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Bludgeoning	TYPE:Weapon Group ~ Hammer.Shove
+Pick				TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Piercing	TYPE:Weapon Group ~ Pick.Fatal d10
+Ranseur			TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Piercing	TYPE:Weapon Group ~ Polearm.Disarm.Reach
+Rapier			TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Piercing	TYPE:Weapon Group ~ Sword.Deadly d8.Disarm.Finesse
+Sap				TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Bludgeoning	TYPE:Weapon Group ~ Club.Agile.Nonlethal
+Scimitar			TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Slashing	TYPE:Weapon Group ~ Sword.Forceful.Sweep
+Scythe			TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Slashing	TYPE:Weapon Group ~ Polearm.Deadly d10.Trip
+Shield			TYPE:Bludgeoning	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Weapon Group ~ Shield.Agile
+Shortsword			TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Piercing	TYPE:Weapon Group ~ Sword.Agile.Finesse.Versatile S
+Starknife			TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Piercing.Ranged.Thrown	TYPE:Weapon Group ~ Knife.Agile.Deadly d6.Finesse.Thrown 20.Versatile S
+Trident			TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Piercing.Ranged.Thrown	TYPE:Weapon Group ~ Spear.Thrown 20
+War flail			TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Bludgeoning	TYPE:Weapon Group ~ Flail.Disarm.Sweep.Trip
+Warhammer			TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Bludgeoning	TYPE:Weapon Group ~ Hammer.Shove
+Whip				TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Slashing	TYPE:Weapon Group ~ Flail.Disarm.Finesse.Nonlethal.Reach.Trip
+
+
+# 6-6 Simple Ranged Weapons
+Blowgun			TYPE:Weapon.Ranged.Simple Ranged.Simple Weapons.Ranged.Piercing.Ranged	TYPE:Weapon Group ~ Dart.Agile.Nonlethal
+Crossbow			TYPE:Weapon.Ranged.Simple Ranged.Simple Weapons.Ranged.Piercing.Ranged	TYPE:Weapon Group ~ Bow
+Dart				TYPE:Weapon.Ranged.Simple Ranged.Simple Weapons.Ranged.Piercing.Ranged.Thrown	TYPE:Weapon Group ~ Dart.Agile.Thrown
+Hand crossbow		TYPE:Weapon.Ranged.Simple Ranged.Simple Weapons.Ranged.Piercing.Ranged	TYPE:Weapon Group ~ Bow
+Heavy crossbow		TYPE:Weapon.Ranged.Simple Ranged.Simple Weapons.Ranged.Piercing.Ranged	TYPE:Weapon Group ~ Bow
+Javelin			TYPE:Weapon.Ranged.Simple Ranged.Simple Weapons.Ranged.Piercing.Ranged.Thrown	TYPE:Weapon Group ~ Dart.Thrown
+Sling				TYPE:Weapon.Ranged.Simple Ranged.Simple Weapons.Ranged.Bludgeoning.Ranged	TYPE:Weapon Group ~ Sling.Propulsive
+
+
+# Martial Ranged Weapons
+Composite longbow		TYPE:Weapon.Ranged.Martial Ranged.Martial Weapons.Ranged.Piercing.Ranged	TYPE:Weapon Group ~ Bow.Deadly d10.Propulsive.Volley
+Composite shortbow	TYPE:Weapon.Ranged.Martial Ranged.Martial Weapons.Ranged.Piercing.Ranged	TYPE:Weapon Group ~ Bow.Deadly d10.Propulsive
+Longbow			TYPE:Weapon.Ranged.Martial Ranged.Martial Weapons.Ranged.Piercing.Ranged	TYPE:Weapon Group ~ Bow.Deadly d10.Volley
+Shortbow			TYPE:Weapon.Ranged.Martial Ranged.Martial Weapons.Ranged.Piercing.Ranged	TYPE:Weapon Group ~ Bow.Deadly d10
+
+
+# Uncommon Simple Melee Weapons
+Clan dagger			TYPE:Weapon.Melee.Simple Melee.Simple Weapons.Piercing	TYPE:Weapon Group ~ Knife.Dwarf.Parry.Versatile B
+Katar				TYPE:Weapon.Melee.Simple Melee.Simple Weapons.Piercing	TYPE:Weapon Group ~ Knife.Agile.Deadly d6.Monk
+
+
+# Uncommon Martial Melee Weapons
+Dogslicer			TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Slashing	TYPE:Weapon Group ~ Sword.Agile.Backstabber.Finesse.Goblin
+Elven curve blade		TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Slashing	TYPE:Weapon Group ~ Sword.Elf.Finesse.Forceful
+Filcher's fork		TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Piercing.Ranged.Thrown	TYPE:Weapon Group ~ Spear.Agile.Backstabber.Deadly d6.Finesse.Halfling.Thrown 20
+Gnome hooked hammer	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Bludgeoning	TYPE:Weapon Group ~ Hammer.Gnome.Trip.Two-hand d10.Versatile P
+Horsechopper		TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Slashing	TYPE:Weapon Group ~ Polearm.Goblin.Reach.Trip.Versatile P
+Kama				TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Slashing	TYPE:Weapon Group ~ Knife.Agile.Monk.Trip
+Katana			TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Slashing	TYPE:Weapon Group ~ Sword.Versatile P
+Kukri				TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Slashing	TYPE:Weapon Group ~ Knife.Agile.Finesse.Trip
+Nunchaku			TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Bludgeoning	TYPE:Weapon Group ~ Club.Backswing.Disarm.Finesse.Monk
+Orc knuckle dagger	TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Piercing	TYPE:Weapon Group ~ Knife.Agile.Disarm.Orc
+Sai				TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Piercing	TYPE:Weapon Group ~ Knife.Agile.Disarm.Finesse.Monk.Versatile B
+Spiked chain		TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Slashing	TYPE:Weapon Group ~ Flail.Disarm.Finesse.Trip
+Temple sword		TYPE:Weapon.Melee.Martial Melee.Martial Weapons.Slashing	TYPE:Weapon Group ~ Sword.Monk.Trip
+
+
+# Uncommon Exotic Melee Weapons
+Dwarven waraxe		TYPE:Weapon.Melee.Advanced Melee.Advanced Weapons.Slashing	TYPE:Weapon Group ~ Axe.Dwarf.Sweep.Two-hand d12
+Gnome flickmace		TYPE:Weapon.Melee.Advanced Melee.Advanced Weapons.Bludgeoning	TYPE:Weapon Group ~ Flail.Gnome.Reach
+Orc necksplitter		TYPE:Weapon.Melee.Advanced Melee.Advanced Weapons.Slashing	TYPE:Weapon Group ~ Knife.Forceful.Orc.Versatile P
+Sawtooth sabre		TYPE:Weapon.Melee.Advanced Melee.Advanced Weapons.Slashing	TYPE:Weapon Group ~ Sword.Agile.Finesse.Twin
+
+
+# Uncommon Martial Ranged Weapons
+Halfling sling staff	TYPE:Weapon.Ranged.Martial Ranged.Martial Weapons.Piercing.Bludgeoning.Ranged	TYPE:Weapon Group ~ Sling.Halfling.Propulsive
+Shuriken			TYPE:Weapon.Ranged.Martial Ranged.Martial Weapons.Piercing.Piercing.Ranged.Thrown	TYPE:Weapon Group ~ Dart.Agile.Monk.Thrown 20
+
+
+Heavy shield
+Light shield

@@ -1,0 +1,11 @@
+# Mon Oct 28 08:06:48 2019 -- reformatted by PCGen TidyLst v1.04.00
+
+# Armor Name	Unique Key
+Light
+Medium
+Heavy
+
+# Barding
+Light Barding	KEY:Barding (Light)
+Medium Barding	KEY:Barding (Medium)
+Heavy Barding	KEY:Barding (Heavy)

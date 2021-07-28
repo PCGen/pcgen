@@ -1,0 +1,156 @@
+# Mon Mar 30 11:44:41 2020 -- reformatted by PCGen TidyLst v1.04.00
+# Created January, 2015 Tom Parker
+# This file represents a conversion mechanism for items that were previously
+# stand-alone tokens, but are now handled internally as FACT or FACTSET.
+#
+# This file does not need to be referenced by a set of data or game mode
+# unless that data uses a data control file (DATACONTROL: in a PCC file)
+#
+# Once a dataset takes on the responsibility of a DATACONTROL file, then it
+# MUST include these entries (or something near equivalent [additional
+# SELECT-ability would be legal]) in one of the DATACONTROL files.
+
+# This MUST be included if you enable the datacontrol file....
+# Name				Dataformat			Required	Selectable		Visible	Displayname		Explanation
+# Fact Definition			Data type			Selectability	Visibility
+FACTDEF:SPELL|CompMaterial	DATAFORMAT:String					VISIBLE:YES
+# Name				Dataformat			Required	Selectable		Visible	Displayname		Explanation
+FACTDEF:ABILITY|AppliedName	DATAFORMAT:String					VISIBLE:YES
+
+FACTDEF:CLASS|Abb			DATAFORMAT:String					VISIBLE:YES
+FACTDEF:CLASS|ClassType		DATAFORMAT:String					VISIBLE:YES
+FACTDEF:CLASS|SpellType		DATAFORMAT:String		SELECTABLE:YES	VISIBLE:YES
+
+FACTDEF:DEITY|Symbol		DATAFORMAT:String					VISIBLE:YES
+FACTDEF:DEITY|Worshippers	DATAFORMAT:String					VISIBLE:YES
+FACTDEF:DEITY|Title		DATAFORMAT:String					VISIBLE:YES
+FACTDEF:DEITY|Appearance	DATAFORMAT:String					VISIBLE:YES
+FACTDEF:DEITY|Edicts		DATAFORMAT:String					VISIBLE:YES
+FACTDEF:DEITY|Anathema		DATAFORMAT:String					VISIBLE:YES
+FACTDEF:DEITY|Domain		DATAFORMAT:Boolean				VISIBLE:YES
+
+FACTDEF:EQUIPMENT|RateOfFire	DATAFORMAT:String					VISIBLE:YES
+
+FACTDEF:TEMPLATE|AppliedName	DATAFORMAT:String					VISIBLE:YES
+
+# Fact Set Definition		Data type		Selectability	Visibility
+FACTSETDEF:DEITY|Pantheon	DATAFORMAT:String	SELECTABLE:YES	VISIBLE:YES
+FACTSETDEF:DEITY|Race		DATAFORMAT:String				VISIBLE:YES
+
+
+# This is my attempt to implement the FACT system to replicate the deprecated PRETYPE to determine whether a given race is initially allowed traits
+# Fact Definition			Data type			Necessity	Selectability	Visibility	Name for display	What it's for
+FACTDEF:RACE|IsPC			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:IsPC	EXPLANATION:Determines whether a race is a PC to begin with.
+FACTDEF:RACE|IsCompanion	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:IsPC	EXPLANATION:Determines whether a race is a Companion to begin with.
+
+FACTDEF:RACE|Hands		DATAFORMAT:Number		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:IsPC	EXPLANATION:Determines base race ~ Hands.
+FACTDEF:RACE|Legs			DATAFORMAT:Number		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:IsPC	EXPLANATION:Determines base race ~ Legs.
+
+FACTDEF:RACE|BaseMove_Walk	DATAFORMAT:Number		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:IsPC	EXPLANATION:Determines base race ~ Movement Walk.
+FACTDEF:RACE|BaseMove_Fly	DATAFORMAT:Number		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:IsPC	EXPLANATION:Determines base race ~ Movement Fly.
+FACTDEF:RACE|BaseMove_Climb	DATAFORMAT:Number		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:IsPC	EXPLANATION:Determines base race ~ Movement Climb.
+FACTDEF:RACE|BaseMove_Swim	DATAFORMAT:Number		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:IsPC	EXPLANATION:Determines base race ~ Movement Swim.
+FACTDEF:RACE|BaseMove_Burrow	DATAFORMAT:Number		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:IsPC	EXPLANATION:Determines base race ~ Movement Burrow.
+
+FACTDEF:ABILITY|GrantWalk	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:IsPC	EXPLANATION:Determines whether a race is granted a movement mode.
+FACTDEF:ABILITY|GrantFly	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:IsPC	EXPLANATION:Determines whether a race is granted a movement mode.
+FACTDEF:ABILITY|GrantSwim	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:IsPC	EXPLANATION:Determines whether a race is granted a movement mode.
+FACTDEF:ABILITY|GrantClimb	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:IsPC	EXPLANATION:Determines whether a race is granted a movement mode.
+FACTDEF:ABILITY|GrantBurrow	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:IsPC	EXPLANATION:Determines whether a race is granted a movement mode.
+
+
+
+FACTDEF:ABILITY|IsPC		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:IsPC	EXPLANATION:Determines whether a race is a PC to begin with.
+
+
+###Block: RACE "TYPE" replacement
+# Currently we use PRERACETYPE - A CLASS tag only - to allow a changed creature RACETYPE to still access their original racial HD class.
+# This transition aims to remove that reliance. Switching to a simple Boolean based upon the starting racetype "FACT"
+# Name			Dataformat		Required	Selectable		Visible	Displayname			Explanation
+# Fact Definition		Data type		Necessity	Selectability	Visibility	Name for display		What it's for
+FACTDEF:RACE|RACETYPE	DATAFORMAT:String	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:RaceType	EXPLANATION:Determines what the 'RACE TYPE' is.
+
+
+
+
+
+
+###Block: Saves File
+# Name						Dataformat				Required	Selectable		Visible	Displayname			Explanation
+# Fact Definition		Data type		Visibility	What it's for
+FACTDEF:CHECK|MainStat	DATAFORMAT:STRING	VISIBLE:YES	EXPLANATION:Output the Stat a save uses to the OS
+
+
+#############################
+#	Formula Parser
+############################
+#COMMENT: Formula System Defaults
+DEFAULTVARIABLEVALUE:ORDEREDPAIR|0,0
+DEFAULTVARIABLEVALUE:NUMBER|0
+DEFAULTVARIABLEVALUE:DICE|0
+DEFAULTVARIABLEVALUE:BOOLEAN|False
+DEFAULTVARIABLEVALUE:STRING|
+DEFAULTVARIABLEVALUE:ALIGNMENT|None
+DEFAULTVARIABLEVALUE:HANDED|Right
+DEFAULTVARIABLEVALUE:DEITY|None
+
+# Function Name	Function Value
+FUNCTION:d20Mod	VALUE:floor((arg(0)-10)/2)
+
+
+DYNAMICSCOPE:MOVEMENT
+DYNAMICSCOPE:VISION
+
+# Fact Definition					Data type				Necessity	Selectability	Visibility	Name for display				What it's for
+FACTDEF:RACE|BaseSize				DATAFORMAT:SIZEADJUSTMENT	REQUIRED:NO				VISIBLE:YES							EXPLANATION:All Races must have a Size - in the case of multiple sizes, use the SMALLEST allowed.
+
+FACTDEF:RACE|Speed				DATAFORMAT:STRING			REQUIRED:NO				VISIBLE:YES							EXPLANATION:All Races have a speed.
+
+
+# Subdomain / Domain Support
+
+#FACTDEF:DOMAIN|Domain				DATAFORMAT:STRING			REQUIRED:NO	SELECTABLE:NO	VISIBLE:NO	DISPLAYNAME:Domain			EXPLANATION:Makes referencing the domain easier
+
+
+
+
+#############################
+#	NEW PF 2 Specific Rules
+###############################
+
+FACTDEF:ABILITY|AltAbilityGeneration	DATAFORMAT:BOOLEAN		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Alt Ability Generation	EXPLANATION:Determines whether to use alternative rules
+
+FACTDEF:ABILITY|EnigmaMuse			DATAFORMAT:BOOLEAN		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Enigma Muse			EXPLANATION:Determines whether you have an Enigma Muse
+FACTDEF:ABILITY|MaestroMuse			DATAFORMAT:BOOLEAN		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Maestro Muse		EXPLANATION:Determines whether you have an Maestro Muse
+FACTDEF:ABILITY|PolymathMuse			DATAFORMAT:BOOLEAN		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Polymath Muse		EXPLANATION:Determines whether you have an Polymath Muse
+
+
+FACTDEF:ABILITY|Champion_Paladin		DATAFORMAT:BOOLEAN		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Champion_Paladin		EXPLANATION:Determines whether you have an Champion_Paladin
+FACTDEF:ABILITY|Champion_Redeemer		DATAFORMAT:BOOLEAN		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Champion_Redeemer		EXPLANATION:Determines whether you have an Champion_Redeemer
+FACTDEF:ABILITY|Champion_Liberator		DATAFORMAT:BOOLEAN		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Champion_Liberator	EXPLANATION:Determines whether you have an Champion_Liberator
+
+# Races
+FACTDEF:ABILITY|Dwarf				DATAFORMAT:BOOLEAN		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Dwarf				EXPLANATION:Determines whether the race started as - Dwarf
+FACTDEF:ABILITY|Elf				DATAFORMAT:BOOLEAN		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Elf				EXPLANATION:Determines whether the race started as - Elf
+FACTDEF:ABILITY|Gnome				DATAFORMAT:BOOLEAN		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Gnome				EXPLANATION:Determines whether the race started as - Gnome
+FACTDEF:ABILITY|Goblin				DATAFORMAT:BOOLEAN		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Goblin			EXPLANATION:Determines whether the race started as - Goblin
+FACTDEF:ABILITY|Halfling			DATAFORMAT:BOOLEAN		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Halfling			EXPLANATION:Determines whether the race started as - Halfling
+FACTDEF:ABILITY|Human				DATAFORMAT:BOOLEAN		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Human				EXPLANATION:Determines whether the race started as - Human
+FACTDEF:ABILITY|Half-Elf			DATAFORMAT:BOOLEAN		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Half-Elf			EXPLANATION:Determines whether the race started as - Half-Elf
+FACTDEF:ABILITY|Half-Orc			DATAFORMAT:BOOLEAN		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Half-Orc			EXPLANATION:Determines whether the race started as - Half-Orc
+FACTDEF:ABILITY|Orc				DATAFORMAT:BOOLEAN		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Orc				EXPLANATION:Determines whether the race started as - Orc
+
+###
+FACTDEF:ABILITY|Aberration			DATAFORMAT:BOOLEAN		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Aberration			EXPLANATION:Determines whether the race started as - Aberration
+FACTDEF:ABILITY|Animal				DATAFORMAT:BOOLEAN		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Animal			EXPLANATION:Determines whether the race started as - Animal
+FACTDEF:ABILITY|Construct			DATAFORMAT:BOOLEAN		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Construct			EXPLANATION:Determines whether the race started as - Construct
+FACTDEF:ABILITY|Dragon				DATAFORMAT:BOOLEAN		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Dragon			EXPLANATION:Determines whether the race started as - Dragon
+FACTDEF:ABILITY|Fey				DATAFORMAT:BOOLEAN		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Fey				EXPLANATION:Determines whether the race started as - Fey
+FACTDEF:ABILITY|Humanoid			DATAFORMAT:BOOLEAN		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Humanoid			EXPLANATION:Determines whether the race started as - Humanoid
+FACTDEF:ABILITY|Magical_Beast			DATAFORMAT:BOOLEAN		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Magical_Beast		EXPLANATION:Determines whether the race started as - Magical_Beast
+FACTDEF:ABILITY|Monstrous_Humanoid		DATAFORMAT:BOOLEAN		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Monstrous_Humanoid	EXPLANATION:Determines whether the race started as - Monstrous_Humanoid
+FACTDEF:ABILITY|Ooze				DATAFORMAT:BOOLEAN		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Ooze				EXPLANATION:Determines whether the race started as - Ooze
+FACTDEF:ABILITY|Outsider			DATAFORMAT:BOOLEAN		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Outsider			EXPLANATION:Determines whether the race started as - Outsider
+FACTDEF:ABILITY|Plant				DATAFORMAT:BOOLEAN		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Plant				EXPLANATION:Determines whether the race started as - Plant
+FACTDEF:ABILITY|Undead				DATAFORMAT:BOOLEAN		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Undead			EXPLANATION:Determines whether the race started as - Undead
+FACTDEF:ABILITY|Vermin				DATAFORMAT:BOOLEAN		REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vermin			EXPLANATION:Determines whether the race started as - Vermin

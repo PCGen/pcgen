@@ -1,0 +1,9 @@
+# Sat Sep 21 13:31:46 2019 -- reformatted by PCGen TidyLst v1.04.00
+
+# Name
+MODIFY:Face|SET|5,5|PRIORITY=5
+
+#MODIFYOTHER:Movement|SPEED|SET|5
+
+MODIFY:Race_Hands|SET|if(RaceType_Humanoid,2,0)|PRIORITY=5
+MODIFY:Race_Legs|SET|if(RaceType_Humanoid,2,0)|PRIORITY=5

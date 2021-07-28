@@ -1,0 +1,54 @@
+#  Sun Aug  5 21:24:58 2018 -- reformated by PCGen PrettyLST v6.06.00
+
+# Common Languages
+# Language		Type				Description
+Common		TYPE:Spoken.Common	DESC:Humans, dwarves, elves, halflings, and other common ancestries
+Draconic		TYPE:Spoken.Common	DESC:Dragons, reptilian humanoids
+Dwarven		TYPE:Spoken.Common	DESC:Dwarves
+Elven			TYPE:Spoken.Common	DESC:Elves, half-elves
+Gnomish		TYPE:Spoken.Common	DESC:Gnomes
+Goblin		TYPE:Spoken.Common	DESC:Goblins, hobgoblins, bugbears
+Halfling		TYPE:Spoken.Common	DESC:Halflings
+Jotun			TYPE:Spoken.Common	DESC:Giants, ogres, trolls, ettins, cyclopes
+Orcish		TYPE:Spoken.Common	DESC:Orcs, half-orcs
+Sylvan		TYPE:Spoken.Common	DESC:Fey, centaurs, plant creatures
+Undercommon		TYPE:Spoken.Common	DESC:Drow, duergar, morlocks
+
+# Uncommon Languages
+Abyssal		TYPE:Spoken.Uncommon	DESC:Demons
+Aklo			TYPE:Spoken.Uncommon	DESC:Derros, otherworldly monsters, evil fey
+Aquan			TYPE:Spoken.Uncommon	DESC:Aquatic creatures, water elemental creatures
+Auran			TYPE:Spoken.Uncommon	DESC:Flying creatures, air elemental creatures
+Celestial		TYPE:Spoken.Uncommon	DESC:Angels
+Gnoll			TYPE:Spoken.Uncommon	DESC:Gnolls
+Ignan			TYPE:Spoken.Uncommon	DESC:Fire creatures
+Infernal		TYPE:Spoken.Uncommon	DESC:Devils
+Necril		TYPE:Spoken.Uncommon	DESC:Ghouls, intelligent undead
+Shadowtongue	TYPE:Spoken.Uncommon	DESC:Nidalese, Shadow Plane creatures
+Terran		TYPE:Spoken.Uncommon	DESC:Earth creatures
+
+# Regional Languages - Page 432
+Hallit		TYPE:Spoken.Uncommon	DESC:Irrisen, Mendev, Realm of the Mammoth Lords, Numeria, Sarkoris
+Kelish		TYPE:Spoken.Uncommon	DESC:Absalom, Katapesh, Qadira
+Mwangi		TYPE:Spoken.Uncommon	DESC:Mwangi Expanse, Sargava, the Shackles, the Sodden Lands, Thuvia
+Osiriani		TYPE:Spoken.Uncommon	DESC:Absalom, Geb, Katapesh, Mana Wastes, Nex, Osirion, Rahadoum, Thuvia
+Shoanti		TYPE:Spoken.Uncommon	DESC:Belkzen, Varisia
+Skald			TYPE:Spoken.Uncommon	DESC:Irrisen, Lands of the Linnorm Kings, Ustalav
+Tien			TYPE:Spoken.Uncommon	DESC:Absalom, Lands of the Linnorm Kings, Realm of the Mammoth Lords, Tian Xia
+Varisian		TYPE:Spoken.Uncommon	DESC:Brevoy, Lastwall, Nidal, Nirmathas, Ustalav, Varisia
+Vudrani		TYPE:Spoken.Uncommon	DESC:Jalmeray, Katapesh, Nex
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Secret Language
+Druidic		TYPE:Druid			DESC:Druids
