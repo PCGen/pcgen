@@ -1,0 +1,77 @@
+# Mon Mar 30 11:44:41 2020 -- reformatted by PCGen TidyLst v1.04.00
+
+# Class of the Master					Type				Ability											HP formula based on Master	Define					Bonus Ability Pool				Bonus to HP								Modify VAR
+FOLLOWER:AnimalCompanionLVL=1				TYPE:Animal Companion	ABILITY:Ancestry|AUTOMATIC|Animal Companion Base									DEFINE:AnimalCompanionMasterLVL|0								BONUS:HP|CURRENTMAX|(6+CON)*AnimalCompanionMasterLVL	BONUS:VAR|AnimalCompanionMasterLVL|MASTERVAR("TL")
+FOLLOWER:AnimalCompanionLVL=2				TYPE:Animal Companion
+FOLLOWER:AnimalCompanionLVL=3				TYPE:Animal Companion
+FOLLOWER:AnimalCompanionLVL=4				TYPE:Animal Companion
+FOLLOWER:AnimalCompanionLVL=5				TYPE:Animal Companion
+FOLLOWER:AnimalCompanionLVL=6				TYPE:Animal Companion
+FOLLOWER:AnimalCompanionLVL=7				TYPE:Animal Companion
+FOLLOWER:AnimalCompanionLVL=8				TYPE:Animal Companion
+FOLLOWER:AnimalCompanionLVL=9				TYPE:Animal Companion
+FOLLOWER:AnimalCompanionLVL=10			TYPE:Animal Companion
+FOLLOWER:AnimalCompanionLVL=11			TYPE:Animal Companion
+FOLLOWER:AnimalCompanionLVL=12			TYPE:Animal Companion
+FOLLOWER:AnimalCompanionLVL=13			TYPE:Animal Companion
+FOLLOWER:AnimalCompanionLVL=14			TYPE:Animal Companion
+FOLLOWER:AnimalCompanionLVL=15			TYPE:Animal Companion
+FOLLOWER:AnimalCompanionLVL=16			TYPE:Animal Companion
+FOLLOWER:AnimalCompanionLVL=17			TYPE:Animal Companion
+FOLLOWER:AnimalCompanionLVL=18			TYPE:Animal Companion
+FOLLOWER:AnimalCompanionLVL=19			TYPE:Animal Companion
+FOLLOWER:AnimalCompanionLVL=20			TYPE:Animal Companion
+
+
+
+FOLLOWER:CompanionIsMature=1				TYPE:Animal Companion	ABILITY:Ancestry|AUTOMATIC|Animal Companion ~ Mature
+
+# Incredible
+FOLLOWER:CompanionIsNimble=1				TYPE:Animal Companion	ABILITY:Ancestry|AUTOMATIC|Animal Companion ~ Nimble
+FOLLOWER:CompanionIsSavage=1				TYPE:Animal Companion	ABILITY:Ancestry|AUTOMATIC|Animal Companion ~ Savage
+
+# Specialized
+FOLLOWER:SpecializedAnimalCompanion_Ambusher=1	TYPE:Animal Companion	ABILITY:Ancestry|AUTOMATIC|Specialized Animal Companion ~ Ambusher
+FOLLOWER:SpecializedAnimalCompanion_Bully=1	TYPE:Animal Companion	ABILITY:Ancestry|AUTOMATIC|Specialized Animal Companion ~ Bully
+FOLLOWER:SpecializedAnimalCompanion_Daredevil=1	TYPE:Animal Companion	ABILITY:Ancestry|AUTOMATIC|Specialized Animal Companion ~ Daredevil
+FOLLOWER:SpecializedAnimalCompanion_Racer=1	TYPE:Animal Companion	ABILITY:Ancestry|AUTOMATIC|Specialized Animal Companion ~ Racer
+FOLLOWER:SpecializedAnimalCompanion_Tracker=1	TYPE:Animal Companion	ABILITY:Ancestry|AUTOMATIC|Specialized Animal Companion ~ Tracker
+FOLLOWER:SpecializedAnimalCompanion_Wrecker=1	TYPE:Animal Companion	ABILITY:Ancestry|AUTOMATIC|Specialized Animal Companion ~ Wrecker
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Your familiar's save modifiers and AC are equal to yours before applying circumstance or status bonuses or penalties.
+# Its Perception, Acrobatics, and Stealth modifiers are equal to your level plus your spellcasting ability modifier (Charisma if you don't have one, unless otherwise specified). If it attempts an attack roll or other skill check, it uses your level as its modifier. It doesn't have or use its own ability modifiers and can never benefit from item bonuses.
+
+
+
+FOLLOWER:FamiliarLVL=1					TYPE:Familiar							DEFINE:BonusFamiliarAbility|0		BONUS:VAR|BonusFamiliarAbility|MASTERVAR("BonusFamiliarAbility")					COPYMASTERHP:MASTER*5								BONUS:ABILITYPOOL|Familiar Ability|2+BonusFamiliarAbility
+FOLLOWER:FamiliarLVL=2					TYPE:Familiar
+FOLLOWER:FamiliarLVL=3					TYPE:Familiar
+FOLLOWER:FamiliarLVL=4					TYPE:Familiar
+FOLLOWER:FamiliarLVL=5					TYPE:Familiar
+FOLLOWER:FamiliarLVL=6					TYPE:Familiar
+FOLLOWER:FamiliarLVL=7					TYPE:Familiar
+FOLLOWER:FamiliarLVL=8					TYPE:Familiar
+FOLLOWER:FamiliarLVL=9					TYPE:Familiar
+FOLLOWER:FamiliarLVL=10					TYPE:Familiar
+FOLLOWER:FamiliarLVL=11					TYPE:Familiar
+FOLLOWER:FamiliarLVL=12					TYPE:Familiar
+FOLLOWER:FamiliarLVL=13					TYPE:Familiar
+FOLLOWER:FamiliarLVL=14					TYPE:Familiar
+FOLLOWER:FamiliarLVL=15					TYPE:Familiar
+FOLLOWER:FamiliarLVL=16					TYPE:Familiar
+FOLLOWER:FamiliarLVL=17					TYPE:Familiar
+FOLLOWER:FamiliarLVL=18					TYPE:Familiar
+FOLLOWER:FamiliarLVL=19					TYPE:Familiar
+FOLLOWER:FamiliarLVL=20					TYPE:Familiar

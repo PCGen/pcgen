@@ -1,0 +1,172 @@
+# Mon Oct 28 08:06:48 2019 -- reformatted by PCGen TidyLst v1.04.00
+# TABLE 6â€"9: ADVENTURING GEAR
+# Equipment Name						Type		Cost		Weight	Modify VAR			Quality and value					Special Property
+Alchemist's Tools						TYPE:Gear	COST:5	WT:2		BONUS:VAR|Bulk|2		QUALITY:Bulk|2	QUALITY:Hands|2		SPROP:These beakers and chemicals can be used to set up a mobile alchemical laboratory.
+Alchemist's Tools (Expanded Lvl 3)			TYPE:Gear	COST:55	WT:2		BONUS:VAR|Bulk|2		QUALITY:Bulk|2	QUALITY:Hands|2		SPROP:These beakers and chemicals can be used to set up a mobile alchemical laboratory. Expanded alchemistâ€™s tools give a +1 item bonus to Crafting checks to create alchemical items.
+Artisan's Tools						TYPE:Gear	COST:4	WT:2		BONUS:VAR|Bulk|2		QUALITY:Bulk|2	QUALITY:Hands|2		SPROP:You need these tools to create items from raw materials with the Craft skill.
+Artisan's Tools (Sterling Lvl 3)			TYPE:Gear	COST:50	WT:2		BONUS:VAR|Bulk|2		QUALITY:Bulk|2	QUALITY:Hands|2		SPROP:You need these tools to create items from raw materials with the Craft skill. Sterling artisanâ€™s tools give you a +1 item bonus to the check.
+Backpack							TYPE:Gear	COST:0.1	WT:0		BONUS:VAR|Bulk|0		QUALITY:Bulk|0	QUALITY:Hands|-		SPROP:A backpack holds up to 4 Bulk of items. If youâ€™re carrying or stowing the pack rather than wearing it on your back, its bulk is light instead of negligible.
+Bandolier							TYPE:Gear	COST:0.1	WT:0		BONUS:VAR|Bulk|0		QUALITY:Bulk|0	QUALITY:Hands|-		SPROP:A bandolier holds up to eight items of light Bulk within easy reach and is usually used for alchemical items or potions. If you are carrying or stowing a bandolier rather than wearing it around your chest, it has light Bulk instead of negligible. A bandolier can be dedicated to a full set of tools, such as healerâ€™s tools, allowing you to draw the tools as part of the action that requires them.
+Basic Crafter's Book					TYPE:Gear	COST:0.1	WT:0.1	BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|2		SPROP:This book contains the formulas for all the common items in this chapter.
+Bedroll							TYPE:Gear	COST:0.01	WT:0.1	BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|-
+Belt Pouch							TYPE:Gear	COST:0.04	WT:0		BONUS:VAR|Bulk|0		QUALITY:Bulk|-	QUALITY:Hands|-		SPROP:A belt pouch can hold up to 4 items of light Bulk.
+Caltrops							TYPE:Gear	COST:0.3	WT:0.1	BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|1		SPROP:These four-pronged metal spikes can cause damage to a creatureâ€™s feet. You can scatter caltrops in an empty square adjacent to you with an Interact action. The first creature that moves into that square must succeed at a DC 14 Acrobatics check or take 1d4 piercing damage and 1 persistent bleed damage. A creature taking persistent bleed damage from caltrops takes a â€"5-foot penalty to its Speed. Spending an Interact action to pluck the caltrops free reduces the DC to stop the bleeding. Once a creature takes damage from caltrops, enough caltrops are ruined that other creatures moving into the square are safe
+Candle (10)							TYPE:Gear	COST:0.01	WT:0		BONUS:VAR|Bulk|0		QUALITY:Bulk|-	QUALITY:Hands|1		SPROP:A lit candle sheds dim light in a 10-foot radius.
+Chain (10')							TYPE:Gear	COST:4	WT:1		BONUS:VAR|Bulk|1		QUALITY:Bulk|1	QUALITY:Hands|2
+Chalk (10)							TYPE:Gear	COST:0.01	WT:0		BONUS:VAR|Bulk|0		QUALITY:Bulk|-	QUALITY:Hands|1
+Chest								TYPE:Gear	COST:0.6	WT:2		BONUS:VAR|Bulk|2		QUALITY:Bulk|2	QUALITY:Hands|2		SPROP:A wooden chest can hold up to 8 Bulk of items.
+Climbing Kit						TYPE:Gear	COST:0.5	WT:1		BONUS:VAR|Bulk|1		QUALITY:Bulk|1	QUALITY:Hands|2		SPROP:This satchel includes 50 feet of rope, pulleys, a dozen pitons, a hammer, a grappling hook, and one set of crampons. Climbing kits allow you to attach yourself to the wall youâ€™re Climbing, moving half as quickly as usual (minimum 5 feet) but letting you attempt a DC 5 flat check whenever you critically fail to prevent a fall.
+Climbing Kit (Extreme)					TYPE:Gear	COST:40	WT:1		BONUS:VAR|Bulk|1		QUALITY:Bulk|1	QUALITY:Hands|2		SPROP:This satchel includes 50 feet of rope, pulleys, a dozen pitons, a hammer, a grappling hook, and one set of crampons. Climbing kits allow you to attach yourself to the wall youâ€™re Climbing, moving half as quickly as usual (minimum 5 feet) but letting you attempt a DC 5 flat check whenever you critically fail to prevent a fall. You gain a +1 item bonus to Athletics checks to Climb while using an extreme climbing kit.
+Clothing (Ordinary)					TYPE:Gear	COST:0.1	WT:0		BONUS:VAR|Bulk|0		QUALITY:Bulk|-	QUALITY:Hands|-		SPROP:Ordinary clothing is functional and decently tailored, such as peasant garb, monk's robes, traveler's attire, or work clothes.
+Clothing (Explorer's)					TYPE:Gear	COST:0.1	WT:0.1	BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|-		SPROP:Explorerâ€™s clothing is sturdy enough that it can be reinforced to protect you, even though it isnâ€™t a suit of armor.
+Clothing (Fine)						TYPE:Gear	COST:2	WT:0.1	BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|-		SPROP:Fine clothing, suitable for a noble or royal, is made with expensive fabrics, precious metals, and intricate patterns.
+Clothing (High-fasioned fine Lvl 3)			TYPE:Gear	COST:55	WT:0.1	BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|-		SPROP:Fine clothing, suitable for a noble or royal, is made with expensive fabrics, precious metals, and intricate patterns. You gain a +1 item bonus to checks to Make an Impression on nobility or other upper-class folk while wearing highfashion fine clothing.
+Clothing (Winter)						TYPE:Gear	COST:0.4	WT:0.1	BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|-		SPROP:Winter clothing allows you to negate the damage from severe environmental cold and reduce the damage from extreme cold to that of severe cold.
+Compass							TYPE:Gear	COST:1	WT:0		BONUS:VAR|Bulk|0		QUALITY:Bulk|-	QUALITY:Hands|1		SPROP:A compass helps you Sense Direction or navigate, provided youâ€™re in a location with uniform magnetic fields. Without a compass, you take a â€"2 item penalty to these checks (similar to using a shoddy item).
+Compass (lensatic Lvl 3)				TYPE:Gear	COST:20	WT:0		BONUS:VAR|Bulk|0		QUALITY:Bulk|-	QUALITY:Hands|1		SPROP:A compass helps you Sense Direction or navigate, provided youâ€™re in a location with uniform magnetic fields. Without a compass, you take a â€"2 item penalty to these checks (similar to using a shoddy item). A lensatic compass gives you a +1 item bonus to these checks.
+Cookware							TYPE:Gear	COST:1	WT:2		BONUS:VAR|Bulk|2		QUALITY:Bulk|2	QUALITY:Hands|2
+Crowbar							TYPE:Gear	COST:0.5	WT:0.1	BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|2		SPROP:When Forcing Open an object that doesnâ€™t have an easy grip, a crowbar makes it easier to gain the necessary leverage. Without a crowbar, prying something open takes a â€"2 item penalty to the Athletics check to Force Open.
+Crowbar (Levered Lvl 3)					TYPE:Gear	COST:20	WT:0.1	BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|2		SPROP:When Forcing Open an object that doesnâ€™t have an easy grip, a crowbar makes it easier to gain the necessary leverage. Without a crowbar, prying something open takes a â€"2 item penalty to the Athletics check to Force Open. A levered crowbar grants you a +1 item bonus to Athletics checks to Force Open anything that can be pried open.
+Disguise Kit						TYPE:Gear	COST:2	WT:0.1	BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|2		SPROP:This small wooden box contains cosmetics, false facial hair, spirit gum, and a few simple wigs. You usually need a disguise kit to set up a disguise in order to Impersonate someone using the Deception skill.
+Disguise Kit (Replacement Cosmetics)		TYPE:Gear	COST:0.2	WT:0		BONUS:VAR|Bulk|0		QUALITY:Bulk|-	QUALITY:Hands|-		SPROP:This small wooden box contains cosmetics, false facial hair, spirit gum, and a few simple wigs. You usually need a disguise kit to set up a disguise in order to Impersonate someone using the Deception skill.
+Disguise Kit (Elite Lvl 3)				TYPE:Gear	COST:40	WT:0.1	BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|2		SPROP:This small wooden box contains cosmetics, false facial hair, spirit gum, and a few simple wigs. You usually need a disguise kit to set up a disguise in order to Impersonate someone using the Deception skill. An elite disguise kit adds a +1 item bonus to relevant checks.
+Disguise Kit (Elite Cosmetics Lvl 3)		TYPE:Gear	COST:0.5	WT:0		BONUS:VAR|Bulk|0		QUALITY:Bulk|-	QUALITY:Hands|-		SPROP:This small wooden box contains cosmetics, false facial hair, spirit gum, and a few simple wigs. You usually need a disguise kit to set up a disguise in order to Impersonate someone using the Deception skill. An elite disguise kit adds a +1 item bonus to relevant checks.
+Fishing Tackle						TYPE:Gear	COST:0.8	WT:1		BONUS:VAR|Bulk|1		QUALITY:Bulk|1	QUALITY:Hands|2		SPROP:This kit include a collapsible fishing pole, fishhooks, line, lures, and a fishing net.
+Fishing Tackle (Professional Lvl 3)			TYPE:Gear	COST:20	WT:1		BONUS:VAR|Bulk|1		QUALITY:Bulk|1	QUALITY:Hands|2		SPROP:This kit include a collapsible fishing pole, fishhooks, line, lures, and a fishing net. Professional fishing tackle grants a +1 item bonus to checks to fish.
+Flint and Steel						TYPE:Gear	COST:0.05	WT:0		BONUS:VAR|Bulk|0		QUALITY:Bulk|-	QUALITY:Hands|2		SPROP:Flint and steel are useful in creating a fire if you have the time to catch a spark, though using them is typically too time-consuming to be possible during an encounter. Even in ideal conditions, using flint and steel to light a flame requires at least 3 actions, and often significantly longer.
+Formula Book						TYPE:Gear	COST:1	WT:1		BONUS:VAR|Bulk|1		QUALITY:Bulk|1	QUALITY:Hands|1		SPROP:A formula book holds the formulas necessary to make items other than the common equipment from this chapter; alchemists typically get one for free. Each formula book can hold the formulas for up to 100 different items.
+Grappling Hook						TYPE:Gear	COST:0.1	WT:0.1	BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|1		SPROP:You can throw a grappling hook with a rope tied to it to make a climb easier. To anchor a grappling hook, make an attack roll with the secret trait against a DC depending on the target, typically at least DC 20. On a success, your hook has a firm hold, but on a critical failure, the hook seems like it will hold but actually falls when youâ€™re partway up.
+Hammer							TYPE:Gear	COST:0.1	WT:0.1	BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|1
+Healer's Tools						TYPE:Gear	COST:5	WT:1		BONUS:VAR|Bulk|1		QUALITY:Bulk|1	QUALITY:Hands|2		SPROP:This kit of bandages, herbs, and suturing tools is necessary for Medicine checks to Administer First Aid, Treat Disease, Treat Poison, or Treat Wounds.
+Healer's Tools (Expanded Lvl 3)			TYPE:Gear	COST:50	WT:1		BONUS:VAR|Bulk|1		QUALITY:Bulk|1	QUALITY:Hands|2		SPROP:This kit of bandages, herbs, and suturing tools is necessary for Medicine checks to Administer First Aid, Treat Disease, Treat Poison, or Treat Wounds. Expanded healerâ€™s tools provide a +1 item bonus to such checks.
+Holly and Mistletoe					TYPE:Gear	COST:0	WT:0		BONUS:VAR|Bulk|0		QUALITY:Bulk|-	QUALITY:Hands|1		SPROP:Plants of supernatural significance provide a primal focus for primal spellcasters, such as druids, when using certain abilities and casting some spells.
+Hourglass							TYPE:Gear	COST:3	WT:0.1	BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|1
+Ladder (10')						TYPE:Gear	COST:0.03	WT:3		BONUS:VAR|Bulk|3		QUALITY:Bulk|3	QUALITY:Hands|2
+Lantern (Bull's-eye)					TYPE:Gear	COST:1	WT:1		BONUS:VAR|Bulk|1		QUALITY:Bulk|1	QUALITY:Hands|1		SPROP:A bullâ€™s-eye lantern emits its light in a 60-foot cone (and dim light in the next 60 feet).
+Lantern (Hooded)						TYPE:Gear	COST:0.7	WT:0.1	BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|1		SPROP:A hooded lantern sheds light in a 30â€'foot radius (and dim light in the next 30 feet) and is equipped with shutters, which you can close to block the light. Closing or opening the shutters takes an Interact action.
+Lock (Poor Lvl 0)						TYPE:Gear	COST:0.2	WT:0		BONUS:VAR|Bulk|0		QUALITY:Bulk|0	QUALITY:Hands|2		SPROP:Picking a poor lock requires two successful DC 15 Thievery checks.
+Lock (Simple Lvl 1)					TYPE:Gear	COST:2	WT:0		BONUS:VAR|Bulk|0		QUALITY:Bulk|0	QUALITY:Hands|2		SPROP:Picking a simple lock requires three successful DC 20 Thievery checks.
+Lock (Average Lvl 3)					TYPE:Gear	COST:15	WT:0		BONUS:VAR|Bulk|0		QUALITY:Bulk|0	QUALITY:Hands|2		SPROP:Picking a average lock requires four successful DC 25 Thievery checks.
+Lock (Good Lvl 9)						TYPE:Gear	COST:200	WT:0		BONUS:VAR|Bulk|0		QUALITY:Bulk|0	QUALITY:Hands|2		SPROP:Picking a good lock requires five successful DC 30 Thievery checks.
+Lock (Superior Lvl 17)					TYPE:Gear	COST:4500	WT:0		BONUS:VAR|Bulk|0		QUALITY:Bulk|0	QUALITY:Hands|2		SPROP:Picking a superior lock requires six successful DC 40 Thievery checks.
+Magnifying Glass (Lvl 3)				TYPE:Gear	COST:40	WT:0		BONUS:VAR|Bulk|0		QUALITY:Bulk|-	QUALITY:Hands|1		SPROP:This quality handheld lens gives you a +1 item bonus to Perception checks to notice minute details of documents, fabric, and the like.
+Manacles (Poor Lvl 0)					TYPE:Gear	COST:0.3	WT:0		BONUS:VAR|Bulk|0		QUALITY:Bulk|-	QUALITY:Hands|2		SPROP:You can manacle someone who is willing or otherwise at your mercy as an exploration activity taking 10â€"30 seconds depending on the creatureâ€™s size and how many manacles you apply. Freeing a creature from poor manacles requires two successful DC 17 Thievery checks.
+Manacles (Simple Lvl 1)					TYPE:Gear	COST:3	WT:0		BONUS:VAR|Bulk|0		QUALITY:Bulk|-	QUALITY:Hands|2		SPROP:You can manacle someone who is willing or otherwise at your mercy as an exploration activity taking 10â€"30 seconds depending on the creatureâ€™s size and how many manacles you apply. Freeing a creature from simple manacles requires three successful DC 22 Thievery checks.
+Manacles (Average Lvl 3)				TYPE:Gear	COST:20	WT:0		BONUS:VAR|Bulk|0		QUALITY:Bulk|-	QUALITY:Hands|2		SPROP:You can manacle someone who is willing or otherwise at your mercy as an exploration activity taking 10â€"30 seconds depending on the creatureâ€™s size and how many manacles you apply. Freeing a creature from average manacles requires four successful DC 27 Thievery checks.
+Manacles (Good Lvl 9)					TYPE:Gear	COST:250	WT:0		BONUS:VAR|Bulk|0		QUALITY:Bulk|-	QUALITY:Hands|2		SPROP:You can manacle someone who is willing or otherwise at your mercy as an exploration activity taking 10â€"30 seconds depending on the creatureâ€™s size and how many manacles you apply. Freeing a creature from good manacles requires five successful DC 32 Thievery checks.
+Manacles (Superior Lvl 17)				TYPE:Gear	COST:5000	WT:0		BONUS:VAR|Bulk|0		QUALITY:Bulk|-	QUALITY:Hands|2		SPROP:You can manacle someone who is willing or otherwise at your mercy as an exploration activity taking 10â€"30 seconds depending on the creatureâ€™s size and how many manacles you apply. Freeing a creature from superior manacles requires six successful DC 42 Thievery checks.
+Material Component Pouch				TYPE:Gear	COST:0.5	WT:0.1	BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|1		SPROP:This pouch contains material components for those spells that require them.
+Merchant's scale						TYPE:Gear	COST:0.2	WT:0.1	BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|2
+Mirror							TYPE:Gear	COST:1	WT:0		BONUS:VAR|Bulk|0		QUALITY:Bulk|-	QUALITY:Hands|1
+Mug								TYPE:Gear	COST:0.01	WT:0		BONUS:VAR|Bulk|0		QUALITY:Bulk|-	QUALITY:Hands|1
+Musical Instrument (Handheld)				TYPE:Gear	COST:0.8	WT:1		BONUS:VAR|Bulk|1		QUALITY:Bulk|1	QUALITY:Hands|2		SPROP:Handheld instruments include bagpipes, a small set of chimes, small drums, fiddles and viols, flutes and recorders, small harps, lutes, trumpets, and similar-sized instruments.
+Musical Instrument (Handheld Virtuoso Lvl 3)	TYPE:Gear	COST:50	WT:1		BONUS:VAR|Bulk|1		QUALITY:Bulk|1	QUALITY:Hands|2		SPROP:Handheld instruments include bagpipes, a small set of chimes, small drums, fiddles and viols, flutes and recorders, small harps, lutes, trumpets, and similar-sized instruments. A virtuoso instrument gives a +1 item bonus to Performance checks using that instrument.
+Musical Instrument (Heavy)				TYPE:Gear	COST:2	WT:16		BONUS:VAR|Bulk|16		QUALITY:Bulk|16	QUALITY:Hands|2		SPROP:Heavy instruments such as large drums, a full set of chimes, and keyboard instruments are less portable and generally need to be stationary while played.
+Musical Instrument (Heavy Virtuoso Lvl 3)		TYPE:Gear	COST:100	WT:16		BONUS:VAR|Bulk|16		QUALITY:Bulk|16	QUALITY:Hands|2		SPROP:Heavy instruments such as large drums, a full set of chimes, and keyboard instruments are less portable and generally need to be stationary while played. A virtuoso instrument gives a +1 item bonus to Performance checks using that instrument.
+Oil (1 pint)						TYPE:Gear	COST:0.01	WT:0		BONUS:VAR|Bulk|0		QUALITY:Bulk|-	QUALITY:Hands|2		SPROP:You can use oil to fuel lanterns, but you can also set a pint of oil aflame and throw it. You must first spend an Interact action preparing the oil, then throw it with another action as a ranged touch attack. If you hit, it splatters on the creature or in a single 5-foot square you target. You must succeed at a DC 10 flat check for the oil to ignite successfully when it hits. If the oil ignites, the target takes 1d6 fire damage.
+Piton								TYPE:Gear	COST:0.01	WT:0		BONUS:VAR|Bulk|0		QUALITY:Bulk|-	QUALITY:Hands|1		SPROP:These small spikes can be used as anchors to make climbing easier.
+Rations (1 week)						TYPE:Gear	COST:0.04	WT:0.1	BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|1
+Religious Symbol (Wooden)				TYPE:Gear	COST:0.1	WT:0.1	BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|1		SPROP:This piece of wood is emblazoned with an image representing a deity. Some divine spellcasters, such as clerics, can use a religious symbol of their deity as a divine focus to use certain abilities and cast some spells. A religious symbol must be held in one hand to use it.
+Religious Symbol (Silver)				TYPE:Gear	COST:2	WT:0.1	BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|1		SPROP:This piece of silver is emblazoned with an image representing a deity. Some divine spellcasters, such as clerics, can use a religious symbol of their deity as a divine focus to use certain abilities and cast some spells. A religious symbol must be held in one hand to use it.
+Religious Text						TYPE:Gear	COST:1	WT:0.1	BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|1		SPROP:This manuscript contains scripture of a particular religion. Some divine spellcasters, such as clerics, can use a religious text as a divine focus to use certain abilities and cast some spells. A religious text must be held in one hand to use it.
+Repair Kit							TYPE:Gear	COST:2	WT:1		BONUS:VAR|Bulk|1		QUALITY:Bulk|1	QUALITY:Hands|2		SPROP:A repair kit allows you to perform simple repairs while traveling. It contains a portable anvil, tongs, woodworking tools, a whetstone, and oils for conditioning leather and wood. You can use a repair kit to Repair items using the Crafting skill.
+Repair Kit (Superb Lvl 3)				TYPE:Gear	COST:25	WT:1		BONUS:VAR|Bulk|1		QUALITY:Bulk|1	QUALITY:Hands|2		SPROP:A repair kit allows you to perform simple repairs while traveling. It contains a portable anvil, tongs, woodworking tools, a whetstone, and oils for conditioning leather and wood. You can use a repair kit to Repair items using the Crafting skill. A superb repair kit gives you a +1 item bonus to the check.
+Rope								TYPE:Gear	COST:0.5	WT:0.1	BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|2
+Sack (5)							TYPE:Gear	COST:0.01	WT:0.1	BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|1		SPROP:A sack can hold up to 8 Bulk worth of items. A sack containing 2 Bulk or less can be worn on the body, usually tucked into a belt. You can carry a sack with one hand, but must use two hands to transfer items in and out.
+Saddlebags							TYPE:Gear	COST:0.2	WT:0.1	BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|2		SPROP:Saddlebags come in a pair. Each can hold up to 3 Bulk of items. The Bulk value given is for saddlebags worn by a mount. If you are carrying or stowing saddlebags, they count as 1 Bulk instead of light Bulk.
+Satchel							TYPE:Gear	COST:0.1	WT:0		BONUS:VAR|Bulk|0		QUALITY:Bulk|-	QUALITY:Hands|2		SPROP:A satchel can hold up to 2 Bulk worth of items. If you are carrying or stowing a satchel rather than wearing it over your shoulder, it counts as light Bulk instead of negligible.
+Scroll Case							TYPE:Gear	COST:0.1	WT:0		BONUS:VAR|Bulk|0		QUALITY:Bulk|-	QUALITY:Hands|2		SPROP:Scrolls, maps, and other rolled documents are stored in scroll cases for safe transport.
+Sheath							TYPE:Gear	COST:0.01	WT:0		BONUS:VAR|Bulk|0		QUALITY:Bulk|-	QUALITY:Hands|-		SPROP:A sheath or scabbard lets you easily carry a weapon on your person.
+Signal Whistle						TYPE:Gear	COST:0.08	WT:0		BONUS:VAR|Bulk|0		QUALITY:Bulk|-	QUALITY:Hands|1		SPROP:When sounded, a signal whistle can be heard clearly up to half a mile away across open terrain.
+Snare Kit							TYPE:Gear	COST:5	WT:2		BONUS:VAR|Bulk|2		QUALITY:Bulk|2	QUALITY:Hands|2		SPROP:This kit contains tools and materials for creating snares. A snare kit allows you to Craft snares using the Crafting skill.
+Snare Kit (Specialist Lvl 3)				TYPE:Gear	COST:55	WT:2		BONUS:VAR|Bulk|2		QUALITY:Bulk|2	QUALITY:Hands|2		SPROP:This kit contains tools and materials for creating snares. A snare kit allows you to Craft snares using the Crafting skill. A specialist snare kit gives you a +1 item bonus to the check.
+Soap								TYPE:Gear	COST:0.02	WT:0		BONUS:VAR|Bulk|0		QUALITY:Bulk|0	QUALITY:Hands|1
+Spellbook							TYPE:Gear	COST:1	WT:1		BONUS:VAR|Bulk|1		QUALITY:Bulk|1	QUALITY:Hands|1		SPROP:A spellbook holds the written knowledge necessary to learn and prepare various spells, a necessity for wizards (who typically get one for free) and a useful luxury for other spellcasters looking to learn additional spells. Each spellbook can hold up to 100 spells.
+Spyglass							TYPE:Gear	COST:20	WT:0.1	BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|2		SPROP:A typical spyglass lets you see eight times farther than normal.
+Spyglass (Fine Lvl 4)					TYPE:Gear	COST:80	WT:0.1	BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|2		SPROP:A fine spyglass adds a +1 item bonus to Perception checks to notice details at a distance.
+Tack								TYPE:Gear	COST:4	WT:1		BONUS:VAR|Bulk|1		QUALITY:Bulk|1	QUALITY:Hands|-		SPROP:Tack includes all the gear required to outfit a riding animal, including a saddle, bit and bridle, and stirrups if necessary. Especially large or oddly shaped animals might require specialty saddles. These can be more expensive or hard to find, as determined by the GM. The Bulk value given is for tack worn by a creature. If carried, the Bulk increases to 2.
+Ten-Foot Pole						TYPE:Gear	COST:0.01	WT:1		BONUS:VAR|Bulk|1		QUALITY:Bulk|1	QUALITY:Hands|2		SPROP:When wielding this long pole, you can use Seek to search a square up to 10 feet away. The pole is not sturdy enough to use as a weapon.
+Tent (Pup)							TYPE:Gear	COST:0.8	WT:0.1	BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|2
+Tent (Four-person)					TYPE:Gear	COST:5	WT:1		BONUS:VAR|Bulk|1		QUALITY:Bulk|1	QUALITY:Hands|2
+Tent (Pavilion)						TYPE:Gear	COST:40	WT:12		BONUS:VAR|Bulk|12		QUALITY:Bulk|12	QUALITY:Hands|2
+Thieves' Tools						TYPE:Gear	COST:3	WT:0.1	BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|2		SPROP:You need thievesâ€™ tools to Pick Locks or Disable Devices (of some types) using the Thievery skill.
+Thieves' Tools (Replacement Picks)			TYPE:Gear	COST:0.3	WT:0		BONUS:VAR|Bulk|0		QUALITY:Bulk|-	QUALITY:Hands|-
+Thieves' Tools (Infiltrator Lvl 3)			TYPE:Gear	COST:50	WT:0.1	BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|2		SPROP:You need thievesâ€™ tools to Pick Locks or Disable Devices (of some types) using the Thievery skill. Infiltrator thievesâ€™ tools add a +1 item bonus to checks to Pick Locks and Disable Devices.
+Thieves' Tools (Infiltrator Picks Lvl 3)		TYPE:Gear	COST:3	WT:0		BONUS:VAR|Bulk|0		QUALITY:Bulk|-	QUALITY:Hands|-
+Tool (Long)							TYPE:Gear	COST:1	WT:1		BONUS:VAR|Bulk|1		QUALITY:Bulk|1	QUALITY:Hands|2		SPROP:This entry is a catchall for basic hand tools that don't have a specific adventuring purpose. A hoe, shovel, or sledgehammer is a long tool, and a hand drill, ice hook, or trowel is a short tool. A tool can usually be used as an improvised weapon, dealing 1d4 damage for a short tool or 1d6 for a long tool. The GM determines the damage type that's appropriate or adjusts the damage if needed.
+Tool (Short)						TYPE:Gear	COST:0.4	WT:0.1	BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|1 or 2	SPROP:This entry is a catchall for basic hand tools that don't have a specific adventuring purpose. A hoe, shovel, or sledgehammer is a long tool, and a hand drill, ice hook, or trowel is a short tool. A tool can usually be used as an improvised weapon, dealing 1d4 damage for a short tool or 1d6 for a long tool. The GM determines the damage type that's appropriate or adjusts the damage if needed.
+Torch								TYPE:Gear	COST:0.01	WT:0.1	BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|1		SPROP:A torch sheds bright light in a 20-foot radius (and dim light to the next 20 feet). It can be used as an improvised weapon that deals 1d4 bludgeoning damage plus 1 fire damage.
+Vial								TYPE:Gear	COST:0.05	WT:0		BONUS:VAR|Bulk|0		QUALITY:Bulk|-	QUALITY:Hands|1		SPROP:A simple glass vial holds up to 1 ounce of liquid.
+Waterskin							TYPE:Gear	COST:0.05	WT:0.1	BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|1
+Writing Set							TYPE:Gear	COST:1	WT:0.1	BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|2		SPROP:Using a writing set, you can draft correspondence and scribe scrolls. A set includes stationery, including a variety of paper and parchment, as well as ink, a quill or inkpen, sealing wax, and a simple seal.
+Writing Set (Extra ink and paper)			TYPE:Gear	COST:0.1	WT:0		BONUS:VAR|Bulk|0		QUALITY:Bulk|-	QUALITY:Hands|-		SPROP:If youâ€™ve written a large amount, you can refill your kit with extra ink and paper.
+
+# TABLE 6â€"10: UNCOMMON ADVENTURING GEAR
+Scholarly Journal (Lvl 3				TYPE:Gear	COST:6	WT:0.1	BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|1		SPROP:Scholarly journals are uncommon. Each scholarly journal is a folio on a very specific topic, such as vampires or the history of a single town or neighborhood of a city. If you spend 1 minute referencing an academic journal before attempting a skill check to Recall Knowledge about the subject, you gain a +1 item bonus to the check.
+Scholarly Journal compendium (Lvl 3)		TYPE:Gear	COST:30	WT:0.1	BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|2		SPROP:A compendium of journals costs five times as much as a single journal and requires both hands to use; each compendium contains several journals and grants its bonus on a broader topic, such as all undead or a whole city.
+Survey Map (Lvl 3)					TYPE:Gear	COST:10	WT:0.1	BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|1		SPROP:Maps are uncommon. Most maps you can find are simple and functional. A survey map details a single location in excellent detail. One of these maps gives you a +1 item bonus to Survival checks and any skill checks to Recall Knowledge, provided the checks are related to the location detailed on the map.
+Survey Map Atlas (Lvl 3)				TYPE:Gear	COST:50	WT:0.1	BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|2		SPROP:Maps sometimes come in atlases, containing a number of maps of the same quality, often on similar topics. An atlas costs five times as much as a single map and requires both hands to use.
+
+###Block: Starting Kits
+# Equipment Name					Type							Cost		Weight	Source Page		Modify VAR			Quality and value				Special Property
+Adventurer's Pack					TYPE:Kit						COST:0.7	WT:2		SOURCEPAGE:p.287	BONUS:VAR|Bulk|2		QUALITY:Bulk|2				SPROP:The pack contains the following items: backpack (containing the other goods), bedroll, two belt pouches, 10 pieces of chalk, flint and steel, 50 feet of rope, 2 weeksâ€™ rations, soap, 5 torches, and a waterskin.
+Alchemist's Kit					TYPE:Kit						COST:9.6	WT:4.6	SOURCEPAGE:p.289	BONUS:VAR|Bulk|4.6	QUALITY:Bulk|4.6				SPROP:The pack contains the following items: adventurer's pack, studded leather armor,  dagger, sling with 20 sling bullets, alchemistâ€™s tools, bandolier, basic crafterâ€™s book, 2 sets of caltrops, sheath.
+Barbarian's Kit					TYPE:Kit						COST:3.2	WT:3.5	SOURCEPAGE:p.289	BONUS:VAR|Bulk|3.5	QUALITY:Bulk|3.5				SPROP:The pack contains the following items: adventurer's pack, hide armor, 4 javelins, grappling hook, 2 sheaths.
+Bard's Kit						TYPE:Kit						COST:6.8	WT:4.3	SOURCEPAGE:p.289	BONUS:VAR|Bulk|4.3	QUALITY:Bulk|4.3				SPROP:The pack contains the following items: adventurer's pack, studded leather armor, dagger, rapier, sling with 20 sling bullets, bandolier, handheld instrument, sheath.
+Champion's Kit					TYPE:Kit						COST:3.8	WT:3.7	SOURCEPAGE:p.289	BONUS:VAR|Bulk|3.7	QUALITY:Bulk|3.7				SPROP:The pack contains the following items: adventurer's pack, hide armor, dagger, 4 javelins, crowbar, grappling hook, sheath.
+Cleric's Kit					TYPE:Kit						COST:1.5	WT:1.3	SOURCEPAGE:p.289	BONUS:VAR|Bulk|1.3	QUALITY:Bulk|1.3				SPROP:The pack contains the following items: adventurer's pack, bandolier, 2 sets of caltrops, religious symbol (wooden).
+Druid's Kit						TYPE:Kit						COST:3.7	WT:4.4	SOURCEPAGE:p.289	BONUS:VAR|Bulk|4.4	QUALITY:Bulk|4.4				SPROP:The pack contains the following items: adventurer's pack, leather armor, 4 javelins, longspear, bandolier, holly and mistletoe.
+Fighter's Kit					TYPE:Kit						COST:3	WT:3.2	SOURCEPAGE:p.289	BONUS:VAR|Bulk|3.2	QUALITY:Bulk|3.2				SPROP:The pack contains the following items: adventurer's pack, hide armor, dagger, grappling hook, sheath.
+Monk's Kit						TYPE:Kit						COST:4.9	WT:4.2	SOURCEPAGE:p.289	BONUS:VAR|Bulk|4.2	QUALITY:Bulk|4.2				SPROP:The pack contains the following items: adventurer's pack, longspear, staff, bandolier, climbing kit, grappling hook, lesser smokestick.
+Ranger's Kit					TYPE:Kit						COST:9.1	WT:3.3	SOURCEPAGE:p.289	BONUS:VAR|Bulk|3.3	QUALITY:Bulk|3.3				SPROP:The pack contains the following items: adventurer's pack, leather armor, dagger, longbow with 20 arrows, sheath.
+Rogue's Kit						TYPE:Kit						COST:5.4	WT:4.1	SOURCEPAGE:p.289	BONUS:VAR|Bulk|4.1	QUALITY:Bulk|4.1				SPROP:The pack contains the following items: adventurer's pack, leather armor, dagger, rapier, climbing kit, sheath.
+Sorcerer's Kit					TYPE:Kit						COST:1.6	WT:1.6	SOURCEPAGE:p.289	BONUS:VAR|Bulk|1.6	QUALITY:Bulk|1.6				SPROP:The pack contains the following items: adventurer's pack, dagger, slingshot with 20 sling bullets, bandolier, 2 sets of caltrops, sheath.
+Wizard's Kit					TYPE:Kit						COST:1.2	WT:2.2	SOURCEPAGE:p.289	BONUS:VAR|Bulk|2.2	QUALITY:Bulk|2.2				SPROP:The pack contains the following items: adventurer's pack, staff, material component pouch, writing set.
+
+# TABLE 6-14: SERVICES
+Mug of Ale						TYPE:Gear.Service.Food.Comsumable		COST:0.01	WT:0.1				BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|1
+Keg of Ale						TYPE:Gear.Service.Food.Comsumable		COST:0.2	WT:2					BONUS:VAR|Bulk|2		QUALITY:Bulk|2	QUALITY:Hands|2
+Pot of Coffee or Tea				TYPE:Gear.Service.Food.Comsumable		COST:0.02	WT:0.1				BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|1
+Bottle of Wine					TYPE:Gear.Service.Food.Comsumable		COST:0.1	WT:0.1				BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|1
+Bottle of Fine Wine				TYPE:Gear.Service.Food.Comsumable		COST:1	WT:0.1				BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|1
+Unskilled Hireling (1 day)			TYPE:Gear.Service					COST:0.1
+Skilled Hireling (1 day)			TYPE:Gear.Service					COST:0.5
+Floor Space Lodging (1 day)			TYPE:Gear.Service.Lodging			COST:0.03
+Bed Lodging (1 day)				TYPE:Gear.Service.Lodging			COST:0.1
+Private Room Lodging (1 day)			TYPE:Gear.Service.Lodging			COST:0.08
+Extravagant Suite Lodging (1 day)		TYPE:Gear.Service.Lodging			COST:10
+Poor Meal						TYPE:Gear.Service.Food.Comsumable		COST:0.01	WT:0.1				BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|2
+Square Meal						TYPE:Gear.Service.Food.Comsumable		COST:0.03	WT:0.1				BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|2
+Fine Meal						TYPE:Gear.Service.Food.Comsumable		COST:1	WT:0.1				BONUS:VAR|BulkLight|1	QUALITY:Bulk|L	QUALITY:Hands|2
+Stabling (1 day)					TYPE:Gear.Service					COST:0.02
+Caravan Transport (5 miles)			TYPE:Gear.Service.Transportation		COST:0.03
+Carriage Transport (5 miles)			TYPE:Gear.Service.Transportation		COST:0.2
+Ferry or Riverboat Transport (5 miles)	TYPE:Gear.Service.Transportation		COST:0.04
+Sailing Ship Transport (5 miles)		TYPE:Gear.Service.Transportation		COST:0.06
+
+# TABLE 6â€"15: SPELLCASTING SERVICES
+Spell Level (1st)					TYPE:Gear.Service					COST:3
+Spell Level (2nd)					TYPE:Gear.Service					COST:7
+Spell Level (3rd)					TYPE:Gear.Service					COST:18
+Spell Level (4th)					TYPE:Gear.Service					COST:40
+Spell Level (5th)					TYPE:Gear.Service					COST:80
+Spell Level (6th)					TYPE:Gear.Service					COST:160
+Spell Level (7th)					TYPE:Gear.Service					COST:360
+Spell Level (8th)					TYPE:Gear.Service					COST:720
+Spell Level (9th)					TYPE:Gear.Service					COST:1800
+
+# TABLE 6â€"17: ANIMALS
+Guard Dog (per day)				TYPE:Gear.Service					COST:0.01
+Guard Dog						TYPE:Gear.Mount.Container			COST:0.2
+Riding Dog (per day)				TYPE:Gear.Service.Transportation		COST:0.06
+Riding Dog						TYPE:Gear.Mount.Container.Transportation	COST:4
+Riding Horse (per day)				TYPE:Gear.Service.Transportation		COST:0.1
+Riding Horse					TYPE:Gear.Mount.Container.Transportation	COST:8
+Warhorse (per day Lvl 2)			TYPE:Gear.Service.Transportation		COST:1
+Warhorse (Lvl 2)					TYPE:Gear.Mount.Container.Transportation	COST:30
+Pack Animal (per day)				TYPE:Gear.Service.Transportation		COST:0.02
+Pack Animal						TYPE:Gear.Mount.Container.Transportation	COST:2
+Riding Pony (per day)				TYPE:Gear.Service.Transportation		COST:0.08
+Riding Pony						TYPE:Gear.Mount.Container.Transportation	COST:7
+Warpony (per day Lvl 2)				TYPE:Gear.Service.Transportation		COST:0.8
+Warpony (Lvl 2)					TYPE:Gear.Mount.Container.Transportation	COST:24
