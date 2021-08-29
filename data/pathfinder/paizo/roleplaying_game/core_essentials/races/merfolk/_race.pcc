@@ -1,0 +1,26 @@
+# Sun Jul 26 22:20:43 2020 -- reformated by PCGen PrettyLST v6.08.00
+KEY:support ~ merfolk race
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+ISOGL:YES
+
+# Use this so there aren't numerous copies of the same race.
+
+
+# ==============================
+# Merfolk
+# ==============================
+
+# Fact/Factset & Formula System
+DATACONTROL:merfolk__datacontrols.lst
+
+# Data Files
+ABILITY:merfolk_abilities_globalvar.lst
+ABILITY:merfolk_abilities_race.lst
+ABILITYCATEGORY:merfolk_abilitycategories.lst
+BIOSET:merfolk_biosettings.lst
+LANGUAGE:merfolk_languages.lst
+RACE:merfolk_races.lst
+SKILL:merfolk_skills.lst
+TEMPLATE:merfolk_templates.lst

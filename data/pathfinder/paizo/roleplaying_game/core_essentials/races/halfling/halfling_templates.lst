@@ -1,0 +1,17 @@
+# Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+###Block: Racial Heritage
+# Template Name	Unique Key					Visible	Template			Type				FACT
+Halfling		KEY:Racial Heritage ~ Halfling	VISIBLE:NO	TEMPLATE:IsHalfling	TYPE:Racial Heritage	FACT:IsHalfling|True
+IsHalfling								VISIBLE:NO
+
+
+###Block: Creature Subtypes
+# Template Name	Visible	Source Page		Race Subtype
+Halfling		VISIBLE:NO	SOURCEPAGE:p.312	RACESUBTYPE:Halfling
+
+
+###Block: Race Builder Humanoid Subtypes
+# Template Name	Unique Key					Visible	Race Subtype		Type
+Halfling		KEY:Race Builder Subtype ~ Halfling	VISIBLE:NO	RACESUBTYPE:Halfling	TYPE:Race Builder Subtype

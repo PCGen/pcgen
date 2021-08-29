@@ -4,11 +4,26 @@
 SOURCELONG:Pathfinder Player Companion: Orcs of Golarion	SOURCESHORT:OOG	SOURCEWEB:http://paizo.com/products/btpy8fvz	SOURCEDATE:2010-12
 
 
+# ------------------------------
+# Orc
+# ------------------------------
 
-### Race Traits
-# Ability Name						Unique Key					Category of Ability		Type					Required Deity		Multiple Requirements																																																									Required Region					Description																																																							Ability					Bonus Ability Pool													Concentration bonus					Bonus to skill					Class Skill			Source Page		Aspects
-CATEGORY=Special Ability|Trait ~ Adopted.MOD																																																																																																																																																						BONUS:ABILITYPOOL|Orc Race Trait|1|PREABILITY:1,CATEGORY=Special Ability,Adoptive Race ~ Orc
-Orc								KEY:Adoptive Race ~ Orc			CATEGORY:Special Ability	TYPE:AdoptiveRace
+###NOTE: Race files are in core_essentials\races\orc\
+
+###Block: Racial Traits
+# Ability Name							Source Page
+CATEGORY=Special Ability|Orc ~ Ability Scores.MOD	SOURCEPAGE:Front Inside Cover
+CATEGORY=Special Ability|Orc ~ Type.MOD			SOURCEPAGE:Front Inside Cover
+CATEGORY=Special Ability|Orc ~ Size.MOD			SOURCEPAGE:Front Inside Cover
+CATEGORY=Special Ability|Orc ~ Speed.MOD			SOURCEPAGE:Front Inside Cover
+CATEGORY=Special Ability|Orc ~ Vision.MOD			SOURCEPAGE:Front Inside Cover
+CATEGORY=Special Ability|Orc ~ Light Sensitivity.MOD	SOURCEPAGE:Front Inside Cover
+CATEGORY=Special Ability|Orc ~ Ferocity.MOD		SOURCEPAGE:Front Inside Cover
+CATEGORY=Special Ability|Orc ~ Weapon Familiarity.MOD	SOURCEPAGE:Front Inside Cover
+CATEGORY=Special Ability|Orc ~ Languages.MOD		SOURCEPAGE:Front Inside Cover
+
+
+###Block: Race Traits
 
 # Ability Name						Unique Key					Category of Ability		Type					Required Deity		Multiple Requirements																																																									Required Region					Description																																																							Ability					Bonus Ability Pool													Concentration bonus					Bonus to skill					Class Skill			Source Page		Aspects
 Amazingly Ugly						KEY:Trait ~ Amazingly Ugly		CATEGORY:Special Ability	TYPE:Trait.RaceTrait.Orc Race Trait					PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Amazingly Ugly],[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.RaceTrait]	PREMULT:1,[PRERACE:1,Orc,RACESUBTYPE=Orc],[PRERACE:1,Half-Orc],[PREABILITY:1,CATEGORY=Special Ability,Adoptive Race ~ Orc],[PREABILITY:1,CATEGORY=Special Ability,Adoptive Race ~ Half-Orc]								DESC:Your skull is misshapen in a grotesque way. You receive a +1 trait bonus on Intimidate skill checks, and it becomes a class skill.																																																																BONUS:SKILL|Intimidate|1|TYPE=Trait		CSKILL:Intimidate		SOURCEPAGE:p.22	ASPECT:SkillBonus|+1 trait bonus on Intimidate skill checks

@@ -1,0 +1,30 @@
+# Wed May 19 19:34:03 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Halfling
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define							Ability
+CATEGORY=Internal|Racial Traits ~ Halfling.MOD	DEFINE:Halfling_ReplaceAbilityScores|0		ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Ability Scores|PREVAREQ:Halfling_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Halfling.MOD	DEFINE:Halfling_ReplaceSize|0				ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Size|PREVAREQ:Halfling_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Halfling.MOD	DEFINE:Halfling_ReplaceSpeed|0			ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Speed|PREVAREQ:Halfling_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Halfling.MOD	DEFINE:Halfling_ReplaceFearless|0			ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Fearless|PREVAREQ:Halfling_ReplaceFearless,0
+CATEGORY=Internal|Racial Traits ~ Halfling.MOD	DEFINE:Halfling_ReplaceHalflingLuck|0		ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Halfling Luck|PREVAREQ:Halfling_ReplaceHalflingLuck,0
+CATEGORY=Internal|Racial Traits ~ Halfling.MOD	DEFINE:Halfling_ReplaceKeenSenses|0			ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Keen Senses|PREVAREQ:Halfling_ReplaceKeenSenses,0
+CATEGORY=Internal|Racial Traits ~ Halfling.MOD	DEFINE:Halfling_ReplaceSureFooted|0			ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Sure-Footed|PREVAREQ:Halfling_ReplaceSureFooted,0
+CATEGORY=Internal|Racial Traits ~ Halfling.MOD	DEFINE:Halfling_ReplaceWeaponFamiliarity|0	ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Weapon Familiarity|PREVAREQ:Halfling_ReplaceWeaponFamiliarity,0
+CATEGORY=Internal|Racial Traits ~ Halfling.MOD	DEFINE:Halfling_ReplaceLanguages|0			ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Languages|PREVAREQ:Halfling_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Halfling.MOD	BONUS:VAR|Halfling_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Halfling_ReplaceAbilityScores=true
+CATEGORY=Internal|Racial Traits ~ Halfling.MOD	BONUS:VAR|Halfling_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Halfling_ReplaceSize=true
+CATEGORY=Internal|Racial Traits ~ Halfling.MOD	BONUS:VAR|Halfling_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Halfling_ReplaceSpeed=true
+CATEGORY=Internal|Racial Traits ~ Halfling.MOD	BONUS:VAR|Halfling_ReplaceFearless|1|TYPE=Boolean|PREFACT:1,ABILITIES,Halfling_ReplaceFearless=true
+CATEGORY=Internal|Racial Traits ~ Halfling.MOD	BONUS:VAR|Halfling_ReplaceHalflingLuck|1|TYPE=Boolean|PREFACT:1,ABILITIES,Halfling_ReplaceHalflingLuck=true
+CATEGORY=Internal|Racial Traits ~ Halfling.MOD	BONUS:VAR|Halfling_ReplaceKeenSenses|1|TYPE=Boolean|PREFACT:1,ABILITIES,Halfling_ReplaceKeenSenses=true
+CATEGORY=Internal|Racial Traits ~ Halfling.MOD	BONUS:VAR|Halfling_ReplaceSureFooted|1|TYPE=Boolean|PREFACT:1,ABILITIES,Halfling_ReplaceSureFooted=true
+CATEGORY=Internal|Racial Traits ~ Halfling.MOD	BONUS:VAR|Halfling_ReplaceWeaponFamiliarity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Halfling_ReplaceWeaponFamiliarity=true
+CATEGORY=Internal|Racial Traits ~ Halfling.MOD	BONUS:VAR|Halfling_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Halfling_ReplaceLanguages=true

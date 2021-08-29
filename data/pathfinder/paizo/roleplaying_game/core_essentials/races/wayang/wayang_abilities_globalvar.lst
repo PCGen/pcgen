@@ -1,0 +1,32 @@
+# Fri Aug 20 15:15:25 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Wayang
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define											Ability
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	DEFINE:Wayang_ReplaceAbilityScores|0						ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Ability Scores|PREVAREQ:Wayang_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	DEFINE:Wayang_ReplaceType|0								ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Type|PREVAREQ:Wayang_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	DEFINE:Wayang_ReplaceSize|0								ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Size|PREVAREQ:Wayang_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	DEFINE:Wayang_ReplaceSpeed|0								ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Speed|PREVAREQ:Wayang_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	DEFINE:Wayang_ReplaceVision|0								ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Vision|PREVAREQ:Wayang_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	DEFINE:Wayang_ReplaceLightAndDark|0							ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Light and Dark|PREVAREQ:Wayang_ReplaceLightAndDark,0
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	DEFINE:Wayang_ReplaceLurker|0								ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Lurker|PREVAREQ:Wayang_ReplaceLurker,0
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	DEFINE:Wayang_ReplaceShadowMagic|0							ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Shadow Magic|PREVAREQ:Wayang_ReplaceShadowMagic,0
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	DEFINE:Wayang_ReplaceShadowResistance|0						ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Shadow Resistance|PREVAREQ:Wayang_ReplaceShadowResistance,0
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	DEFINE:Wayang_ReplaceLanguages|0	DEFINE:Wayang_AlternateLanguages|0	ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Languages|PREVAREQ:Wayang_ReplaceLanguages,0|PREVAREQ:Wayang_AlternateLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	BONUS:VAR|Wayang_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wayang_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	BONUS:VAR|Wayang_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wayang_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	BONUS:VAR|Wayang_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wayang_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	BONUS:VAR|Wayang_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wayang_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	BONUS:VAR|Wayang_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wayang_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	BONUS:VAR|Wayang_ReplaceLightAndDark|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wayang_ReplaceLightAndDark=True
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	BONUS:VAR|Wayang_ReplaceLurker|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wayang_ReplaceLurker=True
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	BONUS:VAR|Wayang_ReplaceShadowMagic|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wayang_ReplaceShadowMagic=True
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	BONUS:VAR|Wayang_ReplaceShadowResistance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wayang_ReplaceShadowResistance=True
+CATEGORY=Internal|Racial Traits ~ Wayang.MOD	BONUS:VAR|Wayang_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wayang_ReplaceLanguages=True

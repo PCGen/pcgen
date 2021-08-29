@@ -1,0 +1,17 @@
+# Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+###Block: Racial Heritage
+# Template Name	Unique Key				Visible	Template		Type				FACT
+Dwarf			KEY:Racial Heritage ~ Dwarf	VISIBLE:NO	TEMPLATE:IsDwarf	TYPE:Racial Heritage	FACT:IsDwarf|True
+IsDwarf							VISIBLE:NO
+
+
+###Block: Creature Subtypes
+# Template Name	Visible	Source Page		Race Subtype
+Dwarf			VISIBLE:NO	SOURCEPAGE:p.311	RACESUBTYPE:Dwarf
+
+
+###Block: Race Builder Humanoid Subtypes
+# Template Name	Unique Key					Visible	Template						Type
+Dwarf			KEY:Race Builder Subtype ~ Dwarf	VISIBLE:NO	TEMPLATE:Dwarf|Racial Heritage ~ Dwarf	TYPE:Race Builder Subtype

@@ -1,0 +1,16 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
+
+###Block: Playable Races
+# Race Name		Source Page
+Aasimar.MOD		SOURCEPAGE:p.7
+Drow.MOD		SOURCEPAGE:p.114
+Duergar.MOD		SOURCEPAGE:p.117
+Goblin.MOD		SOURCEPAGE:p.156
+Hobgoblin.MOD	SOURCEPAGE:p.175
+Kobold.MOD		SOURCEPAGE:p.183
+Merfolk.MOD		SOURCEPAGE:p.204
+Orc.MOD		SOURCEPAGE:p.222
+Svirfneblin.MOD	SOURCEPAGE:p.261
+Tengu.MOD		SOURCEPAGE:p.263
+Tiefling.MOD	SOURCEPAGE:p.264

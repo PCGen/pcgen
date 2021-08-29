@@ -43,6 +43,9 @@ RACE:oog_races.lst
 TEMPLATE:oog_templates.lst
 SPELL:oog_spells.lst
 
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\half_orc\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\orc\_race.pcc
+
 # support
 ABILITY:support/oog_abilities_class_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 ABILITY:support/oog_abilities_class_acg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide

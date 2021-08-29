@@ -1,0 +1,27 @@
+# Sun Jul 26 22:20:43 2020 -- reformated by PCGen PrettyLST v6.08.00
+KEY:support ~ goblin race
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+ISOGL:YES
+
+# Use this so there aren't numerous copies of the same race.
+
+
+# ==============================
+# Goblin
+# ==============================
+
+# Fact/Factset & Formula System
+DATACONTROL:goblin__datacontrols.lst
+
+# Data Files
+ABILITY:goblin_abilities_globalvar.lst
+ABILITY:goblin_abilities_race.lst
+ABILITYCATEGORY:goblin_abilitycategories.lst
+BIOSET:goblin_biosettings.lst
+LANGUAGE:goblin_languages.lst
+RACE:goblin_races.lst
+SKILL:goblin_skills.lst
+TEMPLATE:goblin_templates_language.lst
+TEMPLATE:goblin_templates.lst

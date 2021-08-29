@@ -1,0 +1,20 @@
+# Tue Jul 27 22:03:15 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Goblin
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsGoblin	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Goblin	EXPLANATION:Determines whether the character is a Goblin
+
+###Block: Racial Traits
+# Name							Dataformat			Required	Selectable		Visible	Displayname						Explanation
+FACTDEF:ABILITY|Goblin_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Goblin Ability Scores	EXPLANATION:Replaces the Ability Scores
+FACTDEF:ABILITY|Goblin_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Goblin Type		EXPLANATION:Replaces the Goblinoid Racial Trait
+FACTDEF:ABILITY|Goblin_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Goblin Size		EXPLANATION:Replaces the Small Racial Trait
+FACTDEF:ABILITY|Goblin_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Goblin Speed		EXPLANATION:Replaces the Normal Speed Racial Trait
+FACTDEF:ABILITY|Goblin_ReplaceVision		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Goblin Vision		EXPLANATION:Replaces the Darkvision Racial Trait
+FACTDEF:ABILITY|Goblin_ReplaceSkilled		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Goblin Skilled		EXPLANATION:Replaces the Skilled Racial Trait
+FACTDEF:ABILITY|Goblin_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Goblin Languages	EXPLANATION:Replaces the Languages Racial Trait

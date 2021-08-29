@@ -1,0 +1,22 @@
+# Mon Aug 16 15:42:34 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Nagaji
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsNagaji	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Nagaji	EXPLANATION:Determines whether the character is a Nagaji
+
+###Block: Racial Traits
+# Name							Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Nagaji_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Nagaji Ability Scores		EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Nagaji_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Nagaji Type			EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Nagaji_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Nagaji Size			EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Nagaji_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Nagaji Speed			EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Nagaji_ReplaceVision		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Nagaji Vision			EXPLANATION:Replaces the Vision Racial Trait
+FACTDEF:ABILITY|Nagaji_ReplaceArmoredScales	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Nagaji Armored Scales		EXPLANATION:Replaces the Armored Scales Racial Trait
+FACTDEF:ABILITY|Nagaji_ReplaceResistant		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Nagaji Resistant		EXPLANATION:Replaces the Resistant Racial Trait
+FACTDEF:ABILITY|Nagaji_ReplaceSerpentsSense	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Nagaji Serpent's Sense	EXPLANATION:Replaces the Serpent's Sense Racial Trait
+FACTDEF:ABILITY|Nagaji_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Nagaji Languages		EXPLANATION:Replaces the Languages Racial Trait

@@ -1,0 +1,6 @@
+# Fri Aug 20 10:14:00 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+###Block: Racial Trait Categories
+# Ability Category			Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI	Display Location
+ABILITYCATEGORY:Vanara Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Vanara Racial Trait	PLURAL:Vanara Racial Traits	DISPLAYLOCATION:Racial Abilities

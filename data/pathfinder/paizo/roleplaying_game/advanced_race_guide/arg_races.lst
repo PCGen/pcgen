@@ -2,41 +2,52 @@
 # CVS $Revision: $ $Author: $ -- Wed Feb  3 13:52:26 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
 
+###Block: Core Races
+# Race Name		Type		Source Page
+Dwarf.MOD		TYPE:Core	SOURCEPAGE:p.10
+Elf.MOD		TYPE:Core	SOURCEPAGE:p.20
+Gnome.MOD		TYPE:Core	SOURCEPAGE:p.30
+Half-Elf.MOD	TYPE:Core	SOURCEPAGE:p.40
+Half-Orc.MOD	TYPE:Core	SOURCEPAGE:p.50
+Halfling.MOD	TYPE:Core	SOURCEPAGE:p.60
+Human.MOD		TYPE:Core	SOURCEPAGE:p.70
+
 ###Block: Featured Races
-# Race Name		Source Page
-Aasimar.MOD		SOURCEPAGE:p.85
-Catfolk.MOD		SOURCEPAGE:p.91
-Dhampir.MOD		SOURCEPAGE:p.97
-Drow.MOD		SOURCEPAGE:p.103
-Fetchling.MOD	SOURCEPAGE:p.109
-Goblin.MOD		SOURCEPAGE:p.115
-Hobgoblin.MOD	SOURCEPAGE:p.121
-Ifrit.MOD		SOURCEPAGE:p.127
-Kobold.MOD		SOURCEPAGE:p.133
-Orc.MOD		SOURCEPAGE:p.139
-Oread.MOD		SOURCEPAGE:p.145
-Ratfolk.MOD		SOURCEPAGE:p.151
-Sylph.MOD		SOURCEPAGE:p.157
-Tengu.MOD		SOURCEPAGE:P.163
-Tiefling.MOD	SOURCEPAGE:P.169
-Undine.MOD		SOURCEPAGE:p.175
+# Race Name		Type			Source Page
+Aasimar.MOD		TYPE:Featured	SOURCEPAGE:p.85
+Catfolk.MOD		TYPE:Featured	SOURCEPAGE:p.91
+Dhampir.MOD		TYPE:Featured	SOURCEPAGE:p.97
+Drow.MOD		TYPE:Featured	SOURCEPAGE:p.103
+Fetchling.MOD	TYPE:Featured	SOURCEPAGE:p.109
+Goblin.MOD		TYPE:Featured	SOURCEPAGE:p.115
+Hobgoblin.MOD	TYPE:Featured	SOURCEPAGE:p.121
+Ifrit.MOD		TYPE:Featured	SOURCEPAGE:p.127
+Kobold.MOD		TYPE:Featured	SOURCEPAGE:p.133
+Orc.MOD		TYPE:Featured	SOURCEPAGE:p.139
+Oread.MOD		TYPE:Featured	SOURCEPAGE:p.145
+Ratfolk.MOD		TYPE:Featured	SOURCEPAGE:p.151
+Sylph.MOD		TYPE:Featured	SOURCEPAGE:p.157
+Tengu.MOD		TYPE:Featured	SOURCEPAGE:P.163
+Tiefling.MOD	TYPE:Featured	SOURCEPAGE:P.169
+Undine.MOD		TYPE:Featured	SOURCEPAGE:p.175
 
 ###Block: Uncommon Races
-# Race Name		SORTKEY		Starting Feats	Base size		Move			Required Gender	Ability								Nb Legs	Nb Hands	Main Race Type	Type				Source Page		FACT
-Changeling		SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	MOVE:Walk,30	PREGENDER:F		ABILITY:Internal|AUTOMATIC|Racial Traits ~ Changeling	LEGS:2	HANDS:2	RACETYPE:Humanoid	TYPE:Base.PC.Uncommon	SOURCEPAGE:p.184	FACT:IsPC|True
-Duergar.MOD																																					SOURCEPAGE:p.186
-Gillman		SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	MOVE:Walk,30				ABILITY:Internal|AUTOMATIC|Racial Traits ~ Gillman	LEGS:2	HANDS:2	RACETYPE:Humanoid	TYPE:Base.PC.Uncommon	SOURCEPAGE:p.188	FACT:IsPC|True
-Grippli.MOD																																					SOURCEPAGE:p.190
-Kitsune		SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	MOVE:Walk,30				ABILITY:Internal|AUTOMATIC|Racial Traits ~ Kitsune	LEGS:2	HANDS:2	RACETYPE:Humanoid	TYPE:Base.PC.Uncommon	SOURCEPAGE:p.192	FACT:IsPC|True
-Merfolk.MOD																																					SOURCEPAGE:p.194
-Nagaji		SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	MOVE:Walk,30				ABILITY:Internal|AUTOMATIC|Racial Traits ~ Nagaji	LEGS:2	HANDS:2	RACETYPE:Humanoid	TYPE:Base.PC.Uncommon	SOURCEPAGE:p.196	FACT:IsPC|True
-Samsaran		SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	MOVE:Walk,30				ABILITY:Internal|AUTOMATIC|Racial Traits ~ Samsaran	LEGS:2	HANDS:2	RACETYPE:Humanoid	TYPE:Base.PC.Uncommon	SOURCEPAGE:p.198	FACT:IsPC|True
-Strix			SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	MOVE:Walk,30				ABILITY:Internal|AUTOMATIC|Racial Traits ~ Strix	LEGS:2	HANDS:2	RACETYPE:Humanoid	TYPE:Base.PC.Uncommon	SOURCEPAGE:p.200	FACT:IsPC|True
-Suli.MOD																																					SOURCEPAGE:p.202
-Svirfneblin.MOD																																				SOURCEPAGE:p.204
-Vanara.MOD																																					SOURCEPAGE:p.206
-Vishkanya.MOD																																				SOURCEPAGE:p.208
-Wayang		SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|S	MOVE:Walk,20				ABILITY:Internal|AUTOMATIC|Racial Traits ~ Wayang	LEGS:2	HANDS:2	RACETYPE:Humanoid	TYPE:Base.PC.Uncommon	SOURCEPAGE:p.274	FACT:IsPC|True
+# Race Name		Type			Source Page
+Changeling.MOD	TYPE:Uncommon	SOURCEPAGE:p.184
+Duergar.MOD		TYPE:Uncommon	SOURCEPAGE:p.186
+Gillman.MOD		TYPE:Uncommon	SOURCEPAGE:p.188
+Grippli.MOD		TYPE:Uncommon	SOURCEPAGE:p.190
+Kitsune.MOD		TYPE:Uncommon	SOURCEPAGE:p.192
+Merfolk.MOD		TYPE:Uncommon	SOURCEPAGE:p.194
+Nagaji.MOD		TYPE:Uncommon	SOURCEPAGE:p.196
+Samsaran.MOD	TYPE:Uncommon	SOURCEPAGE:p.198
+Strix.MOD		TYPE:Uncommon	SOURCEPAGE:p.200
+Suli.MOD		TYPE:Uncommon	SOURCEPAGE:p.202
+Svirfneblin.MOD	TYPE:Uncommon	SOURCEPAGE:p.204
+Vanara.MOD		TYPE:Uncommon	SOURCEPAGE:p.206
+Vishkanya.MOD	TYPE:Uncommon	SOURCEPAGE:p.208
+Wayang.MOD		TYPE:Uncommon	SOURCEPAGE:p.274
 
-# Race Name		Unique Key	Starting Feats	Size		Move				Reach		Required Gender	Bonus Languages									Stat bonus											Modify VAR													Auto Language			Ability																	Nb Legs	Nb Hands	Define				Main Race Type			Race Subtype				Type				Challenge Rating	Source Page		Bonus language			FACT
-Race Builder	KEY:Race	STARTFEATS:1			MOVE:Walk,30																																																	ABILITY:Internal|AUTOMATIC|Rules ~ Use Race Builder System																																												FACT:BaseSize|T	FACT:IsPC|true
+###Block: Race Builder
+# Race Name		Unique Key	Starting Feats	Base size		Move			Ability									FACT
+Race Builder	KEY:Race	STARTFEATS:1	FACT:BaseSize|T	MOVE:Walk,30	ABILITY:Internal|AUTOMATIC|Rules ~ Use Race Builder System	FACT:IsPC|true

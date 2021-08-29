@@ -8,7 +8,6 @@ BOOKTYPE:Campaign Setting
 SETTING:Pathfinder|Golarion
 PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
 PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
-PRECAMPAIGN:1,INCLUDES=Bestiary,INCLUDES=Bestiary ~ Player Options Only
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
@@ -57,12 +56,9 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Campaign Setting: The Inner S
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-DATACONTROL:iswg__datacontrols.lst
-
 # Data files
 ABILITY:iswg_abilities.lst
 ABILITY:iswg_abilities_class.lst
-ABILITY:iswg_abilities_globalvar.lst
 ABILITY:iswg_abilities_race.lst
 ABILITYCATEGORY:iswg_abilitycategories.lst
 CLASS:iswg_classes.lst
@@ -80,10 +76,13 @@ KIT:iswg_kits_bestiary.lst|PRECAMPAIGN:1,INCLUDES=Bestiary
 LANGUAGE:iswg_languages.lst
 RACE:iswg_races.lst
 RACE:iswg_races_bestiary.lst|PRECAMPAIGN:1,INCLUDES=Bestiary
-SKILL:iswg_skills.lst
 SPELL:iswg_spells.lst
 TEMPLATE:iswg_templates.lst
 ARMORPROF:iswg_profs_armor.lst
 WEAPONPROF:iswg_profs_weapon.lst
+
+# Races
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\gillman\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\strix\_race.pcc
 
 # Web Update:  http://paizo.com/paizo/blog/v5748dyo5lbwn?Golarion-Day-Subdomains-for-Everyone - For Deities File. - AM (26/Dec/2013)

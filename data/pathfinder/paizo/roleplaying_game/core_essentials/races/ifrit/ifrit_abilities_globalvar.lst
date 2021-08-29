@@ -1,0 +1,30 @@
+# Mon Aug  2 15:15:33 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Ifrit
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define											Ability
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	DEFINE:Ifrit_ReplaceAbilityScores|0							ABILITY:Ifrit Racial Trait|AUTOMATIC|Ifrit ~ Ability Scores|PREVAREQ:Ifrit_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	DEFINE:Ifrit_ReplaceType|0								ABILITY:Ifrit Racial Trait|AUTOMATIC|Ifrit ~ Type|PREVAREQ:Ifrit_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	DEFINE:Ifrit_ReplaceSize|0								ABILITY:Ifrit Racial Trait|AUTOMATIC|Ifrit ~ Size|PREVAREQ:Ifrit_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	DEFINE:Ifrit_ReplaceSpeed|0								ABILITY:Ifrit Racial Trait|AUTOMATIC|Ifrit ~ Speed|PREVAREQ:Ifrit_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	DEFINE:Ifrit_ReplaceVision|0								ABILITY:Ifrit Racial Trait|AUTOMATIC|Ifrit ~ Vision|PREVAREQ:Ifrit_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	DEFINE:Ifrit_ReplaceSpellLikeAbility|0						ABILITY:Ifrit Racial Trait|AUTOMATIC|Ifrit ~ Spell-Like Ability|PREVAREQ:Ifrit_ReplaceSpellLikeAbility,0
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	DEFINE:Ifrit_ReplaceEnergyResistance|0						ABILITY:Ifrit Racial Trait|AUTOMATIC|Ifrit ~ Energy Resistance|PREVAREQ:Ifrit_ReplaceEnergyResistance,0
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	DEFINE:Ifrit_ReplaceFireAffinity|0	DEFINE:Ifrit_AlternateAffinity|0	ABILITY:Ifrit Racial Trait|AUTOMATIC|Ifrit ~ Fire Affinity|PREVAREQ:Ifrit_ReplaceFireAffinity,0|PREVAREQ:Ifrit_AlternateAffinity,0
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	DEFINE:Ifrit_ReplaceLanguages|0							ABILITY:Ifrit Racial Trait|AUTOMATIC|Ifrit ~ Languages|PREVAREQ:Ifrit_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	BONUS:VAR|Ifrit_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ifrit_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	BONUS:VAR|Ifrit_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ifrit_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	BONUS:VAR|Ifrit_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ifrit_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	BONUS:VAR|Ifrit_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ifrit_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	BONUS:VAR|Ifrit_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ifrit_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	BONUS:VAR|Ifrit_ReplaceSpellLikeAbility|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ifrit_ReplaceSpellLikeAbility=True
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	BONUS:VAR|Ifrit_ReplaceEnergyResistance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ifrit_ReplaceEnergyResistance=True
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	BONUS:VAR|Ifrit_ReplaceFireAffinity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ifrit_ReplaceFireAffinity=True
+CATEGORY=Internal|Racial Traits ~ Ifrit.MOD	BONUS:VAR|Ifrit_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ifrit_ReplaceLanguages=True

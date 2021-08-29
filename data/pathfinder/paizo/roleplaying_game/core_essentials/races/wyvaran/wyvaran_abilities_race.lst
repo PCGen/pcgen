@@ -1,10 +1,11 @@
+# Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
 
 
 # ------------------------------
 # Wyvaran
 # ------------------------------
 
-###Block: Racial Abilities ~ grantor/removal MODs in x_abilities_globalvar.lst
+###Block: Racial Abilities ~ grantor/removal MODs in wyvaran abilities globalvar.lst
 # Ability Name		Category of Ability	Define																								Template					Modify VAR
 Racial Traits ~ Wyvaran	CATEGORY:Internal		DEFINE:Wyvaran_RacialCastingStat|0	DEFINE:Wyvaran_RacialCastingMod|0	DEFINE:Wyvaran_RacialCasterlevel|0	DEFINE:Wyvaran_RacialConcentration|0	TEMPLATE:Racial Heritage ~ Wyvaran	BONUS:VAR|Wyvaran_RacialCastingStat|CHASCORE	BONUS:VAR|Wyvaran_RacialCastingMod|CHA	BONUS:VAR|Wyvaran_RacialCasterlevel|TL	BONUS:VAR|Wyvaran_RacialConcentration|Wyvaran_RacialCasterlevel+Wyvaran_RacialCastingMod
 

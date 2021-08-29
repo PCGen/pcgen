@@ -1,0 +1,27 @@
+# Sun Jul 26 22:20:43 2020 -- reformated by PCGen PrettyLST v6.08.00
+KEY:support ~ tengu race
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+ISOGL:YES
+
+# Use this so there aren't numerous copies of the same race.
+
+
+# ==============================
+# Tengu
+# ==============================
+
+# Fact/Factset & Formula System
+DATACONTROL:tengu__datacontrols.lst
+
+# Data Files
+ABILITY:tengu_abilities_globalvar.lst
+ABILITY:tengu_abilities_race.lst
+ABILITYCATEGORY:tengu_abilitycategories.lst
+BIOSET:tengu_biosettings.lst
+LANGUAGE:tengu_languages.lst
+RACE:tengu_races.lst
+SKILL:tengu_skills.lst
+TEMPLATE:tengu_templates_language.lst
+TEMPLATE:tengu_templates.lst

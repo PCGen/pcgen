@@ -1,13 +1,10 @@
+# Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
 
 
 ###Block: Racial Heritage
-# Template Name	Unique Key					Visible	Type				FACT
-Triaxian		KEY:Racial Heritage ~ Triaxian	VISIBLE:NO	TYPE:Racial Heritage	FACT:IsTriaxian|True
-
-
-###Block: Languages
-# Template Name			Visible	Bonus Languages
-Bonus Language ~ Triaxian	VISIBLE:NO	LANGBONUS:Triaxian
+# Template Name	Unique Key					Visible	Template			Type				FACT
+Triaxian		KEY:Racial Heritage ~ Triaxian	VISIBLE:NO	TEMPLATE:IsTriaxian	TYPE:Racial Heritage	FACT:IsTriaxian|True
+IsTriaxian								VISIBLE:NO
 
 
 ###Block: Creature Subtypes

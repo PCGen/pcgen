@@ -7,7 +7,7 @@ GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
 PRECAMPAIGN:1,INCLUDES=Core Rulebook
-!PRECAMPAIGN:1,INCLUDES=Bestiary ~ Player Options Only
+!PRECAMPAIGN:1,Bestiary ~ Player Options Only
 !PRECAMPAIGN:1,Pathfinder RPG Core Supplements,Pathfinder RPG for Game Masters
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
@@ -71,13 +71,5 @@ RACE:b1_races.lst
 TEMPLATE:b1_templates.lst
 WEAPONPROF:b1_profs_weapon.lst
 
-# Separate out races used by ARG to simplify dependencies
-ABILITY:b1_abilities_race_arg.lst
-ABILITYCATEGORY:b1_abilitycategories_arg.lst
-RACE:b1_races_arg.lst
-TEMPLATE:b1_templates_arg.lst
-
-#MOVE TO CORE_ESSENTIALS
-ABILITY:b1_abilities_companion.lst
-KIT:b1_kits_companion.lst
-RACE:b1_races_companion.lst
+# Load player-useable races and options
+PCC:@\pathfinder\paizo\roleplaying_game\bestiary\_bestiary_for_players.pcc

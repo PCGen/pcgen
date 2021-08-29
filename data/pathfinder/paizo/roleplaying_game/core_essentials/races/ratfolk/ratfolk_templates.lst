@@ -1,0 +1,17 @@
+# Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+###Block: Racial Heritage
+# Template Name	Unique Key				Visible	Template			Type				FACT
+Ratfolk		KEY:Racial Heritage ~ Ratfolk	VISIBLE:NO	TEMPLATE:IsRatfolk	TYPE:Racial Heritage	FACT:IsRatfolk|True
+IsRatfolk							VISIBLE:NO
+
+
+###Block: Creature Subtypes
+# Template Name	Visible	Race Subtype
+Ratfolk		VISIBLE:NO	RACESUBTYPE:Ratfolk
+
+
+###Block: Race Builder Humanoid Subtypes
+# Template Name	Unique Key					Visible	Race Subtype		Type
+Ratfolk		KEY:Race Builder Subtype ~ Ratfolk	VISIBLE:NO	RACESUBTYPE:Ratfolk	TYPE:Race Builder Subtype

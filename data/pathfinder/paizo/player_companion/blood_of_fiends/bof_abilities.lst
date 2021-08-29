@@ -3,10 +3,6 @@ SOURCELONG:Pathfinder Player Companion: Blood of Fiends	SOURCESHORT:BOF	SOURCEWE
 # ORIGINAL ENTRY DATE: 12 July 2013
 
 
-###Block: Adopted Trait Race Selection
-# Ability Name	Unique Key				Category of Ability		Type			Description		Multiple?	Choose										Ability
-Tiefling		KEY:Adopted Race ~ Tiefling	CATEGORY:Special Ability	TYPE:AdoptiveRace	DESC:No Selection	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Tiefling Race Trait	ABILITY:Traits|VIRTUAL|%LIST
-
 ###Block: Specific Tiefling Race Traits
 # Asura-Spawn
 # Ability Name		Unique Key						Category of Ability		Type							Multiple Requirements																																								Description																																																											Source Page		Aspects

@@ -43,7 +43,7 @@ LANGUAGE:ig_languages.lst
 RACE:ig_races.lst
 SKILL:ig_skills.lst
 
-PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\android\_android_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\android\_race.pcc
 
 
 # ENTRY DATE: 2015-01

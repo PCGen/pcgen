@@ -1,0 +1,12 @@
+# Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+###Block: Racial Heritage
+# Template Name	Unique Key				Visible	Template		Type				FACT
+Suli			KEY:Racial Heritage ~ Suli	VISIBLE:NO	TEMPLATE:IsSuli	TYPE:Racial Heritage	FACT:IsSuli|True
+IsSuli							VISIBLE:NO
+
+
+###Block: Creature Subtypes
+# Template Name	Visible	Race Subtype
+Native		VISIBLE:NO	RACESUBTYPE:Native

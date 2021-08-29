@@ -1,0 +1,38 @@
+# Mon Jul 26 08:48:53 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Drow
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define						Ability
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	DEFINE:Drow_ReplaceAbilityScores|0		ABILITY:Drow Racial Trait|AUTOMATIC|Drow ~ Ability Scores|PREVAREQ:Drow_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	DEFINE:Drow_ReplaceType|0			ABILITY:Drow Racial Trait|AUTOMATIC|Drow ~ Type|PREVAREQ:Drow_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	DEFINE:Drow_ReplaceSize|0			ABILITY:Drow Racial Trait|AUTOMATIC|Drow ~ Size|PREVAREQ:Drow_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	DEFINE:Drow_ReplaceSpeed|0			ABILITY:Drow Racial Trait|AUTOMATIC|Drow ~ Speed|PREVAREQ:Drow_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	DEFINE:Drow_ReplaceVision|0			ABILITY:Drow Racial Trait|AUTOMATIC|Drow ~ Vision|PREVAREQ:Drow_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	DEFINE:Drow_ReplaceDrowImmunities|0		ABILITY:Drow Racial Trait|AUTOMATIC|Drow ~ Drow Immunities|PREVAREQ:Drow_ReplaceDrowImmunities,0
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	DEFINE:Drow_ReplaceKeenSenses|0		ABILITY:Drow Racial Trait|AUTOMATIC|Drow ~ Keen Senses|PREVAREQ:Drow_ReplaceKeenSenses,0
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	DEFINE:Drow_ReplaceSpellResistance|0	ABILITY:Drow Racial Trait|AUTOMATIC|Drow ~ Spell Resistance|PREVAREQ:Drow_ReplaceSpellResistance,0
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	DEFINE:Drow_ReplaceSpellLikeAbilities|0	ABILITY:Drow Racial Trait|AUTOMATIC|Drow ~ Spell-Like Abilities|PREVAREQ:Drow_ReplaceSpellLikeAbilities,0
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	DEFINE:Drow_ReplaceLightBlindness|0		ABILITY:Drow Racial Trait|AUTOMATIC|Drow ~ Light Blindness|PREVAREQ:Drow_ReplaceLightBlindness,0
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	DEFINE:Drow_ReplacePoisonUse|0		ABILITY:Drow Racial Trait|AUTOMATIC|Drow ~ Poison Use|PREVAREQ:Drow_ReplacePoisonUse,0
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	DEFINE:Drow_ReplaceWeaponFamiliarity|0	ABILITY:Drow Racial Trait|AUTOMATIC|Drow ~ Weapon Familiarity|PREVAREQ:Drow_ReplaceWeaponFamiliarity,0
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	DEFINE:Drow_ReplaceLanguages|0		ABILITY:Drow Racial Trait|AUTOMATIC|Drow ~ Languages|PREVAREQ:Drow_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	BONUS:VAR|Drow_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Drow_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	BONUS:VAR|Drow_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Drow_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	BONUS:VAR|Drow_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Drow_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	BONUS:VAR|Drow_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Drow_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	BONUS:VAR|Drow_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Drow_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	BONUS:VAR|Drow_ReplaceDrowImmunities|1|TYPE=Boolean|PREFACT:1,ABILITIES,Drow_ReplaceDrowImmunities=True
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	BONUS:VAR|Drow_ReplaceKeenSenses|1|TYPE=Boolean|PREFACT:1,ABILITIES,Drow_ReplaceKeenSenses=True
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	BONUS:VAR|Drow_ReplaceSpellResistance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Drow_ReplaceSpellResistance=True
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	BONUS:VAR|Drow_ReplaceSpellLikeAbilities|1|TYPE=Boolean|PREFACT:1,ABILITIES,Drow_ReplaceSpellLikeAbilities=True
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	BONUS:VAR|Drow_ReplaceLightBlindness|1|TYPE=Boolean|PREFACT:1,ABILITIES,Drow_ReplaceLightBlindness=True
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	BONUS:VAR|Drow_ReplacePoisonUse|1|TYPE=Boolean|PREFACT:1,ABILITIES,Drow_ReplacePoisonUse=True
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	BONUS:VAR|Drow_ReplaceWeaponFamiliarity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Drow_ReplaceWeaponFamiliarity=True
+CATEGORY=Internal|Racial Traits ~ Drow.MOD	BONUS:VAR|Drow_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Drow_ReplaceLanguages=True

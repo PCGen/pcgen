@@ -1,0 +1,30 @@
+# Wed Jul 14 14:19:53 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Changeling
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name							Define						Ability
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD	DEFINE:Changeling_ReplaceAbilityScores|0	ABILITY:Changeling Racial Trait|AUTOMATIC|Changeling ~ Ability Scores|PREVAREQ:Changeling_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD	DEFINE:Changeling_ReplaceType|0		ABILITY:Changeling Racial Trait|AUTOMATIC|Changeling ~ Type|PREVAREQ:Changeling_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD	DEFINE:Changeling_ReplaceSize|0		ABILITY:Changeling Racial Trait|AUTOMATIC|Changeling ~ Size|PREVAREQ:Changeling_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD	DEFINE:Changeling_ReplaceSpeed|0		ABILITY:Changeling Racial Trait|AUTOMATIC|Changeling ~ Speed|PREVAREQ:Changeling_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD	DEFINE:Changeling_ReplaceVision|0		ABILITY:Changeling Racial Trait|AUTOMATIC|Changeling ~ Vision|PREVAREQ:Changeling_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD	DEFINE:Changeling_ReplaceHagRacialTrait|0	ABILITY:Changeling Racial Trait|AUTOMATIC|Changeling ~ Hag Racial Trait|PREVAREQ:Changeling_ReplaceHagRacialTrait,0
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD	DEFINE:Changeling_ReplaceClaws|0		ABILITY:Changeling Racial Trait|AUTOMATIC|Changeling ~ Claws|PREVAREQ:Changeling_ReplaceClaws,0
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD	DEFINE:Changeling_ReplaceNaturalArmor|0	ABILITY:Changeling Racial Trait|AUTOMATIC|Changeling ~ Natural Armor|PREVAREQ:Changeling_ReplaceNaturalArmor,0
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD	DEFINE:Changeling_ReplaceLanguages|0	ABILITY:Changeling Racial Trait|AUTOMATIC|Changeling ~ Languages|PREVAREQ:Changeling_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name							Modify VAR
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD	BONUS:VAR|Changeling_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Changeling_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD	BONUS:VAR|Changeling_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Changeling_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD	BONUS:VAR|Changeling_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Changeling_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD	BONUS:VAR|Changeling_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Changeling_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD	BONUS:VAR|Changeling_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Changeling_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD	BONUS:VAR|Changeling_ReplaceHagRacialTrait|1|TYPE=Boolean|PREFACT:1,ABILITIES,Changeling_ReplaceHagRacialTrait=True
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD	BONUS:VAR|Changeling_ReplaceClaws|1|TYPE=Boolean|PREFACT:1,ABILITIES,Changeling_ReplaceClaws=True
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD	BONUS:VAR|Changeling_ReplaceNaturalArmor|1|TYPE=Boolean|PREFACT:1,ABILITIES,Changeling_ReplaceNaturalArmor=True
+CATEGORY=Internal|Racial Traits ~ Changeling.MOD	BONUS:VAR|Changeling_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Changeling_ReplaceLanguages=True

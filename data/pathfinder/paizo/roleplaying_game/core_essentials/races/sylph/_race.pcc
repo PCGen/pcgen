@@ -1,0 +1,26 @@
+# Sun Jul 26 22:20:43 2020 -- reformated by PCGen PrettyLST v6.08.00
+KEY:support ~ sylph race
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+ISOGL:YES
+
+# Use this so there aren't numerous copies of the same race.
+
+
+# ==============================
+# Sylph
+# ==============================
+
+# Fact/Factset & Formula System
+DATACONTROL:sylph__datacontrols.lst
+
+# Data Files
+ABILITY:sylph_abilities_globalvar.lst
+ABILITY:sylph_abilities_race.lst
+ABILITYCATEGORY:sylph_abilitycategories.lst
+BIOSET:sylph_biosettings.lst
+LANGUAGE:sylph_languages.lst
+RACE:sylph_races.lst
+SKILL:sylph_skills.lst
+TEMPLATE:sylph_templates.lst

@@ -9,11 +9,9 @@ Craft (Wood).MOD																				BONUS:SKILL|Craft (Wood)|3|TYPE=SkillFocus|P
 
 ###Block: Situational Modifiers
 Acrobatics.MOD	SITUATION:When boating
-Bluff.MOD		SITUATION:against sexually attracted creatures
 Bluff.MOD		SITUATION:When playing dead
 Diplomacy.MOD	SITUATION:Rats
 Disguise.MOD	SITUATION:Appear as a humanoid
-Handle Animal.MOD	SITUATION:against reptiles
 Perception.MOD	SITUATION:Sound-based checks
 Stealth.MOD		SITUATION:In fog or mist
 Stealth.MOD		SITUATION:In trees

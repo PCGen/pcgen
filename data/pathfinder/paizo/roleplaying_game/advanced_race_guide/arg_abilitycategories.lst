@@ -27,7 +27,6 @@ ABILITYCATEGORY:Multitalented Mastery Bonus	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOO
 ###Block: Featured Races Racial Trait Categories
 # Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Specific choices list					Plural description for UI	Display Location
 ABILITYCATEGORY:Catfolk Curiosity				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Choice			TYPE:Catfolk Curiosity									PLURAL:Catfolk Curiosity	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Kobold Scale Color				VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Kobold Scale Color
 ABILITYCATEGORY:Tengu Exotic Weapon Training Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Choice							ABILITYLIST:Tengu Exotic Weapon Training Choice						DISPLAYLOCATION:Racial Abilities
 
 ###Block: Featured Races Feat Categories
@@ -37,22 +36,10 @@ ABILITYCATEGORY:Catfolk Exemplar Option	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO
 ABILITYCATEGORY:Blood Drinker Type		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BloodDrinkerType		PLURAL:Blood Drinker Types		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Orc Weapon Expertise	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OrcWeaponExpertise		PLURAL:Orc Weapon Expertise		DISPLAYLOCATION:Racial Abilities
 
-###Block: Uncommon Races Racial Trait Categories
-# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
-ABILITYCATEGORY:Changeling Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Changeling Racial Trait	PLURAL:Changeling Racial Traits	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Gillman Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Gillman Racial Trait	PLURAL:Gillman Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Kitsune Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Kitsune Racial Trait	PLURAL:Kitsune Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Nagaji Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Nagaji Racial Trait	PLURAL:Nagaji Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Samsaran Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Samsaran Racial Trait	PLURAL:Samsaran Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Strix Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Strix Racial Trait		PLURAL:Strix Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Wayang Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Wayang Racial Trait	PLURAL:Wayang Racial Traits		DISPLAYLOCATION:Racial Abilities
-
 ###Block: Uncommon Races Racial Trait Ability Categories
 # Ability Category									Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Specific choices list				Plural description for UI		Display Location
-ABILITYCATEGORY:Changeling Hag Racial Trait					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Hag Racial Trait										PLURAL:Changeling Hag Racial Traits	DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Duergar Dwarf Traits (Replaces Stability)			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Replaces Dwarf Stability															DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Duergar Dwarf Traits (Replaces Duergar Immunities)	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Replaces Dwarf Hardy															DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Samsaran Shards of the Past Skills				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability							ABILITYLIST:Samsaran ~ Shards of the Past							DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Mystic Past Life Class						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Samsaran Spell Casting Class														DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Mystic Past Life Base Int						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Choice			TYPE:Mystic Past Life Base Int														DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Mystic Past Life Base Wis						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Choice			TYPE:Mystic Past Life Base Wis														DISPLAYLOCATION:Racial Abilities

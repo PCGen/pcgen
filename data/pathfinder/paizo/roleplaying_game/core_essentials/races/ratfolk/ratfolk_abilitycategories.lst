@@ -1,0 +1,6 @@
+# Mon Aug 16 12:04:55 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+###Block: Racial Trait Categories
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI	Display Location
+ABILITYCATEGORY:Ratfolk Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Ratfolk Racial Trait	PLURAL:Ratfolk Racial Traits	DISPLAYLOCATION:Racial Abilities

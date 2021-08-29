@@ -1,0 +1,35 @@
+# Wed Jul 21 15:49:49 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+# ------------------------------
+# Dhampir
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define						Ability
+CATEGORY=Internal|Racial Traits ~ Dhampir.MOD	DEFINE:Dhampir_ReplaceAbilityScores|0	ABILITY:Dhampir Racial Trait|AUTOMATIC|Dhampir ~ Ability Scores|PREVAREQ:Dhampir_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Dhampir.MOD	DEFINE:Dhampir_ReplaceType|0			ABILITY:Dhampir Racial Trait|AUTOMATIC|Dhampir ~ Type|PREVAREQ:Dhampir_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Dhampir.MOD	DEFINE:Dhampir_ReplaceSize|0			ABILITY:Dhampir Racial Trait|AUTOMATIC|Dhampir ~ Size|PREVAREQ:Dhampir_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Dhampir.MOD	DEFINE:Dhampir_ReplaceSpeed|0			ABILITY:Dhampir Racial Trait|AUTOMATIC|Dhampir ~ Speed|PREVAREQ:Dhampir_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Dhampir.MOD	DEFINE:Dhampir_ReplaceVision|0		ABILITY:Dhampir Racial Trait|AUTOMATIC|Dhampir ~ Vision|PREVAREQ:Dhampir_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Dhampir.MOD	DEFINE:Dhampir_ReplaceSkilled|0		ABILITY:Dhampir Racial Trait|AUTOMATIC|Dhampir ~ Skilled|PREVAREQ:Dhampir_ReplaceSkilled,0
+CATEGORY=Internal|Racial Traits ~ Dhampir.MOD	DEFINE:Dhampir_ReplaceUndeadResistance|0	ABILITY:Dhampir Racial Trait|AUTOMATIC|Dhampir ~ Undead Resistance|PREVAREQ:Dhampir_ReplaceUndeadResistance,0
+CATEGORY=Internal|Racial Traits ~ Dhampir.MOD	DEFINE:Dhampir_ReplaceWeakness|0		ABILITY:Dhampir Racial Trait|AUTOMATIC|Dhampir ~ Weakness|PREVAREQ:Dhampir_ReplaceWeakness,0
+CATEGORY=Internal|Racial Traits ~ Dhampir.MOD	DEFINE:Dhampir_ReplaceEnergyAffinity|0	ABILITY:Dhampir Racial Trait|AUTOMATIC|Dhampir ~ Negative Energy Affinity|PREVAREQ:Dhampir_ReplaceEnergyAffinity,0
+CATEGORY=Internal|Racial Traits ~ Dhampir.MOD	DEFINE:Dhampir_ReplaceSpellLikeAbility|0	ABILITY:Dhampir Racial Trait|AUTOMATIC|Dhampir ~ Spell-Like Ability|PREVAREQ:Dhampir_ReplaceSpellLikeAbility,0
+CATEGORY=Internal|Racial Traits ~ Dhampir.MOD	DEFINE:Dhampir_ReplaceResistLevelDrain|0	ABILITY:Dhampir Racial Trait|AUTOMATIC|Dhampir ~ Resist Level Drain|PREVAREQ:Dhampir_ReplaceResistLevelDrain,0
+CATEGORY=Internal|Racial Traits ~ Dhampir.MOD	DEFINE:Dhampir_ReplaceLanguages|0		ABILITY:Dhampir Racial Trait|AUTOMATIC|Dhampir ~ Languages|PREVAREQ:Dhampir_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Dhampir.MOD	BONUS:VAR|Dhampir_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dhampir_ReplaceAbilityScores=true
+CATEGORY=Internal|Racial Traits ~ Dhampir.MOD	BONUS:VAR|Dhampir_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dhampir_ReplaceType=true
+CATEGORY=Internal|Racial Traits ~ Dhampir.MOD	BONUS:VAR|Dhampir_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dhampir_ReplaceSize=true
+CATEGORY=Internal|Racial Traits ~ Dhampir.MOD	BONUS:VAR|Dhampir_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dhampir_ReplaceSpeed=true
+CATEGORY=Internal|Racial Traits ~ Dhampir.MOD	BONUS:VAR|Dhampir_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dhampir_ReplaceVision=true
+CATEGORY=Internal|Racial Traits ~ Dhampir.MOD	BONUS:VAR|Dhampir_ReplaceSkilled|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dhampir_ReplaceSkilled=true
+CATEGORY=Internal|Racial Traits ~ Dhampir.MOD	BONUS:VAR|Dhampir_ReplaceUndeadResistance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dhampir_ReplaceUndeadResistance=true
+CATEGORY=Internal|Racial Traits ~ Dhampir.MOD	BONUS:VAR|Dhampir_ReplaceWeakness|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dhampir_ReplaceWeakness=true
+CATEGORY=Internal|Racial Traits ~ Dhampir.MOD	BONUS:VAR|Dhampir_ReplaceEnergyAffinity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dhampir_ReplaceEnergyAffinity=true
+CATEGORY=Internal|Racial Traits ~ Dhampir.MOD	BONUS:VAR|Dhampir_ReplaceSpellLikeAbility|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dhampir_ReplaceSpellLikeAbility=true
+CATEGORY=Internal|Racial Traits ~ Dhampir.MOD	BONUS:VAR|Dhampir_ReplaceResistLevelDrain|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dhampir_ReplaceResistLevelDrain=true
+CATEGORY=Internal|Racial Traits ~ Dhampir.MOD	BONUS:VAR|Dhampir_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dhampir_ReplaceLanguages=true

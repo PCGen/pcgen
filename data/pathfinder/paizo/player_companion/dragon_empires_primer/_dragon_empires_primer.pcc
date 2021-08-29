@@ -8,7 +8,7 @@ BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
 PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
 PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
-PRECAMPAIGN:1,INCLUDES=Bestiary,INCLUDES=Bestiary ~ Player Options Only
+#PRECAMPAIGN:1,INCLUDES=Bestiary,INCLUDES=Bestiary ~ Player Options Only
 PRECAMPAIGN:1,INCLUDES=Ultimate Combat
 PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 PUBNAMELONG:Paizo Inc.
@@ -53,12 +53,17 @@ KIT:dep_kits.lst
 LANGUAGE:dep_languages.lst
 RACE:dep_races_arg.lst|!PRECAMPAIGN:1,INCLUDES=Advanced Race Guide,INCLUDES=Dragon Empires Gazetteer,INCLUDES=Bestiary 4,INCLUDES=Bestiary 4 ~ Player Options Only
 RACE:dep_races.lst
-SKILL:dep_skills.lst
 SPELL:dep_spells.lst
 TEMPLATE:dep_templates_arg.lst|!PRECAMPAIGN:1,INCLUDES=Advanced Race Guide,INCLUDES=Dragon Empires Gazetteer,INCLUDES=Bestiary 4,INCLUDES=Bestiary 4 ~ Player Options Only
 TEMPLATE:dep_templates.lst
 
 WEAPONPROF:dep_profs_weapon.lst
+
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\kitsune\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\nagaji\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\samsaran\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\tengu\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\wayang\_race.pcc
 
 # support
 ABILITY:support/dep_abilities_class_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic

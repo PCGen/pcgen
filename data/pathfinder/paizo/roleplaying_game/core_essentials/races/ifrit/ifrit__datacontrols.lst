@@ -1,0 +1,22 @@
+# Mon Aug  2 15:15:33 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Ifrit
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname		Explanation
+FACTDEF:TEMPLATE|IsIfrit	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Ifrit	EXPLANATION:Determines whether the character is an Ifrit
+
+###Block: Racial Traits
+# Name							Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Ifrit_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ifrit Ability Scores		EXPLANATION:Replaces the Ability Scores Racial Trait
+FACTDEF:ABILITY|Ifrit_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ifrit Type			EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Ifrit_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ifrit Size			EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Ifrit_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ifrit Speed			EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Ifrit_ReplaceVision			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ifrit Vision			EXPLANATION:Replaces the Vision Racial Trait
+FACTDEF:ABILITY|Ifrit_ReplaceSpellLikeAbility	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ifrit Spell-Like Ability	EXPLANATION:Replaces the Spell-Like Ability Racial Trait
+FACTDEF:ABILITY|Ifrit_ReplaceEnergyResistance	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ifrit Energy Resistance	EXPLANATION:Replaces the Energy Resistance Racial Trait
+FACTDEF:ABILITY|Ifrit_ReplaceFireAffinity		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ifrit Fire Affinity		EXPLANATION:Replaces the Fire Affinity Racial Trait
+FACTDEF:ABILITY|Ifrit_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ifrit Languages			EXPLANATION:Replaces the Languages Racial Trait

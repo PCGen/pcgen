@@ -23,20 +23,20 @@ Human Ethnicity (Varki)		NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.65					SUBRACE:Var
 # ==============================
 
 ###Block: Aasimar Subraces
-# Template Name	Unique Key					Visible	Source Page		Subrace
-Agathion-Blooded	KEY:Aasimar ~ Agathion-Blooded	VISIBLE:NO	SOURCEPAGE:p.238	SUBRACE:Agathion-Blooded
-Angel-Blooded	KEY:Aasimar ~ Angel-Blooded		VISIBLE:NO	SOURCEPAGE:p.239	SUBRACE:Angel-Blooded
-Archon-Blooded	KEY:Aasimar ~ Archon-Blooded		VISIBLE:NO	SOURCEPAGE:p.239	SUBRACE:Archon-Blooded
-Azata-Blooded	KEY:Aasimar ~ Azata-Blooded		VISIBLE:NO	SOURCEPAGE:p.239	SUBRACE:Azata-Blooded
-Garuda-Blooded	KEY:Aasimar ~ Garuda-Blooded		VISIBLE:NO	SOURCEPAGE:p.239	SUBRACE:Garuda-Blooded
-Peri-Blooded	KEY:Aasimar ~ Peri-Blooded		VISIBLE:NO	SOURCEPAGE:p.239	SUBRACE:Peri-Blooded
+# Template Name				Source Page
+Aasimar ~ Agathion-Blooded.MOD	SOURCEPAGE:p.238
+Aasimar ~ Angel-Blooded.MOD		SOURCEPAGE:p.239
+Aasimar ~ Archon-Blooded.MOD		SOURCEPAGE:p.239
+Aasimar ~ Azata-Blooded.MOD		SOURCEPAGE:p.239
+Aasimar ~ Garuda-Blooded.MOD		SOURCEPAGE:p.239
+Aasimar ~ Peri-Blooded.MOD		SOURCEPAGE:p.239
 
 ###Block: Dhampir Subraces
-# Template Name	Unique Key				Visible	Source Page		Subrace
-Jiang-shi-Born	KEY:Dhampir ~ Jiang-shi-Born	VISIBLE:NO	SOURCEPAGE:p.241	SUBRACE:Jiang-shi-Born
-Moroi-Born		KEY:Dhampir ~ Moroi-Born	VISIBLE:NO	SOURCEPAGE:p.241	SUBRACE:Moroi-Born
-Nosferatu-Born	KEY:Dhampir ~ Nosferatu-Born	VISIBLE:NO	SOURCEPAGE:p.241	SUBRACE:Nosferatu-Born
-Vetala-Born		KEY:Dhampir ~ Vetala-Born	VISIBLE:NO	SOURCEPAGE:p.241	SUBRACE:Vetala-Born
+# Template Name			Source Page
+Dhampir ~ Jiang-shi-Born.MOD	SOURCEPAGE:p.241
+Dhampir ~ Moroi-Born.MOD	SOURCEPAGE:p.241
+Dhampir ~ Nosferatu-Born.MOD	SOURCEPAGE:p.241
+Dhampir ~ Vetala-Born.MOD	SOURCEPAGE:p.241
 
 ###Block: Skinwalker Subraces
 # Template Name				Source Page
@@ -49,19 +49,18 @@ Skinwalker ~ Wereshark-Kin.MOD	SOURCEPAGE:p.249
 Skinwalker ~ Weretiger-Kin.MOD	SOURCEPAGE:p.249
 Skinwalker ~ Werewolf-Kin.MOD		SOURCEPAGE:p.249
 
-
 ###Block: Tiefling Subraces
-# Template Name	Unique Key				Visible	Source Page		Subrace
-Asura-Spawn		KEY:Tiefling ~ Asura-Spawn	VISIBLE:NO	SOURCEPAGE:p.251	SUBRACE:Asura-Spawn
-Daemon-Spawn	KEY:Tiefling ~ Daemon-Spawn	VISIBLE:NO	SOURCEPAGE:p.251	SUBRACE:Daemon-Spawn
-Demodand-Spawn	KEY:Tiefling ~ Demodand-Spawn	VISIBLE:NO	SOURCEPAGE:p.252	SUBRACE:Demodand-Spawn
-Demon-Spawn		KEY:Tiefling ~ Demon-Spawn	VISIBLE:NO	SOURCEPAGE:p.252	SUBRACE:Demon-Spawn
-Devil-Spawn		KEY:Tiefling ~ Devil-Spawn	VISIBLE:NO	SOURCEPAGE:p.252	SUBRACE:Devil-Spawn
-Div-Spawn		KEY:Tiefling ~ Div-Spawn	VISIBLE:NO	SOURCEPAGE:p.252	SUBRACE:Div-Spawn
-Kyton-Spawn		KEY:Tiefling ~ Kyton-Spawn	VISIBLE:NO	SOURCEPAGE:p.252	SUBRACE:Kyton-Spawn
-Oni-Spawn		KEY:Tiefling ~ Oni-Spawn	VISIBLE:NO	SOURCEPAGE:p.252	SUBRACE:Oni-Spawn
-Qlippoth-Spawn	KEY:Tiefling ~ Qlippoth-Spawn	VISIBLE:NO	SOURCEPAGE:p.252	SUBRACE:Qlippoth-Spawn
-Rakshasa-Spawn	KEY:Tiefling ~ Rakshasa-Spawn	VISIBLE:NO	SOURCEPAGE:p.252	SUBRACE:Rakshasa-Spawn
+# Template Name			Source Page
+Tiefling ~ Asura-Spawn.MOD	SOURCEPAGE:p.251
+Tiefling ~ Daemon-Spawn.MOD	SOURCEPAGE:p.251
+Tiefling ~ Demodand-Spawn.MOD	SOURCEPAGE:p.252
+Tiefling ~ Demon-Spawn.MOD	SOURCEPAGE:p.252
+Tiefling ~ Devil-Spawn.MOD	SOURCEPAGE:p.252
+Tiefling ~ Div-Spawn.MOD	SOURCEPAGE:p.252
+Tiefling ~ Kyton-Spawn.MOD	SOURCEPAGE:p.252
+Tiefling ~ Oni-Spawn.MOD	SOURCEPAGE:p.252
+Tiefling ~ Qlippoth-Spawn.MOD	SOURCEPAGE:p.252
+Tiefling ~ Rakshasa-Spawn.MOD	SOURCEPAGE:p.252
 
 # ==============================
 # Bonus Languages

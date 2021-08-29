@@ -1,0 +1,24 @@
+# Mon Aug 16 13:26:24 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Strix
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname		Explanation
+FACTDEF:TEMPLATE|IsStrix	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Strix	EXPLANATION:Determines whether the character is a Strix
+
+###Block: Racial Traits
+# Name							Dataformat			Required	Selectable		Visible	Displayname						Explanation
+FACTDEF:ABILITY|Strix_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Strix Ability Scores	EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Strix_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Strix Type		EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Strix_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Strix Size		EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Strix_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Strix Speed		EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Strix_ReplaceLowLightVision	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Strix Vision		EXPLANATION:Replaces the Vision Racial Trait
+FACTDEF:ABILITY|Strix_ReplaceFlight			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Strix Flight		EXPLANATION:Replaces the Flight Racial Trait
+FACTDEF:ABILITY|Strix_ReplaceDarkvision		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Strix Darkvision	EXPLANATION:Replaces the Darkvision Racial Trait
+FACTDEF:ABILITY|Strix_ReplaceHatred			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Strix Hatred		EXPLANATION:Replaces the Hatred Racial Trait
+FACTDEF:ABILITY|Strix_ReplaceNocturnal		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Strix Nocturnal		EXPLANATION:Replaces the Nocturnal Racial Trait
+FACTDEF:ABILITY|Strix_ReplaceSuspicious		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Strix Suspicious	EXPLANATION:Replaces the Suspicious Racial Trait
+FACTDEF:ABILITY|Strix_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Strix Languages		EXPLANATION:Replaces the Languages Racial Trait

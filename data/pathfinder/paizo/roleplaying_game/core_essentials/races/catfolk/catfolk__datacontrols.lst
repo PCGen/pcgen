@@ -1,0 +1,22 @@
+# Tue Jul 13 09:38:46 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Catfolk
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsCatfolk	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Catfolk	EXPLANATION:Determines whether the character is a Catfolk
+
+###Block: Racial Traits
+# Name							Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Catfolk_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Catfolk Ability Scores	EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Catfolk_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Catfolk Type			EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Catfolk_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Catfolk Size			EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Catfolk_ReplaceSpeed		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Catfolk Speed			EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Catfolk_ReplaceVision		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Catfolk Vision			EXPLANATION:Replaces the Vision Racial Trait
+FACTDEF:ABILITY|Catfolk_ReplaceCatsLuck		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Catfolk Cat's Luck		EXPLANATION:Replaces the Cat's Luck Racial Trait
+FACTDEF:ABILITY|Catfolk_ReplaceNaturalHunter	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Catfolk Natural Hunter	EXPLANATION:Replaces the Natural Hunter Racial Trait
+FACTDEF:ABILITY|Catfolk_ReplaceSprinter		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Catfolk Sprinter		EXPLANATION:Replaces the Sprinter Racial Trait
+FACTDEF:ABILITY|Catfolk_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Catfolk Languages		EXPLANATION:Replaces the Languages Racial Trait

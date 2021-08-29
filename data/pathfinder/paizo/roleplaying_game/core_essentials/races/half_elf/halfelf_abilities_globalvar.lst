@@ -1,0 +1,32 @@
+# Mon May 17 12:27:32 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Half-Elf
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define						Ability
+CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD	DEFINE:HalfElf_ReplaceAbilityScores|0	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf ~ Ability Scores|PREVAREQ:HalfElf_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD	DEFINE:HalfElf_ReplaceSize|0			ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf ~ Size|PREVAREQ:HalfElf_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD	DEFINE:HalfElf_ReplaceSpeed|0			ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf ~ Speed|PREVAREQ:HalfElf_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD	DEFINE:HalfElf_ReplaceVision|0		ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf ~ Vision|PREVAREQ:HalfElf_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD	DEFINE:HalfElf_ReplaceAdaptability|0	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf ~ Adaptability|PREVAREQ:HalfElf_ReplaceAdaptability,0
+CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD	DEFINE:HalfElf_ReplaceElfBlood|0		ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf ~ Elf Blood|PREVAREQ:HalfElf_ReplaceElfBlood,0
+CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD	DEFINE:HalfElf_ReplaceElvenImmunities|0	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf ~ Elven Immunities|PREVAREQ:HalfElf_ReplaceElvenImmunities,0
+CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD	DEFINE:HalfElf_ReplaceKeenSenses|0		ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf ~ Keen Senses|PREVAREQ:HalfElf_ReplaceKeenSenses,0
+CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD	DEFINE:HalfElf_ReplaceMultitalented|0	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf ~ Multitalented|PREVAREQ:HalfElf_ReplaceMultitalented,0
+CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD	DEFINE:HalfElf_ReplaceLanguages|0		ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf ~ Languages|PREVAREQ:HalfElf_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD	BONUS:VAR|HalfElf_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,HalfElf_ReplaceAbilityScores=true
+CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD	BONUS:VAR|HalfElf_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,HalfElf_ReplaceSize=true
+CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD	BONUS:VAR|HalfElf_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,HalfElf_ReplaceSpeed=true
+CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD	BONUS:VAR|HalfElf_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,HalfElf_ReplaceVision=true
+CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD	BONUS:VAR|HalfElf_ReplaceAdaptability|1|TYPE=Boolean|PREFACT:1,ABILITIES,HalfElf_ReplaceAdaptability=true
+CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD	BONUS:VAR|HalfElf_ReplaceElfBlood|1|TYPE=Boolean|PREFACT:1,ABILITIES,HalfElf_ReplaceElfBlood=true
+CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD	BONUS:VAR|HalfElf_ReplaceElvenImmunities|1|TYPE=Boolean|PREFACT:1,ABILITIES,HalfElf_ReplaceElvenImmunities=true
+CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD	BONUS:VAR|HalfElf_ReplaceKeenSenses|1|TYPE=Boolean|PREFACT:1,ABILITIES,HalfElf_ReplaceKeenSenses=true
+CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD	BONUS:VAR|HalfElf_ReplaceMultitalented|1|TYPE=Boolean|PREFACT:1,ABILITIES,HalfElf_ReplaceMultitalented=true
+CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD	BONUS:VAR|HalfElf_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,HalfElf_ReplaceLanguages=true

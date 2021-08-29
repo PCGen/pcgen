@@ -1,0 +1,17 @@
+# Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+###Block: Racial Heritage
+# Template Name	Unique Key					Visible	Template			Type				FACT
+Rougarou		KEY:Racial Heritage ~ Rougarou	VISIBLE:NO	TEMPLATE:IsRougarou	TYPE:Racial Heritage	FACT:IsRougarou|True
+IsRougarou								VISIBLE:NO
+
+
+###Block: Creature Subtypes
+# Template Name	Visible	Race Subtype
+Shapechanger	VISIBLE:NO	RACESUBTYPE:Shapechanger
+
+
+###Block: Race Builder Humanoid Subtypes
+# Template Name	Unique Key						Visible	Race Subtype			Type
+Shapechanger	KEY:Race Builder Subtype ~ Shapechanger	VISIBLE:NO	RACESUBTYPE:Shapechanger	TYPE:Race Builder Subtype

@@ -1,0 +1,23 @@
+# Mon May 17 12:27:32 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Half-Elf
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsHalfElf	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Half-Elf	EXPLANATION:Determines whether the character is a Half-Elf
+
+###Block: Racial Traits
+# Name							Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|HalfElf_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Half-Elf Ability Scores	EXPLANATION:Replaces the Ability Scores
+FACTDEF:ABILITY|HalfElf_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Half-Elf Size			EXPLANATION:Replaces the Medium Racial Trait
+FACTDEF:ABILITY|HalfElf_ReplaceSpeed		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Half-Elf Speed			EXPLANATION:Replaces the Normal Speed Racial Trait
+FACTDEF:ABILITY|HalfElf_ReplaceVision		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Half-Elf Vision			EXPLANATION:Replaces the Low-Light Vision Racial Trait
+FACTDEF:ABILITY|HalfElf_ReplaceAdaptability	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Half-Elf Adaptability		EXPLANATION:Replaces the Adaptability Racial Trait
+FACTDEF:ABILITY|HalfElf_ReplaceElfBlood		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Half-Elf Elf Blood		EXPLANATION:Replaces the Elf Blood Racial Trait
+FACTDEF:ABILITY|HalfElf_ReplaceElvenImmunities	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Half-Elf Elven Immunities	EXPLANATION:Replaces the Elven Immunities Racial Trait
+FACTDEF:ABILITY|HalfElf_ReplaceKeenSenses		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Half-Elf Keen Senses		EXPLANATION:Replaces the Keen Senses Racial Trait
+FACTDEF:ABILITY|HalfElf_ReplaceMultitalented	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Half-Elf Multitalented	EXPLANATION:Replaces the Multitalented Racial Trait
+FACTDEF:ABILITY|HalfElf_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Half-Elf Languages		EXPLANATION:Replaces the Languages Racial Trait

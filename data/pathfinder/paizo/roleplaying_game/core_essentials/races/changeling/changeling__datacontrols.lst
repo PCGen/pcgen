@@ -1,0 +1,22 @@
+# Wed Jul 14 14:19:53 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Changeling
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsChangeling	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Changeling	EXPLANATION:Determines whether the character is a Changeling
+
+###Block: Racial Traits
+# Name								Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Changeling_ReplaceAbilityScores		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Changeling Ability Scores	EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Changeling_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Changeling Type			EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Changeling_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Changeling Size			EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Changeling_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Changeling Speed		EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Changeling_ReplaceVision			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Changeling Vision		EXPLANATION:Replaces the Vision Racial Trait
+FACTDEF:ABILITY|Changeling_ReplaceHagRacialTrait	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Changeling Hag Racial Trait	EXPLANATION:Replaces the Hag Racial Trait Racial Trait
+FACTDEF:ABILITY|Changeling_ReplaceClaws			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Changeling Claws		EXPLANATION:Replaces the Claws Racial Trait
+FACTDEF:ABILITY|Changeling_ReplaceNaturalArmor		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Changeling Natural Armor	EXPLANATION:Replaces the Natural Armor Racial Trait
+FACTDEF:ABILITY|Changeling_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Changeling Languages		EXPLANATION:Replaces the Languages Racial Trait
