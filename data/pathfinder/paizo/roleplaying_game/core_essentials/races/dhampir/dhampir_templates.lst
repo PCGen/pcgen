@@ -1,0 +1,17 @@
+# Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+###Block: Racial Heritage
+# Template Name	Unique Key				Visible	Template			Type				FACT
+Dhampir		KEY:Racial Heritage ~ Dhampir	VISIBLE:NO	TEMPLATE:IsDhampir	TYPE:Racial Heritage	FACT:IsDhampir|True
+IsDhampir							VISIBLE:NO
+
+
+###Block: Creature Subtypes
+# Template Name	Visible	Race Subtype
+Dhampir		VISIBLE:NO	RACESUBTYPE:Dhampir
+
+
+###Block: Race Builder Humanoid Subtypes
+# Template Name	Unique Key					Visible	Race Subtype		Type
+Dhampir		KEY:Race Builder Subtype ~ Dhampir	VISIBLE:NO	RACESUBTYPE:Dhampir	TYPE:Race Builder Subtype

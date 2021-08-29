@@ -1,0 +1,30 @@
+# Thu Aug  5 15:29:38 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Merfolk
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define						Ability
+CATEGORY=Internal|Racial Traits ~ Merfolk.MOD	DEFINE:Merfolk_ReplaceAbilityScores|0	ABILITY:Merfolk Racial Trait|AUTOMATIC|Merfolk ~ Ability Scores|PREVAREQ:Merfolk_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Merfolk.MOD	DEFINE:Merfolk_ReplaceType|0			ABILITY:Merfolk Racial Trait|AUTOMATIC|Merfolk ~ Type|PREVAREQ:Merfolk_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Merfolk.MOD	DEFINE:Merfolk_ReplaceSize|0			ABILITY:Merfolk Racial Trait|AUTOMATIC|Merfolk ~ Size|PREVAREQ:Merfolk_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Merfolk.MOD	DEFINE:Merfolk_ReplaceSpeed|0			ABILITY:Merfolk Racial Trait|AUTOMATIC|Merfolk ~ Speed|PREVAREQ:Merfolk_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Merfolk.MOD	DEFINE:Merfolk_ReplaceVision|0		ABILITY:Merfolk Racial Trait|AUTOMATIC|Merfolk ~ Vision|PREVAREQ:Merfolk_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Merfolk.MOD	DEFINE:Merfolk_ReplaceAmphibious|0		ABILITY:Merfolk Racial Trait|AUTOMATIC|Merfolk ~ Amphibious|PREVAREQ:Merfolk_ReplaceAmphibious,0
+CATEGORY=Internal|Racial Traits ~ Merfolk.MOD	DEFINE:Merfolk_ReplaceArmor|0			ABILITY:Merfolk Racial Trait|AUTOMATIC|Merfolk ~ Armor|PREVAREQ:Merfolk_ReplaceArmor,0
+CATEGORY=Internal|Racial Traits ~ Merfolk.MOD	DEFINE:Merfolk_ReplaceLegless|0		ABILITY:Merfolk Racial Trait|AUTOMATIC|Merfolk ~ Legless|PREVAREQ:Merfolk_ReplaceLegless,0
+CATEGORY=Internal|Racial Traits ~ Merfolk.MOD	DEFINE:Merfolk_ReplaceLanguages|0		ABILITY:Merfolk Racial Trait|AUTOMATIC|Merfolk ~ Languages|PREVAREQ:Merfolk_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Merfolk.MOD	BONUS:VAR|Merfolk_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Merfolk_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Merfolk.MOD	BONUS:VAR|Merfolk_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Merfolk_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Merfolk.MOD	BONUS:VAR|Merfolk_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Merfolk_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Merfolk.MOD	BONUS:VAR|Merfolk_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Merfolk_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Merfolk.MOD	BONUS:VAR|Merfolk_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Merfolk_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Merfolk.MOD	BONUS:VAR|Merfolk_ReplaceAmphibious|1|TYPE=Boolean|PREFACT:1,ABILITIES,Merfolk_ReplaceAmphibious=True
+CATEGORY=Internal|Racial Traits ~ Merfolk.MOD	BONUS:VAR|Merfolk_ReplaceArmor|1|TYPE=Boolean|PREFACT:1,ABILITIES,Merfolk_ReplaceArmor=True
+CATEGORY=Internal|Racial Traits ~ Merfolk.MOD	BONUS:VAR|Merfolk_ReplaceLegless|1|TYPE=Boolean|PREFACT:1,ABILITIES,Merfolk_ReplaceLegless=True
+CATEGORY=Internal|Racial Traits ~ Merfolk.MOD	BONUS:VAR|Merfolk_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Merfolk_ReplaceLanguages=True

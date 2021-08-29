@@ -1,0 +1,6 @@
+# Mon Aug  2 11:24:30 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+###Block: Racial Trait Categories
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI	Display Location
+ABILITYCATEGORY:Grippli Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Grippli Racial Trait	PLURAL:Grippli Racial Traits	DISPLAYLOCATION:Racial Abilities

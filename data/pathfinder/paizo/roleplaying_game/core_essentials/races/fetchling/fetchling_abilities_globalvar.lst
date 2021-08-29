@@ -1,0 +1,34 @@
+# Mon Jul 26 15:07:59 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Fetchling
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define							Ability
+CATEGORY=Internal|Racial Traits ~ Fetchling.MOD	DEFINE:Fetchling_ReplaceAbilityScores|0		ABILITY:Fetchling Racial Trait|AUTOMATIC|Fetchling ~ Ability Scores|PREVAREQ:Fetchling_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Fetchling.MOD	DEFINE:Fetchling_ReplaceType|0			ABILITY:Fetchling Racial Trait|AUTOMATIC|Fetchling ~ Type|PREVAREQ:Fetchling_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Fetchling.MOD	DEFINE:Fetchling_ReplaceSize|0			ABILITY:Fetchling Racial Trait|AUTOMATIC|Fetchling ~ Size|PREVAREQ:Fetchling_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Fetchling.MOD	DEFINE:Fetchling_ReplaceSpeed|0			ABILITY:Fetchling Racial Trait|AUTOMATIC|Fetchling ~ Speed|PREVAREQ:Fetchling_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Fetchling.MOD	DEFINE:Fetchling_ReplaceDarkvision|0		ABILITY:Fetchling Racial Trait|AUTOMATIC|Fetchling ~ Vision|PREVAREQ:Fetchling_ReplaceDarkvision,0
+CATEGORY=Internal|Racial Traits ~ Fetchling.MOD	DEFINE:Fetchling_ReplaceLowLightVision|0		ABILITY:Fetchling Racial Trait|AUTOMATIC|Fetchling ~ Low-Light Vision|PREVAREQ:Fetchling_ReplaceLowLightVision,0
+CATEGORY=Internal|Racial Traits ~ Fetchling.MOD	DEFINE:Fetchling_ReplaceSkilled|0			ABILITY:Fetchling Racial Trait|AUTOMATIC|Fetchling ~ Skilled|PREVAREQ:Fetchling_ReplaceSkilled,0
+CATEGORY=Internal|Racial Traits ~ Fetchling.MOD	DEFINE:Fetchling_ReplaceShadowBlending|0		ABILITY:Fetchling Racial Trait|AUTOMATIC|Fetchling ~ Shadow Blending|PREVAREQ:Fetchling_ReplaceShadowBlending,0
+CATEGORY=Internal|Racial Traits ~ Fetchling.MOD	DEFINE:Fetchling_ReplaceShadowyResistance|0	ABILITY:Fetchling Racial Trait|AUTOMATIC|Fetchling ~ Shadowy Resistance|PREVAREQ:Fetchling_ReplaceShadowyResistance,0
+CATEGORY=Internal|Racial Traits ~ Fetchling.MOD	DEFINE:Fetchling_ReplaceSpellLikeAbilities|0	ABILITY:Fetchling Racial Trait|AUTOMATIC|Fetchling ~ Spell-Like Abilities|PREVAREQ:Fetchling_ReplaceSpellLikeAbilities,0
+CATEGORY=Internal|Racial Traits ~ Fetchling.MOD	DEFINE:Fetchling_ReplaceLanguages|0			ABILITY:Fetchling Racial Trait|AUTOMATIC|Fetchling ~ Languages|PREVAREQ:Fetchling_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Fetchling.MOD	BONUS:VAR|Fetchling_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fetchling_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Fetchling.MOD	BONUS:VAR|Fetchling_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fetchling_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Fetchling.MOD	BONUS:VAR|Fetchling_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fetchling_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Fetchling.MOD	BONUS:VAR|Fetchling_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fetchling_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Fetchling.MOD	BONUS:VAR|Fetchling_ReplaceDarkvision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fetchling_ReplaceDarkvision=True
+CATEGORY=Internal|Racial Traits ~ Fetchling.MOD	BONUS:VAR|Fetchling_ReplaceLowLightVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fetchling_ReplaceLowLightVision=True
+CATEGORY=Internal|Racial Traits ~ Fetchling.MOD	BONUS:VAR|Fetchling_ReplaceSkilled|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fetchling_ReplaceSkilled=True
+CATEGORY=Internal|Racial Traits ~ Fetchling.MOD	BONUS:VAR|Fetchling_ReplaceShadowBlending|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fetchling_ReplaceShadowBlending=True
+CATEGORY=Internal|Racial Traits ~ Fetchling.MOD	BONUS:VAR|Fetchling_ReplaceShadowyResistance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fetchling_ReplaceShadowyResistance=True
+CATEGORY=Internal|Racial Traits ~ Fetchling.MOD	BONUS:VAR|Fetchling_ReplaceSpellLikeAbilities|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fetchling_ReplaceSpellLikeAbilities=True
+CATEGORY=Internal|Racial Traits ~ Fetchling.MOD	BONUS:VAR|Fetchling_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fetchling_ReplaceLanguages=True

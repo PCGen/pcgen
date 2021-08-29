@@ -81,8 +81,8 @@ SKILL:uw_skills.lst
 SPELL:uw_spells.lst
 TEMPLATE:uw_templates.lst
 
-PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\gathlain\_gathlain_race.pcc
-PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\ghoran\_ghoran_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\gathlain\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\ghoran\_race.pcc
 
 ABILITY:support/uw_abilities_class_arg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
 ABILITY:support/uw_abilities_class_fap.lst|PRECAMPAIGN:1,INCLUDES=Faiths and Philosophies

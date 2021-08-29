@@ -1,0 +1,12 @@
+# Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+###Block: Racial Heritage
+# Template Name	Unique Key				Visible	Template		Type				FACT
+Sylph			KEY:Racial Heritage ~ Sylph	VISIBLE:NO	TEMPLATE:IsSylph	TYPE:Racial Heritage	FACT:IsSylph|True
+IsSylph							VISIBLE:NO
+
+
+###Block: Creature Subtypes
+# Template Name	Visible	Race Subtype
+Native		VISIBLE:NO	RACESUBTYPE:Native

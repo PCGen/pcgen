@@ -1,0 +1,26 @@
+# Sun Jul 26 22:20:43 2020 -- reformated by PCGen PrettyLST v6.08.00
+KEY:support ~ ifrit race
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+ISOGL:YES
+
+# Use this so there aren't numerous copies of the same race.
+
+
+# ==============================
+# Ifrit
+# ==============================
+
+# Fact/Factset & Formula System
+DATACONTROL:ifrit__datacontrols.lst
+
+# Data Files
+ABILITY:ifrit_abilities_globalvar.lst
+ABILITY:ifrit_abilities_race.lst
+ABILITYCATEGORY:ifrit_abilitycategories.lst
+BIOSET:ifrit_biosettings.lst
+LANGUAGE:ifrit_languages.lst
+RACE:ifrit_races.lst
+SKILL:ifrit_skills.lst
+TEMPLATE:ifrit_templates.lst

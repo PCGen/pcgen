@@ -1,0 +1,22 @@
+# Tue Jul 27 19:49:56 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Gillman
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsGillman	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Gillman	EXPLANATION:Determines whether the character is a Gillman
+
+###Block: Racial Traits
+# Name								Dataformat			Required	Selectable		Visible	Displayname								Explanation
+FACTDEF:ABILITY|Gillman_ReplaceAbilityScores		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Gillman Ability Scores		EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Gillman_ReplaceType				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Gillman Type				EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Gillman_ReplaceSize				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Gillman Size				EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Gillman_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Gillman Speed				EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Gillman_ReplaceAmphibious			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Gillman Amphibious			EXPLANATION:Replaces the Amphibious Racial Trait
+FACTDEF:ABILITY|Gillman_ReplaceEnchantmentResistance	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Gillman Enchantment Resistance	EXPLANATION:Replaces the Enchantment Resistance Racial Trait
+FACTDEF:ABILITY|Gillman_ReplaceServitor			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Gillman Servitor			EXPLANATION:Replaces the Servitor Racial Trait
+FACTDEF:ABILITY|Gillman_ReplaceWaterDependent		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Gillman Water Dependent		EXPLANATION:Replaces the Water Dependent Racial Trait
+FACTDEF:ABILITY|Gillman_ReplaceLanguages			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Gillman Languages			EXPLANATION:Replaces the Languages Racial Trait

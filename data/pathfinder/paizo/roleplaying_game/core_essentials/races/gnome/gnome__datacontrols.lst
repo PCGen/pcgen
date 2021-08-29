@@ -1,0 +1,25 @@
+# Thu May 13 09:38:42 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Gnome
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname		Explanation
+FACTDEF:TEMPLATE|IsGnome	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Gnome	EXPLANATION:Determines whether the character is a Gnome
+
+###Block: Racial Traits
+# Name							Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Gnome_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Gnome Ability Scores		EXPLANATION:Replaces the Ability Scores
+FACTDEF:ABILITY|Gnome_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Gnome Size			EXPLANATION:Replaces the Small Racial Trait
+FACTDEF:ABILITY|Gnome_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Gnome Speed			EXPLANATION:Replaces the Slow Speed Racial Trait
+FACTDEF:ABILITY|Gnome_ReplaceVision			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Gnome Vision			EXPLANATION:Replaces the Low-Light Vision Racial Trait
+FACTDEF:ABILITY|Gnome_ReplaceDefensiveTraining	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Gnome Defensive Training	EXPLANATION:Replaces the Defensive Training Racial Trait
+FACTDEF:ABILITY|Gnome_ReplaceGnomeMagic		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Gnome Gnome Magic		EXPLANATION:Replaces the Gnome Magic Racial Trait
+FACTDEF:ABILITY|Gnome_ReplaceHatred			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Gnome Hatred			EXPLANATION:Replaces the Hatred Racial Trait
+FACTDEF:ABILITY|Gnome_ReplaceIllusionResistance	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Gnome Illusion Resistance	EXPLANATION:Replaces the Illusion Resistance Racial Trait
+FACTDEF:ABILITY|Gnome_ReplaceKeenSenses		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Gnome Keen Senses		EXPLANATION:Replaces the Keen Senses Racial Trait
+FACTDEF:ABILITY|Gnome_ReplaceObsessive		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Gnome Obsessive			EXPLANATION:Replaces the Obsessive Racial Trait
+FACTDEF:ABILITY|Gnome_ReplaceWeaponFamiliarity	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Gnome Weapon Familiarity	EXPLANATION:Replaces the Weapon Familiarity Racial Trait
+FACTDEF:ABILITY|Gnome_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Gnome Languages			EXPLANATION:Replaces the Languages Racial Trait

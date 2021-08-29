@@ -1,0 +1,30 @@
+# Mon Aug 16 12:29:06 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Samsaran
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define												Ability																						Bonus Ability Pool
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD	DEFINE:Samsaran_ReplaceAbilityScores|0							ABILITY:Samsaran Racial Trait|AUTOMATIC|Samsaran ~ Ability Scores|PREVAREQ:Samsaran_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD	DEFINE:Samsaran_ReplaceType|0									ABILITY:Samsaran Racial Trait|AUTOMATIC|Samsaran ~ Type|PREVAREQ:Samsaran_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD	DEFINE:Samsaran_ReplaceSize|0									ABILITY:Samsaran Racial Trait|AUTOMATIC|Samsaran ~ Size|PREVAREQ:Samsaran_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD	DEFINE:Samsaran_ReplaceSpeed|0								ABILITY:Samsaran Racial Trait|AUTOMATIC|Samsaran ~ Speed|PREVAREQ:Samsaran_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD	DEFINE:Samsaran_ReplaceVision|0								ABILITY:Samsaran Racial Trait|AUTOMATIC|Samsaran ~ Vision|PREVAREQ:Samsaran_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD	DEFINE:Samsaran_ReplaceLifebound|0								ABILITY:Samsaran Racial Trait|AUTOMATIC|Samsaran ~ Lifebound|PREVAREQ:Samsaran_ReplaceLifebound,0
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD	DEFINE:Samsaran_ReplaceSamsaranMagic|0							ABILITY:Samsaran Racial Trait|AUTOMATIC|Samsaran ~ Samsaran Magic|PREVAREQ:Samsaran_ReplaceSamsaranMagic,0
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD	DEFINE:Samsaran_ReplaceShardsOfThePast|0																														BONUS:ABILITYPOOL|Samsaran Shards of the Past Skills|1|PREVAREQ:Samsaran_ReplaceShardsOfThePast,0
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD	DEFINE:Samsaran_ReplaceLanguages|0	DEFINE:Samsaran_AlternateLanguages|0	ABILITY:Samsaran Racial Trait|AUTOMATIC|Samsaran ~ Languages|PREVAREQ:Samsaran_ReplaceLanguages,0|PREVAREQ:Samsaran_AlternateLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD	BONUS:VAR|Samsaran_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samsaran_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD	BONUS:VAR|Samsaran_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samsaran_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD	BONUS:VAR|Samsaran_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samsaran_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD	BONUS:VAR|Samsaran_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samsaran_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD	BONUS:VAR|Samsaran_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samsaran_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD	BONUS:VAR|Samsaran_ReplaceLifebound|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samsaran_ReplaceLifebound=True
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD	BONUS:VAR|Samsaran_ReplaceSamsaranMagic|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samsaran_ReplaceSamsaranMagic=True
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD	BONUS:VAR|Samsaran_ReplaceShardsOfThePast|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samsaran_ReplaceShardsOfThePast=True
+CATEGORY=Internal|Racial Traits ~ Samsaran.MOD	BONUS:VAR|Samsaran_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Samsaran_ReplaceLanguages=True

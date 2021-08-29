@@ -1,0 +1,25 @@
+# Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Aquatic Elf
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsAquaticElf	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Aquatic Elf	EXPLANATION:Determines whether the character is a Aquatic Elf
+
+###Block: Racial Traits
+# Name								Dataformat			Required	Selectable		Visible	Displayname								Explanation
+FACTDEF:ABILITY|AquaticElf_ReplaceAbilityScores		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Aquatic Elf Ability Scores		EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|AquaticElf_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Aquatic Elf Type			EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|AquaticElf_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Aquatic Elf Size			EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|AquaticElf_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Aquatic Elf Speed			EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|AquaticElf_ReplaceVision			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Aquatic Elf Vision			EXPLANATION:Replaces the Vision Racial Trait
+FACTDEF:ABILITY|AquaticElf_ReplaceSwimSpeed		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Aquatic Elf Swim Speed		EXPLANATION:Replaces the Swim Speed Racial Trait
+FACTDEF:ABILITY|AquaticElf_ReplaceAmphibious		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Aquatic Elf Amphibious		EXPLANATION:Replaces the Amphibious Racial Trait
+FACTDEF:ABILITY|AquaticElf_ReplaceElvenImmunities	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Aquatic Elf Elven Immunities	EXPLANATION:Replaces the Elven Immunities Racial Trait
+FACTDEF:ABILITY|AquaticElf_ReplaceElvenMagic		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Aquatic Elf Elven Magic		EXPLANATION:Replaces the Elven Magic Racial Trait
+FACTDEF:ABILITY|AquaticElf_ReplaceKeenSenses		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Aquatic Elf Keen Senses		EXPLANATION:Replaces the Keen Senses Racial Trait
+FACTDEF:ABILITY|AquaticElf_ReplaceWeaponFamiliarity	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Aquatic Elf Weapon Familiarity	EXPLANATION:Replaces the Weapon Familiarity Racial Trait
+FACTDEF:ABILITY|AquaticElf_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Aquatic Elf Languages			EXPLANATION:Replaces the Languages Racial Trait

@@ -1,0 +1,6 @@
+# Fri Aug  6 15:03:28 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+###Block: Playable Races
+# Race Name	SORTKEY		Starting Feats	Base size		Move		Ability								Nb Legs	Nb Hands	Main Race Type	Type				Source Page		FACT
+Merfolk	SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	MOVE:Walk,5	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Merfolk	LEGS:0	HANDS:2	RACETYPE:Humanoid	TYPE:Base.PC.Uncommon	SOURCEPAGE:p.xx	FACT:IsPC|True

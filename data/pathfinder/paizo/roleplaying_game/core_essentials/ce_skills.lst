@@ -84,7 +84,6 @@ Acrobatics.MOD			SITUATION:Move through threatened squares
 Acrobatics.MOD			SITUATION:Swing
 Acrobatics.MOD			SITUATION:Underground
 Acrobatics.MOD			SITUATION:Reduce Damage from Falls
-Appraise.MOD			SITUATION:to assess nonmagical metals or gemstones
 Appraise.MOD			SITUATION:to assess treasure found in or under the water
 Bluff.MOD				SITUATION:Feint
 Bluff.MOD				SITUATION:Imitate Voice
@@ -141,7 +140,6 @@ Perception.MOD			SITUATION:Identify Potion
 Perception.MOD			SITUATION:Notice Creatures Underwater
 Perception.MOD			SITUATION:to notice flying creatures
 Perception.MOD			SITUATION:Notice Hidden Object
-Perception.MOD			SITUATION:to notice unusual stonework
 Perception.MOD			SITUATION:Notice unusual stonework/Underground
 Perception.MOD			SITUATION:Opposed
 Perception.MOD			SITUATION:Precious metals and gemstones
@@ -161,7 +159,6 @@ Spellcraft.MOD			SITUATION:Cast Defensively
 Spellcraft.MOD			SITUATION:Identify Curse or Emotion
 Spellcraft.MOD			SITUATION:Identify Enchantment
 Spellcraft.MOD			SITUATION:Identify Magic Auras and Items
-Spellcraft.MOD			SITUATION:to identify magic item properties
 Stealth.MOD				SITUATION:concealed in metal objects or debris
 Stealth.MOD				SITUATION:Darkness or smoke
 Stealth.MOD				SITUATION:In ambush
@@ -171,7 +168,6 @@ Stealth.MOD				SITUATION:In caverns
 Stealth.MOD				SITUATION:In darkness
 Stealth.MOD				SITUATION:In deserts
 Stealth.MOD				SITUATION:In dim light
-Stealth.MOD				SITUATION:in dim light or darkness
 Stealth.MOD				SITUATION:In forests
 Stealth.MOD				SITUATION:In hilly or rocky areas
 Stealth.MOD				SITUATION:In lair

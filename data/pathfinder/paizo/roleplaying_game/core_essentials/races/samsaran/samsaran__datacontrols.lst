@@ -1,0 +1,22 @@
+# Mon Aug 16 12:29:06 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Samsaran
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsSamsaran	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Samsaran	EXPLANATION:Determines whether the character is a Samsaran
+
+###Block: Racial Traits
+# Name							Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Samsaran_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Samsaran Ability Scores	EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Samsaran_ReplaceType		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Samsaran Type			EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Samsaran_ReplaceSize		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Samsaran Size			EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Samsaran_ReplaceSpeed		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Samsaran Speed			EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Samsaran_ReplaceVision		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Samsaran Vision			EXPLANATION:Replaces the Vision Racial Trait
+FACTDEF:ABILITY|Samsaran_ReplaceLifebound		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Samsaran Lifebound		EXPLANATION:Replaces the Lifebound Racial Trait
+FACTDEF:ABILITY|Samsaran_ReplaceSamsaranMagic	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Samsaran Samsaran Magic	EXPLANATION:Replaces the Samsaran Magic Racial Trait
+FACTDEF:ABILITY|Samsaran_ReplaceShardsOfThePast	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Samsaran Shards of the Past	EXPLANATION:Replaces the Shards of the Past Racial Trait
+FACTDEF:ABILITY|Samsaran_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Samsaran Languages		EXPLANATION:Replaces the Languages Racial Trait

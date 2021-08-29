@@ -8,7 +8,7 @@ BOOKTYPE:Campaign Setting
 SETTING:Pathfinder|Golarion
 PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
 PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
-PRECAMPAIGN:1,INCLUDES=Bestiary,INCLUDES=Bestiary ~ Player Options Only
+#PRECAMPAIGN:1,INCLUDES=Bestiary,INCLUDES=Bestiary ~ Player Options Only
 PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
 PRECAMPAIGN:1,INCLUDES=Ultimate Combat
 PUBNAMELONG:Paizo Inc.
@@ -57,10 +57,15 @@ DOMAIN:deg_domains.lst
 LANGUAGE:deg_languages.lst
 RACE:deg_races_arg.lst|!PRECAMPAIGN:1,INCLUDES=Advanced Race Guide,INCLUDES=Bestiary 4,INCLUDES=Bestiary 4 ~ Player Options Only
 RACE:deg_races.lst
-SKILL:deg_skills.lst
 SPELL:deg_spells.lst
 TEMPLATE:deg_templates_arg.lst|!PRECAMPAIGN:1,INCLUDES=Advanced Race Guide,INCLUDES=Bestiary 4,INCLUDES=Bestiary 4 ~ Player Options Only
 TEMPLATE:deg_templates.lst
+
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\kitsune\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\nagaji\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\samsaran\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\tengu\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\wayang\_race.pcc
 
 # ENTRY DATE:
 # LST MONKEY:

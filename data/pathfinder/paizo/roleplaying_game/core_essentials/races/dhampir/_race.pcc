@@ -1,0 +1,26 @@
+# Sun Jul 26 22:20:43 2020 -- reformated by PCGen PrettyLST v6.08.00
+KEY:support ~ dhampir race
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+ISOGL:YES
+
+# Use this so there aren't numerous copies of the same race.
+
+
+# ==============================
+# Dhampir
+# ==============================
+
+# Fact/Factset & Formula System
+DATACONTROL:dhampir__datacontrols.lst
+
+# Data Files
+ABILITY:dhampir_abilities_globalvar.lst
+ABILITY:dhampir_abilities_race.lst
+ABILITYCATEGORY:dhampir_abilitycategories.lst
+BIOSET:dhampir_biosettings.lst
+LANGUAGE:dhampir_languages.lst
+RACE:dhampir_races.lst
+SKILL:dhampir_skills.lst
+TEMPLATE:dhampir_templates.lst

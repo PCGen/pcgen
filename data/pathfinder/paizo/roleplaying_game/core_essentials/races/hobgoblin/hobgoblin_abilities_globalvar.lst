@@ -1,0 +1,26 @@
+# Mon Aug  2 13:25:18 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Hobgoblin
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define						Ability
+CATEGORY=Internal|Racial Traits ~ Hobgoblin.MOD	DEFINE:Hobgoblin_ReplaceAbilityScores|0	ABILITY:Hobgoblin Racial Trait|AUTOMATIC|Hobgoblin ~ Ability Scores|PREVAREQ:Hobgoblin_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Hobgoblin.MOD	DEFINE:Hobgoblin_ReplaceType|0		ABILITY:Hobgoblin Racial Trait|AUTOMATIC|Hobgoblin ~ Type|PREVAREQ:Hobgoblin_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Hobgoblin.MOD	DEFINE:Hobgoblin_ReplaceSize|0		ABILITY:Hobgoblin Racial Trait|AUTOMATIC|Hobgoblin ~ Size|PREVAREQ:Hobgoblin_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Hobgoblin.MOD	DEFINE:Hobgoblin_ReplaceSpeed|0		ABILITY:Hobgoblin Racial Trait|AUTOMATIC|Hobgoblin ~ Speed|PREVAREQ:Hobgoblin_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Hobgoblin.MOD	DEFINE:Hobgoblin_ReplaceVision|0		ABILITY:Hobgoblin Racial Trait|AUTOMATIC|Hobgoblin ~ Vision|PREVAREQ:Hobgoblin_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Hobgoblin.MOD	DEFINE:Hobgoblin_ReplaceSneaky|0		ABILITY:Hobgoblin Racial Trait|AUTOMATIC|Hobgoblin ~ Sneaky|PREVAREQ:Hobgoblin_ReplaceSneaky,0
+CATEGORY=Internal|Racial Traits ~ Hobgoblin.MOD	DEFINE:Hobgoblin_ReplaceLanguages|0		ABILITY:Hobgoblin Racial Trait|AUTOMATIC|Hobgoblin ~ Languages|PREVAREQ:Hobgoblin_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Hobgoblin.MOD	BONUS:VAR|Hobgoblin_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Hobgoblin_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Hobgoblin.MOD	BONUS:VAR|Hobgoblin_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Hobgoblin_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Hobgoblin.MOD	BONUS:VAR|Hobgoblin_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Hobgoblin_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Hobgoblin.MOD	BONUS:VAR|Hobgoblin_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Hobgoblin_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Hobgoblin.MOD	BONUS:VAR|Hobgoblin_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Hobgoblin_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Hobgoblin.MOD	BONUS:VAR|Hobgoblin_ReplaceSneaky|1|TYPE=Boolean|PREFACT:1,ABILITIES,Hobgoblin_ReplaceSneaky=True
+CATEGORY=Internal|Racial Traits ~ Hobgoblin.MOD	BONUS:VAR|Hobgoblin_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Hobgoblin_ReplaceLanguages=True

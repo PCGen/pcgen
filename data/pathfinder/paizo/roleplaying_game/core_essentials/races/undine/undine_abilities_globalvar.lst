@@ -1,0 +1,30 @@
+# Thu Aug 19 21:10:42 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Undine
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define												Ability
+CATEGORY=Internal|Racial Traits ~ Undine.MOD	DEFINE:Undine_ReplaceAbilityScores|0							ABILITY:Undine Racial Trait|AUTOMATIC|Undine ~ Ability Scores|PREVAREQ:Undine_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Undine.MOD	DEFINE:Undine_ReplaceType|0									ABILITY:Undine Racial Trait|AUTOMATIC|Undine ~ Type|PREVAREQ:Undine_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Undine.MOD	DEFINE:Undine_ReplaceSize|0									ABILITY:Undine Racial Trait|AUTOMATIC|Undine ~ Size|PREVAREQ:Undine_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Undine.MOD	DEFINE:Undine_ReplaceSpeed|0									ABILITY:Undine Racial Trait|AUTOMATIC|Undine ~ Speed|PREVAREQ:Undine_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Undine.MOD	DEFINE:Undine_ReplaceVision|0									ABILITY:Undine Racial Trait|AUTOMATIC|Undine ~ Vision|PREVAREQ:Undine_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Undine.MOD	DEFINE:Undine_ReplaceSpellLikeAbility|0							ABILITY:Undine Racial Trait|AUTOMATIC|Undine ~ Spell-Like Ability|PREVAREQ:Undine_ReplaceSpellLikeAbility,0
+CATEGORY=Internal|Racial Traits ~ Undine.MOD	DEFINE:Undine_ReplaceEnergyResistance|0							ABILITY:Undine Racial Trait|AUTOMATIC|Undine ~ Energy Resistance|PREVAREQ:Undine_ReplaceEnergyResistance,0
+CATEGORY=Internal|Racial Traits ~ Undine.MOD	DEFINE:Undine_ReplaceWaterAffinity|0	DEFINE:Undine_AlternateAffinity|0	ABILITY:Undine Racial Trait|AUTOMATIC|Undine ~ Water Affinity|PREVAREQ:Undine_ReplaceWaterAffinity,0|PREVAREQ:Undine_AlternateAffinity,0
+CATEGORY=Internal|Racial Traits ~ Undine.MOD	DEFINE:Undine_ReplaceLanguages|0								ABILITY:Undine Racial Trait|AUTOMATIC|Undine ~ Languages|PREVAREQ:Undine_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Undine.MOD	BONUS:VAR|Undine_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Undine_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Undine.MOD	BONUS:VAR|Undine_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Undine_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Undine.MOD	BONUS:VAR|Undine_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Undine_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Undine.MOD	BONUS:VAR|Undine_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Undine_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Undine.MOD	BONUS:VAR|Undine_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Undine_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Undine.MOD	BONUS:VAR|Undine_ReplaceSpellLikeAbility|1|TYPE=Boolean|PREFACT:1,ABILITIES,Undine_ReplaceSpellLikeAbility=True
+CATEGORY=Internal|Racial Traits ~ Undine.MOD	BONUS:VAR|Undine_ReplaceEnergyResistance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Undine_ReplaceEnergyResistance=True
+CATEGORY=Internal|Racial Traits ~ Undine.MOD	BONUS:VAR|Undine_ReplaceWaterAffinity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Undine_ReplaceWaterAffinity=True
+CATEGORY=Internal|Racial Traits ~ Undine.MOD	BONUS:VAR|Undine_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Undine_ReplaceLanguages=True

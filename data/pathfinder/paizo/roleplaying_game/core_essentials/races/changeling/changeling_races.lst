@@ -1,0 +1,6 @@
+# Wed Jul 14 14:19:53 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+###Block: Playable Races
+# Race Name	SORTKEY		Starting Feats	Base size		Move			Required Gender	Ability								Nb Legs	Nb Hands	Main Race Type	Type				Source Page		FACT
+Changeling	SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	MOVE:Walk,30	PREGENDER:F		ABILITY:Internal|AUTOMATIC|Racial Traits ~ Changeling	LEGS:2	HANDS:2	RACETYPE:Humanoid	TYPE:Base.PC.Uncommon	SOURCEPAGE:p.xx	FACT:IsPC|True

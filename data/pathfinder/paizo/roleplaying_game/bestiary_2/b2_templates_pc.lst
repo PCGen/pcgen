@@ -1,0 +1,26 @@
+SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
+
+###Block: Creature Subtypes
+# Template Name	Visible	Source Page		Race Subtype
+Aeon			VISIBLE:NO	SOURCEPAGE:p.305	RACESUBTYPE:Aeon
+Agathion		VISIBLE:NO	SOURCEPAGE:p.306	RACESUBTYPE:Agathion
+Daemon		VISIBLE:NO	SOURCEPAGE:p.306	RACESUBTYPE:Daemon
+Dark Folk		VISIBLE:NO	SOURCEPAGE:p.307	RACESUBTYPE:Dark Folk
+Dhampir		VISIBLE:NO	SOURCEPAGE:p.89	RACESUBTYPE:Dhampir
+Grippli		VISIBLE:NO	SOURCEPAGE:p.149	RACESUBTYPE:Grippli
+Inevitable		VISIBLE:NO	SOURCEPAGE:p.307	RACESUBTYPE:Inevitable
+Nightshade		VISIBLE:NO	SOURCEPAGE:p.308	RACESUBTYPE:Nightshade
+Protean		VISIBLE:NO	SOURCEPAGE:p.308	RACESUBTYPE:Protean
+Qlippoth		VISIBLE:NO	SOURCEPAGE:p.309	RACESUBTYPE:Qlippoth
+
+###Block: Languages
+# Template Name					Visible	Bonus Languages
+Bonus Language ~ D'ziriak			VISIBLE:NO	LANGBONUS:D'ziriak
+Bonus Language ~ Daemon				VISIBLE:NO	LANGBONUS:Daemon
+Bonus Language ~ Protean			VISIBLE:NO	LANGBONUS:Protean
+
+
+SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
+
+###Block: Languages
+Bonus Language ~ Boggard		VISIBLE:NO	LANGBONUS:Boggard

@@ -1,0 +1,26 @@
+# Wed Aug 18 19:51:07 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Svirfneblin
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name					Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsSvirfneblin	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Svirfneblin	EXPLANATION:Determines whether the character is a Svirfneblin
+
+###Block: Racial Traits
+# Name								Dataformat			Required	Selectable		Visible	Displayname								Explanation
+FACTDEF:ABILITY|Svirfneblin_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Svirfneblin Ability Scores		EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Svirfneblin_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Svirfneblin Type			EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Svirfneblin_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Svirfneblin Size			EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Svirfneblin_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Svirfneblin Speed			EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Svirfneblin_ReplaceVision			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Svirfneblin Vision			EXPLANATION:Replaces the Vision Racial Trait
+FACTDEF:ABILITY|Svirfneblin_ReplaceDefensiveTraining	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Svirfneblin Defensive Training	EXPLANATION:Replaces the Defensive Training Racial Trait
+FACTDEF:ABILITY|Svirfneblin_ReplaceFortunate		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Svirfneblin Fortunate			EXPLANATION:Replaces the Fortunate Racial Trait
+FACTDEF:ABILITY|Svirfneblin_ReplaceSkilled		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Svirfneblin Skilled			EXPLANATION:Replaces the Skilled Racial Trait
+FACTDEF:ABILITY|Svirfneblin_ReplaceHatred			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Svirfneblin Hatred			EXPLANATION:Replaces the Hatred Racial Trait
+FACTDEF:ABILITY|Svirfneblin_ReplaceStonecunning		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Svirfneblin Stonecunning		EXPLANATION:Replaces the Stonecunning Racial Trait
+FACTDEF:ABILITY|Svirfneblin_ReplaceSpellResistance	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Svirfneblin Spell Resistance	EXPLANATION:Replaces the Spell Resistance Racial Trait
+FACTDEF:ABILITY|Svirfneblin_ReplaceSvirfneblinMagic	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Svirfneblin Svirfneblin Magic	EXPLANATION:Replaces the Svirfneblin Magic Racial Trait
+FACTDEF:ABILITY|Svirfneblin_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Svirfneblin Languages			EXPLANATION:Replaces the Languages Racial Trait

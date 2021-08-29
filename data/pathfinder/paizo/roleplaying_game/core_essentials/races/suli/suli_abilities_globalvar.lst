@@ -1,0 +1,30 @@
+# Mon Aug 16 15:51:44 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Suli
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define						Ability
+CATEGORY=Internal|Racial Traits ~ Suli.MOD	DEFINE:Suli_ReplaceAbilityScores|0		ABILITY:Suli Racial Trait|AUTOMATIC|Suli ~ Ability Scores|PREVAREQ:Suli_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Suli.MOD	DEFINE:Suli_ReplaceType|0			ABILITY:Suli Racial Trait|AUTOMATIC|Suli ~ Type|PREVAREQ:Suli_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Suli.MOD	DEFINE:Suli_ReplaceSize|0			ABILITY:Suli Racial Trait|AUTOMATIC|Suli ~ Size|PREVAREQ:Suli_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Suli.MOD	DEFINE:Suli_ReplaceSpeed|0			ABILITY:Suli Racial Trait|AUTOMATIC|Suli ~ Speed|PREVAREQ:Suli_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Suli.MOD	DEFINE:Suli_ReplaceVision|0			ABILITY:Suli Racial Trait|AUTOMATIC|Suli ~ Vision|PREVAREQ:Suli_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Suli.MOD	DEFINE:Suli_ReplaceNegotiator|0		ABILITY:Suli Racial Trait|AUTOMATIC|Suli ~ Negotiator|PREVAREQ:Suli_ReplaceNegotiator,0
+CATEGORY=Internal|Racial Traits ~ Suli.MOD	DEFINE:Suli_ReplaceElementalAssault|0	ABILITY:Suli Racial Trait|AUTOMATIC|Suli ~ Elemental Assault|PREVAREQ:Suli_ReplaceElementalAssault,0
+CATEGORY=Internal|Racial Traits ~ Suli.MOD	DEFINE:Suli_ReplaceEnergyResistance|0	ABILITY:Suli Racial Trait|AUTOMATIC|Suli ~ Energy Resistance|PREVAREQ:Suli_ReplaceEnergyResistance,0
+CATEGORY=Internal|Racial Traits ~ Suli.MOD	DEFINE:Suli_ReplaceLanguages|0		ABILITY:Suli Racial Trait|AUTOMATIC|Suli ~ Languages|PREVAREQ:Suli_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Suli.MOD	BONUS:VAR|Suli_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Suli_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Suli.MOD	BONUS:VAR|Suli_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Suli_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Suli.MOD	BONUS:VAR|Suli_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Suli_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Suli.MOD	BONUS:VAR|Suli_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Suli_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Suli.MOD	BONUS:VAR|Suli_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Suli_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Suli.MOD	BONUS:VAR|Suli_ReplaceNegotiator|1|TYPE=Boolean|PREFACT:1,ABILITIES,Suli_ReplaceNegotiator=True
+CATEGORY=Internal|Racial Traits ~ Suli.MOD	BONUS:VAR|Suli_ReplaceElementalAssault|1|TYPE=Boolean|PREFACT:1,ABILITIES,Suli_ReplaceElementalAssault=True
+CATEGORY=Internal|Racial Traits ~ Suli.MOD	BONUS:VAR|Suli_ReplaceEnergyResistance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Suli_ReplaceEnergyResistance=True
+CATEGORY=Internal|Racial Traits ~ Suli.MOD	BONUS:VAR|Suli_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Suli_ReplaceLanguages=True

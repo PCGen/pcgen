@@ -1,0 +1,26 @@
+# Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
+KEY:support ~ skinwalker race
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+ISOGL:YES
+
+# Use this so there aren't numerous copies of the same race.
+
+
+# ==============================
+# Skinwalker
+# ==============================
+
+# Fact/Factset & Formula System
+DATACONTROL:skinwalker__datacontrols.lst
+BIOSET:skinwalker__biosettings.lst
+
+# Data Files
+ABILITY:skinwalker_abilities_globalvar.lst
+ABILITY:skinwalker_abilities_race.lst
+ABILITY:skinwalker_abilities_arg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
+ABILITYCATEGORY:skinwalker_abilitycategories.lst
+RACE:skinwalker_races.lst
+SKILL:skinwalker_skills.lst
+TEMPLATE:skinwalker_templates.lst

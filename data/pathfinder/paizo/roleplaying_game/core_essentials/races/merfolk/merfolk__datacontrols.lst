@@ -1,0 +1,22 @@
+# Thu Aug  5 15:29:38 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Merfolk
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsMerfolk	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Merfolk	EXPLANATION:Determines whether the character is a Merfolk
+
+###Block: Racial Traits
+# Name							Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Merfolk_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Merfolk Ability Scores	EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Merfolk_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Merfolk Type			EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Merfolk_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Merfolk Size			EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Merfolk_ReplaceSpeed		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Merfolk Speed			EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Merfolk_ReplaceVision		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Merfolk Vision			EXPLANATION:Replaces the Vision Racial Trait
+FACTDEF:ABILITY|Merfolk_ReplaceAmphibious		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Merfolk Amphibious		EXPLANATION:Replaces the Amphibious Racial Trait
+FACTDEF:ABILITY|Merfolk_ReplaceArmor		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Merfolk Armor			EXPLANATION:Replaces the Armor Racial Trait
+FACTDEF:ABILITY|Merfolk_ReplaceLegless		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Merfolk Legless			EXPLANATION:Replaces the Legless Racial Trait
+FACTDEF:ABILITY|Merfolk_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Merfolk Languages		EXPLANATION:Replaces the Languages Racial Trait

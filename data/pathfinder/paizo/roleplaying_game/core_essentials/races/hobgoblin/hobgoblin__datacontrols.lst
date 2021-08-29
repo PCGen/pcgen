@@ -1,0 +1,20 @@
+# Mon Aug  2 13:25:18 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Hobgoblin
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsHobgoblin	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Hobgoblin	EXPLANATION:Determines whether the character is a Hobgoblin
+
+###Block: Racial Traits
+# Name							Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Hobgoblin_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Hobgoblin Ability Scores	EXPLANATION:Replaces the Ability Scores
+FACTDEF:ABILITY|Hobgoblin_ReplaceType		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Hobgoblin Type			EXPLANATION:Replaces the Goblinoid Racial Trait
+FACTDEF:ABILITY|Hobgoblin_ReplaceSize		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Hobgoblin Size			EXPLANATION:Replaces the Medium Racial Trait
+FACTDEF:ABILITY|Hobgoblin_ReplaceSpeed		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Hobgoblin Speed			EXPLANATION:Replaces the Normal Speed Racial Trait
+FACTDEF:ABILITY|Hobgoblin_ReplaceVision		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Hobgoblin Vision		EXPLANATION:Replaces the Darkvision Racial Trait
+FACTDEF:ABILITY|Hobgoblin_ReplaceSneaky		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Hobgoblin Sneaky		EXPLANATION:Replaces the Sneaky Racial Trait
+FACTDEF:ABILITY|Hobgoblin_ReplaceLanguages	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Hobgoblin Languages		EXPLANATION:Replaces the Languages Racial Trait

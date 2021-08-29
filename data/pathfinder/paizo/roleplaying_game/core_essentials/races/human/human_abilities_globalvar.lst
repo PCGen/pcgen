@@ -1,0 +1,24 @@
+# Thu May 20 18:17:36 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Human
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define					Ability
+CATEGORY=Internal|Racial Traits ~ Human.MOD	DEFINE:Human_ReplaceAbilityScores|0	ABILITY:Human Racial Trait|AUTOMATIC|Human ~ Ability Scores|PREVAREQ:Human_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Human.MOD	DEFINE:Human_ReplaceSize|0		ABILITY:Human Racial Trait|AUTOMATIC|Human ~ Size|PREVAREQ:Human_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Human.MOD	DEFINE:Human_ReplaceSpeed|0		ABILITY:Human Racial Trait|AUTOMATIC|Human ~ Speed|PREVAREQ:Human_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Human.MOD	DEFINE:Human_ReplaceBonusFeat|0	ABILITY:Human Racial Trait|AUTOMATIC|Human ~ Bonus Feat|PREVAREQ:Human_ReplaceBonusFeat,0
+CATEGORY=Internal|Racial Traits ~ Human.MOD	DEFINE:Human_ReplaceSkilled|0		ABILITY:Human Racial Trait|AUTOMATIC|Human ~ Skilled|PREVAREQ:Human_ReplaceSkilled,0
+CATEGORY=Internal|Racial Traits ~ Human.MOD	DEFINE:Human_ReplaceLanguages|0	ABILITY:Human Racial Trait|AUTOMATIC|Human ~ Languages|PREVAREQ:Human_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Human.MOD	BONUS:VAR|Human_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Human_ReplaceAbilityScores=true
+CATEGORY=Internal|Racial Traits ~ Human.MOD	BONUS:VAR|Human_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Human_ReplaceSize=true
+CATEGORY=Internal|Racial Traits ~ Human.MOD	BONUS:VAR|Human_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Human_ReplaceSpeed=true
+CATEGORY=Internal|Racial Traits ~ Human.MOD	BONUS:VAR|Human_ReplaceBonusFeat|1|TYPE=Boolean|PREFACT:1,ABILITIES,Human_ReplaceBonusFeat=true
+CATEGORY=Internal|Racial Traits ~ Human.MOD	BONUS:VAR|Human_ReplaceSkilled|1|TYPE=Boolean|PREFACT:1,ABILITIES,Human_ReplaceSkilled=true
+CATEGORY=Internal|Racial Traits ~ Human.MOD	BONUS:VAR|Human_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Human_ReplaceLanguages=true

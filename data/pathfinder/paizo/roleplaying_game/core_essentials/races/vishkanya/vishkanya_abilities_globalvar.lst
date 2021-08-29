@@ -1,0 +1,36 @@
+# Fri Aug 20 14:27:11 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Vishkanya
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define							Ability
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	DEFINE:Vishkanya_ReplaceAbilityScores|0		ABILITY:Vishkanya Racial Trait|AUTOMATIC|Vishkanya ~ Ability Scores|PREVAREQ:Vishkanya_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	DEFINE:Vishkanya_ReplaceType|0			ABILITY:Vishkanya Racial Trait|AUTOMATIC|Vishkanya ~ Type|PREVAREQ:Vishkanya_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	DEFINE:Vishkanya_ReplaceSize|0			ABILITY:Vishkanya Racial Trait|AUTOMATIC|Vishkanya ~ Size|PREVAREQ:Vishkanya_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	DEFINE:Vishkanya_ReplaceSpeed|0			ABILITY:Vishkanya Racial Trait|AUTOMATIC|Vishkanya ~ Speed|PREVAREQ:Vishkanya_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	DEFINE:Vishkanya_ReplaceVision|0			ABILITY:Vishkanya Racial Trait|AUTOMATIC|Vishkanya ~ Vision|PREVAREQ:Vishkanya_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	DEFINE:Vishkanya_ReplaceKeenSenses|0		ABILITY:Vishkanya Racial Trait|AUTOMATIC|Vishkanya ~ Keen Senses|PREVAREQ:Vishkanya_ReplaceKeenSenses,0
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	DEFINE:Vishkanya_ReplaceLimber|0			ABILITY:Vishkanya Racial Trait|AUTOMATIC|Vishkanya ~ Limber|PREVAREQ:Vishkanya_ReplaceLimber,0
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	DEFINE:Vishkanya_ReplacePoisonResistance|0	ABILITY:Vishkanya Racial Trait|AUTOMATIC|Vishkanya ~ Poison Resistance|PREVAREQ:Vishkanya_ReplacePoisonResistance,0
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	DEFINE:Vishkanya_ReplacePoisonUse|0			ABILITY:Vishkanya Racial Trait|AUTOMATIC|Vishkanya ~ Poison Use|PREVAREQ:Vishkanya_ReplacePoisonUse,0
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	DEFINE:Vishkanya_ReplaceToxic|0			ABILITY:Vishkanya Racial Trait|AUTOMATIC|Vishkanya ~ Toxic|PREVAREQ:Vishkanya_ReplaceToxic,0
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	DEFINE:Vishkanya_ReplaceWeaponFamiliarity|0	ABILITY:Vishkanya Racial Trait|AUTOMATIC|Vishkanya ~ Weapon Familiarity|PREVAREQ:Vishkanya_ReplaceWeaponFamiliarity,0
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	DEFINE:Vishkanya_ReplaceLanguages|0			ABILITY:Vishkanya Racial Trait|AUTOMATIC|Vishkanya ~ Languages|PREVAREQ:Vishkanya_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	BONUS:VAR|Vishkanya_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vishkanya_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	BONUS:VAR|Vishkanya_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vishkanya_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	BONUS:VAR|Vishkanya_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vishkanya_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	BONUS:VAR|Vishkanya_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vishkanya_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	BONUS:VAR|Vishkanya_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vishkanya_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	BONUS:VAR|Vishkanya_ReplaceKeenSenses|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vishkanya_ReplaceKeenSenses=True
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	BONUS:VAR|Vishkanya_ReplaceLimber|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vishkanya_ReplaceLimber=True
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	BONUS:VAR|Vishkanya_ReplacePoisonResistance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vishkanya_ReplacePoisonResistance=True
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	BONUS:VAR|Vishkanya_ReplacePoisonUse|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vishkanya_ReplacePoisonUse=True
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	BONUS:VAR|Vishkanya_ReplaceToxic|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vishkanya_ReplaceToxic=True
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	BONUS:VAR|Vishkanya_ReplaceWeaponFamiliarity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vishkanya_ReplaceWeaponFamiliarity=True
+CATEGORY=Internal|Racial Traits ~ Vishkanya.MOD	BONUS:VAR|Vishkanya_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vishkanya_ReplaceLanguages=True

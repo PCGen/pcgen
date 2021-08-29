@@ -1,0 +1,27 @@
+# Sun Jul 26 22:20:43 2020 -- reformated by PCGen PrettyLST v6.08.00
+KEY:support ~ strix race
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+ISOGL:YES
+
+# Use this so there aren't numerous copies of the same race.
+
+
+# ==============================
+# Strix
+# ==============================
+
+# Fact/Factset & Formula System
+DATACONTROL:strix__datacontrols.lst
+
+# Data Files
+ABILITY:strix_abilities_globalvar.lst
+ABILITY:strix_abilities_race.lst
+ABILITYCATEGORY:strix_abilitycategories.lst
+BIOSET:strix_biosettings.lst
+LANGUAGE:strix_languages.lst
+RACE:strix_races.lst
+SKILL:strix_skills.lst
+TEMPLATE:strix_templates_language.lst
+TEMPLATE:strix_templates.lst

@@ -1,0 +1,6 @@
+# Wed Aug 18 23:05:36 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+###Block: Racial Trait Categories
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
+ABILITYCATEGORY:Svirfneblin Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Svirfneblin Racial Trait	PLURAL:Svirfneblin Racial Traits	DISPLAYLOCATION:Racial Abilities

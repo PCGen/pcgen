@@ -1,0 +1,221 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ==============================
+# RACE ABILITIES
+# ==============================
+
+# ------------------------------
+# Aasimar
+# ------------------------------
+
+###NOTE: Race files are in core_essentials\races\aasimar\
+
+###Block: Racial Traits
+# Ability Name								Source Page
+CATEGORY=Special Ability|Aasimar ~ Ability Scores.MOD		SOURCEPAGE:p.7
+CATEGORY=Special Ability|Aasimar ~ Type.MOD			SOURCEPAGE:p.7
+CATEGORY=Special Ability|Aasimar ~ Size.MOD			SOURCEPAGE:p.7
+CATEGORY=Special Ability|Aasimar ~ Speed.MOD			SOURCEPAGE:p.7
+CATEGORY=Special Ability|Aasimar ~ Vision.MOD			SOURCEPAGE:p.7
+CATEGORY=Special Ability|Aasimar ~ Skilled.MOD			SOURCEPAGE:p.7
+CATEGORY=Special Ability|Aasimar ~ Spell-Like Ability.MOD	SOURCEPAGE:p.7
+CATEGORY=Special Ability|Aasimar ~ Celestial Resistance.MOD	SOURCEPAGE:p.7
+CATEGORY=Special Ability|Aasimar ~ Languages.MOD		SOURCEPAGE:p.7
+
+
+# ------------------------------
+# Drow
+# ------------------------------
+
+###NOTE: Race files are in core_essentials\races\drow\
+
+###Block: Racial Traits
+# Ability Name								Source Page
+CATEGORY=Special Ability|Drow ~ Ability Scores.MOD		SOURCEPAGE:p.114
+CATEGORY=Special Ability|Drow ~ Type.MOD				SOURCEPAGE:p.114
+CATEGORY=Special Ability|Drow ~ Size.MOD				SOURCEPAGE:p.114
+CATEGORY=Special Ability|Drow ~ Speed.MOD				SOURCEPAGE:p.114
+CATEGORY=Special Ability|Drow ~ Vision.MOD			SOURCEPAGE:p.114
+CATEGORY=Special Ability|Drow ~ Drow Immunities.MOD		SOURCEPAGE:p.114
+CATEGORY=Special Ability|Drow ~ Keen Senses.MOD			SOURCEPAGE:p.114
+CATEGORY=Special Ability|Drow ~ Spell Resistance.MOD		SOURCEPAGE:p.114
+CATEGORY=Special Ability|Drow ~ Spell-Like Abilities.MOD	SOURCEPAGE:p.114
+CATEGORY=Special Ability|Drow ~ Light Blindness.MOD		SOURCEPAGE:p.114
+CATEGORY=Special Ability|Drow ~ Poison Use.MOD			SOURCEPAGE:p.114
+CATEGORY=Special Ability|Drow ~ Weapon Familiarity.MOD	SOURCEPAGE:p.114
+CATEGORY=Special Ability|Drow ~ Languages.MOD			SOURCEPAGE:p.114
+
+
+# ------------------------------
+# Duergar
+# ------------------------------
+
+###NOTE: Race files are in core_essentials\races\duergar\
+
+###Block: Racial Traits
+# Ability Name								Source Page
+CATEGORY=Special Ability|Duergar ~ Ability Scores.MOD		SOURCEPAGE:p.117
+CATEGORY=Special Ability|Duergar ~ Type.MOD			SOURCEPAGE:p.117
+CATEGORY=Special Ability|Duergar ~ Size.MOD			SOURCEPAGE:p.117
+CATEGORY=Special Ability|Duergar ~ Speed.MOD			SOURCEPAGE:p.117
+CATEGORY=Special Ability|Duergar ~ Vision.MOD			SOURCEPAGE:p.117
+CATEGORY=Special Ability|Duergar ~ Duergar Immunities.MOD	SOURCEPAGE:p.117
+CATEGORY=Special Ability|Duergar ~ Stability.MOD		SOURCEPAGE:p.117
+CATEGORY=Special Ability|Duergar ~ Spell-Like Abilities.MOD	SOURCEPAGE:p.117
+CATEGORY=Special Ability|Duergar ~ Light Sensitivity.MOD	SOURCEPAGE:p.117
+CATEGORY=Special Ability|Duergar ~ Languages.MOD		SOURCEPAGE:p.117
+
+
+# ------------------------------
+# Goblin
+# ------------------------------
+
+###NOTE: Race files are in core_essentials\races\goblin\
+
+###Block: Racial Traits
+# Ability Name							Source Page
+CATEGORY=Special Ability|Goblin ~ Ability Scores.MOD	SOURCEPAGE:p.156
+CATEGORY=Special Ability|Goblin ~ Type.MOD		SOURCEPAGE:p.156
+CATEGORY=Special Ability|Goblin ~ Size.MOD		SOURCEPAGE:p.156
+CATEGORY=Special Ability|Goblin ~ Speed.MOD		SOURCEPAGE:p.156
+CATEGORY=Special Ability|Goblin ~ Vision.MOD		SOURCEPAGE:p.156
+CATEGORY=Special Ability|Goblin ~ Skilled.MOD		SOURCEPAGE:p.156
+CATEGORY=Special Ability|Goblin ~ Languages.MOD		SOURCEPAGE:p.156
+
+
+# ------------------------------
+# Hobgoblin
+# ------------------------------
+
+###NOTE: Race files are in core_essentials\races\hobgoblin\
+
+###Block: Racial Traits
+# Ability Name								Source Page
+CATEGORY=Special Ability|Hobgoblin ~ Ability Scores.MOD	SOURCEPAGE:p.175
+CATEGORY=Special Ability|Hobgoblin ~ Type.MOD			SOURCEPAGE:p.175
+CATEGORY=Special Ability|Hobgoblin ~ Size.MOD			SOURCEPAGE:p.175
+CATEGORY=Special Ability|Hobgoblin ~ Speed.MOD			SOURCEPAGE:p.175
+CATEGORY=Special Ability|Hobgoblin ~ Vision.MOD			SOURCEPAGE:p.175
+CATEGORY=Special Ability|Hobgoblin ~ Sneaky.MOD			SOURCEPAGE:p.175
+CATEGORY=Special Ability|Hobgoblin ~ Languages.MOD		SOURCEPAGE:p.175
+
+
+# ------------------------------
+# Kobold
+# ------------------------------
+
+###NOTE: Race files are in core_essentials\races\kobold\
+
+###Block: Racial Traits
+# Ability Name							Source Page
+CATEGORY=Special Ability|Kobold ~ Ability Scores.MOD	SOURCEPAGE:p.183
+CATEGORY=Special Ability|Kobold ~ Type.MOD		SOURCEPAGE:p.183
+CATEGORY=Special Ability|Kobold ~ Size.MOD		SOURCEPAGE:p.183
+CATEGORY=Special Ability|Kobold ~ Speed.MOD		SOURCEPAGE:p.183
+CATEGORY=Special Ability|Kobold ~ Vision.MOD		SOURCEPAGE:p.183
+CATEGORY=Special Ability|Kobold ~ Armor.MOD		SOURCEPAGE:p.183
+CATEGORY=Special Ability|Kobold ~ Crafty.MOD		SOURCEPAGE:p.183
+CATEGORY=Special Ability|Kobold ~ Weakness.MOD		SOURCEPAGE:p.183
+CATEGORY=Special Ability|Kobold ~ Languages.MOD		SOURCEPAGE:p.183
+
+
+# ------------------------------
+# Merfolk
+# ------------------------------
+
+###NOTE: Race files are in core_essentials\races\merfolk\
+
+###Block: Racial Traits
+# Ability Name							Source Page
+CATEGORY=Special Ability|Merfolk ~ Ability Scores.MOD	SOURCEPAGE:p.204
+CATEGORY=Special Ability|Merfolk ~ Type.MOD		SOURCEPAGE:p.204
+CATEGORY=Special Ability|Merfolk ~ Size.MOD		SOURCEPAGE:p.204
+CATEGORY=Special Ability|Merfolk ~ Speed.MOD		SOURCEPAGE:p.204
+CATEGORY=Special Ability|Merfolk ~ Vision.MOD		SOURCEPAGE:p.204
+CATEGORY=Special Ability|Merfolk ~ Amphibious.MOD	SOURCEPAGE:p.204
+CATEGORY=Special Ability|Merfolk ~ Armor.MOD		SOURCEPAGE:p.204
+CATEGORY=Special Ability|Merfolk ~ Legless.MOD		SOURCEPAGE:p.204
+CATEGORY=Special Ability|Merfolk ~ Languages.MOD	SOURCEPAGE:p.204
+
+
+# ------------------------------
+# Orc
+# ------------------------------
+
+###NOTE: Race files are in core_essentials\races\orc\
+
+###Block: Racial Traits
+# Ability Name							Source Page
+CATEGORY=Special Ability|Orc ~ Ability Scores.MOD	SOURCEPAGE:p.222
+CATEGORY=Special Ability|Orc ~ Type.MOD			SOURCEPAGE:p.222
+CATEGORY=Special Ability|Orc ~ Size.MOD			SOURCEPAGE:p.222
+CATEGORY=Special Ability|Orc ~ Speed.MOD			SOURCEPAGE:p.222
+CATEGORY=Special Ability|Orc ~ Vision.MOD			SOURCEPAGE:p.222
+CATEGORY=Special Ability|Orc ~ Light Sensitivity.MOD	SOURCEPAGE:p.222
+CATEGORY=Special Ability|Orc ~ Ferocity.MOD		SOURCEPAGE:p.222
+CATEGORY=Special Ability|Orc ~ Weapon Familiarity.MOD	SOURCEPAGE:p.222
+CATEGORY=Special Ability|Orc ~ Languages.MOD		SOURCEPAGE:p.222
+
+
+# ------------------------------
+# Svirfneblin
+# ------------------------------
+
+###NOTE: Race files are in core_essentials\races\svirfneblin\
+
+###Block: Racial Traits
+# Ability Name									Source Page
+CATEGORY=Special Ability|Svirfneblin ~ Ability Scores.MOD		SOURCEPAGE:p.261
+CATEGORY=Special Ability|Svirfneblin ~ Type.MOD				SOURCEPAGE:p.261
+CATEGORY=Special Ability|Svirfneblin ~ Size.MOD				SOURCEPAGE:p.261
+CATEGORY=Special Ability|Svirfneblin ~ Speed.MOD			SOURCEPAGE:p.261
+CATEGORY=Special Ability|Svirfneblin ~ Vision.MOD			SOURCEPAGE:p.261
+CATEGORY=Special Ability|Svirfneblin ~ Defensive Training.MOD	SOURCEPAGE:p.261
+CATEGORY=Special Ability|Svirfneblin ~ Fortunate.MOD			SOURCEPAGE:p.261
+CATEGORY=Special Ability|Svirfneblin ~ Skilled.MOD			SOURCEPAGE:p.261
+CATEGORY=Special Ability|Svirfneblin ~ Hatred.MOD			SOURCEPAGE:p.261
+CATEGORY=Special Ability|Svirfneblin ~ Stonecunning.MOD		SOURCEPAGE:p.261
+CATEGORY=Special Ability|Svirfneblin ~ Spell Resistance.MOD		SOURCEPAGE:p.261
+CATEGORY=Special Ability|Svirfneblin ~ Svirfneblin Magic.MOD	SOURCEPAGE:p.261
+CATEGORY=Special Ability|Svirfneblin ~ Languages.MOD			SOURCEPAGE:p.261
+
+
+# ------------------------------
+# Tengu
+# ------------------------------
+
+###NOTE: Race files are in core_essentials\races\tengu\
+
+###Block: Racial Traits
+# Ability Name							Source Page
+CATEGORY=Special Ability|Tengu ~ Ability Scores.MOD	SOURCEPAGE:p.263
+CATEGORY=Special Ability|Tengu ~ Type.MOD			SOURCEPAGE:p.263
+CATEGORY=Special Ability|Tengu ~ Size.MOD			SOURCEPAGE:p.263
+CATEGORY=Special Ability|Tengu ~ Speed.MOD		SOURCEPAGE:p.263
+CATEGORY=Special Ability|Tengu ~ Vision.MOD		SOURCEPAGE:p.263
+CATEGORY=Special Ability|Tengu ~ Sneaky.MOD		SOURCEPAGE:p.263
+CATEGORY=Special Ability|Tengu ~ Gifted Linguist.MOD	SOURCEPAGE:p.263
+CATEGORY=Special Ability|Tengu ~ Swordtrained.MOD	SOURCEPAGE:p.263
+CATEGORY=Special Ability|Tengu ~ Natural Weapon.MOD	SOURCEPAGE:p.263
+CATEGORY=Special Ability|Tengu ~ Languages.MOD		SOURCEPAGE:p.263
+
+
+# ------------------------------
+# Tiefling
+# ------------------------------
+
+###NOTE: Race files are in core_essentials\races\tiefling\
+
+###Block: Racial Traits
+# Ability Name								Source Page
+CATEGORY=Special Ability|Tiefling ~ Ability Scores.MOD	SOURCEPAGE:p.264
+CATEGORY=Special Ability|Tiefling ~ Type.MOD			SOURCEPAGE:p.264
+CATEGORY=Special Ability|Tiefling ~ Size.MOD			SOURCEPAGE:p.264
+CATEGORY=Special Ability|Tiefling ~ Speed.MOD			SOURCEPAGE:p.264
+CATEGORY=Special Ability|Tiefling ~ Vision.MOD			SOURCEPAGE:p.264
+CATEGORY=Special Ability|Tiefling ~ Skilled.MOD			SOURCEPAGE:p.264
+CATEGORY=Special Ability|Tiefling ~ Spell-Like Ability.MOD	SOURCEPAGE:p.264
+CATEGORY=Special Ability|Tiefling ~ Fiendish Resistance.MOD	SOURCEPAGE:p.264
+CATEGORY=Special Ability|Tiefling ~ Fiendish Sorcery.MOD	SOURCEPAGE:p.264
+CATEGORY=Special Ability|Tiefling ~ Languages.MOD		SOURCEPAGE:p.264

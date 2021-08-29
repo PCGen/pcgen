@@ -1,0 +1,22 @@
+# Tue May 11 09:11:01 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Aasimar
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsAasimar	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Aasimar	EXPLANATION:Determines whether the character is an Aasimar
+
+###Block: Racial Traits
+# Name								Dataformat			Required	Selectable		Visible	Displayname								Explanation
+FACTDEF:ABILITY|Aasimar_ReplaceAbilityScores		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Aasimar Ability Scores		EXPLANATION:Replaces the Ability Scores
+FACTDEF:ABILITY|Aasimar_ReplaceType				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Aasimar Type				EXPLANATION:Replaces the Native Outsider Racial Trait
+FACTDEF:ABILITY|Aasimar_ReplaceSize				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Aasimar Size				EXPLANATION:Replaces the Medium Racial Trait
+FACTDEF:ABILITY|Aasimar_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Aasimar Speed				EXPLANATION:Replaces the Normal Speed Racial Trait
+FACTDEF:ABILITY|Aasimar_ReplaceVision			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Aasimar Vision				EXPLANATION:Replaces the Darkvision Racial Trait
+FACTDEF:ABILITY|Aasimar_ReplaceSkilled			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Aasimar Skilled				EXPLANATION:Replaces the Skilled Racial Trait
+FACTDEF:ABILITY|Aasimar_ReplaceSpellLikeAbility		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Aasimar Spell-Like Ability		EXPLANATION:Replaces the Spell-Like Ability Racial Trait
+FACTDEF:ABILITY|Aasimar_ReplaceCelestialResistance	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Aasimar Celestial Resistance	EXPLANATION:Replaces the Celestial Resistance Racial Trait
+FACTDEF:ABILITY|Aasimar_ReplaceLanguages			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Aasimar Languages			EXPLANATION:Replaces the Languages Racial Trait

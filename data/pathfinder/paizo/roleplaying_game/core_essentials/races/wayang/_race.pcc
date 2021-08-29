@@ -1,0 +1,34 @@
+# Sun Jul 26 22:20:43 2020 -- reformated by PCGen PrettyLST v6.08.00
+KEY:support ~ wayang race
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+ISOGL:YES
+
+# Use this so there aren't numerous copies of the same race.
+
+
+# ==============================
+# Wayang
+# ==============================
+
+# Fact/Factset & Formula System
+DATACONTROL:wayang__datacontrols.lst
+
+# Data Files
+ABILITY:wayang_abilities_globalvar.lst
+ABILITY:wayang_abilities_race.lst
+ABILITYCATEGORY:wayang_abilitycategories.lst
+BIOSET:wayang_biosettings.lst
+LANGUAGE:wayang_languages.lst
+RACE:wayang_races.lst
+SKILL:wayang_skills.lst
+TEMPLATE:wayang_templates_language.lst
+TEMPLATE:wayang_templates.lst
+
+LANGUAGE:../nagaji/nagaji_languages.lst
+TEMPLATE:../nagaji/nagaji_templates_language.lst
+LANGUAGE:../samsaran/samsaran_languages.lst
+TEMPLATE:../samsaran/samsaran_templates_language.lst
+LANGUAGE:../tengu/tengu_languages.lst
+TEMPLATE:../tengu/tengu_templates_language.lst

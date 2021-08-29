@@ -1,0 +1,27 @@
+# Sun Jul 26 22:20:43 2020 -- reformated by PCGen PrettyLST v6.08.00
+KEY:support ~ vishkanya race
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+ISOGL:YES
+
+# Use this so there aren't numerous copies of the same race.
+
+
+# ==============================
+# Vishkanya
+# ==============================
+
+# Fact/Factset & Formula System
+DATACONTROL:vishkanya__datacontrols.lst
+
+# Data Files
+ABILITY:vishkanya_abilities_globalvar.lst
+ABILITY:vishkanya_abilities_race.lst
+ABILITYCATEGORY:vishkanya_abilitycategories.lst
+BIOSET:vishkanya_biosettings.lst
+LANGUAGE:vishkanya_languages.lst
+RACE:vishkanya_races.lst
+SKILL:vishkanya_skills.lst
+TEMPLATE:vishkanya_templates_language.lst
+TEMPLATE:vishkanya_templates.lst

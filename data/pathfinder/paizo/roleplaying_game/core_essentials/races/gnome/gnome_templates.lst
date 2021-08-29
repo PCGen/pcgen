@@ -1,0 +1,17 @@
+# Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+###Block: Racial Heritage
+# Template Name	Unique Key				Visible	Template		Type				FACT
+Gnome			KEY:Racial Heritage ~ Gnome	VISIBLE:NO	TEMPLATE:IsGnome	TYPE:Racial Heritage	FACT:IsGnome|True
+IsGnome							VISIBLE:NO
+
+
+###Block: Creature Subtypes
+# Template Name	Visible	Source Page		Race Subtype
+Gnome			VISIBLE:NO	SOURCEPAGE:p.312	RACESUBTYPE:Gnome
+
+
+###Block: Race Builder Humanoid Subtypes
+# Template Name	Unique Key					Visible	Template						Type
+Gnome			KEY:Race Builder Subtype ~ Gnome	VISIBLE:NO	TEMPLATE:Gnome|Racial Heritage ~ Gnome	TYPE:Race Builder Subtype

@@ -1,0 +1,23 @@
+# Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
+KEY:support ~ android race
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+ISOGL:YES
+
+# Use this so there aren't numerous copies of the same race.
+
+
+# ==============================
+# Android
+# ==============================
+
+# Fact/Factset & Formula System
+DATACONTROL:android__datacontrols.lst
+
+# Data Files
+ABILITY:android_abilities_globalvar.lst
+ABILITY:android_abilities_race.lst
+ABILITYCATEGORY:android_abilitycategories.lst
+RACE:android_races.lst
+TEMPLATE:android_templates.lst

@@ -1,0 +1,26 @@
+# Sun Jul 26 22:20:43 2020 -- reformated by PCGen PrettyLST v6.08.00
+KEY:support ~ hobgoblin race
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+ISOGL:YES
+
+# Use this so there aren't numerous copies of the same race.
+
+
+# ==============================
+# Hobgoblin
+# ==============================
+
+# Fact/Factset & Formula System
+DATACONTROL:hobgoblin__datacontrols.lst
+
+# Data Files
+ABILITY:hobgoblin_abilities_globalvar.lst
+ABILITY:hobgoblin_abilities_race.lst
+ABILITYCATEGORY:hobgoblin_abilitycategories.lst
+BIOSET:hobgoblin_biosettings.lst
+LANGUAGE:hobgoblin_languages.lst
+RACE:hobgoblin_races.lst
+SKILL:hobgoblin_skills.lst
+TEMPLATE:hobgoblin_templates.lst

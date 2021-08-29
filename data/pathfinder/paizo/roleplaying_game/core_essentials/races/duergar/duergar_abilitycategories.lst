@@ -1,0 +1,6 @@
+# Mon Jul 26 10:35:46 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+###Block: Racial Trait Categories
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI	Display Location
+ABILITYCATEGORY:Duergar Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Duergar Racial Trait	PLURAL:Duergar Racial Traits	DISPLAYLOCATION:Racial Abilities

@@ -1,0 +1,27 @@
+# Sun Jul 26 22:20:43 2020 -- reformated by PCGen PrettyLST v6.08.00
+KEY:support ~ nagaji race
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+ISOGL:YES
+
+# Use this so there aren't numerous copies of the same race.
+
+
+# ==============================
+# Nagaji
+# ==============================
+
+# Fact/Factset & Formula System
+DATACONTROL:nagaji__datacontrols.lst
+
+# Data Files
+ABILITY:nagaji_abilities_globalvar.lst
+ABILITY:nagaji_abilities_race.lst
+ABILITYCATEGORY:nagaji_abilitycategories.lst
+BIOSET:nagaji_biosettings.lst
+LANGUAGE:nagaji_languages.lst
+RACE:nagaji_races.lst
+SKILL:nagaji_skills.lst
+TEMPLATE:nagaji_templates_language.lst
+TEMPLATE:nagaji_templates.lst

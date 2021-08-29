@@ -1,8 +1,10 @@
+# Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
 
 
 ###Block: Racial Heritage
-# Template Name	Unique Key					Visible	Type				FACT
-Skinwalker		KEY:Racial Heritage ~ Skinwalker	VISIBLE:NO	TYPE:Racial Heritage	FACT:IsSkinwalker|True
+# Template Name	Unique Key					Visible	Template			Type				FACT
+Skinwalker		KEY:Racial Heritage ~ Skinwalker	VISIBLE:NO	TEMPLATE:IsSkinwalker	TYPE:Racial Heritage	FACT:IsSkinwalker|True
+IsSkinwalker							VISIBLE:NO
 
 
 ###Block: Creature Subtypes

@@ -1,0 +1,30 @@
+# Mon Aug 16 15:42:34 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Nagaji
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define											Ability
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD	DEFINE:Nagaji_ReplaceAbilityScores|0						ABILITY:Nagaji Racial Trait|AUTOMATIC|Nagaji ~ Ability Scores|PREVAREQ:Nagaji_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD	DEFINE:Nagaji_ReplaceType|0								ABILITY:Nagaji Racial Trait|AUTOMATIC|Nagaji ~ Type|PREVAREQ:Nagaji_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD	DEFINE:Nagaji_ReplaceSize|0								ABILITY:Nagaji Racial Trait|AUTOMATIC|Nagaji ~ Size|PREVAREQ:Nagaji_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD	DEFINE:Nagaji_ReplaceSpeed|0								ABILITY:Nagaji Racial Trait|AUTOMATIC|Nagaji ~ Speed|PREVAREQ:Nagaji_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD	DEFINE:Nagaji_ReplaceVision|0								ABILITY:Nagaji Racial Trait|AUTOMATIC|Nagaji ~ Vision|PREVAREQ:Nagaji_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD	DEFINE:Nagaji_ReplaceArmoredScales|0						ABILITY:Nagaji Racial Trait|AUTOMATIC|Nagaji ~ Armored Scales|PREVAREQ:Nagaji_ReplaceArmoredScales,0
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD	DEFINE:Nagaji_ReplaceResistant|0							ABILITY:Nagaji Racial Trait|AUTOMATIC|Nagaji ~ Resistant|PREVAREQ:Nagaji_ReplaceResistant,0
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD	DEFINE:Nagaji_ReplaceSerpentsSense|0						ABILITY:Nagaji Racial Trait|AUTOMATIC|Nagaji ~ Serpent's Sense|PREVAREQ:Nagaji_ReplaceSerpentsSense,0
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD	DEFINE:Nagaji_ReplaceLanguages|0	DEFINE:Nagaji_AlternateLanguages|0	ABILITY:Nagaji Racial Trait|AUTOMATIC|Nagaji ~ Languages|PREVAREQ:Nagaji_ReplaceLanguages,0|PREVAREQ:Nagaji_AlternateLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD	BONUS:VAR|Nagaji_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Nagaji_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD	BONUS:VAR|Nagaji_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Nagaji_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD	BONUS:VAR|Nagaji_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Nagaji_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD	BONUS:VAR|Nagaji_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Nagaji_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD	BONUS:VAR|Nagaji_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Nagaji_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD	BONUS:VAR|Nagaji_ReplaceArmoredScales|1|TYPE=Boolean|PREFACT:1,ABILITIES,Nagaji_ReplaceArmoredScales=True
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD	BONUS:VAR|Nagaji_ReplaceResistant|1|TYPE=Boolean|PREFACT:1,ABILITIES,Nagaji_ReplaceResistant=True
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD	BONUS:VAR|Nagaji_ReplaceSerpentsSense|1|TYPE=Boolean|PREFACT:1,ABILITIES,Nagaji_ReplaceSerpentsSense=True
+CATEGORY=Internal|Racial Traits ~ Nagaji.MOD	BONUS:VAR|Nagaji_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Nagaji_ReplaceLanguages=True

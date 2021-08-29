@@ -30,16 +30,10 @@ URL:Paizo Publishing|http://paizo.com/products/btpy8v2x|Buy this publication fro
 DESC:This book contains dozens of new monsters found in the Inner Sea region-all invented specifically for the Pathfinder campaign setting! Some, like the gearsmen of Numeria or the moth-like star monarchs who serve the goddess of dreams, have been mentioned many times in Pathfinder Campaign Setting books, but others, like the alien vespergaunt or Rahadoum's desert-dwelling whirlmaws, have only been obliquely illustrated or mentioned before. And some-like the mysterious and ancient veiled masters, and the disturbingly alluring fungus queen-make their appearance for the first time in print after debuting in Paizo's office campaigns.
 
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
-COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
-COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
-COPYRIGHT:Pathfinder Roleplaying Game Core Rulebook Copyright 2009, Paizo Inc.; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
-COPYRIGHT:Axe Beak from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
-COPYRIGHT:Genie, Marid from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
-COPYRIGHT:Grippli from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.?
-COPYRIGHT:Iron Cobra from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Philip Masters.
-COPYRIGHT:Yeti from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
-COPYRIGHT:Pathfinder RPG Ultimate Equipment Copyright 2012, Paizo Inc.; Authors: Dennis Baker, Jesse Benner, Benjamin Bruck, Ross Byers, Brian J. Cortijo, Ryan Costello, Mike Ferguson, Matt Goetz, Jim Groves, Tracy Hurley, Matt James, Jonathan H. Keith, Michael Kenway, Hal MacLean, Jason Nelson, Tork Shaw, Owen KC Stephens, and Russ Taylor.
-COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Ultimate Equipment" Copyright 2012, PCGen Data team (Including, but not limited to James Dempsey and Stefan Radermacher).
+COPYRIGHT:Open Game Ucense v 1,00 (c) 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document (c) 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Campaign Setting: Inner Sea Bestiary (c) 2012, Paizo Publishing, LLC; Authors: Jim Groves, James Jacobs, Rob McCreary, Erik Mona, Jason Nelson, Patrick Renie, F. Wesley Schneider, James L. Sutter, Russ Taylor, and Greg A. Vaughan.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Inner Sea Bestiary" Copyright 2013, PCGen Data team (Including, but not limited to Scott Meyer (guru_scott)).
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
@@ -52,8 +46,8 @@ RACE:isb_races.lst
 SKILL:isb_skills.lst
 TEMPLATE:isb_templates.lst
 
-PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\android\_android_race.pcc
-PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\ghoran\_ghoran_race.pcc
-PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\lashunta\_lashunta_race.pcc
-PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\monkey goblin\_monkeygoblin_race.pcc
-PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\syrinx\_syrinx_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\android\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\ghoran\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\lashunta\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\monkey_goblin\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\syrinx\_race.pcc

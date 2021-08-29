@@ -1,0 +1,28 @@
+# Wed Jul 14 15:19:08 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Rougarou
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define						Ability
+CATEGORY=Internal|Racial Traits ~ Rougarou.MOD	DEFINE:Rougarou_ReplaceAbilityScores|0	ABILITY:Rougarou Racial Trait|AUTOMATIC|Rougarou ~ Ability Scores|PREVAREQ:Rougarou_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Rougarou.MOD	DEFINE:Rougarou_ReplaceType|0			ABILITY:Rougarou Racial Trait|AUTOMATIC|Rougarou ~ Type|PREVAREQ:Rougarou_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Rougarou.MOD	DEFINE:Rougarou_ReplaceSize|0			ABILITY:Rougarou Racial Trait|AUTOMATIC|Rougarou ~ Size|PREVAREQ:Rougarou_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Rougarou.MOD	DEFINE:Rougarou_ReplaceSpeed|0		ABILITY:Rougarou Racial Trait|AUTOMATIC|Rougarou ~ Speed|PREVAREQ:Rougarou_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Rougarou.MOD	DEFINE:Rougarou_ReplaceVision|0		ABILITY:Rougarou Racial Trait|AUTOMATIC|Rougarou ~ Vision|PREVAREQ:Rougarou_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Rougarou.MOD	DEFINE:Rougarou_ReplaceChangeShape|0	ABILITY:Rougarou Racial Trait|AUTOMATIC|Rougarou ~ Change Shape|PREVAREQ:Rougarou_ReplaceChangeShape,0
+CATEGORY=Internal|Racial Traits ~ Rougarou.MOD	DEFINE:Rougarou_ReplaceNaturalWeapon|0	ABILITY:Rougarou Racial Trait|AUTOMATIC|Rougarou ~ Natural Weapon|PREVAREQ:Rougarou_ReplaceNaturalWeapon,0
+CATEGORY=Internal|Racial Traits ~ Rougarou.MOD	DEFINE:Rougarou_ReplaceLanguages|0		ABILITY:Rougarou Racial Trait|AUTOMATIC|Rougarou ~ Languages|PREVAREQ:Rougarou_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Rougarou.MOD	BONUS:VAR|Rougarou_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rougarou_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Rougarou.MOD	BONUS:VAR|Rougarou_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rougarou_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Rougarou.MOD	BONUS:VAR|Rougarou_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rougarou_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Rougarou.MOD	BONUS:VAR|Rougarou_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rougarou_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Rougarou.MOD	BONUS:VAR|Rougarou_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rougarou_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Rougarou.MOD	BONUS:VAR|Rougarou_ReplaceChangeShape|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rougarou_ReplaceChangeShape=True
+CATEGORY=Internal|Racial Traits ~ Rougarou.MOD	BONUS:VAR|Rougarou_ReplaceNaturalWeapon|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rougarou_ReplaceNaturalWeapon=True
+CATEGORY=Internal|Racial Traits ~ Rougarou.MOD	BONUS:VAR|Rougarou_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rougarou_ReplaceLanguages=True

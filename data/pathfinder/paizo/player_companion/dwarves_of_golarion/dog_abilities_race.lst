@@ -1,0 +1,21 @@
+SOURCELONG:Pathfinder Companion: Dwarves of Golarion	SOURCESHORT:DOG	SOURCEWEB:http://paizo.com/products/btpy8b9j	SOURCEDATE:2009-12
+
+
+# ------------------------------
+# Dwarf
+# ------------------------------
+
+###Block: Racial Traits
+# Ability Name								Source Page
+CATEGORY=Special Ability|Dwarf ~ Ability Scores.MOD		SOURCEPAGE:Front Inside Cover
+CATEGORY=Special Ability|Dwarf ~ Size.MOD				SOURCEPAGE:Front Inside Cover
+CATEGORY=Special Ability|Dwarf ~ Speed.MOD			SOURCEPAGE:Front Inside Cover
+CATEGORY=Special Ability|Dwarf ~ Vision.MOD			SOURCEPAGE:Front Inside Cover
+CATEGORY=Special Ability|Dwarf ~ Defensive Training.MOD	SOURCEPAGE:Front Inside Cover
+CATEGORY=Special Ability|Dwarf ~ Greed.MOD			SOURCEPAGE:Front Inside Cover
+CATEGORY=Special Ability|Dwarf ~ Hatred.MOD			SOURCEPAGE:Front Inside Cover
+CATEGORY=Special Ability|Dwarf ~ Hardy.MOD			SOURCEPAGE:Front Inside Cover
+CATEGORY=Special Ability|Dwarf ~ Stability.MOD			SOURCEPAGE:Front Inside Cover
+CATEGORY=Special Ability|Dwarf ~ Stonecunning.MOD		SOURCEPAGE:Front Inside Cover
+CATEGORY=Special Ability|Dwarf ~ Weapon Familiarity.MOD	SOURCEPAGE:Front Inside Cover
+CATEGORY=Special Ability|Dwarf ~ Languages.MOD			SOURCEPAGE:Front Inside Cover

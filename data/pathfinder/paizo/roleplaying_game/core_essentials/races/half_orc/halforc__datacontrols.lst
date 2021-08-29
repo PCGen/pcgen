@@ -1,0 +1,22 @@
+# Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Half-Orc
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name			Dataformat			Required	Selectable		Visible	Displayname		Explanation
+FACTDEF:TEMPLATE|IsOrc	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Orc	EXPLANATION:Determines whether the character is an Orc
+
+###Block: Racial Traits
+# Name								Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|HalfOrc_ReplaceAbilityScores		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Half-Orc Ability Scores	EXPLANATION:Replaces the Ability Scores
+FACTDEF:ABILITY|HalfOrc_ReplaceSize				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Half-Orc Size			EXPLANATION:Replaces the Medium Racial Trait
+FACTDEF:ABILITY|HalfOrc_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Half-Orc Speed			EXPLANATION:Replaces the Normal Speed Racial Trait
+FACTDEF:ABILITY|HalfOrc_ReplaceVision			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Half-Orc Vision			EXPLANATION:Replaces the Darkvision Racial Trait
+FACTDEF:ABILITY|HalfOrc_ReplaceIntimidating		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Half-Orc Intimidating		EXPLANATION:Replaces the Intimidating Racial Trait
+FACTDEF:ABILITY|HalfOrc_ReplaceOrcBlood			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Half-Orc Orc Blood		EXPLANATION:Replaces the Orc Blood Racial Trait
+FACTDEF:ABILITY|HalfOrc_ReplaceOrcFerocity		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Half-Orc Orc Ferocity		EXPLANATION:Replaces the Orc Ferocity Racial Trait
+FACTDEF:ABILITY|HalfOrc_ReplaceWeaponFamiliarity	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Half-Orc Weapon Familiarity	EXPLANATION:Replaces the Weapon Familiarity Racial Trait
+FACTDEF:ABILITY|HalfOrc_ReplaceLanguages			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Half-Orc Languages		EXPLANATION:Replaces the Languages Racial Trait
