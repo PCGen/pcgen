@@ -6,10 +6,10 @@ SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloa
 
 # DEVELOPER NOTE: Rename these to our proper standard 'Racial Traits ~ RaceName'
 
-###Block:
-# Ability Name				SORTKEY	Category of Ability		Type																									Visible		Stackable?	Multiple?	Choose		Cost
-Remove Excess Points from Pool	SORTKEY:1	CATEGORY:Special Ability	TYPE:Human Racial Trait.Dwarf Racial Trait.Elf Racial Trait.Gnome Racial Trait.Half-Elf Racial Trait.Half-Orc Racial Trait.Halfling Racial Trait	VISIBLE:DISPLAY	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	COST:1
-No Race Trait Available					CATEGORY:Special Ability																										VISIBLE:DISPLAY
+###Block: Racial Trait Support
+# Ability Name				SORTKEY	Category of Ability		Visible		Stackable?	Multiple?	Choose		Cost
+Remove Excess Points from Pool	SORTKEY:1	CATEGORY:Special Ability	VISIBLE:DISPLAY	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	COST:1
+No Race Trait Available					CATEGORY:Special Ability	VISIBLE:DISPLAY
 
 
 # ==============================
@@ -20,159 +20,123 @@ No Race Trait Available					CATEGORY:Special Ability																										VI
 # Dwarf
 # ------------------------------
 
-###Block: Racial Abilities ~ grantor/removal MODs in cr_abilities_globalvar.lst
-# Ability Name		Category of Ability	Template
-Racial Traits ~ Dwarf	CATEGORY:Internal		TEMPLATE:Racial Heritage ~ Dwarf
-
 ###Block: Racial Traits
-# Ability Name					Unique Key					Category of Ability		Type																	Visible		Prohibited Fact								Define						Description																																																					Template																									Auto Language			Auto Weapon Prof							Ability					Bonus to Situation																Stat bonus														Modify VAR															Weapon prof. bonus						Change Weapon Prof. Category		Vision			Source Page		Aspects
-+2 Constitution, +2 Wisdom, -2 Charisma	KEY:Dwarf ~ Ability Scores		CATEGORY:Special Ability	TYPE:RacialTraits.Dwarf Racial Trait.Dwarf Racial Default.SpecialQuality.Racial Ability Scores		VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Dwarf_ReplaceAbilityScores=true									DESC:Dwarves are both tough and wise, but also a bit gruff.																																																																																																														BONUS:STAT|CON|2|TYPE=Racial	BONUS:STAT|WIS|2|TYPE=Racial	BONUS:STAT|CHA|-2|TYPE=Racial																																				SOURCEPAGE:p.21
-Medium						KEY:Dwarf ~ Size				CATEGORY:Special Ability	TYPE:RacialTraits.Dwarf Racial Trait.Dwarf Racial Default.SpecialQuality.Racial Size			VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Dwarf_ReplaceSize=true										DESC:Dwarves are Medium creatures and have no bonuses or penalties due to their size.																																																																																																																																																											SOURCEPAGE:p.21
-Slow and Steady					KEY:Dwarf ~ Speed				CATEGORY:Special Ability	TYPE:RacialTraits.Dwarf Racial Trait.Dwarf Racial Default.SpecialQuality.Racial Speed			VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Dwarf_ReplaceSpeed=True										DESC:Dwarves have a base speed of 20 feet, but their speed is never modified by armor or encumbrance.																																																																														ABILITY:Internal|AUTOMATIC|Steady																																																																						SOURCEPAGE:p.21
-Darkvision						KEY:Dwarf ~ Vision			CATEGORY:Special Ability	TYPE:RacialTraits.Dwarf Racial Trait.Dwarf Racial Default.SpecialQuality.Extraordinary.Racial Vision				!PREFACT:1,ABILITIES,Dwarf_ReplaceVision=True										DESC:Dwarves can see in the dark up to 60 feet.																																																																																																																															BONUS:VAR|HasRacialVision|1																											VISION:Darkvision (60)	SOURCEPAGE:p.21
-Defensive Training				KEY:Dwarf ~ Defensive Training	CATEGORY:Special Ability	TYPE:RacialTraits.Dwarf Racial Trait.Dwarf Racial Default.SpecialQuality.Defensive							!PREFACT:1,ABILITIES,Dwarf_ReplaceDefensiveTraining=True	DEFINE:RacialDefensiveTrainingBonus|0	DESC:Dwarves get a +%1 dodge bonus to AC against monsters of the giant subtype.|RacialDefensiveTrainingBonus																																																																																																																				BONUS:VAR|RacialDefensiveTrainingBonus|4																													SOURCEPAGE:p.21	ASPECT:CombatBonus|+%1 dodge bonus to AC against monsters of the giant subtype.|RacialDefensiveTrainingBonus	ASPECT:Ability Benefit|(+%1 dodge bonus to AC vs. giants)|RacialDefensiveTrainingBonus
-Greed							KEY:Dwarf ~ Greed				CATEGORY:Special Ability	TYPE:RacialTraits.Dwarf Racial Trait.Dwarf Racial Default.SpecialQuality								!PREFACT:1,ABILITIES,Dwarf_ReplaceGreed=True										DESC:Dwarves receive a +2 racial bonus on Appraise skill checks made to determine the price of nonmagical goods that contain precious metals or gemstones.|PREVAREQ:DwarvenGreedAspect,0																																																																						BONUS:SITUATION|Appraise=to assess nonmagical metals or gemstones|2|TYPE=Racial|PREVAREQ:DwarvenGreedAspect,0																																																			SOURCEPAGE:p.21
-Hatred						KEY:Dwarf ~ Hatred			CATEGORY:Special Ability	TYPE:RacialTraits.Dwarf Racial Trait.Dwarf Racial Default.SpecialAttack.Special Attack						!PREFACT:1,ABILITIES,Dwarf_ReplaceHatred=True										DESC:Dwarves receive a +1 bonus on attack rolls against humanoid creatures of the orc and goblinoid subtypes due to special training against these hated foes.																																																																																																																																															SOURCEPAGE:p.21	ASPECT:CombatBonus|+1 bonus on attack rolls against humanoid creatures of the orc and goblinoid subtypes due to special training against these hated foes.	ASPECT:StatBlockName|+1 on attack rolls against goblinoid and orc humanoids
-Hardy							KEY:Dwarf ~ Hardy				CATEGORY:Special Ability	TYPE:RacialTraits.Dwarf Racial Trait.Dwarf Racial Default.SpecialQuality								!PREFACT:1,ABILITIES,Dwarf_ReplaceHardy=True										DESC:Dwarves receive a +2 racial bonus on saving throws against poison, spells, and spell-like abilities.																																																																																																																					BONUS:VAR|SaveBonus_vs_Poison|2|TYPE=Racial	BONUS:VAR|SaveBonus_vs_Spells|2|TYPE=Racial																				SOURCEPAGE:p.21	ASPECT:SaveBonus|+2 racial bonus on saving throws against poison, spells, and spell-like abilities.|PREVAREQ:DwarfHardyAspect,0	ASPECT:SaveBonus|+2 racial bonus on saving throws against poison.|PREVAREQ:DwarfHardyAspect,1
-Stability						KEY:Dwarf ~ Stability			CATEGORY:Special Ability	TYPE:RacialTraits.Dwarf Racial Trait.Dwarf Racial Default.SpecialQuality								!PREFACT:1,ABILITIES,Dwarf_ReplaceStability=True									DESC:Dwarves receive a +4 racial bonus to their Combat Maneuver Defense when resisting a bull rush or trip attempt while standing on the ground.																																																																																																														BONUS:VAR|CMD_BullRush,CMD_Trip|4|TYPE=Racial																												SOURCEPAGE:p.21	ASPECT:CombatBonus|+4 bonus to their Combat Maneuver Defense when resisting a bull rush or trip attempt while standing on the ground.
-Stonecunning					KEY:Dwarf ~ Stonecunning		CATEGORY:Special Ability	TYPE:RacialTraits.Dwarf Racial Trait.Dwarf Racial Default.SpecialQuality								!PREFACT:1,ABILITIES,Dwarf_ReplaceStonecunning=True		DEFINE:Dwarf_StoneCunning_SkillBonus|0	DESC:Dwarves receive a +%1 bonus on Perception checks to potentially notice unusual stonework, such as traps and hidden doors located in stone walls or floors. They receive a check to notice such features whenever they pass within 10 feet of them, whether or not they are actively looking.|Dwarf_StoneCunning_SkillBonus																																															BONUS:SITUATION|Perception=to notice unusual stonework|Dwarf_StoneCunning_SkillBonus|TYPE=Racial																		BONUS:VAR|Dwarf_StoneCunning_SkillBonus|2																													SOURCEPAGE:p.21	ASPECT:SkillBonus|+%1 bonus on Perception skill checks to notice unusual stonework, such as traps and hidden doors located in stone walls or floors.|Dwarf_StoneCunning_SkillBonus
-Weapon Familiarity				KEY:Dwarf ~ Weapon Familiarity	CATEGORY:Special Ability	TYPE:RacialTraits.Dwarf Racial Trait.Dwarf Racial Default.SpecialQuality.Weapon Familiarity					!PREFACT:1,ABILITIES,Dwarf_ReplaceWeaponFamiliarity=True								DESC:Dwarves are proficient with battleaxes, heavy picks, and warhammers, and treat any weapon with the word "dwarven" in its name as a martial weapon.																																																												AUTO:WEAPONPROF|Battleaxe|Pick (Heavy)|Warhammer																																																									BONUS:WEAPONPROF=Waraxe (Dwarven)|WIELDCATEGORY|-1	CHANGEPROF:TYPE.Dwarven=Martial					SOURCEPAGE:p.21
-Languages						KEY:Dwarf ~ Languages			CATEGORY:Special Ability	TYPE:RacialTraits.Dwarf Racial Trait.Dwarf Racial Default.SpecialQuality.Racial Language			VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Dwarf_ReplaceLanguages=True									DESC:Dwarves begin play speaking Common and Dwarven. Dwarves with high Intelligence scores can choose from the following: Giant, Gnome, Goblin, Orc, Terran, and Undercommon.																										TEMPLATE:Bonus Language ~ Giant|Bonus Language ~ Gnome|Bonus Language ~ Goblin|Bonus Language ~ Orc|Bonus Language ~ Terran|Bonus Language ~ Undercommon	AUTO:LANG|Common|Dwarven																																																																																					SOURCEPAGE:p.21
+# Ability Name								Source Page
+CATEGORY=Special Ability|Dwarf ~ Ability Scores.MOD		SOURCEPAGE:p.21
+CATEGORY=Special Ability|Dwarf ~ Size.MOD				SOURCEPAGE:p.21
+CATEGORY=Special Ability|Dwarf ~ Speed.MOD			SOURCEPAGE:p.21
+CATEGORY=Special Ability|Dwarf ~ Vision.MOD			SOURCEPAGE:p.21
+CATEGORY=Special Ability|Dwarf ~ Defensive Training.MOD	SOURCEPAGE:p.21
+CATEGORY=Special Ability|Dwarf ~ Greed.MOD			SOURCEPAGE:p.21
+CATEGORY=Special Ability|Dwarf ~ Hatred.MOD			SOURCEPAGE:p.21
+CATEGORY=Special Ability|Dwarf ~ Hardy.MOD			SOURCEPAGE:p.21
+CATEGORY=Special Ability|Dwarf ~ Stability.MOD			SOURCEPAGE:p.21
+CATEGORY=Special Ability|Dwarf ~ Stonecunning.MOD		SOURCEPAGE:p.21
+CATEGORY=Special Ability|Dwarf ~ Weapon Familiarity.MOD	SOURCEPAGE:p.21
+CATEGORY=Special Ability|Dwarf ~ Languages.MOD			SOURCEPAGE:p.21
 
 
 # ------------------------------
 # Elf
 # ------------------------------
 
-###Block: Racial Abilities ~ grantor/removal MODs in cr_abilities_globalvar.lst
-# Ability Name					Category of Ability	Define																						Template					Modify VAR
-Racial Traits ~ Elf				CATEGORY:Internal																									TEMPLATE:Racial Heritage ~ Elf
-CATEGORY=Internal|Racial Traits ~ Elf.MOD					DEFINE:Elf_RacialCastingStat|0	DEFINE:Elf_RacialCastingMod|0	DEFINE:Elf_RacialCasterlevel|0	DEFINE:Elf_RacialConcentration|0							BONUS:VAR|Elf_RacialCastingStat|CHASCORE	BONUS:VAR|Elf_RacialCastingMod|CHA	BONUS:VAR|Elf_RacialCasterlevel|TL	BONUS:VAR|Elf_RacialConcentration|Elf_RacialCasterlevel+Elf_RacialCastingMod
-
 ###Block: Racial Traits
-# Ability Name						Unique Key				Category of Ability		Type																		Visible		Prohibited Fact								Define				Description																																			Template																													Auto Language		Auto Weapon Prof							Ability								Bonus to Situation										Bonus to skill							Stat bonus														Modify VAR								Change Weapon Prof. Category	Vision			Source Page		Aspects
-+2 Dexterity, +2 Intelligence, -2 Constitution	KEY:Elf ~ Ability Scores	CATEGORY:Special Ability	TYPE:RacialTraits.Elf Racial Trait.Elf Racial Default.SpecialQuality.Racial Ability Scores			VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Elf_ReplaceAbilityScores=true							DESC:Elves are nimble, both in body and mind, but their form is frail.																																																																																																			BONUS:STAT|DEX|2|TYPE=Racial	BONUS:STAT|INT|2|TYPE=Racial	BONUS:STAT|CON|-2|TYPE=Racial																			SOURCEPAGE:p.22
-Medium							KEY:Elf ~ Size			CATEGORY:Special Ability	TYPE:RacialTraits.Elf Racial Trait.Elf Racial Default.SpecialQuality.Racial Size					VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Elf_ReplaceSize=true									DESC:Elves are Medium creatures and have no bonuses or penalties due to their size.																																																																																																																																		SOURCEPAGE:p.22
-Normal Speed						KEY:Elf ~ Speed			CATEGORY:Special Ability	TYPE:RacialTraits.Elf Racial Trait.Elf Racial Default.SpecialQuality.Racial Speed					VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Elf_ReplaceSpeed=true								DESC:Elves have a base speed of 30 feet.																																																																																																																																									SOURCEPAGE:p.22
-Low-Light Vision						KEY:Elf ~ Vision			CATEGORY:Special Ability	TYPE:RacialTraits.Elf Racial Trait.Elf Racial Default.SpecialQuality.Extraordinary.Racial Vision					!PREFACT:1,ABILITIES,Elf_ReplaceVision=true								DESC:Elves can see twice as far as humans in conditions of dim light.																																																																																																																		BONUS:VAR|HasRacialVision|1										VISION:Low-Light Vision	SOURCEPAGE:p.22
-Elven Immunities						KEY:Elf ~ Elven Immunities	CATEGORY:Special Ability	TYPE:RacialTraits.Elf Racial Trait.Elf Racial Default.SpecialQuality										!PREFACT:1,ABILITIES,Elf_ReplaceElvenImmunities=true							DESC:Elves are immune to magic sleep effects and get a +2 racial saving throw bonus against enchantment spells and effects.																																																											ABILITY:Special Ability|AUTOMATIC|Immunity to Sleep																																						BONUS:VAR|SaveBonus_vs_Enchantments|2|TYPE=Racial										SOURCEPAGE:p.22	ASPECT:SaveBonus|+2 racial saving throw bonus against enchantment spells and effects.
-Elven Magic							KEY:Elf ~ Elven Magic		CATEGORY:Special Ability	TYPE:RacialTraits.Elf Racial Trait.Elf Racial Default.SpecialQuality.Special Quality.Elven Magic					!PREFACT:1,ABILITIES,Elf_ReplaceElvenMagic=true								DESC:Elves receive a +2 racial bonus on caster level checks made to overcome spell resistance. In addition, elves receive a +2 racial bonus on Spellcraft skill checks made to identify the properties of magic items.																																																					BONUS:SITUATION|Spellcraft=to identify magic item properties|2|TYPE=Racial																																											SOURCEPAGE:p.22
-Keen Senses							KEY:Elf ~ Keen Senses		CATEGORY:Special Ability	TYPE:RacialTraits.Elf Racial Trait.Elf Racial Default.SpecialQuality										!PREFACT:1,ABILITIES,Elf_ReplaceKeenSenses=true			DEFINE:KeenSensesBonus|0	DESC:Elves receive a +%1 racial bonus on Perception skill checks.|KeenSensesBonus																																																																																								BONUS:SKILL|Perception|KeenSensesBonus|TYPE=Racial																BONUS:VAR|KeenSensesBonus|2														SOURCEPAGE:p.22
-Weapon Familiarity					KEY:Elf ~ Weapon Familiarity	CATEGORY:Special Ability	TYPE:RacialTraits.Elf Racial Trait.Elf Racial Default.SpecialQuality.Special Quality.Weapon Familiarity				!PREFACT:1,ABILITIES,Elf_ReplaceWeaponFamiliarity=true						DESC:Elves are proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), and treat any weapon with the word "elven" in its name as a martial weapon.																																			AUTO:WEAPONPROF|Longsword|Rapier|Longbow|Shortbow																																																								CHANGEPROF:TYPE.Elven=Martial					SOURCEPAGE:p.22
-Languages							KEY:Elf ~ Languages		CATEGORY:Special Ability	TYPE:RacialTraits.Elf Racial Trait.Elf Racial Default.SpecialQuality.Racial Language				VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Elf_ReplaceLanguages=true								DESC:Elves begin play speaking Common and Elven. Elves with high Intelligence scores can choose from the following: Celestial, Draconic, Gnoll, Gnome, Goblin, Orc, and Sylvan.							TEMPLATE:Bonus Language ~ Celestial|Bonus Language ~ Draconic|Bonus Language ~ Gnoll|Bonus Language ~ Gnome|Bonus Language ~ Goblin|Bonus Language ~ Orc|Bonus Language ~ Sylvan	AUTO:LANG|Common|Elven																																																																										SOURCEPAGE:p.22
+# Ability Name							Source Page
+CATEGORY=Special Ability|Elf ~ Ability Scores.MOD	SOURCEPAGE:p.22
+CATEGORY=Special Ability|Elf ~ Size.MOD			SOURCEPAGE:p.22
+CATEGORY=Special Ability|Elf ~ Speed.MOD			SOURCEPAGE:p.22
+CATEGORY=Special Ability|Elf ~ Vision.MOD			SOURCEPAGE:p.22
+CATEGORY=Special Ability|Elf ~ Elven Immunities.MOD	SOURCEPAGE:p.22
+CATEGORY=Special Ability|Elf ~ Elven Magic.MOD		SOURCEPAGE:p.22
+CATEGORY=Special Ability|Elf ~ Keen Senses.MOD		SOURCEPAGE:p.22
+CATEGORY=Special Ability|Elf ~ Weapon Familiarity.MOD	SOURCEPAGE:p.22
+CATEGORY=Special Ability|Elf ~ Languages.MOD		SOURCEPAGE:p.22
 
 
 # ------------------------------
 # Gnome
 # ------------------------------
 
-###Block: Racial Abilities ~ grantor/removal MODs in cr_abilities_globalvar.lst
-# Ability Name						Category of Ability	Define																							Template					Modify VAR
-Racial Traits ~ Gnome					CATEGORY:Internal																										TEMPLATE:Racial Heritage ~ Gnome
-CATEGORY=Internal|Racial Traits ~ Gnome.MOD					DEFINE:Gnome_RacialCastingStat|0	DEFINE:Gnome_RacialCastingMod|0	DEFINE:Gnome_RacialCasterlevel|0	DEFINE:Gnome_RacialConcentration|0							BONUS:VAR|Gnome_RacialCastingStat|CHASCORE	BONUS:VAR|Gnome_RacialCastingMod|CHA	BONUS:VAR|Gnome_RacialCasterlevel|TL	BONUS:VAR|Gnome_RacialConcentration|Gnome_RacialCasterlevel+Gnome_RacialCastingMod
-
 ###Block: Racial Traits
-# Ability Name					Unique Key					Category of Ability		Type																		Visible		Prohibited Fact								Define						Description																																																																										Template																									Auto Language			Ability																												Bonus Ability Pool					Bonus DC									Bonus to skill							Stat bonus														Modify VAR							Change Weapon Prof. Category	Vision			Source Page		Aspects
-+2 Constitution, +2 Charisma, -2 Strength	KEY:Gnome ~ Ability Scores		CATEGORY:Special Ability	TYPE:RacialTraits.Gnome Racial Trait.Gnome Racial Default.SpecialQuality.Racial Ability Scores			VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Gnome_ReplaceAbilityScores=true									DESC:Gnomes are physically weak but surprisingly hardy, and their attitude makes them naturally agreeable.																																																																																																																																																	BONUS:STAT|CON|2|TYPE=Racial	BONUS:STAT|CHA|2|TYPE=Racial	BONUS:STAT|STR|-2|TYPE=Racial																		SOURCEPAGE:p.23
-Small							KEY:Gnome ~ Size				CATEGORY:Special Ability	TYPE:RacialTraits.Gnome Racial Trait.Gnome Racial Default.SpecialQuality.Racial Size				VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Gnome_ReplaceSize=true										DESC:Gnomes are Small creatures and gain a +1 size bonus to their AC, a +1 size bonus on attack rolls, a -1 penalty to their Combat Maneuver Bonus and Combat Maneuver Defense, and a +4 size bonus on Stealth checks.																																																																																																																																																															SOURCEPAGE:p.23
-Slow Speed						KEY:Gnome ~ Speed				CATEGORY:Special Ability	TYPE:RacialTraits.Gnome Racial Trait.Gnome Racial Default.SpecialQuality.Racial Speed				VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Gnome_ReplaceSpeed=true										DESC:Gnomes have a base speed of 20 feet.																																																																																																																																																																																												SOURCEPAGE:p.23
-Low-Light Vision					KEY:Gnome ~ Vision			CATEGORY:Special Ability	TYPE:RacialTraits.Gnome Racial Trait.Gnome Racial Default.SpecialQuality.Extraordinary.Racial Vision					!PREFACT:1,ABILITIES,Gnome_ReplaceVision=true										DESC:Gnomes can see twice as far as humans in conditions of dim light.																																																																																																																																																																						BONUS:VAR|HasRacialVision|1									VISION:Low-Light Vision	SOURCEPAGE:p.23
-Defensive Training				KEY:Gnome ~ Defensive Training	CATEGORY:Special Ability	TYPE:RacialTraits.Gnome Racial Trait.Gnome Racial Default.SpecialQuality.Defensive								!PREFACT:1,ABILITIES,Gnome_ReplaceDefensiveTraining=true	DEFINE:RacialDefensiveTrainingBonus|0	DESC:Gnomes get a +%1 dodge bonus to AC against monsters of the giant subtype.|RacialDefensiveTrainingBonus																																																																																																																																																																BONUS:VAR|RacialDefensiveTrainingBonus|4											SOURCEPAGE:p.23	ASPECT:CombatBonus|+%1 dodge bonus to AC against monsters of the giant subtype.|RacialDefensiveTrainingBonus	ASPECT:Ability Benefit|(+%1 dodge bonus to AC vs. giants)|RacialDefensiveTrainingBonus
-Gnome Magic						KEY:Gnome ~ Gnome Magic			CATEGORY:Special Ability	TYPE:RacialTraits.Gnome Racial Trait.Gnome Racial Default.SpecialQuality.Special Quality.Applied Bonus				!PREFACT:1,ABILITIES,Gnome_ReplaceGnomeMagic=true		DEFINE:Gnome_GnomeMagic_IllusionDCBonus|0	DESC:Gnomes add +%1 to the DC of any saving throws against illusion spells that they cast. Gnomes with a Charisma of 11 or higher also gain the following spell-like abilities: 1/day--dancing lights, ghost sound, prestidigitation, and speak with animals. The caster level for these effects is equal to the gnome's level. The DC for these spells is equal to 10 + the spell's level + the gnome's Charisma modifier.|Gnome_GnomeMagic_IllusionDCBonus																																ABILITY:Spell-Like Ability|AUTOMATIC|Racial SLA ~ Dancing Lights|Racial SLA ~ Ghost Sound|Racial SLA ~ Prestidigitation|Racial SLA ~ Speak with Animals|PRESTAT:1,CHA=11									BONUS:DC|SCHOOL.Illusion|Gnome_GnomeMagic_IllusionDCBonus																									BONUS:VAR|Gnome_GnomeMagic_IllusionDCBonus|1										SOURCEPAGE:p.23
-Hatred						KEY:Gnome ~ Hatred			CATEGORY:Special Ability	TYPE:RacialTraits.Gnome Racial Trait.Gnome Racial Default.SpecialAttack.Special Attack							!PREFACT:1,ABILITIES,Gnome_ReplaceHatred=true			DEFINE:Gnome_Hatred_AttackBonus|0		DESC:Gnomes receive a +%1 bonus on attack rolls against humanoid creatures of the reptilian and goblinoid subtypes due to special training against these hated foes.|Gnome_Hatred_AttackBonus																																																																																																																																																		BONUS:VAR|Gnome_Hatred_AttackBonus|1											SOURCEPAGE:p.23	ASPECT:CombatBonus|+%1 bonus on attack rolls against humanoid creatures of the reptilian and goblinoid subtypes due to special training against these hated foes.|Gnome_Hatred_AttackBonus	ASPECT:StatBlockName|+%1 on attack rolls against goblinoid and reptilian humanoids|Gnome_Hatred_AttackBonus
-Illusion Resistance				KEY:Gnome ~ Illusion Resistance	CATEGORY:Special Ability	TYPE:RacialTraits.Gnome Racial Trait.Gnome Racial Default.SpecialQuality									!PREFACT:1,ABILITIES,Gnome_ReplaceIllusionResistance=true								DESC:Gnomes get a +2 racial saving throw bonus against illusion spells and effects.																																																																																																																																																																				BONUS:VAR|SaveBonus_vs_Illusions|2|TYPE=Racial										SOURCEPAGE:p.23	ASPECT:SaveBonus|+2 racial saving throw bonus against illusion spells and effects.
-Keen Senses						KEY:Gnome ~ Keen Senses			CATEGORY:Special Ability	TYPE:RacialTraits.Gnome Racial Trait.Gnome Racial Default.SpecialQuality									!PREFACT:1,ABILITIES,Gnome_ReplaceKeenSenses=true		DEFINE:KeenSensesBonus|0			DESC:Gnomes receive a +2 racial bonus on Perception skill checks.																																																																																																																																															BONUS:SKILL|Perception|KeenSensesBonus|TYPE=Racial																BONUS:VAR|KeenSensesBonus|2													SOURCEPAGE:p.23
-Obsessive						KEY:Gnome ~ Obsessive			CATEGORY:Special Ability	TYPE:RacialTraits.Gnome Racial Trait.Gnome Racial Default.SpecialQuality									!PREFACT:1,ABILITIES,Gnome_ReplaceObsessive=true									DESC:Gnomes receive a +2 racial bonus on a Craft or Profession skill of their choice.																																																																																																																									BONUS:ABILITYPOOL|Gnome Obsessive Skill Bonus|1																																																				SOURCEPAGE:p.23
-Weapon Familiarity				KEY:Gnome ~ Weapon Familiarity	CATEGORY:Special Ability	TYPE:RacialTraits.Gnome Racial Trait.Gnome Racial Default.SpecialQuality.Weapon Familiarity						!PREFACT:1,ABILITIES,Gnome_ReplaceWeaponFamiliarity=true								DESC:Gnomes treat any weapon with the word "gnome" in its name as a martial weapon.																																																																																																																																																																												CHANGEPROF:TYPE.Gnome=Martial					SOURCEPAGE:p.23
-Languages						KEY:Gnome ~ Languages			CATEGORY:Special Ability	TYPE:RacialTraits.Gnome Racial Trait.Gnome Racial Default.SpecialQuality.Racial Language				VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Gnome_ReplaceLanguages=true									DESC:Gnomes begin play speaking Common, Gnome, and Sylvan. Gnomes with high Intelligence scores can choose from the following: Draconic, Dwarven, Elven, Giant, Goblin, and Orc.																																														TEMPLATE:Bonus Language ~ Draconic|Bonus Language ~ Dwarven|Bonus Language ~ Elven|Bonus Language ~ Giant|Bonus Language ~ Goblin|Bonus Language ~ Orc	AUTO:LANG|Common|Gnome|Sylvan																																																																																									SOURCEPAGE:p.23
-
-###Block: Obsessive
-# Ability Name			Category of Ability	Type						Description												Stackable?	Multiple?	Choose				Bonus to skill
-Obsessive Craft Bonus		CATEGORY:Internal		TYPE:Gnome Obsessive Skill Bonus	DESC:Gnomes receive a +2 racial bonus on a Craft skill of their choice.		STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Craft		BONUS:SKILL|LIST|2|TYPE=Racial
-Obsessive Profession Bonus	CATEGORY:Internal		TYPE:Gnome Obsessive Skill Bonus	DESC:Gnomes receive a +2 racial bonus on a Profession skill of their choice.	STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Profession	BONUS:SKILL|LIST|2|TYPE=Racial
+# Ability Name								Source Page
+CATEGORY=Special Ability|Gnome ~ Ability Scores.MOD		SOURCEPAGE:p.23
+CATEGORY=Special Ability|Gnome ~ Size.MOD				SOURCEPAGE:p.23
+CATEGORY=Special Ability|Gnome ~ Speed.MOD			SOURCEPAGE:p.23
+CATEGORY=Special Ability|Gnome ~ Vision.MOD			SOURCEPAGE:p.23
+CATEGORY=Special Ability|Gnome ~ Defensive Training.MOD	SOURCEPAGE:p.23
+CATEGORY=Special Ability|Gnome ~ Gnome Magic.MOD		SOURCEPAGE:p.23
+CATEGORY=Special Ability|Gnome ~ Hatred.MOD			SOURCEPAGE:p.23
+CATEGORY=Special Ability|Gnome ~ Illusion Resistance.MOD	SOURCEPAGE:p.23
+CATEGORY=Special Ability|Gnome ~ Keen Senses.MOD		SOURCEPAGE:p.23
+CATEGORY=Special Ability|Gnome ~ Obsessive.MOD			SOURCEPAGE:p.23
+CATEGORY=Special Ability|Gnome ~ Weapon Familiarity.MOD	SOURCEPAGE:p.23
+CATEGORY=Special Ability|Gnome ~ Languages.MOD			SOURCEPAGE:p.23
 
 
 # ------------------------------
 # Half-Elf
 # ------------------------------
 
-###Block: Racial Abilities ~ grantor/removal MODs in cr_abilities_globalvar.lst
-# Ability Name						Category of Ability	Define																								Template									Modify VAR
-Racial Traits ~ Half-Elf				CATEGORY:Internal																											TEMPLATE:Racial Heritage ~ Elf|Racial Heritage ~ Human
-CATEGORY=Internal|Racial Traits ~ Half-Elf.MOD					DEFINE:Half-Elf_RacialCastingStat|0	DEFINE:Half-Elf_RacialCastingMod|0	DEFINE:Half-Elf_RacialCasterlevel|0	DEFINE:Half-Elf_RacialConcentration|0											BONUS:VAR|Half-Elf_RacialCastingStat|CHASCORE	BONUS:VAR|Half-Elf_RacialCastingMod|CHA	BONUS:VAR|Half-Elf_RacialCasterlevel|TL	BONUS:VAR|Half-Elf_RacialConcentration|Half-Elf_RacialCasterlevel+Half-Elf_RacialCastingMod
-
 ###Block: Racial Traits
-# Ability Name		Unique Key					Category of Ability		Type																	Visible		Prohibited Fact								Define				Description																												Template				Auto Language		Ability								Bonus Ability Pool					Bonus to skill							Modify VAR								Vision			Source Page		Aspects
-+2 to One Ability Score	KEY:Half-Elf ~ Ability Scores		CATEGORY:Special Ability	TYPE:RacialTraits.Half-Elf Racial Trait.Half-Elf Racial Default.SpecialQuality.Racial Ability Scores	VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,HalfElf_ReplaceAbilityScores=true						DESC:Half-elf characters get a +2 bonus to one ability score of their choice at creation to represent their varied nature.																											BONUS:ABILITYPOOL|Ability Bonus|1																									SOURCEPAGE:p.24
-Medium			KEY:Half-Elf ~ Size			CATEGORY:Special Ability	TYPE:RacialTraits.Half-Elf Racial Trait.Half-Elf Racial Default.SpecialQuality.Racial Size		VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,HalfElf_ReplaceSize=true								DESC:Half-elves are Medium creatures and have no bonuses or penalties due to their size.																																																															SOURCEPAGE:p.24
-Normal Speed		KEY:Half-Elf ~ Speed			CATEGORY:Special Ability	TYPE:RacialTraits.Half-Elf Racial Trait.Half-Elf Racial Default.SpecialQuality.Racial Speed		VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,HalfElf_ReplaceSpeed=true								DESC:Half-elves have a base speed of 30 feet.																																																																						SOURCEPAGE:p.24
-Low-Light Vision		KEY:Half-Elf ~ Vision			CATEGORY:Special Ability	TYPE:RacialTraits.Half-Elf Racial Trait.Half-Elf Racial Default.SpecialQuality.Racial Vision					!PREFACT:1,ABILITIES,HalfElf_ReplaceVision=true								DESC:Half-elves can see twice as far as humans in conditions of dim light.																																																				BONUS:VAR|HasRacialVision|1					VISION:Low-Light Vision	SOURCEPAGE:p.24
-Adaptability		KEY:Half-Elf ~ Adaptability		CATEGORY:Special Ability	TYPE:RacialTraits.Half-Elf Racial Trait.Half-Elf Racial Default.SpecialQuality							!PREFACT:1,ABILITIES,HalfElf_ReplaceAdaptability=true							DESC:Half-elves receive Skill Focus as a bonus feat at 1st level.																																					BONUS:ABILITYPOOL|Adaptability Bonus Feat|1																							SOURCEPAGE:p.24
-Elf Blood			KEY:Half-Elf ~ Elf Blood		CATEGORY:Special Ability	TYPE:RacialTraits.Half-Elf Racial Trait.Half-Elf Racial Default.SpecialQuality.Special Quality					!PREFACT:1,ABILITIES,HalfElf_ReplaceElfBlood=true							DESC:Half-elves count as both elves and humans for any effect related to race.																																																																SOURCEPAGE:p.24
-Elven Immunities		KEY:Half-Elf ~ Elven Immunities	CATEGORY:Special Ability	TYPE:RacialTraits.Half-Elf Racial Trait.Half-Elf Racial Default.SpecialQuality							!PREFACT:1,ABILITIES,HalfElf_ReplaceElvenImmunities=true						DESC:Half-elves are immune to magic sleep effects and get a +2 racial saving throw bonus against enchantment spells and effects.																	ABILITY:Special Ability|AUTOMATIC|Immunity to Sleep																		BONUS:VAR|SaveBonus_vs_Enchantments|2|TYPE=Racial					SOURCEPAGE:p.24	ASPECT:SaveBonus|+2 racial saving throw bonus against enchantment spells and effects.
-Keen Senses			KEY:Half-Elf ~ Keen Senses		CATEGORY:Special Ability	TYPE:RacialTraits.Half-Elf Racial Trait.Half-Elf Racial Default.SpecialQuality							!PREFACT:1,ABILITIES,HalfElf_ReplaceKeenSenses=true		DEFINE:KeenSensesBonus|0	DESC:Half-elves receive a +%1 racial bonus on Perception skill checks.|KeenSensesBonus																																									BONUS:SKILL|Perception|KeenSensesBonus|TYPE=Racial	BONUS:VAR|KeenSensesBonus|2									SOURCEPAGE:p.24
-Multitalented		KEY:Half-Elf ~ Multitalented		CATEGORY:Special Ability	TYPE:RacialTraits.Half-Elf Racial Trait.Half-Elf Racial Default.SpecialQuality							!PREFACT:1,ABILITIES,HalfElf_ReplaceMultitalented=true						DESC:Half-elves choose two favored classes at first level and gain +1 hit point or +1 skill point whenever they take a level in either one of those classes.																					BONUS:ABILITYPOOL|Favored Class|1																									SOURCEPAGE:p.24
-Languages			KEY:Half-Elf ~ Languages		CATEGORY:Special Ability	TYPE:RacialTraits.Half-Elf Racial Trait.Half-Elf Racial Default.SpecialQuality.Racial Language		VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,HalfElf_ReplaceLanguages=true							DESC:Half-elves begin play speaking Common and Elven. Half-elves with high Intelligence scores can choose any languages they want (except secret languages, such as Druidic).	TEMPLATE:Bonus Language ~ Any Spoken	AUTO:LANG|Common|Elven																																								SOURCEPAGE:p.24
+# Ability Name								Source Page
+CATEGORY=Special Ability|Half-Elf ~ Ability Scores.MOD	SOURCEPAGE:p.24
+CATEGORY=Special Ability|Half-Elf ~ Size.MOD			SOURCEPAGE:p.24
+CATEGORY=Special Ability|Half-Elf ~ Speed.MOD			SOURCEPAGE:p.24
+CATEGORY=Special Ability|Half-Elf ~ Vision.MOD			SOURCEPAGE:p.24
+CATEGORY=Special Ability|Half-Elf ~ Adaptability.MOD		SOURCEPAGE:p.24
+CATEGORY=Special Ability|Half-Elf ~ Elf Blood.MOD		SOURCEPAGE:p.24
+CATEGORY=Special Ability|Half-Elf ~ Elven Immunities.MOD	SOURCEPAGE:p.24
+CATEGORY=Special Ability|Half-Elf ~ Keen Senses.MOD		SOURCEPAGE:p.24
+CATEGORY=Special Ability|Half-Elf ~ Multitalented.MOD		SOURCEPAGE:p.24
+CATEGORY=Special Ability|Half-Elf ~ Languages.MOD		SOURCEPAGE:p.24
 
 
 # ------------------------------
 # Half-Orc
 # ------------------------------
 
-###Block: Racial Abilities ~ grantor/removal MODs in cr_abilities_globalvar.lst
-# Ability Name			Category of Ability	Template
-Racial Traits ~ Half-Orc	CATEGORY:Internal		TEMPLATE:Racial Heritage ~ Orc|Racial Heritage ~ Human
-
 ###Block: Racial Traits
-# Ability Name		Unique Key					Category of Ability		Type																			Visible		Prohibited Fact								Define					Description																																																																								Template																					Auto Language		Auto Weapon Prof				Bonus Ability Pool			Bonus to skill					Modify VAR					Change Weapon Prof. Category	Vision			Source Page
-+2 to One Ability Score	KEY:Half-Orc ~ Ability Scores		CATEGORY:Special Ability	TYPE:RacialTraits.Half-Orc Racial Trait.Half-Orc Racial Default.SpecialQuality.Racial Ability Scores			VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,HalfOrc_ReplaceAbilityScores=true							DESC:Half-orc characters get a +2 bonus to one ability score of their choice at creation to represent their varied nature.																																																																																					BONUS:ABILITYPOOL|Ability Bonus|1																							SOURCEPAGE:p.24
-Medium			KEY:Half-Orc ~ Size			CATEGORY:Special Ability	TYPE:RacialTraits.Half-Orc Racial Trait.Half-Orc Racial Default.SpecialQuality.Racial Size				VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,HalfOrc_ReplaceSize=true									DESC:Half-orcs are Medium creatures and have no bonuses or penalties due to their size.																																																																																																																							SOURCEPAGE:p.24
-Normal Speed		KEY:Half-Orc ~ Speed			CATEGORY:Special Ability	TYPE:RacialTraits.Half-Orc Racial Trait.Half-Orc Racial Default.SpecialQuality.Racial Speed				VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,HalfOrc_ReplaceSpeed=true									DESC:Half-orcs have a base speed of 30 feet.																																																																																																																														SOURCEPAGE:p.24
-Darkvision			KEY:Half-Orc ~ Vision			CATEGORY:Special Ability	TYPE:RacialTraits.Half-Orc Racial Trait.Half-Orc Racial Default.SpecialQuality.Racial Vision				VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,HalfOrc_ReplaceVision=true									DESC:Half-orcs can see in the dark up to 60 feet.																																																																																																														BONUS:VAR|HasRacialVision|1							VISION:Darkvision (60)	SOURCEPAGE:p.25
-Intimidating		KEY:Half-Orc ~ Intimidating		CATEGORY:Special Ability	TYPE:RacialTraits.Half-Orc Racial Trait.Half-Orc Racial Default.SpecialQuality									!PREFACT:1,ABILITIES,HalfOrc_ReplaceIntimidating=true								DESC:Half-orcs receive a +2 racial bonus on Intimidate skill checks due to their fearsome nature.																																																																																															BONUS:SKILL|Intimidate|2|TYPE=Racial																SOURCEPAGE:p.25
-Orc Blood			KEY:Half-Orc ~ Orc Blood		CATEGORY:Special Ability	TYPE:RacialTraits.Half-Orc Racial Trait.Half-Orc Racial Default.SpecialQuality.Special Quality							!PREFACT:1,ABILITIES,HalfOrc_ReplaceOrcBlood=true								DESC:Half-orcs count as both humans and orcs for any effect related to race.																																																																																																																									SOURCEPAGE:p.25
-Orc Ferocity		KEY:Half-Orc ~ Orc Ferocity		CATEGORY:Special Ability	TYPE:RacialTraits.Half-Orc Racial Trait.Half-Orc Racial Default.SpecialQuality.Defensive								!PREFACT:1,ABILITIES,HalfOrc_ReplaceOrcFerocity=true		DEFINE:Orc_OrcFerocity_Times|0	DESC:Once|PREVARLTEQ:Orc_OrcFerocity_Times,1	DESC:Twice|PREVAREQ:Orc_OrcFerocity_Times,2	DESC:%1 times|Orc_OrcFerocity_Times|Orc_OrcFerocity_Times|PREVARGTEQ:Orc_OrcFerocity_Times,3	DESC:per day, when a half-orc is brought below 0 hit points but not killed, he can fight on for one more round as if disabled. At the end of his next turn, unless brought to above 0 hit points, he immediately falls unconscious and begins dying.																																														BONUS:VAR|Orc_OrcFerocity_Times|1										SOURCEPAGE:p.25
-Weapon Familiarity	KEY:Half-Orc ~ Weapon Familiarity	CATEGORY:Special Ability	TYPE:RacialTraits.Half-Orc Racial Trait.Half-Orc Racial Default.SpecialQuality.Special Quality.Weapon Familiarity				!PREFACT:1,ABILITIES,HalfOrc_ReplaceWeaponFamiliarity=true							DESC:Half-orcs are proficient with greataxes and falchions and treat any weapon with the word "orc" in its name as a martial weapon.																																																																													AUTO:WEAPONPROF|Greataxe|Falchion																				CHANGEPROF:TYPE.Orc=Martial					SOURCEPAGE:p.25
-Languages			KEY:Half-Orc ~ Languages		CATEGORY:Special Ability	TYPE:RacialTraits.Half-Orc Racial Trait.Half-Orc Racial Default.SpecialQuality.Racial Language				VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,HalfOrc_ReplaceLanguages=true								DESC:Half-orcs begin play speaking Common and Orc. Half-orcs with high Intelligence scores can choose from the following: Abyssal, Draconic, Giant, Gnoll, and Goblin.																																														TEMPLATE:Bonus Language ~ Abyssal|Bonus Language ~ Draconic|Bonus Language ~ Giant|Bonus Language ~ Gnoll|Bonus Language ~ Goblin	AUTO:LANG|Common|Orc																																			SOURCEPAGE:p.25
+# Ability Name								Source Page
+CATEGORY=Special Ability|Half-Orc ~ Ability Scores.MOD	SOURCEPAGE:p.24
+CATEGORY=Special Ability|Half-Orc ~ Size.MOD			SOURCEPAGE:p.24
+CATEGORY=Special Ability|Half-Orc ~ Speed.MOD			SOURCEPAGE:p.24
+CATEGORY=Special Ability|Half-Orc ~ Vision.MOD			SOURCEPAGE:p.25
+CATEGORY=Special Ability|Half-Orc ~ Intimidating.MOD		SOURCEPAGE:p.25
+CATEGORY=Special Ability|Half-Orc ~ Orc Blood.MOD		SOURCEPAGE:p.25
+CATEGORY=Special Ability|Half-Orc ~ Orc Ferocity.MOD		SOURCEPAGE:p.25
+CATEGORY=Special Ability|Half-Orc ~ Weapon Familiarity.MOD	SOURCEPAGE:p.25
+CATEGORY=Special Ability|Half-Orc ~ Languages.MOD		SOURCEPAGE:p.25
 
 
 # ------------------------------
 # Halfling
 # ------------------------------
 
-###Block: Racial Abilities ~ grantor/removal MODs in cr_abilities_globalvar.lst
-# Ability Name			Category of Ability	Template
-Racial Traits ~ Halfling	CATEGORY:Internal		TEMPLATE:Racial Heritage ~ Halfling
-
 ###Block: Racial Traits
-# Ability Name					Unique Key					Category of Ability		Type																	Visible		Prohibited Fact								Define						Description																																				Template																	Auto Language			Auto Weapon Prof		Bonus to skill							Stat bonus														Modify VAR									Change Weapon Prof. Category		Source Page		Aspects
-+2 Dexterity, +2 Charisma, -2 Strength	KEY:Halfling ~ Ability Scores		CATEGORY:Special Ability	TYPE:RacialTraits.Halfling Racial Trait.Halfling Racial Default.SpecialQuality.Racial Ability Scores	VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Halfling_ReplaceAbilityScores=true								DESC:Halflings are nimble and strong-willed, but their small stature makes them weaker than other races.																																																								BONUS:STAT|DEX|2|TYPE=Racial	BONUS:STAT|CHA|2|TYPE=Racial	BONUS:STAT|STR|-2|TYPE=Racial																	SOURCEPAGE:p.26
-Small							KEY:Halfling ~ Size			CATEGORY:Special Ability	TYPE:RacialTraits.Halfling Racial Trait.Halfling Racial Default.SpecialQuality.Racial Size		VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Halfling_ReplaceSize=true										DESC:Halflings are Small creatures and gain a +1 size bonus to their AC, a +1 size bonus on attack rolls, a -1 penalty to their Combat Maneuver Bonus and Combat Maneuver Defense, and a +4 size bonus on Stealth checks.																																																																				SOURCEPAGE:p.26
-Slow Speed						KEY:Halfling ~ Speed			CATEGORY:Special Ability	TYPE:RacialTraits.Halfling Racial Trait.Halfling Racial Default.SpecialQuality.Racial Speed		VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Halfling_ReplaceSpeed=true										DESC:Halflings have a base speed of 20 feet.																																																																																																	SOURCEPAGE:p.26
-Fearless						KEY:Halfling ~ Fearless			CATEGORY:Special Ability	TYPE:RacialTraits.Halfling Racial Trait.Halfling Racial Default.SpecialQuality							!PREFACT:1,ABILITIES,Halfling_ReplaceFearless=true									DESC:Halflings receive a +2 racial bonus on all saving throws against fear. This bonus stacks with the bonus granted by halfling luck.																																																																		BONUS:VAR|SaveBonus_vs_Fear|2|TYPE=Racial										SOURCEPAGE:p.26	ASPECT:SaveBonus|+2 racial bonus on all saving throws against fear. This bonus stacks with the bonus granted by halfling luck.
-Halfling Luck					KEY:Halfling ~ Halfling Luck		CATEGORY:Special Ability	TYPE:RacialTraits.Halfling Racial Trait.Halfling Racial Default.SpecialQuality							!PREFACT:1,ABILITIES,Halfling_ReplaceHalflingLuck=true	DEFINE:Halfling_HalflingLuck_SaveBonus|0	DESC:Halflings receive a +1 racial bonus on all saving throws.																																																																														BONUS:VAR|Halfling_HalflingLuck_SaveBonus|1|TYPE=Racial							SOURCEPAGE:p.26
-Keen Senses						KEY:Halfling ~ Keen Senses		CATEGORY:Special Ability	TYPE:RacialTraits.Halfling Racial Trait.Halfling Racial Default.SpecialQuality							!PREFACT:1,ABILITIES,Halfling_ReplaceKeenSenses=true		DEFINE:KeenSensesBonus|0			DESC:Halflings receive a +2 racial bonus on Perception skill checks.																																																					BONUS:SKILL|Perception|KeenSensesBonus|TYPE=Racial																BONUS:VAR|KeenSensesBonus|2												SOURCEPAGE:p.26
-Sure-Footed						KEY:Halfling ~ Sure-Footed		CATEGORY:Special Ability	TYPE:RacialTraits.Halfling Racial Trait.Halfling Racial Default.SpecialQuality							!PREFACT:1,ABILITIES,Halfling_ReplaceSureFooted=true									DESC:Halflings receive a +2 racial bonus on Acrobatics and Climb skill checks.																																																			BONUS:SKILL|Acrobatics,Climb|2|TYPE=Racial																																	SOURCEPAGE:p.26
-Weapon Familiarity				KEY:Halfling ~ Weapon Familiarity	CATEGORY:Special Ability	TYPE:RacialTraits.Halfling Racial Trait.Halfling Racial Default.SpecialQuality.Weapon Familiarity				!PREFACT:1,ABILITIES,Halfling_ReplaceWeaponFamiliarity=true								DESC:Halflings are proficient with slings and treat any weapon with the word "halfling" in its name as a martial weapon.																																								AUTO:WEAPONPROF|Sling																																			CHANGEPROF:TYPE.Halfling=Martial	SOURCEPAGE:p.26
-Languages						KEY:Halfling ~ Languages		CATEGORY:Special Ability	TYPE:RacialTraits.Halfling Racial Trait.Halfling Racial Default.SpecialQuality.Racial Language		VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Halfling_ReplaceLanguages=true									DESC:Halflings begin play speaking Common and Halfling. Halflings with high Intelligence scores can choose from the following: Dwarven, Elven, Gnome, and Goblin.											TEMPLATE:Bonus Language ~ Dwarven|Bonus Language ~ Elven|Bonus Language ~ Gnome|Bonus Language ~ Goblin	AUTO:LANG|Common|Halfling																																													SOURCEPAGE:p.26
+# Ability Name								Source Page
+CATEGORY=Special Ability|Halfling ~ Ability Scores.MOD	SOURCEPAGE:p.26
+CATEGORY=Special Ability|Halfling ~ Size.MOD			SOURCEPAGE:p.26
+CATEGORY=Special Ability|Halfling ~ Speed.MOD			SOURCEPAGE:p.26
+CATEGORY=Special Ability|Halfling ~ Fearless.MOD		SOURCEPAGE:p.26
+CATEGORY=Special Ability|Halfling ~ Halfling Luck.MOD		SOURCEPAGE:p.26
+CATEGORY=Special Ability|Halfling ~ Keen Senses.MOD		SOURCEPAGE:p.26
+CATEGORY=Special Ability|Halfling ~ Sure-Footed.MOD		SOURCEPAGE:p.26
+CATEGORY=Special Ability|Halfling ~ Weapon Familiarity.MOD	SOURCEPAGE:p.26
+CATEGORY=Special Ability|Halfling ~ Languages.MOD		SOURCEPAGE:p.26
 
 
 # ------------------------------
 # Human
 # ------------------------------
 
-###Block: Racial Abilities ~ grantor/removal MODs in cr_abilities_globalvar.lst
-# Ability Name		Category of Ability	Template
-Racial Traits ~ Human	CATEGORY:Internal		TEMPLATE:Racial Heritage ~ Human
-
 ###Block: Racial Traits
-# Ability Name		Unique Key				Category of Ability		Type																Visible		Prohibited Fact							Description																									Template				Auto Language	Bonus Ability Pool			Bonus to skill point/L		Source Page
-+2 to One Ability Score	KEY:Human ~ Ability Scores	CATEGORY:Special Ability	TYPE:RacialTraits.Human Racial Trait.Human Racial Default.SpecialQuality.Racial Ability Scores	VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Human_ReplaceAbilityScores=true	DESC:Human characters get a +2 bonus to one ability score of their choice at creation to represent their varied nature.															BONUS:ABILITYPOOL|Ability Bonus|1						SOURCEPAGE:p.27
-Medium			KEY:Human ~ Size			CATEGORY:Special Ability	TYPE:RacialTraits.Human Racial Trait.Human Racial Default.SpecialQuality.Racial Size		VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Human_ReplaceSize=true		DESC:Humans are Medium creatures and have no bonuses or penalties due to their size.																															SOURCEPAGE:p.27
-Normal Speed		KEY:Human ~ Speed			CATEGORY:Special Ability	TYPE:RacialTraits.Human Racial Trait.Human Racial Default.SpecialQuality.Racial Speed		VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Human_ReplaceSpeed=true		DESC:Humans have a base speed of 30 feet.																																							SOURCEPAGE:p.27
-Bonus Feat			KEY:Human ~ Bonus Feat		CATEGORY:Special Ability	TYPE:RacialTraits.Human Racial Trait.Human Racial Default.SpecialQuality							!PREFACT:1,ABILITIES,Human_ReplaceBonusFeat=true	DESC:Humans select one extra feat at 1st level.																											BONUS:ABILITYPOOL|FEAT|1							SOURCEPAGE:p.27
-Skilled			KEY:Human ~ Skilled		CATEGORY:Special Ability	TYPE:RacialTraits.Human Racial Trait.Human Racial Default.SpecialQuality							!PREFACT:1,ABILITIES,Human_ReplaceSkilled=true		DESC:Humans gain an additional skill rank at 1st level and one additional rank whenever they gain a level.																							BONUS:SKILLPOINTS|NUMBER|1	SOURCEPAGE:p.27
-Languages			KEY:Human ~ Languages		CATEGORY:Special Ability	TYPE:RacialTraits.Human Racial Trait.Human Racial Default.SpecialQuality.Racial Language		VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Human_ReplaceLanguages=true	DESC:Humans begin play speaking Common. Humans with high Intelligence scores can choose any languages they want (except secret languages, such as Druidic).	TEMPLATE:Bonus Language ~ Any Spoken	AUTO:LANG|Common												SOURCEPAGE:p.27
+# Ability Name							Source Page
+CATEGORY=Special Ability|Human ~ Ability Scores.MOD	SOURCEPAGE:p.27
+CATEGORY=Special Ability|Human ~ Size.MOD			SOURCEPAGE:p.27
+CATEGORY=Special Ability|Human ~ Speed.MOD		SOURCEPAGE:p.27
+CATEGORY=Special Ability|Human ~ Bonus Feat.MOD		SOURCEPAGE:p.27
+CATEGORY=Special Ability|Human ~ Skilled.MOD		SOURCEPAGE:p.27
+CATEGORY=Special Ability|Human ~ Languages.MOD		SOURCEPAGE:p.27
 
 
 # ==============================

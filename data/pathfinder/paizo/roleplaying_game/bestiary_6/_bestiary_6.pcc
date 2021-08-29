@@ -69,7 +69,8 @@ RACE:b6_races_pc.lst
 SKILL:b6_skills.lst
 SPELL:b6_spells.lst
 
-PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\monkey goblin\_monkeygoblin_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\monkey_goblin\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\rougarou\_race.pcc
 
 
 

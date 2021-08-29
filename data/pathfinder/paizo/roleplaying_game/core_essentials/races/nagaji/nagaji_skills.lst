@@ -1,0 +1,6 @@
+# Mon Aug 16 15:45:44 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+###Block: Situational Modifiers
+# Skill Name	Situational Skill
+Handle Animal.MOD	SITUATION:against reptiles

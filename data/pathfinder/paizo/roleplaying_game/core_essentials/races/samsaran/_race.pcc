@@ -1,0 +1,32 @@
+# Sun Jul 26 22:20:43 2020 -- reformated by PCGen PrettyLST v6.08.00
+KEY:support ~ samsaran race
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+ISOGL:YES
+
+# Use this so there aren't numerous copies of the same race.
+
+
+# ==============================
+# Samsaran
+# ==============================
+
+# Fact/Factset & Formula System
+DATACONTROL:samsaran__datacontrols.lst
+
+# Data Files
+ABILITY:samsaran_abilities_globalvar.lst
+ABILITY:samsaran_abilities_race.lst
+ABILITYCATEGORY:samsaran_abilitycategories.lst
+BIOSET:samsaran_biosettings.lst
+LANGUAGE:samsaran_languages.lst
+RACE:samsaran_races.lst
+SKILL:samsaran_skills.lst
+TEMPLATE:samsaran_templates_language.lst
+TEMPLATE:samsaran_templates.lst
+
+LANGUAGE:../nagaji/nagaji_languages.lst
+TEMPLATE:../nagaji/nagaji_templates_language.lst
+LANGUAGE:../tengu/tengu_languages.lst
+TEMPLATE:../tengu/tengu_templates_language.lst

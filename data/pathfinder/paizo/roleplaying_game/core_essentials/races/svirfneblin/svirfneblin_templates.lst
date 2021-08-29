@@ -1,0 +1,17 @@
+# Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+###Block: Racial Heritage
+# Template Name	Unique Key					Visible	Template			Type				FACT
+Svirfneblin		KEY:Racial Heritage ~ Svirfneblin	VISIBLE:NO	TEMPLATE:IsSvirfneblin	TYPE:Racial Heritage	FACT:IsSvirfneblin|True
+IsSvirfneblin							VISIBLE:NO
+
+
+###Block: Creature Subtypes
+# Template Name	Visible	Race Subtype
+Gnome			VISIBLE:NO	RACESUBTYPE:Gnome
+
+
+###Block: Race Builder Humanoid Subtypes
+# Template Name	Unique Key					Visible	Race Subtype	Type
+Gnome			KEY:Race Builder Subtype ~ Gnome	VISIBLE:NO	RACESUBTYPE:Gnome	TYPE:Race Builder Subtype

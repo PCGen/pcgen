@@ -1,0 +1,40 @@
+# Thu Aug 19 17:19:57 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Tiefling
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define							Ability																			FACT
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	DEFINE:Tiefling_ReplaceAbilityScores|0		ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Ability Scores|PREVAREQ:Tiefling_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	DEFINE:Tiefling_ReplaceType|0				ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Type|PREVAREQ:Tiefling_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	DEFINE:Tiefling_ReplaceSize|0				ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Size|PREVAREQ:Tiefling_ReplaceSize,0						FACT:RaceSizeAllowed_Medium|True
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	DEFINE:Tiefling_ReplaceSpeed|0			ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Speed|PREVAREQ:Tiefling_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	DEFINE:Tiefling_ReplaceVision|0			ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Vision|PREVAREQ:Tiefling_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	DEFINE:Tiefling_ReplaceSkilled|0			ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Skilled|PREVAREQ:Tiefling_ReplaceSkilled,0
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	DEFINE:Tiefling_ReplaceSpellLikeAbility|0		ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Spell-Like Ability|PREVAREQ:Tiefling_ReplaceSpellLikeAbility,0
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	DEFINE:Tiefling_ReplaceFiendishResistance|0	ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Fiendish Resistance|PREVAREQ:Tiefling_ReplaceFiendishResistance,0
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	DEFINE:Tiefling_ReplaceFiendishSorcery|0		ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Fiendish Sorcery|PREVAREQ:Tiefling_ReplaceFiendishSorcery,0
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	DEFINE:Tiefling_ReplaceLanguages|0			ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Languages|PREVAREQ:Tiefling_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceAbilityScores|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingStats
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceVision|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingDarkvision
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceSkilled|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSkilled
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceSpellLikeAbility|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSLA
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceFiendishResistance|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingFiendishResistance
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceFiendishSorcery|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingFiendishSorcery
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceLanguages|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingFiendishLanguage
+
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tiefling_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tiefling_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tiefling_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tiefling_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tiefling_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceSkilled|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tiefling_ReplaceSkilled=True
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceSpellLikeAbility|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tiefling_ReplaceSpellLikeAbility=True
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceFiendishResistance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tiefling_ReplaceFiendishResistance=True
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceFiendishSorcery|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tiefling_ReplaceFiendishSorcery=True
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:VAR|Tiefling_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Tiefling_ReplaceLanguages=True

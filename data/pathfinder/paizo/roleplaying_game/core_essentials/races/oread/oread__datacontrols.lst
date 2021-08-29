@@ -1,0 +1,22 @@
+# Fri Aug 13 10:59:35 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Oread
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname		Explanation
+FACTDEF:TEMPLATE|IsOread	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Oread	EXPLANATION:Determines whether the character is an Oread
+
+###Block: Racial Traits
+# Name							Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Oread_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Oread Ability Scores		EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Oread_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Oread Type			EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Oread_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Oread Size			EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Oread_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Oread Speed			EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Oread_ReplaceVision			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Oread Vision			EXPLANATION:Replaces the Vision Racial Trait
+FACTDEF:ABILITY|Oread_ReplaceSpellLikeAbility	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Oread Spell-Like Ability	EXPLANATION:Replaces the Spell-Like Ability Racial Trait
+FACTDEF:ABILITY|Oread_ReplaceEnergyResistance	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Oread Energy Resistance	EXPLANATION:Replaces the Energy Resistance Racial Trait
+FACTDEF:ABILITY|Oread_ReplaceEarthAffinity	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Oread Earth Affinity		EXPLANATION:Replaces the Earth Affinity Racial Trait
+FACTDEF:ABILITY|Oread_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Oread Languages			EXPLANATION:Replaces the Languages Racial Trait

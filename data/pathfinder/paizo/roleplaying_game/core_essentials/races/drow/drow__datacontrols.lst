@@ -1,0 +1,26 @@
+# Mon Jul 26 08:48:53 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Drow
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name			Dataformat			Required	Selectable		Visible	Displayname		Explanation
+FACTDEF:TEMPLATE|IsDrow	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Drow	EXPLANATION:Determines whether the character is a Drow
+
+###Block: Racial Traits
+# Name							Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Drow_ReplaceAbilityScores		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Drow Ability Scores		EXPLANATION:Replaces the Ability Scores
+FACTDEF:ABILITY|Drow_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Drow Type				EXPLANATION:Replaces the Elf Racial Trait
+FACTDEF:ABILITY|Drow_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Drow Size				EXPLANATION:Replaces the Medium Racial Trait
+FACTDEF:ABILITY|Drow_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Drow Speed			EXPLANATION:Replaces the Normal Speed Racial Trait
+FACTDEF:ABILITY|Drow_ReplaceVision			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Drow Vision			EXPLANATION:Replaces the Darkvision Racial Trait
+FACTDEF:ABILITY|Drow_ReplaceDrowImmunities	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Drow Drow Immunities		EXPLANATION:Replaces the Drow Immunities Racial Trait
+FACTDEF:ABILITY|Drow_ReplaceKeenSenses		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Drow Keen Senses		EXPLANATION:Replaces the Keen Senses Racial Trait
+FACTDEF:ABILITY|Drow_ReplaceSpellResistance	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Drow Spell Resistance		EXPLANATION:Replaces the Spell Resistance Racial Trait
+FACTDEF:ABILITY|Drow_ReplaceSpellLikeAbilities	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Drow Spell-Like Abilities	EXPLANATION:Replaces the Spell-Like Abilities Racial Trait
+FACTDEF:ABILITY|Drow_ReplaceLightBlindness	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Drow Light Blindness		EXPLANATION:Replaces the Light Blindness Racial Trait
+FACTDEF:ABILITY|Drow_ReplacePoisonUse		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Drow Poison Use			EXPLANATION:Replaces the Poison Use Racial Trait
+FACTDEF:ABILITY|Drow_ReplaceWeaponFamiliarity	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Drow Weapon Familiarity	EXPLANATION:Replaces the Weapon Familiarity Racial Trait
+FACTDEF:ABILITY|Drow_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Drow Languages			EXPLANATION:Replaces the Languages Racial Trait

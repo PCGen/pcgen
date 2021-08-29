@@ -7,6 +7,7 @@ GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
 PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+!PRECAMPAIGN:1,INCLUDES=Bestiary 3
 !PRECAMPAIGN:1,INCLUDES=Bonus Bestiary,Pathfinder RPG Core Supplements,Pathfinder RPG for Game Masters
 
 PUBNAMELONG:Paizo Inc.
@@ -69,6 +70,7 @@ COPYRIGHT:PCGen dataset conversion for "Bestiary 3" Copyright 2013, PCGen Data t
 #EXTRAFILE:OGL.txt
 
 DATACONTROL:b3__datacontrols.lst
+ABILITY:b3_abilities_globalvar.lst
 
 # Data files
 #ABILITY:b3_abilities_race.lst
@@ -79,38 +81,26 @@ DATACONTROL:b3__datacontrols.lst
 #KIT:b3_kits_race.lst
 LANGUAGE:b3_languages.lst
 #RACE:b3_races.lst
-SKILL:b3_skills.lst
 #TEMPLATE:b3_templates.lst
 #WEAPONPROF:b3_profs_weapon.lst
 
 # Separate out races used by ARG to simplify dependencies
-ABILITY:b3_abilities_globalvar_arg.lst
-ABILITY:b3_abilities_race_arg.lst
-ABILITYCATEGORY:b3_abilitycategories_arg.lst
-RACE:b3_races_arg.lst
-TEMPLATE:b3_templates_arg.lst
+ABILITY:b3_abilities_race_pc.lst
+RACE:b3_races_pc.lst
 
+# companions
 ABILITY:b3_abilities_companion.lst
 KIT:b3_kits_companion.lst
 RACE:b3_races_companion.lst
 
+# familiars
 ABILITY:b3_abilities_familiar.lst
 KIT:b3_kits_familiar.lst
 RACE:b3_races_familiar.lst
 
-
-#MOVE TO CORE ESSENTIALS
-ABILITY:b3_feats.lst
-
-
-# We have some data from other sets which we need to include if they aren't loaded
-#EQUIPMENT:../ultimate_combat/uc_equip_arms_armor.lst|(INCLUDE:Cannon|Katana|Pistol)|!PRECAMPAIGN:1,INCLUDES=Ultimate Combat
-#WEAPONPROF:../ultimate_combat/uc_profs_weapon.lst|(INCLUDE:Cannon|Katana|Pistol)|!PRECAMPAIGN:1,INCLUDES=Ultimate Combat
-#EQUIPMOD:../ultimate_combat/uc_equipmods.lst|(INCLUDE:REACH)|!PRECAMPAIGN:1,INCLUDES=Ultimate Combat
-
-# For Ahriman Support
-#ABILITYCATEGORY:@/pathfinder/paizo/campaign_setting/inner_sea_gods/isg_abilitycategories.lst|!PRECAMPAIGN:1,INCLUDES=Inner Sea Gods
-#ABILITY:@/pathfinder/paizo/campaign_setting/inner_sea_gods/isg_abilities.lst|(INCLUDE:CATEGORY=Special Ability,Domain Power ~ Feed on Fear)|!PRECAMPAIGN:1,INCLUDES=Inner Sea Gods
-#DEITY:@/pathfinder/paizo/campaign_setting/inner_sea_gods/isg_deities.lst|(INCLUDE:Ahriman)|!PRECAMPAIGN:1,INCLUDES=Inner Sea Gods
-#DOMAIN:@/pathfinder/paizo/campaign_setting/inner_sea_gods/isg_domains.lst|(INCLUDE:Fear Subdomain)|!PRECAMPAIGN:1,INCLUDES=Inner Sea Gods
-
+# races
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\catfolk\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\ratfolk\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\suli\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\vanara\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\vishkanya\_race.pcc

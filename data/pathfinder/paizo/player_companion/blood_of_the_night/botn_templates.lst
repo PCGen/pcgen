@@ -9,11 +9,11 @@ SOURCELONG:Pathfinder Player Companion: Blood of the Night	SOURCESHORT:BOTN	SOUR
 # ==============================
 
 ###Block: Dhampir Subraces
-# Template Name	Unique Key				Visible	Source Page		Subrace
-Jiang-shi-Born	KEY:Dhampir ~ Jiang-shi-Born	VISIBLE:NO	SOURCEPAGE:p.20	SUBRACE:Jiang-shi-Born
-Moroi-Born		KEY:Dhampir ~ Moroi-Born	VISIBLE:NO	SOURCEPAGE:p.20	SUBRACE:Moroi-Born
-Nosferatu-Born	KEY:Dhampir ~ Nosferatu-Born	VISIBLE:NO	SOURCEPAGE:p.21	SUBRACE:Nosferatu-Born
-Vetala-Born		KEY:Dhampir ~ Vetala-Born	VISIBLE:NO	SOURCEPAGE:p.21	SUBRACE:Vetala-Born
+# Template Name			Source Page
+Dhampir ~ Jiang-shi-Born.MOD	SOURCEPAGE:p.20
+Dhampir ~ Moroi-Born.MOD	SOURCEPAGE:p.20
+Dhampir ~ Nosferatu-Born.MOD	SOURCEPAGE:p.21
+Dhampir ~ Vetala-Born.MOD	SOURCEPAGE:p.21
 
 # ==============================
 # Trait Support

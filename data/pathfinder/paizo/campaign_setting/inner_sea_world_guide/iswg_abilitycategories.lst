@@ -32,8 +32,3 @@ ABILITYCATEGORY:Noble Scion Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FR
 ABILITYCATEGORY:Scholar Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Scholar		PLURAL:Scholar Choices			DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Totem Spirit Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TotemSpirit		PLURAL:Totem Spirit Choices		DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Varisian Tattoo Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:VarisianTattoo	PLURAL:Varisian Tattoo Choices	DISPLAYLOCATION:Feats
-
-###Block: Racial Trait Categories
-# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI	Display Location
-ABILITYCATEGORY:Gillman Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Gillman Racial Trait	PLURAL:Gillman Racial Traits	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Strix Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Strix Racial Trait		PLURAL:Strix Racial Traits	DISPLAYLOCATION:Racial Abilities

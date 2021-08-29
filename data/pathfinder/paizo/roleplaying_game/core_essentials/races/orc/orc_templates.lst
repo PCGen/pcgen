@@ -1,0 +1,17 @@
+# Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+###Block: Racial Heritage
+# Template Name	Unique Key				Visible	Template		Type				FACT
+Orc			KEY:Racial Heritage ~ Orc	VISIBLE:NO	TEMPLATE:IsOrc	TYPE:Racial Heritage	FACT:IsOrc|True
+IsOrc								VISIBLE:NO
+
+
+###Block: Creature Subtypes
+# Template Name	Visible	Race Subtype
+Orc			VISIBLE:NO	RACESUBTYPE:Orc
+
+
+###Block: Race Builder Humanoid Subtypes
+# Template Name	Unique Key					Visible	Template					Race Subtype	Type
+Orc			KEY:Race Builder Subtype ~ Orc	VISIBLE:NO	TEMPLATE:Orc|Racial Heritage ~ Orc	RACESUBTYPE:Orc	TYPE:Race Builder Subtype

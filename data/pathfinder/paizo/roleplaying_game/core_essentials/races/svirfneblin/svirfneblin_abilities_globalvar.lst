@@ -1,0 +1,38 @@
+# Wed Aug 18 19:51:07 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Svirfneblin
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name							Define							Ability
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	DEFINE:Svirfneblin_ReplaceAbilityScores|0		ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Svirfneblin ~ Ability Scores|PREVAREQ:Svirfneblin_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	DEFINE:Svirfneblin_ReplaceType|0			ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Svirfneblin ~ Type|PREVAREQ:Svirfneblin_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	DEFINE:Svirfneblin_ReplaceSize|0			ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Svirfneblin ~ Size|PREVAREQ:Svirfneblin_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	DEFINE:Svirfneblin_ReplaceSpeed|0			ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Svirfneblin ~ Speed|PREVAREQ:Svirfneblin_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	DEFINE:Svirfneblin_ReplaceVision|0			ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Svirfneblin ~ Vision|PREVAREQ:Svirfneblin_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	DEFINE:Svirfneblin_ReplaceDefensiveTraining|0	ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Svirfneblin ~ Defensive Training|PREVAREQ:Svirfneblin_ReplaceDefensiveTraining,0
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	DEFINE:Svirfneblin_ReplaceFortunate|0		ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Svirfneblin ~ Fortunate|PREVAREQ:Svirfneblin_ReplaceFortunate,0
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	DEFINE:Svirfneblin_ReplaceSkilled|0			ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Svirfneblin ~ Skilled|PREVAREQ:Svirfneblin_ReplaceSkilled,0
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	DEFINE:Svirfneblin_ReplaceHatred|0			ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Svirfneblin ~ Hatred|PREVAREQ:Svirfneblin_ReplaceHatred,0
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	DEFINE:Svirfneblin_ReplaceStonecunning|0		ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Svirfneblin ~ Stonecunning|PREVAREQ:Svirfneblin_ReplaceStonecunning,0
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	DEFINE:Svirfneblin_ReplaceSpellResistance|0	ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Svirfneblin ~ Spell Resistance|PREVAREQ:Svirfneblin_ReplaceSpellResistance,0
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	DEFINE:Svirfneblin_ReplaceSvirfneblinMagic|0	ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Svirfneblin ~ Svirfneblin Magic|PREVAREQ:Svirfneblin_ReplaceSvirfneblinMagic,0
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	DEFINE:Svirfneblin_ReplaceLanguages|0		ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Svirfneblin ~ Languages|PREVAREQ:Svirfneblin_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name							Modify VAR
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	BONUS:VAR|Svirfneblin_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Svirfneblin_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	BONUS:VAR|Svirfneblin_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Svirfneblin_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	BONUS:VAR|Svirfneblin_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Svirfneblin_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	BONUS:VAR|Svirfneblin_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Svirfneblin_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	BONUS:VAR|Svirfneblin_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Svirfneblin_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	BONUS:VAR|Svirfneblin_ReplaceDefensiveTraining|1|TYPE=Boolean|PREFACT:1,ABILITIES,Svirfneblin_ReplaceDefensiveTraining=True
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	BONUS:VAR|Svirfneblin_ReplaceFortunate|1|TYPE=Boolean|PREFACT:1,ABILITIES,Svirfneblin_ReplaceFortunate=True
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	BONUS:VAR|Svirfneblin_ReplaceSkilled|1|TYPE=Boolean|PREFACT:1,ABILITIES,Svirfneblin_ReplaceSkilled=True
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	BONUS:VAR|Svirfneblin_ReplaceHatred|1|TYPE=Boolean|PREFACT:1,ABILITIES,Svirfneblin_ReplaceHatred=True
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	BONUS:VAR|Svirfneblin_ReplaceStonecunning|1|TYPE=Boolean|PREFACT:1,ABILITIES,Svirfneblin_ReplaceStonecunning=True
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	BONUS:VAR|Svirfneblin_ReplaceSpellResistance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Svirfneblin_ReplaceSpellResistance=True
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	BONUS:VAR|Svirfneblin_ReplaceSvirfneblinMagic|1|TYPE=Boolean|PREFACT:1,ABILITIES,Svirfneblin_ReplaceSvirfneblinMagic=True
+CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD	BONUS:VAR|Svirfneblin_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Svirfneblin_ReplaceLanguages=True

@@ -1,0 +1,23 @@
+# Fri Aug 20 15:15:25 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Wayang
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsWayang	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Wayang	EXPLANATION:Determines whether the character is a Wayang
+
+###Block: Racial Traits
+# Name							Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Wayang_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wayang Ability Scores		EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Wayang_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wayang Type			EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Wayang_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wayang Size			EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Wayang_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wayang Speed			EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Wayang_ReplaceVision		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wayang Vision			EXPLANATION:Replaces the Vision Racial Trait
+FACTDEF:ABILITY|Wayang_ReplaceLightAndDark	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wayang Light and Dark		EXPLANATION:Replaces the Light and Dark Racial Trait
+FACTDEF:ABILITY|Wayang_ReplaceLurker		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wayang Lurker			EXPLANATION:Replaces the Lurker Racial Trait
+FACTDEF:ABILITY|Wayang_ReplaceShadowMagic		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wayang Shadow Magic		EXPLANATION:Replaces the Shadow Magic Racial Trait
+FACTDEF:ABILITY|Wayang_ReplaceShadowResistance	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wayang Shadow Resistance	EXPLANATION:Replaces the Shadow Resistance Racial Trait
+FACTDEF:ABILITY|Wayang_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Wayang Languages		EXPLANATION:Replaces the Languages Racial Trait

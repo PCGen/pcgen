@@ -1,0 +1,32 @@
+# Thu Aug 12 13:18:35 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Orc
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name					Define						Ability
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	DEFINE:Orc_ReplaceAbilityScores|0		ABILITY:Orc Racial Trait|AUTOMATIC|Orc ~ Ability Scores|PREVAREQ:Orc_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	DEFINE:Orc_ReplaceType|0			ABILITY:Orc Racial Trait|AUTOMATIC|Orc ~ Type|PREVAREQ:Orc_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	DEFINE:Orc_ReplaceSize|0			ABILITY:Orc Racial Trait|AUTOMATIC|Orc ~ Size|PREVAREQ:Orc_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	DEFINE:Orc_ReplaceSpeed|0			ABILITY:Orc Racial Trait|AUTOMATIC|Orc ~ Speed|PREVAREQ:Orc_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	DEFINE:Orc_ReplaceVision|0			ABILITY:Orc Racial Trait|AUTOMATIC|Orc ~ Vision|PREVAREQ:Orc_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	DEFINE:Orc_ReplaceLightSensitivity|0	ABILITY:Orc Racial Trait|AUTOMATIC|Orc ~ Light Sensitivity|PREVAREQ:Orc_ReplaceLightSensitivity,0
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	DEFINE:Orc_ReplaceFerocity|0			ABILITY:Orc Racial Trait|AUTOMATIC|Orc ~ Ferocity|PREVAREQ:Orc_ReplaceFerocity,0
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	DEFINE:Orc_ReplaceWeaponFamiliarity|0	ABILITY:Orc Racial Trait|AUTOMATIC|Orc ~ Weapon Familiarity|PREVAREQ:Orc_ReplaceWeaponFamiliarity,0
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	DEFINE:Orc_ReplaceLanguages|0			ABILITY:Orc Racial Trait|AUTOMATIC|Orc ~ Languages|PREVAREQ:Orc_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name					Modify VAR
+
+# Ability Name					Modify VAR
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	BONUS:VAR|Orc_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Orc_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	BONUS:VAR|Orc_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Orc_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	BONUS:VAR|Orc_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Orc_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	BONUS:VAR|Orc_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Orc_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	BONUS:VAR|Orc_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Orc_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	BONUS:VAR|Orc_ReplaceLightSensitivity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Orc_ReplaceLightSensitivity=True
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	BONUS:VAR|Orc_ReplaceFerocity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Orc_ReplaceFerocity=True
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	BONUS:VAR|Orc_ReplaceWeaponFamiliarity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Orc_ReplaceWeaponFamiliarity=True
+CATEGORY=Internal|Racial Traits ~ Orc.MOD	BONUS:VAR|Orc_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Orc_ReplaceLanguages=True

@@ -1,0 +1,31 @@
+# Sun Jul 26 22:20:43 2020 -- reformated by PCGen PrettyLST v6.08.00
+KEY:support ~ half-orc race
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+ISOGL:YES
+
+# Use this so there aren't numerous copies of the same race.
+
+
+# ==============================
+# Half-Orc
+# ==============================
+
+# Fact/Factset & Formula System
+DATACONTROL:halforc__datacontrols.lst
+
+# Data Files
+ABILITY:halforc_abilities_globalvar.lst
+ABILITY:halforc_abilities_race.lst
+ABILITYCATEGORY:halforc_abilitycategories.lst
+BIOSET:halforc_biosettings.lst
+LANGUAGE:halforc_languages.lst
+RACE:halforc_races.lst
+TEMPLATE:halforc_templates_language.lst
+TEMPLATE:halforc_templates.lst
+
+LANGUAGE:../orc/orc_languages.lst
+TEMPLATE:../orc/orc_templates_language.lst
+TEMPLATE:../orc/orc_templates.lst
+TEMPLATE:../human/human_templates.lst

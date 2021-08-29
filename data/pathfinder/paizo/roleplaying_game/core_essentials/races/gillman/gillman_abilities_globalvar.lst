@@ -1,0 +1,30 @@
+# Tue Jul 27 19:49:56 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Gillman
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define							Ability
+CATEGORY=Internal|Racial Traits ~ Gillman.MOD	DEFINE:Gillman_ReplaceAbilityScores|0		ABILITY:Gillman Racial Trait|AUTOMATIC|Gillman ~ Ability Scores|PREVAREQ:Gillman_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Gillman.MOD	DEFINE:Gillman_ReplaceType|0				ABILITY:Gillman Racial Trait|AUTOMATIC|Gillman ~ Type|PREVAREQ:Gillman_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Gillman.MOD	DEFINE:Gillman_ReplaceSize|0				ABILITY:Gillman Racial Trait|AUTOMATIC|Gillman ~ Size|PREVAREQ:Gillman_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Gillman.MOD	DEFINE:Gillman_ReplaceSpeed|0				ABILITY:Gillman Racial Trait|AUTOMATIC|Gillman ~ Speed|PREVAREQ:Gillman_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Gillman.MOD	DEFINE:Gillman_ReplaceAmphibious|0			ABILITY:Gillman Racial Trait|AUTOMATIC|Gillman ~ Amphibious|PREVAREQ:Gillman_ReplaceAmphibious,0
+CATEGORY=Internal|Racial Traits ~ Gillman.MOD	DEFINE:Gillman_ReplaceEnchantmentResistance|0	ABILITY:Gillman Racial Trait|AUTOMATIC|Gillman ~ Enchantment Resistance|PREVAREQ:Gillman_ReplaceEnchantmentResistance,0
+CATEGORY=Internal|Racial Traits ~ Gillman.MOD	DEFINE:Gillman_ReplaceServitor|0			ABILITY:Gillman Racial Trait|AUTOMATIC|Gillman ~ Servitor|PREVAREQ:Gillman_ReplaceServitor,0
+CATEGORY=Internal|Racial Traits ~ Gillman.MOD	DEFINE:Gillman_ReplaceWaterDependent|0		ABILITY:Gillman Racial Trait|AUTOMATIC|Gillman ~ Water Dependent|PREVAREQ:Gillman_ReplaceWaterDependent,0
+CATEGORY=Internal|Racial Traits ~ Gillman.MOD	DEFINE:Gillman_ReplaceLanguages|0			ABILITY:Gillman Racial Trait|AUTOMATIC|Gillman ~ Languages|PREVAREQ:Gillman_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Gillman.MOD	BONUS:VAR|Gillman_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gillman_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Gillman.MOD	BONUS:VAR|Gillman_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gillman_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Gillman.MOD	BONUS:VAR|Gillman_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gillman_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Gillman.MOD	BONUS:VAR|Gillman_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gillman_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Gillman.MOD	BONUS:VAR|Gillman_ReplaceAmphibious|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gillman_ReplaceAmphibious=True
+CATEGORY=Internal|Racial Traits ~ Gillman.MOD	BONUS:VAR|Gillman_ReplaceEnchantmentResistance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gillman_ReplaceEnchantmentResistance=True
+CATEGORY=Internal|Racial Traits ~ Gillman.MOD	BONUS:VAR|Gillman_ReplaceServitor|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gillman_ReplaceServitor=True
+CATEGORY=Internal|Racial Traits ~ Gillman.MOD	BONUS:VAR|Gillman_ReplaceWaterDependent|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gillman_ReplaceWaterDependent=True
+CATEGORY=Internal|Racial Traits ~ Gillman.MOD	BONUS:VAR|Gillman_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gillman_ReplaceLanguages=True

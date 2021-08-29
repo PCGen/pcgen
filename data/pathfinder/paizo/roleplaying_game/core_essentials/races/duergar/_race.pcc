@@ -1,0 +1,26 @@
+# Sun Jul 26 22:20:43 2020 -- reformated by PCGen PrettyLST v6.08.00
+KEY:support ~ duergar race
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+ISOGL:YES
+
+# Use this so there aren't numerous copies of the same race.
+
+
+# ==============================
+# Duergar
+# ==============================
+
+# Fact/Factset & Formula System
+DATACONTROL:duergar__datacontrols.lst
+
+# Data Files
+ABILITY:duergar_abilities_globalvar.lst
+ABILITY:duergar_abilities_race.lst
+ABILITYCATEGORY:duergar_abilitycategories.lst
+BIOSET:duergar_biosettings.lst
+LANGUAGE:duergar_languages.lst
+RACE:duergar_races.lst
+SKILL:duergar_skills.lst
+TEMPLATE:duergar_templates.lst

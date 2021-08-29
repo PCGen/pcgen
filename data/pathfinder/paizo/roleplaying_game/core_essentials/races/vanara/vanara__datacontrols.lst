@@ -1,0 +1,21 @@
+# Fri Aug 20 10:07:10 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Vanara
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsVanara	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vanara	EXPLANATION:Determines whether the character is a Vanara
+
+###Block: Racial Traits
+# Name							Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Vanara_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Vanara Ability Scores		EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Vanara_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Vanara Type			EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Vanara_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Vanara Size			EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Vanara_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Vanara Speed			EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Vanara_ReplaceVision		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Vanara Vision			EXPLANATION:Replaces the Vision Racial Trait
+FACTDEF:ABILITY|Vanara_ReplaceNimble		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Vanara Nimble			EXPLANATION:Replaces the Nimble Racial Trait
+FACTDEF:ABILITY|Vanara_ReplacePrehensileTail	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Vanara Prehensile Tail	EXPLANATION:Replaces the Prehensile Tail Racial Trait
+FACTDEF:ABILITY|Vanara_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Vanara Languages		EXPLANATION:Replaces the Languages Racial Trait

@@ -1,0 +1,30 @@
+# Sun Jul 26 22:20:43 2020 -- reformated by PCGen PrettyLST v6.08.00
+KEY:support ~ grippli race
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+ISOGL:YES
+
+# Use this so there aren't numerous copies of the same race.
+
+
+# ==============================
+# Grippli
+# ==============================
+
+# Fact/Factset & Formula System
+DATACONTROL:grippli__datacontrols.lst
+
+# Data Files
+ABILITY:grippli_abilities_globalvar.lst
+ABILITY:grippli_abilities_race.lst
+ABILITYCATEGORY:grippli_abilitycategories.lst
+BIOSET:grippli_biosettings.lst
+LANGUAGE:grippli_languages.lst
+RACE:grippli_races.lst
+SKILL:grippli_skills.lst
+TEMPLATE:grippli_templates_language.lst
+TEMPLATE:grippli_templates.lst
+
+LANGUAGE:../../../bestiary/b1_languages_boggard.lst
+TEMPLATE:../../../bestiary/b1_templates_language_boggard.lst

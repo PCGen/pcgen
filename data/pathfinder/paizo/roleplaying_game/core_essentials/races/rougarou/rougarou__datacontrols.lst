@@ -1,0 +1,21 @@
+# Wed Jul 14 15:19:08 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Rougarou
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsRougarou	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Rougarou	EXPLANATION:Determines whether the character is a Rougarou
+
+###Block: Racial Traits
+# Name							Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Rougarou_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Rougarou Ability Scores	EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Rougarou_ReplaceType		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Rougarou Type			EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Rougarou_ReplaceSize		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Rougarou Size			EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Rougarou_ReplaceSpeed		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Rougarou Speed			EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Rougarou_ReplaceVision		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Rougarou Vision			EXPLANATION:Replaces the Vision Racial Trait
+FACTDEF:ABILITY|Rougarou_ReplaceChangeShape	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Rougarou Change Shape		EXPLANATION:Replaces the Change Shape Racial Trait
+FACTDEF:ABILITY|Rougarou_ReplaceNaturalWeapon	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Rougarou Natural Weapon	EXPLANATION:Replaces the Natural Weapon Racial Trait
+FACTDEF:ABILITY|Rougarou_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Rougarou Languages		EXPLANATION:Replaces the Languages Racial Trait

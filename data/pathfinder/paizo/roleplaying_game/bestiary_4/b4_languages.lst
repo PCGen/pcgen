@@ -6,9 +6,6 @@ SOURCELONG:Bestiary 4	SOURCESHORT:B4	SOURCEWEB:http://paizo.com/products/btpy91d
 Brethedan				NAMEISPI:YES	TYPE:Spoken.Written.Read
 Elder Thing							TYPE:Spoken.Written.Read
 Mi-Go					NAMEISPI:YES	TYPE:Spoken
-Nagaji							TYPE:Spoken.Written.Read
-Samsaran							TYPE:Spoken.Written.Read
-Wayang							TYPE:Spoken.Written.Read
 Xenophobic							TYPE:Spoken.Written.Read
 
 Abyssal (cannot speak)					TYPE:Understand
@@ -32,4 +29,3 @@ Vegepygmy (cannot speak)				TYPE:Understand
 SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
 Sphinx							TYPE:Spoken.Written.Read
-Tengu								TYPE:Spoken.Written.Read

@@ -1,0 +1,26 @@
+# Sun Jul 26 22:20:43 2020 -- reformated by PCGen PrettyLST v6.08.00
+KEY:support ~ kobold race
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+ISOGL:YES
+
+# Use this so there aren't numerous copies of the same race.
+
+
+# ==============================
+# Kobold
+# ==============================
+
+# Fact/Factset & Formula System
+DATACONTROL:kobold__datacontrols.lst
+
+# Data Files
+ABILITY:kobold_abilities_globalvar.lst
+ABILITY:kobold_abilities_race.lst
+ABILITYCATEGORY:kobold_abilitycategories.lst
+BIOSET:kobold_biosettings.lst
+LANGUAGE:kobold_languages.lst
+RACE:kobold_races.lst
+SKILL:kobold_skills.lst
+TEMPLATE:kobold_templates.lst

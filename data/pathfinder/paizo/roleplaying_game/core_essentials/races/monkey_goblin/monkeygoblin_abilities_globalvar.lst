@@ -1,0 +1,32 @@
+# Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Monkey Goblin
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name							Define							Ability
+CATEGORY=Internal|Racial Traits ~ Monkey Goblin.MOD	DEFINE:MonkeyGoblin_ReplaceAbilityScores|0	ABILITY:Monkey Goblin Racial Trait|AUTOMATIC|Monkey Goblin ~ Ability Scores|PREVAREQ:MonkeyGoblin_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Monkey Goblin.MOD	DEFINE:MonkeyGoblin_ReplaceType|0			ABILITY:Monkey Goblin Racial Trait|AUTOMATIC|Monkey Goblin ~ Type|PREVAREQ:MonkeyGoblin_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Monkey Goblin.MOD	DEFINE:MonkeyGoblin_ReplaceSize|0			ABILITY:Monkey Goblin Racial Trait|AUTOMATIC|Monkey Goblin ~ Size|PREVAREQ:MonkeyGoblin_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Monkey Goblin.MOD	DEFINE:MonkeyGoblin_ReplaceSpeed|0			ABILITY:Monkey Goblin Racial Trait|AUTOMATIC|Monkey Goblin ~ Speed|PREVAREQ:MonkeyGoblin_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Monkey Goblin.MOD	DEFINE:MonkeyGoblin_ReplaceVision|0			ABILITY:Monkey Goblin Racial Trait|AUTOMATIC|Monkey Goblin ~ Vision|PREVAREQ:MonkeyGoblin_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Monkey Goblin.MOD	DEFINE:MonkeyGoblin_ReplaceAcrobatic|0		ABILITY:Monkey Goblin Racial Trait|AUTOMATIC|Monkey Goblin ~ Acrobatic|PREVAREQ:MonkeyGoblin_ReplaceAcrobatic,0
+CATEGORY=Internal|Racial Traits ~ Monkey Goblin.MOD	DEFINE:MonkeyGoblin_ReplaceFearless|0		ABILITY:Monkey Goblin Racial Trait|AUTOMATIC|Monkey Goblin ~ Fearless|PREVAREQ:MonkeyGoblin_ReplaceFearless,0
+CATEGORY=Internal|Racial Traits ~ Monkey Goblin.MOD	DEFINE:MonkeyGoblin_ReplaceNaturalClimber|0	ABILITY:Monkey Goblin Racial Trait|AUTOMATIC|Monkey Goblin ~ Natural Climber|PREVAREQ:MonkeyGoblin_ReplaceNaturalClimber,0
+CATEGORY=Internal|Racial Traits ~ Monkey Goblin.MOD	DEFINE:MonkeyGoblin_ReplacePrehensileTail|0	ABILITY:Monkey Goblin Racial Trait|AUTOMATIC|Monkey Goblin ~ Prehensile Tail|PREVAREQ:MonkeyGoblin_ReplacePrehensileTail,0
+CATEGORY=Internal|Racial Traits ~ Monkey Goblin.MOD	DEFINE:MonkeyGoblin_ReplaceLanguages|0		ABILITY:Monkey Goblin Racial Trait|AUTOMATIC|Monkey Goblin ~ Languages|PREVAREQ:MonkeyGoblin_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name							Modify VAR
+CATEGORY=Internal|Racial Traits ~ Monkey Goblin.MOD	BONUS:VAR|MonkeyGoblin_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,MonkeyGoblin_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Monkey Goblin.MOD	BONUS:VAR|MonkeyGoblin_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,MonkeyGoblin_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Monkey Goblin.MOD	BONUS:VAR|MonkeyGoblin_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,MonkeyGoblin_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Monkey Goblin.MOD	BONUS:VAR|MonkeyGoblin_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,MonkeyGoblin_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Monkey Goblin.MOD	BONUS:VAR|MonkeyGoblin_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,MonkeyGoblin_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Monkey Goblin.MOD	BONUS:VAR|MonkeyGoblin_ReplaceAcrobatic|1|TYPE=Boolean|PREFACT:1,ABILITIES,MonkeyGoblin_ReplaceAcrobatic=True
+CATEGORY=Internal|Racial Traits ~ Monkey Goblin.MOD	BONUS:VAR|MonkeyGoblin_ReplaceFearless|1|TYPE=Boolean|PREFACT:1,ABILITIES,MonkeyGoblin_ReplaceFearless=True
+CATEGORY=Internal|Racial Traits ~ Monkey Goblin.MOD	BONUS:VAR|MonkeyGoblin_ReplaceNaturalClimber|1|TYPE=Boolean|PREFACT:1,ABILITIES,MonkeyGoblin_ReplaceNaturalClimber=True
+CATEGORY=Internal|Racial Traits ~ Monkey Goblin.MOD	BONUS:VAR|MonkeyGoblin_ReplacePrehensileTail|1|TYPE=Boolean|PREFACT:1,ABILITIES,MonkeyGoblin_ReplacePrehensileTail=True
+CATEGORY=Internal|Racial Traits ~ Monkey Goblin.MOD	BONUS:VAR|MonkeyGoblin_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,MonkeyGoblin_ReplaceLanguages=True

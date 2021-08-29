@@ -35,11 +35,15 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Dwarves of Golario
 
 
 # Data files
+ABILITY:dog_abilities_race.lst
 ABILITY:dog_abilities.lst
+ABILITY:dog_feats.lst
 DEITY:dog_deities.lst
 EQUIPMENT:dog_equip_arms_armor.lst
-ABILITY:dog_feats.lst
+RACE:dog_races.lst
 SPELL:dog_spells.lst
 TEMPLATE:dog_templates.lst
 
 WEAPONPROF:dog_profs_weapon.lst
+
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\dwarf\_race.pcc

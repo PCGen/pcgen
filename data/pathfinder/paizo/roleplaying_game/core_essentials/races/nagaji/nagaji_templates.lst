@@ -1,0 +1,17 @@
+# Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+###Block: Racial Heritage
+# Template Name	Unique Key				Visible	Template		Type				FACT
+Nagaji		KEY:Racial Heritage ~ Nagaji	VISIBLE:NO	TEMPLATE:IsNagaji	TYPE:Racial Heritage	FACT:IsNagaji|True
+IsNagaji							VISIBLE:NO
+
+
+###Block: Creature Subtypes
+# Template Name	Visible	Race Subtype
+Reptilian		VISIBLE:NO	RACESUBTYPE:Reptilian
+
+
+###Block: Race Builder Humanoid Subtypes
+# Template Name	Unique Key						Visible	Race Subtype		Type
+Reptilian		KEY:Race Builder Subtype ~ Reptilian	VISIBLE:NO	RACESUBTYPE:Reptilian	TYPE:Race Builder Subtype

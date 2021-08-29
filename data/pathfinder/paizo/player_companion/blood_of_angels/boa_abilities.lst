@@ -8,10 +8,6 @@ SOURCELONG:Pathfinder Player Companion: Blood of Angels	SOURCESHORT:BOA	SOURCEWE
 
 
 
-###Block: Adopted Trait Race Selection
-# Ability Name	Unique Key				Category of Ability		Type			Description		Multiple?	Choose										Ability
-Aasimar		KEY:Adopted Race ~ Aasimar	CATEGORY:Special Ability	TYPE:AdoptiveRace	DESC:No Selection	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Aasimar Race Trait	ABILITY:Traits|VIRTUAL|%LIST
-
 ###Block: Specific Aasimar Race Traits
 # Ability Name		Unique Key						Product Identity?	Category of Ability		Type							Multiple Requirements																																									Bonus Ability Pool				Bonus to skill							Class Skill					Source Page
 Enlightened Warrior	KEY:AgathionBlooded ~ Enlightened Warrior				CATEGORY:Special Ability	TYPE:Trait.RaceTrait.Aasimar Race Trait	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,AgathionBlooded ~ Enlightened Warrior],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.RaceTrait]	PREMULT:1,[PRETEMPLATE:1,Aasimar ~ Agathion-Blooded],[PREABILITY:1,CATEGORY=Special Ability,Adopted Race ~ Aasimar]																							SOURCEPAGE:p.21

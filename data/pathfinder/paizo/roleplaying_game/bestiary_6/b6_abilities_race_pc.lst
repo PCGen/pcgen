@@ -22,3 +22,19 @@ CATEGORY=Special Ability|Monkey Goblin ~ Fearless.MOD			SOURCEPAGE:p.138
 CATEGORY=Special Ability|Monkey Goblin ~ Natural Climber.MOD	SOURCEPAGE:p.138
 CATEGORY=Special Ability|Monkey Goblin ~ Prehensile Tail.MOD	SOURCEPAGE:p.138
 CATEGORY=Special Ability|Monkey Goblin ~ Languages.MOD		SOURCEPAGE:p.138
+
+
+# ------------------------------
+# Rougarou
+# ------------------------------
+
+###Block: Racial Traits
+# Ability Name								Source Page
+CATEGORY=Special Ability|Rougarou ~ Ability Scores.MOD	SOURCEPAGE:p.242
+CATEGORY=Special Ability|Rougarou ~ Type.MOD			SOURCEPAGE:p.242
+CATEGORY=Special Ability|Rougarou ~ Size.MOD			SOURCEPAGE:p.242
+CATEGORY=Special Ability|Rougarou ~ Speed.MOD			SOURCEPAGE:p.242
+CATEGORY=Special Ability|Rougarou ~ Vision.MOD			SOURCEPAGE:p.242
+CATEGORY=Special Ability|Rougarou ~ Change Shape.MOD		SOURCEPAGE:p.242
+CATEGORY=Special Ability|Rougarou ~ Natural Weapon.MOD	SOURCEPAGE:p.242
+CATEGORY=Special Ability|Rougarou ~ Languages.MOD		SOURCEPAGE:p.242

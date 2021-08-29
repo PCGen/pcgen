@@ -1,0 +1,17 @@
+# Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+###Block: Racial Heritage
+# Template Name	Unique Key					Visible	Template			Type				FACT
+Samsaran		KEY:Racial Heritage ~ Samsaran	VISIBLE:NO	TEMPLATE:IsSamsaran	TYPE:Racial Heritage	FACT:IsSamsaran|True
+IsSamsaran								VISIBLE:NO
+
+
+###Block: Creature Subtypes
+# Template Name	Visible	Race Subtype
+Samsaran		VISIBLE:NO	RACESUBTYPE:Samsaran
+
+
+###Block: Race Builder Humanoid Subtypes
+# Template Name	Unique Key					Visible	Race Subtype		Type
+Samsaran		KEY:Race Builder Subtype ~ Samsaran	VISIBLE:NO	RACESUBTYPE:Samsaran	TYPE:Race Builder Subtype

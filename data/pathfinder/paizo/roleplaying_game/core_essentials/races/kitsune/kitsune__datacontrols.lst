@@ -1,0 +1,23 @@
+# Mon Aug  2 19:58:18 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Kitsune
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsKitsune	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Kitsune	EXPLANATION:Determines whether the character is a Kitsune
+
+###Block: Racial Traits
+# Name							Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Kitsune_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kitsune Ability Scores	EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Kitsune_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kitsune Type			EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Kitsune_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kitsune Size			EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Kitsune_ReplaceSpeed		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kitsune Speed			EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Kitsune_ReplaceVision		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kitsune Vision			EXPLANATION:Replaces the Vision Racial Trait
+FACTDEF:ABILITY|Kitsune_ReplaceChangeShape	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kitsune Change Shape		EXPLANATION:Replaces the Change Shape Racial Trait
+FACTDEF:ABILITY|Kitsune_ReplaceAgile		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kitsune Agile			EXPLANATION:Replaces the Agile Racial Trait
+FACTDEF:ABILITY|Kitsune_ReplaceKitsuneMagic	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kitsune Kitsune Magic		EXPLANATION:Replaces the Kitsune Magic Racial Trait
+FACTDEF:ABILITY|Kitsune_ReplaceNaturalWeapons	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kitsune Natural Weapons	EXPLANATION:Replaces the Natural Weapons Racial Trait
+FACTDEF:ABILITY|Kitsune_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kitsune Languages		EXPLANATION:Replaces the Languages Racial Trait

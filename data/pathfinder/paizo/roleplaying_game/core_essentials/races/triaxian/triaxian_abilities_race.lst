@@ -1,10 +1,11 @@
+# Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
 
 
 # ------------------------------
 # Triaxian
 # ------------------------------
 
-###Block: Racial Abilities ~ grantor/removal MODs in x_abilities_globalvar.lst
+###Block: Racial Abilities ~ grantor/removal MODs in triaxian abilities globalvar.lst
 # Ability Name			Category of Ability	Define																								Template					Modify VAR
 Racial Traits ~ Triaxian	CATEGORY:Internal		DEFINE:Triaxian_RacialCastingStat|0	DEFINE:Triaxian_RacialCastingMod|0	DEFINE:Triaxian_RacialCasterlevel|0	DEFINE:Triaxian_RacialConcentration|0	TEMPLATE:Racial Heritage ~ Triaxian	BONUS:VAR|Triaxian_RacialCastingStat|CHASCORE	BONUS:VAR|Triaxian_RacialCastingMod|CHA	BONUS:VAR|Triaxian_RacialCasterlevel|TL	BONUS:VAR|Triaxian_RacialConcentration|Triaxian_RacialCasterlevel+Triaxian_RacialCastingMod
 

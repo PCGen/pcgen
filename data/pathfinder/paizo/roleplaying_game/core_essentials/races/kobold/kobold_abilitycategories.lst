@@ -1,0 +1,7 @@
+# Thu Aug  5 14:49:56 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+###Block: Racial Trait Categories
+# Ability Category			Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI	Display Location
+ABILITYCATEGORY:Kobold Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Kobold Racial Trait	PLURAL:Kobold Racial Traits	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Kobold Scale Color	VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Kobold Scale Color

@@ -51,10 +51,10 @@ WEAPONPROF:pots_profs_weapon.lst
 RACE:pots_races.lst
 SPELL:pots_spells.lst
 
-PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\android\_android_race.pcc
-PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\kasatha\_kasatha_race.pcc
-PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\lashunta\_lashunta_race.pcc
-PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\triaxian\_triaxian_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\android\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\kasatha\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\lashunta\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\triaxian\_race.pcc
 
 
 EQUIPMOD:@\pathfinder\paizo\roleplaying_game\ultimate_combat\uc_equipmods.lst|(INCLUDE:Special Quality ~ Fragile)|!PRECAMPAIGN:1,INCLUDES=Ultimate Combat

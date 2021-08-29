@@ -1236,21 +1236,17 @@ No Intelligence Score	VISIBLE:NO	DEFINESTAT:NONSTAT|INT
 SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 
 ###Block: Racial Heritage ~ Will be used to determine feat eligibiltiy
-# Template Name	Unique Key					Visible	Type				FACT
-Humanoid		KEY:Racial Heritage ~ Humanoid	VISIBLE:NO					FACT:IsHumanoid|True
-Dwarf			KEY:Racial Heritage ~ Dwarf		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsDwarf|True
-Elf			KEY:Racial Heritage ~ Elf		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsElf|True
-Gnome			KEY:Racial Heritage ~ Gnome		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsGnome|True
-Halfling		KEY:Racial Heritage ~ Halfling	VISIBLE:NO	TYPE:Racial Heritage	FACT:IsHalfling|True
-Human			KEY:Racial Heritage ~ Human		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsHuman|True
-Orc			KEY:Racial Heritage ~ Orc		VISIBLE:NO	TYPE:Racial Heritage	FACT:IsOrc|True
 
 SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
-###Block: Racial Heritage ~ Will be used to determine feat eligibiltiy
+###Block: Type Heritage ~ Will be used to determine feat eligibiltiy
 # Template Name	Unique Key					Visible	FACT
+Humanoid		KEY:Racial Heritage ~ Humanoid	VISIBLE:NO	FACT:IsHumanoid|True
 Outsider		KEY:Racial Heritage ~ Outsider	VISIBLE:NO	FACT:IsOutsider|True
-Native		KEY:Racial Heritage ~ Native		VISIBLE:NO	FACT:IsNative|True
+
+###Block: Subtype Heritage ~ Will be used to determine feat eligibiltiy
+# Template Name	Unique Key				Visible	FACT
+Native		KEY:Racial Heritage ~ Native	VISIBLE:NO	FACT:IsNative|True
 
 SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8ddb	SOURCEDATE:2010-12
 

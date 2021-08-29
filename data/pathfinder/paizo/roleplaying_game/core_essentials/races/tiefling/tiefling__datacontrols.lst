@@ -1,0 +1,23 @@
+# Thu Aug 19 17:19:57 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Tiefling
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsTiefling	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Tiefling	EXPLANATION:Determines whether the character is a Tiefling
+
+###Block: Racial Traits
+# Name								Dataformat			Required	Selectable		Visible	Displayname								Explanation
+FACTDEF:ABILITY|Tiefling_ReplaceAbilityScores		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Tiefling Ability Scores		EXPLANATION:Replaces the Ability Scores
+FACTDEF:ABILITY|Tiefling_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Tiefling Type				EXPLANATION:Replaces the Native Outsider Racial Trait
+FACTDEF:ABILITY|Tiefling_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Tiefling Size				EXPLANATION:Replaces the Medium Racial Trait
+FACTDEF:ABILITY|Tiefling_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Tiefling Speed				EXPLANATION:Replaces the Normal Speed Racial Trait
+FACTDEF:ABILITY|Tiefling_ReplaceVision			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Tiefling Vision				EXPLANATION:Replaces the Darkvision Racial Trait
+FACTDEF:ABILITY|Tiefling_ReplaceSkilled			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Tiefling Skilled			EXPLANATION:Replaces the Skilled Racial Trait
+FACTDEF:ABILITY|Tiefling_ReplaceSpellLikeAbility	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Tiefling Spell-Like Ability		EXPLANATION:Replaces the Spell-Like Ability Racial Trait
+FACTDEF:ABILITY|Tiefling_ReplaceFiendishResistance	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Tiefling Fiendish Resistance	EXPLANATION:Replaces the Fiendish Resistance Racial Trait
+FACTDEF:ABILITY|Tiefling_ReplaceFiendishSorcery		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Tiefling Fiendish Sorcery		EXPLANATION:Replaces the Fiendish Sorcery Racial Trait
+FACTDEF:ABILITY|Tiefling_ReplaceLanguages			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Tiefling Languages			EXPLANATION:Replaces the Languages Racial Trait

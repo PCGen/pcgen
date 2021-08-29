@@ -4,7 +4,6 @@
 # ORIGINAL ENTRY DATE: 12 July 2013
 
 # Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
-ABILITYCATEGORY:Tiefling Subrace		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Tiefling Subrace								DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Tiefling Race Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Tiefling Race Trait	PLURAL:Tiefling Race Traits		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Tiefling Variant Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Variant Tiefling Ability	PLURAL:Tiefling Variant Abilities	DISPLAYLOCATION:Racial Abilities
 

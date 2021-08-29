@@ -1,0 +1,23 @@
+# Mon Aug  2 11:21:18 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Grippli
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsGrippli	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Grippli	EXPLANATION:Determines whether the character is a Grippli
+
+###Block: Racial Traits
+# Name								Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Grippli_ReplaceAbilityScores		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Grippli Ability Scores	EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Grippli_ReplaceType				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Grippli Type			EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Grippli_ReplaceSize				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Grippli Size			EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Grippli_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Grippli Speed			EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Grippli_ReplaceVision			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Grippli Vision			EXPLANATION:Replaces the Vision Racial Trait
+FACTDEF:ABILITY|Grippli_ReplaceNaturalClimber		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Grippli Natural Climber	EXPLANATION:Replaces the Natural Climber Racial Trait
+FACTDEF:ABILITY|Grippli_ReplaceCamouflage			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Grippli Camouflage		EXPLANATION:Replaces the Camouflage Racial Trait
+FACTDEF:ABILITY|Grippli_ReplaceSwampStride		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Grippli Swamp Stride		EXPLANATION:Replaces the Swamp Stride Racial Trait
+FACTDEF:ABILITY|Grippli_ReplaceWeaponFamiliarity	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Grippli Weapon Familiarity	EXPLANATION:Replaces the Weapon Familiarity Racial Trait
+FACTDEF:ABILITY|Grippli_ReplaceLanguages			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Grippli Languages		EXPLANATION:Replaces the Languages Racial Trait

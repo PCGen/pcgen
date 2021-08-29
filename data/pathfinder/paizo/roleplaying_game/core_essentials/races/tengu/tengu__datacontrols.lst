@@ -1,0 +1,23 @@
+# Thu Aug 19 13:31:42 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Tengu
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname		Explanation
+FACTDEF:TEMPLATE|IsTengu	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Tengu	EXPLANATION:Determines whether the character is a Tengu
+
+###Block: Racial Traits
+# Name							Dataformat			Required	Selectable		Visible	Displayname						Explanation
+FACTDEF:ABILITY|Tengu_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Tengu Ability Scores	EXPLANATION:Replaces the Ability Scores
+FACTDEF:ABILITY|Tengu_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Tengu Type		EXPLANATION:Replaces the Tengu Racial Trait
+FACTDEF:ABILITY|Tengu_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Tengu Size		EXPLANATION:Replaces the Medium Racial Trait
+FACTDEF:ABILITY|Tengu_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Tengu Speed		EXPLANATION:Replaces the Normal Speed Racial Trait
+FACTDEF:ABILITY|Tengu_ReplaceVision			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Tengu Vision		EXPLANATION:Replaces the Senses Racial Trait
+FACTDEF:ABILITY|Tengu_ReplaceSneaky			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Tengu Sneaky		EXPLANATION:Replaces the Sneaky Racial Trait
+FACTDEF:ABILITY|Tengu_ReplaceGiftedLinguist	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Tengu Gifted Linguist	EXPLANATION:Replaces the Gifted Linguist Racial Trait
+FACTDEF:ABILITY|Tengu_ReplaceSwordtrained		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Tengu Swordtrained	EXPLANATION:Replaces the Swordtrained Racial Trait
+FACTDEF:ABILITY|Tengu_ReplaceNaturalWeapon	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Tengu Natural Weapon	EXPLANATION:Replaces the Natural Weapon Racial Trait
+FACTDEF:ABILITY|Tengu_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Tengu Languages		EXPLANATION:Replaces the Languages Racial Trait
