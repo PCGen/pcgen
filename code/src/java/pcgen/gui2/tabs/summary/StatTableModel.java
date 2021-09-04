@@ -450,23 +450,16 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 	public Object getValueAt(int rowIndex, int columnIndex)
 	{
 		PCStat stat = stats.getElementAt(rowIndex);
-		switch (columnIndex)
-		{
-			case ABILITY_NAME:
-				return stat;
-			case ABILITY_MOD:
-				return character.getModTotal(stat);
-			case EDITABLE_SCORE:
-				return character.getScoreBase(stat);
-			case RACE_ADJ:
-				return character.getScoreRaceBonus(stat);
-			case FINAL_ABILITY_SCORE:
-				return character.getScoreTotalString(stat);
-			case MISC_ADJ:
-				return character.getScoreOtherBonus(stat);
-			default:
-				return 0;
-		}
+		return switch (columnIndex)
+				{
+					case ABILITY_NAME -> stat;
+					case ABILITY_MOD -> character.getModTotal(stat);
+					case EDITABLE_SCORE -> character.getScoreBase(stat);
+					case RACE_ADJ -> character.getScoreRaceBonus(stat);
+					case FINAL_ABILITY_SCORE -> character.getScoreTotalString(stat);
+					case MISC_ADJ -> character.getScoreOtherBonus(stat);
+					default -> 0;
+				};
 	}
 
 	@Override

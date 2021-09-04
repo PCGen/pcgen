@@ -83,17 +83,13 @@ public class EquipmentModels
 		@Override
 		public String toString()
 		{
-			switch (this)
-			{
-				case FULL:
-					return LanguageBundle.getString("in_equipListFull"); //$NON-NLS-1$
-				case UNEQUIPPED:
-					return LanguageBundle.getString("in_equipListUnequipped"); //$NON-NLS-1$
-				case EQUIPPED:
-					return LanguageBundle.getString("in_equipListEquipped"); //$NON-NLS-1$
-				default:
-					throw new InternalError();
-			}
+			return switch (this)
+					{
+						case FULL -> LanguageBundle.getString("in_equipListFull"); //$NON-NLS-1$
+						case UNEQUIPPED -> LanguageBundle.getString("in_equipListUnequipped"); //$NON-NLS-1$
+						case EQUIPPED -> LanguageBundle.getString("in_equipListEquipped"); //$NON-NLS-1$
+						default -> throw new InternalError();
+					};
 		}
 
 	}
@@ -264,21 +260,21 @@ public class EquipmentModels
 			selectedView = (EquipView) equipViewBox.getSelectedItem();
 			switch (selectedView)
 			{
-				case FULL:
+				case FULL -> {
 					selectedModel = fullModel;
 					equipAction.setEnabled(true);
-					break;
-				case UNEQUIPPED:
+				}
+				case UNEQUIPPED -> {
 					selectedModel = unequippedModel;
 					equipAction.setEnabled(true);
-					break;
-				case EQUIPPED:
+				}
+				case EQUIPPED -> {
 					selectedModel = equippedModel;
 					equipAction.setEnabled(false);
-					break;
-				default:
-					//Case not caught, should this cause an error?
-					break;
+				}
+				default -> {
+				}
+				//Case not caught, should this cause an error?
 			}
 			equipmentTable.setModel(selectedModel);
 			filterHandler.refilter();

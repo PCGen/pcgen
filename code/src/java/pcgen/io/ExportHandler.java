@@ -1006,21 +1006,12 @@ public abstract class ExportHandler
 					}
 
 					// Set the next mode based on the mathematical sign
-					if (str.charAt(i) == '+')
+					switch (str.charAt(i))
 					{
-						nextMode = ADDITION_MODE;
-					}
-					else if (str.charAt(i) == '-')
-					{
-						nextMode = SUBTRACTION_MODE;
-					}
-					else if (str.charAt(i) == '*')
-					{
-						nextMode = MULTIPLICATION_MODE;
-					}
-					else if (str.charAt(i) == '/')
-					{
-						nextMode = DIVISION_MODE;
+						case '+' -> nextMode = ADDITION_MODE;
+						case '-' -> nextMode = SUBTRACTION_MODE;
+						case '*' -> nextMode = MULTIPLICATION_MODE;
+						case '/' -> nextMode = DIVISION_MODE;
 					}
 
 					StringWriter sWriter = new StringWriter();
@@ -1079,34 +1070,24 @@ public abstract class ExportHandler
 									float vf = Float.parseFloat(valString);
 									switch (mode)
 									{
-										case ADDITION_MODE:
+										case ADDITION_MODE -> {
 											float addf = bf + vf;
 											newAttackData.append("/+").append(Integer.toString((int) addf));
-
-											break;
-
-										case SUBTRACTION_MODE:
+										}
+										case SUBTRACTION_MODE -> {
 											float subf = bf - vf;
 											newAttackData.append("/+").append(Integer.toString((int) subf));
-
-											break;
-
-										case MULTIPLICATION_MODE:
+										}
+										case MULTIPLICATION_MODE -> {
 											float multf = bf * vf;
 											newAttackData.append("/+").append(Integer.toString((int) multf));
-
-											break;
-
-										case DIVISION_MODE:
+										}
+										case DIVISION_MODE -> {
 											float divf = bf / vf;
 											newAttackData.append("/+").append(Integer.toString((int) divf));
-
-											break;
-
-										default:
-											Logging.errorPrint("In mathMode the mode " + mode + " is unsupported.");
-
-											break;
+										}
+										default -> Logging.errorPrint(
+												"In mathMode the mode " + mode + " is unsupported.");
 									}
 								}
 
@@ -1117,30 +1098,11 @@ public abstract class ExportHandler
 						{
 							switch (mode)
 							{
-								case ADDITION_MODE:
-									total = (float) (total + Double.parseDouble(valString));
-
-									break;
-
-								case SUBTRACTION_MODE:
-									total = (float) (total - Double.parseDouble(valString));
-
-									break;
-
-								case MULTIPLICATION_MODE:
-									total = (float) (total * Double.parseDouble(valString));
-
-									break;
-
-								case DIVISION_MODE:
-									total = (float) (total / Double.parseDouble(valString));
-
-									break;
-
-								default:
-									Logging.errorPrint("In mathMode the mode " + mode + " is unsupported.");
-
-									break;
+								case ADDITION_MODE -> total = (float) (total + Double.parseDouble(valString));
+								case SUBTRACTION_MODE -> total = (float) (total - Double.parseDouble(valString));
+								case MULTIPLICATION_MODE -> total = (float) (total * Double.parseDouble(valString));
+								case DIVISION_MODE -> total = (float) (total / Double.parseDouble(valString));
+								default -> Logging.errorPrint("In mathMode the mode " + mode + " is unsupported.");
 							}
 						}
 					}
@@ -2564,13 +2526,9 @@ public abstract class ExportHandler
 
 			switch (i)
 			{
-				case 0:
-					cMin = getVarValue(tokA, aPC);
-					break;
-				case 1:
-					cMax = getVarValue(tokA, aPC);
-					break;
-				case 2:
+				case 0 -> cMin = getVarValue(tokA, aPC);
+				case 1 -> cMax = getVarValue(tokA, aPC);
+				case 2 -> {
 					cStep = getVarValue(tokA, aPC);
 					if (aString.startsWith("DFOR."))
 					{
@@ -2578,27 +2536,19 @@ public abstract class ExportHandler
 						cStepLineMax = getVarValue(aTok.nextToken(), aPC);
 						cStepLine = getVarValue(aTok.nextToken(), aPC);
 					}
-					break;
-				case 3:
-					cString = tokA;
-					break;
-				case 4:
-					cStartLineString = tokA;
-					break;
-				case 5:
-					cEndLineString = tokA;
-					break;
-				case 6:
+				}
+				case 3 -> cString = tokA;
+				case 4 -> cStartLineString = tokA;
+				case 5 -> cEndLineString = tokA;
+				case 6 -> {
 					existsOnly = (!"0".equals(tokA));
 					if ("2".equals(tokA))
 					{
 						checkBefore = true;
 					}
-					break;
-				default:
-					Logging.errorPrint("ExportHandler.replaceTokenForDfor can't handle token number " + i
+				}
+				default -> Logging.errorPrint("ExportHandler.replaceTokenForDfor can't handle token number " + i
 						+ " this probably means you've passed in too many parameters.");
-					break;
 			}
 			i++;
 		}

@@ -262,25 +262,13 @@ public abstract class VariableProcessor
 					aTok.nextToken(); // discard next . character
 					bString = new StringBuilder();
 
-					if ("LT".equals(cString))
+					switch (cString)
 					{
-						comp = 1;
-					}
-					else if ("LTEQ".equals(cString))
-					{
-						comp = 2;
-					}
-					else if ("EQ".equals(cString))
-					{
-						comp = 3;
-					}
-					else if ("GT".equals(cString))
-					{
-						comp = 4;
-					}
-					else if ("GTEQ".equals(cString))
-					{
-						comp = 5;
+						case "LT" -> comp = 1;
+						case "LTEQ" -> comp = 2;
+						case "EQ" -> comp = 3;
+						case "GT" -> comp = 4;
+						case "GTEQ" -> comp = 5;
 					}
 				}
 				else if ("THEN".equals(cString))
@@ -393,21 +381,12 @@ public abstract class VariableProcessor
 					valString = tmp.toString();
 				}
 
-				if (aString.charAt(i) == '+')
+				switch (aString.charAt(i))
 				{
-					nextMode = MATH_OP.PLUS;
-				}
-				else if (aString.charAt(i) == '-')
-				{
-					nextMode = MATH_OP.MINUS;
-				}
-				else if (aString.charAt(i) == '*')
-				{
-					nextMode = MATH_OP.MULTIPLY;
-				}
-				else if (aString.charAt(i) == '/')
-				{
-					nextMode = MATH_OP.DIVIDE;
+					case '+' -> nextMode = MATH_OP.PLUS;
+					case '-' -> nextMode = MATH_OP.MINUS;
+					case '*' -> nextMode = MATH_OP.MULTIPLY;
+					case '/' -> nextMode = MATH_OP.DIVIDE;
 				}
 
 				if (!valString.isEmpty())
@@ -425,31 +404,12 @@ public abstract class VariableProcessor
 
 					switch (mode)
 					{
-						case PLUS:
-							total += valFloat;
-
-							break;
-
-						case MINUS:
-							total -= valFloat;
-
-							break;
-
-						case MULTIPLY:
-							total *= valFloat;
-
-							break;
-
-						case DIVIDE:
-							total /= valFloat;
-
-							break;
-
-						default:
-							Logging.errorPrint(
+						case PLUS -> total += valFloat;
+						case MINUS -> total -= valFloat;
+						case MULTIPLY -> total *= valFloat;
+						case DIVIDE -> total /= valFloat;
+						default -> Logging.errorPrint(
 								"In PlayerCharacter.getVariableValue the mode " + mode + " is unsupported.");
-
-							break;
 					}
 				}
 

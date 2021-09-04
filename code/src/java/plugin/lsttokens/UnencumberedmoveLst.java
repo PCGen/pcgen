@@ -176,26 +176,16 @@ public class UnencumberedmoveLst extends AbstractTokenWithSeparator<CDOMObject> 
 		StringBuilder sb = new StringBuilder();
 		if (load != null)
 		{
-			if (Load.OVERLOAD.equals(load))
+			switch (load)
 			{
-				sb.append("Overload");
-			}
-			else if (Load.HEAVY.equals(load))
-			{
-				sb.append("HeavyLoad");
-			}
-			else if (Load.MEDIUM.equals(load))
-			{
-				sb.append("MediumLoad");
-			}
-			else if (Load.LIGHT.equals(load))
-			{
-				sb.append("LightLoad");
-			}
-			else
-			{
-				context.addWriteMessage(getTokenName() + " encountered unknown Movement Load: " + load);
-				return null;
+				case OVERLOAD -> sb.append("Overload");
+				case HEAVY -> sb.append("HeavyLoad");
+				case MEDIUM -> sb.append("MediumLoad");
+				case LIGHT -> sb.append("LightLoad");
+				default -> {
+					context.addWriteMessage(getTokenName() + " encountered unknown Movement Load: " + load);
+					return null;
+				}
 			}
 		}
 		if (at != null)
@@ -204,22 +194,15 @@ public class UnencumberedmoveLst extends AbstractTokenWithSeparator<CDOMObject> 
 			{
 				sb.append(Constants.PIPE);
 			}
-			if (Load.OVERLOAD.equals(at))
+			switch (at)
 			{
-				sb.append("HeavyArmor");
-			}
-			else if (Load.MEDIUM.equals(at))
-			{
-				sb.append("MediumArmor");
-			}
-			else if (Load.LIGHT.equals(at))
-			{
-				sb.append("LightArmor");
-			}
-			else
-			{
-				context.addWriteMessage(getTokenName() + " encountered invalid Armor Load: " + load);
-				return null;
+				case OVERLOAD -> sb.append("HeavyArmor");
+				case MEDIUM -> sb.append("MediumArmor");
+				case LIGHT -> sb.append("LightArmor");
+				default -> {
+					context.addWriteMessage(getTokenName() + " encountered invalid Armor Load: " + load);
+					return null;
+				}
 			}
 		}
 		return new String[]{sb.toString()};

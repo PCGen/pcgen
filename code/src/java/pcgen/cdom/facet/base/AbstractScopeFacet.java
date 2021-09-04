@@ -412,14 +412,10 @@ public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends Abstr
 				ScopeFacetChangeListener dfcl = dfclArray[i];
 				switch (ccEvent.getEventType())
 				{
-					case ScopeFacetChangeEvent.DATA_ADDED:
-						dfcl.dataAdded(ccEvent);
-						break;
-					case ScopeFacetChangeEvent.DATA_REMOVED:
-						dfcl.dataRemoved(ccEvent);
-						break;
-					default:
-						break;
+					case ScopeFacetChangeEvent.DATA_ADDED -> dfcl.dataAdded(ccEvent);
+					case ScopeFacetChangeEvent.DATA_REMOVED -> dfcl.dataRemoved(ccEvent);
+					default -> {
+					}
 				}
 			}
 		}

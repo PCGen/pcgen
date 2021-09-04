@@ -196,53 +196,37 @@ public final class CharacterHPDialog extends JDialog implements ActionListener
 		@Override
 		public boolean isCellEditable(int rowIndex, int columnIndex)
 		{
-			switch (columnIndex)
-			{
-				case 5:
-				case 6:
-					return true;
-				default:
-					return false;
-			}
+			return switch (columnIndex)
+					{
+						case 5, 6 -> true;
+						default -> false;
+					};
 		}
 
 		@Override
 		public Class<?> getColumnClass(int columnIndex)
 		{
-			switch (columnIndex)
-			{
-				case 0:
-				case 3:
-				case 4:
-				case 5:
-					return Integer.class;
-				case 6:
-					return JButton.class;
-				default:
-					return Object.class;
-			}
+			return switch (columnIndex)
+					{
+						case 0, 3, 4, 5 -> Integer.class;
+						case 6 -> JButton.class;
+						default -> Object.class;
+					};
 		}
 
 		@Override
 		public String getColumnName(int column)
 		{
-			switch (column)
-			{
-				case 0:
-					return "Level";
-				case 1:
-					return "Class";
-				case 2:
-					return "Sides";
-				case 3:
-					return "Total";
-				case 4:
-					return "Adj";
-				case 5:
-					return "Rolled";
-				default:
-					return "Reroll";
-			}
+			return switch (column)
+					{
+						case 0 -> "Level";
+						case 1 -> "Class";
+						case 2 -> "Sides";
+						case 3 -> "Total";
+						case 4 -> "Adj";
+						case 5 -> "Rolled";
+						default -> "Reroll";
+					};
 		}
 
 		@Override
@@ -250,23 +234,16 @@ public final class CharacterHPDialog extends JDialog implements ActionListener
 		{
 			CharacterLevelFacade level = levels.getElementAt(rowIndex);
 			PCClass c = levels.getClassTaken(level);
-			switch (columnIndex)
-			{
-				case 0:
-					return rowIndex + 1;
-				case 1:
-					return c;
-				case 2:
-					return c.getHD();
-				case 3:
-					return levels.getHPGained(level);
-				case 4:
-					return levels.getHPGained(level) - levels.getHPRolled(level);
-				case 5:
-					return levels.getHPRolled(level);
-				default:
-					return null;
-			}
+			return switch (columnIndex)
+					{
+						case 0 -> rowIndex + 1;
+						case 1 -> c;
+						case 2 -> c.getHD();
+						case 3 -> levels.getHPGained(level);
+						case 4 -> levels.getHPGained(level) - levels.getHPRolled(level);
+						case 5 -> levels.getHPRolled(level);
+						default -> null;
+					};
 		}
 
 		@Override

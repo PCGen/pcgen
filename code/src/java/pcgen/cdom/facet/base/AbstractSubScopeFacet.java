@@ -386,14 +386,10 @@ public class AbstractSubScopeFacet<S1, S2, T> extends AbstractStorageFacet<CharI
 				SubScopeFacetChangeListener dfcl = dfclArray[i];
 				switch (ccEvent.getEventType())
 				{
-					case SubScopeFacetChangeEvent.DATA_ADDED:
-						dfcl.dataAdded(ccEvent);
-						break;
-					case SubScopeFacetChangeEvent.DATA_REMOVED:
-						dfcl.dataRemoved(ccEvent);
-						break;
-					default:
-						break;
+					case SubScopeFacetChangeEvent.DATA_ADDED -> dfcl.dataAdded(ccEvent);
+					case SubScopeFacetChangeEvent.DATA_REMOVED -> dfcl.dataRemoved(ccEvent);
+					default -> {
+					}
 				}
 			}
 		}

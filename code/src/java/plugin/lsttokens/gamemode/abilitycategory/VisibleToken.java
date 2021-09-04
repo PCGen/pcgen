@@ -64,23 +64,16 @@ public class VisibleToken extends AbstractNonEmptyToken<AbilityCategory> impleme
 	{
 		Visibility vis = ac.getVisibility();
 		String visString;
-		if (vis.equals(Visibility.DEFAULT))
+		switch (vis)
 		{
-			visString = "YES";
-		}
-		else if (vis.equals(Visibility.QUALIFY))
-		{
-			visString = "QUALIFY";
-		}
-		else if (vis.equals(Visibility.HIDDEN))
-		{
-			visString = "NO";
-		}
-		else
-		{
-			context.addWriteMessage("Visibility " + vis + " is not a valid Visibility for "
-				+ ac.getClass().getSimpleName() + ' ' + ac.getKeyName());
-			return null;
+			case DEFAULT -> visString = "YES";
+			case QUALIFY -> visString = "QUALIFY";
+			case HIDDEN -> visString = "NO";
+			default -> {
+				context.addWriteMessage("Visibility " + vis + " is not a valid Visibility for "
+						+ ac.getClass().getSimpleName() + ' ' + ac.getKeyName());
+				return null;
+			}
 		}
 		return new String[]{visString};
 	}

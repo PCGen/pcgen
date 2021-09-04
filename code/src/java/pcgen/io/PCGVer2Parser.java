@@ -4542,26 +4542,23 @@ final class PCGVer2Parser implements PCGParser
 					return;
 				}
 
-                switch (type)
-                {
-                    case IOConstants.TAG_RACE:
-                        source = thePC.getRace();
-                        break;
-                    case TAG_PCTEMPLATE:
-                        PCTemplate template = Globals.getContext().getReferenceContext()
-                                .silentlyGetConstructedCDOMObject(PCTemplate.class, key);
-                        if (thePC.hasTemplate(template))
-                        {
-                            source = template;
-                        } else
-                        {
-                            warnings.add("PC does not have Template: " + key);
-                        }
-                        break;
-                    case IOConstants.TAG_PCCLASS:
-                        source = thePC.getClassKeyed(key);
-                        break;
-                }
+				switch (type)
+				{
+					case IOConstants.TAG_RACE -> source = thePC.getRace();
+					case TAG_PCTEMPLATE -> {
+						PCTemplate template = Globals.getContext().getReferenceContext()
+						                             .silentlyGetConstructedCDOMObject(PCTemplate.class, key);
+						if (thePC.hasTemplate(template))
+						{
+							source = template;
+						}
+						else
+						{
+							warnings.add("PC does not have Template: " + key);
+						}
+					}
+					case IOConstants.TAG_PCCLASS -> source = thePC.getClassKeyed(key);
+				}
 
 				if (source == null)
 				{

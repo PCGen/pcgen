@@ -408,21 +408,15 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		@Override
 		public Object getDataInternal(PCTemplate obj, int column)
 		{
-			switch (column)
-			{
-				case 0:
-					return infoFactory.getLevelAdjustment(obj);
-				case 1:
-					return infoFactory.getModifier(obj);
-				case 2:
-					return infoFactory.getPreReqHTML(obj);
-				case 3:
-					return infoFactory.getDescription(obj);
-				case 4:
-					return obj.getSource();
-				default:
-					return null;
-			}
+			return switch (column)
+					{
+						case 0 -> infoFactory.getLevelAdjustment(obj);
+						case 1 -> infoFactory.getModifier(obj);
+						case 2 -> infoFactory.getPreReqHTML(obj);
+						case 3 -> infoFactory.getDescription(obj);
+						case 4 -> obj.getSource();
+						default -> null;
+					};
 		}
 
 	}
@@ -542,17 +536,16 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		@Override
 		public List<TreeViewPath<PCTemplate>> getPaths(PCTemplate pobj)
 		{
-			switch (this)
-			{
-				case NAME:
-					return Collections.singletonList(new TreeViewPath<>(pobj));
-				case TYPE_NAME:
-					return Collections.singletonList(new TreeViewPath<>(pobj, pobj.getType()));
-				case SOURCE_NAME:
-					return Collections.singletonList(new TreeViewPath<>(pobj, pobj.getSourceForNodeDisplay()));
-				default:
-					throw new InternalError();
-			}
+			return switch (this)
+					{
+						case NAME -> Collections.singletonList(new TreeViewPath<>(pobj));
+						case TYPE_NAME -> Collections.singletonList(new TreeViewPath<>(pobj, pobj.getType()));
+						case SOURCE_NAME -> Collections.singletonList(new TreeViewPath<>(
+								pobj,
+								pobj.getSourceForNodeDisplay()
+						));
+						default -> throw new InternalError();
+					};
 		}
 
 	}

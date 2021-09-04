@@ -58,36 +58,23 @@ public class VisibleToken extends AbstractNonEmptyToken<Skill> implements CDOMPr
 			}
 		}
 		Visibility vis;
-        switch (visString)
-        {
-            case "YES":
-                vis = Visibility.DEFAULT;
-                break;
-            case "ALWAYS":
-                vis = Visibility.DEFAULT;
-                break;
-            case "DISPLAY":
-                vis = Visibility.DISPLAY_ONLY;
-                break;
-            case "GUI":
-                vis = Visibility.DISPLAY_ONLY;
-                break;
-            case "EXPORT":
-                vis = Visibility.OUTPUT_ONLY;
-                break;
-            case "CSHEET":
-                vis = Visibility.OUTPUT_ONLY;
-                break;
-            case "NO":
-                vis = Visibility.HIDDEN;
-                break;
-            default:
-                ComplexParseResult cpr = new ComplexParseResult();
-                cpr.addErrorMessage("Unexpected value used in " + getTokenName() + " in Skill");
-                cpr.addErrorMessage(' ' + value + " is not a valid value for " + getTokenName());
-                cpr.addErrorMessage(" Valid values in Skill are YES, ALWAYS, NO, DISPLAY, GUI, EXPORT, CSHEET");
-                return cpr;
-        }
+		switch (visString)
+		{
+			case "YES" -> vis = Visibility.DEFAULT;
+			case "ALWAYS" -> vis = Visibility.DEFAULT;
+			case "DISPLAY" -> vis = Visibility.DISPLAY_ONLY;
+			case "GUI" -> vis = Visibility.DISPLAY_ONLY;
+			case "EXPORT" -> vis = Visibility.OUTPUT_ONLY;
+			case "CSHEET" -> vis = Visibility.OUTPUT_ONLY;
+			case "NO" -> vis = Visibility.HIDDEN;
+			default -> {
+				ComplexParseResult cpr = new ComplexParseResult();
+				cpr.addErrorMessage("Unexpected value used in " + getTokenName() + " in Skill");
+				cpr.addErrorMessage(' ' + value + " is not a valid value for " + getTokenName());
+				cpr.addErrorMessage(" Valid values in Skill are YES, ALWAYS, NO, DISPLAY, GUI, EXPORT, CSHEET");
+				return cpr;
+			}
+		}
 		context.getObjectContext().put(skill, ObjectKey.VISIBILITY, vis);
 		if (readOnly)
 		{
