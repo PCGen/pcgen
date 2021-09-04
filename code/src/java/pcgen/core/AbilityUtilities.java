@@ -160,11 +160,10 @@ public final class AbilityUtilities
 	 */
 	public static boolean isFeat(Object obj)
 	{
-		if (!(obj instanceof Ability))
+		if (!(obj instanceof Ability ability))
 		{
 			return false;
 		}
-		Ability ability = (Ability) obj;
 		if (ability.getCDOMCategory() == null)
 		{
 			return false;

@@ -246,19 +246,16 @@ public final class TokenLibrary implements PluginLoader
 
 	public static void addToTokenMap(Object newToken)
 	{
-		if (newToken instanceof PostDeferredToken)
+		if (newToken instanceof PostDeferredToken<?> pdt)
 		{
-			PostDeferredToken<?> pdt = (PostDeferredToken<?>) newToken;
 			POST_DEFERRED_TOKENS.addToListFor(pdt.getPriority(), pdt);
 		}
-		if (newToken instanceof PostValidationToken)
+		if (newToken instanceof PostValidationToken<?> pdt)
 		{
-			PostValidationToken<?> pdt = (PostValidationToken<?>) newToken;
 			POST_VALIDATION_TOKENS.addToListFor(pdt.getPriority(), pdt);
 		}
-		if (newToken instanceof CDOMCompatibilityToken)
+		if (newToken instanceof CDOMCompatibilityToken<?> tok)
 		{
-			CDOMCompatibilityToken<?> tok = (CDOMCompatibilityToken<?>) newToken;
 			TokenFamily fam = TokenFamily.getConstant(tok.compatibilityLevel(), tok.compatibilitySubLevel(),
 				tok.compatibilityPriority());
 			if (fam.putToken(tok) != null)
@@ -275,9 +272,8 @@ public final class TokenLibrary implements PluginLoader
 				addToTokenMap(new ClassWrappedToken(clTok));
 			}
 		}
-		if (newToken instanceof CDOMInterfaceToken)
+		if (newToken instanceof CDOMInterfaceToken<?, ?> tok)
 		{
-			CDOMInterfaceToken<?, ?> tok = (CDOMInterfaceToken<?, ?>) newToken;
 			CDOMInterfaceToken<?, ?> existingToken = IF_TOKEN_MAP.put(tok.getTokenName(), tok);
 			if (existingToken != null)
 			{
@@ -295,9 +291,8 @@ public final class TokenLibrary implements PluginLoader
 		{
 			family.addDeferredToken((DeferredToken<?>) newToken);
 		}
-		if (newToken instanceof CDOMPrimaryToken)
+		if (newToken instanceof CDOMPrimaryToken<?> tok)
 		{
-			CDOMPrimaryToken<?> tok = (CDOMPrimaryToken<?>) newToken;
 			CDOMToken<?> existingToken = family.putToken(tok);
 			if (existingToken != null)
 			{
@@ -312,9 +307,8 @@ public final class TokenLibrary implements PluginLoader
 				addToTokenMap(new ClassWrappedToken(clTok));
 			}
 		}
-		if (newToken instanceof CDOMSecondaryToken)
+		if (newToken instanceof CDOMSecondaryToken<?> tok)
 		{
-			CDOMSecondaryToken<?> tok = (CDOMSecondaryToken<?>) newToken;
 			CDOMSubToken<?> existingToken = family.putSubToken(tok);
 			if (existingToken != null)
 			{
@@ -323,9 +317,8 @@ public final class TokenLibrary implements PluginLoader
 					+ existingToken.getClass().getName() + " and " + newToken.getClass().getName());
 			}
 		}
-		if (newToken instanceof PrerequisiteParserInterface)
+		if (newToken instanceof PrerequisiteParserInterface prereqToken)
 		{
-			PrerequisiteParserInterface prereqToken = (PrerequisiteParserInterface) newToken;
 			family.putPrerequisiteToken(prereqToken);
 			for (String s : prereqToken.kindsHandled())
 			{

@@ -91,12 +91,11 @@ public class LookupFunction implements FormulaFunction
 		@SuppressWarnings("PMD.PrematureDeclaration")
 		Object format = args[0].jjtAccept(visitor,
 			semantics.getWith(FormulaSemantics.ASSERTED, Optional.of(refContext.getManufacturer(DATATABLE_CLASS))));
-		if (!(format instanceof TableFormatManager))
+		if (!(format instanceof TableFormatManager tableFormatManager))
 		{
 			throw new SemanticsFailureException("Parse Error: Invalid Object: " + format.getClass()
 				+ " found in location requiring a TableFormatManager");
 		}
-		TableFormatManager tableFormatManager = (TableFormatManager) format;
 		FormatManager<?> lookupFormat = tableFormatManager.getLookupFormat();
 
 		//Lookup value (at this point we enforce based on the Table Format)
@@ -113,19 +112,17 @@ public class LookupFunction implements FormulaFunction
 		@SuppressWarnings("PMD.PrematureDeclaration")
 		Object resultColumn = args[2].jjtAccept(visitor,
 			semantics.getWith(FormulaSemantics.ASSERTED, Optional.of(refContext.getManufacturer(COLUMN_CLASS))));
-		if (!(resultColumn instanceof ColumnFormatManager))
+		if (!(resultColumn instanceof ColumnFormatManager<?> cf))
 		{
 			throw new SemanticsFailureException("Parse Error: Invalid Result Column Name: " + resultColumn.getClass()
 				+ " found in location requiring a Column");
 		}
-		ColumnFormatManager<?> cf = (ColumnFormatManager<?>) resultColumn;
 		if (argCount == 4)
 		{
-			if (!(args[3] instanceof ASTQuotString))
+			if (!(args[3] instanceof ASTQuotString typeNode))
 			{
 				throw new SemanticsFailureException("Parse Error: Invalid lookup type argument: Must be a String");
 			}
-			ASTQuotString typeNode = (ASTQuotString) args[3];
 			String lookupTypeName = typeNode.getText();
 			try
 			{

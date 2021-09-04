@@ -158,9 +158,8 @@ public class SpellLevelChooseInformation implements ChooseInformation<SpellLevel
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (obj instanceof SpellLevelChooseInformation)
+		if (obj instanceof SpellLevelChooseInformation other)
 		{
-			SpellLevelChooseInformation other = (SpellLevelChooseInformation) obj;
 			if (title == null)
 			{
 				if (other.title != null)

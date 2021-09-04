@@ -152,9 +152,8 @@ final class CoreUtils
 
 	private static <T> String getLoadID(T obj)
 	{
-		if (obj instanceof Identified)
+		if (obj instanceof Identified l)
 		{
-			Identified l = (Identified) obj;
 			String name = l.getDisplayName();
 			String id = obj.getClass().getSimpleName() + ": " + name;
 			if (!l.getKeyName().equals(name))
@@ -163,14 +162,12 @@ final class CoreUtils
 			}
 			return id;
 		}
-		else if (obj instanceof QualifiedObject)
+		else if (obj instanceof QualifiedObject<?> qo)
 		{
-			QualifiedObject<?> qo = (QualifiedObject<?>) obj;
 			return getLoadID(qo.getRawObject());
 		}
-		else if (obj instanceof CDOMReference)
+		else if (obj instanceof CDOMReference<?> ref)
 		{
-			CDOMReference<?> ref = (CDOMReference<?>) obj;
 			return ref.getReferenceClass().getSimpleName() + " Primitive: " + ref.getLSTformat(false);
 		}
 		else

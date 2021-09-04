@@ -146,9 +146,8 @@ public final class NoteItem implements Cloneable
 	@Override
 	public boolean equals(Object o)
 	{
-		if (o instanceof NoteItem)
+		if (o instanceof NoteItem other)
 		{
-			NoteItem other = (NoteItem) o;
 			return (id_parent == other.id_parent) && (id_value == other.id_value) && (name.equals(other.name))
 				&& (value.equals(other.value)) && (key.equals(other.key));
 		}

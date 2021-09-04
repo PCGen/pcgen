@@ -111,9 +111,8 @@ public abstract class AbstractPCQualifierToken<T extends CDOMObject> implements 
 	@Override
 	public boolean equals(Object o)
 	{
-		if (o instanceof AbstractPCQualifierToken)
+		if (o instanceof AbstractPCQualifierToken<?> other)
 		{
-			AbstractPCQualifierToken<?> other = (AbstractPCQualifierToken<?>) o;
 			if (pcs == null)
 			{
 				if (other.pcs != null)

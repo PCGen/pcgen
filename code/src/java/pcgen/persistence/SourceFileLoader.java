@@ -1069,11 +1069,10 @@ public class SourceFileLoader extends PCGenTask implements Observer
     @Override
     public void update(Observable o, Object arg)
     {
-        if (arg instanceof URI)
+        if (arg instanceof URI uri)
         {
             progress++;
-            URI uri = (URI) arg;
-            if ("file".equalsIgnoreCase(uri.getScheme()))
+	        if ("file".equalsIgnoreCase(uri.getScheme()))
             {
                 setProgress(new File(uri).getName(), progress);
             } else

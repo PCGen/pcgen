@@ -78,9 +78,8 @@ public final class IndirectCalculation<T> extends AbstractNEPCalculation<T>
 	@Override
 	public boolean equals(Object o)
 	{
-		if (o instanceof IndirectCalculation)
+		if (o instanceof IndirectCalculation<?> other)
 		{
-			IndirectCalculation<?> other = (IndirectCalculation<?>) o;
 			return other.getBasicCalculation().equals(getBasicCalculation()) && other.obj.equals(obj);
 		}
 		return false;

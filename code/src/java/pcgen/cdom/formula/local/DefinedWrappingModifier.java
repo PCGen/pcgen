@@ -133,9 +133,8 @@ public class DefinedWrappingModifier<T> implements Modifier<T>
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (obj instanceof DefinedWrappingModifier)
+		if (obj instanceof DefinedWrappingModifier<?> other)
 		{
-			DefinedWrappingModifier<?> other = (DefinedWrappingModifier<?>) obj;
 			return modifier.equals(other.modifier) && definedValue.equals(other.definedValue)
 				&& definedName.equals(other.definedName) && formatManager.equals(other.formatManager);
 		}

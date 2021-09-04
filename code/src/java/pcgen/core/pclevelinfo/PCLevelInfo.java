@@ -341,9 +341,8 @@ public final class PCLevelInfo implements Cloneable
 	@Override
 	public boolean equals(Object o)
 	{
-		if (o instanceof PCLevelInfo)
+		if (o instanceof PCLevelInfo other)
 		{
-			PCLevelInfo other = (PCLevelInfo) o;
 			return classLevel == other.classLevel && skillPointsGained == other.skillPointsGained
 				&& skillPointsRemaining == other.skillPointsRemaining && classKeyName.equals(other.classKeyName)
 				&& Objects.equals(statsPreModified, other.statsPreModified)

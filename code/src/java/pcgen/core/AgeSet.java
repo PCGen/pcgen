@@ -271,9 +271,8 @@ public class AgeSet implements BonusContainer, Loadable
 		{
 			return true;
 		}
-		if (o instanceof AgeSet)
+		if (o instanceof AgeSet other)
 		{
-			AgeSet other = (AgeSet) o;
 			return (index == other.index) && name.equals(other.name)
 				&& Objects.equals(bonuses, other.bonuses)
 				&& Objects.equals(kits, other.kits);

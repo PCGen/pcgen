@@ -72,9 +72,8 @@ public class SpellListCastToken extends SpellListToken
 	{
 		String castNum = "--";
 
-		if (aObject instanceof PCClass)
+		if (aObject instanceof PCClass aClass)
 		{
-			PCClass aClass = (PCClass) aObject;
 			//			castNum = String.valueOf(aClass.getCastForLevel(level, Globals.getDefaultSpellBook(), pc))
 			castNum = String.valueOf(
 				pc.getSpellSupport(aClass).getCastForLevel(level, Globals.getDefaultSpellBook(), true, false, pc))

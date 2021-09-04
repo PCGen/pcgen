@@ -170,9 +170,8 @@ public class DataSet implements DataSetFacade
 				for (Iterator<AbilityFacade> iterator = abilityList.iterator(); iterator.hasNext();)
 				{
 					AbilityFacade facade = iterator.next();
-					if (facade instanceof Ability)
+					if (facade instanceof Ability ability)
 					{
-						Ability ability = (Ability) facade;
 						if (!(ability.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_DISPLAY)))
 						{
 							iterator.remove();
@@ -275,12 +274,11 @@ public class DataSet implements DataSetFacade
 	@Override
 	public List<AbilityFacade> getPrereqAbilities(AbilityFacade abilityFacade)
 	{
-		if (abilityFacade == null || !(abilityFacade instanceof Ability))
+		if (abilityFacade == null || !(abilityFacade instanceof Ability ability))
 		{
 			return Collections.emptyList();
 		}
 
-		Ability ability = (Ability) abilityFacade;
 		List<AbilityFacade> prereqList = new ArrayList<>();
 		for (Prerequisite prereq : ability.getPrerequisiteList())
 		{

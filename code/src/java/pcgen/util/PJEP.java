@@ -132,12 +132,10 @@ public final class PJEP extends JEP
 	 */
 	public boolean isResultCachable(Node node)
 	{
-		if (node instanceof ASTFunNode)
+		if (node instanceof ASTFunNode funcNode)
 		{
-			ASTFunNode funcNode = (ASTFunNode) node;
-			if (funcNode.getPFMC() instanceof PCGenCommand)
+			if (funcNode.getPFMC() instanceof PCGenCommand cmd)
 			{
-				PCGenCommand cmd = (PCGenCommand) funcNode.getPFMC();
 				if (!cmd.getCachable())
 				{
 					return false;
@@ -250,7 +248,7 @@ public final class PJEP extends JEP
 				throw new ParseException("Invalid parameter count");
 			}
 
-			if (param1 instanceof String)
+			if (param1 instanceof String cl)
 			{
 				PlayerCharacter aPC = null;
 				if (parent instanceof VariableProcessor)
@@ -267,7 +265,6 @@ public final class PJEP extends JEP
 				}
 
 				// ";BEFORELEVEL="
-				String cl = (String) param1;
 				if (param2 != null)
 				{
 					cl += ";BEFORELEVEL=" + param2.toString();

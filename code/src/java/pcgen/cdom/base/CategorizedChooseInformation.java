@@ -166,9 +166,8 @@ public class CategorizedChooseInformation<T extends Categorized<T>> implements C
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (obj instanceof CategorizedChooseInformation)
+		if (obj instanceof CategorizedChooseInformation<?> other)
 		{
-			CategorizedChooseInformation<?> other = (CategorizedChooseInformation<?>) obj;
 			if (title == null)
 			{
 				if (other.title != null)

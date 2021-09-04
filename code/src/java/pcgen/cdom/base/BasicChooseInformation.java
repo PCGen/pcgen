@@ -159,9 +159,8 @@ public class BasicChooseInformation<T> implements ChooseInformation<T>
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (obj instanceof BasicChooseInformation)
+		if (obj instanceof BasicChooseInformation<?> other)
 		{
-			BasicChooseInformation<?> other = (BasicChooseInformation<?>) obj;
 			if (title == null)
 			{
 				if (other.title != null)

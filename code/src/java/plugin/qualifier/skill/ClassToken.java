@@ -110,9 +110,8 @@ public class ClassToken implements QualifierToken<Skill>, PrimitiveFilter<Skill>
 	@Override
 	public boolean equals(Object o)
 	{
-		if (o instanceof ClassToken)
+		if (o instanceof ClassToken other)
 		{
-			ClassToken other = (ClassToken) o;
 			if (negated == other.negated)
 			{
 				if (pcs == null)

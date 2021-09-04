@@ -114,9 +114,8 @@ public final class CDOMTypeRef<T> extends CDOMGroupRef<T>
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (obj instanceof CDOMTypeRef)
+		if (obj instanceof CDOMTypeRef<?> ref)
 		{
-			CDOMTypeRef<?> ref = (CDOMTypeRef<?>) obj;
 			return getReferenceClass().equals(ref.getReferenceClass()) && getName().equals(ref.getName())
 				&& Arrays.deepEquals(types, ref.types);
 		}

@@ -1115,11 +1115,10 @@ public class CharacterFacadeImpl
 	@Override
 	public void addTempBonus(TempBonusFacade bonusFacade)
 	{
-		if (bonusFacade == null || !(bonusFacade instanceof TempBonusFacadeImpl))
+		if (bonusFacade == null || !(bonusFacade instanceof TempBonusFacadeImpl tempBonus))
 		{
 			return;
 		}
-		TempBonusFacadeImpl tempBonus = (TempBonusFacadeImpl) bonusFacade;
 
 		// Allow selection of target for bonus affecting equipment
 		CDOMObject originObj = tempBonus.getOriginObj();
@@ -1154,11 +1153,10 @@ public class CharacterFacadeImpl
 	@Override
 	public void removeTempBonus(TempBonusFacade bonusFacade)
 	{
-		if (bonusFacade == null || !(bonusFacade instanceof TempBonusFacadeImpl))
+		if (bonusFacade == null || !(bonusFacade instanceof TempBonusFacadeImpl tempBonus))
 		{
 			return;
 		}
-		TempBonusFacadeImpl tempBonus = (TempBonusFacadeImpl) bonusFacade;
 
 		Equipment aEq = null;
 		if (tempBonus.getTarget() instanceof Equipment)
@@ -1176,11 +1174,10 @@ public class CharacterFacadeImpl
 	@Override
 	public void setTempBonusActive(TempBonusFacade bonusFacade, boolean active)
 	{
-		if (bonusFacade == null || !(bonusFacade instanceof TempBonusFacadeImpl))
+		if (bonusFacade == null || !(bonusFacade instanceof TempBonusFacadeImpl tempBonus))
 		{
 			return;
 		}
-		TempBonusFacadeImpl tempBonus = (TempBonusFacadeImpl) bonusFacade;
 
 		if (active)
 		{
@@ -3167,12 +3164,10 @@ public class CharacterFacadeImpl
 	@Override
 	public void deleteCustomEquipment(EquipmentFacade eqFacade)
 	{
-		if (eqFacade == null || !(eqFacade instanceof Equipment))
+		if (eqFacade == null || !(eqFacade instanceof Equipment itemToBeDeleted))
 		{
 			return;
 		}
-
-		Equipment itemToBeDeleted = (Equipment) eqFacade;
 
 		if (!itemToBeDeleted.isType(Constants.TYPE_CUSTOM))
 		{
@@ -3310,11 +3305,10 @@ public class CharacterFacadeImpl
 	@Override
 	public void deleteEquipmentSet(EquipmentSetFacade set)
 	{
-		if (set == null || !(set instanceof EquipmentSetFacadeImpl))
+		if (set == null || !(set instanceof EquipmentSetFacadeImpl setImpl))
 		{
 			return;
 		}
-		EquipmentSetFacadeImpl setImpl = (EquipmentSetFacadeImpl) set;
 		EquipSet eSet = setImpl.getEquipSet();
 
 		theCharacter.delEquipSet(eSet);
@@ -3424,13 +3418,12 @@ public class CharacterFacadeImpl
 	@Override
 	public boolean isQualifiedFor(InfoFacade infoFacade)
 	{
-		if (!(infoFacade instanceof PObject))
+		if (!(infoFacade instanceof PObject pObj))
 		{
 			return false;
 		}
 
-		PObject pObj = (PObject) infoFacade;
-        return theCharacter.isQualified(pObj);
+		return theCharacter.isQualified(pObj);
     }
 
 	@Override
@@ -3453,12 +3446,11 @@ public class CharacterFacadeImpl
 	@Override
 	public boolean isQualifiedFor(TempBonusFacade tempBonusFacade)
 	{
-		if (!(tempBonusFacade instanceof TempBonusFacadeImpl))
+		if (!(tempBonusFacade instanceof TempBonusFacadeImpl tempBonus))
 		{
 			return false;
 		}
 
-		TempBonusFacadeImpl tempBonus = (TempBonusFacadeImpl) tempBonusFacade;
 		CDOMObject originObj = tempBonus.getOriginObj();
         return theCharacter.isQualified(originObj);
     }
@@ -3466,12 +3458,10 @@ public class CharacterFacadeImpl
 	@Override
 	public boolean isQualifiedFor(SpellFacade spellFacade, PCClass pcClass)
 	{
-		if (!(spellFacade instanceof SpellFacadeImplem) || (pcClass == null))
+		if (!(spellFacade instanceof SpellFacadeImplem spellFI) || (pcClass == null))
 		{
 			return false;
 		}
-
-		SpellFacadeImplem spellFI = (SpellFacadeImplem) spellFacade;
 
 		if (!theCharacter.isQualified(spellFI.getSpell()))
 		{
@@ -3484,12 +3474,10 @@ public class CharacterFacadeImpl
 	@Override
 	public boolean isQualifiedFor(EquipmentFacade equipFacade, EquipmentModifier eqMod)
 	{
-		if (!(equipFacade instanceof Equipment))
+		if (!(equipFacade instanceof Equipment equip))
 		{
 			return false;
 		}
-
-		Equipment equip = (Equipment) equipFacade;
 
 		//TODO: Handle second head
 		return equip.canAddModifier(theCharacter, eqMod, true);

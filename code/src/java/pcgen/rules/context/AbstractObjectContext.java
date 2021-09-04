@@ -206,9 +206,8 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 		{
 			for (ConcretePrereqObject cpo : edits.negativeMap.getSecondaryKeySet(uri))
 			{
-				if (cpo instanceof CDOMObject)
+				if (cpo instanceof CDOMObject cdo)
 				{
-					CDOMObject cdo = (CDOMObject) cpo;
 					CDOMObject neg = edits.negativeMap.get(uri, cdo);
 					for (ObjectKey<?> ok : neg.getSafeListFor(ListKey.REMOVED_OBJECTKEY))
 					{
@@ -250,9 +249,8 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 				{
 					commit.put(cpo, p);
 				}
-				if (cpo instanceof CDOMObject)
+				if (cpo instanceof CDOMObject cdo)
 				{
-					CDOMObject cdo = (CDOMObject) cpo;
 					for (StringKey key : pos.getStringKeys())
 					{
 						commit.put(cdo, key, pos.get(key));

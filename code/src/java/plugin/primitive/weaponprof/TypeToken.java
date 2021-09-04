@@ -92,9 +92,8 @@ public class TypeToken implements PrimitiveToken<WeaponProf>
 		{
 			return true;
 		}
-		if (obj instanceof TypeToken)
+		if (obj instanceof TypeToken other)
 		{
-			TypeToken other = (TypeToken) obj;
 			return typeRef.equals(other.typeRef);
 		}
 		return false;

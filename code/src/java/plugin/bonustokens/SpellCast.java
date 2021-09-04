@@ -65,9 +65,8 @@ public final class SpellCast extends BonusObj
 	protected String unparseToken(final Object obj)
 	{
 		final StringBuilder sb = new StringBuilder(30);
-		if (obj instanceof SpellCastInfo)
+		if (obj instanceof final SpellCastInfo sci)
 		{
-			final SpellCastInfo sci = (SpellCastInfo) obj;
 
 			if (sci.getType() != null)
 			{

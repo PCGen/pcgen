@@ -99,11 +99,10 @@ public class SpellProhibitor extends ConcretePrereqObject
 		{
 			return true;
 		}
-		if (!(o instanceof SpellProhibitor))
+		if (!(o instanceof SpellProhibitor other))
 		{
 			return false;
 		}
-		SpellProhibitor other = (SpellProhibitor) o;
 		if ((type == null && other.type == null) || (type != null && type == other.type))
 		{
 			return (other.valueList == null && valueList == null)

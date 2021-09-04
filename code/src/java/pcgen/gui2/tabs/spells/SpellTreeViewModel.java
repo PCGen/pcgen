@@ -97,9 +97,8 @@ public class SpellTreeViewModel implements TreeViewModel<SuperNode>
 		public List<TreeViewPath<SuperNode>> getPaths(SuperNode node)
 		{
 			TreeViewPath<SuperNode> path;
-			if (node instanceof SpellNode)
+			if (node instanceof SpellNode pobj)
 			{
-				SpellNode pobj = (SpellNode) node;
 				LinkedList<Object> pathList = new LinkedList<>();
 				switch (this)
 				{

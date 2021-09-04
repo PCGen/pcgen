@@ -748,11 +748,10 @@ public abstract class ExportHandler
 	{
 		for (Object aChild : children)
 		{
-			if (aChild instanceof FORNode)
+			if (aChild instanceof final FORNode nextFor)
 			{
 				// If the child is a FORNode then put it in the loopVariables map as 
 				// a key with a corresponding value of 0
-				final FORNode nextFor = (FORNode) aChild;
 				loopVariables.put(nextFor.var(), 0);
 				existsOnly = nextFor.exists();
 
@@ -847,9 +846,8 @@ public abstract class ExportHandler
 		int numberOfChildrenNodes = node.children().size();
 		for (int y = 0; y < numberOfChildrenNodes; ++y)
 		{
-			if (node.children().get(y) instanceof FORNode)
+			if (node.children().get(y) instanceof FORNode nextFor)
 			{
-				FORNode nextFor = (FORNode) node.children().get(y);
 				loopVariables.put(nextFor.var(), 0);
 				existsOnly = nextFor.exists();
 

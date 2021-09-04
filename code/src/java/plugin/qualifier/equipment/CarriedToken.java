@@ -109,9 +109,8 @@ public class CarriedToken implements QualifierToken<Equipment>, PrimitiveFilter<
 	@Override
 	public boolean equals(Object o)
 	{
-		if (o instanceof CarriedToken)
+		if (o instanceof CarriedToken other)
 		{
-			CarriedToken other = (CarriedToken) o;
 			if (negated == other.negated)
 			{
 				if (pcs == null)

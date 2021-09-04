@@ -91,9 +91,8 @@ public class BaseSizeToken implements PrimitiveToken<Race>, PrimitiveFilter<Race
 		{
 			return true;
 		}
-		if (obj instanceof BaseSizeToken)
+		if (obj instanceof BaseSizeToken other)
 		{
-			BaseSizeToken other = (BaseSizeToken) obj;
 			return size.equals(other.size);
 		}
 		return false;

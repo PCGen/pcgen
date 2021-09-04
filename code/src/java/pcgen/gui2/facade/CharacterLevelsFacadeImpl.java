@@ -223,11 +223,10 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 
 	private PCClassLevel getClassLevel(CharacterLevelFacade level)
 	{
-		if (level == null || !(level instanceof CharacterLevelFacadeImpl))
+		if (level == null || !(level instanceof CharacterLevelFacadeImpl levelImpl))
 		{
 			return null;
 		}
-		CharacterLevelFacadeImpl levelImpl = (CharacterLevelFacadeImpl) level;
 		int lvlIdx = levelImpl.getCharacterLevel() - 1;
 
 		final String classKeyName = charDisplay.getLevelInfoClassKeyName(lvlIdx);
@@ -315,7 +314,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	@Override
 	public float getMaxRanks(CharacterLevelFacade level, SkillCost cost, boolean isClassForMaxRanks)
 	{
-		if (cost == null || level == null || !(level instanceof CharacterLevelFacadeImpl))
+		if (cost == null || level == null || !(level instanceof CharacterLevelFacadeImpl levelImpl))
 		{
 			return 0.0f;
 		}
@@ -324,7 +323,6 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 			return Float.NaN;
 		}
 		SkillCost costForMaxRanks = isClassForMaxRanks ? SkillCost.CLASS : cost;
-		CharacterLevelFacadeImpl levelImpl = (CharacterLevelFacadeImpl) level;
 		if (costForMaxRanks == SkillCost.CLASS)
 		{
 			return SkillUtilities.maxClassSkillForLevel(levelImpl.getCharacterLevel(), theCharacter).floatValue();

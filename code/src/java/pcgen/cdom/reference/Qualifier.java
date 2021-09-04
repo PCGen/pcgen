@@ -70,9 +70,8 @@ public class Qualifier
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (obj instanceof Qualifier)
+		if (obj instanceof Qualifier other)
 		{
-			Qualifier other = (Qualifier) obj;
 			return qualRef.equals(other.qualRef);
 		}
 		return false;

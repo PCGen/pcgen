@@ -70,9 +70,8 @@ public class FilteredReference<T> extends CDOMGroupRef<T>
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (obj instanceof FilteredReference)
+		if (obj instanceof FilteredReference<?> other)
 		{
-			FilteredReference<?> other = (FilteredReference<?>) obj;
 			return baseSet.equals(other.baseSet) && filterSet.equals(other.filterSet);
 		}
 		return false;

@@ -121,9 +121,8 @@ public class SimpleAssociatedObject extends ConcretePrereqObject implements Asso
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (obj instanceof SimpleAssociatedObject)
+		if (obj instanceof SimpleAssociatedObject other)
 		{
-			SimpleAssociatedObject other = (SimpleAssociatedObject) obj;
 			return assoc.equals(other.assoc) && equalsPrereqObject(other);
 		}
 		return false;

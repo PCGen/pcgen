@@ -198,9 +198,8 @@ public class PatternMatchingReference<T extends Loadable> extends CDOMReference<
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (obj instanceof PatternMatchingReference)
+		if (obj instanceof PatternMatchingReference<?> other)
 		{
-			PatternMatchingReference<?> other = (PatternMatchingReference<?>) obj;
 			return getReferenceClass().equals(other.getReferenceClass()) && all.equals(other.all)
 				&& pattern.equals(other.pattern);
 		}

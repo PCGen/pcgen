@@ -240,9 +240,8 @@ public class SimpleChoiceSet<T> implements PrimitiveChoiceSet<T>
 		{
 			return true;
 		}
-		if (obj instanceof SimpleChoiceSet)
+		if (obj instanceof SimpleChoiceSet<?> other)
 		{
-			SimpleChoiceSet<?> other = (SimpleChoiceSet<?>) obj;
 			return set.equals(other.set);
 		}
 		return false;

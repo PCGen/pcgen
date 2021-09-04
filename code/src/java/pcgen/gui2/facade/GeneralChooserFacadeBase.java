@@ -225,9 +225,8 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 	{
 		List<String> branches = new ArrayList<>();
 
-		if (item instanceof PObject)
+		if (item instanceof PObject pObject)
 		{
-			PObject pObject = (PObject) item;
 			branches = pObject.getTrueTypeList(true)
 			                  .stream()
 			                  .map(Type::toString)

@@ -101,11 +101,10 @@ public class ChangeProf extends ConcretePrereqObject
 		{
 			return true;
 		}
-		if (!(obj instanceof ChangeProf))
+		if (!(obj instanceof ChangeProf other))
 		{
 			return false;
 		}
-		ChangeProf other = (ChangeProf) obj;
 		return source.equals(other.source) && result.equals(other.result);
 	}
 

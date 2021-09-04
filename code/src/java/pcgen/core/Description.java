@@ -206,9 +206,8 @@ public class Description extends ConcretePrereqObject
 					}
 					else if (var.equals(VAR_CHOICE))
 					{
-						if (b instanceof ChooseDriver)
+						if (b instanceof ChooseDriver object)
 						{
-							ChooseDriver object = (ChooseDriver) b;
 							if (aPC.hasAssociations(object))
 							{
 								//TODO This is ill defined
@@ -228,9 +227,8 @@ public class Description extends ConcretePrereqObject
 						List<String> assocList = new ArrayList<>();
 						for (Object obj : objList)
 						{
-							if (obj instanceof ChooseDriver)
+							if (obj instanceof ChooseDriver object)
 							{
-								ChooseDriver object = (ChooseDriver) obj;
 								if (aPC.hasAssociations(object))
 								{
 									assocList.addAll(aPC.getAssociationExportList(object));
@@ -370,11 +368,10 @@ public class Description extends ConcretePrereqObject
 		{
 			return true;
 		}
-		if (!(o instanceof Description))
+		if (!(o instanceof Description other))
 		{
 			return false;
 		}
-		Description other = (Description) o;
 		if (theVariables == null)
 		{
 			if (other.theVariables != null)

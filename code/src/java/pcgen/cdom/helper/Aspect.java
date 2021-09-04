@@ -348,11 +348,10 @@ public class Aspect extends ConcretePrereqObject
 		{
 			return true;
 		}
-		if (!(obj instanceof Aspect))
+		if (!(obj instanceof Aspect other))
 		{
 			return false;
 		}
-		Aspect other = (Aspect) obj;
 		if (theVariables == null && other.theVariables != null)
 		{
 			return false;

@@ -282,9 +282,8 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements Primitiv
 		{
 			return true;
 		}
-		if (obj instanceof SpellCasterChoiceSet)
+		if (obj instanceof SpellCasterChoiceSet other)
 		{
-			SpellCasterChoiceSet other = (SpellCasterChoiceSet) obj;
 			if (types == null)
 			{
 				if (other.types != null)

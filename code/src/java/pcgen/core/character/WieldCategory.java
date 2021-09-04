@@ -219,12 +219,11 @@ public final class WieldCategory implements Loadable
 	@Override
 	public boolean equals(Object o)
 	{
-		if (o instanceof WieldCategory)
+		if (o instanceof WieldCategory other)
 		{
 			/*
 			 * Light weight check due to ReferenceManufacturer enforcement
 			 */
-			WieldCategory other = (WieldCategory) o;
 			return categoryName.equals(other.categoryName);
 		}
 		return false;

@@ -2627,9 +2627,8 @@ public final class Equipment extends PObject
 	public int canContain(final PlayerCharacter aPC, final Object obj)
 	{
 
-		if (obj instanceof Equipment)
+		if (obj instanceof final Equipment anEquip)
 		{
-			final Equipment anEquip = (Equipment) obj;
 
 			Float f = (float) (anEquip.getWeightAsDouble(aPC) * anEquip.numberCarried());
 

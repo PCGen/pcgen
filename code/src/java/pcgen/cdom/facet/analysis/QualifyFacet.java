@@ -225,9 +225,8 @@ public class QualifyFacet extends AbstractStorageFacet<CharID> implements DataFa
 			{
 				return true;
 			}
-			if (o instanceof CacheInfo)
+			if (o instanceof CacheInfo ci)
 			{
-				CacheInfo ci = (CacheInfo) o;
 				return ci.hml.equals(hml) && ci.sourceMap.equals(sourceMap);
 			}
 			return false;

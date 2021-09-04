@@ -184,9 +184,8 @@ public class WeaponProfProvider extends ConcretePrereqObject implements Qualifyi
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (obj instanceof WeaponProfProvider)
+		if (obj instanceof WeaponProfProvider other)
 		{
-			WeaponProfProvider other = (WeaponProfProvider) obj;
 			if (direct == null)
 			{
 				if (other.direct != null)

@@ -570,9 +570,8 @@ public abstract class AbstractListContext
 		@Override
 		public boolean equalsTracking(ListCommitStrategy obj)
 		{
-			if (obj instanceof TrackingListCommitStrategy)
+			if (obj instanceof TrackingListCommitStrategy other)
 			{
-				TrackingListCommitStrategy other = (TrackingListCommitStrategy) obj;
 				return other.masterAllClear.equals(this.masterAllClear)
 					&& other.masterClearSet.equals(this.masterClearSet)
 					&& other.positiveMasterMap.equals(this.positiveMasterMap)
@@ -609,9 +608,8 @@ public abstract class AbstractListContext
 		@Override
 		public boolean equals(Object o)
 		{
-			if (o instanceof OwnerURI)
+			if (o instanceof OwnerURI other)
 			{
-				OwnerURI other = (OwnerURI) o;
 				if (source == null)
 				{
 					if (other.source != null)

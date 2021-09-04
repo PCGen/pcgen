@@ -142,9 +142,8 @@ public class RanksToken implements QualifierToken<Skill>, PrimitiveFilter<Skill>
 	@Override
 	public boolean equals(Object o)
 	{
-		if (o instanceof RanksToken)
+		if (o instanceof RanksToken other)
 		{
-			RanksToken other = (RanksToken) o;
 			if (negated == other.negated && ranks == other.ranks && maxRank == other.maxRank)
 			{
 				if (pcs == null)

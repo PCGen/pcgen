@@ -429,11 +429,10 @@ public class Prerequisite implements Cloneable
 		{
 			return true;
 		}
-		if (!(o instanceof Prerequisite))
+		if (!(o instanceof Prerequisite other))
 		{
 			return false;
 		}
-		Prerequisite other = (Prerequisite) o;
 		if (kind == null)
 		{
 			if (other.kind != null)

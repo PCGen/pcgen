@@ -212,9 +212,8 @@ public class LevelFacet extends AbstractStorageFacet<CharID> implements ClassLev
 		@Override
 		public boolean equals(Object o)
 		{
-			if (o instanceof LevelCacheInfo)
+			if (o instanceof LevelCacheInfo other)
 			{
-				LevelCacheInfo other = (LevelCacheInfo) o;
 				return monsterLevels == other.monsterLevels && nonMonsterLevels == other.nonMonsterLevels;
 			}
 			return false;

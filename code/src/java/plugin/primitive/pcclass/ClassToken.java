@@ -88,9 +88,8 @@ public class ClassToken implements PrimitiveToken<PCClass>, PrimitiveFilter<PCCl
 		{
 			return true;
 		}
-		if (obj instanceof ClassToken)
+		if (obj instanceof ClassToken other)
 		{
-			ClassToken other = (ClassToken) obj;
 			return pcclass.equals(other.pcclass);
 		}
 		return false;
