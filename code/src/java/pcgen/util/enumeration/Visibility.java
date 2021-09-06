@@ -58,7 +58,8 @@ public enum Visibility
 					case HIDDEN_DISPLAY -> (this == Visibility.HIDDEN || this == Visibility.OUTPUT_ONLY);
 					case HIDDEN_EXPORT -> (this == Visibility.HIDDEN || this == Visibility.DISPLAY_ONLY);
 					case VISIBLE_EXPORT -> (this == Visibility.DEFAULT || this == Visibility.OUTPUT_ONLY);
-					case VISIBLE_DISPLAY, default -> (this == Visibility.DEFAULT || this == Visibility.DISPLAY_ONLY);
+					case VISIBLE_DISPLAY -> (this == Visibility.DEFAULT || this == Visibility.DISPLAY_ONLY);
+					default -> (this == Visibility.DEFAULT || this == Visibility.DISPLAY_ONLY);
 				};
 		/*
 		 * TODO Need to deal with QUALIFY
