@@ -576,11 +576,10 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 		{
 			return true;
 		}
-		if (!(obj instanceof BonusObj))
+		if (!(obj instanceof BonusObj other))
 		{
 			return false;
 		}
-		BonusObj other = (BonusObj) obj;
 		return equalsPrereqObject(other) && bonusFormula.equals(other.bonusFormula) && bonusName.equals(other.bonusName)
 			&& bonusType.equals(other.bonusType) && theStackingFlag == other.theStackingFlag
 			&& bonusInfo.equals(other.bonusInfo);

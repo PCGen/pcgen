@@ -314,9 +314,8 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment>
 			{
 				return true;
 			}
-			if (o instanceof SizeFacetInfo)
+			if (o instanceof SizeFacetInfo sfi)
 			{
-				SizeFacetInfo sfi = (SizeFacetInfo) o;
 				return (racialSizeInt == sfi.racialSizeInt) && sizeAdj.equals(sfi.sizeAdj);
 			}
 			return false;

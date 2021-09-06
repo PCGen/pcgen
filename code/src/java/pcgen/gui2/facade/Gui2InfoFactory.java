@@ -495,11 +495,10 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getHTMLInfo(AbilityFacade abilityFacade)
 	{
-		if (!(abilityFacade instanceof Ability))
+		if (!(abilityFacade instanceof Ability ability))
 		{
 			return EMPTY_STRING;
 		}
-		Ability ability = (Ability) abilityFacade;
 
 		final HtmlInfoBuilder infoText = new HtmlInfoBuilder();
 		infoText.appendTitleElement(OutputNameFormatting.piString(ability));
@@ -703,12 +702,10 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getHTMLInfo(EquipmentFacade equipFacade)
 	{
-		if (equipFacade == null || !(equipFacade instanceof Equipment))
+		if (equipFacade == null || !(equipFacade instanceof Equipment equip))
 		{
 			return EMPTY_STRING;
 		}
-
-		Equipment equip = (Equipment) equipFacade;
 
 		final HtmlInfoBuilder b = getEquipmentHtmlInfo(equip);
 
@@ -1023,12 +1020,10 @@ public class Gui2InfoFactory implements InfoFactory
 	public String getHTMLInfo(EquipmentModifier equipMod, EquipmentFacade equipFacade)
 	{
 		if (equipMod == null || equipFacade == null
-			|| !(equipFacade instanceof Equipment))
+			|| !(equipFacade instanceof Equipment equip))
 		{
 			return EMPTY_STRING;
 		}
-
-		Equipment equip = (Equipment) equipFacade;
 
 		final HtmlInfoBuilder b = new HtmlInfoBuilder(null, false);
 		b.appendTitleElement(OutputNameFormatting.piString(equipMod));
@@ -1265,14 +1260,13 @@ public class Gui2InfoFactory implements InfoFactory
 			return EMPTY_STRING;
 		}
 
-		if (!(tempBonusFacade instanceof TempBonusFacadeImpl))
+		if (!(tempBonusFacade instanceof TempBonusFacadeImpl tempBonus))
 		{
 			final HtmlInfoBuilder infoText = new HtmlInfoBuilder();
 			infoText.appendTitleElement(tempBonusFacade.toString());
 			return infoText.toString();
 		}
 
-		TempBonusFacadeImpl tempBonus = (TempBonusFacadeImpl) tempBonusFacade;
 		CDOMObject originObj = tempBonus.getOriginObj();
 
 		final HtmlInfoBuilder infoText;
@@ -1321,9 +1315,8 @@ public class Gui2InfoFactory implements InfoFactory
 			}
 		}
 
-		if (originObj instanceof Spell)
+		if (originObj instanceof Spell aSpell)
 		{
-			Spell aSpell = (Spell) originObj;
 			infoText.appendLineBreak();
 			infoText.appendI18nElement("in_spellDuration", //$NON-NLS-1$
 				aSpell.getListAsString(ListKey.DURATION));
@@ -1336,14 +1329,12 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 
 		String aString = originObj.getSafe(StringKey.TEMP_DESCRIPTION);
-		if (StringUtils.isEmpty(aString) && originObj instanceof Spell)
+		if (StringUtils.isEmpty(aString) && originObj instanceof Spell sp)
 		{
-			Spell sp = (Spell) originObj;
 			aString = DescriptionFormatting.piWrapDesc(sp, pc.getDescription(sp), false);
 		}
-		else if (StringUtils.isEmpty(aString) && originObj instanceof Ability)
+		else if (StringUtils.isEmpty(aString) && originObj instanceof Ability ab)
 		{
-			Ability ab = (Ability) originObj;
 			List<CNAbility> wrappedAbility =
 					Collections.singletonList(CNAbilityFactory.getCNAbility(ab.getCDOMCategory(), Nature.NORMAL, ab));
 			aString = DescriptionFormatting.piWrapDesc(ab, pc.getDescription(wrappedAbility), false);
@@ -1645,17 +1636,12 @@ public class Gui2InfoFactory implements InfoFactory
 			return EMPTY_STRING;
 		}
 
-		switch (book.getType())
-		{
-			case SpellBook.TYPE_PREPARED_LIST:
-				return produceSpellListInfo(book);
-
-			case SpellBook.TYPE_SPELL_BOOK:
-				return produceSpellBookInfo(book);
-
-			default:
-				return EMPTY_STRING;
-		}
+		return switch (book.getType())
+				{
+					case SpellBook.TYPE_PREPARED_LIST -> produceSpellListInfo(book);
+					case SpellBook.TYPE_SPELL_BOOK -> produceSpellBookInfo(book);
+					default -> EMPTY_STRING;
+				};
 	}
 
 	/**

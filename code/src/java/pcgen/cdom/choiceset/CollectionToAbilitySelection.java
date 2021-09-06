@@ -337,9 +337,8 @@ public class CollectionToAbilitySelection implements PrimitiveChoiceSet<AbilityS
 			{
 				return true;
 			}
-			if (o instanceof AbilityWithChoice)
+			if (o instanceof AbilityWithChoice other)
 			{
-				AbilityWithChoice other = (AbilityWithChoice) o;
 				if (choice == null)
 				{
 					if (other.choice != null)

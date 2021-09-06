@@ -116,11 +116,10 @@ public class LevelCommandFactory extends ConcretePrereqObject implements Compara
 		{
 			return true;
 		}
-		if (!(obj instanceof LevelCommandFactory))
+		if (!(obj instanceof LevelCommandFactory lcf))
 		{
 			return false;
 		}
-		LevelCommandFactory lcf = (LevelCommandFactory) obj;
 		return levels.equals(lcf.levels) && pcClass.equals(lcf.pcClass);
 	}
 

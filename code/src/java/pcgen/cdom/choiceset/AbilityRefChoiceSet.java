@@ -297,9 +297,8 @@ public class AbilityRefChoiceSet implements PrimitiveChoiceSet<CNAbilitySelectio
 		{
 			return true;
 		}
-		if (obj instanceof AbilityRefChoiceSet)
+		if (obj instanceof AbilityRefChoiceSet other)
 		{
-			AbilityRefChoiceSet other = (AbilityRefChoiceSet) obj;
 			return abilityRefSet.equals(other.abilityRefSet);
 		}
 		return false;

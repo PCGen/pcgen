@@ -1,0 +1,160 @@
+# Mon Oct 28 08:06:48 2019 -- reformatted by PCGen TidyLst v1.04.00
+# Equipment Name			Weapon prop. bonus
+Club.MOD				BONUS:WEAPON|TOHIT|ToHit_Club
+Dagger.MOD				BONUS:WEAPON|TOHIT|ToHit_Dagger
+Fist.MOD				BONUS:WEAPON|TOHIT|ToHit_Fist
+Gauntlet.MOD			BONUS:WEAPON|TOHIT|ToHit_Gauntlet
+Light Mace.MOD			BONUS:WEAPON|TOHIT|ToHit_LightMace
+Longspear.MOD			BONUS:WEAPON|TOHIT|ToHit_Longspear
+Mace.MOD				BONUS:WEAPON|TOHIT|ToHit_Mace
+Morningstar.MOD			BONUS:WEAPON|TOHIT|ToHit_Morningstar
+Sickle.MOD				BONUS:WEAPON|TOHIT|ToHit_Sickle
+Spear.MOD				BONUS:WEAPON|TOHIT|ToHit_Spear
+Spiked gauntlet.MOD		BONUS:WEAPON|TOHIT|ToHit_Spikedgauntlet
+Staff.MOD				BONUS:WEAPON|TOHIT|ToHit_Staff
+Bastard sword.MOD			BONUS:WEAPON|TOHIT|ToHit_Bastardsword
+Battle axe.MOD			BONUS:WEAPON|TOHIT|ToHit_Battleaxe
+Bo staff.MOD			BONUS:WEAPON|TOHIT|ToHit_Bostaff
+Falchion.MOD			BONUS:WEAPON|TOHIT|ToHit_Falchion
+Flail.MOD				BONUS:WEAPON|TOHIT|ToHit_Flail
+Glaive.MOD				BONUS:WEAPON|TOHIT|ToHit_Glaive
+Greataxe.MOD			BONUS:WEAPON|TOHIT|ToHit_Greataxe
+Greatclub.MOD			BONUS:WEAPON|TOHIT|ToHit_Greatclub
+Greatpick.MOD			BONUS:WEAPON|TOHIT|ToHit_Greatpick
+Greatsword.MOD			BONUS:WEAPON|TOHIT|ToHit_Greatsword
+Guisarme.MOD			BONUS:WEAPON|TOHIT|ToHit_Guisarme
+Halberd.MOD				BONUS:WEAPON|TOHIT|ToHit_Halberd
+Hatchet.MOD				BONUS:WEAPON|TOHIT|ToHit_Hatchet
+Shield bash.MOD			BONUS:WEAPON|TOHIT|ToHit_HeavyShieldBash
+Shield boss.MOD			BONUS:WEAPON|TOHIT|ToHit_Heavyshieldboss
+Shield spikes.MOD			BONUS:WEAPON|TOHIT|ToHit_Heavyshieldspikes
+Lance.MOD				BONUS:WEAPON|TOHIT|ToHit_Lance
+Light hammer.MOD			BONUS:WEAPON|TOHIT|ToHit_Lighthammer
+Light pick.MOD			BONUS:WEAPON|TOHIT|ToHit_Lightpick
+Longsword.MOD			BONUS:WEAPON|TOHIT|ToHit_Longsword
+Main-guache.MOD			BONUS:WEAPON|TOHIT|ToHit_Mainguache
+Maul.MOD				BONUS:WEAPON|TOHIT|ToHit_Maul
+Pick.MOD				BONUS:WEAPON|TOHIT|ToHit_Pick
+Ranseur.MOD				BONUS:WEAPON|TOHIT|ToHit_Ranseur
+Rapier.MOD				BONUS:WEAPON|TOHIT|ToHit_Rapier
+Sap.MOD				BONUS:WEAPON|TOHIT|ToHit_Sap
+Scimitar.MOD			BONUS:WEAPON|TOHIT|ToHit_Scimitar
+Scythe.MOD				BONUS:WEAPON|TOHIT|ToHit_Scythe
+Shortsword.MOD			BONUS:WEAPON|TOHIT|ToHit_Shortsword
+Starknife.MOD			BONUS:WEAPON|TOHIT|ToHit_Starknife
+Trident.MOD				BONUS:WEAPON|TOHIT|ToHit_Trident
+War flail.MOD			BONUS:WEAPON|TOHIT|ToHit_Warflail
+Warhammer.MOD			BONUS:WEAPON|TOHIT|ToHit_Warhammer
+Whip.MOD				BONUS:WEAPON|TOHIT|ToHit_Whip
+Blowgun.MOD				BONUS:WEAPON|TOHIT|ToHit_Blowgun
+Crossbow.MOD			BONUS:WEAPON|TOHIT|ToHit_Crossbow
+Dart.MOD				BONUS:WEAPON|TOHIT|ToHit_Dart
+Hand crossbow.MOD			BONUS:WEAPON|TOHIT|ToHit_Handcrossbow
+Heavy crossbow.MOD		BONUS:WEAPON|TOHIT|ToHit_Heavycrossbow
+Javelin.MOD				BONUS:WEAPON|TOHIT|ToHit_Javelin
+Sling.MOD				BONUS:WEAPON|TOHIT|ToHit_Sling
+Composite longbow.MOD		BONUS:WEAPON|TOHIT|ToHit_Compositelongbow
+Composite shortbow.MOD		BONUS:WEAPON|TOHIT|ToHit_Compositeshortbow
+Longbow.MOD				BONUS:WEAPON|TOHIT|ToHit_Longbow
+Shortbow.MOD			BONUS:WEAPON|TOHIT|ToHit_Shortbow
+Clan dagger.MOD			BONUS:WEAPON|TOHIT|ToHit_Clandagger
+Katar.MOD				BONUS:WEAPON|TOHIT|ToHit_Katar
+Dogslicer.MOD			BONUS:WEAPON|TOHIT|ToHit_Dogslicer
+Elven curve blade.MOD		BONUS:WEAPON|TOHIT|ToHit_Elvencurveblade
+Filcher's fork.MOD		BONUS:WEAPON|TOHIT|ToHit_Filchersfork
+Gnome hooked hammer.MOD		BONUS:WEAPON|TOHIT|ToHit_Gnomehookedhammer
+Horsechopper.MOD			BONUS:WEAPON|TOHIT|ToHit_Horsechopper
+Kama.MOD				BONUS:WEAPON|TOHIT|ToHit_Kama
+Katana.MOD				BONUS:WEAPON|TOHIT|ToHit_Katana
+Kukri.MOD				BONUS:WEAPON|TOHIT|ToHit_Kukri
+Nunchaku.MOD			BONUS:WEAPON|TOHIT|ToHit_Nunchaku
+Orc knuckle dagger.MOD		BONUS:WEAPON|TOHIT|ToHit_Orcknuckledagger
+Sai.MOD				BONUS:WEAPON|TOHIT|ToHit_Sai
+Spiked chain.MOD			BONUS:WEAPON|TOHIT|ToHit_Spikedchain
+Temple sword.MOD			BONUS:WEAPON|TOHIT|ToHit_Templesword
+Dwarven waraxe.MOD		BONUS:WEAPON|TOHIT|ToHit_Dwarvenwaraxe
+Gnome flickmace.MOD		BONUS:WEAPON|TOHIT|ToHit_Gnomeflickmace
+Orc necksplitter.MOD		BONUS:WEAPON|TOHIT|ToHit_Orcnecksplitter
+Sawtooth sabre.MOD		BONUS:WEAPON|TOHIT|ToHit_Sawtoothsabre
+Halfling sling staff.MOD	BONUS:WEAPON|TOHIT|ToHit_Halflingslingstaff
+Shuriken.MOD			BONUS:WEAPON|TOHIT|ToHit_Shuriken
+
+
+Club.MOD				BONUS:WEAPON|DAMAGE|DAMAGE_Club
+Dagger.MOD				BONUS:WEAPON|DAMAGE|DAMAGE_Dagger
+Fist.MOD				BONUS:WEAPON|DAMAGE|DAMAGE_Fist
+Gauntlet.MOD			BONUS:WEAPON|DAMAGE|DAMAGE_Gauntlet
+Light Mace.MOD			BONUS:WEAPON|DAMAGE|DAMAGE_LightMace
+Longspear.MOD			BONUS:WEAPON|DAMAGE|DAMAGE_Longspear
+Mace.MOD				BONUS:WEAPON|DAMAGE|DAMAGE_Mace
+Morningstar.MOD			BONUS:WEAPON|DAMAGE|DAMAGE_Morningstar
+Sickle.MOD				BONUS:WEAPON|DAMAGE|DAMAGE_Sickle
+Spear.MOD				BONUS:WEAPON|DAMAGE|DAMAGE_Spear
+Spiked gauntlet.MOD		BONUS:WEAPON|DAMAGE|DAMAGE_Spikedgauntlet
+Staff.MOD				BONUS:WEAPON|DAMAGE|DAMAGE_Staff
+Bastard sword.MOD			BONUS:WEAPON|DAMAGE|DAMAGE_Bastardsword
+Battle axe.MOD			BONUS:WEAPON|DAMAGE|DAMAGE_Battleaxe
+Bo staff.MOD			BONUS:WEAPON|DAMAGE|DAMAGE_Bostaff
+Falchion.MOD			BONUS:WEAPON|DAMAGE|DAMAGE_Falchion
+Flail.MOD				BONUS:WEAPON|DAMAGE|DAMAGE_Flail
+Glaive.MOD				BONUS:WEAPON|DAMAGE|DAMAGE_Glaive
+Greataxe.MOD			BONUS:WEAPON|DAMAGE|DAMAGE_Greataxe
+Greatclub.MOD			BONUS:WEAPON|DAMAGE|DAMAGE_Greatclub
+Greatpick.MOD			BONUS:WEAPON|DAMAGE|DAMAGE_Greatpick
+Greatsword.MOD			BONUS:WEAPON|DAMAGE|DAMAGE_Greatsword
+Guisarme.MOD			BONUS:WEAPON|DAMAGE|DAMAGE_Guisarme
+Halberd.MOD				BONUS:WEAPON|DAMAGE|DAMAGE_Halberd
+Hatchet.MOD				BONUS:WEAPON|DAMAGE|DAMAGE_Hatchet
+Shield bash.MOD			BONUS:WEAPON|DAMAGE|DAMAGE_HeavyShieldBash
+Shield boss.MOD			BONUS:WEAPON|DAMAGE|DAMAGE_Heavyshieldboss
+Shield spikes.MOD			BONUS:WEAPON|DAMAGE|DAMAGE_Heavyshieldspikes
+Lance.MOD				BONUS:WEAPON|DAMAGE|DAMAGE_Lance
+Light hammer.MOD			BONUS:WEAPON|DAMAGE|DAMAGE_Lighthammer
+Light pick.MOD			BONUS:WEAPON|DAMAGE|DAMAGE_Lightpick
+Longsword.MOD			BONUS:WEAPON|DAMAGE|DAMAGE_Longsword
+Main-guache.MOD			BONUS:WEAPON|DAMAGE|DAMAGE_Mainguache
+Maul.MOD				BONUS:WEAPON|DAMAGE|DAMAGE_Maul
+Pick.MOD				BONUS:WEAPON|DAMAGE|DAMAGE_Pick
+Ranseur.MOD				BONUS:WEAPON|DAMAGE|DAMAGE_Ranseur
+Rapier.MOD				BONUS:WEAPON|DAMAGE|DAMAGE_Rapier
+Sap.MOD				BONUS:WEAPON|DAMAGE|DAMAGE_Sap
+Scimitar.MOD			BONUS:WEAPON|DAMAGE|DAMAGE_Scimitar
+Scythe.MOD				BONUS:WEAPON|DAMAGE|DAMAGE_Scythe
+Shortsword.MOD			BONUS:WEAPON|DAMAGE|DAMAGE_Shortsword
+Starknife.MOD			BONUS:WEAPON|DAMAGE|DAMAGE_Starknife
+Trident.MOD				BONUS:WEAPON|DAMAGE|DAMAGE_Trident
+War flail.MOD			BONUS:WEAPON|DAMAGE|DAMAGE_Warflail
+Warhammer.MOD			BONUS:WEAPON|DAMAGE|DAMAGE_Warhammer
+Whip.MOD				BONUS:WEAPON|DAMAGE|DAMAGE_Whip
+Blowgun.MOD				BONUS:WEAPON|DAMAGE|DAMAGE_Blowgun
+Crossbow.MOD			BONUS:WEAPON|DAMAGE|DAMAGE_Crossbow
+Dart.MOD				BONUS:WEAPON|DAMAGE|DAMAGE_Dart
+Hand crossbow.MOD			BONUS:WEAPON|DAMAGE|DAMAGE_Handcrossbow
+Heavy crossbow.MOD		BONUS:WEAPON|DAMAGE|DAMAGE_Heavycrossbow
+Javelin.MOD				BONUS:WEAPON|DAMAGE|DAMAGE_Javelin
+Sling.MOD				BONUS:WEAPON|DAMAGE|DAMAGE_Sling
+Composite longbow.MOD		BONUS:WEAPON|DAMAGE|DAMAGE_Compositelongbow
+Composite shortbow.MOD		BONUS:WEAPON|DAMAGE|DAMAGE_Compositeshortbow
+Longbow.MOD				BONUS:WEAPON|DAMAGE|DAMAGE_Longbow
+Shortbow.MOD			BONUS:WEAPON|DAMAGE|DAMAGE_Shortbow
+Clan dagger.MOD			BONUS:WEAPON|DAMAGE|DAMAGE_Clandagger
+Katar.MOD				BONUS:WEAPON|DAMAGE|DAMAGE_Katar
+Dogslicer.MOD			BONUS:WEAPON|DAMAGE|DAMAGE_Dogslicer
+Elven curve blade.MOD		BONUS:WEAPON|DAMAGE|DAMAGE_Elvencurveblade
+Filcher's fork.MOD		BONUS:WEAPON|DAMAGE|DAMAGE_Filchersfork
+Gnome hooked hammer.MOD		BONUS:WEAPON|DAMAGE|DAMAGE_Gnomehookedhammer
+Horsechopper.MOD			BONUS:WEAPON|DAMAGE|DAMAGE_Horsechopper
+Kama.MOD				BONUS:WEAPON|DAMAGE|DAMAGE_Kama
+Katana.MOD				BONUS:WEAPON|DAMAGE|DAMAGE_Katana
+Kukri.MOD				BONUS:WEAPON|DAMAGE|DAMAGE_Kukri
+Nunchaku.MOD			BONUS:WEAPON|DAMAGE|DAMAGE_Nunchaku
+Orc knuckle dagger.MOD		BONUS:WEAPON|DAMAGE|DAMAGE_Orcknuckledagger
+Sai.MOD				BONUS:WEAPON|DAMAGE|DAMAGE_Sai
+Spiked chain.MOD			BONUS:WEAPON|DAMAGE|DAMAGE_Spikedchain
+Temple sword.MOD			BONUS:WEAPON|DAMAGE|DAMAGE_Templesword
+Dwarven waraxe.MOD		BONUS:WEAPON|DAMAGE|DAMAGE_Dwarvenwaraxe
+Gnome flickmace.MOD		BONUS:WEAPON|DAMAGE|DAMAGE_Gnomeflickmace
+Orc necksplitter.MOD		BONUS:WEAPON|DAMAGE|DAMAGE_Orcnecksplitter
+Sawtooth sabre.MOD		BONUS:WEAPON|DAMAGE|DAMAGE_Sawtoothsabre
+Halfling sling staff.MOD	BONUS:WEAPON|DAMAGE|DAMAGE_Halflingslingstaff
+Shuriken.MOD			BONUS:WEAPON|DAMAGE|DAMAGE_Shuriken

@@ -839,32 +839,32 @@ public class NameGenPanel extends JPanel
 			Element child = (Element) element;
 			String elementName = child.getName();
 
-            switch (elementName)
-            {
-                case "GETLIST":
-                    String listId = child.getAttributeValue("idref");
-                    dataRule.add(listId);
-                    break;
-                case "SPACE":
-                    SpaceRule sp = new SpaceRule();
-                    allVars.addDataElement(sp);
-                    dataRule.add(sp.getId());
-                    break;
-                case "HYPHEN":
-                    HyphenRule hy = new HyphenRule();
-                    allVars.addDataElement(hy);
-                    dataRule.add(hy.getId());
-                    break;
-                case "CR":
-                    CRRule cr = new CRRule();
-                    allVars.addDataElement(cr);
-                    dataRule.add(cr.getId());
-                    break;
-                case "GETRULE":
-                    String ruleId = child.getAttributeValue("idref");
-                    dataRule.add(ruleId);
-                    break;
-            }
+			switch (elementName)
+			{
+				case "GETLIST" -> {
+					String listId = child.getAttributeValue("idref");
+					dataRule.add(listId);
+				}
+				case "SPACE" -> {
+					SpaceRule sp = new SpaceRule();
+					allVars.addDataElement(sp);
+					dataRule.add(sp.getId());
+				}
+				case "HYPHEN" -> {
+					HyphenRule hy = new HyphenRule();
+					allVars.addDataElement(hy);
+					dataRule.add(hy.getId());
+				}
+				case "CR" -> {
+					CRRule cr = new CRRule();
+					allVars.addDataElement(cr);
+					dataRule.add(cr.getId());
+				}
+				case "GETRULE" -> {
+					String ruleId = child.getAttributeValue("idref");
+					dataRule.add(ruleId);
+				}
+			}
 		}
 
 		allVars.addDataElement(dataRule);

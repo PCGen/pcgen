@@ -153,9 +153,8 @@ public class CDOMTransparentSingleRef<T extends Loadable> extends CDOMSingleRef<
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (obj instanceof CDOMTransparentSingleRef)
+		if (obj instanceof CDOMTransparentSingleRef<?> ref)
 		{
-			CDOMTransparentSingleRef<?> ref = (CDOMTransparentSingleRef<?>) obj;
 			return getReferenceClass().equals(ref.getReferenceClass()) && getName().equals(ref.getName());
 		}
 		return false;

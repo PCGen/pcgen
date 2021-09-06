@@ -371,9 +371,8 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 			List<?> data = selectedTable.getSelectedData();
 			for (Object object : data)
 			{
-				if (object instanceof SpellNode)
+				if (object instanceof SpellNode spellNode)
 				{
-					SpellNode spellNode = (SpellNode) object;
 					character.getSpellSupport().removePreparedSpell(spellNode, spellNode.getRootNode().toString());
 				}
 			}
@@ -503,9 +502,8 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 		@Override
 		public boolean accept(CharacterFacade context, SuperNode element)
 		{
-			if (element instanceof SpellNode)
+			if (element instanceof SpellNode spellNode)
 			{
-				SpellNode spellNode = (SpellNode) element;
 				SpellFacade spell = spellNode.getSpell();
 				PCClass pcClass = spellNode.getSpellcastingClass();
 				return character.isQualifiedFor(spell, pcClass);

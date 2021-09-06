@@ -509,9 +509,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			{
 				for (Object object : data)
 				{
-					if (object instanceof EquipmentFacade)
+					if (object instanceof EquipmentFacade equip)
 					{
-						EquipmentFacade equip = (EquipmentFacade) object;
 						if (character.isAutoResize())
 						{
 							equip = character.getEquipmentSizedForCharacter(equip);
@@ -555,9 +554,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			{
 				for (Object object : data)
 				{
-					if (object instanceof EquipmentFacade)
+					if (object instanceof EquipmentFacade equip)
 					{
-						EquipmentFacade equip = (EquipmentFacade) object;
 						if (character.isAutoResize())
 						{
 							equip = character.getEquipmentSizedForCharacter(equip);
@@ -593,9 +591,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			{
 				for (Object object : data)
 				{
-					if (object instanceof EquipmentFacade)
+					if (object instanceof EquipmentFacade equip)
 					{
-						EquipmentFacade equip = (EquipmentFacade) object;
 						character.deleteCustomEquipment(equip);
 					}
 				}
@@ -949,19 +946,14 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		@Override
 		public Object getDataInternal(EquipmentFacade obj, int column)
 		{
-			switch (column)
-			{
-				case 0:
-					return character.getInfoFactory().getCost(obj);
-				case 1:
-					return character.getInfoFactory().getWeight(obj);
-				case 2:
-					return character.getInfoFactory().getDescription(obj);
-				case 3:
-					return obj.getSource();
-				default:
-					return null;
-			}
+			return switch (column)
+					{
+						case 0 -> character.getInfoFactory().getCost(obj);
+						case 1 -> character.getInfoFactory().getWeight(obj);
+						case 2 -> character.getInfoFactory().getDescription(obj);
+						case 3 -> obj.getSource();
+						default -> null;
+					};
 		}
 
 		@Override
@@ -1023,19 +1015,14 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		@Override
 		public Object getData(EquipmentFacade obj, int column)
 		{
-			switch (column)
-			{
-				case 0:
-					return character.getInfoFactory().getCost(obj);
-				case 1:
-					return character.getInfoFactory().getWeight(obj);
-				case 2:
-					return equipmentList.getQuantity(obj);
-				case 3:
-					return character.getInfoFactory().getDescription(obj);
-				default:
-					return null;
-			}
+			return switch (column)
+					{
+						case 0 -> character.getInfoFactory().getCost(obj);
+						case 1 -> character.getInfoFactory().getWeight(obj);
+						case 2 -> equipmentList.getQuantity(obj);
+						case 3 -> character.getInfoFactory().getDescription(obj);
+						default -> null;
+					};
 		}
 
 		@Override
@@ -1219,14 +1206,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			{
 				return null;
 			}
-			Iterator<?> it = data.iterator();
-			while (it.hasNext())
-			{
-				if (!(it.next() instanceof EquipmentFacade))
-				{
-					it.remove();
-				}
-			}
+			data.removeIf(o -> !(o instanceof EquipmentFacade));
 			if (data.isEmpty())
 			{
 				return null;

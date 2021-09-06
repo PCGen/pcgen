@@ -92,9 +92,8 @@ public class Vision extends CDOMObject implements Comparable<Vision>
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (obj instanceof Vision)
+		if (obj instanceof Vision v)
 		{
-			Vision v = (Vision) obj;
 			return distance.equals(v.distance) && visionType.equals(v.visionType);
 		}
 		return false;

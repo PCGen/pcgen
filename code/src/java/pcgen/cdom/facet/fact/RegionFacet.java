@@ -319,9 +319,8 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 		@Override
 		public boolean equals(Object o)
 		{
-			if (o instanceof RegionCacheInfo)
+			if (o instanceof RegionCacheInfo other)
 			{
-				RegionCacheInfo other = (RegionCacheInfo) o;
 				return Objects.equals(region, other.region) && Objects.equals(subregion, other.subregion)
 					&& Objects.equals(cachedRegion, other.cachedRegion);
 			}

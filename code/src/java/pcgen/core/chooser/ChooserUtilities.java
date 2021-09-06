@@ -104,9 +104,8 @@ public final class ChooserUtilities
 			return null;
 		}
 
-		if (aPObject instanceof CNAbility)
+		if (aPObject instanceof CNAbility driver)
 		{
-			CNAbility driver = (CNAbility) aPObject;
 			Ability a = driver.getAbility();
 			AbilityCategory cat;
 			if (category == null)
@@ -124,9 +123,8 @@ public final class ChooserUtilities
 				reservedList.addAll(aPC.getAssociationList(cna));
 			}
 		}
-		else if (aPObject instanceof Skill)
+		else if (aPObject instanceof Skill s)
 		{
-			Skill s = (Skill) aPObject;
 			aMan.setController(new SkillChooseController(s, aPC));
 		}
 		return aMan;

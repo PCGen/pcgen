@@ -84,9 +84,8 @@ public class SpellTypeToken extends AbstractRestrictedSpellPrimitive
 		{
 			return true;
 		}
-		if (obj instanceof SpellTypeToken)
+		if (obj instanceof SpellTypeToken other)
 		{
-			SpellTypeToken other = (SpellTypeToken) obj;
 			if (spelltype == null)
 			{
 				return other.spelltype == null;

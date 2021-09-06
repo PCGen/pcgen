@@ -221,9 +221,8 @@ public abstract class AbstractProfProvider<T extends CDOMObject> extends Concret
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (obj instanceof AbstractProfProvider)
+		if (obj instanceof AbstractProfProvider<?> other)
 		{
-			AbstractProfProvider<?> other = (AbstractProfProvider<?>) obj;
 			if (!other.getSubType().equals(getSubType()))
 			{
 				return false;

@@ -97,25 +97,26 @@ public class SpellTreeViewModel implements TreeViewModel<SuperNode>
 		public List<TreeViewPath<SuperNode>> getPaths(SuperNode node)
 		{
 			TreeViewPath<SuperNode> path;
-			if (node instanceof SpellNode)
+			if (node instanceof SpellNode pobj)
 			{
-				SpellNode pobj = (SpellNode) node;
 				LinkedList<Object> pathList = new LinkedList<>();
 				switch (this)
 				{
-					case CLASS_LEVEL_SPELL:
+					case CLASS_LEVEL_SPELL -> {
 						Collections.addAll(pathList, pobj.getRootNode(), pobj.getSpellcastingClass(),
-							pobj.getSpellLevel());
+								pobj.getSpellLevel()
+						);
 						pathList.removeAll(Collections.singleton(null));
 						if (pobj.getSpell() == null)
 						{
 							pathList.removeLast();
 						}
 						path = new TreeViewPath<>(pobj, pathList.toArray());
-						break;
-					case CLASS_LEVEL_SCHOOL_SPELL:
+					}
+					case CLASS_LEVEL_SCHOOL_SPELL -> {
 						Collections.addAll(pathList, pobj.getRootNode(), pobj.getSpellcastingClass(),
-							pobj.getSpellLevel());
+								pobj.getSpellLevel()
+						);
 						if (pobj.getSpell() != null)
 						{
 							pathList.add(pobj.getSpell().getSchool());
@@ -126,9 +127,8 @@ public class SpellTreeViewModel implements TreeViewModel<SuperNode>
 							pathList.removeLast();
 						}
 						path = new TreeViewPath<>(pobj, pathList.toArray());
-						break;
-					default:
-						throw new InternalError();
+					}
+					default -> throw new InternalError();
 				}
 
 			}

@@ -116,9 +116,8 @@ public class QualifiedToken<T extends CDOMObject> implements QualifierToken<T>, 
 	@Override
 	public boolean equals(Object o)
 	{
-		if (o instanceof QualifiedToken)
+		if (o instanceof QualifiedToken<?> other)
 		{
-			QualifiedToken<?> other = (QualifiedToken<?>) o;
 			if (pcs == null)
 			{
 				if (other.pcs != null)

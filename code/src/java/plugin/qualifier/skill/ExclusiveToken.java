@@ -111,9 +111,8 @@ public class ExclusiveToken implements QualifierToken<Skill>, PrimitiveFilter<Sk
 	@Override
 	public boolean equals(Object o)
 	{
-		if (o instanceof ExclusiveToken)
+		if (o instanceof ExclusiveToken other)
 		{
-			ExclusiveToken other = (ExclusiveToken) o;
 			if (negated == other.negated)
 			{
 				if (pcs == null)

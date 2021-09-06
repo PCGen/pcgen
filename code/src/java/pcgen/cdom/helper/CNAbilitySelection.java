@@ -191,9 +191,8 @@ public class CNAbilitySelection extends ConcretePrereqObject implements Qualifyi
 	@Override
 	public boolean equals(Object o)
 	{
-		if (o instanceof CNAbilitySelection)
+		if (o instanceof CNAbilitySelection other)
 		{
-			CNAbilitySelection other = (CNAbilitySelection) o;
 			if (selection == null)
 			{
 				if (other.selection != null)

@@ -313,15 +313,12 @@ public class KitPanel extends FlippingSplitPane
 		@Override
 		public Object getData(Kit element, int column)
 		{
-			switch (column)
-			{
-				case 0:
-					return character.getInfoFactory().getDescription(element);
-				case 1:
-					return element.getSource();
-				default:
-					return null;
-			}
+			return switch (column)
+					{
+						case 0 -> character.getInfoFactory().getDescription(element);
+						case 1 -> element.getSource();
+						default -> null;
+					};
 		}
 
 		@Override

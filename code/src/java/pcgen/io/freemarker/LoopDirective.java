@@ -74,21 +74,21 @@ public class LoopDirective implements TemplateDirectiveModel
 
 			switch (paramName)
 			{
-				case "from":
+				case "from" -> {
 					if (!(paramValue instanceof TemplateNumberModel))
 					{
 						throw new TemplateModelException("The \"" + paramName + "\" parameter " + "must be a number.");
 					}
 					fromVal = ((TemplateNumberModel) paramValue).getAsNumber().intValue();
-					break;
-				case "to":
+				}
+				case "to" -> {
 					if (!(paramValue instanceof TemplateNumberModel))
 					{
 						throw new TemplateModelException("The \"" + paramName + "\" parameter " + "must be a number.");
 					}
 					toVal = ((TemplateNumberModel) paramValue).getAsNumber().intValue();
-					break;
-				case "step":
+				}
+				case "step" -> {
 					if (!(paramValue instanceof TemplateNumberModel))
 					{
 						throw new TemplateModelException("The \"" + paramName + "\" parameter " + "must be a number.");
@@ -98,10 +98,10 @@ public class LoopDirective implements TemplateDirectiveModel
 					{
 						throw new TemplateModelException("The \"" + paramName + "\" parameter must not be 0.");
 					}
-					break;
-				default:
-					//Case not caught, should this cause an error?
-					break;
+				}
+				default -> {
+				}
+				//Case not caught, should this cause an error?
 			}
 		}
 

@@ -111,9 +111,8 @@ public class CrossClassToken implements QualifierToken<Skill>, PrimitiveFilter<S
 	@Override
 	public boolean equals(Object o)
 	{
-		if (o instanceof CrossClassToken)
+		if (o instanceof CrossClassToken other)
 		{
-			CrossClassToken other = (CrossClassToken) o;
 			if (negated == other.negated)
 			{
 				if (pcs == null)

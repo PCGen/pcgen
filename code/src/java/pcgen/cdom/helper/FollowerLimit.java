@@ -93,9 +93,8 @@ public class FollowerLimit
 	@Override
 	public boolean equals(Object o)
 	{
-		if (o instanceof FollowerLimit)
+		if (o instanceof FollowerLimit other)
 		{
-			FollowerLimit other = (FollowerLimit) o;
 			return ref.equals(other.ref) && formula.equals(other.formula);
 		}
 		return false;

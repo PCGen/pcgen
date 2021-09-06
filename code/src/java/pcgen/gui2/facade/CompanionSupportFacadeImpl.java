@@ -143,9 +143,8 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 		for (CompanionFacadeDelegate delegate : companionList)
 		{
 			CompanionFacade compFacade = delegate.getDelegate();
-			if (compFacade instanceof CharacterFacadeImpl)
+			if (compFacade instanceof CharacterFacadeImpl compFacadeImpl)
 			{
-				CharacterFacadeImpl compFacadeImpl = (CharacterFacadeImpl) compFacade;
 				PlayerCharacter pc = compFacadeImpl.getTheCharacter();
 				pc.setMaster(pc.getDisplay().getMaster());
 				compFacadeImpl.refreshClassLevelModel();
@@ -243,12 +242,11 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 	@Override
 	public void addCompanion(CharacterFacade companion, String companionType)
 	{
-		if (companion == null || !(companion instanceof CharacterFacadeImpl))
+		if (companion == null || !(companion instanceof CharacterFacadeImpl compFacadeImpl))
 		{
 			return;
 		}
 
-		CharacterFacadeImpl compFacadeImpl = (CharacterFacadeImpl) companion;
 		CompanionList compList = keyToCompanionListMap.get(companionType);
 		Race compRace = compFacadeImpl.getRaceRef().get();
 		FollowerOption followerOpt = getFollowerOpt(compList, compRace);

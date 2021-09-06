@@ -43,27 +43,20 @@ public class VisibleToken extends AbstractNonEmptyToken<Equipment> implements CD
 	protected ParseResult parseNonEmptyToken(LoadContext context, Equipment eq, String value)
 	{
 		Visibility vis;
-        switch (value)
-        {
-            case "YES":
-                vis = Visibility.DEFAULT;
-                break;
-            case "DISPLAY":
-                vis = Visibility.DISPLAY_ONLY;
-                break;
-            case "EXPORT":
-                vis = Visibility.OUTPUT_ONLY;
-                break;
-            case "NO":
-                vis = Visibility.HIDDEN;
-                break;
-            default:
-                ComplexParseResult cpr = new ComplexParseResult();
-                cpr.addErrorMessage("Unexpected value used in " + getTokenName() + " in Equipment");
-                cpr.addErrorMessage(' ' + value + " is not a valid value for " + getTokenName());
-                cpr.addErrorMessage(" Valid values in Equipment are YES, NO, DISPLAY, EXPORT");
-                return cpr;
-        }
+		switch (value)
+		{
+			case "YES" -> vis = Visibility.DEFAULT;
+			case "DISPLAY" -> vis = Visibility.DISPLAY_ONLY;
+			case "EXPORT" -> vis = Visibility.OUTPUT_ONLY;
+			case "NO" -> vis = Visibility.HIDDEN;
+			default -> {
+				ComplexParseResult cpr = new ComplexParseResult();
+				cpr.addErrorMessage("Unexpected value used in " + getTokenName() + " in Equipment");
+				cpr.addErrorMessage(' ' + value + " is not a valid value for " + getTokenName());
+				cpr.addErrorMessage(" Valid values in Equipment are YES, NO, DISPLAY, EXPORT");
+				return cpr;
+			}
+		}
 		context.getObjectContext().put(eq, ObjectKey.VISIBILITY, vis);
 		return ParseResult.SUCCESS;
 	}
@@ -77,26 +70,16 @@ public class VisibleToken extends AbstractNonEmptyToken<Equipment> implements CD
 			return null;
 		}
 		String visString;
-		if (vis.equals(Visibility.DEFAULT))
+		switch (vis)
 		{
-			visString = "YES";
-		}
-		else if (vis.equals(Visibility.DISPLAY_ONLY))
-		{
-			visString = "DISPLAY";
-		}
-		else if (vis.equals(Visibility.OUTPUT_ONLY))
-		{
-			visString = "EXPORT";
-		}
-		else if (vis.equals(Visibility.HIDDEN))
-		{
-			visString = "NO";
-		}
-		else
-		{
-			context.addWriteMessage("Visibility " + vis + " is not a valid Visibility for an Equipment");
-			return null;
+			case DEFAULT -> visString = "YES";
+			case DISPLAY_ONLY -> visString = "DISPLAY";
+			case OUTPUT_ONLY -> visString = "EXPORT";
+			case HIDDEN -> visString = "NO";
+			default -> {
+				context.addWriteMessage("Visibility " + vis + " is not a valid Visibility for an Equipment");
+				return null;
+			}
 		}
 		return new String[]{visString};
 	}

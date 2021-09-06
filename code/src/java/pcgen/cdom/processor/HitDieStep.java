@@ -185,9 +185,8 @@ public class HitDieStep implements Processor<HitDie>
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (obj instanceof HitDieStep)
+		if (obj instanceof HitDieStep other)
 		{
-			HitDieStep other = (HitDieStep) obj;
 			return other.numSteps == numSteps
 				&& (dieLimit == null && other.dieLimit == null || dieLimit != null && dieLimit.equals(other.dieLimit));
 		}

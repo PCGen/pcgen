@@ -131,9 +131,8 @@ public class CDOMTransparentTypeRef<T extends Loadable> extends CDOMGroupRef<T> 
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (obj instanceof CDOMTransparentTypeRef)
+		if (obj instanceof CDOMTransparentTypeRef<?> ref)
 		{
-			CDOMTransparentTypeRef<?> ref = (CDOMTransparentTypeRef<?>) obj;
 			return getReferenceClass().equals(ref.getReferenceClass()) && getName().equals(ref.getName());
 		}
 		return false;

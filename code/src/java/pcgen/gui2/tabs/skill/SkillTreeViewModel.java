@@ -130,47 +130,31 @@ public class SkillTreeViewModel
 	{
 		if (selectionModel.isSelectionEmpty())
 		{
-			switch (column)
-			{
-				case 0:
-				case 1:
-				case 4:
-					return 0;
-				case 2:
-					return 0.0;
-				case 3:
-				case 5:
-					return null;
-				case 6:
-					return obj.getSource();
-				default:
-					return null;
-			}
+			return switch (column)
+					{
+						case 0, 1, 4 -> 0;
+						case 2 -> 0.0;
+						case 3, 5 -> null;
+						case 6 -> obj.getSource();
+						default -> null;
+					};
 		}
 		int index = selectionModel.getMinSelectionIndex();
 		CharacterLevelFacade level = levels.getElementAt(index);
 		SkillBreakdown skillBreakdown = levels.getSkillBreakdown(level, obj);
-		switch (column)
-		{
-			case 0:
-				return skillBreakdown.total;
-			case 1:
-				return skillBreakdown.modifier;
-			case 2:
-				return skillBreakdown.ranks;
-			case 3:
-				return levels.getSkillCost(level, obj) == SkillCost.CLASS
-					? LanguageBundle.getString("in_yes") //$NON-NLS-1$
-					: LanguageBundle.getString("in_no"); //$NON-NLS-1$
-			case 4:
-				return levels.getSkillCost(level, obj).getCost();
-			case 5:
-				return character.getInfoFactory().getDescription(obj);
-			case 6:
-				return obj.getSource();
-			default:
-				return null;
-		}
+		return switch (column)
+				{
+					case 0 -> skillBreakdown.total;
+					case 1 -> skillBreakdown.modifier;
+					case 2 -> skillBreakdown.ranks;
+					case 3 -> levels.getSkillCost(level, obj) == SkillCost.CLASS
+							? LanguageBundle.getString("in_yes") //$NON-NLS-1$
+							: LanguageBundle.getString("in_no"); //$NON-NLS-1$
+					case 4 -> levels.getSkillCost(level, obj).getCost();
+					case 5 -> character.getInfoFactory().getDescription(obj);
+					case 6 -> obj.getSource();
+					default -> null;
+				};
 	}
 
 	@Override
@@ -239,24 +223,14 @@ public class SkillTreeViewModel
 		@SuppressWarnings("unchecked")
 		public List<TreeViewPath<Skill>> getPaths(Skill pobj)
 		{
-			TreeViewPath<Skill> path;
-			switch (this)
-			{
-				case NAME:
-					path = new TreeViewPath<>(pobj);
-					break;
-				case TYPE_NAME:
-					path = createTreeViewPath(pobj, getDisplayType(pobj));
-					break;
-				case KEYSTAT_NAME:
-					path = new TreeViewPath<>(pobj, pobj.getKeyStatAbb());
-					break;
-				case KEYSTAT_TYPE_NAME:
-					path = createTreeViewPath(pobj, pobj.getKeyStatAbb(), getDisplayType(pobj));
-					break;
-				default:
-					throw new InternalError();
-			}
+			TreeViewPath<Skill> path = switch (this)
+					{
+						case NAME -> new TreeViewPath<>(pobj);
+						case TYPE_NAME -> createTreeViewPath(pobj, getDisplayType(pobj));
+						case KEYSTAT_NAME -> new TreeViewPath<>(pobj, pobj.getKeyStatAbb());
+						case KEYSTAT_TYPE_NAME -> createTreeViewPath(pobj, pobj.getKeyStatAbb(), getDisplayType(pobj));
+						default -> throw new InternalError();
+					};
 			return Collections.singletonList(path);
 		}
 

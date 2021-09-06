@@ -74,7 +74,7 @@ public class GetOtherFunction implements FormulaFunction
 		}
 
 		Node scopeNode = args[0];
-		if (!(scopeNode instanceof ASTQuotString))
+		if (!(scopeNode instanceof ASTQuotString qs))
 		{
 			throw new SemanticsFailureException(
 				"Parse Error: Invalid Scope Node: "
@@ -82,7 +82,6 @@ public class GetOtherFunction implements FormulaFunction
 					+ " found in location requiring a"
 					+ " Static String (first arg cannot be evaluated)");
 		}
-		ASTQuotString qs = (ASTQuotString) scopeNode;
 		String legalScopeName = qs.getText();
 		FormulaManager formulaManager = semantics.get(FormulaSemantics.FMANAGER);
 		PCGenScope legalScope = (PCGenScope) formulaManager.getScopeInstanceFactory().getScope(legalScopeName);

@@ -86,9 +86,8 @@ public class SpellBookToken implements PrimitiveToken<Spell>, PrimitiveFilter<Sp
 		{
 			return true;
 		}
-		if (obj instanceof SpellBookToken)
+		if (obj instanceof SpellBookToken other)
 		{
-			SpellBookToken other = (SpellBookToken) obj;
 			if (spellbook == null)
 			{
 				return other.spellbook == null;

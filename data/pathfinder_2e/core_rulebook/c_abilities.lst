@@ -1,0 +1,1275 @@
+# Mon Mar 30 11:44:41 2020 -- reformatted by PCGen TidyLst v1.04.00
+
+# Generic Ability Boost
+# Ability Name		SORTKEY	Category of Ability	Type				Var. Min. Value		Var. Must Be Lower	Stackable?	Multiple?	Choose		Modify VAR
+Ability Boost ~ Str +2	SORTKEY:1a	CATEGORY:Ability		TYPE:Ability Boost					PREVARLT:STRSCORE,18	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|STR_Value|2
+Ability Boost ~ Dex +2	SORTKEY:2a	CATEGORY:Ability		TYPE:Ability Boost					PREVARLT:DEXSCORE,18	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|DEX_Value|2
+Ability Boost ~ Con +2	SORTKEY:3a	CATEGORY:Ability		TYPE:Ability Boost					PREVARLT:CONSCORE,18	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|CON_Value|2
+Ability Boost ~ Int +2	SORTKEY:4a	CATEGORY:Ability		TYPE:Ability Boost					PREVARLT:INTSCORE,18	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|INT_Value|2
+Ability Boost ~ Wis +2	SORTKEY:5a	CATEGORY:Ability		TYPE:Ability Boost					PREVARLT:WISSCORE,18	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|WIS_Value|2
+Ability Boost ~ Cha +2	SORTKEY:6a	CATEGORY:Ability		TYPE:Ability Boost					PREVARLT:CHASCORE,18	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|CHA_Value|2
+Ability Boost ~ Str +1	SORTKEY:1b	CATEGORY:Ability		TYPE:Ability Boost	PREVARGTEQ:STRSCORE,18					STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|STR_Value|1
+Ability Boost ~ Dex +1	SORTKEY:2b	CATEGORY:Ability		TYPE:Ability Boost	PREVARGTEQ:DEXSCORE,18					STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|DEX_Value|1
+Ability Boost ~ Con +1	SORTKEY:3b	CATEGORY:Ability		TYPE:Ability Boost	PREVARGTEQ:CONSCORE,18					STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|CON_Value|1
+Ability Boost ~ Int +1	SORTKEY:4b	CATEGORY:Ability		TYPE:Ability Boost	PREVARGTEQ:INTSCORE,18					STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|INT_Value|1
+Ability Boost ~ Wis +1	SORTKEY:5b	CATEGORY:Ability		TYPE:Ability Boost	PREVARGTEQ:WISSCORE,18					STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|WIS_Value|1
+Ability Boost ~ Cha +1	SORTKEY:6b	CATEGORY:Ability		TYPE:Ability Boost	PREVARGTEQ:CHASCORE,18					STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|CHA_Value|1
+
+Ability Flaw ~ Str -2	SORTKEY:1a	CATEGORY:Ability		TYPE:Ability Flaw										STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|STR_Value|-2
+Ability Flaw ~ Dex -2	SORTKEY:2a	CATEGORY:Ability		TYPE:Ability Flaw										STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|DEX_Value|-2
+Ability Flaw ~ Con -2	SORTKEY:3a	CATEGORY:Ability		TYPE:Ability Flaw										STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|CON_Value|-2
+Ability Flaw ~ Int -2	SORTKEY:4a	CATEGORY:Ability		TYPE:Ability Flaw										STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|INT_Value|-2
+Ability Flaw ~ Wis -2	SORTKEY:5a	CATEGORY:Ability		TYPE:Ability Flaw										STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|WIS_Value|-2
+Ability Flaw ~ Cha -2	SORTKEY:6a	CATEGORY:Ability		TYPE:Ability Flaw										STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|CHA_Value|-2
+
+
+###Block:
+# Ability Name			Category of Ability	Type					Define											Template		Modify VAR
+Default				CATEGORY:Internal
+CATEGORY=Internal|Default.MOD										DEFINE:AncestryFeatProgression|0										BONUS:VAR|AncestryFeatProgression|(TL+3)/4
+
+CATEGORY=Internal|Default.MOD										DEFINE:RaceSize_Base|0	DEFINE:RaceSize_Modifier|0	DEFINE:RaceSize|0
+CATEGORY=Internal|Default.MOD																									BONUS:VAR|RaceSize|RaceSize_Base+RaceSize_Modifier
+
+
+Size ~ T				CATEGORY:Internal		TYPE:Size																TEMPLATE:Size ~ T
+Size ~ S				CATEGORY:Internal		TYPE:Size																TEMPLATE:Size ~ S
+Size ~ M				CATEGORY:Internal		TYPE:Size.Size Choice M or L													TEMPLATE:Size ~ M
+Size ~ L				CATEGORY:Internal		TYPE:Size.Size Choice M or L													TEMPLATE:Size ~ L
+Size ~ H				CATEGORY:Internal		TYPE:Size																TEMPLATE:Size ~ H
+Size ~ G				CATEGORY:Internal		TYPE:Size																TEMPLATE:Size ~ G
+Size ~ C				CATEGORY:Internal		TYPE:Size																TEMPLATE:Size ~ C
+
+
+###Block
+# Ability Name			Ability
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Size ~ T|PREVARLTEQ:RaceSize,1
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Size ~ S|PREVAREQ:RaceSize,2
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Size ~ M|PREVAREQ:RaceSize,3
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Size ~ L|PREVAREQ:RaceSize,4
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Size ~ H|PREVAREQ:RaceSize,5
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Size ~ G|PREVAREQ:RaceSize,6
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Size ~ C|PREVARGTEQ:RaceSize,7
+
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Movement
+# Encumbered
+# If you're encumbered, decrease your Speed by 10 feet, to a minimum of 5 feet. This applies to every movement type you have. You also increase your armor's check penalty by 2, or take a -2 check penalty if you're unarmored.
+# Check Penalty
+# You take this untyped penalty to Strength-, Dexterity-, and Constitution-based skill checks, except for those that have the attack trait. Armor that is better than standard quality has a lower check penalty, as described on page 190.
+
+###Block: Movement Modes
+# Ability Name				Category of Ability	Define															Move			Ability											Modify VAR
+Movement					CATEGORY:Internal		DEFINE:BulkCap|0	DEFINE:BulkEncumbered|0																									BONUS:VAR|BulkEncumbered|if(BULK>=BulkCap,1,0)|TYPE=Boolean	BONUS:VAR|BulkCap|STR+10
+CATEGORY=Internal|Movement.MOD					DEFINE:Walk|0	DEFINE:Walk_TOTAL|0	DEFINE:Walk_Race|0	DEFINE:Walk_Modifier|0
+CATEGORY=Internal|Movement.MOD					DEFINE:Fly|0	DEFINE:Fly_TOTAL|0	DEFINE:Fly_Race|0	DEFINE:Fly_Modifier|0
+CATEGORY=Internal|Movement.MOD					DEFINE:Swim|0	DEFINE:Swim_TOTAL|0	DEFINE:Swim_Race|0	DEFINE:Swim_Modifier|0
+CATEGORY=Internal|Movement.MOD					DEFINE:Climb|0	DEFINE:Climb_TOTAL|0	DEFINE:Climb_Race|0	DEFINE:Climb_Modifier|0
+CATEGORY=Internal|Movement.MOD					DEFINE:Burrow|0	DEFINE:Burrow_TOTAL|0	DEFINE:Burrow_Race|0	DEFINE:Burrow_Modifier|0
+CATEGORY=Internal|Movement.MOD					DEFINE:SpeedPenalty|0
+CATEGORY=Internal|Movement.MOD					DEFINE:SpeedPenalty_Armor|0
+CATEGORY=Internal|Movement.MOD					DEFINE:SpeedPenalty_Encumbered|0
+CATEGORY=Internal|Movement.MOD																																				BONUS:VAR|SpeedPenalty|SpeedPenalty_Armor+SpeedPenalty_Encumbered
+CATEGORY=Internal|Movement.MOD																																				BONUS:VAR|SpeedPenalty_Encumbered|if(BulkEncumbered==1,-10,0)
+
+
+CATEGORY=Internal|Movement.MOD																																				BONUS:VAR|Walk|Walk_TOTAL	BONUS:VAR|Walk_TOTAL|if(BulkEncumbered==1,max(5,Walk_Race+Walk_Modifier),Walk_Race+Walk_Modifier)
+CATEGORY=Internal|Movement.MOD																																				BONUS:VAR|Fly|Fly_TOTAL	BONUS:VAR|Fly_TOTAL|if(BulkEncumbered==1,max(5,Fly_Race+Fly_Modifier),Fly_Race+Fly_Modifier)
+CATEGORY=Internal|Movement.MOD																																				BONUS:VAR|Swim|Swim_TOTAL	BONUS:VAR|Swim_TOTAL|if(BulkEncumbered==1,max(5,Swim_Race+Swim_Modifier),Swim_Race+Swim_Modifier)
+CATEGORY=Internal|Movement.MOD																																				BONUS:VAR|Climb|Climb_TOTAL	BONUS:VAR|Climb_TOTAL|if(BulkEncumbered==1,max(5,Climb_Race+Climb_Modifier),Climb_Race+Climb_Modifier)
+CATEGORY=Internal|Movement.MOD																																				BONUS:VAR|Burrow|Burrow_TOTAL	BONUS:VAR|Burrow_TOTAL|if(BulkEncumbered==1,max(5,Burrow_Race+Burrow_Modifier),Burrow_Race+Burrow_Modifier)
+
+CATEGORY=Internal|Movement.MOD																																				BONUS:VAR|Walk_Modifier|SpeedPenalty
+CATEGORY=Internal|Movement.MOD																																				BONUS:VAR|Fly_Modifier|SpeedPenalty
+CATEGORY=Internal|Movement.MOD																																				BONUS:VAR|Swim_Modifier|SpeedPenalty
+CATEGORY=Internal|Movement.MOD																																				BONUS:VAR|Climb_Modifier|SpeedPenalty
+CATEGORY=Internal|Movement.MOD																																				BONUS:VAR|Burrow_Modifier|SpeedPenalty
+
+
+CATEGORY=Internal|Movement.MOD																								ABILITY:Internal|AUTOMATIC|Walk|PREFACT:1,ABILITIES,GrantWalk=true
+CATEGORY=Internal|Movement.MOD																								ABILITY:Internal|AUTOMATIC|Fly|PREFACT:1,ABILITIES,GrantFly=true
+CATEGORY=Internal|Movement.MOD																								ABILITY:Internal|AUTOMATIC|Swim|PREFACT:1,ABILITIES,GrantSwim=true
+CATEGORY=Internal|Movement.MOD																								ABILITY:Internal|AUTOMATIC|Climb|PREFACT:1,ABILITIES,GrantClimb=true
+CATEGORY=Internal|Movement.MOD																								ABILITY:Internal|AUTOMATIC|Burrow|PREFACT:1,ABILITIES,GrantBurrow=true
+
+
+Walk						CATEGORY:Internal
+Fly						CATEGORY:Internal
+Swim						CATEGORY:Internal
+Climb						CATEGORY:Internal
+Burrow					CATEGORY:Internal
+
+# Walk
+CATEGORY=Internal|Walk.MOD																									ABILITY:Internal|AUTOMATIC|Walk ~ 005|PREVAREQ:Walk,005
+CATEGORY=Internal|Walk.MOD																									ABILITY:Internal|AUTOMATIC|Walk ~ 010|PREVAREQ:Walk,010
+CATEGORY=Internal|Walk.MOD																									ABILITY:Internal|AUTOMATIC|Walk ~ 015|PREVAREQ:Walk,015
+CATEGORY=Internal|Walk.MOD																									ABILITY:Internal|AUTOMATIC|Walk ~ 020|PREVAREQ:Walk,020
+CATEGORY=Internal|Walk.MOD																									ABILITY:Internal|AUTOMATIC|Walk ~ 025|PREVAREQ:Walk,025
+CATEGORY=Internal|Walk.MOD																									ABILITY:Internal|AUTOMATIC|Walk ~ 030|PREVAREQ:Walk,030
+CATEGORY=Internal|Walk.MOD																									ABILITY:Internal|AUTOMATIC|Walk ~ 035|PREVAREQ:Walk,035
+CATEGORY=Internal|Walk.MOD																									ABILITY:Internal|AUTOMATIC|Walk ~ 040|PREVAREQ:Walk,040
+CATEGORY=Internal|Walk.MOD																									ABILITY:Internal|AUTOMATIC|Walk ~ 045|PREVAREQ:Walk,045
+CATEGORY=Internal|Walk.MOD																									ABILITY:Internal|AUTOMATIC|Walk ~ 050|PREVAREQ:Walk,050
+CATEGORY=Internal|Walk.MOD																									ABILITY:Internal|AUTOMATIC|Walk ~ 055|PREVAREQ:Walk,055
+CATEGORY=Internal|Walk.MOD																									ABILITY:Internal|AUTOMATIC|Walk ~ 060|PREVAREQ:Walk,060
+CATEGORY=Internal|Walk.MOD																									ABILITY:Internal|AUTOMATIC|Walk ~ 065|PREVAREQ:Walk,065
+CATEGORY=Internal|Walk.MOD																									ABILITY:Internal|AUTOMATIC|Walk ~ 070|PREVAREQ:Walk,070
+CATEGORY=Internal|Walk.MOD																									ABILITY:Internal|AUTOMATIC|Walk ~ 075|PREVAREQ:Walk,075
+CATEGORY=Internal|Walk.MOD																									ABILITY:Internal|AUTOMATIC|Walk ~ 080|PREVAREQ:Walk,080
+CATEGORY=Internal|Walk.MOD																									ABILITY:Internal|AUTOMATIC|Walk ~ 085|PREVAREQ:Walk,085
+CATEGORY=Internal|Walk.MOD																									ABILITY:Internal|AUTOMATIC|Walk ~ 090|PREVAREQ:Walk,090
+CATEGORY=Internal|Walk.MOD																									ABILITY:Internal|AUTOMATIC|Walk ~ 095|PREVAREQ:Walk,095
+CATEGORY=Internal|Walk.MOD																									ABILITY:Internal|AUTOMATIC|Walk ~ 100|PREVAREQ:Walk,100
+CATEGORY=Internal|Walk.MOD																									ABILITY:Internal|AUTOMATIC|Walk ~ 105|PREVAREQ:Walk,105
+CATEGORY=Internal|Walk.MOD																									ABILITY:Internal|AUTOMATIC|Walk ~ 110|PREVAREQ:Walk,110
+CATEGORY=Internal|Walk.MOD																									ABILITY:Internal|AUTOMATIC|Walk ~ 115|PREVAREQ:Walk,115
+CATEGORY=Internal|Walk.MOD																									ABILITY:Internal|AUTOMATIC|Walk ~ 120|PREVAREQ:Walk,120
+
+# Fly
+CATEGORY=Internal|Fly.MOD																									ABILITY:Internal|AUTOMATIC|Fly ~ 005|PREVAREQ:Fly,005
+CATEGORY=Internal|Fly.MOD																									ABILITY:Internal|AUTOMATIC|Fly ~ 010|PREVAREQ:Fly,010
+CATEGORY=Internal|Fly.MOD																									ABILITY:Internal|AUTOMATIC|Fly ~ 015|PREVAREQ:Fly,015
+CATEGORY=Internal|Fly.MOD																									ABILITY:Internal|AUTOMATIC|Fly ~ 020|PREVAREQ:Fly,020
+CATEGORY=Internal|Fly.MOD																									ABILITY:Internal|AUTOMATIC|Fly ~ 025|PREVAREQ:Fly,025
+CATEGORY=Internal|Fly.MOD																									ABILITY:Internal|AUTOMATIC|Fly ~ 030|PREVAREQ:Fly,030
+CATEGORY=Internal|Fly.MOD																									ABILITY:Internal|AUTOMATIC|Fly ~ 035|PREVAREQ:Fly,035
+CATEGORY=Internal|Fly.MOD																									ABILITY:Internal|AUTOMATIC|Fly ~ 040|PREVAREQ:Fly,040
+CATEGORY=Internal|Fly.MOD																									ABILITY:Internal|AUTOMATIC|Fly ~ 045|PREVAREQ:Fly,045
+CATEGORY=Internal|Fly.MOD																									ABILITY:Internal|AUTOMATIC|Fly ~ 050|PREVAREQ:Fly,050
+CATEGORY=Internal|Fly.MOD																									ABILITY:Internal|AUTOMATIC|Fly ~ 055|PREVAREQ:Fly,055
+CATEGORY=Internal|Fly.MOD																									ABILITY:Internal|AUTOMATIC|Fly ~ 060|PREVAREQ:Fly,060
+CATEGORY=Internal|Fly.MOD																									ABILITY:Internal|AUTOMATIC|Fly ~ 065|PREVAREQ:Fly,065
+CATEGORY=Internal|Fly.MOD																									ABILITY:Internal|AUTOMATIC|Fly ~ 070|PREVAREQ:Fly,070
+CATEGORY=Internal|Fly.MOD																									ABILITY:Internal|AUTOMATIC|Fly ~ 075|PREVAREQ:Fly,075
+CATEGORY=Internal|Fly.MOD																									ABILITY:Internal|AUTOMATIC|Fly ~ 080|PREVAREQ:Fly,080
+CATEGORY=Internal|Fly.MOD																									ABILITY:Internal|AUTOMATIC|Fly ~ 085|PREVAREQ:Fly,085
+CATEGORY=Internal|Fly.MOD																									ABILITY:Internal|AUTOMATIC|Fly ~ 090|PREVAREQ:Fly,090
+CATEGORY=Internal|Fly.MOD																									ABILITY:Internal|AUTOMATIC|Fly ~ 095|PREVAREQ:Fly,095
+CATEGORY=Internal|Fly.MOD																									ABILITY:Internal|AUTOMATIC|Fly ~ 100|PREVAREQ:Fly,100
+CATEGORY=Internal|Fly.MOD																									ABILITY:Internal|AUTOMATIC|Fly ~ 105|PREVAREQ:Fly,105
+CATEGORY=Internal|Fly.MOD																									ABILITY:Internal|AUTOMATIC|Fly ~ 110|PREVAREQ:Fly,110
+CATEGORY=Internal|Fly.MOD																									ABILITY:Internal|AUTOMATIC|Fly ~ 115|PREVAREQ:Fly,115
+CATEGORY=Internal|Fly.MOD																									ABILITY:Internal|AUTOMATIC|Fly ~ 120|PREVAREQ:Fly,120
+
+# Swim
+CATEGORY=Internal|Swim.MOD																									ABILITY:Internal|AUTOMATIC|Swim ~ 005|PREVAREQ:Swim,005
+CATEGORY=Internal|Swim.MOD																									ABILITY:Internal|AUTOMATIC|Swim ~ 010|PREVAREQ:Swim,010
+CATEGORY=Internal|Swim.MOD																									ABILITY:Internal|AUTOMATIC|Swim ~ 015|PREVAREQ:Swim,015
+CATEGORY=Internal|Swim.MOD																									ABILITY:Internal|AUTOMATIC|Swim ~ 020|PREVAREQ:Swim,020
+CATEGORY=Internal|Swim.MOD																									ABILITY:Internal|AUTOMATIC|Swim ~ 025|PREVAREQ:Swim,025
+CATEGORY=Internal|Swim.MOD																									ABILITY:Internal|AUTOMATIC|Swim ~ 030|PREVAREQ:Swim,030
+CATEGORY=Internal|Swim.MOD																									ABILITY:Internal|AUTOMATIC|Swim ~ 035|PREVAREQ:Swim,035
+CATEGORY=Internal|Swim.MOD																									ABILITY:Internal|AUTOMATIC|Swim ~ 040|PREVAREQ:Swim,040
+CATEGORY=Internal|Swim.MOD																									ABILITY:Internal|AUTOMATIC|Swim ~ 045|PREVAREQ:Swim,045
+CATEGORY=Internal|Swim.MOD																									ABILITY:Internal|AUTOMATIC|Swim ~ 050|PREVAREQ:Swim,050
+CATEGORY=Internal|Swim.MOD																									ABILITY:Internal|AUTOMATIC|Swim ~ 055|PREVAREQ:Swim,055
+CATEGORY=Internal|Swim.MOD																									ABILITY:Internal|AUTOMATIC|Swim ~ 060|PREVAREQ:Swim,060
+CATEGORY=Internal|Swim.MOD																									ABILITY:Internal|AUTOMATIC|Swim ~ 065|PREVAREQ:Swim,065
+CATEGORY=Internal|Swim.MOD																									ABILITY:Internal|AUTOMATIC|Swim ~ 070|PREVAREQ:Swim,070
+CATEGORY=Internal|Swim.MOD																									ABILITY:Internal|AUTOMATIC|Swim ~ 075|PREVAREQ:Swim,075
+CATEGORY=Internal|Swim.MOD																									ABILITY:Internal|AUTOMATIC|Swim ~ 080|PREVAREQ:Swim,080
+CATEGORY=Internal|Swim.MOD																									ABILITY:Internal|AUTOMATIC|Swim ~ 085|PREVAREQ:Swim,085
+CATEGORY=Internal|Swim.MOD																									ABILITY:Internal|AUTOMATIC|Swim ~ 090|PREVAREQ:Swim,090
+CATEGORY=Internal|Swim.MOD																									ABILITY:Internal|AUTOMATIC|Swim ~ 095|PREVAREQ:Swim,095
+CATEGORY=Internal|Swim.MOD																									ABILITY:Internal|AUTOMATIC|Swim ~ 100|PREVAREQ:Swim,100
+CATEGORY=Internal|Swim.MOD																									ABILITY:Internal|AUTOMATIC|Swim ~ 105|PREVAREQ:Swim,105
+CATEGORY=Internal|Swim.MOD																									ABILITY:Internal|AUTOMATIC|Swim ~ 110|PREVAREQ:Swim,110
+CATEGORY=Internal|Swim.MOD																									ABILITY:Internal|AUTOMATIC|Swim ~ 115|PREVAREQ:Swim,115
+CATEGORY=Internal|Swim.MOD																									ABILITY:Internal|AUTOMATIC|Swim ~ 120|PREVAREQ:Swim,120
+
+# Climb
+CATEGORY=Internal|Climb.MOD																									ABILITY:Internal|AUTOMATIC|Climb ~ 005|PREVAREQ:Climb,005
+CATEGORY=Internal|Climb.MOD																									ABILITY:Internal|AUTOMATIC|Climb ~ 010|PREVAREQ:Climb,010
+CATEGORY=Internal|Climb.MOD																									ABILITY:Internal|AUTOMATIC|Climb ~ 015|PREVAREQ:Climb,015
+CATEGORY=Internal|Climb.MOD																									ABILITY:Internal|AUTOMATIC|Climb ~ 020|PREVAREQ:Climb,020
+CATEGORY=Internal|Climb.MOD																									ABILITY:Internal|AUTOMATIC|Climb ~ 025|PREVAREQ:Climb,025
+CATEGORY=Internal|Climb.MOD																									ABILITY:Internal|AUTOMATIC|Climb ~ 030|PREVAREQ:Climb,030
+CATEGORY=Internal|Climb.MOD																									ABILITY:Internal|AUTOMATIC|Climb ~ 035|PREVAREQ:Climb,035
+CATEGORY=Internal|Climb.MOD																									ABILITY:Internal|AUTOMATIC|Climb ~ 040|PREVAREQ:Climb,040
+CATEGORY=Internal|Climb.MOD																									ABILITY:Internal|AUTOMATIC|Climb ~ 045|PREVAREQ:Climb,045
+CATEGORY=Internal|Climb.MOD																									ABILITY:Internal|AUTOMATIC|Climb ~ 050|PREVAREQ:Climb,050
+CATEGORY=Internal|Climb.MOD																									ABILITY:Internal|AUTOMATIC|Climb ~ 055|PREVAREQ:Climb,055
+CATEGORY=Internal|Climb.MOD																									ABILITY:Internal|AUTOMATIC|Climb ~ 060|PREVAREQ:Climb,060
+CATEGORY=Internal|Climb.MOD																									ABILITY:Internal|AUTOMATIC|Climb ~ 065|PREVAREQ:Climb,065
+CATEGORY=Internal|Climb.MOD																									ABILITY:Internal|AUTOMATIC|Climb ~ 070|PREVAREQ:Climb,070
+CATEGORY=Internal|Climb.MOD																									ABILITY:Internal|AUTOMATIC|Climb ~ 075|PREVAREQ:Climb,075
+CATEGORY=Internal|Climb.MOD																									ABILITY:Internal|AUTOMATIC|Climb ~ 080|PREVAREQ:Climb,080
+CATEGORY=Internal|Climb.MOD																									ABILITY:Internal|AUTOMATIC|Climb ~ 085|PREVAREQ:Climb,085
+CATEGORY=Internal|Climb.MOD																									ABILITY:Internal|AUTOMATIC|Climb ~ 090|PREVAREQ:Climb,090
+CATEGORY=Internal|Climb.MOD																									ABILITY:Internal|AUTOMATIC|Climb ~ 095|PREVAREQ:Climb,095
+CATEGORY=Internal|Climb.MOD																									ABILITY:Internal|AUTOMATIC|Climb ~ 100|PREVAREQ:Climb,100
+CATEGORY=Internal|Climb.MOD																									ABILITY:Internal|AUTOMATIC|Climb ~ 105|PREVAREQ:Climb,105
+CATEGORY=Internal|Climb.MOD																									ABILITY:Internal|AUTOMATIC|Climb ~ 110|PREVAREQ:Climb,110
+CATEGORY=Internal|Climb.MOD																									ABILITY:Internal|AUTOMATIC|Climb ~ 115|PREVAREQ:Climb,115
+CATEGORY=Internal|Climb.MOD																									ABILITY:Internal|AUTOMATIC|Climb ~ 120|PREVAREQ:Climb,120
+
+# Burrow
+CATEGORY=Internal|Burrow.MOD																									ABILITY:Internal|AUTOMATIC|Burrow ~ 005|PREVAREQ:Burrow,005
+CATEGORY=Internal|Burrow.MOD																									ABILITY:Internal|AUTOMATIC|Burrow ~ 010|PREVAREQ:Burrow,010
+CATEGORY=Internal|Burrow.MOD																									ABILITY:Internal|AUTOMATIC|Burrow ~ 015|PREVAREQ:Burrow,015
+CATEGORY=Internal|Burrow.MOD																									ABILITY:Internal|AUTOMATIC|Burrow ~ 020|PREVAREQ:Burrow,020
+CATEGORY=Internal|Burrow.MOD																									ABILITY:Internal|AUTOMATIC|Burrow ~ 025|PREVAREQ:Burrow,025
+CATEGORY=Internal|Burrow.MOD																									ABILITY:Internal|AUTOMATIC|Burrow ~ 030|PREVAREQ:Burrow,030
+CATEGORY=Internal|Burrow.MOD																									ABILITY:Internal|AUTOMATIC|Burrow ~ 035|PREVAREQ:Burrow,035
+CATEGORY=Internal|Burrow.MOD																									ABILITY:Internal|AUTOMATIC|Burrow ~ 040|PREVAREQ:Burrow,040
+CATEGORY=Internal|Burrow.MOD																									ABILITY:Internal|AUTOMATIC|Burrow ~ 045|PREVAREQ:Burrow,045
+CATEGORY=Internal|Burrow.MOD																									ABILITY:Internal|AUTOMATIC|Burrow ~ 050|PREVAREQ:Burrow,050
+CATEGORY=Internal|Burrow.MOD																									ABILITY:Internal|AUTOMATIC|Burrow ~ 055|PREVAREQ:Burrow,055
+CATEGORY=Internal|Burrow.MOD																									ABILITY:Internal|AUTOMATIC|Burrow ~ 060|PREVAREQ:Burrow,060
+CATEGORY=Internal|Burrow.MOD																									ABILITY:Internal|AUTOMATIC|Burrow ~ 065|PREVAREQ:Burrow,065
+CATEGORY=Internal|Burrow.MOD																									ABILITY:Internal|AUTOMATIC|Burrow ~ 070|PREVAREQ:Burrow,070
+CATEGORY=Internal|Burrow.MOD																									ABILITY:Internal|AUTOMATIC|Burrow ~ 075|PREVAREQ:Burrow,075
+CATEGORY=Internal|Burrow.MOD																									ABILITY:Internal|AUTOMATIC|Burrow ~ 080|PREVAREQ:Burrow,080
+CATEGORY=Internal|Burrow.MOD																									ABILITY:Internal|AUTOMATIC|Burrow ~ 085|PREVAREQ:Burrow,085
+CATEGORY=Internal|Burrow.MOD																									ABILITY:Internal|AUTOMATIC|Burrow ~ 090|PREVAREQ:Burrow,090
+CATEGORY=Internal|Burrow.MOD																									ABILITY:Internal|AUTOMATIC|Burrow ~ 095|PREVAREQ:Burrow,095
+CATEGORY=Internal|Burrow.MOD																									ABILITY:Internal|AUTOMATIC|Burrow ~ 100|PREVAREQ:Burrow,100
+CATEGORY=Internal|Burrow.MOD																									ABILITY:Internal|AUTOMATIC|Burrow ~ 105|PREVAREQ:Burrow,105
+CATEGORY=Internal|Burrow.MOD																									ABILITY:Internal|AUTOMATIC|Burrow ~ 110|PREVAREQ:Burrow,110
+CATEGORY=Internal|Burrow.MOD																									ABILITY:Internal|AUTOMATIC|Burrow ~ 115|PREVAREQ:Burrow,115
+CATEGORY=Internal|Burrow.MOD																									ABILITY:Internal|AUTOMATIC|Burrow ~ 120|PREVAREQ:Burrow,120
+
+
+Walk ~ 005					CATEGORY:Internal																		MOVE:Walk,005
+Walk ~ 010					CATEGORY:Internal																		MOVE:Walk,010
+Walk ~ 015					CATEGORY:Internal																		MOVE:Walk,015
+Walk ~ 020					CATEGORY:Internal																		MOVE:Walk,020
+Walk ~ 025					CATEGORY:Internal																		MOVE:Walk,025
+Walk ~ 030					CATEGORY:Internal																		MOVE:Walk,030
+Walk ~ 035					CATEGORY:Internal																		MOVE:Walk,035
+Walk ~ 040					CATEGORY:Internal																		MOVE:Walk,040
+Walk ~ 045					CATEGORY:Internal																		MOVE:Walk,045
+Walk ~ 050					CATEGORY:Internal																		MOVE:Walk,050
+Walk ~ 055					CATEGORY:Internal																		MOVE:Walk,055
+Walk ~ 060					CATEGORY:Internal																		MOVE:Walk,060
+Walk ~ 065					CATEGORY:Internal																		MOVE:Walk,065
+Walk ~ 070					CATEGORY:Internal																		MOVE:Walk,070
+Walk ~ 075					CATEGORY:Internal																		MOVE:Walk,075
+Walk ~ 080					CATEGORY:Internal																		MOVE:Walk,080
+Walk ~ 085					CATEGORY:Internal																		MOVE:Walk,085
+Walk ~ 090					CATEGORY:Internal																		MOVE:Walk,090
+Walk ~ 095					CATEGORY:Internal																		MOVE:Walk,095
+Walk ~ 100					CATEGORY:Internal																		MOVE:Walk,100
+Walk ~ 105					CATEGORY:Internal																		MOVE:Walk,105
+Walk ~ 110					CATEGORY:Internal																		MOVE:Walk,110
+Walk ~ 115					CATEGORY:Internal																		MOVE:Walk,115
+Walk ~ 120					CATEGORY:Internal																		MOVE:Walk,120
+
+Fly ~ 005					CATEGORY:Internal																		MOVE:Fly,005
+Fly ~ 010					CATEGORY:Internal																		MOVE:Fly,010
+Fly ~ 015					CATEGORY:Internal																		MOVE:Fly,015
+Fly ~ 020					CATEGORY:Internal																		MOVE:Fly,020
+Fly ~ 025					CATEGORY:Internal																		MOVE:Fly,025
+Fly ~ 030					CATEGORY:Internal																		MOVE:Fly,030
+Fly ~ 035					CATEGORY:Internal																		MOVE:Fly,035
+Fly ~ 040					CATEGORY:Internal																		MOVE:Fly,040
+Fly ~ 045					CATEGORY:Internal																		MOVE:Fly,045
+Fly ~ 050					CATEGORY:Internal																		MOVE:Fly,050
+Fly ~ 055					CATEGORY:Internal																		MOVE:Fly,055
+Fly ~ 060					CATEGORY:Internal																		MOVE:Fly,060
+Fly ~ 065					CATEGORY:Internal																		MOVE:Fly,065
+Fly ~ 070					CATEGORY:Internal																		MOVE:Fly,070
+Fly ~ 075					CATEGORY:Internal																		MOVE:Fly,075
+Fly ~ 080					CATEGORY:Internal																		MOVE:Fly,080
+Fly ~ 085					CATEGORY:Internal																		MOVE:Fly,085
+Fly ~ 090					CATEGORY:Internal																		MOVE:Fly,090
+Fly ~ 095					CATEGORY:Internal																		MOVE:Fly,095
+Fly ~ 100					CATEGORY:Internal																		MOVE:Fly,100
+Fly ~ 105					CATEGORY:Internal																		MOVE:Fly,105
+Fly ~ 110					CATEGORY:Internal																		MOVE:Fly,110
+Fly ~ 115					CATEGORY:Internal																		MOVE:Fly,115
+Fly ~ 120					CATEGORY:Internal																		MOVE:Fly,120
+
+Swim ~ 005					CATEGORY:Internal																		MOVE:Swim,005
+Swim ~ 010					CATEGORY:Internal																		MOVE:Swim,010
+Swim ~ 015					CATEGORY:Internal																		MOVE:Swim,015
+Swim ~ 020					CATEGORY:Internal																		MOVE:Swim,020
+Swim ~ 025					CATEGORY:Internal																		MOVE:Swim,025
+Swim ~ 030					CATEGORY:Internal																		MOVE:Swim,030
+Swim ~ 035					CATEGORY:Internal																		MOVE:Swim,035
+Swim ~ 040					CATEGORY:Internal																		MOVE:Swim,040
+Swim ~ 045					CATEGORY:Internal																		MOVE:Swim,045
+Swim ~ 050					CATEGORY:Internal																		MOVE:Swim,050
+Swim ~ 055					CATEGORY:Internal																		MOVE:Swim,055
+Swim ~ 060					CATEGORY:Internal																		MOVE:Swim,060
+Swim ~ 065					CATEGORY:Internal																		MOVE:Swim,065
+Swim ~ 070					CATEGORY:Internal																		MOVE:Swim,070
+Swim ~ 075					CATEGORY:Internal																		MOVE:Swim,075
+Swim ~ 080					CATEGORY:Internal																		MOVE:Swim,080
+Swim ~ 085					CATEGORY:Internal																		MOVE:Swim,085
+Swim ~ 090					CATEGORY:Internal																		MOVE:Swim,090
+Swim ~ 095					CATEGORY:Internal																		MOVE:Swim,095
+Swim ~ 100					CATEGORY:Internal																		MOVE:Swim,100
+Swim ~ 105					CATEGORY:Internal																		MOVE:Swim,105
+Swim ~ 110					CATEGORY:Internal																		MOVE:Swim,110
+Swim ~ 115					CATEGORY:Internal																		MOVE:Swim,115
+Swim ~ 120					CATEGORY:Internal																		MOVE:Swim,120
+
+Climb ~ 005					CATEGORY:Internal																		MOVE:Climb,005
+Climb ~ 010					CATEGORY:Internal																		MOVE:Climb,010
+Climb ~ 015					CATEGORY:Internal																		MOVE:Climb,015
+Climb ~ 020					CATEGORY:Internal																		MOVE:Climb,020
+Climb ~ 025					CATEGORY:Internal																		MOVE:Climb,025
+Climb ~ 030					CATEGORY:Internal																		MOVE:Climb,030
+Climb ~ 035					CATEGORY:Internal																		MOVE:Climb,035
+Climb ~ 040					CATEGORY:Internal																		MOVE:Climb,040
+Climb ~ 045					CATEGORY:Internal																		MOVE:Climb,045
+Climb ~ 050					CATEGORY:Internal																		MOVE:Climb,050
+Climb ~ 055					CATEGORY:Internal																		MOVE:Climb,055
+Climb ~ 060					CATEGORY:Internal																		MOVE:Climb,060
+Climb ~ 065					CATEGORY:Internal																		MOVE:Climb,065
+Climb ~ 070					CATEGORY:Internal																		MOVE:Climb,070
+Climb ~ 075					CATEGORY:Internal																		MOVE:Climb,075
+Climb ~ 080					CATEGORY:Internal																		MOVE:Climb,080
+Climb ~ 085					CATEGORY:Internal																		MOVE:Climb,085
+Climb ~ 090					CATEGORY:Internal																		MOVE:Climb,090
+Climb ~ 095					CATEGORY:Internal																		MOVE:Climb,095
+Climb ~ 100					CATEGORY:Internal																		MOVE:Climb,100
+Climb ~ 105					CATEGORY:Internal																		MOVE:Climb,105
+Climb ~ 110					CATEGORY:Internal																		MOVE:Climb,110
+Climb ~ 115					CATEGORY:Internal																		MOVE:Climb,115
+Climb ~ 120					CATEGORY:Internal																		MOVE:Climb,120
+
+Burrow ~ 005				CATEGORY:Internal																		MOVE:Burrow,005
+Burrow ~ 010				CATEGORY:Internal																		MOVE:Burrow,010
+Burrow ~ 015				CATEGORY:Internal																		MOVE:Burrow,015
+Burrow ~ 020				CATEGORY:Internal																		MOVE:Burrow,020
+Burrow ~ 025				CATEGORY:Internal																		MOVE:Burrow,025
+Burrow ~ 030				CATEGORY:Internal																		MOVE:Burrow,030
+Burrow ~ 035				CATEGORY:Internal																		MOVE:Burrow,035
+Burrow ~ 040				CATEGORY:Internal																		MOVE:Burrow,040
+Burrow ~ 045				CATEGORY:Internal																		MOVE:Burrow,045
+Burrow ~ 050				CATEGORY:Internal																		MOVE:Burrow,050
+Burrow ~ 055				CATEGORY:Internal																		MOVE:Burrow,055
+Burrow ~ 060				CATEGORY:Internal																		MOVE:Burrow,060
+Burrow ~ 065				CATEGORY:Internal																		MOVE:Burrow,065
+Burrow ~ 070				CATEGORY:Internal																		MOVE:Burrow,070
+Burrow ~ 075				CATEGORY:Internal																		MOVE:Burrow,075
+Burrow ~ 080				CATEGORY:Internal																		MOVE:Burrow,080
+Burrow ~ 085				CATEGORY:Internal																		MOVE:Burrow,085
+Burrow ~ 090				CATEGORY:Internal																		MOVE:Burrow,090
+Burrow ~ 095				CATEGORY:Internal																		MOVE:Burrow,095
+Burrow ~ 100				CATEGORY:Internal																		MOVE:Burrow,100
+Burrow ~ 105				CATEGORY:Internal																		MOVE:Burrow,105
+Burrow ~ 110				CATEGORY:Internal																		MOVE:Burrow,110
+Burrow ~ 115				CATEGORY:Internal																		MOVE:Burrow,115
+Burrow ~ 120				CATEGORY:Internal																		MOVE:Burrow,120
+
+###Block
+# Ability Name			Ability
+CATEGORY=Internal|Default.MOD	ABILITY:Rule|AUTOMATIC|Standard Ability Generation Rule|!PREFACT:1,ABILITIES,AltAbilityGeneration=true
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Save Tracker
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Skill Tracker
+
+###Block
+# Ability Name			Define			Modify VAR
+CATEGORY=Internal|Default.MOD					BONUS:VAR|PoolLevel01AbilityBoost|4|PREPCLEVEL:MIN=1
+CATEGORY=Internal|Default.MOD					BONUS:VAR|PoolLevel05AbilityBoost|4|PREPCLEVEL:MIN=5
+CATEGORY=Internal|Default.MOD					BONUS:VAR|PoolLevel10AbilityBoost|4|PREPCLEVEL:MIN=10
+CATEGORY=Internal|Default.MOD					BONUS:VAR|PoolLevel15AbilityBoost|4|PREPCLEVEL:MIN=15
+CATEGORY=Internal|Default.MOD					BONUS:VAR|PoolLevel20AbilityBoost|4|PREPCLEVEL:MIN=20
+
+CATEGORY=Internal|Default.MOD					BONUS:VAR|AncestryFeatCount|(3+TL)/4
+CATEGORY=Internal|Default.MOD					BONUS:VAR|PerceptionAbility|WIS
+CATEGORY=Internal|Default.MOD					BONUS:VAR|PerceptionProf|if(Modifier_Perception>=1,TL+(Modifier_Perception*2),0)
+CATEGORY=Internal|Default.MOD	DEFINE:PerceptionProf|0	BONUS:VAR|PerceptionTotal|PerceptionAbility+PerceptionProf+PerceptionItem	BONUS:VAR|Modifier_Perception|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Perception"))|TYPE=Base
+
+###Block
+# Ability Name			Category of Ability	Template						Ability														Bonus Ability Pool			Modify VAR
+CATEGORY=Internal|Default.MOD																																	BONUS:VAR|ReflexSave_Cap|DEX|!PREABILITY:1,CATEGORY=Trait,Armor Trait ~ Clumsy
+CATEGORY=Internal|Default.MOD																																	BONUS:VAR|CurrentBulk|Bulk+floor(BulkLight/10)
+
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|BASEAB|TL
+CATEGORY=Internal|Default.MOD																											BONUS:ABILITYPOOL|Backgrounds|1
+
+
+
+CATEGORY=Internal|Default.MOD												ABILITY:Internal|AUTOMATIC|1st Level Intelligence Score|PREVAREQ:AbiltyScoreBoostsTaken,1							BONUS:VAR|AbiltyScoreBoostsTaken|1|PREABILITY:4,CATEGORY=Ability,TYPE.Level 01 Ability Boost|PREABILITY:2,CATEGORY=Ability,TYPE.Background Ability Boost
+
+1st Level Intelligence Score	CATEGORY:Internal		TEMPLATE:1st Level Intelligence Score
+
+Armor Trait ~ Clumsy		CATEGORY:Trait
+
+
+###Block:
+# Ability Name				Category of Ability	Type		Visible	Description
+Standard Ability Generation Rule	CATEGORY:Rule		TYPE:Rule	VISIBLE:NO	DESC:Disables user manipulation of ability scores
+
+###Block: These prevent ability score changes
+# Ability Name							Define Stat				Modify VAR
+CATEGORY=Rule|Standard Ability Generation Rule.MOD	DEFINESTAT:LOCK|STR|STR_Value	BONUS:VAR|STR_Value|10
+CATEGORY=Rule|Standard Ability Generation Rule.MOD	DEFINESTAT:LOCK|DEX|DEX_Value	BONUS:VAR|DEX_Value|10
+CATEGORY=Rule|Standard Ability Generation Rule.MOD	DEFINESTAT:LOCK|CON|CON_Value	BONUS:VAR|CON_Value|10
+CATEGORY=Rule|Standard Ability Generation Rule.MOD	DEFINESTAT:LOCK|INT|INT_Value	BONUS:VAR|INT_Value|10
+CATEGORY=Rule|Standard Ability Generation Rule.MOD	DEFINESTAT:LOCK|WIS|WIS_Value	BONUS:VAR|WIS_Value|10
+CATEGORY=Rule|Standard Ability Generation Rule.MOD	DEFINESTAT:LOCK|CHA|CHA_Value	BONUS:VAR|CHA_Value|10
+
+###Block:
+# Ability Name				Category of Ability	Type			Description								Ability															Cost		FACT
+Optional Ability Generation Rule	CATEGORY:Rule		TYPE:Rule.Rules	DESC:Deactivate the Standard Ability Generation Rules																	COST:0	FACT:AltAbilityGeneration|true
+
+#	DEFINE:Prof_rank_untrained|0
+#	DEFINE:Prof_rank_Trained|0
+#	DEFINE:Prof_rank_Expert|0
+#	DEFINE:Prof_rank_Master|0
+#	DEFINE:Prof_rank_Legendary|0
+#	BONUS:VAR|Prof_rank_untrained|TL|TYPE=Base
+#	BONUS:VAR|Prof_rank_Trained|TL+2|TYPE=Base
+#	BONUS:VAR|Prof_rank_Expert|TL+4|TYPE=Base
+#	BONUS:VAR|Prof_rank_Master|TL+6|TYPE=Base
+#	BONUS:VAR|Prof_rank_Legendary|TL+8|TYPE=Base
+
+
+# xxxModifier will track ranking
+# 0 = untrained	+0 Raw Ability
+# 1 = trained	Base Level+2
+# 2 = expert	Base Level+4
+# 3 = mastery	Base Level+6
+# 4 = legendary	Base Level+8
+
+CATEGORY=Internal|Default.MOD																		ABILITY:Internal|AUTOMATIC|Proficiency Tracker	ABILITY:Internal|AUTOMATIC|Armor Class Tracker
+
+###Block: Save Tracker
+# Ability Name	Category of Ability	Type
+Save Tracker	CATEGORY:Internal		TYPE:Trackers
+
+###Block
+# Ability Name				Define									Modify VAR
+CATEGORY=Internal|Save Tracker.MOD	DEFINE:FortitudeProfSave|0	DEFINE:Modifier_Fortitude|0	BONUS:VAR|Modifier_Fortitude|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Fortitude"))|TYPE=Base
+CATEGORY=Internal|Save Tracker.MOD	DEFINE:ReflexProfSave|0	DEFINE:Modifier_Reflex|0		BONUS:VAR|Modifier_Reflex|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Reflex"))|TYPE=Base
+CATEGORY=Internal|Save Tracker.MOD	DEFINE:WillProfSave|0	DEFINE:Modifier_Will|0			BONUS:VAR|Modifier_Will|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Will"))|TYPE=Base
+###Block
+# Ability Name				SORTKEY			Category of Ability		Type				Save bonus							Modify VAR															Aspects
+CATEGORY=Internal|Save Tracker.MOD														BONUS:SAVE|BASE.Fortitude|FortitudeProfSave	BONUS:VAR|FortitudeProfSave|if(Modifier_Fortitude>=1,TL+(Modifier_Fortitude*2),0)|TYPE=Base
+CATEGORY=Internal|Save Tracker.MOD														BONUS:SAVE|BASE.Reflex|ReflexProfSave		BONUS:VAR|ReflexProfSave|if(Modifier_Reflex>=1,TL+(Modifier_Reflex*2),0)|TYPE=Base
+CATEGORY=Internal|Save Tracker.MOD														BONUS:SAVE|BASE.Will|WillProfSave			BONUS:VAR|WillProfSave|if(Modifier_Will>=1,TL+(Modifier_Will*2),0)|TYPE=Base
+
+# Saves
+Fortitude					SORTKEY:01 - Saves	CATEGORY:Special Ability	TYPE:ProficiencyDisplay																									ASPECT:NAME|Untrained in Fortitude|PREVAREQ:Modifier_Fortitude,0	ASPECT:NAME|Trained in Fortitude|PREVAREQ:Modifier_Fortitude,1	ASPECT:NAME|Expert in Fortitude|PREVAREQ:Modifier_Fortitude,2	ASPECT:NAME|Mastery in Fortitude|PREVAREQ:Modifier_Fortitude,3	ASPECT:NAME|Legendary in Fortitude|PREVAREQ:Modifier_Fortitude,4
+Reflex					SORTKEY:01 - Saves	CATEGORY:Special Ability	TYPE:ProficiencyDisplay																									ASPECT:NAME|Untrained in Reflex|PREVAREQ:Modifier_Reflex,0	ASPECT:NAME|Trained in Reflex|PREVAREQ:Modifier_Reflex,1	ASPECT:NAME|Expert in Reflex|PREVAREQ:Modifier_Reflex,2	ASPECT:NAME|Mastery in Reflex|PREVAREQ:Modifier_Reflex,3	ASPECT:NAME|Legendary in Reflex|PREVAREQ:Modifier_Reflex,4
+Will						SORTKEY:01 - Saves	CATEGORY:Special Ability	TYPE:ProficiencyDisplay																									ASPECT:NAME|Untrained in Will|PREVAREQ:Modifier_Will,0	ASPECT:NAME|Trained in Will|PREVAREQ:Modifier_Will,1	ASPECT:NAME|Expert in Will|PREVAREQ:Modifier_Will,2	ASPECT:NAME|Mastery in Will|PREVAREQ:Modifier_Will,3	ASPECT:NAME|Legendary in Will|PREVAREQ:Modifier_Will,4
+
+
+###Block
+# Ability Name				Unique Key		Category of Ability	Define											Stackable?	Multiple?	Choose		Ability									Combat bonus						Bonus to skill rank																							Modify VAR
+Fortitude					KEY:Fortitude	CATEGORY:Proficiency													STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Reflex					KEY:Reflex		CATEGORY:Proficiency													STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Will						KEY:Will		CATEGORY:Proficiency													STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+
+
+
+
+
+# This tracks Proficiency with the 4 AC Proficiency Groups
+Armor Class Tracker						CATEGORY:Internal		DEFINE:ArmorProf|0																										BONUS:COMBAT|AC|ArmorProf|TYPE=ArmorProfBonus																											BONUS:VAR|ArmorProf|ArmorProf_LightArmor|TYPE=Base|PREARMORTYPE:1,TYPE.Light	BONUS:VAR|ArmorProf|ArmorProf_MediumArmor|TYPE=Base|PREARMORTYPE:1,TYPE.Medium	BONUS:VAR|ArmorProf|ArmorProf_HeavyArmor|TYPE=Base|PREARMORTYPE:1,TYPE.Heavy	BONUS:VAR|ArmorProf|ArmorProf_UnarmoredDefense|TYPE=Base|!PREARMORTYPE:1,TYPE.Heavy,TYPE.Medium,TYPE.Light	
+#PREVAREQ:NoArmorWorn,0	DEFINE:NoArmorWorn|0	BONUS:VAR|NoArmorWorn|1|PREARMORTYPE:1,TYPE.Light,TYPE.Medium,TYPE.Heavy
+
+
+
+Proficiency Tracker						CATEGORY:Internal																					ABILITY:Special Ability|AUTOMATIC|TYPE=ProficiencyDisplay
+
+
+Skill Tracker							CATEGORY:Internal		DEFINE:UntrainedSkillBonus|0
+#
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Proficiency_Acrobatics|0	DEFINE:Modifier_Acrobatics|0																											BONUS:SKILLRANK|Acrobatics|if(Modifier_Acrobatics>=1,TL+(Modifier_Acrobatics*2),UntrainedSkillBonus)|TYPE=Proficiency							BONUS:VAR|Modifier_Acrobatics|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Acrobatics"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Proficiency_Arcana|0	DEFINE:Modifier_Arcana|0																												BONUS:SKILLRANK|Arcana|if(Modifier_Arcana>=1,TL+(Modifier_Arcana*2),UntrainedSkillBonus)|TYPE=Proficiency									BONUS:VAR|Modifier_Arcana|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Arcana"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Proficiency_Athletics|0	DEFINE:Modifier_Athletics|0																											BONUS:SKILLRANK|Athletics|if(Modifier_Athletics>=1,TL+(Modifier_Athletics*2),UntrainedSkillBonus)|TYPE=Proficiency							BONUS:VAR|Modifier_Athletics|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Athletics"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Proficiency_Crafting|0	DEFINE:Modifier_Crafting|0																												BONUS:SKILLRANK|Crafting|if(Modifier_Crafting>=1,TL+(Modifier_Crafting*2),UntrainedSkillBonus)|TYPE=Proficiency								BONUS:VAR|Modifier_Crafting|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Crafting"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Proficiency_Deception|0	DEFINE:Modifier_Deception|0																											BONUS:SKILLRANK|Deception|if(Modifier_Deception>=1,TL+(Modifier_Deception*2),UntrainedSkillBonus)|TYPE=Proficiency							BONUS:VAR|Modifier_Deception|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Deception"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Proficiency_Diplomacy|0	DEFINE:Modifier_Diplomacy|0																											BONUS:SKILLRANK|Diplomacy|if(Modifier_Diplomacy>=1,TL+(Modifier_Diplomacy*2),UntrainedSkillBonus)|TYPE=Proficiency							BONUS:VAR|Modifier_Diplomacy|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Diplomacy"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Proficiency_Intimidation|0	DEFINE:Modifier_Intimidation|0																										BONUS:SKILLRANK|Intimidation|if(Modifier_Intimidation>=1,TL+(Modifier_Intimidation*2),UntrainedSkillBonus)|TYPE=Proficiency						BONUS:VAR|Modifier_Intimidation|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Intimidation"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Proficiency_Lore|0	DEFINE:Modifier_Lore|0																													BONUS:SKILLRANK|Lore|if(Modifier_Lore>=1,TL+(Modifier_Lore*2),UntrainedSkillBonus)|TYPE=Proficiency										BONUS:VAR|Modifier_Lore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Proficiency_Medicine|0	DEFINE:Modifier_Medicine|0																												BONUS:SKILLRANK|Medicine|if(Modifier_Medicine>=1,TL+(Modifier_Medicine*2),UntrainedSkillBonus)|TYPE=Proficiency								BONUS:VAR|Modifier_Medicine|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Medicine"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Proficiency_Nature|0	DEFINE:Modifier_Nature|0																												BONUS:SKILLRANK|Nature|if(Modifier_Nature>=1,TL+(Modifier_Nature*2),UntrainedSkillBonus)|TYPE=Proficiency									BONUS:VAR|Modifier_Nature|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Nature"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Proficiency_Occultism|0	DEFINE:Modifier_Occultism|0																											BONUS:SKILLRANK|Occultism|if(Modifier_Occultism>=1,TL+(Modifier_Occultism*2),UntrainedSkillBonus)|TYPE=Proficiency							BONUS:VAR|Modifier_Occultism|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Occultism"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Proficiency_Performance|0	DEFINE:Modifier_Performance|0																											BONUS:SKILLRANK|Performance|if(Modifier_Performance>=1,TL+(Modifier_Performance*2),UntrainedSkillBonus)|TYPE=Proficiency						BONUS:VAR|Modifier_Performance|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Performance"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Proficiency_Religion|0	DEFINE:Modifier_Religion|0																												BONUS:SKILLRANK|Religion|if(Modifier_Religion>=1,TL+(Modifier_Religion*2),UntrainedSkillBonus)|TYPE=Proficiency								BONUS:VAR|Modifier_Religion|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Religion"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Proficiency_Society|0	DEFINE:Modifier_Society|0																												BONUS:SKILLRANK|Society|if(Modifier_Society>=1,TL+(Modifier_Society*2),UntrainedSkillBonus)|TYPE=Proficiency								BONUS:VAR|Modifier_Society|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Society"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Proficiency_Stealth|0	DEFINE:Modifier_Stealth|0																												BONUS:SKILLRANK|Stealth|if(Modifier_Stealth>=1,TL+(Modifier_Stealth*2),UntrainedSkillBonus)|TYPE=Proficiency								BONUS:VAR|Modifier_Stealth|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Stealth"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Proficiency_Survival|0	DEFINE:Modifier_Survival|0																												BONUS:SKILLRANK|Survival|if(Modifier_Survival>=1,TL+(Modifier_Survival*2),UntrainedSkillBonus)|TYPE=Proficiency								BONUS:VAR|Modifier_Survival|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Survival"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Proficiency_Thievery|0	DEFINE:Modifier_Thievery|0																												BONUS:SKILLRANK|Thievery|if(Modifier_Thievery>=1,TL+(Modifier_Thievery*2),UntrainedSkillBonus)|TYPE=Proficiency								BONUS:VAR|Modifier_Thievery|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Thievery"))|TYPE=Base
+# Lore....
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_AlcoholLore|0																																	BONUS:SKILLRANK|Lore - Alcohol Lore|if(Modifier_AlcoholLore>=1,TL+(Modifier_AlcoholLore*2),UntrainedSkillBonus)|TYPE=Proficiency					BONUS:VAR|Modifier_AlcoholLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Alcohol Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_AnimalLore|0																																	BONUS:SKILLRANK|Lore - Animal Lore|if(Modifier_AnimalLore>=1,TL+(Modifier_AnimalLore*2),UntrainedSkillBonus)|TYPE=Proficiency						BONUS:VAR|Modifier_AnimalLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Animal Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_AcademiaLore|0																																BONUS:SKILLRANK|Lore - Academia Lore|if(Modifier_AcademiaLore>=1,TL+(Modifier_AcademiaLore*2),UntrainedSkillBonus)|TYPE=Proficiency					BONUS:VAR|Modifier_AcademiaLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Academia Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_AccountingLore|0																																BONUS:SKILLRANK|Lore - Accounting Lore|if(Modifier_AccountingLore>=1,TL+(Modifier_AccountingLore*2),UntrainedSkillBonus)|TYPE=Proficiency				BONUS:VAR|Modifier_AccountingLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Accounting Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_ArchitectureLore|0																																BONUS:SKILLRANK|Lore - Architecture Lore|if(Modifier_ArchitectureLore>=1,TL+(Modifier_ArchitectureLore*2),UntrainedSkillBonus)|TYPE=Proficiency			BONUS:VAR|Modifier_ArchitectureLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Architecture Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_ArtLore|0																																	BONUS:SKILLRANK|Lore - Art Lore|if(Modifier_ArtLore>=1,TL+(Modifier_ArtLore*2),UntrainedSkillBonus)|TYPE=Proficiency							BONUS:VAR|Modifier_ArtLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Art Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_CircusLore|0																																	BONUS:SKILLRANK|Lore - Circus Lore|if(Modifier_CircusLore>=1,TL+(Modifier_CircusLore*2),UntrainedSkillBonus)|TYPE=Proficiency						BONUS:VAR|Modifier_CircusLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Circus Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_EngineeringLore|0																																BONUS:SKILLRANK|Lore - Engineering Lore|if(Modifier_EngineeringLore>=1,TL+(Modifier_EngineeringLore*2),UntrainedSkillBonus)|TYPE=Proficiency			BONUS:VAR|Modifier_EngineeringLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Engineering Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_FarmingLore|0																																	BONUS:SKILLRANK|Lore - Farming Lore|if(Modifier_FarmingLore>=1,TL+(Modifier_FarmingLore*2),UntrainedSkillBonus)|TYPE=Proficiency					BONUS:VAR|Modifier_FarmingLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Farming Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_FishingLore|0																																	BONUS:SKILLRANK|Lore - Fishing Lore|if(Modifier_FishingLore>=1,TL+(Modifier_FishingLore*2),UntrainedSkillBonus)|TYPE=Proficiency					BONUS:VAR|Modifier_FishingLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Fishing Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_FortuneTellingLore|0																															BONUS:SKILLRANK|Lore - Fortune-Telling Lore|if(Modifier_FortuneTellingLore>=1,TL+(Modifier_FortuneTellingLore*2),UntrainedSkillBonus)|TYPE=Proficiency	BONUS:VAR|Modifier_FortuneTellingLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Fortune-Telling Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_GamesLore|0																																	BONUS:SKILLRANK|Lore - Games Lore|if(Modifier_GamesLore>=1,TL+(Modifier_GamesLore*2),UntrainedSkillBonus)|TYPE=Proficiency						BONUS:VAR|Modifier_GamesLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Games Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_GenealogyLore|0																																BONUS:SKILLRANK|Lore - Genealogy Lore|if(Modifier_GenealogyLore>=1,TL+(Modifier_GenealogyLore*2),UntrainedSkillBonus)|TYPE=Proficiency				BONUS:VAR|Modifier_GenealogyLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Genealogy Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_GladiatorialLore|0																																BONUS:SKILLRANK|Lore - Gladiatorial Lore|if(Modifier_GladiatorialLore>=1,TL+(Modifier_GladiatorialLore*2),UntrainedSkillBonus)|TYPE=Proficiency			BONUS:VAR|Modifier_GladiatorialLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Gladiatorial Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_GuildLore|0																																	BONUS:SKILLRANK|Lore - Guild Lore|if(Modifier_GuildLore>=1,TL+(Modifier_GuildLore*2),UntrainedSkillBonus)|TYPE=Proficiency						BONUS:VAR|Modifier_GuildLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Guild Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_HeraldryLore|0																																BONUS:SKILLRANK|Lore - Heraldry Lore|if(Modifier_HeraldryLore>=1,TL+(Modifier_HeraldryLore*2),UntrainedSkillBonus)|TYPE=Proficiency					BONUS:VAR|Modifier_HeraldryLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Heraldry Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_HerbalismLore|0																																BONUS:SKILLRANK|Lore - Herbalism Lore|if(Modifier_HerbalismLore>=1,TL+(Modifier_HerbalismLore*2),UntrainedSkillBonus)|TYPE=Proficiency				BONUS:VAR|Modifier_HerbalismLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Herbalism Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_HuntingLore|0																																	BONUS:SKILLRANK|Lore - Hunting Lore|if(Modifier_HuntingLore>=1,TL+(Modifier_HuntingLore*2),UntrainedSkillBonus)|TYPE=Proficiency					BONUS:VAR|Modifier_HuntingLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Hunting Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_LaborLore|0																																	BONUS:SKILLRANK|Lore - Labor Lore|if(Modifier_LaborLore>=1,TL+(Modifier_LaborLore*2),UntrainedSkillBonus)|TYPE=Proficiency						BONUS:VAR|Modifier_LaborLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Labor Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_LegalLore|0																																	BONUS:SKILLRANK|Lore - Legal Lore|if(Modifier_LegalLore>=1,TL+(Modifier_LegalLore*2),UntrainedSkillBonus)|TYPE=Proficiency						BONUS:VAR|Modifier_LegalLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Legal Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_LibraryLore|0																																	BONUS:SKILLRANK|Lore - Library Lore|if(Modifier_LibraryLore>=1,TL+(Modifier_LibraryLore*2),UntrainedSkillBonus)|TYPE=Proficiency					BONUS:VAR|Modifier_LibraryLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Library Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_AbyssLore|0																																	BONUS:SKILLRANK|Lore - Abyss Lore|if(Modifier_AbyssLore>=1,TL+(Modifier_AbyssLore*2),UntrainedSkillBonus)|TYPE=Proficiency						BONUS:VAR|Modifier_AbyssLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Abyss Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_HeavenLore|0																																	BONUS:SKILLRANK|Lore - Heaven Lore|if(Modifier_HeavenLore>=1,TL+(Modifier_HeavenLore*2),UntrainedSkillBonus)|TYPE=Proficiency						BONUS:VAR|Modifier_HeavenLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Heaven Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_MercantileLore|0																																BONUS:SKILLRANK|Lore - Mercantile Lore|if(Modifier_MercantileLore>=1,TL+(Modifier_MercantileLore*2),UntrainedSkillBonus)|TYPE=Proficiency				BONUS:VAR|Modifier_MercantileLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Mercantile Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_MidwiferyLore|0																																BONUS:SKILLRANK|Lore - Midwifery Lore|if(Modifier_MidwiferyLore>=1,TL+(Modifier_MidwiferyLore*2),UntrainedSkillBonus)|TYPE=Proficiency				BONUS:VAR|Modifier_MidwiferyLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Midwifery Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_MillingLore|0																																	BONUS:SKILLRANK|Lore - Milling Lore|if(Modifier_MillingLore>=1,TL+(Modifier_MillingLore*2),UntrainedSkillBonus)|TYPE=Proficiency					BONUS:VAR|Modifier_MillingLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Milling Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_MiningLore|0																																	BONUS:SKILLRANK|Lore - Mining Lore|if(Modifier_MiningLore>=1,TL+(Modifier_MiningLore*2),UntrainedSkillBonus)|TYPE=Proficiency						BONUS:VAR|Modifier_MiningLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Mining Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_SailingLore|0																																	BONUS:SKILLRANK|Lore - Sailing Lore|if(Modifier_SailingLore>=1,TL+(Modifier_SailingLore*2),UntrainedSkillBonus)|TYPE=Proficiency					BONUS:VAR|Modifier_SailingLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Sailing Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_ScoutingLore|0																																BONUS:SKILLRANK|Lore - Scouting Lore|if(Modifier_ScoutingLore>=1,TL+(Modifier_ScoutingLore*2),UntrainedSkillBonus)|TYPE=Proficiency					BONUS:VAR|Modifier_ScoutingLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Scouting Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_ScribingLore|0																																BONUS:SKILLRANK|Lore - Scribing Lore|if(Modifier_ScribingLore>=1,TL+(Modifier_ScribingLore*2),UntrainedSkillBonus)|TYPE=Proficiency					BONUS:VAR|Modifier_ScribingLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Scribing Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_StablingLore|0																																BONUS:SKILLRANK|Lore - Stabling Lore|if(Modifier_StablingLore>=1,TL+(Modifier_StablingLore*2),UntrainedSkillBonus)|TYPE=Proficiency					BONUS:VAR|Modifier_StablingLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Stabling Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_TanningLore|0																																	BONUS:SKILLRANK|Lore - Tanning Lore|if(Modifier_TanningLore>=1,TL+(Modifier_TanningLore*2),UntrainedSkillBonus)|TYPE=Proficiency					BONUS:VAR|Modifier_TanningLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Tanning Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_TheaterLore|0																																	BONUS:SKILLRANK|Lore - Theater Lore|if(Modifier_TheaterLore>=1,TL+(Modifier_TheaterLore*2),UntrainedSkillBonus)|TYPE=Proficiency					BONUS:VAR|Modifier_TheaterLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Theater Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_UnderworldLore|0																																BONUS:SKILLRANK|Lore - Underworld Lore|if(Modifier_UnderworldLore>=1,TL+(Modifier_UnderworldLore*2),UntrainedSkillBonus)|TYPE=Proficiency				BONUS:VAR|Modifier_UnderworldLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Underworld Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_WarfareLore|0																																	BONUS:SKILLRANK|Lore - Warfare Lore|if(Modifier_WarfareLore>=1,TL+(Modifier_WarfareLore*2),UntrainedSkillBonus)|TYPE=Proficiency					BONUS:VAR|Modifier_WarfareLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Warfare Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_specificsettlement|0																															BONUS:SKILLRANK|Lore - specific settlement|if(Modifier_specificsettlement>=1,TL+(Modifier_specificsettlement*2),UntrainedSkillBonus)|TYPE=Proficiency		BONUS:VAR|Modifier_specificsettlement|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=specific settlement"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_specificterrain|0																																BONUS:SKILLRANK|Lore - specific terrain|if(Modifier_specificterrain>=1,TL+(Modifier_specificterrain*2),UntrainedSkillBonus)|TYPE=Proficiency			BONUS:VAR|Modifier_specificterrain|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=specific terrain"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_specificfoodordrink|0																															BONUS:SKILLRANK|Lore - specific food or drink|if(Modifier_specificfoodordrink>=1,TL+(Modifier_specificfoodordrink*2),UntrainedSkillBonus)|TYPE=Proficiency	BONUS:VAR|Modifier_specificfoodordrink|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=specific food or drink"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_DessertLore|0																																	BONUS:SKILLRANK|Lore - Dessert Lore|if(Modifier_DessertLore>=1,TL+(Modifier_DessertLore*2),UntrainedSkillBonus)|TYPE=Proficiency					BONUS:VAR|Modifier_DessertLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Dessert Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_HillLore|0																																	BONUS:SKILLRANK|Lore - Hill Lore|if(Modifier_HillLore>=1,TL+(Modifier_HillLore*2),UntrainedSkillBonus)|TYPE=Proficiency							BONUS:VAR|Modifier_HillLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Hill Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_MountainLore|0																																BONUS:SKILLRANK|Lore - Mountain Lore|if(Modifier_MountainLore>=1,TL+(Modifier_MountainLore*2),UntrainedSkillBonus)|TYPE=Proficiency					BONUS:VAR|Modifier_MountainLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Mountain Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_PlainLore|0																																	BONUS:SKILLRANK|Lore - Plain Lore|if(Modifier_PlainLore>=1,TL+(Modifier_PlainLore*2),UntrainedSkillBonus)|TYPE=Proficiency						BONUS:VAR|Modifier_PlainLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Plain Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_ForestLore|0																																	BONUS:SKILLRANK|Lore - Forest Lore|if(Modifier_ForestLore>=1,TL+(Modifier_ForestLore*2),UntrainedSkillBonus)|TYPE=Proficiency						BONUS:VAR|Modifier_ForestLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Forest Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_JungleLore|0																																	BONUS:SKILLRANK|Lore - Jungle Lore|if(Modifier_JungleLore>=1,TL+(Modifier_JungleLore*2),UntrainedSkillBonus)|TYPE=Proficiency						BONUS:VAR|Modifier_JungleLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Jungle Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_RiverLore|0																																	BONUS:SKILLRANK|Lore - River Lore|if(Modifier_RiverLore>=1,TL+(Modifier_RiverLore*2),UntrainedSkillBonus)|TYPE=Proficiency						BONUS:VAR|Modifier_RiverLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=River Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_OceanLore|0																																	BONUS:SKILLRANK|Lore - Ocean Lore|if(Modifier_OceanLore>=1,TL+(Modifier_OceanLore*2),UntrainedSkillBonus)|TYPE=Proficiency						BONUS:VAR|Modifier_OceanLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Ocean Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_UnderwaterLore|0																																BONUS:SKILLRANK|Lore - Underwater Lore|if(Modifier_UnderwaterLore>=1,TL+(Modifier_UnderwaterLore*2),UntrainedSkillBonus)|TYPE=Proficiency				BONUS:VAR|Modifier_UnderwaterLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Underwater Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_SwampLore|0																																	BONUS:SKILLRANK|Lore - Swamp Lore|if(Modifier_SwampLore>=1,TL+(Modifier_SwampLore*2),UntrainedSkillBonus)|TYPE=Proficiency						BONUS:VAR|Modifier_SwampLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Swamp Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_MarshLore|0																																	BONUS:SKILLRANK|Lore - Marsh Lore|if(Modifier_MarshLore>=1,TL+(Modifier_MarshLore*2),UntrainedSkillBonus)|TYPE=Proficiency						BONUS:VAR|Modifier_MarshLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Marsh Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_CanyonLore|0																																	BONUS:SKILLRANK|Lore - Canyon Lore|if(Modifier_CanyonLore>=1,TL+(Modifier_CanyonLore*2),UntrainedSkillBonus)|TYPE=Proficiency						BONUS:VAR|Modifier_CanyonLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Canyon Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_GlacierLore|0																																	BONUS:SKILLRANK|Lore - Glacier Lore|if(Modifier_GlacierLore>=1,TL+(Modifier_GlacierLore*2),UntrainedSkillBonus)|TYPE=Proficiency					BONUS:VAR|Modifier_GlacierLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Glacier Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_TundraLore|0																																	BONUS:SKILLRANK|Lore - Tundra Lore|if(Modifier_TundraLore>=1,TL+(Modifier_TundraLore*2),UntrainedSkillBonus)|TYPE=Proficiency						BONUS:VAR|Modifier_TundraLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Tundra Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_OasisLore|0																																	BONUS:SKILLRANK|Lore - Oasis Lore|if(Modifier_OasisLore>=1,TL+(Modifier_OasisLore*2),UntrainedSkillBonus)|TYPE=Proficiency						BONUS:VAR|Modifier_OasisLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Oasis Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_ValleyLore|0																																	BONUS:SKILLRANK|Lore - Valley Lore|if(Modifier_ValleyLore>=1,TL+(Modifier_ValleyLore*2),UntrainedSkillBonus)|TYPE=Proficiency						BONUS:VAR|Modifier_ValleyLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Valley Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_UndergroundLore|0																																BONUS:SKILLRANK|Lore - Underground Lore|if(Modifier_UndergroundLore>=1,TL+(Modifier_UndergroundLore*2),UntrainedSkillBonus)|TYPE=Proficiency			BONUS:VAR|Modifier_UndergroundLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Underground Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_SkyLore|0																																	BONUS:SKILLRANK|Lore - Sky Lore|if(Modifier_SkyLore>=1,TL+(Modifier_SkyLore*2),UntrainedSkillBonus)|TYPE=Proficiency							BONUS:VAR|Modifier_SkyLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Sky Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_AbadarLore|0																																	BONUS:SKILLRANK|Lore - Abadar Lore|if(Modifier_AbadarLore>=1,TL+(Modifier_AbadarLore*2),UntrainedSkillBonus)|TYPE=Proficiency						BONUS:VAR|Modifier_AbadarLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Abadar Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_AsmodeusLore|0																																BONUS:SKILLRANK|Lore - Asmodeus Lore|if(Modifier_AsmodeusLore>=1,TL+(Modifier_AsmodeusLore*2),UntrainedSkillBonus)|TYPE=Proficiency					BONUS:VAR|Modifier_AsmodeusLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Asmodeus Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_CalistriaLore|0																																BONUS:SKILLRANK|Lore - Calistria Lore|if(Modifier_CalistriaLore>=1,TL+(Modifier_CalistriaLore*2),UntrainedSkillBonus)|TYPE=Proficiency				BONUS:VAR|Modifier_CalistriaLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Calistria Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_CaydenCaileanLore|0																																BONUS:SKILLRANK|Lore - Cayden Cailean Lore|if(Modifier_CaydenCaileanLore>=1,TL+(Modifier_CaydenCaileanLore*2),UntrainedSkillBonus)|TYPE=Proficiency		BONUS:VAR|Modifier_CaydenCaileanLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Cayden Cailean Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_DesnaLore|0																																	BONUS:SKILLRANK|Lore - Desna Lore|if(Modifier_DesnaLore>=1,TL+(Modifier_DesnaLore*2),UntrainedSkillBonus)|TYPE=Proficiency						BONUS:VAR|Modifier_DesnaLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Desna Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_ErastilLore|0																																	BONUS:SKILLRANK|Lore - Erastil Lore|if(Modifier_ErastilLore>=1,TL+(Modifier_ErastilLore*2),UntrainedSkillBonus)|TYPE=Proficiency					BONUS:VAR|Modifier_ErastilLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Erastil Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_GorumLore|0																																	BONUS:SKILLRANK|Lore - Gorum Lore|if(Modifier_GorumLore>=1,TL+(Modifier_GorumLore*2),UntrainedSkillBonus)|TYPE=Proficiency						BONUS:VAR|Modifier_GorumLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Gorum Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_GozrehLore|0																																	BONUS:SKILLRANK|Lore - Gozreh Lore|if(Modifier_GozrehLore>=1,TL+(Modifier_GozrehLore*2),UntrainedSkillBonus)|TYPE=Proficiency						BONUS:VAR|Modifier_GozrehLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Gozreh Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_IomedaeLore|0																																	BONUS:SKILLRANK|Lore - Iomedae Lore|if(Modifier_IomedaeLore>=1,TL+(Modifier_IomedaeLore*2),UntrainedSkillBonus)|TYPE=Proficiency					BONUS:VAR|Modifier_IomedaeLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Iomedae Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_IroriLore|0																																	BONUS:SKILLRANK|Lore - Irori Lore|if(Modifier_IroriLore>=1,TL+(Modifier_IroriLore*2),UntrainedSkillBonus)|TYPE=Proficiency						BONUS:VAR|Modifier_IroriLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Irori Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_LamashtuLore|0																																BONUS:SKILLRANK|Lore - Lama shtu Lore|if(Modifier_LamashtuLore>=1,TL+(Modifier_LamashtuLore*2),UntrainedSkillBonus)|TYPE=Proficiency				BONUS:VAR|Modifier_LamashtuLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Lama shtu Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_NethysLore|0																																	BONUS:SKILLRANK|Lore - Nethys Lore|if(Modifier_NethysLore>=1,TL+(Modifier_NethysLore*2),UntrainedSkillBonus)|TYPE=Proficiency						BONUS:VAR|Modifier_NethysLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Nethys Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_NorgorberLore|0																																BONUS:SKILLRANK|Lore - Norgorber Lore|if(Modifier_NorgorberLore>=1,TL+(Modifier_NorgorberLore*2),UntrainedSkillBonus)|TYPE=Proficiency				BONUS:VAR|Modifier_NorgorberLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Norgorber Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_PharasmaLore|0																																BONUS:SKILLRANK|Lore - Pharasma Lore|if(Modifier_PharasmaLore>=1,TL+(Modifier_PharasmaLore*2),UntrainedSkillBonus)|TYPE=Proficiency					BONUS:VAR|Modifier_PharasmaLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Pharasma Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_RovagugLore|0																																	BONUS:SKILLRANK|Lore - Rovagug Lore|if(Modifier_RovagugLore>=1,TL+(Modifier_RovagugLore*2),UntrainedSkillBonus)|TYPE=Proficiency					BONUS:VAR|Modifier_RovagugLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Rovagug Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_SarenraeLore|0																																BONUS:SKILLRANK|Lore - Sarenrae Lore|if(Modifier_SarenraeLore>=1,TL+(Modifier_SarenraeLore*2),UntrainedSkillBonus)|TYPE=Proficiency					BONUS:VAR|Modifier_SarenraeLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Sarenrae Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_ShelynLore|0																																	BONUS:SKILLRANK|Lore - Shelyn Lore|if(Modifier_ShelynLore>=1,TL+(Modifier_ShelynLore*2),UntrainedSkillBonus)|TYPE=Proficiency						BONUS:VAR|Modifier_ShelynLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Shelyn Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_ToragLore|0																																	BONUS:SKILLRANK|Lore - Torag Lore|if(Modifier_ToragLore>=1,TL+(Modifier_ToragLore*2),UntrainedSkillBonus)|TYPE=Proficiency						BONUS:VAR|Modifier_ToragLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Torag Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_UrgathoaLore|0																																BONUS:SKILLRANK|Lore - Urgathoa Lore|if(Modifier_UrgathoaLore>=1,TL+(Modifier_UrgathoaLore*2),UntrainedSkillBonus)|TYPE=Proficiency					BONUS:VAR|Modifier_UrgathoaLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Urgathoa Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_ZonKuthonLore|0																																BONUS:SKILLRANK|Lore - Zon-Kuthon Lore|if(Modifier_ZonKuthonLore>=1,TL+(Modifier_ZonKuthonLore*2),UntrainedSkillBonus)|TYPE=Proficiency				BONUS:VAR|Modifier_ZonKuthonLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Zon-Kuthon Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_AbsalomLore|0																																	BONUS:SKILLRANK|Lore - Absalom Lore|if(Modifier_AbsalomLore>=1,TL+(Modifier_AbsalomLore*2),UntrainedSkillBonus)|TYPE=Proficiency					BONUS:VAR|Modifier_AbsalomLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Absalom Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_MagnimarLore|0																																BONUS:SKILLRANK|Lore - Magnimar Lore|if(Modifier_MagnimarLore>=1,TL+(Modifier_MagnimarLore*2),UntrainedSkillBonus)|TYPE=Proficiency					BONUS:VAR|Modifier_MagnimarLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Magnimar Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_CreatureLore1|0																																BONUS:SKILLRANK|Lore - Creature Lore 1|if(Modifier_CreatureLore1>=1,TL+(Modifier_CreatureLore1*2),UntrainedSkillBonus)|TYPE=Proficiency				BONUS:VAR|Modifier_CreatureLore1|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Creature Lore 1"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_CreatureLore2|0																																BONUS:SKILLRANK|Lore - Creature Lore 2|if(Modifier_CreatureLore2>=1,TL+(Modifier_CreatureLore2*2),UntrainedSkillBonus)|TYPE=Proficiency				BONUS:VAR|Modifier_CreatureLore2|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Creature Lore 2"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_FoodLore1|0																																	BONUS:SKILLRANK|Lore - Food Lore 1|if(Modifier_FoodLore1>=1,TL+(Modifier_FoodLore1*2),UntrainedSkillBonus)|TYPE=Proficiency						BONUS:VAR|Modifier_FoodLore1|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Food Lore 1"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_FoodLore2|0																																	BONUS:SKILLRANK|Lore - Food Lore 2|if(Modifier_FoodLore2>=1,TL+(Modifier_FoodLore2*2),UntrainedSkillBonus)|TYPE=Proficiency						BONUS:VAR|Modifier_FoodLore2|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Food Lore 2"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_DrinkLore1|0																																	BONUS:SKILLRANK|Lore - Drink Lore 1|if(Modifier_DrinkLore1>=1,TL+(Modifier_DrinkLore1*2),UntrainedSkillBonus)|TYPE=Proficiency					BONUS:VAR|Modifier_DrinkLore1|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Drink Lore 1"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_DrinkLore2|0																																	BONUS:SKILLRANK|Lore - Drink Lore 2|if(Modifier_DrinkLore2>=1,TL+(Modifier_DrinkLore2*2),UntrainedSkillBonus)|TYPE=Proficiency					BONUS:VAR|Modifier_DrinkLore2|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Drink Lore 2"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_MaterialPlaneLore|0																																BONUS:SKILLRANK|Lore - Material Plane Lore|if(Modifier_MaterialPlaneLore>=1,TL+(Modifier_MaterialPlaneLore*2),UntrainedSkillBonus)|TYPE=Proficiency		BONUS:VAR|Modifier_MaterialPlaneLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Material Plane Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_ElementalPlaneLore|0																															BONUS:SKILLRANK|Lore - Elemental Plane Lore|if(Modifier_ElementalPlaneLore>=1,TL+(Modifier_ElementalPlaneLore*2),UntrainedSkillBonus)|TYPE=Proficiency	BONUS:VAR|Modifier_ElementalPlaneLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Elemental Plane Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_AstralPlaneLore|0																																BONUS:SKILLRANK|Lore - Astral Plane Lore|if(Modifier_AstralPlaneLore>=1,TL+(Modifier_AstralPlaneLore*2),UntrainedSkillBonus)|TYPE=Proficiency			BONUS:VAR|Modifier_AstralPlaneLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Astral Plane Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_EtherealPlaneLore|0																																BONUS:SKILLRANK|Lore - Ethereal Plane Lore|if(Modifier_EtherealPlaneLore>=1,TL+(Modifier_EtherealPlaneLore*2),UntrainedSkillBonus)|TYPE=Proficiency		BONUS:VAR|Modifier_EtherealPlaneLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Ethereal Plane Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_FeywildPlaneLore|0																																BONUS:SKILLRANK|Lore - Feywild Plane Lore|if(Modifier_FeywildPlaneLore>=1,TL+(Modifier_FeywildPlaneLore*2),UntrainedSkillBonus)|TYPE=Proficiency		BONUS:VAR|Modifier_FeywildPlaneLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Feywild Plane Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_HellPlaneLore|0																																BONUS:SKILLRANK|Lore - Hell Plane Lore|if(Modifier_HellPlaneLore>=1,TL+(Modifier_HellPlaneLore*2),UntrainedSkillBonus)|TYPE=Proficiency				BONUS:VAR|Modifier_HellPlaneLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Hell Plane Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_LowerPlaneLore|0																																BONUS:SKILLRANK|Lore - Lower Plane Lore|if(Modifier_LowerPlaneLore>=1,TL+(Modifier_LowerPlaneLore*2),UntrainedSkillBonus)|TYPE=Proficiency			BONUS:VAR|Modifier_LowerPlaneLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Lower Plane Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_UpperPlaneLore|0																																BONUS:SKILLRANK|Lore - Upper Plane Lore|if(Modifier_UpperPlaneLore>=1,TL+(Modifier_UpperPlaneLore*2),UntrainedSkillBonus)|TYPE=Proficiency			BONUS:VAR|Modifier_UpperPlaneLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Upper Plane Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_InnerPlaneLore|0																																BONUS:SKILLRANK|Lore - Inner Plane Lore|if(Modifier_InnerPlaneLore>=1,TL+(Modifier_InnerPlaneLore*2),UntrainedSkillBonus)|TYPE=Proficiency			BONUS:VAR|Modifier_InnerPlaneLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Inner Plane Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_OuterPlaneLore|0																																BONUS:SKILLRANK|Lore - Outer Plane Lore|if(Modifier_OuterPlaneLore>=1,TL+(Modifier_OuterPlaneLore*2),UntrainedSkillBonus)|TYPE=Proficiency			BONUS:VAR|Modifier_OuterPlaneLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Outer Plane Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_FillIntheBlankLore1|0																															BONUS:SKILLRANK|Lore - Fill In the Blank 1|if(Modifier_FillIntheBlankLore1>=1,TL+(Modifier_FillIntheBlankLore1*2),UntrainedSkillBonus)|TYPE=Proficiency	BONUS:VAR|Modifier_FillIntheBlankLore1|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Fill In the Blank Lore 1"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_FillIntheBlankLore2|0																															BONUS:SKILLRANK|Lore - Fill In the Blank 2|if(Modifier_FillIntheBlankLore2>=1,TL+(Modifier_FillIntheBlankLore2*2),UntrainedSkillBonus)|TYPE=Proficiency	BONUS:VAR|Modifier_FillIntheBlankLore2|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Fill In the Blank Lore 2"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_EntertainmentLore|0																																BONUS:SKILLRANK|Lore - Entertainment Lore|if(Modifier_EntertainmentLore>=1,TL+(Modifier_EntertainmentLore*2),UntrainedSkillBonus)|TYPE=Proficiency		BONUS:VAR|Modifier_EntertainmentLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Entertainment Lore"))|TYPE=Base
+CATEGORY=Internal|Skill Tracker.MOD								DEFINE:Modifier_NobilityLore|0																																BONUS:SKILLRANK|Lore - Nobility Lore|if(Modifier_NobilityLore>=1,TL+(Modifier_NobilityLore*2),UntrainedSkillBonus)|TYPE=Proficiency					BONUS:VAR|Modifier_NobilityLore|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Nobility Lore"))|TYPE=Base
+
+
+
+
+###Block: COMMENT: This jumps the progression regardless of standing
+# Ability Name	Category of Ability	Stackable?	Multiple?	Choose
+Perception		CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Acrobatics		CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Arcana		CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Athletics		CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Crafting		CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Deception		CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Diplomacy		CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Intimidation	CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Medicine		CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Nature		CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Occultism		CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Performance		CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Religion		CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Society		CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Stealth		CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Survival		CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Thievery		CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+
+
+
+
+
+
+###Block: The Lore Skills
+# Ability Name			Category of Ability	Stackable?	Multiple?	Choose
+Entertainment Lore		CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Nobility Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+
+
+Alcohol Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Animal Lore				CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+
+
+Academia Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Accounting Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Architecture Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Art Lore				CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Circus Lore				CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Engineering Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Farming Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Fishing Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Fortune-Telling Lore		CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Games Lore				CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Genealogy Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Gladiatorial Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Guild Lore				CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Heraldry Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Herbalism Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Hunting Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Labor Lore				CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Legal Lore				CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Library Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Abyss Lore				CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Astral Plane Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Heaven Lore				CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Mercantile Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Midwifery Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Milling Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Mining Lore				CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Sailing Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Scouting Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Scribing Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Stabling Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Tanning Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Theater Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Underworld Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Warfare Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+specific settlement		CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+specific terrain			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+specific food or drink		CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Dessert Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Hill Lore				CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Mountain Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Plain Lore				CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Forest Lore				CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Jungle Lore				CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+River Lore				CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Ocean Lore				CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Underwater Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Swamp Lore				CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Marsh Lore				CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Canyon Lore				CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Glacier Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Tundra Lore				CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Oasis Lore				CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Valley Lore				CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Underground Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Sky Lore				CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Abadar Lore				CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Asmodeus Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Calistria Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Cayden Cailean Lore		CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Desna Lore				CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Erastil Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Gorum Lore				CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Gozreh Lore				CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Iomedae Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Irori Lore				CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Lama shtu Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Nethys Lore				CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Norgorber Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Pharasma Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Rovagug Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Sarenrae Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Shelyn Lore				CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Torag Lore				CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Urgathoa Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Zon-Kuthon Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Absalom Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Magnimar Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Creature Lore 1			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Creature Lore 2			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Food Lore 1				CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Food Lore 2				CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Drink Lore 1			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Drink Lore 2			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Material Plane Lore		CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Elemental Plane Lore		CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Astral Plane Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Ethereal Plane Lore		CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Feywild Plane Lore		CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Hell Plane Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Lower Plane Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Upper Plane Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Inner Plane Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Outer Plane Lore			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Fill In the Blank Lore 1	CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+Fill In the Blank Lore 2	CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+
+
+###Block: All Proficiencies
+
+
+
+
+
+###Block: Display
+# Ability Name			SORTKEY				Category of Ability		Type						Define											Ability								Modify VAR																																			Aspects
+Perception				SORTKEY:00 - Perception		CATEGORY:Special Ability	TYPE:Display.ProficiencyDisplay																																																										ASPECT:NAME|Untrained in Perception|PREVAREQ:Modifier_Perception,0	ASPECT:NAME|Trained in Perception|PREVAREQ:Modifier_Perception,1	ASPECT:NAME|Expert in Perception|PREVAREQ:Modifier_Perception,2	ASPECT:NAME|Mastery in Perception|PREVAREQ:Modifier_Perception,3	ASPECT:NAME|Legendary in Perception|PREVAREQ:Modifier_Perception,4
+# Skills
+Acrobatics				SORTKEY:02 - Skills		CATEGORY:Special Ability	TYPE:Display.ProficiencyDisplay																																																										ASPECT:NAME|Untrained in Acrobatics|PREVAREQ:Modifier_Acrobatics,0	ASPECT:NAME|Trained in Acrobatics|PREVAREQ:Modifier_Acrobatics,1	ASPECT:NAME|Expert in Acrobatics|PREVAREQ:Modifier_Acrobatics,2	ASPECT:NAME|Mastery in Acrobatics|PREVAREQ:Modifier_Acrobatics,3	ASPECT:NAME|Legendary in Acrobatics|PREVAREQ:Modifier_Acrobatics,4
+Arcana				SORTKEY:02 - Skills		CATEGORY:Special Ability	TYPE:Display.ProficiencyDisplay																																																										ASPECT:NAME|Untrained in Arcana|PREVAREQ:Modifier_Arcana,0	ASPECT:NAME|Trained in Arcana|PREVAREQ:Modifier_Arcana,1	ASPECT:NAME|Expert in Arcana|PREVAREQ:Modifier_Arcana,2	ASPECT:NAME|Mastery in Arcana|PREVAREQ:Modifier_Arcana,3	ASPECT:NAME|Legendary in Arcana|PREVAREQ:Modifier_Arcana,4
+Athletics				SORTKEY:02 - Skills		CATEGORY:Special Ability	TYPE:Display.ProficiencyDisplay																																																										ASPECT:NAME|Untrained in Athletics|PREVAREQ:Modifier_Athletics,0	ASPECT:NAME|Trained in Athletics|PREVAREQ:Modifier_Athletics,1	ASPECT:NAME|Expert in Athletics|PREVAREQ:Modifier_Athletics,2	ASPECT:NAME|Mastery in Athletics|PREVAREQ:Modifier_Athletics,3	ASPECT:NAME|Legendary in Athletics|PREVAREQ:Modifier_Athletics,4
+Crafting				SORTKEY:02 - Skills		CATEGORY:Special Ability	TYPE:Display.ProficiencyDisplay																																																										ASPECT:NAME|Untrained in Crafting|PREVAREQ:Modifier_Crafting,0	ASPECT:NAME|Trained in Crafting|PREVAREQ:Modifier_Crafting,1	ASPECT:NAME|Expert in Crafting|PREVAREQ:Modifier_Crafting,2	ASPECT:NAME|Mastery in Crafting|PREVAREQ:Modifier_Crafting,3	ASPECT:NAME|Legendary in Crafting|PREVAREQ:Modifier_Crafting,4
+Deception				SORTKEY:02 - Skills		CATEGORY:Special Ability	TYPE:Display.ProficiencyDisplay																																																										ASPECT:NAME|Untrained in Deception|PREVAREQ:Modifier_Deception,0	ASPECT:NAME|Trained in Deception|PREVAREQ:Modifier_Deception,1	ASPECT:NAME|Expert in Deception|PREVAREQ:Modifier_Deception,2	ASPECT:NAME|Mastery in Deception|PREVAREQ:Modifier_Deception,3	ASPECT:NAME|Legendary in Deception|PREVAREQ:Modifier_Deception,4
+Diplomacy				SORTKEY:02 - Skills		CATEGORY:Special Ability	TYPE:Display.ProficiencyDisplay																																																										ASPECT:NAME|Untrained in Diplomacy|PREVAREQ:Modifier_Diplomacy,0	ASPECT:NAME|Trained in Diplomacy|PREVAREQ:Modifier_Diplomacy,1	ASPECT:NAME|Expert in Diplomacy|PREVAREQ:Modifier_Diplomacy,2	ASPECT:NAME|Mastery in Diplomacy|PREVAREQ:Modifier_Diplomacy,3	ASPECT:NAME|Legendary in Diplomacy|PREVAREQ:Modifier_Diplomacy,4
+Intimidation			SORTKEY:02 - Skills		CATEGORY:Special Ability	TYPE:Display.ProficiencyDisplay																																																										ASPECT:NAME|Untrained in Intimidation|PREVAREQ:Modifier_Intimidation,0	ASPECT:NAME|Trained in Intimidation|PREVAREQ:Modifier_Intimidation,1	ASPECT:NAME|Expert in Intimidation|PREVAREQ:Modifier_Intimidation,2	ASPECT:NAME|Mastery in Intimidation|PREVAREQ:Modifier_Intimidation,3	ASPECT:NAME|Legendary in Intimidation|PREVAREQ:Modifier_Intimidation,4
+Lore					SORTKEY:02 - Skills		CATEGORY:Special Ability	TYPE:Display.ProficiencyDisplay																																																										ASPECT:NAME|Untrained in Lore|PREVAREQ:Modifier_Lore,0	ASPECT:NAME|Trained in Lore|PREVAREQ:Modifier_Lore,1	ASPECT:NAME|Expert in Lore|PREVAREQ:Modifier_Lore,2	ASPECT:NAME|Mastery in Lore|PREVAREQ:Modifier_Lore,3	ASPECT:NAME|Legendary in Lore|PREVAREQ:Modifier_Lore,4
+Medicine				SORTKEY:02 - Skills		CATEGORY:Special Ability	TYPE:Display.ProficiencyDisplay																																																										ASPECT:NAME|Untrained in Medicine|PREVAREQ:Modifier_Medicine,0	ASPECT:NAME|Trained in Medicine|PREVAREQ:Modifier_Medicine,1	ASPECT:NAME|Expert in Medicine|PREVAREQ:Modifier_Medicine,2	ASPECT:NAME|Mastery in Medicine|PREVAREQ:Modifier_Medicine,3	ASPECT:NAME|Legendary in Medicine|PREVAREQ:Modifier_Medicine,4
+Nature				SORTKEY:02 - Skills		CATEGORY:Special Ability	TYPE:Display.ProficiencyDisplay																																																										ASPECT:NAME|Untrained in Nature|PREVAREQ:Modifier_Nature,0	ASPECT:NAME|Trained in Nature|PREVAREQ:Modifier_Nature,1	ASPECT:NAME|Expert in Nature|PREVAREQ:Modifier_Nature,2	ASPECT:NAME|Mastery in Nature|PREVAREQ:Modifier_Nature,3	ASPECT:NAME|Legendary in Nature|PREVAREQ:Modifier_Nature,4
+Occultism				SORTKEY:02 - Skills		CATEGORY:Special Ability	TYPE:Display.ProficiencyDisplay																																																										ASPECT:NAME|Untrained in Occultism|PREVAREQ:Modifier_Occultism,0	ASPECT:NAME|Trained in Occultism|PREVAREQ:Modifier_Occultism,1	ASPECT:NAME|Expert in Occultism|PREVAREQ:Modifier_Occultism,2	ASPECT:NAME|Mastery in Occultism|PREVAREQ:Modifier_Occultism,3	ASPECT:NAME|Legendary in Occultism|PREVAREQ:Modifier_Occultism,4
+Performance				SORTKEY:02 - Skills		CATEGORY:Special Ability	TYPE:Display.ProficiencyDisplay																																																										ASPECT:NAME|Untrained in Performance|PREVAREQ:Modifier_Performance,0	ASPECT:NAME|Trained in Performance|PREVAREQ:Modifier_Performance,1	ASPECT:NAME|Expert in Performance|PREVAREQ:Modifier_Performance,2	ASPECT:NAME|Mastery in Performance|PREVAREQ:Modifier_Performance,3	ASPECT:NAME|Legendary in Performance|PREVAREQ:Modifier_Performance,4
+Religion				SORTKEY:02 - Skills		CATEGORY:Special Ability	TYPE:Display.ProficiencyDisplay																																																										ASPECT:NAME|Untrained in Religion|PREVAREQ:Modifier_Religion,0	ASPECT:NAME|Trained in Religion|PREVAREQ:Modifier_Religion,1	ASPECT:NAME|Expert in Religion|PREVAREQ:Modifier_Religion,2	ASPECT:NAME|Mastery in Religion|PREVAREQ:Modifier_Religion,3	ASPECT:NAME|Legendary in Religion|PREVAREQ:Modifier_Religion,4
+Society				SORTKEY:02 - Skills		CATEGORY:Special Ability	TYPE:Display.ProficiencyDisplay																																																										ASPECT:NAME|Untrained in Society|PREVAREQ:Modifier_Society,0	ASPECT:NAME|Trained in Society|PREVAREQ:Modifier_Society,1	ASPECT:NAME|Expert in Society|PREVAREQ:Modifier_Society,2	ASPECT:NAME|Mastery in Society|PREVAREQ:Modifier_Society,3	ASPECT:NAME|Legendary in Society|PREVAREQ:Modifier_Society,4
+Stealth				SORTKEY:02 - Skills		CATEGORY:Special Ability	TYPE:Display.ProficiencyDisplay																																																										ASPECT:NAME|Untrained in Stealth|PREVAREQ:Modifier_Stealth,0	ASPECT:NAME|Trained in Stealth|PREVAREQ:Modifier_Stealth,1	ASPECT:NAME|Expert in Stealth|PREVAREQ:Modifier_Stealth,2	ASPECT:NAME|Mastery in Stealth|PREVAREQ:Modifier_Stealth,3	ASPECT:NAME|Legendary in Stealth|PREVAREQ:Modifier_Stealth,4
+Survival				SORTKEY:02 - Skills		CATEGORY:Special Ability	TYPE:Display.ProficiencyDisplay																																																										ASPECT:NAME|Untrained in Survival|PREVAREQ:Modifier_Survival,0	ASPECT:NAME|Trained in Survival|PREVAREQ:Modifier_Survival,1	ASPECT:NAME|Expert in Survival|PREVAREQ:Modifier_Survival,2	ASPECT:NAME|Mastery in Survival|PREVAREQ:Modifier_Survival,3	ASPECT:NAME|Legendary in Survival|PREVAREQ:Modifier_Survival,4
+Thievery				SORTKEY:02 - Skills		CATEGORY:Special Ability	TYPE:Display.ProficiencyDisplay																																																										ASPECT:NAME|Untrained in Thievery|PREVAREQ:Modifier_Thievery,0	ASPECT:NAME|Trained in Thievery|PREVAREQ:Modifier_Thievery,1	ASPECT:NAME|Expert in Thievery|PREVAREQ:Modifier_Thievery,2	ASPECT:NAME|Mastery in Thievery|PREVAREQ:Modifier_Thievery,3	ASPECT:NAME|Legendary in Thievery|PREVAREQ:Modifier_Thievery,4
+
+# Weapon & Armor Profs
+Simple Weapons			SORTKEY:03 - Arms and Armor	CATEGORY:Special Ability	TYPE:Display.ProficiencyDisplay	DEFINE:Prof_Rank_SimpleWeapons|0		BONUS:VAR|Prof_Rank_SimpleWeapons|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Simple Weapons"))|TYPE=Base																																																									ASPECT:NAME|Untrained in Simple Weapons|PREVAREQ:Prof_Rank_SimpleWeapons,0	ASPECT:NAME|Trained in Simple Weapons|PREVAREQ:Prof_Rank_SimpleWeapons,1	ASPECT:NAME|Expert in Simple Weapons|PREVAREQ:Prof_Rank_SimpleWeapons,2	ASPECT:NAME|Mastery in Simple Weapons|PREVAREQ:Prof_Rank_SimpleWeapons,3	ASPECT:NAME|Legendary in Simple Weapons|PREVAREQ:Prof_Rank_SimpleWeapons,4
+Martial Weapons			SORTKEY:03 - Arms and Armor	CATEGORY:Special Ability	TYPE:Display.ProficiencyDisplay	DEFINE:Prof_Rank_MartialWeapons|0		BONUS:VAR|Prof_Rank_MartialWeapons|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Martial Weapons"))|TYPE=Base																																																		ASPECT:NAME|Untrained in Martial Weapons|PREVAREQ:Prof_Rank_MartialWeapons,0	ASPECT:NAME|Trained in Martial Weapons|PREVAREQ:Prof_Rank_MartialWeapons,1	ASPECT:NAME|Expert in Martial Weapons|PREVAREQ:Prof_Rank_MartialWeapons,2	ASPECT:NAME|Mastery in Martial Weapons|PREVAREQ:Prof_Rank_MartialWeapons,3	ASPECT:NAME|Legendary in Martial Weapons|PREVAREQ:Prof_Rank_MartialWeapons,4
+Advanced Weapons			SORTKEY:03 - Arms and Armor	CATEGORY:Special Ability	TYPE:Display.ProficiencyDisplay	DEFINE:Prof_Rank_AdvancedWeapons|0		BONUS:VAR|Prof_Rank_AdvancedWeapons|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Advanced Weapons"))|TYPE=Base																																																									ASPECT:NAME|Untrained in Advanced Weapons|PREVAREQ:Prof_Rank_AdvancedWeapons,0	ASPECT:NAME|Trained in Advanced Weapons|PREVAREQ:Prof_Rank_AdvancedWeapons,1	ASPECT:NAME|Expert in Advanced Weapons|PREVAREQ:Prof_Rank_AdvancedWeapons,2	ASPECT:NAME|Mastery in Advanced Weapons|PREVAREQ:Prof_Rank_AdvancedWeapons,3	ASPECT:NAME|Legendary in Advanced Weapons|PREVAREQ:Prof_Rank_AdvancedWeapons,4
+
+Unarmed Attacks			SORTKEY:03 - Arms and Armor	CATEGORY:Special Ability	TYPE:Display.ProficiencyDisplay	DEFINE:Prof_Rank_UnarmedAttacks|0		BONUS:VAR|Prof_Rank_UnarmedAttacks|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Unarmed Attacks"))|TYPE=Base																																																									ASPECT:NAME|Untrained in Unarmed Attacks|PREVAREQ:Prof_Rank_UnarmedAttacks,0	ASPECT:NAME|Trained in Unarmed Attacks|PREVAREQ:Prof_Rank_UnarmedAttacks,1	ASPECT:NAME|Expert in Unarmed Attacks|PREVAREQ:Prof_Rank_UnarmedAttacks,2	ASPECT:NAME|Mastery in Unarmed Attacks|PREVAREQ:Prof_Rank_UnarmedAttacks,3	ASPECT:NAME|Legendary in Unarmed Attacks|PREVAREQ:Prof_Rank_UnarmedAttacks,4
+
+
+
+Alchemical Bombs			SORTKEY:03 - Arms and Armor	CATEGORY:Special Ability	TYPE:Display.ProficiencyDisplay	DEFINE:Prof_Rank_AlchemicalBombs|0																	BONUS:VAR|Prof_Rank_AlchemicalBombs|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Alchemical Bombs"))	BONUS:VAR|Bombs|TL+(2*min(4,Prof_Rank_AlchemicalBombs))														ASPECT:NAME|Untrained in Alchemical Bombs|PREVAREQ:Prof_Rank_AlchemicalBombs,0	ASPECT:NAME|Trained in Alchemical Bombs|PREVAREQ:Prof_Rank_AlchemicalBombs,1	ASPECT:NAME|Expert in Alchemical Bombs|PREVAREQ:Prof_Rank_AlchemicalBombs,2	ASPECT:NAME|Mastery in Alchemical Bombs|PREVAREQ:Prof_Rank_AlchemicalBombs,3	ASPECT:NAME|Legendary in Alchemical Bombs|PREVAREQ:Prof_Rank_AlchemicalBombs,4
+
+Light Armor				SORTKEY:03 - Arms and Armor	CATEGORY:Special Ability	TYPE:Display.ProficiencyDisplay	DEFINE:Prof_Rank_LightArmor|0	DEFINE:ArmorProf_LightArmor|0												BONUS:VAR|Prof_Rank_LightArmor|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Light Armor"))|TYPE=Base	BONUS:VAR|ArmorProf_LightArmor|if(Prof_Rank_LightArmor>=1,TL+(2*Prof_Rank_LightArmor),0)|TYPE=Base	ASPECT:NAME|Untrained in Light Armor|PREVAREQ:Prof_Rank_LightArmor,0	ASPECT:NAME|Trained in Light Armor|PREVAREQ:Prof_Rank_LightArmor,1	ASPECT:NAME|Expert in Light Armor|PREVAREQ:Prof_Rank_LightArmor,2	ASPECT:NAME|Mastery in Light Armor|PREVAREQ:Prof_Rank_LightArmor,3	ASPECT:NAME|Legendary in Light Armor|PREVAREQ:Prof_Rank_LightArmor,4
+Medium Armor			SORTKEY:03 - Arms and Armor	CATEGORY:Special Ability	TYPE:Display.ProficiencyDisplay	DEFINE:Prof_Rank_MediumArmor|0	DEFINE:ArmorProf_MediumArmor|0										BONUS:VAR|Prof_Rank_MediumArmor|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Medium Armor"))|TYPE=Base	BONUS:VAR|ArmorProf_MediumArmor|if(Prof_Rank_MediumArmor>=1,TL+(2*Prof_Rank_MediumArmor),0)|TYPE=Base	ASPECT:NAME|Untrained in Medium Armor|PREVAREQ:Prof_Rank_MediumArmor,0	ASPECT:NAME|Trained in Medium Armor|PREVAREQ:Prof_Rank_MediumArmor,1	ASPECT:NAME|Expert in Medium Armor|PREVAREQ:Prof_Rank_MediumArmor,2	ASPECT:NAME|Mastery in Medium Armor|PREVAREQ:Prof_Rank_MediumArmor,3	ASPECT:NAME|Legendary in Medium Armor|PREVAREQ:Prof_Rank_MediumArmor,4
+Heavy Armor				SORTKEY:03 - Arms and Armor	CATEGORY:Special Ability	TYPE:Display.ProficiencyDisplay	DEFINE:Prof_Rank_HeavyArmor|0	DEFINE:ArmorProf_HeavyArmor|0												BONUS:VAR|Prof_Rank_HeavyArmor|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Heavy Armor"))|TYPE=Base	BONUS:VAR|ArmorProf_HeavyArmor|if(Prof_Rank_HeavyArmor>=1,TL+(2*Prof_Rank_HeavyArmor),0)|TYPE=Base	ASPECT:NAME|Untrained in Heavy Armor|PREVAREQ:Prof_Rank_HeavyArmor,0	ASPECT:NAME|Trained in Heavy Armor|PREVAREQ:Prof_Rank_HeavyArmor,1	ASPECT:NAME|Expert in Heavy Armor|PREVAREQ:Prof_Rank_HeavyArmor,2	ASPECT:NAME|Mastery in Heavy Armor|PREVAREQ:Prof_Rank_HeavyArmor,3	ASPECT:NAME|Legendary in Heavy Armor|PREVAREQ:Prof_Rank_HeavyArmor,4
+Unarmored Defense			SORTKEY:03 - Arms and Armor	CATEGORY:Special Ability	TYPE:Display.ProficiencyDisplay	DEFINE:Prof_Rank_UnarmoredDefense|0	DEFINE:ArmorProf_UnarmoredDefense|0										BONUS:VAR|Prof_Rank_UnarmoredDefense|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Unarmored Defense"))|TYPE=Base	BONUS:VAR|ArmorProf_UnarmoredDefense|if(Prof_Rank_UnarmoredDefense>=1,TL+(2*Prof_Rank_UnarmoredDefense),0)|TYPE=Base	ASPECT:NAME|Untrained in Unarmored Defense|PREVAREQ:Prof_Rank_UnarmoredDefense,0	ASPECT:NAME|Trained in Unarmored Defense|PREVAREQ:Prof_Rank_UnarmoredDefense,1	ASPECT:NAME|Expert in Unarmored Defense|PREVAREQ:Prof_Rank_UnarmoredDefense,2	ASPECT:NAME|Mastery in Unarmored Defense|PREVAREQ:Prof_Rank_UnarmoredDefense,3	ASPECT:NAME|Legendary in Unarmored Defense|PREVAREQ:Prof_Rank_UnarmoredDefense,4
+
+
+
+CATEGORY=Internal|Default.MOD																													ABILITY:Internal|AUTOMATIC|Weapon Proficiency Tracker
+
+###Block: Feat Support
+# Ability Name			Category of Ability
+Armor Proficiency Tracker	CATEGORY:Internal
+
+###Block:
+# Ability Name						Category of Ability	Type						Stackable?	Multiple?	Choose							Auto Weapon Prof		Ability
+CATEGORY=Internal|Armor Proficiency Tracker.MOD																											ABILITY:Proficiency|AUTOMATIC|Light Armor
+CATEGORY=Internal|Armor Proficiency Tracker.MOD																											ABILITY:Proficiency|AUTOMATIC|Medium Armor|PREVARGTEQ:ArmorProficiencyCount,2
+CATEGORY=Internal|Armor Proficiency Tracker.MOD																											ABILITY:Proficiency|AUTOMATIC|Heavy Armor|PREVARGTEQ:ArmorProficiencyCount,3
+
+Advanced Weapon Choice					CATEGORY:Proficiency	TYPE:Advanced Weapon Selection	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|TYPE=Advanced Weapons	AUTO:WEAPONPROF|%LIST
+
+
+###Block
+# Ability Name		Category of Ability	Define				Description			Stackable?	Multiple?	Choose		Ability
+Simple Weapons Group	CATEGORY:Internal																		ABILITY:Proficiency|AUTOMATIC|TYPE=Simple Weapons
+Martial Weapons Group	CATEGORY:Internal																		ABILITY:Proficiency|AUTOMATIC|TYPE=Martial Weapons
+Advanced Weapons Group	CATEGORY:Internal																		ABILITY:Proficiency|AUTOMATIC|TYPE=Advanced Weapons
+
+Alchemical Bombs Group	CATEGORY:Internal							DESC:No bombs listed?
+
+Light Armor			CATEGORY:Internal
+Medium Armor		CATEGORY:Internal
+Heavy Armor			CATEGORY:Internal
+
+Unarmed Attacks		CATEGORY:Internal
+Unarmored Defense		CATEGORY:Internal		DEFINE:ArmorProf_Unarmored|0
+
+Acrobatics			CATEGORY:Proficiency										STACK:YES	MULT:YES	CHOOSE:NOCHOICE
+
+
+###Block: Deity Grants: pg.437
+# Ability Name			Category of Ability	Stackable?	Multiple?	Choose		Ability													Class Skill
+Abadar				CATEGORY:Internal									ABILITY:Proficiency|AUTOMATIC|Abadar Lore|PREVARGTEQ:GainDeityLoreSkill,1		CSKILL:Lore - Abadar Lore
+Asmodeus				CATEGORY:Internal									ABILITY:Proficiency|AUTOMATIC|Asmodeus Lore|PREVARGTEQ:GainDeityLoreSkill,1		CSKILL:Lore - Asmodeus Lore
+Calistria				CATEGORY:Internal									ABILITY:Proficiency|AUTOMATIC|Calistria Lore|PREVARGTEQ:GainDeityLoreSkill,1		CSKILL:Lore - Calistria Lore
+Cayden Cailean			CATEGORY:Internal									ABILITY:Proficiency|AUTOMATIC|Cayden Cailean Lore|PREVARGTEQ:GainDeityLoreSkill,1	CSKILL:Lore - Cayden Cailean Lore
+Desna					CATEGORY:Internal									ABILITY:Proficiency|AUTOMATIC|Desna Lore|PREVARGTEQ:GainDeityLoreSkill,1		CSKILL:Lore - Desna Lore
+Erastil				CATEGORY:Internal									ABILITY:Proficiency|AUTOMATIC|Erastil Lore|PREVARGTEQ:GainDeityLoreSkill,1		CSKILL:Lore - Erastil Lore
+Gorum					CATEGORY:Internal									ABILITY:Proficiency|AUTOMATIC|Gorum Lore|PREVARGTEQ:GainDeityLoreSkill,1		CSKILL:Lore - Gorum Lore
+Gozreh				CATEGORY:Internal									ABILITY:Proficiency|AUTOMATIC|Gozreh Lore|PREVARGTEQ:GainDeityLoreSkill,1		CSKILL:Lore - Gozreh Lore
+Iomedae				CATEGORY:Internal									ABILITY:Proficiency|AUTOMATIC|Iomedae Lore|PREVARGTEQ:GainDeityLoreSkill,1		CSKILL:Lore - Iomedae Lore
+Irori					CATEGORY:Internal									ABILITY:Proficiency|AUTOMATIC|Irori Lore|PREVARGTEQ:GainDeityLoreSkill,1		CSKILL:Lore - Irori Lore
+Lama shtu				CATEGORY:Internal									ABILITY:Proficiency|AUTOMATIC|Lama shtu Lore|PREVARGTEQ:GainDeityLoreSkill,1		CSKILL:Lore - Lama shtu Lore
+Nethys				CATEGORY:Internal									ABILITY:Proficiency|AUTOMATIC|Nethys Lore|PREVARGTEQ:GainDeityLoreSkill,1		CSKILL:Lore - Nethys Lore
+Norgorber				CATEGORY:Internal									ABILITY:Proficiency|AUTOMATIC|Norgorber Lore|PREVARGTEQ:GainDeityLoreSkill,1		CSKILL:Lore - Norgorber Lore
+Pharasma				CATEGORY:Internal									ABILITY:Proficiency|AUTOMATIC|Pharasma Lore|PREVARGTEQ:GainDeityLoreSkill,1		CSKILL:Lore - Pharasma Lore
+Rovagug				CATEGORY:Internal									ABILITY:Proficiency|AUTOMATIC|Rovagug Lore|PREVARGTEQ:GainDeityLoreSkill,1		CSKILL:Lore - Rovagug Lore
+Sarenrae				CATEGORY:Internal									ABILITY:Proficiency|AUTOMATIC|Sarenrae Lore|PREVARGTEQ:GainDeityLoreSkill,1		CSKILL:Lore - Sarenrae Lore
+Shelyn				CATEGORY:Internal									ABILITY:Proficiency|AUTOMATIC|Shelyn Lore|PREVARGTEQ:GainDeityLoreSkill,1		CSKILL:Lore - Shelyn Lore
+Torag					CATEGORY:Internal									ABILITY:Proficiency|AUTOMATIC|Torag Lore|PREVARGTEQ:GainDeityLoreSkill,1		CSKILL:Lore - Torag Lore
+Urgathoa				CATEGORY:Internal									ABILITY:Proficiency|AUTOMATIC|Urgathoa Lore|PREVARGTEQ:GainDeityLoreSkill,1		CSKILL:Lore - Urgathoa Lore
+Zon-Kuthon				CATEGORY:Internal									ABILITY:Proficiency|AUTOMATIC|Zon-Kuthon Lore|PREVARGTEQ:GainDeityLoreSkill,1		CSKILL:Lore - Zon-Kuthon Lore
+#
+
+
+
+# Proficiency Counter Abilities
+Simple Weapons			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Internal|AUTOMATIC|Simple Weapons Group
+Martial Weapons			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Internal|AUTOMATIC|Martial Weapons Group
+Advanced Weapons			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Internal|AUTOMATIC|Advanced Weapons Group
+Alchemical Bombs			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Internal|AUTOMATIC|Alchemical Bombs Group
+
+Light Armor				CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Internal|AUTOMATIC|Light Armor
+Medium Armor			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Internal|AUTOMATIC|Medium Armor
+Heavy Armor				CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Internal|AUTOMATIC|Heavy Armor
+Unarmored Defense			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Internal|AUTOMATIC|Unarmored Defense
+
+
+#
+Alchemist Class DC		CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Special Ability|AUTOMATIC|Alchemist Class DC
+Barbarian Class DC		CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Special Ability|AUTOMATIC|Barbarian Class DC
+Champion Class DC			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Special Ability|AUTOMATIC|Champion Class DC
+Divine Spell Attack		CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Special Ability|AUTOMATIC|Divine Spell Attack
+Divine Spell DC			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Special Ability|AUTOMATIC|Divine Spell DC
+Favored Weapon			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Special Ability|AUTOMATIC|Favored Weapon
+Arcane Spell Attack		CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Special Ability|AUTOMATIC|Arcane Spell Attack
+Arcane Spell DC			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Special Ability|AUTOMATIC|Arcane Spell DC
+Barding				CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Special Ability|AUTOMATIC|barding
+Druid Class DC			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Special Ability|AUTOMATIC|Druid Class DC
+Fighter Class DC			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Special Ability|AUTOMATIC|Fighter Class DC
+Primal Spell Attack		CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Special Ability|AUTOMATIC|Primal Spell Attack
+Primal Spell DC			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Special Ability|AUTOMATIC|Primal Spell DC
+Ranger Class DC			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Special Ability|AUTOMATIC|Ranger Class DC
+Rogue Class DC			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Special Ability|AUTOMATIC|Rogue Class DC
+Monk Spell Attack			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Special Ability|AUTOMATIC|Monk Spell Attack		
+Monk Spell DC			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Special Ability|AUTOMATIC|Monk Spell DC		
+Monk Class DC			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Special Ability|AUTOMATIC|Monk Class DC		
+Occult Spell Attack		CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Special Ability|AUTOMATIC|Occult Spell Attack	
+Occult Spell DC			CATEGORY:Proficiency	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Special Ability|AUTOMATIC|Occult Spell DC		
+
+
+###Block:
+# Ability Name					Category of Ability	Type																									Auto Weapon Prof					Ability																							Modify VAR																												Weapon prof. bonus
+Alchemist Class DC		CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:Prof_Rank_AlchemistClassDC|0		DEFINE:Modifier_AlchemistClassDC|0		BONUS:VAR|Modifier_AlchemistClassDC|if(Prof_Rank_AlchemistClassDC>=1,TL+(2*Prof_Rank_AlchemistClassDC),0)|TYPE=Proficiency	BONUS:VAR|Prof_Rank_AlchemistClassDC|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Alchemist Class DC"))|TYPE=Base	ASPECT:NAME|Untrained in Alchemist Class DC|PREVAREQ:Prof_Rank_AlchemistClassDC,0		ASPECT:NAME|Trained in Alchemist Class DC|PREVAREQ:Prof_Rank_AlchemistClassDC,1		ASPECT:NAME|Expert in Alchemist Class DC|PREVAREQ:Prof_Rank_AlchemistClassDC,2		ASPECT:NAME|Mastery in Alchemist Class DC|PREVAREQ:Prof_Rank_AlchemistClassDC,3		ASPECT:NAME|Legendary in Alchemist Class DC|PREVAREQ:Prof_Rank_AlchemistClassDC,4
+Barbarian Class DC		CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:Prof_Rank_BarbarianClassDC|0		DEFINE:Modifier_BarbarianClassDC|0		BONUS:VAR|Modifier_BarbarianClassDC|if(Prof_Rank_BarbarianClassDC>=1,TL+(2*Prof_Rank_BarbarianClassDC),0)|TYPE=Proficiency	BONUS:VAR|Prof_Rank_BarbarianClassDC|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Barbarian Class DC"))|TYPE=Base	ASPECT:NAME|Untrained in Barbarian Class DC|PREVAREQ:Prof_Rank_BarbarianClassDC,0		ASPECT:NAME|Trained in Barbarian Class DC|PREVAREQ:Prof_Rank_BarbarianClassDC,1		ASPECT:NAME|Expert in Barbarian Class DC|PREVAREQ:Prof_Rank_BarbarianClassDC,2		ASPECT:NAME|Mastery in Barbarian Class DC|PREVAREQ:Prof_Rank_BarbarianClassDC,3		ASPECT:NAME|Legendary in Barbarian Class DC|PREVAREQ:Prof_Rank_BarbarianClassDC,4
+Champion Class DC			CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:Prof_Rank_ChampionClassDC|0		DEFINE:Modifier_ChampionClassDC|0		BONUS:VAR|Modifier_ChampionClassDC|if(Prof_Rank_ChampionClassDC>=1,TL+(2*Prof_Rank_ChampionClassDC),0)|TYPE=Proficiency	BONUS:VAR|Prof_Rank_ChampionClassDC|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Champion Class DC"))|TYPE=Base	ASPECT:NAME|Untrained in Champion Class DC|PREVAREQ:Prof_Rank_ChampionClassDC,0		ASPECT:NAME|Trained in Champion Class DC|PREVAREQ:Prof_Rank_ChampionClassDC,1			ASPECT:NAME|Expert in Champion Class DC|PREVAREQ:Prof_Rank_ChampionClassDC,2		ASPECT:NAME|Mastery in Champion Class DC|PREVAREQ:Prof_Rank_ChampionClassDC,3		ASPECT:NAME|Legendary in Champion Class DC|PREVAREQ:Prof_Rank_ChampionClassDC,4
+Divine Spell Attack		CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:Prof_Rank_DivineSpellAttack|0	DEFINE:Modifier_DivineSpellAttack|0		BONUS:VAR|Modifier_DivineSpellAttack|if(Prof_Rank_DivineSpellAttack>=1,TL+(2*Prof_Rank_DivineSpellAttack),0)|TYPE=Proficiency	BONUS:VAR|Prof_Rank_DivineSpellAttack|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Divine Spell Attack"))|TYPE=Base	ASPECT:NAME|Untrained in Divine Spell Attack|PREVAREQ:Prof_Rank_DivineSpellAttack,0		ASPECT:NAME|Trained in Divine Spell Attack|PREVAREQ:Prof_Rank_DivineSpellAttack,1		ASPECT:NAME|Expert in Divine Spell Attack|PREVAREQ:Prof_Rank_DivineSpellAttack,2		ASPECT:NAME|Mastery in Divine Spell Attack|PREVAREQ:Prof_Rank_DivineSpellAttack,3		ASPECT:NAME|Legendary in Divine Spell Attack|PREVAREQ:Prof_Rank_DivineSpellAttack,4
+Divine Spell DC			CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:Prof_Rank_DivineSpellDC|0		DEFINE:Modifier_DivineSpellDC|0		BONUS:VAR|Modifier_DivineSpellDC|if(Prof_Rank_DivineSpellDC>=1,TL+(2*Prof_Rank_DivineSpellDC),0)|TYPE=Proficiency	BONUS:VAR|Prof_Rank_DivineSpellDC|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Divine Spell DC"))|TYPE=Base		ASPECT:NAME|Untrained in Divine Spell DC|PREVAREQ:Prof_Rank_DivineSpellDC,0			ASPECT:NAME|Trained in Divine Spell DC|PREVAREQ:Prof_Rank_DivineSpellDC,1			ASPECT:NAME|Expert in Divine Spell DC|PREVAREQ:Prof_Rank_DivineSpellDC,2		ASPECT:NAME|Mastery in Divine Spell DC|PREVAREQ:Prof_Rank_DivineSpellDC,3		ASPECT:NAME|Legendary in Divine Spell DC|PREVAREQ:Prof_Rank_DivineSpellDC,4
+Arcane Spell Attack		CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:Prof_Rank_ArcaneSpellAttack|0	DEFINE:Modifier_ArcaneSpellAttack|0		BONUS:VAR|Modifier_ArcaneSpellAttack|if(Prof_Rank_ArcaneSpellAttack>=1,TL+(2*Prof_Rank_ArcaneSpellAttack),0)|TYPE=Proficiency	BONUS:VAR|Prof_Rank_ArcaneSpellAttack|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Arcane Spell Attack"))|TYPE=Base	ASPECT:NAME|Untrained in Arcane Spell Attack|PREVAREQ:Prof_Rank_ArcaneSpellAttack,0		ASPECT:NAME|Trained in Arcane Spell Attack|PREVAREQ:Prof_Rank_ArcaneSpellAttack,1		ASPECT:NAME|Expert in Arcane Spell Attack|PREVAREQ:Prof_Rank_ArcaneSpellAttack,2		ASPECT:NAME|Mastery in Arcane Spell Attack|PREVAREQ:Prof_Rank_ArcaneSpellAttack,3		ASPECT:NAME|Legendary in Arcane Spell Attack|PREVAREQ:Prof_Rank_ArcaneSpellAttack,4
+Arcane Spell DC			CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:Prof_Rank_ArcaneSpellDC|0		DEFINE:Modifier_ArcaneSpellDC|0		BONUS:VAR|Modifier_ArcaneSpellDC|if(Prof_Rank_ArcaneSpellDC>=1,TL+(2*Prof_Rank_ArcaneSpellDC),0)|TYPE=Proficiency	BONUS:VAR|Prof_Rank_ArcaneSpellDC|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Arcane Spell DC"))|TYPE=Base		ASPECT:NAME|Untrained in Arcane Spell DC|PREVAREQ:Prof_Rank_ArcaneSpellDC,0			ASPECT:NAME|Trained in Arcane Spell DC|PREVAREQ:Prof_Rank_ArcaneSpellDC,1			ASPECT:NAME|Expert in Arcane Spell DC|PREVAREQ:Prof_Rank_ArcaneSpellDC,2		ASPECT:NAME|Mastery in Arcane Spell DC|PREVAREQ:Prof_Rank_ArcaneSpellDC,3		ASPECT:NAME|Legendary in Arcane Spell DC|PREVAREQ:Prof_Rank_ArcaneSpellDC,4
+Favored Weapon			CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:Prof_Rank_FavoredWeapon|0		DEFINE:Modifier_FavoredWeapon|0		BONUS:VAR|Modifier_FavoredWeapon|if(Prof_Rank_FavoredWeapon>=1,TL+(2*Prof_Rank_FavoredWeapon),0)|TYPE=Proficiency	BONUS:VAR|Prof_Rank_FavoredWeapon|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Favored Weapon"))|TYPE=Base		ASPECT:NAME|Untrained in Favored Weapon|PREVAREQ:Prof_Rank_FavoredWeapon,0			ASPECT:NAME|Trained in Favored Weapon|PREVAREQ:Prof_Rank_FavoredWeapon,1			ASPECT:NAME|Expert in Favored Weapon|PREVAREQ:Prof_Rank_FavoredWeapon,2		ASPECT:NAME|Mastery in Favored Weapon|PREVAREQ:Prof_Rank_FavoredWeapon,3		ASPECT:NAME|Legendary in Favored Weapon|PREVAREQ:Prof_Rank_FavoredWeapon,4
+Barding				CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:Prof_Rank_Barding|0			DEFINE:Modifier_Barding|0			BONUS:VAR|Modifier_Barding|if(Prof_Rank_Barding>=1,TL+(2*Prof_Rank_Barding),0)|TYPE=Proficiency	BONUS:VAR|Prof_Rank_Barding|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=barding"))|TYPE=Base				ASPECT:NAME|Untrained in Barding|PREVAREQ:Prof_Rank_Barding,0					ASPECT:NAME|Trained in Barding|PREVAREQ:Prof_Rank_Barding,1						ASPECT:NAME|Expert in Barding|PREVAREQ:Prof_Rank_Barding,2		ASPECT:NAME|Mastery in Barding|PREVAREQ:Prof_Rank_Barding,3		ASPECT:NAME|Legendary in Barding|PREVAREQ:Prof_Rank_Barding,4
+Druid Class DC			CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:Prof_Rank_DruidClassDC|0		DEFINE:Modifier_DruidClassDC|0		BONUS:VAR|Modifier_DruidClassDC|if(Prof_Rank_DruidClassDC>=1,TL+(2*Prof_Rank_DruidClassDC),0)|TYPE=Proficiency	BONUS:VAR|Prof_Rank_DruidClassDC|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Druid Class DC"))|TYPE=Base		ASPECT:NAME|Untrained in Druid Class DC|PREVAREQ:Prof_Rank_DruidClassDC,0			ASPECT:NAME|Trained in Druid Class DC|PREVAREQ:Prof_Rank_DruidClassDC,1				ASPECT:NAME|Expert in Druid Class DC|PREVAREQ:Prof_Rank_DruidClassDC,2		ASPECT:NAME|Mastery in Druid Class DC|PREVAREQ:Prof_Rank_DruidClassDC,3		ASPECT:NAME|Legendary in Druid Class DC|PREVAREQ:Prof_Rank_DruidClassDC,4
+Fighter Class DC			CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:Prof_Rank_FighterClassDC|0		DEFINE:Modifier_FighterClassDC|0		BONUS:VAR|Modifier_FighterClassDC|if(Prof_Rank_FighterClassDC>=1,TL+(2*Prof_Rank_FighterClassDC),0)|TYPE=Proficiency	BONUS:VAR|Prof_Rank_FighterClassDC|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Fighter Class DC"))|TYPE=Base		ASPECT:NAME|Untrained in Fighter Class DC|PREVAREQ:Prof_Rank_FighterClassDC,0			ASPECT:NAME|Trained in Fighter Class DC|PREVAREQ:Prof_Rank_FighterClassDC,1			ASPECT:NAME|Expert in Fighter Class DC|PREVAREQ:Prof_Rank_FighterClassDC,2		ASPECT:NAME|Mastery in Fighter Class DC|PREVAREQ:Prof_Rank_FighterClassDC,3		ASPECT:NAME|Legendary in Fighter Class DC|PREVAREQ:Prof_Rank_FighterClassDC,4
+Primal Spell Attack		CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:Prof_Rank_PrimalSpellAttack|0	DEFINE:Modifier_PrimalSpellAttack|0		BONUS:VAR|Modifier_PrimalSpellAttack|if(Prof_Rank_PrimalSpellAttack>=1,TL+(2*Prof_Rank_PrimalSpellAttack),0)|TYPE=Proficiency	BONUS:VAR|Prof_Rank_PrimalSpellAttack|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Primal Spell Attack"))|TYPE=Base	ASPECT:NAME|Untrained in Primal Spell Attack|PREVAREQ:Prof_Rank_PrimalSpellAttack,0		ASPECT:NAME|Trained in Primal Spell Attack|PREVAREQ:Prof_Rank_PrimalSpellAttack,1		ASPECT:NAME|Expert in Primal Spell Attack|PREVAREQ:Prof_Rank_PrimalSpellAttack,2		ASPECT:NAME|Mastery in Primal Spell Attack|PREVAREQ:Prof_Rank_PrimalSpellAttack,3		ASPECT:NAME|Legendary in Primal Spell Attack|PREVAREQ:Prof_Rank_PrimalSpellAttack,4
+Primal Spell DC			CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:Prof_Rank_PrimalSpellDC|0		DEFINE:Modifier_PrimalSpellDC|0		BONUS:VAR|Modifier_PrimalSpellDC|if(Prof_Rank_PrimalSpellDC>=1,TL+(2*Prof_Rank_PrimalSpellDC),0)|TYPE=Proficiency	BONUS:VAR|Prof_Rank_PrimalSpellDC|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Primal Spell DC"))|TYPE=Base		ASPECT:NAME|Untrained in Primal Spell DC|PREVAREQ:Prof_Rank_PrimalSpellDC,0			ASPECT:NAME|Trained in Primal Spell DC|PREVAREQ:Prof_Rank_PrimalSpellDC,1			ASPECT:NAME|Expert in Primal Spell DC|PREVAREQ:Prof_Rank_PrimalSpellDC,2		ASPECT:NAME|Mastery in Primal Spell DC|PREVAREQ:Prof_Rank_PrimalSpellDC,3		ASPECT:NAME|Legendary in Primal Spell DC|PREVAREQ:Prof_Rank_PrimalSpellDC,4
+Ranger Class DC			CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:Prof_Rank_RangerClassDC|0		DEFINE:Modifier_RangerClassDC|0		BONUS:VAR|Modifier_RangerClassDC|if(Prof_Rank_RangerClassDC>=1,TL+(2*Prof_Rank_RangerClassDC),0)|TYPE=Proficiency	BONUS:VAR|Prof_Rank_RangerClassDC|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Ranger Class DC"))|TYPE=Base		ASPECT:NAME|Untrained in Ranger Class DC|PREVAREQ:Prof_Rank_RangerClassDC,0			ASPECT:NAME|Trained in Ranger Class DC|PREVAREQ:Prof_Rank_RangerClassDC,1			ASPECT:NAME|Expert in Ranger Class DC|PREVAREQ:Prof_Rank_RangerClassDC,2		ASPECT:NAME|Mastery in Ranger Class DC|PREVAREQ:Prof_Rank_RangerClassDC,3		ASPECT:NAME|Legendary in Ranger Class DC|PREVAREQ:Prof_Rank_RangerClassDC,4
+Rogue Class DC			CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:Prof_Rank_RogueClassDC|0		DEFINE:Modifier_RogueClassDC|0		BONUS:VAR|Modifier_RogueClassDC|if(Prof_Rank_RogueClassDC>=1,TL+(2*Prof_Rank_RogueClassDC),0)|TYPE=Proficiency	BONUS:VAR|Prof_Rank_RogueClassDC|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Rogue Class DC"))|TYPE=Base		ASPECT:NAME|Untrained in Rogue Class DC|PREVAREQ:Prof_Rank_RogueClassDC,0			ASPECT:NAME|Trained in Rogue Class DC|PREVAREQ:Prof_Rank_RogueClassDC,1				ASPECT:NAME|Expert in Rogue Class DC|PREVAREQ:Prof_Rank_RogueClassDC,2		ASPECT:NAME|Mastery in Rogue Class DC|PREVAREQ:Prof_Rank_RogueClassDC,3		ASPECT:NAME|Legendary in Rogue Class DC|PREVAREQ:Prof_Rank_RogueClassDC,4
+Monk Spell Attack			CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:Prof_Rank_MonkSpellAttacks|0		DEFINE:Modifier_MonkSpellAttacks|0		BONUS:VAR|Modifier_MonkSpellAttacks|if(Prof_Rank_MonkSpellAttacks>=1,TL+(2*Prof_Rank_MonkSpellAttacks),0)|TYPE=Proficiency	BONUS:VAR|Prof_Rank_MonkSpellAttacks|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Monk Spell Attack"))|TYPE=Base	ASPECT:NAME|Untrained in Monk Spell Attack|PREVAREQ:Prof_Rank_MonkSpellAttacks,0		ASPECT:NAME|Trained in Monk Spell Attack|PREVAREQ:Prof_Rank_MonkSpellAttacks,1		ASPECT:NAME|Expert in Monk Spell Attack|PREVAREQ:Prof_Rank_MonkSpellAttacks,2		ASPECT:NAME|Mastery in Monk Spell Attack|PREVAREQ:Prof_Rank_MonkSpellAttacks,3		ASPECT:NAME|Legendary in Monk Spell Attack|PREVAREQ:Prof_Rank_MonkSpellAttacks,4	
+Monk Spell DC			CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:Prof_Rank_MonkSpellDC|0		DEFINE:Modifier_MonkSpellDC|0			BONUS:VAR|Modifier_MonkSpellDC|if(Prof_Rank_MonkSpellDC>=1,TL+(2*Prof_Rank_MonkSpellDC),0)|TYPE=Proficiency	BONUS:VAR|Prof_Rank_MonkSpellDC|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Monk Spell DC"))|TYPE=Base			ASPECT:NAME|Untrained in Monk Spell DC|PREVAREQ:Prof_Rank_MonkSpellDC,0				ASPECT:NAME|Trained in Monk Spell DC|PREVAREQ:Prof_Rank_MonkSpellDC,1				ASPECT:NAME|Expert in Monk Spell DC|PREVAREQ:Prof_Rank_MonkSpellDC,2		ASPECT:NAME|Mastery in Monk Spell DC|PREVAREQ:Prof_Rank_MonkSpellDC,3		ASPECT:NAME|Legendary in Monk Spell DC|PREVAREQ:Prof_Rank_MonkSpellDC,4	
+Monk Class DC			CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:Prof_Rank_MonkClassDC|0		DEFINE:Modifier_MonkClassDC|0			BONUS:VAR|Modifier_MonkClassDC|if(Prof_Rank_MonkClassDC>=1,TL+(2*Prof_Rank_MonkClassDC),0)|TYPE=Proficiency	BONUS:VAR|Prof_Rank_MonkClassDC|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Monk Class DC"))|TYPE=Base			ASPECT:NAME|Untrained in Monk Class DC|PREVAREQ:Prof_Rank_MonkClassDC,0				ASPECT:NAME|Trained in Monk Class DC|PREVAREQ:Prof_Rank_MonkClassDC,1				ASPECT:NAME|Expert in Monk Class DC|PREVAREQ:Prof_Rank_MonkClassDC,2		ASPECT:NAME|Mastery in Monk Class DC|PREVAREQ:Prof_Rank_MonkClassDC,3		ASPECT:NAME|Legendary in Monk Class DC|PREVAREQ:Prof_Rank_MonkClassDC,4	
+Occult Spell Attack		CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:Prof_Rank_OccultSpellAttack|0	DEFINE:Modifier_OccultSpellAttack|0		BONUS:VAR|Modifier_OccultSpellAttack|if(Prof_Rank_OccultSpellAttack>=1,TL+(2*Prof_Rank_OccultSpellAttack),0)|TYPE=Proficiency	BONUS:VAR|Prof_Rank_OccultSpellAttack|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Occult Spell Attack"))|TYPE=Base	ASPECT:NAME|Untrained in Occult Spell Attack|PREVAREQ:Prof_Rank_OccultSpellAttack,0		ASPECT:NAME|Trained in Occult Spell Attack|PREVAREQ:Prof_Rank_OccultSpellAttack,1		ASPECT:NAME|Expert in Occult Spell Attack|PREVAREQ:Prof_Rank_OccultSpellAttack,2		ASPECT:NAME|Mastery in Occult Spell Attack|PREVAREQ:Prof_Rank_OccultSpellAttack,3		ASPECT:NAME|Legendary in Occult Spell Attack|PREVAREQ:Prof_Rank_OccultSpellAttack,4
+Occult Spell DC			CATEGORY:Special Ability	TYPE:ProficiencyDisplay		DEFINE:Prof_Rank_OccultSpellDC|0		DEFINE:Modifier_OccultSpellDC|0		BONUS:VAR|Modifier_OccultSpellDC|if(Prof_Rank_OccultSpellDC>=1,TL+(2*Prof_Rank_OccultSpellDC),0)|TYPE=Proficiency	BONUS:VAR|Prof_Rank_OccultSpellAttack|min(4,count("ABILITIES", "CATEGORY=Proficiency", "KEY=Occult Spell DC"))|TYPE=Base	ASPECT:NAME|Untrained in Occult Spell DC|PREVAREQ:Prof_Rank_OccultSpellAttack,0		ASPECT:NAME|Trained in Occult Spell DC|PREVAREQ:Prof_Rank_OccultSpellAttack,1			ASPECT:NAME|Expert in Occult Spell DC|PREVAREQ:Prof_Rank_OccultSpellAttack,2		ASPECT:NAME|Mastery in Occult Spell DC|PREVAREQ:Prof_Rank_OccultSpellAttack,3		ASPECT:NAME|Legendary in Occult Spell DC|PREVAREQ:Prof_Rank_OccultSpellAttack,4
+
+
+
+# Ability Name			Category of Ability	Stackable?	Multiple?	Choose
+
+
+
+
+
+
+
+
+
+
+
+# Ability Name				Category of Ability	Ability
+Grant Expert to all Weapon Groups	CATEGORY:Proficiency	ABILITY:Proficiency|AUTOMATIC|TYPE.Expert Weapon Group Selection
+
+
+
+
+
+Weapon Group ~ Brawling			CATEGORY:Proficiency	TYPE:Weapon Group	ABILITY:Proficiency|AUTOMATIC|TYPE=Weapon Group ~ Brawling
+Weapon Group ~ Club			CATEGORY:Proficiency	TYPE:Weapon Group	ABILITY:Proficiency|AUTOMATIC|TYPE=Weapon Group ~ Club
+Weapon Group ~ Knife			CATEGORY:Proficiency	TYPE:Weapon Group	ABILITY:Proficiency|AUTOMATIC|TYPE=Weapon Group ~ Knife
+Weapon Group ~ Spear			CATEGORY:Proficiency	TYPE:Weapon Group	ABILITY:Proficiency|AUTOMATIC|TYPE=Weapon Group ~ Spear
+Weapon Group ~ Sword			CATEGORY:Proficiency	TYPE:Weapon Group	ABILITY:Proficiency|AUTOMATIC|TYPE=Weapon Group ~ Sword
+Weapon Group ~ Axe			CATEGORY:Proficiency	TYPE:Weapon Group	ABILITY:Proficiency|AUTOMATIC|TYPE=Weapon Group ~ Axe
+Weapon Group ~ Flail			CATEGORY:Proficiency	TYPE:Weapon Group	ABILITY:Proficiency|AUTOMATIC|TYPE=Weapon Group ~ Flail
+Weapon Group ~ Polearm			CATEGORY:Proficiency	TYPE:Weapon Group	ABILITY:Proficiency|AUTOMATIC|TYPE=Weapon Group ~ Polearm
+Weapon Group ~ Pick			CATEGORY:Proficiency	TYPE:Weapon Group	ABILITY:Proficiency|AUTOMATIC|TYPE=Weapon Group ~ Pick
+Weapon Group ~ Shield			CATEGORY:Proficiency	TYPE:Weapon Group	ABILITY:Proficiency|AUTOMATIC|TYPE=Weapon Group ~ Shield
+Weapon Group ~ Hammer			CATEGORY:Proficiency	TYPE:Weapon Group	ABILITY:Proficiency|AUTOMATIC|TYPE=Weapon Group ~ Hammer
+Weapon Group ~ Dart			CATEGORY:Proficiency	TYPE:Weapon Group	ABILITY:Proficiency|AUTOMATIC|TYPE=Weapon Group ~ Dart
+Weapon Group ~ Bow			CATEGORY:Proficiency	TYPE:Weapon Group	ABILITY:Proficiency|AUTOMATIC|TYPE=Weapon Group ~ Bow
+Weapon Group ~ Sling			CATEGORY:Proficiency	TYPE:Weapon Group	ABILITY:Proficiency|AUTOMATIC|TYPE=Weapon Group ~ Sling
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+###Block: Language Support
+# Ability Name	Category of Ability	Type								Description													Auto Language
+Common		CATEGORY:Language		TYPE:Bonus Language	TYPE:Spoken.Common	DESC:Humans, dwarves, elves, halflings, and other common ancestries			AUTO:LANG|Common
+Draconic		CATEGORY:Language		TYPE:Bonus Language	TYPE:Spoken.Common	DESC:Dragons, reptilian humanoids									AUTO:LANG|Draconic
+Dwarven		CATEGORY:Language		TYPE:Bonus Language	TYPE:Spoken.Common	DESC:Dwarves												AUTO:LANG|Dwarven
+Elven			CATEGORY:Language		TYPE:Bonus Language	TYPE:Spoken.Common	DESC:Elves, half-elves											AUTO:LANG|Elven
+Gnomish		CATEGORY:Language		TYPE:Bonus Language	TYPE:Spoken.Common	DESC:Gnomes													AUTO:LANG|Gnomish
+Goblin		CATEGORY:Language		TYPE:Bonus Language	TYPE:Spoken.Common	DESC:Goblins, hobgoblins, bugbears									AUTO:LANG|Goblin
+Halfling		CATEGORY:Language		TYPE:Bonus Language	TYPE:Spoken.Common	DESC:Halflings												AUTO:LANG|Halfling
+Jotun			CATEGORY:Language		TYPE:Bonus Language	TYPE:Spoken.Common	DESC:Giants, ogres, trolls, ettins, cyclopes							AUTO:LANG|Jotun
+Orcish		CATEGORY:Language		TYPE:Bonus Language	TYPE:Spoken.Common	DESC:Orcs, half-orcs											AUTO:LANG|Orcish
+Sylvan		CATEGORY:Language		TYPE:Bonus Language	TYPE:Spoken.Common	DESC:Fey, centaurs, plant creatures									AUTO:LANG|Sylvan
+Undercommon		CATEGORY:Language		TYPE:Bonus Language	TYPE:Spoken.Common	DESC:Drow, duergar, morlocks										AUTO:LANG|Undercommon
+
+# Uncommon Languages
+Abyssal		CATEGORY:Language		TYPE:Bonus Language	TYPE:Spoken.Uncommon	DESC:Demons													AUTO:LANG|Abyssal
+Aklo			CATEGORY:Language		TYPE:Bonus Language	TYPE:Spoken.Uncommon	DESC:Derros, otherworldly monsters, evil fey							AUTO:LANG|Aklo
+Aquan			CATEGORY:Language		TYPE:Bonus Language	TYPE:Spoken.Uncommon	DESC:Aquatic creatures, water elemental creatures						AUTO:LANG|Aquan
+Auran			CATEGORY:Language		TYPE:Bonus Language	TYPE:Spoken.Uncommon	DESC:Flying creatures, air elemental creatures							AUTO:LANG|Auran
+Celestial		CATEGORY:Language		TYPE:Bonus Language	TYPE:Spoken.Uncommon	DESC:Angels													AUTO:LANG|Celestial
+Gnoll			CATEGORY:Language		TYPE:Bonus Language	TYPE:Spoken.Uncommon	DESC:Gnolls													AUTO:LANG|Gnoll
+Ignan			CATEGORY:Language		TYPE:Bonus Language	TYPE:Spoken.Uncommon	DESC:Fire creatures											AUTO:LANG|Ignan
+Infernal		CATEGORY:Language		TYPE:Bonus Language	TYPE:Spoken.Uncommon	DESC:Devils													AUTO:LANG|Infernal
+Necril		CATEGORY:Language		TYPE:Bonus Language	TYPE:Spoken.Uncommon	DESC:Ghouls, intelligent undead									AUTO:LANG|Necril
+Shadowtongue	CATEGORY:Language		TYPE:Bonus Language	TYPE:Spoken.Uncommon	DESC:Nidalese, Shadow Plane creatures								AUTO:LANG|Shadowtongue
+Terran		CATEGORY:Language		TYPE:Bonus Language	TYPE:Spoken.Uncommon	DESC:Earth creatures											AUTO:LANG|Terran
+# Regional Languages
+Hallit		CATEGORY:Language		TYPE:Bonus Language	TYPE:Spoken.Uncommon	DESC:Irrisen, Mendev, Realm of the Mammoth Lords, Numeria, Sarkoris			AUTO:LANG|Hallit
+Kelish		CATEGORY:Language		TYPE:Bonus Language	TYPE:Spoken.Uncommon	DESC:Absalom, Katapesh, Qadira									AUTO:LANG|Kelish
+Mwangi		CATEGORY:Language		TYPE:Bonus Language	TYPE:Spoken.Uncommon	DESC:Mwangi Expanse, Sargava, the Shackles, the Sodden Lands, Thuvia			AUTO:LANG|Mwangi
+Osiriani		CATEGORY:Language		TYPE:Bonus Language	TYPE:Spoken.Uncommon	DESC:Absalom, Geb, Katapesh, Mana Wastes, Nex, Osirion, Rahadoum, Thuvia		AUTO:LANG|Osiriani
+Shoanti		CATEGORY:Language		TYPE:Bonus Language	TYPE:Spoken.Uncommon	DESC:Belkzen, Varisia											AUTO:LANG|Shoanti
+Skald			CATEGORY:Language		TYPE:Bonus Language	TYPE:Spoken.Uncommon	DESC:Irrisen, Lands of the Linnorm Kings, Ustalav						AUTO:LANG|Skald
+Tien			CATEGORY:Language		TYPE:Bonus Language	TYPE:Spoken.Uncommon	DESC:Absalom, Lands of the Linnorm Kings, Realm of the Mammoth Lords, Tian Xia	AUTO:LANG|Tien
+Varisian		CATEGORY:Language		TYPE:Bonus Language	TYPE:Spoken.Uncommon	DESC:Brevoy, Lastwall, Nidal, Nirmathas, Ustalav, Varisia					AUTO:LANG|Varisian
+Vudrani		CATEGORY:Language		TYPE:Bonus Language	TYPE:Spoken.Uncommon	DESC:Jalmeray, Katapesh, Nex										AUTO:LANG|Vudrani
+# Secret Language
+Druidic		CATEGORY:Language		TYPE:Druid							DESC:Druids													AUTO:LANG|Druidic
+
+
+###Block: Ancestry Language Support
+# Ability Name	Unique Key							Category of Ability	Type									Var. Min. Value						Description													Ability
+Common		KEY:Ancestry Language Support ~ Common		CATEGORY:Language		TYPE:Ancestry Bonus Language	TYPE:Spoken.Common	PREVARGTEQ:AncestryBonusLang_Common,1		DESC:Humans, dwarves, elves, halflings, and other common ancestries			ABILITY:Language|AUTOMATIC|Common
+Draconic		KEY:Ancestry Language Support ~ Draconic		CATEGORY:Language		TYPE:Ancestry Bonus Language	TYPE:Spoken.Common	PREVARGTEQ:AncestryBonusLang_Draconic,1		DESC:Dragons, reptilian humanoids									ABILITY:Language|AUTOMATIC|Draconic
+Dwarven		KEY:Ancestry Language Support ~ Dwarven		CATEGORY:Language		TYPE:Ancestry Bonus Language	TYPE:Spoken.Common	PREVARGTEQ:AncestryBonusLang_Dwarven,1		DESC:Dwarves												ABILITY:Language|AUTOMATIC|Dwarven
+Elven			KEY:Ancestry Language Support ~ Elven		CATEGORY:Language		TYPE:Ancestry Bonus Language	TYPE:Spoken.Common	PREVARGTEQ:AncestryBonusLang_Elven,1		DESC:Elves, half-elves											ABILITY:Language|AUTOMATIC|Elven
+Gnomish		KEY:Ancestry Language Support ~ Gnomish		CATEGORY:Language		TYPE:Ancestry Bonus Language	TYPE:Spoken.Common	PREVARGTEQ:AncestryBonusLang_Gnomish,1		DESC:Gnomes													ABILITY:Language|AUTOMATIC|Gnomish
+Goblin		KEY:Ancestry Language Support ~ Goblin		CATEGORY:Language		TYPE:Ancestry Bonus Language	TYPE:Spoken.Common	PREVARGTEQ:AncestryBonusLang_Goblin,1		DESC:Goblins, hobgoblins, bugbears									ABILITY:Language|AUTOMATIC|Goblin
+Halfling		KEY:Ancestry Language Support ~ Halfling		CATEGORY:Language		TYPE:Ancestry Bonus Language	TYPE:Spoken.Common	PREVARGTEQ:AncestryBonusLang_Halfling,1		DESC:Halflings												ABILITY:Language|AUTOMATIC|Halfling
+Jotun			KEY:Ancestry Language Support ~ Jotun		CATEGORY:Language		TYPE:Ancestry Bonus Language	TYPE:Spoken.Common	PREVARGTEQ:AncestryBonusLang_Jotun,1		DESC:Giants, ogres, trolls, ettins, cyclopes							ABILITY:Language|AUTOMATIC|Jotun
+Orcish		KEY:Ancestry Language Support ~ Orcish		CATEGORY:Language		TYPE:Ancestry Bonus Language	TYPE:Spoken.Common	PREVARGTEQ:AncestryBonusLang_Orcish,1		DESC:Orcs, half-orcs											ABILITY:Language|AUTOMATIC|Orcish
+Sylvan		KEY:Ancestry Language Support ~ Sylvan		CATEGORY:Language		TYPE:Ancestry Bonus Language	TYPE:Spoken.Common	PREVARGTEQ:AncestryBonusLang_Sylvan,1		DESC:Fey, centaurs, plant creatures									ABILITY:Language|AUTOMATIC|Sylvan
+Undercommon		KEY:Ancestry Language Support ~ Undercommon	CATEGORY:Language		TYPE:Ancestry Bonus Language	TYPE:Spoken.Common	PREVARGTEQ:AncestryBonusLang_Undercommon,1	DESC:Drow, duergar, morlocks										ABILITY:Language|AUTOMATIC|Undercommon
+# Uncommon Languages
+Abyssal		KEY:Ancestry Language Support ~ Abyssal		CATEGORY:Language		TYPE:Ancestry Bonus Language	TYPE:Spoken.Uncommon	PREVARGTEQ:AncestryBonusLang_Abyssal,1		DESC:Demons													ABILITY:Language|AUTOMATIC|Abyssal
+Aklo			KEY:Ancestry Language Support ~ Aklo		CATEGORY:Language		TYPE:Ancestry Bonus Language	TYPE:Spoken.Uncommon	PREVARGTEQ:AncestryBonusLang_Aklo,1			DESC:Derros, otherworldly monsters, evil fey							ABILITY:Language|AUTOMATIC|Aklo
+Aquan			KEY:Ancestry Language Support ~ Aquan		CATEGORY:Language		TYPE:Ancestry Bonus Language	TYPE:Spoken.Uncommon	PREVARGTEQ:AncestryBonusLang_Aquan,1		DESC:Aquatic creatures, water elemental creatures						ABILITY:Language|AUTOMATIC|Aquan
+Auran			KEY:Ancestry Language Support ~ Auran		CATEGORY:Language		TYPE:Ancestry Bonus Language	TYPE:Spoken.Uncommon	PREVARGTEQ:AncestryBonusLang_Auran,1		DESC:Flying creatures, air elemental creatures							ABILITY:Language|AUTOMATIC|Auran
+Celestial		KEY:Ancestry Language Support ~ Celestial		CATEGORY:Language		TYPE:Ancestry Bonus Language	TYPE:Spoken.Uncommon	PREVARGTEQ:AncestryBonusLang_Celestial,1		DESC:Angels													ABILITY:Language|AUTOMATIC|Celestial
+Gnoll			KEY:Ancestry Language Support ~ Gnoll		CATEGORY:Language		TYPE:Ancestry Bonus Language	TYPE:Spoken.Uncommon	PREVARGTEQ:AncestryBonusLang_Gnoll,1		DESC:Gnolls													ABILITY:Language|AUTOMATIC|Gnoll
+Ignan			KEY:Ancestry Language Support ~ Ignan		CATEGORY:Language		TYPE:Ancestry Bonus Language	TYPE:Spoken.Uncommon	PREVARGTEQ:AncestryBonusLang_Ignan,1		DESC:Fire creatures											ABILITY:Language|AUTOMATIC|Ignan
+Infernal		KEY:Ancestry Language Support ~ Infernal		CATEGORY:Language		TYPE:Ancestry Bonus Language	TYPE:Spoken.Uncommon	PREVARGTEQ:AncestryBonusLang_Infernal,1		DESC:Devils													ABILITY:Language|AUTOMATIC|Infernal
+Necril		KEY:Ancestry Language Support ~ Necril		CATEGORY:Language		TYPE:Ancestry Bonus Language	TYPE:Spoken.Uncommon	PREVARGTEQ:AncestryBonusLang_Necril,1		DESC:Ghouls, intelligent undead									ABILITY:Language|AUTOMATIC|Necril
+Shadowtongue	KEY:Ancestry Language Support ~ Shadowtongue	CATEGORY:Language		TYPE:Ancestry Bonus Language	TYPE:Spoken.Uncommon	PREVARGTEQ:AncestryBonusLang_Shadowtongue,1	DESC:Nidalese, Shadow Plane creatures								ABILITY:Language|AUTOMATIC|Shadowtongue
+Terran		KEY:Ancestry Language Support ~ Terran		CATEGORY:Language		TYPE:Ancestry Bonus Language	TYPE:Spoken.Uncommon	PREVARGTEQ:AncestryBonusLang_Terran,1		DESC:Earth creatures											ABILITY:Language|AUTOMATIC|Terran
+# Regional Languages
+Hallit		KEY:Ancestry Language Support ~ Hallit		CATEGORY:Language		TYPE:Ancestry Bonus Language	TYPE:Spoken.Uncommon	PREVARGTEQ:AncestryBonusLang_Hallit,1		DESC:Irrisen, Mendev, Realm of the Mammoth Lords, Numeria, Sarkoris			ABILITY:Language|AUTOMATIC|Hallit
+Kelish		KEY:Ancestry Language Support ~ Kelish		CATEGORY:Language		TYPE:Ancestry Bonus Language	TYPE:Spoken.Uncommon	PREVARGTEQ:AncestryBonusLang_Kelish,1		DESC:Absalom, Katapesh, Qadira									ABILITY:Language|AUTOMATIC|Kelish
+Mwangi		KEY:Ancestry Language Support ~ Mwangi		CATEGORY:Language		TYPE:Ancestry Bonus Language	TYPE:Spoken.Uncommon	PREVARGTEQ:AncestryBonusLang_Mwangi,1		DESC:Mwangi Expanse, Sargava, the Shackles, the Sodden Lands, Thuvia			ABILITY:Language|AUTOMATIC|Mwangi
+Osiriani		KEY:Ancestry Language Support ~ Osiriani		CATEGORY:Language		TYPE:Ancestry Bonus Language	TYPE:Spoken.Uncommon	PREVARGTEQ:AncestryBonusLang_Osiriani,1		DESC:Absalom, Geb, Katapesh, Mana Wastes, Nex, Osirion, Rahadoum, Thuvia		ABILITY:Language|AUTOMATIC|Osiriani
+Shoanti		KEY:Ancestry Language Support ~ Shoanti		CATEGORY:Language		TYPE:Ancestry Bonus Language	TYPE:Spoken.Uncommon	PREVARGTEQ:AncestryBonusLang_Shoanti,1		DESC:Belkzen, Varisia											ABILITY:Language|AUTOMATIC|Shoanti
+Skald			KEY:Ancestry Language Support ~ Skald		CATEGORY:Language		TYPE:Ancestry Bonus Language	TYPE:Spoken.Uncommon	PREVARGTEQ:AncestryBonusLang_Skald,1		DESC:Irrisen, Lands of the Linnorm Kings, Ustalav						ABILITY:Language|AUTOMATIC|Skald
+Tien			KEY:Ancestry Language Support ~ Tien		CATEGORY:Language		TYPE:Ancestry Bonus Language	TYPE:Spoken.Uncommon	PREVARGTEQ:AncestryBonusLang_Tien,1			DESC:Absalom, Lands of the Linnorm Kings, Realm of the Mammoth Lords, Tian Xia	ABILITY:Language|AUTOMATIC|Tien
+Varisian		KEY:Ancestry Language Support ~ Varisian		CATEGORY:Language		TYPE:Ancestry Bonus Language	TYPE:Spoken.Uncommon	PREVARGTEQ:AncestryBonusLang_Varisian,1		DESC:Brevoy, Lastwall, Nidal, Nirmathas, Ustalav, Varisia					ABILITY:Language|AUTOMATIC|Varisian
+Vudrani		KEY:Ancestry Language Support ~ Vudrani		CATEGORY:Language		TYPE:Ancestry Bonus Language	TYPE:Spoken.Uncommon	PREVARGTEQ:AncestryBonusLang_Vudrani,1		DESC:Jalmeray, Katapesh, Nex										ABILITY:Language|AUTOMATIC|Vudrani
+
+###Block: Unarmed Strikes
+# Fist = d10
+# Jaws = d10, d8, d6
+# Claw
+
+# Ability Name					Unique Key			Category of Ability	Ability												Vision			Natural Attacks
+Fist ~ d10										CATEGORY:Unarmed Strike
+CATEGORY=Unarmed Strike|Fist ~ d10.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Fist ~ 1 ~ 1d10|PREVARLTEQ:UnarmedDice,1
+CATEGORY=Unarmed Strike|Fist ~ d10.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Fist ~ 1 ~ 2d10|PREVAREQ:UnarmedDice,2
+CATEGORY=Unarmed Strike|Fist ~ d10.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Fist ~ 1 ~ 3d10|PREVAREQ:UnarmedDice,3
+CATEGORY=Unarmed Strike|Fist ~ d10.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Fist ~ 1 ~ 4d10|PREVAREQ:UnarmedDice,4
+
+Jaws ~ d10										CATEGORY:Unarmed Strike
+CATEGORY=Unarmed Strike|Jaws ~ d10.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Jaws ~ 1 ~ 1d10|PREVARLTEQ:UnarmedDice,1
+CATEGORY=Unarmed Strike|Jaws ~ d10.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Jaws ~ 1 ~ 2d10|PREVAREQ:UnarmedDice,2
+CATEGORY=Unarmed Strike|Jaws ~ d10.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Jaws ~ 1 ~ 3d10|PREVAREQ:UnarmedDice,3
+CATEGORY=Unarmed Strike|Jaws ~ d10.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Jaws ~ 1 ~ 4d10|PREVAREQ:UnarmedDice,4
+
+Jaws ~ d8										CATEGORY:Unarmed Strike
+CATEGORY=Unarmed Strike|Jaws ~ d8.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Jaws ~ 1 ~ 1d8|PREVARLTEQ:UnarmedDice,1
+CATEGORY=Unarmed Strike|Jaws ~ d8.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Jaws ~ 1 ~ 2d8|PREVAREQ:UnarmedDice,2
+CATEGORY=Unarmed Strike|Jaws ~ d8.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Jaws ~ 1 ~ 3d8|PREVAREQ:UnarmedDice,3
+CATEGORY=Unarmed Strike|Jaws ~ d8.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Jaws ~ 1 ~ 4d8|PREVAREQ:UnarmedDice,4
+
+Jaws ~ d6										CATEGORY:Unarmed Strike
+CATEGORY=Unarmed Strike|Jaws ~ d6.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Jaws ~ 1 ~ 1d6|PREVARLTEQ:UnarmedDice,1
+CATEGORY=Unarmed Strike|Jaws ~ d6.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Jaws ~ 1 ~ 2d6|PREVAREQ:UnarmedDice,2
+CATEGORY=Unarmed Strike|Jaws ~ d6.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Jaws ~ 1 ~ 3d6|PREVAREQ:UnarmedDice,3
+CATEGORY=Unarmed Strike|Jaws ~ d6.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Jaws ~ 1 ~ 4d6|PREVAREQ:UnarmedDice,4
+
+Claw ~ d8										CATEGORY:Unarmed Strike
+CATEGORY=Unarmed Strike|Claw ~ d8.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Claw ~ 1 ~ 1d8|PREVARLTEQ:UnarmedDice,1
+CATEGORY=Unarmed Strike|Claw ~ d8.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Claw ~ 1 ~ 2d8|PREVAREQ:UnarmedDice,2
+CATEGORY=Unarmed Strike|Claw ~ d8.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Claw ~ 1 ~ 3d8|PREVAREQ:UnarmedDice,3
+CATEGORY=Unarmed Strike|Claw ~ d8.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Claw ~ 1 ~ 4d8|PREVAREQ:UnarmedDice,4
+
+Claw ~ d6										CATEGORY:Unarmed Strike
+CATEGORY=Unarmed Strike|Claw ~ d6.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Claw ~ 1 ~ 1d6|PREVARLTEQ:UnarmedDice,1
+CATEGORY=Unarmed Strike|Claw ~ d6.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Claw ~ 1 ~ 2d6|PREVAREQ:UnarmedDice,2
+CATEGORY=Unarmed Strike|Claw ~ d6.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Claw ~ 1 ~ 3d6|PREVAREQ:UnarmedDice,3
+CATEGORY=Unarmed Strike|Claw ~ d6.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Claw ~ 1 ~ 4d6|PREVAREQ:UnarmedDice,4
+
+Claw ~ d4										CATEGORY:Unarmed Strike
+CATEGORY=Unarmed Strike|Claw ~ d4.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Claw ~ 1 ~ 1d4|PREVARLTEQ:UnarmedDice,1
+CATEGORY=Unarmed Strike|Claw ~ d4.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Claw ~ 1 ~ 2d4|PREVAREQ:UnarmedDice,2
+CATEGORY=Unarmed Strike|Claw ~ d4.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Claw ~ 1 ~ 3d4|PREVAREQ:UnarmedDice,3
+CATEGORY=Unarmed Strike|Claw ~ d4.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Claw ~ 1 ~ 4d4|PREVAREQ:UnarmedDice,4
+
+Talon ~ d6										CATEGORY:Unarmed Strike
+CATEGORY=Unarmed Strike|Talon ~ d6.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Talon ~ 1 ~ 1d6|PREVARLTEQ:UnarmedDice,1
+CATEGORY=Unarmed Strike|Talon ~ d6.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Talon ~ 1 ~ 2d6|PREVAREQ:UnarmedDice,2
+CATEGORY=Unarmed Strike|Talon ~ d6.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Talon ~ 1 ~ 3d6|PREVAREQ:UnarmedDice,3
+CATEGORY=Unarmed Strike|Talon ~ d6.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Talon ~ 1 ~ 4d6|PREVAREQ:UnarmedDice,4
+
+Talon ~ d4										CATEGORY:Unarmed Strike
+CATEGORY=Unarmed Strike|Talon ~ d4.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Talon ~ 1 ~ 1d4|PREVARLTEQ:UnarmedDice,1
+CATEGORY=Unarmed Strike|Talon ~ d4.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Talon ~ 1 ~ 2d4|PREVAREQ:UnarmedDice,2
+CATEGORY=Unarmed Strike|Talon ~ d4.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Talon ~ 1 ~ 3d4|PREVAREQ:UnarmedDice,3
+CATEGORY=Unarmed Strike|Talon ~ d4.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Talon ~ 1 ~ 4d4|PREVAREQ:UnarmedDice,4
+
+Hoof ~ d6										CATEGORY:Unarmed Strike
+CATEGORY=Unarmed Strike|Hoof ~ d6.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Hoof ~ 1 ~ 1d6|PREVARLTEQ:UnarmedDice,1
+CATEGORY=Unarmed Strike|Hoof ~ d6.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Hoof ~ 1 ~ 2d6|PREVAREQ:UnarmedDice,2
+CATEGORY=Unarmed Strike|Hoof ~ d6.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Hoof ~ 1 ~ 3d6|PREVAREQ:UnarmedDice,3
+CATEGORY=Unarmed Strike|Hoof ~ d6.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Hoof ~ 1 ~ 4d6|PREVAREQ:UnarmedDice,4
+
+Horn ~ d10										CATEGORY:Unarmed Strike
+CATEGORY=Unarmed Strike|Horn ~ d10.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Horn ~ 1 ~ 1d10|PREVARLTEQ:UnarmedDice,1
+CATEGORY=Unarmed Strike|Horn ~ d10.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Horn ~ 1 ~ 2d10|PREVAREQ:UnarmedDice,2
+CATEGORY=Unarmed Strike|Horn ~ d10.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Horn ~ 1 ~ 3d10|PREVAREQ:UnarmedDice,3
+CATEGORY=Unarmed Strike|Horn ~ d10.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Horn ~ 1 ~ 4d10|PREVAREQ:UnarmedDice,4
+
+Antler ~ d10									CATEGORY:Unarmed Strike
+CATEGORY=Unarmed Strike|Antler ~ d10.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Antler ~ 1 ~ 1d10|PREVARLTEQ:UnarmedDice,1
+CATEGORY=Unarmed Strike|Antler ~ d10.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Antler ~ 1 ~ 2d10|PREVAREQ:UnarmedDice,2
+CATEGORY=Unarmed Strike|Antler ~ d10.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Antler ~ 1 ~ 3d10|PREVAREQ:UnarmedDice,3
+CATEGORY=Unarmed Strike|Antler ~ d10.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Antler ~ 1 ~ 4d10|PREVAREQ:UnarmedDice,4
+
+Fangs ~ d10										CATEGORY:Unarmed Strike
+CATEGORY=Unarmed Strike|Fangs ~ d10.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Fangs ~ 1 ~ 1d10|PREVARLTEQ:UnarmedDice,1
+CATEGORY=Unarmed Strike|Fangs ~ d10.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Fangs ~ 1 ~ 2d10|PREVAREQ:UnarmedDice,2
+CATEGORY=Unarmed Strike|Fangs ~ d10.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Fangs ~ 1 ~ 3d10|PREVAREQ:UnarmedDice,3
+CATEGORY=Unarmed Strike|Fangs ~ d10.MOD									ABILITY:Unarmed Strike|AUTOMATIC|Fangs ~ 1 ~ 4d10|PREVAREQ:UnarmedDice,4
+
+
+
+# Fist d10
+Fist							KEY:Fist ~ 1 ~ 1d10	CATEGORY:Unarmed Strike																		NATURALATTACKS:Fist,Weapon.Melee.Natural.Piercing,*1,1d10,SPROP=Unarmed
+Fist							KEY:Fist ~ 1 ~ 2d10	CATEGORY:Unarmed Strike																		NATURALATTACKS:Fist,Weapon.Melee.Natural.Piercing,*1,2d10,SPROP=Unarmed
+Fist							KEY:Fist ~ 1 ~ 3d10	CATEGORY:Unarmed Strike																		NATURALATTACKS:Fist,Weapon.Melee.Natural.Piercing,*1,3d10,SPROP=Unarmed
+Fist							KEY:Fist ~ 1 ~ 4d10	CATEGORY:Unarmed Strike																		NATURALATTACKS:Fist,Weapon.Melee.Natural.Piercing,*1,4d10,SPROP=Unarmed
+
+
+# Jaws d10
+Jaws							KEY:Jaws ~ 1 ~ 1d10	CATEGORY:Unarmed Strike																		NATURALATTACKS:Jaws,Weapon.Melee.Natural.Piercing,*1,1d10,SPROP=Unarmed
+Jaws							KEY:Jaws ~ 1 ~ 2d10	CATEGORY:Unarmed Strike																		NATURALATTACKS:Jaws,Weapon.Melee.Natural.Piercing,*1,2d10,SPROP=Unarmed
+Jaws							KEY:Jaws ~ 1 ~ 3d10	CATEGORY:Unarmed Strike																		NATURALATTACKS:Jaws,Weapon.Melee.Natural.Piercing,*1,3d10,SPROP=Unarmed
+Jaws							KEY:Jaws ~ 1 ~ 4d10	CATEGORY:Unarmed Strike																		NATURALATTACKS:Jaws,Weapon.Melee.Natural.Piercing,*1,4d10,SPROP=Unarmed
+
+# Jaws d8
+Jaws							KEY:Jaws ~ 1 ~ 1d8	CATEGORY:Unarmed Strike																		NATURALATTACKS:Jaws,Weapon.Melee.Natural.Piercing,*1,1d8,SPROP=Unarmed
+Jaws							KEY:Jaws ~ 1 ~ 2d8	CATEGORY:Unarmed Strike																		NATURALATTACKS:Jaws,Weapon.Melee.Natural.Piercing,*1,2d8,SPROP=Unarmed
+Jaws							KEY:Jaws ~ 1 ~ 3d8	CATEGORY:Unarmed Strike																		NATURALATTACKS:Jaws,Weapon.Melee.Natural.Piercing,*1,3d8,SPROP=Unarmed
+Jaws							KEY:Jaws ~ 1 ~ 4d8	CATEGORY:Unarmed Strike																		NATURALATTACKS:Jaws,Weapon.Melee.Natural.Piercing,*1,4d8,SPROP=Unarmed
+
+# Jaws d6
+Jaws							KEY:Jaws ~ 1 ~ 1d6	CATEGORY:Unarmed Strike																		NATURALATTACKS:Jaws,Weapon.Melee.Natural.Piercing,*1,1d6,SPROP=Unarmed
+Jaws							KEY:Jaws ~ 1 ~ 2d6	CATEGORY:Unarmed Strike																		NATURALATTACKS:Jaws,Weapon.Melee.Natural.Piercing,*1,2d6,SPROP=Unarmed
+Jaws							KEY:Jaws ~ 1 ~ 3d6	CATEGORY:Unarmed Strike																		NATURALATTACKS:Jaws,Weapon.Melee.Natural.Piercing,*1,3d6,SPROP=Unarmed
+Jaws							KEY:Jaws ~ 1 ~ 4d6	CATEGORY:Unarmed Strike																		NATURALATTACKS:Jaws,Weapon.Melee.Natural.Piercing,*1,4d6,SPROP=Unarmed
+
+# Claw d8
+Claw							KEY:Claw ~ 1 ~ 1d8	CATEGORY:Unarmed Strike																		NATURALATTACKS:Claw,Weapon.Melee.Natural.Slashing,*1,1d8,SPROP=Agile and Unarmed
+Claw							KEY:Claw ~ 1 ~ 2d8	CATEGORY:Unarmed Strike																		NATURALATTACKS:Claw,Weapon.Melee.Natural.Slashing,*1,2d8,SPROP=Agile and Unarmed
+Claw							KEY:Claw ~ 1 ~ 3d8	CATEGORY:Unarmed Strike																		NATURALATTACKS:Claw,Weapon.Melee.Natural.Slashing,*1,3d8,SPROP=Agile and Unarmed
+Claw							KEY:Claw ~ 1 ~ 4d8	CATEGORY:Unarmed Strike																		NATURALATTACKS:Claw,Weapon.Melee.Natural.Slashing,*1,4d8,SPROP=Agile and Unarmed
+
+# Claw d6
+Claw							KEY:Claw ~ 1 ~ 1d6	CATEGORY:Unarmed Strike																		NATURALATTACKS:Claw,Weapon.Melee.Natural.Slashing,*1,1d6,SPROP=Agile and Unarmed
+Claw							KEY:Claw ~ 1 ~ 2d6	CATEGORY:Unarmed Strike																		NATURALATTACKS:Claw,Weapon.Melee.Natural.Slashing,*1,2d6,SPROP=Agile and Unarmed
+Claw							KEY:Claw ~ 1 ~ 3d6	CATEGORY:Unarmed Strike																		NATURALATTACKS:Claw,Weapon.Melee.Natural.Slashing,*1,3d6,SPROP=Agile and Unarmed
+Claw							KEY:Claw ~ 1 ~ 4d6	CATEGORY:Unarmed Strike																		NATURALATTACKS:Claw,Weapon.Melee.Natural.Slashing,*1,4d6,SPROP=Agile and Unarmed
+
+# Claw d4
+Claw							KEY:Claw ~ 1 ~ 1d4	CATEGORY:Unarmed Strike																		NATURALATTACKS:Claw,Weapon.Melee.Natural.Slashing,*1,1d4,SPROP=Unarmed
+Claw							KEY:Claw ~ 1 ~ 2d4	CATEGORY:Unarmed Strike																		NATURALATTACKS:Claw,Weapon.Melee.Natural.Slashing,*1,2d4,SPROP=Unarmed
+Claw							KEY:Claw ~ 1 ~ 3d4	CATEGORY:Unarmed Strike																		NATURALATTACKS:Claw,Weapon.Melee.Natural.Slashing,*1,3d4,SPROP=Unarmed
+Claw							KEY:Claw ~ 1 ~ 4d4	CATEGORY:Unarmed Strike																		NATURALATTACKS:Claw,Weapon.Melee.Natural.Slashing,*1,4d4,SPROP=Unarmed
+
+# Talon d6
+Talon							KEY:Talon ~ 1 ~ 1d6	CATEGORY:Unarmed Strike																		NATURALATTACKS:Talon,Weapon.Melee.Natural.Slashing,*1,1d6,SPROP=Unarmed
+Talon							KEY:Talon ~ 1 ~ 2d6	CATEGORY:Unarmed Strike																		NATURALATTACKS:Talon,Weapon.Melee.Natural.Slashing,*1,2d6,SPROP=Unarmed
+Talon							KEY:Talon ~ 1 ~ 3d6	CATEGORY:Unarmed Strike																		NATURALATTACKS:Talon,Weapon.Melee.Natural.Slashing,*1,3d6,SPROP=Unarmed
+Talon							KEY:Talon ~ 1 ~ 4d6	CATEGORY:Unarmed Strike																		NATURALATTACKS:Talon,Weapon.Melee.Natural.Slashing,*1,4d6,SPROP=Unarmed
+
+# Talon d4
+Talon							KEY:Talon ~ 1 ~ 1d4	CATEGORY:Unarmed Strike																		NATURALATTACKS:Talon,Weapon.Melee.Natural.Slashing,*1,1d4,SPROP=Unarmed
+Talon							KEY:Talon ~ 1 ~ 2d4	CATEGORY:Unarmed Strike																		NATURALATTACKS:Talon,Weapon.Melee.Natural.Slashing,*1,2d4,SPROP=Unarmed
+Talon							KEY:Talon ~ 1 ~ 3d4	CATEGORY:Unarmed Strike																		NATURALATTACKS:Talon,Weapon.Melee.Natural.Slashing,*1,3d4,SPROP=Unarmed
+Talon							KEY:Talon ~ 1 ~ 4d4	CATEGORY:Unarmed Strike																		NATURALATTACKS:Talon,Weapon.Melee.Natural.Slashing,*1,4d4,SPROP=Unarmed
+
+# Hoof d6
+Hoof							KEY:Hoof ~ 1 ~ 1d6	CATEGORY:Unarmed Strike																		NATURALATTACKS:Hoof,Weapon.Melee.Natural.Slashing,*1,1d6,SPROP=Unarmed
+Hoof							KEY:Hoof ~ 1 ~ 2d6	CATEGORY:Unarmed Strike																		NATURALATTACKS:Hoof,Weapon.Melee.Natural.Slashing,*1,2d6,SPROP=Unarmed
+Hoof							KEY:Hoof ~ 1 ~ 3d6	CATEGORY:Unarmed Strike																		NATURALATTACKS:Hoof,Weapon.Melee.Natural.Slashing,*1,3d6,SPROP=Unarmed
+Hoof							KEY:Hoof ~ 1 ~ 4d6	CATEGORY:Unarmed Strike																		NATURALATTACKS:Hoof,Weapon.Melee.Natural.Slashing,*1,4d6,SPROP=Unarmed
+
+# Horn d10
+Horn							KEY:Horn ~ 1 ~ 1d10	CATEGORY:Unarmed Strike																		NATURALATTACKS:Horn,Weapon.Melee.Natural.Piercing,*1,1d10,SPROP=Unarmed
+Horn							KEY:Horn ~ 1 ~ 2d10	CATEGORY:Unarmed Strike																		NATURALATTACKS:Horn,Weapon.Melee.Natural.Piercing,*1,2d10,SPROP=Unarmed
+Horn							KEY:Horn ~ 1 ~ 3d10	CATEGORY:Unarmed Strike																		NATURALATTACKS:Horn,Weapon.Melee.Natural.Piercing,*1,3d10,SPROP=Unarmed
+Horn							KEY:Horn ~ 1 ~ 4d10	CATEGORY:Unarmed Strike																		NATURALATTACKS:Horn,Weapon.Melee.Natural.Piercing,*1,4d10,SPROP=Unarmed
+
+# Antler d10
+Antler						KEY:Antler ~ 1 ~ 1d10	CATEGORY:Unarmed Strike																		NATURALATTACKS:Antler,Weapon.Melee.Natural.Piercing,*1,1d10,SPROP=Unarmed
+Antler						KEY:Antler ~ 1 ~ 2d10	CATEGORY:Unarmed Strike																		NATURALATTACKS:Antler,Weapon.Melee.Natural.Piercing,*1,2d10,SPROP=Unarmed
+Antler						KEY:Antler ~ 1 ~ 3d10	CATEGORY:Unarmed Strike																		NATURALATTACKS:Antler,Weapon.Melee.Natural.Piercing,*1,3d10,SPROP=Unarmed
+Antler						KEY:Antler ~ 1 ~ 4d10	CATEGORY:Unarmed Strike																		NATURALATTACKS:Antler,Weapon.Melee.Natural.Piercing,*1,4d10,SPROP=Unarmed
+
+# Fangs d10
+Fangs							KEY:Fangs ~ 1 ~ 1d10	CATEGORY:Unarmed Strike																		NATURALATTACKS:Fangs,Weapon.Melee.Natural.Piercing,*1,1d10,SPROP=Unarmed
+Fangs							KEY:Fangs ~ 1 ~ 2d10	CATEGORY:Unarmed Strike																		NATURALATTACKS:Fangs,Weapon.Melee.Natural.Piercing,*1,2d10,SPROP=Unarmed
+Fangs							KEY:Fangs ~ 1 ~ 3d10	CATEGORY:Unarmed Strike																		NATURALATTACKS:Fangs,Weapon.Melee.Natural.Piercing,*1,3d10,SPROP=Unarmed
+Fangs							KEY:Fangs ~ 1 ~ 4d10	CATEGORY:Unarmed Strike																		NATURALATTACKS:Fangs,Weapon.Melee.Natural.Piercing,*1,4d10,SPROP=Unarmed
+
+# Sense
+Darkvision										CATEGORY:Sense															VISION:Darkvision
+Low-Light Vision									CATEGORY:Sense															VISION:Low-Light Vision
+
+Darkvision										CATEGORY:Trait		ABILITY:Sense|AUTOMATIC|Darkvision
+Low-Light Vision									CATEGORY:Trait		ABILITY:Sense|AUTOMATIC|Low-Light Vision
+
+###Block: Animal Companion
+#Your animal companion has the minion trait, and it gains 2 actions during your turn if you use the Command an Animal action to command it; this is in place of the usual effects of Command an Animal. If your companion dies, you can spend a week of downtime to replace it at no cost. You can have only one animal companion at a time.
+
+# Ability Name				Category of Ability	Define									Modify VAR						Allow Follower						Allowed Companions
+Animal Companion				CATEGORY:Internal		DEFINE:AnimalCompanionCap|0	DEFINE:AnimalCompanionLVL|0	BONUS:VAR|AnimalCompanionCap|1|TYPE=Base	FOLLOWERS:Animal Companion|AnimalCompanionCap
+
+Animal Companion ~ Base Selection	CATEGORY:Internal																											COMPANIONLIST:Animal Companion|RACESUBTYPE=AC
+
+
+# AnimalCompanionAdvancedManeuver
+
+
+
+
+
+
+###Block

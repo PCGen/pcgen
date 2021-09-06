@@ -339,11 +339,10 @@ public class VariableReport
 			{
 				return false;
 			}
-			if (!(obj instanceof VarDefine))
+			if (!(obj instanceof VarDefine other))
 			{
 				return false;
 			}
-			VarDefine other = (VarDefine) obj;
 			if (varName == null)
 			{
 				if (other.varName != null)

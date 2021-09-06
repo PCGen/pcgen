@@ -101,23 +101,16 @@ public class DebugDialogController
 			usage = MEMORY_BEAN.getNonHeapMemoryUsage();
 		}
 		final NumberFormat format = new DecimalFormat("###,###,###");
-		switch (columnIndex)
-		{
-			case 0:
-				return (rowIndex == 0) ? "Heap" : "Non-Heap";
-			case 1:
-				return format.format(usage.getInit() / MEGABYTE);
-			case 2:
-				return format.format(usage.getUsed() / MEGABYTE);
-			case 3:
-				return format.format(usage.getCommitted() / MEGABYTE);
-			case 4:
-				return format.format(usage.getMax() / MEGABYTE);
-			case 5:
-				return String.valueOf(100 * (usage.getUsed() / usage.getMax()));
-			default:
-				throw new IllegalStateException("Unexpected column index: " + columnIndex);
-		}
+		return switch (columnIndex)
+				{
+					case 0 -> (rowIndex == 0) ? "Heap" : "Non-Heap";
+					case 1 -> format.format(usage.getInit() / MEGABYTE);
+					case 2 -> format.format(usage.getUsed() / MEGABYTE);
+					case 3 -> format.format(usage.getCommitted() / MEGABYTE);
+					case 4 -> format.format(usage.getMax() / MEGABYTE);
+					case 5 -> String.valueOf(100 * (usage.getUsed() / usage.getMax()));
+					default -> throw new IllegalStateException("Unexpected column index: " + columnIndex);
+				};
 	}
 
 	@FXML

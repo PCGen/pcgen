@@ -145,9 +145,8 @@ public class CDOMSimpleSingleRef<T> extends CDOMSingleRef<T>
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (obj instanceof CDOMSimpleSingleRef)
+		if (obj instanceof CDOMSimpleSingleRef<?> ref)
 		{
-			CDOMSimpleSingleRef<?> ref = (CDOMSimpleSingleRef<?>) obj;
 			return getReferenceClass().equals(ref.getReferenceClass()) && getName().equals(ref.getName());
 		}
 		return false;

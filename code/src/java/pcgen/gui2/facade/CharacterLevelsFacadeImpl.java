@@ -223,11 +223,10 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 
 	private PCClassLevel getClassLevel(CharacterLevelFacade level)
 	{
-		if (level == null || !(level instanceof CharacterLevelFacadeImpl))
+		if (level == null || !(level instanceof CharacterLevelFacadeImpl levelImpl))
 		{
 			return null;
 		}
-		CharacterLevelFacadeImpl levelImpl = (CharacterLevelFacadeImpl) level;
 		int lvlIdx = levelImpl.getCharacterLevel() - 1;
 
 		final String classKeyName = charDisplay.getLevelInfoClassKeyName(lvlIdx);
@@ -315,7 +314,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 	@Override
 	public float getMaxRanks(CharacterLevelFacade level, SkillCost cost, boolean isClassForMaxRanks)
 	{
-		if (cost == null || level == null || !(level instanceof CharacterLevelFacadeImpl))
+		if (cost == null || level == null || !(level instanceof CharacterLevelFacadeImpl levelImpl))
 		{
 			return 0.0f;
 		}
@@ -324,23 +323,23 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 			return Float.NaN;
 		}
 		SkillCost costForMaxRanks = isClassForMaxRanks ? SkillCost.CLASS : cost;
+
 		CharacterLevelFacadeImpl levelImpl = (CharacterLevelFacadeImpl) level;
-		if (costForMaxRanks == SkillCost.CLASS)
-		{
-			return SkillUtilities.maxClassSkillForLevel(levelImpl.getCharacterLevel(), theCharacter).floatValue();
-		}
-		else if (costForMaxRanks == SkillCost.CROSS_CLASS)
-		{
-			return SkillUtilities.maxCrossClassSkillForLevel(levelImpl.getCharacterLevel(), theCharacter).floatValue();
-		}
-		else if (costForMaxRanks == SkillCost.EXCLUSIVE)
-		{
-			// We can't test if the skill in question is valid for all classes 
-			// So just assume it is for the time being. A check on the total 
-			// levels for the skill itself will need to be made elsewhere 
-			return SkillUtilities.maxClassSkillForLevel(levelImpl.getCharacterLevel(), theCharacter).floatValue();
-		}
-		return Float.NaN;
+		return switch (costForMaxRanks)
+				{
+					case CLASS -> SkillUtilities.maxClassSkillForLevel(levelImpl.getCharacterLevel(), theCharacter)
+					                            .floatValue();
+					case CROSS_CLASS -> SkillUtilities.maxCrossClassSkillForLevel(
+							levelImpl.getCharacterLevel(),
+							theCharacter
+					).floatValue();
+					case EXCLUSIVE ->
+							// We can't test if the skill in question is valid for all classes
+							// So just assume it is for the time being. A check on the total
+							// levels for the skill itself will need to be made elsewhere
+							SkillUtilities.maxClassSkillForLevel(levelImpl.getCharacterLevel(), theCharacter)
+							              .floatValue();
+				};
 	}
 
 	@Override

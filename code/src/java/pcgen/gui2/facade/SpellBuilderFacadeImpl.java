@@ -223,20 +223,9 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 			{
 				switch (aString.charAt(11))
 				{
-					case 'Y':
-						spellBooks = true;
-
-						break;
-
-					case 'N':
-						spellBooks = false;
-
-						break;
-
-					default:
-						spellBooks = null;
-
-						break;
+					case 'Y' -> spellBooks = true;
+					case 'N' -> spellBooks = false;
+					default -> spellBooks = null;
 				}
 			}
 			else if (aString.equals("METAMAGIC=N"))

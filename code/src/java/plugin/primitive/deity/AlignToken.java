@@ -92,9 +92,8 @@ public class AlignToken implements PrimitiveToken<Deity>, PrimitiveFilter<Deity>
 		{
 			return true;
 		}
-		if (obj instanceof AlignToken)
+		if (obj instanceof AlignToken other)
 		{
-			AlignToken other = (AlignToken) obj;
 			return alignment.equals(other.alignment);
 		}
 		return false;

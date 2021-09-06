@@ -400,9 +400,8 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 			{
 				return true;
 			}
-			if (o instanceof MovementCacheInfo)
+			if (o instanceof MovementCacheInfo ci)
 			{
-				MovementCacheInfo ci = (MovementCacheInfo) o;
 				return Objects.equals(moveRates, ci.moveRates);
 			}
 			return false;

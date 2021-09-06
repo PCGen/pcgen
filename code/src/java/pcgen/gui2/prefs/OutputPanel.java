@@ -437,17 +437,13 @@ public final class OutputPanel extends PCGenPrefsPanel
 		public String getValue()
 		{
 
-			switch (this)
-			{
-				case ASK:
-					return "";
-				case ALWAYS_OPEN:
-					return "true";
-				case NEVER_OPEN:
-					return "false";
-				default:
-					throw new InternalError();
-			}
+			return switch (this)
+					{
+						case ASK -> "";
+						case ALWAYS_OPEN -> "true";
+						case NEVER_OPEN -> "false";
+						default -> throw new InternalError();
+					};
 		}
 
 		public static ExportChoices getChoice(String value)

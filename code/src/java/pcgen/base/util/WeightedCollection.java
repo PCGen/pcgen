@@ -503,9 +503,8 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		@Override
 		public boolean equals(Object obj)
 		{
-			if (obj instanceof WeightedItem)
+			if (obj instanceof WeightedItem<?> item)
 			{
-				WeightedItem<?> item = (WeightedItem<?>) obj;
 				return theWeight == item.theWeight && (theElement == null && item.theElement == null
 					|| theElement != null && theElement.equals(item.theElement));
 			}

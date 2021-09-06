@@ -97,11 +97,10 @@ public final class EquipmentHead extends CDOMObject
 		{
 			return true;
 		}
-		if (!(obj instanceof EquipmentHead))
+		if (!(obj instanceof EquipmentHead other))
 		{
 			return false;
 		}
-		EquipmentHead other = (EquipmentHead) obj;
 		return other.index == index && other.headSource.equals(headSource);
 	}
 

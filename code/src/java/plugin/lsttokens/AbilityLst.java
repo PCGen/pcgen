@@ -234,9 +234,8 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 					AbilityUtilities.getUndecoratedName(token, choices);
 					if (choices.size() == 1)
 					{
-						if (Constants.LST_PERCENT_LIST.equals(choices.get(0)) && (ability instanceof CDOMSingleRef))
+						if (Constants.LST_PERCENT_LIST.equals(choices.get(0)) && (ability instanceof CDOMSingleRef<Ability> ref))
 						{
-							CDOMSingleRef<Ability> ref = (CDOMSingleRef<Ability>) ability;
 							AbilityTargetSelector ats = new AbilityTargetSelector(getTokenName(), acRef, ref, nature);
 							context.getObjectContext().addToList(obj, ListKey.GA_CAKEYS, lk);
 							context.getObjectContext().addToList(obj, lk, ats);

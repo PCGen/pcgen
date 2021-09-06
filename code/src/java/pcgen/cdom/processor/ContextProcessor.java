@@ -139,9 +139,8 @@ public class ContextProcessor<T, R extends PrereqObject> implements Processor<T>
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (obj instanceof ContextProcessor)
+		if (obj instanceof ContextProcessor<?, ?> other)
 		{
-			ContextProcessor<?, ?> other = (ContextProcessor<?, ?>) obj;
 			return processor.equals(other.processor) && contextItems.equals(other.contextItems);
 		}
 		return false;

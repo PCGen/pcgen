@@ -355,9 +355,8 @@ public class SpellMemToken extends Token
 						}
 						else if ("DCSTAT".equals(aLabel))
 						{
-							if (aObject instanceof PCClass)
+							if (aObject instanceof PCClass aClass)
 							{
-								PCClass aClass = (PCClass) aObject;
 								retValue.append(aClass.getSpellBaseStat());
 							}
 						}

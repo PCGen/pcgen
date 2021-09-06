@@ -143,9 +143,8 @@ public class AssociationSupport implements AssociatedObject
 		{
 			return true;
 		}
-		if (obj instanceof AssociationSupport)
+		if (obj instanceof AssociationSupport other)
 		{
-			AssociationSupport other = (AssociationSupport) obj;
 			if (associationMap == null || associationMap.isEmpty())
 			{
 				return (other.associationMap == null) || other.associationMap.isEmpty();

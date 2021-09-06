@@ -108,9 +108,8 @@ public class ProhibitedToken implements PrimitiveToken<Spell>, PrimitiveFilter<S
 		{
 			return true;
 		}
-		if (obj instanceof ProhibitedToken)
+		if (obj instanceof ProhibitedToken other)
 		{
-			ProhibitedToken other = (ProhibitedToken) obj;
 			return prohibited == other.prohibited;
 		}
 		return false;

@@ -134,9 +134,8 @@ public class AbilityToken<T> implements PrimitiveToken<T>
 		{
 			return true;
 		}
-		if (obj instanceof AbilityToken)
+		if (obj instanceof AbilityToken<?> other)
 		{
-			AbilityToken<?> other = (AbilityToken<?>) obj;
 			if (ref == null)
 			{
 				return (other.ref == null) && (refClass == null) && (other.refClass == null);

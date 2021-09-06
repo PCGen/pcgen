@@ -320,9 +320,8 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 	{
 		List<String> branches = new ArrayList<>();
 
-		if (item instanceof PObject)
+		if (item instanceof PObject pObject)
 		{
-			PObject pObject = (PObject) item;
 			for (Type type : pObject.getTrueTypeList(true))
 			{
 				branches.add(type.toString());

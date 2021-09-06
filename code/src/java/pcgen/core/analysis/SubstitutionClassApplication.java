@@ -71,9 +71,8 @@ public final class SubstitutionClassApplication
 			selected = selectedList.get(0);
 		}
 
-		if ((!selectedList.isEmpty()) && selected instanceof SubstitutionClass)
+		if ((!selectedList.isEmpty()) && selected instanceof SubstitutionClass sc)
 		{
-			SubstitutionClass sc = (SubstitutionClass) selected;
 			SubstitutionLevelSupport.applyLevelArrayModsToLevel(sc, cl, aLevel, aPC);
 			aPC.setSubstitutionClassName(aPC.getActiveClassLevel(cl, aLevel), sc.getKeyName());
 			return;
