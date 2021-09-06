@@ -241,14 +241,10 @@ public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends 
 				DataFacetChangeListener dfcl = dfclArray[i];
 				switch (ccEvent.getEventType())
 				{
-					case DataFacetChangeEvent.DATA_ADDED:
-						dfcl.dataAdded(ccEvent);
-						break;
-					case DataFacetChangeEvent.DATA_REMOVED:
-						dfcl.dataRemoved(ccEvent);
-						break;
-					default:
-						break;
+					case DataFacetChangeEvent.DATA_ADDED -> dfcl.dataAdded(ccEvent);
+					case DataFacetChangeEvent.DATA_REMOVED -> dfcl.dataRemoved(ccEvent);
+					default -> {
+					}
 				}
 			}
 		}

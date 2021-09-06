@@ -95,17 +95,12 @@ public class SkillPointTableModel extends AbstractTableModel
 	@Override
 	public Class<?> getColumnClass(int columnIndex)
 	{
-		switch (columnIndex)
-		{
-			case 1:
-				return Object.class;
-			case 0:
-			case 2:
-			case 3:
-				return Integer.class;
-			default:
-				return Object.class;
-		}
+		return switch (columnIndex)
+				{
+					case 1 -> Object.class;
+					case 0, 2, 3 -> Integer.class;
+					default -> Object.class;
+				};
 	}
 
 	@Override
@@ -116,17 +111,13 @@ public class SkillPointTableModel extends AbstractTableModel
 			return rowIndex + 1;
 		}
 		CharacterLevelFacade level = levels.getElementAt(rowIndex);
-		switch (columnIndex)
-		{
-			case 1:
-				return levels.getClassTaken(level);
-			case 2:
-				return levels.getRemainingSkillPoints(level);
-			case 3:
-				return levels.getGainedSkillPoints(level);
-			default:
-				throw new IndexOutOfBoundsException();
-		}
+		return switch (columnIndex)
+				{
+					case 1 -> levels.getClassTaken(level);
+					case 2 -> levels.getRemainingSkillPoints(level);
+					case 3 -> levels.getGainedSkillPoints(level);
+					default -> throw new IndexOutOfBoundsException();
+				};
 	}
 
 	@Override

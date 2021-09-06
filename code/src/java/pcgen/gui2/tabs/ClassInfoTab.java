@@ -557,23 +557,17 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		@Override
 		public Object getData(PCClass obj, int column)
 		{
-			switch (column)
-			{
-				case 0:
-					return obj.getHD();
-				case 1:
-					return getTypes(obj);
-				case 2:
-					return character.getInfoFactory().getDescription(obj);
-				case 3:
-					return "None".equals(obj.getBaseStat()) ? "" : obj.getBaseStat(); //$NON-NLS-1$ //$NON-NLS-2$
-				case 4:
-					return obj.getSpellType();
-				case 5:
-					return obj.getSource();
-				default:
-					return null;
-			}
+			return switch (column)
+					{
+						case 0 -> obj.getHD();
+						case 1 -> getTypes(obj);
+						case 2 -> character.getInfoFactory().getDescription(obj);
+						case 3 -> "None".equals(obj.getBaseStat()) ? "" : obj.getBaseStat(); //$NON-NLS-1$
+						// $NON-NLS-2$
+						case 4 -> obj.getSpellType();
+						case 5 -> obj.getSource();
+						default -> null;
+					};
 		}
 
 		@Override
@@ -707,15 +701,12 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				return rowIndex + 1;
 			}
 			PCClass c = model.getClassTaken(model.getElementAt(rowIndex));
-			switch (columnIndex)
-			{
-				case 1:
-					return c;
-				case 2:
-					return c.getSource();
-				default:
-					return null;
-			}
+			return switch (columnIndex)
+					{
+						case 1 -> c;
+						case 2 -> c.getSource();
+						default -> null;
+					};
 		}
 
 		@Override

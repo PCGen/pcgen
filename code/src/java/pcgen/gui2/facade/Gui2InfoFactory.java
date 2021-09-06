@@ -1636,17 +1636,12 @@ public class Gui2InfoFactory implements InfoFactory
 			return EMPTY_STRING;
 		}
 
-		switch (book.getType())
-		{
-			case SpellBook.TYPE_PREPARED_LIST:
-				return produceSpellListInfo(book);
-
-			case SpellBook.TYPE_SPELL_BOOK:
-				return produceSpellBookInfo(book);
-
-			default:
-				return EMPTY_STRING;
-		}
+		return switch (book.getType())
+				{
+					case SpellBook.TYPE_PREPARED_LIST -> produceSpellListInfo(book);
+					case SpellBook.TYPE_SPELL_BOOK -> produceSpellBookInfo(book);
+					default -> EMPTY_STRING;
+				};
 	}
 
 	/**

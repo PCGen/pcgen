@@ -1456,14 +1456,11 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentList
 		{
 			if (equip.equals(node.getEquipment()))
 			{
-				switch (node.getNodeType())
-				{
-					case EQUIPMENT:
-					case PHANTOM_SLOT:
-						return getLocation(node);
-					default:
-						return node.getParent().toString();
-				}
+				return switch (node.getNodeType())
+						{
+							case EQUIPMENT, PHANTOM_SLOT -> getLocation(node);
+							default -> node.getParent().toString();
+						};
 			}
 		}
 

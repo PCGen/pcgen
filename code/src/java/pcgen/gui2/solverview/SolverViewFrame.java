@@ -341,21 +341,15 @@ public final class SolverViewFrame extends JFrame
 		public Object getValueAt(int rowIndex, int columnIndex)
 		{
 			ProcessStep<T> ps = steps.get(rowIndex);
-			switch (columnIndex)
-			{
-				case 0:
-					return ps.getModifier().getIdentification();
-				case 1:
-					return ps.getModifier().getInstructions();
-				case 2:
-					return ps.getResult();
-				case 3:
-					return ps.getModifier().getPriority();
-				case 4:
-					return ps.getSourceInfo();
-				default:
-					return "";
-			}
+			return switch (columnIndex)
+					{
+						case 0 -> ps.getModifier().getIdentification();
+						case 1 -> ps.getModifier().getInstructions();
+						case 2 -> ps.getResult();
+						case 3 -> ps.getModifier().getPriority();
+						case 4 -> ps.getSourceInfo();
+						default -> "";
+					};
 		}
 
 		@Override

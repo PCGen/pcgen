@@ -264,15 +264,11 @@ public final class PostLevelUpDialog extends JDialog implements ActionListener
 		@Override
 		public Class<?> getColumnClass(int columnIndex)
 		{
-			switch (columnIndex)
-			{
-				case COL_GAINED_HP:
-				case COL_ROLLED_HP:
-				case COL_SKILL_POINTS:
-					return Integer.class;
-				default:
-					return Object.class;
-			}
+			return switch (columnIndex)
+					{
+						case COL_GAINED_HP, COL_ROLLED_HP, COL_SKILL_POINTS -> Integer.class;
+						default -> Object.class;
+					};
 		}
 
 		@Override

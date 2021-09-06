@@ -132,47 +132,45 @@ public class WeaponToken extends Token
 		String token = aTok.nextToken();
 		switch (token)
 		{
-			case "MERGENONE":
+			case "MERGENONE" -> {
 				merge = Constants.MERGE_NONE;
 				token = aTok.nextToken();
-				break;
-			case "MERGELOC":
+			}
+			case "MERGELOC" -> {
 				merge = Constants.MERGE_LOCATION;
 				token = aTok.nextToken();
-				break;
-			case "MERGEALL":
+			}
+			case "MERGEALL" -> {
 				merge = Constants.MERGE_ALL;
 				token = aTok.nextToken();
-				break;
+			}
 		}
 
 		List<Equipment> weaponList = pc.getExpandedWeapons(merge);
 
 		switch (token)
 		{
-			case "ALL":
-				token = aTok.nextToken();
-				break;
-			case "EQUIPPED":
+			case "ALL" -> token = aTok.nextToken();
+			case "EQUIPPED" -> {
 				// remove all weapons which are not equipped from list
 				weaponList.removeIf(equipment -> !equipment.isEquipped());
 				token = aTok.nextToken();
-				break;
-			case "NOT_EQUIPPED":
+			}
+			case "NOT_EQUIPPED" -> {
 				// remove all weapons which are equipped from list
 				weaponList.removeIf(Equipment::isEquipped);
 				token = aTok.nextToken();
-				break;
-			case "CARRIED":
+			}
+			case "CARRIED" -> {
 				// remove all weapons which are not carried from list
 				weaponList.removeIf(equipment -> equipment.numberCarried().intValue() == 0);
 				token = aTok.nextToken();
-				break;
-			case "NOT_CARRIED":
+			}
+			case "NOT_CARRIED" -> {
 				// remove all weapons which are carried from list
 				weaponList.removeIf(equipment -> equipment.numberCarried().intValue() > 0);
 				token = aTok.nextToken();
-				break;
+			}
 		}
 
 		weapon = getIntToken(token, 0);
@@ -2494,27 +2492,15 @@ public class WeaponToken extends Token
 			{
 				switch (index)
 				{
-					case WPTYPEBONUS_PC:
-						bonus += (int) pc.getTotalBonusTo("WEAPONPROF=TYPE." + tString, bonusType);
-						break;
-
-					case WPTYPEBONUS_EQ:
-						bonus += (int) BonusCalc.charBonusTo(eq, "WEAPONPROF=TYPE." + tString, bonusType, pc);
-						break;
-
-					case WPTYPEBONUS_FEAT:
-						bonus += (int) pc.getFeatBonusTo("WEAPONPROF=TYPE." + tString, bonusType);
-						break;
-
-					case WPTYPEBONUS_TEMPLATE:
-						bonus += (int) pc.getTemplateBonusTo("WEAPONPROF=TYPE." + tString, bonusType);
-						break;
-
-					default:
-						Logging.errorPrint(
+					case WPTYPEBONUS_PC -> bonus += (int) pc.getTotalBonusTo("WEAPONPROF=TYPE." + tString, bonusType);
+					case WPTYPEBONUS_EQ -> bonus +=
+							(int) BonusCalc.charBonusTo(eq, "WEAPONPROF=TYPE." + tString, bonusType, pc);
+					case WPTYPEBONUS_FEAT -> bonus += (int) pc.getFeatBonusTo("WEAPONPROF=TYPE." + tString, bonusType);
+					case WPTYPEBONUS_TEMPLATE -> bonus +=
+							(int) pc.getTemplateBonusTo("WEAPONPROF=TYPE." + tString, bonusType);
+					default -> Logging.errorPrint(
 							"In getWeaponProfTypeBonuses there is an unhandled case in a switch (the value is " + index
-								+ '.');
-						break;
+									+ '.');
 				}
 			}
 		}

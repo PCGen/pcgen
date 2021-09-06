@@ -718,20 +718,19 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 					Constants.APPLICATION_NAME, JOptionPane.YES_NO_CANCEL_OPTION);
 			}
 
-			if (saveSingleChoice == JOptionPane.YES_OPTION)
-			{//If you get here then the user either selected "Yes to All" or "Yes"
-				if (saveCharacter(character))
-				{
+			switch (saveSingleChoice)
+			{
+				case JOptionPane.YES_OPTION: //If you get here then the user either selected "Yes to All" or "Yes"
+					if (saveCharacter(character))
+					{
+						characterList.add(character);
+					}
+					break;
+				case JOptionPane.NO_OPTION:
 					characterList.add(character);
-				}
-			}
-			else if (saveSingleChoice == JOptionPane.NO_OPTION)
-			{
-				characterList.add(character);
-			}
-			else if (saveSingleChoice == JOptionPane.CANCEL_OPTION)
-			{
-				return false;
+					break;
+				case JOptionPane.CANCEL_OPTION:
+					return false;
 			}
 		}
 

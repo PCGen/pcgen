@@ -6493,20 +6493,18 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			return false;
 		}
 
-		switch (filter)
-		{
-			case Ranks:
-				return (SkillRankControl.getTotalRank(this, skill) > 0);
-			case NonDefault:
-				return (SkillRankControl.getTotalRank(this, skill) > 0
-					|| SkillModifier.modifier(skill, this) != SkillModifier.getStatMod(skill, this)
-						+ getSizeAdjustmentBonusTo("SKILL", skill.getKeyName()));
-			case Usable:
-				return qualifySkill(skill) && (SkillRankControl.getTotalRank(this, skill) > 0
-					|| skill.getSafe(ObjectKey.USE_UNTRAINED));
-			default:
-				return qualifySkill(skill);
-		}
+		return switch (filter)
+				{
+					case Ranks -> (SkillRankControl.getTotalRank(this, skill) > 0);
+					case NonDefault -> (
+							SkillRankControl.getTotalRank(this, skill) > 0
+									|| SkillModifier.modifier(skill, this) != SkillModifier.getStatMod(skill, this)
+									+ getSizeAdjustmentBonusTo("SKILL", skill.getKeyName()));
+					case Usable -> qualifySkill(skill) && (
+							SkillRankControl.getTotalRank(this, skill) > 0
+									|| skill.getSafe(ObjectKey.USE_UNTRAINED));
+					default -> qualifySkill(skill);
+				};
 	}
 
 	private boolean qualifySkill(final Skill skill)
@@ -6706,21 +6704,15 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		{
 			switch (method)
 			{
-				case Constants.CHARACTER_STAT_METHOD_PURCHASE:
-					rolls[i] = SettingsHandler.getGameAsProperty().get().getPurchaseModeBaseStatScore(this);
-					break;
-				case Constants.CHARACTER_STAT_METHOD_ALL_THE_SAME:
-					rolls[i] = SettingsHandler.getGameAsProperty().get().getAllStatsValue();
-					break;
-
-				case Constants.CHARACTER_STAT_METHOD_ROLLED:
+				case Constants.CHARACTER_STAT_METHOD_PURCHASE -> rolls[i] =
+						SettingsHandler.getGameAsProperty().get().getPurchaseModeBaseStatScore(this);
+				case Constants.CHARACTER_STAT_METHOD_ALL_THE_SAME -> rolls[i] =
+						SettingsHandler.getGameAsProperty().get().getAllStatsValue();
+				case Constants.CHARACTER_STAT_METHOD_ROLLED -> {
 					final String diceExpression = rollMethod.getMethodRoll();
 					rolls[i] = RollingMethods.roll(diceExpression);
-					break;
-
-				default:
-					rolls[i] = 0;
-					break;
+				}
+				default -> rolls[i] = 0;
 			}
 		}
 		if (aSortedFlag)

@@ -665,19 +665,14 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		@Override
 		protected Object getValueAt(QualifiedObject<Domain> element, int column)
 		{
-			switch (column)
-			{
-				case -1:
-					return character.getDomains().containsElement(element);
-				case 0:
-					return element;
-				case 1:
-					return character.getInfoFactory().getDescription(element.getRawObject());
-				case 2:
-					return element.getRawObject().getSource();
-				default:
-					return null;
-			}
+			return switch (column)
+					{
+						case -1 -> character.getDomains().containsElement(element);
+						case 0 -> element;
+						case 1 -> character.getInfoFactory().getDescription(element.getRawObject());
+						case 2 -> element.getRawObject().getSource();
+						default -> null;
+					};
 		}
 
 		@Override
@@ -766,23 +761,16 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		@Override
 		public Object getData(Deity obj, int column)
 		{
-			switch (column)
-			{
-				case 0:
-					return getAlignment(obj);
-				case 1:
-					return infoFactory.getDomains(obj);
-				case 2:
-					return infoFactory.getDescription(obj);
-				case 3:
-					return infoFactory.getPantheons(obj);
-				case 4:
-					return infoFactory.getFavoredWeapons(obj);
-				case 5:
-					return obj.getSource();
-				default:
-					return null;
-			}
+			return switch (column)
+					{
+						case 0 -> getAlignment(obj);
+						case 1 -> infoFactory.getDomains(obj);
+						case 2 -> infoFactory.getDescription(obj);
+						case 3 -> infoFactory.getPantheons(obj);
+						case 4 -> infoFactory.getFavoredWeapons(obj);
+						case 5 -> obj.getSource();
+						default -> null;
+					};
 		}
 
 		@Override

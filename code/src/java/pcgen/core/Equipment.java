@@ -3104,20 +3104,9 @@ public final class Equipment extends PObject
 
 			switch (tokenCount)
 			{
-				case 2:
-					baseMove = 30;
-
-					break;
-
-				case 3:
-					baseMove = 60;
-
-					break;
-
-				default:
-					tokenCount = -1;
-
-					break;
+				case 2 -> baseMove = 30;
+				case 3 -> baseMove = 60;
+				default -> tokenCount = -1;
 			}
 
 			if (tokenCount > 0)

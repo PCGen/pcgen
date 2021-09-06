@@ -70,48 +70,51 @@ public class SourceModel implements TemplateHashModel
 	@Override
 	public TemplateModel get(String key) throws TemplateModelException
 	{
-        switch (key)
-        {
-            case "custom":
-                Boolean isCustom = cdo.isType(Constants.TYPE_CUSTOM);
-                return SimpleWrapperLibrary.wrap(isCustom);
-            case "long":
-                String sourceLong = getSource(StringKey.SOURCE_LONG);
-                return SimpleWrapperLibrary.wrap(sourceLong);
-            case "short":
-                String sourceShort = getSource(StringKey.SOURCE_SHORT);
-                return SimpleWrapperLibrary.wrap(sourceShort);
-            case "date":
-                Date sourceDate = cdo.get(ObjectKey.SOURCE_DATE);
-                //Fall back on Campaign if necessary
-                if (sourceDate == null)
-                {
-                    Campaign campaign = cdo.get(ObjectKey.SOURCE_CAMPAIGN);
-                    sourceDate = campaign.get(ObjectKey.SOURCE_DATE);
-                }
-                return SimpleWrapperLibrary.wrap(sourceDate);
-            case "page":
-                String sourcePage = getSource(StringKey.SOURCE_PAGE);
-                return SimpleWrapperLibrary.wrap(sourcePage);
-            case "web":
-                String sourceWeb = getSource(StringKey.SOURCE_WEB);
-                return SimpleWrapperLibrary.wrap(sourceWeb);
-            case "campaignsource":
-            {
-                Campaign campaign = cdo.get(ObjectKey.SOURCE_CAMPAIGN);
-                return WRAPPER_FACET.wrap(id, campaign.get(StringKey.SOURCE_SHORT));
-            }
-            case "pubname":
-            {
-                Campaign campaign = cdo.get(ObjectKey.SOURCE_CAMPAIGN);
-                return WRAPPER_FACET.wrap(id, campaign.getSafe(StringKey.PUB_NAME_LONG));
-            }
-            case "pubnameweb":
-            {
-                Campaign campaign = cdo.get(ObjectKey.SOURCE_CAMPAIGN);
-                return WRAPPER_FACET.wrap(id, campaign.getSafe(StringKey.PUB_NAME_WEB));
-            }
-        }
+		switch (key)
+		{
+			case "custom" -> {
+				Boolean isCustom = cdo.isType(Constants.TYPE_CUSTOM);
+				return SimpleWrapperLibrary.wrap(isCustom);
+			}
+			case "long" -> {
+				String sourceLong = getSource(StringKey.SOURCE_LONG);
+				return SimpleWrapperLibrary.wrap(sourceLong);
+			}
+			case "short" -> {
+				String sourceShort = getSource(StringKey.SOURCE_SHORT);
+				return SimpleWrapperLibrary.wrap(sourceShort);
+			}
+			case "date" -> {
+				Date sourceDate = cdo.get(ObjectKey.SOURCE_DATE);
+				//Fall back on Campaign if necessary
+				if (sourceDate == null)
+				{
+					Campaign campaign = cdo.get(ObjectKey.SOURCE_CAMPAIGN);
+					sourceDate = campaign.get(ObjectKey.SOURCE_DATE);
+				}
+				return SimpleWrapperLibrary.wrap(sourceDate);
+			}
+			case "page" -> {
+				String sourcePage = getSource(StringKey.SOURCE_PAGE);
+				return SimpleWrapperLibrary.wrap(sourcePage);
+			}
+			case "web" -> {
+				String sourceWeb = getSource(StringKey.SOURCE_WEB);
+				return SimpleWrapperLibrary.wrap(sourceWeb);
+			}
+			case "campaignsource" -> {
+				Campaign campaign = cdo.get(ObjectKey.SOURCE_CAMPAIGN);
+				return WRAPPER_FACET.wrap(id, campaign.get(StringKey.SOURCE_SHORT));
+			}
+			case "pubname" -> {
+				Campaign campaign = cdo.get(ObjectKey.SOURCE_CAMPAIGN);
+				return WRAPPER_FACET.wrap(id, campaign.getSafe(StringKey.PUB_NAME_LONG));
+			}
+			case "pubnameweb" -> {
+				Campaign campaign = cdo.get(ObjectKey.SOURCE_CAMPAIGN);
+				return WRAPPER_FACET.wrap(id, campaign.getSafe(StringKey.PUB_NAME_WEB));
+			}
+		}
 		throw new TemplateModelException("source info does not have output of type " + key);
 	}
 

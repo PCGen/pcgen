@@ -297,23 +297,11 @@ public final class CoreUtility
 		{
 			switch (iValue % 10)
 			{
-				case 1:
-					suffix = "st";
-
-					break;
-
-				case 2:
-					suffix = "nd";
-
-					break;
-
-				case 3:
-					suffix = "rd";
-
-					break;
-
-				default:
-					break;
+				case 1 -> suffix = "st";
+				case 2 -> suffix = "nd";
+				case 3 -> suffix = "rd";
+				default -> {
+				}
 			}
 		}
 

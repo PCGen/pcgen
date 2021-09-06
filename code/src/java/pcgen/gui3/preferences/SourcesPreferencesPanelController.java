@@ -99,31 +99,14 @@ public class SourcesPreferencesPanelController implements ResettableController
 
 		switch (sourceOptions.getSelectionModel().getSelectedIndex())
 		{
-			case 0:
-				Globals.setSourceDisplay(SourceFormat.LONG);
-				break;
-
-			case 1:
-				Globals.setSourceDisplay(SourceFormat.MEDIUM);
-				break;
-
-			case 2:
-				Globals.setSourceDisplay(SourceFormat.SHORT);
-				break;
-
-			case 3:
-				Globals.setSourceDisplay(SourceFormat.PAGE);
-				break;
-
-			case 4:
-				Globals.setSourceDisplay(SourceFormat.WEB);
-				break;
-
-			default:
-				Logging.errorPrint("In PreferencesDialog.setOptionsBasedOnControls " + "(sourceOptions) the index "
-						+ sourceOptions.getSelectionModel().getSelectedIndex() + " is unsupported.");
-
-				break;
+			case 0 -> Globals.setSourceDisplay(SourceFormat.LONG);
+			case 1 -> Globals.setSourceDisplay(SourceFormat.MEDIUM);
+			case 2 -> Globals.setSourceDisplay(SourceFormat.SHORT);
+			case 3 -> Globals.setSourceDisplay(SourceFormat.PAGE);
+			case 4 -> Globals.setSourceDisplay(SourceFormat.WEB);
+			default -> Logging.errorPrint(
+					"In PreferencesDialog.setOptionsBasedOnControls " + "(sourceOptions) the index "
+							+ sourceOptions.getSelectionModel().getSelectedIndex() + " is unsupported.");
 		}
 	}
 
@@ -153,37 +136,14 @@ public class SourcesPreferencesPanelController implements ResettableController
 
 		switch (Globals.getSourceDisplay())
 		{
-			case LONG:
-				sourceOptions.getSelectionModel().select(0);
-
-				break;
-
-			case MEDIUM:
-				sourceOptions.getSelectionModel().select(1);
-
-				break;
-
-			case SHORT:
-				sourceOptions.getSelectionModel().select(2);
-
-				break;
-
-			case PAGE:
-				sourceOptions.getSelectionModel().select(3);
-
-				break;
-
-			case WEB:
-				sourceOptions.getSelectionModel().select(4);
-
-				break;
-
-			default:
-				Logging.errorPrint(
-						"In PreferencesDialog.applyOptionValuesToControls " + "(source display) the option "
-								+ Globals.getSourceDisplay() + " is unsupported.");
-
-				break;
+			case LONG -> sourceOptions.getSelectionModel().select(0);
+			case MEDIUM -> sourceOptions.getSelectionModel().select(1);
+			case SHORT -> sourceOptions.getSelectionModel().select(2);
+			case PAGE -> sourceOptions.getSelectionModel().select(3);
+			case WEB -> sourceOptions.getSelectionModel().select(4);
+			default -> Logging.errorPrint(
+					"In PreferencesDialog.applyOptionValuesToControls " + "(source display) the option "
+							+ Globals.getSourceDisplay() + " is unsupported.");
 		}
 	}
 }

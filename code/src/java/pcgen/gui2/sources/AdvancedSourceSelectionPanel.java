@@ -542,17 +542,13 @@ class AdvancedSourceSelectionPanel extends JPanel
 		{
 			SourceSelectionFacade sourceFacade = uiContext.getCurrentSourceSelectionRef().get();
 			boolean isLoaded = (sourceFacade != null) && sourceFacade.getCampaigns().containsElement(obj);
-			switch (column)
-			{
-				case 0:
-					return obj.getListAsString(ListKey.BOOK_TYPE);
-				case 1:
-					return obj.getSafe(ObjectKey.STATUS).toString();
-				case 2:
-					return isLoaded ? LanguageBundle.getString("in_yes") : LanguageBundle.getString("in_no");
-				default:
-					return null;
-			}
+			return switch (column)
+					{
+						case 0 -> obj.getListAsString(ListKey.BOOK_TYPE);
+						case 1 -> obj.getSafe(ObjectKey.STATUS).toString();
+						case 2 -> isLoaded ? LanguageBundle.getString("in_yes") : LanguageBundle.getString("in_no");
+						default -> null;
+					};
 		}
 
 		@Override

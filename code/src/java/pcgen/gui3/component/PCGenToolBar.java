@@ -138,8 +138,8 @@ public final class PCGenToolBar
 	private void onExport(final ActionEvent actionEvent)
 	{
 		GuiAssertions.assertIsNotJavaFXThread();
-		JFXPanelFromResource
-				jfxPanelFromResource = new JFXPanelFromResource(ExportDialogController.class, "ExportDialog.fxml");
+		JFXPanelFromResource<ExportDialogController>
+				jfxPanelFromResource = new JFXPanelFromResource<>(ExportDialogController.class, "ExportDialog.fxml");
 		jfxPanelFromResource.showAsStage("Export a PC or Party");
 	}
 
