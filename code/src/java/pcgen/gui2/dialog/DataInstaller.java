@@ -139,7 +139,8 @@ public final class DataInstaller extends JFrame
                     {
                         case VENDORDATA -> new File(PCGenSettings.getVendorDataDir());
                         case HOMEBREWDATA -> new File(PCGenSettings.getHomebrewDataDir());
-                        case DATA, default -> new File(ConfigurationSettings.getPccFilesDir());
+                        case DATA -> new File(ConfigurationSettings.getPccFilesDir());
+                        default -> new File(ConfigurationSettings.getPccFilesDir());
                     };
 
             // Check chosen dir exists
