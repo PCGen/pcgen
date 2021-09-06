@@ -120,9 +120,8 @@ public class CDOMTransparentAllRef<T extends Loadable> extends CDOMGroupRef<T> i
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (obj instanceof CDOMTransparentAllRef)
+		if (obj instanceof CDOMTransparentAllRef<?> ref)
 		{
-			CDOMTransparentAllRef<?> ref = (CDOMTransparentAllRef<?>) obj;
 			return getReferenceClass().equals(ref.getReferenceClass()) && getName().equals(ref.getName());
 		}
 		return false;

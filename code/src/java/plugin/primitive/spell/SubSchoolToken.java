@@ -87,9 +87,8 @@ public class SubSchoolToken implements PrimitiveToken<Spell>, PrimitiveFilter<Sp
 		{
 			return true;
 		}
-		if (obj instanceof SubSchoolToken)
+		if (obj instanceof SubSchoolToken other)
 		{
-			SubSchoolToken other = (SubSchoolToken) obj;
 			if (subschool == null)
 			{
 				return other.subschool == null;

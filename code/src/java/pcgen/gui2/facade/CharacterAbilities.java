@@ -200,11 +200,10 @@ public class CharacterAbilities
 
 	private void updateAbilityCategoryTodo(Category<Ability> cat)
 	{
-		if (!(cat instanceof AbilityCategory))
+		if (!(cat instanceof AbilityCategory category))
 		{
 			return;
 		}
-		AbilityCategory category = (AbilityCategory) cat;
 
 		int numSelections = theCharacter.getAvailableAbilityPool(category).intValue();
 		if (category.getVisibility().isVisibleTo(View.HIDDEN_DISPLAY))
@@ -308,12 +307,11 @@ public class CharacterAbilities
 	 */
 	public void addAbility(AbilityCategory category, AbilityFacade abilityFacade)
 	{
-		if (abilityFacade == null || !(abilityFacade instanceof Ability) || category == null)
+		if (abilityFacade == null || !(abilityFacade instanceof Ability ability) || category == null)
 		{
 			return;
 		}
 
-		Ability ability = (Ability) abilityFacade;
 		if (!checkAbilityQualify(ability, category))
 		{
 			return;
@@ -356,12 +354,10 @@ public class CharacterAbilities
 	 */
 	public void removeAbility(AbilityCategory theCategory, AbilityFacade abilityFacade)
 	{
-		if (abilityFacade == null || !(abilityFacade instanceof Ability) || theCategory == null)
+		if (abilityFacade == null || !(abilityFacade instanceof Ability anAbility) || theCategory == null)
 		{
 			return;
 		}
-
-		Ability anAbility = (Ability) abilityFacade;
 
 		try
 		{

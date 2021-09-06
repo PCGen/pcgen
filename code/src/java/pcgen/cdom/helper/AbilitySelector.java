@@ -136,9 +136,8 @@ public class AbilitySelector extends ConcretePrereqObject
 	@Override
 	public boolean equals(Object o)
 	{
-		if (o instanceof AbilitySelector)
+		if (o instanceof AbilitySelector other)
 		{
-			AbilitySelector other = (AbilitySelector) o;
 			return source.equals(other.source) && category.equals(other.category) && nature == other.nature;
 		}
 		return false;

@@ -109,9 +109,8 @@ public class EquippedToken implements QualifierToken<Equipment>, PrimitiveFilter
 	@Override
 	public boolean equals(Object o)
 	{
-		if (o instanceof EquippedToken)
+		if (o instanceof EquippedToken other)
 		{
-			EquippedToken other = (EquippedToken) o;
 			if (negated == other.negated)
 			{
 				if (pcs == null)

@@ -124,11 +124,10 @@ public class CampaignSourceEntry implements SourceEntry
 		{
 			return true;
 		}
-		if (!(arg0 instanceof CampaignSourceEntry))
+		if (!(arg0 instanceof CampaignSourceEntry other))
 		{
 			return false;
 		}
-		CampaignSourceEntry other = (CampaignSourceEntry) arg0;
 		return uri.equals(other.uri) && excludeItems.equals(other.excludeItems)
 			&& includeItems.equals(other.includeItems);
 	}

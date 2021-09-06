@@ -84,9 +84,8 @@ public class AbilityFromClassChoiceSet implements PrimitiveChoiceSet<CNAbilitySe
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (obj instanceof AbilityFromClassChoiceSet)
+		if (obj instanceof AbilityFromClassChoiceSet other)
 		{
-			AbilityFromClassChoiceSet other = (AbilityFromClassChoiceSet) obj;
 			return classRef.equals(other.classRef);
 		}
 		return false;

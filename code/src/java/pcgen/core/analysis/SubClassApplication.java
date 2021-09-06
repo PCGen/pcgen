@@ -125,15 +125,13 @@ public final class SubClassApplication
 
 		PCClass subselected = selectedSubClasses.get(0);
 
-		if (subselected instanceof SubClass)
+		if (subselected instanceof SubClass sc)
 		{
 			aPC.removeProhibitedSchools(cl);
 			/*
 			 * CONSIDER What happens to this reset during PCClass/PCClassLevel split
 			 */
 			aPC.removeAssoc(cl, AssociationKey.SPECIALTY);
-
-			SubClass sc = (SubClass) subselected;
 
 			availableList.clear();
 

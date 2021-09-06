@@ -113,9 +113,8 @@ public class WieldCategoryToken implements PrimitiveToken<Equipment>, PrimitiveF
 		{
 			return true;
 		}
-		if (obj instanceof WieldCategoryToken)
+		if (obj instanceof WieldCategoryToken other)
 		{
-			WieldCategoryToken other = (WieldCategoryToken) obj;
 			return category.equals(other.category);
 		}
 		return false;

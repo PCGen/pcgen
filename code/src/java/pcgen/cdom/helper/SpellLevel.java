@@ -96,9 +96,8 @@ public class SpellLevel implements Comparable<SpellLevel>
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (obj instanceof SpellLevel)
+		if (obj instanceof SpellLevel other)
 		{
-			SpellLevel other = (SpellLevel) obj;
 			return level == other.level && pcclass.equals(other.pcclass);
 		}
 		return false;

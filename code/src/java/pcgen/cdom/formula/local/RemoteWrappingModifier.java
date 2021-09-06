@@ -144,9 +144,8 @@ public class RemoteWrappingModifier<T> implements Modifier<T>
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (obj instanceof RemoteWrappingModifier)
+		if (obj instanceof RemoteWrappingModifier<?> other)
 		{
-			RemoteWrappingModifier<?> other = (RemoteWrappingModifier<?>) obj;
 			return modifier.equals(other.modifier) && sourceValue.equals(other.sourceValue)
 				&& sourceFormatManager.equals(other.sourceFormatManager) && targetValue.equals(other.targetValue)
 				&& targetFormatManager.equals(other.targetFormatManager);

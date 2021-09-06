@@ -50,9 +50,8 @@ public final class SAProcessor implements QualifiedActor<SpecialAbility, Special
 		StringBuilder sb = new StringBuilder(100);
 		sb.append(key.substring(0, idx));
 
-		if (source instanceof ChooseDriver)
+		if (source instanceof ChooseDriver object)
 		{
-			ChooseDriver object = (ChooseDriver) source;
 			if (pc.hasAssociations(object))
 			{
 				List<String> associationList = pc.getAssociationList(object);

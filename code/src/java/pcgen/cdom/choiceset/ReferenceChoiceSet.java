@@ -161,9 +161,8 @@ public class ReferenceChoiceSet<T> implements PrimitiveChoiceSet<T>
 		{
 			return true;
 		}
-		if (obj instanceof ReferenceChoiceSet)
+		if (obj instanceof ReferenceChoiceSet<?> other)
 		{
-			ReferenceChoiceSet<?> other = (ReferenceChoiceSet<?>) obj;
 			return refCollection.equals(other.refCollection);
 		}
 		return false;

@@ -764,9 +764,8 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 
 			super.getTreeCellRendererComponent(tree, value, sel, expanded, leaf, row, focus);
 			Object abilityObj = ((DefaultMutableTreeNode) value).getUserObject();
-			if (abilityObj instanceof AbilityFacade)
+			if (abilityObj instanceof AbilityFacade ability)
 			{
-				AbilityFacade ability = (AbilityFacade) abilityObj;
 				Nature nature = character.getAbilityNature(ability);
 				if (nature == Nature.VIRTUAL)
 				{

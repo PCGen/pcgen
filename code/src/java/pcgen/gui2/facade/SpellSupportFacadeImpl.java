@@ -967,11 +967,10 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 	 */
 	private boolean removeSpellFromCharacter(SpellNode spell, String bookName)
 	{
-		if (!(spell.getSpell() instanceof SpellFacadeImplem))
+		if (!(spell.getSpell() instanceof SpellFacadeImplem sfi))
 		{
 			return false;
 		}
-		SpellFacadeImplem sfi = (SpellFacadeImplem) spell.getSpell();
 		CharacterSpell charSpell = sfi.getCharSpell();
 		SpellInfo spellInfo = sfi.getSpellInfo();
 		if (charSpell == null || spellInfo == null)

@@ -102,10 +102,9 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 		pc.addLocalCost(pcc, choice, SkillCost.CLASS, owner);
 		if (applyRank != null)
 		{
-			if (owner instanceof PCClassLevel)
+			if (owner instanceof PCClassLevel classLevel)
 			{
 				// Ensure that the skill points for this level are already calculated.
-				PCClassLevel classLevel = (PCClassLevel) owner;
 				PCClass pcClass = (PCClass) classLevel.getSafe(ObjectKey.PARENT);
 
 				int levelIndex = 1;

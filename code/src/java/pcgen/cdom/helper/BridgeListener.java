@@ -118,9 +118,8 @@ public class BridgeListener
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (obj instanceof BridgeListener)
+		if (obj instanceof BridgeListener other)
 		{
-			BridgeListener other = (BridgeListener) obj;
 			return id.equals(other.id)
 				&& variableBridgeFacet.equals(other.variableBridgeFacet)
 				&& source.equals(other.source);

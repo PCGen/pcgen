@@ -90,9 +90,8 @@ public class AddFilterConverter<B, R> implements Converter<B, R>
 		{
 			return true;
 		}
-		if (obj instanceof AddFilterConverter)
+		if (obj instanceof AddFilterConverter<?, ?> other)
 		{
-			AddFilterConverter<?, ?> other = (AddFilterConverter<?, ?>) obj;
 			return other.filter.equals(filter) && other.converter.equals(converter);
 		}
 		return false;

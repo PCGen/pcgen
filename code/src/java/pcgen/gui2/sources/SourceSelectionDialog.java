@@ -488,9 +488,8 @@ public class SourceSelectionDialog extends JDialog implements ActionListener, Ch
 			{
 				super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
 				setToolTipText("");
-				if (value instanceof SourceSelectionFacade)
+				if (value instanceof SourceSelectionFacade selection)
 				{
-					SourceSelectionFacade selection = (SourceSelectionFacade) value;
 					if (selection.isModifiable())
 					{
 						setForeground(ColorUtilty.colorToAWTColor(UIPropertyContext.getCustomItemColor()));

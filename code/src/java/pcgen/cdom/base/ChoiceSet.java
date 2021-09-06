@@ -209,9 +209,8 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements SelectableSet<
 		{
 			return true;
 		}
-		if (obj instanceof ChoiceSet)
+		if (obj instanceof ChoiceSet<?> other)
 		{
-			ChoiceSet<?> other = (ChoiceSet<?>) obj;
 			return setName.equals(other.setName) && pcs.equals(other.pcs);
 		}
 		return false;

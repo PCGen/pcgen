@@ -109,9 +109,8 @@ public final class CalculationModifier<T> extends AbstractPCGenModifier<T>
 	@Override
 	public boolean equals(Object o)
 	{
-		if (o instanceof CalculationModifier)
+		if (o instanceof CalculationModifier<?> other)
 		{
-			CalculationModifier<?> other = (CalculationModifier<?>) o;
 			return (other.getUserPriority() == getUserPriority()) && other.toDo.equals(toDo);
 		}
 		return false;

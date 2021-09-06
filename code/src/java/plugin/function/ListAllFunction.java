@@ -101,12 +101,11 @@ public class ListAllFunction implements FormulaFunction
 
 		if (argCount == 2)
 		{
-			if (!(args[1] instanceof ASTQuotString))
+			if (!(args[1] instanceof ASTQuotString typeNode))
 			{
 				throw new SemanticsFailureException(
 					"Parse Error: Invalid second argument: Must be a String");
 			}
-			ASTQuotString typeNode = (ASTQuotString) args[1];
 			String viewName = typeNode.getText();
 			try
 			{

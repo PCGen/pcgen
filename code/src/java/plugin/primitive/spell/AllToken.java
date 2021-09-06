@@ -77,9 +77,8 @@ public class AllToken extends AbstractRestrictedSpellPrimitive
 		{
 			return true;
 		}
-		if (obj instanceof AllToken)
+		if (obj instanceof AllToken other)
 		{
-			AllToken other = (AllToken) obj;
 			return equalsRestrictedPrimitive(other);
 		}
 		return false;

@@ -257,9 +257,8 @@ public final class InfoTabbedPane extends JTabbedPane implements CharacterSelect
 			return;
 		}
 
-		if (selTab instanceof JTabbedPane && dest.length > 2)
+		if (selTab instanceof JTabbedPane tabPane && dest.length > 2)
 		{
-			JTabbedPane tabPane = (JTabbedPane) selTab;
 			for (int i = 0; i < tabPane.getTabCount(); i++)
 			{
 				if (dest[2].equals(tabPane.getTitleAt(i)))

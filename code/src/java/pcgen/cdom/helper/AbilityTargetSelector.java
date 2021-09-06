@@ -182,9 +182,8 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements Qu
 	@Override
 	public boolean equals(Object o)
 	{
-		if (o instanceof AbilityTargetSelector)
+		if (o instanceof AbilityTargetSelector<?> other)
 		{
-			AbilityTargetSelector<?> other = (AbilityTargetSelector<?>) o;
 			return source.equals(other.source) && category.equals(other.category) && ability.equals(other.ability)
 				&& nature == other.nature;
 		}

@@ -141,9 +141,8 @@ public class CampaignURL implements Comparable<CampaignURL>
 		{
 			return true;
 		}
-		if (obj instanceof CampaignURL)
+		if (obj instanceof CampaignURL that)
 		{
-			CampaignURL that = (CampaignURL) obj;
 			return that.getUrlKind() == urlKind && that.getUrlName().equals(urlName) && that.getUri().equals(uri)
 				&& urlDesc.equals(that.getUrlDesc());
 		}

@@ -509,9 +509,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			{
 				for (Object object : data)
 				{
-					if (object instanceof EquipmentFacade)
+					if (object instanceof EquipmentFacade equip)
 					{
-						EquipmentFacade equip = (EquipmentFacade) object;
 						if (character.isAutoResize())
 						{
 							equip = character.getEquipmentSizedForCharacter(equip);
@@ -555,9 +554,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			{
 				for (Object object : data)
 				{
-					if (object instanceof EquipmentFacade)
+					if (object instanceof EquipmentFacade equip)
 					{
-						EquipmentFacade equip = (EquipmentFacade) object;
 						if (character.isAutoResize())
 						{
 							equip = character.getEquipmentSizedForCharacter(equip);
@@ -593,9 +591,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			{
 				for (Object object : data)
 				{
-					if (object instanceof EquipmentFacade)
+					if (object instanceof EquipmentFacade equip)
 					{
-						EquipmentFacade equip = (EquipmentFacade) object;
 						character.deleteCustomEquipment(equip);
 					}
 				}

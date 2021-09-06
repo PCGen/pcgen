@@ -159,11 +159,10 @@ public class LevelExchange extends ConcretePrereqObject
 		{
 			return true;
 		}
-		if (!(obj instanceof LevelExchange))
+		if (!(obj instanceof LevelExchange other))
 		{
 			return false;
 		}
-		LevelExchange other = (LevelExchange) obj;
 		return minDonatingLevel == other.minDonatingLevel && maxDonatedLevels == other.maxDonatedLevels
 			&& donatingLowerLevelBound == other.donatingLowerLevelBound && exchangeClass.equals(other.exchangeClass);
 	}

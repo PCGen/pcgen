@@ -289,9 +289,8 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 				Utility.adjustRectToFitImage(portrait, cropRect);
 				character.setThumbnailCrop(cropRect);
 			}
-			else if (obj instanceof Rectangle)
+			else if (obj instanceof Rectangle rect)
 			{
-				Rectangle rect = (Rectangle) obj;
 				Rectangle cropRect = new Rectangle(rect);
 				Utility.adjustRectToFitImage(portrait, cropRect);
 				if (!rect.equals(cropRect))

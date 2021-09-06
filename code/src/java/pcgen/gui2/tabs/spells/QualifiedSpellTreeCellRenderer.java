@@ -57,9 +57,8 @@ public class QualifiedSpellTreeCellRenderer extends CharacterTreeCellRenderer
 			obj = LanguageBundle.getString("in_none"); //$NON-NLS-1$
 		}
 		super.getTreeCellRendererComponent(tree, obj, sel, expanded, leaf, row, focus);
-		if (obj instanceof SpellNode)
+		if (obj instanceof SpellNode spellNode)
 		{
-			SpellNode spellNode = (SpellNode) obj;
 			SpellFacade spell = spellNode.getSpell();
 			PCClass pcClass = spellNode.getSpellcastingClass();
 			if (!character.isQualifiedFor(spell, pcClass))

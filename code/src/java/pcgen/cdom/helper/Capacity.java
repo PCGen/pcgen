@@ -124,9 +124,8 @@ public class Capacity
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (obj instanceof Capacity)
+		if (obj instanceof Capacity other)
 		{
-			Capacity other = (Capacity) obj;
 			if (type == null)
 			{
 				if (other.type != null)

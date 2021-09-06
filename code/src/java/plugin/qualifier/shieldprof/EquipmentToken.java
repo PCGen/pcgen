@@ -111,9 +111,8 @@ public class EquipmentToken implements QualifierToken<ShieldProf>, Converter<Equ
 	@Override
 	public boolean equals(Object o)
 	{
-		if (o instanceof EquipmentToken)
+		if (o instanceof EquipmentToken other)
 		{
-			EquipmentToken other = (EquipmentToken) o;
 			if (pcs == null)
 			{
 				return other.pcs == null;

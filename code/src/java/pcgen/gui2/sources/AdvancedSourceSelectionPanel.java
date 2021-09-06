@@ -413,9 +413,8 @@ class AdvancedSourceSelectionPanel extends JPanel
 			{
 				for (Object obj : list)
 				{
-					if (obj instanceof Campaign)
+					if (obj instanceof Campaign camp)
 					{
-						Campaign camp = (Campaign) obj;
 						if (selectedCampaigns.containsElement(camp))
 						{
 							// Already in the list - ignore
@@ -686,9 +685,8 @@ class AdvancedSourceSelectionPanel extends JPanel
 
 			super.getTreeCellRendererComponent(tree, value, sel, expanded, leaf, row, focus);
 			Object campaignObj = ((DefaultMutableTreeNode) value).getUserObject();
-			if (campaignObj instanceof Campaign)
+			if (campaignObj instanceof Campaign campaign)
 			{
-				Campaign campaign = (Campaign) campaignObj;
 				List<Campaign> testCampaigns = selectedCampaigns.getContents();
 				testCampaigns.add(campaign);
 				if (!FacadeFactory.passesPrereqs(testCampaigns))

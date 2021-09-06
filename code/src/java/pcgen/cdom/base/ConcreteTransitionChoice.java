@@ -138,9 +138,8 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (obj instanceof ConcreteTransitionChoice)
+		if (obj instanceof ConcreteTransitionChoice<?> other)
 		{
-			ConcreteTransitionChoice<?> other = (ConcreteTransitionChoice<?>) obj;
 			if (choiceCount == other.choiceCount || (choiceCount != null && choiceCount.equals(other.choiceCount)))
 			{
 				return choices.equals(other.choices);

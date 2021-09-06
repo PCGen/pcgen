@@ -118,9 +118,8 @@ public class QualifiedObject<T> extends ConcretePrereqObject implements Qualifyi
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (obj instanceof QualifiedObject)
+		if (obj instanceof QualifiedObject<?> other)
 		{
-			QualifiedObject<?> other = (QualifiedObject<?>) obj;
 			if (!equalsPrereqObject(other))
 			{
 				return false;

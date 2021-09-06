@@ -91,9 +91,8 @@ public class SpellCasterToken implements QualifierToken<WeaponProf>, PrimitiveFi
 	@Override
 	public boolean equals(Object o)
 	{
-		if (o instanceof SpellCasterToken)
+		if (o instanceof SpellCasterToken other)
 		{
-			SpellCasterToken other = (SpellCasterToken) o;
 			if (pcs == null)
 			{
 				return other.pcs == null;

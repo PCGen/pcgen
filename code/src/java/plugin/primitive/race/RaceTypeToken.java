@@ -88,9 +88,8 @@ public class RaceTypeToken implements PrimitiveToken<Race>, PrimitiveFilter<Race
 		{
 			return true;
 		}
-		if (obj instanceof RaceTypeToken)
+		if (obj instanceof RaceTypeToken other)
 		{
-			RaceTypeToken other = (RaceTypeToken) obj;
 			return racetype.equals(other.racetype);
 		}
 		return false;

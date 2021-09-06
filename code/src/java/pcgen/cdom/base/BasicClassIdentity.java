@@ -125,9 +125,8 @@ public class BasicClassIdentity<T> implements ClassIdentity<T>
 	@Override
 	public boolean equals(Object o)
 	{
-		if (o instanceof BasicClassIdentity)
+		if (o instanceof BasicClassIdentity<?> other)
 		{
-			BasicClassIdentity<?> other = (BasicClassIdentity<?>) o;
 			return underlyingClass.equals(other.underlyingClass);
 		}
 		return false;

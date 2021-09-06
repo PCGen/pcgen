@@ -86,9 +86,8 @@ public class JDynamicTable extends JTableEx
 		if (p instanceof JViewport)
 		{
 			Container gp = p.getParent();
-			if (gp instanceof JScrollPane)
+			if (gp instanceof JScrollPane scrollPane)
 			{
-				JScrollPane scrollPane = (JScrollPane) gp;
 				// Make certain we are the viewPort's view and not, for
 				// example, the rowHeaderView of the scrollPane -
 				// an implementor of fixed columns might do this.
@@ -113,9 +112,8 @@ public class JDynamicTable extends JTableEx
 		if (p instanceof JViewport)
 		{
 			Container gp = p.getParent();
-			if (gp instanceof JScrollPane)
+			if (gp instanceof JScrollPane scrollPane)
 			{
-				JScrollPane scrollPane = (JScrollPane) gp;
 				// Make certain we are the viewPort's view and not, for
 				// example, the rowHeaderView of the scrollPane -
 				// an implementor of fixed columns might do this.

@@ -212,9 +212,8 @@ public class ObjectMatchingReference<T extends CDOMObject, V> extends CDOMRefere
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (obj instanceof ObjectMatchingReference)
+		if (obj instanceof ObjectMatchingReference<?, ?> other)
 		{
-			ObjectMatchingReference<?, ?> other = (ObjectMatchingReference<?, ?>) obj;
 			if (getReferenceClass().equals(other.getReferenceClass()) && all.equals(other.all) && key.equals(other.key))
 			{
 				if (value == null)
