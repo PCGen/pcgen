@@ -79,17 +79,9 @@ abstract class BioItem
 		numComponents += trailinglabel.isPresent() ? 1 : 0;
 		switch (numComponents)
 		{
-			case 3:
-				gbc.weightx = 0.3333;
-				break;
-
-			case 2:
-				gbc.weightx = 0.5;
-				break;
-
-			default:
-				gbc.weightx = 1.0;
-				break;
+			case 3 -> gbc.weightx = 0.3333;
+			case 2 -> gbc.weightx = 0.5;
+			default -> gbc.weightx = 1.0;
 		}
 		combobox.ifPresent(box -> panel.add(box, gbc));
 		if (trailinglabel.isEmpty())

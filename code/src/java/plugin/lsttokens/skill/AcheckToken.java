@@ -53,34 +53,30 @@ public class AcheckToken extends AbstractNonEmptyToken<Skill> implements CDOMPri
 			// Logging.deprecationPrint("Misunderstood " + getTokenName() + ": "
 			// + value + " is not an abbreviation");
 			char first = value.charAt(0);
-			if (first == 'N')
+			switch (first)
 			{
-				// Logging.deprecationPrint(" please use NONE");
-				aCheck = SkillArmorCheck.NONE;
-			}
-			else if (first == 'Y')
-			{
-				// Logging.deprecationPrint(" please use YES");
-				aCheck = SkillArmorCheck.YES;
-			}
-			else if (first == 'P')
-			{
-				// Logging.deprecationPrint(" please use NONPROF");
-				aCheck = SkillArmorCheck.NONPROF;
-			}
-			else if (first == 'D')
-			{
-				// Logging.deprecationPrint(" please use DOUBLE");
-				aCheck = SkillArmorCheck.DOUBLE;
-			}
-			else if (first == 'W')
-			{
-				// Logging.deprecationPrint(" please use WEIGHT");
-				aCheck = SkillArmorCheck.WEIGHT;
-			}
-			else
-			{
-				return new ParseResult.Fail("Skill " + getTokenName() + " Did not understand: " + value);
+				case 'N':
+					// Logging.deprecationPrint(" please use NONE");
+					aCheck = SkillArmorCheck.NONE;
+					break;
+				case 'Y':
+					// Logging.deprecationPrint(" please use YES");
+					aCheck = SkillArmorCheck.YES;
+					break;
+				case 'P':
+					// Logging.deprecationPrint(" please use NONPROF");
+					aCheck = SkillArmorCheck.NONPROF;
+					break;
+				case 'D':
+					// Logging.deprecationPrint(" please use DOUBLE");
+					aCheck = SkillArmorCheck.DOUBLE;
+					break;
+				case 'W':
+					// Logging.deprecationPrint(" please use WEIGHT");
+					aCheck = SkillArmorCheck.WEIGHT;
+					break;
+				default:
+					return new ParseResult.Fail("Skill " + getTokenName() + " Did not understand: " + value);
 			}
 		}
 

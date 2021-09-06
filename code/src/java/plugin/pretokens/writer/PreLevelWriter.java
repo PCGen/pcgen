@@ -51,27 +51,26 @@ public class PreLevelWriter extends AbstractPrerequisiteWriter implements Prereq
 
 		try
 		{
-			if (prereq.getOperator().equals(PrerequisiteOperator.LT))
+			switch (prereq.getOperator())
 			{
-				writer.write('!');
-				writer.write("PRELEVEL:" + (prereq.isOverrideQualify() ? "Q:" : "") + "MIN=");
-				writer.write(prereq.getOperand());
-			}
-			else if (prereq.getOperator().equals(PrerequisiteOperator.GT))
-			{
-				writer.write('!');
-				writer.write("PRELEVEL:" + (prereq.isOverrideQualify() ? "Q:" : "") + "MAX=");
-				writer.write(prereq.getOperand());
-			}
-			else if (prereq.getOperator().equals(PrerequisiteOperator.GTEQ))
-			{
-				writer.write("PRELEVEL:" + (prereq.isOverrideQualify() ? "Q:" : "") + "MIN=");
-				writer.write(prereq.getOperand());
-			}
-			else if (prereq.getOperator().equals(PrerequisiteOperator.LTEQ))
-			{
-				writer.write("PRELEVEL:" + (prereq.isOverrideQualify() ? "Q:" : "") + "MAX=");
-				writer.write(prereq.getOperand());
+				case LT -> {
+					writer.write('!');
+					writer.write("PRELEVEL:" + (prereq.isOverrideQualify() ? "Q:" : "") + "MIN=");
+					writer.write(prereq.getOperand());
+				}
+				case GT -> {
+					writer.write('!');
+					writer.write("PRELEVEL:" + (prereq.isOverrideQualify() ? "Q:" : "") + "MAX=");
+					writer.write(prereq.getOperand());
+				}
+				case GTEQ -> {
+					writer.write("PRELEVEL:" + (prereq.isOverrideQualify() ? "Q:" : "") + "MIN=");
+					writer.write(prereq.getOperand());
+				}
+				case LTEQ -> {
+					writer.write("PRELEVEL:" + (prereq.isOverrideQualify() ? "Q:" : "") + "MAX=");
+					writer.write(prereq.getOperand());
+				}
 			}
 
 		}

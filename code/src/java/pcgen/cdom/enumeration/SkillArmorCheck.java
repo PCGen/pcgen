@@ -113,25 +113,23 @@ public enum SkillArmorCheck
 		{
 			final Load load = pc.getDisplay().getLoadType();
 
-			switch (load)
-			{
-				case LIGHT:
-					penalty = SettingsHandler.getGameAsProperty().get().getLoadInfo().getLoadCheckPenalty("LIGHT");
-					break;
-
-				case MEDIUM:
-					penalty = SettingsHandler.getGameAsProperty().get().getLoadInfo().getLoadCheckPenalty("MEDIUM");
-					break;
-
-				case HEAVY:
-				case OVERLOAD:
-					penalty = SettingsHandler.getGameAsProperty().get().getLoadInfo().getLoadCheckPenalty("HEAVY");
-					break;
-
-				default:
-					throw new UnreachableError(
-						"Internal Error: In Skill.modifier the load " + load + " is not supported.");
-			}
+			penalty = switch (load)
+					{
+						case LIGHT -> SettingsHandler.getGameAsProperty()
+						                             .get()
+						                             .getLoadInfo()
+						                             .getLoadCheckPenalty("LIGHT");
+						case MEDIUM -> SettingsHandler.getGameAsProperty()
+						                              .get()
+						                              .getLoadInfo()
+						                              .getLoadCheckPenalty("MEDIUM");
+						case HEAVY, OVERLOAD -> SettingsHandler.getGameAsProperty()
+						                                       .get()
+						                                       .getLoadInfo()
+						                                       .getLoadCheckPenalty("HEAVY");
+						default -> throw new UnreachableError(
+								"Internal Error: In Skill.modifier the load " + load + " is not supported.");
+					};
 		}
 		return penalty;
 	}

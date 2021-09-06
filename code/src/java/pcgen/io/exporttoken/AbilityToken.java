@@ -193,18 +193,19 @@ public class AbilityToken extends Token
 			{
 				switch (bString)
 				{
-					case "VISIBLE":
+					case "VISIBLE" -> {
 						view = View.VISIBLE_EXPORT;
 						continue;
-					case "HIDDEN":
+					}
+					case "HIDDEN" -> {
 						view = View.HIDDEN_EXPORT;
 						continue;
-					case "ALL":
+					}
+					case "ALL" -> {
 						view = View.ALL;
 						continue;
-					default:
-						abilityType = bString;
-						break;
+					}
+					default -> abilityType = bString;
 				}
 			}
 		}

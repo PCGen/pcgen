@@ -135,22 +135,12 @@ public final class DataInstaller extends JFrame
                         TITLE, MessageType.ERROR);
                 return false;
             }
-            File destDir;
-            switch (dest)
-            {
-                case VENDORDATA:
-                    destDir = new File(PCGenSettings.getVendorDataDir());
-                    break;
-
-                case HOMEBREWDATA:
-                    destDir = new File(PCGenSettings.getHomebrewDataDir());
-                    break;
-
-                case DATA:
-                default:
-                    destDir = new File(ConfigurationSettings.getPccFilesDir());
-                    break;
-            }
+            File destDir = switch (dest)
+                    {
+                        case VENDORDATA -> new File(PCGenSettings.getVendorDataDir());
+                        case HOMEBREWDATA -> new File(PCGenSettings.getHomebrewDataDir());
+                        case DATA, default -> new File(ConfigurationSettings.getPccFilesDir());
+                    };
 
             // Check chosen dir exists
             if (!destDir.exists())
@@ -324,21 +314,15 @@ public final class DataInstaller extends JFrame
                 locHomebrewDataButton.setSelected(false);
             } else
             {
-                switch (campaign.get(ObjectKey.DESTINATION))
-                {
-                    case DATA:
-                        locDataButton.setSelected(true);
-                        break;
-                    case VENDORDATA:
-                        locVendorDataButton.setSelected(true);
-                        break;
-                    case HOMEBREWDATA:
-                        locHomebrewDataButton.setSelected(true);
-                        break;
-                    default:
-                        //Case not caught, should this cause an error?
-                        break;
-                }
+	            switch (campaign.get(ObjectKey.DESTINATION))
+	            {
+		            case DATA -> locDataButton.setSelected(true);
+		            case VENDORDATA -> locVendorDataButton.setSelected(true);
+		            case HOMEBREWDATA -> locHomebrewDataButton.setSelected(true);
+		            default -> {
+		            }
+		            //Case not caught, should this cause an error?
+	            }
             }
             currDataSet = dataSet;
 

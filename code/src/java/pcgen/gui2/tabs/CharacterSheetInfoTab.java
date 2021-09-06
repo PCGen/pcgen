@@ -386,15 +386,12 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 		@Override
 		protected Object getValueAt(TempBonusFacade element, int column)
 		{
-			switch (column)
-			{
-				case -1:
-					return element.isActive();
-				case 0:
-					return element;
-				default:
-					return null;
-			}
+			return switch (column)
+					{
+						case -1 -> element.isActive();
+						case 0 -> element;
+						default -> null;
+					};
 		}
 
 		@Override
@@ -465,15 +462,12 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 		@Override
 		protected Object getValueAt(EquipmentSetFacade element, int column)
 		{
-			switch (column)
-			{
-				case -1:
-					return character.getEquipmentSetRef().get() == element;
-				case 0:
-					return element;
-				default:
-					return null;
-			}
+			return switch (column)
+					{
+						case -1 -> character.getEquipmentSetRef().get() == element;
+						case 0 -> element;
+						default -> null;
+					};
 		}
 
 		@Override

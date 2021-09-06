@@ -292,19 +292,16 @@ public final class LanguageChooserDialog extends JDialog implements ReferenceLis
 		@Override
 		public List<TreeViewPath<Language>> getPaths(Language pobj)
 		{
-			switch (this)
-			{
-				case NAME:
-					return Collections.singletonList(new TreeViewPath<>(pobj));
-				case TYPE_NAME:
-					return pobj.getTrueTypeList(false)
-					            .stream()
-					            .map(pcgen.cdom.enumeration.Type::toString)
-			                    .map(type -> new TreeViewPath<>(pobj, type))
-			                    .collect(Collectors.toUnmodifiableList());
-				default:
-					throw new InternalError();
-			}
+			return switch (this)
+					{
+						case NAME -> Collections.singletonList(new TreeViewPath<>(pobj));
+						case TYPE_NAME -> pobj.getTrueTypeList(false)
+						                      .stream()
+						                      .map(pcgen.cdom.enumeration.Type::toString)
+						                      .map(type -> new TreeViewPath<>(pobj, type))
+						                      .collect(Collectors.toUnmodifiableList());
+						default -> throw new InternalError();
+					};
 		}
 
 	}
