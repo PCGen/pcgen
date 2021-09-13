@@ -25,6 +25,7 @@ pmd {
 
 // TODO fix the 52 outstanding bugs and then remove the ignoreFailures
 spotbugs {
+    toolVersion = '4.4.0'
     excludeFilter = file("$rootProject.projectDir/code/standards/spotbugs_ignore.xml")
     omitVisitors = ['Naming', 'CrossSiteScripting', 'DontUseEnum', 'DoInsideDoPrivileged']
     reportLevel = 'low'

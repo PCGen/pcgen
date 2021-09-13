@@ -324,7 +324,6 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 		}
 		SkillCost costForMaxRanks = isClassForMaxRanks ? SkillCost.CLASS : cost;
 
-		CharacterLevelFacadeImpl levelImpl = (CharacterLevelFacadeImpl) level;
 		return switch (costForMaxRanks)
 				{
 					case CLASS -> SkillUtilities.maxClassSkillForLevel(levelImpl.getCharacterLevel(), theCharacter)

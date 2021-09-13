@@ -89,10 +89,10 @@ public class HitPointFacet extends AbstractAssociationFacet<CharID, PCClassLevel
 				roll = min + (roll / 2);
 			}
 			case Constants.HP_AUTO_MAX -> roll = max;
-			case Constants.HP_PERCENTAGE -> roll =
-					(min - 1) + (int) ((SettingsHandler.getHPPercent() * ((max - min) + 1)) / 100.0);
+			case Constants.HP_PERCENTAGE -> roll = (min - 1) + (int) ((SettingsHandler.getHPPercent() * ((max - min) + 1)) / 100.0);
 			case Constants.HP_AVERAGE_ROUNDED_UP -> roll = (int) Math.ceil((min + max) / 2.0);
-			case Constants.HP_STANDARD, default -> roll = Math.abs(RandomUtil.getRandomInt((max - min) + 1)) + min;
+			case Constants.HP_STANDARD -> roll = Math.abs(RandomUtil.getRandomInt((max - min) + 1)) + min;
+			default -> roll = Math.abs(RandomUtil.getRandomInt((max - min) + 1)) + min;
 		}
 
 		return roll;
