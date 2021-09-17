@@ -302,11 +302,10 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 	@Override
 	public void update(Observable o, Object arg)
 	{
-		if (arg instanceof URI)
+		if (arg instanceof final URI uri)
 		{
 			setCurrentFileCount(currentFileCount + 1);
 
-			final URI uri = (URI) arg;
 			setCurrentFilename(uri.toString());
 		}
 		else if (arg instanceof Exception)

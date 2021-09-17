@@ -145,9 +145,8 @@ public final class Comparators
 			{
 				key = "";
 			}
-			else if (obj1 instanceof CDOMObject)
+			else if (obj1 instanceof CDOMObject co)
 			{
-				CDOMObject co = (CDOMObject) obj1;
 				key = co.get(StringKey.SORT_KEY);
 				if (key == null)
 				{

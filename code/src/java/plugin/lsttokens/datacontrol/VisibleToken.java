@@ -66,26 +66,16 @@ public class VisibleToken extends AbstractNonEmptyToken<ContentDefinition>
 			return null;
 		}
 		String visString;
-		if (vis.equals(Visibility.DEFAULT))
+		switch (vis)
 		{
-			visString = "YES";
-		}
-		else if (vis.equals(Visibility.DISPLAY_ONLY))
-		{
-			visString = "DISPLAY";
-		}
-		else if (vis.equals(Visibility.OUTPUT_ONLY))
-		{
-			visString = "EXPORT";
-		}
-		else if (vis.equals(Visibility.HIDDEN))
-		{
-			visString = "NO";
-		}
-		else
-		{
-			context.addWriteMessage("Visibility " + vis + " is not a valid Visibility for a Fact Definition");
-			return null;
+			case DEFAULT -> visString = "YES";
+			case DISPLAY_ONLY -> visString = "DISPLAY";
+			case OUTPUT_ONLY -> visString = "EXPORT";
+			case HIDDEN -> visString = "NO";
+			default -> {
+				context.addWriteMessage("Visibility " + vis + " is not a valid Visibility for a Fact Definition");
+				return null;
+			}
 		}
 		return new String[]{visString};
 	}

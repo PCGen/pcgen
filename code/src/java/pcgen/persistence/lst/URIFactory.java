@@ -126,9 +126,8 @@ public class URIFactory
 	@Override
 	public boolean equals(Object o)
 	{
-		if (o instanceof URIFactory)
+		if (o instanceof URIFactory other)
 		{
-			URIFactory other = (URIFactory) o;
 			return offset.equals(other.offset) && rootURI.equals(other.rootURI);
 		}
 		return false;

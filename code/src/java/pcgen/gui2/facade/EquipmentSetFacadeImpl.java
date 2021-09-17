@@ -507,12 +507,10 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentList
 	@Override
 	public EquipmentFacade addEquipment(EquipNode node, EquipmentFacade equipment, int quantity, EquipNode beforeNode)
 	{
-		if (!(equipment instanceof Equipment))
+		if (!(equipment instanceof Equipment item))
 		{
 			return null;
 		}
-
-		Equipment item = (Equipment) equipment;
 
 		// Validate the item can go into the location.
 		if (!canEquip(node, equipment))
@@ -1208,12 +1206,11 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentList
 	@Override
 	public boolean isContainer(EquipmentFacade equipment)
 	{
-		if (!(equipment instanceof Equipment))
+		if (!(equipment instanceof Equipment item))
 		{
 			return false;
 		}
 
-		Equipment item = (Equipment) equipment;
 		return item.isContainer();
 	}
 
@@ -1459,14 +1456,11 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentList
 		{
 			if (equip.equals(node.getEquipment()))
 			{
-				switch (node.getNodeType())
-				{
-					case EQUIPMENT:
-					case PHANTOM_SLOT:
-						return getLocation(node);
-					default:
-						return node.getParent().toString();
-				}
+				return switch (node.getNodeType())
+						{
+							case EQUIPMENT, PHANTOM_SLOT -> getLocation(node);
+							default -> node.getParent().toString();
+						};
 			}
 		}
 

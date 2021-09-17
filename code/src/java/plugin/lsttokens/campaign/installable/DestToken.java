@@ -42,12 +42,11 @@ public class DestToken implements InstallLstToken
 	@Override
 	public boolean parse(Campaign campaign, String value, URI sourceUri)
 	{
-		if (!(campaign instanceof InstallableCampaign))
+		if (!(campaign instanceof InstallableCampaign ic))
 		{
 			Logging.log(Logging.ERROR, "Campaign " + campaign.getDisplayName() + " is not an installable campaign.");
 			return false;
 		}
-		InstallableCampaign ic = (InstallableCampaign) campaign;
 
 		if (value.equals("DATA"))
 		{

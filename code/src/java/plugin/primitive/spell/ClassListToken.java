@@ -88,9 +88,8 @@ public class ClassListToken extends AbstractRestrictedSpellPrimitive
 		{
 			return true;
 		}
-		if (obj instanceof ClassListToken)
+		if (obj instanceof ClassListToken other)
 		{
-			ClassListToken other = (ClassListToken) obj;
 			if (spelllist == null)
 			{
 				return other.spelllist == null;

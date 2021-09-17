@@ -74,13 +74,8 @@ public class HitPointFacet extends AbstractAssociationFacet<CharID, PCClassLevel
 
 		switch (SettingsHandler.getHPRollMethod())
 		{
-			case Constants.HP_USER_ROLLED:
-				roll = 1;
-
-				break;
-
-			case Constants.HP_AVERAGE:
-
+			case Constants.HP_USER_ROLLED -> roll = 1;
+			case Constants.HP_AVERAGE -> {
 				roll = max - min;
 
 				// (n+1)/2
@@ -91,31 +86,13 @@ public class HitPointFacet extends AbstractAssociationFacet<CharID, PCClassLevel
 				{
 					++roll;
 				}
-
 				roll = min + (roll / 2);
-
-				break;
-
-			case Constants.HP_AUTO_MAX:
-				roll = max;
-
-				break;
-
-			case Constants.HP_PERCENTAGE:
-				roll = (min - 1) + (int) ((SettingsHandler.getHPPercent() * ((max - min) + 1)) / 100.0);
-
-				break;
-
-			case Constants.HP_AVERAGE_ROUNDED_UP:
-				roll = (int) Math.ceil((min + max) / 2.0);
-
-				break;
-
-			case Constants.HP_STANDARD:
-			default:
-				roll = Math.abs(RandomUtil.getRandomInt((max - min) + 1)) + min;
-
-				break;
+			}
+			case Constants.HP_AUTO_MAX -> roll = max;
+			case Constants.HP_PERCENTAGE -> roll = (min - 1) + (int) ((SettingsHandler.getHPPercent() * ((max - min) + 1)) / 100.0);
+			case Constants.HP_AVERAGE_ROUNDED_UP -> roll = (int) Math.ceil((min + max) / 2.0);
+			case Constants.HP_STANDARD -> roll = Math.abs(RandomUtil.getRandomInt((max - min) + 1)) + min;
+			default -> roll = Math.abs(RandomUtil.getRandomInt((max - min) + 1)) + min;
 		}
 
 		return roll;

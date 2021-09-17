@@ -113,9 +113,8 @@ public class EqModRef
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (obj instanceof EqModRef)
+		if (obj instanceof EqModRef other)
 		{
-			EqModRef other = (EqModRef) obj;
 			if (other.eqMod.equals(eqMod))
 			{
 				if (choices == null)

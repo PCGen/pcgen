@@ -95,9 +95,8 @@ public class StatLock
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (obj instanceof StatLock)
+		if (obj instanceof StatLock other)
 		{
-			StatLock other = (StatLock) obj;
 			return lockValue.equals(other.lockValue) && lockedStat.equals(other.lockedStat);
 		}
 		return false;

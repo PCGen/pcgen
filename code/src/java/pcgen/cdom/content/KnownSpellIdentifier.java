@@ -176,11 +176,10 @@ public class KnownSpellIdentifier extends ConcretePrereqObject
 		{
 			return true;
 		}
-		if (!(obj instanceof KnownSpellIdentifier))
+		if (!(obj instanceof KnownSpellIdentifier other))
 		{
 			return false;
 		}
-		KnownSpellIdentifier other = (KnownSpellIdentifier) obj;
 		if (spellLevel == null)
 		{
 			return other.spellLevel == null && ref.equals(other.ref);

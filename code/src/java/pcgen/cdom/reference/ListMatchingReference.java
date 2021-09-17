@@ -227,9 +227,8 @@ public class ListMatchingReference<T extends CDOMObject, V> extends CDOMReferenc
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (obj instanceof ListMatchingReference)
+		if (obj instanceof ListMatchingReference<?, ?> other)
 		{
-			ListMatchingReference<?, ?> other = (ListMatchingReference<?, ?>) obj;
 			if (getReferenceClass().equals(other.getReferenceClass()) && all.equals(other.all) && key.equals(other.key))
 			{
 				if (value == null)

@@ -125,32 +125,15 @@ public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 
 		switch (subToken)
 		{
-			case LOCK:
-				context.getObjectContext().addToList(obj, ListKey.STAT_LOCKS, new StatLock(stat, f));
-				break;
-
-			case UNLOCK:
-				context.getObjectContext().addToList(obj, ListKey.UNLOCKED_STATS, stat);
-				break;
-
-			case NONSTAT:
-				context.getObjectContext().addToList(obj, ListKey.NONSTAT_STATS, stat);
-				break;
-
-			case STAT:
-				context.getObjectContext().addToList(obj, ListKey.NONSTAT_TO_STAT_STATS, stat);
-				break;
-
-			case MINVALUE:
-				context.getObjectContext().addToList(obj, ListKey.STAT_MINVALUE, new StatLock(stat, f));
-				break;
-
-			case MAXVALUE:
-				context.getObjectContext().addToList(obj, ListKey.STAT_MAXVALUE, new StatLock(stat, f));
-				break;
-			default:
-				//Case not caught, should this cause an error?
-				break;
+			case LOCK -> context.getObjectContext().addToList(obj, ListKey.STAT_LOCKS, new StatLock(stat, f));
+			case UNLOCK -> context.getObjectContext().addToList(obj, ListKey.UNLOCKED_STATS, stat);
+			case NONSTAT -> context.getObjectContext().addToList(obj, ListKey.NONSTAT_STATS, stat);
+			case STAT -> context.getObjectContext().addToList(obj, ListKey.NONSTAT_TO_STAT_STATS, stat);
+			case MINVALUE -> context.getObjectContext().addToList(obj, ListKey.STAT_MINVALUE, new StatLock(stat, f));
+			case MAXVALUE -> context.getObjectContext().addToList(obj, ListKey.STAT_MAXVALUE, new StatLock(stat, f));
+			default -> {
+			}
+			//Case not caught, should this cause an error?
 		}
 
 		return ParseResult.SUCCESS;

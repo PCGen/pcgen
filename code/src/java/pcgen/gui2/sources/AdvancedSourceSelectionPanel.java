@@ -413,9 +413,8 @@ class AdvancedSourceSelectionPanel extends JPanel
 			{
 				for (Object obj : list)
 				{
-					if (obj instanceof Campaign)
+					if (obj instanceof Campaign camp)
 					{
-						Campaign camp = (Campaign) obj;
 						if (selectedCampaigns.containsElement(camp))
 						{
 							// Already in the list - ignore
@@ -543,17 +542,13 @@ class AdvancedSourceSelectionPanel extends JPanel
 		{
 			SourceSelectionFacade sourceFacade = uiContext.getCurrentSourceSelectionRef().get();
 			boolean isLoaded = (sourceFacade != null) && sourceFacade.getCampaigns().containsElement(obj);
-			switch (column)
-			{
-				case 0:
-					return obj.getListAsString(ListKey.BOOK_TYPE);
-				case 1:
-					return obj.getSafe(ObjectKey.STATUS).toString();
-				case 2:
-					return isLoaded ? LanguageBundle.getString("in_yes") : LanguageBundle.getString("in_no");
-				default:
-					return null;
-			}
+			return switch (column)
+					{
+						case 0 -> obj.getListAsString(ListKey.BOOK_TYPE);
+						case 1 -> obj.getSafe(ObjectKey.STATUS).toString();
+						case 2 -> isLoaded ? LanguageBundle.getString("in_yes") : LanguageBundle.getString("in_no");
+						default -> null;
+					};
 		}
 
 		@Override
@@ -690,9 +685,8 @@ class AdvancedSourceSelectionPanel extends JPanel
 
 			super.getTreeCellRendererComponent(tree, value, sel, expanded, leaf, row, focus);
 			Object campaignObj = ((DefaultMutableTreeNode) value).getUserObject();
-			if (campaignObj instanceof Campaign)
+			if (campaignObj instanceof Campaign campaign)
 			{
-				Campaign campaign = (Campaign) campaignObj;
 				List<Campaign> testCampaigns = selectedCampaigns.getContents();
 				testCampaigns.add(campaign);
 				if (!FacadeFactory.passesPrereqs(testCampaigns))

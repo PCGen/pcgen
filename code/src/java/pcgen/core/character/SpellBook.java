@@ -190,29 +190,14 @@ public class SpellBook implements Cloneable
 	 */
 	public final String getTypeName()
 	{
-		String retValue;
-		switch (getType())
-		{
-			case SpellBook.TYPE_KNOWN_SPELLS:
-				retValue = "Known Spell List";
-				break;
-
-			case SpellBook.TYPE_PREPARED_LIST:
-				retValue = "Prepared Spell List";
-				break;
-
-			case SpellBook.TYPE_SPELL_BOOK:
-				retValue = "Spell Book";
-				break;
-
-			case SpellBook.TYPE_INNATE_SPELLS:
-				retValue = "Innate Spell List";
-				break;
-
-			default:
-				retValue = "Unknown spell list type: " + getType();
-				break;
-		}
+		String retValue = switch (getType())
+				{
+					case SpellBook.TYPE_KNOWN_SPELLS -> "Known Spell List";
+					case SpellBook.TYPE_PREPARED_LIST -> "Prepared Spell List";
+					case SpellBook.TYPE_SPELL_BOOK -> "Spell Book";
+					case SpellBook.TYPE_INNATE_SPELLS -> "Innate Spell List";
+					default -> "Unknown spell list type: " + getType();
+				};
 		return retValue;
 	}
 

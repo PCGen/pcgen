@@ -575,21 +575,10 @@ public final class PCGVer2Creator
 		buffer.append(IOConstants.TAG_EXPRESSION).append(':');
 		switch (game.getRollMethod())
 		{
-			case Constants.CHARACTER_STAT_METHOD_ALL_THE_SAME:
-				buffer.append(game.getAllStatsValue());
-				break;
-
-			case Constants.CHARACTER_STAT_METHOD_PURCHASE:
-				buffer.append(game.getPurchaseModeMethodName());
-				break;
-
-			case Constants.CHARACTER_STAT_METHOD_ROLLED:
-				buffer.append(game.getRollMethodExpression());
-				break;
-
-			default:
-				buffer.append(0);
-				break;
+			case Constants.CHARACTER_STAT_METHOD_ALL_THE_SAME -> buffer.append(game.getAllStatsValue());
+			case Constants.CHARACTER_STAT_METHOD_PURCHASE -> buffer.append(game.getPurchaseModeMethodName());
+			case Constants.CHARACTER_STAT_METHOD_ROLLED -> buffer.append(game.getRollMethodExpression());
+			default -> buffer.append(0);
 		}
 		buffer.append(IOConstants.LINE_SEP);
 	}

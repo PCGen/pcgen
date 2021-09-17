@@ -97,20 +97,14 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 	@Override
 	public Class<?> getColumnClass(int column)
 	{
-		switch (column)
-		{
-			case 0:
-				return TreeTableNode.class;
-			case 1:
-			case 2:
-				return String.class;
-			case 3:
-				return Integer.class;
-			case 4:
-				return Float.class;
-			default:
-				return Object.class;
-		}
+		return switch (column)
+				{
+					case 0 -> TreeTableNode.class;
+					case 1, 2 -> String.class;
+					case 3 -> Integer.class;
+					case 4 -> Float.class;
+					default -> Object.class;
+				};
 	}
 
 	@Override

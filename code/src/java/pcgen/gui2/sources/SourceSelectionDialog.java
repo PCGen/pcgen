@@ -250,61 +250,60 @@ public class SourceSelectionDialog extends JDialog implements ActionListener, Ch
 	public void actionPerformed(ActionEvent e)
 	{
 		String command = e.getActionCommand();
-        switch (command)
-        {
-            case SAVE_COMMAND:
-                final JList sourcesList = new JList<>();
-                final JTextField nameField = new JTextField();
-                ListFacade<SourceSelectionFacade> sources = new SortedListFacade<>(Comparators.toStringIgnoreCaseCollator(),
-                        FacadeFactory.getCustomSourceSelections());
-                sourcesList.setModel(new FacadeListModel<>(sources));
-                sourcesList.addListSelectionListener(lse -> nameField.setText(sourcesList.getSelectedValue().toString()));
-                JPanel panel = new JPanel(new BorderLayout());
-                panel.add(new JScrollPane(sourcesList), BorderLayout.CENTER);
-                panel.add(nameField, BorderLayout.SOUTH);
-                int ret = JOptionPane.showOptionDialog(this, panel, "Save the source selection as...",
-                        JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, null, null);
-                if (ret == JOptionPane.OK_OPTION)
-                {
-                    String name = nameField.getText();
-                    List<Campaign> selectedCampaigns = advancedPanel.getSelectedCampaigns();
-                    GameMode selectedGameMode = advancedPanel.getSelectedGameMode();
+		switch (command)
+		{
+			case SAVE_COMMAND -> {
+				final JList sourcesList = new JList<>();
+				final JTextField nameField = new JTextField();
+				ListFacade<SourceSelectionFacade> sources = new SortedListFacade<>(
+						Comparators.toStringIgnoreCaseCollator(),
+						FacadeFactory.getCustomSourceSelections()
+				);
+				sourcesList.setModel(new FacadeListModel<>(sources));
+				sourcesList.addListSelectionListener(lse -> nameField.setText(sourcesList.getSelectedValue()
+				                                                                         .toString()));
+				JPanel panel = new JPanel(new BorderLayout());
+				panel.add(new JScrollPane(sourcesList), BorderLayout.CENTER);
+				panel.add(nameField, BorderLayout.SOUTH);
+				int ret = JOptionPane.showOptionDialog(this, panel, "Save the source selection as...",
+						JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, null, null
+				);
+				if (ret == JOptionPane.OK_OPTION)
+				{
+					String name = nameField.getText();
+					List<Campaign> selectedCampaigns = advancedPanel.getSelectedCampaigns();
+					GameMode selectedGameMode = advancedPanel.getSelectedGameMode();
 
-                    SourceSelectionFacade selection = null;
-                    for (SourceSelectionFacade sourceSelectionFacade : sources)
-                    {
-                        if (sourceSelectionFacade.toString().equals(name))
-                        {
-                            selection = sourceSelectionFacade;
-                            break;
+					SourceSelectionFacade selection = null;
+					for (SourceSelectionFacade sourceSelectionFacade : sources)
+					{
+						if (sourceSelectionFacade.toString().equals(name))
+						{
+							selection = sourceSelectionFacade;
+							break;
 
-                        }
-                    }
-                    if (selection == null)
-                    {
-                        selection = FacadeFactory.createCustomSourceSelection(name);
-                    }
-                    selection.setCampaigns(selectedCampaigns);
-                    selection.setGameMode(selectedGameMode);
-                    basicPanel.setSourceSelection(selection);
-                }
-                break;
-            case DELETE_COMMAND:
-                FacadeFactory.deleteCustomSourceSelection(basicPanel.getSourceSelection());
-                break;
-            case LOAD_COMMAND:
-                fireSourceLoad();
-                break;
-            case INSTALLDATA_COMMAND:
-                // Swap to the install data dialog.
-                setVisible(false);
-                DataInstaller di = new DataInstaller();
-                di.setVisible(true);
-                break;
-            default: //must be the cancel command
-                setVisible(false);
-                break;
-        }
+						}
+					}
+					if (selection == null)
+					{
+						selection = FacadeFactory.createCustomSourceSelection(name);
+					}
+					selection.setCampaigns(selectedCampaigns);
+					selection.setGameMode(selectedGameMode);
+					basicPanel.setSourceSelection(selection);
+				}
+			}
+			case DELETE_COMMAND -> FacadeFactory.deleteCustomSourceSelection(basicPanel.getSourceSelection());
+			case LOAD_COMMAND -> fireSourceLoad();
+			case INSTALLDATA_COMMAND -> {
+				// Swap to the install data dialog.
+				setVisible(false);
+				DataInstaller di = new DataInstaller();
+				di.setVisible(true);
+			}
+			default -> //must be the cancel command
+					setVisible(false);
+		}
 	}
 
 	private void fireSourceLoad()
@@ -489,9 +488,8 @@ public class SourceSelectionDialog extends JDialog implements ActionListener, Ch
 			{
 				super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
 				setToolTipText("");
-				if (value instanceof SourceSelectionFacade)
+				if (value instanceof SourceSelectionFacade selection)
 				{
-					SourceSelectionFacade selection = (SourceSelectionFacade) value;
 					if (selection.isModifiable())
 					{
 						setForeground(ColorUtilty.colorToAWTColor(UIPropertyContext.getCustomItemColor()));

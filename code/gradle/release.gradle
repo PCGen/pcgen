@@ -118,9 +118,9 @@ ext {
         into ('/data')
     }
 
-	List result = plainVerNum.replaceAll('-DEV', '').tokenize('.')
-	installerVerNum = result[0].toInteger() + "." + result[1].toInteger() + "." + result[2].take(2).toInteger() + ".0"
-	}
+    List result = plainVerNum.replaceAll('-DEV', '').tokenize('.')
+    installerVerNum = result[0].toInteger() + "." + result[1].toInteger() + "." + result[2].take(2).toInteger() + ".0"
+}
 
 task layoutNsisBase(type: Copy, dependsOn: [runtimeZip, createExe, copyToLibs,
         jar, converterJar]) {
@@ -272,7 +272,7 @@ task genDataList doLast {
     publisherMap.put("tripod_machine","Tripod Machine");
     publisherMap.put("total_party_kill_games","Total Party Kill Games");
     publisherMap.put("starfinder","Starfinder");
-    File out =new File("$projectDir/installers/win-installer/includes/data.nsh")
+    File out = new File("$projectDir/installers/win-installer/includes/data.nsh")
     out.delete()
     //List of folder names to ignore.
     List<String> ignoreList = new ArrayList<String>();

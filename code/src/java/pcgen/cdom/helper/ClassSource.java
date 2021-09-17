@@ -59,9 +59,8 @@ public class ClassSource implements Identified
 		{
 			return true;
 		}
-		if (o instanceof ClassSource)
+		if (o instanceof ClassSource other)
 		{
-			ClassSource other = (ClassSource) o;
 			return (level == other.level) && (pcclass.equals(other.pcclass));
 		}
 		return false;

@@ -97,16 +97,13 @@ public class AbilityTreeTableModel extends AbstractTreeTableModel implements Sor
 	@Override
 	public String getColumnName(int column)
 	{
-		switch (column)
-		{
-			case 0:
-				return LanguageBundle.getString("in_featSelectedAbilities"); //$NON-NLS-1$
-			case 1:
-				return LanguageBundle.getString("in_featChoices"); //$NON-NLS-1$
+		return switch (column)
+				{
+					case 0 -> LanguageBundle.getString("in_featSelectedAbilities"); //$NON-NLS-1$
+					case 1 -> LanguageBundle.getString("in_featChoices"); //$NON-NLS-1$
 
-			default:
-				return "Unknown column";
-		}
+					default -> "Unknown column";
+				};
 
 	}
 

@@ -90,9 +90,8 @@ public final class ProcessCalculation<T> extends AbstractNEPCalculation<T>
 	@Override
 	public boolean equals(Object o)
 	{
-		if (o instanceof ProcessCalculation)
+		if (o instanceof ProcessCalculation<?> other)
 		{
-			ProcessCalculation<?> other = (ProcessCalculation<?>) o;
 			return other.getBasicCalculation().equals(getBasicCalculation()) && other.obj.equals(obj);
 		}
 		return false;

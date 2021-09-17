@@ -245,19 +245,14 @@ public class CoreViewFrame extends JFrame
 		@Override
 		public Object getData(CoreViewNodeFacade obj, int column)
 		{
-			switch (column)
-			{
-				case 0:
-					return obj.getKey();
-				case 1:
-					return obj.getNodeType();
-				case 2:
-					return obj.getSource();
-				case 3:
-					return obj.getRequirements();
-				default:
-					return null;
-			}
+			return switch (column)
+					{
+						case 0 -> obj.getKey();
+						case 1 -> obj.getNodeType();
+						case 2 -> obj.getSource();
+						case 3 -> obj.getRequirements();
+						default -> null;
+					};
 		}
 
 		@Override

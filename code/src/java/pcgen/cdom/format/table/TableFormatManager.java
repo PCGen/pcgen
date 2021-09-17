@@ -112,9 +112,8 @@ public final class TableFormatManager implements FormatManager<DataTable>
 	@Override
 	public boolean equals(Object o)
 	{
-		if (o instanceof TableFormatManager)
+		if (o instanceof TableFormatManager other)
 		{
-			TableFormatManager other = (TableFormatManager) o;
 			return lookupFormat.equals(other.lookupFormat);
 		}
 		return false;

@@ -171,16 +171,12 @@ public class EquipNode implements Comparable<EquipNode>
 		}
 		switch (nodeType)
 		{
-			case BODY_SLOT:
-				sortKey.append(order);
-				break;
-
-			case PHANTOM_SLOT:
+			case BODY_SLOT -> sortKey.append(order);
+			case PHANTOM_SLOT -> {
 				sortKey.append("|");
 				sortKey.append(slot.getSlotName());
-				break;
-
-			case EQUIPMENT:
+			}
+			case EQUIPMENT -> {
 				sortKey.append("|");
 				String objKey = equipment.get(StringKey.SORT_KEY);
 				if (objKey == null)
@@ -188,10 +184,10 @@ public class EquipNode implements Comparable<EquipNode>
 					objKey = equipment.getDisplayName();
 				}
 				sortKey.append(objKey);
-				break;
-			default:
-				//Case not caught, should this cause an error?
-				break;
+			}
+			default -> {
+			}
+			//Case not caught, should this cause an error?
 		}
 		return sortKey.toString();
 	}

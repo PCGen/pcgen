@@ -122,9 +122,8 @@ public class VarModifier<T>
 	@Override
 	public boolean equals(Object o)
 	{
-		if (o instanceof VarModifier)
+		if (o instanceof VarModifier<?> other)
 		{
-			VarModifier<?> other = (VarModifier<?>) o;
 			return other.varName.equals(varName) && other.legalScope.equals(legalScope)
 				&& other.modifier.equals(modifier);
 		}

@@ -846,10 +846,9 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable> implemen
 			/*
 			 * CONSIDER Should get CDOMObject reference out of here :(
 			 */
-			if (good instanceof CDOMObject)
+			if (good instanceof CDOMObject cdo)
 			{
-				CDOMObject cdo = (CDOMObject) good;
-                for (T dupe : list)
+				for (T dupe : list)
                 {
                     if (cdo.isCDOMEqual((CDOMObject) dupe))
                     {

@@ -475,9 +475,8 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 		@Override
 		public boolean accept(CharacterFacade context, SuperNode element)
 		{
-			if (element instanceof SpellNode)
+			if (element instanceof SpellNode spellNode)
 			{
-				SpellNode spellNode = (SpellNode) element;
 				SpellFacade spell = spellNode.getSpell();
 				PCClass pcClass = spellNode.getSpellcastingClass();
 				return character.isQualifiedFor(spell, pcClass);

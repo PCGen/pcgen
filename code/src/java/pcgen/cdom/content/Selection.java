@@ -64,9 +64,8 @@ public class Selection<BT extends CDOMObject, SEL>
 	@Override
 	public boolean equals(Object obj)
 	{
-		if (obj instanceof Selection)
+		if (obj instanceof Selection<?, ?> other)
 		{
-			Selection<?, ?> other = (Selection<?, ?>) obj;
 			boolean selectionEqual =
 					(selection == other.selection) || (selection != null && selection.equals(other.selection));
 			return selectionEqual && base.equals(other.base);

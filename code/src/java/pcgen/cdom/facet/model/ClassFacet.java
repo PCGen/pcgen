@@ -553,9 +553,8 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements Se
 		@Override
 		public boolean equals(Object o)
 		{
-			if (o instanceof ClassInfo)
+			if (o instanceof ClassInfo other)
 			{
-				ClassInfo other = (ClassInfo) o;
 				return map.equals(other.map) && levelmap.equals(other.levelmap);
 			}
 			return false;

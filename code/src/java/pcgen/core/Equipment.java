@@ -26,7 +26,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -1114,14 +1113,7 @@ public final class Equipment extends PObject
 			modList.removeAll(baseEquipment.getEqModifierList(true));
 			altModList.removeAll(baseEquipment.getEqModifierList(false));
 		}
-		for (Iterator<EquipmentModifier> it = modList.iterator(); it.hasNext();)
-		{
-			EquipmentModifier eqMod = it.next();
-			if (eqMod.getSafe(ObjectKey.VISIBILITY).equals(Visibility.HIDDEN))
-			{
-				it.remove();
-			}
-		}
+		modList.removeIf(eqMod -> eqMod.getSafe(ObjectKey.VISIBILITY).equals(Visibility.HIDDEN));
 		extractListFromCommon(commonList, modList);
 		removeCommonFromList(altModList, commonList, "eqMod expected but not found: ");
 		// Remove masterwork from the list if magic is present
@@ -2627,9 +2619,8 @@ public final class Equipment extends PObject
 	public int canContain(final PlayerCharacter aPC, final Object obj)
 	{
 
-		if (obj instanceof Equipment)
+		if (obj instanceof final Equipment anEquip)
 		{
-			final Equipment anEquip = (Equipment) obj;
 
 			Float f = (float) (anEquip.getWeightAsDouble(aPC) * anEquip.numberCarried());
 
@@ -3105,20 +3096,9 @@ public final class Equipment extends PObject
 
 			switch (tokenCount)
 			{
-				case 2:
-					baseMove = 30;
-
-					break;
-
-				case 3:
-					baseMove = 60;
-
-					break;
-
-				default:
-					tokenCount = -1;
-
-					break;
+				case 2 -> baseMove = 30;
+				case 3 -> baseMove = 60;
+				default -> tokenCount = -1;
 			}
 
 			if (tokenCount > 0)

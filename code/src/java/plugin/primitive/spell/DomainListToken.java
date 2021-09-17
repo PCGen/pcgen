@@ -86,9 +86,8 @@ public class DomainListToken extends AbstractRestrictedSpellPrimitive
 		{
 			return true;
 		}
-		if (obj instanceof DomainListToken)
+		if (obj instanceof DomainListToken other)
 		{
-			DomainListToken other = (DomainListToken) obj;
 			if (spelllist == null)
 			{
 				return other.spelllist == null;

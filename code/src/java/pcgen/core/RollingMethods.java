@@ -271,7 +271,7 @@ public final class RollingMethods
 				{
 					reroll = ((Reroll.Rerolls) param).getRolls();
 				}
-				else if ((param instanceof Vector) && (curNumberOfParameters == 3))
+				else if ((param instanceof final Vector vec) && (curNumberOfParameters == 3))
 				{
 					if (numToKeep != 0)
 					{
@@ -282,7 +282,6 @@ public final class RollingMethods
 						throw new ParseException(
 							"Reroll not compatable with " + "older syntax, use top(NUMBER) instead");
 					}
-					final Vector vec = (Vector) param;
 					keep = new int[vec.size()];
 					for (int x = 0; x < vec.size(); x++)
 					{

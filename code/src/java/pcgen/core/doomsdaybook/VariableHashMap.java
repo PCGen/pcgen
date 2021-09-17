@@ -204,37 +204,33 @@ public class VariableHashMap extends HashMap<String, String>
 		String key = op.getKey();
 		String value = op.getValue();
 
-        switch (type)
-        {
-            case "Set":
-                value = parse(value);
-                setVar(key, value);
-                break;
-            case "Add":
-            {
-                int val = Integer.parseInt(parse(value));
-                addVar(key, val);
-                break;
-            }
-            case "Subtract":
-            {
-                int val = Integer.parseInt(parse(value));
-                subtractVar(key, val);
-                break;
-            }
-            case "Multiply":
-            {
-                int val = Integer.parseInt(parse(value));
-                multiplyVar(key, val);
-                break;
-            }
-            case "Divide":
-            {
-                int val = Integer.parseInt(parse(value));
-                divideVar(key, val);
-                break;
-            }
-        }
+		switch (type)
+		{
+			case "Set" -> {
+				value = parse(value);
+				setVar(key, value);
+			}
+			case "Add" -> {
+				int val = Integer.parseInt(parse(value));
+				addVar(key, val);
+				break;
+			}
+			case "Subtract" -> {
+				int val = Integer.parseInt(parse(value));
+				subtractVar(key, val);
+				break;
+			}
+			case "Multiply" -> {
+				int val = Integer.parseInt(parse(value));
+				multiplyVar(key, val);
+				break;
+			}
+			case "Divide" -> {
+				int val = Integer.parseInt(parse(value));
+				divideVar(key, val);
+				break;
+			}
+		}
 	}
 
 	/**

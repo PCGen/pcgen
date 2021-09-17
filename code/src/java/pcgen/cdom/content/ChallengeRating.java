@@ -112,9 +112,8 @@ public class ChallengeRating extends ConcretePrereqObject
 		{
 			return true;
 		}
-		if (obj instanceof ChallengeRating)
+		if (obj instanceof ChallengeRating other)
 		{
-			ChallengeRating other = (ChallengeRating) obj;
 			return rating.equals(other.rating) && equalsPrereqObject(other);
 		}
 		return false;

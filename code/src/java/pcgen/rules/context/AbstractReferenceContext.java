@@ -23,10 +23,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -97,9 +95,7 @@ public abstract class AbstractReferenceContext
 	private static final Class<DataTable> DATA_TABLE_CLASS = DataTable.class;
 	private static final Class<TableColumn> TABLE_COLUMN_CLASS = TableColumn.class;
 
-	private DoubleKeyMap<Class<?>, Object, WeakReference<List<?>>> sortedMap = new DoubleKeyMap<>();
-
-	private final Map<CDOMObject, CDOMSingleRef<?>> directRefCache = new HashMap<>();
+	private final DoubleKeyMap<Class<?>, Object, WeakReference<List<?>>> sortedMap = new DoubleKeyMap<>();
 
 	private URI sourceURI;
 
@@ -367,13 +363,7 @@ public abstract class AbstractReferenceContext
 	 */
 	public <T extends Loadable> CDOMSingleRef<T> getCDOMDirectReference(T obj)
 	{
-		@SuppressWarnings("unchecked")
-		CDOMSingleRef<T> ref = (CDOMSingleRef<T>) directRefCache.get(obj);
-		if (ref == null)
-		{
-			ref = new CDOMDirectSingleRef<>(obj);
-		}
-		return ref;
+		return new CDOMDirectSingleRef<>(obj);
 	}
 
 	URI getExtractURI()

@@ -768,9 +768,8 @@ public class BonusManager
 					if (element instanceof MissingObject)
 					{
 						String name = ((MissingObject) element).getObjectName();
-						if (("%LIST".equals(name) || "LIST".equals(name)) && co instanceof CDOMObject)
+						if (("%LIST".equals(name) || "LIST".equals(name)) && co instanceof CDOMObject creator)
 						{
-							CDOMObject creator = (CDOMObject) co;
 							for (String assoc : pc.getConsolidatedAssociationList(creator))
 							{
 								//TODO Case sensitivity?

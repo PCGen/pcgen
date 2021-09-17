@@ -291,9 +291,8 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 	{
 		if (availTable != null && !e.getValueIsAdjusting())
 		{
-			if (e.getSource() == availTable.getSelectionModel() && availTable.getSelectedObject() instanceof InfoFacade)
+			if (e.getSource() == availTable.getSelectionModel() && availTable.getSelectedObject() instanceof InfoFacade target)
 			{
-				InfoFacade target = (InfoFacade) availTable.getSelectedObject();
 				InfoFactory factory = chooser.getInfoFactory();
 				if (factory != null && target != null)
 				{

@@ -79,22 +79,15 @@ public class VisibleToken extends AbstractNonEmptyToken<Kit> implements CDOMPrim
 			return null;
 		}
 		String visString;
-		if (vis.equals(Visibility.DEFAULT))
+		switch (vis)
 		{
-			visString = "YES";
-		}
-		else if (vis.equals(Visibility.QUALIFY))
-		{
-			visString = "QUALIFY";
-		}
-		else if (vis.equals(Visibility.HIDDEN))
-		{
-			visString = "NO";
-		}
-		else
-		{
-			context.addWriteMessage("Visibility " + vis + " is not a valid Visibility for a Kit");
-			return null;
+			case DEFAULT -> visString = "YES";
+			case QUALIFY -> visString = "QUALIFY";
+			case HIDDEN -> visString = "NO";
+			default -> {
+				context.addWriteMessage("Visibility " + vis + " is not a valid Visibility for a Kit");
+				return null;
+			}
 		}
 		return new String[]{visString};
 	}

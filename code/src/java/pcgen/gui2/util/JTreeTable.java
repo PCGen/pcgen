@@ -358,11 +358,10 @@ public class JTreeTable extends JTableEx
 		@Override
 		public void sortModel(Comparator<Row> comparator)
 		{
-			if (treeTableModel == null || !(treeTableModel instanceof SortableTreeTableModel))
+			if (treeTableModel == null || !(treeTableModel instanceof SortableTreeTableModel model))
 			{
 				return;
 			}
-			SortableTreeTableModel model = (SortableTreeTableModel) treeTableModel;
 			Enumeration<TreePath> paths = tree.getExpandedDescendants(new TreePath(model.getRoot()));
 			TreePath[] selectionPaths = tree.getSelectionPaths();
 			model.sortModel(comparator);
@@ -588,9 +587,8 @@ public class JTreeTable extends JTableEx
 			// table's cell selection colors.
 			TreeCellRenderer tcr = getCellRenderer();
 
-			if (tcr instanceof DefaultTreeCellRenderer)
+			if (tcr instanceof DefaultTreeCellRenderer dtcr)
 			{
-				DefaultTreeCellRenderer dtcr = ((DefaultTreeCellRenderer) tcr);
 				dtcr.setTextSelectionColor(UIManager.getColor("Table.selectionForeground")); //$NON-NLS-1$
 				dtcr.setBackgroundSelectionColor(UIManager.getColor("Table.selectionBackground")); //$NON-NLS-1$
 			}

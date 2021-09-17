@@ -52,24 +52,15 @@ public enum Visibility
 	 */
 	public boolean isVisibleTo(View view)
 	{
-		switch (view)
-		{
-			case ALL:
-				return true;
-
-			case HIDDEN_DISPLAY:
-				return (this == Visibility.HIDDEN || this == Visibility.OUTPUT_ONLY);
-
-			case HIDDEN_EXPORT:
-				return (this == Visibility.HIDDEN || this == Visibility.DISPLAY_ONLY);
-
-			case VISIBLE_EXPORT:
-				return (this == Visibility.DEFAULT || this == Visibility.OUTPUT_ONLY);
-
-			case VISIBLE_DISPLAY:
-			default:
-				return (this == Visibility.DEFAULT || this == Visibility.DISPLAY_ONLY);
-		}
+		return switch (view)
+				{
+					case ALL -> true;
+					case HIDDEN_DISPLAY -> (this == Visibility.HIDDEN || this == Visibility.OUTPUT_ONLY);
+					case HIDDEN_EXPORT -> (this == Visibility.HIDDEN || this == Visibility.DISPLAY_ONLY);
+					case VISIBLE_EXPORT -> (this == Visibility.DEFAULT || this == Visibility.OUTPUT_ONLY);
+					case VISIBLE_DISPLAY -> (this == Visibility.DEFAULT || this == Visibility.DISPLAY_ONLY);
+					default -> (this == Visibility.DEFAULT || this == Visibility.DISPLAY_ONLY);
+				};
 		/*
 		 * TODO Need to deal with QUALIFY
 		 */

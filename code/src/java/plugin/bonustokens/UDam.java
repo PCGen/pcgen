@@ -46,9 +46,8 @@ public final class UDam extends BonusObj
 	@Override
 	protected String unparseToken(final Object obj)
 	{
-		if (obj instanceof String)
+		if (obj instanceof String sObj)
 		{
-			String sObj = (String) obj;
 			final AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
 			final PCClass aClass = ref.silentlyGetConstructedCDOMObject(PCClass.class, sObj);
 

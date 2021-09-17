@@ -446,29 +446,19 @@ public final class RaceInfoTab extends FlippingSplitPane implements CharacterInf
 		@Override
 		public Object getDataInternal(Race obj, int column)
 		{
-			switch (column)
-			{
-				case 0:
-					return infoFactory.getStatAdjustments(obj);
-				case 1:
-					return infoFactory.getPreReqHTML(obj);
-				case 2:
-					return infoFactory.getSize(obj);
-				case 3:
-					return infoFactory.getMovement(obj);
-				case 4:
-					return infoFactory.getVision(obj);
-				case 5:
-					return infoFactory.getFavoredClass(obj);
-				case 6:
-					return infoFactory.getLevelAdjustment(obj);
-				case 7:
-					return infoFactory.getDescription(obj);
-				case 8:
-					return obj.getSource();
-				default:
-					return null;
-			}
+			return switch (column)
+					{
+						case 0 -> infoFactory.getStatAdjustments(obj);
+						case 1 -> infoFactory.getPreReqHTML(obj);
+						case 2 -> infoFactory.getSize(obj);
+						case 3 -> infoFactory.getMovement(obj);
+						case 4 -> infoFactory.getVision(obj);
+						case 5 -> infoFactory.getFavoredClass(obj);
+						case 6 -> infoFactory.getLevelAdjustment(obj);
+						case 7 -> infoFactory.getDescription(obj);
+						case 8 -> obj.getSource();
+						default -> null;
+					};
 		}
 
 		@Override

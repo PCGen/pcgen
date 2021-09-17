@@ -147,9 +147,8 @@ public class CNAbility extends ConcretePrereqObject
 	@Override
 	public boolean equals(Object o)
 	{
-		if (o instanceof CNAbility)
+		if (o instanceof CNAbility other)
 		{
-			CNAbility other = (CNAbility) o;
 			return category.equals(other.category) && ability.equals(other.ability) && nature == other.nature;
 		}
 		return false;

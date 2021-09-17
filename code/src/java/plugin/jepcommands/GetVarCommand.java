@@ -78,9 +78,8 @@ public class GetVarCommand extends PCGenCommand
 		if (param1 instanceof String)
 		{
 			Float result = null;
-			if (parent instanceof PlayerCharacter)
+			if (parent instanceof final PlayerCharacter character)
 			{
-				final PlayerCharacter character = (PlayerCharacter) parent;
 				result = getVariableForCharacter(character, param1);
 			}
 			else if (parent instanceof Equipment)
@@ -94,9 +93,8 @@ public class GetVarCommand extends PCGenCommand
 
 				result = ((Equipment) parent).getVariableValue((String) param1, "", bPrimary, null);
 			}
-			else if (parent instanceof VariableProcessorPC)
+			else if (parent instanceof final VariableProcessorPC vpc)
 			{
-				final VariableProcessorPC vpc = (VariableProcessorPC) parent;
 				// check to see if this is just a variable
 				result = vpc.lookupVariable((String) param1, variableSource, null);
 				if (result == null)
@@ -104,9 +102,8 @@ public class GetVarCommand extends PCGenCommand
 					result = vpc.getVariableValue(null, (String) param1, variableSource, 0);
 				}
 			}
-			else if (parent instanceof VariableProcessorEq)
+			else if (parent instanceof VariableProcessorEq veq)
 			{
-				VariableProcessorEq veq = (VariableProcessorEq) parent;
 				result = veq.getVariableValue(null, (String) param1, variableSource, 0);
 			}
 			else if (parent == null)

@@ -78,17 +78,13 @@ public class CategoryTableModel extends FilteredListFacadeTableModel<AbilityCate
 	@Override
 	public String getColumnName(int column)
 	{
-		switch (column)
-		{
-			case 0:
-				return "Category";
-			case 1:
-				return "Total";
-			case 2:
-				return "Remaining";
-			default:
-				throw new IndexOutOfBoundsException();
-		}
+		return switch (column)
+				{
+					case 0 -> "Category";
+					case 1 -> "Total";
+					case 2 -> "Remaining";
+					default -> throw new IndexOutOfBoundsException();
+				};
 	}
 
 	@Override
@@ -104,17 +100,13 @@ public class CategoryTableModel extends FilteredListFacadeTableModel<AbilityCate
 	@Override
 	protected Object getValueAt(AbilityCategory category, int column)
 	{
-		switch (column)
-		{
-			case 0:
-				return category;
-			case 1:
-				return character.getTotalSelections(category);
-			case 2:
-				return character.getRemainingSelections(category);
-			default:
-				throw new IndexOutOfBoundsException();
-		}
+		return switch (column)
+				{
+					case 0 -> category;
+					case 1 -> character.getTotalSelections(category);
+					case 2 -> character.getRemainingSelections(category);
+					default -> throw new IndexOutOfBoundsException();
+				};
 	}
 
 	@Override

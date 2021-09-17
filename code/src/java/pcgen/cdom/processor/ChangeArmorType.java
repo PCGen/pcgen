@@ -124,11 +124,10 @@ public class ChangeArmorType implements Processor<String>
 		{
 			return true;
 		}
-		if (!(obj instanceof ChangeArmorType))
+		if (!(obj instanceof ChangeArmorType other))
 		{
 			return false;
 		}
-		ChangeArmorType other = (ChangeArmorType) obj;
 		if (result == null)
 		{
 			return other.result == null;

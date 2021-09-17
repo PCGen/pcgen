@@ -21,7 +21,6 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -198,13 +197,7 @@ public final class KitGear extends BaseKit
 		if (actingCost != null)
 		{
 			final BigDecimal bdMaxCost = new BigDecimal(Integer.toString(actingCost));
-			for (Iterator<Equipment> i = eqList.iterator(); i.hasNext();)
-			{
-				if (i.next().getCost(aPC).compareTo(bdMaxCost) > 0)
-				{
-					i.remove();
-				}
-			}
+			eqList.removeIf(equipment -> equipment.getCost(aPC).compareTo(bdMaxCost) > 0);
 		}
 		if (eqList.size() == 1)
 		{

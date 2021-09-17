@@ -107,9 +107,8 @@ public class URIEntry
 		{
 			return true;
 		}
-		if (arg0 instanceof URIEntry)
+		if (arg0 instanceof URIEntry other)
 		{
-			URIEntry other = (URIEntry) arg0;
 			return Objects.equals(uriFac, other.uriFac) && getURI().equals(other.getURI());
 		}
 		return false;

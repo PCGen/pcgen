@@ -70,9 +70,8 @@ public class SpellResistance extends ConcretePrereqObject
 	@Override
 	public boolean equals(Object other)
 	{
-		if (other instanceof SpellResistance)
+		if (other instanceof SpellResistance othSR)
 		{
-			SpellResistance othSR = (SpellResistance) other;
 			return reduction.equals(othSR.reduction);
 		}
 		return false;

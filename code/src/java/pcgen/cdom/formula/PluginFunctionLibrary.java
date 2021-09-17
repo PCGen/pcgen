@@ -50,9 +50,8 @@ public final class PluginFunctionLibrary implements PluginLoader
 	public void loadPlugin(Class<?> clazz) throws Exception
 	{
 		Object token = clazz.newInstance();
-		if (token instanceof FormulaFunction)
+		if (token instanceof FormulaFunction tok)
 		{
-			FormulaFunction tok = (FormulaFunction) token;
 			FormulaFunction existing = existingFunction(tok.getFunctionName());
 			if (existing != null)
 			{

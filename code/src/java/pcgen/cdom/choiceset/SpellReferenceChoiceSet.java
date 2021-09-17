@@ -204,9 +204,8 @@ public class SpellReferenceChoiceSet implements PrimitiveChoiceSet<CDOMListObjec
 		{
 			return true;
 		}
-		if (obj instanceof SpellReferenceChoiceSet)
+		if (obj instanceof SpellReferenceChoiceSet other)
 		{
-			SpellReferenceChoiceSet other = (SpellReferenceChoiceSet) obj;
 			return set.equals(other.set);
 		}
 		return false;

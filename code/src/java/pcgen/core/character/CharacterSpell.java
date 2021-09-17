@@ -125,9 +125,8 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 		{
 			result = true;
 		}
-		else if (owner instanceof PCClass)
+		else if (owner instanceof final PCClass a)
 		{
-			final PCClass a = (PCClass) owner;
 			result = SpellCountCalc.isSpecialtySpell(pc, a, spell);
 		}
 		else
