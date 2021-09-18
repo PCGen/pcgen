@@ -154,8 +154,6 @@ task copyMasterSheets(type: Copy) {
 
 compileJava {
     it.dependsOn 'copyMasterSheets'
-    it.options.compilerArgs.add('--enable-preview')
-}
 }
 
 /*
