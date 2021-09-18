@@ -35,7 +35,7 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Build with Gradle
-      run: ./gradlew all
+      run: ./gradlew assemble
     - id: getfilename
       run: echo "::set-output name=zip::$(ls build/distributions/*.zip)" && echo "::set-output name=zipname::$(basename build/distributions/*.zip)" && echo "::set-output name=tar::$(ls build/distributions/*.tar)" && echo "::set-output name=tarname::$(basename build/distributions/*.tar)"
     - name: Upload pcgen zip artifact
