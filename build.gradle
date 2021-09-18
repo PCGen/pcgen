@@ -34,7 +34,7 @@ plugins {
 }
 
 javafx {
-    version = "16"
+    version = "17.0.0.1"
     modules = [ 'javafx.controls', 'javafx.web', 'javafx.swing', 'javafx.fxml', 'javafx.graphics' ]
 
     //Check if running in ide. If so bundles javafx in to jar. If not only compiles so that runtime can add different platform javafx later.
@@ -466,7 +466,7 @@ task downloadJRE {
 
 task downloadJavaFXModules(dependsOn: downloadJRE) {
     //def major = "16-0-1"
-    def major = "16"
+    def major = "17-0-0-1"
     def archs = ['x64', 'x86']
     def osList = ["windows", "mac", "linux"]
 
