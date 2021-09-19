@@ -50,7 +50,7 @@ dependencies {
     implementation group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.220'
     testImplementation group: 'org.junit.platform', name: 'junit-platform-runner', version: '1.8.0'
     testImplementation group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.7.2'
-    testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-api', version: '5.7.2'
+    testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-api', version: '5.8.0'
     testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-params', version: '5.8.0'
     testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.8.0'
 }
