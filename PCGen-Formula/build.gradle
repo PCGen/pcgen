@@ -35,7 +35,6 @@ ext {
 
 repositories {
     mavenCentral()
-    jcenter()
     ivy {
         name "Pcgen Repo"
         url 'http://pc-gen.org/librepo'
