@@ -19,13 +19,10 @@
  */
 package pcgen.gui2.tools;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -119,19 +116,9 @@ public final class TipOfTheDayHandler
 
 	private void loadTipFile(String tipsFilePath) throws IOException
 	{
-		final File tipsFile = new File(tipsFilePath);
+		String fileAsString = Files.readString(Path.of(tipsFilePath));
 
-		final char[] inputLine;
-		try (Reader tipsReader = new BufferedReader(new InputStreamReader(new FileInputStream(tipsFile),
-				StandardCharsets.UTF_8
-		)))
-		{
-			final int length = (int) tipsFile.length();
-			inputLine = new char[length];
-			tipsReader.read(inputLine, 0, length);
-		}
-
-		final StringTokenizer aTok = new StringTokenizer(new String(inputLine), "\r\n", false);
+		final StringTokenizer aTok = new StringTokenizer(fileAsString, "\r\n", false);
 
 		while (aTok.hasMoreTokens())
 		{
