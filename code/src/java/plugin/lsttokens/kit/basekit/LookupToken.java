@@ -37,6 +37,7 @@ import pcgen.rules.persistence.token.ParseResult;
  */
 public class LookupToken extends AbstractToken implements CDOMPrimaryToken<KitGear>
 {
+
 	/**
 	 * Gets the name of the tag this class will parse.
 	 * 
