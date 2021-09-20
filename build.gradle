@@ -642,7 +642,8 @@ task msrdinttest(type: Test, dependsOn: 'jar') {
 }
 
 // Do the lot!
-task all(dependsOn: ['build', 'slowtest', 'javadoc', 'buildNsis', 'allReports']) {
+//task all(dependsOn: ['build', 'slowtest', 'javadoc', 'buildNsis', 'allReports']) {
+task all(dependsOn: ['build', 'slowtest', 'javadoc', 'allReports']) {
 }
 
 allprojects {
