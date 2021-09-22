@@ -1,0 +1,193 @@
+/*
+ * PCGen formula component build using the Gradle tool. This file specifies the
+ * core build tasks and refers to other files in the code/gradle directory for
+ * additional tasks for specific output.
+ *
+ * Developer build: gradle
+ * Incremental dev build: gradle build 
+ * Full build: gradle all 
+ */
+
+plugins {
+    id "ca.coglinc2.javacc" version "3.0.0"
+    id 'java'
+    id 'eclipse'
+    id 'jacoco'
+    id 'ivy-publish'
+    id 'checkstyle'
+    id 'pmd'
+    id 'com.github.ben-manes.versions' version '0.39.0'
+    id 'com.github.spotbugs' version '4.7.5'
+}
+
+group = 'net.sourceforge.pcgen'
+description = """PCGen formula library"""
+
+defaultTasks 'clean', 'build'
+
+sourceCompatibility = 1.11
+targetCompatibility = 1.11
+
+ext {
+    majorVersion = 1
+    minorVersion = 0
+}
+
+repositories {
+    mavenCentral()
+    ivy {
+        name "Pcgen Repo"
+        url 'http://pc-gen.org/librepo'
+    }
+}
+
+dependencies {
+    // Use this if you want to reference your own local pcgen base, alter the 
+    // relative path to what you need.
+    //compile files("../../pcgen-base/PCGen-base/build/libs/PCgen-base-1.0.jar")
+
+    implementation group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.220'
+    testImplementation group: 'org.junit.platform', name: 'junit-platform-runner', version: '1.8.0'
+    testImplementation group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.7.2'
+    testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-api', version: '5.8.0'
+    testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-params', version: '5.8.0'
+    testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.8.0'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs 'code/src/java'
+        }
+    }
+    javacc {
+        java {
+            srcDirs 'code/src/javacc'
+        }
+    }
+    test {
+        java {
+            srcDirs 'code/src/test'
+        }
+    }
+}
+
+test {
+	useJUnitPlatform()
+	reports {
+        junitXml.enabled = true
+        html.enabled = false
+    }
+    systemProperties 'property': 'value'
+}
+
+jacocoTestReport {
+    reports {
+        xml {
+            enabled true // coveralls plugin depends on xml format report
+        }
+
+        html {
+            enabled true
+        }
+    }
+
+    afterEvaluate {
+        getClassDirectories().from(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: ['**/testsupport/**', '**/Abstract**TestCase', '**/**Test', 'pcgen/base/formula/parse/FormulaParser**', 'pcgen/base/formula/parse/AST**', 'pcgen/base/formula/parse/JJT**', 'pcgen/base/formula/parse/Node**', 'pcgen/base/formula/parse/ParseException**', 'pcgen/base/formula/parse/SimpleCharStream**', 'pcgen/base/formula/parse/Token**'])
+        }))
+    }
+}
+
+uploadArchives {
+    repositories {
+       flatDir {
+           dirs 'repos'
+       }
+    }
+}
+
+compileJjtree {
+    inputDirectory = file('code/src/jjtree')
+    // We consciously choose to put the output in the main repo tree so that 
+    // SimpleNode only exists once...
+    outputDirectory = file('code/src/javacc/')
+    include '**/*.java'
+}
+
+compileJavacc {
+    inputDirectory = file('code/src/javacc/')
+    outputDirectory = file('code/src/java/')
+}
+
+// Calculate the version number - runs in the parse phase
+allprojects {
+    ext.buildTimestamp = new Date().format('yyyy-MM-dd HH:mm:ss Z')
+    if (System.env.BUILD_NUMBER) {
+        project.version = "$majorVersion.$minorVersion.$System.env.BUILD_NUMBER"
+    }
+    else {
+        project.version = "$majorVersion.$minorVersion"
+    }
+}
+
+task echoVer() doLast {
+    println "${project.name} Version: ${project.version} (${buildTimestamp})"
+}
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'PCGenFormulaLibrary', 'Implementation-Version': project.version, 
+            'Built-On': buildTimestamp 
+    }
+}
+
+task sourceJar(type: Jar) {
+    from sourceSets.main.java
+    classifier "sources"
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+// Rules for how we publish our artifacts in ivy compliant format
+publishing {
+    repositories {
+        ivy {
+            name "fileRepo"
+            url '/var/www/librepo'
+        }
+    }
+    publications {
+        ivy(IvyPublication) {
+            from components.java
+            configurations {
+                sources {}
+                javadoc {}
+            }
+            artifact(sourceJar) {
+                type "sources"
+                conf "sources"
+            }
+            artifact(javadocJar) {
+                type "javadoc"
+                conf "javadoc"
+            }
+            descriptor.withXml {
+                asNode().info[0].appendNode('description', description)
+            }
+        }
+    }
+}
+
+//We end up with an unneeded task with SpotBugs and JavaCC that causes a failure
+//see: https://github.com/spotbugs/spotbugs-gradle-plugin/issues/70
+tasks.whenTaskAdded {task ->
+    if(task.name.contains("spotbugsJavacc")) {
+        task.enabled = false
+    }
+}
+
+apply from: 'gradle/reporting.gradle'
