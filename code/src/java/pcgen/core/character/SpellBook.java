@@ -268,9 +268,8 @@ public class SpellBook implements Cloneable
 		{
 			return true;
 		}
-		else if (o instanceof SpellBook)
+		else if (o instanceof SpellBook other)
 		{
-			SpellBook other = (SpellBook) o;
 			if (pageFormula == null)
 			{
 				if (other.pageFormula != null)

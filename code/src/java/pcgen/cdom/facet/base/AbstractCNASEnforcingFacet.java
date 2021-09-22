@@ -201,9 +201,8 @@ public class AbstractCNASEnforcingFacet extends AbstractDataFacet<CharID, CNAbil
 			{
 				return true;
 			}
-			if (o instanceof SourcedCNAS)
+			if (o instanceof SourcedCNAS other)
 			{
-				SourcedCNAS other = (SourcedCNAS) o;
 				return cnas.equals(other.cnas) && source.equals(other.source);
 			}
 			return false;

@@ -307,8 +307,7 @@ public class BonusManager
 		//
 		// We do a first pass of just the "static" bonuses
 		// as they require less computation and no recursion
-		Collection<BonusObj> bonusListCopy = new ArrayList<>(getActiveBonusList());
-		for (BonusObj bonus : bonusListCopy)
+		for (BonusObj bonus : getActiveBonusList())
 		{
 			if (!bonus.isValueStatic())
 			{

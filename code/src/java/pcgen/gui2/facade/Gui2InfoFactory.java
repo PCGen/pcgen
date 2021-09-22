@@ -1959,14 +1959,12 @@ public class Gui2InfoFactory implements InfoFactory
 			String desc = originObj.getSafe(StringKey.TEMP_DESCRIPTION);
 			if (StringUtils.isEmpty(desc))
 			{
-				if (originObj instanceof Spell)
+				if (originObj instanceof Spell sp)
 				{
-					Spell sp = (Spell) originObj;
 					desc = DescriptionFormatting.piWrapDesc(sp, pc.getDescription(sp), false);
 				}
-				else if (originObj instanceof Ability)
+				else if (originObj instanceof Ability ab)
 				{
-					Ability ab = (Ability) originObj;
 					List<CNAbility> wrappedAbility = Collections
 						.singletonList(CNAbilityFactory.getCNAbility(ab.getCDOMCategory(), Nature.NORMAL, ab));
 					desc = DescriptionFormatting.piWrapDesc(ab, pc.getDescription(wrappedAbility), false);
@@ -2055,11 +2053,10 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getChoices(AbilityFacade abilityFacade)
 	{
-		if (abilityFacade == null || !(abilityFacade instanceof Ability))
+		if (abilityFacade == null || !(abilityFacade instanceof final Ability ability))
 		{
 			return EMPTY_STRING;
 		}
-		final Ability ability = (Ability) abilityFacade;
 		final StringBuilder result = new StringBuilder(100);
 
 		Collection<CNAbility> targetAbilities = pc.getMatchingCNAbilities(ability);
@@ -2099,12 +2096,10 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getTempBonusTarget(TempBonusFacade tempBonusFacade)
 	{
-		if (tempBonusFacade == null || !(tempBonusFacade instanceof TempBonusFacadeImpl))
+		if (tempBonusFacade == null || !(tempBonusFacade instanceof TempBonusFacadeImpl tempBonus))
 		{
 			return EMPTY_STRING;
 		}
-
-		TempBonusFacadeImpl tempBonus = (TempBonusFacadeImpl) tempBonusFacade;
 
 		Set<String> targetSet = new HashSet<>();
 		if (TempBonusHelper.hasCharacterTempBonus(tempBonus.getOriginObj()))
