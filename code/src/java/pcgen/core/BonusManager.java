@@ -352,7 +352,7 @@ public class BonusManager
 
 		//
 		// Now we do all the BonusObj's that require calculations
-		bonusListCopy = new ArrayList<>(getActiveBonusList());
+		var bonusListCopy = new ArrayList<>(getActiveBonusList());
 		for (BonusObj bonus : getActiveBonusList())
 		{
 			if (processedBonuses.contains(bonus))
