@@ -138,7 +138,7 @@ public class DataLoadTest implements PCGenTaskListener
 			StringUtils.join(errorList, ",\n"), () -> "Errors encountered while loading " + sourceSelection
 		);
 		assertEquals("",
-			StringUtils.join(errorList, ",\n"), () -> "Warnings encountered while loading " + sourceSelection
+			StringUtils.join(warningList, ",\n"), () -> "Warnings encountered while loading " + sourceSelection
 		);
 	}
 
