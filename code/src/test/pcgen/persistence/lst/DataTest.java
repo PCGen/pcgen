@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -135,7 +136,7 @@ class DataTest
 	public void produceVariableReport() throws Exception
 	{
 		Map<ReportFormat, String> reportNameMap =
-				new HashMap<>();
+				new EnumMap<>(ReportFormat.class);
 		reportNameMap.put(ReportFormat.HTML, "variable_report.html");
 		reportNameMap.put(ReportFormat.CSV, "variable_report.csv");
 		VariableReport vReport = new VariableReport();

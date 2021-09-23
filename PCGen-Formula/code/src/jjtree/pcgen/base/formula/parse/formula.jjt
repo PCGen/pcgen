@@ -1,0 +1,465 @@
+/*
+ * Copyright 2014-16 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) Andrew Wilson, 2010.
+ * 
+ * This program is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation; either version 2.1 of the License, or (at
+ * your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser
+ * General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+options {
+  STATIC=false;
+  VISITOR=true;
+  MULTI=true;
+}
+
+PARSER_BEGIN( FormulaParser )
+package pcgen.base.formula.parse;
+
+public class FormulaParser {
+}
+PARSER_END( FormulaParser )
+
+SimpleNode query()
+	#Root : {} 
+	{ 
+		( logicalExpr() )? <EOF>
+		{ return jjtThis; } 
+	}
+
+/******************************************************************************
+ * Add Logical expression and function
+ *****************************************************************************/
+void logicalExpr()
+	#void : { Operator image; }
+	{
+		equalityExpr()
+		(
+			image = logicalFtn() equalityExpr() #Logical(2)
+			{ ((SimpleNode) jjtree.peekNode()).setOperator(image); }
+		)*
+	}
+
+Operator logicalFtn()
+	#void : { Operator image; }
+	{
+		(
+			image = orToken() |
+			image = andToken()
+		)
+		{ return image; } 
+	}
+
+Operator orToken()
+	#void : {}
+	{
+		<OR>
+		{ return Operator.OR; }
+	}
+
+Operator andToken()
+	#void : {}
+	{
+		<AND>
+		{ return Operator.AND; }
+	}
+
+/******************************************************************************
+ * Add Equality expression and functions
+ *****************************************************************************/
+void equalityExpr()
+	#void : { Operator image; }
+	{ 
+		relationalExpr()
+		(
+			image = equalityFtn() relationalExpr() #Equality(2)
+			{ ((SimpleNode) jjtree.peekNode()).setOperator(image); }
+		)*
+	}
+
+Operator equalityFtn()
+	#void : { Operator image; }
+	{
+		( 
+			image = equalToken() |
+			image = notEqualToken()
+		)
+		{ return image; }
+	}
+
+Operator equalToken()
+	#void : {}
+	{
+		<EQUAL>
+		{ return Operator.EQ; }
+	}
+
+Operator notEqualToken()
+	#void : {}
+	{
+		<NOTEQUAL>
+		{ return Operator.NEQ;}
+	}
+
+/******************************************************************************
+ * Add Relational expression and functions
+ *****************************************************************************/
+void relationalExpr()
+	#void : { Operator image; }
+	{
+		arithmeticExpr()
+		( 
+			image = relationalFtn() arithmeticExpr() #Relational(2)
+			{ ((SimpleNode) jjtree.peekNode()).setOperator(image); }
+		)*
+	}
+
+Operator relationalFtn()
+	#void : { Operator image; }
+	{ 
+		(
+			image = lessThanToken() |
+			image = greaterThanToken() |
+			image = lessThanOrEqualToToken() |
+			image = greaterThanOrEqualToToken()
+		)
+		{ return image; }
+	}
+
+Operator lessThanToken()
+	#void : {}
+	{
+		<LT>
+		{ return Operator.LT; }
+	}
+
+Operator greaterThanToken()
+	#void : {}
+	{
+		<GT>
+		{ return Operator.GT; }
+	}
+
+Operator lessThanOrEqualToToken()
+	#void : {}
+	{
+		<LTEQ>
+		{ return Operator.LE; }
+	}
+
+Operator greaterThanOrEqualToToken()
+	#void : {}
+	{
+		<GTEQ>
+		{ return Operator.GE; }
+	}
+
+/******************************************************************************
+ * Add Arithmetic expression and function - addition and subtraction have
+ * equal precedence
+ *****************************************************************************/
+void arithmeticExpr()
+	#void : { Operator image; }
+	{
+		geometricExpr()
+		(
+			image = arithmeticFtn() geometricExpr() #Arithmetic(2)
+			{ ((SimpleNode) jjtree.peekNode()).setOperator(image); }
+		)*
+	}
+
+Operator arithmeticFtn()
+	#void : { Operator image; }
+	{
+		(
+			image = plusToken() |
+			image = minusToken()
+		)
+		{ return image; }
+	}
+
+Operator plusToken()
+	#void : {}
+	{
+		<PLUS>
+		{ return Operator.ADD; }
+	}
+
+Operator minusToken()
+	#void : {}
+	{
+		<MINUS>
+		{ return Operator.SUB; }
+	}
+
+/******************************************************************************
+ * Add Geometric expression and functions - multiplication and both types of
+ * division have equal precedence
+ *****************************************************************************/
+void geometricExpr()
+	#void : { Operator image; }
+	{
+		unaryMinusExpr()
+		(
+			image = geometricFtn() unaryMinusExpr() #Geometric(2)
+			{ ((SimpleNode) jjtree.peekNode()).setOperator(image); }
+		)*
+	}
+
+Operator geometricFtn()
+	#void : { Operator image; }
+	{
+		(
+			image = multToken() |
+			image = divToken() |
+			image = remToken()
+		)
+		{ return image; }
+	}
+
+Operator multToken()
+	#void : {}
+	{
+		<MULT>
+		{ return Operator.MUL;}
+	}
+
+Operator divToken()
+	#void : {}
+	{
+		<DIV>
+		{ return Operator.DIV; }
+	}
+
+Operator remToken()
+	#void : {}
+	{
+		<REM>
+		{ return Operator.REM; }
+	}
+
+/******************************************************************************
+ * Add Unary expression
+ *****************************************************************************/
+void unaryMinusExpr()
+	#void : { Token t = null; }
+	{
+		( t=<MINUS> )? unaryNotExpr() #UnaryMinus(t != null)
+		{
+		   SimpleNode n = ((SimpleNode) jjtree.peekNode());
+		   if (n instanceof ASTUnaryMinus) n.setOperator(Operator.MINUS);
+		}
+	}
+
+void unaryNotExpr()
+	#void : { Token t = null; }
+	{
+		( t=<EXCLAMATION> )? exponExpr() #UnaryNot(t != null)
+		{
+		   SimpleNode n = ((SimpleNode) jjtree.peekNode());
+		   if (n instanceof ASTUnaryNot) n.setOperator(Operator.NOT);
+		}
+	}
+
+/******************************************************************************
+ * Add Exponential expression
+ *****************************************************************************/
+void exponExpr()
+	#void : {}
+	{
+		primitiveExpr()
+		(
+			<POW> primitiveExpr() #Expon(2)
+			{ ((SimpleNode) jjtree.peekNode()).setOperator(Operator.EXP); }
+		)*
+	}
+
+
+/******************************************************************************
+ * Now we're at the productions that will form the leaves of the tree
+ *****************************************************************************/
+void primitiveExpr()
+	#void : {}
+	{
+		parenExpr()       |
+		numberExpr()      |
+		lookupExpr()      |
+		quotedString()
+	}
+
+void parenExpr()
+	#Paren : {}
+	{
+		<OPENPAREN> logicalExpr() <CLOSEPAREN>
+	}
+
+void numberExpr()
+	#Num : { Token t1 = null, t2 = null, t3 = null; }
+	{
+		(
+			(t1 = <INT> ( LOOKAHEAD(2) t2 = <FULLSTOP> t3 = <INT>)? ) |
+			(t1 = <FULLSTOP> t2 = <INT>)
+		)
+		{
+			String image;
+			if (t3 == null) {
+				if (t2 == null) {
+					image = t1.image;
+				} else {
+					image = "." + t2.image;
+				}
+			} else {
+				image = t1.image + "." + t3.image;
+			}
+			jjtThis.setToken(image);
+		}
+	}
+
+/******************************************************************************
+ * This is the start of the PCGEN specific stuff.  The "Dot separated words"
+ * are used for our OS tokens and in some of our predefined variables.
+ *****************************************************************************/
+void lookupExpr()
+	#PCGenLookup(>1) : {}
+	{
+		pcgenSingleWord() ( pcgenBracketGroup() | parenGroup() )?
+	}
+
+void pcgenSingleWord()
+	#PCGenSingleWord : { Token t; Token i = null; }
+	{
+		( i = <REM>)? t = <VARIABLE>
+		{
+			String image;
+			if (i == null) {
+				image = t.image;
+			} else {
+			    if (i.image.lastIndexOf(" ") == i.image.length() - 1)
+			    {
+			        throw new ParseException("Found Word with embedded space: " + i.image + t.image);
+			    }
+				image = i.image + t.image;
+			}
+			/*
+			 * Cannot enforce spaces on other words, due to Class names allowing spaces
+			 */
+			jjtThis.setToken(image);
+		}
+	}
+
+void pcgenBracketGroup()
+	#PCGenBracket : {}
+	{
+		<OPENBRACKET> arithmeticExpr() <CLOSEBRACKET>
+	}
+
+void parenGroup()
+	#FParen : { Token t1; }
+	{
+		<OPENPAREN> 
+		(functionExpr()
+		  (
+			<COMMA> functionExpr()
+		  )*
+		)?
+		<CLOSEPAREN>
+	}
+
+void functionExpr()
+	#void : {}
+	{
+		logicalExpr()
+	}
+
+void quotedString()
+	#QuotString : { Token t; }
+	{
+		t = <STRING_LITERAL>
+		{
+			String stripped = t.image.substring(1, t.image.length() - 1);
+			jjtThis.setToken(stripped);
+		}
+	}
+
+
+/******************************************************************************
+ * And now the tokens, some of these are general, some of them are PCGEN
+ * specific.
+ *****************************************************************************/
+
+TOKEN : { < #PERCENT     : "%" > }
+TOKEN : { < #COLON       : ":" > }
+TOKEN : { < #HYPHEN      : "-" > }
+TOKEN : { < #SOLIDUS     : "/" > }
+TOKEN : { < #EQUALSIGN   : "=" > }
+TOKEN : { < #UNDERSCORE  : "_" > }
+TOKEN : { < #TILDE       : "~" > }
+TOKEN : { < #SPACE       : " " > }
+
+TOKEN : { < #O_SPACE    : ( <SPACE> )* > }
+
+TOKEN : { < EXCLAMATION  : <O_SPACE> "!"       <O_SPACE> > }
+TOKEN : { < PLUS         : <O_SPACE> "+"       <O_SPACE> > }
+TOKEN : { < MINUS        : <O_SPACE> <HYPHEN>  <O_SPACE> > }
+TOKEN : { < MULT         : <O_SPACE> "*"       <O_SPACE> > }
+TOKEN : { < DIV          : <O_SPACE> <SOLIDUS> <O_SPACE> > }
+TOKEN : { < REM          : <O_SPACE> <PERCENT> <O_SPACE> > }
+TOKEN : { < POW          : <O_SPACE> "^"       <O_SPACE> > }
+TOKEN : { < COMMA        : <O_SPACE> ","       <O_SPACE> > }
+TOKEN : { < OPENPAREN    : <O_SPACE> "("       <O_SPACE> > }
+TOKEN : { < CLOSEPAREN   : <O_SPACE> ")"       <O_SPACE> > }
+TOKEN : { < OPENBRACKET  : <O_SPACE> "["       <O_SPACE> > }
+TOKEN : { < CLOSEBRACKET : <O_SPACE> "]"       <O_SPACE> > }
+TOKEN : { < GT           : <O_SPACE> ">"       <O_SPACE> > }
+TOKEN : { < LT           : <O_SPACE> "<"       <O_SPACE> > }
+TOKEN : { < GTEQ         : <O_SPACE> ">="      <O_SPACE> > }
+TOKEN : { < LTEQ         : <O_SPACE> "<="      <O_SPACE> > }
+TOKEN : { < EQUAL        : <O_SPACE> "=="      <O_SPACE> > }
+TOKEN : { < NOTEQUAL     : <O_SPACE> "!="      <O_SPACE> > }
+TOKEN : { < AND          : <O_SPACE> "&&"      <O_SPACE> > }
+TOKEN : { < OR           : <O_SPACE> "||"      <O_SPACE> > }
+TOKEN : { < FULLSTOP     :           "."                 > }
+
+TOKEN : { < #DIGIT : ["0" - "9"] > }
+
+TOKEN : { < #BASIC_LETTER : [
+       "\u0041"-"\u005a",  // Uppercase Latin
+       "\u0061"-"\u007a",  // Lowercase Latin
+       "\u00c0"-"\u00d6",  // Modified Latin (start)
+       "\u00d8"-"\u00f6",  // Modified Latin (middle)
+       "\u00f8"-"\u00ff",  // Modified Latin (end)
+       "\u0100"-"\u1fff",
+       "\u3040"-"\u318f",
+       "\u3300"-"\u337f",
+       "\u3400"-"\u3d2d",
+       "\u4e00"-"\u9fff",
+       "\uf900"-"\ufaff"
+]  > }
+
+TOKEN : { < #FINAL_LETTER   : ( <TILDE> |
+                                <DIGIT> |
+                                <BASIC_LETTER> ) > }
+
+TOKEN : { < #MID_LETTER     : ( <UNDERSCORE> |
+                                <SPACE> |
+                                <COLON> |
+                                <FULLSTOP> |
+                                <FINAL_LETTER> ) > }
+
+TOKEN : { < VARIABLE        : <BASIC_LETTER> ( ( <MID_LETTER> )* ( <EQUALSIGN> ( <MID_LETTER> )* ) ? <FINAL_LETTER> )? > }
+
+TOKEN : { < INT : ( <DIGIT> )+ > }
+
+TOKEN : { < STRING_FORBIDDEN: (~["\"","\\","\n","\r"]) > }
+TOKEN : { < STRING_ESCAPED: ("\\" ( ["n","t","b","r","f","\\","'","\""] ) ) > }
+TOKEN : { < STRING_LITERAL: "\"" ( <STRING_FORBIDDEN> | <STRING_ESCAPED> )* "\"" > }
+

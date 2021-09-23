@@ -78,9 +78,8 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 	@Override
 	public boolean equals(Object o)
 	{
-		if (o instanceof AbstractModifier)
+		if (o instanceof AbstractModifier<?> am)
 		{
-			AbstractModifier<?> am = (AbstractModifier<?>) o;
 			return format.equals(am.format) && inherent == am.inherent
 				&& priority == am.priority;
 		}
@@ -269,9 +268,8 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 		@Override
 		public boolean equals(Object o)
 		{
-			if (o instanceof PrivateSetNumber)
+			if (o instanceof PrivateSetNumber psn)
 			{
-				PrivateSetNumber psn = (PrivateSetNumber) o;
 				return super.equals(o) && (psn.value == value);
 			}
 			return false;
