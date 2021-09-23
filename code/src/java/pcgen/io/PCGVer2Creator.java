@@ -2581,9 +2581,8 @@ public final class PCGVer2Creator
 		final StringBuilder cb = new StringBuilder(100);
 
 		cb.append(IOConstants.TAG_TEMPBONUS).append(':');
-		if (creator instanceof CDOMObject)
+		if (creator instanceof final CDOMObject oCreator)
 		{
-			final CDOMObject oCreator = (CDOMObject) creator;
 
 			if (oCreator instanceof Ability)
 			{
