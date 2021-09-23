@@ -41,7 +41,7 @@ public class LangToken extends AbstractQualifiedChooseToken<Language>
 	@Override
 	protected String getDefaultTitle()
 	{
-		return "Langauge choice";
+		return "Language choice";
 	}
 
 	@Override
