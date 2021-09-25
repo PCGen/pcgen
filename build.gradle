@@ -651,7 +651,6 @@ task all(dependsOn: ['build', 'slowtest', 'javadoc', 'buildNsis', 'allReports'])
 allprojects {
     tasks.withType(Javadoc) {
         options.addBooleanOption('Xdoclint:none', true)
-	jvmArgs += [ '--enable-preview']
     }
     tasks.withType(Test) {
         maxHeapSize = "1024m"
