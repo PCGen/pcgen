@@ -33,6 +33,9 @@ plugins {
     id 'org.beryx.runtime' version '1.12.6'
 }
 
+applicationDefaultJvmArgs = ["--enable-preview"]
+
+
 javafx {
     version = "16"
     modules = [ 'javafx.controls', 'javafx.web', 'javafx.swing', 'javafx.fxml', 'javafx.graphics' ]
@@ -642,7 +645,8 @@ task msrdinttest(type: Test, dependsOn: 'jar') {
 }
 
 // Do the lot!
-task all(dependsOn: ['build', 'slowtest', 'javadoc', 'buildNsis', 'allReports']) {
+//task all(dependsOn: ['build', 'slowtest', 'javadoc', 'buildNsis', 'allReports']) {
+task all(dependsOn: ['build', 'slowtest', 'javadoc', 'allReports']) {
 }
 
 allprojects {
