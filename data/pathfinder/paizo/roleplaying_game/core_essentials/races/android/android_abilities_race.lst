@@ -1,3 +1,4 @@
+# Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
 
 
 # ------------------------------
@@ -21,8 +22,8 @@ Nanite Surge						KEY:Android ~ Nanite Surge	CATEGORY:Special Ability	TYPE:Racia
 Languages							KEY:Android ~ Languages		CATEGORY:Special Ability	TYPE:RacialTraits.Android Racial Trait.Android Racial Default.SpecialQuality.Racial Language														VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Android_ReplaceLanguages=True							DESC:Androids begin play speaking Common. Androids with high Intelligence can choose any language as a bonus language (except secret languages, such as Druidic).																																						TEMPLATE:Bonus Language ~ Any Spoken				AUTO:LANG|Common																																																																				SOURCEPAGE:p.xx
 
 ###Block: Favored Enemies
-# Ability Name			Unique Key						Category of Ability		Type														Define					Description																																																					Ability													Modify VAR								Source Page		Aspects
-Humanoid (Android)		KEY:Favored Enemy ~ Humanoid (Android)	CATEGORY:Special Ability	TYPE:RangerClassFeatures.FavoredEnemy.SpecialAttack.Extraordinary.AttackOption	DEFINE:FavoredHumanoidAndroid|0	DESC:You gain a +%1 bonus on Bluff, Knowledge, Perception, Sense Motive, and Survival checks when using these skills against androids. Likewise, you get a +%1 bonus on weapon attack and damage rolls against such creatures. You may make Knowledge Skill checks untrained to identify such creatures.|FavoredHumanoidAndroid															BONUS:VAR|FavoredHumanoidAndroid|FavoredBaseBonus	SOURCEPAGE:p.64	ASPECT:Ability Benefit|+%1|FavoredHumanoidAndroid	ASPECT:SkillBonus|You gain a +%1 bonus on Bluff, Knowledge, Perception, Sense Motive, and Survival checks against android.|FavoredHumanoidAndroid	ASPECT:CombatBonus|You gain a +%1 bonus on Attack rolls and Damage rolls against android.|FavoredHumanoidAndroid
+# Ability Name		Unique Key						Category of Ability		Type														Define					Description																																																					Modify VAR								Source Page		Aspects
+Humanoid (Android)	KEY:Favored Enemy ~ Humanoid (Android)	CATEGORY:Special Ability	TYPE:RangerClassFeatures.FavoredEnemy.SpecialAttack.Extraordinary.AttackOption	DEFINE:FavoredHumanoidAndroid|0	DESC:You gain a +%1 bonus on Bluff, Knowledge, Perception, Sense Motive, and Survival checks when using these skills against androids. Likewise, you get a +%1 bonus on weapon attack and damage rolls against such creatures. You may make Knowledge Skill checks untrained to identify such creatures.|FavoredHumanoidAndroid	BONUS:VAR|FavoredHumanoidAndroid|FavoredBaseBonus	SOURCEPAGE:p.64	ASPECT:Ability Benefit|+%1|FavoredHumanoidAndroid	ASPECT:SkillBonus|You gain a +%1 bonus on Bluff, Knowledge, Perception, Sense Motive, and Survival checks against android.|FavoredHumanoidAndroid	ASPECT:CombatBonus|You gain a +%1 bonus on Attack rolls and Damage rolls against android.|FavoredHumanoidAndroid
 
 ###Block: Adopted Trait Race Selections
 # Ability Name							Unique Key				Category of Ability		Type				Multiple?	Choose										Ability

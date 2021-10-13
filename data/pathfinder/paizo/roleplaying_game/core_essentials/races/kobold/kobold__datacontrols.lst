@@ -1,0 +1,22 @@
+# Tue Aug  3 10:42:30 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Kobold
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsKobold	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Kobold	EXPLANATION:Determines whether the character is a Kobold
+
+###Block: Racial Traits
+# Name							Dataformat			Required	Selectable		Visible	Displayname						Explanation
+FACTDEF:ABILITY|Kobold_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kobold Ability Scores	EXPLANATION:Replaces the Ability Scores
+FACTDEF:ABILITY|Kobold_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kobold Type		EXPLANATION:Replaces the Reptilian Racial Trait
+FACTDEF:ABILITY|Kobold_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kobold Size		EXPLANATION:Replaces the Small Racial Trait
+FACTDEF:ABILITY|Kobold_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kobold Speed		EXPLANATION:Replaces the Normal Speed Racial Trait
+FACTDEF:ABILITY|Kobold_ReplaceVision		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kobold Vision		EXPLANATION:Replaces the Darkvision Racial Trait
+FACTDEF:ABILITY|Kobold_ReplaceArmor			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kobold Armor		EXPLANATION:Replaces the Armor Racial Trait
+FACTDEF:ABILITY|Kobold_ReplaceCrafty		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kobold Crafty		EXPLANATION:Replaces the Crafty Racial Trait
+FACTDEF:ABILITY|Kobold_ReplaceWeakness		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kobold Weakness		EXPLANATION:Replaces the Weakness Racial Trait
+FACTDEF:ABILITY|Kobold_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Kobold Languages	EXPLANATION:Replaces the Languages Racial Trait

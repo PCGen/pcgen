@@ -57,9 +57,9 @@ RACE:b5_races_pc.lst
 SKILL:b5_skills.lst
 SPELL:b5_spells_modified.lst
 
-PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\android\_android_race.pcc
-PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\ghoran\_ghoran_race.pcc
-PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\skinwalker\_skinwalker_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\android\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\ghoran\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\skinwalker\_race.pcc
 
 
 # Support

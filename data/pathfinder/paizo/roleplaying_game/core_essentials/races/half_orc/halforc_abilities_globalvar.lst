@@ -1,0 +1,30 @@
+# Wed May 19 08:39:17 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Half-Orc
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define						Ability
+CATEGORY=Internal|Racial Traits ~ Half-Orc.MOD	DEFINE:HalfOrc_ReplaceAbilityScores|0	ABILITY:Half-Orc Racial Trait|AUTOMATIC|Half-Orc ~ Ability Scores|PREVAREQ:HalfOrc_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Half-Orc.MOD	DEFINE:HalfOrc_ReplaceSize|0			ABILITY:Half-Orc Racial Trait|AUTOMATIC|Half-Orc ~ Size|PREVAREQ:HalfOrc_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Half-Orc.MOD	DEFINE:HalfOrc_ReplaceSpeed|0			ABILITY:Half-Orc Racial Trait|AUTOMATIC|Half-Orc ~ Speed|PREVAREQ:HalfOrc_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Half-Orc.MOD	DEFINE:HalfOrc_ReplaceVision|0		ABILITY:Half-Orc Racial Trait|AUTOMATIC|Half-Orc ~ Vision|PREVAREQ:HalfOrc_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Half-Orc.MOD	DEFINE:HalfOrc_ReplaceIntimidating|0	ABILITY:Half-Orc Racial Trait|AUTOMATIC|Half-Orc ~ Intimidating|PREVAREQ:HalfOrc_ReplaceIntimidating,0
+CATEGORY=Internal|Racial Traits ~ Half-Orc.MOD	DEFINE:HalfOrc_ReplaceOrcBlood|0		ABILITY:Half-Orc Racial Trait|AUTOMATIC|Half-Orc ~ Orc Blood|PREVAREQ:HalfOrc_ReplaceOrcBlood,0
+CATEGORY=Internal|Racial Traits ~ Half-Orc.MOD	DEFINE:HalfOrc_ReplaceOrcFerocity|0		ABILITY:Half-Orc Racial Trait|AUTOMATIC|Half-Orc ~ Orc Ferocity|PREVAREQ:HalfOrc_ReplaceOrcFerocity,0
+CATEGORY=Internal|Racial Traits ~ Half-Orc.MOD	DEFINE:HalfOrc_ReplaceWeaponFamiliarity|0	ABILITY:Half-Orc Racial Trait|AUTOMATIC|Half-Orc ~ Weapon Familiarity|PREVAREQ:HalfOrc_ReplaceWeaponFamiliarity,0
+CATEGORY=Internal|Racial Traits ~ Half-Orc.MOD	DEFINE:HalfOrc_ReplaceLanguages|0		ABILITY:Half-Orc Racial Trait|AUTOMATIC|Half-Orc ~ Languages|PREVAREQ:HalfOrc_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Half-Orc.MOD	BONUS:VAR|HalfOrc_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,HalfOrc_ReplaceAbilityScores=true
+CATEGORY=Internal|Racial Traits ~ Half-Orc.MOD	BONUS:VAR|HalfOrc_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,HalfOrc_ReplaceSize=true
+CATEGORY=Internal|Racial Traits ~ Half-Orc.MOD	BONUS:VAR|HalfOrc_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,HalfOrc_ReplaceSpeed=true
+CATEGORY=Internal|Racial Traits ~ Half-Orc.MOD	BONUS:VAR|HalfOrc_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,HalfOrc_ReplaceVision=true
+CATEGORY=Internal|Racial Traits ~ Half-Orc.MOD	BONUS:VAR|HalfOrc_ReplaceIntimidating|1|TYPE=Boolean|PREFACT:1,ABILITIES,HalfOrc_ReplaceIntimidating=true
+CATEGORY=Internal|Racial Traits ~ Half-Orc.MOD	BONUS:VAR|HalfOrc_ReplaceOrcBlood|1|TYPE=Boolean|PREFACT:1,ABILITIES,HalfOrc_ReplaceOrcBlood=true
+CATEGORY=Internal|Racial Traits ~ Half-Orc.MOD	BONUS:VAR|HalfOrc_ReplaceOrcFerocity|1|TYPE=Boolean|PREFACT:1,ABILITIES,HalfOrc_ReplaceOrcFerocity=true
+CATEGORY=Internal|Racial Traits ~ Half-Orc.MOD	BONUS:VAR|HalfOrc_ReplaceWeaponFamiliarity|1|TYPE=Boolean|PREFACT:1,ABILITIES,HalfOrc_ReplaceWeaponFamiliarity=true
+CATEGORY=Internal|Racial Traits ~ Half-Orc.MOD	BONUS:VAR|HalfOrc_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,HalfOrc_ReplaceLanguages=true

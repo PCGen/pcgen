@@ -1,0 +1,17 @@
+# Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+###Block: Racial Heritage
+# Template Name	Unique Key				Visible	Template		Type				FACT
+Tengu			KEY:Racial Heritage ~ Tengu	VISIBLE:NO	TEMPLATE:IsTengu	TYPE:Racial Heritage	FACT:IsTengu|True
+IsTengu							VISIBLE:NO
+
+
+###Block: Creature Subtypes
+# Template Name	Visible	Race Subtype
+Tengu			VISIBLE:NO	RACESUBTYPE:Tengu
+
+
+###Block: Race Builder Humanoid Subtypes
+# Template Name	Unique Key					Visible	Race Subtype	Type
+Tengu			KEY:Race Builder Subtype ~ Tengu	VISIBLE:NO	RACESUBTYPE:Tengu	TYPE:Race Builder Subtype

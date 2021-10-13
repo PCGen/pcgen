@@ -1,0 +1,17 @@
+# Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+###Block: Racial Heritage
+# Template Name	Unique Key				Visible	Template			Type				FACT
+Grippli		KEY:Racial Heritage ~ Grippli	VISIBLE:NO	TEMPLATE:IsGrippli	TYPE:Racial Heritage	FACT:IsGrippli|True
+IsGrippli							VISIBLE:NO
+
+
+###Block: Creature Subtypes
+# Template Name	Visible	Race Subtype
+Grippli		VISIBLE:NO	RACESUBTYPE:Grippli
+
+
+###Block: Race Builder Humanoid Subtypes
+# Template Name	Unique Key					Visible	Race Subtype		Type
+Grippli		KEY:Race Builder Subtype ~ Grippli	VISIBLE:NO	RACESUBTYPE:Grippli	TYPE:Race Builder Subtype

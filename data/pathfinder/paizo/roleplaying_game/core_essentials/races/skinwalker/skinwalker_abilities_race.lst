@@ -1,10 +1,11 @@
+# Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
 
 
 # ------------------------------
 # Skinwalker
 # ------------------------------
 
-###Block: Racial Abilities ~ grantor/removal MODs in x_abilities_globalvar.lst
+###Block: Racial Abilities ~ grantor/removal MODs in skinwalker_abilities_globalvar.lst
 # Ability Name			Category of Ability	Define																											Template						Modify VAR
 Racial Traits ~ Skinwalker	CATEGORY:Internal		DEFINE:Skinwalker_RacialCastingStat|0	DEFINE:Skinwalker_RacialCastingMod|0	DEFINE:Skinwalker_RacialCasterlevel|0	DEFINE:Skinwalker_RacialConcentration|0	TEMPLATE:Racial Heritage ~ Skinwalker	BONUS:VAR|Skinwalker_RacialCastingStat|WISSCORE	BONUS:VAR|Skinwalker_RacialCastingMod|WIS	BONUS:VAR|Skinwalker_RacialCasterlevel|TL	BONUS:VAR|Skinwalker_RacialConcentration|Skinwalker_RacialCasterlevel+Skinwalker_RacialCastingMod
 
@@ -23,6 +24,7 @@ Languages													KEY:Skinwalker ~ Languages		CATEGORY:Special Ability	TYPE:
 ###Block: Favored Enemies
 # Ability Name		Unique Key							Category of Ability		Type														Define						Description																																																						Modify VAR									Source, Long Desc.		Source, Short Desc.	Source URI							Source Page		Source Pub. Date		Aspects
 Humanoid (Shapechanger)	KEY:Favored Enemy ~ Humanoid (Shapechanger)	CATEGORY:Special Ability	TYPE:RangerClassFeatures.FavoredEnemy.SpecialAttack.Extraordinary.AttackOption	DEFINE:FavoredHumanoidShapechanger|0	DESC:You gain a +%1 bonus on Bluff, Knowledge, Perception, Sense Motive, and Survival checks when using these skills against Shapechangers. Likewise, you get a +%1 bonus on weapon attack and damage rolls against such creatures. You may make Knowledge Skill checks untrained to identify such creatures.|FavoredHumanoidShapechanger	BONUS:VAR|FavoredHumanoidShapechanger|FavoredBaseBonus	SOURCELONG:Core Rulebook	SOURCESHORT:CR		SOURCEWEB:https://paizo.com/products/btpy88yj	SOURCEPAGE:p.64	SOURCEDATE:2009-08	ASPECT:Ability Benefit|+%1|FavoredHumanoidShapechanger	ASPECT:SkillBonus|You gain a +%1 bonus on Bluff, Knowledge, Perception, Sense Motive, and Survival checks against Shapechanger.|FavoredHumanoidShapechanger	ASPECT:CombatBonus|You gain a +%1 bonus on Attack rolls and Damage rolls against Shapechanger.|FavoredHumanoidShapechanger
+Humanoid (Skinwalker)	KEY:Favored Enemy ~ Humanoid (Skinwalker)		CATEGORY:Special Ability	TYPE:RangerClassFeatures.FavoredEnemy.SpecialAttack.Extraordinary.AttackOption	DEFINE:FavoredHumanoidSkinwalker|0		DESC:You gain a +%1 bonus on Bluff, Knowledge, Perception, Sense Motive, and Survival checks when using these skills against Skinwalkers. Likewise, you get a +%1 bonus on weapon attack and damage rolls against such creatures. You may make Knowledge Skill checks untrained to identify such creatures.|FavoredHumanoidSkinwalker	BONUS:VAR|FavoredHumanoidSkinwalker|FavoredBaseBonus		SOURCELONG:Core Rulebook	SOURCESHORT:CR		SOURCEWEB:https://paizo.com/products/btpy88yj	SOURCEPAGE:p.64	SOURCEDATE:2009-08	ASPECT:Ability Benefit|+%1|FavoredHumanoidSkinwalker	ASPECT:SkillBonus|You gain a +%1 bonus on Bluff, Knowledge, Perception, Sense Motive, and Survival checks against Skinwalker.|FavoredHumanoidSkinwalker	ASPECT:CombatBonus|You gain a +%1 bonus on Attack rolls and Damage rolls against Skinwalker.|FavoredHumanoidSkinwalker
 
 ###Block: Adopted Trait Race Selections
 # Ability Name							Unique Key				Category of Ability		Type					Multiple?	Choose											Ability

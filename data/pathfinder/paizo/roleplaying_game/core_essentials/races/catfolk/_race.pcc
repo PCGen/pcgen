@@ -1,0 +1,26 @@
+# Sun Jul 26 22:20:43 2020 -- reformated by PCGen PrettyLST v6.08.00
+KEY:support ~ catfolk race
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+ISOGL:YES
+
+# Use this so there aren't numerous copies of the same race.
+
+
+# ==============================
+# Catfolk
+# ==============================
+
+# Fact/Factset & Formula System
+DATACONTROL:catfolk__datacontrols.lst
+
+# Data Files
+ABILITY:catfolk_abilities_globalvar.lst
+ABILITY:catfolk_abilities_race.lst
+ABILITYCATEGORY:catfolk_abilitycategories.lst
+BIOSET:catfolk_biosettings.lst
+LANGUAGE:catfolk_languages.lst
+RACE:catfolk_races.lst
+TEMPLATE:catfolk_templates_language.lst
+TEMPLATE:catfolk_templates.lst

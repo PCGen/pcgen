@@ -7,6 +7,8 @@ BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
 PRECAMPAIGN:1,INCLUDES=Core Rulebook
 PRECAMPAIGN:1,INCLUDES=Bestiary,INCLUDES=Bestiary ~ Player Options Only
+PRECAMPAIGN:1,INCLUDES=Bestiary 2,INCLUDES=Bestiary 2 ~ Player Options Only
+PRECAMPAIGN:1,INCLUDES=Bestiary 3,INCLUDES=Bestiary 3 ~ Player Options Only
 PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
 PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 PRECAMPAIGN:1,INCLUDES=Ultimate Equipment
@@ -52,6 +54,8 @@ ABILITY:kog_feats.lst
 KIT:kog_kits.lst
 SPELL:kog_spells.lst
 RACE:kog_races.lst
+
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\kobold\_race.pcc
 
 
 # ENTRY DATE: 2016-05-09

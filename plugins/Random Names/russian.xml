@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="US-ASCII"?>
 <!DOCTYPE GENERATOR SYSTEM "generator.dtd">
 <GENERATOR>
-	<!--Male Rules-->
+<!--Male Rules-->
 	<RULESET id="russian-historical-male-rule" title="Russian" usage="final">
 		<CATEGORY title="Sex: Male"/>
 		<CATEGORY title="Historical: Late Middle Ages (800-1300)"/>
@@ -89,6 +89,214 @@
 			<GETRULE idref="russian-historical-male-surname-rule" title="Surname"/>
 		</RULE>
 	</RULESET>
+	<RULESET id="russian-modern-male" title="Russian" usage="final">
+		<CATEGORY title="Modern" />
+		<CATEGORY title="All" />
+		<CATEGORY title="Sex: Male" />
+		<RULE weight="3">
+			<GETLIST idref="russian-male-old-russian" title="Given" />
+			<SPACE />
+			<GETLIST idref="russian-male-old-russian" title="Patrynomic" />
+			<GETLIST idref="russian-male-patrynomic-suffix" title="Suffix" />
+			<SPACE />
+			<GETRULE idref="russian-historical-male-surname-rule" title="Surname" />
+		</RULE>
+		<RULE weight="3">
+			<GETLIST idref="russian-male-christian" title="Given" />
+			<SPACE />
+			<GETLIST idref="russian-male-christian" title="Patrynomic" />
+			<GETLIST idref="russian-male-patrynomic-suffix" title="Suffix" />
+			<SPACE />
+			<GETRULE idref="russian-historical-male-surname-rule" title="Surname" />
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-male-old-russian" title="Given" />
+			<SPACE />
+			<GETLIST idref="russian-male-christian" title="Patrynomic" />
+			<GETLIST idref="russian-male-patrynomic-suffix" title="Suffix" />
+			<SPACE />
+			<GETRULE idref="russian-historical-male-surname-rule" title="Surname" />
+		</RULE>
+		<RULE weight="2">
+			<GETLIST idref="russian-male-christian" title="Given" />
+			<SPACE />
+			<GETLIST idref="russian-male-old-russian" title="Patrynomic" />
+			<GETLIST idref="russian-male-patrynomic-suffix" title="Suffix" />
+			<SPACE />
+			<GETRULE idref="russian-historical-male-surname-rule" title="Surname" />
+		</RULE>
+	</RULESET>
+<!--Female Rules-->
+	<RULESET id="russian-historical-female-rule" title="Russian" usage="final">
+		<CATEGORY title="Sex: Female"/>
+		<CATEGORY title="Historical: Late Middle Ages (800-1300)"/>
+		<CATEGORY title="Historical: Renaissance (1300-1500)"/>
+		<CATEGORY title="Historical: Gunpowder Age (1500-1900)"/>
+		<CATEGORY title="All"/>
+		<RULE weight="2">
+			<GETLIST idref="russian-female-old-russian" title="Old Russian Name"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-female-patrynomic-rule" title="Patrynomic"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-female-surname-rule" title="Surname"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-female-old-russian" title="Old Russian Name"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-female-patrynomic-rule" title="Patrynomic"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-female-old-russian" title="Old Russian Name"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-female-surname-rule" title="Surname"/>
+		</RULE>
+		<RULE weight="2">
+			<GETLIST idref="russian-female-christian" title="Christian Name"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-female-patrynomic-rule" title="Patrynomic"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-female-surname-rule" title="Surname"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-female-christian" title="Christian Name"/>
+			<SPACE/>
+			<GETLIST idref="russian-female-old-russian" title="Old Russian Name"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-female-christian" title="Christian Name"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-female-patrynomic-rule" title="Patrynomic"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-female-christian" title="Christian Name"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-female-surname-rule" title="Surname"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-female-christian" title="Christian Name"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-female-patrynomic-rule" title="Patrynomic"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-female-patrynomic-rule" title="Patrynomic"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-female-christian" title="Christian Name"/>
+			<SPACE/>
+			<GETLIST idref="russian-female-old-russian" title="Old Russian Name"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-female-patrynomic-rule" title="Patrynomic"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-female-christian" title="Christian Name"/>
+			<SPACE/>
+			<GETLIST idref="russian-female-old-russian" title="Old Russian Name"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-female-patrynomic-rule" title="Patrynomic"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-female-patrynomic-rule" title="Patrynomic"/>
+		</RULE>
+		<RULE weight="2">
+			<GETLIST idref="russian-female-christian" title="Christian Name"/>
+			<SPACE/>
+			<GETLIST idref="russian-female-old-russian" title="Old Russian Name"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-female-patrynomic-rule" title="Patrynomic"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-female-surname-rule" title="Surname"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-female-christian" title="Christian Name"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-female-patrynomic-rule" title="Patrynomic"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-female-patrynomic-rule" title="Patrynomic"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-female-surname-rule" title="Surname"/>
+		</RULE>
+	</RULESET>
+	<RULESET id="russian-modern-female" title="Russian" usage="final">
+		<CATEGORY title="Modern" />
+		<CATEGORY title="All" />
+		<CATEGORY title="Sex: Female" />
+		<RULE weight="3">
+			<GETLIST idref="russian-female-old-russian" title="Given" />
+			<SPACE />
+			<GETLIST idref="russian-female-old-russian" title="Patrynomic" />
+			<GETLIST idref="russian-female-patrynomic-suffix" title="Suffix" />
+			<SPACE />
+			<GETRULE idref="russian-historical-female-surname-rule" title="Surname" />
+		</RULE>
+		<RULE weight="3">
+			<GETLIST idref="russian-female-christian" title="Given" />
+			<SPACE />
+			<GETLIST idref="russian-female-christian" title="Patrynomic" />
+			<GETLIST idref="russian-female-patrynomic-suffix" title="Suffix" />
+			<SPACE />
+			<GETRULE idref="russian-historical-female-surname-rule" title="Surname" />
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-female-old-russian" title="Given" />
+			<SPACE />
+			<GETLIST idref="russian-female-christian" title="Patrynomic" />
+			<GETLIST idref="russian-female-patrynomic-suffix" title="Suffix" />
+			<SPACE />
+			<GETRULE idref="russian-historical-female-surname-rule" title="Surname" />
+		</RULE>
+		<RULE weight="2">
+			<GETLIST idref="russian-female-christian" title="Given" />
+			<SPACE />
+			<GETLIST idref="russian-female-old-russian" title="Patrynomic" />
+			<GETLIST idref="russian-female-patrynomic-suffix" title="Suffix" />
+			<SPACE />
+			<GETRULE idref="russian-historical-female-surname-rule" title="Surname" />
+		</RULE>
+	</RULESET>
+<!-- Towns -->
+	<RULESET id="russian-historical-village-rule" title="Russian Location" usage="final">
+		<CATEGORY title="Sex: Other"/>
+		<CATEGORY title="Historical: Late Middle Ages (800-1300)"/>
+		<CATEGORY title="Historical: Renaissance (1300-1500)"/>
+		<CATEGORY title="Historical: Gunpowder Age (1500-1900)"/>
+		<CATEGORY title="All"/>
+		<RULE weight="83">
+			<GETLIST idref="russian-locative-consinants" title="Village"/>
+		</RULE>
+		<RULE weight="4">
+			<GETLIST idref="russian-locative-ts" title="Village"/>
+		</RULE>
+		<RULE weight="4">
+			<GETLIST idref="russian-locative-t" title="Village"/>
+		</RULE>
+		<RULE weight="22">
+			<GETLIST idref="russian-locative-sk" title="Village"/>
+		</RULE>
+		<RULE weight="29">
+			<GETLIST idref="russian-locative-a" title="Village"/>
+		</RULE>
+		<RULE weight="5">
+			<GETLIST idref="russian-locative-e" title="Village"/>
+		</RULE>
+		<RULE weight="11">
+			<GETLIST idref="russian-locative-i" title="Village"/>
+		</RULE>
+		<RULE weight="5">
+			<GETLIST idref="russian-locative-o" title="Village"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-locative-u" title="Village"/>
+		</RULE>
+		<RULE weight="3">
+			<GETLIST idref="russian-locative-y" title="Village"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-locative-ii" title="Village"/>
+		</RULE>
+		<RULE weight="41">
+			<GETLIST idref="russian-locative-skii" title="Village"/>
+		</RULE>
+	</RULESET>
+<!-- Subrules -->
+	<!-- male -->
 	<RULESET id="russian-historical-male-patrynomic-rule" title="Russian Patrynomic" usage="public">
 		<CATEGORY title="Sex: Male"/>
 		<RULE weight="9">
@@ -106,26 +314,6 @@
 			<GETLIST idref="russian-male-modifier" title="Grandson of"/>
 			<SPACE/>
 			<GETLIST idref="russian-male-old-russian-patronymic" title="Old Russian Patronymic Name"/>
-		</RULE>
-	</RULESET>
-	<!-- Attempt at splitting out rules -->
-	<RULESET id="russian-historical-male-patrynomic-rule_alt" title="Russian Patrynomic" usage="public">
-		<CATEGORY title="Sex: Male"/>
-		<RULE weight="9">
-			<GETLIST idref="russian-male-christian-patronymic2" title="Christian Patronymic Name"/>
-		</RULE>
-		<RULE weight="12">
-			<GETLIST idref="russian-male-old-russian-patronymic2" title="Old Russian Patronymic Name"/>
-		</RULE>
-		<RULE weight="1">
-			<GETLIST idref="russian-male-modifier2" title="Grandson of"/>
-			<SPACE/>
-			<GETLIST idref="russian-male-christian-patronymic2" title="Christian Patronymic Name"/>
-		</RULE>
-		<RULE weight="2">
-			<GETLIST idref="russian-male-modifier2" title="Grandson of"/>
-			<SPACE/>
-			<GETLIST idref="russian-male-old-russian-patronymic2" title="Old Russian Patronymic Name"/>
 		</RULE>
 	</RULESET>
 	<RULESET id="russian-historical-male-surname-rule" title="Russian Surname" usage="public">
@@ -186,94 +374,7 @@
 			<GETLIST idref="russian-locative-skii" title="Location"/>
 		</RULE>
 	</RULESET>
-	<!--Female Rules-->
-	<RULESET id="russian-historical-female-rule" title="Russian" usage="final">
-		<CATEGORY title="Sex: Female"/>
-		<CATEGORY title="Historical: Late Middle Ages (800-1300)"/>
-		<CATEGORY title="Historical: Renaissance (1300-1500)"/>
-		<CATEGORY title="Historical: Gunpowder Age (1500-1900)"/>
-		<CATEGORY title="All"/>
-		<RULE weight="2">
-			<GETLIST idref="russian-female-old-russian" title="Old Russian Name"/>
-			<SPACE/>
-			<GETRULE idref="russian-historical-female-patrynomic-rule" title="Patrynomic"/>
-			<SPACE/>
-			<GETRULE idref="russian-historical-female-surname-rule" title="Surname"/>
-		</RULE>
-		<RULE weight="1">
-			<GETLIST idref="russian-female-old-russian" title="Old Russian Name"/>
-			<SPACE/>
-			<GETRULE idref="russian-historical-female-patrynomic-rule" title="Patrynomic"/>
-		</RULE>
-		<RULE weight="1">
-			<GETLIST idref="russian-female-old-russian" title="Old Russian Name"/>
-			<SPACE/>
-			<GETRULE idref="russian-historical-female-surname-rule" title="Surname"/>
-		</RULE>
-		<RULE weight="2">
-			<GETLIST idref="russian-female-christian" title="Christian Name"/>
-			<SPACE/>
-			<GETRULE idref="russian-historical-female-patrynomic-rule" title="Patrynomic"/>
-			<SPACE/>
-			<GETRULE idref="russian-historical-female-surname-rule" title="Surname"/>
-		</RULE>
-		<RULE weight="1">
-			<GETLIST idref="russian-female-christian" title="Christian Name"/>
-			<SPACE/>
-			<GETLIST idref="russian-female-old-russian" title="Old Russian Name"/>
-		</RULE>
-		<RULE weight="1">
-			<GETLIST idref="russian-female-christian" title="Christian Name"/>
-			<SPACE/>
-			<GETRULE idref="russian-historical-female-patrynomic-rule" title="Patrynomic"/>
-		</RULE>
-		<RULE weight="1">
-			<GETLIST idref="russian-female-christian" title="Christian Name"/>
-			<SPACE/>
-			<GETRULE idref="russian-historical-female-surname-rule" title="Surname"/>
-		</RULE>
-		<RULE weight="1">
-			<GETLIST idref="russian-female-christian" title="Christian Name"/>
-			<SPACE/>
-			<GETRULE idref="russian-historical-female-patrynomic-rule" title="Patrynomic"/>
-			<SPACE/>
-			<GETRULE idref="russian-historical-female-patrynomic-rule2" title="Patrynomic"/>
-		</RULE>
-		<RULE weight="1">
-			<GETLIST idref="russian-female-christian" title="Christian Name"/>
-			<SPACE/>
-			<GETLIST idref="russian-female-old-russian" title="Old Russian Name"/>
-			<SPACE/>
-			<GETRULE idref="russian-historical-female-patrynomic-rule" title="Patrynomic"/>
-		</RULE>
-		<RULE weight="1">
-			<GETLIST idref="russian-female-christian" title="Christian Name"/>
-			<SPACE/>
-			<GETLIST idref="russian-female-old-russian" title="Old Russian Name"/>
-			<SPACE/>
-			<GETRULE idref="russian-historical-female-patrynomic-rule" title="Patrynomic"/>
-			<SPACE/>
-			<GETRULE idref="russian-historical-female-patrynomic-rule2" title="Patrynomic"/>
-		</RULE>
-		<RULE weight="2">
-			<GETLIST idref="russian-female-christian" title="Christian Name"/>
-			<SPACE/>
-			<GETLIST idref="russian-female-old-russian" title="Old Russian Name"/>
-			<SPACE/>
-			<GETRULE idref="russian-historical-female-patrynomic-rule" title="Patrynomic"/>
-			<SPACE/>
-			<GETRULE idref="russian-historical-female-surname-rule" title="Surname"/>
-		</RULE>
-		<RULE weight="1">
-			<GETLIST idref="russian-female-christian" title="Christian Name"/>
-			<SPACE/>
-			<GETRULE idref="russian-historical-female-patrynomic-rule" title="Patrynomic"/>
-			<SPACE/>
-			<GETRULE idref="russian-historical-female-patrynomic-rule2" title="Patrynomic"/>
-			<SPACE/>
-			<GETRULE idref="russian-historical-female-surname-rule" title="Surname"/>
-		</RULE>
-	</RULESET>
+	<!-- female -->
 	<RULESET id="russian-historical-female-patrynomic-rule" title="Russian Patrynomic" usage="public">
 		<CATEGORY title="Sex: Female"/>
 		<RULE weight="9">
@@ -291,25 +392,6 @@
 			<GETLIST idref="russian-female-modifier" title="Granddaughter of"/>
 			<SPACE/>
 			<GETLIST idref="russian-female-old-russian-patronymic" title="Old Russian Patronymic Name"/>
-		</RULE>
-	</RULESET>
-	<RULESET id="russian-historical-female-patrynomic-rule2" title="Russian Patrynomic" usage="public">
-		<CATEGORY title="Sex: Female"/>
-		<RULE weight="9">
-			<GETLIST idref="russian-female-christian-patronymic2" title="Christian Patronymic Name"/>
-		</RULE>
-		<RULE weight="12">
-			<GETLIST idref="russian-female-old-russian-patronymic2" title="Old Russian Patronymic Name"/>
-		</RULE>
-		<RULE weight="1">
-			<GETLIST idref="russian-female-modifier2" title="Granddaughter of"/>
-			<SPACE/>
-			<GETLIST idref="russian-female-christian-patronymic2" title="Christian Patronymic Name"/>
-		</RULE>
-		<RULE weight="2">
-			<GETLIST idref="russian-female-modifier2" title="Granddaughter of"/>
-			<SPACE/>
-			<GETLIST idref="russian-female-old-russian-patronymic2" title="Old Russian Patronymic Name"/>
 		</RULE>
 	</RULESET>
 	<RULESET id="russian-historical-female-surname-rule" title="Russian Surname" usage="public">
@@ -377,52 +459,8 @@
 		<RULE weight="41">
 			<GETLIST idref="russian-locative-skii" title="Location"/>
 		</RULE>
-	</RULESET>
-	<!-- Towns -->
-	<RULESET id="russian-historical-village-rule" title="Russian Location" usage="final">
-		<CATEGORY title="Sex: Other"/>
-		<CATEGORY title="Historical: Late Middle Ages (800-1300)"/>
-		<CATEGORY title="Historical: Renaissance (1300-1500)"/>
-		<CATEGORY title="Historical: Gunpowder Age (1500-1900)"/>
-		<CATEGORY title="All"/>
-		<RULE weight="83">
-			<GETLIST idref="russian-locative-consinants" title="Village"/>
-		</RULE>
-		<RULE weight="4">
-			<GETLIST idref="russian-locative-ts" title="Village"/>
-		</RULE>
-		<RULE weight="4">
-			<GETLIST idref="russian-locative-t" title="Village"/>
-		</RULE>
-		<RULE weight="22">
-			<GETLIST idref="russian-locative-sk" title="Village"/>
-		</RULE>
-		<RULE weight="29">
-			<GETLIST idref="russian-locative-a" title="Village"/>
-		</RULE>
-		<RULE weight="5">
-			<GETLIST idref="russian-locative-e" title="Village"/>
-		</RULE>
-		<RULE weight="11">
-			<GETLIST idref="russian-locative-i" title="Village"/>
-		</RULE>
-		<RULE weight="5">
-			<GETLIST idref="russian-locative-o" title="Village"/>
-		</RULE>
-		<RULE weight="1">
-			<GETLIST idref="russian-locative-u" title="Village"/>
-		</RULE>
-		<RULE weight="3">
-			<GETLIST idref="russian-locative-y" title="Village"/>
-		</RULE>
-		<RULE weight="1">
-			<GETLIST idref="russian-locative-ii" title="Village"/>
-		</RULE>
-		<RULE weight="41">
-			<GETLIST idref="russian-locative-skii" title="Village"/>
-		</RULE>
-	</RULESET>
-	<!--Names-->
+	</RULESET>	
+<!--Names-->
 	<LIST id="russian-male-christian" title="Christian Name">
 		<VALUE>Aleksei</VALUE>
 		<VALUE>Andrei</VALUE>
@@ -432,9 +470,10 @@
 		<VALUE>Foma</VALUE>
 		<VALUE>Georgii<SUBVALUE type="meaning">George</SUBVALUE></VALUE>
 		<VALUE>Grigorii<SUBVALUE type="meaning">Gregory</SUBVALUE></VALUE>
-		<VALUE>Iakov</VALUE>
+		<VALUE>Iakov<SUBVALUE type="meaning">Jacob</SUBVALUE></VALUE>
 		<VALUE>Iosif<SUBVALUE type="meaning">Joseph</SUBVALUE></VALUE>
 		<VALUE>Ivan<SUBVALUE type="meaning">John</SUBVALUE></VALUE>
+		<VALUE>Kazimir <SUBVALUE type="meaning">Keeper or destroyer of peace</SUBVALUE></VALUE>
 		<VALUE>Kuz'ma</VALUE>
 		<VALUE>Maksim</VALUE>
 		<VALUE>Matfei</VALUE>
@@ -2307,7 +2346,7 @@
 		<VALUE>Zvezdocheta</VALUE>
 		<VALUE>Zvonimira</VALUE>
 	</LIST>
-	<!--Patronymics-->
+<!--Patronymics-->
 	<LIST id="russian-male-christian-patronymic" title="Christian Patronymic Name">
 		<VALUE>Alekseev<SUBVALUE type="meaning">Son of Aleksei</SUBVALUE></VALUE>
 		<VALUE>Andreev<SUBVALUE type="meaning">Son of Andrei</SUBVALUE></VALUE>
@@ -2334,7 +2373,7 @@
 		<VALUE>Vasilievich<SUBVALUE type="meaning">Son of Vasilij</SUBVALUE></VALUE>
 		<VALUE>Zakhariev<SUBVALUE type="meaning">Son of Zaxarii</SUBVALUE></VALUE>
 	</LIST>
-	<!--Patronymics-->
+	<!-- Repeated Content 
 	<LIST id="russian-male-christian-patronymic2" title="Christian Patronymic Name">
 		<VALUE>Alekseev<SUBVALUE type="meaning">Son of Aleksei</SUBVALUE></VALUE>
 		<VALUE>Andreev<SUBVALUE type="meaning">Son of Andrei</SUBVALUE></VALUE>
@@ -2361,6 +2400,7 @@
 		<VALUE>Vasilievich<SUBVALUE type="meaning">Son of Vasilij</SUBVALUE></VALUE>
 		<VALUE>Zakhariev<SUBVALUE type="meaning">Son of Zaxarii</SUBVALUE></VALUE>
 	</LIST>
+    -->
 	<LIST id="russian-female-christian-patronymic" title="Christian Patronymic Name">
 		<VALUE>Alekseeva<SUBVALUE type="meaning">Daughter of Aleksei</SUBVALUE></VALUE>
 		<VALUE>Andreeva<SUBVALUE type="meaning">Daughter of Andrei</SUBVALUE></VALUE>
@@ -2385,6 +2425,7 @@
 		<VALUE>Vasilieva<SUBVALUE type="meaning">Daughter of Vasilij</SUBVALUE></VALUE>
 		<VALUE>Zakharieva<SUBVALUE type="meaning">Daughter of Zaxarii</SUBVALUE></VALUE>
 	</LIST>
+	<!-- Repeated Content 
 	<LIST id="russian-female-christian-patronymic2" title="Christian Patronymic Name">
 		<VALUE>Alekseeva<SUBVALUE type="meaning">Daughter of Aleksei</SUBVALUE></VALUE>
 		<VALUE>Andreeva<SUBVALUE type="meaning">Daughter of Andrei</SUBVALUE></VALUE>
@@ -2409,6 +2450,7 @@
 		<VALUE>Vasilieva<SUBVALUE type="meaning">Daughter of Vasilij</SUBVALUE></VALUE>
 		<VALUE>Zakharieva<SUBVALUE type="meaning">Daughter of Zaxarii</SUBVALUE></VALUE>
 	</LIST>
+    -->
 	<LIST id="russian-male-old-russian-patronymic" title="Old Russian Patronymic Name">
 		<VALUE>Boldin<SUBVALUE type="meaning">Son of Bolda</SUBVALUE></VALUE>
 		<VALUE>Buiakov<SUBVALUE type="meaning">Son of Buiak</SUBVALUE></VALUE>
@@ -2447,6 +2489,7 @@
 		<VALUE>Zhiznobudov<SUBVALUE type="meaning">Son of Zhiznobud</SUBVALUE></VALUE>
 		<VALUE>Zubov<SUBVALUE type="meaning">Son of Zub</SUBVALUE></VALUE>
 	</LIST>
+	<!-- repeated content
 	<LIST id="russian-male-old-russian-patronymic2" title="Old Russian Patronymic Name">
 		<VALUE>Boldin<SUBVALUE type="meaning">Son of Bolda</SUBVALUE></VALUE>
 		<VALUE>Buiakov<SUBVALUE type="meaning">Son of Buiak</SUBVALUE></VALUE>
@@ -2485,6 +2528,7 @@
 		<VALUE>Zhiznobudov<SUBVALUE type="meaning">Son of Zhiznobud</SUBVALUE></VALUE>
 		<VALUE>Zubov<SUBVALUE type="meaning">Son of Zub</SUBVALUE></VALUE>
 	</LIST>
+    -->
 	<LIST id="russian-female-old-russian-patronymic" title="Old Russian Patronymic Name">
 		<VALUE>Boldina<SUBVALUE type="meaning">Daughter of Bolda</SUBVALUE></VALUE>
 		<VALUE>Buiakova<SUBVALUE type="meaning">Daughter of Buiak</SUBVALUE></VALUE>
@@ -2523,6 +2567,7 @@
 		<VALUE>Zhiznobudova<SUBVALUE type="meaning">Daughter of Zhiznobud</SUBVALUE></VALUE>
 		<VALUE>Zubova<SUBVALUE type="meaning">Daughter of Zub</SUBVALUE></VALUE>
 	</LIST>
+	<!-- Duplicate Content
 	<LIST id="russian-female-old-russian-patronymic2" title="Old Russian Patronymic Name">
 		<VALUE>Boldina<SUBVALUE type="meaning">Daughter of Bolda</SUBVALUE></VALUE>
 		<VALUE>Buiakova<SUBVALUE type="meaning">Daughter of Buiak</SUBVALUE></VALUE>
@@ -2561,6 +2606,18 @@
 		<VALUE>Zhiznobudova<SUBVALUE type="meaning">Daughter of Zhiznobud</SUBVALUE></VALUE>
 		<VALUE>Zubova<SUBVALUE type="meaning">Daughter of Zub</SUBVALUE></VALUE>
 	</LIST>
+    -->
+	<LIST id="russian-male-patrynomic-suffix" title="Patrynomic Suffix">
+		<VALUE>ovich<SUBVALUE type="meaning">'s Son</SUBVALUE></VALUE>
+		<VALUE>evich<SUBVALUE type="meaning">'s Son</SUBVALUE></VALUE>
+		<VALUE>ich<SUBVALUE type="meaning">'s Son</SUBVALUE></VALUE>
+	</LIST>
+	<LIST id="russian-female-patrynomic-suffix" title="Patrynomic Suffix">
+		<VALUE>ovna<SUBVALUE type="meaning">'s Daughter</SUBVALUE></VALUE>
+		<VALUE>evna<SUBVALUE type="meaning">'s Daughter</SUBVALUE></VALUE>
+		<VALUE>ichna<SUBVALUE type="meaning">'s Daughter</SUBVALUE></VALUE>
+		<VALUE>inichna<SUBVALUE type="meaning">'s Daughter</SUBVALUE></VALUE>
+	</LIST>
 	<LIST id="russian-female-modifier" title="Modifier">
 		<VALUE>doch'</VALUE>
 		<VALUE>zhena</VALUE>
@@ -2570,6 +2627,7 @@
 		<VALUE>vnuka<SUBVALUE type="meaning">grandaughter of</SUBVALUE></VALUE>
 		<VALUE>vnuchka<SUBVALUE type="meaning">grandaughter of</SUBVALUE></VALUE>
 	</LIST>
+	<!-- Why is this repeated?
 	<LIST id="russian-female-modifier2" title="Modifier">
 		<VALUE>doch'</VALUE>
 		<VALUE>zhena</VALUE>
@@ -2579,13 +2637,16 @@
 		<VALUE>vnuka<SUBVALUE type="meaning">grandaughter of</SUBVALUE></VALUE>
 		<VALUE>vnuchka<SUBVALUE type="meaning">grandaughter of</SUBVALUE></VALUE>
 	</LIST>
+	-->
 	<LIST id="russian-male-modifier" title="Modifier">
 		<VALUE>vnuk<SUBVALUE type="meaning">grandson of</SUBVALUE></VALUE>
 	</LIST>
+	<!-- Why is this repeated?
 	<LIST id="russian-male-modifier2" title="Modifier">
 		<VALUE>vnuk<SUBVALUE type="meaning">grandson of</SUBVALUE></VALUE>
 	</LIST>
-	<!--Bynames-->
+	-->
+<!--Bynames-->
 	<LIST id="russian-male-byname" title="Byname">
 		<VALUE>Afim'i</VALUE>
 		<VALUE>Beloi</VALUE>
@@ -3633,4 +3694,3 @@
 		<VALUE>Iziaslavl' Galitskii</VALUE>
 	</LIST>
 </GENERATOR>
-

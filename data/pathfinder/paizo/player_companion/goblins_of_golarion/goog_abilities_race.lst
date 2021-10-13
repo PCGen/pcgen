@@ -5,10 +5,26 @@ SOURCELONG:Pathfinder Player Companion: Goblins of Golarion	SOURCESHORT:GOOG	SOU
 #ORIGINAL ENTRY DATE: 2013/07/14
 
 
-###Block: Mod for Adopted Social Trait
-# Ability Name						Unique Key				Category of Ability		Type			Bonus Ability Pool
-CATEGORY=Special Ability|Trait ~ Adopted.MOD														BONUS:ABILITYPOOL|Goblin Race Trait|1|PREABILITY:1,CATEGORY=Special Ability,Adoptive Race ~ Goblin
-Goblin							KEY:Adoptive Race ~ Goblin	CATEGORY:Special Ability	TYPE:AdoptiveRace
+# ==============================
+# RACE ABILITIES
+# ==============================
+
+# ------------------------------
+# Goblin
+# ------------------------------
+
+###NOTE: Race files are in core_essentials\races\goblin\
+
+###Block: Racial Traits
+# Ability Name							Source Page
+CATEGORY=Special Ability|Goblin ~ Ability Scores.MOD	SOURCEPAGE:Front Inside Cover
+CATEGORY=Special Ability|Goblin ~ Type.MOD		SOURCEPAGE:Front Inside Cover
+CATEGORY=Special Ability|Goblin ~ Size.MOD		SOURCEPAGE:Front Inside Cover
+CATEGORY=Special Ability|Goblin ~ Speed.MOD		SOURCEPAGE:Front Inside Cover
+CATEGORY=Special Ability|Goblin ~ Vision.MOD		SOURCEPAGE:Front Inside Cover
+CATEGORY=Special Ability|Goblin ~ Skilled.MOD		SOURCEPAGE:Front Inside Cover
+CATEGORY=Special Ability|Goblin ~ Languages.MOD		SOURCEPAGE:Front Inside Cover
+
 
 ###Block: Race Traits
 # Ability Name			Unique Key						Category of Ability		Type						Multiple Requirements																																														Define				Description																																																																															Bonus to skill					Modify VAR						Class Skill			Source Page

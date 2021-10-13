@@ -17,5 +17,5 @@ Treerazer			NAMEISPI:YES						STARTFEATS:1	SIZE:H	MOVE:Walk,60,Fly,60,Swim,40	RE
 
 ###Block: New Races
 # Race Name	SORTKEY		Starting Feats	Base size		Move			Ability								Nb Legs	Nb Hands	Main Race Type	Type				Source Page		FACT
-Gillman	SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	MOVE:Walk,30	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Gillman	LEGS:2	HANDS:2	RACETYPE:Humanoid	TYPE:Base.PC.Uncommon	SOURCEPAGE:p.310	FACT:IsPC|True
-Strix		SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	MOVE:Walk,30	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Strix	LEGS:2	HANDS:2	RACETYPE:Humanoid	TYPE:Base.PC.Uncommon	SOURCEPAGE:p.313	FACT:IsPC|True
+Gillman.MOD	SOURCEPAGE:p.310
+Strix.MOD	SOURCEPAGE:p.313

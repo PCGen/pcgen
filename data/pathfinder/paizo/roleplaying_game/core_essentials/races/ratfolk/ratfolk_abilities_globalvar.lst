@@ -1,0 +1,30 @@
+# Mon Aug 16 11:25:55 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Ratfolk
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define						Ability
+CATEGORY=Internal|Racial Traits ~ Ratfolk.MOD	DEFINE:Ratfolk_ReplaceAbilityScores|0	ABILITY:Ratfolk Racial Trait|AUTOMATIC|Ratfolk ~ Ability Scores|PREVAREQ:Ratfolk_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Ratfolk.MOD	DEFINE:Ratfolk_ReplaceType|0			ABILITY:Ratfolk Racial Trait|AUTOMATIC|Ratfolk ~ Type|PREVAREQ:Ratfolk_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Ratfolk.MOD	DEFINE:Ratfolk_ReplaceSize|0			ABILITY:Ratfolk Racial Trait|AUTOMATIC|Ratfolk ~ Size|PREVAREQ:Ratfolk_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Ratfolk.MOD	DEFINE:Ratfolk_ReplaceSpeed|0			ABILITY:Ratfolk Racial Trait|AUTOMATIC|Ratfolk ~ Speed|PREVAREQ:Ratfolk_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Ratfolk.MOD	DEFINE:Ratfolk_ReplaceVision|0		ABILITY:Ratfolk Racial Trait|AUTOMATIC|Ratfolk ~ Vision|PREVAREQ:Ratfolk_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Ratfolk.MOD	DEFINE:Ratfolk_ReplaceRodentEmpathy|0	ABILITY:Ratfolk Racial Trait|AUTOMATIC|Ratfolk ~ Rodent Empathy|PREVAREQ:Ratfolk_ReplaceRodentEmpathy,0
+CATEGORY=Internal|Racial Traits ~ Ratfolk.MOD	DEFINE:Ratfolk_ReplaceSwarming|0		ABILITY:Ratfolk Racial Trait|AUTOMATIC|Ratfolk ~ Swarming|PREVAREQ:Ratfolk_ReplaceSwarming,0
+CATEGORY=Internal|Racial Traits ~ Ratfolk.MOD	DEFINE:Ratfolk_ReplaceTinker|0		ABILITY:Ratfolk Racial Trait|AUTOMATIC|Ratfolk ~ Tinker|PREVAREQ:Ratfolk_ReplaceTinker,0
+CATEGORY=Internal|Racial Traits ~ Ratfolk.MOD	DEFINE:Ratfolk_ReplaceLanguages|0		ABILITY:Ratfolk Racial Trait|AUTOMATIC|Ratfolk ~ Languages|PREVAREQ:Ratfolk_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Ratfolk.MOD	BONUS:VAR|Ratfolk_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ratfolk_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Ratfolk.MOD	BONUS:VAR|Ratfolk_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ratfolk_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Ratfolk.MOD	BONUS:VAR|Ratfolk_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ratfolk_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Ratfolk.MOD	BONUS:VAR|Ratfolk_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ratfolk_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Ratfolk.MOD	BONUS:VAR|Ratfolk_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ratfolk_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Ratfolk.MOD	BONUS:VAR|Ratfolk_ReplaceRodentEmpathy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ratfolk_ReplaceRodentEmpathy=True
+CATEGORY=Internal|Racial Traits ~ Ratfolk.MOD	BONUS:VAR|Ratfolk_ReplaceSwarming|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ratfolk_ReplaceSwarming=True
+CATEGORY=Internal|Racial Traits ~ Ratfolk.MOD	BONUS:VAR|Ratfolk_ReplaceTinker|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ratfolk_ReplaceTinker=True
+CATEGORY=Internal|Racial Traits ~ Ratfolk.MOD	BONUS:VAR|Ratfolk_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Ratfolk_ReplaceLanguages=True

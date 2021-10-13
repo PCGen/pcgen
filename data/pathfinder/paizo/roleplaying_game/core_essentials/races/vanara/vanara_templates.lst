@@ -1,0 +1,17 @@
+# Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+###Block: Racial Heritage
+# Template Name	Unique Key				Visible	Template		Type				FACT
+Vanara		KEY:Racial Heritage ~ Vanara	VISIBLE:NO	TEMPLATE:IsVanara	TYPE:Racial Heritage	FACT:IsVanara|True
+IsVanara							VISIBLE:NO
+
+
+###Block: Creature Subtypes
+# Template Name	Visible	Race Subtype
+Vanara		VISIBLE:NO	RACESUBTYPE:Vanara
+
+
+###Block: Race Builder Humanoid Subtypes
+# Template Name	Unique Key					Visible	Race Subtype		Type
+Vanara		KEY:Race Builder Subtype ~ Vanara	VISIBLE:NO	RACESUBTYPE:Vanara	TYPE:Race Builder Subtype

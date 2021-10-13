@@ -1,0 +1,32 @@
+# Mon Aug  2 19:58:18 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Kitsune
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define											Ability
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	DEFINE:Kitsune_ReplaceAbilityScores|0						ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Ability Scores|PREVAREQ:Kitsune_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	DEFINE:Kitsune_ReplaceType|0								ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Type|PREVAREQ:Kitsune_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	DEFINE:Kitsune_ReplaceSize|0								ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Size|PREVAREQ:Kitsune_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	DEFINE:Kitsune_ReplaceSpeed|0								ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Speed|PREVAREQ:Kitsune_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	DEFINE:Kitsune_ReplaceVision|0							ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Vision|PREVAREQ:Kitsune_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	DEFINE:Kitsune_ReplaceChangeShape|0							ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Change Shape|PREVAREQ:Kitsune_ReplaceChangeShape,0
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	DEFINE:Kitsune_ReplaceAgile|0								ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Agile|PREVAREQ:Kitsune_ReplaceAgile,0
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	DEFINE:Kitsune_ReplaceKitsuneMagic|0						ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Kitsune Magic|PREVAREQ:Kitsune_ReplaceKitsuneMagic,0
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	DEFINE:Kitsune_ReplaceNaturalWeapons|0						ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Natural Weapons|PREVAREQ:Kitsune_ReplaceNaturalWeapons,0
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	DEFINE:Kitsune_ReplaceLanguages|0	DEFINE:Kitsune_AlternateLanguages|0	ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Languages|PREVAREQ:Kitsune_ReplaceLanguages,0|PREVAREQ:Kitsune_AlternateLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	BONUS:VAR|Kitsune_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kitsune_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	BONUS:VAR|Kitsune_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kitsune_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	BONUS:VAR|Kitsune_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kitsune_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	BONUS:VAR|Kitsune_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kitsune_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	BONUS:VAR|Kitsune_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kitsune_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	BONUS:VAR|Kitsune_ReplaceChangeShape|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kitsune_ReplaceChangeShape=True
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	BONUS:VAR|Kitsune_ReplaceAgile|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kitsune_ReplaceAgile=True
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	BONUS:VAR|Kitsune_ReplaceKitsuneMagic|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kitsune_ReplaceKitsuneMagic=True
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	BONUS:VAR|Kitsune_ReplaceNaturalWeapons|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kitsune_ReplaceNaturalWeapons=True
+CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	BONUS:VAR|Kitsune_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kitsune_ReplaceLanguages=True

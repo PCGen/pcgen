@@ -9,9 +9,6 @@ SETTING:Pathfinder Campaign Setting
 PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
 PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
 PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
-PRECAMPAIGN:1,INCLUDES=Bestiary,INCLUDES=Bestiary ~ Player Options Only
-PRECAMPAIGN:1,INCLUDES=Bestiary 2,INCLUDES=Bestiary 2 ~ Player Options Only
-PRECAMPAIGN:1,INCLUDES=Bestiary 3,INCLUDES=Bestiary 3 ~ Player Options Only
 PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
 PRECAMPAIGN:1,INCLUDES=Ultimate Combat
 PRECAMPAIGN:1,INCLUDES=Ultimate Equipment
@@ -59,7 +56,6 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Campaign Setting: Inner Sea R
 # Data files
 ABILITY:isr_abilities.lst
 ABILITY:isr_abilities_race.lst
-ABILITYCATEGORY:isr_abilitycategories.lst
 EQUIPMENT:isr_equip_arms_armor.lst
 EQUIPMENT:isr_equip_general.lst
 ABILITY:isr_feats.lst
@@ -69,20 +65,63 @@ SKILL:isr_skills.lst
 SPELL:isr_spells.lst
 TEMPLATE:isr_templates.lst
 
-PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\android\_android_race.pcc
-PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\aquatic elf\_aquaticelf_race.pcc
-PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\gathlain\_gathlain_race.pcc
-PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\ghoran\_ghoran_race.pcc
-PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\kasatha\_kasatha_race.pcc
-PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\lashunta\_lashunta_race.pcc
-PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\monkey goblin\_monkeygoblin_race.pcc
-PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\skinwalker\_skinwalker_race.pcc
-PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\skinwalker\_skinwalker_race_subrace.pcc
-PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\syrinx\_syrinx_race.pcc
-PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\triaxian\_triaxian_race.pcc
-PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\trox\_trox_race.pcc
-PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\wyrwood\_wyrwood_race.pcc
-PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\wyvaran\_wyvaran_race.pcc
+# Core Races
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\dwarf\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\elf\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\gnome\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\half_elf\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\half_orc\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\halfling\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\human\_race.pcc
+
+# Other Races
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\aasimar\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\aasimar\_subrace.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\android\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\aquatic_elf\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\catfolk\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\changeling\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\dhampir\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\dhampir\_subrace.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\drow\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\duergar\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\fetchling\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\gathlain\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\ghoran\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\gillman\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\goblin\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\grippli\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\hobgoblin\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\ifrit\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\kasatha\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\kitsune\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\kobold\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\lashunta\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\merfolk\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\monkey_goblin\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\nagaji\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\orc\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\oread\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\ratfolk\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\samsaran\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\skinwalker\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\skinwalker\_subrace.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\strix\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\suli\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\svirfneblin\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\sylph\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\syrinx\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\tengu\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\tiefling\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\tiefling\_subrace.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\triaxian\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\trox\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\undine\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\vanara\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\vishkanya\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\wayang\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\wyrwood\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\wyvaran\_race.pcc
 
 
 FORWARDREF:CLASSSPELLLIST|Bloodrager,Shaman

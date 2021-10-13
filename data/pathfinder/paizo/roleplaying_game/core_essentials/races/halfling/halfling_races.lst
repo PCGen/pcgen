@@ -1,0 +1,6 @@
+# Wed May 19 19:40:40 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+###Block: Playable Races
+# Race Name	SORTKEY		Starting Feats	Base size		Move			Save bonus									Ability								Nb Legs	Nb Hands	Main Race Type	Type				Template		Source Page		FACT
+Halfling	SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|S	MOVE:Walk,20	BONUS:SAVE|ALL|Halfling_HalflingLuck_SaveBonus|TYPE=Racial	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Halfling	LEGS:2	HANDS:2	RACETYPE:Humanoid	TYPE:Humanoid.Base.PC	TEMPLATE:Halfling	SOURCEPAGE:p.xx	FACT:IsPC|true

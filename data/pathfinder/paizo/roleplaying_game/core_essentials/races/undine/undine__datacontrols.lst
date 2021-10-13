@@ -1,0 +1,22 @@
+# Thu Aug 19 21:10:42 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Undine
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsUndine	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Undine	EXPLANATION:Determines whether the character is an Undine
+
+###Block: Racial Traits
+# Name							Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Undine_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Undine Ability Scores		EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Undine_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Undine Type			EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Undine_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Undine Size			EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Undine_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Undine Speed			EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Undine_ReplaceVision		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Undine Vision			EXPLANATION:Replaces the Vision Racial Trait
+FACTDEF:ABILITY|Undine_ReplaceSpellLikeAbility	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Undine Spell-Like Ability	EXPLANATION:Replaces the Spell-Like Ability Racial Trait
+FACTDEF:ABILITY|Undine_ReplaceEnergyResistance	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Undine Energy Resistance	EXPLANATION:Replaces the Energy Resistance Racial Trait
+FACTDEF:ABILITY|Undine_ReplaceWaterAffinity	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Undine Water Affinity		EXPLANATION:Replaces the Water Affinity Racial Trait
+FACTDEF:ABILITY|Undine_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Undine Languages		EXPLANATION:Replaces the Languages Racial Trait

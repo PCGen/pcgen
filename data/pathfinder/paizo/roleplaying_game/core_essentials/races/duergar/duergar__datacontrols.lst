@@ -1,0 +1,25 @@
+# Mon Jul 26 10:18:15 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Duergar
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsDuergar	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Duergar	EXPLANATION:Determines whether the character is a Duergar
+
+###Block: Racial Traits
+# Name								Dataformat			Required	Selectable		Visible	Displayname										Explanation
+FACTDEF:ABILITY|Duergar_ReplaceAbilityScores		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Duergar Ability Scores				EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Duergar_ReplaceType				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Duergar Type						EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Duergar_ReplaceSize				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Duergar Size						EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Duergar_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Duergar Speed						EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Duergar_ReplaceVision			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Duergar Vision						EXPLANATION:Replaces the Vision Racial Trait
+FACTDEF:ABILITY|Duergar_ReplaceDuergarImmunities	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Duergar Duergar Immunities				EXPLANATION:Replaces the Duergar Immunities Racial Trait
+FACTDEF:ABILITY|Duergar_ReplaceStability			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Duergar Stability					EXPLANATION:Replaces the Stability Racial Trait
+FACTDEF:ABILITY|Duergar_ReplaceSpellLikeAbilities	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Duergar Spell-Like Abilities			EXPLANATION:Replaces the Spell-Like Abilities Racial Trait
+FACTDEF:ABILITY|Duergar_ReplaceSLAEnlargePerson		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Duergar Enlarge Person Spell-Like Ability	EXPLANATION:Replaces the Enlarge Person Spell-Like Ability Racial Trait
+FACTDEF:ABILITY|Duergar_ReplaceSLAInvisibility		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Duergar Invisibility Spell-Like Ability		EXPLANATION:Replaces the Invisibility Spell-Like Ability Racial Trait
+FACTDEF:ABILITY|Duergar_ReplaceLightSensitivity		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Duergar Light Sensitivity				EXPLANATION:Replaces the Light Sensitivity Racial Trait
+FACTDEF:ABILITY|Duergar_ReplaceLanguages			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Duergar Languages					EXPLANATION:Replaces the Languages Racial Trait

@@ -3,10 +3,7 @@ SOURCELONG:Dragon Empires Gazetteer	SOURCESHORT:DEG	SOURCEWEB:http://paizo.com/p
 
 # Modern Eastern Languages
 # Language	Type
-Nagaji	TYPE:Spoken.Written.Read
-Samsaran	TYPE:Spoken.Written.Read
 Senzar	TYPE:Spoken.Written.Read
-Wayang	TYPE:Spoken.Written.Read
 
 # Modern Human Eastern Languages
 Dtang		TYPE:Spoken.Written.Read.HumanRegional

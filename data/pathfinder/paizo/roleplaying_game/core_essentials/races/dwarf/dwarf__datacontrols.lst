@@ -1,0 +1,25 @@
+# Tue May 11 18:30:36 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Dwarf
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname		Explanation
+FACTDEF:TEMPLATE|IsDwarf	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Dwarf	EXPLANATION:Determines whether the character is a Dwarf
+
+###Block: Racial Traits
+# Name							Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Dwarf_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Dwarf Ability Scores		EXPLANATION:Replaces the Ability Scores
+FACTDEF:ABILITY|Dwarf_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Dwarf Size			EXPLANATION:Replaces the Medium Racial Trait
+FACTDEF:ABILITY|Dwarf_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Dwarf Speed			EXPLANATION:Replaces the Slow and Steady Racial Trait
+FACTDEF:ABILITY|Dwarf_ReplaceVision			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Dwarf Vision			EXPLANATION:Replaces the Darkvision Racial Trait
+FACTDEF:ABILITY|Dwarf_ReplaceDefensiveTraining	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Dwarf Defensive Training	EXPLANATION:Replaces the Defensive Training Racial Trait
+FACTDEF:ABILITY|Dwarf_ReplaceGreed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Dwarf Greed			EXPLANATION:Replaces the Greed Racial Trait
+FACTDEF:ABILITY|Dwarf_ReplaceHatred			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Dwarf Hatred			EXPLANATION:Replaces the Hatred Racial Trait
+FACTDEF:ABILITY|Dwarf_ReplaceHardy			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Dwarf Hardy			EXPLANATION:Replaces the Hardy Racial Trait
+FACTDEF:ABILITY|Dwarf_ReplaceStability		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Dwarf Stability			EXPLANATION:Replaces the Stability Racial Trait
+FACTDEF:ABILITY|Dwarf_ReplaceStonecunning		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Dwarf Stonecunning		EXPLANATION:Replaces the Stonecunning Racial Trait
+FACTDEF:ABILITY|Dwarf_ReplaceWeaponFamiliarity	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Dwarf Weapon Familiarity	EXPLANATION:Replaces the Weapon Familiarity Racial Trait
+FACTDEF:ABILITY|Dwarf_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Dwarf Languages			EXPLANATION:Replaces the Languages Racial Trait

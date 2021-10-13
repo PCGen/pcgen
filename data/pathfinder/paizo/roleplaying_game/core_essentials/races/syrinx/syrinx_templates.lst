@@ -1,14 +1,10 @@
+# Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
 
 
 ###Block: Racial Heritage
-# Template Name	Unique Key				Visible	Type				FACT
-Syrinx		KEY:Racial Heritage ~ Syrinx	VISIBLE:NO	TYPE:Racial Heritage	FACT:IsSyrinx|True
-
-
-###Block: Languages
-# Template Name		Visible	Bonus Languages
-Bonus Language ~ Strix	VISIBLE:NO	LANGBONUS:Strix
-Bonus Language ~ Syrinx	VISIBLE:NO	LANGBONUS:Syrinx
+# Template Name	Unique Key				Visible	Template		Type				FACT
+Syrinx		KEY:Racial Heritage ~ Syrinx	VISIBLE:NO	TEMPLATE:IsSyrinx	TYPE:Racial Heritage	FACT:IsSyrinx|True
+IsSyrinx							VISIBLE:NO
 
 
 ###Block: Creature Subtypes

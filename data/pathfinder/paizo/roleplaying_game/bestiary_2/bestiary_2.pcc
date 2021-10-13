@@ -8,7 +8,7 @@ BOOKTYPE:Supplement
 SETTING:Pathfinder
 PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
 PRECAMPAIGN:1,INCLUDES=Bestiary
-!PRECAMPAIGN:1,INCLUDES=Bestiary 2 ~ Player Options Only
+!PRECAMPAIGN:1,Bestiary 2 ~ Player Options Only
 !PRECAMPAIGN:1,Pathfinder RPG Core Supplements,Pathfinder RPG for Game Masters
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
@@ -95,9 +95,8 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Bestiary 2" Copyright 201
 #EXTRAFILE:OGL.txt
 
 DATACONTROL:b2__datacontrols.lst
-
-
 ABILITY:b2_abilities_globalvar.lst
+
 ABILITY:b2_abilities_race.lst
 ABILITYCATEGORY:b2_abilitycategories.lst
 EQUIPMENT:b2_equip_arms_armor.lst
@@ -109,15 +108,5 @@ SKILL:b2_skills.lst
 TEMPLATE:b2_templates.lst
 WEAPONPROF:b2_profs_weapon.lst
 
-# Separate out races used by ARG to simplify dependencies
-ABILITY:b2_abilities_race_arg.lst
-ABILITYCATEGORY:b2_abilitycategories_arg.lst
-LANGUAGE:b2_languages_arg.lst
-RACE:b2_races_arg.lst
-TEMPLATE:b2_templates_arg.lst
-
-# Familiars
-ABILITY:b2_abilities_familiar_race.lst
-ABILITY:b2_abilities_familiar.lst
-COMPANIONMOD:b2_companionmods_familiar.lst
-RACE:b2_races_familiar.lst
+# Load player-useable races and options
+PCC:@\pathfinder\paizo\roleplaying_game\bestiary_2\_bestiary_2_for_players.pcc

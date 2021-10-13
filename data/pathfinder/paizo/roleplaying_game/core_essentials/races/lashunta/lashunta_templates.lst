@@ -1,13 +1,10 @@
+# Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
 
 
 ###Block: Racial Heritage
-# Template Name	Unique Key					Visible	Type				FACT
-Lashunta		KEY:Racial Heritage ~ Lashunta	VISIBLE:NO	TYPE:Racial Heritage	FACT:IsLashunta|True
-
-
-###Block: Languages
-# Template Name			Visible	Bonus Languages
-Bonus Language ~ Lashunta	VISIBLE:NO	LANGBONUS:Lashunta
+# Template Name	Unique Key					Visible	Template			Type				FACT
+Lashunta		KEY:Racial Heritage ~ Lashunta	VISIBLE:NO	TEMPLATE:IsLashunta	TYPE:Racial Heritage	FACT:IsLashunta|True
+IsLashunta								VISIBLE:NO
 
 
 ###Block: Creature Subtypes

@@ -53,8 +53,8 @@ RACE:botm_races.lst
 SPELL:botm_spells.lst
 TEMPLATE:botm_templates.lst
 
-PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\skinwalker\_skinwalker_race.pcc
-PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\skinwalker\_skinwalker_race_subrace.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\skinwalker\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\skinwalker\_subrace.pcc
 
 
 # ENTRY DATE: 2015-01

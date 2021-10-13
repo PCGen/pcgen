@@ -1,0 +1,17 @@
+# Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+###Block: Racial Heritage
+# Template Name	Unique Key					Visible	Template			Type				FACT
+Fetchling		KEY:Racial Heritage ~ Fetchling	VISIBLE:NO	TEMPLATE:IsFetchling	TYPE:Racial Heritage	FACT:IsFetchling|True
+IsFetchling								VISIBLE:NO
+
+
+###Block: Languages
+# Template Name					Visible	Bonus Languages
+Bonus Language ~ D'ziriak ~ Cannot Speak	VISIBLE:NO	LANGBONUS:D'ziriak (cannot speak)
+
+
+###Block: Creature Subtypes
+# Template Name	Visible	Race Subtype
+Native		VISIBLE:NO	RACESUBTYPE:Native

@@ -1,0 +1,30 @@
+# Fri Aug 13 10:59:35 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Oread
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define											Ability
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	DEFINE:Oread_ReplaceAbilityScores|0							ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Ability Scores|PREVAREQ:Oread_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	DEFINE:Oread_ReplaceType|0								ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Type|PREVAREQ:Oread_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	DEFINE:Oread_ReplaceSize|0								ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Size|PREVAREQ:Oread_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	DEFINE:Oread_ReplaceSpeed|0								ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Speed|PREVAREQ:Oread_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	DEFINE:Oread_ReplaceVision|0								ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Vision|PREVAREQ:Oread_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	DEFINE:Oread_ReplaceSpellLikeAbility|0						ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Spell-Like Ability|PREVAREQ:Oread_ReplaceSpellLikeAbility,0
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	DEFINE:Oread_ReplaceEnergyResistance|0						ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Energy Resistance|PREVAREQ:Oread_ReplaceEnergyResistance,0
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	DEFINE:Oread_ReplaceEarthAffinity|0	DEFINE:Oread_AlternateAffinity|0	ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Earth Affinity|PREVAREQ:Oread_ReplaceEarthAffinity,0|PREVAREQ:Oread_AlternateAffinity,0
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	DEFINE:Oread_ReplaceLanguages|0							ABILITY:Oread Racial Trait|AUTOMATIC|Oread ~ Languages|PREVAREQ:Oread_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	BONUS:VAR|Oread_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Oread_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	BONUS:VAR|Oread_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Oread_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	BONUS:VAR|Oread_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Oread_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	BONUS:VAR|Oread_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Oread_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	BONUS:VAR|Oread_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Oread_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	BONUS:VAR|Oread_ReplaceSpellLikeAbility|1|TYPE=Boolean|PREFACT:1,ABILITIES,Oread_ReplaceSpellLikeAbility=True
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	BONUS:VAR|Oread_ReplaceEnergyResistance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Oread_ReplaceEnergyResistance=True
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	BONUS:VAR|Oread_ReplaceEarthAffinity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Oread_ReplaceEarthAffinity=True
+CATEGORY=Internal|Racial Traits ~ Oread.MOD	BONUS:VAR|Oread_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Oread_ReplaceLanguages=True

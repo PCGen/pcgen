@@ -1,5 +1,7 @@
+# Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
 
 
 ###Block: Racial Heritage
-# Template Name	Unique Key				Visible	Type				FACT
-Wyvaran		KEY:Racial Heritage ~ Wyvaran	VISIBLE:NO	TYPE:Racial Heritage	FACT:IsWyvaran|True
+# Template Name	Unique Key				Visible	Template			Type				FACT
+Wyvaran		KEY:Racial Heritage ~ Wyvaran	VISIBLE:NO	TEMPLATE:IsWyvaran	TYPE:Racial Heritage	FACT:IsWyvaran|True
+IsWyvaran							VISIBLE:NO

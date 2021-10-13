@@ -1,0 +1,17 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: 21640 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Bestiary 4	SOURCESHORT:B4	SOURCEWEB:http://paizo.com/products/btpy91ds?Pathfinder-Roleplaying-Game-Bestiary-4	SOURCEDATE:2013-10
+
+
+###Block: Player Races
+# Race Name		Source Page
+Changeling.MOD	SOURCEPAGE:p.29
+Gathlain.MOD	SOURCEPAGE:p.122
+Kasatha.MOD		SOURCEPAGE:p.174
+Kitsune.MOD		SOURCEPAGE:p.175
+Nagaji.MOD		SOURCEPAGE:p.196
+Samsaran.MOD	SOURCEPAGE:p.198
+Trox.MOD		SOURCEPAGE:p.264
+Wayang.MOD		SOURCEPAGE:p.274
+Wyrwood.MOD		SOURCEPAGE:p.280
+Wyvaran.MOD		SOURCEPAGE:p.281

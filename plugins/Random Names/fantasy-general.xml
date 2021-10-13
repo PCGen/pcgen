@@ -14,7 +14,7 @@
 		</RULE>
 	</RULESET>
 	
-	<RULESET id="cg-fantasy-dwarf-male-rule" title="Dwarf" usage="final">
+	<RULESET id="cg-fantasy-dwarf-male-rule" title="General Dwarf" usage="public"> <!-- Small Nameset.  Included in Consolidated list. Otherwise hidden -->
 		<CATEGORY title="Fantasy: Dwarven" />
 		<CATEGORY title="All" />
 		<CATEGORY title="Sex: Male"/>
@@ -27,7 +27,7 @@
 			<GETLIST idref="cg-dwarf-last" title="Last" />
 		</RULE>
 	</RULESET>
-	<RULESET id="cg-fantasy-dwarf-female-rule" title="Dwarf" usage="final">
+	<RULESET id="cg-fantasy-dwarf-female-rule" title="General Dwarf" usage="public">
 		<CATEGORY title="Fantasy: Dwarven" />
 		<CATEGORY title="All" />
 		<CATEGORY title="Sex: Female"/>
@@ -41,7 +41,7 @@
 		</RULE>
 	</RULESET>
 	
-	<RULESET id="cg-fantasy-elf-male-rule" title="Elf" usage="final">
+	<RULESET id="cg-fantasy-elf-male-rule" title="General Elf" usage="public"> <!-- Small Nameset.  Included in Consolidated list. Otherwise hidden -->
 		<CATEGORY title="Fantasy: Elven" />
 		<CATEGORY title="All" />
 		<CATEGORY title="Sex: Male"/>
@@ -54,7 +54,7 @@
 			<GETLIST idref="cg-elf-last" title="Last" />
 		</RULE>
 	</RULESET>
-	<RULESET id="cg-fantasy-elf-female-rule" title="Elf" usage="final">
+	<RULESET id="cg-fantasy-elf-female-rule" title="General Elf" usage="public"> <!-- Small Nameset.  Included in Consolidated list. Otherwise hidden -->
 		<CATEGORY title="Fantasy: Elven" />
 		<CATEGORY title="All" />
 		<CATEGORY title="Sex: Female"/>
@@ -95,7 +95,7 @@
 		</RULE>
 	</RULESET>
 	
-	<RULESET id="cg-fantasy-half-elf-male-rule" title="Half-Elf" usage="final">
+	<RULESET id="cg-fantasy-half-elf-male-rule" title="Half-Elf" usage="final"> <!-- Small Nameset.  Included in Consolidated list. -->
 		<CATEGORY title="Fantasy: Half-Elven" />
 		<CATEGORY title="All" />
 		<CATEGORY title="Sex: Male"/>
@@ -108,7 +108,7 @@
 			<GETLIST idref="cg-half-elf-last" title="Last" />
 		</RULE>
 	</RULESET>
-	<RULESET id="cg-fantasy-half-elf-female-rule" title="Half-Elf" usage="final">
+	<RULESET id="cg-fantasy-half-elf-female-rule" title="Half-Elf" usage="final"> <!-- Small Nameset.  Included in Consolidated list.-->
 		<CATEGORY title="Fantasy: Half-Elven" />
 		<CATEGORY title="All" />
 		<CATEGORY title="Sex: Female"/>
@@ -139,7 +139,7 @@
 		</RULE>
 	</RULESET>
 	
-	<RULESET id="cg-fantasy-halfling-male-rule" title="Halfling" usage="final">
+	<RULESET id="cg-fantasy-halfling-male-rule" title="Halfling" usage="public">
 		<CATEGORY title="Fantasy: Halfling" />
 		<CATEGORY title="All" />
 		<CATEGORY title="Sex: Male"/>
@@ -152,7 +152,7 @@
 			<GETLIST idref="cg-halfling-last" title="Last" />
 		</RULE>
 	</RULESET>
-	<RULESET id="cg-fantasy-halfling-female-rule" title="Halfling" usage="final">
+	<RULESET id="cg-fantasy-halfling-female-rule" title="Halfling" usage="public">
 		<CATEGORY title="Fantasy: Halfling" />
 		<CATEGORY title="All" />
 		<CATEGORY title="Sex: Female"/>
@@ -243,7 +243,7 @@
 	<RULESET id="orc-fantasy-rule" title="Orc" usage="final">
 		<!-- Namefile for orc first names by Johan Danforth and Tobias Petersson -->
 		<CATEGORY title="Fantasy: Half-Orc" />
-		<CATEGORY title="Fantasy: Other Races" />
+		<CATEGORY title="Fantasy: Orc" />
 		<CATEGORY title="All" />
 		<CATEGORY title="Sex: Female"/>
 		<CATEGORY title="Sex: Male"/>
@@ -1369,4 +1369,3 @@
 </LIST>
 
 </GENERATOR>
-

@@ -1,0 +1,26 @@
+# Sun Jul 26 22:20:43 2020 -- reformated by PCGen PrettyLST v6.08.00
+KEY:support ~ undine race
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+ISOGL:YES
+
+# Use this so there aren't numerous copies of the same race.
+
+
+# ==============================
+# Undine
+# ==============================
+
+# Fact/Factset & Formula System
+DATACONTROL:undine__datacontrols.lst
+
+# Data Files
+ABILITY:undine_abilities_globalvar.lst
+ABILITY:undine_abilities_race.lst
+ABILITYCATEGORY:undine_abilitycategories.lst
+BIOSET:undine_biosettings.lst
+LANGUAGE:undine_languages.lst
+RACE:undine_races.lst
+SKILL:undine_skills.lst
+TEMPLATE:undine_templates.lst

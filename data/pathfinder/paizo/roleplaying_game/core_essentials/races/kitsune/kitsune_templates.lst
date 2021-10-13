@@ -1,0 +1,19 @@
+# Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+###Block: Racial Heritage
+# Template Name	Unique Key				Visible	Template			Type				FACT
+Kitsune		KEY:Racial Heritage ~ Kitsune	VISIBLE:NO	TEMPLATE:IsKitsune	TYPE:Racial Heritage	FACT:IsKitsune|True
+IsKitsune							VISIBLE:NO
+
+
+###Block: Creature Subtypes
+# Template Name	Visible	Race Subtype
+Kitsune		VISIBLE:NO	RACESUBTYPE:Kitsune
+Shapechanger	VISIBLE:NO	RACESUBTYPE:Shapechanger
+
+
+###Block: Race Builder Humanoid Subtypes
+# Template Name	Unique Key						Visible	Race Subtype			Type
+Kitsune		KEY:Race Builder Subtype ~ Kitsune		VISIBLE:NO	RACESUBTYPE:Kitsune		TYPE:Race Builder Subtype
+Shapechanger	KEY:Race Builder Subtype ~ Shapechanger	VISIBLE:NO	RACESUBTYPE:Shapechanger	TYPE:Race Builder Subtype

@@ -1,0 +1,146 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: 21419 $ $Author: evilmynex $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
+
+# ==============================
+# RACE ABILITIES
+# ==============================
+
+# ------------------------------
+# Dhampir
+# ------------------------------
+
+###NOTE: Race files are in core_essentials\races\dhampir\
+
+###Block: Racial Traits
+# Ability Name									Source Page
+CATEGORY=Special Ability|Dhampir ~ Ability Scores.MOD			SOURCEPAGE:p.89
+CATEGORY=Special Ability|Dhampir ~ Type.MOD				SOURCEPAGE:p.89
+CATEGORY=Special Ability|Dhampir ~ Size.MOD				SOURCEPAGE:p.89
+CATEGORY=Special Ability|Dhampir ~ Speed.MOD				SOURCEPAGE:p.89
+CATEGORY=Special Ability|Dhampir ~ Vision.MOD				SOURCEPAGE:p.89
+CATEGORY=Special Ability|Dhampir ~ Skilled.MOD				SOURCEPAGE:p.89
+CATEGORY=Special Ability|Dhampir ~ Undead Resistance.MOD		SOURCEPAGE:p.89
+CATEGORY=Special Ability|Dhampir ~ Weakness.MOD				SOURCEPAGE:p.89
+CATEGORY=Special Ability|Dhampir ~ Negative Energy Affinity.MOD	SOURCEPAGE:p.89
+CATEGORY=Special Ability|Dhampir ~ Spell-Like Ability.MOD		SOURCEPAGE:p.89
+CATEGORY=Special Ability|Dhampir ~ Resist Level Drain.MOD		SOURCEPAGE:p.89
+CATEGORY=Special Ability|Dhampir ~ Languages.MOD			SOURCEPAGE:p.89
+
+
+# ------------------------------
+# Fetchling
+# ------------------------------
+
+###NOTE: Race files are in core_essentials\races\fetchling\
+
+###Block: Racial Traits
+# Ability Name									Source Page
+CATEGORY=Special Ability|Fetchling ~ Ability Scores.MOD		SOURCEPAGE:p.123
+CATEGORY=Special Ability|Fetchling ~ Type.MOD				SOURCEPAGE:p.123
+CATEGORY=Special Ability|Fetchling ~ Size.MOD				SOURCEPAGE:p.123
+CATEGORY=Special Ability|Fetchling ~ Speed.MOD				SOURCEPAGE:p.123
+CATEGORY=Special Ability|Fetchling ~ Vision.MOD				SOURCEPAGE:p.123
+CATEGORY=Special Ability|Fetchling ~ Low-Light Vision.MOD		SOURCEPAGE:p.123
+CATEGORY=Special Ability|Fetchling ~ Skilled.MOD			SOURCEPAGE:p.123
+CATEGORY=Special Ability|Fetchling ~ Shadow Blending.MOD		SOURCEPAGE:p.123
+CATEGORY=Special Ability|Fetchling ~ Shadowy Resistance.MOD		SOURCEPAGE:p.123
+CATEGORY=Special Ability|Fetchling ~ Spell-Like Abilities.MOD	SOURCEPAGE:p.123
+CATEGORY=Special Ability|Fetchling ~ Languages.MOD			SOURCEPAGE:p.123
+
+
+# ------------------------------
+# Grippli
+# ------------------------------
+
+###NOTE: Race files are in core_essentials\races\grippli\
+
+###Block: Racial Traits
+# Ability Name								Source Page
+CATEGORY=Special Ability|Grippli ~ Ability Scores.MOD		SOURCEPAGE:p.149
+CATEGORY=Special Ability|Grippli ~ Type.MOD			SOURCEPAGE:p.149
+CATEGORY=Special Ability|Grippli ~ Size.MOD			SOURCEPAGE:p.149
+CATEGORY=Special Ability|Grippli ~ Speed.MOD			SOURCEPAGE:p.149
+CATEGORY=Special Ability|Grippli ~ Vision.MOD			SOURCEPAGE:p.149
+CATEGORY=Special Ability|Grippli ~ Natural Climber.MOD	SOURCEPAGE:p.149
+CATEGORY=Special Ability|Grippli ~ Camouflage.MOD		SOURCEPAGE:p.149
+CATEGORY=Special Ability|Grippli ~ Swamp Stride.MOD		SOURCEPAGE:p.149
+CATEGORY=Special Ability|Grippli ~ Weapon Familiarity.MOD	SOURCEPAGE:p.149
+CATEGORY=Special Ability|Grippli ~ Languages.MOD		SOURCEPAGE:p.149
+
+
+# ------------------------------
+# Ifrit
+# ------------------------------
+
+###NOTE: Race files are in core_essentials\races\ifrit\
+
+###Block: Racial Traits
+# Ability Name								Source Page
+CATEGORY=Special Ability|Ifrit ~ Ability Scores.MOD		SOURCEPAGE:p.160
+CATEGORY=Special Ability|Ifrit ~ Type.MOD				SOURCEPAGE:p.160
+CATEGORY=Special Ability|Ifrit ~ Size.MOD				SOURCEPAGE:p.160
+CATEGORY=Special Ability|Ifrit ~ Speed.MOD			SOURCEPAGE:p.160
+CATEGORY=Special Ability|Ifrit ~ Vision.MOD			SOURCEPAGE:p.160
+CATEGORY=Special Ability|Ifrit ~ Spell-Like Ability.MOD	SOURCEPAGE:p.160
+CATEGORY=Special Ability|Ifrit ~ Energy Resistance.MOD	SOURCEPAGE:p.160
+CATEGORY=Special Ability|Ifrit ~ Fire Affinity.MOD		SOURCEPAGE:p.160
+CATEGORY=Special Ability|Ifrit ~ Languages.MOD			SOURCEPAGE:p.160
+
+
+# ------------------------------
+# Oread
+# ------------------------------
+
+###NOTE: Race files are in core_essentials\races\oread\
+
+###Block: Racial Traits
+# Ability Name								Source Page
+CATEGORY=Special Ability|Oread ~ Ability Scores.MOD		SOURCEPAGE:p.205
+CATEGORY=Special Ability|Oread ~ Type.MOD				SOURCEPAGE:p.205
+CATEGORY=Special Ability|Oread ~ Size.MOD				SOURCEPAGE:p.205
+CATEGORY=Special Ability|Oread ~ Speed.MOD			SOURCEPAGE:p.205
+CATEGORY=Special Ability|Oread ~ Vision.MOD			SOURCEPAGE:p.205
+CATEGORY=Special Ability|Oread ~ Spell-Like Ability.MOD	SOURCEPAGE:p.205
+CATEGORY=Special Ability|Oread ~ Energy Resistance.MOD	SOURCEPAGE:p.205
+CATEGORY=Special Ability|Oread ~ Earth Affinity.MOD		SOURCEPAGE:p.205
+CATEGORY=Special Ability|Oread ~ Languages.MOD			SOURCEPAGE:p.205
+
+
+# ------------------------------
+# Sylph
+# ------------------------------
+
+###NOTE: Race files are in core_essentials\races\sylph\
+
+###Block: Racial Traits
+# Ability Name								Source Page
+CATEGORY=Special Ability|Sylph ~ Ability Scores.MOD		SOURCEPAGE:p.258
+CATEGORY=Special Ability|Sylph ~ Type.MOD				SOURCEPAGE:p.258
+CATEGORY=Special Ability|Sylph ~ Size.MOD				SOURCEPAGE:p.258
+CATEGORY=Special Ability|Sylph ~ Speed.MOD			SOURCEPAGE:p.258
+CATEGORY=Special Ability|Sylph ~ Vision.MOD			SOURCEPAGE:p.258
+CATEGORY=Special Ability|Sylph ~ Spell-Like Ability.MOD	SOURCEPAGE:p.258
+CATEGORY=Special Ability|Sylph ~ Energy Resistance.MOD	SOURCEPAGE:p.258
+CATEGORY=Special Ability|Sylph ~ Air Affinity.MOD		SOURCEPAGE:p.258
+CATEGORY=Special Ability|Sylph ~ Languages.MOD			SOURCEPAGE:p.258
+
+
+# ------------------------------
+# Undine
+# ------------------------------
+
+###NOTE: Race files are in core_essentials\races\undine\
+
+###Block: Racial Traits
+# Ability Name								Source Page
+CATEGORY=Special Ability|Undine ~ Ability Scores.MOD		SOURCEPAGE:p.275
+CATEGORY=Special Ability|Undine ~ Type.MOD			SOURCEPAGE:p.275
+CATEGORY=Special Ability|Undine ~ Size.MOD			SOURCEPAGE:p.275
+CATEGORY=Special Ability|Undine ~ Speed.MOD			SOURCEPAGE:p.275
+CATEGORY=Special Ability|Undine ~ Vision.MOD			SOURCEPAGE:p.275
+CATEGORY=Special Ability|Undine ~ Spell-Like Ability.MOD	SOURCEPAGE:p.275
+CATEGORY=Special Ability|Undine ~ Energy Resistance.MOD	SOURCEPAGE:p.275
+CATEGORY=Special Ability|Undine ~ Water Affinity.MOD		SOURCEPAGE:p.275
+CATEGORY=Special Ability|Undine ~ Languages.MOD			SOURCEPAGE:p.275

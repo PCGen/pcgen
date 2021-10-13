@@ -10,20 +10,14 @@ Masterpiece Activation Tiefling	VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Mas
 
 
 ###Block: Tiefling Subraces
-# Template Name	Unique Key				Visible	Source Page		Subrace
-Asura-Spawn		KEY:Tiefling ~ Asura-Spawn	VISIBLE:NO	SOURCEPAGE:p.19	SUBRACE:Asura-Spawn
-Daemon-Spawn	KEY:Tiefling ~ Daemon-Spawn	VISIBLE:NO	SOURCEPAGE:p.19	SUBRACE:Daemon-Spawn
-Demodand-Spawn	KEY:Tiefling ~ Demodand-Spawn	VISIBLE:NO	SOURCEPAGE:p.20	SUBRACE:Demodand-Spawn
-Demon-Spawn		KEY:Tiefling ~ Demon-Spawn	VISIBLE:NO	SOURCEPAGE:p.20	SUBRACE:Demon-Spawn
-Devil-Spawn		KEY:Tiefling ~ Devil-Spawn	VISIBLE:NO	SOURCEPAGE:p.21	SUBRACE:Devil-Spawn
-Div-Spawn		KEY:Tiefling ~ Div-Spawn	VISIBLE:NO	SOURCEPAGE:p.21	SUBRACE:Div-Spawn
-Kyton-Spawn		KEY:Tiefling ~ Kyton-Spawn	VISIBLE:NO	SOURCEPAGE:p.22	SUBRACE:Kyton-Spawn
-Oni-Spawn		KEY:Tiefling ~ Oni-Spawn	VISIBLE:NO	SOURCEPAGE:p.22	SUBRACE:Oni-Spawn
-Qlippoth-Spawn	KEY:Tiefling ~ Qlippoth-Spawn	VISIBLE:NO	SOURCEPAGE:p.23	SUBRACE:Qlippoth-Spawn
-Rakshasa-Spawn	KEY:Tiefling ~ Rakshasa-Spawn	VISIBLE:NO	SOURCEPAGE:p.23	SUBRACE:Rakshasa-Spawn
-
-Tiefling Bonus Languages						VISIBLE:NO	LANGBONUS:Celestial,Infernal,Abyssal,Auran,Terran,Aquan,Ignan
-
-#
-# End
-#
+# Template Name			Source Page
+Tiefling ~ Asura-Spawn.MOD	SOURCEPAGE:p.19
+Tiefling ~ Daemon-Spawn.MOD	SOURCEPAGE:p.19
+Tiefling ~ Demodand-Spawn.MOD	SOURCEPAGE:p.20
+Tiefling ~ Demon-Spawn.MOD	SOURCEPAGE:p.20
+Tiefling ~ Devil-Spawn.MOD	SOURCEPAGE:p.21
+Tiefling ~ Div-Spawn.MOD	SOURCEPAGE:p.21
+Tiefling ~ Kyton-Spawn.MOD	SOURCEPAGE:p.22
+Tiefling ~ Oni-Spawn.MOD	SOURCEPAGE:p.22
+Tiefling ~ Qlippoth-Spawn.MOD	SOURCEPAGE:p.23
+Tiefling ~ Rakshasa-Spawn.MOD	SOURCEPAGE:p.23

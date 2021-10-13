@@ -1,0 +1,36 @@
+# Mon Jul 26 10:18:15 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Duergar
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define							Ability
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	DEFINE:Duergar_ReplaceAbilityScores|0		ABILITY:Duergar Racial Trait|AUTOMATIC|Duergar ~ Ability Scores|PREVAREQ:Duergar_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	DEFINE:Duergar_ReplaceType|0				ABILITY:Duergar Racial Trait|AUTOMATIC|Duergar ~ Type|PREVAREQ:Duergar_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	DEFINE:Duergar_ReplaceSize|0				ABILITY:Duergar Racial Trait|AUTOMATIC|Duergar ~ Size|PREVAREQ:Duergar_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	DEFINE:Duergar_ReplaceSpeed|0				ABILITY:Duergar Racial Trait|AUTOMATIC|Duergar ~ Speed|PREVAREQ:Duergar_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	DEFINE:Duergar_ReplaceVision|0			ABILITY:Duergar Racial Trait|AUTOMATIC|Duergar ~ Vision|PREVAREQ:Duergar_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	DEFINE:Duergar_ReplaceDuergarImmunities|0		ABILITY:Duergar Racial Trait|AUTOMATIC|Duergar ~ Duergar Immunities|PREVAREQ:Duergar_ReplaceDuergarImmunities,0
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	DEFINE:Duergar_ReplaceStability|0			ABILITY:Duergar Racial Trait|AUTOMATIC|Duergar ~ Stability|PREVAREQ:Duergar_ReplaceStability,0
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	DEFINE:Duergar_ReplaceSpellLikeAbilities|0	ABILITY:Duergar Racial Trait|AUTOMATIC|Duergar ~ Spell-Like Abilities|PREVAREQ:Duergar_ReplaceSpellLikeAbilities,0|PREVAREQ:Duergar_ReplaceSLAEnlargePerson,0|PREVAREQ:Duergar_ReplaceSLAInvisibility,0
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	DEFINE:Duergar_ReplaceSLAEnlargePerson|0		ABILITY:Duergar Racial Trait|AUTOMATIC|Duergar ~ Spell-Like Ability ~ Enlarge Person|PREVAREQ:Duergar_ReplaceSpellLikeAbilities,0|PREVAREQ:Duergar_ReplaceSLAEnlargePerson,0|PREVAREQ:Duergar_ReplaceSLAInvisibility,1
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	DEFINE:Duergar_ReplaceSLAInvisibility|0		ABILITY:Duergar Racial Trait|AUTOMATIC|Duergar ~ Spell-Like Ability ~ Invisibility|PREVAREQ:Duergar_ReplaceSpellLikeAbilities,0|PREVAREQ:Duergar_ReplaceSLAInvisibility,0|PREVAREQ:Duergar_ReplaceSLAEnlargePerson,1
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	DEFINE:Duergar_ReplaceLightSensitivity|0		ABILITY:Duergar Racial Trait|AUTOMATIC|Duergar ~ Light Sensitivity|PREVAREQ:Duergar_ReplaceLightSensitivity,0
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	DEFINE:Duergar_ReplaceLanguages|0			ABILITY:Duergar Racial Trait|AUTOMATIC|Duergar ~ Languages|PREVAREQ:Duergar_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	BONUS:VAR|Duergar_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Duergar_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	BONUS:VAR|Duergar_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Duergar_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	BONUS:VAR|Duergar_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Duergar_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	BONUS:VAR|Duergar_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Duergar_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	BONUS:VAR|Duergar_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Duergar_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	BONUS:VAR|Duergar_ReplaceDuergarImmunities|1|TYPE=Boolean|PREFACT:1,ABILITIES,Duergar_ReplaceDuergarImmunities=True
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	BONUS:VAR|Duergar_ReplaceStability|1|TYPE=Boolean|PREFACT:1,ABILITIES,Duergar_ReplaceStability=True
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	BONUS:VAR|Duergar_ReplaceSpellLikeAbilities|1|TYPE=Boolean|PREFACT:1,ABILITIES,Duergar_ReplaceSpellLikeAbilities=True
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	BONUS:VAR|Duergar_ReplaceSLAEnlargePerson|1|TYPE=Boolean|PREFACT:1,ABILITIES,Duergar_ReplaceSLAEnlargePerson=True
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	BONUS:VAR|Duergar_ReplaceSLAInvisibility|1|TYPE=Boolean|PREFACT:1,ABILITIES,Duergar_ReplaceSLAInvisibility=True
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	BONUS:VAR|Duergar_ReplaceLightSensitivity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Duergar_ReplaceLightSensitivity=True
+CATEGORY=Internal|Racial Traits ~ Duergar.MOD	BONUS:VAR|Duergar_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Duergar_ReplaceLanguages=True
