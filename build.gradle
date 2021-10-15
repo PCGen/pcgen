@@ -34,7 +34,7 @@ plugins {
 }
 
 javafx {
-    version = "16"
+    version = "17.0.0.1"
     modules = [ 'javafx.controls', 'javafx.web', 'javafx.swing', 'javafx.fxml', 'javafx.graphics' ]
 
     //Check if running in ide. If so bundles javafx in to jar. If not only compiles so that runtime can add different platform javafx later.
@@ -60,7 +60,7 @@ defaultTasks 'build'
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(16)
+        languageVersion = JavaLanguageVersion.of(17)
     }
 }
 
@@ -394,7 +394,7 @@ clean {
 build.mustRunAfter clean
 
 task downloadJRE {
-    def major = 16
+    def major = 17
     def archs = ['x64','x32']
     def osList = ['windows', 'mac', 'linux']
     def extension = 'zip'
@@ -407,7 +407,7 @@ task downloadJRE {
             def arch = "${it}"
             if (arch == "x32" && os != "windows") return
 
-            def url = "https://api.adoptopenjdk.net/v3/binary/latest/${major}/ga/${os}/${arch}/jdk/hotspot/normal/adoptopenjdk"
+            def url = "https://api.adoptium.net/v3/binary/latest/${major}/ga/${os}/${arch}/jdk/hotspot/normal/eclipse"
             def jreDir = new File("${projectDir}/jre/${os}/jre_${arch}")
             if(!jreDir.exists()){
                 //Only download Windows libraries. Need to add more OS if we go multi OS at any time.
@@ -474,29 +474,48 @@ task downloadJRE {
 }
 
 task downloadJavaFXModules(dependsOn: downloadJRE) {
-    //def major = "16-0-1"
-    def major = "16"
+
+    // The version of JavaFX as Gluon defines it in their files names
+    def major = "17.0.0.1"
+
+    // We support Windows, Mac, Linux - x64 and Windows x86 (32-bit)
     def archs = ['x64', 'x86']
     def osList = ["windows", "mac", "linux"]
 
-    //Downloads javafx .mods for custom runtime image. All platforms downloaded
+    // Downloads javafx .mods for custom runtime image. All platforms downloaded
     osList.each {
         def os = "${it}"
+
         archs.each {
             def arch = "$it"
 
+            // build the architecture part of the download filename string
             def archAppend = ""
-            if ((arch == "x86")) {
+            if (arch == "x86") {
                 if (os == "windows") {
                     archAppend = "-x86"
                 } else {
                     return
                 }
+            } else if (arch == "x64") {
+                archAppend = "-x64"
+            } else {
+                archAppend = "-UNSUPPORTED-ARCHITECTURE"
             }
 
-            def url = "https://gluonhq.com/download/javafx-${major}-jmods-${os}${archAppend}/"
-            def jmodsDir = new File("${projectDir}/jre/${os}/jre_${arch}/jmods")
+            // Build the os part of the filename string.
+            // Gluon renamed the mac package to osx
+            def osPackage = os
+            if (os == "mac") {
+                osPackage = "osx"
+            }
+
+            // URLs look like this: https://download2.gluonhq.com/openjfx/17.0.0.1/openjfx-17.0.0.1_windows-x64_bin-jmods.zip
+            def url = "https://download2.gluonhq.com/openjfx/${major}/openjfx-${major}_${osPackage}${archAppend}_bin-jmods.zip"
+
             def jmodsZip = new File("${projectDir}/jre/${os}/jmods${arch}.zip")
+            // If we don't already have the jmods, download them and unzip them
+            // to the correct place.
             if (!jmodsZip.exists()) {
                 println("Downloading Javafx mods ${major} ${arch} for ${os} from ${url}")
                 download {
@@ -504,17 +523,16 @@ task downloadJavaFXModules(dependsOn: downloadJRE) {
                     dest new File("${projectDir}/jre/${os}/", "jmods${arch}.zip")
                     overwrite false
                 }
-                //fileTree(dir: "${projectDir}/jre/${os}/").include("*.zip").each { simLib ->
+
                 copy {
                     println "Unzip jmods${arch}.zip"
                     def zipFile = file("${projectDir}/jre/${os}/jmods${arch}.zip")
                     def outputDir = "${projectDir}/jre/${os}/jre_${arch}/jmods"
-                    if (os=="mac")
+                    if (os == "mac")
                     {
                         outputDir = "${projectDir}/jre/${os}/jre_${arch}/Contents/Home/jmods"
-
                     }
-                    else if(os=="windows" && arch=="x86")
+                    else if(os == "windows" && arch == "x86")
                     {
                         outputDir = "${projectDir}/jre/${os}/jre_x32/jmods"
                     }
@@ -522,34 +540,43 @@ task downloadJavaFXModules(dependsOn: downloadJRE) {
                     into outputDir
                     eachFile { fcd ->
                         def relPath = fcd.relativePath
-
                         def segments = relPath.segments
                         fcd.relativePath = new RelativePath(!fcd.isDirectory(), (segments[1..-1]) as String[])
-
                     }
                 }
-                //new File("${projectDir}/jre/${os}/${simLib.name}").delete()
-                //}
             }
         }
     }
 
-    //Downloads javafx sdk for local platform. Used for running tests.
+    // TODO extract this into its own function
+    // Downloads javafx sdk for local platform. Used for running tests.
     def sdkDir = new File("${projectDir}/mods")
     if (!sdkDir.exists()) {
+
+        // TODO I'll confess much of this seems redundant, but I'm not touching it
         def os=""
         if (Os.isFamily(Os.FAMILY_WINDOWS)) {
             os = "windows"
-
         } else if (Os.isFamily(Os.FAMILY_MAC)) {
             os = "mac"
         } else {
             os = "linux"
         }
 
-        def url = "https://gluonhq.com/download/javafx-${major}-sdk-${os}/"
+        // TODO We default to -x64 because that's where builders build
+        // I'd love to autodetect the Arch on the system but I couldn't find an API call to do that.
+        def archAppend= "-x64"
 
-        println("Downloading JavaFX sdk for ${os} from ${url}")
+        // Gluon renamed the mac package so we deal with that but leave the
+        // the rest of the naming / packing as 'mac'.
+        def osPackage = os
+        if (os == "mac") {
+            osPackage = "osx"
+        }
+
+        def url = "https://download2.gluonhq.com/openjfx/${major}/openjfx-${major}_${osPackage}${archAppend}_bin-sdk.zip"
+
+        println("Downloading JavaFX SDK for ${os} from ${url}")
 
         download {
             src url
