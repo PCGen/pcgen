@@ -52,6 +52,7 @@ COPYRIGHT:Trapper from the Tome of Horrors Complete Copyright 2011, Necromancer 
 COPYRIGHT:PCGen dataset conversion for "Pathfinder Roleplaying Game Bestiary 4" Copyright 2013, PCGen Data team (Including, but not limited to Eric Smith (maredudd), & Gwen T. (evilpixie87)).
 
 DATACONTROL:b4__datacontrols.lst
+ABILITY:b4_abilities_globalvar.lst
 
 ABILITY:b4_abilities_class.lst
 ABILITY:b4_abilities_race.lst

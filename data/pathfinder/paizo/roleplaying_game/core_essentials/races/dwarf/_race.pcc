@@ -22,5 +22,6 @@ ABILITYCATEGORY:dwarf_abilitycategories.lst
 BIOSET:dwarf_biosettings.lst
 LANGUAGE:dwarf_languages.lst
 RACE:dwarf_races.lst
+SKILL:dwarf_skills.lst
 TEMPLATE:dwarf_templates_language.lst
 TEMPLATE:dwarf_templates.lst
