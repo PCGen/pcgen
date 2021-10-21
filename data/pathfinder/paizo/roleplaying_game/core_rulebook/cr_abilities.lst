@@ -880,3 +880,12 @@ Produce Flame			KEY:Spell ~ Produce Flame			CATEGORY:Internal		TYPE:SLA_LVL1.Dru
 Shillelagh				KEY:Spell ~ Shillelagh				CATEGORY:Internal		TYPE:SLA_LVL1.Druid_SLA_LVL1				ABILITY:Spell-Like Ability|AUTOMATIC|Shillelagh
 Speak with Animals		KEY:Spell ~ Speak with Animals		CATEGORY:Internal		TYPE:SLA_LVL1.Druid_SLA_LVL1				ABILITY:Spell-Like Ability|AUTOMATIC|Speak with Animals
 Summon Nature's Ally I		KEY:Spell ~ Summon Nature's Ally I		CATEGORY:Internal		TYPE:SLA_LVL1.Druid_SLA_LVL1				ABILITY:Spell-Like Ability|AUTOMATIC|Summon Nature's Ally I
+
+
+### Ability Damage
+CATEGORY=Internal|Default.MOD	DEFINE:AbilityDamageSTR|0	DEFINE:AbilityDamagePenaltySTR|0	BONUS:VAR|AbilityDamagePenaltySTR|floor(AbilityDamageSTR/2)
+CATEGORY=Internal|Default.MOD	DEFINE:AbilityDamageDEX|0	DEFINE:AbilityDamagePenaltyDEX|0	BONUS:VAR|AbilityDamagePenaltyDEX|floor(AbilityDamageDEX/2)
+CATEGORY=Internal|Default.MOD	DEFINE:AbilityDamageCON|0	DEFINE:AbilityDamagePenaltyCON|0	BONUS:VAR|AbilityDamagePenaltyCON|floor(AbilityDamageCON/2)
+CATEGORY=Internal|Default.MOD	DEFINE:AbilityDamageINT|0	DEFINE:AbilityDamagePenaltyINT|0	BONUS:VAR|AbilityDamagePenaltyINT|floor(AbilityDamageINT/2)
+CATEGORY=Internal|Default.MOD	DEFINE:AbilityDamageWIS|0	DEFINE:AbilityDamagePenaltyWIS|0	BONUS:VAR|AbilityDamagePenaltyWIS|floor(AbilityDamageWIS/2)
+CATEGORY=Internal|Default.MOD	DEFINE:AbilityDamageCHA|0	DEFINE:AbilityDamagePenaltyCHA|0	BONUS:VAR|AbilityDamagePenaltyCHA|floor(AbilityDamageCHA/2)
