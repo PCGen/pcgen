@@ -20,7 +20,7 @@ plugins {
     id 'application'
     id 'build-dashboard'
     id 'checkstyle'
-    id "com.github.spotbugs" version '4.7.8'
+    id "com.github.spotbugs" version '4.7.9'
     id 'java'
     id 'maven-publish'
     id 'pmd'
