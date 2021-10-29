@@ -20,7 +20,6 @@
 package pcgen.inttest.game_modern;
 
 
-import org.junit.Ignore;
 import pcgen.inttest.PcgenFtlTestCase;
 
 import org.junit.jupiter.api.Test;
