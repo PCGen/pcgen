@@ -458,11 +458,13 @@ task cleanOutput(type: Delete) {
     delete outputDir
 }
 
+// TODO - Hook this into a clean phase properly
 task cleanJre(type: Delete) {
     description="Clean up things copied to the jre folder by the build"
     delete jresDir
 }
 
+// TODO - Hook this into a clean phase properly
 task cleanMods(type: Delete) {
     description="Clean up things copied to the mods folder by the build"
     delete modsDir
