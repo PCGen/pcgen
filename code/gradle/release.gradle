@@ -25,6 +25,7 @@ apply plugin: 'java'
 
 import org.apache.tools.ant.filters.FixCrLfFilter
 import org.apache.tools.ant.taskdefs.condition.Os
+import org.gradle.api.internal.file.copy.DefaultCopySpec
 
 ext {
     // Work out the path to the release notes for our current version.
@@ -43,7 +44,7 @@ ext {
             exclude 'batik*.jar'
         }
         into ('/libs')
-    }
+    } as DefaultCopySpec
 
     lib32 = copySpec {
         from("${buildDir}/image/pcgen-windows-x32/lib") {
@@ -51,7 +52,7 @@ ext {
             exclude 'batik*.jar'
         }
         into('/lib32')
-    }
+    } as DefaultCopySpec
 
     lib64 = copySpec {
         from("${buildDir}/image/pcgen-windows-x64/lib") {
@@ -60,7 +61,7 @@ ext {
             exclude 'javafx*.jar'
         }
         into('/lib64')
-    }
+    } as DefaultCopySpec
 
     pdfLibs = copySpec {
         from("${buildDir}/libs") {
@@ -68,7 +69,7 @@ ext {
             include 'batik*.jar'
         }
         into ('/plugin/pdf/libs')
-    }
+    } as DefaultCopySpec
 
     basePlugins = copySpec {
         from("${projectDir}/plugins") {
@@ -77,7 +78,7 @@ ext {
             include 'DoomsdayBook.jar'
         }
         into ('/plugins')
-    }
+    } as DefaultCopySpec
 
     gmgenPlugins = copySpec {
         from("${projectDir}/plugins") {
@@ -86,21 +87,21 @@ ext {
             exclude 'DoomsdayBook.jar'
         }
         into ('/plugin/gmgen/plugins')
-    }
+    } as DefaultCopySpec
 
     nonPdfOutput = copySpec {
         from("${projectDir}/outputsheets") {
             exclude '**/pdf/**'
         }
         into ('/outputsheets')
-    }
+    } as DefaultCopySpec
 
     pdfOutput = copySpec {
         from("${projectDir}/outputsheets") {
             include '**/pdf/**'
         }
         into ('/plugin/pdf/outputsheets')
-    }
+    } as DefaultCopySpec
 
     baseData = copySpec {
         from("${projectDir}/data") {
@@ -108,7 +109,7 @@ ext {
             include 'homebrew/**'
         }
         into ('/data')
-    }
+    } as DefaultCopySpec
 
     optionalData = copySpec {
         from("${projectDir}/data") {
@@ -116,15 +117,16 @@ ext {
             exclude 'homebrew/**'
         }
         into ('/data')
-    }
+    } as DefaultCopySpec
 
     List result = plainVerNum.replaceAll('-DEV', '').tokenize('.')
     installerVerNum = result[0].toInteger() + "." + result[1].toInteger() + "." + result[2].take(2).toInteger() + ".0"
 }
 
-task layoutNsisBase(type: Copy, dependsOn: [runtimeZip, createExe, copyToLibs,
-        jar, converterJar]) {
+task layoutNsisBase(type: Copy, dependsOn: [runtimeZip, createExe, copyToLibs, jar, converterJar]) {
+
     description="Assemble the required files for all PCGen installations"
+
     //doFirst {
     // Release notes are required! Causes Autobuild Problem
     //assert file(releaseNotes).exists()
@@ -159,7 +161,7 @@ task layoutNsisBase(type: Copy, dependsOn: [runtimeZip, createExe, copyToLibs,
     with baseData
 }
 
-//See: https://github.com/TheBoegl/gradle-launch4j\
+// See: https://github.com/TheBoegl/gradle-launch4j
 launch4j {
     mainClassName = 'pcgen.system.Main'
     icon = "${projectDir}/installers/win-installer/Local/pcgen.ico"
@@ -173,7 +175,7 @@ launch4j {
     splashWaitForWindows = true
     splashTimeout = 60
     splashTimeoutError = true
-    //Can't be longer than 150 characters
+    // Can't be longer than 150 characters
     copyright = "PCGen's source-code is distributed under the GNU Lesser General Public License (LGPL)"
     version = "${shortVerNum}"
     jvmOptions = ["-Dsun.java2d.dpiaware=false"]
@@ -274,7 +276,7 @@ task genDataList doLast {
     publisherMap.put("starfinder","Starfinder");
     File out = new File("$projectDir/installers/win-installer/includes/data.nsh")
     out.delete()
-    //List of folder names to ignore.
+    // List of folder names to ignore.
     List<String> ignoreList = new ArrayList<String>();
     ignoreList.add("homebrew");
     ignoreList.add("zen_test");
@@ -348,7 +350,6 @@ task genDataList doLast {
     }
 }
 
-
 // Create the version specific config files for NSIS
 task genProjectNsis doLast {
     new File("${projectDir}/installers/win-installer/project.nsh").write("""
@@ -407,15 +408,13 @@ task cleanNsis(type: Delete) {
     delete nsisBaseFolder, nsisOptionFolder, "${buildDir}/nsis/Local"
 }
 
-
 task sourcesJar(type: Jar, dependsOn: classes) {
     description = "build source jar file"
-    classifier = 'sources'
+    archiveClassifier.set('sources')
     from sourceSets.main.allSource
 }
 
-task assembleArtifacts(type: Copy, dependsOn: ['build', 'runtimeZip', 'sourcesJar',
-     'buildNsis']) {
+task assembleArtifacts(type: Copy, dependsOn: ['build', 'runtimeZip', 'sourcesJar', 'buildNsis']) {
     description = "Create the release artifacts and get them into the release folder."
     into releaseDir
     // buildNsis puts the exe into the release folder directly
@@ -423,7 +422,6 @@ task assembleArtifacts(type: Copy, dependsOn: ['build', 'runtimeZip', 'sourcesJa
     from("$buildDir/nsisRelease"){
         include '*.exe'
     }
-
     from("${buildDir}/libs") {
         include 'pcgen*-sources.jar'
     }
@@ -438,8 +436,7 @@ task assembleArtifacts(type: Copy, dependsOn: ['build', 'runtimeZip', 'sourcesJa
     }
 }
 
-//Add || Os.isFamily(Os.FAMILY_UNIX) to add linux installs once bug in installers fixed https://bugs.java.com/bugdatabase/view_bug.do?bug_id=JDK-8233449.
-if (Os.isFamily(Os.FAMILY_MAC) )
+if (Os.isFamily(Os.FAMILY_MAC) || Os.isFamily(Os.FAMILY_UNIX))
 {
     assembleArtifacts.dependsOn jpackage
 }
@@ -476,7 +473,6 @@ task checksum(dependsOn: assembleArtifacts) doLast {
         }
     }
 }
-
 
 // genDataList removed as it causes release errors, 'genDataList'
 task prepareRelease (dependsOn: ['clean', 'build', 'runtime']) {

@@ -9,9 +9,9 @@
   <Match>
     <Not>
       <Or>
-        <Package name="~pcgen\.base\..*"/>
-        <Package name="~pcgen\.cdom\..*"/>
-        <Package name="~pcgen\.output\..*"/>
+        <Package name="~pcgen[.]base.*"/>
+        <Package name="~pcgen[.]cdom.*"/>
+        <Package name="~pcgen[.]output.*"/>
       </Or>
     </Not>
   </Match>
