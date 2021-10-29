@@ -25,9 +25,8 @@ import java.util.StringTokenizer;
 /**
  * {@code SpellListToken} is the base class for the SPELLLIST
  * family of tokens.
- *
- *
  */
+@SuppressWarnings("PMD.AbstractClassWithoutAnyMethod")
 public abstract class SpellListToken extends Token
 {
 	protected static final int SPELLTAG_CAST = 0;

@@ -5,7 +5,7 @@ import java.time.LocalDateTime
  * archives included in the PCGen autobuild and PCGen releases. It
  * is called from the main build.gradle file.
  *
- * Usage: gradle builddist
+ * Usage: ./gradlew builddist
  */
 ext {
     zipRootFolder = "pcgen"
@@ -99,12 +99,12 @@ application{
 run {
     // Required to fixed incorrectly added "--module-path" and adds correct modules.
     doFirst {
-        // -ea enables assertions
-        jvmArgs = ["-ea",
-                   "--enable-preview",
+
+        jvmArgs = ["-ea",                       // -ea enables assertions
+                   "--enable-preview",          // enable Java preview features
                    "--module-path",
                    "${projectDir}/mods/lib/",
-                   "--add-modules", "javafx.controls,javafx.web,javafx.swing,javafx.fxml",
+                   "--add-modules", "javafx.controls, javafx.web, javafx.swing, javafx.fxml"
         ]
 
     }
@@ -123,7 +123,7 @@ installDist.doLast{
 [distZip, distTar, installDist]*.dependsOn createExe
 
 task testZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', 'copyToOutput']) {
-    classifier = 'test'
+    archiveClassifier.set('test')
     into(zipRootFolder) {
         with dataDistsImage
         with docsDistsImage
@@ -135,7 +135,7 @@ task testZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', 'copyToOutput'
 }
 
 task dataZip(type: Zip) {
-    classifier = 'data'
+    archiveClassifier.set('data')
     into(zipRootFolder) {
         with dataDistsImage
         with autobuildSpec
@@ -143,7 +143,7 @@ task dataZip(type: Zip) {
 }
 
 task docsZip(type: Zip) {
-    classifier = 'docs'
+    archiveClassifier.set('docs')
     into(zipRootFolder) {
         with docsDistsImage
         with autobuildSpec
@@ -151,7 +151,7 @@ task docsZip(type: Zip) {
 }
 
 task programZip(type: Zip, dependsOn: 'converterJar') {
-    classifier = 'program'
+    archiveClassifier.set('program')
     into(zipRootFolder) {
         with programDistsImage
         with programScriptImage
@@ -160,7 +160,7 @@ task programZip(type: Zip, dependsOn: 'converterJar') {
 }
 
 task libsZip(type: Zip, dependsOn: 'copyToLibs') {
-    classifier = 'libs'
+    archiveClassifier.set('libs')
     into(zipRootFolder) {
         with libsDistsImage
         with autobuildSpec

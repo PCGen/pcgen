@@ -19,8 +19,9 @@ public class RecursiveFileFinder
 
 	/**
 	 * Recursively looks inside a given directory for PCC files
-	 * and adds them to the {@link #campaignFiles campaignFiles} list.
-	 *  @param aDirectory    The directory to search.
+	 * and adds them to the campaignFiles list.
+	 *
+	 * @param aDirectory    The directory to search.
 	 * @param campaignFiles
 	 */
 	public void findFiles(final File aDirectory, List<URI> campaignFiles)

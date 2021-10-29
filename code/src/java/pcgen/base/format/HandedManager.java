@@ -30,10 +30,9 @@ public class HandedManager implements FormatManager<Handed>
 {
 
 	/**
-	 * Retrieve a Handed object to match the name ({@link #name()}) or localized name
+	 * Retrieve a Handed object to match the name or localized name
 	 * (output by {@link #toString()}). The localized lookup is kept for legacy purpose
-	 * when the localized name was saved in the character files (instead of the
-	 * {@link #name()}).
+	 * when the localized name was saved in the character files.
 	 * 
 	 * Note: This will dump stack if there is not a matching Handed value, as the
 	 * Handed.valueOf(x) call for the existing Enumeration will fail. This is consistent

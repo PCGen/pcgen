@@ -29,16 +29,16 @@ public class ParameterTree
 	ParameterTree right = null;
 	public static final String OR_STRING = "[or]";
 	public static final String AND_STRING = "[and]";
-	static String orPatString = "\\[or\\]";
-	static String andPatString = "\\[and\\]";
+	private static String orPatString = "\\[or\\]";
+	private static String andPatString = "\\[and\\]";
 
 	private static String leftBracket = "(";
 	private static String leftPatString = "\\(";
 	private static String rightPatString = "\\)";
 
-	static String patString = '(' + leftPatString + '|' + rightPatString + '|' + orPatString + '|' + andPatString + ')';
+	private static String patString = '(' + leftPatString + '|' + rightPatString + '|' + orPatString + '|' + andPatString + ')';
 
-	static Pattern pat = Pattern.compile(patString);
+	public static final Pattern pat = Pattern.compile(patString);
 
 	// the grouping pattern & matcher
 	private static final String PAREN_STRING = '(' + leftPatString + '|' + rightPatString + ')';
