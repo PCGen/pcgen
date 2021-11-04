@@ -8,7 +8,7 @@ CLASS:Kineticist	HD:8		TYPE:Base.PC.Psychic	MAXLEVEL:20	SOURCEPAGE:p.10	DEFINE:K
 # Class Name	Skill Pts/Lvl
 CLASS:Kineticist	STARTSKILLPTS:4
 # Class Name	Spell Stat		Memorize		Caster level
-CLASS:Kineticist	SPELLSTAT:CON	MEMORIZE:YES	BONUS:CASTERLEVEL|Kineticist|Caster_Level_BL_Stripped_Kineticist
+CLASS:Kineticist	SPELLSTAT:CON	MEMORIZE:YES	BONUS:CASTERLEVEL|Kineticist|KineticistLVL
 ###Block
 1	ABILITY:CLASS|AUTOMATIC|Kineticist
 
@@ -17,7 +17,7 @@ CLASS:Medium	HD:8		TYPE:Base.PC.Spontaneous.Psychic	MAXLEVEL:20	SOURCEPAGE:p.30	
 # Class Name	Skill Pts/Lvl
 CLASS:Medium	STARTSKILLPTS:4
 # Class Name	Spell Stat		Memorize	Caster level
-CLASS:Medium	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Medium|Caster_Level_BL_Stripped_Medium
+CLASS:Medium	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Medium|MediumLVL
 
 ###Block: Level progression
 1	CAST:0		KNOWN:2
@@ -48,7 +48,7 @@ CLASS:Mesmerist	HD:8		TYPE:Base.PC.Spontaneous.Psychic	MAXLEVEL:20	SOURCEPAGE:p.
 # Class Name	Skill Pts/Lvl
 CLASS:Mesmerist	STARTSKILLPTS:6
 # Class Name	Spell Stat		Memorize	Caster level
-CLASS:Mesmerist	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Mesmerist|Caster_Level_BL_Stripped_Mesmerist
+CLASS:Mesmerist	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Mesmerist|MesmeristLVL
 ###Block: Level progression
 1	CAST:0,1			KNOWN:4,2
 2	CAST:0,2			KNOWN:5,3
@@ -80,7 +80,7 @@ CLASS:Occultist	HD:8		TYPE:Base.PC.Spontaneous.Psychic	MAXLEVEL:20	SOURCEPAGE:p.
 # Class Name	Skill Pts/Lvl
 CLASS:Occultist	STARTSKILLPTS:4
 # Class Name	Spell Stat		Memorize		Caster level
-CLASS:Occultist	SPELLSTAT:INT	MEMORIZE:YES	BONUS:CASTERLEVEL|Occultist|Caster_Level_BL_Stripped_Occultist
+CLASS:Occultist	SPELLSTAT:INT	MEMORIZE:YES	BONUS:CASTERLEVEL|Occultist|OccultistLVL
 ###Block
 1	CAST:0,1
 2	CAST:0,2
@@ -113,7 +113,7 @@ CLASS:Psychic	HD:6		TYPE:Base.PC.Spontaneous.Psychic	MAXLEVEL:20	SOURCEPAGE:p.60
 # Class Name	Skill Pts/Lvl
 CLASS:Psychic	STARTSKILLPTS:2
 # Class Name	Spell Stat		Memorize		Caster level
-CLASS:Psychic	SPELLSTAT:INT	MEMORIZE:YES	BONUS:CASTERLEVEL|Psychic|Caster_Level_BL_Stripped_Psychic
+CLASS:Psychic	SPELLSTAT:INT	MEMORIZE:YES	BONUS:CASTERLEVEL|Psychic|PsychicLVL
 ###Block:
 1	CAST:0,3				KNOWN:4,2
 2	CAST:0,4				KNOWN:5,2
@@ -146,7 +146,7 @@ CLASS:Spiritualist	HD:8		TYPE:Base.PC.Spontaneous.Psychic	MAXLEVEL:20	SOURCEPAGE
 # Class Name		Skill Pts/Lvl
 CLASS:Spiritualist	STARTSKILLPTS:4
 # Class Name		Spell Stat		Memorize		Caster level
-CLASS:Spiritualist	SPELLSTAT:WIS	MEMORIZE:YES	BONUS:CASTERLEVEL|Spiritualist|Caster_Level_BL_Stripped_Spiritualist
+CLASS:Spiritualist	SPELLSTAT:WIS	MEMORIZE:YES	BONUS:CASTERLEVEL|Spiritualist|SpiritualistLVL
 ###Block
 1	CAST:0,1			KNOWN:4,2
 2	CAST:0,2			KNOWN:5,3
