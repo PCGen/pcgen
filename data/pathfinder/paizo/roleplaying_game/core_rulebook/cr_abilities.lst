@@ -316,6 +316,12 @@ SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloa
 # Ability Name			Category of Ability	Define
 
 CATEGORY=Internal|Default.MOD																																																													DEFINE:DomainNotAllowed|0
+
+###Block: Resistance Saves
+CATEGORY=Internal|Default.MOD	DEFINE:FortitudeSave_ResistanceBonus|0	BONUS:SAVE|Fortitude|FortitudeSave_ResistanceBonus|TYPE=Resistance
+CATEGORY=Internal|Default.MOD	DEFINE:ReflexSave_ResistanceBonus|0		BONUS:SAVE|Reflex|ReflexSave_ResistanceBonus|TYPE=Resistance
+CATEGORY=Internal|Default.MOD	DEFINE:WillSave_ResistanceBonus|0		BONUS:SAVE|Will|WillSave_ResistanceBonus|TYPE=Resistance
+
 #CATEGORY=Internal|Default.MOD	ABILITY:Natural Attack|AUTOMATIC|Natural Attack ~ Shield Bash|PREWEAPONPROF:1,Shieldbash|PREEQUIP:1,TYPE=Shield
 
 ###Block: Abilities
@@ -324,7 +330,13 @@ Tongues		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Communicate	V
 
 ###Block: Specials
 # Ability Name	Category of Ability		Type				Visible	Define			Description																																																	Combat bonus				Bonus to HP					Save bonus							Bonus to skill															Source Page
+CATEGORY=Internal|Default.MOD		DEFINE:NegLevels|0	ABILITY:Special Ability|VIRTUAL|Negative Levels|PREVARGTEQ:NegLevels,1
+
+
 Negative Levels	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:NegLevels|0	DESC:%1 negative level (-%1 effective level and loses access to %1 spell from the highest spell level castable)|NegLevels|PREVARLTEQ:NegLevels,1	DESC:%1 negative levels (-%1 effective levels and loses access to %1 spells from the highest spell level castable)|NegLevels|PREVARGT:NegLevels,1	BONUS:COMBAT|TOHIT|-1*(NegLevels)	BONUS:HP|CURRENTMAX|-5*(NegLevels)	BONUS:SAVE|Fortitude,Reflex,Will|-1*(NegLevels)	BONUS:SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(NegLevels)	SOURCEPAGE:p.562
+
+
+Robe of the Archmagi	CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|Spell Resistance ~ 18	BONUS:COMBAT|AC|5|TYPE=Armor	BONUS:VAR|FortitudeSave_ResistanceBonus,ReflexSave_ResistanceBonus,WillSave_ResistanceBonus|4|TYPE=Resistance
 
 
 ###Block: COMMENT: This activates the OS and Displays on the PDF.
