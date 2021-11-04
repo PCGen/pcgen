@@ -170,9 +170,6 @@
 |ENDFOR|
     <node name="NotesDisp">on</node>
     <node name="Notes">Special Abilities: |SPECIALLIST|
-|%DOMAIN.1|
-------------------------------------------------------------
-Deity: |DEITY|; Domains: |FOR.1,COUNT[DOMAINS]+1,1,\DOMAIN.%\;, ,NONE,1|
 |%SPELLLISTBOOK.0.0.1|
 ------------------------------------------------------------
 Innate Spells: |FOR.0,COUNT[SPELLSINBOOK.0.1.0],1,\SPELLMEM.0.1.0.%.NAME\ (\SPELLMEM.0.1.0.%.TIMES\/day DC \SPELLMEM.0.1.0.%.DC\); ,,,|
