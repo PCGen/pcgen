@@ -646,6 +646,10 @@ task all(dependsOn: ['build', 'slowtest', 'javadoc', 'buildNsis', 'allReports'])
 }
 
 allprojects {
+    tasks.withType(JavaCompile).configureEach {
+        options.fork = true
+    }
+
     tasks.withType(Javadoc) {
         options.addBooleanOption('Xdoclint:none', true)
     }
