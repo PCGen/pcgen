@@ -50,3 +50,11 @@ Slam Convert x4	TYPE:SlamConverted	PREVAREQ:SlamAttacks,4	BONUS:VAR|SlamAttacks|
 Slam Convert x5	TYPE:SlamConverted	PREVAREQ:SlamAttacks,5	BONUS:VAR|SlamAttacks|-5	BONUS:VAR|RangedSlamAttacks|5
 Slam Convert x6	TYPE:SlamConverted	PREVAREQ:SlamAttacks,6	BONUS:VAR|SlamAttacks|-6	BONUS:VAR|RangedSlamAttacks|6
 Slam Convert x7	TYPE:SlamConverted	PREVAREQ:SlamAttacks,7	BONUS:VAR|SlamAttacks|-7	BONUS:VAR|RangedSlamAttacks|7
+
+
+
+
+
+###Block: Fused Eidolon Support
+Fused Eidolon	VISIBLE:NO
+

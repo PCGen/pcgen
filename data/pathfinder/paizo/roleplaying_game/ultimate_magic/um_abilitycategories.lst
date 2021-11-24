@@ -133,6 +133,18 @@ ABILITYCATEGORY:Unsanctioned Knowledge ~ Level 1	VISIBLE:QUALIFY	EDITABLE:YES	ED
 ABILITYCATEGORY:Unsanctioned Knowledge ~ Level 2	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO																CATEGORY:Special Ability									ABILITYLIST:Unsanctioned Knowledge ~ Level 2							DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Unsanctioned Knowledge ~ Level 3	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO																CATEGORY:Special Ability									ABILITYLIST:Unsanctioned Knowledge ~ Level 3							DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Unsanctioned Knowledge ~ Level 4	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO																CATEGORY:Special Ability									ABILITYLIST:Unsanctioned Knowledge ~ Level 4							DISPLAYLOCATION:Feats
+
+
+
+
+
+###Block:
+ABILITYCATEGORY:Fused Eidolon Status			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO																CATEGORY:Special Ability	TYPE:Fused Eidolon Status																																																																							PLURAL:Fused Eidolon Status		DISPLAYLOCATION:Class Features
+
+
+
+
+
 #
 # End
 #
