@@ -177,7 +177,7 @@ dependencies {
     implementation group: 'org.apache.commons', name: 'commons-collections4', version: '4.4'
     implementation group: 'org.scijava', name: 'jep', version:'2.4.2'
     implementation group: 'org.freemarker', name: 'freemarker', version:'2.3.31'
-    implementation group: 'org.jdom', name: 'jdom2', version:'2.0.6'
+    implementation group: 'org.jdom', name: 'jdom2', version:'2.0.6.1'
     implementation('xalan:xalan:2.7.2')
     {
         exclude group: 'xml-apis', module: 'xml-apis'
