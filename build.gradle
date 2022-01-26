@@ -202,7 +202,7 @@ dependencies {
     testImplementation group: 'org.testfx', name: 'testfx-junit5', version: '4.0.16-alpha'
     testImplementation group: 'org.testfx', name: 'openjfx-monocle', version: 'jdk-12.0.1+2'
 
-    testImplementation group: 'org.xmlunit', name: 'xmlunit-matchers', version:'2.8.4'
+    testImplementation group: 'org.xmlunit', name: 'xmlunit-matchers', version:'2.9.0'
     spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.11.0'
 }
 
