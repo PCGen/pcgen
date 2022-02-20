@@ -20,16 +20,16 @@ plugins {
     id 'application'
     id 'build-dashboard'
     id 'checkstyle'
-    id "com.github.spotbugs" version '5.0.5'
+    id "com.github.spotbugs" version '5.0.6'
     id 'java'
     id 'maven-publish'
     id 'pmd'
     id 'idea'
     id "de.undercouch.download" version '4.1.2'
     id 'edu.sc.seis.launch4j' version '2.5.1'
-    id 'com.github.ben-manes.versions' version '0.41.0'
+    id 'com.github.ben-manes.versions' version '0.42.0'
     id "com.dorongold.task-tree" version '2.1.0'
-    id 'org.openjfx.javafxplugin' version '0.0.11'
+    id 'org.openjfx.javafxplugin' version '0.0.12'
     id 'org.beryx.runtime' version '1.12.7'
 }
 
@@ -166,9 +166,9 @@ compileJava {
 dependencies {
     implementation group: 'commons-io', name: 'commons-io', version:'2.11.0'
 
-    implementation group: 'org.springframework', name: 'spring-web', version:'5.3.15'
+    implementation group: 'org.springframework', name: 'spring-web', version:'5.3.16'
     implementation group: 'org.springframework', name: 'spring-beans', version:'5.3.15'
-    implementation group: 'org.springframework', name: 'spring-core', version:'5.3.15'
+    implementation group: 'org.springframework', name: 'spring-core', version:'5.3.16'
     implementation group: 'org.apache.commons', name: 'commons-lang3', version:'3.12.0'
     implementation('org.apache.xmlgraphics:fop:2.7')
     {
