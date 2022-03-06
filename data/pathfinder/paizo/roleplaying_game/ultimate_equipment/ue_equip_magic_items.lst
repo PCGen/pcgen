@@ -39,7 +39,7 @@ Ring of Lifebleed				TYPE:Magic.Ring.Cursed							COST:0							SOURCEPAGE:p.349	
 Ring of Spell Devouring			TYPE:Magic.Ring.Cursed							COST:0							SOURCEPAGE:p.349																BONUS:MISC|SPELLFAILURE|25														BONUS:SITUATION|Spellcraft=Counterspell|-4
 Ring of Truth.MOD																						SOURCEPAGE:p.349
 Riot Pipes.MOD																						SOURCEPAGE:p.349
-Robe of Powerlessness			TYPE:Magic.Wondrous.Cursed.Robe					COST:0	WT:1						SOURCEPAGE:p.350																																																					BONUS:STAT|STR|-10	BONUS:STAT|WIS|-10|PRECLASS:1,Cleric=1,Druid=1,Inquisitor=1,Paladin=1,Ranger=1	BONUS:STAT|CHA|-10|Bard,Oracle,Summoner,Sorceror	BONUS:STAT|INT|-10|PRECLASS:1,Alchemist=1,Barbarian=1,Cavalier=1,Fighter=1,Monk=1,Magus=1,Rogue=1,Wizard=1,Witch=1
+Robe of Powerlessness			TYPE:Magic.Wondrous.Cursed.Robe					COST:0	WT:1						SOURCEPAGE:p.350																																																					BONUS:STAT|STR|-10	BONUS:STAT|WIS|-10|PRECLASS:1,Cleric=1,Druid=1,Inquisitor=1,Paladin=1,Ranger=1	BONUS:STAT|CHA|-10|PRECLASS:1,Bard=1,Oracle=1,Summoner=1,Sorceror=1	BONUS:STAT|INT|-10|PRECLASS:1,Alchemist=1,Barbarian=1,Cavalier=1,Fighter=1,Monk=1,Magus=1,Rogue=1,Wizard=1,Witch=1
 Robe of Vermin				TYPE:Magic.Wondrous.Cursed.Robe					COST:0	WT:1						SOURCEPAGE:p.350							BONUS:COMBAT|INITIATIVE|-5	BONUS:COMBAT|TOHIT|-2																BONUS:SAVE|ALL|-2									BONUS:SKILL|ALL|-2																																																										SPROP:Must make concentration check (DC 20 + spell level) or lose the spell when casting.
 Rod of Arson.MOD																						SOURCEPAGE:p.350
 Rod of Foiled Magic			TYPE:Magic.Rod.Cursed							COST:0	WT:5						SOURCEPAGE:p.350	BONUS:CASTERLEVEL|ALLSPELLS|-2
