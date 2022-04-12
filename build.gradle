@@ -203,7 +203,7 @@ dependencies {
     testImplementation group: 'org.testfx', name: 'openjfx-monocle', version: 'jdk-12.0.1+2'
 
     testImplementation group: 'org.xmlunit', name: 'xmlunit-matchers', version:'2.9.0'
-    spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.11.0'
+    spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.12.0'
 }
 
 ant.importBuild 'build-gradle.xml'
