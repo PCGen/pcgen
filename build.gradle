@@ -29,7 +29,7 @@ plugins {
     id 'edu.sc.seis.launch4j' version '2.5.3'
     id 'com.github.ben-manes.versions' version '0.42.0'
     id "com.dorongold.task-tree" version '2.1.0'
-    id 'org.openjfx.javafxplugin' version '0.0.12'
+    id 'org.openjfx.javafxplugin' version '0.0.13'
     id 'org.beryx.runtime' version '1.12.7'
 }
 
