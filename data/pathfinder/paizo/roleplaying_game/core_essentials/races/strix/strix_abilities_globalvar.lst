@@ -1,0 +1,34 @@
+# Mon Aug 16 13:26:24 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Strix
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define						Ability
+CATEGORY=Internal|Racial Traits ~ Strix.MOD	DEFINE:Strix_ReplaceAbilityScores|0		ABILITY:Strix Racial Trait|AUTOMATIC|Strix ~ Ability Scores|PREVAREQ:Strix_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Strix.MOD	DEFINE:Strix_ReplaceType|0			ABILITY:Strix Racial Trait|AUTOMATIC|Strix ~ Type|PREVAREQ:Strix_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Strix.MOD	DEFINE:Strix_ReplaceSize|0			ABILITY:Strix Racial Trait|AUTOMATIC|Strix ~ Size|PREVAREQ:Strix_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Strix.MOD	DEFINE:Strix_ReplaceSpeed|0			ABILITY:Strix Racial Trait|AUTOMATIC|Strix ~ Speed|PREVAREQ:Strix_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Strix.MOD	DEFINE:Strix_ReplaceFlight|0			ABILITY:Strix Racial Trait|AUTOMATIC|Strix ~ Flight|PREVAREQ:Strix_ReplaceFlight,0
+CATEGORY=Internal|Racial Traits ~ Strix.MOD	DEFINE:Strix_ReplaceLowLightVision|0	ABILITY:Strix Racial Trait|AUTOMATIC|Strix ~ Low-Light Vision|PREVAREQ:Strix_ReplaceLowLightVision,0
+CATEGORY=Internal|Racial Traits ~ Strix.MOD	DEFINE:Strix_ReplaceDarkvision|0		ABILITY:Strix Racial Trait|AUTOMATIC|Strix ~ Darkvision|PREVAREQ:Strix_ReplaceDarkvision,0
+CATEGORY=Internal|Racial Traits ~ Strix.MOD	DEFINE:Strix_ReplaceHatred|0			ABILITY:Strix Racial Trait|AUTOMATIC|Strix ~ Hatred|PREVAREQ:Strix_ReplaceHatred,0
+CATEGORY=Internal|Racial Traits ~ Strix.MOD	DEFINE:Strix_ReplaceNocturnal|0		ABILITY:Strix Racial Trait|AUTOMATIC|Strix ~ Nocturnal|PREVAREQ:Strix_ReplaceNocturnal,0
+CATEGORY=Internal|Racial Traits ~ Strix.MOD	DEFINE:Strix_ReplaceSuspicious|0		ABILITY:Strix Racial Trait|AUTOMATIC|Strix ~ Suspicious|PREVAREQ:Strix_ReplaceSuspicious,0
+CATEGORY=Internal|Racial Traits ~ Strix.MOD	DEFINE:Strix_ReplaceLanguages|0		ABILITY:Strix Racial Trait|AUTOMATIC|Strix ~ Languages|PREVAREQ:Strix_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Strix.MOD	BONUS:VAR|Strix_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Strix_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Strix.MOD	BONUS:VAR|Strix_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Strix_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Strix.MOD	BONUS:VAR|Strix_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Strix_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Strix.MOD	BONUS:VAR|Strix_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Strix_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Strix.MOD	BONUS:VAR|Strix_ReplaceFlight|1|TYPE=Boolean|PREFACT:1,ABILITIES,Strix_ReplaceFlight=True
+CATEGORY=Internal|Racial Traits ~ Strix.MOD	BONUS:VAR|Strix_ReplaceLowLightVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Strix_ReplaceLowLightVision=True
+CATEGORY=Internal|Racial Traits ~ Strix.MOD	BONUS:VAR|Strix_ReplaceDarkvision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Strix_ReplaceDarkvision=True
+CATEGORY=Internal|Racial Traits ~ Strix.MOD	BONUS:VAR|Strix_ReplaceHatred|1|TYPE=Boolean|PREFACT:1,ABILITIES,Strix_ReplaceHatred=True
+CATEGORY=Internal|Racial Traits ~ Strix.MOD	BONUS:VAR|Strix_ReplaceNocturnal|1|TYPE=Boolean|PREFACT:1,ABILITIES,Strix_ReplaceNocturnal=True
+CATEGORY=Internal|Racial Traits ~ Strix.MOD	BONUS:VAR|Strix_ReplaceSuspicious|1|TYPE=Boolean|PREFACT:1,ABILITIES,Strix_ReplaceSuspicious=True
+CATEGORY=Internal|Racial Traits ~ Strix.MOD	BONUS:VAR|Strix_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Strix_ReplaceLanguages=True

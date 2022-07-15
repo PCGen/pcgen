@@ -1,0 +1,30 @@
+# Wed May 12 12:55:42 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Elf
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name					Define						Ability
+CATEGORY=Internal|Racial Traits ~ Elf.MOD	DEFINE:Elf_ReplaceAbilityScores|0		ABILITY:Elf Racial Trait|AUTOMATIC|Elf ~ Ability Scores|PREVAREQ:Elf_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Elf.MOD	DEFINE:Elf_ReplaceSize|0			ABILITY:Elf Racial Trait|AUTOMATIC|Elf ~ Size|PREVAREQ:Elf_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Elf.MOD	DEFINE:Elf_ReplaceSpeed|0			ABILITY:Elf Racial Trait|AUTOMATIC|Elf ~ Speed|PREVAREQ:Elf_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Elf.MOD	DEFINE:Elf_ReplaceVision|0			ABILITY:Elf Racial Trait|AUTOMATIC|Elf ~ Vision|PREVAREQ:Elf_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Elf.MOD	DEFINE:Elf_ReplaceElvenImmunities|0		ABILITY:Elf Racial Trait|AUTOMATIC|Elf ~ Elven Immunities|PREVAREQ:Elf_ReplaceElvenImmunities,0
+CATEGORY=Internal|Racial Traits ~ Elf.MOD	DEFINE:Elf_ReplaceElvenMagic|0		ABILITY:Elf Racial Trait|AUTOMATIC|Elf ~ Elven Magic|PREVAREQ:Elf_ReplaceElvenMagic,0
+CATEGORY=Internal|Racial Traits ~ Elf.MOD	DEFINE:Elf_ReplaceKeenSenses|0		ABILITY:Elf Racial Trait|AUTOMATIC|Elf ~ Keen Senses|PREVAREQ:Elf_ReplaceKeenSenses,0
+CATEGORY=Internal|Racial Traits ~ Elf.MOD	DEFINE:Elf_ReplaceWeaponFamiliarity|0	ABILITY:Elf Racial Trait|AUTOMATIC|Elf ~ Weapon Familiarity|PREVAREQ:Elf_ReplaceWeaponFamiliarity,0
+CATEGORY=Internal|Racial Traits ~ Elf.MOD	DEFINE:Elf_ReplaceLanguages|0			ABILITY:Elf Racial Trait|AUTOMATIC|Elf ~ Languages|PREVAREQ:Elf_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name					Modify VAR
+CATEGORY=Internal|Racial Traits ~ Elf.MOD	BONUS:VAR|Elf_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Elf_ReplaceAbilityScores=true
+CATEGORY=Internal|Racial Traits ~ Elf.MOD	BONUS:VAR|Elf_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Elf_ReplaceSize=true
+CATEGORY=Internal|Racial Traits ~ Elf.MOD	BONUS:VAR|Elf_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Elf_ReplaceSpeed=true
+CATEGORY=Internal|Racial Traits ~ Elf.MOD	BONUS:VAR|Elf_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Elf_ReplaceVision=true
+CATEGORY=Internal|Racial Traits ~ Elf.MOD	BONUS:VAR|Elf_ReplaceElvenImmunities|1|TYPE=Boolean|PREFACT:1,ABILITIES,Elf_ReplaceElvenImmunities=true
+CATEGORY=Internal|Racial Traits ~ Elf.MOD	BONUS:VAR|Elf_ReplaceElvenMagic|1|TYPE=Boolean|PREFACT:1,ABILITIES,Elf_ReplaceElvenMagic=true
+CATEGORY=Internal|Racial Traits ~ Elf.MOD	BONUS:VAR|Elf_ReplaceKeenSenses|1|TYPE=Boolean|PREFACT:1,ABILITIES,Elf_ReplaceKeenSenses=true
+CATEGORY=Internal|Racial Traits ~ Elf.MOD	BONUS:VAR|Elf_ReplaceWeaponFamiliarity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Elf_ReplaceWeaponFamiliarity=true
+CATEGORY=Internal|Racial Traits ~ Elf.MOD	BONUS:VAR|Elf_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Elf_ReplaceLanguages=true

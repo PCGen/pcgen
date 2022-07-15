@@ -1,0 +1,22 @@
+# Mon Aug 16 11:25:55 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Ratfolk
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsRatfolk	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Ratfolk	EXPLANATION:Determines whether the character is a Ratfolk
+
+###Block: Racial Traits
+# Name							Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Ratfolk_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ratfolk Ability Scores	EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Ratfolk_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ratfolk Type			EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Ratfolk_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ratfolk Size			EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Ratfolk_ReplaceSpeed		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ratfolk Speed			EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Ratfolk_ReplaceVision		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ratfolk Vision			EXPLANATION:Replaces the Vision Racial Trait
+FACTDEF:ABILITY|Ratfolk_ReplaceRodentEmpathy	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ratfolk Rodent Empathy	EXPLANATION:Replaces the Rodent Empathy Racial Trait
+FACTDEF:ABILITY|Ratfolk_ReplaceSwarming		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ratfolk Swarming		EXPLANATION:Replaces the Swarming Racial Trait
+FACTDEF:ABILITY|Ratfolk_ReplaceTinker		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ratfolk Tinker			EXPLANATION:Replaces the Tinker Racial Trait
+FACTDEF:ABILITY|Ratfolk_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Ratfolk Languages		EXPLANATION:Replaces the Languages Racial Trait

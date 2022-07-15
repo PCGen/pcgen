@@ -135,18 +135,13 @@ Obsolete - Remove ~ Halfling				KEY:Adoptive Race ~ Halfling		CATEGORY:Special A
 Obsolete - Remove ~ Human				KEY:Adoptive Race ~ Human		CATEGORY:Special Ability	TYPE:AdoptiveRace																																	PREVAREQ:CannotUse,1
 
 # New Method - Less contract on Data team for maintenance
-###Block: Adopted Trait Race Selections
+###Block: Adopted Trait Race Selections ~ Moved to each individual race.
 # Ability Name							Unique Key				Category of Ability		Type					Multiple?	Choose										Ability
-Dwarf									KEY:Adopted Race ~ Dwarf	CATEGORY:Special Ability	TYPE:AdoptiveRace			MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Dwarf Race Trait	ABILITY:Traits|VIRTUAL|%LIST
-Elf									KEY:Adopted Race ~ Elf		CATEGORY:Special Ability	TYPE:AdoptiveRace			MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Elf Race Trait		ABILITY:Traits|VIRTUAL|%LIST
-Gnome									KEY:Adopted Race ~ Gnome	CATEGORY:Special Ability	TYPE:AdoptiveRace			MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Gnome Race Trait	ABILITY:Traits|VIRTUAL|%LIST
 Half-Elf								KEY:Adopted Race ~ Half-Elf	CATEGORY:Special Ability	TYPE:AdoptiveRace			MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Half-Elf Race Trait	ABILITY:Traits|VIRTUAL|%LIST
 Half-Orc								KEY:Adopted Race ~ Half-Orc	CATEGORY:Special Ability	TYPE:AdoptiveRace			MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Half-Orc Race Trait	ABILITY:Traits|VIRTUAL|%LIST
 Halfling								KEY:Adopted Race ~ Halfling	CATEGORY:Special Ability	TYPE:AdoptiveRace			MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Halfling Race Trait	ABILITY:Traits|VIRTUAL|%LIST
 Human									KEY:Adopted Race ~ Human	CATEGORY:Special Ability	TYPE:AdoptiveRace			MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Human Race Trait	ABILITY:Traits|VIRTUAL|%LIST
 
-CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:Dwarf Race Trait
-CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:Elf Race Trait
 CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:Gnome Race Trait
 CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:Half-Elf Race Trait
 CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:Half-Orc Race Trait
@@ -171,8 +166,8 @@ Outlander / Missionary												KEY:Trait ~ Outlander ~ Missionary	CATEGORY:Sp
 ###Block: Race Traits
 #Dwarf
 # Ability Name	Unique Key				Category of Ability		Type						Multiple Requirements																																													Description																																																												Stackable?	Multiple?	Choose												Combat bonus					Save bonus					Bonus to Situation									Bonus to skill											Class Skill			Source Page		Aspects
-Goldsniffer		KEY:Trait ~ Goldsniffer		CATEGORY:Special Ability	TYPE:Trait.RaceTrait.Dwarf Race Trait	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Goldsniffer],[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.RaceTrait]	PREMULT:1,[PRERACE:1,Dwarf,RACESUBTYPE=Dwarf],[PREABILITY:1,CATEGORY=Special Ability,Adoptive Race ~ Dwarf]				DESC:Your keen senses lead you to hidden treasures. You gain a +2 trait bonus on Perception checks related to metals, jewels, and gemstones.																																																																				BONUS:SITUATION|Perception=Precious metals and gemstones|2|TYPE=Trait																		SOURCEPAGE:p.331
-Tunnel Fighter	KEY:Trait ~ Tunnel-Fighter	CATEGORY:Special Ability	TYPE:Trait.RaceTrait.Dwarf Race Trait	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Tunnel Fighter],[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.RaceTrait]	PREMULT:1,[PRERACE:1,Dwarf,RACESUBTYPE=Dwarf],[PREABILITY:1,CATEGORY=Special Ability,Adoptive Race ~ Dwarf]			DESC:Caves and tunnels are a second home to you. While underground, you receive a +2 trait bonus on initiative checks and a +1 trait bonus on weapon damage rolls for critical hits (this damage is multiplied on a critical hit).																																																																																			SOURCEPAGE:p.331
+Goldsniffer		KEY:Trait ~ Goldsniffer		CATEGORY:Special Ability	TYPE:Trait.RaceTrait.Dwarf Race Trait	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Goldsniffer],[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.RaceTrait]	PREMULT:1,[PRERACE:1,Dwarf,RACESUBTYPE=Dwarf]				DESC:Your keen senses lead you to hidden treasures. You gain a +2 trait bonus on Perception checks related to metals, jewels, and gemstones.																																																																				BONUS:SITUATION|Perception=Precious metals and gemstones|2|TYPE=Trait																		SOURCEPAGE:p.331
+Tunnel Fighter	KEY:Trait ~ Tunnel-Fighter	CATEGORY:Special Ability	TYPE:Trait.RaceTrait.Dwarf Race Trait	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Tunnel Fighter],[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.RaceTrait]	PREMULT:1,[PRERACE:1,Dwarf,RACESUBTYPE=Dwarf]			DESC:Caves and tunnels are a second home to you. While underground, you receive a +2 trait bonus on initiative checks and a +1 trait bonus on weapon damage rolls for critical hits (this damage is multiplied on a critical hit).																																																																																			SOURCEPAGE:p.331
 
 #Elf
 Forlorn		KEY:Trait ~ Forlorn		CATEGORY:Special Ability	TYPE:Trait.RaceTrait.Elf Race Trait		PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Forlorn],[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.RaceTrait]	PREMULT:1,[PRERACE:1,Elf%,RACESUBTYPE=Elf,RACESUBTYPE=Elf],[PREABILITY:1,CATEGORY=Special Ability,Adoptive Race ~ Elf]		DESC:Having lived outside of traditional elf society for much or all of your life, you know the world can be cruel, dangerous, and unforgiving of the weak. You gain a +1 trait bonus on Fortitude saving throws.																																																			BONUS:SAVE|Fortitude|1|TYPE=Trait																														SOURCEPAGE:p.331

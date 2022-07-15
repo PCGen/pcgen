@@ -1,0 +1,19 @@
+# Thu May 20 18:17:36 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Human
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname		Explanation
+FACTDEF:TEMPLATE|IsHuman	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Human	EXPLANATION:Determines whether the character is a Human
+
+###Block: Racial Traits
+# Name							Dataformat			Required	Selectable		Visible	Displayname						Explanation
+FACTDEF:ABILITY|Human_ReplaceAbilityScores	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Human Ability Scores	EXPLANATION:Replaces the Ability Scores
+FACTDEF:ABILITY|Human_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Human Size		EXPLANATION:Replaces the Medium Racial Trait
+FACTDEF:ABILITY|Human_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Human Speed		EXPLANATION:Replaces the Normal Speed Racial Trait
+FACTDEF:ABILITY|Human_ReplaceBonusFeat		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Human Bonus Feat	EXPLANATION:Replaces the Bonus Feat Racial Trait
+FACTDEF:ABILITY|Human_ReplaceSkilled		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Human Skilled		EXPLANATION:Replaces the Skilled Racial Trait
+FACTDEF:ABILITY|Human_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Human Languages		EXPLANATION:Replaces the Languages Racial Trait

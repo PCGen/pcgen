@@ -1,0 +1,6 @@
+# Mon Aug 16 12:55:38 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+###Block: Playable Races
+# Race Name	SORTKEY		Starting Feats	Base size		Move			Ability								Nb Legs	Nb Hands	Main Race Type	Type				Source Page		FACT
+Samsaran	SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	MOVE:Walk,30	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Samsaran	LEGS:2	HANDS:2	RACETYPE:Humanoid	TYPE:Base.PC.Uncommon	SOURCEPAGE:p.xx	FACT:IsPC|True

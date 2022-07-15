@@ -55,8 +55,8 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Bestiary" Copyright 2009-
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt
 
-DATACONTROL:b1__datacontrols.lst
-ABILITY:b1_abilities_globalvar.lst
+#DATACONTROL:b1__datacontrols.lst
+#ABILITY:b1_abilities_globalvar.lst
 
 #ABILITY:b1_abilities.lst
 #ABILITY:b1_abilities_race.lst
@@ -72,12 +72,30 @@ LANGUAGE:b1_languages.lst
 #WEAPONPROF:b1_profs_weapon.lst
 
 # Separate out races used by ARG to simplify dependencies
-ABILITY:b1_abilities_race_arg.lst
-ABILITYCATEGORY:b1_abilitycategories_arg.lst
-RACE:b1_races_arg.lst
-TEMPLATE:b1_templates_arg.lst
+ABILITY:b1_abilities_race_pc.lst
+LANGUAGE:b1_languages_aboleth.lst
+LANGUAGE:b1_languages_boggard.lst
+LANGUAGE:b1_languages_sphinx.lst
+RACE:b1_races_pc.lst
+TEMPLATE:b1_templates_language_aboleth.lst
+TEMPLATE:b1_templates_language_boggard.lst
+TEMPLATE:b1_templates_language_sphinx.lst
+TEMPLATE:b1_templates_pc.lst
 
-#MOVE TO CORE_ESSENTIALS
+# companions
 ABILITY:b1_abilities_companion.lst
 KIT:b1_kits_companion.lst
 RACE:b1_races_companion.lst
+
+# races
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\aasimar\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\drow\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\duergar\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\goblin\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\hobgoblin\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\kobold\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\merfolk\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\orc\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\svirfneblin\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\tengu\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\tiefling\_race.pcc

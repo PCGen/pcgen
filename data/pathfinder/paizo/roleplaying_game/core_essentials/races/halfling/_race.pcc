@@ -1,0 +1,26 @@
+# Sun Jul 26 22:20:43 2020 -- reformated by PCGen PrettyLST v6.08.00
+KEY:support ~ halfling race
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+ISOGL:YES
+
+# Use this so there aren't numerous copies of the same race.
+
+
+# ==============================
+# Halfling
+# ==============================
+
+# Fact/Factset & Formula System
+DATACONTROL:halfling__datacontrols.lst
+
+# Data Files
+ABILITY:halfling_abilities_globalvar.lst
+ABILITY:halfling_abilities_race.lst
+ABILITYCATEGORY:halfling_abilitycategories.lst
+BIOSET:halfling_biosettings.lst
+LANGUAGE:halfling_languages.lst
+RACE:halfling_races.lst
+TEMPLATE:halfling_templates_language.lst
+TEMPLATE:halfling_templates.lst

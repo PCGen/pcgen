@@ -1,0 +1,27 @@
+# Sun Jul 26 22:20:43 2020 -- reformated by PCGen PrettyLST v6.08.00
+KEY:support ~ dwarf race
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+ISOGL:YES
+
+# Use this so there aren't numerous copies of the same race.
+
+
+# ==============================
+# Dwarf
+# ==============================
+
+# Fact/Factset & Formula System
+DATACONTROL:dwarf__datacontrols.lst
+
+# Data Files
+ABILITY:dwarf_abilities_globalvar.lst
+ABILITY:dwarf_abilities_race.lst
+ABILITYCATEGORY:dwarf_abilitycategories.lst
+BIOSET:dwarf_biosettings.lst
+LANGUAGE:dwarf_languages.lst
+RACE:dwarf_races.lst
+SKILL:dwarf_skills.lst
+TEMPLATE:dwarf_templates_language.lst
+TEMPLATE:dwarf_templates.lst

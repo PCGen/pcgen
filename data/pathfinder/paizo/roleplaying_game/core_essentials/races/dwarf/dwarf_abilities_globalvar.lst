@@ -1,0 +1,35 @@
+# Tue May 11 20:03:48 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+# ------------------------------
+# Dwarf
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define						Ability
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD	DEFINE:Dwarf_ReplaceAbilityScores|0		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Ability Scores|PREVAREQ:Dwarf_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD	DEFINE:Dwarf_ReplaceSize|0			ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Size|PREVAREQ:Dwarf_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD	DEFINE:Dwarf_ReplaceSpeed|0			ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Speed|PREVAREQ:Dwarf_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD	DEFINE:Dwarf_ReplaceVision|0			ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Vision|PREVAREQ:Dwarf_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD	DEFINE:Dwarf_ReplaceDefensiveTraining|0	ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Defensive Training|PREVAREQ:Dwarf_ReplaceDefensiveTraining,0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD	DEFINE:Dwarf_ReplaceGreed|0			ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Greed|PREVAREQ:Dwarf_ReplaceGreed,0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD	DEFINE:Dwarf_ReplaceHatred|0			ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Hatred|PREVAREQ:Dwarf_ReplaceHatred,0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD	DEFINE:Dwarf_ReplaceHardy|0			ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Hardy|PREVAREQ:Dwarf_ReplaceHardy,0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD	DEFINE:Dwarf_ReplaceStability|0		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Stability|PREVAREQ:Dwarf_ReplaceStability,0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD	DEFINE:Dwarf_ReplaceStonecunning|0		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Stonecunning|PREVAREQ:Dwarf_ReplaceStonecunning,0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD	DEFINE:Dwarf_ReplaceWeaponFamiliarity|0	ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Weapon Familiarity|PREVAREQ:Dwarf_ReplaceWeaponFamiliarity,0
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD	DEFINE:Dwarf_ReplaceLanguages|0		ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf ~ Languages|PREVAREQ:Dwarf_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD	BONUS:VAR|Dwarf_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_ReplaceAbilityScores=true
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD	BONUS:VAR|Dwarf_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_ReplaceSize=true
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD	BONUS:VAR|Dwarf_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD	BONUS:VAR|Dwarf_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD	BONUS:VAR|Dwarf_ReplaceDefensiveTraining|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_ReplaceDefensiveTraining=True
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD	BONUS:VAR|Dwarf_ReplaceGreed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_ReplaceGreed=True
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD	BONUS:VAR|Dwarf_ReplaceHatred|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_ReplaceHatred=True
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD	BONUS:VAR|Dwarf_ReplaceHardy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_ReplaceHardy=True
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD	BONUS:VAR|Dwarf_ReplaceStability|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_ReplaceStability=True
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD	BONUS:VAR|Dwarf_ReplaceStonecunning|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_ReplaceStonecunning=True
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD	BONUS:VAR|Dwarf_ReplaceWeaponFamiliarity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_ReplaceWeaponFamiliarity=True
+CATEGORY=Internal|Racial Traits ~ Dwarf.MOD	BONUS:VAR|Dwarf_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Dwarf_ReplaceLanguages=True

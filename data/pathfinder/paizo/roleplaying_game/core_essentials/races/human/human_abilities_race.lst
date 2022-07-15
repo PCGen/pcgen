@@ -1,0 +1,32 @@
+# Thu May 20 18:18:39 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Human
+# ------------------------------
+
+###Block: Racial Abilities ~ grantor/removal MODs in human_abilities_globalvar.lst
+# Ability Name		Category of Ability	Define																							Template					Modify VAR
+Racial Traits ~ Human	CATEGORY:Internal		DEFINE:Human_RacialCastingStat|0	DEFINE:Human_RacialCastingMod|0	DEFINE:Human_RacialCasterlevel|0	DEFINE:Human_RacialConcentration|0	TEMPLATE:Racial Heritage ~ Human	BONUS:VAR|Human_RacialCastingStat|CHASCORE	BONUS:VAR|Human_RacialCastingMod|CHA	BONUS:VAR|Human_RacialCasterlevel|TL	BONUS:VAR|Human_RacialConcentration|Human_RacialCasterlevel+Human_RacialCastingMod
+
+###Block: Racial Trait Support
+# Ability Name								Type
+CATEGORY=Special Ability|Remove Excess Points from Pool.MOD	TYPE:Human Racial Trait
+
+###Block: Racial Traits
+# Ability Name		Unique Key				Category of Ability		Type																Visible		Prohibited Fact							Define		Description																									Template						Move			Auto Language	Bonus Ability Pool			Bonus to skill point/L		Modify VAR			Source Page
++2 to One Ability Score	KEY:Human ~ Ability Scores	CATEGORY:Special Ability	TYPE:RacialTraits.Human Racial Trait.Human Racial Default.SpecialQuality.Racial Ability Scores	VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Human_ReplaceAbilityScores=true				DESC:Human characters get a +2 bonus to one ability score of their choice at creation to represent their varied nature.																				BONUS:ABILITYPOOL|Ability Bonus|1										SOURCEPAGE:p.xx
+Medium			KEY:Human ~ Size			CATEGORY:Special Ability	TYPE:RacialTraits.Human Racial Trait.Human Racial Default.SpecialQuality.Racial Size		VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Human_ReplaceSize=true					DESC:Humans are Medium creatures and have no bonuses or penalties due to their size.																																								SOURCEPAGE:p.xx
+Normal Speed		KEY:Human ~ Speed			CATEGORY:Special Ability	TYPE:RacialTraits.Human Racial Trait.Human Racial Default.SpecialQuality.Racial Speed		VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Human_ReplaceSpeed=true		DEFINE:MOVEBASE|0	DESC:Humans have a base speed of 30 feet.																											MOVE:Walk,30															BONUS:VAR|MOVEBASE|30	SOURCEPAGE:p.xx
+Bonus Feat			KEY:Human ~ Bonus Feat		CATEGORY:Special Ability	TYPE:RacialTraits.Human Racial Trait.Human Racial Default.SpecialQuality							!PREFACT:1,ABILITIES,Human_ReplaceBonusFeat=true				DESC:Humans select one extra feat at 1st level.																																BONUS:ABILITYPOOL|FEAT|1											SOURCEPAGE:p.xx
+Skilled			KEY:Human ~ Skilled		CATEGORY:Special Ability	TYPE:RacialTraits.Human Racial Trait.Human Racial Default.SpecialQuality							!PREFACT:1,ABILITIES,Human_ReplaceSkilled=true					DESC:Humans gain an additional skill rank at 1st level and one additional rank whenever they gain a level.																												BONUS:SKILLPOINTS|NUMBER|1					SOURCEPAGE:p.xx
+Languages			KEY:Human ~ Languages		CATEGORY:Special Ability	TYPE:RacialTraits.Human Racial Trait.Human Racial Default.SpecialQuality.Racial Language		VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Human_ReplaceLanguages=true				DESC:Humans begin play speaking Common. Humans with high Intelligence scores can choose any languages they want (except secret languages, such as Druidic).	TEMPLATE:Bonus Language ~ Any Spoken				AUTO:LANG|Common																SOURCEPAGE:p.xx
+
+###Block: Favored Enemies
+# Ability Name	Unique Key						Category of Ability		Type														Define				Description																																																				Modify VAR							Source, Long Desc.		Source, Short Desc.	Source URI							Source Page		Source Pub. Date		Aspects
+Humanoid (Human)	KEY:Favored Enemy ~ Humanoid (Human)	CATEGORY:Special Ability	TYPE:RangerClassFeatures.FavoredEnemy.SpecialAttack.Extraordinary.AttackOption	DEFINE:FavoredHumanoidHuman|0	DESC:You gain a +%1 bonus on Bluff, Knowledge, Perception, Sense Motive, and Survival checks when using these skills against Humans. Likewise, you get a +%1 bonus on weapon attack and damage rolls against such creatures. You may make Knowledge Skill checks untrained to identify such creatures.|FavoredHumanoidHuman	BONUS:VAR|FavoredHumanoidHuman|FavoredBaseBonus	SOURCELONG:Core Rulebook	SOURCESHORT:CR		SOURCEWEB:https://paizo.com/products/btpy88yj	SOURCEPAGE:p.64	SOURCEDATE:2009-08	ASPECT:Ability Benefit|+%1|FavoredHumanoidHuman	ASPECT:SkillBonus|You gain a +%1 bonus on Bluff, Knowledge, Perception, Sense Motive, and Survival checks against Human.|FavoredHumanoidHuman	ASPECT:CombatBonus|You gain a +%1 bonus on Attack rolls and Damage rolls against Human.|FavoredHumanoidHuman
+
+###Block: Adopted Trait Race Selections
+# Ability Name							Unique Key				Category of Ability		Type				Multiple?	Choose										Ability
+Human									KEY:Adopted Race ~ Human	CATEGORY:Special Ability	TYPE:AdoptiveRace		MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Human Race Trait	ABILITY:Traits|VIRTUAL|%LIST
+CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:Human Race Trait

@@ -14,13 +14,6 @@ Pidgin Tien	TYPE:Spoken.Written.Read.Human
 Senzar	TYPE:Spoken.Written.Read.Human
 Tien		TYPE:Spoken.Written.Read.Human
 
-###Block: Racial Languages
-# Language	Type
-Nagaji	TYPE:Spoken.Written.Read
-Samsaran	TYPE:Spoken.Written.Read
-Tengu		TYPE:Spoken.Written.Read
-Wayang	TYPE:Spoken.Written.Read
-
 ###Block: Other
 # Language	Type
 Kelish	TYPE:Spoken.Written.Read.Human

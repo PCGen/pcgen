@@ -13,6 +13,21 @@ SOURCELONG:Inner Sea Races	SOURCESHORT:ISR	SOURCEWEB:http://paizo.com/products/b
 # Dwarf
 # ------------------------------
 
+###Block: Racial Traits
+# Ability Name								Source Page
+CATEGORY=Special Ability|Dwarf ~ Ability Scores.MOD		SOURCEPAGE:p.236
+CATEGORY=Special Ability|Dwarf ~ Size.MOD				SOURCEPAGE:p.236
+CATEGORY=Special Ability|Dwarf ~ Speed.MOD			SOURCEPAGE:p.236
+CATEGORY=Special Ability|Dwarf ~ Vision.MOD			SOURCEPAGE:p.236
+CATEGORY=Special Ability|Dwarf ~ Defensive Training.MOD	SOURCEPAGE:p.236
+CATEGORY=Special Ability|Dwarf ~ Greed.MOD			SOURCEPAGE:p.236
+CATEGORY=Special Ability|Dwarf ~ Hatred.MOD			SOURCEPAGE:p.236
+CATEGORY=Special Ability|Dwarf ~ Hardy.MOD			SOURCEPAGE:p.236
+CATEGORY=Special Ability|Dwarf ~ Stability.MOD			SOURCEPAGE:p.236
+CATEGORY=Special Ability|Dwarf ~ Stonecunning.MOD		SOURCEPAGE:p.236
+CATEGORY=Special Ability|Dwarf ~ Weapon Familiarity.MOD	SOURCEPAGE:p.236
+CATEGORY=Special Ability|Dwarf ~ Languages.MOD			SOURCEPAGE:p.236
+
 ###Block: Alternate Racial Traits
 # Ability Name	Unique Key				Category of Ability		Type																			Multiple Requirements																													Desc is PI?		Description																																																																																				Ability					Save bonus					Bonus to skill									Cost		Source Page		Aspects																					FACT
 Lasting Grudge	KEY:Dwarf ~ Lasting Grudge	CATEGORY:Special Ability	TYPE:RacialTraits.Dwarf Racial Trait.SpecialQuality.Special Quality								PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Dwarf ~ Lasting Grudge],[!PREFACT:1,ABILITIES,Dwarf_ReplaceDefensiveTraining=true,Dwarf_ReplaceHatred=true]									DESC:Dwarves are notorious for their long-lasting grudges. Those who live up to this racial reputation gain a +1 racial bonus on attack rolls against any individual creature that has attacked them 1 day ago or longer.	DESC:This racial trait replaces defensive training and hatred.|!PREABILITY:1,CATEGORY=Special Ability,Dwarf ~ Lasting Grudge																																																			COST:0	SOURCEPAGE:p.210	ASPECT:CombatBonus|+1 racial bonus on attack rolls against any individual creature that has attacked 1 day ago or longer.		FACT:Dwarf_ReplaceDefensiveTraining|true	FACT:Dwarf_ReplaceHatred|true
@@ -27,6 +42,18 @@ Unstoppable		KEY:Dwarf ~ Unstoppable		CATEGORY:Special Ability	TYPE:RacialTraits
 # ------------------------------
 # Elf
 # ------------------------------
+
+###Block: Racial Traits
+# Ability Name							Source Page
+CATEGORY=Special Ability|Elf ~ Ability Scores.MOD	SOURCEPAGE:p.236
+CATEGORY=Special Ability|Elf ~ Size.MOD			SOURCEPAGE:p.236
+CATEGORY=Special Ability|Elf ~ Speed.MOD			SOURCEPAGE:p.236
+CATEGORY=Special Ability|Elf ~ Vision.MOD			SOURCEPAGE:p.236
+CATEGORY=Special Ability|Elf ~ Elven Immunities.MOD	SOURCEPAGE:p.236
+CATEGORY=Special Ability|Elf ~ Elven Magic.MOD		SOURCEPAGE:p.236
+CATEGORY=Special Ability|Elf ~ Keen Senses.MOD		SOURCEPAGE:p.236
+CATEGORY=Special Ability|Elf ~ Weapon Familiarity.MOD	SOURCEPAGE:p.236
+CATEGORY=Special Ability|Elf ~ Languages.MOD		SOURCEPAGE:p.236
 
 ###Block: Alternate Racial Traits
 # Ability Name		Unique Key					Product Identity?	Category of Ability		Type														Multiple Requirements																									Desc is PI?		Description																																																																																																	Stackable?	Multiple?	Choose														Selections	Template														Auto Language	Ability																							Bonus to skill											Class Skill	Cost		Source Page		Aspects																									FACT
@@ -49,6 +76,21 @@ Elven Arrogance ~ Senzar	CATEGORY:Internal		TEMPLATE:Bonus Language ~ Senzar
 # Gnome
 # ------------------------------
 
+###Block: Racial Traits
+# Ability Name								Source Page
+CATEGORY=Special Ability|Gnome ~ Ability Scores.MOD		SOURCEPAGE:p.237
+CATEGORY=Special Ability|Gnome ~ Size.MOD				SOURCEPAGE:p.237
+CATEGORY=Special Ability|Gnome ~ Speed.MOD			SOURCEPAGE:p.237
+CATEGORY=Special Ability|Gnome ~ Vision.MOD			SOURCEPAGE:p.237
+CATEGORY=Special Ability|Gnome ~ Defensive Training.MOD	SOURCEPAGE:p.237
+CATEGORY=Special Ability|Gnome ~ Gnome Magic.MOD		SOURCEPAGE:p.237
+CATEGORY=Special Ability|Gnome ~ Hatred.MOD			SOURCEPAGE:p.237
+CATEGORY=Special Ability|Gnome ~ Illusion Resistance.MOD	SOURCEPAGE:p.237
+CATEGORY=Special Ability|Gnome ~ Keen Senses.MOD		SOURCEPAGE:p.237
+CATEGORY=Special Ability|Gnome ~ Obsessive.MOD			SOURCEPAGE:p.237
+CATEGORY=Special Ability|Gnome ~ Weapon Familiarity.MOD	SOURCEPAGE:p.237
+CATEGORY=Special Ability|Gnome ~ Languages.MOD			SOURCEPAGE:p.237
+
 ###Block: Alternate Racial Traits
 # Ability Name		Unique Key					Category of Ability		Type														Multiple Requirements																													Define					Desc is PI?		Description																																																																																											Ability																										Bonus DC					Bonus to Situation								Bonus to skill							Modify VAR																							Cost		Source Page		Aspects																FACT
 Architectural Ingenuity	KEY:Gnome ~ Architectural Ingenuity	CATEGORY:Special Ability	TYPE:RacialTraits.Gnome Racial Trait.SpecialQuality.Special Quality.Applied Bonus	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Gnome ~ Architectural Ingenuity],[!PREFACT:1,ABILITIES,Gnome_ReplaceKeenSenses=true,Gnome_ReplaceObsessive=true]															DESC:Some gnomes demonstrate incredible talent for building and adjusting structures. These gnomes gain a +2 racial bonus on Knowledge (engineering) checks and on Craft and Perception checks related to structures (including structural traps).	DESC:This racial trait replaces keen senses and obsessive.|!PREABILITY:1,CATEGORY=Special Ability,Gnome ~ Architectural Ingenuity																																																															BONUS:SITUATION|Perception=related to structures|2|TYPE=Racial	BONUS:SKILL|Knowledge (Engineering)|2|TYPE=Racial																									COST:0	SOURCEPAGE:p.211	ASPECT:SkillBonus|+2 racial bonus on Craft checks related to structures (including structural traps).	FACT:Gnome_ReplaceKeenSenses|true	FACT:Gnome_ReplaceObsessive|true
@@ -62,6 +104,19 @@ Wright			KEY:Gnome ~ Wright			CATEGORY:Special Ability	TYPE:RacialTraits.Gnome R
 # ------------------------------
 # Half-Elf
 # ------------------------------
+
+###Block: Racial Traits
+# Ability Name								Source Page
+CATEGORY=Special Ability|Half-Elf ~ Ability Scores.MOD	SOURCEPAGE:p.237
+CATEGORY=Special Ability|Half-Elf ~ Size.MOD			SOURCEPAGE:p.237
+CATEGORY=Special Ability|Half-Elf ~ Speed.MOD			SOURCEPAGE:p.237
+CATEGORY=Special Ability|Half-Elf ~ Vision.MOD			SOURCEPAGE:p.237
+CATEGORY=Special Ability|Half-Elf ~ Adaptability.MOD		SOURCEPAGE:p.237
+CATEGORY=Special Ability|Half-Elf ~ Elf Blood.MOD		SOURCEPAGE:p.237
+CATEGORY=Special Ability|Half-Elf ~ Elven Immunities.MOD	SOURCEPAGE:p.237
+CATEGORY=Special Ability|Half-Elf ~ Keen Senses.MOD		SOURCEPAGE:p.237
+CATEGORY=Special Ability|Half-Elf ~ Multitalented.MOD		SOURCEPAGE:p.237
+CATEGORY=Special Ability|Half-Elf ~ Languages.MOD		SOURCEPAGE:p.237
 
 ###Block: Alternate Racial Traits
 # Ability Name		Unique Key						Category of Ability		Type																Multiple Requirements																																										Define						Desc is PI?		Description																																																																																																	Ability									Bonus Ability Pool			Bonus to Situation																					Bonus to skill									Modify VAR						Cost		Source Page		Aspects																																										FACT
@@ -78,6 +133,18 @@ Weapon Familiarity	KEY:Half-Elf ~ Weapon Familiarity		CATEGORY:Special Ability	T
 # Half-Orc
 # ------------------------------
 
+###Block: Racial Traits
+# Ability Name								Source Page
+CATEGORY=Special Ability|Half-Orc ~ Ability Scores.MOD	SOURCEPAGE:p.237
+CATEGORY=Special Ability|Half-Orc ~ Size.MOD			SOURCEPAGE:p.237
+CATEGORY=Special Ability|Half-Orc ~ Speed.MOD			SOURCEPAGE:p.237
+CATEGORY=Special Ability|Half-Orc ~ Vision.MOD			SOURCEPAGE:p.237
+CATEGORY=Special Ability|Half-Orc ~ Intimidating.MOD		SOURCEPAGE:p.237
+CATEGORY=Special Ability|Half-Orc ~ Orc Blood.MOD		SOURCEPAGE:p.237
+CATEGORY=Special Ability|Half-Orc ~ Orc Ferocity.MOD		SOURCEPAGE:p.237
+CATEGORY=Special Ability|Half-Orc ~ Weapon Familiarity.MOD	SOURCEPAGE:p.237
+CATEGORY=Special Ability|Half-Orc ~ Languages.MOD		SOURCEPAGE:p.237
+
 ###Block: Alternate Racial Traits
 # Ability Name		Unique Key						Category of Ability		Type															Multiple Requirements																																Description																																																																																																																					Stackable?	Multiple?	Choose				Ability											Bonus to Situation															Bonus to skill								Stat bonus								Modify VAR						Cost		Source Page		Aspects																																										FACT
 Divided Attention		KEY:Half-Orc ~ Divided Attention		CATEGORY:Special Ability	TYPE:RacialTraits.Half-Orc Racial Trait.SpecialQuality.Special Quality				PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Half-Orc ~ Divided Attention],[!PREFACT:1,ABILITIES,HalfOrc_ReplaceIntimidating=true,HalfOrc_ReplaceOrcFerocity=true]								DESC:Half-orcs must learn to divide their attention among multiple threats to stay alive, since both humans and orcs often attempt to put them in their place. Half-orcs gain a +1 dodge bonus to AC against foes who flank them.	DESC:This racial trait replaces intimidating and orc ferocity.|!PREABILITY:1,CATEGORY=Special Ability,Half-Orc ~ Divided Attention																																																																																																																												COST:0	SOURCEPAGE:p.212	ASPECT:CombatBonus|+1 dodge bonus to AC against flanking.																																		FACT:HalfOrc_ReplaceIntimidating|true	FACT:HalfOrc_ReplaceOrcFerocity|true
@@ -93,6 +160,18 @@ War-Leader			KEY:Half-Orc ~ War-Leader			CATEGORY:Special Ability	TYPE:RacialTra
 # Halfling
 # ------------------------------
 
+###Block: Racial Traits
+# Ability Name								Source Page
+CATEGORY=Special Ability|Halfling ~ Ability Scores.MOD	SOURCEPAGE:p.238
+CATEGORY=Special Ability|Halfling ~ Size.MOD			SOURCEPAGE:p.238
+CATEGORY=Special Ability|Halfling ~ Speed.MOD			SOURCEPAGE:p.238
+CATEGORY=Special Ability|Halfling ~ Fearless.MOD		SOURCEPAGE:p.238
+CATEGORY=Special Ability|Halfling ~ Halfling Luck.MOD		SOURCEPAGE:p.238
+CATEGORY=Special Ability|Halfling ~ Keen Senses.MOD		SOURCEPAGE:p.238
+CATEGORY=Special Ability|Halfling ~ Sure-Footed.MOD		SOURCEPAGE:p.238
+CATEGORY=Special Ability|Halfling ~ Weapon Familiarity.MOD	SOURCEPAGE:p.238
+CATEGORY=Special Ability|Halfling ~ Languages.MOD		SOURCEPAGE:p.238
+
 ###Block: Alternate Racial Traits
 # Ability Name		Unique Key					Category of Ability		Type															Multiple Requirements																															Define								Description																																																																																																				Multiple?	Choose								Ability									Caster level							Bonus DC						Save bonus				Bonus to skill					Modify VAR										Cost		Source Page		Aspects																																					FACT
 Caretaker			KEY:Halfling ~ Caretaker		CATEGORY:Special Ability	TYPE:RacialTraits.Halfling Racial Trait.SpecialQuality.Special Quality.Applied Bonus	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Halfling ~ Caretaker],[!PREFACT:1,ABILITIES,Halfling_ReplaceHalflingLuck=true,Halfling_ReplaceSureFooted=true,Halfling_ReplaceWeaponFamiliarity=true]	DEFINE:Companion_MasterRacialTrait_AbilityBonus|0	DESC:Humans often entrust halfling families with the care of children and animals, a task that has helped them develop keen insight. Such halflings gain a +2 racial bonus on Sense Motive checks. In addition, when they acquire an animal companion, bonded mount, cohort, or familiar, that creature gains a +2 bonus to one ability score of the character's choice.	DESC:This racial trait replaces halfling luck, sure-footed, and weapon familiarity.|!PREABILITY:1,CATEGORY=Special Ability,Halfling ~ Caretaker																																																											BONUS:SKILL|Sense Motive|2|TYPE=Racial	BONUS:VAR|Companion_MasterRacialTrait_AbilityBonus|1|TYPE=Boolean	COST:0	SOURCEPAGE:p.212																																							FACT:Halfling_ReplaceHalflingLuck|true	FACT:Halfling_ReplaceSureFooted|true	FACT:Halfling_ReplaceWeaponFamiliarity|true
@@ -107,6 +186,15 @@ Unlucky Halfling		KEY:Halfling ~ Unlucky Halfling	CATEGORY:Special Ability	TYPE:
 # ------------------------------
 # Human
 # ------------------------------
+
+###Block: Racial Traits
+# Ability Name							Source Page
+CATEGORY=Special Ability|Human ~ Ability Scores.MOD	SOURCEPAGE:p.238
+CATEGORY=Special Ability|Human ~ Size.MOD			SOURCEPAGE:p.238
+CATEGORY=Special Ability|Human ~ Speed.MOD		SOURCEPAGE:p.238
+CATEGORY=Special Ability|Human ~ Bonus Feat.MOD		SOURCEPAGE:p.238
+CATEGORY=Special Ability|Human ~ Skilled.MOD		SOURCEPAGE:p.238
+CATEGORY=Special Ability|Human ~ Languages.MOD		SOURCEPAGE:p.238
 
 ###Block: Alternate Racial Traits
 # Ability Name		Unique Key					Category of Ability		Type												Required Ability							Multiple Requirements																			Desc is PI?		Description																																																																																																														Multiple?	Choose								Selections	Auto Weapon Prof		Ability							Save bonus				Bonus to Situation																																										Bonus to skill									Modify VAR								Cost		Source Page		Aspects																																		FACT						Information
@@ -136,11 +224,8 @@ Languages		KEY:Human ~ Tribalistic Languages	CATEGORY:Special Ability	TYPE:Racia
 # Aasimar
 # ------------------------------
 
-###Block: Racial Abilities
-# Ability Name						Bonus Ability Pool
-CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	BONUS:ABILITYPOOL|Aasimar Subrace|1|TYPE=Base
+###NOTE: Race files are in core_essentials\races\aasimar\
 
-# This race is found in b1_abilities_race_arg.lst
 ###Block: Racial Traits
 # Ability Name								Source Page
 CATEGORY=Special Ability|Aasimar ~ Ability Scores.MOD		SOURCEPAGE:p.238
@@ -154,92 +239,92 @@ CATEGORY=Special Ability|Aasimar ~ Celestial Resistance.MOD	SOURCEPAGE:p.238
 CATEGORY=Special Ability|Aasimar ~ Languages.MOD		SOURCEPAGE:p.238
 
 ###Block: Subrace Selection
-# Ability Name	Unique Key			SORTKEY	Category of Ability		Type				Description																																						Source Page		Aspects																													Information
-Aasimar		KEY:Aasimar ~ Default	SORTKEY:1	CATEGORY:Special Ability	TYPE:Aasimar Subrace	DESC:Most aasimars do not know exactly where their celestial powers came from, and the similar qualities of many such celestially touched beings hint at a relatively indistinct or all-encompassing heavenly force in their lineage.	SOURCEPAGE:p.238	ASPECT:Alternate Ability Modifiers|+2 Wis, +2 Cha	ASPECT:Skill Modifiers|Diplomacy, Perception	ASPECT:Spell-Like Ability|Aasimars gain daylight as a spell-like ability.	INFO:Alternate Ability Modifiers|+2 Wis, +2 Cha	INFO:Skill Modifiers|Diplomacy, Perception	INFO:Spell-Like Ability|Aasimars gain daylight as a spell-like ability.
+# Ability Name						Source Page
+CATEGORY=Special Ability|Aasimar ~ Default.MOD	SOURCEPAGE:p.238
 
 # ------------------------------
 # Aasimar ~ Agathion-Blooded
 # ------------------------------
 
 ###Block: Subrace Selection
-# Ability Name			Unique Key					Category of Ability		Type				Prohibited Fact																		Description																Template					Ability																						Source Page		Aspects																																													FACT																				Information
-Agathion-Blooded (Idyllkin)	KEY:Aasimar ~ Agathion-Blooded	CATEGORY:Special Ability	TYPE:Aasimar Subrace	!PREFACT:1,ABILITIES,Aasimar_ReplaceAbilityScores=true,Aasimar_ReplaceSkilled=true,Aasimar_ReplaceSpellLikeAbility=true	DESC:These aasimars have bestial aspects and calm dispositions, like Nirvana's animalistic agathions.	TEMPLATE:Aasimar ~ Agathion-Blooded	ABILITY:Aasimar Racial Trait|AUTOMATIC|Agathion-Blooded ~ Ability Scores|Agathion-Blooded ~ Skilled|Agathion-Blooded ~ Spell-Like Ability	SOURCEPAGE:p.238	ASPECT:Ancestry|Agathion	ASPECT:Typical Alignment|NG	ASPECT:Alternate Ability Modifiers|+2 Con, +2 Cha	ASPECT:Alternate Skill Modifiers|Handle Animal, Survival	ASPECT:Alternate Spell-Like Ability|Idyllkin gain summon nature's ally II as a spell-like ability.	FACT:Aasimar_ReplaceAbilityScores|True	FACT:Aasimar_ReplaceSkilled|True	FACT:Aasimar_ReplaceSpellLikeAbility|True	INFO:Ancestry|Agathion	INFO:Typical Alignment|NG	INFO:Alternate Ability Modifiers|+2 Con, +2 Cha	INFO:Alternate Skill Modifiers|Handle Animal, Survival	INFO:Alternate Spell-Like Ability|Idyllkin gain summon nature's ally II as a spell-like ability.
+# Ability Name								Source Page
+CATEGORY=Special Ability|Aasimar ~ Agathion-Blooded.MOD	SOURCEPAGE:p.238
 
 ###Block: Replacement Racial Traits
-# Ability Name			Unique Key						Category of Ability		Type													Visible		Description																Ability												Bonus to skill							Stat bonus					Source Page		Aspects
-+2 Constitution, +2 Charisma	KEY:Agathion-Blooded ~ Ability Scores	CATEGORY:Special Ability	TYPE:RacialTraits.Aasimar Racial Trait.SpecialQuality.Racial Ability Scores	VISIBLE:DISPLAY	DESC:These aasimars have bestial aspects and calm dispositions, like Nirvana's animalistic agathions.																							BONUS:STAT|CON,CHA|2|TYPE=Racial	SOURCEPAGE:p.238
-Skilled				KEY:Agathion-Blooded ~ Skilled		CATEGORY:Special Ability	TYPE:RacialTraits.Aasimar Racial Trait.SpecialQuality								DESC:Idyllkin have a +2 racial bonus on Handle Animal and Survival checks.																		BONUS:SKILL|Handle Animal,Survival|2|TYPE=Racial							SOURCEPAGE:p.238	ASPECT:RacialSkillModifier|+2 Handle Animal, +2 Survival
-Spell-Like Ability		KEY:Agathion-Blooded ~ Spell-Like Ability	CATEGORY:Special Ability	TYPE:RacialTraits.Aasimar Racial Trait.SpecialQuality								DESC:Idyllkin gain summon nature's ally II as a spell-like ability.						ABILITY:Spell-Like Ability|AUTOMATIC|Racial SLA ~ Summon Nature's Ally II																SOURCEPAGE:p.238
+# Ability Name										Source Page
+CATEGORY=Special Ability|Agathion-Blooded ~ Ability Scores.MOD		SOURCEPAGE:p.238
+CATEGORY=Special Ability|Agathion-Blooded ~ Skilled.MOD			SOURCEPAGE:p.238
+CATEGORY=Special Ability|Agathion-Blooded ~ Spell-Like Ability.MOD	SOURCEPAGE:p.238
 
 # ------------------------------
 # Aasimar ~ Angel-Blooded
 # ------------------------------
 
 ###Block: Subrace Selection
-# Ability Name			Unique Key				Category of Ability		Type				Prohibited Fact																		Description												Template					Ability																					Source Page		Aspects																																											FACT																				Information
-Angel-Blooded (Angelkin)	KEY:Aasimar ~ Angel-Blooded	CATEGORY:Special Ability	TYPE:Aasimar Subrace	!PREFACT:1,ABILITIES,Aasimar_ReplaceAbilityScores=true,Aasimar_ReplaceSkilled=true,Aasimar_ReplaceSpellLikeAbility=true	DESC:Bearing the blood of angels, these aasimars often appear androgynous.	TEMPLATE:Aasimar ~ Angel-Blooded	ABILITY:Aasimar Racial Trait|AUTOMATIC|Angel-Blooded ~ Ability Scores|Angel-Blooded ~ Skilled|Angel-Blooded ~ Spell-Like Ability	SOURCEPAGE:p.239	ASPECT:Ancestry|Angel	ASPECT:Typical Alignment|Any good	ASPECT:Alternate Ability Modifiers|+2 Str, +2 Cha	ASPECT:Alternate Skill Modifiers|Heal, Knowledge (planes)	ASPECT:Alternate Spell-Like Ability|Angelkin gain alter self as a spell-like ability.	FACT:Aasimar_ReplaceAbilityScores|True	FACT:Aasimar_ReplaceSkilled|True	FACT:Aasimar_ReplaceSpellLikeAbility|True	INFO:Ancestry|Angel	INFO:Typical Alignment|Any good	INFO:Alternate Ability Modifiers|+2 Str, +2 Cha	INFO:Alternate Skill Modifiers|Heal, Knowledge (planes)	INFO:Alternate Spell-Like Ability|Angelkin gain alter self as a spell-like ability.
+# Ability Name							Source Page
+CATEGORY=Special Ability|Aasimar ~ Angel-Blooded.MOD	SOURCEPAGE:p.239
 
 ###Block: Replacement Racial Traits
-# Ability Name			Unique Key						Category of Ability		Type													Visible		Description												Ability										Bonus to skill							Stat bonus					Source Page		Aspects
-+2 Strength, +2 Charisma	KEY:Angel-Blooded ~ Ability Scores		CATEGORY:Special Ability	TYPE:RacialTraits.Aasimar Racial Trait.SpecialQuality.Racial Ability Scores	VISIBLE:DISPLAY	DESC:Bearing the blood of angels, these aasimars often appear androgynous.																					BONUS:STAT|STR,CHA|2|TYPE=Racial	SOURCEPAGE:p.239
-Skilled				KEY:Angel-Blooded ~ Skilled			CATEGORY:Special Ability	TYPE:RacialTraits.Aasimar Racial Trait.SpecialQuality								DESC:Angelkin have a +2 racial bonus on Heal and Knowledge (planes) checks.												BONUS:SKILL|Heal,Knowledge (Planes)|2|TYPE=Racial							SOURCEPAGE:p.239	ASPECT:RacialSkillModifier|+2 Heal, +2 Knowledge (Planes)
-Spell-Like Ability		KEY:Angel-Blooded ~ Spell-Like Ability	CATEGORY:Special Ability	TYPE:RacialTraits.Aasimar Racial Trait.SpecialQuality								DESC:Angelkin gain alter self as a spell-like ability.				ABILITY:Spell-Like Ability|AUTOMATIC|Racial SLA ~ Alter Self																SOURCEPAGE:p.239
+# Ability Name									Source Page
+CATEGORY=Special Ability|Angel-Blooded ~ Ability Scores.MOD		SOURCEPAGE:p.239
+CATEGORY=Special Ability|Angel-Blooded ~ Skilled.MOD			SOURCEPAGE:p.239
+CATEGORY=Special Ability|Angel-Blooded ~ Spell-Like Ability.MOD	SOURCEPAGE:p.239
 
 # ------------------------------
 # Aasimar ~ Archon-Blooded
 # ------------------------------
 
 ###Block: Subrace Selection
-# Ability Name			Unique Key				Category of Ability		Type				Prohibited Fact																		Description																		Template					Ability																					Source Page		Aspects																																											FACT																				Information
-Archon-Blooded (Lawbringers)	KEY:Aasimar ~ Archon-Blooded	CATEGORY:Special Ability	TYPE:Aasimar Subrace	!PREFACT:1,ABILITIES,Aasimar_ReplaceAbilityScores=true,Aasimar_ReplaceSkilled=true,Aasimar_ReplaceSpellLikeAbility=true	DESC:Bastions of law, these focused and disciplined aasimars carry the blood of Heaven's archons in their veins.	TEMPLATE:Aasimar ~ Archon-Blooded	ABILITY:Aasimar Racial Trait|AUTOMATIC|Archon-Blooded ~ Ability Scores|Archon-Blooded ~ Skilled|Archon-Blooded ~ Spell-Like Ability	SOURCEPAGE:p.239	ASPECT:Ancestry|Archon	ASPECT:Typical Alignment|LG	ASPECT:Alternate Ability Modifiers|+2 Con, +2 Wis	ASPECT:Alternate Skill Modifiers|Intimidate, Sense Motive	ASPECT:Alternate Spell-Like Ability|Lawbringers gain continual flame as a spell-like ability.	FACT:Aasimar_ReplaceAbilityScores|True	FACT:Aasimar_ReplaceSkilled|True	FACT:Aasimar_ReplaceSpellLikeAbility|True	INFO:Ancestry|Archon	INFO:Typical Alignment|LG	INFO:Alternate Ability Modifiers|+2 Con, +2 Wis	INFO:Alternate Skill Modifiers|Intimidate, Sense Motive	INFO:Alternate Spell-Like Ability|Lawbringers gain continual flame as a spell-like ability.
+# Ability Name							Source Page
+CATEGORY=Special Ability|Aasimar ~ Archon-Blooded.MOD	SOURCEPAGE:p.239
 
 ###Block: Replacement Racial Traits
-# Ability Name			Unique Key						Category of Ability		Type													Visible		Description																		Ability										Bonus to skill							Stat bonus					Source Page		Aspects
-+2 Constitution, +2 Wisdom	KEY:Archon-Blooded ~ Ability Scores		CATEGORY:Special Ability	TYPE:RacialTraits.Aasimar Racial Trait.SpecialQuality.Racial Ability Scores	VISIBLE:DISPLAY	DESC:Bastions of law, these focused and disciplined aasimars carry the blood of Heaven's archons in their veins.																					BONUS:STAT|CON,WIS|2|TYPE=Racial	SOURCEPAGE:p.239
-Skilled				KEY:Archon-Blooded ~ Skilled			CATEGORY:Special Ability	TYPE:RacialTraits.Aasimar Racial Trait.SpecialQuality								DESC:Lawbringers have a +2 racial bonus on Intimidate and Sense Motive checks.																	BONUS:SKILL|Intimidate,Sense Motive|2|TYPE=Racial							SOURCEPAGE:p.239	ASPECT:RacialSkillModifier|+2 Intimidate, +2 Sense Motive
-Spell-Like Ability		KEY:Archon-Blooded ~ Spell-Like Ability	CATEGORY:Special Ability	TYPE:RacialTraits.Aasimar Racial Trait.SpecialQuality								DESC:Lawbringers gain continual flame as a spell-like ability.									ABILITY:Spell-Like Ability|AUTOMATIC|Racial SLA ~ Continual Flame																SOURCEPAGE:p.239
+# Ability Name									Source Page
+CATEGORY=Special Ability|Archon-Blooded ~ Ability Scores.MOD	SOURCEPAGE:p.239
+CATEGORY=Special Ability|Archon-Blooded ~ Skilled.MOD			SOURCEPAGE:p.239
+CATEGORY=Special Ability|Archon-Blooded ~ Spell-Like Ability.MOD	SOURCEPAGE:p.239
 
 # ------------------------------
 # Aasimar ~ Azata-Blooded
 # ------------------------------
 
 ###Block: Subrace Selection
-# Ability Name			Unique Key				Category of Ability		Type				Prohibited Fact																		Description																										Template					Ability																					Source Page		Aspects																																									FACT																				Information
-Azata-Blooded (Musetouched)	KEY:Aasimar ~ Azata-Blooded	CATEGORY:Special Ability	TYPE:Aasimar Subrace	!PREFACT:1,ABILITIES,Aasimar_ReplaceAbilityScores=true,Aasimar_ReplaceSkilled=true,Aasimar_ReplaceSpellLikeAbility=true	DESC:These capricious and kind-hearted aasimars can trace their ancestry to Elysium's enigmatic but beautiful azatas, who are champions of freedom and goodness.	TEMPLATE:Aasimar ~ Azata-Blooded	ABILITY:Aasimar Racial Trait|AUTOMATIC|Azata-Blooded ~ Ability Scores|Azata-Blooded ~ Skilled|Azata-Blooded ~ Spell-Like Ability	SOURCEPAGE:p.239	ASPECT:Ancestry|Azata	ASPECT:Typical Alignment|CG	ASPECT:Alternate Ability Modifiers|+2 Dex, +2 Cha	ASPECT:Alternate Skill Modifiers|Diplomacy, Perform	ASPECT:Alternate Spell-Like Ability|Musetouched gain glitterdust as a spell-like ability.	FACT:Aasimar_ReplaceAbilityScores|True	FACT:Aasimar_ReplaceSkilled|True	FACT:Aasimar_ReplaceSpellLikeAbility|True	INFO:Ancestry|Azata	INFO:Typical Alignment|CG	INFO:Alternate Ability Modifiers|+2 Dex, +2 Cha	INFO:Alternate Skill Modifiers|Diplomacy, Perform	INFO:Alternate Spell-Like Ability|Musetouched gain glitterdust as a spell-like ability.
+# Ability Name							Source Page
+CATEGORY=Special Ability|Aasimar ~ Azata-Blooded.MOD	SOURCEPAGE:p.239
 
 ###Block: Replacement Racial Traits
-# Ability Name			Unique Key						Category of Ability		Type													Visible		Description																										Ability										Bonus to skill							Stat bonus					Source Page		Aspects
-+2 Dexterity, +2 Charisma	KEY:Azata-Blooded ~ Ability Scores		CATEGORY:Special Ability	TYPE:RacialTraits.Aasimar Racial Trait.SpecialQuality.Racial Ability Scores	VISIBLE:DISPLAY	DESC:These capricious and kind-hearted aasimars can trace their ancestry to Elysium's enigmatic but beautiful azatas, who are champions of freedom and goodness.																					BONUS:STAT|DEX,CHA|2|TYPE=Racial	SOURCEPAGE:p.239
-Skilled				KEY:Azata-Blooded ~ Skilled			CATEGORY:Special Ability	TYPE:RacialTraits.Aasimar Racial Trait.SpecialQuality								DESC:Musetouched have a +2 racial bonus on Diplomacy and Perform checks.																										BONUS:SKILL|Diplomacy,TYPE.Perform|2|TYPE=Racial							SOURCEPAGE:p.239	ASPECT:RacialSkillModifier|+2 Diplomacy, +2 Perform
-Spell-Like Ability		KEY:Azata-Blooded ~ Spell-Like Ability	CATEGORY:Special Ability	TYPE:RacialTraits.Aasimar Racial Trait.SpecialQuality								DESC:Musetouched gain glitterdust as a spell-like ability.																		ABILITY:Spell-Like Ability|AUTOMATIC|Racial SLA ~ Glitterdust																SOURCEPAGE:p.239
+# Ability Name									Source Page
+CATEGORY=Special Ability|Azata-Blooded ~ Ability Scores.MOD		SOURCEPAGE:p.239
+CATEGORY=Special Ability|Azata-Blooded ~ Skilled.MOD			SOURCEPAGE:p.239
+CATEGORY=Special Ability|Azata-Blooded ~ Spell-Like Ability.MOD	SOURCEPAGE:p.239
 
 # ------------------------------
 # Aasimar ~ Garuda-Blooded
 # ------------------------------
 
 ###Block: Subrace Selection
-# Ability Name			Unique Key				Category of Ability		Type				Prohibited Fact																		Description																										Template					Ability																					Source Page		Aspects																																										FACT																				Information
-Garuda-Blooded (Plumekith)	KEY:Aasimar ~ Garuda-Blooded	CATEGORY:Special Ability	TYPE:Aasimar Subrace	!PREFACT:1,ABILITIES,Aasimar_ReplaceAbilityScores=true,Aasimar_ReplaceSkilled=true,Aasimar_ReplaceSpellLikeAbility=true	DESC:These aasimars descend from the birdlike garudas. Swift to act and to stand against evil, plumekith prefer to dwell in the mountainous regions of the world.	TEMPLATE:Aasimar ~ Garuda-Blooded	ABILITY:Aasimar Racial Trait|AUTOMATIC|Garuda-Blooded ~ Ability Scores|Garuda-Blooded ~ Skilled|Garuda-Blooded ~ Spell-Like Ability	SOURCEPAGE:p.239	ASPECT:Ancestry|Garuda	ASPECT:Typical Alignment|CG	ASPECT:Alternate Ability Modifiers|+2 Dex, +2 Wis	ASPECT:Alternate Skill Modifiers|Acrobatics, Fly	ASPECT:Alternate Spell-Like Ability|Plumekith gain see invisibility as a spell-like ability.	FACT:Aasimar_ReplaceAbilityScores|True	FACT:Aasimar_ReplaceSkilled|True	FACT:Aasimar_ReplaceSpellLikeAbility|True	INFO:Ancestry|Garuda	INFO:Typical Alignment|CG	INFO:Alternate Ability Modifiers|+2 Dex, +2 Wis	INFO:Alternate Skill Modifiers|Acrobatics, Fly	INFO:Alternate Spell-Like Ability|Plumekith gain see invisibility as a spell-like ability.
+# Ability Name							Source Page
+CATEGORY=Special Ability|Aasimar ~ Garuda-Blooded.MOD	SOURCEPAGE:p.239
 
 ###Block: Replacement Racial Traits
-# Ability Name		Unique Key						Category of Ability		Type													Visible		Description																										Ability											Bonus to skill					Stat bonus					Source Page		Aspects
-+2 Dexterity, +2 Wisdom	KEY:Garuda-Blooded ~ Ability Scores		CATEGORY:Special Ability	TYPE:RacialTraits.Aasimar Racial Trait.SpecialQuality.Racial Ability Scores	VISIBLE:DISPLAY	DESC:These aasimars descend from the birdlike garudas. Swift to act and to stand against evil, plumekith prefer to dwell in the mountainous regions of the world.																				BONUS:STAT|DEX,WIS|2|TYPE=Racial	SOURCEPAGE:p.239
-Skilled			KEY:Garuda-Blooded ~ Skilled			CATEGORY:Special Ability	TYPE:RacialTraits.Aasimar Racial Trait.SpecialQuality								DESC:Plumekith have a +2 racial bonus on Acrobatics and Fly checks.																												BONUS:SKILL|Acrobatics,Fly|2|TYPE=Racial							SOURCEPAGE:p.239	ASPECT:RacialSkillModifier|+2 Acrobatics, +2 Fly
-Spell-Like Ability	KEY:Garuda-Blooded ~ Spell-Like Ability	CATEGORY:Special Ability	TYPE:RacialTraits.Aasimar Racial Trait.SpecialQuality								DESC:Plumekith gain see invisibility as a spell-like ability.																	ABILITY:Spell-Like Ability|AUTOMATIC|Racial SLA ~ See Invisibility														SOURCEPAGE:p.239
+# Ability Name									Source Page
+CATEGORY=Special Ability|Garuda-Blooded ~ Ability Scores.MOD	SOURCEPAGE:p.239
+CATEGORY=Special Ability|Garuda-Blooded ~ Skilled.MOD			SOURCEPAGE:p.239
+CATEGORY=Special Ability|Garuda-Blooded ~ Spell-Like Ability.MOD	SOURCEPAGE:p.239
 
 # ------------------------------
 # Aasimar ~ Peri-Blooded
 # ------------------------------
 
 ###Block: Subrace Selection
-# Ability Name		Unique Key				Category of Ability		Type				Prohibited Fact																		Description																																					Template					Ability																				Source Page		Aspects																																											FACT																				Information
-Peri-Blooded (Emberkin)	KEY:Aasimar ~ Peri-Blooded	CATEGORY:Special Ability	TYPE:Aasimar Subrace	!PREFACT:1,ABILITIES,Aasimar_ReplaceAbilityScores=true,Aasimar_ReplaceSkilled=true,Aasimar_ReplaceSpellLikeAbility=true	DESC:These fiery aasimars, descended from the flame-crowned peris, often feel an insatiable need to perform acts of good; they also simultaneously feel the pull of a fallen angel ancestor, often making them feel conflicted.	TEMPLATE:Aasimar ~ Peri-Blooded	ABILITY:Aasimar Racial Trait|AUTOMATIC|Peri-Blooded ~ Ability Scores|Peri-Blooded ~ Skilled|Peri-Blooded ~ Spell-Like Ability	SOURCEPAGE:p.239	ASPECT:Ancestry|Peri	ASPECT:Typical Alignment|NG	ASPECT:Alternate Ability Modifiers|+2 Int, +2 Cha	ASPECT:Alternate Skill Modifiers|Knowledge (planes), Spellcraft	ASPECT:Alternate Spell-Like Ability|Emberkin gain pyrotechnics as a spell-like ability.	FACT:Aasimar_ReplaceAbilityScores|True	FACT:Aasimar_ReplaceSkilled|True	FACT:Aasimar_ReplaceSpellLikeAbility|True	INFO:Ancestry|Peri	INFO:Typical Alignment|NG	INFO:Alternate Ability Modifiers|+2 Int, +2 Cha	INFO:Alternate Skill Modifiers|Knowledge (planes), Spellcraft	INFO:Alternate Spell-Like Ability|Emberkin gain pyrotechnics as a spell-like ability.
+# Ability Name							Source Page
+CATEGORY=Special Ability|Aasimar ~ Peri-Blooded.MOD	SOURCEPAGE:p.239
 
 ###Block: Replacement Racial Traits
-# Ability Name			Unique Key						Category of Ability		Type													Visible		Description																																					Ability										Bonus to skill								Stat bonus					Source Page		Aspects
-+2 Intelligence, +2 Charisma	KEY:Peri-Blooded ~ Ability Scores		CATEGORY:Special Ability	TYPE:RacialTraits.Aasimar Racial Trait.SpecialQuality.Racial Ability Scores	VISIBLE:DISPLAY	DESC:These fiery aasimars, descended from the flame-crowned peris, often feel an insatiable need to perform acts of good; they also simultaneously feel the pull of a fallen angel ancestor, often making them feel conflicted.																						BONUS:STAT|INT,CHA|2|TYPE=Racial	SOURCEPAGE:p.239
-Skilled				KEY:Peri-Blooded ~ Skilled			CATEGORY:Special Ability	TYPE:RacialTraits.Aasimar Racial Trait.SpecialQuality								DESC:Emberkin have a +2 racial bonus on Knowledge (planes) and Spellcraft checks.																																				BONUS:SKILL|Knowledge (Planes),Spellcraft|2|TYPE=Racial							SOURCEPAGE:p.239	ASPECT:RacialSkillModifier|+2 Knowledge (planes), +2 Spellcraft
-Spell-Like Ability		KEY:Peri-Blooded ~ Spell-Like Ability	CATEGORY:Special Ability	TYPE:RacialTraits.Aasimar Racial Trait.SpecialQuality								DESC:Emberkin gain pyrotechnics as a spell-like ability.																													ABILITY:Spell-Like Ability|AUTOMATIC|Racial SLA ~ Pyrotechnics																	SOURCEPAGE:p.239
+# Ability Name									Source Page
+CATEGORY=Special Ability|Peri-Blooded ~ Ability Scores.MOD		SOURCEPAGE:p.239
+CATEGORY=Special Ability|Peri-Blooded ~ Skilled.MOD			SOURCEPAGE:p.239
+CATEGORY=Special Ability|Peri-Blooded ~ Spell-Like Ability.MOD	SOURCEPAGE:p.239
 
 # ------------------------------
 # Aasimar ~ Alternate Racial Traits
@@ -254,6 +339,8 @@ Lost Promise	KEY:Aasimar ~ Lost Promise	CATEGORY:Special Ability	TYPE:RacialTrai
 # ------------------------------
 # Android
 # ------------------------------
+
+###NOTE: Race files are in core_essentials\races\android\
 
 ###Block: Racial Traits
 # Ability Name							Source Page
@@ -276,7 +363,8 @@ Repairing Nanites	KEY:Android ~ Repairing Nanites	CATEGORY:Special Ability	TYPE:
 # Catfolk
 # ------------------------------
 
-# This race is found in b3_abilities_race_arg.lst
+###NOTE: Race files are in core_essentials\races\catfolk\
+
 ###Block: Racial Traits
 # Ability Name							Source Page
 CATEGORY=Special Ability|Catfolk ~ Ability Scores.MOD	SOURCEPAGE:p.239
@@ -298,7 +386,8 @@ Jungle Stalker	KEY:Catfolk ~ Jungle Stalker	CATEGORY:Special Ability	TYPE:Racial
 # Changeling
 # ------------------------------
 
-# This race is found in arg_abilities_race.lst b4_abilities_race_arg.lst
+###NOTE: Race files are in core_essentials\races\changeling\
+
 ###Block: Racial Traits
 # Ability Name								Source Page
 CATEGORY=Special Ability|Changeling ~ Ability Scores.MOD	SOURCEPAGE:p.240
@@ -310,6 +399,19 @@ CATEGORY=Special Ability|Changeling ~ Hag Racial Trait.MOD	SOURCEPAGE:p.240
 CATEGORY=Special Ability|Changeling ~ Claws.MOD			SOURCEPAGE:p.240
 CATEGORY=Special Ability|Changeling ~ Natural Armor.MOD	SOURCEPAGE:p.240
 CATEGORY=Special Ability|Changeling ~ Languages.MOD		SOURCEPAGE:p.240
+
+###Block: Hag Racial Trait Abilities
+# Ability Name										Source Page
+CATEGORY=Special Ability|Changeling ~ Green Hag Green Widow.MOD		SOURCEPAGE:p.240
+CATEGORY=Special Ability|Changeling ~ Annis Hag Hulking Changeling.MOD	SOURCEPAGE:p.240
+CATEGORY=Special Ability|Changeling ~ Sea Hag Sea Lungs.MOD			SOURCEPAGE:p.240
+
+###Block: Hag Racial Trait Abilities
+# Ability Name			Unique Key							Output Name				Category of Ability		Type														Description																													Combat bonus					Bonus to Situation										Modify VAR												Source Page		Aspects
+Crawling Skin (Blood Hag)	KEY:Changeling ~ Blood Hag Crawling Skin		OUTPUTNAME:Crawling Skin	CATEGORY:Special Ability	TYPE:RacialTraits.Hag Racial Trait.SpecialQuality.Special Quality.Applied Bonus	DESC:The changeling gains a +2 bonus on Disguise checks made to look like specific individuals.																						BONUS:SITUATION|Disguise=to look like specific individuals|2|TYPE=Racial														SOURCEPAGE:p.240	ASPECT:RacialSkillModifier|+2 Disguise to look like specific individuals
+Dead Eyes (Mute Hag)		KEY:Changeling ~ Mute Hag Dead Eyes			OUTPUTNAME:Dead Eyes		CATEGORY:Special Ability	TYPE:RacialTraits.Hag Racial Trait.SpecialQuality.Special Quality.Applied Bonus	DESC:One of the changeling’s eyes is a solid, dead black (with no whites even at its edges); this gives her a +2 bonus on all saves against gaze attacks and visual illusions.																					BONUS:VAR|SaveBonus_vs_GazeAttacks,SaveBonus_vs_VisualIllusions|2|TYPE=Racial	SOURCEPAGE:p.240	ASPECT:SaveBonus|+2 bonus on all saves against gaze attacks and visual illusions.
+Frostlaced Flesh (Winter Hag)	KEY:Changeling ~ Winter Hag Frostlaced Flesh	OUTPUTNAME:Frostlaced Flesh	CATEGORY:Special Ability	TYPE:RacialTraits.Hag Racial Trait.SpecialQuality.Special Quality.Applied Bonus	DESC:The changeling leaves no tracks in snow, and gains a +2 racial bonus on all saves versus cold effects.																																	BONUS:VAR|SaveBonus_vs_ColdEffects|2|TYPE=Racial					SOURCEPAGE:p.240	ASPECT:SaveBonus|+2 racial bonus on all saves versus cold effects.
+Into the Wind (Storm Hag)	KEY:Changeling ~ Storm Hag Into the Wind		OUTPUTNAME:Into the Wind	CATEGORY:Special Ability	TYPE:RacialTraits.Hag Racial Trait.SpecialQuality.Special Quality.Applied Bonus	DESC:The changeling gains a +1 racial bonus on ranged damage rolls.																			BONUS:COMBAT|DAMAGE.Ranged|1|TYPE=Racial																											SOURCEPAGE:p.240
 
 ###Block: Alternate Racial Traits
 # Ability Name	Unique Key				Category of Ability		Type															Multiple Requirements																				Description																																																																																			Multiple?	Choose								Ability													Cost		Source Page		FACT
@@ -325,11 +427,8 @@ Witchborn		KEY:Changeling ~ Witchborn	CATEGORY:Special Ability	TYPE:RacialTraits
 # Dhampir
 # ------------------------------
 
-###Block: Racial Abilities ~ grantor/removal MODs in b2_abilities_globalvar.lst
-# Ability Name						Bonus Ability Pool
-CATEGORY=Internal|Racial Traits ~ Dhampir.MOD	BONUS:ABILITYPOOL|Dhampir Subrace|1|TYPE=Base
+###NOTE: Race files are in core_essentials\races\dhampir\
 
-# This race is found in b2_abilities_race_arg.lst
 ###Block: Racial Traits
 # Ability Name									Source Page
 CATEGORY=Special Ability|Dhampir ~ Ability Scores.MOD			SOURCEPAGE:p.240
@@ -346,68 +445,68 @@ CATEGORY=Special Ability|Dhampir ~ Resist Level Drain.MOD		SOURCEPAGE:p.240
 CATEGORY=Special Ability|Dhampir ~ Languages.MOD			SOURCEPAGE:p.240
 
 ###Block: Subrace Selection
-# Ability Name	Unique Key			SORTKEY	Category of Ability		Type				Description																													Source Page		Aspects																																Information
-Dhampir		KEY:Dhampir ~ Default	SORTKEY:1	CATEGORY:Special Ability	TYPE:Dhampir Subrace	DESC:Dhampirs are cursed from birth, the result of a union between a vampire and a living human. Although they're living creatures, dhampirs have an affinity with the undead.	SOURCEPAGE:p.240	ASPECT:Ability Modifiers|+2 Dexterity, +2 Charisma, -2 Constitution	ASPECT:Skill Modifiers|Diplomacy, Perception	ASPECT:Spell-Like Ability|Dhampirs gain daylight as a spell-like ability.	INFO:Ability Modifiers|+2 Dexterity, +2 Charisma, -2 Constitution	INFO:Skill Modifiers|Bluff, Perception	INFO:Spell-Like Ability|A dhampir can use detect undead three times per day as a spell-like ability.
+# Ability Name						Source Page
+CATEGORY=Special Ability|Dhampir ~ Default.MOD	SOURCEPAGE:p.240
 
 # ------------------------------
 # Dhampir ~ Jiang-shi-Born
 # ------------------------------
 
 ###Block: Subrace Selection
-# Ability Name		Unique Key				Category of Ability		Type				Prohibited Fact																							Multiple Requirements																			Description																												Template					Ability																										Source Page		Aspects																																																					FACT																										Information
-Jiang-shi-Born (Ru-shi)	KEY:Dhampir ~ Jiang-shi-Born	CATEGORY:Special Ability	TYPE:Dhampir Subrace	!PREFACT:1,ABILITIES,Dhampir_ReplaceAbilityScores=True,Dhampir_ReplaceSkilled=True,Dhampir_ReplaceWeakness=True,Dhampir_ReplaceSpellLikeAbility=True	PREMULT:1,[!PREABILITY:1,CATEGORY=Internal,TYPE.Dhampir Subrace],[PREABILITY:1,CATEGORY=Special Ability,Dhampir Jiang-shi-Born]	DESC:The ru-shi are dhampirs who descend from the jiang-shi of Tian Xia. They generally lack any interest in physical contact, and their movements are stiff and awkward.	TEMPLATE:Dhampir ~ Jiang-shi-Born	ABILITY:Dhampir Racial Trait|AUTOMATIC|Jiang-shi-Born ~ Ability Scores|Jiang-shi-Born ~ Skilled|Jiang-shi-Born ~ Spell-Like Ability|Jiang-shi-Born ~ Weakness	SOURCEPAGE:p.241	ASPECT:Ancestry|Jiang-shi	ASPECT:Alternate Ability Modifiers|+2 Dexterity, +2 Intelligence, -2 Wisdom.	ASPECT:Alternate Skill Modifiers|Acrobatics, Knowledge (engineering).	ASPECT:Alternate Spell-Like Ability|Erase.	ASPECT:Alternate Weakness|Ru-shi take a –1 penalty on saves against sonic effects and spells.	FACT:Dhampir_ReplaceAbilityScores|True	FACT:Dhampir_ReplaceSkilled|True	FACT:Dhampir_ReplaceWeakness|True	FACT:Dhampir_ReplaceSpellLikeAbility|True	INFO:Ancestry|Jiang-shi	INFO:Alternate Ability Modifiers|+2 Dexterity, +2 Intelligence, -2 Wisdom.	INFO:Alternate Skill Modifiers|Acrobatics, Knowledge (engineering).	INFO:Alternate Spell-Like Ability|Erase.	INFO:Alternate Weakness|Ru-shi take a –1 penalty on saves against sonic effects and spells.
+# Ability Name							Source Page
+CATEGORY=Special Ability|Dhampir ~ Jiang-shi-Born.MOD	SOURCEPAGE:p.241
 
 ###Block: Replacement Racial Traits
-# Ability Name					Unique Key						Category of Ability		Type													Description																												Ability									Bonus to skill									Stat bonus														Modify VAR							Source Page		Aspects											FACT
-+2 Dexterity, +2 Intelligence, -2 Wisdom	KEY:Jiang-shi-Born ~ Ability Scores		CATEGORY:Special Ability	TYPE:RacialTraits.Dhampir Racial Trait.SpecialQuality.Racial Ability Scores	DESC:The ru-shi are dhampirs who descend from the jiang-shi of Tian Xia. They generally lack any interest in physical contact, and their movements are stiff and awkward.																						BONUS:STAT|DEX|2|TYPE=Racial	BONUS:STAT|INT|2|TYPE=Racial	BONUS:STAT|WIS|-2|TYPE=Racial									SOURCEPAGE:p.241													FACT:Dhampir_ReplaceAbilityScores|True
-Skilled						KEY:Jiang-shi-Born ~ Skilled			CATEGORY:Special Ability	TYPE:RacialTraits.Dhampir Racial Trait.SpecialQuality.Extraordinary		DESC:Ru-shi gain a +2 racial bonus on Acrobatics and Knowledge (engineering) checks.																									BONUS:SKILL|Acrobatics,Knowledge (Engineering)|2|TYPE=Racial																								SOURCEPAGE:p.241	ASPECT:RacialSkillModifier|+2 Acrobatics, +2 Knowledge (engineering)	FACT:Dhampir_ReplaceSkilled|True
-Spell-Like Ability				KEY:Jiang-shi-Born ~ Spell-Like Ability	CATEGORY:Special Ability	TYPE:RacialTraits.Dhampir Racial Trait.SpecialQuality					DESC:Ru-shi can use erase three times per day as a spell-like ability (with a caster level equal to the dhampir's character level).								ABILITY:Spell-Like Ability|AUTOMATIC|Racial SLA ~ Erase																											BONUS:VAR|RacialSLA_Erase_Times|3|TYPE=Base	SOURCEPAGE:p.241													FACT:Dhampir_ReplaceSpellLikeAbility|True
-Weakness						KEY:Jiang-shi-Born ~ Weakness			CATEGORY:Special Ability	TYPE:RacialTraits.Dhampir Racial Trait.SpecialQuality					DESC:Ru-shi take a –1 penalty on saves against sonic effects and spells.																																																					BONUS:VAR|SaveBonus_vs_SonicEffectsAndSpells|-1	SOURCEPAGE:p.241													FACT:Dhampir_ReplaceWeakness|True
+# Ability Name									Source Page
+CATEGORY=Special Ability|Jiang-shi-Born ~ Ability Scores.MOD	SOURCEPAGE:p.241
+CATEGORY=Special Ability|Jiang-shi-Born ~ Skilled.MOD			SOURCEPAGE:p.241
+CATEGORY=Special Ability|Jiang-shi-Born ~ Spell-Like Ability.MOD	SOURCEPAGE:p.241
+CATEGORY=Special Ability|Jiang-shi-Born ~ Weakness.MOD		SOURCEPAGE:p.241
 
 # ------------------------------
 # Dhampir ~ Moroi-Born
 # ------------------------------
 
 ###Block: Subrace Selection
-# Ability Name		Unique Key				Category of Ability		Type				Prohibited Fact																							Multiple Requirements																		Description																						Template				Ability																							Source Page		Aspects																																																								FACT																										Information
-Moroi-Born (Svetocher)	KEY:Dhampir ~ Moroi-Born	CATEGORY:Special Ability	TYPE:Dhampir Subrace	!PREFACT:1,ABILITIES,Dhampir_ReplaceAbilityScores=True,Dhampir_ReplaceSkilled=True,Dhampir_ReplaceWeakness=True,Dhampir_ReplaceSpellLikeAbility=True	PREMULT:1,[!PREABILITY:1,CATEGORY=Internal,TYPE.Dhampir Subrace],[PREABILITY:1,CATEGORY=Special Ability,Dhampir Moroi-Born]	DESC:These dhampirs are blessed with unnatural grace, beauty, and charm, and they often feel most at home among a region's aristocracy.	TEMPLATE:Dhampir ~ Moroi-Born	ABILITY:Dhampir Racial Trait|AUTOMATIC|Moroi-Born ~ Ability Scores|Moroi-Born ~ Skilled|Moroi-Born ~ Spell-Like Ability|Moroi-Born ~ Weakness	SOURCEPAGE:p.241	ASPECT:Ancestry|Moroi	ASPECT:Alternate Ability Modifiers|+2 Strength, +2 Charisma, -2 Constitution.	ASPECT:Alternate Skill Modifiers|Diplomacy, Knowledge (nobility).	ASPECT:Alternate Spell-Like Ability|Obscuring mist.	ASPECT:Alternate Weakness|Svetochers take a –1 penalty on saves against effects that deal positive energy damage.	FACT:Dhampir_ReplaceAbilityScores|True	FACT:Dhampir_ReplaceSkilled|True	FACT:Dhampir_ReplaceWeakness|True	FACT:Dhampir_ReplaceSpellLikeAbility|True	INFO:Ancestry|Moroi	INFO:Alternate Ability Modifiers|+2 Strength, +2 Charisma, -2 Constitution.	INFO:Alternate Skill Modifiers|Diplomacy, Knowledge (nobility).	INFO:Alternate Spell-Like Ability|Obscuring mist.	INFO:Alternate Weakness|Svetochers take a –1 penalty on saves against effects that deal positive energy damage.
+# Ability Name							Source Page
+CATEGORY=Special Ability|Dhampir ~ Moroi-Born.MOD	SOURCEPAGE:p.241
 
 ###Block: Replacement Racial Traits
-# Ability Name					Unique Key					Category of Ability		Type													Description																								Ability										Bonus to skill								Stat bonus														Modify VAR								Source Page		Aspects										FACT
-+2 Strength, +2 Charisma, -2 Constitution	KEY:Moroi-Born ~ Ability Scores	CATEGORY:Special Ability	TYPE:RacialTraits.Dhampir Racial Trait.SpecialQuality.Racial Ability Scores	DESC:These dhampirs are blessed with unnatural grace, beauty, and charm, and they often feel most at home among a region's aristocracy.																								BONUS:STAT|STR|2|TYPE=Racial	BONUS:STAT|CHA|2|TYPE=Racial	BONUS:STAT|CON|-2|TYPE=Racial										SOURCEPAGE:p.20												FACT:Dhampir_ReplaceAbilityScores|True
-Skilled						KEY:Moroi-Born ~ Skilled		CATEGORY:Special Ability	TYPE:RacialTraits.Dhampir Racial Trait.SpecialQuality.Extraordinary		DESC:Svetochers gain a +2 racial bonus on Diplomacy and Knowledge (nobility) checks.																						BONUS:SKILL|Diplomacy,Knowledge (nobility)|2|TYPE=Racial																									SOURCEPAGE:p.20	ASPECT:RacialSkillModifier|+2 Diplomacy, +2 Knowledge (nobility)	FACT:Dhampir_ReplaceSkilled|True
-Spell-Like Ability				KEY:Moroi-Born ~ Spell-Like Ability	CATEGORY:Special Ability	TYPE:RacialTraits.Dhampir Racial Trait.SpecialQuality					DESC:Svetochers can use obscuring mist three times per day as a spell-like ability (with a caster level equal to the dhampir's character level).	ABILITY:Spell-Like Ability|AUTOMATIC|Racial SLA ~ Obscuring Mist																										BONUS:VAR|RacialSLA_ObscuringMist_Times|3|TYPE=Base	SOURCEPAGE:p.20												FACT:Dhampir_ReplaceSpellLikeAbility|True
-Weakness						KEY:Moroi-Born ~ Weakness		CATEGORY:Special Ability	TYPE:RacialTraits.Dhampir Racial Trait.SpecialQuality					DESC:Svetochers take a –1 penalty on saves against effects that deal positive energy damage.																																														BONUS:VAR|SaveBonus_vs_PositiveEnergyDamageEffects|-1	SOURCEPAGE:p.20												FACT:Dhampir_ReplaceWeakness|True
+# Ability Name									Source Page
+CATEGORY=Special Ability|Moroi-Born ~ Ability Scores.MOD		SOURCEPAGE:p.241
+CATEGORY=Special Ability|Moroi-Born ~ Skilled.MOD			SOURCEPAGE:p.241
+CATEGORY=Special Ability|Moroi-Born ~ Spell-Like Ability.MOD	SOURCEPAGE:p.241
+CATEGORY=Special Ability|Moroi-Born ~ Weakness.MOD			SOURCEPAGE:p.241
 
 # ------------------------------
 # Dhampir ~ Nosferatu-Born
 # ------------------------------
 
 ###Block: Subrace Selection
-# Ability Name			Unique Key				Category of Ability		Type				Prohibited Fact																							Multiple Requirements																			Description																		Template					Ability																										Source Page		Aspects																																																								FACT																										Information
-Nosferatu-Born (Ancient-born)	KEY:Dhampir ~ Nosferatu-Born	CATEGORY:Special Ability	TYPE:Dhampir Subrace	!PREFACT:1,ABILITIES,Dhampir_ReplaceAbilityScores=True,Dhampir_ReplaceSkilled=True,Dhampir_ReplaceWeakness=True,Dhampir_ReplaceSpellLikeAbility=True	PREMULT:1,[!PREABILITY:1,CATEGORY=Internal,TYPE.Dhampir Subrace],[PREABILITY:1,CATEGORY=Special Ability,Dhampir Nosferatu-Born]	DESC:Many of the ancient-born dhampirs possess a deep hatred for humanity--a hatred most humans return in kind.	TEMPLATE:Dhampir ~ Nosferatu-Born	ABILITY:Dhampir Racial Trait|AUTOMATIC|Nosferatu-Born ~ Ability Scores|Nosferatu-Born ~ Skilled|Nosferatu-Born ~ Spell-Like Ability|Nosferatu-Born ~ Weakness	SOURCEPAGE:p.241	ASPECT:Ancestry|Nosferatu	ASPECT:Alternate Ability Modifiers|+2 Strength, +2 Wisdom, -2 Constitution.	ASPECT:Alternate Skill Modifiers|Climb, Survival.	ASPECT:Alternate Spell-Like Ability|Doom.	ASPECT:Alternate Weakness|Ancient-born take a -1 penalty on saves against effects that damage, drain, or reduce physical ability scores.	FACT:Dhampir_ReplaceAbilityScores|True	FACT:Dhampir_ReplaceSkilled|True	FACT:Dhampir_ReplaceWeakness|True	FACT:Dhampir_ReplaceSpellLikeAbility|True	INFO:Ancestry|Nosferatu	INFO:Alternate Ability Modifiers|+2 Strength, +2 Wisdom, -2 Constitution.	INFO:Alternate Skill Modifiers|Climb, Survival.	INFO:Alternate Spell-Like Ability|Doom.	INFO:Alternate Weakness|Ancient-born take a -1 penalty on saves against effects that damage, drain, or reduce physical ability scores.
+# Ability Name							Source Page
+CATEGORY=Special Ability|Dhampir ~ Nosferatu-Born.MOD	SOURCEPAGE:p.241
 
 ###Block: Replacement Racial Traits
-# Ability Name					Unique Key						Category of Ability		Type													Define						Description																						Ability									Bonus to skill					Stat bonus														Modify VAR							Source Page		Aspects																				FACT
-+2 Strength, +2 Wisdom, -2 Constitution	KEY:Nosferatu-Born ~ Ability Scores		CATEGORY:Special Ability	TYPE:RacialTraits.Dhampir Racial Trait.SpecialQuality.Racial Ability Scores								DESC:Many of the ancient-born dhampirs possess a deep hatred for humanity--a hatred most humans return in kind.																						BONUS:STAT|STR|2|TYPE=Racial	BONUS:STAT|WIS|2|TYPE=Racial	BONUS:STAT|CON|-2|TYPE=Racial									SOURCEPAGE:p.21																						FACT:Dhampir_ReplaceAbilityScores|True
-Skilled						KEY:Nosferatu-Born ~ Skilled			CATEGORY:Special Ability	TYPE:RacialTraits.Dhampir Racial Trait.SpecialQuality.Extraordinary									DESC:Ancient-born gain a +2 racial bonus on Climb and Survival checks.																						BONUS:SKILL|Climb,Survival|2|TYPE=Racial																								SOURCEPAGE:p.21	ASPECT:RacialSkillModifier|+2 Climb, +2 Survival													FACT:Dhampir_ReplaceSkilled|True
-Spell-Like Ability				KEY:Nosferatu-Born ~ Spell-Like Ability	CATEGORY:Special Ability	TYPE:RacialTraits.Dhampir Racial Trait.SpecialQuality												DESC:Ancient-born can use doom three times per day as a spell-like ability (with a caster level equal to the dhampir's character level).	ABILITY:Spell-Like Ability|AUTOMATIC|Racial SLA ~ Doom																							BONUS:VAR|RacialSLA_Doom_Times|3|TYPE=Base	SOURCEPAGE:p.21																						FACT:Dhampir_ReplaceSpellLikeAbility|True
-Weakness						KEY:Nosferatu-Born ~ Weakness			CATEGORY:Special Ability	TYPE:RacialTraits.Dhampir Racial Trait.SpecialQuality					DEFINE:NosferatuBorn_Weakness_Penalty|0	DESC:Ancient-born take a -1 penalty on saves against effects that damage, drain, or reduce physical ability scores.																																				BONUS:VAR|NosferatuBorn_Weakness_Penalty|-1	SOURCEPAGE:p.21	ASPECT:AllSaveBonus|+%1 vs. effects that damage, drain, or reduce physical ability scores|NosferatuBorn_Weakness_Penalty	FACT:Dhampir_ReplaceWeakness|True
+# Ability Name									Source Page
+CATEGORY=Special Ability|Nosferatu-Born ~ Ability Scores.MOD	SOURCEPAGE:p.241
+CATEGORY=Special Ability|Nosferatu-Born ~ Skilled.MOD			SOURCEPAGE:p.241
+CATEGORY=Special Ability|Nosferatu-Born ~ Spell-Like Ability.MOD	SOURCEPAGE:p.241
+CATEGORY=Special Ability|Nosferatu-Born ~ Weakness.MOD		SOURCEPAGE:p.241
 
 # ------------------------------
 # Dhampir ~ Vetala-Born
 # ------------------------------
 
 ###Block: Subrace Selection
-# Ability Name			Unique Key				Category of Ability		Type				Prohibited Fact																							Multiple Requirements																		Description													Template					Ability																								Source Page		Aspects																																																																			FACT																										Information
-Vetala-Born (Ajibachana)	KEY:Dhampir ~ Vetala-Born	CATEGORY:Special Ability	TYPE:Dhampir Subrace	!PREFACT:1,ABILITIES,Dhampir_ReplaceAbilityScores=True,Dhampir_ReplaceSkilled=True,Dhampir_ReplaceWeakness=True,Dhampir_ReplaceSpellLikeAbility=True	PREMULT:1,[!PREABILITY:1,CATEGORY=Internal,TYPE.Dhampir Subrace],[PREABILITY:1,CATEGORY=Special Ability,Dhampir Vetala-Born]	DESC:These dhampirs are more often the result of magical experiments than mating.	TEMPLATE:Dhampir ~ Vetala-Born	ABILITY:Dhampir Racial Trait|AUTOMATIC|Vetala-Born ~ Ability Scores|Vetala-Born ~ Skilled|Vetala-Born ~ Spell-Like Ability|Vetala-Born ~ Weakness	SOURCEPAGE:p.241	ASPECT:Ancestry|Vetala	ASPECT:Alternate Ability Modifiers|+2 Dexterity, +2 Intelligence, -2 Wisdom.	ASPECT:Alternate Skill Modifiers|Escape Artist, Use Magic Device.	ASPECT:Alternate Spell-Like Ability|Comprehend languages.	ASPECT:Alternate Weakness|Ajibachanas take a -1 penalty to their caster levels when they're in an area affected by consecrate, hallow, or a similar spell that makes an area holy.	FACT:Dhampir_ReplaceAbilityScores|True	FACT:Dhampir_ReplaceSkilled|True	FACT:Dhampir_ReplaceWeakness|True	FACT:Dhampir_ReplaceSpellLikeAbility|True	INFO:Ancestry|Vetala	INFO:Alternate Ability Modifiers|+2 Dexterity, +2 Intelligence, -2 Wisdom.	INFO:Alternate Skill Modifiers|Escape Artist, Use Magic Device.	INFO:Alternate Spell-Like Ability|Comprehend languages.	INFO:Alternate Weakness|Ajibachanas take a -1 penalty to their caster levels when they're in an area affected by consecrate, hallow, or a similar spell that makes an area holy.
+# Ability Name							Source Page
+CATEGORY=Special Ability|Dhampir ~ Vetala-Born.MOD	SOURCEPAGE:p.241
 
 ###Block: Replacement Racial Traits
-# Ability Name					Unique Key						Category of Ability		Type													Description																										Ability											Bonus to skill								Stat bonus														Modify VAR									Source Page		Aspects																									FACT
-+2 Dexterity, +2 Wisdom, -2 Intelligence	KEY:Vetala-Born ~ Ability Scores		CATEGORY:Special Ability	TYPE:RacialTraits.Dhampir Racial Trait.SpecialQuality.Racial Ability Scores	DESC:These dhampirs are more often the result of magical experiments than mating.																																				BONUS:STAT|DEX|2|TYPE=Racial	BONUS:STAT|WIS|2|TYPE=Racial	BONUS:STAT|INT|-2|TYPE=Racial											SOURCEPAGE:p.21																											FACT:Dhampir_ReplaceAbilityScores|True
-Skilled						KEY:Vetala-Born ~ Skilled			CATEGORY:Special Ability	TYPE:RacialTraits.Dhampir Racial Trait.SpecialQuality.Extraordinary		DESC:Ajibachanas gain a +2 racial bonus on Escape Artist and Use Magic Device checks.																									BONUS:SKILL|Escape Artist,Use Magic Device|2|TYPE=Racial																										SOURCEPAGE:p.21	ASPECT:RacialSkillModifier|+2 Escape Artist, +2 Use Magic Device																FACT:Dhampir_ReplaceSkilled|True
-Spell-Like Ability				KEY:Vetala-Born ~ Spell-Like Ability	CATEGORY:Special Ability	TYPE:RacialTraits.Dhampir Racial Trait.SpecialQuality					DESC:Ajibachanas can use comprehend languages three times per day as a spell-like ability (with a caster level equal to the dhampir's character level).		ABILITY:Spell-Like Ability|AUTOMATIC|Racial SLA ~ Comprehend Languages																										BONUS:VAR|RacialSLA_ComprehendLanguages_Times|3|TYPE=Base	SOURCEPAGE:p.21																											FACT:Dhampir_ReplaceSpellLikeAbility|True
-Holy Weakness					KEY:Vetala-Born ~ Weakness			CATEGORY:Special Ability	TYPE:RacialTraits.Dhampir Racial Trait.SpecialQuality.Weakness			DESC:Ajibachanas take a -1 penalty to their caster levels when they're in an area affected by consecrate, hallow, or a similar spell that makes an area holy.																																																SOURCEPAGE:p.21	ASPECT:CombatBonus|-1 penalty to your caster level whenever you are in an area affected by consecrate, hallow, or a similar spell that makes an area holy.	FACT:Dhampir_ReplaceWeakness|True
+# Ability Name									Source Page
+CATEGORY=Special Ability|Vetala-Born ~ Ability Scores.MOD		SOURCEPAGE:p.241
+CATEGORY=Special Ability|Vetala-Born ~ Skilled.MOD			SOURCEPAGE:p.241
+CATEGORY=Special Ability|Vetala-Born ~ Spell-Like Ability.MOD	SOURCEPAGE:p.241
+CATEGORY=Special Ability|Vetala-Born ~ Weakness.MOD			SOURCEPAGE:p.241
 
 # ------------------------------
 # Dhampir ~ Alternate Racial Traits
@@ -423,7 +522,8 @@ Vampire Hunter			KEY:Dhampir ~ Vampire Hunter			CATEGORY:Special Ability	TYPE:Ra
 # Drow
 # ------------------------------
 
-# This race is found in b1_abilities_race_arg.lst
+###NOTE: Race files are in core_essentials\races\drow\
+
 ###Block: Racial Traits
 # Ability Name								Source Page
 CATEGORY=Special Ability|Drow ~ Ability Scores.MOD		SOURCEPAGE:p.241
@@ -449,7 +549,8 @@ Defensive Training	KEY:Drow ~ Defensive Training	CATEGORY:Special Ability	TYPE:R
 # Duergar
 # ------------------------------
 
-# This race is found in b1_abilities_race_arg.lst
+###NOTE: Race files are in core_essentials\races\duergar\
+
 ###Block: Racial Traits
 # Ability Name											Source Page
 CATEGORY=Special Ability|Duergar ~ Ability Scores.MOD					SOURCEPAGE:p.186
@@ -474,6 +575,8 @@ Magical Taskmaster	KEY:Duergar ~ Magical Taskmaster	CATEGORY:Special Ability	TYP
 # Elf, Aquatic
 # ------------------------------
 
+###NOTE: Race files are in core_essentials\races\aquatic_elf\
+
 ###Block: Racial Traits
 # Ability Name									Source Page
 CATEGORY=Special Ability|Aquatic Elf ~ Ability Scores.MOD		SOURCEPAGE:p.242
@@ -494,7 +597,8 @@ CATEGORY=Special Ability|Aquatic Elf ~ Languages.MOD			SOURCEPAGE:p.242
 # Fetchling
 # ------------------------------
 
-# This race is found in b2_abilities_race_arg.lst
+###NOTE: Race files are in core_essentials\races\fetchling\
+
 ###Block: Racial Traits
 # Ability Name									Source Page
 CATEGORY=Special Ability|Fetchling ~ Ability Scores.MOD		SOURCEPAGE:p.242
@@ -517,6 +621,8 @@ Shadow Agent	KEY:Fetchling ~ Shadow Agent	CATEGORY:Special Ability	TYPE:RacialTr
 # ------------------------------
 # Gathlain
 # ------------------------------
+
+###NOTE: Race files are in core_essentials\races\gathlain\
 
 ###Block: Racial Traits
 # Ability Name									Source Page
@@ -560,6 +666,8 @@ Languages		KEY:Mostly Human ~ Suli ~ Languages		CATEGORY:Special Ability	TYPE:Ra
 # Ghoran
 # ------------------------------
 
+###NOTE: Race files are in core_essentials\races\ghoran\
+
 ###Block: Racial Traits
 # Ability Name								Source Page
 CATEGORY=Special Ability|Ghoran ~ Ability Scores.MOD		SOURCEPAGE:p.243
@@ -583,7 +691,8 @@ Disgusting		KEY:Ghoran ~ Disgusting	CATEGORY:Special Ability	TYPE:RacialTraits.G
 # Gillman
 # ------------------------------
 
-# This race is found in b2_abilities_race_arg.lst
+###NOTE: Race files are in core_essentials\races\gillman\
+
 ###Block: Racial Traits
 # Ability Name									Source Page
 CATEGORY=Special Ability|Gillman ~ Ability Scores.MOD			SOURCEPAGE:p.243
@@ -605,7 +714,8 @@ Deep Gillman	KEY:Gillman ~ Deep Gillman	CATEGORY:Special Ability	TYPE:RacialTrai
 # Goblin
 # ------------------------------
 
-# This race is found in b1_abilities_race_arg.lst
+###NOTE: Race files are in core_essentials\races\goblin\
+
 ###Block: Racial Traits
 # Ability Name							Source Page
 CATEGORY=Special Ability|Goblin ~ Ability Scores.MOD	SOURCEPAGE:p.244
@@ -629,6 +739,8 @@ Skilled		KEY:Junk Tinker ~ Skilled	CATEGORY:Special Ability	TYPE:RacialTraits.Go
 # Goblin, Monkey
 # ------------------------------
 
+###NOTE: Race files are in core_essentials\races\monkey_goblin\
+
 ###Block: Racial Traits
 # Ability Name									Source Page
 CATEGORY=Special Ability|Monkey Goblin ~ Ability Scores.MOD		SOURCEPAGE:p.244
@@ -647,7 +759,8 @@ CATEGORY=Special Ability|Monkey Goblin ~ Languages.MOD		SOURCEPAGE:p.244
 # Grippli
 # ------------------------------
 
-# This race is found in b2_abilities_race_arg.lst
+###NOTE: Race files are in core_essentials\races\grippli\
+
 ###Block: Racial Traits
 # Ability Name								Source Page
 CATEGORY=Special Ability|Grippli ~ Ability Scores.MOD		SOURCEPAGE:p.244
@@ -670,7 +783,8 @@ Defensive Training	KEY:Grippli ~ Defensive Training	CATEGORY:Special Ability	TYP
 # Hobgoblin
 # ------------------------------
 
-# This race is found in b1_abilities_race_arg.lst
+###NOTE: Race files are in core_essentials\races\hobgoblin\
+
 ###Block: Racial Traits
 # Ability Name								Source Page
 CATEGORY=Special Ability|Hobgoblin ~ Ability Scores.MOD	SOURCEPAGE:p.244
@@ -690,7 +804,8 @@ Authoritative	KEY:Hobgoblin ~ Authoritative	CATEGORY:Special Ability	TYPE:Racial
 # Ifrit
 # ------------------------------
 
-# This race is found in b2_abilities_race_arg.lst
+###NOTE: Race files are in core_essentials\races\ifrit\
+
 ###Block: Racial Traits
 # Ability Name								Source Page
 CATEGORY=Special Ability|Ifrit ~ Ability Scores.MOD		SOURCEPAGE:p.245
@@ -735,7 +850,8 @@ Stealthy		KEY:Kasatha ~ Stealthy	CATEGORY:Special Ability	TYPE:RacialTraits.Kasa
 # Kitsune
 # ------------------------------
 
-# This race is found in arg_abilities_race_arg.lst
+###NOTE: Race files are in core_essentials\races\kitsune\
+
 ###Block: Racial Traits
 # Ability Name								Source Page
 CATEGORY=Special Ability|Kitsune ~ Ability Scores.MOD		SOURCEPAGE:p.245
@@ -758,7 +874,8 @@ Duplicitous		KEY:Kitsune ~ Duplicitous	CATEGORY:Special Ability	TYPE:RacialTrait
 # Kobold
 # ------------------------------
 
-# This race is found in b1_abilities_race_arg.lst
+###NOTE: Race files are in core_essentials\races\kobold\
+
 ###Block: Racial Traits
 # Ability Name							Source Page
 CATEGORY=Special Ability|Kobold ~ Ability Scores.MOD	SOURCEPAGE:p.245
@@ -801,7 +918,8 @@ Insidious Telepathy	KEY:Lashunta ~ Insidious Telepathy	CATEGORY:Special Ability	
 # Merfolk
 # ------------------------------
 
-# This race is found in b1_abilities_race_arg.lst
+###NOTE: Race files are in core_essentials\races\merfolk\
+
 ###Block: Racial Traits
 # Ability Name							Source Page
 CATEGORY=Special Ability|Merfolk ~ Ability Scores.MOD	SOURCEPAGE:p.246
@@ -827,7 +945,8 @@ Slow Speed		KEY:Secret Magic ~ Merfolk ~ Speed	CATEGORY:Special Ability	TYPE:Rac
 # Nagaji
 # ------------------------------
 
-# This race is found in arg_abilities_race_arg.lst
+###NOTE: Race files are in core_essentials\races\nagaji\
+
 ###Block: Racial Traits
 # Ability Name							Source Page
 CATEGORY=Special Ability|Nagaji ~ Ability Scores.MOD	SOURCEPAGE:p.246
@@ -849,7 +968,8 @@ Serpent Affinity	KEY:Nagaji ~ Serpent Affinity	CATEGORY:Special Ability	TYPE:Rac
 # Orc
 # ------------------------------
 
-# This race is found in b1_abilities_race_arg.lst
+###NOTE: Race files are in core_essentials\races\orc\
+
 ###Block: Racial Traits
 # Ability Name							Source Page
 CATEGORY=Special Ability|Orc ~ Ability Scores.MOD	SOURCEPAGE:p.246
@@ -871,7 +991,8 @@ Reckless Climber	KEY:Orc ~ Reckless Climber	CATEGORY:Special Ability	TYPE:Racial
 # Oread
 # ------------------------------
 
-# This race is found in b2_abilities_race_arg.lst
+###NOTE: Race files are in core_essentials\races\oread\
+
 ###Block: Racial Traits
 # Ability Name								Source Page
 CATEGORY=Special Ability|Oread ~ Ability Scores.MOD		SOURCEPAGE:p.247
@@ -897,7 +1018,8 @@ Languages		KEY:Isolated ~ Oread ~ Languages	CATEGORY:Special Ability	TYPE:Racial
 # Ratfolk
 # ------------------------------
 
-# This race is found in b3_abilities_race_arg.lst
+###NOTE: Race files are in core_essentials\races\ratfolk\
+
 ###Block: Racial Traits
 # Ability Name							Source Page
 CATEGORY=Special Ability|Ratfolk ~ Ability Scores.MOD	SOURCEPAGE:p.247
@@ -919,7 +1041,8 @@ Market Dweller	KEY:Ratfolk ~ Market Dweller	CATEGORY:Special Ability	TYPE:Racial
 # Samsaran
 # ------------------------------
 
-# This race is found in arg_abilities_race_arg.lst
+###NOTE: Race files are in core_essentials\races\samsaran\
+
 ###Block: Racial Traits
 # Ability Name								Source Page
 CATEGORY=Special Ability|Samsaran ~ Ability Scores.MOD	SOURCEPAGE:p.247
@@ -1099,7 +1222,8 @@ Spell-Like Ability	KEY:Beast Talker ~ Skinwalker ~ Spell-Like Ability	CATEGORY:S
 # Strix
 # ------------------------------
 
-# This race is found in arg_abilities_race_arg.lst
+###NOTE: Race files are in core_essentials\races\strix\
+
 ###Block: Racial Traits
 # Ability Name							Source Page
 CATEGORY=Special Ability|Strix ~ Ability Scores.MOD	SOURCEPAGE:p.249
@@ -1123,7 +1247,8 @@ Cautious Brawler	KEY:Strix ~ Cautious Brawler	CATEGORY:Special Ability	TYPE:Raci
 # Suli
 # ------------------------------
 
-# This race is found in b3_abilities_race_arg.lst
+###NOTE: Race files are in core_essentials\races\suli\
+
 ###Block: Racial Traits
 # Ability Name							Source Page
 CATEGORY=Special Ability|Suli ~ Ability Scores.MOD	SOURCEPAGE:p.250
@@ -1145,7 +1270,8 @@ Trusted Mediator	KEY:Suli ~ Trusted Mediator	CATEGORY:Special Ability	TYPE:Racia
 # Svirfneblin
 # ------------------------------
 
-# This race is found in b1_abilities_race_arg.lst
+###NOTE: Race files are in core_essentials\races\svirfneblin\
+
 ###Block: Racial Traits
 # Ability Name									Source Page
 CATEGORY=Special Ability|Svirfneblin ~ Ability Scores.MOD		SOURCEPAGE:p.250
@@ -1175,7 +1301,8 @@ Stalwart Watcher Output	KEY:Svirfneblin ~ Stalwart Watcher Output	CATEGORY:Speci
 # Sylph
 # ------------------------------
 
-# This race is found in b2_abilities_race_arg.lst
+###NOTE: Race files are in core_essentials\races\sylph\
+
 ###Block: Racial Traits
 # Ability Name								Source Page
 CATEGORY=Special Ability|Sylph ~ Ability Scores.MOD		SOURCEPAGE:p.250
@@ -1220,7 +1347,8 @@ Oppressive		KEY:Syrinx ~ Oppressive	CATEGORY:Special Ability	TYPE:RacialTraits.S
 # Tengu
 # ------------------------------
 
-# This race is found in b1_abilities_race_arg.lst
+###NOTE: Race files are in core_essentials\races\tengu\
+
 ###Block: Racial Traits
 # Ability Name							Source Page
 CATEGORY=Special Ability|Tengu ~ Ability Scores.MOD	SOURCEPAGE:p.251
@@ -1243,11 +1371,8 @@ Deft Swords		KEY:Tengu ~ Deft Swords	CATEGORY:Special Ability	TYPE:RacialTraits.
 # Tiefling
 # ------------------------------
 
-###Block: Racial Abilities
-# Ability Name						Bonus Ability Pool
-CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	BONUS:ABILITYPOOL|Tiefling Subrace|1|TYPE=Base
+###NOTE: Race files are in core_essentials\races\tengu\
 
-# This race is found in b1_abilities_race_arg.lst
 ###Block: Racial Traits
 # Ability Name								Source Page
 CATEGORY=Special Ability|Tiefling ~ Ability Scores.MOD	SOURCEPAGE:p.251
@@ -1262,148 +1387,148 @@ CATEGORY=Special Ability|Tiefling ~ Fiendish Sorcery.MOD	SOURCEPAGE:p.251
 CATEGORY=Special Ability|Tiefling ~ Languages.MOD		SOURCEPAGE:p.251
 
 ###Block: Subrace Selection
-# Ability Name	Unique Key			SORTKEY	Category of Ability		Type				Multiple Requirements																			Description																																																	Source Page		Aspects																						Information
-Tiefling		KEY:Tiefling ~ Default	SORTKEY:1	CATEGORY:Special Ability	TYPE:Tiefling Subrace	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Tiefling ~ Default],[!PREABILITY:1,CATEGORY=Special Ability,TYPE=Tiefling Subrace]	DESC:Regardless of where their fiendish blood comes from, most tieflings exhibit similar traits and abilities. The unpredictable manner in which fiendish essence combines with a mortal soul often makes it nearly impossible for the average person to tell a tiefling's heritage simply by looking.	SOURCEPAGE:p.251	ASPECT:Alternate Ability Modifiers|+2 Dex, +2 Int, -2 Cha	ASPECT:Skill Modifiers|Bluff, Stealth	ASPECT:Spell-Like Ability|Darkness.	INFO:Alternate Ability Modifiers|+2 Dex, +2 Int, -2 Cha	INFO:Skill Modifiers|Bluff, Stealth	INFO:Spell-Like Ability|Darkness.
+# Ability Name						Source Page
+CATEGORY=Special Ability|Tiefling ~ Default.MOD	SOURCEPAGE:p.251
 
 # ------------------------------
 # Tiefling ~ Asura-Spawn
 # ------------------------------
 
 ###Block: Subrace Selection
-# Ability Name			Unique Key				Category of Ability		Type				Prohibited Fact																			Description														Template					Ability																				Source Page		Aspects																																													FACT																					Information
-Asura-Spawn (Faultspawn)	KEY:Tiefling ~ Asura-Spawn	CATEGORY:Special Ability	TYPE:Tiefling Subrace	!PREFACT:1,ABILITIES,Tiefling_ReplaceAbilityScores=true,Tiefling_ReplaceSkilled=true,Tiefling_ReplaceSpellLikeAbility=true	DESC:These tieflings take particular glee in seeing the gods and their worshipers fail.	TEMPLATE:Tiefling ~ Asura-Spawn	ABILITY:Tiefling Racial Trait|AUTOMATIC|Asura-Spawn ~ Ability Scores|Asura-Spawn ~ Skilled|Asura-Spawn ~ Spell-Like Ability	SOURCEPAGE:p.251	ASPECT:Ancestry|Asura	ASPECT:Typical Alignment|LE	ASPECT:Alternate Ability Modifiers|+2 Dex, +2 Wis, -2 Int	ASPECT:Alternate Skill Modifiers|Appraise, Knowledge (local)	ASPECT:Alternate Spell-Like Ability|Faultspawn gain hideous laughter as a spell-like ability.	FACT:Tiefling_ReplaceAbilityScores|True	FACT:Tiefling_ReplaceSkilled|True	FACT:Tiefling_ReplaceSpellLikeAbility|True	INFO:Ancestry|Asura	INFO:Typical Alignment|LE	INFO:Alternate Ability Modifiers|+2 Dex, +2 Wis, -2 Int	INFO:Alternate Skill Modifiers|Appraise, Knowledge (local)	INFO:Alternate Spell-Like Ability|Faultspawn gain hideous laughter as a spell-like ability.
+# Ability Name							Source Page
+CATEGORY=Special Ability|Tiefling ~ Asura-Spawn.MOD	SOURCEPAGE:p.251
 
 ###Block: Replacement Racial Traits
-# Ability Name					Unique Key						Category of Ability		Type													Visible		Required Ability									Description														Ability											Bonus to skill							Stat bonus										Source Page		Aspects
-+2 Dexterity, +2 Wisdom, -2 Intelligence	KEY:Asura-Spawn ~ Ability Scores		CATEGORY:Special Ability	TYPE:RacialTraits.Tiefling Racial Trait.SpecialQuality.Racial Ability Scores	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Tiefling ~ Asura-Spawn	DESC:These tieflings take particular glee in seeing the gods and their worshipers fail.																						BONUS:STAT|DEX,WIS|2|TYPE=Racial	BONUS:STAT|INT|-2|TYPE=Racial	SOURCEPAGE:p.251
-Skilled						KEY:Asura-Spawn ~ Skilled			CATEGORY:Special Ability	TYPE:RacialTraits.Tiefling Racial Trait.SpecialQuality							PREABILITY:1,CATEGORY=Special Ability,Tiefling ~ Asura-Spawn	DESC:Faultspawn have a +2 racial bonus on Appraise and Knowledge (local) checks.														BONUS:SKILL|Appraise,Knowledge (Local)|2|TYPE=Racial												SOURCEPAGE:p.251	ASPECT:RacialSkillModifier|+2 Appraise, +2 Knowledge (local)
-Spell-Like Ability				KEY:Asura-Spawn ~ Spell-Like Ability	CATEGORY:Special Ability	TYPE:RacialTraits.Tiefling Racial Trait.SpecialQuality							PREABILITY:1,CATEGORY=Special Ability,Tiefling ~ Asura-Spawn	DESC:Faultspawn gain hideous laughter as a spell-like ability.					ABILITY:Spell-Like Ability|AUTOMATIC|Racial SLA ~ Hideous Laughter																					SOURCEPAGE:p.251
+# Ability Name									Source Page
+CATEGORY=Special Ability|Asura-Spawn ~ Ability Scores.MOD		SOURCEPAGE:p.251
+CATEGORY=Special Ability|Asura-Spawn ~ Skilled.MOD			SOURCEPAGE:p.251
+CATEGORY=Special Ability|Asura-Spawn ~ Spell-Like Ability.MOD	SOURCEPAGE:p.251
 
 # ------------------------------
 # Tiefling ~ Daemon-Spawn
 # ------------------------------
 
 ###Block: Subrace Selection
-# Ability Name			Unique Key				Category of Ability		Type				Prohibited Fact																			Desc is PI?		Description																					Template					Ability																					Source Page		Aspects																																												FACT																					Information
-Daemon-Spawn (Grimspawn)	KEY:Tiefling ~ Daemon-Spawn	CATEGORY:Special Ability	TYPE:Tiefling Subrace	!PREFACT:1,ABILITIES,Tiefling_ReplaceAbilityScores=true,Tiefling_ReplaceSkilled=true,Tiefling_ReplaceSpellLikeAbility=true	DESCISPI:YES	DESC:Enthralled by death and appearing ill and malnourished even if healthy, these tieflings are tied to the daemons of Abaddon.	TEMPLATE:Tiefling ~ Daemon-Spawn	ABILITY:Tiefling Racial Trait|AUTOMATIC|Daemon-Spawn ~ Ability Scores|Daemon-Spawn ~ Skilled|Daemon-Spawn ~ Spell-Like Ability	SOURCEPAGE:p.251	ASPECT:Ancestry|Daemon	ASPECT:Typical Alignment|NE	ASPECT:Alternate Ability Modifiers|+2 Dex, +2 Int, -2 Wis	ASPECT:Alternate Skill Modifiers|Disable Device, Sleight of Hand	ASPECT:Alternate Spell-Like Ability|Grimspawn gain death knell as a spell-like ability.	FACT:Tiefling_ReplaceAbilityScores|True	FACT:Tiefling_ReplaceSkilled|True	FACT:Tiefling_ReplaceSpellLikeAbility|True	INFO:Ancestry|Daemon	INFO:Typical Alignment|NE	INFO:Alternate Ability Modifiers|+2 Dex, +2 Int, -2 Wis	INFO:Alternate Skill Modifiers|Disable Device, Sleight of Hand	INFO:Alternate Spell-Like Ability|Grimspawn gain death knell as a spell-like ability.
+# Ability Name							Source Page
+CATEGORY=Special Ability|Tiefling ~ Daemon-Spawn.MOD	SOURCEPAGE:p.251
 
 ###Block: Replacement Racial Traits
-# Ability Name					Unique Key						Category of Ability		Type													Visible		Required Ability									Description													Ability										Bonus to skill								Stat bonus										Source Page		Aspects
-+2 Dexterity, +2 Intelligence, -2 Wisdom	KEY:Daemon-Spawn ~ Ability Scores		CATEGORY:Special Ability	TYPE:RacialTraits.Tiefling Racial Trait.SpecialQuality.Racial Ability Scores	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Tiefling ~ Daemon-Spawn	DESC:Bearing the blood of angels, these aasimars often appear androgynous.																							BONUS:STAT|DEX,INT|2|TYPE=Racial	BONUS:STAT|WIS|-2|TYPE=Racial	SOURCEPAGE:p.251
-Skilled						KEY:Daemon-Spawn ~ Skilled			CATEGORY:Special Ability	TYPE:RacialTraits.Tiefling Racial Trait.SpecialQuality							PREABILITY:1,CATEGORY=Special Ability,Tiefling ~ Daemon-Spawn	DESC:Grimspawn have a +2 racial bonus on Disable Device and Sleight of Hand checks.												BONUS:SKILL|Disable Device,Sleight of Hand|2|TYPE=Racial												SOURCEPAGE:p.251	ASPECT:RacialSkillModifier|+2 Disable Device, +2 Sleight of Hand
-Spell-Like Ability				KEY:Daemon-Spawn ~ Spell-Like Ability	CATEGORY:Special Ability	TYPE:RacialTraits.Tiefling Racial Trait.SpecialQuality							PREABILITY:1,CATEGORY=Special Ability,Tiefling ~ Daemon-Spawn	DESC:Grimspawn gain death knell as a spell-like ability.					ABILITY:Spell-Like Ability|AUTOMATIC|Racial SLA ~ Death Knell																						SOURCEPAGE:p.251
+# Ability Name									Source Page
+CATEGORY=Special Ability|Daemon-Spawn ~ Ability Scores.MOD		SOURCEPAGE:p.251
+CATEGORY=Special Ability|Daemon-Spawn ~ Skilled.MOD			SOURCEPAGE:p.251
+CATEGORY=Special Ability|Daemon-Spawn ~ Spell-Like Ability.MOD	SOURCEPAGE:p.251
 
 # ------------------------------
 # Tiefling ~ Demodand-Spawn
 # ------------------------------
 
 ###Block: Subrace Selection
-# Ability Name			Unique Key				Category of Ability		Type				Prohibited Fact																			Description																					Template					Ability																						Source Page		Aspects																																														FACT																					Information
-Demodand-Spawn (Foulspawn)	KEY:Tiefling ~ Demodand-Spawn	CATEGORY:Special Ability	TYPE:Tiefling Subrace	!PREFACT:1,ABILITIES,Tiefling_ReplaceAbilityScores=true,Tiefling_ReplaceSkilled=true,Tiefling_ReplaceSpellLikeAbility=true	DESC:These boorish tieflings enjoy violating taboos and breaking laws. They often bear hideous physical oddities or deformities.	TEMPLATE:Tiefling ~ Demodand-Spawn	ABILITY:Tiefling Racial Trait|AUTOMATIC|Demodand-Spawn ~ Ability Scores|Demodand-Spawn ~ Skilled|Demodand-Spawn ~ Spell-Like Ability	SOURCEPAGE:p.252	ASPECT:Ancestry|Demodand	ASPECT:Typical Alignment|CE	ASPECT:Alternate Ability Modifiers|+2 Con, +2 Wis, -2 Int	ASPECT:Alternate Skill Modifiers|Intimidate, Knowledge (religion)	ASPECT:Alternate Spell-Like Ability|Foulspawn gain bear's endurance as a spell-like ability.	FACT:Tiefling_ReplaceAbilityScores|True	FACT:Tiefling_ReplaceSkilled|True	FACT:Tiefling_ReplaceSpellLikeAbility|True	INFO:Ancestry|Demodand	INFO:Typical Alignment|CE	INFO:Alternate Ability Modifiers|+2 Con, +2 Wis, -2 Int	INFO:Alternate Skill Modifiers|Intimidate, Knowledge (religion)	INFO:Alternate Spell-Like Ability|Foulspawn gain bear's endurance as a spell-like ability.
+# Ability Name								Source Page
+CATEGORY=Special Ability|Tiefling ~ Demodand-Spawn.MOD	SOURCEPAGE:p.252
 
 ###Block: Replacement Racial Traits
-# Ability Name						Unique Key						Category of Ability		Type													Visible		Required Ability									Description																					Ability											Bonus to skill								Stat bonus										Source Page		Aspects
-+2 Constitution, +2 Wisdom, -2 Intelligence	KEY:Demodand-Spawn ~ Ability Scores		CATEGORY:Special Ability	TYPE:RacialTraits.Tiefling Racial Trait.SpecialQuality.Racial Ability Scores	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Tiefling ~ Demodand-Spawn	DESC:These boorish tieflings enjoy violating taboos and breaking laws. They often bear hideous physical oddities or deformities.																							BONUS:STAT|CON,WIS|2|TYPE=Racial	BONUS:STAT|INT|-2|TYPE=Racial	SOURCEPAGE:p.252
-Skilled							KEY:Demodand-Spawn ~ Skilled			CATEGORY:Special Ability	TYPE:RacialTraits.Tiefling Racial Trait.SpecialQuality							PREABILITY:1,CATEGORY=Special Ability,Tiefling ~ Demodand-Spawn	DESC:Foulspawn have a +2 racial bonus on Intimidate and Knowledge (religion) checks.																				BONUS:SKILL|Intimidate,Knowledge (Religion)|2|TYPE=Racial												SOURCEPAGE:p.252	ASPECT:RacialSkillModifier|+2 Intimidate, +2 Knowledge (religion)
-Spell-Like Ability					KEY:Demodand-Spawn ~ Spell-Like Ability	CATEGORY:Special Ability	TYPE:RacialTraits.Tiefling Racial Trait.SpecialQuality							PREABILITY:1,CATEGORY=Special Ability,Tiefling ~ Demodand-Spawn	DESC:Foulspawn gain bear's endurance as a spell-like ability.												ABILITY:Spell-Like Ability|AUTOMATIC|Racial SLA ~ Bear's Endurance																						SOURCEPAGE:p.252
+# Ability Name									Source Page
+CATEGORY=Special Ability|Demodand-Spawn ~ Ability Scores.MOD	SOURCEPAGE:p.252
+CATEGORY=Special Ability|Demodand-Spawn ~ Skilled.MOD			SOURCEPAGE:p.252
+CATEGORY=Special Ability|Demodand-Spawn ~ Spell-Like Ability.MOD	SOURCEPAGE:p.252
 
 # ------------------------------
 # Tiefling ~ Demon-Spawn
 # ------------------------------
 
 ###Block: Subrace Selection
-# Ability Name		Unique Key				Category of Ability		Type				Prohibited Fact																			Description																			Template					Ability																				Source Page		Aspects																																										FACT																					Information
-Demon-Spawn (Pitborn)	KEY:Tiefling ~ Demon-Spawn	CATEGORY:Special Ability	TYPE:Tiefling Subrace	!PREFACT:1,ABILITIES,Tiefling_ReplaceAbilityScores=true,Tiefling_ReplaceSkilled=true,Tiefling_ReplaceSpellLikeAbility=true	DESC:The influence of the demonic Abyss grants these volatile tieflings their boundless appetites for destruction.	TEMPLATE:Tiefling ~ Demon-Spawn	ABILITY:Tiefling Racial Trait|AUTOMATIC|Demon-Spawn ~ Ability Scores|Demon-Spawn ~ Skilled|Demon-Spawn ~ Spell-Like Ability	SOURCEPAGE:p.252	ASPECT:Ancestry|Demon	ASPECT:Typical Alignment|CE	ASPECT:Alternate Ability Modifiers|+2 Str, +2 Cha, -2 Int	ASPECT:Alternate Skill Modifiers|Disable Device, Perception	ASPECT:Alternate Spell-Like Ability|Pitborn gain shatter as a spell-like ability.	FACT:Tiefling_ReplaceAbilityScores|True	FACT:Tiefling_ReplaceSkilled|True	FACT:Tiefling_ReplaceSpellLikeAbility|True	INFO:Ancestry|Demon	INFO:Typical Alignment|CE	INFO:Alternate Ability Modifiers|+2 Str, +2 Cha, -2 Int	INFO:Alternate Skill Modifiers|Disable Device, Perception	INFO:Alternate Spell-Like Ability|Pitborn gain shatter as a spell-like ability.
+# Ability Name							Source Page
+CATEGORY=Special Ability|Tiefling ~ Demon-Spawn.MOD	SOURCEPAGE:p.252
 
 ###Block: Replacement Racial Traits
-# Ability Name					Unique Key						Category of Ability		Type													Visible		Required Ability									Description																			Ability									Bonus to skill							Stat bonus										Source Page		Aspects
-+2 Strength, +2 Charisma, -2 Intelligence	KEY:Demon-Spawn ~ Ability Scores		CATEGORY:Special Ability	TYPE:RacialTraits.Tiefling Racial Trait.SpecialQuality.Racial Ability Scores	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Tiefling ~ Demon-Spawn	DESC:The influence of the demonic Abyss grants these volatile tieflings their boundless appetites for destruction.																				BONUS:STAT|STR,CHA|2|TYPE=Racial	BONUS:STAT|INT|-2|TYPE=Racial	SOURCEPAGE:p.252
-Skilled						KEY:Demon-Spawn ~ Skilled			CATEGORY:Special Ability	TYPE:RacialTraits.Tiefling Racial Trait.SpecialQuality							PREABILITY:1,CATEGORY=Special Ability,Tiefling ~ Demon-Spawn	DESC:Pitborn have a +2 racial bonus on Disable Device and Perception checks.																		BONUS:SKILL|Disable Device,Perception|2|TYPE=Racial												SOURCEPAGE:p.252	ASPECT:RacialSkillModifier|+2 Disable Device, +2 Perception
-Spell-Like Ability				KEY:Demon-Spawn ~ Spell-Like Ability	CATEGORY:Special Ability	TYPE:RacialTraits.Tiefling Racial Trait.SpecialQuality							PREABILITY:1,CATEGORY=Special Ability,Tiefling ~ Demon-Spawn	DESC:Pitborn gain shatter as a spell-like ability.												ABILITY:Spell-Like Ability|AUTOMATIC|Racial SLA ~ Shatter																					SOURCEPAGE:p.252
+# Ability Name									Source Page
+CATEGORY=Special Ability|Demon-Spawn ~ Ability Scores.MOD		SOURCEPAGE:p.252
+CATEGORY=Special Ability|Demon-Spawn ~ Skilled.MOD			SOURCEPAGE:p.252
+CATEGORY=Special Ability|Demon-Spawn ~ Spell-Like Ability.MOD	SOURCEPAGE:p.252
 
 # ------------------------------
 # Tiefling ~ Devil-Spawn
 # ------------------------------
 
 ###Block: Subrace Selection
-# Ability Name		Unique Key				Category of Ability		Type				Prohibited Fact																			Desc is PI?		Description														Template					Ability																				Source Page		Aspects																																											FACT																					Information
-Devil-Spawn (Hellspawn)	KEY:Tiefling ~ Devil-Spawn	CATEGORY:Special Ability	TYPE:Tiefling Subrace	!PREFACT:1,ABILITIES,Tiefling_ReplaceAbilityScores=true,Tiefling_ReplaceSkilled=true,Tiefling_ReplaceSpellLikeAbility=true	DESCISPI:YES	DESC:Most common in Cheliax, these tieflings carry the taint of Hell in their flesh.	TEMPLATE:Tiefling ~ Devil-Spawn	ABILITY:Tiefling Racial Trait|AUTOMATIC|Devil-Spawn ~ Ability Scores|Devil-Spawn ~ Skilled|Devil-Spawn ~ Spell-Like Ability	SOURCEPAGE:p.252	ASPECT:Ancestry|Devil	ASPECT:Typical Alignment|LE	ASPECT:Alternate Ability Modifiers|+2 Con, +2 Wis, -2 Cha	ASPECT:Alternate Skill Modifiers|Diplomacy, Sense Motive	ASPECT:Alternate Spell-Like Ability|Hellspawn gain pyrotechnics as a spell-like ability.	FACT:Tiefling_ReplaceAbilityScores|True	FACT:Tiefling_ReplaceSkilled|True	FACT:Tiefling_ReplaceSpellLikeAbility|True	INFO:Ancestry|Devil	INFO:Typical Alignment|LE	INFO:Alternate Ability Modifiers|+2 Con, +2 Wis, -2 Cha	INFO:Alternate Skill Modifiers|Diplomacy, Sense Motive	INFO:Alternate Spell-Like Ability|Hellspawn gain pyrotechnics as a spell-like ability.
+# Ability Name							Source Page
+CATEGORY=Special Ability|Tiefling ~ Devil-Spawn.MOD	SOURCEPAGE:p.252
 
 ###Block: Replacement Racial Traits
-# Ability Name					Unique Key						Category of Ability		Type													Visible		Required Ability									Desc is PI?		Description														Ability										Bonus to skill							Stat bonus										Source Page		Aspects
-+2 Constitution, +2 Wisdom, -2 Charisma	KEY:Devil-Spawn ~ Ability Scores		CATEGORY:Special Ability	TYPE:RacialTraits.Tiefling Racial Trait.SpecialQuality.Racial Ability Scores	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Tiefling ~ Devil-Spawn	DESCISPI:YES	DESC:Most common in Cheliax, these tieflings carry the taint of Hell in their flesh.																					BONUS:STAT|CON,WIS|2|TYPE=Racial	BONUS:STAT|CHA|-2|TYPE=Racial	SOURCEPAGE:p.252
-Skilled						KEY:Devil-Spawn ~ Skilled			CATEGORY:Special Ability	TYPE:RacialTraits.Tiefling Racial Trait.SpecialQuality							PREABILITY:1,CATEGORY=Special Ability,Tiefling ~ Devil-Spawn				DESC:Hellspawn have a +2 racial bonus on Diplomacy and Sense Motive checks.														BONUS:SKILL|Diplomacy,Sense Motive|2|TYPE=Racial												SOURCEPAGE:p.252	ASPECT:RacialSkillModifier|+2 Diplomacy, +2 Sense Motive
-Spell-Like Ability				KEY:Devil-Spawn ~ Spell-Like Ability	CATEGORY:Special Ability	TYPE:RacialTraits.Tiefling Racial Trait.SpecialQuality							PREABILITY:1,CATEGORY=Special Ability,Tiefling ~ Devil-Spawn				DESC:Hellspawn gain pyrotechnics as a spell-like ability.						ABILITY:Spell-Like Ability|AUTOMATIC|Racial SLA ~ Pyrotechnics																					SOURCEPAGE:p.252
+# Ability Name									Source Page
+CATEGORY=Special Ability|Devil-Spawn ~ Ability Scores.MOD		SOURCEPAGE:p.252
+CATEGORY=Special Ability|Devil-Spawn ~ Skilled.MOD			SOURCEPAGE:p.252
+CATEGORY=Special Ability|Devil-Spawn ~ Spell-Like Ability.MOD	SOURCEPAGE:p.252
 
 # ------------------------------
 # Tiefling ~ Div-Spawn
 # ------------------------------
 
 ###Block: Subrace Selection
-# Ability Name		Unique Key				Category of Ability		Type				Prohibited Fact																			Description																				Template				Ability																			Source Page		Aspects																																											FACT																					Information
-Div-Spawn (Spitespawn)	KEY:Tiefling ~ Div-Spawn	CATEGORY:Special Ability	TYPE:Tiefling Subrace	!PREFACT:1,ABILITIES,Tiefling_ReplaceAbilityScores=true,Tiefling_ReplaceSkilled=true,Tiefling_ReplaceSpellLikeAbility=true	DESC:Lack of the ability to feel joy or pleasure defines these malicious tieflings, making them jealous of those who can.	TEMPLATE:Tiefling ~ Div-Spawn	ABILITY:Tiefling Racial Trait|AUTOMATIC|Div-Spawn ~ Ability Scores|Div-Spawn ~ Skilled|Div-Spawn ~ Spell-Like Ability	SOURCEPAGE:p.252	ASPECT:Ancestry|Div	ASPECT:Typical Alignment|NE	ASPECT:Alternate Ability Modifiers|+2 Dex, +2 Cha, -2 Int	ASPECT:Alternate Skill Modifiers|Diplomacy, Linguistics	ASPECT:Alternate Spell-Like Ability|Spitespawn gain misdirection as a spell-like ability.	FACT:Tiefling_ReplaceAbilityScores|True	FACT:Tiefling_ReplaceSkilled|True	FACT:Tiefling_ReplaceSpellLikeAbility|True	INFO:Ancestry|Div	INFO:Typical Alignment|NE	INFO:Alternate Ability Modifiers|+2 Dex, +2 Cha, -2 Int	INFO:Alternate Skill Modifiers|Diplomacy, Linguistics	INFO:Alternate Spell-Like Ability|Spitespawn gain misdirection as a spell-like ability.
+# Ability Name							Source Page
+CATEGORY=Special Ability|Tiefling ~ Div-Spawn.MOD	SOURCEPAGE:p.252
 
 ###Block: Replacement Racial Traits
-# Ability Name						Unique Key					Category of Ability		Type													Visible		Required Ability								Description																				Ability										Bonus to skill						Stat bonus										Source Page		Aspects
-+2 Dexterity, +2 Charisma, -2 Intelligence	KEY:Div-Spawn ~ Ability Scores	CATEGORY:Special Ability	TYPE:RacialTraits.Tiefling Racial Trait.SpecialQuality.Racial Ability Scores	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Tiefling ~ Div-Spawn	DESC:Lack of the ability to feel joy or pleasure defines these malicious tieflings, making them jealous of those who can.																				BONUS:STAT|DEX,CHA|2|TYPE=Racial	BONUS:STAT|INT|-2|TYPE=Racial	SOURCEPAGE:p.252
-Skilled							KEY:Div-Spawn ~ Skilled			CATEGORY:Special Ability	TYPE:RacialTraits.Tiefling Racial Trait.SpecialQuality							PREABILITY:1,CATEGORY=Special Ability,Tiefling ~ Div-Spawn	DESC:Spitespawn have a +2 racial bonus on Diplomacy and Linguistics checks.																				BONUS:SKILL|Diplomacy,Linguistics|2|TYPE=Racial												SOURCEPAGE:p.252	ASPECT:RacialSkillModifier|+2 Diplomacy, +2 Linguistics
-Spell-Like Ability					KEY:Div-Spawn ~ Spell-Like Ability	CATEGORY:Special Ability	TYPE:RacialTraits.Tiefling Racial Trait.SpecialQuality							PREABILITY:1,CATEGORY=Special Ability,Tiefling ~ Div-Spawn	DESC:Spitespawn gain misdirection as a spell-like ability.												ABILITY:Spell-Like Ability|AUTOMATIC|Racial SLA ~ Misdirection																				SOURCEPAGE:p.252
+# Ability Name								Source Page
+CATEGORY=Special Ability|Div-Spawn ~ Ability Scores.MOD	SOURCEPAGE:p.252
+CATEGORY=Special Ability|Div-Spawn ~ Skilled.MOD		SOURCEPAGE:p.252
+CATEGORY=Special Ability|Div-Spawn ~ Spell-Like Ability.MOD	SOURCEPAGE:p.252
 
 # ------------------------------
 # Tiefling ~ Kyton-Spawn
 # ------------------------------
 
 ###Block: Subrace Selection
-# Ability Name			Unique Key				Category of Ability		Type				Prohibited Fact																			Desc is PI?		Description																				Template					Ability																				Source Page		Aspects																																										FACT																					Information
-Kyton-Spawn (Shackleborn)	KEY:Tiefling ~ Kyton-Spawn	CATEGORY:Special Ability	TYPE:Tiefling Subrace	!PREFACT:1,ABILITIES,Tiefling_ReplaceAbilityScores=true,Tiefling_ReplaceSkilled=true,Tiefling_ReplaceSpellLikeAbility=true	DESCISPI:YES	DESC:Fascinated with mutilation and torture, these tieflings are often found in Nidal and are born already covered in scars.	TEMPLATE:Tiefling ~ Kyton-Spawn	ABILITY:Tiefling Racial Trait|AUTOMATIC|Kyton-Spawn ~ Ability Scores|Kyton-Spawn ~ Skilled|Kyton-Spawn ~ Spell-Like Ability	SOURCEPAGE:p.252	ASPECT:Ancestry|Kyton	ASPECT:Typical Alignment|LE	ASPECT:Alternate Ability Modifiers|+2 Con, +2 Cha, -2 Wis	ASPECT:Alternate Skill Modifiers|Escape Artist, Intimidate	ASPECT:Alternate Spell-Like Ability|Shackleborn gain web as a spell-like ability.	FACT:Tiefling_ReplaceAbilityScores|True	FACT:Tiefling_ReplaceSkilled|True	FACT:Tiefling_ReplaceSpellLikeAbility|True	INFO:Ancestry|Kyton	INFO:Typical Alignment|LE	INFO:Alternate Ability Modifiers|+2 Con, +2 Cha, -2 Wis	INFO:Alternate Skill Modifiers|Escape Artist, Intimidate	INFO:Alternate Spell-Like Ability|Shackleborn gain web as a spell-like ability.
+# Ability Name							Source Page
+CATEGORY=Special Ability|Tiefling ~ Kyton-Spawn.MOD	SOURCEPAGE:p.252
 
 ###Block: Replacement Racial Traits
-# Ability Name					Unique Key						Category of Ability		Type													Visible		Required Ability									Desc is PI?		Description																				Ability								Bonus to skill							Stat bonus										Source Page		Aspects
-+2 Constitution, +2 Charisma, -2 Wisdom	KEY:Kyton-Spawn ~ Ability Scores		CATEGORY:Special Ability	TYPE:RacialTraits.Tiefling Racial Trait.SpecialQuality.Racial Ability Scores	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Tiefling ~ Kyton-Spawn	DESCISPI:YES	DESC:Fascinated with mutilation and torture, these tieflings are often found in Nidal and are born already covered in scars.																			BONUS:STAT|CON,CHA|2|TYPE=Racial	BONUS:STAT|WIS|-2|TYPE=Racial	SOURCEPAGE:p.252
-Skilled						KEY:Kyton-Spawn ~ Skilled			CATEGORY:Special Ability	TYPE:RacialTraits.Tiefling Racial Trait.SpecialQuality							PREABILITY:1,CATEGORY=Special Ability,Tiefling ~ Kyton-Spawn				DESC:Shackleborn have a +2 racial bonus on Escape Artist and Intimidate checks.																	BONUS:SKILL|Escape Artist,Intimidate|2|TYPE=Racial												SOURCEPAGE:p.252	ASPECT:RacialSkillModifier|+2 Escape Artist, +2 Intimidate
-Spell-Like Ability				KEY:Kyton-Spawn ~ Spell-Like Ability	CATEGORY:Special Ability	TYPE:RacialTraits.Tiefling Racial Trait.SpecialQuality							PREABILITY:1,CATEGORY=Special Ability,Tiefling ~ Kyton-Spawn				DESC:Shackleborn gain web as a spell-like ability.													ABILITY:Spell-Like Ability|AUTOMATIC|Racial SLA ~ Web																					SOURCEPAGE:p.252
+# Ability Name									Source Page
+CATEGORY=Special Ability|Kyton-Spawn ~ Ability Scores.MOD		SOURCEPAGE:p.252
+CATEGORY=Special Ability|Kyton-Spawn ~ Skilled.MOD			SOURCEPAGE:p.252
+CATEGORY=Special Ability|Kyton-Spawn ~ Spell-Like Ability.MOD	SOURCEPAGE:p.252
 
 # ------------------------------
 # Tiefling ~ Oni-Spawn
 # ------------------------------
 
 ###Block: Subrace Selection
-# Ability Name		Unique Key				Category of Ability		Type				Prohibited Fact																			Desc is PI?		Description										Template				Ability																			Source Page		Aspects																																										FACT																					Information
-Oni-Spawn (Hungerseed)	KEY:Tiefling ~ Oni-Spawn	CATEGORY:Special Ability	TYPE:Tiefling Subrace	!PREFACT:1,ABILITIES,Tiefling_ReplaceAbilityScores=true,Tiefling_ReplaceSkilled=true,Tiefling_ReplaceSpellLikeAbility=true	DESCISPI:YES	DESC:The stocky, muscular oni-spawn tieflings hail from Tian Xia.	TEMPLATE:Tiefling ~ Oni-Spawn	ABILITY:Tiefling Racial Trait|AUTOMATIC|Oni-Spawn ~ Ability Scores|Oni-Spawn ~ Skilled|Oni-Spawn ~ Spell-Like Ability	SOURCEPAGE:p.252	ASPECT:Ancestry|Oni	ASPECT:Typical Alignment|LE	ASPECT:Alternate Ability Modifiers|+2 Str, +2 Wis, -2 Cha	ASPECT:Alternate Skill Modifiers|Disguise, Intimidate	ASPECT:Alternate Spell-Like Ability|Hungerseed gain alter self as a spell-like ability.	FACT:Tiefling_ReplaceAbilityScores|True	FACT:Tiefling_ReplaceSkilled|True	FACT:Tiefling_ReplaceSpellLikeAbility|True	INFO:Ancestry|Oni	INFO:Typical Alignment|LE	INFO:Alternate Ability Modifiers|+2 Str, +2 Wis, -2 Cha	INFO:Alternate Skill Modifiers|Disguise, Intimidate	INFO:Alternate Spell-Like Ability|Hungerseed gain alter self as a spell-like ability.
+# Ability Name							Source Page
+CATEGORY=Special Ability|Tiefling ~ Oni-Spawn.MOD	SOURCEPAGE:p.252
 
 ###Block: Replacement Racial Traits
-# Ability Name				Unique Key					Category of Ability		Type													Visible		Required Ability								Desc is PI?		Description												Ability										Bonus to skill						Stat bonus										Source Page		Aspects
-+2 Strength, +2 Wisdom, -2 Charisma	KEY:Oni-Spawn ~ Ability Scores	CATEGORY:Special Ability	TYPE:RacialTraits.Tiefling Racial Trait.SpecialQuality.Racial Ability Scores	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Tiefling ~ Oni-Spawn	DESCISPI:YES	DESC:The stocky, muscular oni-spawn tieflings hail from Tian Xia.																						BONUS:STAT|STR,WIS|2|TYPE=Racial	BONUS:STAT|CHA|-2|TYPE=Racial	SOURCEPAGE:p.252
-Skilled					KEY:Oni-Spawn ~ Skilled			CATEGORY:Special Ability	TYPE:RacialTraits.Tiefling Racial Trait.SpecialQuality							PREABILITY:1,CATEGORY=Special Ability,Tiefling ~ Oni-Spawn				DESC:Hungerseed have a +2 racial bonus on Disguise and Intimidate checks.												BONUS:SKILL|Disguise,Intimidate|2|TYPE=Racial												SOURCEPAGE:p.252	ASPECT:RacialSkillModifier|+2 Disguise, +2 Intimidate
-Spell-Like Ability			KEY:Oni-Spawn ~ Spell-Like Ability	CATEGORY:Special Ability	TYPE:RacialTraits.Tiefling Racial Trait.SpecialQuality							PREABILITY:1,CATEGORY=Special Ability,Tiefling ~ Oni-Spawn				DESC:Hungerseed gain alter self as a spell-like ability.				ABILITY:Spell-Like Ability|AUTOMATIC|Racial SLA ~ Alter Self																				SOURCEPAGE:p.252
+# Ability Name								Source Page
+CATEGORY=Special Ability|Oni-Spawn ~ Ability Scores.MOD	SOURCEPAGE:p.252
+CATEGORY=Special Ability|Oni-Spawn ~ Skilled.MOD		SOURCEPAGE:p.252
+CATEGORY=Special Ability|Oni-Spawn ~ Spell-Like Ability.MOD	SOURCEPAGE:p.252
 
 # ------------------------------
 # Tiefling ~ Qlippoth-Spawn
 # ------------------------------
 
 ###Block: Subrace Selection
-# Ability Name				Unique Key				Category of Ability		Type				Prohibited Fact																			Description																	Template					Ability																						Source Page		Aspects																																												FACT																					Information
-Qlippoth-Spawn (the Motherless)	KEY:Tiefling ~ Qlippoth-Spawn	CATEGORY:Special Ability	TYPE:Tiefling Subrace	!PREFACT:1,ABILITIES,Tiefling_ReplaceAbilityScores=true,Tiefling_ReplaceSkilled=true,Tiefling_ReplaceSpellLikeAbility=true	DESC:The most hideous of their kind, these tieflings instinctively despise all other forms of mortal life.	TEMPLATE:Tiefling ~ Qlippoth-Spawn	ABILITY:Tiefling Racial Trait|AUTOMATIC|Qlippoth-Spawn ~ Ability Scores|Qlippoth-Spawn ~ Skilled|Qlippoth-Spawn ~ Spell-Like Ability	SOURCEPAGE:p.252	ASPECT:Ancestry|Qlippoth	ASPECT:Typical Alignment|CE	ASPECT:Alternate Ability Modifiers|+2 Str, +2 Wis, -2 Int	ASPECT:Alternate Skill Modifiers|Escape Artist, Survival	ASPECT:Alternate Spell-Like Ability|The motherless gain blur as a spell-like ability.	FACT:Tiefling_ReplaceAbilityScores|True	FACT:Tiefling_ReplaceSkilled|True	FACT:Tiefling_ReplaceSpellLikeAbility|True	INFO:Ancestry|Qlippoth	INFO:Typical Alignment|CE	INFO:Alternate Ability Modifiers|+2 Str, +2 Wis, -2 Int	INFO:Alternate Skill Modifiers|Escape Artist, Survival	INFO:Alternate Spell-Like Ability|The motherless gain blur as a spell-like ability.
+# Ability Name								Source Page
+CATEGORY=Special Ability|Tiefling ~ Qlippoth-Spawn.MOD	SOURCEPAGE:p.252
 
 ###Block: Replacement Racial Traits
-# Ability Name					Unique Key						Category of Ability		Type													Visible		Required Ability									Description																	Ability									Bonus to skill							Stat bonus										Source Page		Aspects
-+2 Strength, +2 Wisdom, -2 Intelligence	KEY:Qlippoth-Spawn ~ Ability Scores		CATEGORY:Special Ability	TYPE:RacialTraits.Tiefling Racial Trait.SpecialQuality.Racial Ability Scores	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Tiefling ~ Qlippoth-Spawn	DESC:The most hideous of their kind, these tieflings instinctively despise all other forms of mortal life.																				BONUS:STAT|STR,WIS|2|TYPE=Racial	BONUS:STAT|INT|-2|TYPE=Racial	SOURCEPAGE:p.252
-Skilled						KEY:Qlippoth-Spawn ~ Skilled			CATEGORY:Special Ability	TYPE:RacialTraits.Tiefling Racial Trait.SpecialQuality							PREABILITY:1,CATEGORY=Special Ability,Tiefling ~ Qlippoth-Spawn	DESC:The motherless have a +2 racial bonus on Escape Artist and Survival checks.															BONUS:SKILL|Escape Artist,Survival|2|TYPE=Racial												SOURCEPAGE:p.252	ASPECT:RacialSkillModifier|+2 Escape Artist, +2 Survival
-Spell-Like Ability				KEY:Qlippoth-Spawn ~ Spell-Like Ability	CATEGORY:Special Ability	TYPE:RacialTraits.Tiefling Racial Trait.SpecialQuality							PREABILITY:1,CATEGORY=Special Ability,Tiefling ~ Qlippoth-Spawn	DESC:The motherless gain blur as a spell-like ability.									ABILITY:Spell-Like Ability|AUTOMATIC|Racial SLA ~ Blur																					SOURCEPAGE:p.252
+# Ability Name									Source Page
+CATEGORY=Special Ability|Qlippoth-Spawn ~ Ability Scores.MOD	SOURCEPAGE:p.252
+CATEGORY=Special Ability|Qlippoth-Spawn ~ Skilled.MOD			SOURCEPAGE:p.252
+CATEGORY=Special Ability|Qlippoth-Spawn ~ Spell-Like Ability.MOD	SOURCEPAGE:p.252
 
 # ------------------------------
 # Tiefling ~ Rakshasa-Spawn
 # ------------------------------
 
 ###Block: Subrace Selection
-# Ability Name			Unique Key				Category of Ability		Type				Prohibited Fact																			Desc is PI?		Description														Template					Ability																						Source Page		Aspects																																													FACT																					Information
-Rakshasa-Spawn (Beastbrood)	KEY:Tiefling ~ Rakshasa-Spawn	CATEGORY:Special Ability	TYPE:Tiefling Subrace	!PREFACT:1,ABILITIES,Tiefling_ReplaceAbilityScores=true,Tiefling_ReplaceSkilled=true,Tiefling_ReplaceSpellLikeAbility=true	DESCISPI:YES	DESC:These tieflings are most common in Vudra, where they form large and powerful guilds.	TEMPLATE:Tiefling ~ Rakshasa-Spawn	ABILITY:Tiefling Racial Trait|AUTOMATIC|Rakshasa-Spawn ~ Ability Scores|Rakshasa-Spawn ~ Skilled|Rakshasa-Spawn ~ Spell-Like Ability	SOURCEPAGE:p.252	ASPECT:Ancestry|Rakshasa	ASPECT:Typical Alignment|LE	ASPECT:Alternate Ability Modifiers|+2 Dex, +2 Cha, -2 Wis	ASPECT:Alternate Skill Modifiers|Disguise, Sense Motive	ASPECT:Alternate Spell-Like Ability|Beastbrood gain detect thoughts as a spell-like ability.	FACT:Tiefling_ReplaceAbilityScores|True	FACT:Tiefling_ReplaceSkilled|True	FACT:Tiefling_ReplaceSpellLikeAbility|True	INFO:Ancestry|Rakshasa	INFO:Typical Alignment|LE	INFO:Alternate Ability Modifiers|+2 Dex, +2 Cha, -2 Wis	INFO:Alternate Skill Modifiers|Disguise, Sense Motive	INFO:Alternate Spell-Like Ability|Beastbrood gain detect thoughts as a spell-like ability.
+# Ability Name								Source Page
+CATEGORY=Special Ability|Tiefling ~ Rakshasa-Spawn.MOD	SOURCEPAGE:p.252
 
 ###Block: Replacement Racial Traits
-# Ability Name					Unique Key						Category of Ability		Type													Visible		Required Ability									Desc is PI?		Description														Ability										Bonus to skill						Stat bonus										Source Page		Aspects
-+2 Dexterity, +2 Charisma, -2 Wisdom	KEY:Rakshasa-Spawn ~ Ability Scores		CATEGORY:Special Ability	TYPE:RacialTraits.Tiefling Racial Trait.SpecialQuality.Racial Ability Scores	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Tiefling ~ Rakshasa-Spawn	DESCISPI:YES	DESC:These tieflings are most common in Vudra, where they form large and powerful guilds.																				BONUS:STAT|DEX,CHA|2|TYPE=Racial	BONUS:STAT|WIS|-2|TYPE=Racial	SOURCEPAGE:p.252
-Skilled						KEY:Rakshasa-Spawn ~ Skilled			CATEGORY:Special Ability	TYPE:RacialTraits.Tiefling Racial Trait.SpecialQuality							PREABILITY:1,CATEGORY=Special Ability,Tiefling ~ Rakshasa-Spawn				DESC:Beastbrood have a +2 racial bonus on Disguise and Sense Motive checks.														BONUS:SKILL|Disguise,Sense Motive|2|TYPE=Racial												SOURCEPAGE:p.252	ASPECT:RacialSkillModifier|+2 Disguise, +2 Sense Motive
-Spell-Like Ability				KEY:Rakshasa-Spawn ~ Spell-Like Ability	CATEGORY:Special Ability	TYPE:RacialTraits.Tiefling Racial Trait.SpecialQuality							PREABILITY:1,CATEGORY=Special Ability,Tiefling ~ Rakshasa-Spawn				DESC:Beastbrood gain detect thoughts as a spell-like ability.					ABILITY:Spell-Like Ability|AUTOMATIC|Racial SLA ~ Detect Thoughts																				SOURCEPAGE:p.252
+# Ability Name									Source Page
+CATEGORY=Special Ability|Rakshasa-Spawn ~ Ability Scores.MOD	SOURCEPAGE:p.252
+CATEGORY=Special Ability|Rakshasa-Spawn ~ Skilled.MOD			SOURCEPAGE:p.252
+CATEGORY=Special Ability|Rakshasa-Spawn ~ Spell-Like Ability.MOD	SOURCEPAGE:p.252
 
 # ------------------------------
 # Tiefling ~ Alternate Racial Traits
@@ -1466,7 +1591,8 @@ Tremorsense		KEY:Trox ~ Tremorsense	CATEGORY:Special Ability	TYPE:RacialTraits.T
 # Undine
 # ------------------------------
 
-# This race is found in b2_abilities_race_arg.lst
+###NOTE: Race files are in core_essentials\races\undine\
+
 ###Block: Racial Traits
 # Ability Name								Source Page
 CATEGORY=Special Ability|Undine ~ Ability Scores.MOD		SOURCEPAGE:p.253
@@ -1488,7 +1614,8 @@ Triton Magic	KEY:Undine ~ Triton Magic	CATEGORY:Special Ability	TYPE:RacialTrait
 # Vanara
 # ------------------------------
 
-# This race is found in b3_abilities_race_arg.lst
+###NOTE: Race files are in core_essentials\races\vanara\
+
 ###Block: Racial Traits
 # Ability Name							Source Page
 CATEGORY=Special Ability|Vanara ~ Ability Scores.MOD	SOURCEPAGE:p.253
@@ -1509,7 +1636,8 @@ Risky Troublemaker	KEY:Vanara ~ Risky Troublemaker	CATEGORY:Special Ability	TYPE
 # Vishkanya
 # ------------------------------
 
-# This race is found in b3_abilities_race_arg.lst
+###NOTE: Race files are in core_essentials\races\vishkanya\
+
 ###Block: Racial Traits
 # Ability Name								Source Page
 CATEGORY=Special Ability|Vishkanya ~ Ability Scores.MOD	SOURCEPAGE:p.253
@@ -1525,6 +1653,10 @@ CATEGORY=Special Ability|Vishkanya ~ Toxic.MOD			SOURCEPAGE:p.253
 CATEGORY=Special Ability|Vishkanya ~ Weapon Familiarity.MOD	SOURCEPAGE:p.253
 CATEGORY=Special Ability|Vishkanya ~ Languages.MOD		SOURCEPAGE:p.253
 
+###Block: Toxic Poison
+# Ability Name									Source Page
+CATEGORY=Special Ability|Vishkanya ~ Toxic ~ Vishkanya Venom.MOD	SOURCEPAGE:p.253
+
 ###Block: Alternate Racial Traits
 # Ability Name	Unique Key				Category of Ability		Type												Multiple Requirements																		Description																																																		Ability											Bonus to skill				Cost		Source Page		Aspects					FACT
 Deceptive		KEY:Vishkanya ~ Deceptive	CATEGORY:Special Ability	TYPE:RacialTraits.Vishkanya Racial Trait.SpecialQuality.Special Quality	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Vishkanya ~ Deceptive],[!PREFACT:1,ABILITIES,Vishkanya_ReplaceLimber=True]	DESC:Vishkanya clans that make their livings robbing or killing humans train to distract targets at critical moments. They gain a +2 racial bonus on Bluff checks.	DESC:This racial trait replaces the racial bonus on Escape Artist checks.|!PREABILITY:1,CATEGORY=Special Ability,Vishkanya ~ Deceptive	ABILITY:Vishkanya Racial Trait|AUTOMATIC|Deceptive ~ Vishkanya ~ Limber	BONUS:SKILL|Bluff|2|TYPE=Racial	COST:0	SOURCEPAGE:p.217	ASPECT:RacialSkillModifier|+2 Bluff	FACT:Vishkanya_ReplaceLimber|True
@@ -1538,7 +1670,8 @@ Limber		KEY:Deceptive ~ Vishkanya ~ Limber	CATEGORY:Special Ability	TYPE:RacialT
 # Wayang
 # ------------------------------
 
-# This race is found in arg_abilities_race_arg.lst
+###NOTE: Race files are in core_essentials\races\wayang\
+
 ###Block: Racial Traits
 # Ability Name								Source Page
 CATEGORY=Special Ability|Wayang ~ Ability Scores.MOD		SOURCEPAGE:p.254
@@ -1580,7 +1713,8 @@ Repair Magic	KEY:Wyrwood ~ Repair Magic	CATEGORY:Special Ability	TYPE:RacialTrai
 # Wyvaran
 # ------------------------------
 
-###Block: Racial Traits ~ Race files in core_essentials\races\wyvaran\
+# Race files are in core_essentials\races\wyvaran\
+###Block: Racial Traits
 # Ability Name								Source Page
 CATEGORY=Special Ability|Wyvaran ~ Ability Scores.MOD		SOURCEPAGE:p.254
 CATEGORY=Special Ability|Wyvaran ~ Type.MOD			SOURCEPAGE:p.254

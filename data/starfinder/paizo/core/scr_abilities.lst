@@ -918,15 +918,15 @@ Armor Prof ~ Powered Armor	CATEGORY:Proficiency	TYPE:Proficiency	AUTO:ARMORPROF|
 
 ###BLOCK-------------------------------------------------------------------------------------------------------------
 #
-# Ability Name					Category of Ability	Type						Auto Weapon Prof											Ability
-Weapon Prof ~ Basic Melee Weapons		CATEGORY:Proficiency	TYPE:Proficiency.Basic Melee		AUTO:WEAPONPROF|TYPE=Basic Melee|TYPE=Weapon Group ~ Basic Melee Weapons	ABILITY:Weapon|AUTOMATIC|TYPE=Basic Melee|TYPE=Weapon Group ~ Basic Melee Weapons
-Weapon Prof ~ Grenades				CATEGORY:Proficiency	TYPE:Proficiency.Grenades		AUTO:WEAPONPROF|TYPE=Grenades									ABILITY:Weapon|AUTOMATIC|TYPE=Grenades
-Weapon Prof ~ Small Arms			CATEGORY:Proficiency	TYPE:Proficiency.Small Arms		AUTO:WEAPONPROF|TYPE=Small Arms								ABILITY:Weapon|AUTOMATIC|TYPE=Small Arms
-Weapon Prof ~ Sniper Weapons			CATEGORY:Proficiency	TYPE:Proficiency.Sniper Weapons	AUTO:WEAPONPROF|TYPE=Sniper Weapons								ABILITY:Weapon|AUTOMATIC|TYPE=Sniper Weapons
-Weapon Prof ~ Advanced Melee Weapons	CATEGORY:Proficiency	TYPE:Proficiency.Advanced Melee	AUTO:WEAPONPROF|TYPE=Advanced Melee								ABILITY:Weapon|AUTOMATIC|TYPE=Advanced Melee
-Weapon Prof ~ Longarms				CATEGORY:Proficiency	TYPE:Proficiency.Longarms		AUTO:WEAPONPROF|TYPE=Longarms									ABILITY:Weapon|AUTOMATIC|TYPE=Longarms
-Weapon Prof ~ Heavy Weapons			CATEGORY:Proficiency	TYPE:Proficiency.Heavy Weapons	AUTO:WEAPONPROF|TYPE=Heavy Weapons								ABILITY:Weapon|AUTOMATIC|TYPE=Heavy Weapons
-Weapon Prof ~ Special Weapons			CATEGORY:Proficiency	TYPE:Proficiency.Special Weapons	AUTO:WEAPONPROF|TYPE=Special Weapons							ABILITY:Weapon|AUTOMATIC|TYPE=Special Weapons
+# Ability Name					Category of Ability	Type						Auto Weapon Prof															Ability
+Weapon Prof ~ Basic Melee Weapons		CATEGORY:Proficiency	TYPE:Proficiency.Basic Melee		AUTO:WEAPONPROF|TYPE=Basic Melee|TYPE=Prof Group Basic Melee|TYPE=Weapon Group ~ Basic Melee Weapons	ABILITY:Weapon|AUTOMATIC|TYPE=Basic Melee|TYPE=Weapon Group ~ Basic Melee Weapons
+Weapon Prof ~ Grenades				CATEGORY:Proficiency	TYPE:Proficiency.Grenades		AUTO:WEAPONPROF|TYPE=Grenades|TYPE=Prof Group Grenades								ABILITY:Weapon|AUTOMATIC|TYPE=Grenades
+Weapon Prof ~ Small Arms			CATEGORY:Proficiency	TYPE:Proficiency.Small Arms		AUTO:WEAPONPROF|TYPE=Small Arms|TYPE=Prof Group Small Arms								ABILITY:Weapon|AUTOMATIC|TYPE=Small Arms
+Weapon Prof ~ Sniper Weapons			CATEGORY:Proficiency	TYPE:Proficiency.Sniper Weapons	AUTO:WEAPONPROF|TYPE=Sniper Weapons|TYPE=Prof Group Sniper Weapons						ABILITY:Weapon|AUTOMATIC|TYPE=Sniper Weapons
+Weapon Prof ~ Advanced Melee Weapons	CATEGORY:Proficiency	TYPE:Proficiency.Advanced Melee	AUTO:WEAPONPROF|TYPE=Advanced Melee|TYPE=Prof Group Advanced Melee						ABILITY:Weapon|AUTOMATIC|TYPE=Advanced Melee
+Weapon Prof ~ Longarms				CATEGORY:Proficiency	TYPE:Proficiency.Longarms		AUTO:WEAPONPROF|TYPE=Longarms|TYPE=Prof Group Longarms								ABILITY:Weapon|AUTOMATIC|TYPE=Longarms
+Weapon Prof ~ Heavy Weapons			CATEGORY:Proficiency	TYPE:Proficiency.Heavy Weapons	AUTO:WEAPONPROF|TYPE=Heavy Weapons|TYPE=Prof Group Heavy Weapons							ABILITY:Weapon|AUTOMATIC|TYPE=Heavy Weapons
+Weapon Prof ~ Special Weapons			CATEGORY:Proficiency	TYPE:Proficiency.Special Weapons	AUTO:WEAPONPROF|TYPE=Special Weapons|TYPE=Prof Group Special Weapons						ABILITY:Weapon|AUTOMATIC|TYPE=Special Weapons
 
 
 ###BLOCK-------------------------------------------------------------------------------------------------------------
@@ -1794,63 +1794,63 @@ Multiattack Mastery		KEY:OPERATIVE EXPLOIT ~ Multiattack Mastery		SORTKEY:Operat
 Uncanny Senses			KEY:OPERATIVE EXPLOIT ~ Uncanny Senses			SORTKEY:Operative / 008a1	CATEGORY:Class Feature	TYPE:Class Feature.OPERATIVE EXPLOIT.Extraordinary	PREABILITY:1,CATEGORY=Class Feature,OPERATIVE EXPLOIT ~ Enhanced Senses																							PREPCLEVEL:MIN=14			DESC:Your enhanced senses grow even more discerning. Your blindsense becomes blindsight with a range of 60 feet. If you have darkvision, its range increases by 30 feet. You must have the enhanced senses exploit to learn this exploit.																																																																																																																																																					BONUS:VAR|BlindsightRange|60|TYPE=Base	BONUS:VAR|DarkvisionRange|30|PREVARGTEQ:DarkvisionRange,1										SOURCEPAGE:p.97
 
 
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Acrobatics|if(skillinfo("TOTALRANK", "Acrobatics")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Athletics|if(skillinfo("TOTALRANK", "Athletics")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Bluff|if(skillinfo("TOTALRANK", "Bluff")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Computers|if(skillinfo("TOTALRANK", "Computers")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Culture|if(skillinfo("TOTALRANK", "Culture")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Diplomacy|if(skillinfo("TOTALRANK", "Diplomacy")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Disguise|if(skillinfo("TOTALRANK", "Disguise")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Engineering|if(skillinfo("TOTALRANK", "Engineering")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Intimidate|if(skillinfo("TOTALRANK", "Intimidate")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Life Science|if(skillinfo("TOTALRANK", "Life Science")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Medicine|if(skillinfo("TOTALRANK", "Medicine")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Mysticism|if(skillinfo("TOTALRANK", "Mysticism")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Perception|if(skillinfo("TOTALRANK", "Perception")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Physical Science|if(skillinfo("TOTALRANK", "Physical Science")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Piloting|if(skillinfo("TOTALRANK", "Piloting")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Accountant)|if(skillinfo("TOTALRANK", "Profession (Accountant)")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Actor)|if(skillinfo("TOTALRANK", "Profession (Actor)")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Archaeologist)|if(skillinfo("TOTALRANK", "Profession (Archaeologist)")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Architect)|if(skillinfo("TOTALRANK", "Profession (Architect)")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Artist)|if(skillinfo("TOTALRANK", "Profession (Artist)")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Bounty Hunter)|if(skillinfo("TOTALRANK", "Profession (Bounty Hunter)")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Comedian)|if(skillinfo("TOTALRANK", "Profession (Comedian)")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Con Artist)|if(skillinfo("TOTALRANK", "Profession (Con Artist)")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Cook)|if(skillinfo("TOTALRANK", "Profession (Cook)")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Corporate Professional)|if(skillinfo("TOTALRANK", "Profession (Corporate Professional)")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Courtesan)|if(skillinfo("TOTALRANK", "Profession (Courtesan)")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Counselor)|if(skillinfo("TOTALRANK", "Profession (Counselor)")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Dancer)|if(skillinfo("TOTALRANK", "Profession (Dancer)")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Dockworker)|if(skillinfo("TOTALRANK", "Profession (Dockworker)")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Electrician)|if(skillinfo("TOTALRANK", "Profession (Electrician)")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Farmer)|if(skillinfo("TOTALRANK", "Profession (Farmer)")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Gambler)|if(skillinfo("TOTALRANK", "Profession (Gambler)")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (General Contractor)|if(skillinfo("TOTALRANK", "Profession (General Contractor)")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Herbalist)|if(skillinfo("TOTALRANK", "Profession (Herbalist)")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Lab Technician)|if(skillinfo("TOTALRANK", "Profession (Lab Technician)")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Lawyer)|if(skillinfo("TOTALRANK", "Profession (Lawyer)")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Maintenance Worker)|if(skillinfo("TOTALRANK", "Profession (Maintenance Worker)")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Manager)|if(skillinfo("TOTALRANK", "Profession (Manager)")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Mathematician)|if(skillinfo("TOTALRANK", "Profession (Mathematician)")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Mercenary)|if(skillinfo("TOTALRANK", "Profession (Mercenary)")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Merchant)|if(skillinfo("TOTALRANK", "Profession (Merchant)")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Miner)|if(skillinfo("TOTALRANK", "Profession (Miner)")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Musician)|if(skillinfo("TOTALRANK", "Profession (Musician)")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Orator)|if(skillinfo("TOTALRANK", "Profession (Orator)")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Philosopher)|if(skillinfo("TOTALRANK", "Profession (Philosopher)")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Poet)|if(skillinfo("TOTALRANK", "Profession (Poet)")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Politician)|if(skillinfo("TOTALRANK", "Profession (Politician)")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Professor)|if(skillinfo("TOTALRANK", "Profession (Professor)")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Psychologist)|if(skillinfo("TOTALRANK", "Profession (Psychologist)")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Smuggler)|if(skillinfo("TOTALRANK", "Profession (Smuggler)")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Video Personality)|if(skillinfo("TOTALRANK", "Profession (Video Personality)")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Vidgamer)|if(skillinfo("TOTALRANK", "Profession (Vidgamer)")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Writer)|if(skillinfo("TOTALRANK", "Profession (Writer)")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Sense Motive|if(skillinfo("TOTALRANK", "Sense Motive")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Sleight of Hand|if(skillinfo("TOTALRANK", "Sleight of Hand")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Stealth|if(skillinfo("TOTALRANK", "Stealth")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
-CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Survival|if(skillinfo("TOTALRANK", "Survival")<1,OperativeEdgeBonus*2,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Acrobatics|if(skillinfo("TOTALRANK", "Acrobatics")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Athletics|if(skillinfo("TOTALRANK", "Athletics")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Bluff|if(skillinfo("TOTALRANK", "Bluff")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Computers|if(skillinfo("TOTALRANK", "Computers")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Culture|if(skillinfo("TOTALRANK", "Culture")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Diplomacy|if(skillinfo("TOTALRANK", "Diplomacy")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Disguise|if(skillinfo("TOTALRANK", "Disguise")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Engineering|if(skillinfo("TOTALRANK", "Engineering")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Intimidate|if(skillinfo("TOTALRANK", "Intimidate")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Life Science|if(skillinfo("TOTALRANK", "Life Science")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Medicine|if(skillinfo("TOTALRANK", "Medicine")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Mysticism|if(skillinfo("TOTALRANK", "Mysticism")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Perception|if(skillinfo("TOTALRANK", "Perception")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Physical Science|if(skillinfo("TOTALRANK", "Physical Science")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Piloting|if(skillinfo("TOTALRANK", "Piloting")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Accountant)|if(skillinfo("TOTALRANK", "Profession (Accountant)")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Actor)|if(skillinfo("TOTALRANK", "Profession (Actor)")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Archaeologist)|if(skillinfo("TOTALRANK", "Profession (Archaeologist)")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Architect)|if(skillinfo("TOTALRANK", "Profession (Architect)")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Artist)|if(skillinfo("TOTALRANK", "Profession (Artist)")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Bounty Hunter)|if(skillinfo("TOTALRANK", "Profession (Bounty Hunter)")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Comedian)|if(skillinfo("TOTALRANK", "Profession (Comedian)")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Con Artist)|if(skillinfo("TOTALRANK", "Profession (Con Artist)")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Cook)|if(skillinfo("TOTALRANK", "Profession (Cook)")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Corporate Professional)|if(skillinfo("TOTALRANK", "Profession (Corporate Professional)")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Courtesan)|if(skillinfo("TOTALRANK", "Profession (Courtesan)")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Counselor)|if(skillinfo("TOTALRANK", "Profession (Counselor)")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Dancer)|if(skillinfo("TOTALRANK", "Profession (Dancer)")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Dockworker)|if(skillinfo("TOTALRANK", "Profession (Dockworker)")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Electrician)|if(skillinfo("TOTALRANK", "Profession (Electrician)")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Farmer)|if(skillinfo("TOTALRANK", "Profession (Farmer)")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Gambler)|if(skillinfo("TOTALRANK", "Profession (Gambler)")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (General Contractor)|if(skillinfo("TOTALRANK", "Profession (General Contractor)")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Herbalist)|if(skillinfo("TOTALRANK", "Profession (Herbalist)")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Lab Technician)|if(skillinfo("TOTALRANK", "Profession (Lab Technician)")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Lawyer)|if(skillinfo("TOTALRANK", "Profession (Lawyer)")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Maintenance Worker)|if(skillinfo("TOTALRANK", "Profession (Maintenance Worker)")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Manager)|if(skillinfo("TOTALRANK", "Profession (Manager)")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Mathematician)|if(skillinfo("TOTALRANK", "Profession (Mathematician)")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Mercenary)|if(skillinfo("TOTALRANK", "Profession (Mercenary)")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Merchant)|if(skillinfo("TOTALRANK", "Profession (Merchant)")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Miner)|if(skillinfo("TOTALRANK", "Profession (Miner)")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Musician)|if(skillinfo("TOTALRANK", "Profession (Musician)")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Orator)|if(skillinfo("TOTALRANK", "Profession (Orator)")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Philosopher)|if(skillinfo("TOTALRANK", "Profession (Philosopher)")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Poet)|if(skillinfo("TOTALRANK", "Profession (Poet)")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Politician)|if(skillinfo("TOTALRANK", "Profession (Politician)")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Professor)|if(skillinfo("TOTALRANK", "Profession (Professor)")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Psychologist)|if(skillinfo("TOTALRANK", "Profession (Psychologist)")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Smuggler)|if(skillinfo("TOTALRANK", "Profession (Smuggler)")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Video Personality)|if(skillinfo("TOTALRANK", "Profession (Video Personality)")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Vidgamer)|if(skillinfo("TOTALRANK", "Profession (Vidgamer)")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Profession (Writer)|if(skillinfo("TOTALRANK", "Profession (Writer)")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Sense Motive|if(skillinfo("TOTALRANK", "Sense Motive")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Sleight of Hand|if(skillinfo("TOTALRANK", "Sleight of Hand")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Stealth|if(skillinfo("TOTALRANK", "Stealth")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
+CATEGORY=Class Feature|Operative Class Feature ~ OPERATIVE'S EDGE.MOD		BONUS:SKILL|Display ~ Survival|if(skillinfo("TOTALRANK", "Survival")<1,OperativeEdgeBonus,OperativeEdgeBonus)|TYPE=Insight
 
 
 

@@ -943,6 +943,8 @@ CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_DivineSpells|0	
 CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_Divination|0				ABILITY:Save Bonus|AUTOMATIC|Divination Spells and Effects|!PREVAREQ:SaveBonus_vs_Divination,0|!PREVAREQ:SaveBonus_vs_Enchantments,SaveBonus_vs_Divination
 CATEGORY=Internal|Save Bonus Tracker.MOD														ABILITY:Save Bonus|AUTOMATIC|Enchantment and Divination|!PREVAREQ:SaveBonus_vs_Enchantments,0|!PREVAREQ:SaveBonus_vs_Divination,0|PREVAREQ:SaveBonus_vs_Enchantments,SaveBonus_vs_Divination
 CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:RefSave_vs_SiegeWeapons|0				ABILITY:Save Bonus|AUTOMATIC|Reflex vs Siege Weapons|!PREVAREQ:RefSave_vs_SiegeWeapons,0
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_VisualIllusions|0			ABILITY:Save Bonus|AUTOMATIC|Visual Illusions|!PREVAREQ:SaveBonus_vs_VisualIllusions,0
+CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_ColdEffects|0				ABILITY:Save Bonus|AUTOMATIC|Cold Effects|!PREVAREQ:SaveBonus_vs_ColdEffects,0
 ### Player Companion
 # Blood of Fiends - PZO9423
 CATEGORY=Internal|Save Bonus Tracker.MOD					DEFINE:SaveBonus_vs_GazeAttacks|0				ABILITY:Save Bonus|AUTOMATIC|Gaze Attacks|!PREVAREQ:SaveBonus_vs_GazeAttacks,0
@@ -1016,6 +1018,8 @@ Divine Spells						CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. divine spells
 Divination Spells and Effects				CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. divination spells and effects|SaveBonus_vs_Divination
 Enchantment and Divination				CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. enchantment and divination spells and effects|max(SaveBonus_vs_Enchantments,SaveBonus_vs_Divination)
 Reflex vs Siege Weapons					CATEGORY:Save Bonus	ASPECT:RefSaveBonus|+%1 vs. siege weapons|RefSave_vs_SiegeWeapons
+Visual Illusions						CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. visual illusions|SaveBonus_vs_VisualIllusions
+Cold Effects						CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. cold effects|SaveBonus_vs_ColdEffects
 ### Player Companion
 # Blood of Fiends - PZO9423
 Gaze Attacks						CATEGORY:Save Bonus	ASPECT:AllSaveBonus|+%1 vs. gaze attacks|SaveBonus_vs_GazeAttacks

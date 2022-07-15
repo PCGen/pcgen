@@ -1,0 +1,30 @@
+# Tue Aug  3 10:42:30 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Kobold
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define						Ability
+CATEGORY=Internal|Racial Traits ~ Kobold.MOD	DEFINE:Kobold_ReplaceAbilityScores|0	ABILITY:Kobold Racial Trait|AUTOMATIC|Kobold ~ Ability Scores|PREVAREQ:Kobold_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Kobold.MOD	DEFINE:Kobold_ReplaceType|0			ABILITY:Kobold Racial Trait|AUTOMATIC|Kobold ~ Type|PREVAREQ:Kobold_ReplaceType,0
+CATEGORY=Internal|Racial Traits ~ Kobold.MOD	DEFINE:Kobold_ReplaceSize|0			ABILITY:Kobold Racial Trait|AUTOMATIC|Kobold ~ Size|PREVAREQ:Kobold_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Kobold.MOD	DEFINE:Kobold_ReplaceSpeed|0			ABILITY:Kobold Racial Trait|AUTOMATIC|Kobold ~ Speed|PREVAREQ:Kobold_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Kobold.MOD	DEFINE:Kobold_ReplaceVision|0			ABILITY:Kobold Racial Trait|AUTOMATIC|Kobold ~ Vision|PREVAREQ:Kobold_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Kobold.MOD	DEFINE:Kobold_ReplaceArmor|0			ABILITY:Kobold Racial Trait|AUTOMATIC|Kobold ~ Armor|PREVAREQ:Kobold_ReplaceArmor,0
+CATEGORY=Internal|Racial Traits ~ Kobold.MOD	DEFINE:Kobold_ReplaceCrafty|0			ABILITY:Kobold Racial Trait|AUTOMATIC|Kobold ~ Crafty|PREVAREQ:Kobold_ReplaceCrafty,0
+CATEGORY=Internal|Racial Traits ~ Kobold.MOD	DEFINE:Kobold_ReplaceWeakness|0		ABILITY:Kobold Racial Trait|AUTOMATIC|Kobold ~ Weakness|PREVAREQ:Kobold_ReplaceWeakness,0
+CATEGORY=Internal|Racial Traits ~ Kobold.MOD	DEFINE:Kobold_ReplaceLanguages|0		ABILITY:Kobold Racial Trait|AUTOMATIC|Kobold ~ Languages|PREVAREQ:Kobold_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Kobold.MOD	BONUS:VAR|Kobold_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kobold_ReplaceAbilityScores=True
+CATEGORY=Internal|Racial Traits ~ Kobold.MOD	BONUS:VAR|Kobold_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kobold_ReplaceType=True
+CATEGORY=Internal|Racial Traits ~ Kobold.MOD	BONUS:VAR|Kobold_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kobold_ReplaceSize=True
+CATEGORY=Internal|Racial Traits ~ Kobold.MOD	BONUS:VAR|Kobold_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kobold_ReplaceSpeed=True
+CATEGORY=Internal|Racial Traits ~ Kobold.MOD	BONUS:VAR|Kobold_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kobold_ReplaceVision=True
+CATEGORY=Internal|Racial Traits ~ Kobold.MOD	BONUS:VAR|Kobold_ReplaceArmor|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kobold_ReplaceArmor=True
+CATEGORY=Internal|Racial Traits ~ Kobold.MOD	BONUS:VAR|Kobold_ReplaceCrafty|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kobold_ReplaceCrafty=True
+CATEGORY=Internal|Racial Traits ~ Kobold.MOD	BONUS:VAR|Kobold_ReplaceWeakness|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kobold_ReplaceWeakness=True
+CATEGORY=Internal|Racial Traits ~ Kobold.MOD	BONUS:VAR|Kobold_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Kobold_ReplaceLanguages=True

@@ -1,0 +1,22 @@
+# Wed May 19 19:34:03 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Halfling
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsHalfling	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Halfling	EXPLANATION:Determines whether the character is a Halfling
+
+###Block: Racial Traits
+# Name								Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Halfling_ReplaceAbilityScores		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Halfling Ability Scores	EXPLANATION:Replaces the Ability Scores
+FACTDEF:ABILITY|Halfling_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Halfling Size			EXPLANATION:Replaces the Small Racial Trait
+FACTDEF:ABILITY|Halfling_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Halfling Speed			EXPLANATION:Replaces the Slow Speed Racial Trait
+FACTDEF:ABILITY|Halfling_ReplaceFearless			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Halfling Fearless		EXPLANATION:Replaces the Fearless Racial Trait
+FACTDEF:ABILITY|Halfling_ReplaceHalflingLuck		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Halfling Halfling Luck	EXPLANATION:Replaces the Halfling Luck Racial Trait
+FACTDEF:ABILITY|Halfling_ReplaceKeenSenses		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Halfling Keen Senses		EXPLANATION:Replaces the Keen Senses Racial Trait
+FACTDEF:ABILITY|Halfling_ReplaceSureFooted		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Halfling Sure-Footed		EXPLANATION:Replaces the Sure-Footed Racial Trait
+FACTDEF:ABILITY|Halfling_ReplaceWeaponFamiliarity	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Halfling Weapon Familiarity	EXPLANATION:Replaces the Weapon Familiarity Racial Trait
+FACTDEF:ABILITY|Halfling_ReplaceLanguages			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Halfling Languages		EXPLANATION:Replaces the Languages Racial Trait

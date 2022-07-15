@@ -4,4 +4,4 @@ SOURCELONG:Pathfinder Player Companion: Orcs of Golarion	SOURCESHORT:OOG	SOURCEW
 # Author: Henk Slaaf
 
 # Race Name	Type			Challenge Rating	FACT
-Orc.MOD	TYPE:Base.PC	CR:1/2		FACT:IsPC|true
+Orc.MOD	SOURCEPAGE:Front Inside Cover

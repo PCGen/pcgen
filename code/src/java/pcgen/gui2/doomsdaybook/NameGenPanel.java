@@ -781,11 +781,10 @@ public class NameGenPanel extends JPanel
 		Element generator = nameSet.getRootElement();
 		java.util.List<?> rulesets = generator.getChildren("RULESET");
 		java.util.List<?> lists = generator.getChildren("LIST");
-		ListIterator<?> listIterator = lists.listIterator();
 
-		while (listIterator.hasNext())
+		for (final Object o : lists)
 		{
-			Element list = (Element) listIterator.next();
+			Element list = (Element) o;
 			loadList(list);
 		}
 

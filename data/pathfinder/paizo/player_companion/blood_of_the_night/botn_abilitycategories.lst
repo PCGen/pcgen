@@ -4,13 +4,6 @@
 # ORIGINAL ENTRY DATE: 13 April 2016
 
 # ==============================
-# Subrace
-# ==============================
-
-# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
-ABILITYCATEGORY:Dhampir Subrace			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Dhampir Subrace								DISPLAYLOCATION:Racial Abilities
-
-# ==============================
 # Dhampir Race Traits
 # ==============================
 

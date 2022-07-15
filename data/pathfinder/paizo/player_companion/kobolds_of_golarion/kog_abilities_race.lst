@@ -8,18 +8,19 @@ SOURCELONG:Pathfinder Player Companion: Kobolds of Golarion	SOURCESHORT:KOG	SOUR
 # Alternative Racial Traits
 # ==============================
 
-# This race is found in b1_abilities_race_arg.lst
+###NOTE: Race files are in core_essentials\races\kobold\
+
 ###Block: Racial Traits
 # Ability Name							Source Page
-CATEGORY=Special Ability|Kobold ~ Ability Scores.MOD	SOURCEPAGE:Front Inner Cover
-CATEGORY=Special Ability|Kobold ~ Type.MOD		SOURCEPAGE:Front Inner Cover
-CATEGORY=Special Ability|Kobold ~ Size.MOD		SOURCEPAGE:Front Inner Cover
-CATEGORY=Special Ability|Kobold ~ Speed.MOD		SOURCEPAGE:Front Inner Cover
-CATEGORY=Special Ability|Kobold ~ Vision.MOD		SOURCEPAGE:Front Inner Cover
-CATEGORY=Special Ability|Kobold ~ Armor.MOD		SOURCEPAGE:Front Inner Cover
-CATEGORY=Special Ability|Kobold ~ Crafty.MOD		SOURCEPAGE:Front Inner Cover
-CATEGORY=Special Ability|Kobold ~ Weakness.MOD		SOURCEPAGE:Front Inner Cover
-CATEGORY=Special Ability|Kobold ~ Languages.MOD		SOURCEPAGE:Front Inner Cover
+CATEGORY=Special Ability|Kobold ~ Ability Scores.MOD	SOURCEPAGE:Front Inside Cover
+CATEGORY=Special Ability|Kobold ~ Type.MOD		SOURCEPAGE:Front Inside Cover
+CATEGORY=Special Ability|Kobold ~ Size.MOD		SOURCEPAGE:Front Inside Cover
+CATEGORY=Special Ability|Kobold ~ Speed.MOD		SOURCEPAGE:Front Inside Cover
+CATEGORY=Special Ability|Kobold ~ Vision.MOD		SOURCEPAGE:Front Inside Cover
+CATEGORY=Special Ability|Kobold ~ Armor.MOD		SOURCEPAGE:Front Inside Cover
+CATEGORY=Special Ability|Kobold ~ Crafty.MOD		SOURCEPAGE:Front Inside Cover
+CATEGORY=Special Ability|Kobold ~ Weakness.MOD		SOURCEPAGE:Front Inside Cover
+CATEGORY=Special Ability|Kobold ~ Languages.MOD		SOURCEPAGE:Front Inside Cover
 
 ###Block: Alternate Racial Traits
 # Ability Name		Unique Key					Category of Ability		Type														Multiple Requirements																						Description																																																																																																																	Stackable?	Multiple?	Choose								Ability													Bonus Ability Pool				Bonus DC				Bonus to skill						Class Skill	Vision			Cost		Source Page		Aspects															FACT

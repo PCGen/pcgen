@@ -1,0 +1,25 @@
+# Fri Aug 20 14:27:11 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Vishkanya
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name				Dataformat			Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:TEMPLATE|IsVishkanya	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Vishkanya	EXPLANATION:Determines whether the character is a Vishkanya
+
+###Block: Racial Traits
+# Name								Dataformat			Required	Selectable		Visible	Displayname								Explanation
+FACTDEF:ABILITY|Vishkanya_ReplaceAbilityScores		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Vishkanya Ability Scores		EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Vishkanya_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Vishkanya Type				EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Vishkanya_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Vishkanya Size				EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Vishkanya_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Vishkanya Speed				EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Vishkanya_ReplaceVision			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Vishkanya Vision			EXPLANATION:Replaces the Vision Racial Trait
+FACTDEF:ABILITY|Vishkanya_ReplaceKeenSenses		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Vishkanya Keen Senses			EXPLANATION:Replaces the Keen Senses Racial Trait
+FACTDEF:ABILITY|Vishkanya_ReplaceLimber			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Vishkanya Limber			EXPLANATION:Replaces the Limber Racial Trait
+FACTDEF:ABILITY|Vishkanya_ReplacePoisonResistance	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Vishkanya Poison Resistance		EXPLANATION:Replaces the Poison Resistance Racial Trait
+FACTDEF:ABILITY|Vishkanya_ReplacePoisonUse		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Vishkanya Poison Use			EXPLANATION:Replaces the Poison Use Racial Trait
+FACTDEF:ABILITY|Vishkanya_ReplaceToxic			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Vishkanya Toxic				EXPLANATION:Replaces the Toxic Racial Trait
+FACTDEF:ABILITY|Vishkanya_ReplaceWeaponFamiliarity	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Vishkanya Weapon Familiarity	EXPLANATION:Replaces the Weapon Familiarity Racial Trait
+FACTDEF:ABILITY|Vishkanya_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Vishkanya Languages			EXPLANATION:Replaces the Languages Racial Trait

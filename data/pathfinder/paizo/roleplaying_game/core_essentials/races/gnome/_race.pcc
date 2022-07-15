@@ -1,0 +1,26 @@
+# Sun Jul 26 22:20:43 2020 -- reformated by PCGen PrettyLST v6.08.00
+KEY:support ~ gnome race
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+ISOGL:YES
+
+# Use this so there aren't numerous copies of the same race.
+
+
+# ==============================
+# Gnome
+# ==============================
+
+# Fact/Factset & Formula System
+DATACONTROL:gnome__datacontrols.lst
+
+# Data Files
+ABILITY:gnome_abilities_globalvar.lst
+ABILITY:gnome_abilities_race.lst
+ABILITYCATEGORY:gnome_abilitycategories.lst
+BIOSET:gnome_biosettings.lst
+LANGUAGE:gnome_languages.lst
+RACE:gnome_races.lst
+TEMPLATE:gnome_templates_language.lst
+TEMPLATE:gnome_templates.lst

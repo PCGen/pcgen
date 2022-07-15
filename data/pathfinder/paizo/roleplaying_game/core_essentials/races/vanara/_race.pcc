@@ -1,0 +1,27 @@
+# Sun Jul 26 22:20:43 2020 -- reformated by PCGen PrettyLST v6.08.00
+KEY:support ~ vanara race
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+ISOGL:YES
+
+# Use this so there aren't numerous copies of the same race.
+
+
+# ==============================
+# Vanara
+# ==============================
+
+# Fact/Factset & Formula System
+DATACONTROL:vanara__datacontrols.lst
+
+# Data Files
+ABILITY:vanara_abilities_globalvar.lst
+ABILITY:vanara_abilities_race.lst
+ABILITYCATEGORY:vanara_abilitycategories.lst
+BIOSET:vanara_biosettings.lst
+LANGUAGE:vanara_languages.lst
+RACE:vanara_races.lst
+SKILL:vanara_skills.lst
+TEMPLATE:vanara_templates_language.lst
+TEMPLATE:vanara_templates.lst

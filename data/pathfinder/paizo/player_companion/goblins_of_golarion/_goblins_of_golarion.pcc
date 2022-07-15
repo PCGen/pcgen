@@ -6,7 +6,8 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:3,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -25,8 +26,8 @@ URL:Paizo Publishing|http://paizo.com/products/btpy8dmh|Buy this publication fro
 DESC:We Be Goblins! The goblins are on the loose! Unleash the homicidal hijinks of GolarionUs most maniacal menaces with this guide to all things goblin. Infamous for their unpredictable attacks, catchy raiding songs, and fear of horses, goblins blend mischief and murderousness like no other monsters. But thereUs more to goblins than dogslicers and games of killgull. Now you can join in the quirky carnage with everything you need to know about goblins, whether you plan to do battle against their unpredictable tribes, or lead them as a goblin hero!
 
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
-COPYRIGHT:System Reference Document. ) 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
-COPYRIGHT:Player Companion: Goblins of Golarion. ) 2011, Paizo Inc.; Author: James Jacobs, Hal Maclean, and Richard Pett.
+COPYRIGHT:System Reference Document. (c) 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Player Companion: Goblins of Golarion. (c) 2011, Paizo Inc.; Author: James Jacobs, Hal Maclean, and Richard Pett.
 COPYRIGHT:PCGen dataset conversion for "Player Companion: Goblins of Golarion" Copyright 2013, PCGen Data Team (including, but not limited to Eric C Smith (Maredudd))
 
 # Do not remove the EXTRAFILE comment.
@@ -45,6 +46,9 @@ EQUIPMENT:goog_equip_magic_items.lst
 ABILITY:goog_feats.lst
 SPELL:goog_spells.lst
 
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\goblin\_race.pcc
+
 
 # Include from Ultimate Combat
-EQUIPMOD:@/pathfinder/paizo/roleplaying_game/ultimate_combat/uc_equipmods.lst|(INCLUDE:FRAGILE)
+EQUIPMOD:@/pathfinder/paizo/roleplaying_game/ultimate_combat/uc_equipmods.lst|(INCLUDE:Special Quality ~ Fragile)
+WEAPONPROF:@/pathfinder/paizo/roleplaying_game/ultimate_equipment/ue_profs_weapon.lst|(INCLUDE:Dogslicer)

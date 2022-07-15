@@ -1,0 +1,10 @@
+/bin/
+/.settings/
+/.pmd
+/.checkstyle
+/.classpath
+/.project
+/.ruleset
+/build/
+/.gradle/
+PCGen-Formula.iml

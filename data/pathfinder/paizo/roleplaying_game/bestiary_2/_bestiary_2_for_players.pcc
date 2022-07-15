@@ -94,10 +94,9 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Bestiary 2" Copyright 201
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt
 
-DATACONTROL:b2__datacontrols.lst
+#DATACONTROL:b2__datacontrols.lst
+#ABILITY:b2_abilities_globalvar.lst
 
-
-ABILITY:b2_abilities_globalvar.lst
 #ABILITY:b2_abilities_race.lst
 #ABILITYCATEGORY:b2_abilitycategories.lst
 #EQUIPMENT:b2_equip_arms_armor.lst
@@ -110,14 +109,21 @@ LANGUAGE:b2_languages.lst
 #WEAPONPROF:b2_profs_weapon.lst
 
 # Separate out races used by ARG to simplify dependencies
-ABILITY:b2_abilities_race_arg.lst
-ABILITYCATEGORY:b2_abilitycategories_arg.lst
-LANGUAGE:b2_languages_arg.lst
-RACE:b2_races_arg.lst
-TEMPLATE:b2_templates_arg.lst
+ABILITY:b2_abilities_race_pc.lst
+RACE:b2_races_pc.lst
+TEMPLATE:b2_templates_pc.lst
 
 # Familiars
 ABILITY:b2_abilities_familiar_race.lst
 ABILITY:b2_abilities_familiar.lst
 COMPANIONMOD:b2_companionmods_familiar.lst
 RACE:b2_races_familiar.lst
+
+# races
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\dhampir\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\fetchling\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\grippli\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\ifrit\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\oread\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\sylph\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\undine\_race.pcc

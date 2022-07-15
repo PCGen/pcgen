@@ -1,0 +1,26 @@
+# Sun Jul 26 22:20:43 2020 -- reformated by PCGen PrettyLST v6.08.00
+KEY:support ~ half elf race
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+ISOGL:YES
+
+# Use this so there aren't numerous copies of the same race.
+
+
+# ==============================
+# Half-Elf
+# ==============================
+
+# Fact/Factset & Formula System
+DATACONTROL:halfelf__datacontrols.lst
+
+# Data Files
+ABILITY:halfelf_abilities_globalvar.lst
+ABILITY:halfelf_abilities_race.lst
+ABILITYCATEGORY:halfelf_abilitycategories.lst
+BIOSET:halfelf_biosettings.lst
+RACE:halfelf_races.lst
+
+TEMPLATE:../elf/elf_templates.lst
+TEMPLATE:../human/human_templates.lst

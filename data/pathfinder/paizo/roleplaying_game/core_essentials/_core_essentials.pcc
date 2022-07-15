@@ -59,7 +59,6 @@ VARIABLE:ce__variables.lst
 ABILITY:ce_abilities.lst
 ABILITY:ce_abilities_race.lst
 ABILITYCATEGORY:ce_abilitycategories.lst
-BIOSET:ce_biosettings.lst
 CLASS:ce_classes_race.lst
 DEITY:ce_deities.lst
 DOMAIN:ce_domains.lst

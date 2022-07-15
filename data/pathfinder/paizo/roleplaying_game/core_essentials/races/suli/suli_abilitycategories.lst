@@ -1,0 +1,10 @@
+# Mon Aug 16 16:01:31 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+###Block: Racial Trait Categories
+# Ability Category			Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI	Display Location
+ABILITYCATEGORY:Suli Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Suli Racial Trait	PLURAL:Suli Racial Traits	DISPLAYLOCATION:Racial Abilities
+
+###Block: Racial Trait Ability Categories
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object	Type of Object			Plural description for UI	Display Location
+ABILITYCATEGORY:Suli Language Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Choice		TYPE:Suli Language Choice	PLURAL:Suli Language Choices	DISPLAYLOCATION:Racial Abilities

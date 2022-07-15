@@ -1,0 +1,27 @@
+# Sun Jul 26 22:20:43 2020 -- reformated by PCGen PrettyLST v6.08.00
+KEY:support ~ rougarou race
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+ISOGL:YES
+
+# Use this so there aren't numerous copies of the same race.
+
+
+# ==============================
+# Rougarou
+# ==============================
+
+# Fact/Factset & Formula System
+DATACONTROL:rougarou__datacontrols.lst
+
+# Data Files
+ABILITY:rougarou_abilities_globalvar.lst
+ABILITY:rougarou_abilities_race.lst
+ABILITYCATEGORY:rougarou_abilitycategories.lst
+BIOSET:rougarou_biosettings.lst
+LANGUAGE:rougarou_languages.lst
+RACE:rougarou_races.lst
+SKILL:rougarou_skills.lst
+TEMPLATE:rougarou_templates_language.lst
+TEMPLATE:rougarou_templates.lst

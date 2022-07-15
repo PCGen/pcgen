@@ -1,0 +1,36 @@
+# Thu May 13 09:38:42 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Gnome
+# ------------------------------
+
+###Block: Grant Abilities
+# Ability Name						Define						Ability
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD	DEFINE:Gnome_ReplaceAbilityScores|0		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Ability Scores|PREVAREQ:Gnome_ReplaceAbilityScores,0
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD	DEFINE:Gnome_ReplaceSize|0			ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Size|PREVAREQ:Gnome_ReplaceSize,0
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD	DEFINE:Gnome_ReplaceSpeed|0			ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Speed|PREVAREQ:Gnome_ReplaceSpeed,0
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD	DEFINE:Gnome_ReplaceVision|0			ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Vision|PREVAREQ:Gnome_ReplaceVision,0
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD	DEFINE:Gnome_ReplaceDefensiveTraining|0	ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Defensive Training|PREVAREQ:Gnome_ReplaceDefensiveTraining,0
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD	DEFINE:Gnome_ReplaceGnomeMagic|0		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Gnome Magic|PREVAREQ:Gnome_ReplaceGnomeMagic,0
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD	DEFINE:Gnome_ReplaceHatred|0			ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Hatred|PREVAREQ:Gnome_ReplaceHatred,0
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD	DEFINE:Gnome_ReplaceIllusionResistance|0	ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Illusion Resistance|PREVAREQ:Gnome_ReplaceIllusionResistance,0
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD	DEFINE:Gnome_ReplaceKeenSenses|0		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Keen Senses|PREVAREQ:Gnome_ReplaceKeenSenses,0
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD	DEFINE:Gnome_ReplaceObsessive|0		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Obsessive|PREVAREQ:Gnome_ReplaceObsessive,0
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD	DEFINE:Gnome_ReplaceWeaponFamiliarity|0	ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Weapon Familiarity|PREVAREQ:Gnome_ReplaceWeaponFamiliarity,0
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD	DEFINE:Gnome_ReplaceLanguages|0		ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome ~ Languages|PREVAREQ:Gnome_ReplaceLanguages,0
+
+###Block: Remove Abilities
+# Ability Name						Modify VAR
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD	BONUS:VAR|Gnome_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gnome_ReplaceAbilityScores=true
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD	BONUS:VAR|Gnome_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gnome_ReplaceSize=true
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD	BONUS:VAR|Gnome_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gnome_ReplaceSpeed=true
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD	BONUS:VAR|Gnome_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gnome_ReplaceVision=true
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD	BONUS:VAR|Gnome_ReplaceDefensiveTraining|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gnome_ReplaceDefensiveTraining=true
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD	BONUS:VAR|Gnome_ReplaceGnomeMagic|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gnome_ReplaceGnomeMagic=true
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD	BONUS:VAR|Gnome_ReplaceHatred|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gnome_ReplaceHatred=true
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD	BONUS:VAR|Gnome_ReplaceIllusionResistance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gnome_ReplaceIllusionResistance=true
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD	BONUS:VAR|Gnome_ReplaceKeenSenses|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gnome_ReplaceKeenSenses=true
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD	BONUS:VAR|Gnome_ReplaceObsessive|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gnome_ReplaceObsessive=true
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD	BONUS:VAR|Gnome_ReplaceWeaponFamiliarity|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gnome_ReplaceWeaponFamiliarity=true
+CATEGORY=Internal|Racial Traits ~ Gnome.MOD	BONUS:VAR|Gnome_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Gnome_ReplaceLanguages=true

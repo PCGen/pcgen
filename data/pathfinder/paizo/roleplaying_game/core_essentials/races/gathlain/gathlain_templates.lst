@@ -1,5 +1,7 @@
+# Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
 
 
 ###Block: Racial Heritage
-# Template Name	Unique Key					Visible	Type				FACT
-Gathlain		KEY:Racial Heritage ~ Gathlain	VISIBLE:NO	TYPE:Racial Heritage	FACT:IsGathlain|True
+# Template Name	Unique Key					Visible	Template			Type				FACT
+Gathlain		KEY:Racial Heritage ~ Gathlain	VISIBLE:NO	TEMPLATE:IsGathlain	TYPE:Racial Heritage	FACT:IsGathlain|True
+IsGathlain								VISIBLE:NO

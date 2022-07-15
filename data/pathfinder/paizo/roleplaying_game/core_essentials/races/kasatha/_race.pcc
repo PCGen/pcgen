@@ -1,0 +1,28 @@
+# Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
+KEY:support ~ kasatha race
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+ISOGL:YES
+
+# Use this so there aren't numerous copies of the same race.
+
+
+# ==============================
+# Kasatha
+# ==============================
+
+# Fact/Factset & Formula System
+DATACONTROL:kasatha__datacontrols.lst
+
+# Data Files
+ABILITY:kasatha_abilities_globalvar.lst
+ABILITY:kasatha_abilities_race.lst
+ABILITYCATEGORY:kasatha_abilitycategories.lst
+LANGUAGE:kasatha_languages.lst
+RACE:kasatha_races.lst
+TEMPLATE:kasatha_templates_language.lst
+TEMPLATE:kasatha_templates.lst
+
+LANGUAGE:../../../bestiary/b1_languages_sphinx.lst
+TEMPLATE:../../../bestiary/b1_templates_language_sphinx.lst

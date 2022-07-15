@@ -1,0 +1,29 @@
+# Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Hobgoblin
+# ------------------------------
+
+###Block: Racial Abilities ~ grantor/removal MODs in hobgoblin_abilities_globalvar.lst
+# Ability Name			Category of Ability	Define																										Template						Modify VAR
+Racial Traits ~ Hobgoblin	CATEGORY:Internal		DEFINE:Hobgoblin_RacialCastingStat|0	DEFINE:Hobgoblin_RacialCastingMod|0	DEFINE:Hobgoblin_RacialCasterlevel|0	DEFINE:Hobgoblin_RacialConcentration|0	TEMPLATE:Racial Heritage ~ Hobgoblin	BONUS:VAR|Hobgoblin_RacialCastingStat|CHASCORE	BONUS:VAR|Hobgoblin_RacialCastingMod|CHA	BONUS:VAR|Hobgoblin_RacialCasterlevel|TL	BONUS:VAR|Hobgoblin_RacialConcentration|Hobgoblin_RacialCasterlevel+Hobgoblin_RacialCastingMod
+
+###Block: Racial Traits
+# Ability Name			Unique Key					Category of Ability		Type																		Visible		Prohibited Fact								Define		Description																														Template																					Move			Auto Language		Bonus to skill				Stat bonus					Modify VAR				Vision			Source Page		Aspects
++2 Dexterity, +2 Constitution	KEY:Hobgoblin ~ Ability Scores	CATEGORY:Special Ability	TYPE:RacialTraits.Hobgoblin Racial Trait.Hobgoblin Racial Default.SpecialQuality.Racial Ability Scores	VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Hobgoblin_ReplaceAbilityScores=True				DESC:Hobgoblins are fast and hardy.																																																													BONUS:STAT|DEX,CON|2|TYPE=Racial										SOURCEPAGE:p.xx
+Goblinoid				KEY:Hobgoblin ~ Type			CATEGORY:Special Ability	TYPE:RacialTraits.Hobgoblin Racial Trait.Hobgoblin Racial Default.SpecialQuality.Racial Type			VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Hobgoblin_ReplaceType=True						DESC:Hobgoblins are humanoids with the goblinoid subtype.																						TEMPLATE:Humanoid|Goblinoid																																														SOURCEPAGE:p.xx
+Medium				KEY:Hobgoblin ~ Size			CATEGORY:Special Ability	TYPE:RacialTraits.Hobgoblin Racial Trait.Hobgoblin Racial Default.SpecialQuality.Racial Size			VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Hobgoblin_ReplaceSize=True						DESC:Hobgoblins are Medium creatures and have no bonuses or penalties due to their size.																	TEMPLATE:SIZE_M																																																SOURCEPAGE:p.xx
+Normal Speed			KEY:Hobgoblin ~ Speed			CATEGORY:Special Ability	TYPE:RacialTraits.Hobgoblin Racial Trait.Hobgoblin Racial Default.SpecialQuality.Racial Speed			VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Hobgoblin_ReplaceSpeed=True		DEFINE:MOVEBASE|0	DESC:Hobgoblins have a base speed of 30 feet.																																														MOVE:Walk,30																	BONUS:VAR|MOVEBASE|30						SOURCEPAGE:p.xx
+Darkvision				KEY:Hobgoblin ~ Vision			CATEGORY:Special Ability	TYPE:RacialTraits.Hobgoblin Racial Trait.Hobgoblin Racial Default.SpecialQuality.Racial Vision			VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Hobgoblin_ReplaceVision=True					DESC:Hobgoblins can see in the dark up to 60 feet.																																																																BONUS:VAR|HasRacialVision|1	VISION:Darkvision (60)	SOURCEPAGE:p.xx
+Sneaky				KEY:Hobgoblin ~ Sneaky			CATEGORY:Special Ability	TYPE:RacialTraits.Hobgoblin Racial Trait.Hobgoblin Racial Default.SpecialQuality								!PREFACT:1,ABILITIES,Hobgoblin_ReplaceSneaky=True					DESC:Hobgoblins receive a +4 racial bonus on Stealth checks.																																																		BONUS:SKILL|Stealth|4|TYPE=Racial																SOURCEPAGE:p.xx	ASPECT:RacialSkillModifier|+4 Stealth
+Languages				KEY:Hobgoblin ~ Languages		CATEGORY:Special Ability	TYPE:RacialTraits.Hobgoblin Racial Trait.Hobgoblin Racial Default.SpecialQuality.Racial Language		VISIBLE:DISPLAY	!PREFACT:1,ABILITIES,Hobgoblin_ReplaceLanguages=True					DESC:Hobgoblins begin play speaking Common and Goblin. Hobgoblins with high Intelligence scores can choose from the following languages: Draconic, Dwarven, Infernal, Giant, and Orc.	TEMPLATE:Bonus Language ~ Draconic|Bonus Language ~ Dwarven|Bonus Language ~ Infernal|Bonus Language ~ Giant|Bonus Language ~ Orc				AUTO:LANG|Common|Goblin																						SOURCEPAGE:p.xx
+
+###Block: Favored Enemies
+# Ability Name		Unique Key						Category of Ability		Type														Define					Description																																																					Modify VAR								Source, Long Desc.		Source, Short Desc.	Source URI							Source Page		Source Pub. Date		Aspects
+Humanoid (Goblinoid)	KEY:Favored Enemy ~ Humanoid (Goblinoid)	CATEGORY:Special Ability	TYPE:RangerClassFeatures.FavoredEnemy.SpecialAttack.Extraordinary.AttackOption	DEFINE:FavoredHumanoidGoblinoid|0	DESC:You gain a +%1 bonus on Bluff, Knowledge, Perception, Sense Motive, and Survival checks when using these skills against Goblinoids. Likewise, you get a +%1 bonus on weapon attack and damage rolls against such creatures. You may make Knowledge Skill checks untrained to identify such creatures.|FavoredHumanoidGoblinoid	BONUS:VAR|FavoredHumanoidGoblinoid|FavoredBaseBonus	SOURCELONG:Core Rulebook	SOURCESHORT:CR		SOURCEWEB:https://paizo.com/products/btpy88yj	SOURCEPAGE:p.64	SOURCEDATE:2009-08	ASPECT:Ability Benefit|+%1|FavoredHumanoidGoblinoid	ASPECT:SkillBonus|You gain a +%1 bonus on Bluff, Knowledge, Perception, Sense Motive, and Survival checks against Goblinoid.|FavoredHumanoidGoblinoid	ASPECT:CombatBonus|You gain a +%1 bonus on Attack rolls and Damage rolls against Goblinoid.|FavoredHumanoidGoblinoid
+
+###Block: Adopted Trait Race Selections
+# Ability Name							Unique Key				Category of Ability		Type					Multiple?	Choose										Ability
+Hobgoblin								KEY:Adopted Race ~ Hobgoblin	CATEGORY:Special Ability	TYPE:AdoptiveRace			MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Hobgoblin Race Trait	ABILITY:Traits|VIRTUAL|%LIST
+CATEGORY=Special Ability|No Race Trait Available.MOD											TYPE:Hobgoblin Race Trait

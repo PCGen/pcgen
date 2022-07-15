@@ -14,7 +14,4 @@ Human Ethnicity (Tian-Sing)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.6	AUTO:LANG|Min
 
 ###Block: Languages
 # Template Name			Visible	Bonus Languages
-Bonus Language ~ Nagaji		VISIBLE:NO	LANGBONUS:Nagaji
-Bonus Language ~ Samsaran	VISIBLE:NO	LANGBONUS:Samsaran
 Bonus Language ~ Senzar		VISIBLE:NO	LANGBONUS:Senzar
-Bonus Language ~ Wayang		VISIBLE:NO	LANGBONUS:Wayang

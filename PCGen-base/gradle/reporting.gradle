@@ -1,0 +1,35 @@
+/*
+ * PCGen code quality tasks. This file specifies the code quality
+ * reports to be run as part of the PCGen nightly build. It is
+ * called from the main build.gradle file.
+ *
+ * Usage: gradle allReports
+ * 
+ * Author: James Dempsey 
+ */
+
+checkstyle {
+    configFile = new File('code/standards/checkstyle.xml')
+    ignoreFailures = true
+    showViolations = false
+    sourceSets = []
+    toolVersion = '8.14'
+}
+
+pmd {
+    // turn off the default rules
+    ruleSets = []
+    ruleSetFiles = files('code/standards/ruleset.xml')
+    sourceSets = [] // This ensures pmd does not run on a normal build, use pmdmain to execute
+    toolVersion = "6.9.0"
+}
+
+spotbugs {
+    excludeFilter = file("$rootProject.projectDir/code/standards/spotbugs_ignore.xml")
+    omitVisitors = ['Naming', 'CrossSiteScripting', 'DontUseEnum', 'DoInsideDoPrivileged']
+    reportLevel = 'low'
+    ignoreFailures = true
+    toolVersion = "3.1.8"
+}
+
+task allReports { dependsOn = ['checkstyleMain', 'pmdMain', 'spotbugsMain'] }

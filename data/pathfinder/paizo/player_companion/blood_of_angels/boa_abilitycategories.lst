@@ -2,7 +2,5 @@
 #SOURCELONG:Blood of Angels	SOURCESHORT:BOA	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2012-04
 
 # Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
-ABILITYCATEGORY:Aasimar Race Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Aasimar Race Trait		PLURAL:Aasimar Race Traits		DISPLAYLOCATION:Traits
-ABILITYCATEGORY:Aasimar Subrace		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Aasimar Subrace		PLURAL:Aasimar Racial Traits		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Aasimar Variant Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Variant Aasimar Ability	PLURAL:Aasimar Variant Abilities	DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Revered Guidance Race	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ReveredGuidanceRace	PLURAL:Revered Guidance Races		DISPLAYLOCATION:Feats

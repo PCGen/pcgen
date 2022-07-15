@@ -1,0 +1,5 @@
+# Fri Jul 23 09:13:53 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+###Block: Subrace Selection
+# Ability Category			Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Display Location
+ABILITYCATEGORY:Dhampir Subrace	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Dhampir Subrace	DISPLAYLOCATION:Racial Abilities

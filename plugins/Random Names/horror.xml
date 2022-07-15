@@ -8,49 +8,173 @@
 		<CATEGORY title="Sex: Male"/>
 		<RULE weight="1">
 			<GETLIST idref="blood-n-blades-first" title="First" />
+			<SPACE />
 			<GETLIST idref="blood-n-blades-last" title="Last" />
 		</RULE>
 	</RULESET>
+	<RULESET id="lovecraftian-names" title="Lovecraftian" usage="final">
+		<CATEGORY title="Horror" />
+		<CATEGORY title="All" />
+		<CATEGORY title="Sex: Female"/>
+		<CATEGORY title="Sex: Male"/>
+		<RULE weight="8">
+			<GETRULE idref="lovecraft-ephithet-rule" title="Ephithet" />
+		</RULE>
+		<RULE weight="12">
+			<GETRULE idref="lovecraft-name-rule" title="Uspeakable Name" />
+		</RULE>
+		<RULE weight="2">
+			<GETLIST idref="the" title="the" />
+			<SPACE />
+			<GETLIST idref="lovecraft-adjectives" title="Adj" />
+			<SPACE />
+			<GETLIST idref="lovecraft-relation" title="Relation" />
+			<SPACE />
+			<GETLIST idref="of" title="of" />
+			<SPACE />
+			<GETLIST idref="lovecraft-name-rule" title="Name" />
+		</RULE>
+		<RULE weight="2">
+			<GETRULE idref="lovecraft-name-rule" title="Name1" />
+			<GETLIST idref="possesive" title="'s" />
+			<SPACE /> 
+			<GETLIST idref="lovecraft-adjectives" title="Adj" />
+			<SPACE />		
+			<GETLIST idref="lovecraft-relation" title="Relation" />
+		</RULE>
+	</RULESET>
+	<RULESET id="lovecraft-ephithet-rule" title="Ephithet" usage="private" >
+		<RULE weight="1" >
+			<GETLIST idref="the" title="the" />
+			<SPACE />
+			<GETLIST idref="lovecraft-adjectives" title="Adj" />
+			<SPACE />
+			<GETLIST idref="lovecraft-deific" title="Deific" />
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="the" title="the" />
+			<SPACE />
+			<GETLIST idref="lovecraft-deific" title="Title" />
+			<SPACE />
+			<GETLIST idref="articles" title="Articles" />
+			<SPACE />
+			<GETLIST idref="lovecraft-nouns" title="Subject" />
+		</RULE>
+		<RULE weight="1" >
+			<GETLIST idref="the" title="the" />
+			<SPACE />
+			<GETLIST idref="lovecraft-adjectives" title="Adj" />
+			<SPACE />
+			<GETLIST idref="lovecraft-deific" title="Deific" />
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="the" title="the" />
+			<SPACE />
+			<GETLIST idref="lovecraft-deific" title="Title" />
+			<SPACE />
+			<GETLIST idref="articles" title="Articles" />
+			<SPACE />
+			<GETLIST idref="lovecraft-adjectives" title="Adj" />
+			<SPACE />
+			<GETLIST idref="lovecraft-nouns" title="Victim" />
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="the" title="the" />
+			<SPACE />
+			<GETLIST idref="lovecraft-adjectives" title="Adjective" />
+			<SPACE />
+			<GETLIST idref="lovecraft-deific" title="Title" />
+			<SPACE />
+			<GETLIST idref="articles" title="articles" />
+			<SPACE />
+			<GETLIST idref="lovecraft-nouns" title="Subject" />
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="the" title="the" />
+			<SPACE />
+			<GETLIST idref="lovecraft-adjectives" title="Adjective" />
+			<SPACE/>
+			<GETLIST idref="lovecraft-deific" title="Title" />
+			<SPACE />
+			<GETLIST idref="of" title="of" />
+			<SPACE />
+			<GETLIST idref="lovecraft-name-rule" title="Subject" />
+		</RULE>
+	</RULESET>
+	<RULESET id="lovecraft-name-rule" title="Unspeakable Name" usage="private">
+		<RULE weight="2">
+			<GETLIST idref="lovecraft-syl1" title="Syl1" />
+		</RULE>
+		<RULE weight="12">
+			<GETLIST idref="lovecraft-syl1" title="Syl1" />
+			<GETLIST idref="lovecraft-syl2" title="Syl2" />
+		</RULE>
+		<RULE weight="3">
+			<GETLIST idref="lovecraft-syl1" title="Syl1" />
+			<GETLIST idref="lovecraft-syl3" title="Syl3" />
+		</RULE>
+		<RULE weight="10">
+			<GETLIST idref="lovecraft-syl1" title="Syl1" />
+			<GETLIST idref="lovecraft-syl2" title="Syl2" />
+			<GETLIST idref="lovecraft-syl3" title="Syl3" />
+		</RULE>
+		<RULE weight="5">
+			<GETLIST idref="lovecraft-syl1" title="Syl1" />
+			<HYPHEN />
+			<GETLIST idref="lovecraft-syl1" title="Syl1" />
+		</RULE>
+		<RULE weight="1">
+			<GETRULE idref="lovecraft-name-rule" title="Name1" />
+			<SPACE />
+			<GETRULE idref="lovecraft-name-rule" title="Name2" />
+		</RULE>
+		<RULE weight="1">
+			<GETRULE idref="lovecraft-name-rule" title="Name1" />
+			<HYPHEN />
+			<GETRULE idref="lovecraft-name-rule" title="Name2" />
+		</RULE>
+	</RULESET>
+
 	<LIST id="blood-n-blades-first" title="First">
-<VALUE>Acid Breath </VALUE>
-<VALUE>Alphabet </VALUE>
-<VALUE>Angel </VALUE>
-<VALUE>Axe </VALUE>
-<VALUE>Black </VALUE>
-<VALUE>Candyman </VALUE>
-<VALUE>Child </VALUE>
-<VALUE>Christmas </VALUE>
-<VALUE>Coed </VALUE>
-<VALUE>Cross Country </VALUE>
-<VALUE>Educated </VALUE>
-<VALUE>Fairy-tale </VALUE>
-<VALUE>Freeway </VALUE>
-<VALUE>Halloween </VALUE>
-<VALUE>Happy Face </VALUE>
-<VALUE>Hillside </VALUE>
-<VALUE>Holiday </VALUE>
-<VALUE>Known </VALUE>
-<VALUE>Mad </VALUE>
-<VALUE>Moors </VALUE>
-<VALUE>Nameless </VALUE>
-<VALUE>Night </VALUE>
-<VALUE>Passion </VALUE>
-<VALUE>Phantom </VALUE>
-<VALUE>Pied </VALUE>
-<VALUE>Red </VALUE>
-<VALUE>Sex </VALUE>
-<VALUE>Shadow </VALUE>
-<VALUE>Skid Row </VALUE>
-<VALUE>Spider </VALUE>
-<VALUE>Station </VALUE>
-<VALUE>Stocking </VALUE>
-<VALUE>Sunday Morning </VALUE>
-<VALUE>Swamp </VALUE>
-<VALUE>Thrill </VALUE>
-<VALUE>Trailside </VALUE>
-<VALUE>Twilight </VALUE>
-<VALUE>Want Ad </VALUE>
-<VALUE>Wolf </VALUE>
+<VALUE>Acid Breath</VALUE>
+<VALUE>Alphabet</VALUE>
+<VALUE>Angel</VALUE>
+<VALUE>Axe</VALUE>
+<VALUE>Black</VALUE>
+<VALUE>Candyman</VALUE>
+<VALUE>Child</VALUE>
+<VALUE>Christmas</VALUE>
+<VALUE>Coed</VALUE>
+<VALUE>Cross Country</VALUE>
+<VALUE>Educated</VALUE>
+<VALUE>Fairy-tale</VALUE>
+<VALUE>Freeway</VALUE>
+<VALUE>Halloween</VALUE>
+<VALUE>Happy Face</VALUE>
+<VALUE>Hillside</VALUE>
+<VALUE>Holiday</VALUE>
+<VALUE>Known</VALUE>
+<VALUE>Mad</VALUE>
+<VALUE>Moors</VALUE>
+<VALUE>Nameless</VALUE>
+<VALUE>Night</VALUE>
+<VALUE>Passion</VALUE>
+<VALUE>Phantom</VALUE>
+<VALUE>Pied</VALUE>
+<VALUE>Red</VALUE>
+<VALUE>Sex</VALUE>
+<VALUE>Shadow</VALUE>
+<VALUE>Skid Row</VALUE>
+<VALUE>Spider</VALUE>
+<VALUE>Station</VALUE>
+<VALUE>Stocking</VALUE>
+<VALUE>Sunday Morning</VALUE>
+<VALUE>Swamp</VALUE>
+<VALUE>Thrill</VALUE>
+<VALUE>Trailside</VALUE>
+<VALUE>Twilight</VALUE>
+<VALUE>Want Ad</VALUE>
+<VALUE>Wolf</VALUE>
 	</LIST>
 	<LIST id="blood-n-blades-last" title="Last">
 <VALUE>Assassin</VALUE>
@@ -74,6 +198,420 @@
 <VALUE>Torturer</VALUE>
 <VALUE>Vampire</VALUE>
 	</LIST>
+	<LIST id="articles" title="Articles">
+<VALUE>of the</VALUE>
+<VALUE>from the</VALUE>
+<VALUE>in the</VALUE>	
+	</LIST>
+	<LIST id="lovecraft-deific" title="Deific">
+<VALUE>Herald</VALUE>
+<VALUE>Creator</VALUE>
+<VALUE>God</VALUE>
+<VALUE>Goddess</VALUE>
+<VALUE>Harbinger</VALUE>
+<VALUE>Shouter</VALUE>
+<VALUE>Lord</VALUE>
+<VALUE>Lady</VALUE>
+<VALUE>Master</VALUE>
+<VALUE>Scourge</VALUE>
+<VALUE>Destroyer</VALUE>
+<VALUE>Defiler</VALUE>
+<VALUE>Doom</VALUE>
+<VALUE>Sleeper</VALUE>
+<VALUE>Stalker</VALUE>
+<VALUE>Mistress</VALUE>
+<VALUE>Wisdom</VALUE>
+<VALUE>Dreamer</VALUE>
+<VALUE>Devourer</VALUE>
+<VALUE>King</VALUE>
+<VALUE>Terror</VALUE>
+<VALUE>Queen</VALUE>
+	</LIST>
+	<LIST id="lovecraft-relation" title="Relation">
+<VALUE>Mother</VALUE>
+<VALUE>Father</VALUE>
+<VALUE>Progenetor</VALUE>
+<VALUE>Spawn</VALUE>
+<VALUE>Seed</VALUE>
+<VALUE>Daughter</VALUE>
+<VALUE>Brother</VALUE>
+<VALUE>Sister</VALUE>
+<VALUE>Twin</VALUE>
+	</LIST>
+	<LIST id="of" title="of">
+<VALUE>of</VALUE>
+	</LIST>
+	<LIST id="possesive" title="'s">
+		<VALUE>'s</VALUE>
+	</LIST>
+	<LIST id="the" title="the">
+<VALUE>the</VALUE>
+	</LIST>
+	<LIST id="lovecraft-adjectives" title="Adj">
+<VALUE>Cold</VALUE>	
+<VALUE>Soul-Chilling</VALUE>
+<VALUE>Great</VALUE>
+<VALUE>Black</VALUE>
+<VALUE>White</VALUE>
+<VALUE>Crimson</VALUE>
+<VALUE>Vermillion</VALUE>
+<VALUE>Endless</VALUE>
+<VALUE>Faceless</VALUE>	
+<VALUE>Eternal</VALUE>
+<VALUE>Fallen</VALUE>
+<VALUE>Interstellar</VALUE>
+<VALUE>All-consuming</VALUE>
+<VALUE>Terrifying</VALUE>
+<VALUE>Viridian</VALUE>
+<VALUE>Crooked</VALUE>
+<VALUE>Dark</VALUE>
+<VALUE>Living</VALUE>
+<VALUE>Silent</VALUE>
+<VALUE>Amber</VALUE>
+<VALUE>Indigo</VALUE>
+<VALUE>Cerulian</VALUE>
+<VALUE>Oldest</VALUE>
+<VALUE>Burning</VALUE>
+<VALUE>Terrible</VALUE>
+<VALUE>Dreadful</VALUE>
+<VALUE>Thousand-Faced</VALUE>
+<VALUE>Dread</VALUE>
+<VALUE>Dead</VALUE>
+<VALUE>Insane</VALUE>
+<VALUE>Secret</VALUE>
+<VALUE>Hidden</VALUE>
+<VALUE>Obscene</VALUE>
+<VALUE>Destroying</VALUE>
+<VALUE>Waiting</VALUE>
+<VALUE>Mauve</VALUE>
+<VALUE>Pale</VALUE>
+<VALUE>Blind</VALUE>
+<VALUE>Forgotten</VALUE>
+<VALUE>Doomed</VALUE>
+<VALUE>Tentacled</VALUE>
+<VALUE>Shining</VALUE>
+<VALUE>Ravenous</VALUE>
+<VALUE>Waiting</VALUE>
+	</LIST>
+	<LIST id="lovecraft-nouns" title="Nouns">
+<VALUE>Sea</VALUE>
+<VALUE>Ice</VALUE>
+<VALUE>Flame</VALUE>
+<VALUE>Moon</VALUE>
+<VALUE>Stars</VALUE>
+<VALUE>Mist</VALUE>
+<VALUE>Void</VALUE>
+<VALUE>Swarm</VALUE>
+<VALUE>Plant</VALUE>
+<VALUE>Spider</VALUE>
+<VALUE>Starfish</VALUE>
+<VALUE>Night</VALUE>
+<VALUE>Day</VALUE>
+<VALUE>Throne</VALUE>
+<VALUE>Illusion</VALUE>
+<VALUE>Unreal</VALUE>
+<VALUE>Serpent</VALUE>
+<VALUE>Lizard</VALUE>
+<VALUE>Wood</VALUE>
+<VALUE>One</VALUE>
+<VALUE>Pit</VALUE>
+<VALUE>Runes</VALUE>
+<VALUE>Depth</VALUE>
+<VALUE>Demon</VALUE>
+<VALUE>Things</VALUE>
+<VALUE>Dream</VALUE>
+<VALUE>Stone</VALUE>
+<VALUE>Labyrinth</VALUE>
+<VALUE>Flesh</VALUE>
+	</LIST>
+	<LIST id="lovecraft-syl1" title="Syl1">
+<VALUE>Cthu</VALUE>
+<VALUE>Ctha</VALUE>
+<VALUE>Cthy</VALUE>
+<VALUE>C'thi</VALUE>
+<VALUE>Bya</VALUE>
+<VALUE>Ayi'</VALUE>
+<VALUE>Ayl</VALUE>
+<VALUE>Atl</VALUE>
+<VALUE>Apo</VALUE>
+<VALUE>Am</VALUE>
+<VALUE>Arw</VALUE>
+<VALUE>Gor</VALUE>
+<VALUE>Bas</VALUE>
+<VALUE>Bao</VALUE>
+<VALUE>B'gu</VALUE>
+<VALUE>Bo</VALUE>
+<VALUE>Bu</VALUE>
+<VALUE>Chau</VALUE>
+<VALUE>Fau</VALUE>
+<VALUE>Coat</VALUE>
+<VALUE>Coin</VALUE>
+<VALUE>Crom</VALUE>
+<VALUE>Ctog</VALUE>
+<VALUE>Cya</VALUE>
+<VALUE>Cyn</VALUE>
+<VALUE>Dhu</VALUE>
+<VALUE>Dyg</VALUE>
+<VALUE>Dyth</VALUE>
+<VALUE>Dz</VALUE>
+<VALUE>Ei</VALUE>
+<VALUE>Gha</VALUE>
+<VALUE>Ghe</VALUE>
+<VALUE>Ghi</VALUE>
+<VALUE>Gla</VALUE>
+<VALUE>Gle</VALUE>
+<VALUE>Glo</VALUE>
+<VALUE>Gog</VALUE>
+<VALUE>Magog</VALUE>
+<VALUE>Gol</VALUE>
+<VALUE>G'tu</VALUE>
+<VALUE>Gru</VALUE>
+<VALUE>Gz</VALUE>
+<VALUE>Hast</VALUE>
+<VALUE>H'ch</VALUE>
+<VALUE>Hn</VALUE>
+<VALUE>Idh</VALUE>
+<VALUE>Iod</VALUE>
+<VALUE>Abh</VALUE>
+<VALUE>Is</VALUE>
+<VALUE>I</VALUE>
+<VALUE>Juk</VALUE>
+<VALUE>Jan</VALUE>
+<VALUE>Kha</VALUE>
+<VALUE>Kth</VALUE>
+<VALUE>Kur</VALUE>
+<VALUE>K'n</VALUE>
+<VALUE>Lam</VALUE>
+<VALUE>Lex</VALUE>
+<VALUE>Lyth</VALUE>
+<VALUE>M'ba</VALUE>
+<VALUE>M'na</VALUE>
+<VALUE>M'nom</VALUE>
+<VALUE>Mor</VALUE>
+<VALUE>Myn</VALUE>
+<VALUE>Nct</VALUE>
+<VALUE>Ng</VALUE>
+<VALUE>Nssu</VALUE>
+<VALUE>Nug</VALUE>
+<VALUE>Yeb</VALUE>
+<VALUE>Nya</VALUE>
+<VALUE>Nyc</VALUE>
+<VALUE>Ny</VALUE>
+<VALUE>Ob'</VALUE>
+<VALUE>Oorn</VALUE>
+<VALUE>Oth</VALUE>
+<VALUE>Perse</VALUE>
+<VALUE>Pha</VALUE>
+<VALUE>Psu</VALUE>
+<VALUE>Pai</VALUE>
+<VALUE>Ptar</VALUE>
+<VALUE>Pty</VALUE>
+<VALUE>Qua</VALUE>
+<VALUE>Q'y</VALUE>
+<VALUE>Q'yth</VALUE>
+<VALUE>Raa</VALUE>
+<VALUE>Rhag</VALUE>
+<VALUE>Raph</VALUE>
+<VALUE>Rh'</VALUE>
+<VALUE>Rhan</VALUE>
+<VALUE>Rhog</VALUE>
+<VALUE>Saa</VALUE>
+<VALUE>Sca</VALUE>
+<VALUE>Sce</VALUE>
+<VALUE>Sfa</VALUE>
+<VALUE>Shau</VALUE>
+<VALUE>Sheb</VALUE>
+<VALUE>Shis</VALUE>
+<VALUE>Shli</VALUE>
+<VALUE>Shte</VALUE>
+<VALUE>Stha</VALUE>
+<VALUE>S'tya</VALUE>
+<VALUE>Tha</VALUE>
+<VALUE>T'ith</VALUE>
+<VALUE>Te</VALUE>
+<VALUE>Thog</VALUE>
+<VALUE>Th'</VALUE>
+<VALUE>Tsa</VALUE>
+<VALUE>Tulu</VALUE>
+<VALUE>Uitz</VALUE>
+<VALUE>Ut'</VALUE>
+<VALUE>Vhu</VALUE>
+<VALUE>Vi</VALUE>
+<VALUE>Vol</VALUE>
+<VALUE>Vth</VALUE>
+<VALUE>Vul</VALUE>
+<VALUE>Xal</VALUE>
+<VALUE>Xc</VALUE>
+<VALUE>Xin</VALUE>
+<VALUE>Xir</VALUE>
+<VALUE>Xi</VALUE>
+<VALUE>Xot</VALUE>
+<VALUE>Xox</VALUE>
+<VALUE>Ya</VALUE>
+<VALUE>Yegg</VALUE>
+<VALUE>Y'go</VALUE>
+<VALUE>Yha</VALUE>
+<VALUE>Yhasht</VALUE>
+<VALUE>Yig</VALUE>
+<VALUE>Y'lla</VALUE>
+<VALUE>Yog</VALUE>
+<VALUE>'Ymn</VALUE>
+<VALUE>Ys</VALUE>
+<VALUE>Yth</VALUE>
+<VALUE>Za</VALUE>
+<VALUE>Zoth</VALUE>
+<VALUE>Zhar</VALUE>
+<VALUE>Lloi</VALUE>
+<VALUE>Zin</VALUE>
+<VALUE>Zsty</VALUE>
+<VALUE>Zu</VALUE>
+<VALUE>Z'uq</VALUE>
+<VALUE>Z'to</VALUE>
+<VALUE>Z'ta</VALUE>
+<VALUE>Zhah</VALUE>
+<VALUE>Z'vil</VALUE>
+	</LIST>
+	<LIST id="lovecraft-syl2" title="Syl2">
+<VALUE>olos</VALUE>
+<VALUE>ala</VALUE>
+<VALUE>mut</VALUE>
+<VALUE>mon</VALUE>
+<VALUE>loth</VALUE>
+<VALUE>oom</VALUE>
+<VALUE>colo</VALUE>
+<VALUE>assa</VALUE>
+<VALUE>latch</VALUE>
+<VALUE>acha</VALUE>
+<VALUE>lith</VALUE>
+<VALUE>qua</VALUE>
+<VALUE>at</VALUE>
+<VALUE>rug</VALUE>
+<VALUE>goo</VALUE>
+<VALUE>ugn</VALUE>
+<VALUE>tli</VALUE>
+<VALUE>chen</VALUE>
+<VALUE>egh</VALUE>
+<VALUE>lhu</VALUE>
+<VALUE>lla</VALUE>
+<VALUE>ggha</VALUE>
+<VALUE>otho</VALUE>
+<VALUE>min</VALUE>
+<VALUE>'gra</VALUE>
+<VALUE>thal</VALUE>
+<VALUE>ew</VALUE>
+<VALUE>ort</VALUE>
+<VALUE>lor</VALUE>
+<VALUE>nis</VALUE>
+<VALUE>eps</VALUE>
+<VALUE>tano</VALUE>
+<VALUE>'s</VALUE>
+<VALUE>'aki</VALUE>
+<VALUE>bog</VALUE>
+<VALUE>'gog</VALUE>
+<VALUE>olk</VALUE>
+<VALUE>han</VALUE>
+<VALUE>rath</VALUE>
+<VALUE>r'la</VALUE>
+<VALUE>xty</VALUE>
+<VALUE>a</VALUE>
+<VALUE>ur</VALUE>
+<VALUE>tele</VALUE>
+<VALUE>ogh</VALUE>
+<VALUE>ar</VALUE>
+<VALUE>yaa</VALUE>
+<VALUE>pes</VALUE>
+<VALUE>nai</VALUE>
+<VALUE>lut</VALUE>
+<VALUE>'naru</VALUE>
+<VALUE>tash</VALUE>
+<VALUE>thaq</VALUE>
+<VALUE>ssog</VALUE>
+<VALUE>unu</VALUE>
+<VALUE>ang</VALUE>
+<VALUE>aw</VALUE>
+<VALUE>pan</VALUE>
+<VALUE>ur</VALUE>
+<VALUE>serr</VALUE>
+<VALUE>gal</VALUE>
+<VALUE>sui</VALUE>
+<VALUE>and</VALUE>
+<VALUE>quah</VALUE>
+<VALUE>mo</VALUE>
+<VALUE>tllgh</VALUE>
+<VALUE>os</VALUE>
+<VALUE>ol</VALUE>
+<VALUE>irr</VALUE>
+<VALUE>ram</VALUE>
+<VALUE>'mbu</VALUE>
+<VALUE>uum</VALUE>
+<VALUE>uy</VALUE>
+<VALUE>uch</VALUE>
+<VALUE>gna</VALUE>
+<VALUE>ana</VALUE>
+<VALUE>gor</VALUE>
+<VALUE>thak</VALUE>
+<VALUE>thog</VALUE>
+<VALUE>klat</VALUE>
+<VALUE>man</VALUE>
+<VALUE>shug</VALUE>
+<VALUE>'ilca</VALUE>
+<VALUE>zom</VALUE>
+
+	</LIST>
+	<LIST id="lovecraft-syl3" title="Syl3">
+<VALUE>thoth</VALUE>
+<VALUE>a</VALUE>
+<VALUE>'a</VALUE>
+<VALUE>ya</VALUE>
+<VALUE>mon</VALUE>
+<VALUE>thoa</VALUE>
+<VALUE>thua</VALUE>
+<VALUE>veg</VALUE>
+<VALUE>eth</VALUE>
+<VALUE>geg</VALUE>
+<VALUE>ess</VALUE>
+<VALUE>ai</VALUE>
+<VALUE>nar</VALUE>
+<VALUE>seba</VALUE>
+<VALUE>naka</VALUE>
+<VALUE>yos</VALUE>
+<VALUE>lyk</VALUE>
+<VALUE>goth</VALUE>
+<VALUE>qu</VALUE>
+<VALUE>'ca</VALUE>
+<VALUE>'ngo</VALUE>
+<VALUE>gtha</VALUE>
+<VALUE>zoth</VALUE>
+<VALUE>'st</VALUE>
+<VALUE>'keth</VALUE>
+<VALUE>nga</VALUE>
+<VALUE>'iga</VALUE>
+<VALUE>'roth</VALUE>
+<VALUE>lia</VALUE>
+<VALUE>lah</VALUE>
+<VALUE>'u</VALUE>
+<VALUE>gian</VALUE>
+<VALUE>ra</VALUE>
+<VALUE>lhu</VALUE>
+<VALUE>th'lu</VALUE>
+<VALUE>thuum</VALUE>
+<VALUE>yeg</VALUE>
+<VALUE>ol</VALUE>
+<VALUE>awri</VALUE>
+<VALUE>az</VALUE>
+<VALUE>aii</VALUE>
+<VALUE>lla</VALUE>
+<VALUE>suan</VALUE>
+<VALUE>korth</VALUE>
+<VALUE>'al</VALUE>
+<VALUE>ash</VALUE>
+<VALUE>us</VALUE>
+<VALUE>'rygh</VALUE>
+<VALUE>gua</VALUE>
+<VALUE>'pha</VALUE>
+
+
+
+	</LIST>
 
 </GENERATOR>
-

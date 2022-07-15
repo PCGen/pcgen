@@ -1,0 +1,27 @@
+# Sun Jul 26 22:20:43 2020 -- reformated by PCGen PrettyLST v6.08.00
+KEY:support ~ orc race
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+ISOGL:YES
+
+# Use this so there aren't numerous copies of the same race.
+
+
+# ==============================
+# Orc
+# ==============================
+
+# Fact/Factset & Formula System
+DATACONTROL:orc__datacontrols.lst
+
+# Data Files
+ABILITY:orc_abilities_globalvar.lst
+ABILITY:orc_abilities_race.lst
+ABILITYCATEGORY:orc_abilitycategories.lst
+BIOSET:orc_biosettings.lst
+LANGUAGE:orc_languages.lst
+RACE:orc_races.lst
+SKILL:orc_skills.lst
+TEMPLATE:orc_templates_language.lst
+TEMPLATE:orc_templates.lst

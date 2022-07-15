@@ -30,6 +30,27 @@
 			<GETLIST idref="fantasy-nouns2" title="Noun"/>
 		</RULE>
 	</RULESET>
+	<RULESET id="fantasy-general-tavern-rule" title="Fantasy Taverns" usage="final">
+		<CATEGORY title="Fantasy: Other"/>
+		<CATEGORY title="All"/>
+		<CATEGORY title="Sex: Other"/>
+		<RULE weight="2">
+			<GETLIST idref="fantasy-the" title="The"/>
+			<SPACE/>
+			<GETLIST idref="fantasy-adjectives" title="Adjective"/>
+			<SPACE/>
+			<GETLIST idref="fantasy-tavern-nouns" title="Noun"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="fantasy-the" title="The"/>
+			<SPACE />
+			<GETLIST idref="fantasy-tavern-nouns" title="Noun"/>
+			<GETLIST idref="fantasy-s" title="'s"/>
+			<SPACE/>
+			<GETLIST idref="fantasy-nouns2" title="Noun"/>
+		</RULE>
+	</RULESET>
+
 	<RULESET id="fantasy-general-town-rule" title="Fantasy Towns" usage="final">
 		<CATEGORY title="Fantasy: Other"/>
 		<CATEGORY title="All"/>
@@ -89,6 +110,264 @@
 			<GETLIST idref="arabic-historical-location-rule" title="Historical Arabic Location"/>
 		</RULE>
 	</RULESET>
+	<RULESET id="fantasy-general-elf-male" title="Consolidated Elven" usage="final">
+		<CATEGORY title="All"/>
+		<CATEGORY title="Fantasy: Elven" />
+		<CATEGORY title="Sex: Male"/>
+		<RULE weight="5">
+			<GETRULE idref="fantasy_craft-elf" title="Fantasy Craft" />
+		</RULE>
+		<RULE weight="3">
+			<GETLIST idref="tamriel-atmer-male-full-rule" title="Atmer (High Elf)" />
+		</RULE>
+		<RULE weight="3">
+			<GETLIST idref="tamriel-bosmer-male-full-rule" title="Bosmer (Wood Elf)" />
+		</RULE>
+		<RULE weight="3">
+			<GETRULE idref="tamriel-dunmer-male-rule" title="Dunmer (Dark Elf)" />
+		</RULE>
+		<RULE weight="5">
+			<GETRULE idref="deverry-fantasy-elven-male-rule" title="Deverry" />
+		</RULE>
+		<RULE weight="1"> <!-- Short list of possible names, so bring these up less often-->
+			<GETRULE idref="cg-fantasy-elf-male-rule" title="General" />
+		</RULE>
+		<RULE weight="3">
+			<GETRULE idref="alver-fantasy-rule" title="Alver" />
+		</RULE>
+		<RULE weight="1"> <!-- Short list of possible names, so bring these up less often-->
+			<GETRULE idref="cg-fantasy-half-elf-male-rule" title="Half-Elf"/>
+		</RULE>
+		<RULE weight="5">
+			<GETRULE idref="mar-elf-male-rule" title="Mar Elf" />
+		</RULE>
+		<RULE weight="1">
+			<GETRULE idref="mar-standard-rule" title="Mar Standard" />
+		</RULE>
+		<RULE weight="5">
+			<GETRULE idref="middle-earth-fantasy-elven-male-rule" title="Middle-Earth" />
+		</RULE>
+	</RULESET>
+	<RULESET id="fantasy-general-elf-female" title="Consolidated Elven" usage="final">
+		<CATEGORY title="All"/>
+		<CATEGORY title="Fantasy: Elven" />
+		<CATEGORY title="Sex: Female"/>
+		<RULE weight="2">
+			<GETRULE idref="alver-fantasy-rule" title="Alver" />
+		</RULE>
+		<RULE weight="3">
+			<GETRULE idref="fantasy_craft-elf" title="Fantasy Craft" />
+		</RULE>
+		<RULE weight="3">
+			<GETLIST idref="tamriel-atmer-female-full-rule" title="Atmer (High Elf)" />
+		</RULE>
+		<RULE weight="3">
+			<GETLIST idref="tamriel-bosmer-female-full-rule" title="Bosmer (Wood Elf)" />
+		</RULE>
+		<RULE weight="3" >
+			<GETRULE idref="tamriel-dunmer-female-rule" title="Dunmer (Dark Elf)" />
+		</RULE>
+		<RULE weight="4">
+			<GETRULE idref="middle-earth-fantasy-elven-female-rule" title="Middle-Earth" />
+		</RULE>
+		<RULE weight="3">
+			<GETRULE idref="mar-elf-female-rule" title="Mar Elf" />
+		</RULE>
+		<RULE weight="1">
+			<GETRULE idref="mar-standard-rule" title="Mar Standard" />
+		</RULE>
+		<RULE weight="1"> <!-- Short list of possible names, so bring these up less often-->
+			<GETRULE idref="cg-fantasy-half-elf-female-rule" title="Half-Elf"/>
+		</RULE>
+		<RULE weight="1"> <!-- Short list of possible names, so bring these up less often-->
+			<GETRULE idref="cg-fantasy-elf-female-rule" title="General" />
+		</RULE>
+		<RULE weight="4">
+			<GETRULE idref="deverry-fantasy-elven-female-rule" title="Deverry" />
+		</RULE>
+	</RULESET>
+	<RULESET id="fantasy-general-dwarf-male" title="Consolidated Dwarven" usage="final">
+		<CATEGORY title="All"/>
+		<CATEGORY title="Fantasy: Dwarven" />
+		<CATEGORY title="Sex: Male"/>
+		<RULE weight="1"> <!-- Short list of possible names, so bring these up less often-->
+			<GETRULE idref="cg-fantasy-dwarf-male-rule" title="General Dwarf" />
+		</RULE>
+		<RULE weight="5">
+			<GETRULE idref="fantasy_craft-dwarf-male" title="Fantasy Craft" />
+		</RULE>
+		<RULE weight="5">
+			<GETRULE idref="middle-earth-fantasy-dwarven-male-rule" title="Middle Earth" />
+		</RULE>
+		<RULE weight="5">
+			<GETRULE idref="mar-dwarf-male-rule" title="Mar Dwarf" />
+		</RULE>
+		<RULE weight="1">
+			<GETRULE idref="mar-standard-rule" title="Mar Standard" />
+		</RULE>		
+	</RULESET>
+	<RULESET id="fantasy-general-dwarf-female" title="Consolidated Dwarven" usage="final"> 
+		<CATEGORY title="All"/>
+		<CATEGORY title="Fantasy: Dwarven" />
+		<CATEGORY title="Sex: Female"/>
+		<RULE weight="1"> <!-- Short list of possible names, so bring these up less often-->
+			<GETRULE idref="cg-fantasy-dwarf-female-rule" title="General Dwarf" />
+		</RULE>
+		<RULE weight="5">
+			<GETRULE idref="fantasy_craft-dwarf-female" title="Fantasy Craft" />
+		</RULE>
+		<RULE weight="5">
+			<GETRULE idref="middle-earth-fantasy-dwarven-female-rule" title="Middle Earth" />
+		</RULE>
+		<RULE weight="5">
+			<GETRULE idref="mar-dwarf-female-rule" title="Mar Dwarf" />
+		</RULE>	
+		<RULE weight="1">
+			<GETRULE idref="mar-standard-rule" title="Mar Standard" />
+		</RULE>	
+	</RULESET>
+	
+	<RULESET id="fantasy-general-halfling-male" title="Consolidated Halfling" usage="final">
+		<CATEGORY title="All"/>
+		<CATEGORY title="Fantasy: Halfling" />
+		<CATEGORY title="Sex: Male"/>
+		<RULE weight="1">
+			<GETRULE idref="cg-fantasy-halfling-male-rule" title="General Halfling" />
+		</RULE>
+		<RULE weight="6">
+			<GETRULE idref="middle-earth-fantasy-halfling-male-rule" title="Hobbit" />
+		</RULE>
+		<RULE weight="1">
+			<GETRULE idref="mar-standard-rule" title="Mar Standard" />
+		</RULE>
+	</RULESET>
+	<RULESET id="fantasy-general-halfling-female" title="Consolidated Halfling" usage="final">
+		<CATEGORY title="All"/>
+		<CATEGORY title="Fantasy: Halfling" />
+		<CATEGORY title="Sex: Female"/>
+		<RULE weight="1">
+			<GETRULE idref="cg-fantasy-halfling-female-rule" title="General Halfling" />
+		</RULE>
+		<RULE weight="6">
+			<GETRULE idref="middle-earth-fantasy-halfling-female-rule" title="Hobbit" />
+		</RULE>
+		<RULE weight="1">
+			<GETRULE idref="mar-standard-rule" title="Mar Standard" />
+		</RULE>
+	</RULESET>
+
+	<RULESET id="fantasy-general-orc-male" title="Consolidated Orcish" usage="final">
+		<CATEGORY title="All"/>
+		<CATEGORY title="Fantasy: Orc" />
+		<CATEGORY title="Sex: Male"/>
+		<RULE>
+			<GETRULE idref="orc-fantasy-rule" title="Orcish" />
+		</RULE>
+		<RULE weight="3">
+			<GETRULE idref="fantasy_craft-orc" title="Fantasy Craft" />
+		</RULE>
+		<RULE weight="3">
+			<GETRULE idref="tamriel-orc-male-rule" title="Orsimer (Tamriel)" />
+		</RULE>
+		<RULE>
+			<GETRULE idref="mar-bbn-male-rule" title="Mar Barbarian" />
+		</RULE>
+		<RULE>
+			<GETRULE idref="mar-evil-rule" title="Mar Evil" />
+		</RULE>
+		<RULE>
+			<GETRULE idref="mar-standard-male-rule" title="Mar Standard" />
+		</RULE>		
+	</RULESET>
+	<RULESET id="fantasy-general-orc-female" title="Consolidated Orcish" usage="final">
+		<CATEGORY title="All"/>
+		<CATEGORY title="Fantasy: Orc" />
+		<CATEGORY title="Sex: Female"/>
+		<RULE>
+			<GETRULE idref="orc-fantasy-rule" title="Orcish" />
+		</RULE>
+		<RULE weight="3">
+			<GETRULE idref="fantasy_craft-orc" title="Fantasy Craft" />
+		</RULE>
+		<RULE weight="3">
+			<GETRULE idref="tamriel-orc-female-rule" title="Orsimer (Tamriel)" />
+		</RULE>
+		<RULE>
+			<GETRULE idref="mar-bbn-female-rule" title="Mar Barbarian" />
+		</RULE>
+		<RULE>
+			<GETRULE idref="mar-evil-rule" title="Mar Evil" />
+		</RULE>
+		<RULE>
+			<GETRULE idref="mar-standard-female-rule" title="Mar Standard" />
+		</RULE>		
+	</RULESET>
+
+	<RULESET id="fantasy-general-human-male" title="Consolodated Fantasy Human" usage="final">
+		<CATEGORY title="All"/>
+		<CATEGORY title="Fantasy: Human" />
+		<CATEGORY title="Sex: Male"/>
+		<RULE>
+			<GETRULE idref="mar-knightly-male-rule" title="Mar Knightly" />
+		</RULE>
+		<RULE>
+			<GETRULE idref="mar-wizard-male-rule" title="Mar Wizard" />
+		</RULE>
+		<RULE>
+			<GETRULE idref="mar-human-male-rule" title="Mar Human" />
+		</RULE>
+		<RULE weight="3">
+			<GETRULE idref="tamriel-breton-male-rule" title="Breton (Tamriel)" />
+		</RULE>
+		<RULE weight="3">
+			<GETRULE idref="tamriel-imperial-male-rule" title="Imperial (Tamriel" />
+		</RULE>
+		<RULE weight="3">
+			<GETRULE idref="tamriel-nord-male-rule" title="Nord (Tamriel)" />
+		</RULE>
+		<RULE weight="3">
+			<GETRULE idref="tamriel-redguard-male-rule" title="Redguard (Tamriel)" />
+		</RULE>
+		<RULE>
+			<GETRULE idref="fantasy_craft-human-male" title="Fantasy Craft" />
+		</RULE>
+		<RULE>
+			<GETRULE idref="deverry-fantasy-male-rule" title="Deverry" />
+		</RULE>
+	</RULESET>
+	<RULESET id="fantasy-general-human-female" title="Consolodated Fantasy Human" usage="final">
+		<CATEGORY title="All"/>
+		<CATEGORY title="Fantasy: Human" />
+		<CATEGORY title="Sex: Female"/>
+		<RULE>
+			<GETRULE idref="mar-knightly-female-rule" title="Mar Knightly" />
+		</RULE>
+		<RULE>
+			<GETRULE idref="mar-wizard-female-rule" title="Mar Wizard" />
+		</RULE>
+		<RULE>
+			<GETRULE idref="mar-human-female-rule" title="Mar Human" />
+		</RULE>
+		<RULE weight="3">
+			<GETRULE idref="tamriel-breton-female-rule" title="Breton (Tamriel)" />
+		</RULE>
+		<RULE weight="3">
+			<GETRULE idref="tamriel-imperial-female-rule" title="Imperial (Tamriel" />
+		</RULE>
+		<RULE weight="3">
+			<GETRULE idref="tamriel-nord-female-rule" title="Nord (Tamriel)" />
+		</RULE>
+		<RULE weight="3">
+			<GETRULE idref="tamriel-redguard-female-rule" title="Redguard (Tamriel)" />
+		</RULE>
+		<RULE>
+			<GETRULE idref="fantasy_craft-human-female" title="Fantasy Craft" />
+		</RULE>
+		<RULE>
+			<GETRULE idref="deverry-fantasy-female-rule" title="Deverry" />
+		</RULE>
+	</RULESET>
+
 	<LIST id="fantasy-s" title="'s">
 		<VALUE>'s</VALUE>
 	</LIST>
@@ -478,6 +757,213 @@
 		<VALUE>Zingy</VALUE>
 		<VALUE>Zippy</VALUE>
 		<VALUE>Zonked</VALUE>
+	</LIST>
+	<LIST id="fantasy-tavern-nouns" title="Noun">
+		<VALUE>Acolyte</VALUE>
+        <VALUE>Acrobat</VALUE>
+        <VALUE>Alchemist</VALUE>
+        <VALUE>Ammrun</VALUE>
+        <VALUE>Amnesiac</VALUE>
+        <VALUE>Amphisbaena</VALUE>
+        <VALUE>Anadi</VALUE>
+        <VALUE>Ankhrav</VALUE>
+        <VALUE>Ankylosaur</VALUE>
+        <VALUE>Ant</VALUE>
+        <VALUE>Ape</VALUE>
+        <VALUE>Archaeologist</VALUE>
+        <VALUE>Artisan</VALUE>
+        <VALUE>Artist</VALUE>
+        <VALUE>Assasin</VALUE>
+        <VALUE>Aurumvorax</VALUE>
+        <VALUE>Badger</VALUE>
+        <VALUE>Bandit</VALUE>
+        <VALUE>Banshee</VALUE>
+        <VALUE>Barbarian</VALUE>
+        <VALUE>Barber</VALUE>
+        <VALUE>Bard</VALUE>
+        <VALUE>Barrister</VALUE>
+        <VALUE>Bat</VALUE>
+        <VALUE>Bear</VALUE>
+        <VALUE>Beggar</VALUE>
+        <VALUE>Biloko</VALUE>
+        <VALUE>Bison</VALUE>
+        <VALUE>Blindheim</VALUE>
+        <VALUE>Bloodseeker</VALUE>
+        <VALUE>Boar</VALUE>
+        <VALUE>Boggard</VALUE>
+        <VALUE>Bontosaur</VALUE>
+        <VALUE>Bookkeep</VALUE>
+        <VALUE>Bregdi</VALUE>
+        <VALUE>Brownie</VALUE>
+        <VALUE>Bugbear</VALUE>
+        <VALUE>Bulette</VALUE>
+        <VALUE>Bunyip</VALUE>
+        <VALUE>Caligni</VALUE>
+        <VALUE>Camel</VALUE>
+        <VALUE>Cat</VALUE>
+        <VALUE>Charlatan</VALUE>
+        <VALUE>Chimpanzee</VALUE>
+        <VALUE>Cleric</VALUE>
+        <VALUE>Cobra</VALUE>
+        <VALUE>Courier</VALUE>
+        <VALUE>Crab</VALUE>
+        <VALUE>Croc</VALUE>
+        <VALUE>Crocodile</VALUE>
+        <VALUE>Deckhand</VALUE>
+        <VALUE>Detective</VALUE>
+        <VALUE>Disciple</VALUE>
+        <VALUE>Djinn</VALUE>
+        <VALUE>Dog</VALUE>
+        <VALUE>Dolphin</VALUE>
+        <VALUE>Dragon</VALUE>
+        <VALUE>Dragonfly</VALUE>
+        <VALUE>Drake</VALUE>
+        <VALUE>Draxie</VALUE>
+        <VALUE>Dreamer</VALUE>
+        <VALUE>Dryad</VALUE>
+        <VALUE>Dwarf</VALUE>
+        <VALUE>Eagle</VALUE>
+        <VALUE>Eel</VALUE>
+        <VALUE>Elephant</VALUE>
+        <VALUE>Elv</VALUE>
+        <VALUE>Emmisary</VALUE>
+        <VALUE>Falcon</VALUE>
+        <VALUE>Farmhand</VALUE>
+        <VALUE>Fish</VALUE>
+        <VALUE>Fisher</VALUE>
+        <VALUE>Flash Beetle</VALUE>
+        <VALUE>Flea</VALUE>
+        <VALUE>Fly</VALUE>
+        <VALUE>Fox</VALUE>
+        <VALUE>Frilled Lizard</VALUE>
+        <VALUE>Frog</VALUE>
+        <VALUE>Gambler</VALUE>
+        <VALUE>Gecko</VALUE>
+        <VALUE>Gnoll</VALUE>
+        <VALUE>Gnome</VALUE>
+        <VALUE>Goat</VALUE>
+        <VALUE>Goblin</VALUE>
+        <VALUE>Goloma</VALUE>
+        <VALUE>Gorilla</VALUE>
+        <VALUE>Griffon</VALUE>
+        <VALUE>Grig</VALUE>
+        <VALUE>Grimple</VALUE>
+        <VALUE>Hadrosaur</VALUE>
+        <VALUE>Hag</VALUE>
+        <VALUE>Halfling</VALUE>
+        <VALUE>Hawk</VALUE>
+        <VALUE>Herbalist</VALUE>
+        <VALUE>Hermit</VALUE>
+        <VALUE>Hippo</VALUE>
+        <VALUE>Hippocampus</VALUE>
+        <VALUE>Hippogriff</VALUE>
+        <VALUE>Hippopotamus</VALUE>
+        <VALUE>Horse</VALUE>
+        <VALUE>Hunter</VALUE>
+        <VALUE>Hyena</VALUE>
+        <VALUE>Ifrit</VALUE>
+        <VALUE>Iguanodon</VALUE>
+        <VALUE>Iruxi</VALUE>
+        <VALUE>Jellyfish</VALUE>
+        <VALUE>Kangaroo</VALUE>
+        <VALUE>Kobold</VALUE>
+        <VALUE>Krooth</VALUE>
+        <VALUE>Leech</VALUE>
+        <VALUE>Leopard</VALUE>
+        <VALUE>Leshy</VALUE>
+        <VALUE>Lion</VALUE>
+        <VALUE>Lizard</VALUE>
+        <VALUE>Mammoth</VALUE>
+        <VALUE>Man</VALUE>
+        <VALUE>Mantis</VALUE>
+        <VALUE>Mastodon</VALUE>
+        <VALUE>Merchant</VALUE>
+        <VALUE>Miner</VALUE>
+        <VALUE>Monitor</VALUE>
+        <VALUE>Monk</VALUE>
+        <VALUE>Monkey</VALUE>
+        <VALUE>Moose</VALUE>
+        <VALUE>Mystic</VALUE>
+        <VALUE>Naiad</VALUE>
+        <VALUE>Narwhal</VALUE>
+        <VALUE>Nixie</VALUE>
+        <VALUE>Noble</VALUE>
+        <VALUE>Nuglub</VALUE>
+        <VALUE>Nymph</VALUE>
+        <VALUE>Octopus</VALUE>
+        <VALUE>Ogre</VALUE>
+        <VALUE>Ooze</VALUE>
+        <VALUE>Opossum</VALUE>
+        <VALUE>Orc</VALUE>
+        <VALUE>Outrider</VALUE>
+        <VALUE>Owlbear</VALUE>
+        <VALUE>Pangolin</VALUE>
+        <VALUE>Pilgrim</VALUE>
+        <VALUE>Piranah</VALUE>
+        <VALUE>Pixie</VALUE>
+        <VALUE>Priest</VALUE>
+        <VALUE>Prisoner</VALUE>
+        <VALUE>Pterosaur</VALUE>
+        <VALUE>Pufferfish</VALUE>
+        <VALUE>Pugwampi</VALUE>
+        <VALUE>Quetzal</VALUE>
+        <VALUE>Quickling</VALUE>
+        <VALUE>Ram</VALUE>
+        <VALUE>Ranger</VALUE>
+        <VALUE>Raptor</VALUE>
+        <VALUE>Rat</VALUE>
+        <VALUE>Raven</VALUE>
+        <VALUE>Ray</VALUE>
+        <VALUE>Rhinoceros</VALUE>
+        <VALUE>Roc</VALUE>
+        <VALUE>Rogue</VALUE>
+        <VALUE>Sailor</VALUE>
+        <VALUE>Scholar</VALUE>
+        <VALUE>Scorpion</VALUE>
+        <VALUE>Scout</VALUE>
+        <VALUE>Seahorse</VALUE>
+        <VALUE>Serpent</VALUE>
+        <VALUE>Shark</VALUE>
+        <VALUE>Skunk</VALUE>
+        <VALUE>Sloth</VALUE>
+        <VALUE>Slurk</VALUE>
+        <VALUE>Smilodon</VALUE>
+        <VALUE>Snake</VALUE>
+        <VALUE>Spider</VALUE>
+        <VALUE>Spinosaur</VALUE>
+        <VALUE>Sprite</VALUE>
+        <VALUE>Squire</VALUE>
+        <VALUE>Squirrel</VALUE>
+        <VALUE>Stegosaur</VALUE>
+        <VALUE>Stingray</VALUE>
+        <VALUE>Suli</VALUE>
+        <VALUE>Sylph</VALUE>
+        <VALUE>Tengu</VALUE>
+        <VALUE>Tick</VALUE>
+        <VALUE>Tiger</VALUE>
+        <VALUE>Tinker</VALUE>
+        <VALUE>Toad</VALUE>
+        <VALUE>Toothfairy</VALUE>
+        <VALUE>Trilobite</VALUE>
+        <VALUE>Tryceratop</VALUE>
+        <VALUE>Turtle</VALUE>
+        <VALUE>Twigjack</VALUE>
+        <VALUE>Tyrannosaur</VALUE>
+        <VALUE>Unicorn</VALUE>
+        <VALUE>Urchin</VALUE>
+        <VALUE>Vexgit</VALUE>
+        <VALUE>Viper</VALUE>
+        <VALUE>Vulture</VALUE>
+        <VALUE>Warrior</VALUE>
+        <VALUE>Weasel</VALUE>
+        <VALUE>Witch</VALUE>
+        <VALUE>Wizard</VALUE>
+        <VALUE>Wolf</VALUE>
+        <VALUE>Wolverine</VALUE>
+        <VALUE>Wyrm</VALUE>
+        <VALUE>Ysoki</VALUE>
+        <VALUE>Yzobu</VALUE>
+        <VALUE>Zetogek</VALUE>
 	</LIST>
 	<LIST id="fantasy-nouns" title="Noun">
 		<VALUE>Aberration</VALUE>
@@ -2158,4 +2644,3 @@
 		<VALUE>Azarad (City of Outcasts)</VALUE>
 	</LIST>
 </GENERATOR>
-

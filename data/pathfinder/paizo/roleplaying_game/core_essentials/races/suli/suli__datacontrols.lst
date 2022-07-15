@@ -1,0 +1,22 @@
+# Mon Aug 16 15:51:44 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+# ------------------------------
+# Suli
+# ------------------------------
+
+###Block: Racial Identifiers
+# Name			Dataformat			Required	Selectable		Visible	Displayname		Explanation
+FACTDEF:TEMPLATE|IsSuli	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Suli	EXPLANATION:Determines whether the character is a Suli
+
+###Block: Racial Traits
+# Name							Dataformat			Required	Selectable		Visible	Displayname							Explanation
+FACTDEF:ABILITY|Suli_ReplaceAbilityScores		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Suli Ability Scores		EXPLANATION:Replaces the Dual Talent Racial Trait
+FACTDEF:ABILITY|Suli_ReplaceType			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Suli Type				EXPLANATION:Replaces the Type Racial Trait
+FACTDEF:ABILITY|Suli_ReplaceSize			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Suli Size				EXPLANATION:Replaces the Size Racial Trait
+FACTDEF:ABILITY|Suli_ReplaceSpeed			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Suli Speed			EXPLANATION:Replaces the Speed Racial Trait
+FACTDEF:ABILITY|Suli_ReplaceVision			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Suli Vision			EXPLANATION:Replaces the Vision Racial Trait
+FACTDEF:ABILITY|Suli_ReplaceNegotiator		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Suli Negotiator			EXPLANATION:Replaces the Negotiator Racial Trait
+FACTDEF:ABILITY|Suli_ReplaceElementalAssault	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Suli Elemental Assault	EXPLANATION:Replaces the Elemental Assault Racial Trait
+FACTDEF:ABILITY|Suli_ReplaceEnergyResistance	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Suli Energy Resistance	EXPLANATION:Replaces the Energy Resistance Racial Trait
+FACTDEF:ABILITY|Suli_ReplaceLanguages		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Replace Suli Languages			EXPLANATION:Replaces the Languages Racial Trait

@@ -1,0 +1,14 @@
+# Thu Aug 19 18:11:50 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+###Block: Tiefling Subraces
+# Template Name	Unique Key				Visible	Source Page		Subrace
+Asura-Spawn		KEY:Tiefling ~ Asura-Spawn	VISIBLE:NO	SOURCEPAGE:p.xx	SUBRACE:Asura-Spawn
+Daemon-Spawn	KEY:Tiefling ~ Daemon-Spawn	VISIBLE:NO	SOURCEPAGE:p.xx	SUBRACE:Daemon-Spawn
+Demodand-Spawn	KEY:Tiefling ~ Demodand-Spawn	VISIBLE:NO	SOURCEPAGE:p.xx	SUBRACE:Demodand-Spawn
+Demon-Spawn		KEY:Tiefling ~ Demon-Spawn	VISIBLE:NO	SOURCEPAGE:p.xx	SUBRACE:Demon-Spawn
+Devil-Spawn		KEY:Tiefling ~ Devil-Spawn	VISIBLE:NO	SOURCEPAGE:p.xx	SUBRACE:Devil-Spawn
+Div-Spawn		KEY:Tiefling ~ Div-Spawn	VISIBLE:NO	SOURCEPAGE:p.xx	SUBRACE:Div-Spawn
+Kyton-Spawn		KEY:Tiefling ~ Kyton-Spawn	VISIBLE:NO	SOURCEPAGE:p.xx	SUBRACE:Kyton-Spawn
+Oni-Spawn		KEY:Tiefling ~ Oni-Spawn	VISIBLE:NO	SOURCEPAGE:p.xx	SUBRACE:Oni-Spawn
+Qlippoth-Spawn	KEY:Tiefling ~ Qlippoth-Spawn	VISIBLE:NO	SOURCEPAGE:p.xx	SUBRACE:Qlippoth-Spawn
+Rakshasa-Spawn	KEY:Tiefling ~ Rakshasa-Spawn	VISIBLE:NO	SOURCEPAGE:p.xx	SUBRACE:Rakshasa-Spawn

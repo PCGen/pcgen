@@ -49,3 +49,5 @@ KIT:qgtte_kits_race.lst
 LANGUAGE:qgtte_languages.lst
 RACE:qgtte_races.lst
 TEMPLATE:qgtte_templates.lst
+
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\suli\_race.pcc

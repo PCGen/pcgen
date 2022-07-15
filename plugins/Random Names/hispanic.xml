@@ -9,6 +9,8 @@
 		<CATEGORY title="Sex: Male" />
 		<RULE weight="1">
 			<GETLIST idref="hispanic-male-name" title="Given" />
+			<SPACE />
+			<GETLIST idref="hispanic-surname" title="Surname" />
 		</RULE>
 	</RULESET>
 	<RULESET id="hispanic-female-rule" title="Hispanic"
@@ -19,6 +21,8 @@
 		<CATEGORY title="Sex: Female" />
 		<RULE weight="1">
 			<GETLIST idref="hispanic-female-name" title="Given" />
+			<SPACE />
+			<GETLIST idref="hispanic-surname" title="Surname" />
 		</RULE>
 	</RULESET>
 	<LIST id="hispanic-male-name" title="Given">
@@ -1010,5 +1014,96 @@
 		<VALUE>Zulema</VALUE>
 		<VALUE>Zulma</VALUE>
 	</LIST>
+	<!--meanings and surnames found on wikipedia -->
+	<LIST id="hispanic-surname" title="Surname">
+		<VALUE>Aguilar</VALUE>
+		<VALUE>Alonso</VALUE>
+		<VALUE>Álvarez<SUBVALUE type="meaning">Son of Álvaro</SUBVALUE></VALUE>
+		<VALUE>Betancourt</VALUE>
+		<VALUE>Blanco<SUBVALUE type="meaning">white</SUBVALUE></VALUE>
+		<VALUE>Burgos<SUBVALUE type="meaning">old hall</SUBVALUE></VALUE>
+		<VALUE>Castillo<SUBVALUE type="meaning">Castle</SUBVALUE></VALUE>
+		<VALUE>Castro<SUBVALUE type="meaning">village</SUBVALUE></VALUE>
+		<VALUE>Chávez</VALUE>
+		<VALUE>Colón</VALUE>
+		<VALUE>Contreras</VALUE>
+		<VALUE>Cortez<SUBVALUE type="meaning">courteous, polite</SUBVALUE></VALUE>
+		<VALUE>Cruz<SUBVALUE type="meaning">crucifix, cross</SUBVALUE></VALUE>
+		<VALUE>De la Cruz<SUBVALUE type="meaning">Of the Cross</SUBVALUE></VALUE>
+		<VALUE>Delgado<SUBVALUE type="meaning">thin man</SUBVALUE></VALUE>
+		<VALUE>De León<SUBVALUE type="meaning">The Lion</SUBVALUE></VALUE>
+		<VALUE>Diaz<SUBVALUE type="meaning">Son of Diego</SUBVALUE></VALUE>
+		<VALUE>Díaz<SUBVALUE type="meaning">Son of Diego</SUBVALUE></VALUE>
+		<VALUE>Domínguez<SUBVALUE type="meaning">Son of Domingo or master</SUBVALUE></VALUE>
+		<VALUE>Estrada</VALUE>
+		<VALUE>Fernández<SUBVALUE type="meaning">Son of Fernando</SUBVALUE></VALUE>
+		<VALUE>Fredrick</VALUE>
+		<VALUE>Flores<SUBVALUE type="meaning">flowers</SUBVALUE></VALUE>
+		<VALUE>Fuentes<SUBVALUE type="meaning">Fountains</SUBVALUE></VALUE>
+		<VALUE>García</VALUE>
+		<VALUE>Garcia</VALUE>
+		<VALUE>Garza</VALUE>
+		<VALUE>Gil</VALUE>
+		<VALUE>Gómez<SUBVALUE type="meaning">Son of Gomes, Gomo, or Gomaro</SUBVALUE></VALUE>
+		<VALUE>González<SUBVALUE type="meaning">Son of Gonzalo</SUBVALUE></VALUE>
+		<VALUE>Gutiérrez<SUBVALUE type="meaning">Son of Gutier, Gutierre, or Gualtierre</SUBVALUE></VALUE>
+		<VALUE>Guerrero<SUBVALUE type="meaning">warrior</SUBVALUE></VALUE>
+		<VALUE>Guzmán</VALUE>
+		<VALUE>Hernández<SUBVALUE type="Son of Hernando"></SUBVALUE></VALUE>
+		<VALUE>Herrera<SUBVALUE type="meaning">iron mine, ironworks</SUBVALUE></VALUE>
+		<VALUE>Iglesias<SUBVALUE type="meaning">churches</SUBVALUE></VALUE>
+		<VALUE>Jiménez<SUBVALUE type="meaning">son of Jimeno, Xemeno</SUBVALUE></VALUE>
+		<VALUE>Juárez</VALUE>
+		<VALUE>López<SUBVALUE type="meaning">Son of the Wolf</SUBVALUE></VALUE>
+		<VALUE>Lopez<SUBVALUE type="meaning">Son of the Wolf</SUBVALUE></VALUE>
+		<VALUE>Luna<SUBVALUE type="meaning">moon</SUBVALUE></VALUE>
+		<VALUE>Marín<SUBVALUE type="meaning">marine, from the sea</SUBVALUE></VALUE>
+		<VALUE>Martín</VALUE>
+		<VALUE>Martinez<SUBVALUE type="meaning">Son of Martin (gen. of Mars)</SUBVALUE></VALUE>
+		<VALUE>Martínez<SUBVALUE type="meaning">Son of Martín (gen. of Mars)</SUBVALUE></VALUE>
+		<VALUE>Marroquín</VALUE>
+		<VALUE>Medina</VALUE>
+		<VALUE>Méndez<SUBVALUE type="meaning">Son of Mendo</SUBVALUE></VALUE>
+		<VALUE>Mendoza<SUBVALUE type="meaning">mountain</SUBVALUE></VALUE>
+		<VALUE>Molina<SUBVALUE type="meaning">mill</SUBVALUE></VALUE>
+		<VALUE>Morales<SUBVALUE type="meaning">blackberry grove</SUBVALUE></VALUE>
+		<VALUE>Moreno<SUBVALUE type="meaning">tanned, brunnette</SUBVALUE></VALUE>
+		<VALUE>Muñoz<SUBVALUE type="meaning">Son of Munio</SUBVALUE></VALUE>
+		<VALUE>Narvaez</VALUE>
+		<VALUE>Navarro<SUBVALUE type="meaning">from Navarre</SUBVALUE></VALUE>
+		<VALUE>Núñez<SUBVALUE type="etymology">from Latin meaning "name"</SUBVALUE></VALUE>
+		<VALUE>Ortega <SUBVALUE type="meaning">nettle plant</SUBVALUE></VALUE>
+		<VALUE>Ortiz<SUBVALUE type="meaning">fortunate one; Son of Ortún</SUBVALUE></VALUE>
+		<VALUE>Ortíz<SUBVALUE type="meaning">Son of Orti</SUBVALUE></VALUE>
+		<VALUE>Peña<SUBVALUE type="meaning">Cliff,Rock, or Crag</SUBVALUE></VALUE>
+		<VALUE>Pérez<SUBVALUE type="meaning">Son of Pedro</SUBVALUE></VALUE>
+		<VALUE>Perez<SUBVALUE type="meaning">Son of Pedro</SUBVALUE></VALUE>
+		<VALUE>Ramírez<SUBVALUE type="meaning">Son of Ramiro, Radamir, or Radmir</SUBVALUE></VALUE>
+		<VALUE>Ramos<SUBVALUE type="meaning">(palm) branches</SUBVALUE></VALUE>
+		<VALUE>Reyes<SUBVALUE type="meaning">Kings,Royalty</SUBVALUE></VALUE>
+		<VALUE>Rivera<SUBVALUE type="meaning">riverbank, roadside</SUBVALUE></VALUE>
+		<VALUE>Rodríguez<SUBVALUE type="meaning">Son of Rodrigo, Roderic</SUBVALUE></VALUE>
+		<VALUE>Rodriguez<SUBVALUE type="meaning">Son of Rodrigo, Roderic</SUBVALUE></VALUE>
+		<VALUE>Romero<SUBVALUE type="meaning">pilgrim</SUBVALUE></VALUE>
+		<VALUE>Rosario<SUBVALUE type="meaning">roses, rosary</SUBVALUE></VALUE>
+		<VALUE>Rojas<SUBVALUE type="meaning">red haired, reddish</SUBVALUE></VALUE>
+		<VALUE>Rubio<SUBVALUE type="meaning">blond, fair-haired</SUBVALUE></VALUE>
+		<VALUE>Ruíz<SUBVALUE type="meaning">Son of Rui, Rodrigo</SUBVALUE></VALUE>
+		<VALUE>Ruiz<SUBVALUE type="meaning">Son of Rui, Rodrigo</SUBVALUE></VALUE>
+		<VALUE>Salazar<SUBVALUE type="meaning">old hall</SUBVALUE></VALUE>
+		<VALUE>Sánchez<SUBVALUE type="meaning">Son of Sancho</SUBVALUE></VALUE>
+		<VALUE>Sanchez<SUBVALUE type="meaning">Son of Sancho</SUBVALUE></VALUE>
+		<VALUE>Santana<SUBVALUE type="etymology">Contraction of Saint Ana</SUBVALUE></VALUE>
+		<VALUE>Santiago<SUBVALUE type="etymology">Contraction of Saint Iago</SUBVALUE></VALUE>
+		<VALUE>Santos<SUBVALUE type="meaning">Saint</SUBVALUE></VALUE>
+		<VALUE>Sanz</VALUE>
+		<VALUE>Serrano<SUBVALUE type="meaning">Highlander</SUBVALUE></VALUE>
+		<VALUE>Soto</VALUE>
+		<VALUE>Suárez<SUBVALUE type="meaning">Son of Suero, Suaro</SUBVALUE></VALUE>
+		<VALUE>Torres<SUBVALUE type="meaning">Tower</SUBVALUE></VALUE>
+		<VALUE>Vargas</VALUE>
+		<VALUE>Vásquez<SUBVALUE type="meaning">Son of Vasco, Velasco</SUBVALUE></VALUE>
+		<VALUE>Vasquez<SUBVALUE type="meaning">Son of Vasco, Velasco</SUBVALUE></VALUE>
+		<VALUE>Velásquez<SUBVALUE type="meaning">Son of Velasco</SUBVALUE></VALUE>		
+	</LIST>
 </GENERATOR>
-

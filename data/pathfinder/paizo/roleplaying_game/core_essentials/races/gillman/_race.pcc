@@ -1,0 +1,29 @@
+# Sun Jul 26 22:20:43 2020 -- reformated by PCGen PrettyLST v6.08.00
+KEY:support ~ gillman race
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+ISOGL:YES
+
+# Use this so there aren't numerous copies of the same race.
+
+
+# ==============================
+# Gillman
+# ==============================
+
+# Fact/Factset & Formula System
+DATACONTROL:gillman__datacontrols.lst
+
+# Data Files
+ABILITY:gillman_abilities_globalvar.lst
+ABILITY:gillman_abilities_race.lst
+ABILITYCATEGORY:gillman_abilitycategories.lst
+BIOSET:gillman_biosettings.lst
+LANGUAGE:gillman_languages.lst
+RACE:gillman_races.lst
+SKILL:gillman_skills.lst
+TEMPLATE:gillman_templates.lst
+
+LANGUAGE:../../../bestiary/b1_languages_aboleth.lst
+TEMPLATE:../../../bestiary/b1_templates_language_aboleth.lst

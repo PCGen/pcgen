@@ -5,9 +5,24 @@ SOURCELONG:Pathfinder Player Companion: Dragon Empires Primer	SOURCESHORT:DEP	SO
 # Kitsune
 # ------------------------------
 
+###NOTE: Race files are in core_essentials\races\kitsune\
+
 ###Block: Racial Abilities
 # Ability Name						Bonus Ability Pool
 CATEGORY=Internal|Racial Traits ~ Kitsune.MOD	BONUS:ABILITYPOOL|Region Languages|1|TYPE=Base
+
+###Block: Racial Traits
+# Ability Name								Source, Long Desc.			Source, Short Desc.	Source URI															Source Page		Source Pub. Date
+CATEGORY=Special Ability|Kitsune ~ Ability Scores.MOD																												SOURCEPAGE:p.4
+CATEGORY=Special Ability|Kitsune ~ Type.MOD																													SOURCEPAGE:p.4
+CATEGORY=Special Ability|Kitsune ~ Size.MOD																													SOURCEPAGE:p.4
+CATEGORY=Special Ability|Kitsune ~ Speed.MOD																													SOURCEPAGE:p.4
+CATEGORY=Special Ability|Kitsune ~ Vision.MOD																													SOURCEPAGE:p.4
+CATEGORY=Special Ability|Kitsune ~ Change Shape.MOD																												SOURCEPAGE:p.4
+CATEGORY=Special Ability|Kitsune ~ Agile.MOD																													SOURCEPAGE:p.4
+CATEGORY=Special Ability|Kitsune ~ Kitsune Magic.MOD																												SOURCEPAGE:p.4
+CATEGORY=Special Ability|Kitsune ~ Natural Weapons.MOD																											SOURCEPAGE:p.4
+CATEGORY=Special Ability|Kitsune ~ Languages.MOD		SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG		SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEPAGE:p.192	SOURCEDATE:2012-06
 
 ###Block: Language Choices
 # Ability Name	Unique Key				Category of Ability	Type				Required Race	Ability												Modify VAR
@@ -23,9 +38,23 @@ Languages		KEY:Kitsune ~ Dragon Empires Languages	CATEGORY:Special Ability	TYPE:
 # Nagaji
 # ------------------------------
 
+###NOTE: Race files are in core_essentials\races\nagaji\
+
 ###Block: Racial Abilities
 # Ability Name						Bonus Ability Pool
 CATEGORY=Internal|Racial Traits ~ Nagaji.MOD	BONUS:ABILITYPOOL|Region Languages|1|TYPE=Base
+
+###Block: Racial Traits
+# Ability Name							Source, Long Desc.			Source, Short Desc.	Source URI															Source Page		Source Pub. Date
+CATEGORY=Special Ability|Nagaji ~ Ability Scores.MOD																											SOURCEPAGE:p.4
+CATEGORY=Special Ability|Nagaji ~ Type.MOD																												SOURCEPAGE:p.4
+CATEGORY=Special Ability|Nagaji ~ Size.MOD																												SOURCEPAGE:p.4
+CATEGORY=Special Ability|Nagaji ~ Speed.MOD																												SOURCEPAGE:p.4
+CATEGORY=Special Ability|Nagaji ~ Vision.MOD																												SOURCEPAGE:p.4
+CATEGORY=Special Ability|Nagaji ~ Armored Scales.MOD																											SOURCEPAGE:p.4
+CATEGORY=Special Ability|Nagaji ~ Resistant.MOD																												SOURCEPAGE:p.4
+CATEGORY=Special Ability|Nagaji ~ Serpent's Sense.MOD																											SOURCEPAGE:p.4
+CATEGORY=Special Ability|Nagaji ~ Languages.MOD		SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG		SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEPAGE:p.196	SOURCEDATE:2012-06
 
 ###Block: Language Choices
 # Ability Name	Unique Key				Category of Ability	Type				Required Race	Ability											Modify VAR
@@ -41,9 +70,23 @@ Languages		KEY:Nagaji ~ Dragon Empires Languages	CATEGORY:Special Ability	TYPE:R
 # Samsaran
 # ------------------------------
 
+###NOTE: Race files are in core_essentials\races\samsaran\
+
 ###Block: Racial Abilities
 # Ability Name						Bonus Ability Pool
 CATEGORY=Internal|Racial Traits ~ Samsaran.MOD	BONUS:ABILITYPOOL|Region Languages|1|TYPE=Base
+
+###Block: Racial Traits
+# Ability Name								Source, Long Desc.			Source, Short Desc.	Source URI															Source Page		Source Pub. Date
+CATEGORY=Special Ability|Samsaran ~ Ability Scores.MOD																											SOURCEPAGE:p.5
+CATEGORY=Special Ability|Samsaran ~ Type.MOD																													SOURCEPAGE:p.5
+CATEGORY=Special Ability|Samsaran ~ Size.MOD																													SOURCEPAGE:p.5
+CATEGORY=Special Ability|Samsaran ~ Speed.MOD																													SOURCEPAGE:p.5
+CATEGORY=Special Ability|Samsaran ~ Vision.MOD																													SOURCEPAGE:p.5
+CATEGORY=Special Ability|Samsaran ~ Lifebound.MOD																												SOURCEPAGE:p.5
+CATEGORY=Special Ability|Samsaran ~ Samsaran Magic.MOD																											SOURCEPAGE:p.5
+CATEGORY=Special Ability|Samsaran ~ Shards of the Past.MOD																											SOURCEPAGE:p.5
+CATEGORY=Special Ability|Samsaran ~ Languages.MOD		SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG		SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEPAGE:p.198	SOURCEDATE:2012-06
 
 ###Block: Language Choices
 # Ability Name	Unique Key				Category of Ability	Type				Required Race		Ability												Modify VAR
@@ -59,19 +102,23 @@ Languages		KEY:Samsaran ~ Dragon Empires Languages	CATEGORY:Special Ability	TYPE
 # Tengu
 # ------------------------------
 
-# This race is found in b1_abilities_race_arg.lst
+###NOTE: Race files are in core_essentials\races\tengu\
+
+###Block: Racial Abilities
+# Ability Name						Bonus Ability Pool
+CATEGORY=Internal|Racial Traits ~ Tengu.MOD	BONUS:ABILITYPOOL|Region Languages|1|TYPE=Base
+
 ###Block: Racial Traits
-# Ability Name							Bonus Ability Pool					Source Page
-CATEGORY=Special Ability|Tengu ~ Ability Scores.MOD									SOURCEPAGE:p.6
-CATEGORY=Special Ability|Tengu ~ Type.MOD											SOURCEPAGE:p.6
-CATEGORY=Special Ability|Tengu ~ Size.MOD											SOURCEPAGE:p.6
-CATEGORY=Special Ability|Tengu ~ Speed.MOD										SOURCEPAGE:p.6
-CATEGORY=Special Ability|Tengu ~ Vision.MOD										SOURCEPAGE:p.6
-CATEGORY=Special Ability|Tengu ~ Sneaky.MOD										SOURCEPAGE:p.6
-CATEGORY=Special Ability|Tengu ~ Gifted Linguist.MOD									SOURCEPAGE:p.6
-CATEGORY=Special Ability|Tengu ~ Swordtrained.MOD									SOURCEPAGE:p.6
-CATEGORY=Special Ability|Tengu ~ Natural Weapon.MOD									SOURCEPAGE:p.6
-CATEGORY=Internal|Racial Traits ~ Tengu.MOD		BONUS:ABILITYPOOL|Region Languages|1|TYPE=Base
+# Ability Name							Source Page
+CATEGORY=Special Ability|Tengu ~ Ability Scores.MOD	SOURCEPAGE:p.6
+CATEGORY=Special Ability|Tengu ~ Type.MOD			SOURCEPAGE:p.6
+CATEGORY=Special Ability|Tengu ~ Size.MOD			SOURCEPAGE:p.6
+CATEGORY=Special Ability|Tengu ~ Speed.MOD		SOURCEPAGE:p.6
+CATEGORY=Special Ability|Tengu ~ Vision.MOD		SOURCEPAGE:p.6
+CATEGORY=Special Ability|Tengu ~ Sneaky.MOD		SOURCEPAGE:p.6
+CATEGORY=Special Ability|Tengu ~ Gifted Linguist.MOD	SOURCEPAGE:p.6
+CATEGORY=Special Ability|Tengu ~ Swordtrained.MOD	SOURCEPAGE:p.6
+CATEGORY=Special Ability|Tengu ~ Natural Weapon.MOD	SOURCEPAGE:p.6
 
 ###Block: Language Choices
 # Ability Name	Unique Key				Category of Ability	Type				Required Race	Ability											Modify VAR
@@ -87,9 +134,24 @@ Languages		KEY:Tengu ~ Dragon Empires Languages	CATEGORY:Special Ability	TYPE:Ra
 # Wayang
 # ------------------------------
 
+###NOTE: Race files are in core_essentials\races\wayang\
+
 ###Block: Racial Abilities
 # Ability Name						Bonus Ability Pool
 CATEGORY=Internal|Racial Traits ~ Wayang.MOD	BONUS:ABILITYPOOL|Region Languages|1|TYPE=Base
+
+###Block: Racial Traits
+# Ability Name								Source, Long Desc.			Source, Short Desc.	Source URI															Source Page		Source Pub. Date
+CATEGORY=Special Ability|Wayang ~ Ability Scores.MOD																												SOURCEPAGE:p.6
+CATEGORY=Special Ability|Wayang ~ Type.MOD																													SOURCEPAGE:p.6
+CATEGORY=Special Ability|Wayang ~ Size.MOD																													SOURCEPAGE:p.6
+CATEGORY=Special Ability|Wayang ~ Speed.MOD																													SOURCEPAGE:p.6
+CATEGORY=Special Ability|Wayang ~ Vision.MOD																													SOURCEPAGE:p.6
+CATEGORY=Special Ability|Wayang ~ Light and Dark.MOD																												SOURCEPAGE:p.6
+CATEGORY=Special Ability|Wayang ~ Lurker.MOD																													SOURCEPAGE:p.6
+CATEGORY=Special Ability|Wayang ~ Shadow Magic.MOD																												SOURCEPAGE:p.6
+CATEGORY=Special Ability|Wayang ~ Shadow Resistance.MOD																											SOURCEPAGE:p.6
+CATEGORY=Special Ability|Wayang ~ Languages.MOD			SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG		SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEPAGE:p.210	SOURCEDATE:2012-06
 
 ###Block: Language Choices
 # Ability Name	Unique Key				Category of Ability	Type				Required Race	Ability											Modify VAR

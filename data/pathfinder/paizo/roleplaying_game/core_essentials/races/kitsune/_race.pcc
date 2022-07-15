@@ -1,0 +1,29 @@
+# Sun Jul 26 22:20:43 2020 -- reformated by PCGen PrettyLST v6.08.00
+KEY:support ~ kitsune race
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+ISOGL:YES
+
+# Use this so there aren't numerous copies of the same race.
+
+
+# ==============================
+# Kitsune
+# ==============================
+
+# Fact/Factset & Formula System
+DATACONTROL:kitsune__datacontrols.lst
+
+# Data Files
+ABILITY:kitsune_abilities_globalvar.lst
+ABILITY:kitsune_abilities_race.lst
+ABILITYCATEGORY:kitsune_abilitycategories.lst
+BIOSET:kitsune_biosettings.lst
+LANGUAGE:kitsune_languages.lst
+RACE:kitsune_races.lst
+SKILL:kitsune_skills.lst
+TEMPLATE:kitsune_templates.lst
+
+LANGUAGE:../tengu/tengu_languages.lst
+TEMPLATE:../tengu/tengu_templates_language.lst

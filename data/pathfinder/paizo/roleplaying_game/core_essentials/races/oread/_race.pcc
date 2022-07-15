@@ -1,0 +1,26 @@
+# Sun Jul 26 22:20:43 2020 -- reformated by PCGen PrettyLST v6.08.00
+KEY:support ~ oread race
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+ISOGL:YES
+
+# Use this so there aren't numerous copies of the same race.
+
+
+# ==============================
+# Oread
+# ==============================
+
+# Fact/Factset & Formula System
+DATACONTROL:oread__datacontrols.lst
+
+# Data Files
+ABILITY:oread_abilities_globalvar.lst
+ABILITY:oread_abilities_race.lst
+ABILITYCATEGORY:oread_abilitycategories.lst
+BIOSET:oread_biosettings.lst
+LANGUAGE:oread_languages.lst
+RACE:oread_races.lst
+SKILL:oread_skills.lst
+TEMPLATE:oread_templates.lst

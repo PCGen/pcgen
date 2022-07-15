@@ -1,0 +1,17 @@
+# Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+###Block: Racial Heritage
+# Template Name	Unique Key				Visible	Template		Type				FACT
+Drow			KEY:Racial Heritage ~ Drow	VISIBLE:NO	TEMPLATE:IsDrow	TYPE:Racial Heritage	FACT:IsDrow|True
+IsDrow							VISIBLE:NO
+
+
+###Block: Creature Subtypes
+# Template Name	Visible	Source Page		Race Subtype
+Elf			VISIBLE:NO	SOURCEPAGE:p.311	RACESUBTYPE:Elf
+
+
+###Block: Race Builder Humanoid Subtypes
+# Template Name	Unique Key					Visible	Template					Type
+Elf			KEY:Race Builder Subtype ~ Elf	VISIBLE:NO	TEMPLATE:Elf|Racial Heritage ~ Elf	TYPE:Race Builder Subtype

@@ -87,6 +87,13 @@ COMPANIONMOD:cr_companionmods.lst
 KIT:cr_kits_companion.lst
 RACE:cr_races_companion.lst
 
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\dwarf\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\elf\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\gnome\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\half_elf\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\half_orc\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\halfling\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\human\_race.pcc
 
 
 #Hide internal feat types

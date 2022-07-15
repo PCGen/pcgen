@@ -7,7 +7,6 @@ GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
 PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
-PRECAMPAIGN:1,INCLUDES=Bestiary,INCLUDES=Bestiary ~ Player Options Only
 PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
@@ -49,6 +48,9 @@ ABILITY:bof_feats.lst
 RACE:bof_races.lst
 SPELL:bof_spells.lst
 TEMPLATE:bof_templates.lst
+
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\tiefling\_race.pcc
+PCC:@\pathfinder\paizo\roleplaying_game\core_essentials\races\tiefling\_subrace.pcc
 
 # support
 ABILITY:support/bof_abilities_class_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic

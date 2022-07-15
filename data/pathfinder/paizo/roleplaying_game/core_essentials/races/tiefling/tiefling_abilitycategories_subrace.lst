@@ -1,0 +1,6 @@
+# Thu Aug 19 18:10:14 2021 -- reformated by PCGen PrettyLST v6.08.00
+
+
+###Block: Subrace Selection
+# Ability Category			Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Display Location
+ABILITYCATEGORY:Tiefling Subrace	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Tiefling Subrace	DISPLAYLOCATION:Racial Abilities

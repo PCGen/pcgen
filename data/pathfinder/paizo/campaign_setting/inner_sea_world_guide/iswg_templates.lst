@@ -69,13 +69,6 @@ Regional Affinity (Ustalav)								VISIBLE:NO	SOURCEPAGE:p.190	LANGBONUS:Skald,V
 Regional Affinity (Varisia)								VISIBLE:NO	SOURCEPAGE:p.194	LANGBONUS:Shoanti,Varisian			REGION:Varisia
 Regional Affinity (Worldwound)							VISIBLE:NO	SOURCEPAGE:p.198	LANGBONUS:Abyssal,Hallit			REGION:The Worldwound
 
-
-
-###Block: Racial Heritage
-# Template Name	Unique Key				Visible	Type				FACT
-Gillman		KEY:Racial Heritage ~ Gillman	VISIBLE:NO	TYPE:Racial Heritage	FACT:IsGillman|True
-Strix			KEY:Racial Heritage ~ Strix	VISIBLE:NO	TYPE:Racial Heritage	FACT:IsStrix|True
-
 ###Block: Bonus Languages
 # Template Name				Visible	Bonus Languages
 Bonus Language ~ Ancient Osiriani	VISIBLE:NO	LANGBONUS:Ancient Osiriani

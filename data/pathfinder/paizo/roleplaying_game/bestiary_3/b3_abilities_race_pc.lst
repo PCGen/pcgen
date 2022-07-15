@@ -1,0 +1,109 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: 21675 $ $Author: amaitland $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Bestiary 3	SOURCESHORT:B3	SOURCEWEB:http://paizo.com/products/btpy8odu?Pathfinder-Roleplaying-Game-Bestiary-3	SOURCEDATE:2012-01
+# Original Entry By: Andrew Maitland
+# Entry Date: Feb 2013
+
+# ==============================
+# RACE ABILITIES
+# ==============================
+
+# ------------------------------
+# Catfolk
+# ------------------------------
+
+###NOTE: Race files are in core_essentials\races\catfolk\
+
+###Block: Racial Traits
+# Ability Name							Source Page
+CATEGORY=Special Ability|Catfolk ~ Ability Scores.MOD	SOURCEPAGE:p.47
+CATEGORY=Special Ability|Catfolk ~ Type.MOD		SOURCEPAGE:p.47
+CATEGORY=Special Ability|Catfolk ~ Size.MOD		SOURCEPAGE:p.47
+CATEGORY=Special Ability|Catfolk ~ Speed.MOD		SOURCEPAGE:p.47
+CATEGORY=Special Ability|Catfolk ~ Vision.MOD		SOURCEPAGE:p.47
+CATEGORY=Special Ability|Catfolk ~ Cat's Luck.MOD	SOURCEPAGE:p.47
+CATEGORY=Special Ability|Catfolk ~ Natural Hunter.MOD	SOURCEPAGE:p.47
+CATEGORY=Special Ability|Catfolk ~ Sprinter.MOD		SOURCEPAGE:p.47
+CATEGORY=Special Ability|Catfolk ~ Languages.MOD	SOURCEPAGE:p.47
+
+
+# ------------------------------
+# Ratfolk
+# ------------------------------
+
+###NOTE: Race files are in core_essentials\races\ratfolk\
+
+###Block: Racial Traits
+# Ability Name							Source Page
+CATEGORY=Special Ability|Ratfolk ~ Ability Scores.MOD	SOURCEPAGE:p.231
+CATEGORY=Special Ability|Ratfolk ~ Type.MOD		SOURCEPAGE:p.231
+CATEGORY=Special Ability|Ratfolk ~ Size.MOD		SOURCEPAGE:p.231
+CATEGORY=Special Ability|Ratfolk ~ Speed.MOD		SOURCEPAGE:p.231
+CATEGORY=Special Ability|Ratfolk ~ Vision.MOD		SOURCEPAGE:p.231
+CATEGORY=Special Ability|Ratfolk ~ Rodent Empathy.MOD	SOURCEPAGE:p.231
+CATEGORY=Special Ability|Ratfolk ~ Swarming.MOD		SOURCEPAGE:p.231
+CATEGORY=Special Ability|Ratfolk ~ Tinker.MOD		SOURCEPAGE:p.231
+CATEGORY=Special Ability|Ratfolk ~ Languages.MOD	SOURCEPAGE:p.231
+
+
+# ------------------------------
+# Suli
+# ------------------------------
+
+###NOTE: Race files are in core_essentials\races\suli\
+
+###Block: Racial Traits
+# Ability Name							Source Page
+CATEGORY=Special Ability|Suli ~ Ability Scores.MOD	SOURCEPAGE:p.258
+CATEGORY=Special Ability|Suli ~ Type.MOD			SOURCEPAGE:p.258
+CATEGORY=Special Ability|Suli ~ Size.MOD			SOURCEPAGE:p.258
+CATEGORY=Special Ability|Suli ~ Speed.MOD			SOURCEPAGE:p.258
+CATEGORY=Special Ability|Suli ~ Vision.MOD		SOURCEPAGE:p.258
+CATEGORY=Special Ability|Suli ~ Negotiator.MOD		SOURCEPAGE:p.258
+CATEGORY=Special Ability|Suli ~ Elemental Assault.MOD	SOURCEPAGE:p.258
+CATEGORY=Special Ability|Suli ~ Energy Resistance.MOD	SOURCEPAGE:p.258
+CATEGORY=Special Ability|Suli ~ Languages.MOD		SOURCEPAGE:p.258
+
+
+# ------------------------------
+# Vanara
+# ------------------------------
+
+###NOTE: Race files are in core_essentials\races\vanara\
+
+###Block: Racial Traits
+# Ability Name							Source Page
+CATEGORY=Special Ability|Vanara ~ Ability Scores.MOD	SOURCEPAGE:p.280
+CATEGORY=Special Ability|Vanara ~ Type.MOD		SOURCEPAGE:p.280
+CATEGORY=Special Ability|Vanara ~ Size.MOD		SOURCEPAGE:p.280
+CATEGORY=Special Ability|Vanara ~ Speed.MOD		SOURCEPAGE:p.280
+CATEGORY=Special Ability|Vanara ~ Vision.MOD		SOURCEPAGE:p.280
+CATEGORY=Special Ability|Vanara ~ Nimble.MOD		SOURCEPAGE:p.280
+CATEGORY=Special Ability|Vanara ~ Prehensile Tail.MOD	SOURCEPAGE:p.280
+CATEGORY=Special Ability|Vanara ~ Languages.MOD		SOURCEPAGE:p.280
+
+
+# ------------------------------
+# Vishkanya
+# ------------------------------
+
+###NOTE: Race files are in core_essentials\races\vishkanya\
+
+###Block: Racial Traits
+# Ability Name								Source Page
+CATEGORY=Special Ability|Vishkanya ~ Ability Scores.MOD	SOURCEPAGE:p.281
+CATEGORY=Special Ability|Vishkanya ~ Type.MOD			SOURCEPAGE:p.281
+CATEGORY=Special Ability|Vishkanya ~ Size.MOD			SOURCEPAGE:p.281
+CATEGORY=Special Ability|Vishkanya ~ Speed.MOD			SOURCEPAGE:p.281
+CATEGORY=Special Ability|Vishkanya ~ Vision.MOD			SOURCEPAGE:p.281
+CATEGORY=Special Ability|Vishkanya ~ Keen Senses.MOD		SOURCEPAGE:p.281
+CATEGORY=Special Ability|Vishkanya ~ Limber.MOD			SOURCEPAGE:p.281
+CATEGORY=Special Ability|Vishkanya ~ Poison Resistance.MOD	SOURCEPAGE:p.281
+CATEGORY=Special Ability|Vishkanya ~ Poison Use.MOD		SOURCEPAGE:p.281
+CATEGORY=Special Ability|Vishkanya ~ Toxic.MOD			SOURCEPAGE:p.281
+CATEGORY=Special Ability|Vishkanya ~ Weapon Familiarity.MOD	SOURCEPAGE:p.281
+CATEGORY=Special Ability|Vishkanya ~ Languages.MOD		SOURCEPAGE:p.281
+
+###Block: Toxic Poison
+# Ability Name									Source Page
+CATEGORY=Special Ability|Vishkanya ~ Toxic ~ Vishkanya Venom.MOD	SOURCEPAGE:p.281

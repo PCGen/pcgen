@@ -1,0 +1,199 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: 21640 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Bestiary 4	SOURCESHORT:B4	SOURCEWEB:http://paizo.com/products/btpy91ds?Pathfinder-Roleplaying-Game-Bestiary-4	SOURCEDATE:2013-10
+
+# ==============================
+# RACE ABILITIES
+# ==============================
+
+
+# ------------------------------
+# Changeling
+# ------------------------------
+
+###NOTE: Race files are in core_essentials\races\changeling\
+
+###Block: Racial Traits
+# Ability Name								Source Page
+CATEGORY=Special Ability|Changeling ~ Ability Scores.MOD	SOURCEPAGE:p.29
+CATEGORY=Special Ability|Changeling ~ Type.MOD			SOURCEPAGE:p.29
+CATEGORY=Special Ability|Changeling ~ Size.MOD			SOURCEPAGE:p.29
+CATEGORY=Special Ability|Changeling ~ Speed.MOD			SOURCEPAGE:p.29
+CATEGORY=Special Ability|Changeling ~ Vision.MOD		SOURCEPAGE:p.29
+CATEGORY=Special Ability|Changeling ~ Hag Racial Trait.MOD	SOURCEPAGE:p.29
+CATEGORY=Special Ability|Changeling ~ Claws.MOD			SOURCEPAGE:p.29
+CATEGORY=Special Ability|Changeling ~ Natural Armor.MOD	SOURCEPAGE:p.29
+CATEGORY=Special Ability|Changeling ~ Languages.MOD		SOURCEPAGE:p.29
+
+###Block: Hag Racial Trait Abilities
+# Ability Name										Source Page
+CATEGORY=Special Ability|Changeling ~ Green Hag Green Widow.MOD		SOURCEPAGE:p.29
+CATEGORY=Special Ability|Changeling ~ Annis Hag Hulking Changeling.MOD	SOURCEPAGE:p.29
+CATEGORY=Special Ability|Changeling ~ Sea Hag Sea Lungs.MOD			SOURCEPAGE:p.29
+
+
+# ------------------------------
+# Gathlain
+# ------------------------------
+
+###NOTE: Race files are in core_essentials\races\gathlain\
+
+# Ability Name									Source Page
+CATEGORY=Special Ability|Gathlain ~ Ability Scores.MOD		SOURCEPAGE:p.122
+CATEGORY=Special Ability|Gathlain ~ Type.MOD				SOURCEPAGE:p.122
+CATEGORY=Special Ability|Gathlain ~ Size.MOD				SOURCEPAGE:p.122
+CATEGORY=Special Ability|Gathlain ~ Speed.MOD				SOURCEPAGE:p.122
+CATEGORY=Special Ability|Gathlain ~ Vision.MOD				SOURCEPAGE:p.122
+CATEGORY=Special Ability|Gathlain ~ Natural Armor.MOD			SOURCEPAGE:p.122
+CATEGORY=Special Ability|Gathlain ~ Spell-Like Abilities.MOD	SOURCEPAGE:p.122
+CATEGORY=Special Ability|Gathlain ~ Languages.MOD			SOURCEPAGE:p.122
+
+
+# ------------------------------
+# Kasatha
+# ------------------------------
+
+###NOTE: Race files are in core_essentials\races\kasatha\
+
+# Ability Name								Source Page
+CATEGORY=Special Ability|Kasatha ~ Ability Scores.MOD		SOURCEPAGE:p.174
+CATEGORY=Special Ability|Kasatha ~ Type.MOD			SOURCEPAGE:p.174
+CATEGORY=Special Ability|Kasatha ~ Size.MOD			SOURCEPAGE:p.174
+CATEGORY=Special Ability|Kasatha ~ Speed.MOD			SOURCEPAGE:p.174
+CATEGORY=Special Ability|Kasatha ~ Defensive Training.MOD	SOURCEPAGE:p.174
+CATEGORY=Special Ability|Kasatha ~ Desert Runner.MOD		SOURCEPAGE:p.174
+CATEGORY=Special Ability|Kasatha ~ Desert Stride.MOD		SOURCEPAGE:p.174
+CATEGORY=Special Ability|Kasatha ~ Jumper.MOD			SOURCEPAGE:p.174
+CATEGORY=Special Ability|Kasatha ~ Multi-Armed.MOD		SOURCEPAGE:p.174
+CATEGORY=Special Ability|Kasatha ~ Stalker.MOD			SOURCEPAGE:p.174
+CATEGORY=Special Ability|Kasatha ~ Languages.MOD		SOURCEPAGE:p.174
+
+
+# ------------------------------
+# Kitsune
+# ------------------------------
+
+###NOTE: Race files are in core_essentials\races\kitsune\
+
+###Block: Racial Traits
+# Ability Name								Source Page
+CATEGORY=Special Ability|Kitsune ~ Ability Scores.MOD		SOURCEPAGE:p.175
+CATEGORY=Special Ability|Kitsune ~ Type.MOD			SOURCEPAGE:p.175
+CATEGORY=Special Ability|Kitsune ~ Size.MOD			SOURCEPAGE:p.175
+CATEGORY=Special Ability|Kitsune ~ Speed.MOD			SOURCEPAGE:p.175
+CATEGORY=Special Ability|Kitsune ~ Vision.MOD			SOURCEPAGE:p.175
+CATEGORY=Special Ability|Kitsune ~ Change Shape.MOD		SOURCEPAGE:p.175
+CATEGORY=Special Ability|Kitsune ~ Agile.MOD			SOURCEPAGE:p.175
+CATEGORY=Special Ability|Kitsune ~ Kitsune Magic.MOD		SOURCEPAGE:p.175
+CATEGORY=Special Ability|Kitsune ~ Natural Weapons.MOD	SOURCEPAGE:p.175
+CATEGORY=Special Ability|Kitsune ~ Languages.MOD		SOURCEPAGE:p.175
+
+
+# ------------------------------
+# Nagaji
+# ------------------------------
+
+###NOTE: Race files are in core_essentials\races\nagaji\
+
+###Block: Racial Traits
+# Ability Name							Source Page
+CATEGORY=Special Ability|Nagaji ~ Ability Scores.MOD	SOURCEPAGE:p.196
+CATEGORY=Special Ability|Nagaji ~ Type.MOD		SOURCEPAGE:p.196
+CATEGORY=Special Ability|Nagaji ~ Size.MOD		SOURCEPAGE:p.196
+CATEGORY=Special Ability|Nagaji ~ Speed.MOD		SOURCEPAGE:p.196
+CATEGORY=Special Ability|Nagaji ~ Vision.MOD		SOURCEPAGE:p.196
+CATEGORY=Special Ability|Nagaji ~ Armored Scales.MOD	SOURCEPAGE:p.196
+CATEGORY=Special Ability|Nagaji ~ Resistant.MOD		SOURCEPAGE:p.196
+CATEGORY=Special Ability|Nagaji ~ Serpent's Sense.MOD	SOURCEPAGE:p.196
+CATEGORY=Special Ability|Nagaji ~ Languages.MOD		SOURCEPAGE:p.196
+
+
+# ------------------------------
+# Samsaran
+# ------------------------------
+
+###NOTE: Race files are in core_essentials\races\samsaran\
+
+###Block: Racial Traits
+# Ability Name								Source Page
+CATEGORY=Special Ability|Samsaran ~ Ability Scores.MOD	SOURCEPAGE:p.198
+CATEGORY=Special Ability|Samsaran ~ Type.MOD			SOURCEPAGE:p.198
+CATEGORY=Special Ability|Samsaran ~ Size.MOD			SOURCEPAGE:p.198
+CATEGORY=Special Ability|Samsaran ~ Speed.MOD			SOURCEPAGE:p.198
+CATEGORY=Special Ability|Samsaran ~ Vision.MOD			SOURCEPAGE:p.198
+CATEGORY=Special Ability|Samsaran ~ Lifebound.MOD		SOURCEPAGE:p.198
+CATEGORY=Special Ability|Samsaran ~ Samsaran Magic.MOD	SOURCEPAGE:p.198
+CATEGORY=Special Ability|Samsaran ~ Shards of the Past.MOD	SOURCEPAGE:p.198
+CATEGORY=Special Ability|Samsaran ~ Languages.MOD		SOURCEPAGE:p.198
+
+
+# ------------------------------
+# Trox
+# ------------------------------
+
+###NOTE: Race files are in core_essentials\races\trox\
+
+# Ability Name								Source Page
+CATEGORY=Special Ability|Trox ~ Ability Scores.MOD		SOURCEPAGE:p.264
+CATEGORY=Special Ability|Trox ~ Type.MOD				SOURCEPAGE:p.264
+CATEGORY=Special Ability|Trox ~ Size.MOD				SOURCEPAGE:p.264
+CATEGORY=Special Ability|Trox ~ Speed.MOD				SOURCEPAGE:p.264
+CATEGORY=Special Ability|Trox ~ Vision.MOD			SOURCEPAGE:p.264
+CATEGORY=Special Ability|Trox ~ Burrow.MOD			SOURCEPAGE:p.264
+CATEGORY=Special Ability|Trox ~ Frenzy.MOD			SOURCEPAGE:p.264
+CATEGORY=Special Ability|Trox ~ Grabbing Appendages.MOD	SOURCEPAGE:p.264
+CATEGORY=Special Ability|Trox ~ Languages.MOD			SOURCEPAGE:p.264
+
+
+# ------------------------------
+# Wayang
+# ------------------------------
+
+###NOTE: Race files are in core_essentials\races\wayang\
+
+###Block: Racial Traits
+# Ability Name								Source Page
+CATEGORY=Special Ability|Wayang ~ Ability Scores.MOD		SOURCEPAGE:p.274
+CATEGORY=Special Ability|Wayang ~ Type.MOD			SOURCEPAGE:p.274
+CATEGORY=Special Ability|Wayang ~ Size.MOD			SOURCEPAGE:p.274
+CATEGORY=Special Ability|Wayang ~ Speed.MOD			SOURCEPAGE:p.274
+CATEGORY=Special Ability|Wayang ~ Vision.MOD			SOURCEPAGE:p.274
+CATEGORY=Special Ability|Wayang ~ Light and Dark.MOD		SOURCEPAGE:p.274
+CATEGORY=Special Ability|Wayang ~ Lurker.MOD			SOURCEPAGE:p.274
+CATEGORY=Special Ability|Wayang ~ Shadow Magic.MOD		SOURCEPAGE:p.274
+CATEGORY=Special Ability|Wayang ~ Shadow Resistance.MOD	SOURCEPAGE:p.274
+CATEGORY=Special Ability|Wayang ~ Languages.MOD			SOURCEPAGE:p.274
+
+
+# ------------------------------
+# Wyrwood
+# ------------------------------
+
+###NOTE: Race files are in core_essentials\races\wyrwood\
+
+# Ability Name								Source Page
+CATEGORY=Special Ability|Wyrwood ~ Ability Scores.MOD		SOURCEPAGE:p.280
+CATEGORY=Special Ability|Wyrwood ~ Type.MOD			SOURCEPAGE:p.280
+CATEGORY=Special Ability|Wyrwood ~ Size.MOD			SOURCEPAGE:p.280
+CATEGORY=Special Ability|Wyrwood ~ Speed.MOD			SOURCEPAGE:p.280
+CATEGORY=Special Ability|Wyrwood ~ Darkvision.MOD		SOURCEPAGE:p.280
+CATEGORY=Special Ability|Wyrwood ~ Low-Light Vision.MOD	SOURCEPAGE:p.280
+CATEGORY=Special Ability|Wyrwood ~ Languages.MOD		SOURCEPAGE:p.280
+
+
+# ------------------------------
+# Wyvaran
+# ------------------------------
+
+###NOTE: Race files are in core_essentials\races\wyvaran\
+
+# Ability Name								Source Page
+CATEGORY=Special Ability|Wyvaran ~ Ability Scores.MOD		SOURCEPAGE:p.281
+CATEGORY=Special Ability|Wyvaran ~ Type.MOD			SOURCEPAGE:p.281
+CATEGORY=Special Ability|Wyvaran ~ Size.MOD			SOURCEPAGE:p.281
+CATEGORY=Special Ability|Wyvaran ~ Speed.MOD			SOURCEPAGE:p.281
+CATEGORY=Special Ability|Wyvaran ~ Flight.MOD			SOURCEPAGE:p.281
+CATEGORY=Special Ability|Wyvaran ~ Slapping Tail.MOD		SOURCEPAGE:p.281
+CATEGORY=Special Ability|Wyvaran ~ Darkvision.MOD		SOURCEPAGE:p.281
+CATEGORY=Special Ability|Wyvaran ~ Low-Light Vision.MOD	SOURCEPAGE:p.281
+CATEGORY=Special Ability|Wyvaran ~ Languages.MOD		SOURCEPAGE:p.281

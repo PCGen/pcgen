@@ -3,17 +3,17 @@ SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloa
 # Original Entry by: Stefan Radermacher
 
 ###Block: Races
-# Race Name	SORTKEY		Starting Feats	Base size		Size		Move			Reach		Serves As			Save bonus									Ability								Main Race Type	Race Subtype		Type				Source Page		FACT
-Dwarf		SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	SIZE:M	MOVE:Walk,20	REACH:5															ABILITY:Internal|AUTOMATIC|Racial Traits ~ Dwarf	RACETYPE:Humanoid	RACESUBTYPE:Dwarf		TYPE:Humanoid.Base.PC	SOURCEPAGE:p.21	FACT:IsPC|true
-Elf		SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	SIZE:M	MOVE:Walk,30	REACH:5															ABILITY:Internal|AUTOMATIC|Racial Traits ~ Elf		RACETYPE:Humanoid	RACESUBTYPE:Elf		TYPE:Humanoid.Base.PC	SOURCEPAGE:p.22	FACT:IsPC|true
-Gnome		SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|S	SIZE:S	MOVE:Walk,20	REACH:5															ABILITY:Internal|AUTOMATIC|Racial Traits ~ Gnome	RACETYPE:Humanoid	RACESUBTYPE:Gnome		TYPE:Humanoid.Base.PC	SOURCEPAGE:p.23	FACT:IsPC|true
-Half-Elf	SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	SIZE:M	MOVE:Walk,30	REACH:5	SERVESAS:RACE|Elf|Human											ABILITY:Internal|AUTOMATIC|Racial Traits ~ Half-Elf	RACETYPE:Humanoid	RACESUBTYPE:Elf|Human	TYPE:Humanoid.Base.PC	SOURCEPAGE:p.24	FACT:IsPC|true
-Half-Orc	SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	SIZE:M	MOVE:Walk,30	REACH:5	SERVESAS:RACE|Human|Orc											ABILITY:Internal|AUTOMATIC|Racial Traits ~ Half-Orc	RACETYPE:Humanoid	RACESUBTYPE:Orc|Human	TYPE:Humanoid.Base.PC	SOURCEPAGE:p.25	FACT:IsPC|true
-Halfling	SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|S	SIZE:S	MOVE:Walk,20	REACH:5					BONUS:SAVE|ALL|Halfling_HalflingLuck_SaveBonus|TYPE=Racial	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Halfling	RACETYPE:Humanoid	RACESUBTYPE:Halfling	TYPE:Humanoid.Base.PC	SOURCEPAGE:p.26	FACT:IsPC|true
-Human		SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|M	SIZE:M	MOVE:Walk,30	REACH:5															ABILITY:Internal|AUTOMATIC|Racial Traits ~ Human	RACETYPE:Humanoid	RACESUBTYPE:Human		TYPE:Humanoid.Base.PC	SOURCEPAGE:p.27	FACT:IsPC|true
+# Race Name		Source Page
+Dwarf.MOD		SOURCEPAGE:p.21
+Elf.MOD		SOURCEPAGE:p.22
+Gnome.MOD		SOURCEPAGE:p.23
+Half-Elf.MOD	SOURCEPAGE:p.24
+Half-Orc.MOD	SOURCEPAGE:p.25
+Halfling.MOD	SOURCEPAGE:p.26
+Human.MOD		SOURCEPAGE:p.27
 
 
 
 
 
-A test	SORTKEY:a_base_pc		FACT:BaseSize|M	SIZE:M					STARTFEATS:1	SIZE:T	MOVE:Walk,10	REACH:0	KIT:1|A Test
+#A test	SORTKEY:a_base_pc		FACT:BaseSize|M	SIZE:M					STARTFEATS:1	SIZE:T	MOVE:Walk,10	REACH:0	KIT:1|A Test
