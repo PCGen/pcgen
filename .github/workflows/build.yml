@@ -39,7 +39,7 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew pcgenRelease
     - id: getfilename
-      run: echo "::set-output name=zip::$(ls build/distributions/*.zip)" && echo "::set-output name=zipname::$(basename build/distributions/*.zip)" && echo "::set-output name=tar::$(ls build/distributions/*.tar)" && echo "::set-output name=tarname::$(basename build/distributions/*.tar)" && echo "::set-output name=exe::$(ls build/release/*_win_install.exe)" && echo "::set-output name=exename::$(basename build/release/*_win_install.exe)" && echo "::set-output name=digest::$(ls build/release/SHA256-digests-*.txt)" && echo "::set-output name=digestname::$(basename build/release/SHA256-digests-*.txt)"
+      run: echo "::set-output name=zip::$(ls build/distributions/*.zip)" && echo "::set-output name=zipname::$(basename build/distributions/*.zip)" && echo "::set-output name=tar::$(ls build/distributions/*.tar)" && echo "::set-output name=tarname::$(basename build/distributions/*.tar)" && echo "::set-output name=exe::$(ls build/release/*_win_install.exe)" && echo "::set-output name=exename::$(basename build/release/*_win_install.exe)"
     - name: Upload pcgen zip artifact
       uses: actions/upload-artifact@v1.0.0
       with:
@@ -55,8 +55,8 @@ jobs:
       with:
         name: ${{ steps.getfilename.outputs.exename }}
         path: ${{ steps.getfilename.outputs.exe }}
-    - name: Upload checksums artifact
-      uses: actions/upload-artifact@v1.0.0
+    - name: Upload checksums
+      uses: actions/upload-artifact@v3
       with:
-        name: ${{ steps.getfilename.outputs.digestname }}
-        path: ${{ steps.getfilename.outputs.digest }}
+        name: checksums
+        path: build/release/SHA256-digests-*.txt
