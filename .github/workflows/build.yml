@@ -38,25 +38,9 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew pcgenRelease
-    - id: getfilename
-      run: echo "::set-output name=zip::$(ls build/distributions/*.zip)" && echo "::set-output name=zipname::$(basename build/distributions/*.zip)" && echo "::set-output name=tar::$(ls build/distributions/*.tar)" && echo "::set-output name=tarname::$(basename build/distributions/*.tar)" && echo "::set-output name=exe::$(ls build/release/*_win_install.exe)" && echo "::set-output name=exename::$(basename build/release/*_win_install.exe)"
-    - name: Upload pcgen zip artifact
-      uses: actions/upload-artifact@v1.0.0
+    - name: Create release
+      uses: ncipollo/release-action@v1
       with:
-        name: ${{ steps.getfilename.outputs.zipname }}
-        path: ${{ steps.getfilename.outputs.zip }}
-    - name: Upload pcgen tar artifact
-      uses: actions/upload-artifact@v1.0.0
-      with:
-        name: ${{ steps.getfilename.outputs.tarname }}
-        path: ${{ steps.getfilename.outputs.tar }}
-    - name: Upload pcgen exe artifact
-      uses: actions/upload-artifact@v1.0.0
-      with:
-        name: ${{ steps.getfilename.outputs.exename }}
-        path: ${{ steps.getfilename.outputs.exe }}
-    - name: Upload checksums
-      uses: actions/upload-artifact@v3
-      with:
-        name: checksums
-        path: build/release/SHA256-digests-*.txt
+        artifacts: "build/release/*"
+        draft: true
+        token: ${{ secrets.GITHUB_TOKEN }}
