@@ -40,7 +40,7 @@ plugins {
  * Set the version and the modules we want from JavaFX (not everything)
  */
 javafx {
-    version = "17.0.0.1"
+    version = "17"
     modules = [ 'javafx.controls', 'javafx.web', 'javafx.swing', 'javafx.fxml', 'javafx.graphics' ]
 
     /*
@@ -576,11 +576,8 @@ task downloadJRE {
 }
 
 task downloadJavaFXModules(dependsOn: downloadJRE) {
-
-    // The version of JavaFX as Gluon defines it in their files names
-    def major = "17.0.0.1"
-
     // We support Windows, Mac, Linux - x64 and Windows x86 (32-bit)
+    def major = "17"
     def archs = ['x64', 'x86']
     def osList = ["windows", "mac", "linux"]
 
