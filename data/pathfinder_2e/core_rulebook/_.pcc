@@ -90,6 +90,7 @@ WEAPONPROF:c_profs_weapon.lst
 RACE:c_races_ancestry.lst
 RACE:c_races_companion.lst
 SKILL:c_skills.lst
+SKILL:c_skills_situation.lst
 SPELL:c_spells.lst
 SPELL:c_spells_class.lst
 TEMPLATE:c_templates.lst
