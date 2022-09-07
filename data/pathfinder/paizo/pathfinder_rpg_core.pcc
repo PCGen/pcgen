@@ -47,6 +47,10 @@ PCC:@/pathfinder/paizo/roleplaying_game/ultimate_combat/_ultimate_combat.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/ultimate_magic/_ultimate_magic.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/ultimate_equipment/ultimate_equipment.pcc
 # Using new file style
+PCC:@/pathfinder/paizo/roleplaying_game/adventurers_guide/_adventurers_guide.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/horror_adventures/_horror_adventures.pcc
+
+PCC:@/pathfinder/paizo/roleplaying_game/occult_adventures/_occult_adventures.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/ultimate_campaign/_ultimate_campaign.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/advanced_class_guide/_advanced_class_guide.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/bestiary_4/_bestiary_4.pcc

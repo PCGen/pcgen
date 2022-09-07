@@ -3,3 +3,6 @@
 Companion (Bird (Raven))	SORTKEY:z_Companion	OUTPUTNAME:Companion [NAME]	SIZE:S	MOVE:Walk,10,Fly,80	REACH:5	PREVARGTEQ:NotAllowed,1	BONUS:ABILITYPOOL|Companion Level Increase Choice|1|PREVARGTEQ:MasterLevel,4	BONUS:STAT|DEX|4	BONUS:STAT|CON|2	BONUS:STAT|INT|-8	BONUS:STAT|WIS|4	BONUS:STAT|CHA|-4	BONUS:VAR|AC_Natural_Armor|1|TYPE=Base	BONUS:VAR|Maneuverability|3	BONUS:WEAPONPROF=Talons|DAMAGESIZE|1	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability	ABILITY:Internal|AUTOMATIC|Bite|Talons	ABILITY:Special Ability|AUTOMATIC|Companion Advancement ~ Bird|PREABILITY:1,CATEGORY=Special Ability,Companion Advancement	LEGS:2	HANDS:3	DEFINE:Maneuverability|0	MONSTERCLASS:Companion:2			RACETYPE:Companion	TYPE:Companion.AnimalCompanion.Raptor	SOURCEPAGE:p.55	KIT:1|Companion ~ Bird	FACT:BaseSize|S
 
 Companion (Bear).MOD																																																			BONUS:VAR|RaceReducedCompanion|1
+
+# No Reference
+Companion (Embolotherium)	TYPE:Missing	FACT:BaseSize|S
