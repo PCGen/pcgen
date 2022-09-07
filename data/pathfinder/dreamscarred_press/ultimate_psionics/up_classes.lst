@@ -213,7 +213,7 @@ CLASS:Marksman	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	MEMORIZE:NO	BONUS:CASTERLEVEL|M
 ###Block: Psion
 
 # Class Name	Hit Dice	Type					Max Level	Base class as subclass?	Source Page		Combat bonus																	Save bonus																																		Modify VAR																																																																									FACT
-CLASS:Psion		HD:6		TYPE:Base.Psionic.PC.Trained	MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCEPAGE:p.49	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:SpellType|Psionic
+CLASS:Psion		HD:6		TYPE:Base.Psionic.PC.Trained	MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCEPAGE:p.49	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:SpellType|Psionic	KNOWNSPELLS:Detect Psionics
 # Class Name	Skill Pts/Lvl
 CLASS:Psion		STARTSKILLPTS:2
 # Class Name	Spell Stat		Memorize	Caster level
@@ -265,26 +265,27 @@ SUBCLASSLEVEL:1							ABILITY:Archetype|AUTOMATIC|Psion Archetype ~ Ascendant Ps
 # COMMENT: Tack the following on if an archetype removes the Psion manifesting ability
 #|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsionManifesting
 ###Block: Class Powers known
-1	KNOWN:3,3
-2	KNOWN:3,5
-3	KNOWN:3,5,2
-4	KNOWN:3,5,4
-5	KNOWN:3,5,4,2
-6	KNOWN:3,5,4,4
-7	KNOWN:3,5,4,4,2
-8	KNOWN:3,5,4,4,4
-9	KNOWN:3,5,4,4,4,2
-10	KNOWN:3,5,4,4,4,4
-11	KNOWN:3,5,4,4,4,4,1
-12	KNOWN:3,5,4,4,4,4,3
-13	KNOWN:3,5,4,4,4,4,3,1
-14	KNOWN:3,5,4,4,4,4,3,3
-15	KNOWN:3,5,4,4,4,4,3,3,1
-16	KNOWN:3,5,4,4,4,4,3,3,3
-17	KNOWN:3,5,4,4,4,4,3,3,3,1
-18	KNOWN:3,5,4,4,4,4,3,3,3,3
-19	KNOWN:3,5,4,4,4,4,3,3,3,4
-20	KNOWN:3,5,4,4,4,4,3,3,3,6
+# Note: Without CAST:99 automatic spell do not work
+1	CAST:99,99	KNOWN:4,3
+2	CAST:99,99	KNOWN:4,5
+3	CAST:99,99,99	KNOWN:4,5,2
+4	CAST:99,99,99	KNOWN:4,5,4
+5	CAST:99,99,99,99	KNOWN:4,5,4,2
+6	CAST:99,99,99,99	KNOWN:4,5,4,4
+7	CAST:99,99,99,99,99	KNOWN:4,5,4,4,2
+8	CAST:99,99,99,99,99	KNOWN:4,5,4,4,4
+9	CAST:99,99,99,99,99,99	KNOWN:4,5,4,4,4,2
+10	CAST:99,99,99,99,99,99	KNOWN:4,5,4,4,4,4
+11	CAST:99,99,99,99,99,99,99	KNOWN:4,5,4,4,4,4,1
+12	CAST:99,99,99,99,99,99,99	KNOWN:4,5,4,4,4,4,3
+13	CAST:99,99,99,99,99,99,99,99	KNOWN:4,5,4,4,4,4,3,1
+14	CAST:99,99,99,99,99,99,99,99	KNOWN:4,5,4,4,4,4,3,3
+15	CAST:99,99,99,99,99,99,99,99,99	KNOWN:4,5,4,4,4,4,3,3,1
+16	CAST:99,99,99,99,99,99,99,99,99	KNOWN:4,5,4,4,4,4,3,3,3
+17	CAST:99,99,99,99,99,99,99,99,99,99	KNOWN:4,5,4,4,4,4,3,3,3,1
+18	CAST:99,99,99,99,99,99,99,99,99,99	KNOWN:4,5,4,4,4,4,3,3,3,3
+19	CAST:99,99,99,99,99,99,99,99,99,99	KNOWN:4,5,4,4,4,4,3,3,3,4
+20	CAST:99,99,99,99,99,99,99,99,99,99	KNOWN:4,5,4,4,4,4,3,3,3,6
 ###Block: Psion Class abilities
 1	BONUS:ABILITYPOOL|Psion Feat|(CL/5)+1
 
