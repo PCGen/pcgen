@@ -27,6 +27,7 @@ import pcgen.core.PCStat;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
 
 public class StatBonusToken implements CDOMSecondaryToken<EquipmentModifier>
 {
@@ -91,7 +92,7 @@ public class StatBonusToken implements CDOMSecondaryToken<EquipmentModifier>
 			}
 			else if (tokString.startsWith("TITLE="))
 			{
-				// OK
+				Logging.debugPrint("Do not process TITLE=");
 			}
 			else if (tokString.startsWith("INCREMENT="))
 			{

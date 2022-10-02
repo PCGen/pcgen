@@ -244,6 +244,7 @@ public abstract class JepCountType
 						//							it.remove();
 						//						}
 						//					}
+						Logging.debugPrint("TODO Need to handle carried and equipped items.");
 					}
 					break;
 				case LOC:
@@ -535,7 +536,7 @@ public abstract class JepCountType
 
 	public abstract static class JepCountFilterable<T> extends JepCountType
 	{
-		protected abstract Collection<T> getData(final PlayerCharacter pc);
+		protected abstract Collection<T> getData(PlayerCharacter pc);
 
 		protected static ParameterTree convertParams(final Object[] params)
 		{

@@ -17,7 +17,7 @@ import org.apache.tools.ant.taskdefs.condition.Os
 
 /**
  * Plugins without versions are ones that are bundled with Gradle at the version
- * being used (should be through gradlew).
+ * being used (should be through gradlew.
  */
 plugins {
     id 'application'                                    // Creating application bundles
@@ -44,7 +44,7 @@ javafx {
     modules = [ 'javafx.controls', 'javafx.web', 'javafx.swing', 'javafx.fxml', 'javafx.graphics' ]
 
     /*
-     * Check if running in ide. If so bundles javafx in to jar. If not only
+     * Check if running in intellij ide. If so bundles javafx in to jar. If not only
      * compiles so that runtime can add different platform javafx later.
      *
      * Also allows for gradle property which if true will force the single
@@ -78,7 +78,7 @@ ext {
     binDir = "code/bin"
 
     // Folder where build output is primarily stored
-    //String buildDir = "$projectDir/build"
+    String buildDir = "$projectDir/build"
 
     // Folder where exe / jar files are placed.
     outputDir = "$projectDir/output"
@@ -100,7 +100,7 @@ ext {
  * If other IDEs set different properties when trying to execute
  * a given class feel free to add them here.
  */
-mainClassName = project.hasProperty('mainClass') ? mainClass : 'pcgen.system.Main';
+mainClassName = project.hasProperty('mainClass') ? mainClass : 'pcgen.system.Main'
 
 /*
  * Which binary repositories this build uses.
@@ -111,24 +111,19 @@ repositories {
 
     // Use Ant Ivy Plugin to reference our own hosted repos
     // for PCGen Base and PCGen Formula JARs
+    //ivy {
+        // TODO Enable HTTPS (e.g., add letsencrypt) for that location
+        //url "http://pcgen.sourceforge.net/mvnrepo"
+        //allowInsecureProtocol = true
+        //patternLayout {
+            //artifact "[organisation]/jars/[artifact]-[revision].[ext]"
+        //}
+    //}
     ivy {
-<<<<<<< HEAD
-=======
-        // TODO Replace that location with a https location
-        url "http://pcgen.sourceforge.net/mvnrepo"
-        allowInsecureProtocol = true
-        patternLayout {
-            artifact "[organisation]/jars/[artifact]-[revision].[ext]"
-        }
-    }
-    ivy {
->>>>>>> f17b237474 (Full Java 17 support)
         name "fileRepo"
-        // TODO Replace that location with a https location
         url 'http://pc-gen.org/librepo/'
         allowInsecureProtocol = true
     }
-
     // Use Maven plugin to reference jboss repository as well
     maven {
         name = 'free'
@@ -253,9 +248,6 @@ dependencies {
     implementation group: 'org.controlsfx', name: 'controlsfx', version:'11.1.2'
 
     implementation group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.170'
-<<<<<<< HEAD
-    implementation group: 'net.sourceforge.pcgen', name: 'PCGen-Formula', version:'1.0.200'
-=======
     // The latest Base, but pcgen core would need refactoring to support it.
     //implementation group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.237'
     // Use this if you're working from your local PCGen Base
@@ -266,7 +258,6 @@ dependencies {
     //implementation group: 'net.sourceforge.pcgen', name: 'PCGen-Formula', version:'1.0.266'
     // Use if you're working from your local PCGen Formula
     //implementation files("../pcgen-formula/PCGen-formula/build/libs/PCgen-formula-1.0.jar")
->>>>>>> f17b237474 (Full Java 17 support)
 
     compileOnly group: 'org.jetbrains', name: 'annotations', version:'24.0.0'
     compileOnly group: 'com.yuvimasory', name: 'orange-extensions', version: '1.3.0'
@@ -500,6 +491,9 @@ task downloadJRE {
     def archs = ['x64','x32']
     def osList = ['windows', 'mac', 'linux']
     def extension = 'zip'
+
+    println("Downloading JDKS for use in creating the runtime bundles.")
+
     osList.each{
         def os = "${it}"
         if(os != "windows") {
@@ -512,14 +506,15 @@ task downloadJRE {
             def url = "https://api.adoptium.net/v3/binary/latest/${major}/ga/${os}/${arch}/jdk/hotspot/normal/eclipse"
             def jreDir = new File("${projectDir}/jre/${os}/jre_${arch}")
             if(!jreDir.exists()){
-                //Only download Windows libraries. Need to add more OS if we go multi OS at any time.
+                
                 println("Downloading Java ${major} ${arch} for ${os} from ${url}")
-                download {
+                download.run {
                     src url
                     dest new File("${projectDir}/jre/${os}/", "jre_${arch}.${extension}")
                     overwrite false
                 }
-                //Now untar them
+                
+                // Now unzip them
                 if(extension == "zip"){
                     fileTree(dir: "${projectDir}/jre/${os}/").include("*.${extension}").each { simLib ->
                         copy {
@@ -557,7 +552,7 @@ task downloadJRE {
                                     fcd.exclude()
                                 } else {
                                     def segments = relPath.segments
-                                    fcd.relativePath = new RelativePath( !fcd.isDirectory() ,(segments[1..-1]) as String[]  )
+                                    fcd.relativePath = new RelativePath( !fcd.isDirectory() ,(segments[1..-1]) as String[] )
                                 }
                             }
                         }
@@ -569,7 +564,9 @@ task downloadJRE {
                         file("${projectDir}/jre/${os}/jre_${arch}/"+f).deleteDir()
                     }
                 }
-
+            }
+            else {
+                println("Java ${major} ${arch} for ${os} already exists at ${jreDir}")
             }
         }
     }
@@ -577,10 +574,11 @@ task downloadJRE {
 
 task downloadJavaFXModules(dependsOn: downloadJRE) {
     // We support Windows, Mac, Linux - x64 and Windows x86 (32-bit)
-    def major = "17"
+    def major = "17.0.0.1"
     def archs = ['x64', 'x86']
     def osList = ["windows", "mac", "linux"]
 
+    println("Downloading JavaFX modules (.mods) for use in the runtime bundles.")
     // Downloads javafx .mods for custom runtime image. All platforms downloaded
     osList.each {
         def os = "${it}"
@@ -589,7 +587,7 @@ task downloadJavaFXModules(dependsOn: downloadJRE) {
             def arch = "$it"
 
             // build the architecture part of the download filename string
-            def archAppend = ""
+            def archAppend
             if (arch == "x86") {
                 if (os == "windows") {
                     archAppend = "-x86"
@@ -617,14 +615,13 @@ task downloadJavaFXModules(dependsOn: downloadJRE) {
             // to the correct place.
             if (!jmodsZip.exists()) {
                 println("Downloading Javafx mods ${major} ${arch} for ${os} from ${url}")
-                download {
+                download.run {
                     src url
                     dest new File("${projectDir}/jre/${os}/", "jmods${arch}.zip")
                     overwrite false
                 }
 
                 copy {
-                    println "Unzip jmods${arch}.zip"
                     def zipFile = file("${projectDir}/jre/${os}/jmods${arch}.zip")
                     def outputDir = "${projectDir}/jre/${os}/jre_${arch}/jmods"
                     if (os == "mac")
@@ -635,6 +632,7 @@ task downloadJavaFXModules(dependsOn: downloadJRE) {
                     {
                         outputDir = "${projectDir}/jre/${os}/jre_x32/jmods"
                     }
+                    println "Unzipping ${zipFile} to ${outputDir}"
                     from zipTree(zipFile)
                     into outputDir
                     eachFile { fcd ->
@@ -643,14 +641,17 @@ task downloadJavaFXModules(dependsOn: downloadJRE) {
                         fcd.relativePath = new RelativePath(!fcd.isDirectory(), (segments[1..-1]) as String[])
                     }
                 }
+            } else {
+                println("${jmodsZip} already exists")
             }
         }
     }
 
     // TODO extract this into its own function
     // Downloads javafx sdk for local platform. Used for running tests.
+    println("Downloading JavaFX SDK for use in local testing.")
     def sdkDir = new File("${projectDir}/mods")
-    if (!sdkDir.exists()) {
+    if (!sdkDir.exists() || sdkDir.list().length == 0) {
 
         // TODO I'll confess much of this seems redundant, but I'm not touching it
         def os=""
@@ -677,27 +678,28 @@ task downloadJavaFXModules(dependsOn: downloadJRE) {
 
         println("Downloading JavaFX SDK for ${os} from ${url}")
 
-        download {
+        download.run {
             src url
             dest new File("${projectDir}/mods", "javaFXSdk-${os}.zip")
             overwrite false
         }
 
         copy {
-            println "Unzip javaFXSdk-${os}.zip"
+
             def zipFile = file("${projectDir}/mods/javaFXSdk-${os}.zip")
             def outputDir = "${projectDir}/mods"
+            println "Unzipping ${zipFile} to ${outputDir}"
 
             from zipTree(zipFile)
             into outputDir
             eachFile { fcd ->
                 def relPath = fcd.relativePath
-
                 def segments = relPath.segments
                 fcd.relativePath = new RelativePath(!fcd.isDirectory(), (segments[1..-1]) as String[])
-
             }
         }
+    } else {
+        println("JavaFX SDK already exists at ${sdkDir}")
     }
 }
 
@@ -716,7 +718,6 @@ task itest(type: Test, dependsOn: [jar]) {
     systemProperties['jar.path'] = jar.getArchiveFile().get().getAsFile()
 }
 
-/*
 task slowtest(type: Test, dependsOn: ['jar', 'itest']) {
     useJUnitPlatform()
     testClassesDirs = sourceSets.slowtest.output.classesDirs
@@ -727,7 +728,6 @@ task slowtest(type: Test, dependsOn: ['jar', 'itest']) {
     exclude 'AllJUnitTests.class'
     exclude 'pcgen/core/AllJUnitTests.class'
 }
-*/
 
 task datatest(type: Test, dependsOn: 'jar') {
     testClassesDirs = sourceSets.slowtest.output.classesDirs
@@ -778,16 +778,15 @@ task msrdinttest(type: Test, dependsOn: 'jar') {
     include 'pcgen/inttest/game_modern/*Test.class'
 }
 
-// Do the lot!
-//task all(dependsOn: ['build', 'slowtest', 'javadoc', 'buildNsis', 'allReports']) {
-task all(dependsOn: ['build', 'javadoc', 'buildNsis', 'allReports']) {
+// Do the lot!  TODO reenable slowtest
+task all(dependsOn: ['build', 'slowtest', 'javadoc', 'buildNsis', 'allReports']) {
+//task all(dependsOn: ['build', 'javadoc', 'buildNsis', 'allReports']) {
 }
 
 allprojects {
     tasks.withType(JavaCompile).configureEach {
         options.fork = true
     }
-
     tasks.withType(Javadoc) {
         options.addBooleanOption('Xdoclint:none', true)
     }
@@ -825,7 +824,6 @@ allprojects {
                 options.compilerArgs << "--add-modules" << "javafx.controls,javafx.web,javafx.swing,javafx.fxml"
             }
             println "Args for for $name are $options.allCompilerArgs"
-
         }
     }
     // https://youtrack.jetbrains.com/issue/KT-46165
@@ -865,7 +863,6 @@ dependencyUpdates.resolutionStrategy {
             if (selection.candidate.version == '1.8.0_20' && selection.candidate.name == 'openjfx-monocle') {
                 selection.reject('older than current')
             }
-
         }
     }
 }

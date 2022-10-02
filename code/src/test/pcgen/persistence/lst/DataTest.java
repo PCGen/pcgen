@@ -192,7 +192,6 @@ class DataTest
 	 * @throws IOException If a file path cannot be converted.
 	 */
 	@Test
-	@Ignore
 	void orphanFilesTest() throws IOException
 	{
 		File dataFolder = new File(ConfigurationSettings.getPccFilesDir());
@@ -224,8 +223,8 @@ class DataTest
 
 		// Flag any missing files
 		// TODO Revert back to the below
-		//assertEquals("", report, "Some data files are orphaned.");
-		assertEquals("pathfinder_2e/core_rulebook/c_skills_situation.lst", report, "Some data files are orphaned.");
+		assertEquals("", report, "Some data files are orphaned.");
+		//assertEquals("pathfinder_2e/core_rulebook/c_skills_situation.lst", report, "Some data files are orphaned.");
 	}
 
 	private static List<CampaignSourceEntry> getLstFilesForCampaign(CDOMObject campaign)

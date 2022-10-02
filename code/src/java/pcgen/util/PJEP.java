@@ -233,6 +233,7 @@ public final class PJEP extends JEP
 				if (param2 instanceof Integer)
 				{
 					// Nothing to do, it's already an Integer
+					Logging.debugPrint("Nothing to do, it's already an Integer.");
 				}
 				else if (param2 instanceof Double)
 				{

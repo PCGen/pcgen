@@ -2,7 +2,7 @@
 <FindBugsFilter
     xmlns="https://github.com/spotbugs/filter/3.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="https://github.com/spotbugs/filter/3.0.0 https://raw.githubusercontent.com/spotbugs/spotbugs/3.1.0/spotbugs/etc/findbugsfilter.xsd">
+    xsi:schemaLocation="https://github.com/spotbugs/filter/3.0.0 https://raw.githubusercontent.com/spotbugs/spotbugs/master/spotbugs/etc/findbugsfilter.xsd">
 
   <!-- We have many problems in older code, so avoid checking them for now.
     As we improve code quality expand this exclusion-->
@@ -20,7 +20,7 @@
     <Bug pattern="PSC_PRESIZE_COLLECTIONS,DM_CONVERT_CASE"/>
   </Match>
   <Match>
-    <!-- not relevent to pcgen -->
+    <!-- not relevant to pcgen -->
     <Bug pattern="IJU_SETUP_NO_SUPER,DP_DO_INSIDE_DO_PRIVILEGED,DM_EXIT,SE_NO_SERIALVERSIONID"/>
   </Match>
   <Match>

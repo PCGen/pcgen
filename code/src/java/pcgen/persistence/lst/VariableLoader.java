@@ -133,7 +133,7 @@ public class VariableLoader extends Observable
 
 			if (line.trim().isEmpty())
 			{
-				// Ignore the line
+				Logging.debugPrint("Ignore the empty line.");
 			}
 			else
 			{

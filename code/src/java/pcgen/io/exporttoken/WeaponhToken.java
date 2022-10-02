@@ -39,6 +39,7 @@ import pcgen.core.WeaponProf;
 import pcgen.core.character.WieldCategory;
 import pcgen.io.ExportHandler;
 import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
 
 /**
  * {@code WeaponhToken}.
@@ -113,7 +114,7 @@ public class WeaponhToken extends WeaponToken
 			.silentlyGetConstructedCDOMObject(WieldCategory.class, "Light");
 		if (lightWC == null)
 		{
-			// Error?
+			Logging.debugPrint("lightWC WieldCategory should not have been null?");
 		}
 		else
 		{

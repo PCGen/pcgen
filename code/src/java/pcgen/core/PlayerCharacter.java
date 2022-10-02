@@ -9654,6 +9654,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 								else
 								{
 									// already know this one
+									Logging.log(Logging.DEBUG, "We already know about the level: " + spellLevel + " of this character spell, it's in the global default spellbook already.");
 								}
 							}
 						}

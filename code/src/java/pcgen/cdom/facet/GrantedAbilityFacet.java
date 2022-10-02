@@ -34,6 +34,7 @@ import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.output.publish.OutputDB;
+import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
 
 /**
@@ -102,7 +103,7 @@ public class GrantedAbilityFacet extends AbstractCNASEnforcingFacet implements S
 	{
 		if (cat.getParentCategory() != cat)
 		{
-			//warning
+			Logging.log(Logging.WARNING, "Parent category: " + cat.getParentCategory().getKeyName() + " did not equal category " + cat.getKeyName());
 		}
 
 		List<CNAbility> returnList = new ArrayList<>();

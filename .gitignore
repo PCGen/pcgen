@@ -101,6 +101,8 @@ code/build.eclipse/
 out/
 pcgendev.iml
 pcgen.iml
+pcgen.ipr
+pcgen.iws
 
 # VS Code IDE
 .vscode/
