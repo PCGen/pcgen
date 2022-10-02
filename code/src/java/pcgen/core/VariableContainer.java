@@ -35,5 +35,5 @@ public interface VariableContainer
 	 *
 	 * @return the value of the variable
 	 */
-	public Float getVariableValue(final String varName, final String src, final PlayerCharacter aPC);
+	public Float getVariableValue(String varName, String src, PlayerCharacter aPC);
 }

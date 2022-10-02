@@ -404,9 +404,9 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 		return theStackingFlag;
 	}
 
-	protected abstract boolean parseToken(LoadContext context, final String token);
+	protected abstract boolean parseToken(LoadContext context, String token);
 
-	protected abstract String unparseToken(final Object obj);
+	protected abstract String unparseToken(Object obj);
 
 	public abstract String getBonusHandled();
 

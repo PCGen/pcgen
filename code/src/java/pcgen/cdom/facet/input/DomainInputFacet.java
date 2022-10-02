@@ -31,6 +31,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.ChooseActivation;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.ChooserUtilities;
+import pcgen.util.Logging;
 
 /**
  * DomainInputFacet is a Facet that handles addition of Domains to a Player
@@ -75,6 +76,7 @@ public class DomainInputFacet
 		if (!selectedList.isEmpty())
 		{
 			//Error?
+			Logging.log(Logging.INFO, "Selected List is not emtpy, it contains : " + selectedList.size() + " domains");
 		}
 		final List<T> newSelections = aMan.doChooser(pc, availableList, selectedList, new ArrayList<>());
 		if (newSelections.size() != 1)

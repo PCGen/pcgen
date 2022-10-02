@@ -23,6 +23,7 @@ import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
+import pcgen.util.Logging;
 
 /**
  * A prerequisite parser class that handles the parsing of pre class level max tokens.
@@ -87,6 +88,7 @@ public class PreClassLevelMaxParser extends AbstractPrerequisiteListParser imple
 		if (p.getKind() == null) // PREMULT
 		{
 			// Nothing to do. This is a PREMULT and we don't care about them.
+			Logging.debugPrint("Nothing to do. This is a PREMULT and we don't care about them.");
 		}
 		else if ("classlevelmax".equals(p.getKind()))
 		{

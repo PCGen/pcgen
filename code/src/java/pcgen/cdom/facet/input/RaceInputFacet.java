@@ -30,6 +30,7 @@ import pcgen.core.Race;
 import pcgen.core.analysis.ChooseActivation;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.ChooserUtilities;
+import pcgen.util.Logging;
 
 /**
  * RaceInputFacet is a Facet that tracks the Race of a Player Character.
@@ -71,6 +72,7 @@ public class RaceInputFacet
 		if (!selectedList.isEmpty())
 		{
 			//Error?
+			Logging.log(Logging.INFO, "Selected List is not emtpy, it contains : " + selectedList.size() + " races");
 		}
 		final List<T> newSelections = aMan.doChooser(pc, availableList, selectedList, new ArrayList<>());
 		if (newSelections.size() != 1)

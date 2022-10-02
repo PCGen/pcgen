@@ -27,6 +27,7 @@ import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
+import pcgen.util.Logging;
 
 /**
  * {@code KitLevelAbility}.
@@ -107,12 +108,14 @@ public final class KitLevelAbility extends BaseKit
 		if (classKeyed == null)
 		{
 			//Error?
+			Logging.log(Logging.ERROR, "Character should have the class: " + theClass.getKeyName() + ".");
 		}
 		//Look for ADD in class
 		List<PersistentTransitionChoice<?>> adds = theClass.getListFor(ListKey.ADD);
 		if (adds == null)
 		{
 			//Error?
+			Logging.log(Logging.ERROR, "The class should have returned a list but returned null.");
 		}
 		for (PersistentTransitionChoice<?> ch : adds)
 		{

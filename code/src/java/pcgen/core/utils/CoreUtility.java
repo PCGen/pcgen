@@ -486,7 +486,7 @@ public final class CoreUtility
 			{
 				if (idx == 2 && (tokens[idx].startsWith("RC")))
 				{
-					// Ignore we are not concerned about Release candidates
+					Logging.debugPrint("we are not concerned about Release candidates");
 				}
 				else
 				{

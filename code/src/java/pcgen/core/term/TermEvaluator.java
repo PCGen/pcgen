@@ -26,13 +26,13 @@ public interface TermEvaluator
 {
 	String evaluate(PlayerCharacter pc);
 
-	String evaluate(PlayerCharacter pc, final Spell aSpell);
+	String evaluate(PlayerCharacter pc, Spell aSpell);
 
 	String evaluate(Equipment eq, boolean primary, PlayerCharacter pc);
 
 	Float resolve(PlayerCharacter pc);
 
-	Float resolve(PlayerCharacter pc, final CharacterSpell aSpell);
+	Float resolve(PlayerCharacter pc, CharacterSpell aSpell);
 
 	Float resolve(Equipment eq, boolean primary, PlayerCharacter pc);
 
