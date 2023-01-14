@@ -5,7 +5,7 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 #	the CLASS file features (such as spellcasting)
 
 # Class Name	Hit Dice	Type			Max Level	Source Page				Combat bonus		Save bonus										FACT
-CLASS:Planetar	HD:8		TYPE:Monster	MAXLEVEL:42	SOURCEPAGE:MonstersIntro-A	BONUS:COMBAT|BASEAB|C	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel()/2+2	FACT:ClassType|Monster
+CLASS:Planetar	HD:8		TYPE:Monster	MAXLEVEL:42	SOURCEPAGE:MonstersIntro-A	BONUS:COMBAT|BASEAB|classlevel()	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel()/2+2	FACT:ClassType|Monster
 # Class Name	Required Race			Reg. Race Type
 CLASS:Planetar	PRERACE:1,Angel (Planetar)	PRERACETYPE:Outsider
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?

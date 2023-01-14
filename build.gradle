@@ -20,17 +20,17 @@ plugins {
     id 'application'
     id 'build-dashboard'
     id 'checkstyle'
-    id "com.github.spotbugs" version '5.0.9'
+    id "com.github.spotbugs" version '5.0.13'
     id 'java'
     id 'maven-publish'
     id 'pmd'
     id 'idea'
     id "de.undercouch.download" version '4.1.2'
-    id 'edu.sc.seis.launch4j' version '2.5.3'
-    id 'com.github.ben-manes.versions' version '0.42.0'
-    id "com.dorongold.task-tree" version '2.1.0'
+    id 'edu.sc.seis.launch4j' version '2.5.4'
+    id 'com.github.ben-manes.versions' version '0.44.0'
+    id "com.dorongold.task-tree" version '2.1.1'
     id 'org.openjfx.javafxplugin' version '0.0.13'
-    id 'org.beryx.runtime' version '1.12.7'
+    id 'org.beryx.runtime' version '1.13.0'
 }
 
 applicationDefaultJvmArgs = ["--enable-preview"]
@@ -169,11 +169,11 @@ compileJava {
 dependencies {
     implementation group: 'commons-io', name: 'commons-io', version:'2.11.0'
 
-    implementation group: 'org.springframework', name: 'spring-web', version:'5.3.22'
-    implementation group: 'org.springframework', name: 'spring-beans', version:'5.3.22'
-    implementation group: 'org.springframework', name: 'spring-core', version:'5.3.22'
+    implementation group: 'org.springframework', name: 'spring-web', version:'5.3.23'
+    implementation group: 'org.springframework', name: 'spring-beans', version:'5.3.23'
+    implementation group: 'org.springframework', name: 'spring-core', version:'5.3.23'
     implementation group: 'org.apache.commons', name: 'commons-lang3', version:'3.12.0'
-    implementation('org.apache.xmlgraphics:fop:2.7')
+    implementation('org.apache.xmlgraphics:fop:2.8')
     {
         exclude group: 'xml-apis', module: 'xml-apis'
     }
@@ -187,20 +187,20 @@ dependencies {
     }
     implementation group: 'net.sourceforge.argparse4j', name: 'argparse4j', version: '0.9.0'
     implementation group: 'org.xmlunit', name: 'xmlunit-core', version:'2.9.0'
-    implementation group: 'org.controlsfx', name: 'controlsfx', version:'11.1.1'
+    implementation group: 'org.controlsfx', name: 'controlsfx', version:'11.1.2'
 
     implementation group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.170'
     implementation group: 'net.sourceforge.pcgen', name: 'PCGen-Formula', version:'1.0.200'
 
-    compileOnly group: 'org.jetbrains', name: 'annotations', version:'23.0.0'
+    compileOnly group: 'org.jetbrains', name: 'annotations', version:'23.1.0'
     compileOnly group: 'com.yuvimasory', name: 'orange-extensions', version: '1.3.0'
-    compileOnly group: 'com.github.spotbugs', name: 'spotbugs-annotations', version: '4.7.1'
+    compileOnly group: 'com.github.spotbugs', name: 'spotbugs-annotations', version: '4.7.3'
 
-    testImplementation group: 'org.junit.platform', name: 'junit-platform-runner', version: '1.9.0'
-    testImplementation group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.9.0'
-    testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-api', version: '5.9.0'
-    testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-params', version: '5.9.0'
-    testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.9.0'
+    testImplementation group: 'org.junit.platform', name: 'junit-platform-runner', version: '1.9.1'
+    testImplementation group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.9.1'
+    testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-api', version: '5.9.1'
+    testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-params', version: '5.9.1'
+    testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.9.1'
     testImplementation group: 'org.hamcrest', name: 'hamcrest', version: '2.2'
     testImplementation group: 'org.testfx', name: 'testfx-junit5', version: '4.0.16-alpha'
     testImplementation group: 'org.testfx', name: 'openjfx-monocle', version: 'jdk-12.0.1+2'
