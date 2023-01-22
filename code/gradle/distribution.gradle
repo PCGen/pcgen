@@ -92,7 +92,7 @@ ext {
 
 task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', 'copyToOutput', \
 'downloadJRE']) {
-    classifier = 'full'
+    //classifier = 'full'
     into(zipRootFolder) {
         with dataDistsImage
         with docsDistsImage
@@ -107,7 +107,7 @@ task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', 'copyToOutput'
 
 task testZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', \
 'copyToOutput']) {
-    classifier = 'test'
+    //classifier = 'test'
     into(zipRootFolder) {
         with dataDistsImage
         with docsDistsImage
@@ -119,7 +119,7 @@ task testZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', \
 }
 
 task dataZip(type: Zip) {
-    classifier = 'data'
+    //classifier = 'data'
     into(zipRootFolder) {
         with dataDistsImage
         with autobuildSpec
@@ -127,7 +127,7 @@ task dataZip(type: Zip) {
 }
 
 task docsZip(type: Zip) {
-    classifier = 'docs'
+    //classifier = 'docs'
     into(zipRootFolder) {
         with docsDistsImage
         with autobuildSpec
@@ -135,7 +135,7 @@ task docsZip(type: Zip) {
 }
 
 task programZip(type: Zip, dependsOn: 'converterJar') {
-    classifier = 'program'
+    //classifier = 'program'
     into(zipRootFolder) {
         with programDistsImage
         with programScriptImage
@@ -144,7 +144,7 @@ task programZip(type: Zip, dependsOn: 'converterJar') {
 }
 
 task libsZip(type: Zip, dependsOn: 'copyToLibs') {
-    classifier = 'libs'
+    //classifier = 'libs'
     into(zipRootFolder) {
         with libsDistsImage
         with autobuildSpec

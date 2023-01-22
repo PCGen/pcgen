@@ -102,16 +102,16 @@ public final class PJEP extends JEP
 		addVariable("FALSE", 0);
 	}
 
-	@Override
-	public Node parseExpression(String expression_in)
-	{
-		if (updateVariables())
-		{
-			initSymTab();
-		}
-
-		return super.parseExpression(expression_in);
-	}
+//	@Override
+//	public Node parseExpression(final String expression_in)
+//	{
+//		if (updateVariables())
+//		{
+//			initSymTab();
+//		}
+//		org.nfunk.jep.Node n = super.parseExpression(expression_in);
+//		return n;
+//	}
 
 	/**
 	 * Identify if the results of the calculation will be cachable.
