@@ -81,13 +81,6 @@ if (Os.isFamily(Os.FAMILY_MAC)) {
 repositories {
     mavenCentral()
     ivy {
-        url "http://pcgen.sourceforge.net/mvnrepo"
-        patternLayout {
-            artifact "[organisation]/jars/[organization]-[revision].[ext]"
-        }
-        allowInsecureProtocol true
-    }
-    ivy {
         name "fileRepo"
         url 'http://pc-gen.org/librepo/'
         allowInsecureProtocol true
