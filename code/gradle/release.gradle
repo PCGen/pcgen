@@ -193,16 +193,15 @@ task downloadJRE doLast {
         def os = "${it}"
         archs.each {
             def arch = "${it}"
-//            def url = "https://api.adoptopenjdk.net/v2/binary/nightly/openjdk${major}?openjdk_impl=hotspot&os=${os}&arch=${arch}&release=latest&type=jre"
-            def url = "https://api.adoptopenjdk.net/v3/binary/version/openjdk${major}?openjdk_impl=hotspot&os=${os}&arch=${arch}&release=latest&type=jre"
+            //def url = "https://api.adoptopenjdk.net/v2/binary/nightly/openjdk${major}?openjdk_impl=hotspot&os=${os}&arch=${arch}&release=latest&type=jre"
+            def url = "https://api.adoptopenjdk.net/v2/binary/nightly/openjdk${major}?os=${os}&arch=${arch}&release=latest&type=jre"
             def jreDir = new File("${projectDir}/jre/jre_${arch}")
             if(!jreDir.exists()){
                 //Only download Windows libraries. Need to add more OS if we go multi OS at any time.
                 println("Downloading Java ${major} from ${url}")
                 if(!jreDir.exists()){
                     download {
-                        //src url
-                        src
+                        src url
                         dest new File("${projectDir}/jre/", "jre_${arch}.${extension}")
                         overwrite false
                     }
