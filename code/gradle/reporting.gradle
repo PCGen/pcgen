@@ -31,8 +31,8 @@ spotbugs {
 	excludeFilter = file("$rootProject.projectDir/code/standards/spotbugs_ignore.xml")
 	omitVisitors = ['Naming', 'CrossSiteScripting', 'DontUseEnum', 'DoInsideDoPrivileged']
 	reportLevel = 'low'
-	ignoreFailures = 'true'
-	toolVersion = '3.1.8'
+	ignoreFailures = true
+	toolVersion = '5.0.13'
 }
 
 //Unable to determine how to do this with SpotBugs - this is consistent with their docs, but dumps stack
