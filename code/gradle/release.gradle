@@ -463,9 +463,10 @@ task cleanNsis(type: Delete) {
 }
 
 
-task sourcesJar(type: Jar, dependsOn: classes) {
+task sourcesJar(type: Jar, dependsOn: ['classes','copyToOutput','createExe','distTar','distZip','fullZip','layoutNsisBase','startScripts','syncLibsToRoot']) {
     description = "build source jar file"
-    //classifier = 'sources'
+    duplicatesStrategy DuplicatesStrategy.EXCLUDE
+//    classifier = 'sources'
     from sourceSets.main.allSource
 }
 

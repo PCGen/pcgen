@@ -238,7 +238,8 @@ artifacts {
     archives converterJar
 }
 
-task copyToLibs(type: Copy) {
+task copyToLibs(type: Copy, dependsOn:['startScripts','distTar','distZip']) {
+    mustRunAfter createExe
     into "$buildDir/libs"
     from configurations.runtimeClasspath
 }
