@@ -432,12 +432,13 @@ task genProjectNsis doLast {
 !define SrcDir "${buildDir}\\nsis"
 """)
 
-    mkdir releaseDir
+//    mkdir releaseDir
 }
 
 // Call NSIS to generate windows installer - Removed "genDataList"
 task buildNsis(dependsOn: [layoutNsisBase, layoutNsisOptional,
         genProjectNsis, downloadJRE, genDataList]) doLast {
+    mkdir releaseDir
     if (System.properties['os.name'].toLowerCase(Locale.ROOT).contains('windows')) {
         new ByteArrayOutputStream().withStream { os ->
             def result = exec {
@@ -456,24 +457,27 @@ task buildNsis(dependsOn: [layoutNsisBase, layoutNsisOptional,
         }
     }
 }
-buildNsis.mustRunAfter createExe
 
 task cleanNsis(type: Delete) {
     delete nsisBaseFolder, nsisOptionFolder, "${buildDir}/nsis/Local"
 }
 
 
-task sourcesJar(type: Jar, dependsOn: ['classes','copyToOutput','createExe','distTar','distZip','fullZip','layoutNsisBase','startScripts','syncLibsToRoot']) {
+task sourcesJar(type: Jar, dependsOn: [classes, copyToOutput, createExe, distTar, distZip, fullZip, layoutNsisBase,
+         startScripts, syncLibsToRoot]) {
     description = "build source jar file"
-    duplicatesStrategy DuplicatesStrategy.EXCLUDE
+    duplicatesStrategy DuplicatesStrategy.INCLUDE
 //    classifier = 'sources'
     from sourceSets.main.allSource
 }
+buildNsis.mustRunAfter createExe
+buildNsis.mustRunAfter fullZip
+buildNsis.mustRunAfter sourcesJar
+//createExe.mustRunAfter copyToLibs
 
-task assembleArtifacts(type: Copy, dependsOn: ['build', 'fullZip', 'sourcesJar',
-     'buildNsis']) {
+task assembleArtifacts(type: Copy, dependsOn: [build, fullZip, sourcesJar, buildNsis]) { // was build
     description = "Create the release artifacts and get them into the release folder."
-    into releaseDir
+    //into releaseDir
     // buildNsis puts the exe into the release folder directly
     from ("${buildDir}/libs") {
         include 'pcgen*-sources.jar'
@@ -498,9 +502,10 @@ task checksum(dependsOn: assembleArtifacts) doLast {
 // genDataList removed as it causes release errors, 'genDataList'
 task prepareRelease (dependsOn: ['clean', 'build']) {
     description="Prepare PCGen for release. This will update and commit the version, do a clean build including the unit tests and generate the data list for the installer."
+    mkdir releaseDir
 }
 
-task pcgenRelease (dependsOn: ['prepareRelease', 'assembleArtifacts', 'checksum']) {
+task pcgenRelease (dependsOn: [prepareRelease, assembleArtifacts, checksum]) {
     description="Release a new version of PCGen. This will build PCGen and produce the release artifacts."
     //Installer is placed in outputDir
 }
