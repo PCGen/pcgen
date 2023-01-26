@@ -3,7 +3,7 @@
 
 # Ability Name	Category of Ability	Define			Ability							Modify VAR
 Arcanist		CATEGORY:Class
-Bloodrager		CATEGORY:Class		DEFINE:BloodrageLVL|0									BONUS:VAR|BloodrageLVL|BloodragerLVL
+Bloodrager		CATEGORY:Class		DEFINE:BloodrageLVL|0									BONUS:VAR|BloodrageLVL|BloodragerLVL	ABILITY:Internal|AUTOMATIC|Bloodrager ~ Bloodline Tracker
 Brawler		CATEGORY:Class
 Hunter		CATEGORY:Class
 Investigator	CATEGORY:Class
