@@ -72,16 +72,17 @@ mainClassName = project.hasProperty('mainClass') ? mainClass : 'pcgen.system.Mai
 repositories {
     mavenCentral()
     ivy {
-        url "http://pcgen.sourceforge.net/mvnrepo"
-        allowInsecureProtocol = true
-        patternLayout {
-            artifact "[organisation]/jars/[artifact]-[revision].[ext]"
-        }
-    }
-    ivy {
         name "fileRepo"
         url 'http://pc-gen.org/librepo/'
         allowInsecureProtocol = true
+    }
+    maven {
+        name = 'free'
+        url = 'https://java.freehep.org/maven2'
+    }
+    maven {
+        name = 'local'
+        url = 'installers'
     }
     maven {
         url "https://repository.jboss.org/nexus/content/repositories/thirdparty-releases/"
