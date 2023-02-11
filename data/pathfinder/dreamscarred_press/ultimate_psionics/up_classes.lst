@@ -220,7 +220,7 @@ CLASS:Psion		STARTSKILLPTS:2
 CLASS:Psion		SPELLSTAT:INT	MEMORIZE:NO	BONUS:CASTERLEVEL|Psion|CL
 SUBCLASS:Egoist		COST:0	PROHIBITCOST:0	SPELLLIST:2|Egoist|Psion	CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft	SOURCEPAGE:p.52	SORTKEY:1
 SUBCLASSLEVEL:1	BONUS:VAR|PsychometabolismDisciplineLVL|CL	ABILITY:Psion Class Feature|AUTOMATIC|Psychometabolism Discipline	ABILITY:Internal|AUTOMATIC|Psychometabolism Class Skills|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsionDisciplineClassSkills
-SUBCLASS:Kineticist	COST:0	PROHIBITCOST:0	SPELLLIST:2|Kineticist|Psion	CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft	SOURCEPAGE:p.51	SORTKEY:1
+SUBCLASS:Kineticist (Psion)	COST:0	PROHIBITCOST:0	SPELLLIST:2|Kineticist|Psion	CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft	SOURCEPAGE:p.51	SORTKEY:1
 SUBCLASSLEVEL:1	BONUS:VAR|PsychokinesisDisciplineLVL|CL		ABILITY:Psion Class Feature|AUTOMATIC|Psychokinesis Discipline	ABILITY:Internal|AUTOMATIC|Psychokinesis Class Skills|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsionDisciplineClassSkills
 SUBCLASS:Nomad		COST:0	PROHIBITCOST:0	SPELLLIST:2|Nomad|Psion		CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft	SOURCEPAGE:p.52	SORTKEY:1
 SUBCLASSLEVEL:1	BONUS:VAR|PsychoportationDisciplineLVL|CL		ABILITY:Psion Class Feature|AUTOMATIC|Psychoportation Discipline	ABILITY:Internal|AUTOMATIC|Psychoportation Class Skills|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsionDisciplineClassSkills
