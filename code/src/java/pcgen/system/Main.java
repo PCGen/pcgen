@@ -29,7 +29,6 @@ import java.util.logging.Level;
 
 import javax.swing.JOptionPane;
 
-import com.sun.tools.attach.VirtualMachine;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.formula.PluginFunctionLibrary;
 import pcgen.core.CustomData;

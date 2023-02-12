@@ -28,7 +28,7 @@ plugins {
     id 'maven-publish'                                  // Publishing to Maven Central
     id 'pmd'                                            // PMD for Java, configured further below
     id 'idea'                                           // For IntelliJ IDEA users
-    id "de.undercouch.download" version '4.1.2'         // Shows download percentage
+    id "de.undercouch.download" version '5.3.1'         // Shows download percentage
     id 'edu.sc.seis.launch4j' version '2.5.4'           // Creates launch4j
     id 'com.github.ben-manes.versions' version '0.45.0' // Checks versions for plugins and dependencies
     id "com.dorongold.task-tree" version '2.1.1'        // Prints the task dependency tree
@@ -120,6 +120,7 @@ repositories {
         //}
     //}
     ivy {
+        // TODO Enable HTTPS (e.g., add letsencrypt) for that location
         name "fileRepo"
         url 'http://pc-gen.org/librepo/'
         allowInsecureProtocol = true
@@ -139,8 +140,8 @@ repositories {
 }
 
 // Define the source sets for each task/module
-// TODO even though we have the idea plugin, IntelliJ doesn't reference these
-// source sets whether you run that task or not.
+// TODO even though we have the idea plugin, IntelliJ doesn't reference
+// these source sets whether you run that task or not.
 sourceSets {
     // The main build
     main {
@@ -340,28 +341,44 @@ runtime {
     'javafx.graphics'
     ]
 
-    // We support Mac/Win/Linux x86-64 and Win x86-32
+    // We support Mac/Win/Linux x86-64, Mac/Linux aarch64, and Win x86-32
     targetPlatform('linux-x64', "$projectDir/jre/linux/jre_x64")
+    targetPlatform('linux-aarch64', "$projectDir/jre/linux/jre_aarch64")
     targetPlatform('windows-x64', "$projectDir/jre/windows/jre_x64")
     targetPlatform('windows-x32', "$projectDir/jre/windows/jre_x32")
     targetPlatform('mac-x64', "$projectDir/jre/mac/jre_x64/Contents/Home")
+    targetPlatform('mac-aarch64', "$projectDir/jre/mac/jre_aarch64/Contents/Home")
 
     // Use the jpackage tool that comes with Java to build native installers
     jpackage{
         installerOptions = ["--app-version", "${version.replaceAll('-SNAPSHOT', '')}", "--license-file", "${projectDir}/code/LICENSE"]
 
+        // Get the host architecture
+        def hostArchitecture = System.getProperty("os.arch")
+
         if (Os.isFamily(Os.FAMILY_MAC))
         {
-            targetPlatformName = 'mac-x64'
+            if (hostArchitecture == "x86_64") {
+                targetPlatformName = 'mac-x64'
+            } else if (hostArchitecture == "aarch64") {
+                targetPlatformName = 'mac-aarch64'
+            } else {
+                targetPlatformName = 'NOT SUPPORTED'
+            }
             installerOptions += ["--mac-package-identifier", "PcGen", "--mac-package-name", "PcGen"]
             resourceDir = file("${projectDir}/installers/mac-installer")
         }
         // This may seem weird but there's no LINUX family detection in the OS lib
         else if (Os.isFamily(Os.FAMILY_UNIX)) {
-            targetPlatformName = 'linux-x64'
+            if (hostArchitecture == "x86_64") {
+                targetPlatformName = 'linux-x64'
+            } else if (hostArchitecture == "aarch64") {
+                targetPlatformName = 'linux-aarch64'
+            } else {
+                targetPlatformName = 'NOT SUPPORTED'
+            }
             installerOptions += ['--linux-shortcut']
         }
-
         imageName = "PcGen"
     }
 }
@@ -489,7 +506,7 @@ build.mustRunAfter clean
 
 task downloadJRE {
     def major = 17
-    def archs = ['x64','x32']
+    def archs = ['x64', 'x32', 'aarch64']
     def osList = ['windows', 'mac', 'linux']
     def extension = 'zip'
 
@@ -503,6 +520,7 @@ task downloadJRE {
         archs.each {
             def arch = "${it}"
             if (arch == "x32" && os != "windows") return
+            if (arch == "aarch64" && os == "windows") return
 
             def url = "https://api.adoptium.net/v3/binary/latest/${major}/ga/${os}/${arch}/jdk/hotspot/normal/eclipse"
             def jreDir = new File("${projectDir}/jre/${os}/jre_${arch}")
@@ -574,9 +592,9 @@ task downloadJRE {
 }
 
 task downloadJavaFXModules(dependsOn: downloadJRE) {
-    // We support Windows, Mac, Linux - x64 and Windows x86 (32-bit)
-    def major = "17.0.0.1"
-    def archs = ['x64', 'x86']
+    // We support Windows/Mac/Linux - x64, Mac/Linux - aarch64, and Windows x86 (32-bit)
+    def major = "17.0.6"
+    def archs = ['x64', 'x86', 'aarch64']
     def osList = ["windows", "mac", "linux"]
 
     println("Downloading JavaFX modules (.mods) for use in the runtime bundles.")
@@ -590,6 +608,7 @@ task downloadJavaFXModules(dependsOn: downloadJRE) {
             // build the architecture part of the download filename string
             def archAppend
             if (arch == "x86") {
+                // Only Windows for x86-32 bit
                 if (os == "windows") {
                     archAppend = "-x86"
                 } else {
@@ -597,6 +616,13 @@ task downloadJavaFXModules(dependsOn: downloadJRE) {
                 }
             } else if (arch == "x64") {
                 archAppend = "-x64"
+            } else if (arch == "aarch64") {
+                // Only Linux and Mac for aarch64
+                if (os != "windows") {
+                    archAppend = "-aarch64"
+                } else {
+                    return
+                }
             } else {
                 archAppend = "-UNSUPPORTED-ARCHITECTURE"
             }
@@ -608,7 +634,7 @@ task downloadJavaFXModules(dependsOn: downloadJRE) {
                 osPackage = "osx"
             }
 
-            // URLs look like this: https://download2.gluonhq.com/openjfx/17.0.0.1/openjfx-17.0.0.1_windows-x64_bin-jmods.zip
+            // URLs look like this: https://download2.gluonhq.com/openjfx/17.0.6/openjfx-17.0.6_osx-aarch64_bin-jmods.zip
             def url = "https://download2.gluonhq.com/openjfx/${major}/openjfx-${major}_${osPackage}${archAppend}_bin-jmods.zip"
 
             def jmodsZip = new File("${projectDir}/jre/${os}/jmods${arch}.zip")
@@ -664,9 +690,19 @@ task downloadJavaFXModules(dependsOn: downloadJRE) {
             os = "linux"
         }
 
-        // TODO We default to -x64 because that's where builders build
-        // I'd love to autodetect the Arch on the system but I couldn't find an API call to do that.
-        def archAppend= "-x64"
+        def hostArchitecture = System.getProperty("os.arch")
+
+        // We default to x86_64 as default
+        def archAppend= ""
+        if (hostArchitecture == "x86_64") {
+            archAppend= "-x64"
+        } else if (hostArchitecture == "i386") {
+            archAppend= "-x86" // TODO Not sure if this is supported.
+        } else if (hostArchitecture == "aarch64") {
+            archAppend= "-aarch64"
+        } else {
+            archAppend = "-UNSUPPORTED-ARCH"
+        }
 
         // Gluon renamed the mac package so we deal with that but leave the
         // the rest of the naming / packing as 'mac'.
