@@ -228,9 +228,9 @@ dependencies {
 
     implementation group: 'commons-io', name: 'commons-io', version:'2.11.0'
 
-    implementation group: 'org.springframework', name: 'spring-web', version:'5.3.23'
-    implementation group: 'org.springframework', name: 'spring-beans', version:'5.3.23'
-    implementation group: 'org.springframework', name: 'spring-core', version:'5.3.23'
+    implementation group: 'org.springframework', name: 'spring-web', version:'6.0.4'
+    implementation group: 'org.springframework', name: 'spring-beans', version:'6.0.4'
+    implementation group: 'org.springframework', name: 'spring-core', version:'6.0.4'
     implementation group: 'org.apache.commons', name: 'commons-lang3', version:'3.12.0'
     implementation('org.apache.xmlgraphics:fop:2.8')
     {
@@ -358,7 +358,7 @@ runtime {
 
         if (Os.isFamily(Os.FAMILY_MAC))
         {
-            if (hostArchitecture == "x86_64") {
+            if (hostArchitecture == "x86_64" || hostArchitecture == "amd64") {
                 targetPlatformName = 'mac-x64'
             } else if (hostArchitecture == "aarch64") {
                 targetPlatformName = 'mac-aarch64'
@@ -370,7 +370,7 @@ runtime {
         }
         // This may seem weird but there's no LINUX family detection in the OS lib
         else if (Os.isFamily(Os.FAMILY_UNIX)) {
-            if (hostArchitecture == "x86_64") {
+            if (hostArchitecture == "x86_64" || hostArchitecture == "amd64") {
                 targetPlatformName = 'linux-x64'
             } else if (hostArchitecture == "aarch64") {
                 targetPlatformName = 'linux-aarch64'
@@ -693,7 +693,7 @@ task downloadJavaFXModules(dependsOn: downloadJRE) {
 
         // We default to x86_64 as default
         def archAppend= ""
-        if (hostArchitecture == "x86_64") {
+        if (hostArchitecture == "x86_64" || hostArchitecture == "amd64") {
             archAppend= "-x64"
         } else if (hostArchitecture == "i386") {
             archAppend= "-x86" // TODO Not sure if this is supported.
