@@ -19,6 +19,7 @@ characters/*
 !characters/Sorcerer.pcg
 !characters/SpecialWizard.pcg
 
+# Binary locations
 bin/
 code/bin/
 code/build/
@@ -68,11 +69,6 @@ code/testsuite/output/
 .gradle/
 pcgen-batch-convert.jar
 .metadata
-bin/
-code/bin/
-code/build/
-code/comp-manifest
-code/manifest
 target/
 
 # Data we want to exclude, see .gitignore files within
@@ -119,32 +115,3 @@ jre/
 mods/
 code/manifest-tests
 .DS_Store
-
-Trunk.bat
-target/
-.settings/
-variable_report.csv
-variable_report.html
-
-data/customsources/*
-!data/customsources/readme-customsources.txt
-.nb-gradle/
-jre/
-installers/win-installer/project.nsh
-installers/win-installer/includes/constants.nsh
-.checkstyle
-installers/win-installer/includes/data.nsh
-.nb-gradle-properties
-
-# Eclipse IDE
-.classpath
-.project
-
-# IntelliJ IDE
-.idea/
-out/
-pcgen.iml
-
-# pmd
-/.pmd
-/.ruleset
