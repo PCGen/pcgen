@@ -22,11 +22,11 @@
         <exclude name="AvoidStringBufferField"/>
         <exclude name="ForLoopCanBeForeach"/>
         <exclude name="GuardLogStatement"/>
-        <!-- its better to throw a NPE and add explicit checks. Nulls should be rare -->
+        <!-- It is better to throw a NPE and add explicit checks. Nulls should be rare -->
         <exclude name="LiteralsFirstInComparisons"/>
         <exclude name="LooseCoupling"/>
         <exclude name="MethodReturnsInternalArray"/>
-        <!-- its better to throw a NPE and add explicit checks. Nulls should be rare -->
+        <!-- It is better to throw a NPE and add explicit checks. Nulls should be rare -->
         <exclude name="PositionLiteralsFirstInCaseInsensitiveComparisons"/>
         <exclude name="SwitchStmtsShouldHaveDefault"/>
         <exclude name="SystemPrintln"/>
@@ -154,7 +154,7 @@
         <exclude name="AvoidFieldNameMatchingTypeName"/>
         <exclude name="AvoidLiteralsInIfCondition"/>
         <!-- we don't use serialization -->
-        <exclude name="BeanMembersShouldSerialize"/>
+        <exclude name="NonSerializableClass"/>
         <exclude name="CloneThrowsCloneNotSupportedException"/>
         <exclude name="CompareObjectsWithEquals"/>
         <exclude name="ConstructorCallsOverridableMethod"/>
