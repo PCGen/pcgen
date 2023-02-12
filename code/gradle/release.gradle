@@ -180,7 +180,7 @@ launch4j {
     downloadUrl = "https://jdk.java.net/"
 }
 
-task layoutNsisOptional(type: Copy, dependsOn: copyToOutput) {
+task layoutNsisOptional(type: Copy, dependsOn: [copyToOutput]) {
     description="Assemble the optional files for PCGen installations"
     into nsisOptionFolder
 
@@ -408,14 +408,15 @@ task cleanNsis(type: Delete) {
 }
 
 
-task sourcesJar(type: Jar, dependsOn: classes) {
+task sourcesJar(type: Jar, dependsOn: [classes, copyToOutput, createExe, distTar, distZip, layoutNsisBase,
+                                       startScripts]) {
+    duplicatesStrategy DuplicatesStrategy.INCLUDE
     description = "build source jar file"
-    classifier = 'sources'
+    //classifier = 'sources'
     from sourceSets.main.allSource
 }
 
-task assembleArtifacts(type: Copy, dependsOn: ['build', 'runtimeZip', 'sourcesJar',
-     'buildNsis']) {
+task assembleArtifacts(type: Copy, dependsOn: [build, runtimeZip, sourcesJar, buildNsis]) {
     description = "Create the release artifacts and get them into the release folder."
     into releaseDir
     // buildNsis puts the exe into the release folder directly
