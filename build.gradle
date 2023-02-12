@@ -327,7 +327,8 @@ artifacts {
     archives converterJar
 }
 
-task copyToLibs(type: Copy) {
+task copyToLibs(type: Copy, dependsOn:[startScripts,distTar,distZip,installDist]) {
+    mustRunAfter createExe
     into "$buildDir/libs"
     from configurations.runtimeClasspath
 }
@@ -693,7 +694,7 @@ allprojects {
     }
     // https://youtrack.jetbrains.com/issue/KT-46165
     tasks.withType(org.gradle.jvm.tasks.Jar) {
-        duplicatesStrategy = DuplicatesStrategy.WARN
+        duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     }
     tasks.withType(JavaExec) {
         jvmArgs += '--enable-preview'
