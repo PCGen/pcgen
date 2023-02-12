@@ -704,6 +704,8 @@ task downloadJavaFXModules(dependsOn: downloadJRE) {
             archAppend = "-UNSUPPORTED-ARCH"
         }
 
+        println("Host arch is ${hostArchitecture}")
+
         // Gluon renamed the mac package so we deal with that but leave the
         // the rest of the naming / packing as 'mac'.
         def osPackage = os
