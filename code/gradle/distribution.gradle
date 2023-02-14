@@ -104,7 +104,7 @@ run {
                    "--enable-preview",          // enable Java preview features
                    "--module-path",
                    "${projectDir}/mods/lib/",
-                   "--add-modules", "javafx.controls, javafx.web, javafx.swing, javafx.fxml"
+                   "--add-modules", "javafx.controls,javafx.web,javafx.swing,javafx.fxml"
         ]
 
     }
