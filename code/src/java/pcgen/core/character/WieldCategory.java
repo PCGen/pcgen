@@ -35,6 +35,7 @@ import pcgen.core.QualifiedObject;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.rules.context.AbstractReferenceContext;
+import pcgen.util.Logging;
 
 public final class WieldCategory implements Loadable
 {
@@ -119,6 +120,7 @@ public final class WieldCategory implements Loadable
 		if (previous != null)
 		{
 			// overwrite warning?
+			Logging.log(Logging.WARNING, "There was a previous wield category, TODO complete dealing with this use case - overwrite?");
 		}
 	}
 

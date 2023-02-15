@@ -58,6 +58,7 @@ public abstract class VersionAwareToken
 				if (idx == 2 && (tokens[idx].startsWith("RC")))
 				{
 					// Ignore we are not concerned about Release candidates
+					Logging.debugPrint("Ignore we are not concerned about Release candidates.");
 				}
 				else
 				{

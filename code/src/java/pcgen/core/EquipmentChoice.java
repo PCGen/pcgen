@@ -555,10 +555,12 @@ public final class EquipmentChoice
 			if (kind.startsWith("TITLE="))
 			{
 				//Do nothing, handled above
+				Logging.log(Logging.DEBUG, "kind starts with TITLE= and we've already processed this.");
 			}
 			else if (kind.startsWith("COUNT="))
 			{
 				// Do nothing, handled above
+				Logging.log(Logging.DEBUG, "kind starts with COUNT= and we've already processed this.");
 			}
 			else
 			{

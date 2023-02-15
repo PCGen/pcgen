@@ -56,7 +56,7 @@ class ParameterTreeTest
 		final Matcher mat = ParameterTree.pat.matcher(s);
 		mat.find();
 		ParameterTree t1 = ParameterTree.makeTree(s);
-		assertEquals(s, t1.getContents(), "New ParamterTree has correct contents");
+		assertEquals(s, t1.getContents(), "New ParameterTree has correct contents");
 	}
 
 	@Test
@@ -67,7 +67,7 @@ class ParameterTreeTest
 		mat.find();
 
 		ParameterTree t1 = ParameterTree.makeTree(s);
-		assertEquals("TYPE=Foo", t1.getContents(), "New ParamterTree has correct contents");
+		assertEquals("TYPE=Foo", t1.getContents(), "New ParameterTree has correct contents");
 	}
 
 	@Test
@@ -77,7 +77,7 @@ class ParameterTreeTest
 		final Matcher mat = ParameterTree.pat.matcher(s);
 		mat.find();
 		ParameterTree t1 = ParameterTree.makeTree(s);
-		assertEquals("TYPE=Foo", t1.getContents(), "New ParamterTree has correct contents");
+		assertEquals("TYPE=Foo", t1.getContents(), "New ParameterTree has correct contents");
 	}
 
 	@Test
@@ -89,20 +89,20 @@ class ParameterTreeTest
 
 		ParameterTree t1 = ParameterTree.makeTree(s);
 
-		assertEquals("[or]", t1.getContents(), "New ParamterTree has correct contents");
+		assertEquals("[or]", t1.getContents(), "New ParameterTree has correct contents");
 		assertEquals("TYPE=Foo", t1.getLeftTree().getContents(),
-				"New ParamterTree has correct left tree contents");
+				"New ParameterTree has correct left tree contents");
 		assertNull(t1.getLeftTree().getLeftTree(),
-				"New ParamterTree has correct left tree, left tree contents");
+				"New ParameterTree has correct left tree, left tree contents");
 		assertNull(t1.getLeftTree().getRightTree(),
-				"New ParamterTree has correct left tree, right tree contents");
+				"New ParameterTree has correct left tree, right tree contents");
 
 		assertEquals("TYPE=Bar", t1.getRightTree().getContents(),
-				"New ParamterTree has correct right tree contents");
+				"New ParameterTree has correct right tree contents");
 		assertNull(t1.getRightTree().getLeftTree(),
-				"New ParamterTree has correct left tree, left tree contents");
+				"New ParameterTree has correct left tree, left tree contents");
 		assertNull(t1.getRightTree().getRightTree(),
-				"New ParamterTree has correct left tree, right tree contents");
+				"New ParameterTree has correct left tree, right tree contents");
 	}
 
 
@@ -115,20 +115,20 @@ class ParameterTreeTest
 
 		ParameterTree t1 = ParameterTree.makeTree(s);
 
-		assertEquals("[or]", t1.getContents(), "New ParamterTree has correct contents");
+		assertEquals("[or]", t1.getContents(), "New ParameterTree has correct contents");
 		assertEquals("TYPE=Foo", t1.getLeftTree().getContents(),
-				"New ParamterTree has correct left tree contents");
+				"New ParameterTree has correct left tree contents");
 		assertNull(t1.getLeftTree().getLeftTree(),
-				"New ParamterTree has correct left tree, left tree contents");
+				"New ParameterTree has correct left tree, left tree contents");
 		assertNull(t1.getLeftTree().getRightTree(),
-				"New ParamterTree has correct left tree, right tree contents");
+				"New ParameterTree has correct left tree, right tree contents");
 
 		assertEquals("TYPE=Bar", t1.getRightTree().getContents(),
-				"New ParamterTree has correct right tree contents");
+				"New ParameterTree has correct right tree contents");
 		assertNull(t1.getRightTree().getLeftTree(),
-				"New ParamterTree has correct left tree, left tree contents");
+				"New ParameterTree has correct left tree, left tree contents");
 		assertNull(t1.getRightTree().getRightTree(),
-				"New ParamterTree has correct left tree, right tree contents");
+				"New ParameterTree has correct left tree, right tree contents");
 	}
 
 	@Test
@@ -146,13 +146,13 @@ class ParameterTreeTest
 		final ParameterTree tlr = tl.getRightTree();
 
 		// expected branch nodes
-		assertEquals("[and]", t.getContents(), "t1 ParamterTree has correct contents");
-		assertEquals("[or]", tl.getContents(), "tl ParamterTree has correct contents");
+		assertEquals("[and]", t.getContents(), "t1 ParameterTree has correct contents");
+		assertEquals("[or]", tl.getContents(), "tl ParameterTree has correct contents");
 
 		// expected leaf nodes
-		assertEquals("String3", tr.getContents(), "tr ParamterTree has correct contents");
-		assertEquals("TYPE=Foo", tll.getContents(), "tll ParamterTree has correct contents");
-		assertEquals("TYPE=Bar", tlr.getContents(), "tlr ParamterTree has correct contents");
+		assertEquals("String3", tr.getContents(), "tr ParameterTree has correct contents");
+		assertEquals("TYPE=Foo", tll.getContents(), "tll ParameterTree has correct contents");
+		assertEquals("TYPE=Bar", tlr.getContents(), "tlr ParameterTree has correct contents");
 
 		// check that leaves really are leaves
 		assertNull(tr.getLeftTree(), "tr left tree is null (i.e. is a leaf node)");

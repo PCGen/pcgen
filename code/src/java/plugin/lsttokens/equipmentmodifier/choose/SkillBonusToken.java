@@ -25,6 +25,7 @@ import pcgen.core.EquipmentModifier;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
 
 public class SkillBonusToken implements CDOMSecondaryToken<EquipmentModifier>
 {
@@ -84,20 +85,18 @@ public class SkillBonusToken implements CDOMSecondaryToken<EquipmentModifier>
 			else if (tokString.startsWith("MAX="))
 			{
 				max = Integer.valueOf(tokString.substring(4));
-				// OK
 			}
 			else if (tokString.startsWith("TITLE="))
 			{
-				// OK
+				Logging.debugPrint("Do not process TITLE=");
 			}
 			else if (tokString.startsWith("INCREMENT="))
 			{
-				// OK
 				Integer.parseInt(tokString.substring(4));
 			}
 			else
 			{
-				// Assume it's a primitive skill??
+				Logging.debugPrint("Assume it's a primitive skill??");
 			}
 		}
 		if (max == null)

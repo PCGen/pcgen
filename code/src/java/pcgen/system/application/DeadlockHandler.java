@@ -27,5 +27,5 @@ import java.lang.management.ThreadInfo;
 @FunctionalInterface
 public interface DeadlockHandler
 {
-	void handleDeadlock(final ThreadInfo[] deadlockedThreads);
+	void handleDeadlock(ThreadInfo[] deadlockedThreads);
 }

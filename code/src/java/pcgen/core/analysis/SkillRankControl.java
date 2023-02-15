@@ -240,7 +240,9 @@ public final class SkillRankControl
 					int maxLanguages = getTotalRank(aPC, sk).intValue();
 					if (selectedLanguages > maxLanguages)
 					{
-                    }
+						// Do nothing, handled above
+						Logging.log(Logging.DEBUG, "Although there were more selected langauges: " + selectedLanguages + " than max langauges: " + maxLanguages + " we dealth with that earlier.");
+					}
 				}
 			}
 		}

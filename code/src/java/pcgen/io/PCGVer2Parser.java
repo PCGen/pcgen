@@ -398,13 +398,13 @@ final class PCGVer2Parser implements PCGParser
 			}
 			else
 			{
-				// TODO Error message
+				Logging.errorPrint("The PC did not have the skill: " + aSkill.getDisplayName());
 			}
 		}
 		else
 		{
 			// TODO Error message
-			// Hmm, not a supported type
+			Logging.errorPrint(sourceStr + " is not a supported type");
 		}
 
 		if (oSource != null)
@@ -1766,7 +1766,7 @@ final class PCGVer2Parser implements PCGParser
 			else if (IOConstants.TAG_DATA.equals(tag))
 			{
 				// TODO
-				// for now it's ok to ignore it!
+				Logging.debugPrint(tag + " equals + " + IOConstants.TAG_DATA + " TODO: we haven't processed this yet.");
 			}
 			else
 			{
@@ -1972,6 +1972,7 @@ final class PCGVer2Parser implements PCGParser
 			else if (IOConstants.TAG_CANCASTPERDAY.equals(tag))
 			{
 				// TODO
+				Logging.debugPrint(tag + " equals + " + IOConstants.TAG_CANCASTPERDAY + " TODO: we haven't processed this yet.");
 			}
 			else if (IOConstants.TAG_SPELLBASE.equals(tag))
 			{
@@ -2144,7 +2145,7 @@ final class PCGVer2Parser implements PCGParser
 					}
 					else if (tag.equals(IOConstants.TAG_DOMAINGRANTS))
 					{
-						//Can safely ignore
+						Logging.debugPrint(tag + " equals + " + IOConstants.TAG_DOMAINGRANTS + " - ignoring.");
 					}
 					else if (!tag.equals(IOConstants.TAG_ADDTOKEN))
 					{
@@ -2976,6 +2977,7 @@ final class PCGVer2Parser implements PCGParser
 		if (stok.countTokens() != 2)
 		{
 			// TODO This if switch currently does nothing?
+			Logging.debugPrint(stok.countTokens() + " did not equal 2 - TODO we need to deal with this case.");
 		}
 
 		/* final String region = */
@@ -3538,6 +3540,7 @@ final class PCGVer2Parser implements PCGParser
 			{
 				// TODO
 				// for now it's ok to ignore it!
+				Logging.debugPrint(tag + " equals " + IOConstants.TAG_SYNERGY + " OK to ignore.");
 			}
 			else if (IOConstants.TAG_OUTPUTORDER.equals(tag))
 			{
@@ -4788,6 +4791,8 @@ final class PCGVer2Parser implements PCGParser
 								// Make sure we are not getting a custom item
 								if (aEquip2.isType(Constants.TYPE_CUSTOM))
 								{
+									// TODO
+									Logging.debugPrint(aEquip2.getName() + " is custom equipment. TODO - need to implement?");
                                 }
 								else
 								{
@@ -4856,6 +4861,7 @@ final class PCGVer2Parser implements PCGParser
 				catch (NumberFormatException nfe)
 				{
 					// nothing we can or have to do about this
+					Logging.errorPrint("Tag output order came back as not a proper number.");
 				}
 
 				aEquip.setOutputIndex(index);
@@ -4867,10 +4873,12 @@ final class PCGVer2Parser implements PCGParser
 			else if (IOConstants.TAG_COST.equals(tag))
 			{
 				// TODO This else if switch currently does nothing?
+				Logging.debugPrint(tag + " equals " + IOConstants.TAG_COST + " TODO We need to implement this.");
 			}
 			else if (IOConstants.TAG_WT.equals(tag))
 			{
 				// TODO This else if switch currently does nothing?
+				Logging.debugPrint(tag + " equals " + IOConstants.TAG_WT + " TODO We need to implement this.");
 			}
 			else if (IOConstants.TAG_NOTE.equals(tag))
 			{

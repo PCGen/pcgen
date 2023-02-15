@@ -77,7 +77,7 @@ public class PreSkillSitParser extends AbstractPrerequisiteListParser implements
 						throw new PersistenceLayerException("SKILL= must be first in PRESKILLSIT");
 					}
 
-					if (skillName.toUpperCase().trim().equals("ANY"))
+					if (skillName.trim().equalsIgnoreCase("ANY"))
 					{
 						Logging.errorPrint("ANY not supported in PRESKILLSIT");
 					}

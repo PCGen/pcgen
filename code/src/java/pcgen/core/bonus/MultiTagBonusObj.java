@@ -61,7 +61,7 @@ public abstract class MultiTagBonusObj extends BonusObj
 		return (String) obj;
 	}
 
-	protected abstract String getBonusTag(final int tagNumber);
+	protected abstract String getBonusTag(int tagNumber);
 
 	protected abstract int getBonusTagLength();
 

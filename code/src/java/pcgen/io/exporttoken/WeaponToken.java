@@ -1689,6 +1689,7 @@ public class WeaponToken extends Token
 			//				baseBonus += (int) pc.getTotalBonusTo("WEAPONPROF=" + profName, "TOHITOVERSIZE");
 			//				baseBonus += getWeaponProfTypeBonuses(pc, eq, "TOHITOVERSIZE", WPTYPEBONUS_PC);
 			//			}
+			Logging.debugPrint("TODO - Fix If the character normally can't wield this weapon 1-handed, but for some reason they can (e.g. Monkey Grip) then check for TOHIT modifiers.");
 		}
 
 		if (hitMode == HITMODE_TWPHITH || hitMode == HITMODE_TWPHITL)
@@ -2282,6 +2283,7 @@ public class WeaponToken extends Token
 			// Thrown weapons just get stat bonus
 			// and its already been added in the
 			// getTotalBonusTo(TYPE) above
+			Logging.debugPrint("// Thrown weapons just get stat bonus and its already been added in the getTotalBonusTo(TYPE) above");
 		}
 		// If at short range, add SHORTRANGE bonus
 		if (range > -1)

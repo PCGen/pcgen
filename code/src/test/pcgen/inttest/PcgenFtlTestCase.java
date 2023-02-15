@@ -31,6 +31,7 @@ import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.util.Locale;
 
+import org.assertj.core.util.Files;
 import pcgen.LocaleDependentTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.system.Main;
@@ -105,6 +106,7 @@ public abstract class PcgenFtlTestCase
 
 		// Read in the actual XML produced by PCGen
 		actual = readFile(new File(outputFile));
+		System.out.println(Files.newTemporaryFile().getAbsolutePath());
 		// Read in the expected XML
 		expected = readFile(
 				new File("code/testsuite/csheets/" + character + ".xml"));

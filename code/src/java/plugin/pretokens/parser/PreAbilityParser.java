@@ -121,7 +121,7 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements 
 			if (preKey.toUpperCase().startsWith(CATEGORY) || preKey.toUpperCase().startsWith(CATEGORY_EQUALS))
 			{
 				String tempCat = preKey.substring((CATEGORY.length()));
-				if (tempCat.toUpperCase().trim().equals("ANY"))
+				if (tempCat.trim().equalsIgnoreCase("ANY"))
 				{
 					Logging.errorPrint("ANY no longer allowed as an Ability Category in PREABILITY");
 				}
@@ -159,7 +159,7 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements 
 							LanguageBundle.getFormattedString("Errors.PreAbility.CategoryNotFirst", tempCat));
 					}
 
-					if (tempCat.toUpperCase().trim().equals("ANY"))
+					if (tempCat.trim().equalsIgnoreCase("ANY"))
 					{
 						Logging.errorPrint("ANY no longer allowed as an Ability Category in PREABILITY");
 					}
