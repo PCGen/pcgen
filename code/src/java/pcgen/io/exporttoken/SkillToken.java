@@ -192,6 +192,7 @@ public class SkillToken extends Token
 			if (i == 0)
 			{
 				// Ignore
+				Logging.debugPrint("Ignore the 0 indexed token.");
 			}
 			else if (i == 1)
 			{

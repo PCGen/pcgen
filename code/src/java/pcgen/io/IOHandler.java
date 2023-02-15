@@ -158,7 +158,7 @@ public abstract class IOHandler
 	 * @param in    the stream to be read from
 	 * @param validate
 	 */
-	protected abstract void read(PlayerCharacter aPC, InputStream in, final boolean validate);
+	protected abstract void read(PlayerCharacter aPC, InputStream in, boolean validate);
 
 	/////////////////////////////////////////////////////////////////////////////
 	////////////////////////////// Abstract /////////////////////////////////////

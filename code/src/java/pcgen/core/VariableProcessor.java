@@ -122,7 +122,7 @@ public abstract class VariableProcessor
 	 * @param spellLevelTemp The temporary spell level
 	 * @return The value of the variable
 	 */
-	public Float getVariableValue(final CharacterSpell aSpell, String varString, String src, int spellLevelTemp)
+	public Float getVariableValue(CharacterSpell aSpell, String varString, String src, int spellLevelTemp)
 	{
 		Float result = getJepOnlyVariableValue(aSpell, varString, src, spellLevelTemp);
 
@@ -514,7 +514,7 @@ public abstract class VariableProcessor
 		}
 	}
 
-	abstract Float getInternalVariable(final CharacterSpell aSpell, String valString, final String src);
+	abstract Float getInternalVariable(CharacterSpell aSpell, String valString, String src);
 
 	/**
 	 * Get a value for the term as evaluated in the context of the PC that

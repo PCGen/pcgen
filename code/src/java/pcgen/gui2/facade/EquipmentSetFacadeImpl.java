@@ -780,7 +780,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentList
 
 			if (lastDepth < currRowDepth)
 			{
-				// Ignore this child of a higher container
+				Logging.log(Logging.DEBUG, "Ignore this child of a higher container");
 			}
 			else if ((equipNode.getBodyStructure() != currRowNode.getBodyStructure())
 				|| (equipNode.getParent() != currRowNode.getParent()))
@@ -836,7 +836,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentList
 
 			if (lastDepth < currRowDepth)
 			{
-				// Ignore this child of a lower container
+				Logging.log(Logging.DEBUG, "Ignore this child of a higher container");
 			}
 			else if ((equipNode.getBodyStructure() != currRowNode.getBodyStructure())
 				|| (equipNode.getParent() != currRowNode.getParent()))

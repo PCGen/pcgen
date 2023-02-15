@@ -5,7 +5,7 @@ import java.time.LocalDateTime
  * autobuild site is generated and the outputs from other tasks that are to be
  * deployed with the site.
  *
- * Usage: gradle deployAutobuild
+ * Usage: ./gradlew deployAutobuild
  */
 ext {
     if (System.env.BUILD_NUMBER) {
@@ -43,6 +43,6 @@ task copyInstaller(type: Copy) {
     into "${destAutobuildDir}/downloads/"
 }
 
-task deployAutobuild (dependsOn: ['copyDocs', 'copyDist', 'copySite', \
-'copyInstaller']) {
+// The Main Task
+task deployAutobuild (dependsOn: ['copyDocs', 'copyDist', 'copySite', 'copyInstaller']) {
 }

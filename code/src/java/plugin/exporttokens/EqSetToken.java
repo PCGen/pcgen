@@ -22,6 +22,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
+import pcgen.util.Logging;
 
 /**
  * Deal with EQSET Token
@@ -50,10 +51,12 @@ public class EqSetToken extends Token
 		if ("EQSET.START".equals(tokenSource))
 		{
 			//TODO: Does Nothing here, only on EQSheet exports, should that be fixed?
+			Logging.debugPrint("EQSET.START does Nothing here, only on EQSheet exports, should that be fixed?");
 		}
 		else if ("EQSET.END".equals(tokenSource))
 		{
 			//TODO: Does Nothing here, only on EQSheet exports, should that be fixed?
+			Logging.debugPrint("EQSET.END does Nothing here, only on EQSheet exports, should that be fixed?");
 		}
 		else if ("EQSET.NUMBER".equals(tokenSource))
 		{

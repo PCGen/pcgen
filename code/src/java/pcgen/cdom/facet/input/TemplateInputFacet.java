@@ -30,6 +30,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.ChooseActivation;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.ChooserUtilities;
+import pcgen.util.Logging;
 
 /**
  * TemplateInputFacet is a Facet that handles addition of PCTempaltes to a
@@ -73,6 +74,7 @@ public class TemplateInputFacet
 		if (!selectedList.isEmpty())
 		{
 			//Error?
+			Logging.log(Logging.INFO, "Selected List is not emtpy, it contains : " + selectedList.size() + " templates");
 		}
 		final List<T> newSelections = aMan.doChooser(pc, availableList, selectedList, new ArrayList<>());
 		if (newSelections.size() != 1)

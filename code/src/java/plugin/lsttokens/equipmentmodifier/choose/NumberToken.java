@@ -25,6 +25,7 @@ import pcgen.core.EquipmentModifier;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
 
 public class NumberToken implements CDOMSecondaryToken<EquipmentModifier>
 {
@@ -79,33 +80,30 @@ public class NumberToken implements CDOMSecondaryToken<EquipmentModifier>
 			if (tokString.startsWith("MIN="))
 			{
 				min = Integer.valueOf(tokString.substring(4));
-				// OK
 			}
 			else if (tokString.startsWith("MAX="))
 			{
 				max = Integer.valueOf(tokString.substring(4));
-				// OK
 			}
 			else if (tokString.startsWith("TITLE="))
 			{
-				// OK
+				Logging.debugPrint("Do not process TITLE=");
 			}
 			else if (tokString.startsWith("INCREMENT="))
 			{
-				// OK
 				Integer.parseInt(tokString.substring(4));
 			}
 			else if (tokString.startsWith("NOSIGN"))
 			{
-				// OK
+				Logging.debugPrint("Do not process NOSIGN");
 			}
 			else if (tokString.startsWith("SKIPZERO"))
 			{
-				// OK
+				Logging.debugPrint("Do not process SKIPZERO");
 			}
 			else if (tokString.startsWith("MULTIPLE"))
 			{
-				// OK
+				Logging.debugPrint("Do not process MULTIPLE");
 			}
 			else
 			{

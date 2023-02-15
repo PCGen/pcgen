@@ -2,14 +2,14 @@
  * reports to be run as part of the PCGen nightly build. It is
  * called from the main build.gradle file.
  *
- * Usage: gradle allReports
+ * Usage: ./gradlew allReports
  */
 
 checkstyle {
     configFile = new File('code/standards/checkstyle.xml')
     configProperties = [samedir: "${rootDir}/code/standards"]
     showViolations = true
-    toolVersion = '8.44'
+    toolVersion = '10.7.0'
     sourceSets = []
 }
 
@@ -19,13 +19,13 @@ pmd {
     ruleSetFiles = files('code/standards/ruleset.xml')
     consoleOutput = true
     sourceSets = []
-    toolVersion = "6.21.0"
+    toolVersion = "6.54.0"
     incrementalAnalysis = true
 }
 
-// TODO fix the 52 outstanding bugs and then remove the ignoreFailures
+// TODO fix the outstanding bugs and then remove the ignoreFailures
 spotbugs {
-    toolVersion = '4.4.0'
+    toolVersion = '4.7.3'
     excludeFilter = file("$rootProject.projectDir/code/standards/spotbugs_ignore.xml")
     omitVisitors = ['Naming', 'CrossSiteScripting', 'DontUseEnum', 'DoInsideDoPrivileged']
     reportLevel = 'low'
@@ -39,6 +39,7 @@ spotbugsMain {
         html.stylesheet resources.text.fromFile('code/standards/fancy-hist.xsl')
     }
 }
+
 task allReports {
     dependsOn = ['checkstyleMain', 'pmdMain', 'spotbugsMain']
 }

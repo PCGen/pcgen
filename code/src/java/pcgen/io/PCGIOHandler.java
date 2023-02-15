@@ -226,7 +226,6 @@ public final class PCGIOHandler extends IOHandler
 
         try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(out, StandardCharsets.UTF_8)))
         {
-            ;
             bw.write(pcgString);
             bw.flush();
 

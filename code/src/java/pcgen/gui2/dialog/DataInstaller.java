@@ -184,7 +184,7 @@ public final class DataInstaller extends JFrame
 
             if (source == null)
             {
-                // Do nothing
+                Logging.log(Logging.DEBUG, "Source was null, but that's OK");
             } else if (source.equals(closeButton))
             {
                 setVisible(false);

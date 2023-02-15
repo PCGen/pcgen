@@ -19,6 +19,13 @@ characters/*
 !characters/Sorcerer.pcg
 !characters/SpecialWizard.pcg
 
+# Binary locations
+bin/
+code/bin/
+code/build/
+code/comp-manifest
+code/manifest
+
 # JVM Error log if Java craches
 hs_err_*.log
 
@@ -55,15 +62,13 @@ pcgen.jar
 /output/
 /build/
 /libs/
+output/
+build/
+libs/
 code/testsuite/output/
 .gradle/
 pcgen-batch-convert.jar
 .metadata
-bin/
-code/bin/
-code/build/
-code/comp-manifest
-code/manifest
 target/
 
 # Data we want to exclude, see .gitignore files within
@@ -92,6 +97,8 @@ code/build.eclipse/
 out/
 pcgendev.iml
 pcgen.iml
+pcgen.ipr
+pcgen.iws
 
 # VS Code IDE
 .vscode/
@@ -108,4 +115,3 @@ jre/
 mods/
 code/manifest-tests
 .DS_Store
-

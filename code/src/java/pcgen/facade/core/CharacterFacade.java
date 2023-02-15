@@ -459,7 +459,7 @@ public interface CharacterFacade extends CompanionFacade
 	 * Set the character's current experience point value
 	 * @param xp The new XP value to be set
 	 */
-	public void setXP(final int xp);
+	public void setXP(int xp);
 
 	/**
 	 * @return a reference to this character's current experience point value
@@ -470,7 +470,7 @@ public interface CharacterFacade extends CompanionFacade
 	 * Adjust the character's current experience point value
 	 * @param xp The value to be added to the character's current experience point value
 	 */
-	public void adjustXP(final int xp);
+	public void adjustXP(int xp);
 
 	/**
 	 * @return A reference to the XP total that will qualify the character for the next level
@@ -482,7 +482,7 @@ public interface CharacterFacade extends CompanionFacade
 	 * *
 	 * @param xpTableName The name of the XP table to be set
 	 */
-	public void setXPTable(final String xpTableName);
+	public void setXPTable(String xpTableName);
 
 	/**
 	 * Set the character's character type.
@@ -531,7 +531,7 @@ public interface CharacterFacade extends CompanionFacade
 	 * Set the character's age in years.
 	 * @param age The new age to be set.
 	 */
-	public void setAge(final int age);
+	public void setAge(int age);
 
 	/**
 	 * @return A reference to the age of the character
@@ -548,7 +548,7 @@ public interface CharacterFacade extends CompanionFacade
 	 * has changed.
 	 * @param ageCat The new age category to be set
 	 */
-	public void setAgeCategory(final String ageCat);
+	public void setAgeCategory(String ageCat);
 
 	/**
 	 * @return A reference to the age category of the character.
@@ -803,7 +803,7 @@ public interface CharacterFacade extends CompanionFacade
 	/**
 	 * @return calculate a variable for the current character
 	 */
-	public Float getVariable(final String variableString, final boolean isMax);
+	public Float getVariable(String variableString, boolean isMax);
 
 	/**
 	 * Advise the character facade that it is being closed.
