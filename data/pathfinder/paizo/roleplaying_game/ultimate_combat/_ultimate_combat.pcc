@@ -38,17 +38,11 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Ultimate Combat" Copyrigh
 # Data files
 DATACONTROL:uc__datacontrols.lst
 ABILITY:uc_abilities_globalvar.lst
-
-
 ABILITY:uc_abilities.lst
 ABILITY:uc_abilities_class.lst
-ABILITY:uc_abilities_class_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
-ABILITY:uc_abilities_class_apg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
 ABILITY:uc_abilities_race.lst
 ABILITY:uc_feats.lst
-ABILITY:support/uc_abilities_class_um.lst|PRECAMPAIGN:1,INCLUDES=Melee Tactics Toolbox
 ABILITYCATEGORY:uc_abilitycategories.lst
-ABILITYCATEGORY:uc_abilitycategories_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 CLASS:uc_classes.lst
 EQUIPMENT:uc_equip_general.lst
 EQUIPMENT:uc_equip_arms_armor.lst|(EXCLUDE:Do-Maru|Tatami-Do|O-Yoroi|Mountain Pattern Armor)|PRECAMPAIGN:1,INCLUDES=Ultimate Equipment
@@ -60,9 +54,38 @@ RACE:uc_races.lst
 SPELL:uc_spells.lst
 SKILL:uc_skills.lst
 TEMPLATE:uc_templates.lst
-
 ARMORPROF:uc_profs_armor.lst
 WEAPONPROF:uc_profs_weapon.lst
+
+# Support
+ABILITY:support/uc_abilities_class_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+ABILITY:support/uc_abilities_class_apg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+ABILITY:support/uc_abilities_class_mtt.lst|PRECAMPAIGN:1,INCLUDES=Melee Tactics Toolbox
+ABILITYCATEGORY:support/uc_abilitycategories_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+ABILITY:support/uc_abilities_class_acg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
+ABILITY:support/uc_abilities_class_ag.lst|PRECAMPAIGN:1,INCLUDES=Adventurer's Guide
+ABILITY:support/uc_abilities_class_amh.lst|PRECAMPAIGN:1,INCLUDES=Armor Master’s Handbook
+ABILITY:support/uc_abilities_class_apg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+ABILITY:support/uc_abilities_class_aqua.lst|PRECAMPAIGN:1,INCLUDES=Aquatic Adventures
+ABILITY:support/uc_abilities_class_boa.lst|PRECAMPAIGN:1,INCLUDES=Blood of Angels
+ABILITY:support/uc_abilities_class_bos.lst|PRECAMPAIGN:1,INCLUDES=Blood of Shadows
+ABILITY:support/uc_abilities_class_cr.lst|PRECAMPAIGN:1,INCLUDES=Core Rulebook
+ABILITY:support/uc_abilities_class_dtt.lst|PRECAMPAIGN:1,INCLUDES=Dirty Tactics Toolbox
+ABILITY:support/uc_abilities_class_ha.lst|PRECAMPAIGN:1,INCLUDES=Horror Adventures
+ABILITY:support/uc_abilities_class_hotw.lst|PRECAMPAIGN:1,INCLUDES=Heroes of the Wild
+ABILITY:support/uc_abilities_class_kog.lst|PRECAMPAIGN:1,INCLUDES=Kobolds of Golarion
+ABILITY:support/uc_abilities_class_lod.lst|PRECAMPAIGN:1,INCLUDES=Legacy of Dragons
+ABILITY:support/uc_abilities_class_mah.lst|PRECAMPAIGN:1,INCLUDES=Martial Arts Handbook
+ABILITY:support/uc_abilities_class_mhh.lst|PRECAMPAIGN:1,INCLUDES=Monster Hunter’s Handbook
+ABILITY:support/uc_abilities_class_mtt.lst|PRECAMPAIGN:1,INCLUDES=Melee Tactics Toolbox
+ABILITY:support/uc_abilities_class_ui.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Intrigue
+ABILITY:support/uc_abilities_class_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+ABILITY:support/uc_abilities_class_uw.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Wilderness
+ABILITY:support/uc_abilities_class_wmh.lst|PRECAMPAIGN:1,INCLUDES=Weapon Master’s Handbook
+ABILITY:support/uc_abilitycategories_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+
+# TODO: If Pathfinder Player Companion: Blood of the Ancients is created, enable this.
+#ABILITY:support/uc_abilities_class_bota.lst|PRECAMPAIGN:1,INCLUDES=Blood of the Ancients
 
 #MOVE TO CORE ESSENTIALS
 COMPANIONMOD:uc_companionmods.lst
@@ -72,3 +95,5 @@ FORWARDREF:RACE|Companion (Bat (Dire)),Companion (Dinosaur (Ankylosaurus)),Compa
 
 
 FORWARDREF:CLASSSPELLLIST|Magus
+
+# Latest Revision: 2023-02-18
