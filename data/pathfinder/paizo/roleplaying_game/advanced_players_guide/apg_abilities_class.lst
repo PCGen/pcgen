@@ -810,7 +810,7 @@ Gate					KEY:Summoner ~ Gate					CATEGORY:Special Ability	TYPE:SummonerClassFeat
 ###Block:
 
 # Ability Name								Unique Key			Category of Ability		Define											Innate Spells																					Ability								Modify VAR																																																																							Allow Follower		Allowed Companions
-CATEGORY=Special Ability|Summoner ~ Eidolon.MOD												DEFINE:EidolonEvolution|0	DEFINE:Eidolon_CF_EvolutionProgression|0																																	BONUS:VAR|EidolonEvolution|3+(SummonerLVL>=2)+(SummonerLVL>=3)+if(SummonerLVL>=4,2,0)+(SummonerLVL>=5)+(SummonerLVL>=6)+(SummonerLVL>=7)+(SummonerLVL>=8)+if(SummonerLVL>=9,2,0)+(SummonerLVL>=10)+(SummonerLVL>=11)+(SummonerLVL>=12)+(SummonerLVL>=13)+if(SummonerLVL>=14,2,0)+(SummonerLVL>=15)+(SummonerLVL>=16)+(SummonerLVL>=17)+(SummonerLVL>=18)+if(SummonerLVL>=19,2,0)+(SummonerLVL>=20)|PREVAREQ:Eidolon_CF_EvolutionProgression,0
+CATEGORY=Special Ability|Summoner ~ Eidolon.MOD												DEFINE:EidolonEvolution|0	DEFINE:Eidolon_CF_EvolutionProgression|0																																	BONUS:VAR|EidolonEvolution|3+(EidolonCompanionLVL>=2)+(EidolonCompanionLVL>=3)+if(EidolonCompanionLVL>=4,2,0)+(EidolonCompanionLVL>=5)+(EidolonCompanionLVL>=6)+(EidolonCompanionLVL>=7)+(EidolonCompanionLVL>=8)+if(EidolonCompanionLVL>=9,2,0)+(EidolonCompanionLVL>=10)+(EidolonCompanionLVL>=11)+(EidolonCompanionLVL>=12)+(EidolonCompanionLVL>=13)+if(EidolonCompanionLVL>=14,2,0)+(EidolonCompanionLVL>=15)+(EidolonCompanionLVL>=16)+(EidolonCompanionLVL>=17)+(EidolonCompanionLVL>=18)+if(EidolonCompanionLVL>=19,2,0)+(EidolonCompanionLVL>=20)|PREVAREQ:Eidolon_CF_EvolutionProgression,0
 
 
 
