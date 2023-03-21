@@ -134,7 +134,7 @@ task testZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', 'copyToOutput'
     }
 }
 
-task dataZip(type: Zip) {
+task dataZip(type: Zip, dependsOn: ['copyMasterSheets']) {
     archiveClassifier.set('data')
     into(zipRootFolder) {
         with dataDistsImage
@@ -150,7 +150,7 @@ task docsZip(type: Zip) {
     }
 }
 
-task programZip(type: Zip, dependsOn: 'converterJar') {
+task programZip(type: Zip, dependsOn: ['converterJar', 'createExe']) {
     archiveClassifier.set('program')
     into(zipRootFolder) {
         with programDistsImage
