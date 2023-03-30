@@ -18,8 +18,10 @@
 package pcgen.persistence;
 
 import java.io.File;
+import java.nio.file.Path;
 import java.io.FilenameFilter;
 import java.net.URI;
+import java.nio.file.Paths;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.TabInfo;
@@ -128,22 +130,23 @@ public class GameModeFileLoader extends PCGenTask
 	{
 
 		SystemCollections.clearGameModeList();
-		File gameModeDir = new File(ConfigurationSettings.getSystemsDir(), "gameModes");
+		Path gameModeDir = Paths.get(ConfigurationSettings.getSystemsDir(), "gameModes");
 		int progress = 0;
 		for (final String gameFile : gameFiles)
 		{
-			File specGameModeDir = new File(gameModeDir, gameFile);
-			File miscInfoFile = new File(specGameModeDir, "miscinfo.lst");
+			Path specGameModeDir = gameModeDir.resolve(gameFile);
+
+			File miscInfoFile = specGameModeDir.resolve( "miscinfo.lst").toFile();
 			final GameMode gm = GameModeFileLoader.loadGameModeMiscInfo(gameFile, miscInfoFile.toURI());
 			if (gm != null)
 			{
 				String gmName = gm.getName();
 				//SettingsHandler.setGame(gmName);
 				LoadContext context = gm.getModeContext();
-				loadGameModeInfoFile(gm, new File(specGameModeDir, "level.lst").toURI(), "level");
-				loadGameModeInfoFile(gm, new File(specGameModeDir, "rules.lst").toURI(), "rules");
+				loadGameModeInfoFile(gm, specGameModeDir.resolve("level.lst").toFile().toURI(), "level");
+				loadGameModeInfoFile(gm, specGameModeDir.resolve("rules.lst").toFile().toURI(), "rules");
 
-				// Load equipmentslot.lst
+				// Load equipmentslots.lst
 				GameModeFileLoader.loadGameModeLstFile(context, eqSlotLoader, gmName, gameFile, "equipmentslots.lst");
 
 				// Load paperInfo.lst
@@ -222,12 +225,11 @@ public class GameModeFileLoader extends PCGenTask
 	private static boolean loadGameModeLstFile(LoadContext context, LstLineFileLoader lstFileLoader,
 		String gameModeName, String gameModeFolderName, String lstFileName, final boolean showMissing)
 	{
-		File gameModeDir = new File(ConfigurationSettings.getSystemsDir(), "gameModes");
-
+		Path gameModeDir = Paths.get(ConfigurationSettings.getSystemsDir(), "gameModes");
 		try
 		{
-			File specGameModeDir = new File(gameModeDir, gameModeFolderName);
-			File gameModeFile = new File(specGameModeDir, lstFileName);
+			Path specGameModeDir = gameModeDir.resolve(gameModeFolderName);
+			File gameModeFile = specGameModeDir.resolve(lstFileName).toFile();
 			if (gameModeFile.exists())
 			{
 				lstFileLoader.loadLstFile(context, gameModeFile.toURI(), gameModeName);
@@ -241,8 +243,8 @@ public class GameModeFileLoader extends PCGenTask
 
 		try
 		{
-			File specGameModeDir = new File(gameModeDir, "default");
-			File gameModeFile = new File(specGameModeDir, lstFileName);
+			Path specGameModeDir = gameModeDir.resolve("default");
+			File gameModeFile = specGameModeDir.resolve(lstFileName).toFile();
 			if (gameModeFile.exists())
 			{
 				lstFileLoader.loadLstFile(context, gameModeFile.toURI(), gameModeName);
@@ -264,7 +266,7 @@ public class GameModeFileLoader extends PCGenTask
 		String data;
 		try
 		{
-			data = LstFileLoader.readFromURI(uri).toString();
+			data = LstFileLoader.readFromURI(uri);
 		}
 		catch (final PersistenceLayerException ple)
 		{
@@ -313,7 +315,7 @@ public class GameModeFileLoader extends PCGenTask
 		String data;
 		try
 		{
-			data = LstFileLoader.readFromURI(uri).toString();
+			data = LstFileLoader.readFromURI(uri);
 		}
 		catch (final PersistenceLayerException ple)
 		{

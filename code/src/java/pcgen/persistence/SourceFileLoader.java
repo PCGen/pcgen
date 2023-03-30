@@ -22,6 +22,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
@@ -503,7 +505,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
     {
         Logging.log(Logging.INFO, "Loading game " + gamemode + " and sources " + aSelectedCampaignsList + ".");
 
-        File gameModeDir = new File(ConfigurationSettings.getSystemsDir(), "gameModes");
+        Path gameModeDir = Paths.get(ConfigurationSettings.getSystemsDir(), "gameModes");
 
         // Sort the campaigns
         sortCampaignsByRank(aSelectedCampaignsList);
@@ -533,8 +535,8 @@ public class SourceFileLoader extends PCGenTask implements Observer
         List<CampaignSourceEntry> globalModFileList = fileLists.getListFor(ListKey.FILE_GLOBALMOD);
         if (globalModFileList.isEmpty())
         {
-            File defaultGameModeDir = new File(gameModeDir, "default");
-            File df = new File(defaultGameModeDir, "compatibilityGlobalModifier.lst");
+            Path defaultGameModeDir = gameModeDir.resolve("default");
+            File df = defaultGameModeDir.resolve("compatibilityGlobalModifier.lst").toFile();
             Campaign c = new Campaign();
             c.setName("Default Global Modifier File");
             CampaignSourceEntry cse = new CampaignSourceEntry(c, df.toURI());
@@ -689,9 +691,9 @@ public class SourceFileLoader extends PCGenTask implements Observer
         }
         if (dataDefFileList.isEmpty())
         {
-            File gameModeDir = new File(ConfigurationSettings.getSystemsDir(), "gameModes");
-            File defaultGameModeDir = new File(gameModeDir, "default");
-            File df = new File(defaultGameModeDir, "compatibilityDataControl.lst");
+            Path gameModeDir = Paths.get(ConfigurationSettings.getSystemsDir(), "gameModes");
+            Path defaultGameModeDir = Paths.get(String.valueOf(gameModeDir), "default");
+            File df = new File(defaultGameModeDir.toFile(), "compatibilityDataControl.lst");
             Campaign c = new Campaign();
             c.setName("Default Data Control File");
             CampaignSourceEntry cse = new CampaignSourceEntry(c, df.toURI());
