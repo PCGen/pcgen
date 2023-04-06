@@ -112,7 +112,7 @@ Check the installed version with:
     java -version
 
 For 6.08 development you will want Java with a minimum version of 11.
-For 6.09 development you will want Java with a minimum version of 14.
+For 6.09 development you will want Java with a minimum version of 17.
 You can install the latest version from [AdoptOpenJDK](https://adoptopenjdk.net) regardless of your OS, please see instructions there.
 
 ### Install Git
@@ -199,6 +199,9 @@ This is almost exactly the command Travis runs to verify, if it fails locally yo
 
 ### Clean All Build Files
     ./gradlew clean
+
+### Generate IntelliJ IDEA Project
+    ./gradlew idea
 
 [PCGen]: https://github.com/PCGen/pcgen
 [JIRA]: https://pcgenorg.atlassian.net

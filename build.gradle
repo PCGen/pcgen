@@ -14,6 +14,7 @@
 // import Ant helper static values to differ system families
 import org.apache.tools.ant.filters.FixCrLfFilter
 import org.apache.tools.ant.taskdefs.condition.Os
+import org.gradle.plugins.ide.idea.model.ProjectLibrary
 
 /**
  * Plugins without versions are ones that are bundled with Gradle at the version
@@ -907,12 +908,29 @@ dependencyUpdates.resolutionStrategy {
 }
 
 // Support for creating IntelliJ IDEA files.
-// TODO This isn't working presently
 idea {
+    project {
+        def javafxLib = file("$projectDir/mods/lib")
+        def files = javafxLib.listFiles( { _, name -> name.contains(".jar") } as FilenameFilter)
+                .toList() // no direct way to convert from Array to Set
+                .toSet()
+
+        def projectLibrary = new ProjectLibrary()
+        projectLibrary.name = "lib"
+        projectLibrary.classes += files
+
+        projectLibraries += [ projectLibrary ]
+    }
+
     module {
-        testSourceDirs += project.sourceSets.itest.java.srcDirs
-        testSourceDirs += project.sourceSets.slowtest.java.srcDirs
-        testSourceDirs += project.sourceSets.test.java.srcDirs
+        testSources.from(project.sourceSets.itest.java.srcDirs,
+                project.sourceSets.slowtest.java.srcDirs)
+
+        iml.withXml {
+            def module = asNode()
+            def component = module.find {it.@name == 'NewModuleRootManager'}
+            def orderEntry = component.appendNode('orderEntry', [ type: 'library', scope: 'RUNTIME', name:'lib', level:'project'])
+        }
     }
 }
 
