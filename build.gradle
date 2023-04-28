@@ -269,7 +269,7 @@ dependencies {
     testImplementation group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.9.3'
     testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-api', version: '5.9.2'
     testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-params', version: '5.9.3'
-    testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.9.2'
+    testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.9.3'
     testImplementation group: 'org.hamcrest', name: 'hamcrest', version: '2.2'
     testImplementation group: 'org.testfx', name: 'testfx-junit5', version: '4.0.16-alpha'
     // TODO openjfx-monocle is no longer updated and chances are openjfx-monocle doesn't work with latest OpenJFX
