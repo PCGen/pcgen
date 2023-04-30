@@ -40,6 +40,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Adventure Path: Shattered Sta
 
 # Data Files
 ABILITY:sspg_abilities_traits.lst
+ABILITYCATEGORY:sspg_abilitycategories.lst
 EQUIPMENT:sspg_equipment.lst
 KIT:sspg_kits.lst
 SKILL:sspg_skills.lst
