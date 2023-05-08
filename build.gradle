@@ -241,7 +241,7 @@ dependencies {
     implementation group: 'org.scijava', name: 'jep', version:'2.4.2'
     implementation group: 'org.freemarker', name: 'freemarker', version:'2.3.32'
     implementation group: 'org.jdom', name: 'jdom2', version:'2.0.6.1'
-    implementation('xalan:xalan:2.7.2')
+    implementation('xalan:xalan:2.7.3')
     {
         exclude group: 'xml-apis', module: 'xml-apis'
     }
