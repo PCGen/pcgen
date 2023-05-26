@@ -30,7 +30,7 @@ plugins {
     id 'pmd'                                            // PMD for Java, configured further below
     id 'idea'                                           // For IntelliJ IDEA users
     id "de.undercouch.download" version '5.4.0'         // Shows download percentage
-    id 'edu.sc.seis.launch4j' version '2.5.4'           // Creates launch4j
+    id 'edu.sc.seis.launch4j' version '3.0.0'           // Creates launch4j
     id 'com.github.ben-manes.versions' version '0.46.0' // Checks versions for plugins and dependencies
     id "com.dorongold.task-tree" version '2.1.1'        // Prints the task dependency tree
     id 'org.openjfx.javafxplugin' version '0.0.14'      // JavaFX support
