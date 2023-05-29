@@ -27,7 +27,7 @@ import pcgen.util.Logging;
 
 /**
  * {@code LanguageBundle} manages the localisation of the PCGen interface.
- * It provides a set of features to translate il8n keys into text in the 
+ * It provides a set of features to translate i18n keys into text in the
  * language chosen in preferences.
  *
  */
@@ -158,7 +158,7 @@ public final class LanguageBundle
 	 * Allow pretty formatting of multiplier. For example, if d is 0.5d, it 
 	 * returns x 1/2 ( 
 	 * @param d a double value
-	 * @return a formated String
+	 * @return a formatted String
 	 */
 	public static String getPrettyMultiplier(double d)
 	{

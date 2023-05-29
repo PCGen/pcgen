@@ -50,6 +50,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import plugin.pretokens.parser.PreMultParser;
 import util.FormatSupport;
 import util.TestURI;
 
@@ -73,14 +74,16 @@ public abstract class AbstractTokenTestCase<T extends Loadable>
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		TokenRegistration.clearTokens();
+		TokenRegistration.register(new PreMultParser()); // Used in several nested test cases
 		TokenRegistration.register(getToken());
 		resetContext();
 		expectedPrimaryMessageCount = 0;
 	}
 
 	@AfterEach
-	void tearDown() throws Exception
+	void tearDown()
 	{
+		TokenRegistration.clearTokens();
 		primaryContext = null;
 		secondaryContext = null;
 		primaryProf = null;
@@ -159,7 +162,6 @@ public abstract class AbstractTokenTestCase<T extends Loadable>
 		// Ensure the objects are the same
 		isCDOMEqual(primaryProf, secondaryProf);
 		validateUnparse(unparsed);
-		
 	}
 
 	void validateUnparse(String... unparsed)
