@@ -192,7 +192,7 @@ public final class PCGenPropBundle
 	{
 		String result = null;
 
-		// Make sure the value is retrievable (no NullPointerExceptions)				
+		// Make sure the value is retrievable (no NullPointerExceptions)
 		if (propName != null)
 		{
 			try
@@ -201,7 +201,8 @@ public final class PCGenPropBundle
 			}
 			catch (MissingResourceException mre)
 			{
-				result = "Missing property " + propName;
+				Logging.errorPrint("Missing property %s", propName, mre);
+				result = (StringUtils.isNotBlank(fallback) ? fallback : "Missing property " + propName);
 			}
 		}
 

@@ -28,7 +28,7 @@ import pcgen.persistence.PersistenceLayerException;
  * Interface to the Prerequisite parser. Each Prerequisite
  * is parsed by a separate class, each class implements this
  * interface.
- *
+ * <br>
  * Each class implementing this interface will parse 1 or more
  * prerequisite types. Normally if an implementation handles more
  * than 1 type the types will be very similar (i.e. a single
@@ -41,10 +41,10 @@ public interface PrerequisiteParserInterface
 	 * @return An array of Strings each of which defines a type
 	 * of prerequisite that the parser will parse.
 	 */
-	public String[] kindsHandled();
+	String[] kindsHandled();
 
 	/**
-	 * Parses the.
+	 * Parse the prerequisite expression.
 	 *
 	 * @param kind the kind of the prerequisite (less the "PRE" prefix)
 	 * @param formula The body of the prerequisite;
@@ -56,6 +56,6 @@ public interface PrerequisiteParserInterface
 	 * for any reason a PersistenceLayerException will be thrown.
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+	Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException;
 }

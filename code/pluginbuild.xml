@@ -8,7 +8,7 @@ STANDARD TARGETS
 
 jar-all-plugins - Generate the plugin jar files
 
- 
+
 -->
 
 <project name="pcgen-plugins">
@@ -1752,6 +1752,15 @@ jar-all-plugins - Generate the plugin jar files
 					<include name="plugin/pretokens/parser/PreMoveParser.class" />
 					<include name="plugin/pretokens/test/PreMoveTester.class" />
 					<include name="plugin/pretokens/writer/PreMoveWriter.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${preplugins.dir}/PreToken-PREMULT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/pretokens/parser/PreMultParser.class" />
+					<include name="plugin/pretokens/test/PreMultTester.class" />
+					<include name="plugin/pretokens/writer/PreMultWriter.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -5210,6 +5219,14 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
+		<jar jarfile="${converterplugins.dir}/ConverterPlugin-PREMULT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/converter/PreMultConvertPlugin.class" />
+					<include name="plugin/converter/PreMultInvertedConvertPlugin.class" />
+				</patternset>
+			</fileset>
+		</jar>
 		<jar jarfile="${converterplugins.dir}/ConverterPlugin-PRESKILL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -6779,7 +6796,7 @@ jar-all-plugins - Generate the plugin jar files
 			</fileset>
 		</jar>
 	</target>
-	
+
 	<target name="jar-modifier-plugins" depends="jar-modifier-bool-plugins, jar-modifier-cdom-plugins, jar-modifier-dice-plugins, jar-modifier-dynamic-plugins, jar-modifier-number-plugins, jar-modifier-orderedpair-plugins, jar-modifier-set-plugins, jar-modifier-string-plugins" description="Build (Link) Lst Modifier Token plugin jar files">
 	</target>
 
