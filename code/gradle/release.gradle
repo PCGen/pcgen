@@ -165,10 +165,10 @@ task layoutNsisBase(type: Copy, dependsOn: [runtimeZip, createExe, copyToLibs, j
 launch4j {
     mainClassName = 'pcgen.system.Main'
     icon = "${projectDir}/installers/win-installer/Local/pcgen.ico"
-    jdkPreference = 'preferJre'
+    requiresJdk = false     // false means it'll grab a JRE first if available
     maxHeapPercent = 80
     stayAlive = false
-    jreRuntimeBits = "64/32"
+    requires64Bit = false   // false means it auto-selects 64 or 32 bit as required.
     bundledJrePath = '.'
     dontWrapJar = true
     splashFileName = "${projectDir}/installers/win-installer/Local/splash.bmp"
@@ -179,7 +179,7 @@ launch4j {
     copyright = "PCGen's source-code is distributed under the GNU Lesser General Public License (LGPL)"
     version = "${shortVerNum}"
     jvmOptions = ["-Dsun.java2d.dpiaware=false"]
-    downloadUrl = "https://jdk.java.net/"
+    downloadUrl = "http://pcgen.org/download/"
 }
 
 task layoutNsisOptional(type: Copy, dependsOn: ['copyToOutput', 'runtime']) {

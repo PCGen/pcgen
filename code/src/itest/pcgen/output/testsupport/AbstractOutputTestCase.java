@@ -26,6 +26,7 @@ import java.io.StringWriter;
 import java.util.Locale;
 import java.util.Map;
 
+import pcgen.base.spotbugs.SuppressFBWarnings;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.FacetLibrary;
@@ -51,12 +52,14 @@ public abstract class AbstractOutputTestCase
 		id = CharID.getID(dsid);
 	}
 
+	// We deliberately allow users to inject templating code for custom character sheets
+	@SuppressFBWarnings("TEMPLATE_INJECTION_FREEMARKER")
 	protected void processThroughFreeMarker(String testString,
 	                                        String expectedResult)
 	{
 		try
 		{
-			Configuration c = new Configuration(Configuration.VERSION_2_3_28);
+			Configuration c = new Configuration(Configuration.VERSION_2_3_32);
 			Template t = new Template("test", testString, c);
 			StringWriter sw = new StringWriter();
 			BufferedWriter bw = new BufferedWriter(sw);
@@ -67,10 +70,8 @@ public abstract class AbstractOutputTestCase
 		}
 		catch (IOException | TemplateException e)
 		{
-			e.printStackTrace();
 			fail(e.getLocalizedMessage());
 		}
 	}
-
 
 }
