@@ -16,17 +16,23 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.core.prereq;
+package plugin.pretokens.test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.prereq.AbstractPrerequisiteTest;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.core.prereq.PrerequisiteException;
+import pcgen.core.prereq.PrerequisiteOperator;
+import pcgen.core.prereq.PrerequisiteTest;
+import pcgen.core.prereq.PrerequisiteTestFactory;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
 import org.apache.commons.lang3.StringUtils;
 
-public class PreMult extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreMultTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
 	@Override
@@ -96,7 +102,7 @@ public class PreMult extends AbstractPrerequisiteTest implements PrerequisiteTes
 			else
 			{
 				str.append(delimiter);
-				if (test instanceof PreMult && !delimiter.equals(""))
+				if (test instanceof PreMultTester && !delimiter.equals(""))
 				{
 					str.append("##BR##");
 				}

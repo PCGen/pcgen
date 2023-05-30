@@ -30,9 +30,10 @@ import java.util.Map;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.system.PluginLoader;
 import pcgen.util.Logging;
+import plugin.pretokens.writer.PreMultWriter;
 
 /**
- * A Factory for PreReq Writing 
+ * A Factory for PreReq Writing
  */
 public final class PrerequisiteWriterFactory implements PluginLoader
 {
@@ -65,7 +66,7 @@ public final class PrerequisiteWriterFactory implements PluginLoader
 		PrerequisiteWriterInterface test;
 		if (kind == null)
 		{
-			test = new PrerequisiteMultWriter();
+			test = new PreMultWriter();
 		}
 		else
 		{
@@ -111,7 +112,7 @@ public final class PrerequisiteWriterFactory implements PluginLoader
 	{
 		return new Class[]{PrerequisiteWriterInterface.class};
 	}
-	
+
 	public static void clear()
 	{
 		if (instance != null)

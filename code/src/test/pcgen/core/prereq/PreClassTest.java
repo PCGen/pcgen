@@ -509,7 +509,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testOldPreClassLevelMax() throws Exception
+	public void testOldPreClassLevelMax()
 	{
 		final PreClassLevelMaxParser parser = new PreClassLevelMaxParser();
 		try

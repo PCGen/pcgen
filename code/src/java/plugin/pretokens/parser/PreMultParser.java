@@ -15,7 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.persistence.lst.prereq;
+package plugin.pretokens.parser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +23,9 @@ import java.util.List;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.prereq.AbstractPrerequisiteParser;
+import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import pcgen.util.Logging;
 
 public class PreMultParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface

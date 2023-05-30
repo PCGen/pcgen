@@ -40,7 +40,6 @@ import pcgen.cdom.grouping.GroupingDefinition;
 import pcgen.core.PCClass;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.lst.LstToken;
-import pcgen.persistence.lst.prereq.PreMultParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import pcgen.rules.persistence.token.CDOMCompatibilityToken;
 import pcgen.rules.persistence.token.CDOMInterfaceToken;
@@ -108,7 +107,6 @@ public final class TokenLibrary implements PluginLoader
 		TOKEN_FAMILIES.add(TokenFamily.CURRENT);
 		TokenFamily.REV514.clearTokens();
 		TOKEN_FAMILIES.add(TokenFamily.REV514);
-		addToTokenMap(new PreMultParser());
 	}
 
 	private TokenLibrary()

@@ -42,6 +42,7 @@ import plugin.pretokens.parser.PreSkillParser;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import plugin.pretokens.test.PreMultTester;
 
 /**
  * {@code PreMultTest} tests that the PreMult class
@@ -118,7 +119,7 @@ public class PreMultTest extends AbstractCharacterTestCase
 				producer.parse("CLASS",
 					"1,SPELLCASTER.Arcane,SPELLCASTER.Arcane=2", false, false);
 
-		final PreMult test = new PreMult();
+		final PreMultTester test = new PreMultTester();
 		final int passes = test.passes(prereq, character, null);
 		assertEquals(1, passes);
 	}
@@ -178,7 +179,7 @@ public class PreMultTest extends AbstractCharacterTestCase
 				producer.parse("FEAT", "3,TYPE=Metamagic,TYPE=ItemCreation",
 					false, false);
 
-		final PreMult test = new PreMult();
+		final PreMultTester test = new PreMultTester();
 		int passes = test.passes(prereq, character, null);
 		assertEquals(0, passes, "No feats should not pass");
 
