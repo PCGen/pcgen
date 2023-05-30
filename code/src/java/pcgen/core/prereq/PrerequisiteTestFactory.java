@@ -24,6 +24,7 @@ import java.util.Map;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PluginLoader;
 import pcgen.util.Logging;
+import plugin.pretokens.test.PreMultTester;
 
 public final class PrerequisiteTestFactory implements PluginLoader
 {
@@ -76,7 +77,7 @@ public final class PrerequisiteTestFactory implements PluginLoader
 		PrerequisiteTest test;
 		if (kind == null)
 		{
-			test = new PreMult();
+			test = new PreMultTester();
 		}
 		else
 		{

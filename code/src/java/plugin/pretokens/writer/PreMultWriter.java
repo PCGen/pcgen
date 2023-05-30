@@ -21,7 +21,7 @@
  *
  *
  */
-package pcgen.persistence.lst.output.prereq;
+package plugin.pretokens.writer;
 
 import java.io.IOException;
 import java.io.Writer;
@@ -29,15 +29,18 @@ import java.io.Writer;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.output.prereq.AbstractPrerequisiteWriter;
+import pcgen.persistence.lst.output.prereq.PrerequisiteWriterFactory;
+import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 
-public class PrerequisiteMultWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
+public class PreMultWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
 {
 	private boolean allSkillTot = false;
 
 	@Override
 	public String kindHandled()
 	{
-		return null;
+		return "mult";
 	}
 
 	@Override
@@ -72,8 +75,8 @@ public class PrerequisiteMultWriter extends AbstractPrerequisiteWriter implement
 				subreq = prereq.getPrerequisites().get(0);
 				final PrerequisiteWriterInterface test =
 						PrerequisiteWriterFactory.getInstance().getWriter(subreq.getKind());
-				if ((test != null) && (test instanceof AbstractPrerequisiteWriter)
-					&& ((AbstractPrerequisiteWriter) test).specialCase(writer, prereq))
+				if ((test instanceof AbstractPrerequisiteWriter)
+						&& ((AbstractPrerequisiteWriter) test).specialCase(writer, prereq))
 				{
 					return;
 				}
@@ -169,10 +172,10 @@ public class PrerequisiteMultWriter extends AbstractPrerequisiteWriter implement
 
 
 	/**
-	 * Identify if this is a PREABILITY which has been converted into a PREMULT 
+	 * Identify if this is a PREABILITY which has been converted into a PREMULT
 	 * to include a negated check, i.e. ensure a particular ability is not
 	 * present in the character.
-	 *   
+	 *
 	 * @param prereq The PREMULT to be checked.
 	 * @return true if this is a negated PREABILITY, false if not.
 	 */
@@ -198,9 +201,9 @@ public class PrerequisiteMultWriter extends AbstractPrerequisiteWriter implement
 	}
 
 	/**
-	 * Restore the format of a prereq such as 
+	 * Restore the format of a prereq such as
 	 * PREABILITY:1,CATEGORY=FEAT,[Surprise Strike]
-	 * 
+	 *
 	 * @param writer The output destination writer.
 	 * @param prereq The prereq to be written, must be a negated PREABILITY
 	 * @throws IOException If the output cannot be written.

@@ -37,6 +37,7 @@ import pcgen.util.Logging;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
 import org.junit.jupiter.api.BeforeEach;
+import plugin.pretokens.parser.PreMultParser;
 
 public abstract class AbstractPreRoundRobin
 {
@@ -44,6 +45,7 @@ public abstract class AbstractPreRoundRobin
 	void setUp() throws Exception
 	{
 		TokenRegistration.clearTokens();
+		TokenRegistration.register(new PreMultParser()); // Used in many nested tests
 	}
 
 	public final void runRoundRobin(String s)
