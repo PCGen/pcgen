@@ -182,7 +182,7 @@ launch4j {
     downloadUrl = "https://jdk.java.net/"
 }
 
-task layoutNsisOptional(type: Copy, dependsOn: [copyToOutput]) {
+task layoutNsisOptional(type: Copy, dependsOn: ['copyToOutput', 'runtime']) {
     description="Assemble the optional files for PCGen installations"
     into nsisOptionFolder
 
