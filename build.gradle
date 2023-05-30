@@ -594,7 +594,7 @@ task downloadJRE {
 
 task downloadJavaFXModules(dependsOn: downloadJRE) {
     // We support Windows/Mac/Linux - x64, Mac/Linux - aarch64, and Windows x86 (32-bit)
-    def major = "17.0.6"
+    def major = "17.0.7"
     def archs = ['x64', 'x86', 'aarch64']
     def osList = ["windows", "mac", "linux"]
 
