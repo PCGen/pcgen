@@ -72,7 +72,6 @@ import pcgen.core.analysis.EqModCost;
 import pcgen.core.analysis.EqModSpellInfo;
 import pcgen.core.analysis.EquipmentChoiceDriver;
 import pcgen.core.analysis.SizeUtilities;
-import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
 import pcgen.core.character.EquipSlot;
@@ -3352,7 +3351,6 @@ public final class Equipment extends PObject
 
 			put(ObjectKey.CURRENT_COST, eq.getCostAdjustedForSize(pc, newSize));
 			put(ObjectKey.WEIGHT, eq.getWeightAdjustedForSize(pc, newSize));
-			adjustACForSize(pc, eq, newSize);
 			String dam = eq.getDamageAdjustedForSize(iNewSize, true);
 			if (dam != null && !dam.isEmpty())
 			{
@@ -4131,92 +4129,6 @@ public final class Equipment extends PObject
 	private void addContainedEquipment(final Equipment e)
 	{
 		d_containedEquipment.add(e);
-	}
-
-	/**
-	 * Gets the acModAdjustedForSize attribute of the Equipment object
-	 * 
-	 * @param aPC    The PC with the Equipment
-	 * @param baseEq The unmodified Equipment
-	 * @param newSA  The size to adjust for
-	 */
-	private void adjustACForSize(final PlayerCharacter aPC, final Equipment baseEq, final SizeAdjustment newSA)
-	{
-		if ((getRawBonusList(aPC) != null) && isArmor())
-		{
-			double mult = 1.0;
-			final SizeAdjustment currSA = baseEq.getSizeAdjustment();
-
-			if ((newSA != null) && aPC != null)
-			{
-				mult = aPC.getSizeBonusTo(newSA, "ACVALUE", baseEq.typeList(), 1.0)
-					/ aPC.getSizeBonusTo(currSA, "ACVALUE", baseEq.typeList(), 1.0);
-			}
-
-			final List<BonusObj> baseEqBonusList = baseEq.getRawBonusList(aPC);
-			final List<BonusObj> eqBonusList = getRawBonusList(aPC);
-
-			//
-			// Go through the bonus list looking for COMBAT|AC|x and resize
-			// bonus
-			// Assumption: baseEq.bonusList and this.bonusList only differ in
-			// COMBAT|AC|x bonuses
-			//
-			for (int i = eqBonusList.size() - 1; i >= 0; --i)
-			{
-				final BonusObj aBonus = eqBonusList.get(i);
-				String aString = aBonus.toString();
-
-				if (aString.startsWith("COMBAT|AC|"))
-				{
-					final int iOffs = aString.indexOf('|', 10);
-
-					if (iOffs > 10)
-					{
-						/*
-						 * TODO This is bad behavior to alter this list, 
-						 * which - theoretically - shouldn't be altered 
-						 * after data load.  However, given .REPLACE
-						 * potential in BONUS objects, I can't find
-						 * another quick solution to this problem
-						 * - thpr 10/9/08
-						 */
-						removeFromListFor(ListKey.BONUS, aBonus);
-					}
-				}
-			}
-
-			for (final BonusObj aBonus : baseEqBonusList)
-			{
-				String aString = aBonus.toString();
-
-				if (aString.startsWith("COMBAT|AC|"))
-				{
-					final int iOffs = aString.indexOf('|', 10);
-
-					if (iOffs > 10)
-					{
-						int acCombatBonus = Integer.parseInt(aString.substring(10, iOffs));
-						double d = acCombatBonus * mult;
-						acCombatBonus = (int) d;
-						aString = aString.substring(0, 10) + Integer.toString(acCombatBonus) + aString.substring(iOffs);
-						/*
-						 * TODO This is bad behavior to alter this list, 
-						 * which - theoretically - shouldn't be altered 
-						 * after data load.  However, given .REPLACE
-						 * potential in BONUS objects, I can't find
-						 * another quick solution to this problem
-						 * - thpr 10/9/08
-						 */
-						BonusObj b = Bonus.newBonus(Globals.getContext(), aString);
-						if (b != null)
-						{
-							addToListFor(ListKey.BONUS, b);
-						}
-					}
-				}
-			}
-		}
 	}
 
 	/**
