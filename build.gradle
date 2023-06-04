@@ -852,12 +852,10 @@ allprojects {
                 // Needed to fix issue with testfx test crashing due to issue with modularity of whole program. Slightly related issue. https://github.com/TestFX/TestFX/issues/638
                 '--add-exports', 'javafx.graphics/com.sun.javafx.application=ALL-UNNAMED',
                 '--add-opens', 'javafx.graphics/com.sun.glass.ui=ALL-UNNAMED',
-                '--enable-preview'
         ]
     }
     tasks.withType(JavaCompile) {
         doFirst {
-            it.options.compilerArgs.add('--enable-preview')
 
             if (name.toLowerCase().contains("test")) {
                 options.compilerArgs << "--module-path" << "${projectDir}/mods/lib/"
@@ -871,7 +869,6 @@ allprojects {
         duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     }
     tasks.withType(JavaExec) {
-        jvmArgs += '--enable-preview'
         maxHeapSize = "2048m"
     }
 }
