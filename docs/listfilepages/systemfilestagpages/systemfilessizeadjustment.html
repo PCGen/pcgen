@@ -107,7 +107,6 @@ SIZENAME:S
   →  BONUS:ITEMWEIGHT|TYPE=Ammunition,TYPE=Armor,TYPE=Shield,TYPE=Weapon|0.5
   →  BONUS:ITEMWEIGHT|TYPE=Goods|0.25
 SIZENAME:S
-  →  BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|1
   →  BONUS:COMBAT|AC|1|TYPE=Size
   →  BONUS:COMBAT|TOHIT|1|TYPE=SIZE
   →  BONUS:COMBAT|TOHIT.GRAPPLE|-5|TYPE=Size
@@ -439,86 +438,6 @@ SIZENAME:P  SIZENUM:100</code></pre>
    tags function only in the
    <code>sizeAdjustment.lst</code>
    file.
-  </p>
-  <h3 id="bonusacvalue">
-   BONUS:ACVALUE
-  </h3>
-  <p>
-   Multiplies the AC bonus from a particular type of armour, such as
-   <code>Armor</code>
-   or
-   <code>Shield</code>
-   , based on the creature's size.
-  </p>
-  <h4 id="status-2">
-   Status
-  </h4>
-  <p>
-   New in 5.10.1.
-  </p>
-  <h4 id="syntax-4">
-   Syntax
-  </h4>
-  <p>
-   <code>BONUS:ACVALUE|TYPE:type_1,TYPE:type_2, ...|ac_multiplier</code>
-  </p>
-  <ul class="incremental">
-   <li>
-    <code>type_1</code>
-    ,
-    <code>type_2</code>
-    , ... may include armour types such as
-    <code>TYPE:Armor</code>
-    and
-    <code>TYPE:Shield</code>
-    .
-    <ul class="incremental">
-     <li>
-      <em>
-       [Ed: do things like
-       <code>TYPE:Natural</code>
-       ,
-       <code>TYPE:Dodge</code>
-       ,
-       <code>TYPE:Sacred</code>
-       ... also work?]
-      </em>
-     </li>
-    </ul>
-   </li>
-   <li>
-    <code>ac_multiplier</code>
-    is the multiplier to AC for the given armour types.
-    <ul class="incremental">
-     <li>
-      <code>0.5</code>
-      would cause the creature to only receive half the normal AC bonus from the given armour types.
-     </li>
-     <li>
-      <code>2</code>
-      would cause the creature to gain twice the AC bonus from the given armour types.
-     </li>
-    </ul>
-   </li>
-  </ul>
-  <h4 id="examples">
-   Examples
-  </h4>
-  <ul class="incremental">
-   <li>
-    <code>BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|0.5</code>
-   </li>
-  </ul>
-  <p>
-   Halves the benefit from armour and shields.
-  </p>
-  <ul class="incremental">
-   <li>
-    <code>BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|2</code>
-   </li>
-  </ul>
-  <p>
-   Doubles the benefit from armour and shields.
   </p>
   <hr/>
   <h3 id="bonusitemcapacity">
