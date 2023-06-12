@@ -627,9 +627,8 @@ public class BonusManager
 			// only specific bonuses can actually be fractional
 			// -> TODO should define this in external file
 			if (!fullyQualifiedBonusType.startsWith("ITEMWEIGHT") && !fullyQualifiedBonusType.startsWith("ITEMCOST")
-				&& !fullyQualifiedBonusType.startsWith("ACVALUE") && !fullyQualifiedBonusType.startsWith("ITEMCAPACITY")
-				&& !fullyQualifiedBonusType.startsWith("LOADMULT") && !fullyQualifiedBonusType.startsWith("FEAT")
-				&& (!fullyQualifiedBonusType.contains("DAMAGEMULT")))
+				&& !fullyQualifiedBonusType.startsWith("ITEMCAPACITY") && !fullyQualifiedBonusType.startsWith("LOADMULT")
+				&& !fullyQualifiedBonusType.startsWith("FEAT") && (!fullyQualifiedBonusType.contains("DAMAGEMULT")))
 			{
 				bonus = ((int) bonus); // TODO: never used
 			}
