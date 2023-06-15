@@ -31,6 +31,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
+import org.apache.commons.io.FilenameUtils;
 import pcgen.core.PCClass;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.SpellFacade;
@@ -61,7 +62,6 @@ import javafx.stage.FileChooser;
 @SuppressWarnings("serial")
 public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTab
 {
-
 	private final TabTitle tabTitle = new TabTitle(Tab.KNOWN_SPELLS);
 	private final FilteredTreeViewTable<CharacterFacade, SuperNode> availableTable;
 	private final JTreeViewTable<SuperNode> selectedTable;
@@ -82,14 +82,12 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 		this.availableTable = new FilteredTreeViewTable<>();
 		this.selectedTable = new JTreeViewTable<>()
 		{
-
 			@Override
 			public void setTreeViewModel(TreeViewModel<SuperNode> viewModel)
 			{
 				super.setTreeViewModel(viewModel);
 				sortModel();
 			}
-
 		};
 		this.spellRenderer = new QualifiedSpellTreeCellRenderer();
 		this.addButton = new JButton();
@@ -109,13 +107,11 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 		selectedTable.setTreeCellRenderer(spellRenderer);
 		selectedTable.setRowSorter(new SortableTableRowSorter()
 		{
-
 			@Override
 			public SortableTableModel getModel()
 			{
 				return (SortableTableModel) selectedTable.getModel();
 			}
-
 		});
 		selectedTable.getRowSorter().toggleSortOrder(0);
 		FilterBar<CharacterFacade, SuperNode> filterBar = new FilterBar<>();
@@ -125,8 +121,8 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 
 		FlippingSplitPane upperPane = new FlippingSplitPane();
 		JPanel availPanel = FilterUtilities.configureFilteredTreeViewPane(availableTable, filterBar);
+
 		Box box = Box.createVerticalBox();
-		box.add(Box.createVerticalStrut(2));
 		{
 			Box hbox = Box.createHorizontalBox();
 			hbox.add(Box.createHorizontalStrut(5));
@@ -134,7 +130,6 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 			hbox.add(Box.createHorizontalGlue());
 			box.add(hbox);
 		}
-		//box.add(Box.createVerticalStrut(2));
 		{
 			Box hbox = Box.createHorizontalBox();
 			hbox.add(Box.createHorizontalStrut(5));
@@ -142,19 +137,15 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 			hbox.add(Box.createHorizontalGlue());
 			hbox.add(Box.createHorizontalStrut(10));
 			hbox.add(addButton);
-			hbox.add(Box.createHorizontalStrut(5));
 			box.add(hbox);
 		}
-		box.add(Box.createVerticalStrut(5));
 		availPanel.add(box, BorderLayout.SOUTH);
 		upperPane.setLeftComponent(availPanel);
 
-		box = Box.createVerticalBox();
-		box.add(new JScrollPane(selectedTable));
-		box.add(Box.createVerticalStrut(4));
+		JPanel rightPanel = new JPanel(new BorderLayout());
+		rightPanel.add(new JScrollPane(selectedTable), BorderLayout.CENTER);
 		{
 			Box hbox = Box.createHorizontalBox();
-			hbox.add(Box.createHorizontalStrut(5));
 			hbox.add(removeButton);
 			hbox.add(Box.createHorizontalStrut(10));
 
@@ -163,11 +154,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 			hbox.add(spellSheetButton);
 			hbox.add(Box.createHorizontalStrut(3));
 
-			String text = PCGenSettings.getSelectedSpellSheet();
-			if (text != null)
-			{
-				text = new File(text).getName();
-			}
+			String text = FilenameUtils.getName(PCGenSettings.getSelectedSpellSheet());
 			spellSheetField.setEditable(false);
 			spellSheetField.setText(text);
 			spellSheetField.setToolTipText(text);
@@ -178,11 +165,9 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 			hbox.add(Box.createHorizontalStrut(3));
 			exportSpellsButton = new JButton(Icons.Print16.getImageIcon());
 			hbox.add(exportSpellsButton);
-			hbox.add(Box.createHorizontalStrut(5));
-			box.add(hbox);
+			rightPanel.add(hbox, BorderLayout.SOUTH);
 		}
-		box.add(Box.createVerticalStrut(5));
-		upperPane.setRightComponent(box);
+		upperPane.setRightComponent(rightPanel);
 		upperPane.setResizeWeight(0);
 		setTopComponent(upperPane);
 

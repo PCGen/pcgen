@@ -122,42 +122,25 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 
 		FlippingSplitPane upperPane = new FlippingSplitPane();
 		JPanel availPanel = FilterUtilities.configureFilteredTreeViewPane(availableTable, filterBar);
-		Box box = Box.createVerticalBox();
-		box.add(Box.createVerticalStrut(5));
 		{
-			Box hbox = Box.createHorizontalBox();
-			hbox.add(Box.createHorizontalStrut(5));
-			hbox.add(new JLabel(LanguageBundle.getString("InfoSpells.set.auto.book")));
-			hbox.add(Box.createHorizontalGlue());
-			box.add(hbox);
+			JPanel bottomPanel = new JPanel(new BorderLayout());
+			bottomPanel.add(new JLabel(LanguageBundle.getString("InfoSpells.set.auto.book")), BorderLayout.WEST);
+			bottomPanel.add(defaultBookCombo, BorderLayout.CENTER);
+			bottomPanel.add(addButton, BorderLayout.EAST);
+			availPanel.add(bottomPanel, BorderLayout.SOUTH);
 		}
-		box.add(Box.createVerticalStrut(5));
-		{
-			Box hbox = Box.createHorizontalBox();
-			hbox.add(Box.createHorizontalStrut(5));
-			hbox.add(defaultBookCombo);
-			hbox.add(Box.createHorizontalGlue());
-			hbox.add(Box.createHorizontalStrut(5));
-			hbox.add(addButton);
-			hbox.add(Box.createHorizontalStrut(5));
-			box.add(hbox);
-		}
-		box.add(Box.createVerticalStrut(5));
-		availPanel.add(box, BorderLayout.SOUTH);
 		upperPane.setLeftComponent(availPanel);
 
-		box = Box.createVerticalBox();
-		box.add(new JScrollPane(selectedTable));
-		box.add(Box.createVerticalStrut(5));
+		JPanel rightPanel = new JPanel(new BorderLayout());
+		rightPanel.add(new JScrollPane(selectedTable), BorderLayout.CENTER);
 		{
 			Box hbox = Box.createHorizontalBox();
 			hbox.add(Box.createHorizontalStrut(5));
 			hbox.add(removeButton);
 			hbox.add(Box.createHorizontalGlue());
-			box.add(hbox);
+			rightPanel.add(hbox, BorderLayout.SOUTH);
 		}
-		box.add(Box.createVerticalStrut(5));
-		upperPane.setRightComponent(box);
+		upperPane.setRightComponent(rightPanel);
 		upperPane.setResizeWeight(0);
 		setTopComponent(upperPane);
 
