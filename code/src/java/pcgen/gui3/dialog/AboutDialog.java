@@ -26,7 +26,6 @@ import pcgen.gui3.GuiAssertions;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
-import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
@@ -40,37 +39,35 @@ import javafx.stage.Stage;
  */
 public class AboutDialog implements Controllable<AboutDialogController>
 {
-
 	private final FXMLLoader loader = new FXMLLoader();
-	private Stage primaryStage;
+	private final Stage primaryStage;
 
 
-	public AboutDialog()
+	public AboutDialog(Stage parentStage)
 	{
+		this.primaryStage = parentStage;
+
 		loader.setResources(LanguageBundle.getBundle());
 		loader.setLocation(getClass().getResource("AboutDialog.fxml"));
-		Platform.runLater(() -> {
-			primaryStage = new Stage();
-			final Scene scene;
-			try
-			{
-				scene = loader.load();
-				scene.addEventHandler(KeyEvent.KEY_PRESSED, keyEvent -> {
-					if(keyEvent.getCode()== KeyCode.ESCAPE)
-					{
-						primaryStage.close();
-					}
-				});
-			} catch (IOException e)
-			{
-				Logging.errorPrint("failed to load preloader", e);
-				return;
-			}
 
-			primaryStage.setScene(scene);
-			primaryStage.sizeToScene();
-			primaryStage.showAndWait();
-		});
+		final Scene scene;
+		try
+		{
+			scene = loader.load();
+			scene.addEventHandler(KeyEvent.KEY_PRESSED, keyEvent -> {
+				if (keyEvent.getCode()== KeyCode.ESCAPE)
+				{
+					primaryStage.hide();
+				}
+			});
+		} catch (IOException e)
+		{
+			Logging.errorPrint("failed to load preloader", e);
+			return;
+		}
+
+		primaryStage.setScene(scene);
+		primaryStage.sizeToScene();
 	}
 
 
@@ -86,4 +83,16 @@ public class AboutDialog implements Controllable<AboutDialogController>
 				.join();
 	}
 
+	/**
+	 * Shows the About dialog window
+	 */
+	public void show()
+	{
+		primaryStage.show();
+
+		// Don't allow to resize the window less, than its current size. It is possible to get stage's dimensions
+		// only, when the stage becomes visible
+		primaryStage.setMinWidth(primaryStage.getWidth());
+		primaryStage.setMinHeight(primaryStage.getHeight());
+	}
 }

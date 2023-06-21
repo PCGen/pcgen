@@ -18,6 +18,7 @@
 package pcgen.gui3.dialog;
 
 import java.io.IOException;
+import java.net.URI;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -25,7 +26,7 @@ import java.nio.file.Paths;
 import pcgen.gui2.tools.DesktopBrowserLauncher;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenPropBundle;
-	import pcgen.util.Logging;
+import pcgen.util.Logging;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -38,7 +39,7 @@ import org.apache.commons.lang3.StringUtils;
 /**
  * Controller for about panel.
  * Much of this logic can be removed and replaced with property references
- * if we build out property bundles correctly.
+ * if we build our property bundles correctly.
  */
 public class AboutDialogController
 {
@@ -75,7 +76,6 @@ public class AboutDialogController
 		{
 			try
 			{
-
 				licenseArea.setText(Files.readString(Paths.get(lgpl.getPath())));
 			}
 			catch (IOException ioe)
@@ -92,14 +92,14 @@ public class AboutDialogController
 	}
 
 	/**
-	 * Utility method opens a textual URL in a browser
-	 * @param url String that can be converted to a URL
+	 * Utility method opens a textual URI in a browser
+	 * @param uri String that can be converted to a URI
 	 */
-	private static void openUrlInBrowser(String url)
+	private static void openUriInBrowser(String uri)
 	{
 		try
 		{
-			DesktopBrowserLauncher.viewInBrowser(new URL(url));
+			DesktopBrowserLauncher.viewInBrowser(URI.create(uri));
 		} catch (IOException ioe)
 		{
 			Logging.errorPrint(LanguageBundle.getString("in_err_browser_err"), ioe); //$NON-NLS-1$
@@ -129,7 +129,6 @@ public class AboutDialogController
 						System.getProperty("java.runtime.version"),
 						System.getProperty("java.vm.vendor")
 				));
-
 
 		String s = LanguageBundle.getString("in_abt_lib_apache"); //$NON-NLS-1$
 		s += LanguageBundle.getString("in_abt_lib_jdom"); //$NON-NLS-1$
@@ -164,6 +163,6 @@ public class AboutDialogController
 	private void openInBrowser(final ActionEvent actionEvent)
 	{
 		Labeled source = (Button) actionEvent.getSource();
-		openUrlInBrowser(source.getText());
+		openUriInBrowser(source.getText());
 	}
 }
