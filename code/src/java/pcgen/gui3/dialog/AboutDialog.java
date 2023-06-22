@@ -42,7 +42,6 @@ public class AboutDialog implements Controllable<AboutDialogController>
 	private final FXMLLoader loader = new FXMLLoader();
 	private final Stage primaryStage;
 
-
 	public AboutDialog(Stage parentStage)
 	{
 		this.primaryStage = parentStage;
@@ -67,9 +66,7 @@ public class AboutDialog implements Controllable<AboutDialogController>
 		}
 
 		primaryStage.setScene(scene);
-		primaryStage.sizeToScene();
 	}
-
 
 	/**
 	 * @return the controller for the preloader
@@ -88,6 +85,8 @@ public class AboutDialog implements Controllable<AboutDialogController>
 	 */
 	public void show()
 	{
+		primaryStage.setMaximized(false);
+		primaryStage.sizeToScene();
 		primaryStage.show();
 
 		// Don't allow to resize the window less, than its current size. It is possible to get stage's dimensions
