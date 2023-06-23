@@ -79,7 +79,7 @@ public final class PCGenUIManager
 
 	public static void displayAboutDialog()
 	{
-		PCGenFrame.showAboutDialog();
+		pcgenFrame.showAboutDialog();
 	}
 
 	public static void closePCGen()
