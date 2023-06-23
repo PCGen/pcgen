@@ -30,8 +30,8 @@ plugins {
     id 'pmd'                                            // PMD for Java, configured further below
     id 'idea'                                           // For IntelliJ IDEA users
     id "de.undercouch.download" version '5.4.0'         // Shows download percentage
-    id 'edu.sc.seis.launch4j' version '3.0.0'           // Creates launch4j
-    id 'com.github.ben-manes.versions' version '0.46.0' // Checks versions for plugins and dependencies
+    id 'edu.sc.seis.launch4j' version '3.0.3'           // Creates launch4j
+    id 'com.github.ben-manes.versions' version '0.47.0' // Checks versions for plugins and dependencies
     id "com.dorongold.task-tree" version '2.1.1'        // Prints the task dependency tree
     id 'org.openjfx.javafxplugin' version '0.0.14'      // JavaFX support
     id 'org.beryx.runtime' version '1.13.0'             // Creates custom runtimes
@@ -227,11 +227,11 @@ compileJava {
  */
 dependencies {
 
-    implementation group: 'commons-io', name: 'commons-io', version:'2.12.0'
+    implementation group: 'commons-io', name: 'commons-io', version:'2.13.0'
 
-    implementation group: 'org.springframework', name: 'spring-web', version:'6.0.9'
+    implementation group: 'org.springframework', name: 'spring-web', version:'6.0.10'
     implementation group: 'org.springframework', name: 'spring-beans', version:'6.0.9'
-    implementation group: 'org.springframework', name: 'spring-core', version:'6.0.9'
+    implementation group: 'org.springframework', name: 'spring-core', version:'6.0.10'
     implementation group: 'org.apache.commons', name: 'commons-lang3', version:'3.12.0'
     implementation('org.apache.xmlgraphics:fop:2.8')
     {

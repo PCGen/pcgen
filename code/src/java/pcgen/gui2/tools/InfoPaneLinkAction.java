@@ -20,6 +20,7 @@
 package pcgen.gui2.tools;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
@@ -72,9 +73,9 @@ public class InfoPaneLinkAction implements HyperlinkListener
 		{
 			try
 			{
-				DesktopBrowserLauncher.viewInBrowser(e.getURL());
+				DesktopBrowserLauncher.viewInBrowser(e.getURL().toURI());
 			}
-			catch (IOException e1)
+			catch (IOException | URISyntaxException e1)
 			{
 				Logging.errorPrint("Failed to open URL " //$NON-NLS-1$
 					+ e.getURL() + " due to ", e1); //$NON-NLS-1$

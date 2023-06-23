@@ -27,7 +27,6 @@ A typical size definition, from `system/gameModes/35e/sizeAdjustment.lst`, looks
       →  BONUS:ITEMWEIGHT|TYPE=Ammunition,TYPE=Armor,TYPE=Shield,TYPE=Weapon|0.5
       →  BONUS:ITEMWEIGHT|TYPE=Goods|0.25
     SIZENAME:S
-      →  BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|1
       →  BONUS:COMBAT|AC|1|TYPE=Size
       →  BONUS:COMBAT|TOHIT|1|TYPE=SIZE
       →  BONUS:COMBAT|TOHIT.GRAPPLE|-5|TYPE=Size
@@ -168,42 +167,6 @@ Some useful tags include:
 * `BONUS:COMBAT|TOHIT|1|Type=Size` - grant a +1 attack bonus due to size.
 * `BONUS:COMBAT|TOHIT.GRAPPLE|5|Type=Size` - grant a bonus on Grapple checks due to large size.
 * `BONUS:SKILL|Hide|4|TYPE=Size` - grant a bonus on Hide checks due to small size.
-
-----
-
-## BONUS tags specific to `sizeAdjustment.lst`
-
-The following `BONUS` tags function only in the `sizeAdjustment.lst` file.
-
-<h3 id="BONUSACVALUE">BONUS:ACVALUE</h3>
-
-Multiplies the AC bonus from a particular type of armour, such as `Armor` or `Shield`, based on the creature's size.
-
-#### Status
-
-New in 5.10.1.
-
-#### Syntax
-
-`BONUS:ACVALUE|TYPE:type_1,TYPE:type_2, ...|ac_multiplier`
-
-* `type_1`, `type_2`, ... may include armour types such as `TYPE:Armor` and `TYPE:Shield`.
-	* *[Ed: do things like `TYPE:Natural`, `TYPE:Dodge`, `TYPE:Sacred` ... also work?]*
-
-
-* `ac_multiplier` is the multiplier to AC for the given armour types.
-	* `0.5` would cause the creature to only receive half the normal AC bonus from the given armour types.
-	* `2` would cause the creature to gain twice the AC bonus from the given armour types.
-
-#### Examples
-
-* `BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|0.5`
-
-  Halves the benefit from armour and shields.
-
-* `BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|2`
-
-  Doubles the benefit from armour and shields.
 
 ------------------------------------------------------------------------
 

@@ -60,6 +60,4 @@ class AboutDialogTest
 	{
 		FxAssert.verifyThat("#abt_credits", NodeMatchers.isVisible());
 	}
-
-
 }

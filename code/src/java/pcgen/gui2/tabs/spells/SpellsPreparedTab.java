@@ -145,19 +145,15 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 			hbox.add(Box.createHorizontalGlue());
 			hbox.add(Box.createHorizontalStrut(10));
 			hbox.add(addSpellButton);
-			hbox.add(Box.createHorizontalStrut(5));
 			box.add(hbox);
 		}
-		box.add(Box.createVerticalStrut(5));
 		availPanel.add(box, BorderLayout.SOUTH);
 		upperPane.setLeftComponent(availPanel);
 
-		box = Box.createVerticalBox();
-		box.add(new JScrollPane(selectedTable));
-		box.add(Box.createVerticalStrut(4));
+		JPanel rightPanel = new JPanel(new BorderLayout());
+		rightPanel.add(new JScrollPane(selectedTable), BorderLayout.CENTER);
 		{
 			Box hbox = Box.createHorizontalBox();
-			hbox.add(Box.createHorizontalStrut(5));
 			hbox.add(removeSpellButton);
 			hbox.add(Box.createHorizontalStrut(10));
 			hbox.add(new JLabel(LanguageBundle.getString("InfoPreparedSpells.preparedList")));
@@ -167,11 +163,9 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 			hbox.add(addSpellListButton);
 			hbox.add(Box.createHorizontalStrut(3));
 			hbox.add(removeSpellListButton);
-			hbox.add(Box.createHorizontalStrut(5));
-			box.add(hbox);
+			rightPanel.add(hbox, BorderLayout.SOUTH);
 		}
-		box.add(Box.createVerticalStrut(5));
-		upperPane.setRightComponent(box);
+		upperPane.setRightComponent(rightPanel);
 		upperPane.setResizeWeight(0);
 		setTopComponent(upperPane);
 

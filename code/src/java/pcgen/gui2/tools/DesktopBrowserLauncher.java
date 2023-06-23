@@ -21,10 +21,7 @@ import java.awt.Desktop;
 import java.awt.Desktop.Action;
 import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
 
 import pcgen.gui3.GuiUtility;
 import pcgen.system.LanguageBundle;
@@ -35,7 +32,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 
 /**
- * Provide an utility method to open files with {@link Desktop}.
+ * Provide a utility method to open files with {@link Desktop}.
  */
 public final class DesktopBrowserLauncher
 {
@@ -58,31 +55,14 @@ public final class DesktopBrowserLauncher
 	}
 
 	/**
-	 * View a URL in a browser
+	 * View a URI in a browser
+	 * p.s. JDK 20 will deprecate all public constructors of java.net.URL
 	 *
-	 * @param url URL to display in browser.
+	 * @param uri URI to display in browser.
 	 * @throws IOException if the URL is bad or the browser can not be launched
 	 */
 	@SuppressWarnings({"ThrowInsideCatchBlockWhichIgnoresCaughtException", "PMD.PreserveStackTrace"})
-	public static void viewInBrowser(URL url) throws IOException
-	{
-		try
-		{
-			viewInBrowser(url.toURI());
-		}
-		catch (final URISyntaxException e)
-		{
-			throw new MalformedURLException(e.getMessage());
-		}
-	}
-
-	/**
-	 * View a URI in a browser.
-	 *
-	 * @param uri URI to display in browser.
-	 * @throws IOException if browser can not be launched
-	 */
-	private static void viewInBrowser(URI uri) throws IOException
+	public static void viewInBrowser(URI uri) throws IOException
 	{
 		if (Desktop.isDesktopSupported() && DESKTOP.isSupported(Action.BROWSE))
 		{
@@ -91,11 +71,10 @@ public final class DesktopBrowserLauncher
 		else
 		{
 			Dialog<ButtonType> alert = GuiUtility.runOnJavaFXThreadNow(() ->  new Alert(Alert.AlertType.WARNING));
-			Logging.debugPrint("unable to browse to " + uri);
+			Logging.debugPrint("Unable to browse to " + uri);
 			alert.setTitle(LanguageBundle.getString("in_err_browser_err"));
 			alert.setContentText(LanguageBundle.getFormattedString("in_err_browser_uri", uri));
 			GuiUtility.runOnJavaFXThreadNow(alert::showAndWait);
 		}
 	}
-
 }

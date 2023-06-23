@@ -115,11 +115,10 @@ import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.ToolBar;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * The main window for PCGen. In addition this class is responsible for providing 
+ * The main window for PCGen. In addition, this class is responsible for providing
  * global UI functions such as message dialogs. 
  */
 public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSelectionListener
@@ -146,7 +145,9 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	/**
 	 * This is a bit of a hack until we're full on JavaFX for showing dialogs
 	 */
-	private Window javaFXStage;
+	private Stage javaFXStage;
+
+	private AboutDialog javaFXAboutDialog;
 
 	public PCGenFrame(UIContext uiContext)
 	{
@@ -166,8 +167,10 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		initComponents();
 		pack();
 		initSettings();
-		Platform.runLater(() ->
-			javaFXStage = new Stage()
+		Platform.runLater(() -> {
+				javaFXStage = new Stage();
+				javaFXAboutDialog = new AboutDialog(javaFXStage);
+			}
 		);
 	}
 
@@ -1632,9 +1635,9 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		GuiUtility.runOnJavaFXThreadNow(alert::showAndWait);
 	}
 
-	static void showAboutDialog()
+	void showAboutDialog()
 	{
-		new AboutDialog();
+		Platform.runLater(javaFXAboutDialog::show);
 	}
 
 	@Override
