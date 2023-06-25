@@ -86,11 +86,13 @@ public class AboutDialog implements Controllable<AboutDialogController>
 	public void show()
 	{
 		// Fix for Mac, when the window is maximized
-		if (primaryStage.isFullScreen()) {
+		if (primaryStage.isFullScreen())
+		{
 			primaryStage.setFullScreen(false);
 		}
 		// Fix for other platforms
-		if (primaryStage.isMaximized()) {
+		if (primaryStage.isMaximized())
+		{
 			primaryStage.setMaximized(false);
 		}
 		primaryStage.sizeToScene();

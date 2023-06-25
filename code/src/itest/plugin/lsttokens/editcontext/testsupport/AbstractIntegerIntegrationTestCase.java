@@ -30,6 +30,7 @@ import plugin.bonustokens.Feat;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreHDParser;
 import plugin.pretokens.parser.PreLevelParser;
+import plugin.pretokens.parser.PreMultParser;
 import plugin.pretokens.writer.PreHDWriter;
 import plugin.pretokens.writer.PreLevelWriter;
 
@@ -40,6 +41,7 @@ public abstract class AbstractIntegerIntegrationTestCase<T extends CDOMObject>
 		extends AbstractIntegrationTestCase<T>
 {
 
+	private static final PrerequisiteParserInterface premult = new PreMultParser();
 	private static final PrerequisiteParserInterface prehd = new PreHDParser();
 	private static final PrerequisiteWriterInterface prehdwriter = new PreHDWriter();
 	private static final PrerequisiteParserInterface prelevel = new PreLevelParser();
@@ -58,6 +60,7 @@ public abstract class AbstractIntegerIntegrationTestCase<T extends CDOMObject>
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
+		TokenRegistration.register(premult);
 		TokenRegistration.register(prehd);
 		TokenRegistration.register(prehdwriter);
 		TokenRegistration.register(prelevel);
