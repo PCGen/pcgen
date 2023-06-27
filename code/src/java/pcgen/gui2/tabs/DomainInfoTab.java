@@ -606,7 +606,10 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		public void uninstall()
 		{
-			ref.removeReferenceListener(this);
+			if (ref != null)
+			{
+				ref.removeReferenceListener(this);
+			}
 		}
 
 		@Override
