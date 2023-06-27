@@ -584,6 +584,10 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		public void install()
 		{
 			label.setFont(FontManipulation.plain(label.getFont()));
+			if (ref == null)
+			{
+				return;
+			}
 			if (ref.get() != null)
 			{
 				label.setText(ref.get().toString());
@@ -597,6 +601,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				label.setText(""); //$NON-NLS-1$
 			}
 			ref.addReferenceListener(this);
+
 		}
 
 		public void uninstall()
