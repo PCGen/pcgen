@@ -1182,6 +1182,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(template, "MOVE", "Swim,30,Fly,10");
 		readyToRun();
 		GameMode game = SettingsHandler.getGameAsProperty().get();
+
 		LoadInfo li = game.getModeContext().getReferenceContext().constructNowIfNecessary(
 				LoadInfo.class, game.getName());
 		li.addLoadScoreValue(0, new BigDecimal("100.0"));

@@ -125,7 +125,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		EquipNode parent = node.getParent();
 		assertEquals("Root incorrect", Constants.EQUIP_LOCATION_EQUIPPED, parent.getParent().toString());
 		assertEquals("Leaf incorrect", item.getName(), parent.toString());
-		assertEquals("Incorrect nuber of paths found", adjustedBaseNodes+3, nodeList.getSize());
+		assertEquals("Incorrect number of paths found", adjustedBaseNodes+3, nodeList.getSize());
 	}
 	
 	/**
@@ -333,13 +333,13 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		requiredLoc = esfi.getNaturalWeaponLoc(eq);
 		assertNotNull("Natural weapon should have required location.", requiredLoc);
 		assertEquals("Incorrect name for secondary natural weapon", "Natural-Secondary", requiredLoc.toString());
-		assertEquals("Natural weapom should replace hands.", "HANDS", requiredLoc.getBodyStructure().toString());
+		assertEquals("Natural weapon should replace hands.", "HANDS", requiredLoc.getBodyStructure().toString());
 
 		eq.setModifiedName("Natural/Primary");
 		requiredLoc = esfi.getNaturalWeaponLoc(eq);
 		assertNotNull("Natural weapon should have required location.", requiredLoc);
 		assertEquals("Incorrect name for primary natural weapon", "Natural-Primary", requiredLoc.toString());
-		assertEquals("Natural weapom should replace hands.", "HANDS", requiredLoc.getBodyStructure().toString());
+		assertEquals("Natural weapon should replace hands.", "HANDS", requiredLoc.getBodyStructure().toString());
 	}
 	
 	

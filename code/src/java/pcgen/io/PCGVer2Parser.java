@@ -4719,7 +4719,7 @@ final class PCGVer2Parser implements PCGParser
 		{
 			// Must load custom equipment from the .pcg file
 			// before we check the Global list (which may get
-			// loaded from customeEquipment.lst) as equipment
+			// loaded from customEquipment.lst) as equipment
 			// in the PC's .pcg may contain additional info
 			// such as Charges on a wand, etc
 			//
