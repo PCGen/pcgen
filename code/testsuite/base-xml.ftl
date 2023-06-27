@@ -478,7 +478,7 @@
 			<critical><@pcstring tag="WEAPONH.CRIT"/>/x<@pcstring tag="WEAPONH.MULT"/></critical>
 			<!-- Should be changed to a variable due to improved crit -->
 		</unarmed>
-		
+
 		<@loop from=0 to=pcvar('COUNT[EQTYPE.WEAPON]-1') ; weap , weap_has_next >
 		<#assign weaponCategory>
 			<@pcstring tag="WEAPON.${weap}.CATEGORY" /><#t>
