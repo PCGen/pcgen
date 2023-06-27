@@ -66,6 +66,7 @@
 			</@loop></shortform><#lt>
 			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
 		</classes>
+	<#if pc.deity?has_content>
 		<deity>
 			<name>${pcstring('DEITY')}</name>
 			<alignment>${pcstring('DEITY.ALIGNMENT')}</alignment>
@@ -80,6 +81,7 @@
 			<title>${pcstring('DEITY.TITLE')}</title>
 			<worshippers>${pcstring('DEITY.WORSHIPPERS')}</worshippers>
 		</deity>
+	</#if>
 		<description><@pcstring tag="DESC"/></description>
 		<experience>
 			<current><@pcstring tag="EXP.CURRENT"/></current>
