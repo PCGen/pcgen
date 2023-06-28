@@ -18,133 +18,138 @@
   * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
   -->
 
-<?import javafx.scene.control.Button?><?import javafx.scene.control.Label?><?import javafx.scene.control.Tab?><?import javafx.scene.control.TabPane?><?import javafx.scene.control.TextArea?><?import javafx.scene.control.Tooltip?><?import javafx.scene.image.Image?><?import javafx.scene.image.ImageView?><?import javafx.scene.layout.BorderPane?><?import javafx.scene.layout.GridPane?><?import javafx.scene.Scene?><?import javafx.scene.text.Text?><?import javafx.scene.layout.ColumnConstraints?>
-<Scene xmlns="http://javafx.com/javafx/11.0.1"
-       xmlns:fx="http://javafx.com/fxml/1"
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.Scene?>
+<?import javafx.scene.text.Text?>
+<Scene xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
        fx:controller="pcgen.gui3.dialog.AboutDialogController">
-    <BorderPane>
-        <center>
-            <TabPane id="viewtabs">
-                <Tab id="abt_credits" text="%in_abt_credits">
-                    <BorderPane>
-                        <center>
-                            <GridPane>
-                                <columnConstraints>
-                                    <ColumnConstraints>
-                                        <percentWidth>30</percentWidth>
-                                        <percentWidth>50</percentWidth>
-                                    </ColumnConstraints>
-                                </columnConstraints>
-                                <Label text="%in_abt_version"
-                                       labelFor="$pcgenVersion"
-                                       GridPane.columnIndex="0"
-                                       GridPane.rowIndex="0" />
-                                <Text fx:id="pcgenVersion"
-                                      GridPane.columnIndex="1"
-                                      GridPane.rowIndex="0"
-                                      GridPane.fillWidth="true" />
-                                <Label text="%in_abt_release_date"
-                                       labelFor="$releaseDate"
-                                       GridPane.columnIndex="0"
-                                       GridPane.rowIndex="1" />
-                                <Text fx:id="releaseDate" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-
-                                <Label text="%in_abt_java_version"
-                                       labelFor="$javaVersion"
-                                       GridPane.columnIndex="0"
-                                       GridPane.rowIndex="2"
-                                       GridPane.fillWidth="true" />
-                                <Text fx:id="javaVersion"
-                                      GridPane.columnIndex="1"
-                                      GridPane.rowIndex="2"
-                                      GridPane.fillWidth="true" />
-                                <Label text="%in_abt_BD"
-                                       labelFor="$projectLead"
-                                       GridPane.columnIndex="0"
-                                       GridPane.rowIndex="3"
-                                       GridPane.fillWidth="true" />
-                                <Text fx:id="projectLead"
-                                      GridPane.columnIndex="1"
-                                      GridPane.rowIndex="3"
-                                      GridPane.fillWidth="true" />
-                                <Label text="%in_abt_web"
-                                       GridPane.columnIndex="0"
-                                       GridPane.rowIndex="4"
-                                       labelFor="$wwwSite" />
-                                <Button fx:id="wwwSite"
-                                        mnemonicParsing="false"
-                                        GridPane.columnIndex="1"
-                                        GridPane.rowIndex="4"
-                                        GridPane.fillWidth="true"
-                                        onAction="#openInBrowser" />
-                                <Label text="%in_abt_email"
-                                       GridPane.columnIndex="0"
-                                       GridPane.rowIndex="5"
-                                       labelFor="$mailingList" />
-                                <Button fx:id="mailingList"
-                                        mnemonicParsing="false"
-                                        GridPane.columnIndex="1"
-                                        GridPane.rowIndex="5"
-                                        GridPane.fillWidth="true"
-                                        onAction="#openInBrowser" />
-                                <Label text="%in_abt_monkeys"
-                                       labelFor="$monkies"
-                                       GridPane.columnIndex="0"
-                                       GridPane.rowIndex="6" />
-                                <TabPane fx:id="monkies"
-                                         GridPane.columnIndex="0"
-                                         GridPane.rowIndex="7"
-                                         GridPane.columnSpan="2">
-                                    <Tab text="%in_abt_code_mky">
-                                        <TextArea fx:id="monkeyList_code" wrapText="true" />
-                                    </Tab>
-                                    <Tab text="%in_abt_list_mky">
-                                        <TextArea fx:id="monkeyList_list" wrapText="true" />
-                                    </Tab>
-                                    <Tab text="%in_abt_test_mky">
-                                        <tooltip>
-                                            <Tooltip text="%in_abt_easter_egg" />
-                                        </tooltip>
-                                        <TextArea fx:id="monkeyList_test" wrapText="true" />
-                                    </Tab>
-                                    <Tab text="%in_abt_eng_mky">
-                                        <TextArea fx:id="monkeyList_eng" wrapText="true" />
-                                    </Tab>
-                                </TabPane>
-                            </GridPane>
-                        </center>
-                    </BorderPane>
-                </Tab>
-                <Tab id="abt_license" text="%in_abt_license">
-                    <TextArea fx:id="licenseArea" wrapText="true" />
-                </Tab>
-                <Tab id="abt_libraries" text="%in_abt_libraries">
-                    <TextArea fx:id="librariesArea" wrapText="true" />
-                </Tab>
-                <Tab id="abt_awards" text="%in_abt_awards">
+    <TabPane id="viewtabs" tabClosingPolicy="UNAVAILABLE">
+        <Tab id="abt_credits" closable="false" text="%in_abt_credits">
+            <BorderPane>
+                <center>
                     <GridPane>
-                        <Label text="%in_abt_awards_2005_ennie" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                        <ImageView fitHeight="150.0"
-                                   fitWidth="200.0"
-                                   pickOnBounds="true"
-                                   preserveRatio="true"
-                                   GridPane.columnIndex="1"
-                                   GridPane.rowIndex="0">
-                            <Image url="@ennie_award_2003.gif"></Image>
-                        </ImageView>
-                        <Label text="%in_abt_awards_2003_ennie" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                        <ImageView fitHeight="150.0"
-                                   fitWidth="200.0"
-                                   pickOnBounds="true"
-                                   preserveRatio="true"
-                                   GridPane.columnIndex="1"
-                                   GridPane.rowIndex="1">
-                            <Image url="@ennie_award_2003.gif" />
+                        <columnConstraints>
+                            <ColumnConstraints>
+                                <percentWidth>50</percentWidth>
+                                <percentWidth>50</percentWidth>
+                            </ColumnConstraints>
+                            <ColumnConstraints hgrow="ALWAYS"/>
+                        </columnConstraints>
+                        <Label text="%in_abt_version" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                            <GridPane.margin>
+                                <Insets left="5.0"/>
+                            </GridPane.margin>
+                        </Label>
+                        <Text fx:id="pcgenVersion" GridPane.columnIndex="1" GridPane.fillWidth="true"
+                              GridPane.rowIndex="0"/>
+                        <Label text="%in_abt_release_date" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                            <GridPane.margin>
+                                <Insets left="5.0"/>
+                            </GridPane.margin>
+                        </Label>
+                        <Text fx:id="releaseDate" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
 
-                        </ImageView>
+                        <Label text="%in_abt_java_version" GridPane.columnIndex="0" GridPane.fillWidth="true"
+                               GridPane.rowIndex="2">
+                            <GridPane.margin>
+                                <Insets left="5.0"/>
+                            </GridPane.margin>
+                        </Label>
+                        <Text fx:id="javaVersion" GridPane.columnIndex="1" GridPane.fillWidth="true"
+                              GridPane.rowIndex="2"/>
+                        <Label text="%in_abt_BD" GridPane.columnIndex="0" GridPane.fillWidth="true"
+                               GridPane.rowIndex="3">
+                            <GridPane.margin>
+                                <Insets left="5.0"/>
+                            </GridPane.margin>
+                        </Label>
+                        <Text fx:id="projectLead" GridPane.columnIndex="1" GridPane.fillWidth="true"
+                              GridPane.rowIndex="3"/>
+                        <Label text="%in_abt_web" GridPane.columnIndex="0" GridPane.rowIndex="4">
+                            <GridPane.margin>
+                                <Insets left="5.0"/>
+                            </GridPane.margin>
+                        </Label>
+                        <Button fx:id="wwwSite" mnemonicParsing="false" onAction="#openInBrowser"
+                                GridPane.columnIndex="1" GridPane.fillWidth="true" GridPane.rowIndex="4"/>
+                        <Label text="%in_abt_email" GridPane.columnIndex="0" GridPane.rowIndex="5">
+                            <GridPane.margin>
+                                <Insets left="5.0"/>
+                            </GridPane.margin>
+                        </Label>
+                        <Button fx:id="mailingList" mnemonicParsing="false" onAction="#openInBrowser"
+                                GridPane.columnIndex="1" GridPane.fillWidth="true" GridPane.rowIndex="5"/>
+                        <Label text="%in_abt_monkeys" GridPane.columnIndex="0" GridPane.rowIndex="6">
+                            <GridPane.margin>
+                                <Insets left="5.0"/>
+                            </GridPane.margin>
+                        </Label>
+                        <TabPane fx:id="monkies"
+                                 GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="7">
+                            <Tab closable="false" text="%in_abt_code_mky">
+                                <TextArea fx:id="monkeyList_code" wrapText="true"/>
+                            </Tab>
+                            <Tab closable="false" text="%in_abt_list_mky">
+                                <TextArea fx:id="monkeyList_list" wrapText="true"/>
+                            </Tab>
+                            <Tab closable="false" text="%in_abt_test_mky">
+                                <tooltip>
+                                    <Tooltip text="%in_abt_easter_egg"/>
+                                </tooltip>
+                                <TextArea fx:id="monkeyList_test" wrapText="true"/>
+                            </Tab>
+                            <Tab closable="false" text="%in_abt_eng_mky">
+                                <TextArea fx:id="monkeyList_eng" wrapText="true"/>
+                            </Tab>
+                        </TabPane>
+                        <rowConstraints>
+                            <RowConstraints/>
+                            <RowConstraints/>
+                            <RowConstraints/>
+                            <RowConstraints/>
+                            <RowConstraints/>
+                            <RowConstraints/>
+                            <RowConstraints/>
+                            <RowConstraints vgrow="ALWAYS"/>
+                        </rowConstraints>
                     </GridPane>
-                </Tab>
-            </TabPane>
-        </center>
-    </BorderPane>
+                </center>
+                <padding>
+                    <Insets top="5.0"/>
+                </padding>
+            </BorderPane>
+        </Tab>
+        <Tab id="abt_license" closable="false" text="%in_abt_license">
+            <TextArea fx:id="licenseArea" wrapText="true"/>
+        </Tab>
+        <Tab id="abt_libraries" closable="false" text="%in_abt_libraries">
+            <TextArea fx:id="librariesArea" wrapText="true"/>
+        </Tab>
+        <Tab id="abt_awards" closable="false" text="%in_abt_awards">
+            <GridPane>
+                <Label text="%in_abt_awards_2005_ennie" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true"
+                           GridPane.columnIndex="1" GridPane.rowIndex="0">
+                    <Image url="@ennie_award_2003.gif"/>
+                </ImageView>
+                <Label text="%in_abt_awards_2003_ennie" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true"
+                           GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <Image url="@ennie_award_2003.gif"/>
+                </ImageView>
+                <columnConstraints>
+                    <ColumnConstraints/>
+                    <ColumnConstraints/>
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints/>
+                    <RowConstraints/>
+                </rowConstraints>
+            </GridPane>
+        </Tab>
+    </TabPane>
 </Scene>

@@ -170,7 +170,7 @@ public final class PCGenActionMap extends ActionMap
 		put(HELP_DOCS_COMMAND, new DocsHelpAction());
 		put(HELP_OGL_COMMAND, new OGLHelpAction());
 		put(HELP_TIPOFTHEDAY_COMMAND, new TipOfTheDayHelpAction());
-		put(HELP_ABOUT_COMMAND, new AboutHelpAction());
+		put(HELP_ABOUT_COMMAND, new AboutHelpAction(frame));
 	}
 
 	private static final class EditAction extends PCGenAction
@@ -833,15 +833,17 @@ public final class PCGenActionMap extends ActionMap
 	private static final class AboutHelpAction extends PCGenAction
 	{
 
-		private AboutHelpAction()
+		PCGenFrame frame;
+		private AboutHelpAction(PCGenFrame frame)
 		{
 			super("mnuHelpAbout", HELP_ABOUT_COMMAND, Icons.About16);
+			this.frame = frame;
 		}
 
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			PCGenFrame.showAboutDialog();
+			frame.showAboutDialog();
 		}
 	}
 
