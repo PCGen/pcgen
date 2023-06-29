@@ -203,8 +203,6 @@ public abstract class AbstractCharacterTestCase
 		FactDefinition<?, String> fd =
 				BuildUtilities.createFact(context, "SpellType", PCClass.class);
 		fd.setSelectable(true);
-		// Same line appears in finishLoad()
-		// SourceFileLoader.processFactDefinitions(context);
 
 		fine = BuildUtilities.createSize("Fine", 0);
 		diminutive = BuildUtilities.createSize("Diminutive", 1);
