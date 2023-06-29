@@ -34,7 +34,7 @@ import pcgen.core.analysis.DomainApplication;
 import pcgen.output.channel.ChannelUtilities;
 
 /**
- * Deal with Dieties via Kits
+ * Deal with Deities via Kits
  */
 public class KitDeity extends BaseKit
 {

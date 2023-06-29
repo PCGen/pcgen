@@ -203,40 +203,33 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable> implemen
 			if (type == null || type.isEmpty())
 			{
 				throw new IllegalArgumentException(
-					"Attempt to acquire empty Type " + "(the type String contains a null or empty element)");
+					"Attempt to acquire empty Type (the type String contains a null or empty element)");
 			}
 			if (type.indexOf('.') != -1)
 			{
-				throw new IllegalArgumentException("Cannot build Reference with type conaining a period: " + type);
+				throw new IllegalArgumentException("Cannot build Reference with type containing a period: " + type);
 			}
 			if (type.indexOf('=') != -1)
 			{
-				throw new IllegalArgumentException("Cannot build Reference with type conaining an equals: " + type);
+				throw new IllegalArgumentException("Cannot build Reference with type containing an equals: " + type);
 			}
 			if (type.indexOf(',') != -1)
 			{
-				throw new IllegalArgumentException("Cannot build Reference with type conaining a comma: " + type);
+				throw new IllegalArgumentException("Cannot build Reference with type containing a comma: " + type);
 			}
 			if (type.indexOf('|') != -1)
 			{
-				throw new IllegalArgumentException("Cannot build Reference with type conaining a pipe: " + type);
+				throw new IllegalArgumentException("Cannot build Reference with type containing a pipe: " + type);
 			}
 		}
 		Arrays.sort(types);
 		FixedStringList typeList = new FixedStringList(types);
-		WeakReference<CDOMGroupRef<T>> ref = typeReferences.get(typeList);
-		if (ref != null)
-		{
-			CDOMGroupRef<T> trt = ref.get();
-			if (trt != null)
-			{
-				return trt;
-			}
-		}
-		// Didn't find the appropriate key, create new
-		CDOMGroupRef<T> cgr = factory.getTypeReference(types);
-		typeReferences.put(typeList, new WeakReference<>(cgr));
-		return cgr;
+		WeakReference<CDOMGroupRef<T>> ref = typeReferences.computeIfAbsent(typeList, k -> {
+			// Didn't find the appropriate key, create new
+			CDOMGroupRef<T> cgr = factory.getTypeReference(types);
+			return new WeakReference<>(cgr);
+		});
+		return ref.get();
 	}
 
 	/**

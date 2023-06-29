@@ -224,7 +224,7 @@ public final class WieldCategory implements Loadable
 		if (o instanceof WieldCategory other)
 		{
 			/*
-			 * Light weight check due to ReferenceManufacturer enforcement
+			 * Lightweight check due to ReferenceManufacturer enforcement
 			 */
 			return categoryName.equals(other.categoryName);
 		}
