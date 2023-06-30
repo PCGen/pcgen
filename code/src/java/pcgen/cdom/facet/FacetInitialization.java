@@ -239,7 +239,7 @@ public final class FacetInitialization
 		/*
 		 * As good of a place as any to do this
 		 */
-		OutputDB.register("Deity", CControl.DEITYINPUT);
-		OutputDB.register("Alignment", CControl.ALIGNMENTINPUT);
+		OutputDB.register("deity", CControl.DEITYINPUT);
+		OutputDB.register("alignment", CControl.ALIGNMENTINPUT);
 	}
 }

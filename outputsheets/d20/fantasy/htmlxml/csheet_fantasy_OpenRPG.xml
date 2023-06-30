@@ -213,9 +213,9 @@
 |FOR,%ammo,0,WEAPON.%weap.CONTENTS-1,1,0|
 |FOR,%range,0,4,1,0|
         <nodehandler class="tabber_handler" icon="gear" module="containers" name="|WEAPON.%weap.CONTENTS%ammo|">
-|IIF(WEAPON.%weap.CONTENTS%ammo.SPROP: )|
+|IIF(WEAPON.%weap.CONTENTS.%ammo.SPROP: )|
            <nodehandler class="textctrl_handler" icon="note" module="forms" name="Special Properties">
-             <text multiline="0" send_button="0">|WEAPON.%weap.CONTENTS%ammo.SPROP|</text>
+             <text multiline="0" send_button="0">|WEAPON.%weap.CONTENTS.%ammo.SPROP|</text>
            </nodehandler>
 |ENDIF|
            <nodehandler class="listbox_handler" icon="gear" module="forms" name="|WEAPON.%weap.RANGELIST.%range|">
@@ -328,9 +328,9 @@
 |FOR,%ammo,0,WEAPON.%weap.CONTENTS-1,1,0|
 |FOR,%range,0,4,1,0|
           <nodehandler class="tabber_handler" icon="gear" module="containers" name="|WEAPON.%weap.CONTENTS%ammo|">
-|IIF(WEAPON.%weap.CONTENTS%ammo.SPROP: )|
+|IIF(WEAPON.%weap.CONTENTS.%ammo.SPROP: )|
             <nodehandler class="textctrl_handler" icon="note" module="forms" name="Special Properties">
-              <text multiline="0" send_button="0">|WEAPON.%weap.CONTENTS%ammo.SPROP|</text>
+              <text multiline="0" send_button="0">|WEAPON.%weap.CONTENTS.%ammo.SPROP|</text>
             </nodehandler>
 |ENDIF|
             <nodehandler class="listbox_handler" icon="gear" module="forms" name="|WEAPON.%weap.RANGELIST.%range|">
@@ -426,9 +426,9 @@
 |FOR,%ammo,0,WEAPON.%weap.CONTENTS-1,1,0|
 |FOR,%range,0,4,1,0|
         <nodehandler class="tabber_handler" icon="gear" module="containers" name="|WEAPON.%weap.CONTENTS%ammo|">
-|IIF(WEAPON.%weap.CONTENTS%ammo.SPROP: )|
+|IIF(WEAPON.%weap.CONTENTS.%ammo.SPROP: )|
            <nodehandler class="textctrl_handler" icon="note" module="forms" name="Special Properties">
-             <text multiline="0" send_button="0">|WEAPON.%weap.CONTENTS%ammo.SPROP|</text>
+             <text multiline="0" send_button="0">|WEAPON.%weap.CONTENTS.%ammo.SPROP|</text>
            </nodehandler>
 |ENDIF|
            <nodehandler class="listbox_handler" icon="gear" module="forms" name="|WEAPON.%weap.RANGELIST.%range|">

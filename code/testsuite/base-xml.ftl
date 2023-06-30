@@ -66,6 +66,7 @@
 			</@loop></shortform><#lt>
 			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
 		</classes>
+	<#if pc.deity?has_content>
 		<deity>
 			<name>${pcstring('DEITY')}</name>
 			<alignment>${pcstring('DEITY.ALIGNMENT')}</alignment>
@@ -80,6 +81,7 @@
 			<title>${pcstring('DEITY.TITLE')}</title>
 			<worshippers>${pcstring('DEITY.WORSHIPPERS')}</worshippers>
 		</deity>
+	</#if>
 		<description><@pcstring tag="DESC"/></description>
 		<experience>
 			<current><@pcstring tag="EXP.CURRENT"/></current>
@@ -416,13 +418,19 @@
 					<magic_hit><@pcstring tag="WEAPON.${weap}.MAGICHIT"/></magic_hit>
 					<total_hit><@pcstring tag="WEAPON.${weap}.TOTALHIT"/></total_hit>
 				</to_hit>
-				<feat><@pcstring tag="WEAPON.${weap}.FEAT"/></feat>
+				<feat>
+					<hit>${pcstring('WEAPON.${weap}.FEATHIT')}</hit>
+					<damage>${pcstring('WEAPON.${weap}.FEATDAMAGE')}</damage>
+				</feat>
 				<hand><@pcstring tag="WEAPON.${weap}.HAND"/></hand>
 				<num_attacks><@pcstring tag="WEAPON.${weap}.NUMATTACKS"/></num_attacks>
 				<reach><@pcstring tag="WEAPON.${weap}.REACH"/></reach>
 				<size><@pcstring tag="WEAPON.${weap}.SIZE"/></size>
 				<special_properties><@pcstring tag="WEAPON.${weap}.SPROP"/></special_properties>
-				<template><@pcstring tag="WEAPON.${weap}.TEMPLATE"/></template>
+				<template>
+					<hit>${pcstring('WEAPON.${weap}.TEMPLATEHIT')}</hit>
+					<damage>${pcstring('WEAPON.${weap}.TEMPLATEDAMAGE')}</damage>
+				</template>
 				<type><@pcstring tag="WEAPON.${weap}.TYPE"/></type>
 				<weight><@pcstring tag="WEAPON.${weap}.WT"/></weight>
 				<sequence>${weap}</sequence>
@@ -470,7 +478,7 @@
 			<critical><@pcstring tag="WEAPONH.CRIT"/>/x<@pcstring tag="WEAPONH.MULT"/></critical>
 			<!-- Should be changed to a variable due to improved crit -->
 		</unarmed>
-		
+
 		<@loop from=0 to=pcvar('COUNT[EQTYPE.WEAPON]-1') ; weap , weap_has_next >
 		<#assign weaponCategory>
 			<@pcstring tag="WEAPON.${weap}.CATEGORY" /><#t>
@@ -1093,13 +1101,19 @@
 							<magic_hit><@pcstring tag="FOLLOWERTYPE.${followerType}.${companion}.WEAPON.%weap.MAGICHIT"/></magic_hit>
 							<total_hit><@pcstring tag="FOLLOWERTYPE.${followerType}.${companion}.WEAPON.%weap.TOTALHIT"/></total_hit>
 						</to_hit>
-						<feat><@pcstring tag="FOLLOWERTYPE.${followerType}.${companion}.WEAPON.%weap.FEAT"/></feat>
+						<feat>
+							<hit>${pcstring('FOLLOWERTYPE.${followerType}.${companion}.WEAPON.%weap.FEATHIT')}</hit>
+							<damage>${pcstring('FOLLOWERTYPE.${followerType}.${companion}.WEAPON.%weap.FEATDAMAGE')}</damage>
+						</feat>
 						<hand><@pcstring tag="FOLLOWERTYPE.${followerType}.${companion}.WEAPON.%weap.HAND"/></hand>
 						<num_attacks><@pcstring tag="FOLLOWERTYPE.${followerType}.${companion}.WEAPON.%weap.NUMATTACKS"/></num_attacks>
 						<reach><@pcstring tag="FOLLOWERTYPE.${followerType}.${companion}.WEAPON.%weap.REACH"/></reach>
 						<size><@pcstring tag="FOLLOWERTYPE.${followerType}.${companion}.WEAPON.%weap.SIZE"/></size>
 						<special_properties><@pcstring tag="FOLLOWERTYPE.${followerType}.${companion}.WEAPON.%weap.SPROP"/></special_properties>
-						<template><@pcstring tag="FOLLOWERTYPE.${followerType}.${companion}.WEAPON.%weap.TEMPLATE"/></template>
+						<template>
+							<hit>${pcstring('FOLLOWERTYPE.${followerType}.${companion}.WEAPON.%weap.TEMPLATEHIT')}</hit>
+							<damage>${pcstring('FOLLOWERTYPE.${followerType}.${companion}.WEAPON.%weap.TEMPLATEDAMAGE')}</damage>
+						</template>
 						<type><@pcstring tag="FOLLOWERTYPE.${followerType}.${companion}.WEAPON.%weap.TYPE"/></type>
 						<weight><@pcstring tag="FOLLOWERTYPE.${followerType}.${companion}.WEAPON.%weap.WT"/></weight>
 						<sequence><@pcstring tag="%weap"/></sequence>

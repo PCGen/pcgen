@@ -194,7 +194,7 @@ public class LoadInfo implements Loadable
 	{
 		if (loadMultiplierMap.containsKey(encumbranceType))
 		{
-			return loadMultiplierMap.get(encumbranceType).getMuliplier();
+			return loadMultiplierMap.get(encumbranceType).multiplier();
 		}
 		return null;
 	}
@@ -208,7 +208,7 @@ public class LoadInfo implements Loadable
 	{
 		if (loadMultiplierMap.containsKey(encumbranceType))
 		{
-			return loadMultiplierMap.get(encumbranceType).getFormula();
+			return loadMultiplierMap.get(encumbranceType).moveFormula();
 		}
 		return "";
 	}
@@ -222,7 +222,7 @@ public class LoadInfo implements Loadable
 	{
 		if (loadMultiplierMap.containsKey(encumbranceType))
 		{
-			return loadMultiplierMap.get(encumbranceType).getCheckPenalty();
+			return loadMultiplierMap.get(encumbranceType).checkPenalty();
 		}
 		return 0;
 	}
@@ -254,52 +254,7 @@ public class LoadInfo implements Loadable
 		return loadMultiplierMap.size();
 	}
 
-	private static class LoadMapEntry
-	{
-		private final Float multiplier;
-		private final String moveFormula;
-		private final Integer checkPenalty;
-
-		/**
-		 * Constructor
-		 * @param argMultiplier
-		 * @param argFormula
-		 * @param argPenalty
-		 */
-		public LoadMapEntry(Float argMultiplier, String argFormula, Integer argPenalty)
-		{
-			multiplier = argMultiplier;
-			moveFormula = argFormula;
-			checkPenalty = argPenalty;
-		}
-
-		/**
-		 * Get multiplier
-		 * @return multiplier
-		 */
-		public Float getMuliplier()
-		{
-			return multiplier;
-		}
-
-		/**
-		 * Get the formula
-		 * @return formula
-		 */
-		public String getFormula()
-		{
-			return moveFormula;
-		}
-
-		/**
-		 * Get the check penalty
-		 * @return the check penalty
-		 */
-		public int getCheckPenalty()
-		{
-			return checkPenalty;
-		}
-	}
+	private record LoadMapEntry (Float multiplier, String moveFormula, Integer checkPenalty) {}
 
 	public void setLoadMultStep(int step)
 	{
