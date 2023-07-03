@@ -860,7 +860,7 @@ BIO
 			<critical>20/x2</critical>
 			<!-- Should be changed to a variable due to improved crit -->
 		</unarmed>
-		
+
 	</weapons>
 	<!--
 	  ====================================
