@@ -238,7 +238,7 @@ public class TokenSupport
 			}
 		}
 		/*
-		 * CONSIDER Better option than toString, given that T != CDOMObject
+		 * CONSIDER a better option than toString, given that T != CDOMObject
 		 */
 		cpr.addErrorMessage(
 			"Illegal " + tokenName + " subtoken '" + key + "' '" + value + "' for " + cl.getName() + ' ' + cdo);

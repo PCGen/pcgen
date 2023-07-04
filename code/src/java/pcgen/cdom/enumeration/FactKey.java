@@ -65,7 +65,7 @@ public final class FactKey<T>
 
 	/**
 	 * Returns the FactKey for the given String (the search for the constant is
-	 * case insensitive). If the constant does not already exist, a new FactKey
+	 * case-insensitive). If the constant does not already exist, a new FactKey
 	 * is created with the given String as the name of the FactKey.
 	 * 
 	 * @param name
