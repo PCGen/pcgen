@@ -424,7 +424,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 			throw new UnreachableError(e);
 		}
 		PCClass reconstClass;
-		System.out.println("Got text:" + classPCCText);
+		System.out.println("Got text: " + classPCCText);
 		reconstClass = parsePCClassText(classPCCText, source);
 		assertEquals(
 				classPCCText, reconstClass.getPCCText(),
@@ -444,7 +444,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		classPCCText = humanoidClass.getPCCText();
 		assertNotNull(classPCCText, "PCC Text for race should not be null");
 
-		System.out.println("Got text:" + classPCCText);
+		System.out.println("Got text: " + classPCCText);
 		reconstClass = parsePCClassText(classPCCText, source);
 		assertEquals(
 				classPCCText, reconstClass.getPCCText(),
@@ -456,8 +456,8 @@ public class PCClassTest extends AbstractCharacterTestCase
 				humanoidClass.getOriginalClassLevel(1).getListMods(Spell.SPELLS);
 		Collection<CDOMReference<Spell>> reconstSpells =
 				reconstClass.getOriginalClassLevel(1).getListMods(Spell.SPELLS);
-		assertEquals(startSpells
-			.size(), reconstSpells.size(), "All spell should have been reconstituted.");
+		assertEquals(startSpells.size(), reconstSpells.size(),
+				"All spell should have been reconstituted.");
 		assertEquals(startSpells, reconstSpells, "Spell names should been preserved.");
 
 	}
@@ -861,8 +861,9 @@ public class PCClassTest extends AbstractCharacterTestCase
 		{
 			throw new UnreachableError(e);
 		}
+
 		String classPCCText =
-			"CLASS:Cleric	HD:8		CLASSTYPE:PC	TYPE:Base.PC	ABB:Clr	ABILITY:TestCat|AUTOMATIC|Ability1\n"
+			"CLASS:Cleric	HD:8		TYPE:PC	TYPE:Base.PC	FACT:Abb|Clr	ABILITY:TestCat|AUTOMATIC|Ability1\n"
 				+ "CLASS:Cleric	STARTSKILLPTS:2\n"
 				+ "2	ABILITY:TestCat|AUTOMATIC|Ability2";
 		PCClass pcclass = parsePCClassText(classPCCText, source);
@@ -1004,7 +1005,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 			String line = tok.nextToken();
 			if (!line.trim().isEmpty())
 			{
-				System.out.println("Processing line:'" + line + "'.");
+				System.out.println("Processing line: '" + line + "'.");
 				reconstClass =
 						pcClassLoader.parseLine(Globals.getContext(), reconstClass, line, source);
 			}
@@ -1033,7 +1034,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 			throw new UnreachableError(e);
 		}
 
-		// Create the monseter class type
+		// Create the monster class type
 		GameMode gamemode = SettingsHandler.getGameAsProperty().get();
 		SimpleLoader<ClassType> methodLoader = new SimpleLoader<>(ClassType.class);
 		methodLoader.parseLine(gamemode.getModeContext(),
@@ -1044,7 +1045,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 
 		// Create the humanoid class
 		String classDef =
-				"CLASS:Humanoid	KEY:KEY_Humanoid	HD:8		CLASSTYPE:Monster	STARTSKILLPTS:1	"
+				"CLASS:Humanoid	KEY:KEY_Humanoid	HD:8		TYPE:Monster	STARTSKILLPTS:1	"
 					+ "MODTOSKILLS:NO	MONSKILL:6+INT	MONNONSKILLHD:1|PRESIZELTEQ:M	"
 					+ "MONNONSKILLHD:2|PRESIZEEQ:L";
 		PCClassLoader classLoader = new PCClassLoader();
@@ -1052,7 +1053,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		humanoidClass = classLoader.parseLine(context, null, classDef, source);
 
 		classDef =
-				"CLASS:Nymph		KEY:KEY_Nymph	CLASSTYPE:Monster	HD:6	STARTSKILLPTS:6	MODTOSKILLS:YES	";
+				"CLASS:Nymph		KEY:KEY_Nymph	TYPE:Monster	HD:6	STARTSKILLPTS:6	MODTOSKILLS:YES	";
 		classLoader = new PCClassLoader();
 		nymphClass = classLoader.parseLine(context, null, classDef, source);
 
@@ -1117,7 +1118,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		nqClass.getOriginalClassLevel(2).put(VariableKey.getConstant("Foo"),
 				FormulaFactory.getFormulaFor(2));
 	}
-	
+
 	@Override
 	protected void defaultSetupEnd()
 	{
