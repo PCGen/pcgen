@@ -981,7 +981,7 @@ BIO
 			<critical>20/x2</critical>
 			<!-- Should be changed to a variable due to improved crit -->
 		</unarmed>
-		
+
 		<weapon>
 			<common>
 				<name>
@@ -998,13 +998,19 @@ BIO
 					<magic_hit>+1</magic_hit>
 					<total_hit>+15/+10</total_hit>
 				</to_hit>
-				<feat></feat>
+				<feat>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</feat>
 				<hand>Off-hand</hand>
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>S</size>
 				<special_properties></special_properties>
-				<template></template>
+				<template>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</template>
 				<type>PS</type>
 				<weight>0</weight>
 				<sequence>0</sequence>
@@ -1085,13 +1091,19 @@ BIO
 					<magic_hit>+1</magic_hit>
 					<total_hit>+15/+10</total_hit>
 				</to_hit>
-				<feat></feat>
+				<feat>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</feat>
 				<hand>Primary</hand>
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>S</size>
 				<special_properties></special_properties>
-				<template></template>
+				<template>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</template>
 				<type>P</type>
 				<weight>1</weight>
 				<sequence>2</sequence>
@@ -1145,13 +1157,19 @@ BIO
 					<magic_hit>-2</magic_hit>
 					<total_hit>+14/+9</total_hit>
 				</to_hit>
-				<feat></feat>
+				<feat>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</feat>
 				<hand>Not Carried</hand>
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
 				<special_properties>splash weapon, full-round action to prepare, 50% chance to ignite</special_properties>
-				<template></template>
+				<template>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</template>
 				<type>F</type>
 				<weight>1</weight>
 				<sequence>3</sequence>
@@ -1200,13 +1218,19 @@ BIO
 					<magic_hit>+0</magic_hit>
 					<total_hit>+16/+11</total_hit>
 				</to_hit>
-				<feat></feat>
+				<feat>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</feat>
 				<hand>Carried</hand>
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>S</size>
 				<special_properties></special_properties>
-				<template></template>
+				<template>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</template>
 				<type>B</type>
 				<weight>0</weight>
 				<sequence>4</sequence>
@@ -1255,13 +1279,19 @@ BIO
 					<magic_hit>+1</magic_hit>
 					<total_hit>+17/+12</total_hit>
 				</to_hit>
-				<feat></feat>
+				<feat>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</feat>
 				<hand>Carried</hand>
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>S</size>
 				<special_properties>nonlethal</special_properties>
-				<template></template>
+				<template>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</template>
 				<type>B</type>
 				<weight>1</weight>
 				<sequence>5</sequence>
@@ -1315,13 +1345,19 @@ BIO
 					<magic_hit>+0</magic_hit>
 					<total_hit>+16/+11</total_hit>
 				</to_hit>
-				<feat></feat>
+				<feat>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</feat>
 				<hand>Not Carried</hand>
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>S</size>
 				<special_properties></special_properties>
-				<template></template>
+				<template>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</template>
 				<type>PS</type>
 				<weight>0</weight>
 				<sequence>6</sequence>
@@ -1402,13 +1438,19 @@ BIO
 					<magic_hit>+1</magic_hit>
 					<total_hit>+12/+7</total_hit>
 				</to_hit>
-				<feat></feat>
+				<feat>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</feat>
 				<hand>Not Carried</hand>
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>S</size>
 				<special_properties>silver</special_properties>
-				<template></template>
+				<template>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</template>
 				<type>BP</type>
 				<weight>3</weight>
 				<sequence>8</sequence>
@@ -1462,13 +1504,19 @@ BIO
 					<magic_hit>+1</magic_hit>
 					<total_hit>+17/+12</total_hit>
 				</to_hit>
-				<feat></feat>
+				<feat>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</feat>
 				<hand>Not Carried</hand>
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>S</size>
 				<special_properties>cold iron</special_properties>
-				<template></template>
+				<template>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</template>
 				<type>P</type>
 				<weight>1</weight>
 				<sequence>9</sequence>
@@ -1913,9 +1961,9 @@ BIO
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
-			<contents>9 lbs., 1 Flint and Steel, 2 Inkpen, 1 Bullseye Lantern, 1 Oil, 1 Potion of Cure Light Wounds, 1 Trail Ration, 1 Rope of Climbing, 1 Sealing Wax</contents>
-			<contents_num>8</contents_num>
-			<content_weight>9</content_weight>
+			<contents>9.5 lbs., 1 Map Case, 1 Flint and Steel, 2 Inkpen, 1 Bullseye Lantern, 1 Oil, 1 Potion of Cure Light Wounds, 1 Trail Ration, 1 Rope of Climbing, 1 Sealing Wax</contents>
+			<contents_num>9</contents_num>
+			<content_weight>9.5</content_weight>
 			<cost>50</cost>
 			<equipped>Y</equipped>
 			<location>Equipped</location>
@@ -1933,6 +1981,32 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
+			<longname>Case, Map</longname>
+			<id></id>
+			<name>Map Case</name>
+			<carried>1.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents>0 lbs., 1 Map of Inner Daggermark, 4 Parchment</contents>
+			<contents_num>2</contents_num>
+			<content_weight>0</content_weight>
+			<cost>1</cost>
+			<equipped>N</equipped>
+			<location>Backpack (Masterwork) (Small)</location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>1</quantity>
+			<checkbox>1</checkbox>
+			<size>
+				<long>Medium</long>
+				<short>M</short>
+			</size>
+			<special_properties></special_properties>
+			<type>GOODS.CONTAINER.GENERAL</type>
+			<weight>0.5</weight>
+			<bonuslist></bonuslist>
+		</item>
+		<item>
 			<longname>Map of Inner Daggermark</longname>
 			<id></id>
 			<name>Map of Inner Daggermark</name>
@@ -1944,7 +2018,7 @@ BIO
 			<content_weight>0</content_weight>
 			<cost>0.2</cost>
 			<equipped>N</equipped>
-			<location>Carried</location>
+			<location>Map Case</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
@@ -1970,7 +2044,7 @@ BIO
 			<content_weight>0</content_weight>
 			<cost>0.2</cost>
 			<equipped>N</equipped>
-			<location>Carried</location>
+			<location>Map Case</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>4</quantity>
@@ -2687,7 +2761,7 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<total>
-			<weight>36.39 lbs.</weight>
+			<weight>36.89 lbs.</weight>
 			<value>49170.8 gp</value>
 			<load>Light</load>
 			<capacity>112.5</capacity>
@@ -2951,7 +3025,7 @@ BIO
 				<carried>1.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
-				<contents>9 lbs., 1 Flint and Steel, 2 Inkpen, 1 Bullseye Lantern, 1 Oil, 1 Potion of Cure Light Wounds, 1 Trail Ration, 1 Rope of Climbing, 1 Sealing Wax</contents>
+				<contents>9.5 lbs., 1 Map Case, 1 Flint and Steel, 2 Inkpen, 1 Bullseye Lantern, 1 Oil, 1 Potion of Cure Light Wounds, 1 Trail Ration, 1 Rope of Climbing, 1 Sealing Wax</contents>
 				<cost>50</cost>
 				<equipped>Y</equipped>
 				<location>Equipped</location>
@@ -2968,6 +3042,27 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
+				<name>Map Case</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents>0 lbs., 1 Map of Inner Daggermark, 4 Parchment</contents>
+				<cost>1</cost>
+				<equipped>N</equipped>
+				<location>Backpack (Masterwork) (Small)</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.CONTAINER.GENERAL</type>
+				<weight>0.5</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
 				<name>Map of Inner Daggermark</name>
 				<carried>1.0</carried>
 				<charges></charges>
@@ -2975,7 +3070,7 @@ BIO
 				<contents></contents>
 				<cost>0.2</cost>
 				<equipped>N</equipped>
-				<location>Carried</location>
+				<location>Map Case</location>
 				<maxcharges>0</maxcharges>
 				<note></note>
 				<quantity>1</quantity>
@@ -2996,7 +3091,7 @@ BIO
 				<contents></contents>
 				<cost>0.2</cost>
 				<equipped>N</equipped>
-				<location>Carried</location>
+				<location>Map Case</location>
 				<maxcharges>0</maxcharges>
 				<note></note>
 				<quantity>4</quantity>
@@ -3989,28 +4084,6 @@ BIO
 			<name>Evasion</name>
 			<description></description>
 			<type>INTERNAL.CLASSFEATURES.RANGERCLASSFEATURES.ROGUECLASSFEATURES.MONKCLASSFEATURES</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Halfling Traits</name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Humanoid Traits</name>
-			<description></description>
-			<type></type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
