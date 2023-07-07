@@ -2,8 +2,8 @@ PCGVERSION:2.0
 
 # System Information
 CAMPAIGN:Starfinder RPG Core Supplements
-VERSION:6.09.00-DEV
-ROLLMETHOD:1|EXPRESSION:10
+VERSION:6.09.07
+ROLLMETHOD:0|EXPRESSION:0
 PURCHASEPOINTS:N
 CHARACTERTYPE:PC
 PREVIEWSHEET:Standard.htm.ftl
@@ -57,17 +57,17 @@ ALIGN:NG
 RACE:Android
 
 # Character Class(es)
-CLASS:Soldier|LEVEL:10|SKILLPOOL:11|SPELLBASE:None|CANCASTPERDAY:
-CLASSABILITIESLEVEL:Soldier=1|HITPOINTS:1|SKILLSGAINED:6|SKILLSREMAINING:1
-CLASSABILITIESLEVEL:Soldier=2|HITPOINTS:1|SKILLSGAINED:6|SKILLSREMAINING:1
-CLASSABILITIESLEVEL:Soldier=3|HITPOINTS:1|SKILLSGAINED:6|SKILLSREMAINING:1
-CLASSABILITIESLEVEL:Soldier=4|HITPOINTS:1|SKILLSGAINED:6|SKILLSREMAINING:1
-CLASSABILITIESLEVEL:Soldier=5|HITPOINTS:1|SKILLSGAINED:6|SKILLSREMAINING:1
-CLASSABILITIESLEVEL:Soldier=6|HITPOINTS:1|SKILLSGAINED:6|SKILLSREMAINING:1
-CLASSABILITIESLEVEL:Soldier=7|HITPOINTS:1|SKILLSGAINED:6|SKILLSREMAINING:1
-CLASSABILITIESLEVEL:Soldier=8|HITPOINTS:1|SKILLSGAINED:6|SKILLSREMAINING:1
-CLASSABILITIESLEVEL:Soldier=9|HITPOINTS:1|SKILLSGAINED:6|SKILLSREMAINING:1
-CLASSABILITIESLEVEL:Soldier=10|HITPOINTS:1|SKILLSGAINED:6|SKILLSREMAINING:1
+CLASS:Soldier|LEVEL:10|SKILLPOOL:0|SPELLBASE:None|CANCASTPERDAY:
+CLASSABILITIESLEVEL:Soldier=1|HITPOINTS:1|SKILLSGAINED:6|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Soldier=2|HITPOINTS:1|SKILLSGAINED:6|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Soldier=3|HITPOINTS:1|SKILLSGAINED:6|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Soldier=4|HITPOINTS:1|SKILLSGAINED:6|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Soldier=5|HITPOINTS:1|SKILLSGAINED:6|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Soldier=6|HITPOINTS:1|SKILLSGAINED:6|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Soldier=7|HITPOINTS:1|SKILLSGAINED:6|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Soldier=8|HITPOINTS:1|SKILLSGAINED:6|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Soldier=9|HITPOINTS:1|SKILLSGAINED:6|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Soldier=10|HITPOINTS:1|SKILLSGAINED:6|SKILLSREMAINING:0
 
 # Character Experience
 EXPERIENCE:71000
@@ -84,33 +84,34 @@ REGION:None
 
 # Character Skills
 SKILL:Acrobatics|OUTPUTORDER:2|CLASSBOUGHT:[CLASS:Soldier|RANKS:10.0|COST:1|CLASSSKILL:Y]
-SKILL:Athletics|OUTPUTORDER:3|CLASSBOUGHT:[CLASS:Soldier|RANKS:10.0|COST:1|CLASSSKILL:Y]
-SKILL:Bluff|OUTPUTORDER:5|
-SKILL:Diplomacy|OUTPUTORDER:7|
+SKILL:Athletics|OUTPUTORDER:4|CLASSBOUGHT:[CLASS:Soldier|RANKS:10.0|COST:1|CLASSSKILL:Y]
+SKILL:Bluff|OUTPUTORDER:6|
+SKILL:Diplomacy|OUTPUTORDER:8|
 SKILL:Disguise|OUTPUTORDER:10|
 SKILL:Display ~ Acrobatics|OUTPUTORDER:1|
-SKILL:Display ~ Athletics|OUTPUTORDER:4|
-SKILL:Display ~ Bluff|OUTPUTORDER:6|
-SKILL:Display ~ Diplomacy|OUTPUTORDER:8|
+SKILL:Display ~ Athletics|OUTPUTORDER:3|
+SKILL:Display ~ Bluff|OUTPUTORDER:5|
+SKILL:Display ~ Diplomacy|OUTPUTORDER:7|
 SKILL:Display ~ Disguise|OUTPUTORDER:9|
-SKILL:Display ~ Intimidate|OUTPUTORDER:11|
-SKILL:Display ~ Medicine|OUTPUTORDER:13|
-SKILL:Display ~ Perception|OUTPUTORDER:16|
-SKILL:Display ~ Piloting|OUTPUTORDER:17|
-SKILL:Display ~ Sense Motive|OUTPUTORDER:20|
-SKILL:Display ~ Stealth|OUTPUTORDER:22|
-SKILL:Display ~ Survival|OUTPUTORDER:24|
-SKILL:Engineering|CLASSBOUGHT:[CLASS:Soldier|RANKS:10.0|COST:1|CLASSSKILL:Y]
-SKILL:Intimidate|OUTPUTORDER:12|
-SKILL:Medicine|OUTPUTORDER:14|CLASSBOUGHT:[CLASS:Soldier|RANKS:10.0|COST:1|CLASSSKILL:Y]
-SKILL:Perception|OUTPUTORDER:15|
-SKILL:Piloting|OUTPUTORDER:18|CLASSBOUGHT:[CLASS:Soldier|RANKS:10.0|COST:1|CLASSSKILL:Y]
-SKILL:Sense Motive|OUTPUTORDER:19|
-SKILL:Stealth|OUTPUTORDER:21|
-SKILL:Survival|OUTPUTORDER:23|
+SKILL:Display ~ Engineering|OUTPUTORDER:12|
+SKILL:Display ~ Intimidate|OUTPUTORDER:14|
+SKILL:Display ~ Medicine|OUTPUTORDER:16|
+SKILL:Display ~ Perception|OUTPUTORDER:18|
+SKILL:Display ~ Piloting|OUTPUTORDER:19|
+SKILL:Display ~ Sense Motive|OUTPUTORDER:21|
+SKILL:Display ~ Stealth|OUTPUTORDER:23|
+SKILL:Display ~ Survival|OUTPUTORDER:25|
+SKILL:Engineering|OUTPUTORDER:11|CLASSBOUGHT:[CLASS:Soldier|RANKS:10.0|COST:1|CLASSSKILL:Y]
+SKILL:Intimidate|OUTPUTORDER:13|CLASSBOUGHT:[CLASS:Soldier|RANKS:1.0|COST:1|CLASSSKILL:Y]
+SKILL:Medicine|OUTPUTORDER:15|CLASSBOUGHT:[CLASS:Soldier|RANKS:10.0|COST:1|CLASSSKILL:Y]
+SKILL:Perception|OUTPUTORDER:17|
+SKILL:Piloting|OUTPUTORDER:20|CLASSBOUGHT:[CLASS:Soldier|RANKS:10.0|COST:1|CLASSSKILL:Y]
+SKILL:Sense Motive|OUTPUTORDER:22|
+SKILL:Stealth|OUTPUTORDER:24|
+SKILL:Survival|OUTPUTORDER:26|CLASSBOUGHT:[CLASS:Soldier|RANKS:9.0|COST:1|CLASSSKILL:Y]
 
 # Character Languages
-LANGUAGE:Common|LANGUAGE:Triaxian
+LANGUAGE:Bantrid|LANGUAGE:Common|LANGUAGE:Kalo|LANGUAGE:Triaxian
 
 # Character Feats
 FEATPOOL:0.0
@@ -118,6 +119,8 @@ FEATPOOL:0.0
 # Character Abilities
 ABILITY:Android Upgrade Slot|TYPE:NORMAL|CATEGORY:Racial Trait|KEY:Android UPGRADE SLOT ~ Armor (Filtered rebreather)|TYPE:Racial Trait.Android Upgrade Slot|DESC:ItemLevel=6
 USERPOOL:Android Upgrade Slot|POOLPOINTS:0.0
+ABILITY:Android Variant Ability|TYPE:NORMAL|CATEGORY:Variant Ability|KEY:Android ~ No No Variant Ability|TYPE:No Variant Ability.Android Variant Ability
+USERPOOL:Android Variant Ability|POOLPOINTS:0.0
 ABILITY:Combat Feat|TYPE:NORMAL|CATEGORY:FEAT|KEY:Barricade|TYPE:Combat|DESC:You are adept at creating quick, temporary cover.
 ABILITY:Combat Feat|TYPE:NORMAL|CATEGORY:FEAT|KEY:Deadly Aim|TYPE:Combat|DESC:Your can strike your enemies' weak points and deal more damage.
 ABILITY:Combat Feat|TYPE:NORMAL|CATEGORY:FEAT|KEY:Dive for Cover|TYPE:Combat|DESC:You know how to dive out of the area of an effect.
@@ -173,42 +176,45 @@ WEAPONPROF:[WEAPON:Blaze rifle (ifrit-class)|WEAPON:Blaze rifle (phoenix-class)|
 WEAPONPROF:[WEAPON:Bone Cestus (severe)|WEAPON:Bone pistol (crypt-class)|WEAPON:Bone pistol (grave-class)|WEAPON:Bone pistol (sepulcher-class)|WEAPON:Bone pistol (vault-class)|WEAPON:Bone scepter (cadaver)|WEAPON:Bone scepter (chill)|WEAPON:Bone scepter (rigor)|WEAPON:Bone scepter (void)|WEAPON:Boomer rifle (concussive)]
 WEAPONPROF:[WEAPON:Boomer rifle (rumbler)|WEAPON:Boomer rifle (shockwave)|WEAPON:Boomer rifle (tremor)|WEAPON:Breaching gun (grapeshot)|WEAPON:Breaching gun (impact)|WEAPON:Breaching gun (snub)|WEAPON:Breaching gun (utility)|WEAPON:Breaching gun (vortex)|WEAPON:Burner (firedrake-class)|WEAPON:Burner (hellhound-class)]
 WEAPONPROF:[WEAPON:Burner (ifrit-class)|WEAPON:Burner (phoenix-class)|WEAPON:Burner (salamander-class)|WEAPON:Burning chains (archdevil-class)|WEAPON:Burning chains (fiend-class)|WEAPON:Burning chains (malebranche-class)|WEAPON:Cathode cannon (advanced)|WEAPON:Cathode cannon (elite)|WEAPON:Cathode cannon (paragon)|WEAPON:Cathode cannon (shockstorm)]
-WEAPONPROF:[WEAPON:Cathode cannon (tactical)|WEAPON:Cavitation pistol (hydrodynamic)|WEAPON:Cavitation pistol (inertial)|WEAPON:Cavitation pistol (thermodynamic)|WEAPON:Cavitation pistol (vapor)|WEAPON:Charge emitter (impulse)|WEAPON:Charge emitter (jolt)|WEAPON:Charge emitter (surge)|WEAPON:Club|WEAPON:Cluster launcher (advanced)]
-WEAPONPROF:[WEAPON:Cluster launcher (elite)|WEAPON:Cluster launcher (paragon)|WEAPON:Cluster launcher (tactical)|WEAPON:Coil rifle (assassin)|WEAPON:Coil rifle (precision)|WEAPON:Coil rifle (rangefinder)|WEAPON:Coil rifle (saboteur)|WEAPON:Coil rifle (specialist)|WEAPON:Colossus coil (brush)|WEAPON:Colossus coil (corona)]
-WEAPONPROF:[WEAPON:Colossus coil (multistream)|WEAPON:Colossus coil (streamer arc)|WEAPON:Combat rifle|WEAPON:Compliance ray (flare)|WEAPON:Compliance ray (flash)|WEAPON:Compliance ray (starburst)|WEAPON:Compliance ray (strobe)|WEAPON:Compliance ray (sunspot)|WEAPON:Conqueror (blue star)|WEAPON:Conqueror (red star)]
-WEAPONPROF:[WEAPON:Conqueror (violet star)|WEAPON:Conqueror (white star)|WEAPON:Conqueror (yellow star)|WEAPON:Convergent laser (multiwave)|WEAPON:Convergent laser (single-wave)|WEAPON:Convergent laser (wide-spectrum)|WEAPON:Coolant sprayer (algid)|WEAPON:Coolant sprayer (aufeis)|WEAPON:Coolant sprayer (glacial)|WEAPON:Coolant sprayer (isothermal)]
-WEAPONPROF:[WEAPON:Core hammer (advanced)|WEAPON:Core hammer (fusion)|WEAPON:Core hammer (reactor)|WEAPON:Core hammer (tactical)|WEAPON:Crossbolter (advanced)|WEAPON:Crossbolter (dual)|WEAPON:Crossbolter (elite)|WEAPON:Crossbolter (paragon)|WEAPON:Crossbolter (tactical)|WEAPON:Cryopike (advanced)]
-WEAPONPROF:[WEAPON:Cryopike (tactical)|WEAPON:Cryospike (industrial)|WEAPON:Cryospike (personal)|WEAPON:Cryospike (residential)|WEAPON:Curve blade (buzzblade)|WEAPON:Curve blade (carbon steel)|WEAPON:Curve blade (dimensional slice)|WEAPON:Curve blade (ultrathin)|WEAPON:Dagger (molecular rift)|WEAPON:Dagger (ultrathin)]
-WEAPONPROF:[WEAPON:Dagger (zero-edge)|WEAPON:Dart cannon (advanced)|WEAPON:Dart cannon (elite)|WEAPON:Dart cannon (heavy)|WEAPON:Dart cannon (light)|WEAPON:Dart cannon (paragon)|WEAPON:Dart cannon (tactical)|WEAPON:Dazzler (flash)|WEAPON:Dazzler (strobe)|WEAPON:Dazzler (sunspot)]
-WEAPONPROF:[WEAPON:Decoupler (bruiser)|WEAPON:Decoupler (pusher)|WEAPON:Decoupler (screamer)|WEAPON:Devastation blade (apocalypse)|WEAPON:Devastation blade (ruin)|WEAPON:Devastation blade (wrack)|WEAPON:Diasporan rifle (advanced)|WEAPON:Diasporan rifle (elite)|WEAPON:Diasporan rifle (imperial)|WEAPON:Diasporan rifle (tactical)]
-WEAPONPROF:[WEAPON:Diasporan rifle (ultra)|WEAPON:Dirge cannon (anharmonic)|WEAPON:Dirge cannon (harmonic)|WEAPON:Dirge cannon (parametric)|WEAPON:Dirge cannon (resonant)|WEAPON:Dirge pistol (anharmonic)|WEAPON:Dirge pistol (harmonic)|WEAPON:Dirge pistol (parametric)|WEAPON:Dirge pistol (radial)|WEAPON:Dirge pistol (resonant)]
-WEAPONPROF:[WEAPON:Disintegrator cannon (decimator)|WEAPON:Disintegrator cannon (eradicator)|WEAPON:Disintegrator cannon (executioner)|WEAPON:Disintegrator cannon (liquidator)|WEAPON:Disintegrator lash (decimator)|WEAPON:Disintegrator lash (eradicator)|WEAPON:Disintegrator lash (executioner)|WEAPON:Disintegrator lash (liquidator)|WEAPON:Disintegrator pistol (decimator)|WEAPON:Disintegrator pistol (eradicator)]
-WEAPONPROF:[WEAPON:Disintegrator pistol (executioner)|WEAPON:Disintegrator pistol (liquidator)|WEAPON:Disintegrator rifle (decimator)|WEAPON:Disintegrator rifle (eradicator)|WEAPON:Disintegrator rifle (executioner)|WEAPON:Disintegrator rifle (liquidator)|WEAPON:Divergent laser (multiwave)|WEAPON:Divergent laser (single-wave)|WEAPON:Divergent laser (wide-spectrum)|WEAPON:Doshko (advanced)]
-WEAPONPROF:[WEAPON:Doshko (dimensional blade)|WEAPON:Doshko (molecular rift)|WEAPON:Doshko (tactical)|WEAPON:Doshko (ultrathin)|WEAPON:Doshko (zero-edge)|WEAPON:Dragon pistol (drake)|WEAPON:Dragon pistol (true)|WEAPON:Dragon pistol (wyrmling)|WEAPON:Dragon pistol (wyvern)|WEAPON:Dragon rifle (drake)]
-WEAPONPROF:[WEAPON:Dragon rifle (true)|WEAPON:Dragon rifle (wyrmling)|WEAPON:Dragon rifle (wyvern)|WEAPON:Dragonglaive (basic)|WEAPON:Dragonglaive (skyshatter)|WEAPON:Dragonglaive (stormstrike)|WEAPON:Dragonglaive (thunderhead)|WEAPON:Dragonglaive (wyrmlord)|WEAPON:Dross gun (flux)|WEAPON:Dross gun (scoring)]
-WEAPONPROF:[WEAPON:Dross gun (scrapper)|WEAPON:Dueling sword (admiral)|WEAPON:Dueling sword (buzzblade)|WEAPON:Dueling sword (converted)|WEAPON:Dueling sword (molecular rift)|WEAPON:Dueling sword (officer)|WEAPON:Dueling sword (ripper)|WEAPON:Dueling sword (tactical)|WEAPON:Dueling sword (ultrathin)|WEAPON:Electroflail (advanced)]
-WEAPONPROF:[WEAPON:Electroflail (elite)|WEAPON:Electroflail (paragon)|WEAPON:Electroflail (tactical)|WEAPON:Electrovore glove (aurora)|WEAPON:Electrovore glove (static)|WEAPON:Electrovore glove (storm)|WEAPON:Electrovore glove (tempest)|WEAPON:Energy converter (advanced)|WEAPON:Energy converter (elite)|WEAPON:Energy converter (tactical)]
-WEAPONPROF:[WEAPON:Eoxian Wrackstaff|WEAPON:Excavation laser (heavy)|WEAPON:Excavation laser (light)|WEAPON:Excavation laser (medium)|WEAPON:Fangblade|WEAPON:Flame doshko (blaze)|WEAPON:Flame doshko (ember)|WEAPON:Flame doshko (inferno)|WEAPON:Flame doshko (solar flare)|WEAPON:Flame launcher (fireball)]
-WEAPONPROF:[WEAPON:Flame launcher (immolation)|WEAPON:Flame launcher (supernova)|WEAPON:Flame pistol|WEAPON:Flame pistol (blaze)|WEAPON:Flame pistol (inferno)|WEAPON:Flame pistol (solar flare)|WEAPON:Flame rifle|WEAPON:Flame spinner (fireball)|WEAPON:Flame spinner (fission)|WEAPON:Flame spinner (immolation)]
-WEAPONPROF:[WEAPON:Flame spinner (supernova)|WEAPON:Flamethrower (firedrake-class)|WEAPON:Flamethrower (hellhound-class)|WEAPON:Flamethrower (ifrit-class)|WEAPON:Flamethrower (phoenix-class)|WEAPON:Flamethrower (salamander-class)|WEAPON:Flare axe (blue star)|WEAPON:Flare axe (red star)|WEAPON:Flare axe (white star)|WEAPON:Flare axe (yellow star)]
-WEAPONPROF:[WEAPON:Flare gun (survival)|WEAPON:Flare rifle (coruscator)|WEAPON:Flare rifle (dazzler)|WEAPON:Flare rifle (nova)|WEAPON:Flare rifle (scorcher)|WEAPON:Flare rifle (vivifier)|WEAPON:Focus rifle (compound)|WEAPON:Focus rifle (dual)|WEAPON:Focus rifle (quad)|WEAPON:Focus rifle (triple)]
-WEAPONPROF:[WEAPON:Forked pistol (10-notch)|WEAPON:Forked pistol (6-notch)|WEAPON:Forked pistol (8-notch)|WEAPON:Forked pistol (9-notch)|WEAPON:Freeze ray (algid)|WEAPON:Freeze ray (glacial)|WEAPON:Freeze ray (hiemal)|WEAPON:Freeze ray (hypothermic)|WEAPON:Freeze ray (isothermal)|WEAPON:Frost maul (aufeis)]
-WEAPONPROF:[WEAPON:Frost maul (floe)|WEAPON:Frost maul (glacier)|WEAPON:Frost maul (iceberg)|WEAPON:Frost projector (blizzard-class)|WEAPON:Frost projector (frostbite-class)|WEAPON:Frost projector (hailstorm-class)|WEAPON:Gale baton (cyclone)|WEAPON:Gale baton (hurricane)|WEAPON:Gale baton (tempest)|WEAPON:Gamma rifle (fusion)]
-WEAPONPROF:[WEAPON:Gamma rifle (ionizing)|WEAPON:Gamma rifle (synchrotron)|WEAPON:Gamma rifle (terrestrial)|WEAPON:Glass blade (impulse)|WEAPON:Glass blade (jolt)|WEAPON:Glass blade (live)|WEAPON:Glass blade (surge)|WEAPON:Graviton pistol (chiral)|WEAPON:Graviton pistol (linear)|WEAPON:Graviton pistol (tensor)]
-WEAPONPROF:[WEAPON:Graviton pistol (vector)|WEAPON:Grenades|WEAPON:Grindblade|WEAPON:Gulchgun|WEAPON:Gyrojet pistol (advanced)|WEAPON:Gyrojet pistol (elite)|WEAPON:Gyrojet pistol (tactical)|WEAPON:Gyrojet rifle (advanced)|WEAPON:Gyrojet rifle (elite)|WEAPON:Gyrojet rifle (paragon)]
-WEAPONPROF:[WEAPON:Gyrojet rifle (tactical)|WEAPON:Hail pistol (absolute-zero)|WEAPON:Hail pistol (gelid)|WEAPON:Hail pistol (subzero)|WEAPON:Hail pistol (ultracold)|WEAPON:Hailcannon (absolute-zero)|WEAPON:Hailcannon (clathrate)|WEAPON:Hailcannon (gelid)|WEAPON:Hailcannon (subzero)|WEAPON:Hailcannon (ultracold)]
-WEAPONPROF:[WEAPON:Hammer (assault)|WEAPON:Hammer (comet)|WEAPON:Hammer (gravity well)|WEAPON:Hammer (meteoric)|WEAPON:Handcannon (bombast)|WEAPON:Handcannon (braggadocio)|WEAPON:Handcannon (bravado)|WEAPON:Handcannon (gasconade)|WEAPON:Handcannon (swagger)|WEAPON:Handcoil (capital)]
-WEAPONPROF:[WEAPON:Handcoil (explorer)|WEAPON:Handcoil (fighter)|WEAPON:Handcoil (pilot)|WEAPON:Heat-amp gauntlet (mk1)|WEAPON:Heat-amp gauntlet (mk2)|WEAPON:Heat-amp gauntlet (mk3)|WEAPON:Heat-amp gauntlet (mk4)|WEAPON:Hook sword|WEAPON:Hunting rifle|WEAPON:Hydra cannon (asp-series)]
-WEAPONPROF:[WEAPON:Hydra cannon (cobra-series)|WEAPON:Hydra cannon (python-series)|WEAPON:Hydra cannon (viper-series)|WEAPON:Ice carbine (absolute-zero)|WEAPON:Ice carbine (gelid)|WEAPON:Ice carbine (subzero)|WEAPON:Ice carbine (ultracold)|WEAPON:Ice launcher (aufeis)|WEAPON:Ice launcher (floe)|WEAPON:Ice launcher (glacier)]
-WEAPONPROF:[WEAPON:Ice launcher (iceberg)|WEAPON:Ice launcher (icecap)|WEAPON:Ice needle (artifice)|WEAPON:Ice needle (espionage)|WEAPON:Ice needle (furtive)|WEAPON:Ice needle (subterfuge)|WEAPON:Ice needle (undercover)|WEAPON:Icestar staff (defender)|WEAPON:Icestar staff (drifter)|WEAPON:Icestar staff (leader)]
-WEAPONPROF:[WEAPON:Icestar staff (seeker)|WEAPON:Icestar staff (warrior)|WEAPON:Igniter (blaze)|WEAPON:Igniter (ember)|WEAPON:Igniter (inferno)|WEAPON:Igniter (solar flare)|WEAPON:IMDS missile launcher|WEAPON:Incapacitator|WEAPON:Infinity rifle (advanced)|WEAPON:Infinity rifle (elite)]
-WEAPONPROF:[WEAPON:Infinity rifle (paragon)|WEAPON:Infinity rifle (tactical)|WEAPON:Injection (glove)|WEAPON:Injector pistol (elite)|WEAPON:Injector pistol (medic)|WEAPON:Injector pistol (poacher)|WEAPON:Injector pistol (subjugation)|WEAPON:Injector pistol (zoologist)|WEAPON:Interference blade (harmonic)|WEAPON:Interference blade (monophonic)]
-WEAPONPROF:[WEAPON:Interference blade (multiphonic)|WEAPON:Interference blade (polyphonic)|WEAPON:Ionizer (chromic)|WEAPON:Ionizer (cupric)|WEAPON:Ionizer (ferric)|WEAPON:Ionizer (stannic)|WEAPON:Junk censer|WEAPON:Kalo shredder (cascade-class)|WEAPON:Kalo shredder (deluge-class)|WEAPON:Kalo shredder (monsoon-class)]
-WEAPONPROF:[WEAPON:Kalo shredder (slipstream-class)|WEAPON:Kalo shredder (torrent-class)|WEAPON:Knife (survival)|WEAPON:Knife (tactical)|WEAPON:Laser pistol (aphelion)|WEAPON:Laser pistol (azimuth)|WEAPON:Laser pistol (corona)|WEAPON:Laser pistol (parallax)|WEAPON:Laser pistol (perihelion)|WEAPON:Laser pistol (zenith)]
-WEAPONPROF:[WEAPON:Laser rifle (aphelion)|WEAPON:Laser rifle (azimuth)|WEAPON:Laser rifle (corona)|WEAPON:Laser rifle (parallax)|WEAPON:Laser rifle (perihelion)|WEAPON:Laser rifle (zenith)|WEAPON:Lens pistol (cylindrical)|WEAPON:Lens pistol (electron)|WEAPON:Lens pistol (lenticular)|WEAPON:Lens pistol (sunglass)]
-WEAPONPROF:[WEAPON:Lightning pistol (ribbon)|WEAPON:Lightning pistol (rocket)|WEAPON:Lightning pistol (sheet)|WEAPON:Lightning pistol (smooth-channel)|WEAPON:Living lash|WEAPON:Longsword|WEAPON:Longsword (dimensional slice)|WEAPON:Longsword (microserrated)|WEAPON:Longsword (molecular rift)|WEAPON:Longsword (sintered)]
-WEAPONPROF:[WEAPON:Longsword (ultraserrated)|WEAPON:Longsword (ultrathin)|WEAPON:Longsword (zero-edge)|WEAPON:Machine gun (heavy)|WEAPON:Machine gun (light)|WEAPON:Machine gun (medium)|WEAPON:Machine gun (squad)|WEAPON:Magma blade (andesite)|WEAPON:Magma blade (basalt)|WEAPON:Magma blade (plagioclase)]
-WEAPONPROF:[WEAPON:Magma blade (rhyolite)|WEAPON:Magnetar rifle (advanced)|WEAPON:Magnetar rifle (elite)|WEAPON:Magnetar rifle (paragon)|WEAPON:Magnetar rifle (tactical)|WEAPON:Meteor glaive (advanced)|WEAPON:Meteor glaive (elite)|WEAPON:Meteor glaive (paragon)|WEAPON:Meteor glaive (tactical)|WEAPON:Microfusion rifle (heavy)]
+WEAPONPROF:[WEAPON:Cathode cannon (tactical)|WEAPON:Cavitation pistol (hydrodynamic)|WEAPON:Cavitation pistol (inertial)|WEAPON:Cavitation pistol (thermodynamic)|WEAPON:Cavitation pistol (vapor)|WEAPON:Charge emitter (impulse)|WEAPON:Charge emitter (jolt)|WEAPON:Charge emitter (surge)|WEAPON:Chitinblade (microserrated)|WEAPON:Chitinblade (nanoserrated)]
+WEAPONPROF:[WEAPON:Chitinblade (tactical)|WEAPON:Chitinblade (ultraserrated)|WEAPON:Club|WEAPON:Cluster launcher (advanced)|WEAPON:Cluster launcher (elite)|WEAPON:Cluster launcher (paragon)|WEAPON:Cluster launcher (tactical)|WEAPON:Coil rifle (assassin)|WEAPON:Coil rifle (precision)|WEAPON:Coil rifle (rangefinder)]
+WEAPONPROF:[WEAPON:Coil rifle (saboteur)|WEAPON:Coil rifle (specialist)|WEAPON:Colossus coil (brush)|WEAPON:Colossus coil (corona)|WEAPON:Colossus coil (multistream)|WEAPON:Colossus coil (streamer arc)|WEAPON:Combat rifle|WEAPON:Compliance ray (flare)|WEAPON:Compliance ray (flash)|WEAPON:Compliance ray (starburst)]
+WEAPONPROF:[WEAPON:Compliance ray (strobe)|WEAPON:Compliance ray (sunspot)|WEAPON:Conqueror (blue star)|WEAPON:Conqueror (red star)|WEAPON:Conqueror (violet star)|WEAPON:Conqueror (white star)|WEAPON:Conqueror (yellow star)|WEAPON:Convergent laser (multiwave)|WEAPON:Convergent laser (single-wave)|WEAPON:Convergent laser (wide-spectrum)]
+WEAPONPROF:[WEAPON:Coolant sprayer (algid)|WEAPON:Coolant sprayer (aufeis)|WEAPON:Coolant sprayer (glacial)|WEAPON:Coolant sprayer (isothermal)|WEAPON:Core hammer (advanced)|WEAPON:Core hammer (fusion)|WEAPON:Core hammer (reactor)|WEAPON:Core hammer (tactical)|WEAPON:Crossbolter (advanced)|WEAPON:Crossbolter (dual)]
+WEAPONPROF:[WEAPON:Crossbolter (elite)|WEAPON:Crossbolter (paragon)|WEAPON:Crossbolter (tactical)|WEAPON:Cryopike (advanced)|WEAPON:Cryopike (tactical)|WEAPON:Cryospike (industrial)|WEAPON:Cryospike (personal)|WEAPON:Cryospike (residential)|WEAPON:Curve blade (buzzblade)|WEAPON:Curve blade (carbon steel)]
+WEAPONPROF:[WEAPON:Curve blade (dimensional slice)|WEAPON:Curve blade (ultrathin)|WEAPON:Dagger (molecular rift)|WEAPON:Dagger (ultrathin)|WEAPON:Dagger (zero-edge)|WEAPON:Dart cannon (advanced)|WEAPON:Dart cannon (elite)|WEAPON:Dart cannon (heavy)|WEAPON:Dart cannon (light)|WEAPON:Dart cannon (paragon)]
+WEAPONPROF:[WEAPON:Dart cannon (tactical)|WEAPON:Dazzler (flash)|WEAPON:Dazzler (strobe)|WEAPON:Dazzler (sunspot)|WEAPON:Decoupler (bruiser)|WEAPON:Decoupler (pusher)|WEAPON:Decoupler (screamer)|WEAPON:Devastation blade (apocalypse)|WEAPON:Devastation blade (ruin)|WEAPON:Devastation blade (wrack)]
+WEAPONPROF:[WEAPON:Diasporan rifle (advanced)|WEAPON:Diasporan rifle (elite)|WEAPON:Diasporan rifle (imperial)|WEAPON:Diasporan rifle (tactical)|WEAPON:Diasporan rifle (ultra)|WEAPON:Dirge cannon (anharmonic)|WEAPON:Dirge cannon (harmonic)|WEAPON:Dirge cannon (parametric)|WEAPON:Dirge cannon (resonant)|WEAPON:Dirge pistol (anharmonic)]
+WEAPONPROF:[WEAPON:Dirge pistol (harmonic)|WEAPON:Dirge pistol (parametric)|WEAPON:Dirge pistol (radial)|WEAPON:Dirge pistol (resonant)|WEAPON:Disintegrator cannon (decimator)|WEAPON:Disintegrator cannon (eradicator)|WEAPON:Disintegrator cannon (executioner)|WEAPON:Disintegrator cannon (liquidator)|WEAPON:Disintegrator lash (decimator)|WEAPON:Disintegrator lash (eradicator)]
+WEAPONPROF:[WEAPON:Disintegrator lash (executioner)|WEAPON:Disintegrator lash (liquidator)|WEAPON:Disintegrator pistol (decimator)|WEAPON:Disintegrator pistol (eradicator)|WEAPON:Disintegrator pistol (executioner)|WEAPON:Disintegrator pistol (liquidator)|WEAPON:Disintegrator rifle (decimator)|WEAPON:Disintegrator rifle (eradicator)|WEAPON:Disintegrator rifle (executioner)|WEAPON:Disintegrator rifle (liquidator)]
+WEAPONPROF:[WEAPON:Divergent laser (multiwave)|WEAPON:Divergent laser (single-wave)|WEAPON:Divergent laser (wide-spectrum)|WEAPON:Doshko (advanced)|WEAPON:Doshko (dimensional blade)|WEAPON:Doshko (molecular rift)|WEAPON:Doshko (tactical)|WEAPON:Doshko (ultrathin)|WEAPON:Doshko (zero-edge)|WEAPON:Dragon pistol (drake)]
+WEAPONPROF:[WEAPON:Dragon pistol (true)|WEAPON:Dragon pistol (wyrmling)|WEAPON:Dragon pistol (wyvern)|WEAPON:Dragon rifle (drake)|WEAPON:Dragon rifle (true)|WEAPON:Dragon rifle (wyrmling)|WEAPON:Dragon rifle (wyvern)|WEAPON:Dragonglaive (basic)|WEAPON:Dragonglaive (skyshatter)|WEAPON:Dragonglaive (stormstrike)]
+WEAPONPROF:[WEAPON:Dragonglaive (thunderhead)|WEAPON:Dragonglaive (wyrmlord)|WEAPON:Dross gun (flux)|WEAPON:Dross gun (scoring)|WEAPON:Dross gun (scrapper)|WEAPON:Dueling sword (admiral)|WEAPON:Dueling sword (buzzblade)|WEAPON:Dueling sword (converted)|WEAPON:Dueling sword (molecular rift)|WEAPON:Dueling sword (officer)]
+WEAPONPROF:[WEAPON:Dueling sword (ripper)|WEAPON:Dueling sword (tactical)|WEAPON:Dueling sword (ultrathin)|WEAPON:Electroflail (advanced)|WEAPON:Electroflail (elite)|WEAPON:Electroflail (paragon)|WEAPON:Electroflail (tactical)|WEAPON:Electrovore glove (aurora)|WEAPON:Electrovore glove (static)|WEAPON:Electrovore glove (storm)]
+WEAPONPROF:[WEAPON:Electrovore glove (tempest)|WEAPON:Energy converter (advanced)|WEAPON:Energy converter (elite)|WEAPON:Energy converter (tactical)|WEAPON:Eoxian Wrackstaff|WEAPON:Excavation laser (heavy)|WEAPON:Excavation laser (light)|WEAPON:Excavation laser (medium)|WEAPON:Fangblade|WEAPON:Flame doshko (blaze)]
+WEAPONPROF:[WEAPON:Flame doshko (ember)|WEAPON:Flame doshko (inferno)|WEAPON:Flame doshko (solar flare)|WEAPON:Flame launcher (fireball)|WEAPON:Flame launcher (immolation)|WEAPON:Flame launcher (supernova)|WEAPON:Flame pistol|WEAPON:Flame pistol (blaze)|WEAPON:Flame pistol (inferno)|WEAPON:Flame pistol (solar flare)]
+WEAPONPROF:[WEAPON:Flame rifle|WEAPON:Flame spinner (fireball)|WEAPON:Flame spinner (fission)|WEAPON:Flame spinner (immolation)|WEAPON:Flame spinner (supernova)|WEAPON:Flamethrower (firedrake-class)|WEAPON:Flamethrower (hellhound-class)|WEAPON:Flamethrower (ifrit-class)|WEAPON:Flamethrower (phoenix-class)|WEAPON:Flamethrower (salamander-class)]
+WEAPONPROF:[WEAPON:Flare axe (blue star)|WEAPON:Flare axe (red star)|WEAPON:Flare axe (white star)|WEAPON:Flare axe (yellow star)|WEAPON:Flare gun (survival)|WEAPON:Flare rifle (coruscator)|WEAPON:Flare rifle (dazzler)|WEAPON:Flare rifle (nova)|WEAPON:Flare rifle (scorcher)|WEAPON:Flare rifle (vivifier)]
+WEAPONPROF:[WEAPON:Focus rifle (compound)|WEAPON:Focus rifle (dual)|WEAPON:Focus rifle (quad)|WEAPON:Focus rifle (triple)|WEAPON:Forked pistol (10-notch)|WEAPON:Forked pistol (6-notch)|WEAPON:Forked pistol (8-notch)|WEAPON:Forked pistol (9-notch)|WEAPON:Freeze ray (algid)|WEAPON:Freeze ray (glacial)]
+WEAPONPROF:[WEAPON:Freeze ray (hiemal)|WEAPON:Freeze ray (hypothermic)|WEAPON:Freeze ray (isothermal)|WEAPON:Frost maul (aufeis)|WEAPON:Frost maul (floe)|WEAPON:Frost maul (glacier)|WEAPON:Frost maul (iceberg)|WEAPON:Frost projector (blizzard-class)|WEAPON:Frost projector (frostbite-class)|WEAPON:Frost projector (hailstorm-class)]
+WEAPONPROF:[WEAPON:Gale baton (cyclone)|WEAPON:Gale baton (hurricane)|WEAPON:Gale baton (tempest)|WEAPON:Gamma rifle (fusion)|WEAPON:Gamma rifle (ionizing)|WEAPON:Gamma rifle (synchrotron)|WEAPON:Gamma rifle (terrestrial)|WEAPON:Garrote (microfilament)|WEAPON:Garrote (monowire)|WEAPON:Garrote (nanofiber)]
+WEAPONPROF:[WEAPON:Garrote (wire)|WEAPON:Glass blade (impulse)|WEAPON:Glass blade (jolt)|WEAPON:Glass blade (live)|WEAPON:Glass blade (surge)|WEAPON:Graviton pistol (chiral)|WEAPON:Graviton pistol (linear)|WEAPON:Graviton pistol (tensor)|WEAPON:Graviton pistol (vector)|WEAPON:Greataxe (molecular-rift)]
+WEAPONPROF:[WEAPON:Greataxe (sintered)|WEAPON:Greataxe (tactical)|WEAPON:Greataxe (ultrathin)|WEAPON:Grenades|WEAPON:Grindblade|WEAPON:Gulchgun|WEAPON:Gyrojet pistol (advanced)|WEAPON:Gyrojet pistol (elite)|WEAPON:Gyrojet pistol (tactical)|WEAPON:Gyrojet rifle (advanced)]
+WEAPONPROF:[WEAPON:Gyrojet rifle (elite)|WEAPON:Gyrojet rifle (paragon)|WEAPON:Gyrojet rifle (tactical)|WEAPON:Hail pistol (absolute-zero)|WEAPON:Hail pistol (gelid)|WEAPON:Hail pistol (subzero)|WEAPON:Hail pistol (ultracold)|WEAPON:Hailcannon (absolute-zero)|WEAPON:Hailcannon (clathrate)|WEAPON:Hailcannon (gelid)]
+WEAPONPROF:[WEAPON:Hailcannon (subzero)|WEAPON:Hailcannon (ultracold)|WEAPON:Hammer (assault)|WEAPON:Hammer (comet)|WEAPON:Hammer (gravity well)|WEAPON:Hammer (meteoric)|WEAPON:Handaxe (basic)|WEAPON:Handaxe (molecular-rift)|WEAPON:Handaxe (sintered)|WEAPON:Handaxe (tactical)]
+WEAPONPROF:[WEAPON:Handaxe (ultrathin)|WEAPON:Handcannon (bombast)|WEAPON:Handcannon (braggadocio)|WEAPON:Handcannon (bravado)|WEAPON:Handcannon (gasconade)|WEAPON:Handcannon (swagger)|WEAPON:Handcoil (capital)|WEAPON:Handcoil (explorer)|WEAPON:Handcoil (fighter)|WEAPON:Handcoil (pilot)]
+WEAPONPROF:[WEAPON:Heat-amp gauntlet (mk1)|WEAPON:Heat-amp gauntlet (mk2)|WEAPON:Heat-amp gauntlet (mk3)|WEAPON:Heat-amp gauntlet (mk4)|WEAPON:Hook knife|WEAPON:Hook sword|WEAPON:Hunting rifle|WEAPON:Hydra cannon (asp-series)|WEAPON:Hydra cannon (cobra-series)|WEAPON:Hydra cannon (python-series)]
+WEAPONPROF:[WEAPON:Hydra cannon (viper-series)|WEAPON:Ice carbine (absolute-zero)|WEAPON:Ice carbine (gelid)|WEAPON:Ice carbine (subzero)|WEAPON:Ice carbine (ultracold)|WEAPON:Ice launcher (aufeis)|WEAPON:Ice launcher (floe)|WEAPON:Ice launcher (glacier)|WEAPON:Ice launcher (iceberg)|WEAPON:Ice launcher (icecap)]
+WEAPONPROF:[WEAPON:Ice needle (artifice)|WEAPON:Ice needle (espionage)|WEAPON:Ice needle (furtive)|WEAPON:Ice needle (subterfuge)|WEAPON:Ice needle (undercover)|WEAPON:Icestar staff (defender)|WEAPON:Icestar staff (drifter)|WEAPON:Icestar staff (leader)|WEAPON:Icestar staff (seeker)|WEAPON:Icestar staff (warrior)]
+WEAPONPROF:[WEAPON:Igniter (blaze)|WEAPON:Igniter (ember)|WEAPON:Igniter (inferno)|WEAPON:Igniter (solar flare)|WEAPON:IMDS missile launcher|WEAPON:Incapacitator|WEAPON:Infinity rifle (advanced)|WEAPON:Infinity rifle (elite)|WEAPON:Infinity rifle (paragon)|WEAPON:Infinity rifle (tactical)]
+WEAPONPROF:[WEAPON:Injection (glove)|WEAPON:Injector pistol (elite)|WEAPON:Injector pistol (medic)|WEAPON:Injector pistol (poacher)|WEAPON:Injector pistol (subjugation)|WEAPON:Injector pistol (zoologist)|WEAPON:Interference blade (harmonic)|WEAPON:Interference blade (monophonic)|WEAPON:Interference blade (multiphonic)|WEAPON:Interference blade (polyphonic)]
+WEAPONPROF:[WEAPON:Ionizer (chromic)|WEAPON:Ionizer (cupric)|WEAPON:Ionizer (ferric)|WEAPON:Ionizer (stannic)|WEAPON:Junk censer|WEAPON:Kalo shredder (cascade-class)|WEAPON:Kalo shredder (deluge-class)|WEAPON:Kalo shredder (monsoon-class)|WEAPON:Kalo shredder (slipstream-class)|WEAPON:Kalo shredder (torrent-class)]
+WEAPONPROF:[WEAPON:Knife (survival)|WEAPON:Knife (tactical)|WEAPON:Lance (advanced)|WEAPON:Lance (elite)|WEAPON:Lance (paragon)|WEAPON:Lance (tactical)|WEAPON:Laser pistol (aphelion)|WEAPON:Laser pistol (azimuth)|WEAPON:Laser pistol (corona)|WEAPON:Laser pistol (parallax)]
+WEAPONPROF:[WEAPON:Laser pistol (perihelion)|WEAPON:Laser pistol (zenith)|WEAPON:Laser rifle (aphelion)|WEAPON:Laser rifle (azimuth)|WEAPON:Laser rifle (corona)|WEAPON:Laser rifle (parallax)|WEAPON:Laser rifle (perihelion)|WEAPON:Laser rifle (zenith)|WEAPON:Lens pistol (cylindrical)|WEAPON:Lens pistol (electron)]
+WEAPONPROF:[WEAPON:Lens pistol (lenticular)|WEAPON:Lens pistol (sunglass)|WEAPON:Lightning pistol (ribbon)|WEAPON:Lightning pistol (rocket)|WEAPON:Lightning pistol (sheet)|WEAPON:Lightning pistol (smooth-channel)|WEAPON:Living lash|WEAPON:Living staff (advanced)|WEAPON:Living staff (elite)|WEAPON:Living staff (paragon)]
+WEAPONPROF:[WEAPON:Living staff (tactical)|WEAPON:Longsword|WEAPON:Longsword (dimensional slice)|WEAPON:Longsword (microserrated)|WEAPON:Longsword (molecular rift)|WEAPON:Longsword (sintered)|WEAPON:Longsword (ultraserrated)|WEAPON:Longsword (ultrathin)|WEAPON:Longsword (zero-edge)|WEAPON:Machine gun (heavy)]
+WEAPONPROF:[WEAPON:Machine gun (light)|WEAPON:Machine gun (medium)|WEAPON:Machine gun (squad)|WEAPON:Magma blade (andesite)|WEAPON:Magma blade (basalt)|WEAPON:Magma blade (plagioclase)|WEAPON:Magma blade (rhyolite)|WEAPON:Magnetar rifle (advanced)|WEAPON:Magnetar rifle (elite)|WEAPON:Magnetar rifle (paragon)]
+WEAPONPROF:[WEAPON:Magnetar rifle (tactical)|WEAPON:Maul (advanced)|WEAPON:Maul (elite)|WEAPON:Maul (paragon)|WEAPON:Maul (tactical)|WEAPON:Meteor glaive (advanced)|WEAPON:Meteor glaive (elite)|WEAPON:Meteor glaive (paragon)|WEAPON:Meteor glaive (tactical)|WEAPON:Microfusion rifle (heavy)]
 WEAPONPROF:[WEAPON:Microfusion rifle (light)|WEAPON:Microfusion rifle (medium)|WEAPON:Minelayer (command)|WEAPON:Minelayer (merc)|WEAPON:Minelayer (platoon)|WEAPON:Minelayer (squad)|WEAPON:Mirage dagger (distortion)|WEAPON:Mirage dagger (hallucination)|WEAPON:Mirage dagger (illusion)|WEAPON:Monowhip]
 WEAPONPROF:[WEAPON:Multistage rifle (dual)|WEAPON:Multistage rifle (dual-plus)|WEAPON:Multistage rifle (quad)|WEAPON:Multistage rifle (triple)|WEAPON:Multistage rifle (triple-plus)|WEAPON:Nanite decoupler (caustic)|WEAPON:Nanite decoupler (vitriolic)|WEAPON:Nanite rifle (advanced)|WEAPON:Nanite rifle (elite)|WEAPON:Nanite rifle (tactical)]
 WEAPONPROF:[WEAPON:Nanite thrower (advanced)|WEAPON:Nanite thrower (elite)|WEAPON:Nanite thrower (paragon)|WEAPON:Nanite thrower (tactical)|WEAPON:Needler pistol|WEAPON:Needler rifle|WEAPON:Neural lash (amperometric)|WEAPON:Neural lash (electroplax)|WEAPON:Neural lash (galvanic)|WEAPON:Neural lash (voltaic)]
@@ -223,34 +229,37 @@ WEAPONPROF:[WEAPON:Plasma lash (yellow star)|WEAPON:Plasma pistol (blue star)|WE
 WEAPONPROF:[WEAPON:Plasma rifle (red star)|WEAPON:Plasma rifle (white star)|WEAPON:Plasma rifle (yellow star)|WEAPON:Plasma ring (dual-valve)|WEAPON:Plasma ring (multichannel)|WEAPON:Plasma ring (single-valve)|WEAPON:Plasma sword (blue star)|WEAPON:Plasma sword (red star)|WEAPON:Plasma sword (tactical)|WEAPON:Plasma sword (white star)]
 WEAPONPROF:[WEAPON:Plasma sword (yellow star)|WEAPON:Polarity gauntlets (aurora)|WEAPON:Polarity gauntlets (current)|WEAPON:Polarity gauntlets (spark)|WEAPON:Polarity gauntlets (static)|WEAPON:Polarity gauntlets (storm)|WEAPON:Polarity gauntlets (tempest)|WEAPON:Polarity rifle (aurora)|WEAPON:Polarity rifle (static)|WEAPON:Polarity rifle (storm)]
 WEAPONPROF:[WEAPON:Polarity rifle (tempest)|WEAPON:Psychic-wave cannon I|WEAPON:Psychic-wave cannon II|WEAPON:Psychic-wave cannon III|WEAPON:Psychic-wave cannon IV|WEAPON:Psychic-wave cannon V|WEAPON:Pulse gauntlet (banshee)|WEAPON:Pulse gauntlet (HFD)|WEAPON:Pulse gauntlet (LFD)|WEAPON:Pulse gauntlet (thunderstrike)]
-WEAPONPROF:[WEAPON:Pulsecaster (pistol)|WEAPON:Pulsecaster rifle|WEAPON:Pyrod (beacon)|WEAPON:Pyrod (luminous)|WEAPON:Pyrod (torch)|WEAPON:Radcannon (electromagnetic)|WEAPON:Radcannon (neutron)|WEAPON:Radcannon (rapid-decay)|WEAPON:Radshot (electromagnetic)|WEAPON:Radshot (neutron)]
-WEAPONPROF:[WEAPON:Radshot (rapid-decay)|WEAPON:Rail cannon (advanced)|WEAPON:Rail cannon (elite)|WEAPON:Rail cannon (paragon)|WEAPON:Rail cannon (tactical)|WEAPON:Rail gun (advanced)|WEAPON:Rail gun (tactical)|WEAPON:Reaction cannon (advanced)|WEAPON:Reaction cannon (elite)|WEAPON:Reaction cannon (heavy)]
-WEAPONPROF:[WEAPON:Reaction cannon (light)|WEAPON:Reaction cannon (paragon)|WEAPON:Reaction cannon (tactical)|WEAPON:Resistance rod (induction)|WEAPON:Resistance rod (piezoresistor)|WEAPON:Resistance rod (strain-gauge)|WEAPON:Resistance rod (thermistor)|WEAPON:Resonant gauntlet (atomic)|WEAPON:Resonant gauntlet (cellular)|WEAPON:Resonant gauntlet (molecular)]
-WEAPONPROF:[WEAPON:Resonant gauntlet (quantum)|WEAPON:Resonant pistol (lattice)|WEAPON:Resonant pistol (matrix)|WEAPON:Resonant staff (reverberant)|WEAPON:Resonant staff (sonorous)|WEAPON:Resonant staff (stentorian)|WEAPON:Resonator (diffraction)|WEAPON:Resonator (linear)|WEAPON:Resonator (phased)|WEAPON:Resonator (refraction)]
-WEAPONPROF:[WEAPON:Rocket rifle|WEAPON:Rotating pistol (advanced)|WEAPON:Rotating pistol (elite)|WEAPON:Rotating pistol (tactical)|WEAPON:Rotolaser (advanced)|WEAPON:Rotolaser (tactical)|WEAPON:Scattergun (grapeshot)|WEAPON:Scattergun (impact)|WEAPON:Scattergun (snub)|WEAPON:Scattergun (utility)]
-WEAPONPROF:[WEAPON:Scattergun (vortex)|WEAPON:Scorchgun (C-band)|WEAPON:Scorchgun (K-band)|WEAPON:Scorchgun (microwave)|WEAPON:Scorchgun (S-band)|WEAPON:Scorchgun (X-band)|WEAPON:Screamer (HFD)|WEAPON:Screamer (LFD)|WEAPON:Screamer (thunderstrike)|WEAPON:Searing grip (high-heat)]
-WEAPONPROF:[WEAPON:Searing grip (low-heat)|WEAPON:Searing grip (weaponized)|WEAPON:Seeker rifle (advanced)|WEAPON:Seeker rifle (elite)|WEAPON:Seeker rifle (paragon)|WEAPON:Seeker rifle (tactical)|WEAPON:Seismic pick (demolition)|WEAPON:Seismic pick (driver)|WEAPON:Seismic pick (heavy)|WEAPON:Seismic pick (light)]
-WEAPONPROF:[WEAPON:Semi-auto pistol (advanced)|WEAPON:Semi-auto pistol (elite)|WEAPON:Semi-auto pistol (paragon)|WEAPON:Semi-auto pistol (tactical)|WEAPON:Serpent laser (aphelion)|WEAPON:Serpent laser (azimuth)|WEAPON:Serpent laser (corona)|WEAPON:Serpent laser (perihelion)|WEAPON:Shadow chains (acolyte)|WEAPON:Shadow chains (devotional)]
-WEAPONPROF:[WEAPON:Shadow chains (ecclesiastic)|WEAPON:Shadow chains (follower)|WEAPON:Shadow chains (penitent)|WEAPON:Shadow pistol (caliginous)|WEAPON:Shadow pistol (sable)|WEAPON:Shadow pistol (tenebrous)|WEAPON:Shadow pistol (umbral)|WEAPON:Shadowstaff|WEAPON:Shadowstaff (lesser)|WEAPON:Shellgun (blaze)]
-WEAPONPROF:[WEAPON:Shellgun (bombard)|WEAPON:Shellgun (fury)|WEAPON:Shield projector (defender)|WEAPON:Shield projector (guardian)|WEAPON:Shield projector (sentry)|WEAPON:Shield projector (warden)|WEAPON:Shirren-eye rifle (advanced)|WEAPON:Shirren-eye rifle (elite)|WEAPON:Shirren-eye rifle (paragon)|WEAPON:Shirren-eye rifle (tactical)]
-WEAPONPROF:[WEAPON:Shirren-eye rifle (warpshot)|WEAPON:Shobhad horizon striker (advanced)|WEAPON:Shobhad horizon striker (elite)|WEAPON:Shobhad horizon striker (paragon)|WEAPON:Shobhad horizon striker (tactical)|WEAPON:Shock caster (aurora)|WEAPON:Shock caster (static)|WEAPON:Shock caster (storm)|WEAPON:Shock caster (tempest)|WEAPON:Shock pad (aurora)]
-WEAPONPROF:[WEAPON:Shock pad (static)|WEAPON:Shock pad (storm)|WEAPON:Shock pad (tempest)|WEAPON:Shock truncheon (aurora)|WEAPON:Shock truncheon (static)|WEAPON:Shock truncheon (storm)|WEAPON:Shock truncheon (tempest)|WEAPON:Shoulder laser (aphelion)|WEAPON:Shoulder laser (azimuth)|WEAPON:Shoulder laser (corona)]
-WEAPONPROF:[WEAPON:Shoulder laser (perihelion)|WEAPON:Shout projector (crackdown)|WEAPON:Shout projector (damper)|WEAPON:Shout projector (exhorter)|WEAPON:Shout projector (pacifier)|WEAPON:Shout projector (riot)|WEAPON:Shout rifle|WEAPON:Shrieking knife (harmonic)|WEAPON:Shrieking knife (infrasonic)|WEAPON:Shrieking knife (interference)]
-WEAPONPROF:[WEAPON:Shrieking knife (ultrasonic)|WEAPON:Shrieking larva|WEAPON:Singing disk (alto)|WEAPON:Singing disk (bass)|WEAPON:Singing disk (sopranino)|WEAPON:Singing disk (soprano)|WEAPON:Singing disk (tenor)|WEAPON:Singing spear (alto)|WEAPON:Singing spear (sopranino)|WEAPON:Singing spear (soprano)]
-WEAPONPROF:[WEAPON:Singing spear (tenor)|WEAPON:Skyfire sword (inferno)|WEAPON:Skyfire sword (tactical)|WEAPON:Solar brand (blue star)|WEAPON:Solar brand (red star)|WEAPON:Solar brand (white star)|WEAPON:Solar brand (yellow star)|WEAPON:Solarian Weapon|WEAPON:Sonic bolter (assault)|WEAPON:Sonic bolter (devastator)]
-WEAPONPROF:[WEAPON:Sonic bolter (heavy)|WEAPON:Sonic bolter (light)|WEAPON:Sonic pistol (banshee)|WEAPON:Sonic pistol (HFD)|WEAPON:Sonic pistol (LFD)|WEAPON:Sonic pistol (thunderstrike)|WEAPON:Sonic rifle (banshee)|WEAPON:Sonic rifle (HFD)|WEAPON:Sonic rifle (LFD)|WEAPON:Sonic rifle (thunderstrike)]
-WEAPONPROF:[WEAPON:Sonic suppressor (hush)|WEAPON:Sonic suppressor (murmur)|WEAPON:Sonic suppressor (repose)|WEAPON:Sonic suppressor (whisper)|WEAPON:Spark knife (boss)|WEAPON:Spark knife (crew)|WEAPON:Spark knife (recruit)|WEAPON:Spark knife (runner)|WEAPON:Spear (buzzblade)|WEAPON:Spear (gravity)]
-WEAPONPROF:[WEAPON:Spear (sentinel)|WEAPON:Spear (tactical)|WEAPON:Spear (zero-edge)|WEAPON:Spined iceblade (avalanche-class)|WEAPON:Spined iceblade (blizzard-class)|WEAPON:Spined iceblade (frostbite-class)|WEAPON:Spined iceblade (hailstorm-class)|WEAPON:Staccato rifle (drum)|WEAPON:Staccato rifle (hammer)|WEAPON:Staccato rifle (pulse)]
-WEAPONPROF:[WEAPON:Staccato rifle (surge)|WEAPON:Staff (battle)|WEAPON:Staff (carbon)|WEAPON:Staff (hardlight)|WEAPON:Staff (repeller)|WEAPON:Staff (sentinel)|WEAPON:Starheart cannon (blue star)|WEAPON:Starheart cannon (red star)|WEAPON:Starheart cannon (white star)|WEAPON:Starheart cannon (yellow star)]
-WEAPONPROF:[WEAPON:Starknife (accelerated)|WEAPON:Starknife (dimensional slice)|WEAPON:Starknife (lightspeed)|WEAPON:Starknife (sintered)|WEAPON:Starknife (tactical)|WEAPON:Stellar cannon (heavy)|WEAPON:Stellar cannon (light)|WEAPON:Sting pistol (ant)|WEAPON:Sting pistol (hornet)|WEAPON:Sting pistol (wasp)]
-WEAPONPROF:[WEAPON:Sting pistol (yellow jacket)|WEAPON:Storm coil (impulse)|WEAPON:Storm coil (jolt)|WEAPON:Storm coil (live)|WEAPON:Storm coil (surge)|WEAPON:Storm hammer (antiferromagnetic)|WEAPON:Storm hammer (diamagnetic)|WEAPON:Storm hammer (ferromagnetic)|WEAPON:Storm hammer (metamagnetic)|WEAPON:Storm hammer (paramagnetic)]
-WEAPONPROF:[WEAPON:Stormcaller (mooth-channel)|WEAPON:Stormcaller (ribbon)|WEAPON:Stormcaller (rocket)|WEAPON:Stormcaller (sheet)|WEAPON:Streetsweeper (HFD)|WEAPON:Streetsweeper (LFD)|WEAPON:Streetsweeper (thunderstrike)|WEAPON:Stun staff (aurora)|WEAPON:Stun staff (static)|WEAPON:Stun staff (storm)]
-WEAPONPROF:[WEAPON:Stun staff (tactical)|WEAPON:Stun staff (tempest)|WEAPON:Subduer (frost)|WEAPON:Subduer (glacier)|WEAPON:Subduer (rime)|WEAPON:Subduer (sleet)|WEAPON:Surgecaster (advanced)|WEAPON:Surgecaster (standard)|WEAPON:Swoop hammer (advanced)|WEAPON:Swoop hammer (mach I)]
-WEAPONPROF:[WEAPON:Swoop hammer (mach II)|WEAPON:Swoop hammer (mach III)|WEAPON:Swoop hammer (tactical)|WEAPON:Sword cane (advanced)|WEAPON:Sword cane (dimensional slice)|WEAPON:Sword cane (molecular rift)|WEAPON:Sword cane (tactical)|WEAPON:Sword cane (ultrathin)|WEAPON:Sword cane (zero-edge)|WEAPON:Taclash (numbing)]
-WEAPONPROF:[WEAPON:Taclash (standard)|WEAPON:Talon (drone)|WEAPON:Talon (god)|WEAPON:Talon (knight)|WEAPON:Talon (queen)|WEAPON:Talon (warrior)|WEAPON:Tetrad rings (advanced)|WEAPON:Tetrad rings (elite)|WEAPON:Tetrad rings (tactical)|WEAPON:Trident (dimensional slice)]
-WEAPONPROF:[WEAPON:Trident (molecular rift)|WEAPON:Trident (sintered)|WEAPON:Trident (tactical)|WEAPON:Trident (ultrathin)|WEAPON:Unarmed|WEAPON:Unarmed strike|WEAPON:Velstrac flenser (ascetic)|WEAPON:Velstrac flenser (debater)|WEAPON:Velstrac flenser (recluse)|WEAPON:Velstrac flenser (singer)]
-WEAPONPROF:[WEAPON:Vibrogarrote (basic)|WEAPON:Vibrogarrote (harmonic)|WEAPON:Vibrogarrote (infrasonic)|WEAPON:Vibrogarrote (interference)|WEAPON:Vibrogarrote (ultrasonic)|WEAPON:Void rifle (barrow-class)|WEAPON:Void rifle (crypt-class)|WEAPON:Void rifle (grave-class)|WEAPON:Void rifle (ossuary-class)|WEAPON:Void rifle (tomb-class)]
-WEAPONPROF:[WEAPON:Void staff (barrow-class)|WEAPON:Void staff (crypt-class)|WEAPON:Void staff (grave-class)|WEAPON:Void staff (ossuary-class)|WEAPON:Void staff (tomb-class)|WEAPON:Wailing blade (euphonic)|WEAPON:Wailing blade (strident)|WEAPON:Wailing blade (tymbal)|WEAPON:Wailing blade (warbler)|WEAPON:Warfan]
+WEAPONPROF:[WEAPON:Pulsecaster (pistol)|WEAPON:Pulsecaster rifle|WEAPON:Puzzleblade (conviction)|WEAPON:Puzzleblade (dedication)|WEAPON:Puzzleblade (moderation)|WEAPON:Puzzleblade (tradition)|WEAPON:Pyrod (beacon)|WEAPON:Pyrod (luminous)|WEAPON:Pyrod (torch)|WEAPON:Radcannon (electromagnetic)]
+WEAPONPROF:[WEAPON:Radcannon (neutron)|WEAPON:Radcannon (rapid-decay)|WEAPON:Radshot (electromagnetic)|WEAPON:Radshot (neutron)|WEAPON:Radshot (rapid-decay)|WEAPON:Rail cannon (advanced)|WEAPON:Rail cannon (elite)|WEAPON:Rail cannon (paragon)|WEAPON:Rail cannon (tactical)|WEAPON:Rail gun (advanced)]
+WEAPONPROF:[WEAPON:Rail gun (tactical)|WEAPON:Reaction cannon (advanced)|WEAPON:Reaction cannon (elite)|WEAPON:Reaction cannon (heavy)|WEAPON:Reaction cannon (light)|WEAPON:Reaction cannon (paragon)|WEAPON:Reaction cannon (tactical)|WEAPON:Resistance rod (induction)|WEAPON:Resistance rod (piezoresistor)|WEAPON:Resistance rod (strain-gauge)]
+WEAPONPROF:[WEAPON:Resistance rod (thermistor)|WEAPON:Resonant gauntlet (atomic)|WEAPON:Resonant gauntlet (cellular)|WEAPON:Resonant gauntlet (molecular)|WEAPON:Resonant gauntlet (quantum)|WEAPON:Resonant pistol (lattice)|WEAPON:Resonant pistol (matrix)|WEAPON:Resonant staff (reverberant)|WEAPON:Resonant staff (sonorous)|WEAPON:Resonant staff (stentorian)]
+WEAPONPROF:[WEAPON:Resonator (diffraction)|WEAPON:Resonator (linear)|WEAPON:Resonator (phased)|WEAPON:Resonator (refraction)|WEAPON:Retractable spike (advanced)|WEAPON:Retractable spike (elite)|WEAPON:Retractable spike (paragon)|WEAPON:Retractable spike (tactical)|WEAPON:Rocket rifle|WEAPON:Rotating pistol (advanced)]
+WEAPONPROF:[WEAPON:Rotating pistol (elite)|WEAPON:Rotating pistol (tactical)|WEAPON:Rotolaser (advanced)|WEAPON:Rotolaser (tactical)|WEAPON:Sap (heavy)|WEAPON:Sap (light)|WEAPON:Sap (medium)|WEAPON:Scattergun (grapeshot)|WEAPON:Scattergun (impact)|WEAPON:Scattergun (snub)]
+WEAPONPROF:[WEAPON:Scattergun (utility)|WEAPON:Scattergun (vortex)|WEAPON:Scorchgun (C-band)|WEAPON:Scorchgun (K-band)|WEAPON:Scorchgun (microwave)|WEAPON:Scorchgun (S-band)|WEAPON:Scorchgun (X-band)|WEAPON:Screamer (HFD)|WEAPON:Screamer (LFD)|WEAPON:Screamer (thunderstrike)]
+WEAPONPROF:[WEAPON:Scythe (sintered)|WEAPON:Scythe (tactical)|WEAPON:Scythe (ultrathin)|WEAPON:Searing grip (high-heat)|WEAPON:Searing grip (low-heat)|WEAPON:Searing grip (weaponized)|WEAPON:Seeker rifle (advanced)|WEAPON:Seeker rifle (elite)|WEAPON:Seeker rifle (paragon)|WEAPON:Seeker rifle (tactical)]
+WEAPONPROF:[WEAPON:Seismic pick (demolition)|WEAPON:Seismic pick (driver)|WEAPON:Seismic pick (heavy)|WEAPON:Seismic pick (light)|WEAPON:Semi-auto pistol (advanced)|WEAPON:Semi-auto pistol (elite)|WEAPON:Semi-auto pistol (paragon)|WEAPON:Semi-auto pistol (tactical)|WEAPON:Serpent laser (aphelion)|WEAPON:Serpent laser (azimuth)]
+WEAPONPROF:[WEAPON:Serpent laser (corona)|WEAPON:Serpent laser (perihelion)|WEAPON:Shadow chains (acolyte)|WEAPON:Shadow chains (devotional)|WEAPON:Shadow chains (ecclesiastic)|WEAPON:Shadow chains (follower)|WEAPON:Shadow chains (penitent)|WEAPON:Shadow pistol (caliginous)|WEAPON:Shadow pistol (sable)|WEAPON:Shadow pistol (tenebrous)]
+WEAPONPROF:[WEAPON:Shadow pistol (umbral)|WEAPON:Shadowstaff|WEAPON:Shadowstaff (lesser)|WEAPON:Shell knuckles (advanced)|WEAPON:Shell knuckles (elite)|WEAPON:Shell knuckles (paragon)|WEAPON:Shell knuckles (tactical)|WEAPON:Shellgun (blaze)|WEAPON:Shellgun (bombard)|WEAPON:Shellgun (fury)]
+WEAPONPROF:[WEAPON:Shield projector (defender)|WEAPON:Shield projector (guardian)|WEAPON:Shield projector (sentry)|WEAPON:Shield projector (warden)|WEAPON:Shirren-eye rifle (advanced)|WEAPON:Shirren-eye rifle (elite)|WEAPON:Shirren-eye rifle (paragon)|WEAPON:Shirren-eye rifle (tactical)|WEAPON:Shirren-eye rifle (warpshot)|WEAPON:Shobhad horizon striker (advanced)]
+WEAPONPROF:[WEAPON:Shobhad horizon striker (elite)|WEAPON:Shobhad horizon striker (paragon)|WEAPON:Shobhad horizon striker (tactical)|WEAPON:Shock caster (aurora)|WEAPON:Shock caster (static)|WEAPON:Shock caster (storm)|WEAPON:Shock caster (tempest)|WEAPON:Shock pad (aurora)|WEAPON:Shock pad (static)|WEAPON:Shock pad (storm)]
+WEAPONPROF:[WEAPON:Shock pad (tempest)|WEAPON:Shock truncheon (aurora)|WEAPON:Shock truncheon (static)|WEAPON:Shock truncheon (storm)|WEAPON:Shock truncheon (tempest)|WEAPON:Shoulder laser (aphelion)|WEAPON:Shoulder laser (azimuth)|WEAPON:Shoulder laser (corona)|WEAPON:Shoulder laser (perihelion)|WEAPON:Shout projector (crackdown)]
+WEAPONPROF:[WEAPON:Shout projector (damper)|WEAPON:Shout projector (exhorter)|WEAPON:Shout projector (pacifier)|WEAPON:Shout projector (riot)|WEAPON:Shout rifle|WEAPON:Shrieking knife (harmonic)|WEAPON:Shrieking knife (infrasonic)|WEAPON:Shrieking knife (interference)|WEAPON:Shrieking knife (ultrasonic)|WEAPON:Shrieking larva]
+WEAPONPROF:[WEAPON:Singing disk (alto)|WEAPON:Singing disk (bass)|WEAPON:Singing disk (sopranino)|WEAPON:Singing disk (soprano)|WEAPON:Singing disk (tenor)|WEAPON:Singing spear (alto)|WEAPON:Singing spear (sopranino)|WEAPON:Singing spear (soprano)|WEAPON:Singing spear (tenor)|WEAPON:Skyfire sword (inferno)]
+WEAPONPROF:[WEAPON:Skyfire sword (tactical)|WEAPON:Sledge|WEAPON:Solar brand (blue star)|WEAPON:Solar brand (red star)|WEAPON:Solar brand (white star)|WEAPON:Solar brand (yellow star)|WEAPON:Solarian Weapon|WEAPON:Sonic bolter (assault)|WEAPON:Sonic bolter (devastator)|WEAPON:Sonic bolter (heavy)]
+WEAPONPROF:[WEAPON:Sonic bolter (light)|WEAPON:Sonic pistol (banshee)|WEAPON:Sonic pistol (HFD)|WEAPON:Sonic pistol (LFD)|WEAPON:Sonic pistol (thunderstrike)|WEAPON:Sonic rifle (banshee)|WEAPON:Sonic rifle (HFD)|WEAPON:Sonic rifle (LFD)|WEAPON:Sonic rifle (thunderstrike)|WEAPON:Sonic suppressor (hush)]
+WEAPONPROF:[WEAPON:Sonic suppressor (murmur)|WEAPON:Sonic suppressor (repose)|WEAPON:Sonic suppressor (whisper)|WEAPON:Spark knife (boss)|WEAPON:Spark knife (crew)|WEAPON:Spark knife (recruit)|WEAPON:Spark knife (runner)|WEAPON:Spear (buzzblade)|WEAPON:Spear (gravity)|WEAPON:Spear (sentinel)]
+WEAPONPROF:[WEAPON:Spear (tactical)|WEAPON:Spear (zero-edge)|WEAPON:Spined blade (basic)|WEAPON:Spined blade (buzzblade)|WEAPON:Spined blade (gravity)|WEAPON:Spined blade (ripper)|WEAPON:Spined blade (rivener)|WEAPON:Spined iceblade (avalanche-class)|WEAPON:Spined iceblade (blizzard-class)|WEAPON:Spined iceblade (frostbite-class)]
+WEAPONPROF:[WEAPON:Spined iceblade (hailstorm-class)|WEAPON:Staccato rifle (drum)|WEAPON:Staccato rifle (hammer)|WEAPON:Staccato rifle (pulse)|WEAPON:Staccato rifle (surge)|WEAPON:Staff (battle)|WEAPON:Staff (carbon)|WEAPON:Staff (hardlight)|WEAPON:Staff (repeller)|WEAPON:Staff (sentinel)]
+WEAPONPROF:[WEAPON:Starheart cannon (blue star)|WEAPON:Starheart cannon (red star)|WEAPON:Starheart cannon (white star)|WEAPON:Starheart cannon (yellow star)|WEAPON:Starknife (accelerated)|WEAPON:Starknife (dimensional slice)|WEAPON:Starknife (lightspeed)|WEAPON:Starknife (sintered)|WEAPON:Starknife (tactical)|WEAPON:Stellar cannon (heavy)]
+WEAPONPROF:[WEAPON:Stellar cannon (light)|WEAPON:Sting pistol (ant)|WEAPON:Sting pistol (hornet)|WEAPON:Sting pistol (wasp)|WEAPON:Sting pistol (yellow jacket)|WEAPON:Storm coil (impulse)|WEAPON:Storm coil (jolt)|WEAPON:Storm coil (live)|WEAPON:Storm coil (surge)|WEAPON:Storm hammer (antiferromagnetic)]
+WEAPONPROF:[WEAPON:Storm hammer (diamagnetic)|WEAPON:Storm hammer (ferromagnetic)|WEAPON:Storm hammer (metamagnetic)|WEAPON:Storm hammer (paramagnetic)|WEAPON:Stormcaller (mooth-channel)|WEAPON:Stormcaller (ribbon)|WEAPON:Stormcaller (rocket)|WEAPON:Stormcaller (sheet)|WEAPON:Streetsweeper (HFD)|WEAPON:Streetsweeper (LFD)]
+WEAPONPROF:[WEAPON:Streetsweeper (thunderstrike)|WEAPON:Stun staff (aurora)|WEAPON:Stun staff (static)|WEAPON:Stun staff (storm)|WEAPON:Stun staff (tactical)|WEAPON:Stun staff (tempest)|WEAPON:Subduer (frost)|WEAPON:Subduer (glacier)|WEAPON:Subduer (rime)|WEAPON:Subduer (sleet)]
+WEAPONPROF:[WEAPON:Surgecaster (advanced)|WEAPON:Surgecaster (standard)|WEAPON:Switchblade (molecular-rift)|WEAPON:Switchblade (tactical)|WEAPON:Switchblade (ultrathin)|WEAPON:Switchblade (zero-edge)|WEAPON:Swoop hammer (advanced)|WEAPON:Swoop hammer (mach I)|WEAPON:Swoop hammer (mach II)|WEAPON:Swoop hammer (mach III)]
+WEAPONPROF:[WEAPON:Swoop hammer (tactical)|WEAPON:Sword cane (advanced)|WEAPON:Sword cane (dimensional slice)|WEAPON:Sword cane (molecular rift)|WEAPON:Sword cane (tactical)|WEAPON:Sword cane (ultrathin)|WEAPON:Sword cane (zero-edge)|WEAPON:Taclash (numbing)|WEAPON:Taclash (standard)|WEAPON:Tailblade]
+WEAPONPROF:[WEAPON:Talon (drone)|WEAPON:Talon (god)|WEAPON:Talon (knight)|WEAPON:Talon (queen)|WEAPON:Talon (warrior)|WEAPON:Tetrad rings (advanced)|WEAPON:Tetrad rings (elite)|WEAPON:Tetrad rings (tactical)|WEAPON:Trident (dimensional slice)|WEAPON:Trident (molecular rift)]
+WEAPONPROF:[WEAPON:Trident (sintered)|WEAPON:Trident (tactical)|WEAPON:Trident (ultrathin)|WEAPON:Unarmed|WEAPON:Unarmed strike|WEAPON:Velstrac flenser (ascetic)|WEAPON:Velstrac flenser (debater)|WEAPON:Velstrac flenser (recluse)|WEAPON:Velstrac flenser (singer)|WEAPON:Vibrogarrote (basic)]
+WEAPONPROF:[WEAPON:Vibrogarrote (harmonic)|WEAPON:Vibrogarrote (infrasonic)|WEAPON:Vibrogarrote (interference)|WEAPON:Vibrogarrote (ultrasonic)|WEAPON:Void rifle (barrow-class)|WEAPON:Void rifle (crypt-class)|WEAPON:Void rifle (grave-class)|WEAPON:Void rifle (ossuary-class)|WEAPON:Void rifle (tomb-class)|WEAPON:Void staff (barrow-class)]
+WEAPONPROF:[WEAPON:Void staff (crypt-class)|WEAPON:Void staff (grave-class)|WEAPON:Void staff (ossuary-class)|WEAPON:Void staff (tomb-class)|WEAPON:Wailing blade (euphonic)|WEAPON:Wailing blade (strident)|WEAPON:Wailing blade (tymbal)|WEAPON:Wailing blade (warbler)|WEAPON:Warclub|WEAPON:Warfan]
 WEAPONPROF:[WEAPON:Wave modulator I|WEAPON:Wave modulator II|WEAPON:Wave modulator III|WEAPON:Wave modulator IV|WEAPON:Wave modulator V|WEAPON:Wave modulator VI|WEAPON:Wave modulator VII|WEAPON:Welder (industrial)|WEAPON:Welder (offensive)|WEAPON:Welder (starship)]
 WEAPONPROF:[WEAPON:Welder (utility)|WEAPON:Wraith-sting rifle (hornet)|WEAPON:Wraith-sting rifle (wasp)|WEAPON:Wraith-sting rifle (yellow jacket)|WEAPON:X-gen gun (advanced)|WEAPON:X-gen gun (elite)|WEAPON:X-gen gun (paragon)|WEAPON:X-gen gun (tactical)|WEAPON:Xenolash (blooming)|WEAPON:Xenolash (immature)]
 WEAPONPROF:[WEAPON:Xenolash (mature)|WEAPON:Xenolash (seeded)|WEAPON:Zero cannon (advanced)|WEAPON:Zero cannon (elite)|WEAPON:Zero cannon (tactical)|WEAPON:Zero knife (avalanche-class)|WEAPON:Zero knife (blizzard-class)|WEAPON:Zero knife (frostbite-class)|WEAPON:Zero knife (hailstorm-class)|WEAPON:Zero knife (icequake-class)]
@@ -258,10 +267,10 @@ WEAPONPROF:[WEAPON:Zero pistol (avalanche-class)|WEAPON:Zero pistol (blizzard-cl
 
 # Character Equipment
 MONEY:1000.00
-EQUIPNAME:Aegis Series, Squad|OUTPUTORDER:2|COST:45200|WT:3.0|QUANTITY:1.0|NOTE:|CUSTOMIZATION:[BASEITEM:Aegis Series (Squad)|DATA:KEY=Aegis Series (Squad)]
-EQUIPNAME:Core hammer, fusion|OUTPUTORDER:4|COST:48200|WT:2.0|QUANTITY:1.0|NOTE:|CUSTOMIZATION:[BASEITEM:Core hammer (fusion)|DATA:KEY=Core hammer (fusion)]
-EQUIPNAME:Cryospike, residential|OUTPUTORDER:1|COST:13700|WT:0.1|QUANTITY:1.0|NOTE:|CUSTOMIZATION:[BASEITEM:Cryospike (residential)|DATA:KEY=Cryospike (residential)]
-EQUIPNAME:Freeze ray, glacial|OUTPUTORDER:3|COST:24800|WT:2.0|QUANTITY:1.0|NOTE:|CUSTOMIZATION:[BASEITEM:Freeze ray (glacial)|DATA:KEY=Freeze ray (glacial)]
+EQUIPNAME:Aegis Series, Squad|OUTPUTORDER:2|COST:45200|WT:3.0|QUANTITY:1.0|NOTE:|CUSTOMIZATION:[BASEITEM:Aegis Series (Squad)|DATA:NAME=Aegis Series, Squad$KEY=Aegis Series (Squad)]
+EQUIPNAME:Core hammer, fusion|OUTPUTORDER:4|COST:48200|WT:2.0|QUANTITY:1.0|NOTE:|CUSTOMIZATION:[BASEITEM:Core hammer (fusion)|DATA:NAME=Core hammer, fusion$KEY=Core hammer (fusion)]
+EQUIPNAME:Cryospike, residential|OUTPUTORDER:1|COST:13700|WT:0.1|QUANTITY:1.0|NOTE:|CUSTOMIZATION:[BASEITEM:Cryospike (residential)|DATA:NAME=Cryospike, residential$KEY=Cryospike (residential)]
+EQUIPNAME:Freeze ray, glacial|OUTPUTORDER:3|COST:24800|WT:2.0|QUANTITY:1.0|NOTE:|CUSTOMIZATION:[BASEITEM:Freeze ray (glacial)|DATA:NAME=Freeze ray, glacial$KEY=Freeze ray (glacial)]
 EQUIPSET:Default Set|ID:0.1|USETEMPMODS:Y
 EQUIPSET:Armor|ID:0.1.01|VALUE:Aegis Series, Squad|QUANTITY:1.0|USETEMPMODS:Y
 EQUIPSET:Primary Hand|ID:0.1.02|VALUE:Cryospike, residential|QUANTITY:1.0|USETEMPMODS:Y
@@ -298,6 +307,5 @@ AGESET:1:0:0:0:0:0:0:0:0:0
 
 # Campaign History
 
-# Suppressed Biography Fields
-SUPPRESSBIOFIELDS:
+# Preview Sheet Variables
 
