@@ -2,6 +2,8 @@
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision$ $Author$ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
 
+CATEGORY=Internal|Default.MOD		ABILITY:Internal|AUTOMATIC|Movement
+
 ###Block: Caster Level Tracking
 # Ability Name			Define							Ability								Modify VAR
 CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Highest|0
@@ -12,10 +14,8 @@ CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Total__Arcane|0
 CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Total__Divine|0
 CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Total|0
 
-
 # Combined to get Highest Arcane or Divine caster level
 CATEGORY=Internal|Default.MOD																		BONUS:VAR|Caster_Level_Highest|max(Caster_Level_Highest__Arcane,Caster_Level_Highest__Divine)
-
 
 # Comment: PC and NPCs are usually playable races that follow age rules, Monsters don't normally follow age rules.
 CATEGORY=Internal|Default.MOD	DEFINE:UseAgeRules|0	DEFINE:AgeProgression|0	ABILITY:Internal|AUTOMATIC|Age|PREVAREQ:UseAgeRules,1	BONUS:VAR|UseAgeRules|1|TYPE=Bool|PRECHARACTERTYPE:1,PC,NPC
@@ -726,11 +726,11 @@ CATEGORY=Internal|Movement.MOD																						DEFINE:BaseMove_Burrow|0	DEF
 CATEGORY=Internal|Movement.MOD																						DEFINE:BaseMove_Swim|0	DEFINE:TotalSpeed_Swim|0	DEFINE:CombinedMove_Swim|0	DEFINE:BonusMove_Swim|0	DEFINE:PostBonusMove_Swim|0
 
 # Formula for the various Movements - BaseMove + BonusMove = CombinedMove. Min value of CombinedMove and ReducedMove + PostBonusMove
-CATEGORY=Internal|Movement.MOD																																																															BONUS:VAR|TotalSpeed_Walk|PostBonusMove_Walk+min(CombinedMove_Walk,ReducedMove_All)|TYPE=Speed	BONUS:VAR|CombinedMove_Walk|BaseMove_Walk+BonusMove_Walk
-CATEGORY=Internal|Movement.MOD																																																															BONUS:VAR|TotalSpeed_Climb|PostBonusMove_Climb+min(CombinedMove_Climb,ReducedMove_All)|TYPE=Speed	BONUS:VAR|CombinedMove_Climb|BaseMove_Climb+BonusMove_Climb
-CATEGORY=Internal|Movement.MOD																																																															BONUS:VAR|TotalSpeed_Fly|PostBonusMove_Fly+min(CombinedMove_Fly,ReducedMove_All)|TYPE=Speed	BONUS:VAR|CombinedMove_Fly|BaseMove_Fly+BonusMove_Fly
-CATEGORY=Internal|Movement.MOD																																																															BONUS:VAR|TotalSpeed_Burrow|PostBonusMove_Burrow+min(CombinedMove_Burrow,ReducedMove_All)|TYPE=Speed	BONUS:VAR|CombinedMove_Burrow|BaseMove_Burrow+BonusMove_Burrow
-CATEGORY=Internal|Movement.MOD																																																															BONUS:VAR|TotalSpeed_Swim|PostBonusMove_Swim+min(CombinedMove_Swim,ReducedMove_All)|TYPE=Speed	BONUS:VAR|CombinedMove_Swim|BaseMove_Swim+BonusMove_Swim
+CATEGORY=Internal|Movement.MOD																																																															BONUS:VAR|TotalSpeed_Walk|PostBonusMove_Walk+CombinedMove_Walk|TYPE=Speed	BONUS:VAR|CombinedMove_Walk|BaseMove_Walk+BonusMove_Walk
+CATEGORY=Internal|Movement.MOD																																																															BONUS:VAR|TotalSpeed_Climb|PostBonusMove_ClimbCombinedMove_Climb|TYPE=Speed	BONUS:VAR|CombinedMove_Climb|BaseMove_Climb+BonusMove_Climb
+CATEGORY=Internal|Movement.MOD																																																															BONUS:VAR|TotalSpeed_Fly|PostBonusMove_Fly+CombinedMove_Fly|TYPE=Speed	BONUS:VAR|CombinedMove_Fly|BaseMove_Fly+BonusMove_Fly
+CATEGORY=Internal|Movement.MOD																																																															BONUS:VAR|TotalSpeed_Burrow|PostBonusMove_Burrow+CombinedMove_Burrow|TYPE=Speed	BONUS:VAR|CombinedMove_Burrow|BaseMove_Burrow+BonusMove_Burrow
+CATEGORY=Internal|Movement.MOD																																																															BONUS:VAR|TotalSpeed_Swim|PostBonusMove_Swim+CombinedMove_Swim|TYPE=Speed	BONUS:VAR|CombinedMove_Swim|BaseMove_Swim+BonusMove_Swim
 
 
 CATEGORY=Internal|Movement.MOD																																																			ABILITY:Internal|AUTOMATIC|Walk ~ 05|PREVAREQ:TotalSpeed_Walk,5
