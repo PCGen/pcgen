@@ -927,7 +927,7 @@ BIO
 			<critical>20/x2</critical>
 			<!-- Should be changed to a variable due to improved crit -->
 		</unarmed>
-		
+
 		<weapon>
 			<common>
 				<name>
@@ -944,13 +944,19 @@ BIO
 					<magic_hit>+0</magic_hit>
 					<total_hit>+38</total_hit>
 				</to_hit>
-				<feat></feat>
+				<feat>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</feat>
 				<hand>Primary</hand>
 				<num_attacks>1</num_attacks>
 				<reach>30</reach>
 				<size>M</size>
 				<special_properties></special_properties>
-				<template></template>
+				<template>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</template>
 				<type>BPS</type>
 				<weight>0</weight>
 				<sequence>0</sequence>
@@ -977,13 +983,19 @@ BIO
 					<magic_hit>+0</magic_hit>
 					<total_hit>+38/+38</total_hit>
 				</to_hit>
-				<feat></feat>
+				<feat>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</feat>
 				<hand>Primary</hand>
 				<num_attacks>2</num_attacks>
 				<reach>20</reach>
 				<size>M</size>
 				<special_properties></special_properties>
-				<template></template>
+				<template>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</template>
 				<type>PS</type>
 				<weight>0</weight>
 				<sequence>1</sequence>
@@ -1010,13 +1022,19 @@ BIO
 					<magic_hit>+0</magic_hit>
 					<total_hit>+36</total_hit>
 				</to_hit>
-				<feat></feat>
+				<feat>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</feat>
 				<hand>Primary</hand>
 				<num_attacks>1</num_attacks>
 				<reach>20</reach>
 				<size>M</size>
 				<special_properties></special_properties>
-				<template></template>
+				<template>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</template>
 				<type>B</type>
 				<weight>0</weight>
 				<sequence>2</sequence>
@@ -1043,13 +1061,19 @@ BIO
 					<magic_hit>+0</magic_hit>
 					<total_hit>+36/+36</total_hit>
 				</to_hit>
-				<feat></feat>
+				<feat>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</feat>
 				<hand>Primary</hand>
 				<num_attacks>2</num_attacks>
 				<reach>20</reach>
 				<size>M</size>
 				<special_properties></special_properties>
-				<template></template>
+				<template>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</template>
 				<type>B</type>
 				<weight>0</weight>
 				<sequence>3</sequence>
@@ -1652,6 +1676,17 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
+			<name>Dragon Senses</name>
+			<description>Dragons have darkvision 120 ft. and blindsense 60 ft. They see four times as well as a human in dim light and twice as well in normal light.</description>
+			<type>SPECIALQUALITY.EXTRAORDINARY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>Fast Flight</name>
 			<description>A young or older gold dragon is treated as one size category larger when determining his fly speed.</description>
 			<type>SPECIALQUALITY.EXTRAORDINARY.MODIFYMOVEMENT</type>
@@ -2040,6 +2075,17 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Dragon Age (9)</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Movement</name>
 			<description></description>
 			<type></type>
 			<associated></associated>
