@@ -4269,6 +4269,17 @@ BIO
 			<category>Internal</category>
 		</ability_object>
 		<ability_object>
+			<name>Movement</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
 			<name>Racial Traits ~ Halfling</name>
 			<description></description>
 			<type></type>
