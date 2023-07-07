@@ -2,11 +2,11 @@ PCGVERSION:2.0
 
 # System Information
 CAMPAIGN:Starfinder RPG Core Supplements
-VERSION:6.09.00-DEV
-ROLLMETHOD:1|EXPRESSION:10
+VERSION:6.09.07
+ROLLMETHOD:0|EXPRESSION:0
 PURCHASEPOINTS:N
 CHARACTERTYPE:PC
-PREVIEWSHEET:Standard.htm.ftl
+PREVIEWSHEET:troubleshooting.htm.ftl
 POOLPOINTS:0
 POOLPOINTSAVAIL:-1
 GAMEMODE:Starfinder
@@ -16,7 +16,7 @@ USEHIGHERPREPPED:N
 LOADCOMPANIONS:N
 USETEMPMODS:Y
 SKILLSOUTPUTORDER:0
-SKILLFILTER:2
+SKILLFILTER:3
 IGNORECOST:N
 ALLOWDEBT:N
 AUTORESIZEGEAR:Y
@@ -58,27 +58,27 @@ ALIGN:NG
 RACE:Ysoki
 
 # Character Class(es)
-CLASS:Mechanic|LEVEL:20|SKILLPOOL:21|SPELLBASE:None|CANCASTPERDAY:
-CLASSABILITIESLEVEL:Mechanic=1|HITPOINTS:1|SKILLSGAINED:9|SKILLSREMAINING:1
-CLASSABILITIESLEVEL:Mechanic=2|HITPOINTS:1|SKILLSGAINED:9|SKILLSREMAINING:1
-CLASSABILITIESLEVEL:Mechanic=3|HITPOINTS:1|SKILLSGAINED:9|SKILLSREMAINING:1
-CLASSABILITIESLEVEL:Mechanic=4|HITPOINTS:1|SKILLSGAINED:9|SKILLSREMAINING:1
-CLASSABILITIESLEVEL:Mechanic=5|HITPOINTS:1|SKILLSGAINED:9|SKILLSREMAINING:1
-CLASSABILITIESLEVEL:Mechanic=6|HITPOINTS:1|SKILLSGAINED:9|SKILLSREMAINING:1
-CLASSABILITIESLEVEL:Mechanic=7|HITPOINTS:1|SKILLSGAINED:9|SKILLSREMAINING:1
-CLASSABILITIESLEVEL:Mechanic=8|HITPOINTS:1|SKILLSGAINED:9|SKILLSREMAINING:1
-CLASSABILITIESLEVEL:Mechanic=9|HITPOINTS:1|SKILLSGAINED:9|SKILLSREMAINING:1
-CLASSABILITIESLEVEL:Mechanic=10|HITPOINTS:1|SKILLSGAINED:9|SKILLSREMAINING:1
-CLASSABILITIESLEVEL:Mechanic=11|HITPOINTS:1|SKILLSGAINED:9|SKILLSREMAINING:1
-CLASSABILITIESLEVEL:Mechanic=12|HITPOINTS:1|SKILLSGAINED:9|SKILLSREMAINING:1
-CLASSABILITIESLEVEL:Mechanic=13|HITPOINTS:1|SKILLSGAINED:9|SKILLSREMAINING:1
-CLASSABILITIESLEVEL:Mechanic=14|HITPOINTS:1|SKILLSGAINED:9|SKILLSREMAINING:1
-CLASSABILITIESLEVEL:Mechanic=15|HITPOINTS:1|SKILLSGAINED:9|SKILLSREMAINING:1
-CLASSABILITIESLEVEL:Mechanic=16|HITPOINTS:1|SKILLSGAINED:9|SKILLSREMAINING:1
-CLASSABILITIESLEVEL:Mechanic=17|HITPOINTS:1|SKILLSGAINED:9|SKILLSREMAINING:1
-CLASSABILITIESLEVEL:Mechanic=18|HITPOINTS:1|SKILLSGAINED:9|SKILLSREMAINING:1
-CLASSABILITIESLEVEL:Mechanic=19|HITPOINTS:1|SKILLSGAINED:9|SKILLSREMAINING:1
-CLASSABILITIESLEVEL:Mechanic=20|HITPOINTS:1|SKILLSGAINED:9|SKILLSREMAINING:1
+CLASS:Mechanic|LEVEL:20|SKILLPOOL:0|SPELLBASE:None|CANCASTPERDAY:
+CLASSABILITIESLEVEL:Mechanic=1|HITPOINTS:1|SKILLSGAINED:12|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Mechanic=2|HITPOINTS:1|SKILLSGAINED:12|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Mechanic=3|HITPOINTS:1|SKILLSGAINED:12|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Mechanic=4|HITPOINTS:1|SKILLSGAINED:12|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Mechanic=5|HITPOINTS:1|SKILLSGAINED:12|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Mechanic=6|HITPOINTS:1|SKILLSGAINED:12|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Mechanic=7|HITPOINTS:1|SKILLSGAINED:12|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Mechanic=8|HITPOINTS:1|SKILLSGAINED:12|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Mechanic=9|HITPOINTS:1|SKILLSGAINED:12|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Mechanic=10|HITPOINTS:1|SKILLSGAINED:12|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Mechanic=11|HITPOINTS:1|SKILLSGAINED:12|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Mechanic=12|HITPOINTS:1|SKILLSGAINED:12|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Mechanic=13|HITPOINTS:1|SKILLSGAINED:12|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Mechanic=14|HITPOINTS:1|SKILLSGAINED:12|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Mechanic=15|HITPOINTS:1|SKILLSGAINED:12|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Mechanic=16|HITPOINTS:1|SKILLSGAINED:12|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Mechanic=17|HITPOINTS:1|SKILLSGAINED:12|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Mechanic=18|HITPOINTS:1|SKILLSGAINED:12|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Mechanic=19|HITPOINTS:1|SKILLSGAINED:12|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Mechanic=20|HITPOINTS:1|SKILLSGAINED:12|SKILLSREMAINING:0
 
 # Character Experience
 EXPERIENCE:2400000
@@ -86,45 +86,47 @@ EXPERIENCETABLE:Standard
 
 # Character Templates
 TEMPLATESAPPLIED:[NAME:Small]
+TEMPLATESAPPLIED:[NAME:Class ~ Mechanic]
 TEMPLATESAPPLIED:[NAME:First Level Base Class|APPLIEDTO:Mechanic]
 TEMPLATESAPPLIED:[NAME:Mechanic]
-TEMPLATESAPPLIED:[NAME:Class ~ Mechanic]
 
 # Character Region
 REGION:None
 
 # Character Skills
 SKILL:Acrobatics|OUTPUTORDER:2|
-SKILL:Athletics|OUTPUTORDER:3|CLASSBOUGHT:[CLASS:Mechanic|RANKS:20.0|COST:1|CLASSSKILL:Y]
-SKILL:Bluff|OUTPUTORDER:5|
+SKILL:Athletics|OUTPUTORDER:4|CLASSBOUGHT:[CLASS:Mechanic|RANKS:20.0|COST:1|CLASSSKILL:Y]
+SKILL:Bluff|OUTPUTORDER:6|
 SKILL:Computers|OUTPUTORDER:7|CLASSBOUGHT:[CLASS:Mechanic|RANKS:20.0|COST:1|CLASSSKILL:Y]
-SKILL:Diplomacy|OUTPUTORDER:9|
+SKILL:Diplomacy|OUTPUTORDER:10|
 SKILL:Disguise|OUTPUTORDER:12|
 SKILL:Display ~ Acrobatics|OUTPUTORDER:1|
-SKILL:Display ~ Athletics|OUTPUTORDER:4|
-SKILL:Display ~ Bluff|OUTPUTORDER:6|
+SKILL:Display ~ Athletics|OUTPUTORDER:3|
+SKILL:Display ~ Bluff|OUTPUTORDER:5|
 SKILL:Display ~ Computers|OUTPUTORDER:8|
-SKILL:Display ~ Diplomacy|OUTPUTORDER:10|
+SKILL:Display ~ Diplomacy|OUTPUTORDER:9|
 SKILL:Display ~ Disguise|OUTPUTORDER:11|
-SKILL:Display ~ Engineering|OUTPUTORDER:13|
-SKILL:Display ~ Intimidate|OUTPUTORDER:15|
-SKILL:Display ~ Medicine|OUTPUTORDER:17|
+SKILL:Display ~ Engineering|OUTPUTORDER:14|
+SKILL:Display ~ Intimidate|OUTPUTORDER:16|
+SKILL:Display ~ Medicine|OUTPUTORDER:18|
 SKILL:Display ~ Perception|OUTPUTORDER:20|
 SKILL:Display ~ Physical Science|OUTPUTORDER:22|
 SKILL:Display ~ Piloting|OUTPUTORDER:23|
-SKILL:Display ~ Sense Motive|OUTPUTORDER:26|
-SKILL:Display ~ Stealth|OUTPUTORDER:28|
-SKILL:Display ~ Survival|OUTPUTORDER:30|
-SKILL:Engineering|OUTPUTORDER:14|CLASSBOUGHT:[CLASS:Mechanic|RANKS:20.0|COST:1|CLASSSKILL:Y]
-SKILL:Intimidate|OUTPUTORDER:16|
-SKILL:Medicine|OUTPUTORDER:18|CLASSBOUGHT:[CLASS:Mechanic|RANKS:20.0|COST:1|CLASSSKILL:Y]
+SKILL:Display ~ Profession (Maintenance Worker)|OUTPUTORDER:25|
+SKILL:Display ~ Sense Motive|OUTPUTORDER:27|
+SKILL:Display ~ Stealth|OUTPUTORDER:29|
+SKILL:Display ~ Survival|OUTPUTORDER:31|
+SKILL:Engineering|OUTPUTORDER:13|CLASSBOUGHT:[CLASS:Mechanic|RANKS:20.0|COST:1|CLASSSKILL:Y]
+SKILL:Intimidate|OUTPUTORDER:15|
+SKILL:Life Science|CLASSBOUGHT:[CLASS:Mechanic|RANKS:20.0|COST:1|CLASSSKILL:N]
+SKILL:Medicine|OUTPUTORDER:17|CLASSBOUGHT:[CLASS:Mechanic|RANKS:20.0|COST:1|CLASSSKILL:Y]
 SKILL:Perception|OUTPUTORDER:19|CLASSBOUGHT:[CLASS:Mechanic|RANKS:20.0|COST:1|CLASSSKILL:Y]
 SKILL:Physical Science|OUTPUTORDER:21|CLASSBOUGHT:[CLASS:Mechanic|RANKS:20.0|COST:1|CLASSSKILL:Y]
 SKILL:Piloting|OUTPUTORDER:24|CLASSBOUGHT:[CLASS:Mechanic|RANKS:20.0|COST:1|CLASSSKILL:Y]
-SKILL:Profession (Maintenance Worker)|CLASSBOUGHT:[CLASS:Mechanic|RANKS:20.0|COST:1|CLASSSKILL:Y]
-SKILL:Sense Motive|OUTPUTORDER:25|
-SKILL:Stealth|OUTPUTORDER:27|
-SKILL:Survival|OUTPUTORDER:29|
+SKILL:Profession (Maintenance Worker)|OUTPUTORDER:26|CLASSBOUGHT:[CLASS:Mechanic|RANKS:20.0|COST:1|CLASSSKILL:Y]
+SKILL:Sense Motive|OUTPUTORDER:28|CLASSBOUGHT:[CLASS:Mechanic|RANKS:20.0|COST:1|CLASSSKILL:N]
+SKILL:Stealth|OUTPUTORDER:30|CLASSBOUGHT:[CLASS:Mechanic|RANKS:20.0|COST:1|CLASSSKILL:N]
+SKILL:Survival|OUTPUTORDER:32|CLASSBOUGHT:[CLASS:Mechanic|RANKS:20.0|COST:1|CLASSSKILL:N]
 
 # Character Languages
 LANGUAGE:Common|LANGUAGE:Vercite|LANGUAGE:Ysoki
@@ -133,6 +135,8 @@ LANGUAGE:Common|LANGUAGE:Vercite|LANGUAGE:Ysoki
 FEATPOOL:0.0
 
 # Character Abilities
+ABILITY:Enhanced Resistance Selection|TYPE:NORMAL|CATEGORY:Internal|KEY:Enhanced Resistance ~ Electricity|TYPE:Enhanced Resistance
+USERPOOL:Enhanced Resistance Selection|POOLPOINTS:0.0
 ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Enhanced Resistance|TYPE:General|DESC:You have trained your body to resist a particular type of damage.
 ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Extra Resolve|TYPE:General|DESC:Your resolve is stronger than most.
 ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Fleet|TYPE:Combat|DESC:You are faster than most.
@@ -156,20 +160,20 @@ USERPOOL:Mechanic AI Level Divestment|POOLPOINTS:0.0
 ABILITY:Mechanic AI Selection|TYPE:NORMAL|CATEGORY:Class Feature|KEY:Mechanic Artificial Intelligence ~ Drone|TYPE:Class Feature.Mechanic Class Feature.Mechanic AI Selection|DESC:You begin play with a powerful robotic drone to house your AI. You build and control this drone, which accompanies you on your adventures and is capable of combat, espionage, and other specialized tasks. As you gain levels, your drone advances in sophistication and gain additional abilities. While the value of your drone is immense, only you, with your extensive knowledge of its quirks and security measures, can ever hope to operate or repair it. Drones are detailed in Drones beginning on page 74.
 ABILITY:Mechanic AI Selection|TYPE:NORMAL|CATEGORY:Class Feature|KEY:Mechanic Artificial Intelligence ~ Exocortex|TYPE:Class Feature.Mechanic Class Feature.Mechanic AI Selection|DESC:You begin play with an exocortex, an artificial processor that interacts with and augments your biological brain's cognitive functions, which can aid you in a variety of tasks, from combat to digital infiltration. Your exocortex is implanted within your physical body or brain, similar to a piece of cybernetic hardware, allowing your AI to access your mind and feed you information. As you gain levels, your exocortex advances in sophistication and processing power-see Exocortex on page 79. Only you can access or interact with your exocortex.
 USERPOOL:Mechanic AI Selection|POOLPOINTS:0.0
-ABILITY:Mechanic Archetype|TYPE:NORMAL|CATEGORY:Archetype|KEY:Mechanic Archetype ~ Augmented|TYPE:Archetype.Mechanic Archetype|DESC:Although first a caste on Verces, the Augmented have since become a cultural movement of seeking perfection through artificial upgrades—most often cybernetics. The Augmented push the boundaries of cybernetic integration, often appearing as much machine as organic.
+ABILITY:Mechanic Archetype|TYPE:NORMAL|CATEGORY:Archetype|KEY:Mechanic Archetype ~ Augmented|TYPE:Archetype.Mechanic Archetype|DESC:Although first a caste on Verces, the Augmented have since become a cultural movement of seeking perfection through artificial upgradesmost often cybernetics. The Augmented push the boundaries of cybernetic integration, often appearing as much machine as organic.
 USERPOOL:Mechanic Archetype|POOLPOINTS:0.0
 ABILITY:Mechanic Control Net Selection|TYPE:NORMAL|CATEGORY:Internal|KEY:Mechanic Control Net Selection ~ Add another AI|TYPE:Mechanic Control Net Selection
 USERPOOL:Mechanic Control Net Selection|POOLPOINTS:0.0
-ABILITY:Mechanic Trick|TYPE:NORMAL|CATEGORY:Class Feature|KEY:Mechanic Trick ~ Combat Maintenance|TYPE:Extraordinary.Mechanic Trick.Mechanic Trick LVL 2|DESC:As a move action, you can fortify an item you touch against attack. The item's hardness increases by an amount equal to your mechanic level (to a maximum of double its normal hardness) for 1 round. If the item is one you are wearing or holding, you can use this ability as a purely defensive reaction to an attack against it.
-ABILITY:Mechanic Trick|TYPE:NORMAL|CATEGORY:Class Feature|KEY:Mechanic Trick ~ Improved Resistant Energy|TYPE:Extraordinary.Mechanic Trick.Mechanic Trick LVL 14|DESC:&lbracket;NOT IMPLEMENTED&rbracket;Choose an additional energy type from resistant energy. You gain resistance 15 against both this and your original energy type. You must have the energy shield and resistant energy mechanic tricks to learn this trick.
-ABILITY:Mechanic Trick|TYPE:NORMAL|CATEGORY:Class Feature|KEY:Mechanic Trick ~ Mod Tinkerer|TYPE:Extraordinary.Mechanic Trick.Mechanic Trick LVL 14|DESC:&lbracket;NOT IMPLEMENTED&rbracket;You can spend 24 hours of uninterrupted work to exchange all your drone or exocortex mods at any time, even if you haven't gained a level. Any other drone features (such as its chassis or bonus feats) can still be exchanged only when you gain a level.
-ABILITY:Mechanic Trick|TYPE:NORMAL|CATEGORY:Class Feature|KEY:Mechanic Trick ~ Neural Shunt|TYPE:Extraordinary.Mechanic Trick.Mechanic Trick LVL 2|DESC:&lbracket;NOT IMPLEMENTED&rbracket;Once per day, as a reaction when you fail a saving throw against a mind-affecting effect, you can shunt that effect into your exocortex instead. When you do so, you are not affected by the mind-affecting effect, but for the normal duration of that effect, you lose the Skill Focus feat granted by your exocortex's memory module and cannot use any of the exocortex's abilities in any way (including any proficiencies and mods it grants you). When a mind-affecting effect is shunted into the exocortex, spells such as dispel magic or break enchantment can be cast on you to end the effect as if you were affected by it. Once the duration of the mindaffecting effect has ended, your exocortex resumes its normal functions. You must have an exocortex to learn this trick.
-ABILITY:Mechanic Trick|TYPE:NORMAL|CATEGORY:Class Feature|KEY:Mechanic Trick ~ Overclocking|TYPE:Extraordinary.Mechanic Trick.Mechanic Trick LVL 2|DESC:&lbracket;NOT IMPLEMENTED&rbracket;You have augmented the performance of your AI for maximum response timing. You gain a +2 insight bonus to initiative checks, and either you (if you have an exocortex) or your drone (if you have a drone) gains a +2 insight bonus to Reflex saves.
-ABILITY:Mechanic Trick|TYPE:NORMAL|CATEGORY:Class Feature|KEY:Mechanic Trick ~ Quick Patch|TYPE:Extraordinary.Mechanic Trick.Mechanic Trick LVL 2|DESC:&lbracket;NOT IMPLEMENTED&rbracket;When you attempt to patch a system on a starship, you reduce the number of actions required to do so by one. This does not reduce the time needed to patch a glitching system, but you can patch two systems with one action.
-ABILITY:Mechanic Trick|TYPE:NORMAL|CATEGORY:Class Feature|KEY:Mechanic Trick ~ Quick Repair|TYPE:Extraordinary.Mechanic Trick.Mechanic Trick LVL 2|DESC:&lbracket;NOT IMPLEMENTED&rbracket;When you attempt to repair an item, you can do so in half the time normally required (to a minimum of a full action).
-ABILITY:Mechanic Trick|TYPE:NORMAL|CATEGORY:Class Feature|KEY:Mechanic Trick ~ Repair Drone|TYPE:Extraordinary.Mechanic Trick.Mechanic Trick LVL 2|DESC:&lbracket;NOT IMPLEMENTED&rbracket;When you spend 10 minutes to repair your drone, you repair 25%% of its maximum Hit Points instead of 10%%. You must have a drone to learn this trick.
-ABILITY:Mechanic Trick|TYPE:NORMAL|CATEGORY:Class Feature|KEY:Mechanic Trick ~ Saboteur|TYPE:Extraordinary.Mechanic Trick.Mechanic Trick LVL 14|DESC:&lbracket;NOT IMPLEMENTED&rbracket;Whenever you use the Engineering skill to sabotage or disable a device, you can roll twice and take the better result. In addition, if you have the appropriate tools (including your custom rig), performing these tasks takes half the normal amount of time, to a minimum of 1 move action.
-ABILITY:Mechanic Trick|TYPE:NORMAL|CATEGORY:Class Feature|KEY:Mechanic Trick ~ Scoutbot|TYPE:Extraordinary.Mechanic Trick.Mechanic Trick LVL 8|DESC:&lbracket;NOT IMPLEMENTED&rbracket;You're always crafting rudimentary bots in your spare time, and can use them to scout. It takes you 10 minutes and 1 Resolve Point to create a scoutbot. A scoutbot is a Small technological construct, its EAC and KAC are equal to 10 + your mechanic level, and it has 1 Hit Point per mechanic level you have (and no Stamina Points). It has a land speed of 30 feet, and you can control its movements with your custom rig as a move action. It has a camera that streams visual and auditory data back to your rig. The scoutbot uses your saving throw bonuses if necessary. It is untrained in all skills and has a +0 bonus in all of them, though you can use your own Perception skill when examining the feed from its stream. Once created, the scoutbot lasts for 1 minute per mechanic level you have before falling apart unless otherwise destroyed.
+ABILITY:Mechanic Trick|TYPE:NORMAL|CATEGORY:Class Feature|KEY:Mechanic Trick ~ Combat Maintenance|TYPE:Class Feature.Mechanic Trick.Extraordinary.Mechanic Trick LVL 2|DESC:As a move action, you can fortify an item you touch against attack. The item's hardness increases by an amount equal to your mechanic level (to a maximum of double its normal hardness) for 1 round. If the item is one you are wearing or holding, you can use this ability as a purely defensive reaction to an attack against it.
+ABILITY:Mechanic Trick|TYPE:NORMAL|CATEGORY:Class Feature|KEY:Mechanic Trick ~ Improved Resistant Energy|TYPE:Class Feature.Mechanic Trick.Extraordinary.Mechanic Trick LVL 14|DESC:&lbracket;NOT IMPLEMENTED&rbracket;Choose an additional energy type from resistant energy. You gain resistance 15 against both this and your original energy type. You must have the energy shield and resistant energy mechanic tricks to learn this trick.
+ABILITY:Mechanic Trick|TYPE:NORMAL|CATEGORY:Class Feature|KEY:Mechanic Trick ~ Mod Tinkerer|TYPE:Class Feature.Mechanic Trick.Extraordinary.Mechanic Trick LVL 14|DESC:&lbracket;NOT IMPLEMENTED&rbracket;You can spend 24 hours of uninterrupted work to exchange all your drone or exocortex mods at any time, even if you haven't gained a level. Any other drone features (such as its chassis or bonus feats) can still be exchanged only when you gain a level.
+ABILITY:Mechanic Trick|TYPE:NORMAL|CATEGORY:Class Feature|KEY:Mechanic Trick ~ Neural Shunt|TYPE:Class Feature.Mechanic Trick.Extraordinary.Mechanic Trick LVL 2|DESC:&lbracket;NOT IMPLEMENTED&rbracket;Once per day, as a reaction when you fail a saving throw against a mind-affecting effect, you can shunt that effect into your exocortex instead. When you do so, you are not affected by the mind-affecting effect, but for the normal duration of that effect, you lose the Skill Focus feat granted by your exocortex's memory module and cannot use any of the exocortex's abilities in any way (including any proficiencies and mods it grants you). When a mind-affecting effect is shunted into the exocortex, spells such as dispel magic or break enchantment can be cast on you to end the effect as if you were affected by it. Once the duration of the mindaffecting effect has ended, your exocortex resumes its normal functions. You must have an exocortex to learn this trick.
+ABILITY:Mechanic Trick|TYPE:NORMAL|CATEGORY:Class Feature|KEY:Mechanic Trick ~ Overclocking|TYPE:Class Feature.Mechanic Trick.Extraordinary.Mechanic Trick LVL 2|DESC:&lbracket;NOT IMPLEMENTED&rbracket;You have augmented the performance of your AI for maximum response timing. You gain a +2 insight bonus to initiative checks, and either you (if you have an exocortex) or your drone (if you have a drone) gains a +2 insight bonus to Reflex saves.
+ABILITY:Mechanic Trick|TYPE:NORMAL|CATEGORY:Class Feature|KEY:Mechanic Trick ~ Quick Patch|TYPE:Class Feature.Mechanic Trick.Extraordinary.Mechanic Trick LVL 2|DESC:&lbracket;NOT IMPLEMENTED&rbracket;When you attempt to patch a system on a starship, you reduce the number of actions required to do so by one. This does not reduce the time needed to patch a glitching system, but you can patch two systems with one action.
+ABILITY:Mechanic Trick|TYPE:NORMAL|CATEGORY:Class Feature|KEY:Mechanic Trick ~ Quick Repair|TYPE:Class Feature.Mechanic Trick.Extraordinary.Mechanic Trick LVL 2|DESC:&lbracket;NOT IMPLEMENTED&rbracket;When you attempt to repair an item, you can do so in half the time normally required (to a minimum of a full action).
+ABILITY:Mechanic Trick|TYPE:NORMAL|CATEGORY:Class Feature|KEY:Mechanic Trick ~ Repair Drone|TYPE:Class Feature.Mechanic Trick.Extraordinary.Mechanic Trick LVL 2|DESC:&lbracket;NOT IMPLEMENTED&rbracket;When you spend 10 minutes to repair your drone, you repair 25%% of its maximum Hit Points instead of 10%%. You must have a drone to learn this trick.
+ABILITY:Mechanic Trick|TYPE:NORMAL|CATEGORY:Class Feature|KEY:Mechanic Trick ~ Saboteur|TYPE:Class Feature.Mechanic Trick.Extraordinary.Mechanic Trick LVL 14|DESC:&lbracket;NOT IMPLEMENTED&rbracket;Whenever you use the Engineering skill to sabotage or disable a device, you can roll twice and take the better result. In addition, if you have the appropriate tools (including your custom rig), performing these tasks takes half the normal amount of time, to a minimum of 1 move action.
+ABILITY:Mechanic Trick|TYPE:NORMAL|CATEGORY:Class Feature|KEY:Mechanic Trick ~ Scoutbot|TYPE:Class Feature.Mechanic Trick.Extraordinary.Mechanic Trick LVL 8|DESC:&lbracket;NOT IMPLEMENTED&rbracket;You're always crafting rudimentary bots in your spare time, and can use them to scout. It takes you 10 minutes and 1 Resolve Point to create a scoutbot. A scoutbot is a Small technological construct, its EAC and KAC are equal to 10 + your mechanic level, and it has 1 Hit Point per mechanic level you have (and no Stamina Points). It has a land speed of 30 feet, and you can control its movements with your custom rig as a move action. It has a camera that streams visual and auditory data back to your rig. The scoutbot uses your saving throw bonuses if necessary. It is untrained in all skills and has a +0 bonus in all of them, though you can use your own Perception skill when examining the feed from its stream. Once created, the scoutbot lasts for 1 minute per mechanic level you have before falling apart unless otherwise destroyed.
 USERPOOL:Mechanic Trick|POOLPOINTS:0.0
 ABILITY:PC Level 10 Stat Boost|TYPE:NORMAL|CATEGORY:Internal|KEY:PC Level 10 Stat Boost ~ CON +2|TYPE:PC Level 10 Stat Boost.PC Level 10 Stat Boost CON
 ABILITY:PC Level 10 Stat Boost|TYPE:NORMAL|CATEGORY:Internal|KEY:PC Level 10 Stat Boost ~ DEX +2|TYPE:PC Level 10 Stat Boost.PC Level 10 Stat Boost DEX
@@ -191,10 +195,14 @@ ABILITY:PC Level 5 Stat Boost|TYPE:NORMAL|CATEGORY:Internal|KEY:PC Level 5 Stat 
 ABILITY:PC Level 5 Stat Boost|TYPE:NORMAL|CATEGORY:Internal|KEY:PC Level 5 Stat Boost ~ INT +1|TYPE:PC Level 5 Stat Boost.PC Level 5 Stat Boost INT
 ABILITY:PC Level 5 Stat Boost|TYPE:NORMAL|CATEGORY:Internal|KEY:PC Level 5 Stat Boost ~ WIS +2|TYPE:PC Level 5 Stat Boost.PC Level 5 Stat Boost WIS
 USERPOOL:PC Level 5 Stat Boost|POOLPOINTS:0.0
+ABILITY:Personal Upgrade LVL 14|TYPE:NORMAL|CATEGORY:Internal|KEY:Personal Upgrade Mk 3 (INT)|TYPE:Personal Upgrade.Personal Upgrade LVL 14
+USERPOOL:Personal Upgrade LVL 14|POOLPOINTS:0.0
 ABILITY:Skill Focus|TYPE:NORMAL|CATEGORY:FEAT|KEY:Skill Focus|APPLIEDTO:Engineering|TYPE:General.SkillFocus|DESC:You are particularly adept at a certain skill.
 USERPOOL:Skill Focus|POOLPOINTS:0.0
 ABILITY:Theme Selection|TYPE:NORMAL|CATEGORY:Theme|KEY:Biotechnician|TYPE:Theme.Theme Selection|DESC:You are a biotech researcher or avid user of such tech, constantly seeking out or developing new biotechnologies and combining existing augmentations with advancements in other fields. You might be a member of the Augmented, a researcher in one of Bretheda's cutting-edge biotech corporations, a spellcasting genetomancer blending biotechnology with magic, or even a voluntary test subject for new augmentations. Either way, you have taken a strong hand in your own evolution.
 USERPOOL:Theme Selection|POOLPOINTS:0.0
+ABILITY:Ysoki Variant Ability|TYPE:NORMAL|CATEGORY:Variant Ability|KEY:Ysoki ~ No Variant Ability|TYPE:No Variant Ability.Ysoki Variant Ability
+USERPOOL:Ysoki Variant Ability|POOLPOINTS:0.0
 
 # Character Weapon proficiencies
 WEAPONPROF:[WEAPON:Acid dart rifle (complex)|WEAPON:Acid dart rifle (dual)|WEAPON:Acid dart rifle (tactical)|WEAPON:AG Accelerator Rifle|WEAPON:AG Assault Rifle|WEAPON:AG RPPR|WEAPON:Anchor pistol (emergent)|WEAPON:Anchor pistol (flux)|WEAPON:Anchor pistol (inductive)|WEAPON:Anchor pistol (voltaic)]
@@ -203,44 +211,50 @@ WEAPONPROF:[WEAPON:Autobeam rifle (elite)|WEAPON:Autobeam rifle (tactical)|WEAPO
 WEAPONPROF:[WEAPON:Blaze rifle (hellhound-class)|WEAPON:Blaze rifle (ifrit-class)|WEAPON:Blaze rifle (phoenix-class)|WEAPON:Blaze rifle (salamander-class)|WEAPON:Blindmark rifle (banshee)|WEAPON:Blindmark rifle (HFD)|WEAPON:Blindmark rifle (LFD)|WEAPON:Blindmark rifle (thunderstrike)|WEAPON:Bone Cestus (austere)|WEAPON:Bone Cestus (imposing)]
 WEAPONPROF:[WEAPON:Bone Cestus (measured)|WEAPON:Bone Cestus (severe)|WEAPON:Bone pistol (crypt-class)|WEAPON:Bone pistol (grave-class)|WEAPON:Bone pistol (sepulcher-class)|WEAPON:Bone pistol (vault-class)|WEAPON:Boomer rifle (concussive)|WEAPON:Boomer rifle (rumbler)|WEAPON:Boomer rifle (shockwave)|WEAPON:Boomer rifle (tremor)]
 WEAPONPROF:[WEAPON:Breaching gun (grapeshot)|WEAPON:Breaching gun (impact)|WEAPON:Breaching gun (snub)|WEAPON:Breaching gun (utility)|WEAPON:Breaching gun (vortex)|WEAPON:Cavitation pistol (hydrodynamic)|WEAPON:Cavitation pistol (inertial)|WEAPON:Cavitation pistol (thermodynamic)|WEAPON:Cavitation pistol (vapor)|WEAPON:Charge emitter (impulse)]
-WEAPONPROF:[WEAPON:Charge emitter (jolt)|WEAPON:Charge emitter (surge)|WEAPON:Club|WEAPON:Combat rifle|WEAPON:Compliance ray (flare)|WEAPON:Compliance ray (flash)|WEAPON:Compliance ray (starburst)|WEAPON:Compliance ray (strobe)|WEAPON:Compliance ray (sunspot)|WEAPON:Crossbolter (dual)]
-WEAPONPROF:[WEAPON:Crossbolter (tactical)|WEAPON:Dagger (molecular rift)|WEAPON:Dagger (ultrathin)|WEAPON:Dagger (zero-edge)|WEAPON:Decoupler (bruiser)|WEAPON:Decoupler (pusher)|WEAPON:Decoupler (screamer)|WEAPON:Dirge pistol (anharmonic)|WEAPON:Dirge pistol (harmonic)|WEAPON:Dirge pistol (parametric)]
-WEAPONPROF:[WEAPON:Dirge pistol (radial)|WEAPON:Dirge pistol (resonant)|WEAPON:Disintegrator pistol (decimator)|WEAPON:Disintegrator pistol (eradicator)|WEAPON:Disintegrator pistol (executioner)|WEAPON:Disintegrator pistol (liquidator)|WEAPON:Disintegrator rifle (decimator)|WEAPON:Disintegrator rifle (eradicator)|WEAPON:Disintegrator rifle (executioner)|WEAPON:Disintegrator rifle (liquidator)]
-WEAPONPROF:[WEAPON:Dragon pistol (drake)|WEAPON:Dragon pistol (true)|WEAPON:Dragon pistol (wyrmling)|WEAPON:Dragon pistol (wyvern)|WEAPON:Dragon rifle (drake)|WEAPON:Dragon rifle (true)|WEAPON:Dragon rifle (wyrmling)|WEAPON:Dragon rifle (wyvern)|WEAPON:Dross gun (flux)|WEAPON:Dross gun (scoring)]
-WEAPONPROF:[WEAPON:Dross gun (scrapper)|WEAPON:Dueling sword (admiral)|WEAPON:Dueling sword (buzzblade)|WEAPON:Dueling sword (converted)|WEAPON:Dueling sword (molecular rift)|WEAPON:Dueling sword (officer)|WEAPON:Dueling sword (ripper)|WEAPON:Dueling sword (tactical)|WEAPON:Dueling sword (ultrathin)|WEAPON:Eoxian Wrackstaff]
-WEAPONPROF:[WEAPON:Excavation laser (heavy)|WEAPON:Excavation laser (light)|WEAPON:Excavation laser (medium)|WEAPON:Flame pistol|WEAPON:Flame pistol (blaze)|WEAPON:Flame pistol (inferno)|WEAPON:Flame pistol (solar flare)|WEAPON:Flame rifle|WEAPON:Flare gun (survival)|WEAPON:Flare rifle (coruscator)]
-WEAPONPROF:[WEAPON:Flare rifle (dazzler)|WEAPON:Flare rifle (nova)|WEAPON:Flare rifle (scorcher)|WEAPON:Flare rifle (vivifier)|WEAPON:Forked pistol (10-notch)|WEAPON:Forked pistol (6-notch)|WEAPON:Forked pistol (8-notch)|WEAPON:Forked pistol (9-notch)|WEAPON:Freeze ray (algid)|WEAPON:Freeze ray (glacial)]
-WEAPONPROF:[WEAPON:Freeze ray (hiemal)|WEAPON:Freeze ray (hypothermic)|WEAPON:Freeze ray (isothermal)|WEAPON:Frost projector (blizzard-class)|WEAPON:Frost projector (frostbite-class)|WEAPON:Frost projector (hailstorm-class)|WEAPON:Graviton pistol (chiral)|WEAPON:Graviton pistol (linear)|WEAPON:Graviton pistol (tensor)|WEAPON:Graviton pistol (vector)]
-WEAPONPROF:[WEAPON:Grenades|WEAPON:Gulchgun|WEAPON:Gyrojet pistol (advanced)|WEAPON:Gyrojet pistol (elite)|WEAPON:Gyrojet pistol (tactical)|WEAPON:Gyrojet rifle (advanced)|WEAPON:Gyrojet rifle (elite)|WEAPON:Gyrojet rifle (paragon)|WEAPON:Gyrojet rifle (tactical)|WEAPON:Hail pistol (absolute-zero)]
-WEAPONPROF:[WEAPON:Hail pistol (gelid)|WEAPON:Hail pistol (subzero)|WEAPON:Hail pistol (ultracold)|WEAPON:Handcannon (bombast)|WEAPON:Handcannon (braggadocio)|WEAPON:Handcannon (bravado)|WEAPON:Handcannon (gasconade)|WEAPON:Handcannon (swagger)|WEAPON:Handcoil (capital)|WEAPON:Handcoil (explorer)]
-WEAPONPROF:[WEAPON:Handcoil (fighter)|WEAPON:Handcoil (pilot)|WEAPON:Hunting rifle|WEAPON:Ice carbine (absolute-zero)|WEAPON:Ice carbine (gelid)|WEAPON:Ice carbine (subzero)|WEAPON:Ice carbine (ultracold)|WEAPON:Igniter (blaze)|WEAPON:Igniter (ember)|WEAPON:Igniter (inferno)]
-WEAPONPROF:[WEAPON:Igniter (solar flare)|WEAPON:Incapacitator|WEAPON:Infinity rifle (advanced)|WEAPON:Infinity rifle (elite)|WEAPON:Infinity rifle (paragon)|WEAPON:Infinity rifle (tactical)|WEAPON:Injector pistol (elite)|WEAPON:Injector pistol (medic)|WEAPON:Injector pistol (poacher)|WEAPON:Injector pistol (subjugation)]
-WEAPONPROF:[WEAPON:Injector pistol (zoologist)|WEAPON:Ionizer (chromic)|WEAPON:Ionizer (cupric)|WEAPON:Ionizer (ferric)|WEAPON:Ionizer (stannic)|WEAPON:Kalo shredder (cascade-class)|WEAPON:Kalo shredder (deluge-class)|WEAPON:Kalo shredder (monsoon-class)|WEAPON:Kalo shredder (slipstream-class)|WEAPON:Kalo shredder (torrent-class)]
-WEAPONPROF:[WEAPON:Knife (survival)|WEAPON:Knife (tactical)|WEAPON:Laser pistol (aphelion)|WEAPON:Laser pistol (azimuth)|WEAPON:Laser pistol (corona)|WEAPON:Laser pistol (parallax)|WEAPON:Laser pistol (perihelion)|WEAPON:Laser pistol (zenith)|WEAPON:Laser rifle (aphelion)|WEAPON:Laser rifle (azimuth)]
-WEAPONPROF:[WEAPON:Laser rifle (corona)|WEAPON:Laser rifle (parallax)|WEAPON:Laser rifle (perihelion)|WEAPON:Laser rifle (zenith)|WEAPON:Lens pistol (cylindrical)|WEAPON:Lens pistol (electron)|WEAPON:Lens pistol (lenticular)|WEAPON:Lens pistol (sunglass)|WEAPON:Lightning pistol (ribbon)|WEAPON:Lightning pistol (rocket)]
-WEAPONPROF:[WEAPON:Lightning pistol (sheet)|WEAPON:Lightning pistol (smooth-channel)|WEAPON:Magnetar rifle (advanced)|WEAPON:Magnetar rifle (elite)|WEAPON:Magnetar rifle (paragon)|WEAPON:Magnetar rifle (tactical)|WEAPON:Microfusion rifle (heavy)|WEAPON:Microfusion rifle (light)|WEAPON:Microfusion rifle (medium)|WEAPON:Nanite thrower (advanced)]
+WEAPONPROF:[WEAPON:Charge emitter (jolt)|WEAPON:Charge emitter (surge)|WEAPON:Chitinblade (microserrated)|WEAPON:Chitinblade (nanoserrated)|WEAPON:Chitinblade (tactical)|WEAPON:Chitinblade (ultraserrated)|WEAPON:Club|WEAPON:Combat rifle|WEAPON:Compliance ray (flare)|WEAPON:Compliance ray (flash)]
+WEAPONPROF:[WEAPON:Compliance ray (starburst)|WEAPON:Compliance ray (strobe)|WEAPON:Compliance ray (sunspot)|WEAPON:Crossbolter (dual)|WEAPON:Crossbolter (tactical)|WEAPON:Dagger (molecular rift)|WEAPON:Dagger (ultrathin)|WEAPON:Dagger (zero-edge)|WEAPON:Decoupler (bruiser)|WEAPON:Decoupler (pusher)]
+WEAPONPROF:[WEAPON:Decoupler (screamer)|WEAPON:Dirge pistol (anharmonic)|WEAPON:Dirge pistol (harmonic)|WEAPON:Dirge pistol (parametric)|WEAPON:Dirge pistol (radial)|WEAPON:Dirge pistol (resonant)|WEAPON:Disintegrator pistol (decimator)|WEAPON:Disintegrator pistol (eradicator)|WEAPON:Disintegrator pistol (executioner)|WEAPON:Disintegrator pistol (liquidator)]
+WEAPONPROF:[WEAPON:Disintegrator rifle (decimator)|WEAPON:Disintegrator rifle (eradicator)|WEAPON:Disintegrator rifle (executioner)|WEAPON:Disintegrator rifle (liquidator)|WEAPON:Dragon pistol (drake)|WEAPON:Dragon pistol (true)|WEAPON:Dragon pistol (wyrmling)|WEAPON:Dragon pistol (wyvern)|WEAPON:Dragon rifle (drake)|WEAPON:Dragon rifle (true)]
+WEAPONPROF:[WEAPON:Dragon rifle (wyrmling)|WEAPON:Dragon rifle (wyvern)|WEAPON:Dross gun (flux)|WEAPON:Dross gun (scoring)|WEAPON:Dross gun (scrapper)|WEAPON:Dueling sword (admiral)|WEAPON:Dueling sword (buzzblade)|WEAPON:Dueling sword (converted)|WEAPON:Dueling sword (molecular rift)|WEAPON:Dueling sword (officer)]
+WEAPONPROF:[WEAPON:Dueling sword (ripper)|WEAPON:Dueling sword (tactical)|WEAPON:Dueling sword (ultrathin)|WEAPON:Eoxian Wrackstaff|WEAPON:Excavation laser (heavy)|WEAPON:Excavation laser (light)|WEAPON:Excavation laser (medium)|WEAPON:Flame pistol|WEAPON:Flame pistol (blaze)|WEAPON:Flame pistol (inferno)]
+WEAPONPROF:[WEAPON:Flame pistol (solar flare)|WEAPON:Flame rifle|WEAPON:Flare gun (survival)|WEAPON:Flare rifle (coruscator)|WEAPON:Flare rifle (dazzler)|WEAPON:Flare rifle (nova)|WEAPON:Flare rifle (scorcher)|WEAPON:Flare rifle (vivifier)|WEAPON:Forked pistol (10-notch)|WEAPON:Forked pistol (6-notch)]
+WEAPONPROF:[WEAPON:Forked pistol (8-notch)|WEAPON:Forked pistol (9-notch)|WEAPON:Freeze ray (algid)|WEAPON:Freeze ray (glacial)|WEAPON:Freeze ray (hiemal)|WEAPON:Freeze ray (hypothermic)|WEAPON:Freeze ray (isothermal)|WEAPON:Frost projector (blizzard-class)|WEAPON:Frost projector (frostbite-class)|WEAPON:Frost projector (hailstorm-class)]
+WEAPONPROF:[WEAPON:Garrote (microfilament)|WEAPON:Garrote (monowire)|WEAPON:Garrote (nanofiber)|WEAPON:Garrote (wire)|WEAPON:Graviton pistol (chiral)|WEAPON:Graviton pistol (linear)|WEAPON:Graviton pistol (tensor)|WEAPON:Graviton pistol (vector)|WEAPON:Greataxe (molecular-rift)|WEAPON:Greataxe (sintered)]
+WEAPONPROF:[WEAPON:Greataxe (tactical)|WEAPON:Greataxe (ultrathin)|WEAPON:Grenades|WEAPON:Gulchgun|WEAPON:Gyrojet pistol (advanced)|WEAPON:Gyrojet pistol (elite)|WEAPON:Gyrojet pistol (tactical)|WEAPON:Gyrojet rifle (advanced)|WEAPON:Gyrojet rifle (elite)|WEAPON:Gyrojet rifle (paragon)]
+WEAPONPROF:[WEAPON:Gyrojet rifle (tactical)|WEAPON:Hail pistol (absolute-zero)|WEAPON:Hail pistol (gelid)|WEAPON:Hail pistol (subzero)|WEAPON:Hail pistol (ultracold)|WEAPON:Handaxe (basic)|WEAPON:Handaxe (molecular-rift)|WEAPON:Handaxe (sintered)|WEAPON:Handaxe (tactical)|WEAPON:Handaxe (ultrathin)]
+WEAPONPROF:[WEAPON:Handcannon (bombast)|WEAPON:Handcannon (braggadocio)|WEAPON:Handcannon (bravado)|WEAPON:Handcannon (gasconade)|WEAPON:Handcannon (swagger)|WEAPON:Handcoil (capital)|WEAPON:Handcoil (explorer)|WEAPON:Handcoil (fighter)|WEAPON:Handcoil (pilot)|WEAPON:Hook knife]
+WEAPONPROF:[WEAPON:Hunting rifle|WEAPON:Ice carbine (absolute-zero)|WEAPON:Ice carbine (gelid)|WEAPON:Ice carbine (subzero)|WEAPON:Ice carbine (ultracold)|WEAPON:Igniter (blaze)|WEAPON:Igniter (ember)|WEAPON:Igniter (inferno)|WEAPON:Igniter (solar flare)|WEAPON:Incapacitator]
+WEAPONPROF:[WEAPON:Infinity rifle (advanced)|WEAPON:Infinity rifle (elite)|WEAPON:Infinity rifle (paragon)|WEAPON:Infinity rifle (tactical)|WEAPON:Injector pistol (elite)|WEAPON:Injector pistol (medic)|WEAPON:Injector pistol (poacher)|WEAPON:Injector pistol (subjugation)|WEAPON:Injector pistol (zoologist)|WEAPON:Ionizer (chromic)]
+WEAPONPROF:[WEAPON:Ionizer (cupric)|WEAPON:Ionizer (ferric)|WEAPON:Ionizer (stannic)|WEAPON:Kalo shredder (cascade-class)|WEAPON:Kalo shredder (deluge-class)|WEAPON:Kalo shredder (monsoon-class)|WEAPON:Kalo shredder (slipstream-class)|WEAPON:Kalo shredder (torrent-class)|WEAPON:Knife (survival)|WEAPON:Knife (tactical)]
+WEAPONPROF:[WEAPON:Lance (advanced)|WEAPON:Lance (elite)|WEAPON:Lance (paragon)|WEAPON:Lance (tactical)|WEAPON:Laser pistol (aphelion)|WEAPON:Laser pistol (azimuth)|WEAPON:Laser pistol (corona)|WEAPON:Laser pistol (parallax)|WEAPON:Laser pistol (perihelion)|WEAPON:Laser pistol (zenith)]
+WEAPONPROF:[WEAPON:Laser rifle (aphelion)|WEAPON:Laser rifle (azimuth)|WEAPON:Laser rifle (corona)|WEAPON:Laser rifle (parallax)|WEAPON:Laser rifle (perihelion)|WEAPON:Laser rifle (zenith)|WEAPON:Lens pistol (cylindrical)|WEAPON:Lens pistol (electron)|WEAPON:Lens pistol (lenticular)|WEAPON:Lens pistol (sunglass)]
+WEAPONPROF:[WEAPON:Lightning pistol (ribbon)|WEAPON:Lightning pistol (rocket)|WEAPON:Lightning pistol (sheet)|WEAPON:Lightning pistol (smooth-channel)|WEAPON:Living staff (advanced)|WEAPON:Living staff (elite)|WEAPON:Living staff (paragon)|WEAPON:Living staff (tactical)|WEAPON:Magnetar rifle (advanced)|WEAPON:Magnetar rifle (elite)]
+WEAPONPROF:[WEAPON:Magnetar rifle (paragon)|WEAPON:Magnetar rifle (tactical)|WEAPON:Maul (advanced)|WEAPON:Maul (elite)|WEAPON:Maul (paragon)|WEAPON:Maul (tactical)|WEAPON:Microfusion rifle (heavy)|WEAPON:Microfusion rifle (light)|WEAPON:Microfusion rifle (medium)|WEAPON:Nanite thrower (advanced)]
 WEAPONPROF:[WEAPON:Nanite thrower (elite)|WEAPON:Nanite thrower (paragon)|WEAPON:Nanite thrower (tactical)|WEAPON:Needler pistol|WEAPON:Needler rifle|WEAPON:Nightarch needler (advanced)|WEAPON:Nightarch needler (elite)|WEAPON:Nightarch needler (paragon)|WEAPON:Nightarch needler (tactical)|WEAPON:Nova rifle (red star)]
 WEAPONPROF:[WEAPON:Nova rifle (white star)|WEAPON:Nova rifle (yellow star)|WEAPON:Numbing beam (advanced)|WEAPON:Numbing beam (elite)|WEAPON:Numbing beam (paragon)|WEAPON:Numbing beam (tactical)|WEAPON:Peacemaker|WEAPON:Perforator pistol (diffraction)|WEAPON:Perforator pistol (linear)|WEAPON:Perforator pistol (phased)]
 WEAPONPROF:[WEAPON:Perforator pistol (refraction)|WEAPON:Persuader|WEAPON:Petrol converter (advanced)|WEAPON:Petrol converter (elite)|WEAPON:Petrol converter (light)|WEAPON:Petrol converter (paragon)|WEAPON:Petrol converter (tactical)|WEAPON:Plasma bolter (advanced)|WEAPON:Plasma bolter (elite)|WEAPON:Plasma bolter (paragon)]
 WEAPONPROF:[WEAPON:Plasma bolter (tactical)|WEAPON:Plasma caster (blue star)|WEAPON:Plasma caster (white star)|WEAPON:Plasma claw (biodynamic)|WEAPON:Plasma claw (electrocellular)|WEAPON:Plasma claw (organic)|WEAPON:Plasma claw (synthecite)|WEAPON:Plasma fork (12-notch)|WEAPON:Plasma fork (15-notch)|WEAPON:Plasma fork (19-notch)]
 WEAPONPROF:[WEAPON:Plasma fork (22-notch)|WEAPON:Plasma pistol (blue star)|WEAPON:Plasma pistol (red star)|WEAPON:Plasma pistol (white star)|WEAPON:Plasma pistol (yellow star)|WEAPON:Plasma rifle (blue star)|WEAPON:Plasma rifle (red star)|WEAPON:Plasma rifle (white star)|WEAPON:Plasma rifle (yellow star)|WEAPON:Plasma ring (dual-valve)]
-WEAPONPROF:[WEAPON:Plasma ring (multichannel)|WEAPON:Plasma ring (single-valve)|WEAPON:Polarity rifle (aurora)|WEAPON:Polarity rifle (static)|WEAPON:Polarity rifle (storm)|WEAPON:Polarity rifle (tempest)|WEAPON:Pulsecaster (pistol)|WEAPON:Pulsecaster rifle|WEAPON:Radshot (electromagnetic)|WEAPON:Radshot (neutron)]
-WEAPONPROF:[WEAPON:Radshot (rapid-decay)|WEAPON:Rail gun (advanced)|WEAPON:Rail gun (tactical)|WEAPON:Resonant pistol (lattice)|WEAPON:Resonant pistol (matrix)|WEAPON:Rocket rifle|WEAPON:Rotating pistol (advanced)|WEAPON:Rotating pistol (elite)|WEAPON:Rotating pistol (tactical)|WEAPON:Scattergun (grapeshot)]
-WEAPONPROF:[WEAPON:Scattergun (impact)|WEAPON:Scattergun (snub)|WEAPON:Scattergun (utility)|WEAPON:Scattergun (vortex)|WEAPON:Scorchgun (C-band)|WEAPON:Scorchgun (K-band)|WEAPON:Scorchgun (microwave)|WEAPON:Scorchgun (S-band)|WEAPON:Scorchgun (X-band)|WEAPON:Seeker rifle (advanced)]
-WEAPONPROF:[WEAPON:Seeker rifle (elite)|WEAPON:Seeker rifle (paragon)|WEAPON:Seeker rifle (tactical)|WEAPON:Semi-auto pistol (advanced)|WEAPON:Semi-auto pistol (elite)|WEAPON:Semi-auto pistol (paragon)|WEAPON:Semi-auto pistol (tactical)|WEAPON:Serpent laser (aphelion)|WEAPON:Serpent laser (azimuth)|WEAPON:Serpent laser (corona)]
-WEAPONPROF:[WEAPON:Serpent laser (perihelion)|WEAPON:Shadow pistol (caliginous)|WEAPON:Shadow pistol (sable)|WEAPON:Shadow pistol (tenebrous)|WEAPON:Shadow pistol (umbral)|WEAPON:Shadowstaff|WEAPON:Shadowstaff (lesser)|WEAPON:Shellgun (blaze)|WEAPON:Shellgun (bombard)|WEAPON:Shellgun (fury)]
-WEAPONPROF:[WEAPON:Shield projector (defender)|WEAPON:Shield projector (guardian)|WEAPON:Shield projector (sentry)|WEAPON:Shield projector (warden)|WEAPON:Shoulder laser (aphelion)|WEAPON:Shoulder laser (azimuth)|WEAPON:Shoulder laser (corona)|WEAPON:Shoulder laser (perihelion)|WEAPON:Shout rifle|WEAPON:Shrieking larva]
-WEAPONPROF:[WEAPON:Sonic pistol (banshee)|WEAPON:Sonic pistol (HFD)|WEAPON:Sonic pistol (LFD)|WEAPON:Sonic pistol (thunderstrike)|WEAPON:Sonic rifle (banshee)|WEAPON:Sonic rifle (HFD)|WEAPON:Sonic rifle (LFD)|WEAPON:Sonic rifle (thunderstrike)|WEAPON:Sonic suppressor (hush)|WEAPON:Sonic suppressor (murmur)]
-WEAPONPROF:[WEAPON:Sonic suppressor (repose)|WEAPON:Sonic suppressor (whisper)|WEAPON:Spear (buzzblade)|WEAPON:Spear (gravity)|WEAPON:Spear (sentinel)|WEAPON:Spear (tactical)|WEAPON:Spear (zero-edge)|WEAPON:Staccato rifle (drum)|WEAPON:Staccato rifle (hammer)|WEAPON:Staccato rifle (pulse)]
-WEAPONPROF:[WEAPON:Staccato rifle (surge)|WEAPON:Staff (battle)|WEAPON:Staff (carbon)|WEAPON:Staff (hardlight)|WEAPON:Sting pistol (ant)|WEAPON:Sting pistol (hornet)|WEAPON:Sting pistol (wasp)|WEAPON:Sting pistol (yellow jacket)|WEAPON:Storm coil (impulse)|WEAPON:Storm coil (jolt)]
-WEAPONPROF:[WEAPON:Storm coil (live)|WEAPON:Storm coil (surge)|WEAPON:Streetsweeper (HFD)|WEAPON:Streetsweeper (LFD)|WEAPON:Streetsweeper (thunderstrike)|WEAPON:Subduer (frost)|WEAPON:Subduer (glacier)|WEAPON:Subduer (rime)|WEAPON:Subduer (sleet)|WEAPON:Surgecaster (advanced)]
-WEAPONPROF:[WEAPON:Surgecaster (standard)|WEAPON:Sword cane (advanced)|WEAPON:Sword cane (dimensional slice)|WEAPON:Sword cane (molecular rift)|WEAPON:Sword cane (tactical)|WEAPON:Sword cane (ultrathin)|WEAPON:Sword cane (zero-edge)|WEAPON:Tetrad rings (advanced)|WEAPON:Tetrad rings (elite)|WEAPON:Tetrad rings (tactical)]
-WEAPONPROF:[WEAPON:Unarmed|WEAPON:Unarmed strike|WEAPON:Void rifle (barrow-class)|WEAPON:Void rifle (crypt-class)|WEAPON:Void rifle (grave-class)|WEAPON:Void rifle (ossuary-class)|WEAPON:Void rifle (tomb-class)|WEAPON:Wave modulator I|WEAPON:Wave modulator II|WEAPON:Wave modulator III]
+WEAPONPROF:[WEAPON:Plasma ring (multichannel)|WEAPON:Plasma ring (single-valve)|WEAPON:Polarity rifle (aurora)|WEAPON:Polarity rifle (static)|WEAPON:Polarity rifle (storm)|WEAPON:Polarity rifle (tempest)|WEAPON:Pulsecaster (pistol)|WEAPON:Pulsecaster rifle|WEAPON:Puzzleblade (conviction)|WEAPON:Puzzleblade (dedication)]
+WEAPONPROF:[WEAPON:Puzzleblade (moderation)|WEAPON:Puzzleblade (tradition)|WEAPON:Radshot (electromagnetic)|WEAPON:Radshot (neutron)|WEAPON:Radshot (rapid-decay)|WEAPON:Rail gun (advanced)|WEAPON:Rail gun (tactical)|WEAPON:Resonant pistol (lattice)|WEAPON:Resonant pistol (matrix)|WEAPON:Retractable spike (advanced)]
+WEAPONPROF:[WEAPON:Retractable spike (elite)|WEAPON:Retractable spike (paragon)|WEAPON:Retractable spike (tactical)|WEAPON:Rocket rifle|WEAPON:Rotating pistol (advanced)|WEAPON:Rotating pistol (elite)|WEAPON:Rotating pistol (tactical)|WEAPON:Sap (heavy)|WEAPON:Sap (light)|WEAPON:Sap (medium)]
+WEAPONPROF:[WEAPON:Scattergun (grapeshot)|WEAPON:Scattergun (impact)|WEAPON:Scattergun (snub)|WEAPON:Scattergun (utility)|WEAPON:Scattergun (vortex)|WEAPON:Scorchgun (C-band)|WEAPON:Scorchgun (K-band)|WEAPON:Scorchgun (microwave)|WEAPON:Scorchgun (S-band)|WEAPON:Scorchgun (X-band)]
+WEAPONPROF:[WEAPON:Scythe (sintered)|WEAPON:Scythe (tactical)|WEAPON:Scythe (ultrathin)|WEAPON:Seeker rifle (advanced)|WEAPON:Seeker rifle (elite)|WEAPON:Seeker rifle (paragon)|WEAPON:Seeker rifle (tactical)|WEAPON:Semi-auto pistol (advanced)|WEAPON:Semi-auto pistol (elite)|WEAPON:Semi-auto pistol (paragon)]
+WEAPONPROF:[WEAPON:Semi-auto pistol (tactical)|WEAPON:Serpent laser (aphelion)|WEAPON:Serpent laser (azimuth)|WEAPON:Serpent laser (corona)|WEAPON:Serpent laser (perihelion)|WEAPON:Shadow pistol (caliginous)|WEAPON:Shadow pistol (sable)|WEAPON:Shadow pistol (tenebrous)|WEAPON:Shadow pistol (umbral)|WEAPON:Shadowstaff]
+WEAPONPROF:[WEAPON:Shadowstaff (lesser)|WEAPON:Shell knuckles (advanced)|WEAPON:Shell knuckles (elite)|WEAPON:Shell knuckles (paragon)|WEAPON:Shell knuckles (tactical)|WEAPON:Shellgun (blaze)|WEAPON:Shellgun (bombard)|WEAPON:Shellgun (fury)|WEAPON:Shield projector (defender)|WEAPON:Shield projector (guardian)]
+WEAPONPROF:[WEAPON:Shield projector (sentry)|WEAPON:Shield projector (warden)|WEAPON:Shoulder laser (aphelion)|WEAPON:Shoulder laser (azimuth)|WEAPON:Shoulder laser (corona)|WEAPON:Shoulder laser (perihelion)|WEAPON:Shout rifle|WEAPON:Shrieking larva|WEAPON:Sledge|WEAPON:Sonic pistol (banshee)]
+WEAPONPROF:[WEAPON:Sonic pistol (HFD)|WEAPON:Sonic pistol (LFD)|WEAPON:Sonic pistol (thunderstrike)|WEAPON:Sonic rifle (banshee)|WEAPON:Sonic rifle (HFD)|WEAPON:Sonic rifle (LFD)|WEAPON:Sonic rifle (thunderstrike)|WEAPON:Sonic suppressor (hush)|WEAPON:Sonic suppressor (murmur)|WEAPON:Sonic suppressor (repose)]
+WEAPONPROF:[WEAPON:Sonic suppressor (whisper)|WEAPON:Spear (buzzblade)|WEAPON:Spear (gravity)|WEAPON:Spear (sentinel)|WEAPON:Spear (tactical)|WEAPON:Spear (zero-edge)|WEAPON:Spined blade (basic)|WEAPON:Spined blade (buzzblade)|WEAPON:Spined blade (gravity)|WEAPON:Spined blade (ripper)]
+WEAPONPROF:[WEAPON:Spined blade (rivener)|WEAPON:Staccato rifle (drum)|WEAPON:Staccato rifle (hammer)|WEAPON:Staccato rifle (pulse)|WEAPON:Staccato rifle (surge)|WEAPON:Staff (battle)|WEAPON:Staff (carbon)|WEAPON:Staff (hardlight)|WEAPON:Sting pistol (ant)|WEAPON:Sting pistol (hornet)]
+WEAPONPROF:[WEAPON:Sting pistol (wasp)|WEAPON:Sting pistol (yellow jacket)|WEAPON:Storm coil (impulse)|WEAPON:Storm coil (jolt)|WEAPON:Storm coil (live)|WEAPON:Storm coil (surge)|WEAPON:Streetsweeper (HFD)|WEAPON:Streetsweeper (LFD)|WEAPON:Streetsweeper (thunderstrike)|WEAPON:Subduer (frost)]
+WEAPONPROF:[WEAPON:Subduer (glacier)|WEAPON:Subduer (rime)|WEAPON:Subduer (sleet)|WEAPON:Surgecaster (advanced)|WEAPON:Surgecaster (standard)|WEAPON:Switchblade (molecular-rift)|WEAPON:Switchblade (tactical)|WEAPON:Switchblade (ultrathin)|WEAPON:Switchblade (zero-edge)|WEAPON:Sword cane (advanced)]
+WEAPONPROF:[WEAPON:Sword cane (dimensional slice)|WEAPON:Sword cane (molecular rift)|WEAPON:Sword cane (tactical)|WEAPON:Sword cane (ultrathin)|WEAPON:Sword cane (zero-edge)|WEAPON:Tailblade|WEAPON:Tetrad rings (advanced)|WEAPON:Tetrad rings (elite)|WEAPON:Tetrad rings (tactical)|WEAPON:Unarmed]
+WEAPONPROF:[WEAPON:Unarmed strike|WEAPON:Void rifle (barrow-class)|WEAPON:Void rifle (crypt-class)|WEAPON:Void rifle (grave-class)|WEAPON:Void rifle (ossuary-class)|WEAPON:Void rifle (tomb-class)|WEAPON:Warclub|WEAPON:Wave modulator I|WEAPON:Wave modulator II|WEAPON:Wave modulator III]
 WEAPONPROF:[WEAPON:Wave modulator IV|WEAPON:Wave modulator V|WEAPON:Wave modulator VI|WEAPON:Wave modulator VII|WEAPON:Zero pistol (avalanche-class)|WEAPON:Zero pistol (blizzard-class)|WEAPON:Zero pistol (frostbite-class)|WEAPON:Zero pistol (hailstorm-class)|WEAPON:Zero rifle (avalanche-class)|WEAPON:Zero rifle (blizzard-class)]
 WEAPONPROF:[WEAPON:Zero rifle (frostbite-class)|WEAPON:Zero rifle (hailstorm-class)]
 
 # Character Equipment
-MONEY:1000.00
+MONEY:1000.0
 EQUIPNAME:AbadarCorp travel suit, silver (Small)|OUTPUTORDER:2|COST:7250.0|WT:0.1|QUANTITY:1.0|NOTE:|CUSTOMIZATION:[BASEITEM:AbadarCorp travel suit (silver)|DATA:NAME=AbadarCorp travel suit, silver (Small)$KEY=AUTOSIZESAbadarCorp travel suit (silver)$SIZE=S]
 EQUIPNAME:Adaptive Serum Mk 2|OUTPUTORDER:10|COST:1500|WT:0.0|QUANTITY:2.0|NOTE:
 EQUIPNAME:Aeon Stone (Dark Blue Rhomboid)|OUTPUTORDER:3|COST:18000|WT:0.0|QUANTITY:1.0|NOTE:
@@ -249,12 +263,12 @@ EQUIPNAME:Cavitation pistol, thermodynamic (Small)|OUTPUTORDER:1|COST:584000.0|W
 EQUIPNAME:Computer (Alarm/Fake shell/Firewall/Lockout/Control, complex/Secure data, specific/Tier 10/Artificial personality/Hardened/Miniaturization/Security IV/Self-charging)|OUTPUTORDER:7|COST:321111.0|WT:0.0|QUANTITY:1.0|NOTE:|CUSTOMIZATION:[BASEITEM:Computer|DATA:NAME=Computer (Alarm/Fake shell/Firewall/Lockout/Control, complex/Secure data, specific/Tier 10/Artificial personality/Hardened/Miniaturization/Security IV/Self-charging)$KEY=Computer (Alarm/Fake shell/Firewall/Lockout/Control_ complex/Secure data_ specific/Tier 10/Artificial personality/Hardened/Miniaturization/Security IV/Self-charging)$EQMOD=Computer Tier 10.Computer Upgrade ~ Artificial personality.Computer Upgrade ~ Hardened.Computer Countermeasures ~ Lockout.Computer Countermeasures ~ Firewall.Computer Countermeasures ~ Fake shell.Computer Upgrade ~ Security 4.Computer Upgrade ~ Self-charging.Computer Countermeasures ~ Alarm.Computer Module ~ Secure data (specific).Computer Upgrade ~ Miniaturization.Computer Module ~ Control (complex)]
 EQUIPNAME:Cred Stick|OUTPUTORDER:14|COST:1|WT:0.0|QUANTITY:1.0|NOTE:
 EQUIPNAME:Credit|OUTPUTORDER:15|COST:1|WT:0.0|QUANTITY:100050.0|NOTE:
-EQUIPNAME:Dermal plating, mk 7|OUTPUTORDER:9|COST:542000|WT:0.0|QUANTITY:1.0|NOTE:|CUSTOMIZATION:[BASEITEM:Cybernetic ~ Dermal plating (mk 7)|DATA:KEY=Cybernetic ~ Dermal plating (mk 7)]
+EQUIPNAME:Dermal plating, mk 7|OUTPUTORDER:9|COST:542000|WT:0.0|QUANTITY:1.0|NOTE:|CUSTOMIZATION:[BASEITEM:Cybernetic ~ Dermal plating (mk 7)|DATA:NAME=Dermal plating, mk 7$KEY=Cybernetic ~ Dermal plating (mk 7)]
 EQUIPNAME:Diffraction cloak Mk 3|OUTPUTORDER:6|COST:51000|WT:0.0|QUANTITY:1.0|NOTE:
 EQUIPNAME:Efficient Bandolier|OUTPUTORDER:22|COST:2000|WT:0.1|QUANTITY:1.0|NOTE:
-EQUIPNAME:Holographic eyes, mk 1|OUTPUTORDER:13|COST:18300|WT:0.0|QUANTITY:1.0|NOTE:|CUSTOMIZATION:[BASEITEM:Magitech ~ Holographic eyes (mk 1)|DATA:KEY=Magitech ~ Holographic eyes (mk 1)]
+EQUIPNAME:Holographic eyes, mk 1|OUTPUTORDER:13|COST:18300|WT:0.0|QUANTITY:1.0|NOTE:|CUSTOMIZATION:[BASEITEM:Magitech ~ Holographic eyes (mk 1)|DATA:NAME=Holographic eyes, mk 1$KEY=Magitech ~ Holographic eyes (mk 1)]
 EQUIPNAME:Mind Guardian|OUTPUTORDER:20|COST:36000|WT:0.0|QUANTITY:1.0|NOTE:
-EQUIPNAME:Optical laser, zenith|OUTPUTORDER:8|COST:612000|WT:0.0|QUANTITY:1.0|NOTE:|CUSTOMIZATION:[BASEITEM:Cybernetic ~ Optical laser (zenith)|DATA:KEY=Cybernetic ~ Optical laser (zenith)]
+EQUIPNAME:Optical laser, zenith|OUTPUTORDER:8|COST:612000|WT:0.0|QUANTITY:1.0|NOTE:|CUSTOMIZATION:[BASEITEM:Cybernetic ~ Optical laser (zenith)|DATA:NAME=Optical laser, zenith$KEY=Cybernetic ~ Optical laser (zenith)]
 EQUIPNAME:Personal Upgrade Mk 3|OUTPUTORDER:16|COST:75000|WT:0.0|QUANTITY:1.0|NOTE:
 EQUIPNAME:Prescient Lenses Mk 2|OUTPUTORDER:18|COST:13900|WT:0.0|QUANTITY:1.0|NOTE:
 EQUIPNAME:Ratfolk belt|OUTPUTORDER:5|COST:12250|WT:0.0|QUANTITY:1.0|NOTE:
@@ -319,6 +333,5 @@ AGESET:1:0:0:0:0:0:0:0:0:0
 # Campaign History
 CHRONICLEENTRY:Y|CAMPAIGN:Entry 1|ADVENTURE:Long and thick of it|PARTY:Cras-donas|DATE:2019-05-19|EXPERIENCE:1000|GM:Dufus|CHRONICLE:We did stuff, and got stuff
 
-# Suppressed Biography Fields
-SUPPRESSBIOFIELDS:
+# Preview Sheet Variables
 
