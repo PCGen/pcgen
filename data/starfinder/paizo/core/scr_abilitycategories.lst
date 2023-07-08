@@ -244,4 +244,5 @@ ABILITYCATEGORY:Vesk Variant Ability				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO
 ABILITYCATEGORY:Ysoki Variant Ability				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Variant Ability				TYPE:Ysoki Variant Ability																																																																																											DISPLAYLOCATION:Character
 
 
+ABILITYCATEGORY:Master Crafter Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Master Crafter Selection																																																																																											DISPLAYLOCATION:Character
 
