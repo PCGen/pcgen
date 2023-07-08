@@ -39,9 +39,9 @@ Pilum										TYPE:Martial.Ranged.Piercing.RangedPiercing.Spear.Weapon Group Sp
 Swordbreaker Dagger		KEY:Dagger (Swordbreaker)	TYPE:Exotic.Melee.Light.Slashing.MeleeSlashing.Dagger.Tengu.SwordLike.Weapon Group Blades Light
 
 # -- 1-handers
-Falcata									TYPE:Exotic.Melee.Slashing.MeleeSlashing.Sword.Weapon Group Blades Heavy.SwordLike.Tengu
-Khopesh									TYPE:Exotic.Melee.Slashing.MeleeSlashing.Sword.Weapon Group Blades Heavy.SwordLike.Tengu
-Temple Sword			KEY:Sword (Temple)		TYPE:Exotic.Melee.Slashing.MeleeSlashing.Sword.Monk.Weapon Group Blades Heavy.SwordLike.Tengu.Weapon Group Monk
+Falcata									TYPE:Exotic.Melee.Slashing.MeleeSlashing.Sword.Weapon Group Blades Heavy.SwordLike.Tengu.OneHanded
+Khopesh									TYPE:Exotic.Melee.Slashing.MeleeSlashing.Sword.Weapon Group Blades Heavy.SwordLike.Tengu.OneHanded
+Temple Sword			KEY:Sword (Temple)		TYPE:Exotic.Melee.Slashing.MeleeSlashing.Sword.Monk.Weapon Group Blades Heavy.SwordLike.Tengu.Weapon Group Monk.OneHanded
 
 # -- 2-handers
 Chain Spear				KEY:Spear (Chain)			TYPE:Exotic.Melee.Piercing.Slashing.MeleePiercing.MeleeSlashing.Spear.TwoHanded.Weapon Group Double.Weapon Group Flails.Weapon Group Spears
