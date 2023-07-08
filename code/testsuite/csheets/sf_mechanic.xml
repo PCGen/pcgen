@@ -415,7 +415,7 @@ BIO
 			<used>240</used>
 			<unused>0</unused>
 		</skillpoints>
-		<list_mods>Athletics +21, Computers +34, Engineering +36, Life Science +28, Medicine +32, Perception +24, Physical Science +28, Piloting +25, Profession (Maintenance Worker) +24, Sense Motive +24, Stealth +27, Survival +26</list_mods>
+		<list_mods>Athletics +24, Computers +37, Engineering +39, Life Science +28, Medicine +32, Perception +27, Physical Science +31, Piloting +28, Profession (Maintenance Worker) +27, Sense Motive +24, Stealth +27, Survival +26</list_mods>
 		<max_class_skill_level>20</max_class_skill_level>
 		<max_cross_class_skill_level>20.0</max_cross_class_skill_level>
 		<skill>
@@ -438,19 +438,19 @@ BIO
 		<skill>
 			<name>Athletics</name>
 			<ranks>20.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
+			<mod>4<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>21</skill_mod>
+			<skill_mod>24</skill_mod>
 			<ability_mod>1<!-- Mod from the key ability -->
 			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			<misc_mod>3<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
 			<ability>STR</ability>
 			<synergy>Athletics</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>21</trained_total>
-			<exclusive_total>21</exclusive_total>
+			<trained_total>24</trained_total>
+			<exclusive_total>24</exclusive_total>
 		</skill>
 		<skill>
 			<name>Bluff</name>
@@ -472,19 +472,19 @@ BIO
 		<skill>
 			<name>Computers</name>
 			<ranks>20.0</ranks>
-			<mod>14<!-- Mods from abilities, equipment, etc -->
+			<mod>17<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>34</skill_mod>
+			<skill_mod>37</skill_mod>
 			<ability_mod>8<!-- Mod from the key ability -->
 			</ability_mod>
-			<misc_mod>6<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			<misc_mod>9<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
 			<ability>INT</ability>
 			<synergy>Computers</synergy>
 			<untrained>NO</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>34</trained_total>
-			<exclusive_total>34</exclusive_total>
+			<trained_total>37</trained_total>
+			<exclusive_total>37</exclusive_total>
 		</skill>
 		<skill>
 			<name>Diplomacy</name>
@@ -523,19 +523,19 @@ BIO
 		<skill>
 			<name>Engineering</name>
 			<ranks>20.0</ranks>
-			<mod>16<!-- Mods from abilities, equipment, etc -->
+			<mod>19<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>36</skill_mod>
+			<skill_mod>39</skill_mod>
 			<ability_mod>8<!-- Mod from the key ability -->
 			</ability_mod>
-			<misc_mod>8<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			<misc_mod>11<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
 			<ability>INT</ability>
 			<synergy>Engineering</synergy>
 			<untrained>NO</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>36</trained_total>
-			<exclusive_total>36</exclusive_total>
+			<trained_total>39</trained_total>
+			<exclusive_total>39</exclusive_total>
 		</skill>
 		<skill>
 			<name>Intimidate</name>
@@ -591,70 +591,70 @@ BIO
 		<skill>
 			<name>Perception</name>
 			<ranks>20.0</ranks>
-			<mod>4<!-- Mods from abilities, equipment, etc -->
+			<mod>7<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>24</skill_mod>
+			<skill_mod>27</skill_mod>
 			<ability_mod>4<!-- Mod from the key ability -->
 			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			<misc_mod>3<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
 			<ability>WIS</ability>
 			<synergy>Perception</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>24</trained_total>
-			<exclusive_total>24</exclusive_total>
+			<trained_total>27</trained_total>
+			<exclusive_total>27</exclusive_total>
 		</skill>
 		<skill>
 			<name>Physical Science</name>
 			<ranks>20.0</ranks>
-			<mod>8<!-- Mods from abilities, equipment, etc -->
+			<mod>11<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>28</skill_mod>
+			<skill_mod>31</skill_mod>
 			<ability_mod>8<!-- Mod from the key ability -->
 			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			<misc_mod>3<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
 			<ability>INT</ability>
 			<synergy>Physical Science</synergy>
 			<untrained>NO</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>28</trained_total>
-			<exclusive_total>28</exclusive_total>
+			<trained_total>31</trained_total>
+			<exclusive_total>31</exclusive_total>
 		</skill>
 		<skill>
 			<name>Piloting</name>
 			<ranks>20.0</ranks>
-			<mod>5<!-- Mods from abilities, equipment, etc -->
+			<mod>8<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>25</skill_mod>
+			<skill_mod>28</skill_mod>
 			<ability_mod>5<!-- Mod from the key ability -->
 			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			<misc_mod>3<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
 			<ability>DEX</ability>
 			<synergy>Piloting</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>25</trained_total>
-			<exclusive_total>25</exclusive_total>
+			<trained_total>28</trained_total>
+			<exclusive_total>28</exclusive_total>
 		</skill>
 		<skill>
 			<name>Profession (Maintenance Worker)</name>
 			<ranks>20.0</ranks>
-			<mod>4<!-- Mods from abilities, equipment, etc -->
+			<mod>7<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>24</skill_mod>
+			<skill_mod>27</skill_mod>
 			<ability_mod>4<!-- Mod from the key ability -->
 			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			<misc_mod>3<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
 			<ability>WIS</ability>
 			<synergy>Profession (Maintenance Worker)</synergy>
 			<untrained>NO</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>24</trained_total>
-			<exclusive_total>24</exclusive_total>
+			<trained_total>27</trained_total>
+			<exclusive_total>27</exclusive_total>
 		</skill>
 		<skill>
 			<name>Sense Motive</name>
@@ -2078,7 +2078,7 @@ BIO
 			<description>You can construct things more quickly than most.</description>
 			<type>GENERAL</type>
 			<associated></associated>
-			<count>0</count>
+			<count>1</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
