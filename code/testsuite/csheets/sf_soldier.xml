@@ -87,9 +87,11 @@ BIO
 		<hitdice>(10d1)+64</hitdice>
 		<interests></interests>
 		<languages>
+			<language>Bantrid</language>
 			<language>Common</language>
+			<language>Kalo</language>
 			<language>Triaxian</language>
-			<all>Common, Triaxian</all>
+			<all>Bantrid, Common, Kalo, Triaxian</all>
 		</languages>
 		<location></location>
 		<move>
@@ -352,45 +354,45 @@ BIO
 	<skills>
 		<skillpoints>
 			<total>60</total>
-			<used>50</used>
-			<unused>10</unused>
+			<used>60</used>
+			<unused>0</unused>
 		</skillpoints>
-		<list_mods>Acrobatics +13, Athletics +12, Engineering +15, Medicine +15, Piloting +19</list_mods>
+		<list_mods>Acrobatics +18, Athletics +17, Engineering +15, Intimidate +3, Medicine +15, Piloting +19, Survival +13</list_mods>
 		<max_class_skill_level>10</max_class_skill_level>
 		<max_cross_class_skill_level>10.0</max_cross_class_skill_level>
 		<skill>
 			<name>Acrobatics</name>
 			<ranks>10.0</ranks>
-			<mod>3<!-- Mods from abilities, equipment, etc -->
+			<mod>8<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>13</skill_mod>
+			<skill_mod>18</skill_mod>
 			<ability_mod>5<!-- Mod from the key ability -->
 			</ability_mod>
-			<misc_mod>-2<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			<misc_mod>3<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
 			<ability>DEX</ability>
 			<synergy>Acrobatics</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>13</trained_total>
-			<exclusive_total>13</exclusive_total>
+			<trained_total>18</trained_total>
+			<exclusive_total>18</exclusive_total>
 		</skill>
 		<skill>
 			<name>Athletics</name>
 			<ranks>10.0</ranks>
-			<mod>2<!-- Mods from abilities, equipment, etc -->
+			<mod>7<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>12</skill_mod>
+			<skill_mod>17</skill_mod>
 			<ability_mod>4<!-- Mod from the key ability -->
 			</ability_mod>
-			<misc_mod>-2<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			<misc_mod>3<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
 			<ability>STR</ability>
 			<synergy>Athletics</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>12</trained_total>
-			<exclusive_total>12</exclusive_total>
+			<trained_total>17</trained_total>
+			<exclusive_total>17</exclusive_total>
 		</skill>
 		<skill>
 			<name>Bluff</name>
@@ -462,20 +464,20 @@ BIO
 		</skill>
 		<skill>
 			<name>Intimidate</name>
-			<ranks>0.0</ranks>
-			<mod>-1<!-- Mods from abilities, equipment, etc -->
+			<ranks>1.0</ranks>
+			<mod>2<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>-1</skill_mod>
+			<skill_mod>3</skill_mod>
 			<ability_mod>-1<!-- Mod from the key ability -->
 			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			<misc_mod>3<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
 			<ability>CHA</ability>
 			<synergy>Intimidate</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>-1</trained_total>
-			<exclusive_total>-1</exclusive_total>
+			<trained_total>3</trained_total>
+			<exclusive_total>3</exclusive_total>
 		</skill>
 		<skill>
 			<name>Medicine</name>
@@ -548,36 +550,36 @@ BIO
 		<skill>
 			<name>Stealth</name>
 			<ranks>0.0</ranks>
-			<mod>0<!-- Mods from abilities, equipment, etc -->
+			<mod>5<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>0</skill_mod>
+			<skill_mod>5</skill_mod>
 			<ability_mod>5<!-- Mod from the key ability -->
 			</ability_mod>
-			<misc_mod>-5<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
 			<ability>DEX</ability>
 			<synergy>Stealth</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>0</trained_total>
-			<exclusive_total>0</exclusive_total>
+			<trained_total>5</trained_total>
+			<exclusive_total>5</exclusive_total>
 		</skill>
 		<skill>
 			<name>Survival</name>
-			<ranks>0.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
+			<ranks>9.0</ranks>
+			<mod>4<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>1</skill_mod>
+			<skill_mod>13</skill_mod>
 			<ability_mod>1<!-- Mod from the key ability -->
 			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			<misc_mod>3<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
 			<ability>WIS</ability>
 			<synergy>Survival</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>1</trained_total>
-			<exclusive_total>1</exclusive_total>
+			<trained_total>13</trained_total>
+			<exclusive_total>13</exclusive_total>
 		</skill>
 	</skills>
 	<!--
@@ -688,7 +690,7 @@ BIO
 			<critical>20/x2</critical>
 			<!-- Should be changed to a variable due to improved crit -->
 		</unarmed>
-		
+
 		<weapon>
 			<common>
 				<name>
@@ -705,13 +707,19 @@ BIO
 					<magic_hit>+0</magic_hit>
 					<total_hit>+14</total_hit>
 				</to_hit>
-				<feat></feat>
+				<feat>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</feat>
 				<hand>Primary</hand>
 				<num_attacks>1</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
 				<special_properties>Extinguish, integrated (2 slots), powered (capacity 20, usage 2)</special_properties>
-				<template></template>
+				<template>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</template>
 				<type>C</type>
 				<weight>0.1</weight>
 				<sequence>0</sequence>
@@ -765,13 +773,19 @@ BIO
 					<magic_hit>+0</magic_hit>
 					<total_hit>+15</total_hit>
 				</to_hit>
-				<feat></feat>
+				<feat>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</feat>
 				<hand>Carried</hand>
 				<num_attacks>1</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
 				<special_properties>Line, unwieldy</special_properties>
-				<template></template>
+				<template>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</template>
 				<type>C</type>
 				<weight>2</weight>
 				<sequence>1</sequence>
@@ -820,13 +834,19 @@ BIO
 					<magic_hit>+0</magic_hit>
 					<total_hit>+14</total_hit>
 				</to_hit>
-				<feat></feat>
+				<feat>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</feat>
 				<hand>Carried</hand>
 				<num_attacks>1</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
 				<special_properties>Powered (capacity 40, usage 5)</special_properties>
-				<template></template>
+				<template>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</template>
 				<type>EF</type>
 				<weight>2</weight>
 				<sequence>2</sequence>
@@ -1513,6 +1533,17 @@ BIO
 			<category>Internal</category>
 		</ability_object>
 		<ability_object>
+			<name>Skill Focus</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
 			<name>Vision ~ Darkvision</name>
 			<description></description>
 			<type>SENSE.VISION</type>
@@ -1543,7 +1574,7 @@ BIO
 	  ====================================-->
 
 	<weapon_proficiencies>Acid dart rifle (complex), Acid dart rifle (dual), Acid dart rifle (tactical), Acid lancer (corroder-class), Acid lancer (disintegrator-class), Acid lancer (liquefier-class), Acid lancer (melter-class), AG Accelerator Rifle, AG Assault Rifle, AG RPPR, Agitator (blaze), Agitator (ember), Agitator (inferno), Agitator (solar flare), Anacite ion cannon (aurora), Anacite ion cannon (static), Anacite ion cannon (storm), Anacite ion cannon (tempest), Anchor pistol (emergent), Anchor pistol (flux), Anchor pistol (inductive), Anchor pistol (voltaic), Angel wing (astral), Angel wing (monadic), Angel wing (movanic), Arc caster (aurora), Arc caster (static), Arc caster (storm), Arc caster (tempest), Arc emitter (advanced), Arc emitter (tactical), Arc pistol (aurora), Arc pistol (static), Arc pistol (storm), Arc rifle (aurora), Arc rifle (static), Arc rifle (storm), Arc rifle (tempest), Artillery laser (aphelion), Artillery laser (azimuth), Artillery laser (corona), Artillery laser (parallax), Artillery laser (perihelion), Artillery laser (zenith), Assassin rifle (phantom), Assassin rifle (shadow), Assassin rifle (spectre), Assassin rifle (stalker), Assassin rifle (wraith), Aurora cannon (electron), Aurora cannon (hydrogen), Aurora cannon (proton), Autobeam artillery (advanced), Autobeam artillery (elite), Autobeam artillery (tactical), Autobeam rifle (advanced), Autobeam rifle (elite), Autobeam rifle (tactical), Autotarget rifle, Baton (advanced), Baton (tactical), Battle ribbon (micro-edge), Battle ribbon (traditional), Battle ribbon (zero-edge), Battleglove (cestus), Battleglove (gravity), Battleglove (nova), Battleglove (power), Blaze rifle (firedrake-class), Blaze rifle (hellhound-class), Blaze rifle (ifrit-class), Blaze rifle (phoenix-class), Blaze rifle (salamander-class), Blindmark rifle (banshee), Blindmark rifle (HFD), Blindmark rifle (LFD), Blindmark rifle (thunderstrike), Bone Cestus (austere), Bone Cestus (imposing), Bone Cestus (measured), Bone Cestus (severe), Bone pistol (crypt-class), Bone pistol (grave-class), Bone pistol (sepulcher-class), Bone pistol (vault-class), Bone scepter (cadaver), Bone scepter (chill), Bone scepter (rigor), Bone scepter (void), Boomer rifle (concussive), Boomer rifle (rumbler), Boomer rifle (shockwave), Boomer rifle (tremor), Breaching gun (grapeshot), Breaching gun (impact), Breaching gun (snub), Breaching gun (utility), Breaching gun (vortex), Burner (firedrake-class), Burner (hellhound-class), Burner (ifrit-class), Burner (phoenix-class), Burner (salamander-class), Burning chains (archdevil-class), Burning chains (fiend-class), Burning chains (malebranche-class), Cathode cannon (advanced), Cathode cannon (elite), Cathode cannon (paragon), Cathode cannon (shockstorm), Cathode cannon (tactical), Cavitation pistol (hydrodynamic), Cavitation pistol (inertial), Cavitation pistol (thermodynamic), Cavitation pistol (vapor), Charge emitter (impulse), Charge emitter (jolt), Charge emitter (surge), Chitinblade (microserrated), Chitinblade (nanoserrated), Chitinblade (tactical), Chitinblade (ultraserrated), Club, Cluster launcher (advanced), Cluster launcher (elite), Cluster launcher (paragon), Cluster launcher (tactical), Coil rifle (assassin), Coil rifle (precision), Coil rifle (rangefinder), Coil rifle (saboteur), Coil rifle (specialist), Colossus coil (brush), Colossus coil (corona), Colossus coil (multistream), Colossus coil (streamer arc), Combat rifle, Compliance ray (flare), Compliance ray (flash), Compliance ray (starburst), Compliance ray (strobe), Compliance ray (sunspot), Conqueror (blue star), Conqueror (red star), Conqueror (violet star), Conqueror (white star), Conqueror (yellow star), Convergent laser (multiwave), Convergent laser (single-wave), Convergent laser (wide-spectrum), Coolant sprayer (algid), Coolant sprayer (aufeis), Coolant sprayer (glacial), Coolant sprayer (isothermal), Core hammer (advanced), Core hammer (fusion), Core hammer (reactor), Core hammer (tactical), Crossbolter (advanced), Crossbolter (dual), Crossbolter (elite), Crossbolter (paragon), Crossbolter (tactical), Cryopike (advanced), Cryopike (tactical), Cryospike (industrial), Cryospike (personal), Cryospike (residential), Curve blade (buzzblade), Curve blade (carbon steel), Curve blade (dimensional slice), Curve blade (ultrathin), Dagger (molecular rift), Dagger (ultrathin), Dagger (zero-edge), Dart cannon (advanced), Dart cannon (elite), Dart cannon (heavy), Dart cannon (light), Dart cannon (paragon), Dart cannon (tactical), Dazzler (flash), Dazzler (strobe), Dazzler (sunspot), Decoupler (bruiser), Decoupler (pusher), Decoupler (screamer), Devastation blade (apocalypse), Devastation blade (ruin), Devastation blade (wrack), Diasporan rifle (advanced), Diasporan rifle (elite), Diasporan rifle (imperial), Diasporan rifle (tactical), Diasporan rifle (ultra), Dirge cannon (anharmonic), Dirge cannon (harmonic), Dirge cannon (parametric), Dirge cannon (resonant), Dirge pistol (anharmonic), Dirge pistol (harmonic), Dirge pistol (parametric), Dirge pistol (radial), Dirge pistol (resonant), Disintegrator cannon (decimator), Disintegrator cannon (eradicator), Disintegrator cannon (executioner), Disintegrator cannon (liquidator), Disintegrator lash (decimator), Disintegrator lash (eradicator), Disintegrator lash (executioner), Disintegrator lash (liquidator), Disintegrator pistol (decimator), Disintegrator pistol (eradicator), Disintegrator pistol (executioner), Disintegrator pistol (liquidator), Disintegrator rifle (decimator), Disintegrator rifle (eradicator), Disintegrator rifle (executioner), Disintegrator rifle (liquidator), Divergent laser (multiwave), Divergent laser (single-wave), Divergent laser (wide-spectrum), Doshko (advanced), Doshko (dimensional blade), Doshko (molecular rift), Doshko (tactical), Doshko (ultrathin), Doshko (zero-edge), Dragon pistol (drake), Dragon pistol (true), Dragon pistol (wyrmling), Dragon pistol (wyvern), Dragon rifle (drake), Dragon rifle (true), Dragon rifle (wyrmling), Dragon rifle (wyvern), Dragonglaive (basic), Dragonglaive (skyshatter), Dragonglaive (stormstrike), Dragonglaive (thunderhead), Dragonglaive (wyrmlord), Dross gun (flux), Dross gun (scoring), Dross gun (scrapper), Dueling sword (admiral), Dueling sword (buzzblade), Dueling sword (converted), Dueling sword (molecular rift), Dueling sword (officer), Dueling sword (ripper), Dueling sword (tactical), Dueling sword (ultrathin), Electroflail (advanced), Electroflail (elite), Electroflail (paragon), Electroflail (tactical), Electrovore glove (aurora), Electrovore glove (static), Electrovore glove (storm), Electrovore glove (tempest), Energy converter (advanced), Energy converter (elite), Energy converter (tactical), Eoxian Wrackstaff, Excavation laser (heavy), Excavation laser (light), Excavation laser (medium), Fangblade, Flame doshko (blaze), Flame doshko (ember), Flame doshko (inferno), Flame doshko (solar flare), Flame launcher (fireball), Flame launcher (immolation), Flame launcher (supernova), Flame pistol, Flame pistol (blaze), Flame pistol (inferno), Flame pistol (solar flare), Flame rifle, Flame spinner (fireball), Flame spinner (fission), Flame spinner (immolation), Flame spinner (supernova), Flamethrower (firedrake-class), Flamethrower (hellhound-class), Flamethrower (ifrit-class), Flamethrower (phoenix-class), Flamethrower (salamander-class), Flare axe (blue star), Flare axe (red star), Flare axe (white star), Flare axe (yellow star), Flare gun (survival), Flare rifle (coruscator), Flare rifle (dazzler), Flare rifle (nova), Flare rifle (scorcher), Flare rifle (vivifier), Focus rifle (compound), Focus rifle (dual), Focus rifle (quad), Focus rifle (triple), Forked pistol (10-notch), Forked pistol (6-notch), Forked pistol (8-notch), Forked pistol (9-notch), Freeze ray (algid), Freeze ray (glacial), Freeze ray (hiemal), Freeze ray (hypothermic), Freeze ray (isothermal), Frost maul (aufeis), Frost maul (floe), Frost maul (glacier), Frost maul (iceberg), Frost projector (blizzard-class), Frost projector (frostbite-class), Frost projector (hailstorm-class), Gale baton (cyclone), Gale baton (hurricane), Gale baton (tempest), Gamma rifle (fusion), Gamma rifle (ionizing), Gamma rifle (synchrotron), Gamma rifle (terrestrial), Garrote (microfilament), Garrote (monowire), Garrote (nanofiber), Garrote (wire), Glass blade (impulse), Glass blade (jolt), Glass blade (live), Glass blade (surge), Graviton pistol (chiral), Graviton pistol (linear), Graviton pistol (tensor), Graviton pistol (vector), Greataxe (molecular-rift), Greataxe (sintered), Greataxe (tactical), Greataxe (ultrathin), Grenades, Grindblade, Gulchgun, Gyrojet pistol (advanced), Gyrojet pistol (elite), Gyrojet pistol (tactical), Gyrojet rifle (advanced), Gyrojet rifle (elite), Gyrojet rifle (paragon), Gyrojet rifle (tactical), Hail pistol (absolute-zero), Hail pistol (gelid), Hail pistol (subzero), Hail pistol (ultracold), Hailcannon (absolute-zero), Hailcannon (clathrate), Hailcannon (gelid), Hailcannon (subzero), Hailcannon (ultracold), Hammer (assault), Hammer (comet), Hammer (gravity well), Hammer (meteoric), Handaxe (basic), Handaxe (molecular-rift), Handaxe (sintered), Handaxe (tactical), Handaxe (ultrathin), Handcannon (bombast), Handcannon (braggadocio), Handcannon (bravado), Handcannon (gasconade), Handcannon (swagger), Handcoil (capital), Handcoil (explorer), Handcoil (fighter), Handcoil (pilot), Heat-amp gauntlet (mk1), Heat-amp gauntlet (mk2), Heat-amp gauntlet (mk3), Heat-amp gauntlet (mk4), Hook knife, Hook sword, Hunting rifle, Hydra cannon (asp-series), Hydra cannon (cobra-series), Hydra cannon (python-series), Hydra cannon (viper-series), Ice carbine (absolute-zero), Ice carbine (gelid), Ice carbine (subzero), Ice carbine (ultracold), Ice launcher (aufeis), Ice launcher (floe), Ice launcher (glacier), Ice launcher (iceberg), Ice launcher (icecap), Ice needle (artifice), Ice needle (espionage), Ice needle (furtive), Ice needle (subterfuge), Ice needle (undercover), Icestar staff (defender), Icestar staff (drifter), Icestar staff (leader), Icestar staff (seeker), Icestar staff (warrior), Igniter (blaze), Igniter (ember), Igniter (inferno), Igniter (solar flare), IMDS missile launcher, Incapacitator, Infinity rifle (advanced), Infinity rifle (elite), Infinity rifle (paragon), Infinity rifle (tactical), Injection (glove), Injector pistol (elite), Injector pistol (medic), Injector pistol (poacher), Injector pistol (subjugation), Injector pistol (zoologist), Interference blade (harmonic), Interference blade (monophonic), Interference blade (multiphonic), Interference blade (polyphonic), Ionizer (chromic), Ionizer (cupric), Ionizer (ferric), Ionizer (stannic), Junk censer, Kalo shredder (cascade-class), Kalo shredder (deluge-class), Kalo shredder (monsoon-class), Kalo shredder (slipstream-class), Kalo shredder (torrent-class), Knife (survival), Knife (tactical), Lance (advanced), Lance (elite), Lance (paragon), Lance (tactical), Laser pistol (aphelion), Laser pistol (azimuth), Laser pistol (corona), Laser pistol (parallax), Laser pistol (perihelion), Laser pistol (zenith), Laser rifle (aphelion), Laser rifle (azimuth), Laser rifle (corona), Laser rifle (parallax), Laser rifle (perihelion), Laser rifle (zenith), Lens pistol (cylindrical), Lens pistol (electron), Lens pistol (lenticular), Lens pistol (sunglass), Lightning pistol (ribbon), Lightning pistol (rocket), Lightning pistol (sheet), Lightning pistol (smooth-channel), Living lash, Living staff (advanced), Living staff (elite), Living staff (paragon), Living staff (tactical), Longsword, Longsword (dimensional slice), Longsword (microserrated), Longsword (molecular rift), Longsword (sintered), Longsword (ultraserrated), Longsword (ultrathin), Longsword (zero-edge), Machine gun (heavy), Machine gun (light), Machine gun (medium), Machine gun (squad), Magma blade (andesite), Magma blade (basalt), Magma blade (plagioclase), Magma blade (rhyolite), Magnetar rifle (advanced), Magnetar rifle (elite), Magnetar rifle (paragon), Magnetar rifle (tactical), Maul (advanced), Maul (elite), Maul (paragon), Maul (tactical), Meteor glaive (advanced), Meteor glaive (elite), Meteor glaive (paragon), Meteor glaive (tactical), Microfusion rifle (heavy), Microfusion rifle (light), Microfusion rifle (medium), Minelayer (command), Minelayer (merc), Minelayer (platoon), Minelayer (squad), Mirage dagger (distortion), Mirage dagger (hallucination), Mirage dagger (illusion), Monowhip, Multistage rifle (dual), Multistage rifle (dual-plus), Multistage rifle (quad), Multistage rifle (triple), Multistage rifle (triple-plus), Nanite decoupler (caustic), Nanite decoupler (vitriolic), Nanite rifle (advanced), Nanite rifle (elite), Nanite rifle (tactical), Nanite thrower (advanced), Nanite thrower (elite), Nanite thrower (paragon), Nanite thrower (tactical), Needler pistol, Needler rifle, Neural lash (amperometric), Neural lash (electroplax), Neural lash (galvanic), Neural lash (voltaic), Nightarch needler (advanced), Nightarch needler (elite), Nightarch needler (paragon), Nightarch needler (tactical), NIL grenade launcher (merc), NIL grenade launcher (squad), Nova lance (blue star), Nova lance (red star), Nova lance (white star), Nova lance (yellow star), Nova rifle (red star), Nova rifle (white star), Nova rifle (yellow star), Numbing beam (advanced), Numbing beam (elite), Numbing beam (paragon), Numbing beam (tactical), Peacemaker, Perforator pistol (diffraction), Perforator pistol (linear), Perforator pistol (phased), Perforator pistol (refraction), Persuader, Petrol converter (advanced), Petrol converter (elite), Petrol converter (light), Petrol converter (paragon), Petrol converter (tactical), Phasic scythe (harmonic), Phasic scythe (monophonic), Phasic scythe (multiphonic), Phasic scythe (polyphonic), Pike (advanced), Pike (elite), Pike (tactical), Plasma array (blue star), Plasma array (red star), Plasma array (white star), Plasma array (yellow star), Plasma bolter (advanced), Plasma bolter (elite), Plasma bolter (paragon), Plasma bolter (tactical), Plasma cannon (blue star), Plasma cannon (red star), Plasma cannon (white star), Plasma cannon (yellow star), Plasma caster (blue star), Plasma caster (white star), Plasma claw (biodynamic), Plasma claw (electrocellular), Plasma claw (organic), Plasma claw (synthecite), Plasma doshko (blue star), Plasma doshko (red star), Plasma doshko (white star), Plasma doshko (yellow star), Plasma fork (12-notch), Plasma fork (15-notch), Plasma fork (19-notch), Plasma fork (22-notch), Plasma guide (series-21), Plasma guide (series-28), Plasma guide (series-37), Plasma guide (series-42), Plasma guide (series-62), Plasma guide (series-73), Plasma lash (blue star), Plasma lash (red star), Plasma lash (white star), Plasma lash (yellow star), Plasma pistol (blue star), Plasma pistol (red star), Plasma pistol (white star), Plasma pistol (yellow star), Plasma ribbon (champion), Plasma ribbon (competitor), Plasma ribbon (professional), Plasma ribbon (student), Plasma rifle (blue star), Plasma rifle (red star), Plasma rifle (white star), Plasma rifle (yellow star), Plasma ring (dual-valve), Plasma ring (multichannel), Plasma ring (single-valve), Plasma sword (blue star), Plasma sword (red star), Plasma sword (tactical), Plasma sword (white star), Plasma sword (yellow star), Polarity gauntlets (aurora), Polarity gauntlets (current), Polarity gauntlets (spark), Polarity gauntlets (static), Polarity gauntlets (storm), Polarity gauntlets (tempest), Polarity rifle (aurora), Polarity rifle (static), Polarity rifle (storm), Polarity rifle (tempest), Psychic-wave cannon I, Psychic-wave cannon II, Psychic-wave cannon III, Psychic-wave cannon IV, Psychic-wave cannon V, Pulse gauntlet (banshee), Pulse gauntlet (HFD), Pulse gauntlet (LFD), Pulse gauntlet (thunderstrike), Pulsecaster (pistol), Pulsecaster rifle, Puzzleblade (conviction), Puzzleblade (dedication), Puzzleblade (moderation), Puzzleblade (tradition), Pyrod (beacon), Pyrod (luminous), Pyrod (torch), Radcannon (electromagnetic), Radcannon (neutron), Radcannon (rapid-decay), Radshot (electromagnetic), Radshot (neutron), Radshot (rapid-decay), Rail cannon (advanced), Rail cannon (elite), Rail cannon (paragon), Rail cannon (tactical), Rail gun (advanced), Rail gun (tactical), Reaction cannon (advanced), Reaction cannon (elite), Reaction cannon (heavy), Reaction cannon (light), Reaction cannon (paragon), Reaction cannon (tactical), Resistance rod (induction), Resistance rod (piezoresistor), Resistance rod (strain-gauge), Resistance rod (thermistor), Resonant gauntlet (atomic), Resonant gauntlet (cellular), Resonant gauntlet (molecular), Resonant gauntlet (quantum), Resonant pistol (lattice), Resonant pistol (matrix), Resonant staff (reverberant), Resonant staff (sonorous), Resonant staff (stentorian), Resonator (diffraction), Resonator (linear), Resonator (phased), Resonator (refraction), Retractable spike (advanced), Retractable spike (elite), Retractable spike (paragon), Retractable spike (tactical), Rocket rifle, Rotating pistol (advanced), Rotating pistol (elite), Rotating pistol (tactical), Rotolaser (advanced), Rotolaser (tactical), Sap (heavy), Sap (light), Sap (medium), Scattergun (grapeshot), Scattergun (impact), Scattergun (snub), Scattergun (utility), Scattergun (vortex), Scorchgun (C-band), Scorchgun (K-band), Scorchgun (microwave), Scorchgun (S-band), Scorchgun (X-band), Screamer (HFD), Screamer (LFD), Screamer (thunderstrike), Scythe (sintered), Scythe (tactical), Scythe (ultrathin), Searing grip (high-heat), Searing grip (low-heat), Searing grip (weaponized), Seeker rifle (advanced), Seeker rifle (elite), Seeker rifle (paragon), Seeker rifle (tactical), Seismic pick (demolition), Seismic pick (driver), Seismic pick (heavy), Seismic pick (light), Semi-auto pistol (advanced), Semi-auto pistol (elite), Semi-auto pistol (paragon), Semi-auto pistol (tactical), Serpent laser (aphelion), Serpent laser (azimuth), Serpent laser (corona), Serpent laser (perihelion), Shadow chains (acolyte), Shadow chains (devotional), Shadow chains (ecclesiastic), Shadow chains (follower), Shadow chains (penitent), Shadow pistol (caliginous), Shadow pistol (sable), Shadow pistol (tenebrous), Shadow pistol (umbral), Shadowstaff, Shadowstaff (lesser), Shell knuckles (advanced), Shell knuckles (elite), Shell knuckles (paragon), Shell knuckles (tactical), Shellgun (blaze), Shellgun (bombard), Shellgun (fury), Shield projector (defender), Shield projector (guardian), Shield projector (sentry), Shield projector (warden), Shirren-eye rifle (advanced), Shirren-eye rifle (elite), Shirren-eye rifle (paragon), Shirren-eye rifle (tactical), Shirren-eye rifle (warpshot), Shobhad horizon striker (advanced), Shobhad horizon striker (elite), Shobhad horizon striker (paragon), Shobhad horizon striker (tactical), Shock caster (aurora), Shock caster (static), Shock caster (storm), Shock caster (tempest), Shock pad (aurora), Shock pad (static), Shock pad (storm), Shock pad (tempest), Shock truncheon (aurora), Shock truncheon (static), Shock truncheon (storm), Shock truncheon (tempest), Shoulder laser (aphelion), Shoulder laser (azimuth), Shoulder laser (corona), Shoulder laser (perihelion), Shout projector (crackdown), Shout projector (damper), Shout projector (exhorter), Shout projector (pacifier), Shout projector (riot), Shout rifle, Shrieking knife (harmonic), Shrieking knife (infrasonic), Shrieking knife (interference), Shrieking knife (ultrasonic), Shrieking larva, Singing disk (alto), Singing disk (bass), Singing disk (sopranino), Singing disk (soprano), Singing disk (tenor), Singing spear (alto), Singing spear (sopranino), Singing spear (soprano), Singing spear (tenor), Skyfire sword (inferno), Skyfire sword (tactical), Sledge, Solar brand (blue star), Solar brand (red star), Solar brand (white star), Solar brand (yellow star), Solarian Weapon, Sonic bolter (assault), Sonic bolter (devastator), Sonic bolter (heavy), Sonic bolter (light), Sonic pistol (banshee), Sonic pistol (HFD), Sonic pistol (LFD), Sonic pistol (thunderstrike), Sonic rifle (banshee), Sonic rifle (HFD), Sonic rifle (LFD), Sonic rifle (thunderstrike), Sonic suppressor (hush), Sonic suppressor (murmur), Sonic suppressor (repose), Sonic suppressor (whisper), Spark knife (boss), Spark knife (crew), Spark knife (recruit), Spark knife (runner), Spear (buzzblade), Spear (gravity), Spear (sentinel), Spear (tactical), Spear (zero-edge), Spined blade (basic), Spined blade (buzzblade), Spined blade (gravity), Spined blade (ripper), Spined blade (rivener), Spined iceblade (avalanche-class), Spined iceblade (blizzard-class), Spined iceblade (frostbite-class), Spined iceblade (hailstorm-class), Staccato rifle (drum), Staccato rifle (hammer), Staccato rifle (pulse), Staccato rifle (surge), Staff (battle), Staff (carbon), Staff (hardlight), Staff (repeller), Staff (sentinel), Starheart cannon (blue star), Starheart cannon (red star), Starheart cannon (white star), Starheart cannon (yellow star), Starknife (accelerated), Starknife (dimensional slice), Starknife (lightspeed), Starknife (sintered), Starknife (tactical), Stellar cannon (heavy), Stellar cannon (light), Sting pistol (ant), Sting pistol (hornet), Sting pistol (wasp), Sting pistol (yellow jacket), Storm coil (impulse), Storm coil (jolt), Storm coil (live), Storm coil (surge), Storm hammer (antiferromagnetic), Storm hammer (diamagnetic), Storm hammer (ferromagnetic), Storm hammer (metamagnetic), Storm hammer (paramagnetic), Stormcaller (mooth-channel), Stormcaller (ribbon), Stormcaller (rocket), Stormcaller (sheet), Streetsweeper (HFD), Streetsweeper (LFD), Streetsweeper (thunderstrike), Stun staff (aurora), Stun staff (static), Stun staff (storm), Stun staff (tactical), Stun staff (tempest), Subduer (frost), Subduer (glacier), Subduer (rime), Subduer (sleet), Surgecaster (advanced), Surgecaster (standard), Switchblade (molecular-rift), Switchblade (tactical), Switchblade (ultrathin), Switchblade (zero-edge), Swoop hammer (advanced), Swoop hammer (mach I), Swoop hammer (mach II), Swoop hammer (mach III), Swoop hammer (tactical), Sword cane (advanced), Sword cane (dimensional slice), Sword cane (molecular rift), Sword cane (tactical), Sword cane (ultrathin), Sword cane (zero-edge), Taclash (numbing), Taclash (standard), Tailblade, Talon (drone), Talon (god), Talon (knight), Talon (queen), Talon (warrior), Tetrad rings (advanced), Tetrad rings (elite), Tetrad rings (tactical), Trident (dimensional slice), Trident (molecular rift), Trident (sintered), Trident (tactical), Trident (ultrathin), Unarmed, Unarmed strike, Velstrac flenser (ascetic), Velstrac flenser (debater), Velstrac flenser (recluse), Velstrac flenser (singer), Vibrogarrote (basic), Vibrogarrote (harmonic), Vibrogarrote (infrasonic), Vibrogarrote (interference), Vibrogarrote (ultrasonic), Void rifle (barrow-class), Void rifle (crypt-class), Void rifle (grave-class), Void rifle (ossuary-class), Void rifle (tomb-class), Void staff (barrow-class), Void staff (crypt-class), Void staff (grave-class), Void staff (ossuary-class), Void staff (tomb-class), Wailing blade (euphonic), Wailing blade (strident), Wailing blade (tymbal), Wailing blade (warbler), Warclub, Warfan, Wave modulator I, Wave modulator II, Wave modulator III, Wave modulator IV, Wave modulator V, Wave modulator VI, Wave modulator VII, Welder (industrial), Welder (offensive), Welder (starship), Welder (utility), Wraith-sting rifle (hornet), Wraith-sting rifle (wasp), Wraith-sting rifle (yellow jacket), X-gen gun (advanced), X-gen gun (elite), X-gen gun (paragon), X-gen gun (tactical), Xenolash (blooming), Xenolash (immature), Xenolash (mature), Xenolash (seeded), Zero cannon (advanced), Zero cannon (elite), Zero cannon (tactical), Zero knife (avalanche-class), Zero knife (blizzard-class), Zero knife (frostbite-class), Zero knife (hailstorm-class), Zero knife (icequake-class), Zero pistol (avalanche-class), Zero pistol (blizzard-class), Zero pistol (frostbite-class), Zero pistol (hailstorm-class), Zero rifle (avalanche-class), Zero rifle (blizzard-class), Zero rifle (frostbite-class), Zero rifle (hailstorm-class)</weapon_proficiencies>
-	<languages>Common, Triaxian</languages>
+	<languages>Bantrid, Common, Kalo, Triaxian</languages>
 
 
 	<misc>

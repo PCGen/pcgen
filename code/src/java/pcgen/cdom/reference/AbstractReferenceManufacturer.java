@@ -224,12 +224,19 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable> implemen
 		}
 		Arrays.sort(types);
 		FixedStringList typeList = new FixedStringList(types);
-		WeakReference<CDOMGroupRef<T>> ref = typeReferences.computeIfAbsent(typeList, k -> {
-			// Didn't find the appropriate key, create new
-			CDOMGroupRef<T> cgr = factory.getTypeReference(types);
-			return new WeakReference<>(cgr);
-		});
-		return ref.get();
+		WeakReference<CDOMGroupRef<T>> ref = typeReferences.get(typeList);
+		if (ref != null)
+		{
+			CDOMGroupRef<T> trt = ref.get();
+			if (trt != null)
+			{
+				return trt;
+			}
+		}
+		// Didn't find the appropriate key, create new
+		CDOMGroupRef<T> cgr = factory.getTypeReference(types);
+		typeReferences.put(typeList, new WeakReference<>(cgr));
+		return cgr;
 	}
 
 	/**
