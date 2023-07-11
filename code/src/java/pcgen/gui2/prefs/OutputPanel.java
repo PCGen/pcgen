@@ -45,6 +45,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
+import javax.swing.SwingUtilities;
 import org.apache.commons.lang3.BooleanUtils;
 
 /**
@@ -288,16 +289,15 @@ public final class OutputPanel extends PCGenPrefsPanel
 		fileChooser.setTitle(LanguageBundle.getString("in_Prefs_outputSheetHTMLDefaultTitle"));
 		fileChooser.setInitialDirectory(new File(SettingsHandler.getHTMLOutputSheetPath()));
 		fileChooser.setInitialFileName(SettingsHandler.getSelectedCharacterHTMLOutputSheet(null));
-		File newTemplate = GuiUtility.runOnJavaFXThreadNow(() -> fileChooser.showOpenDialog(null));
+		File newTemplate = fileChooser.showOpenDialog(null);
 
 		if (newTemplate != null)
 		{
 			if ((!newTemplate.getName().startsWith("csheet") && !newTemplate.getName().startsWith("psheet")))
 			{
-				ShowMessageDelegate.showMessageDialog(
-						LanguageBundle.getString("in_Prefs_outputSheetDefaultError"), //$NON-NLS-1$
-						Constants.APPLICATION_NAME, MessageType.ERROR
-				);
+				SwingUtilities.invokeLater(() -> ShowMessageDelegate.showMessageDialog(
+					LanguageBundle.getString("in_Prefs_outputSheetDefaultError"), //$NON-NLS-1$
+					Constants.APPLICATION_NAME, MessageType.ERROR));
 			}
 			else
 			{
@@ -310,11 +310,9 @@ public final class OutputPanel extends PCGenPrefsPanel
 					//it must be a psheet
 					SettingsHandler.setSelectedPartyHTMLOutputSheet(newTemplate.getAbsolutePath());
 				}
+				outputSheetHTMLDefault.setText(String.valueOf(SettingsHandler.getSelectedCharacterHTMLOutputSheet(null)));
 			}
 		}
-
-		outputSheetHTMLDefault
-				.setText(String.valueOf(SettingsHandler.getSelectedCharacterHTMLOutputSheet(null)));
 	}
 
 	private void onOutputSheetPDFDefaultButton(final ActionEvent actionEvent)
@@ -323,16 +321,15 @@ public final class OutputPanel extends PCGenPrefsPanel
 		fileChooser.setTitle(LanguageBundle.getString("in_Prefs_outputSheetPDFDefaultTitle"));
 		fileChooser.setInitialDirectory(new File(SettingsHandler.getPDFOutputSheetPath()));
 		fileChooser.setInitialFileName(SettingsHandler.getSelectedCharacterPDFOutputSheet(null));
-		File newTemplate = GuiUtility.runOnJavaFXThreadNow(() -> fileChooser.showOpenDialog(null));
+		File newTemplate = fileChooser.showOpenDialog(null);
 
 		if (newTemplate != null)
 		{
 			if (!newTemplate.getName().startsWith("csheet") && !newTemplate.getName().startsWith("psheet"))
 			{
-				ShowMessageDelegate.showMessageDialog(
+				SwingUtilities.invokeLater(() -> ShowMessageDelegate.showMessageDialog(
 						LanguageBundle.getString("in_Prefs_outputSheetDefaultError"), //$NON-NLS-1$
-						Constants.APPLICATION_NAME, MessageType.ERROR
-				);
+						Constants.APPLICATION_NAME, MessageType.ERROR));
 			}
 			else
 			{
@@ -345,10 +342,9 @@ public final class OutputPanel extends PCGenPrefsPanel
 					//it must be a psheet
 					SettingsHandler.setSelectedPartyPDFOutputSheet(newTemplate.getAbsolutePath());
 				}
+				outputSheetPDFDefault.setText(String.valueOf(SettingsHandler.getSelectedCharacterPDFOutputSheet(null)));
 			}
 		}
-
-		outputSheetPDFDefault.setText(String.valueOf(SettingsHandler.getSelectedCharacterPDFOutputSheet(null)));
 	}
 
 	private void onOutputSheetEqSetButton(final ActionEvent actionEvent)
@@ -357,24 +353,22 @@ public final class OutputPanel extends PCGenPrefsPanel
 		fileChooser.setTitle(LanguageBundle.getString("in_Prefs_templateEqSetTitle"));
 		fileChooser.setInitialDirectory(new File(ConfigurationSettings.getOutputSheetsDir()));
 		fileChooser.setInitialFileName(SettingsHandler.getSelectedEqSetTemplate());
-		File newTemplate = GuiUtility.runOnJavaFXThreadNow(() -> fileChooser.showOpenDialog(null));
+		File newTemplate = fileChooser.showOpenDialog(null);
 
 		if (newTemplate != null)
 		{
 			if (newTemplate.getName().startsWith("eqsheet"))
 			{
 				SettingsHandler.setSelectedEqSetTemplate(newTemplate.getAbsolutePath());
+				outputSheetEqSet.setText(String.valueOf(SettingsHandler.getSelectedEqSetTemplate()));
 			}
 			else
 			{
-				ShowMessageDelegate.showMessageDialog(
+				SwingUtilities.invokeLater(() -> ShowMessageDelegate.showMessageDialog(
 						LanguageBundle.getString("in_Prefs_templateEqSetError"), //$NON-NLS-1$
-						Constants.APPLICATION_NAME, MessageType.ERROR
-				);
+						Constants.APPLICATION_NAME, MessageType.ERROR));
 			}
 		}
-
-		outputSheetEqSet.setText(String.valueOf(SettingsHandler.getSelectedEqSetTemplate()));
 	}
 
 	private void onOutputSheetSpellsDefaultButton(final ActionEvent actionEvent)
@@ -383,7 +377,7 @@ public final class OutputPanel extends PCGenPrefsPanel
 		fileChooser.setTitle(LanguageBundle.getString("in_Prefs_outputSpellSheetDefault"));
 		fileChooser.setInitialDirectory(new File(ConfigurationSettings.getOutputSheetsDir()));
 		fileChooser.setInitialFileName(PCGenSettings.getSelectedSpellSheet());
-		File newTemplate = GuiUtility.runOnJavaFXThreadNow(() -> fileChooser.showOpenDialog(null));
+		File newTemplate = fileChooser.showOpenDialog(null);
 
 		if (newTemplate != null)
 		{
@@ -393,17 +387,15 @@ public final class OutputPanel extends PCGenPrefsPanel
 						PCGenSettings.SELECTED_SPELL_SHEET_PATH,
 						newTemplate.getAbsolutePath()
 				);
+				outputSheetSpellsDefault.setText(PCGenSettings.getSelectedSpellSheet());
 			}
 			else
 			{
-				ShowMessageDelegate.showMessageDialog(
+				SwingUtilities.invokeLater(() -> ShowMessageDelegate.showMessageDialog(
 						LanguageBundle.getString("in_Prefs_outputSheetDefaultError"), //$NON-NLS-1$
-						Constants.APPLICATION_NAME, MessageType.ERROR
-				);
+						Constants.APPLICATION_NAME, MessageType.ERROR));
 			}
 		}
-
-		outputSheetSpellsDefault.setText(PCGenSettings.getSelectedSpellSheet());
 	}
 
 	private enum ExportChoices
@@ -436,7 +428,6 @@ public final class OutputPanel extends PCGenPrefsPanel
 
 		public String getValue()
 		{
-
 			return switch (this)
 					{
 						case ASK -> "";
@@ -462,7 +453,5 @@ public final class OutputPanel extends PCGenPrefsPanel
 				return ExportChoices.NEVER_OPEN;
 			}
 		}
-
 	}
-
 }
