@@ -11,6 +11,38 @@
  * Run the character integration tests: gradle inttest
  */
 
+/**
+ * TODO Fix the entire build script in accordance with the following guidance
+ *
+ * Gradle follows a specific build lifecycle which includes the initialization, configuration, and execution phases.
+ * If your tasks are running during the configuration phase, it means they are not configured correctly.
+ * Gradle's build scripts are a form of DSL (domain-specific language) built on Groovy or Kotlin. When you define a task in a Gradle script, you are defining a configuration for that task. That configuration code should only set up what the task will do when it runs, but not actually execute any task actions. Execution should occur only in the execution phase.
+ *
+ * There's a common mistake that causes tasks to execute during the configuration phase. Take a look at the following code:
+ *
+ * task myTask {
+ *   println 'Hello, World!'
+ * }
+ *
+ * In this code, the `println` statement will execute during the configuration phase, not during the execution phase.
+ * That's because it's not defined as part of a task action. To make it execute as part of the task, you would define it
+ * in a `doLast` or `doFirst` block:
+ *
+ * task myTask {
+ *   doLast {
+ *     println 'Hello, World!'
+ *   }
+ * }
+ *
+ * Now, the `println` statement will only execute when the `myTask` task is executed, not during the configuration phase.
+ *
+ * In short, make sure your task action code is defined within a `doLast` or `doFirst` block
+ *
+ * Always remember that anything outside of a `doLast` or `doFirst` block in a task will execute during the configuration
+ * phase, not the execution phase. That's one of the main reasons Gradle tasks might appear to "run" during the
+ * configuration phase.
+ */
+
 // import Ant helper static values to differ system families
 import org.apache.tools.ant.filters.FixCrLfFilter
 import org.apache.tools.ant.taskdefs.condition.Os
@@ -94,14 +126,11 @@ ext {
     releaseDir = "${buildDir}/release"
 }
 
-/*
- * The gradle plugin for netbeans sets the 'mainClass' property instead of
- * 'mainClassName'.
- *
- * If other IDEs set different properties when trying to execute
- * a given class feel free to add them here.
- */
-mainClassName = project.hasProperty('mainClass') ? mainClass : 'pcgen.system.Main'
+// Set main class for the Java application
+application {
+    // mainClassName = project.hasProperty('mainClass') ? mainClass : 'pcgen.system.Main'
+    mainClass = project.hasProperty('mainClass') ? mainClass : 'pcgen.system.Main'
+}
 
 /*
  * Which binary repositories this build uses.
@@ -190,6 +219,7 @@ sourceSets {
 
 /* Copy 'master' outputsheets into different genre folders */
 task copyMasterSheets(type: Copy) {
+    println("IN CopyMasterSheets")
     outputs.upToDateWhen { false }
 
     include 'eqsheet_fantasy_std.htm'
@@ -210,6 +240,7 @@ task copyMasterSheets(type: Copy) {
 
 // TODO Possibly misnamed task
 compileJava {
+    println("IN compileJava")
     it.dependsOn 'copyMasterSheets'
 }
 
@@ -287,6 +318,7 @@ ant.properties['build.classes.dir']="build/classes/java/main"
 
 // Configuration for creating JARs from all of the plugins
 configure('jar-all-plugins') {
+    println("IN configure jar-all-plugins")
     group = BasePlugin.BUILD_GROUP // Or use 'build'
     description = 'Create the plugin jars'
 }
@@ -297,6 +329,9 @@ ext {
 }
 
 jar {
+
+    println("IN jar")
+
     // Pick up some configuration to JAR up the plugins
     it.dependsOn 'jar-all-plugins'
 
@@ -318,6 +353,9 @@ jar {
  * Create a Java runtime built from Java modules
  */
 runtime {
+
+    println("IN runtime")
+
     options = ['--compress', '2']
     modules = [
     'jdk.httpserver',
@@ -351,7 +389,7 @@ runtime {
     targetPlatform('mac-aarch64', "$projectDir/jre/mac/jre_aarch64/Contents/Home")
 
     // Use the jpackage tool that comes with Java to build native installers
-    jpackage{
+    jpackage {
         installerOptions = ["--app-version", "${version.replaceAll('-SNAPSHOT', '')}", "--license-file", "${projectDir}/code/LICENSE"]
 
         // Get the host architecture
@@ -386,6 +424,8 @@ runtime {
 
 // Package up other files with the main program
 tasks.jpackageImage.doLast {
+
+    println("IN jpackageImage")
     copy {
         includeEmptyDirs = false
         from "${buildDir}/install/pcgen/"
@@ -415,6 +455,7 @@ tasks.jpackageImage.doLast {
 
 // Create the Data Convertor JAR
 task converterJar(type: Jar, dependsOn: jar) {
+    println("IN converterJar")
     manifest {
         attributes 'Implementation-Title': 'PCGen Data Converter', 'Implementation-Version': archiveVersion,
                 'Main-Class': 'pcgen.gui2.converter.PCGenDataConvert', 'Class-Path': 'pcgen.jar' + classpath
@@ -430,16 +471,19 @@ task converterJar(type: Jar, dependsOn: jar) {
 }
 
 artifacts {
+    println("IN artifacts")
     archives converterJar
 }
 
 task copyToLibs(type: Copy, dependsOn:[startScripts,distTar,distZip,installDist]) {
+    println("IN copyToLibs")
     mustRunAfter createExe
     into "$buildDir/libs"
     from configurations.runtimeClasspath
 }
 
 task copyToOutput(type: Copy, dependsOn: [createExe, copyToLibs, jar, converterJar]) {
+    println("IN copyToOutput")
     from "$buildDir/libs/pcgen-${version}.jar"
     from "$buildDir/libs/pcgen-${version}-batch-convert.jar"
     from "$buildDir/launch4j/pcgen.exe"
@@ -454,6 +498,7 @@ task copyToOutput(type: Copy, dependsOn: [createExe, copyToLibs, jar, converterJ
 }
 
 task qbuild(type: Copy, dependsOn: [copyToOutput, jar]) {
+    println("IN qbuild")
     description="Copy the executable file into 'output' to create a working environment"
     from "$buildDir/libs/pcgen-${version}.jar"
 
@@ -464,32 +509,38 @@ task qbuild(type: Copy, dependsOn: [copyToOutput, jar]) {
 }
 
 task cleanOutput(type: Delete) {
+    println("IN cleanOutput")
     description="Clean up things copied to the output folder by the build"
     delete outputDir
 }
 
 // TODO - Hook this into a clean phase properly
 task cleanJre(type: Delete) {
+    println("IN cleanJre")
     description="Clean up things copied to the jre folder by the build"
     delete jresDir
 }
 
 // TODO - Hook this into a clean phase properly
 task cleanMods(type: Delete) {
+    println("IN cleanMods")
     description="Clean up things copied to the mods folder by the build"
     delete modsDir
 }
 
 // Alias tasks
 tasks.register("buildonly") {
+    println("IN register buildonly")
     dependsOn 'copyToOutput'
 }
 
 tasks.register("quickbuild") {
+    println("IN register quickbuild")
     dependsOn 'copyToOutput', 'test'
 }
 
 build {
+    println("IN build")
     it.dependsOn 'copyToOutput'
 }
 
@@ -497,6 +548,7 @@ build {
 // For jlink and friends to work when you get odd Zip errors
 // you will also need to clean out output/ bin/ jre/ and mods/
 clean {
+    println("IN clean")
     it.dependsOn 'clean-plugins'
     it.dependsOn 'cleanOutput'
 }
@@ -506,6 +558,9 @@ clean {
 build.mustRunAfter clean
 
 task downloadJRE {
+
+    println("IN downloadJRE")
+
     def major = 17
     def archs = ['x64', 'x32', 'aarch64']
     def osList = ['windows', 'mac', 'linux']
@@ -593,6 +648,9 @@ task downloadJRE {
 }
 
 task downloadJavaFXModules(dependsOn: downloadJRE) {
+
+    println("IN downloadJavaFXModules")
+
     // We support Windows/Mac/Linux - x64, Mac/Linux - aarch64, and Windows x86 (32-bit)
     def major = "17.0.7"
     def archs = ['x64', 'x86', 'aarch64']
@@ -747,11 +805,13 @@ compileJava.dependsOn(downloadJavaFXModules)
 tasks.runtime.dependsOn(downloadJavaFXModules)
 
 test {
+    println("IN test")
     exclude 'pcgen/testsupport/**'
     useJUnitPlatform()
 }
 
 task itest(type: Test, dependsOn: [jar]) {
+    println("IN itest")
     useJUnitPlatform()
     testClassesDirs = sourceSets.itest.output.classesDirs
     classpath = sourceSets.itest.runtimeClasspath
@@ -759,6 +819,7 @@ task itest(type: Test, dependsOn: [jar]) {
 }
 
 task slowtest(type: Test, dependsOn: ['jar', 'itest']) {
+    println("IN slowtest")
     useJUnitPlatform()
     testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
@@ -770,6 +831,7 @@ task slowtest(type: Test, dependsOn: ['jar', 'itest']) {
 }
 
 task datatest(type: Test, dependsOn: 'jar') {
+    println("IN datatest")
     testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
     include 'pcgen/persistence/lst/DataTest.class'
@@ -777,6 +839,7 @@ task datatest(type: Test, dependsOn: 'jar') {
 }
 
 task inttest(type: Test, dependsOn: 'jar') {
+    println("IN inttest")
     testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
@@ -784,6 +847,7 @@ task inttest(type: Test, dependsOn: 'jar') {
 }
 
 task sfinttest(type: Test, dependsOn: 'jar') {
+    println("IN sfinttest")
     testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
@@ -791,6 +855,7 @@ task sfinttest(type: Test, dependsOn: 'jar') {
 }
 
 task pfinttest(type: Test, dependsOn: 'jar') {
+    println("IN pfinttest")
     testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
@@ -798,6 +863,7 @@ task pfinttest(type: Test, dependsOn: 'jar') {
 }
 
 task rsrdinttest(type: Test, dependsOn: 'jar') {
+    println("IN rsrdinttest")
     testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
@@ -805,6 +871,7 @@ task rsrdinttest(type: Test, dependsOn: 'jar') {
 }
 
 task srdinttest(type: Test, dependsOn: 'jar') {
+    println("IN srdinttest")
     testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
@@ -812,18 +879,20 @@ task srdinttest(type: Test, dependsOn: 'jar') {
 }
 
 task msrdinttest(type: Test, dependsOn: 'jar') {
+    println("IN msrdinttest")
     testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
     include 'pcgen/inttest/game_modern/*Test.class'
 }
 
-// Do the lot!  TODO reenable slowtest
+// Do the lot!
 task all(dependsOn: ['build', 'slowtest', 'javadoc', 'buildNsis', 'allReports']) {
-//task all(dependsOn: ['build', 'javadoc', 'buildNsis', 'allReports']) {
+    println("IN all")
 }
 
 allprojects {
+    println("IN allprojects")
     tasks.withType(JavaCompile).configureEach {
         options.fork = true
     }
@@ -856,7 +925,6 @@ allprojects {
     }
     tasks.withType(JavaCompile) {
         doFirst {
-
             if (name.toLowerCase().contains("test")) {
                 options.compilerArgs << "--module-path" << "${projectDir}/mods/lib/"
                 options.compilerArgs << "--add-modules" << "javafx.controls,javafx.web,javafx.swing,javafx.fxml"
@@ -874,10 +942,12 @@ allprojects {
 }
 
 dependencyUpdates {
+    println("IN dependencyUpdates")
     revision='release'
 }
 
 dependencyUpdates.resolutionStrategy {
+    println("IN dependencyUpdates resolutionStrategy")
     componentSelection { rules ->
         rules.all { ComponentSelection selection ->
             if (['atlassian'].any { qualifier ->
@@ -906,6 +976,7 @@ dependencyUpdates.resolutionStrategy {
 
 // Support for creating IntelliJ IDEA files.
 idea {
+    println("IN idea")
     project {
         def javafxLib = file("$projectDir/mods/lib")
         def files = javafxLib.listFiles( { _, name -> name.contains(".jar") } as FilenameFilter)
@@ -933,6 +1004,7 @@ idea {
 
 // Use the gradle wrapper
 wrapper {
+    println("IN wrapper")
     distributionType = Wrapper.DistributionType.ALL
 }
 
