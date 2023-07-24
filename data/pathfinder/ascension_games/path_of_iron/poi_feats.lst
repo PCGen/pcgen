@@ -1,0 +1,12 @@
+SOURCELONG:Path of Iron	SOURCESHORT:PoI	SOURCEWEB:https://www.opengamingstore.com/collections/premier-partners/products/path-of-iron	SOURCEDATE:2015-01
+# Original Entry by: Sean Butler (Tamdrik)
+
+##Block: Feats
+
+# Ability Name			Category of Ability	Type				Required Ability																		Define											Innate Spells								Description																																																																																																																														Stackable?	Multiple?	Choose											Bonus Ability Pool					Save bonus									Modify VAR															Source Page		Aspects																																													Benefits
+Extra Resonance			CATEGORY:FEAT		TYPE:General		PREABILITY:1,CATEGORY=Special Ability,Vanguard ~ Resonance																																	DESC:You can activate a resonance an additional two times each day. You can take this feat multiple times. Its effect stacks.																																																																																																											STACK:YES	MULT:YES	CHOOSE:NOCHOICE																												BONUS:VAR|VanguardResonanceUses|2											SOURCEPAGE:p.65
+Resolute Companion		CATEGORY:FEAT		TYPE:General		PREABILITY:1,CATEGORY=Special Ability,Vanguard ~ Construct Companion									DEFINE:VanguardResoluteCompanion|0		BONUS:VAR|VanguardResoluteCompanion|1									DESC:If you are knocked unconscious, fall asleep, or are killed, your construct companion remains active for %1 rounds before it shuts down. If you are brought back to consciousness before this duration expires, your construct does not shut down. If the duration expires before you are brought back to consciousness, your companion shuts down as normal.|VanguardLVL																																																																																																																					SOURCEPAGE:p.70
+
+#
+# End
+#

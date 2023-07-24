@@ -1,0 +1,62 @@
+SOURCELONG:Path of Iron	SOURCESHORT:PoI	SOURCEWEB:https://www.opengamingstore.com/collections/premier-partners/products/path-of-iron	SOURCEDATE:2015-01
+# Original Entry by: Sean Butler (Tamdrik)
+
+# Dwarf
+
+# Dwarf Arcanist Arcane Barrier and Weapon
+# Ability Name								Unique Key										Category of Ability		Type											Visible		Required Ability							Required Class			Required Race				Define						Description																																																																					Stackable?	Multiple?	Choose		Ability																			Bonus to Situation									Modify VAR
+Bonus Item Crafting Progress						KEY:Dwarf ~ Favored Class Bonus ~ Bonus Item Crafting Progress	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassVanguard		VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Vanguard		PRECLASS:1,Vanguard=1		PRERACE:1,Dwarf%,RACESUBTYPE=Dwarf	DEFINE:DwarfVanguardFavClassBonus|0		DESC:Select one item creation feat known by the vanguard. Whenever crafting an item using that feat, the amount of progress made in an 8-hour period increases by 200 gp (50 gp if crafting while adventuring). This does not reduce the cost of the item; it just increases the rate at which the item is crafted.																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Special Ability|AUTOMATIC|Dwarf ~ Vanguard ~ Bonus Item Crafting Progress																			BONUS:VAR|DwarfVanguardFavClassBonus|1		SOURCEPAGE:p.33
+
+###Block:
+# Elf
+Bonus Spell Known								KEY:Elf ~ Favored Class Bonus ~ Spell Known				CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassVanguard		VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Vanguard		PRECLASS:1,Vanguard=1		PRERACE:1,Elf%,RACESUBTYPE=Elf								DESC:Add one spell from the vanguard spell list to the vanguard's known spells. This spell must be at least 1 spell level below the highest level the vanguard can cast.									STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Vanguard Bonus Spell Known Choice|1		SOURCEPAGE:p.33
+
+###Block:
+# Gnome
+Bonus Construct Companion Skill Points				KEY:Gnome ~ Favored Class Bonus ~ Construct Companion Skill Points	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassVanguard		VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Vanguard		PRECLASS:1,Vanguard=1	PRERACE:1,Gnome%,RACESUBTYPE=Gnome	DEFINE:VanguardFavClassCCSkillBonus|0	DESC:Add 1 skill rank to the vanguard's construct companion. If the vanguard replaces his construct companion, the new construct companion gains these bonus skill ranks.						STACK:YES	MULT:YES	CHOOSE:NOCHOICE															BONUS:VAR|VanguardFavClassCCSkillBonus|1		SOURCEPAGE:p.33
+Bonus Construct Companion Hit Points				KEY:Gnome ~ Favored Class Bonus ~ Construct Companion Hit Points		CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassVanguard		VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Vanguard		PRECLASS:1,Vanguard=1	PRERACE:1,Gnome%,RACESUBTYPE=Gnome	DEFINE:VanguardFavClassCCHPBonus|0		DESC:Add 1 hit point to the vanguard's construct companion. If the vanguard replaces his constuct companion, the new construct companion gains these bonus hit points.							STACK:YES	MULT:YES	CHOOSE:NOCHOICE															BONUS:VAR|VanguardFavClassCCHPBonus|1		SOURCEPAGE:p.33
+
+###Block:
+# Half-elf
+Bonus Companion Link Range						KEY:Half-elf ~ Favored Class Bonus ~ Companion Link Range		CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassVanguard		VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Vanguard		PRECLASS:1,Vanguard=1		PRERACE:1,Half-elf%,RACESUBTYPE=Half-elf	DEFINE:HalfElfVanguardFavClassBonus|0	DESC:Add +5 feet to the range of the construct companion’s link and greater link abilities.																			STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Special Ability|AUTOMATIC|Half-Elf ~ Vanguard ~ Companion Link Range		BONUS:VAR|HalfElfVanguardFavClassBonus|1	BONUS:VAR|CCLinkRangeBonus|5		SOURCEPAGE:p.33
+
+###Block:
+# Halfling
+Bonus Construct Companion Skill Points				KEY:Halfling ~ Favored Class Bonus ~ Construct Companion Skill Points	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassVanguard		VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Vanguard		PRECLASS:1,Vanguard=1	PRERACE:1,Halfling%,RACESUBTYPE=Halfling	DEFINE:VanguardFavClassCCSkillBonus|0	DESC:Add 1 skill rank to the vanguard's construct companion. If the vanguard replaces his construct companion, the new construct companion gains these bonus skill ranks.					STACK:YES	MULT:YES	CHOOSE:NOCHOICE															BONUS:VAR|VanguardFavClassCCSkillBonus|1		SOURCEPAGE:p.33
+Bonus Construct Companion Hit Points				KEY:Halfling ~ Favored Class Bonus ~ Construct Companion Hit Points	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassVanguard		VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Vanguard		PRECLASS:1,Vanguard=1	PRERACE:1,Halfling%,RACESUBTYPE=Halfling	DEFINE:VanguardFavClassCCHPBonus|0		DESC:Add 1 hit point to the vanguard's construct companion. If the vanguard replaces his constuct companion, the new construct companion gains these bonus hit points.						STACK:YES	MULT:YES	CHOOSE:NOCHOICE															BONUS:VAR|VanguardFavClassCCHPBonus|1		SOURCEPAGE:p.33
+
+###Block:
+# Half-orc
+Bonus to Concentration Checks						KEY:Half-orc ~ Favored Class Bonus ~ Vanguard Concentration Checks	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassVanguard		VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Vanguard		PRECLASS:1,Vanguard=1	PRERACE:1,Half-orc%,RACESUBTYPE=Half-orc	DEFINE:HalfOrcVanguardFavClassBonus|0	DESC:Add a +1 bonus on concentration checks to cast vanguard spells (+%1 total).|HalfOrcVanguardFavClassBonus															STACK:YES	MULT:YES	CHOOSE:NOCHOICE															BONUS:VAR|HalfOrcVanguardFavClassBonus|1		ASPECT:CombatBonus|+%1 to concentration checks for Vanguard spells|HalfOrcVanguardFavClassBonus		SOURCEPAGE:p.33
+
+###Block:
+# Human
+Bonus Spell Known								KEY:Human ~ Favored Class Bonus ~ Spell Known				CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassVanguard		VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Vanguard		PRECLASS:1,Vanguard=1		PRERACE:1,Human%,RACESUBTYPE=Human								DESC:Add one spell from the vanguard spell list to the vanguard's known spells. This spell must be at least 1 spell level below the highest level the vanguard can cast.									STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Vanguard Bonus Spell Known Choice|1			SOURCEPAGE:p.33
+
+###Block:
+# Aasimar
+Bonus Resonance Level							KEY:Aasimar ~ Favored Class Bonus ~ Resonance Level			CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassVanguard		VISIBLE:YES		PREABILITY:1,CATEGORY=Special Ability,Vanguard		PRECLASS:1,Vanguard=1	PRERACE:1,Aasimar%,RACESUBTYPE=Aasimar	DEFINE:AasimarVanguardFavClassBonus|0	DESC:Add +1/2 to the vanguard's level for the purpose of the determining the effects of one resonance (+%1 total).|floor(AasimarVanguardFavClassBonus/2)												STACK:YES	MULT:YES	CHOOSE:NOCHOICE															BONUS:VAR|AasimarVanguardFavClassBonus|1		SOURCEPAGE:p.33
+
+###Block:
+# Tiefling
+Construct Companion Energy Resistance				KEY:Tiefling ~ Favored Class Bonus ~ Construct Companion Energy Resistance	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassVanguard		VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Vanguard	PRECLASS:1,Vanguard=1	PRERACE:1,Tiefling%,RACESUBTYPE=Tiefling	DEFINE:TieflingVanguardFavClassBonus|0		DESC:The vanguard's construct companion gains resistance 1 against either cold, electricity, or fire. Each time the vanguard selects this reward, he increases his companion's resistance to one of those energy types by 1 (maximum 10 for any one energy type).																										STACK:YES	MULT:YES	CHOOSE:NOCHOICE			BONUS:VAR|TieflingVanguardFavClassBonus|1		SOURCEPAGE:p.33
+
+###Block: Vanguard Bonus Spells
+# Ability Name		Category of Ability		Type					Var. Min. Value										Stackable?	Multiple?	Choose		Bonus to spell known/L
+Vanguard Spell Level 0	CATEGORY:Special Ability	TYPE:BonusSpellKnownVanguard	PREVARGTEQ:(charbonusto("PCLEVEL","Vanguard") + classlevel("Vanguard")),1	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Vanguard;LEVEL=0|1
+Vanguard Spell Level 1	CATEGORY:Special Ability	TYPE:BonusSpellKnownVanguard	PREVARGTEQ:(charbonusto("PCLEVEL","Vanguard") + classlevel("Vanguard")),4	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Vanguard;LEVEL=1|1
+Vanguard Spell Level 2	CATEGORY:Special Ability	TYPE:BonusSpellKnownVanguard	PREVARGTEQ:(charbonusto("PCLEVEL","Vanguard") + classlevel("Vanguard")),7	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Vanguard;LEVEL=2|1
+Vanguard Spell Level 3	CATEGORY:Special Ability	TYPE:BonusSpellKnownVanguard	PREVARGTEQ:(charbonusto("PCLEVEL","Vanguard") + classlevel("Vanguard")),10	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Vanguard;LEVEL=3|1
+Vanguard Spell Level 4	CATEGORY:Special Ability	TYPE:BonusSpellKnownVanguard	PREVARGTEQ:(charbonusto("PCLEVEL","Vanguard") + classlevel("Vanguard")),13	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Vanguard;LEVEL=4|1
+Vanguard Spell Level 5	CATEGORY:Special Ability	TYPE:BonusSpellKnownVanguard	PREVARGTEQ:(charbonusto("PCLEVEL","Vanguard") + classlevel("Vanguard")),16	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:SPELLKNOWN|CLASS=Vanguard;LEVEL=5|1
+
+
+# Ability Name				Unique Key										Category of Ability		Type						Description																																					Combat bonus									Add to base move								Aspects
+Companion Link Range			KEY:Half-Elf ~ Vanguard ~ Companion Link Range				CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:Your construct companion's Link and Greater Link abilities' range is increased by %1 feet.|CCLinkRangeBonus
+Bonus Item Crafting Progress		KEY:Dwarf ~ Vanguard ~ Bonus Item Crafting Progress			CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:Whenever crafting an item using selected item crafting feat, the amount of progress increases by %1 gp (%2 gp if crafting while adventuring).  This does not reduce the cost of the item; it just increases the rate at which the item is crafted.|DwarfVanguardFavoredClassBonus*200|DwarfVanguardFavoredClassBonus*50
+
+#########################################
+###Block: Supplementary abilities (Internal i.e. not visible)
+# Ability Name		Unique Key								Category of Ability	Type							Visible	Concentration bonus						Bonus to Situation																				Modify VAR
+
+
