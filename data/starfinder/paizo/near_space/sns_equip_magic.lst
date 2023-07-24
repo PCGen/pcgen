@@ -1,0 +1,11 @@
+# Original Entry by: tx6195
+#MAGIC ITEMS
+# Equipment Name							Unique Key				Product Identity?	Required Weapon Proficiency	Type																		Contains		Cost		Wield Category	Requires Modification?	Range		Source Page		Modify VAR						Quality and value					Special Property			MODIFY
+Polymorphic serum (mk 1)																			TYPE:Magic.Serum.Consumable																	COST:250										SOURCEPAGE:p.127								QUALITY:Level|3	QUALITY:BULK|-
+Rad-out serum																				TYPE:Magic.Serum.Consumable																	COST:225										SOURCEPAGE:p.127								QUALITY:Level|3	QUALITY:BULK|-
+Polymorphic serum (mk 2)																			TYPE:Magic.Serum.Consumable																	COST:675										SOURCEPAGE:p.127								QUALITY:Level|6	QUALITY:BULK|-
+Regeneration serum																			TYPE:Magic.Serum.Consumable																	COST:600										SOURCEPAGE:p.127								QUALITY:Level|6	QUALITY:BULK|-
+Polymorphic serum (mk 3)																			TYPE:Magic.Serum.Consumable																	COST:2100										SOURCEPAGE:p.127								QUALITY:Level|9	QUALITY:BULK|-
+Polymorphic serum (mk 4)																			TYPE:Magic.Serum.Consumable																	COST:5700										SOURCEPAGE:p.127								QUALITY:Level|12	QUALITY:BULK|-
+Polymorphic serum (mk 5)																			TYPE:Magic.Serum.Consumable																	COST:18000										SOURCEPAGE:p.127								QUALITY:Level|15	QUALITY:BULK|-
+Polymorphic serum (mk 6)																			TYPE:Magic.Serum.Consumable																	COST:60000										SOURCEPAGE:p.127								QUALITY:Level|18	QUALITY:BULK|-
