@@ -1,0 +1,290 @@
+SOURCELONG:Path of Iron	SOURCESHORT:PoI	SOURCEWEB:https://www.opengamingstore.com/collections/premier-partners/products/path-of-iron	SOURCEDATE:2015-01
+# Original Entry by: Sean Butler (Tamdrik)
+
+###BLOCK: New Spells
+# Spell Name				Classes of caster												School			Sub-School			Descriptor							Components						Casting Time			Range						Target Area or Effect												Duration										Save Info											Spell Resistance					Source Page		Source Pub Link																		Description																																																																																																																																																																					FACT
+Conjure Tool				CLASSES:Bard,Sorcerer,Vanguard,Wizard=0|Ranger=1						SCHOOL:Conjuration	SUBSCHOOL:Creation									COMPS:V, S						CASTTIME:1 standard action	RANGE:0 Ft.					TARGETAREA:one tool												DURATION:(CASTERLEVEL*10) minutes																									SOURCEPAGE:p.85	SOURCELINK:https://www.d20pfsrd.com/magic/3rd-party-spells/ascension-games/conjure-tool						DESC:A handy spell for those that like to be prepared, conjure tool creates one of several mundane, non-masterwork tools for your use. You can conjure one of the following tools: crowbar, drill, flint and steel, hammer, saw, sewing needle, shovel, or sledge. The tool appears in your hands, but can be put down or given to someone else. You can only have one conjured tool in effect at a time. If you cast it again, the previously conjured tool vanishes.|PRERULE:1,DisplayFullSpell
+Constructed Anatomy			CLASSES:Alchemist,Magus,Sorcerer,Vanguard,Wizard=3						SCHOOL:Transmutation	SUBSCHOOL:Polymorph	DESCRIPTOR:metal						COMPS:V, S						CASTTIME:1 standard action	RANGE:Personal				TARGETAREA:you													DURATION:(CASTERLEVEL) minutes																									SOURCEPAGE:p.86	SOURCELINK:https://www.d20pfsrd.com/magic/3rd-party-spells/ascension-games/constructed-anatomy					DESC:A low rumble of grinding gears and crackling flames can be heard as you cast this spell. Your appearance becomes slightly different, your flesh shimmering almost like polished steel, your movement more precise and calculated. &nl;This spell turns you partially into a construct. You gain the half-construct subtype. This grants you a +2 bonus on saving throws against disease, mind-affecting effects, poison, and effects that cause either exhaustion or fatigue. You do not need to breathe, eat, or sleep for the duration, unless you want to gain some beneficial effect from one of these activities. If you already have the half-construct subtype, this has no effect. &nl;In addition to the above effects, you also receive a +2 size bonus to Strength and a +2 bonus to natural armor, as well as low-light vision and darkvision 60 feet.|PRERULE:1,DisplayFullSpell
+Create Caltrops				CLASSES:Magus,Sorcerer,Vanguard,Wizard=0								SCHOOL:Conjuration	SUBSCHOOL:Creation	DESCRIPTOR:metal						COMPS:V, S						CASTTIME:1 standard action	RANGE:Close					TARGETAREA:caltrops that fill one or more 5-ft squares						DURATION:(CASTERLEVEL) rounds																										SOURCEPAGE:p.86	SOURCELINK:https://www.d20pfsrd.com/magic/3rd-party-spells/ascension-games/create-caltrops					DESC:This basic spell scatters a number of mundane caltrops in	DESC:a single 5-foot square|PREVARLT:VanguardLVL,4	DESC:%1 5-foot squares|1+min(floor(VanguardLVL/4),2)	DESC:within range. These function like any ordinary caltrops, except that they disappear at the end of the spell's duration. Damage and crippling effects caused by stepping on the caltrops remain. Multiple Create Caltrops effects or mundane caltrops occupying the same space have no additional effect.|PRERULE:1,DisplayFullSpell
+Fling						CLASSES:Bard,Magus,Sorcerer,Vanguard,Wizard=0							SCHOOL:Transmutation													COMPS:V, S						CASTTIME:1 standard action	RANGE:Close					TARGETAREA:object weighing no more than (min(CASTERLEVEL*2,20)) lbs				DURATION:instantaneous																											SOURCEPAGE:p.90	SOURCELINK:https://www.d20pfsrd.com/magic/3rd-party-spells/ascension-games/fling							DESC:This simple spell allows you to hurl a small object a moderate distance. You must have the object in hand, and it cannot weigh more than %1 pounds. You can fling the object to any location in range, using your caster level + your Intelligence, Wisdom, or Charisma modifier (whichever is highest) to throw the object. &nl;You can also throw the object at a creature, though the object is not thrown with enough force to harm it. However, you can use Fling to throw a splash weapon, such as a vial of alchemist fire, from a longer distance, harming the targets hit as normal.|min(CASTERLEVEL*2,20)|PRERULE:1,DisplayFullSpell
+Hastening Discharge			CLASSES:Vanguard=1											SCHOOL:Transmutation													COMPS:V						CASTTIME:1 swift action		RANGE:Medium				TARGETAREA:20-ft radius burst											DURATION:instantaneous								SAVEINFO:Fortitude negates (harmless)						SPELLRES:Yes (harmless)				SOURCEPAGE:p.92	SOURCELINK:https://www.d20pfsrd.com/magic/3rd-party-spells/ascension-games/hastening-discharge					DESC:You must have a resonance in effect to cast this spell. With a single command you release the resonant energy built up between you and your companion in a wave of accelerating force, ending the resonance immediately. Each ally within 20 feet of your construct companion is immediately accelerated, allowing it to move 5 feet as a free action without provoking attacks of opportunity. This does not count as a 5-foot step. Your construct companion does not gain this benefit. At 11th caster level, each ally can move 10 feet instead. &nl;The magical effect of the resonance allows it to discern between friend and foe; enemies are not affected by the hastening discharge.|PRERULE:1,DisplayFullSpell
+Blinding Discharge			CLASSES:Vanguard=2											SCHOOL:Evocation						DESCRIPTOR:light						COMPS:V						CASTTIME:1 swift action		RANGE:Medium				TARGETAREA:15-ft radius burst											DURATION:instantaneous								SAVEINFO:Reflex partial									SPELLRES:Yes					SOURCEPAGE:p.83	SOURCELINK:https://www.d20pfsrd.com/magic/3rd-party-spells/ascension-games/blinding-discharge					DESC:You must have a resonance in effect to cast this spell. With a single command you release the resonant energy built up between you and your companion in a brilliant flash, ending the resonance immediately. Enemies within 15 feet of your construct companion must make Reflex save or be blinded for 1 round. A Reflex save makes them dazzled for 1 round instead. &nl;The magical effect of the resonance allows it to discern between friend and foe; allies are not affected by the blinding discharge.|PRERULE:1,DisplayFullSpell
+Rejuvenating Discharge			CLASSES:Vanguard=3											SCHOOL:Conjuration	SUBSCHOOL:Healing										COMPS:V						CASTTIME:1 swift action		RANGE:Medium				TARGETAREA:20-ft radius burst											DURATION:instantaneous								SAVEINFO:Will half (harmless)								SPELLRES:Yes (harmless)				SOURCEPAGE:p.97	SOURCELINK:https://www.d20pfsrd.com/magic/3rd-party-spells/ascension-games/rejuvenating-discharge				DESC:You must have a resonance in effect to cast this spell. With a single command you release the resonant energy built up between you and your companion in a wave of healing energy, ending the resonance immediately. Each ally within 20 feet of your construct companion is healed, recovering 2d8 hit points. This spell has no effect on undead creatures, but can heal construct creatures (including your companion). &nl;The magical effect of the resonance allows it to discern between friend and foe; enemies are not affected by the rejuvenating discharge.|PRERULE:1,DisplayFullSpell
+Forceful Discharge			CLASSES:Vanguard=4											SCHOOL:Evocation						DESCRIPTOR:force						COMPS:V						CASTTIME:1 swift action		RANGE:Medium				TARGETAREA:20-ft radius burst											DURATION:instantaneous								SAVEINFO:Reflex partial									SPELLRES:Yes					SOURCEPAGE:p.91	SOURCELINK:https://www.d20pfsrd.com/magic/3rd-party-spells/ascension-games/forceful-discharge					DESC:You must have a resonance in effect to cast this spell. With a single command you release the resonant energy built up between you and your companion in a wave of force energy, ending the resonance immediately. Each enemy within 20 feet of your construct companion takes 3d8 force damage, is pushed back to the edge of spell's area, and is finally knocked prone. A Reflex save negates the pushing and prone effects but not the damage. &nl;The magical effect of the resonance allows it to discern between friend and foe; allies are not affected by the forceful discharge.|PRERULE:1,DisplayFullSpell
+Protective Discharge			CLASSES:Vanguard=5											SCHOOL:Abjuration														COMPS:V						CASTTIME:1 swift action		RANGE:Medium				TARGETAREA:20-ft radius burst											DURATION:1 round									SAVEINFO:Will negates (harmless)							SPELLRES:Yes (harmless)				SOURCEPAGE:p.95	SOURCELINK:https://www.d20pfsrd.com/magic/3rd-party-spells/ascension-games/protective-discharge					DESC:You must have a resonance in effect to cast this spell. With a single command you release the resonant energy built up between you and your companion in a wave of protective energy, ending the resonance immediately. Each ally within 20 feet of your construct companion gains a +%1 deflection bonus to AC for 1 round. &nl;The magical effect of the resonance allows it to discern between friend and foe; enemies are not affected by the protective discharge.|CASTERLEVEL|PRERULE:1,DisplayFullSpell
+Static Discharge				CLASSES:Vanguard=6											SCHOOL:Evocation						DESCRIPTOR:electricity					COMPS:V						CASTTIME:1 swift action		RANGE:Medium				TARGETAREA:20-ft radius burst											DURATION:instantaneous								SAVEINFO:Fortitude partial								SPELLRES:Yes					SOURCEPAGE:p.101	SOURCELINK:https://www.d20pfsrd.com/magic/3rd-party-spells/ascension-games/static-discharge					DESC:You must have a resonance in effect to cast this spell. With a single command you release the resonant energy built up between you and your companion in a wave of stunning energy, ending the resonance immediately. Each enemy within 20 feet of your construct companion takes 4d6 electricity damage and is stunned for 1 round. A Fortitude save reduces the stunning effect to being only staggered for 1 round instead. &nl;The magical effect of the resonance allows it to discern between friend and foe; allies are not affected by the static discharge.|PRERULE:1,DisplayFullSpell
+Enable Function				CLASSES:Sorcerer,Vanguard,Wizard=2									SCHOOL:Transmutation													COMPS:V, S						CASTTIME:1 round			RANGE:Touch					TARGETAREA:construct touched											DURATION:(CASTERLEVEL*10) minutes						SAVEINFO:Will negates (harmless)							SPELLRES:Yes (harmless)				SOURCEPAGE:p.89	SOURCELINK:https://www.d20pfsrd.com/magic/3rd-party-spells/ascension-games/enable-function					DESC:Enable Function allows you to grant new abilities to a construct. You can grant it either ranks in a skill or a specific feat. &nl;If you grant it ranks in a skill, you must choose a single skill. You grant it either a number of ranks in that skill equal to half your caster level (max 10) or equal to your own ranks in the skill (max 20). A non-intelligent construct cannot be granted ranks in an Intelligence- or Charisma-based skill. &nl;If you grant it a feat, the construct gains a single feat of your choice. It must be one that the construct can qualify for. &nl;You can cast Enable Function multiple times on a given construct; however, any feats or skill ranks granted by Enable Function cannot be used to meet prerequisites of feats granted by further castings of the spell.|PRERULE:1,DisplayFullSpell
+Steadfast Companion			CLASSES:Paladin,Ranger,Summoner,Vanguard=2|Druid,Shaman,Sorcerer,Wizard,Witch=3	SCHOOL:Enchantment					DESCRIPTOR:emotion,mind-affecting			COMPS:V, S						CASTTIME:1 standard action	RANGE:Close					TARGETAREA:your companion											DURATION:(CASTERLEVEL) minutes						SAVEINFO:Will negates (harmless)							SPELLRES:No						SOURCEPAGE:p.102	SOURCELINK:https://www.d20pfsrd.com/magic/3rd-party-spells/ascension-games/steadfast-companion					DESC:Steadfast Companion is used by those that bond with another creature to strengthen their connection, making their companion devoted in the face of hardship. &nl;Steadfast Companion can only be cast on your companion creature, such as an animal companion, construct companion, eidolon, familiar, or a paladin's mount. Your companion gains a +4 resistance bonus on saves against mind-affecting effects and gains immunity to fear effects. In addition, upon casting Steadfast Companion your companion immediately receives a second saving throw to negate any harmful mind-affecting effect it is currently subject to (with the +4 resistance bonus granted by the spell), using the same DC as the original effect. If successful, the effect ends (or is reduced, in the case of spells with a partial effect on a save) as if your companion had succeeded its initial saving throw against the spell.|PRERULE:1,DisplayFullSpell
+Armament Reservoir			CLASSES:Magus,Sorcerer,Vanguard,Wizard=2								SCHOOL:Transmutation													COMPS:V, S						CASTTIME:1 standard action	RANGE:Touch					TARGETAREA:weapon or armor touched										DURATION:(CASTERLEVEL*10) minutes						SAVEINFO:Will negates (harmless, object)						SPELLRES:Yes (harmless, object)		SOURCEPAGE:p.82	SOURCELINK:https://www.d20pfsrd.com/magic/3rd-party-spells/ascension-games/armament-reservoir					DESC:This spell allows a creature to channel spells through his equipment, granting the touched armor or weapon the spell storing property. The wielder can use this special property multiple times throughout the duration. &nl;Multiple spell storing effects on a given piece of equipment do not stack. If a spell is stored in the armor or weapon when Armament Reservoir ends or is dispelled, the stored spell dissipates harmlessly to no effect. You cannot cast this spell on an unarmed strike or a natural weapon, such as a claw.|PRERULE:1,DisplayFullSpell
+Squire's Aid				CLASSES:Antipaladin,Bard,Cleric,Inquisitor,Magus,Paladin,Vanguard=1			SCHOOL:Conjuration	SUBSCHOOL:Teleportation									COMPS:S						CASTTIME:10 minutes		RANGE:Close					TARGETAREA:unattended objects within a 10-ft cube							DURATION:8 hours until discharged						SAVEINFO:None										SPELLRES:No						SOURCEPAGE:p.101	SOURCELINK:https://www.d20pfsrd.com/magic/3rd-party-spells/ascension-games/squire-s-aid						DESC:A handy spell when ambushed during a rest, Squire's Aid packs up belongings and equips creatures. &nl;All objects to be targeted by Squire's Aid must be within a 10-foot cube at the time of casting. All objects are then marked with a small arcane mark that is unreadable, except by means of a Read Magic spell, to anyone but you. Once the objects are marked, they can be thereafter moved about without any issue. &nl;At any point during the spell's duration, you can use a standard action to trigger the effects of Squire's Aid, after which the spell is discharged. All marked objects are packed into their respective containers; bedrolls are rolled and bound, mess kits are cleaned and packed, and bags of supplies are repacked for transportation. Any wearable equipment can be packed in an organized fashion or equipped to nearby creatures, donning the armor and clothing neatly and appropriately for the creature. A creature is aware of what gear you are equipping it with and can prevent you from doing so should it not want you to (no check needed). &nl;All objects that you wish to pack or don or any creatures you wish to equip must be within range of the spell at the time of you triggering these effects, otherwise the effect fails on that particular object or creature.|PRERULE:1,DisplayFullSpell
+Detect Metals and Ores			CLASSES:Alchemist,Ranger,Sorcerer,Vanguard,Wizard=1						SCHOOL:Divination						DESCRIPTOR:metal						COMPS:V, S, F (a small bit of iron ore)	CASTTIME:1 standard action	RANGE:60 ft or Long (see text)	TARGETAREA:cone-shaped emanation										DURATION:concentration, up to (CASTERLEVEL) minutes			SAVEINFO:None										SPELLRES:No						SOURCEPAGE:p.88	SOURCELINK:https://www.d20pfsrd.com/magic/3rd-party-spells/ascension-games/detect-metals-and-ores				DESC:This spell allows you to detect metal within its area, either worked or unrefined. When you cast Detect Metals and Ores, you must designate whether you want to find either metal or metal ore. The spell functions differently depending on your choice. &nl;If you choose to detect metal, the spell detects all worked metal in a 60-foot cone. This includes weapons, armor, doors, tools, constructs, and so on that are made of a refined metal or metal alloy. This version of the spell can penetrate barriers, but 3 feet of wood or dirt or 1 foot of stone blocks it. &nl;If you choose to detect ores, the spell detects all unrefined metal within a long range (400 ft. + 40 ft./ level). This version is not blocked by barriers, wood, dirt, or stone, but can only detect unrefined ore, whether it has been mined or is still in the ground. Metal that has been smelted down or refined in any way is not detected by this version of the spell. &nl;With either choice, you can choose to detect a specific form of metal (such as iron, mithral, or gold), in which case the spell only shows you the location of that metal and no others.|PRERULE:1,DisplayFullSpell
+Refine Ore					CLASSES:Sorcerer,Vanguard,Wizard=2									SCHOOL:Transmutation					DESCRIPTOR:earth,metal					COMPS:V, S, M (a lump of coal)		CASTTIME:1 minute			RANGE:Close					TARGETAREA:unrefined ore with a total volume less than (5*CASTERLEVEL) cu ft			DURATION:instantaneous								SAVEINFO:None										SPELLRES:No						SOURCEPAGE:p.97	SOURCELINK:https://www.d20pfsrd.com/magic/3rd-party-spells/ascension-games/refine-ore						DESC:You turn unrefined ore into usable materials. Refine Ore smelts all metals within the ore into usable ingots, and pulls out all valuable gems without damaging them (though it leaves the gemstones rough and uncut). The amount of ore and gemstones found within the ore is subject to GM discretion. &nl;The spell generates no heat, and the stone that would be left behind after the metal and gems have been extracted is compacted into 1-foot cubes for transportation. Refine Ore can only be used on ore that has been mined out and separated from the surrounding stone; you cannot cast it on the walls of a mineshaft and extract any materials, for example.|PRERULE:1,DisplayFullSpell
+Energy Weapon				CLASSES:Bloodrager,Magus,Ranger,Sorcerer,Vanguard,Wizard=2					SCHOOL:Transmutation													COMPS:V, S						CASTTIME:1 standard action	RANGE:Touch					TARGETAREA:weapon touched											DURATION:(CASTERLEVEL) minutes						SAVEINFO:Will negates (harmless, object)						SPELLRES:Yes (harmless, object)		SOURCEPAGE:p.89	SOURCELINK:https://www.d20pfsrd.com/magic/3rd-party-spells/ascension-games/energy-weapon						DESC:This spell functions as Magic Weapon, except that instead of granting a +1 enhancement bonus you instead grant the weapon your choice of either the flaming, frost, or shock special weapon property. Duplicate abilities on a weapon do not stack. &nl;At 11th caster level and higher, you can instead grant the weapon flaming burst, icy burst, or shocking burst.|PRERULE:1,DisplayFullSpell
+Weaken Structure				CLASSES:Bloodrager,Cleric,Druid,Shaman,Sorcerer,Vanguard,Wizard,Witch=2			SCHOOL:Transmutation													COMPS:V, S						CASTTIME:1 standard action	RANGE:Close					TARGETAREA:section of an object or structure within one (5*CASTERLEVEL)-ft cube		DURATION:(CASTERLEVEL) minutes						SAVEINFO:Fortitude negates (object)							SPELLRES:Yes (object)				SOURCEPAGE:p.107	SOURCELINK:https://www.d20pfsrd.com/magic/3rd-party-spells/ascension-games/weaken-structure					DESC:This spell reduces the structural integrity of an object or a structure. Weaken structure affects one %1-foot cube of material; if the target is too large to fit in this area, only the portion within the area is affected. &nl;The affected portion of the object or structure is made more vulnerable to damage, reducing its hardness by 10 (minimum 0) and reducing its hit points to 10 per inch of thickness; if the object already has less than 10 hit points per inch or thickness (such as ice or leather), it is reduced to 1 hit point per inch of thickness. &nl;The effects of weaken structure are removed after the spell ends, but any portions of the structure damaged or destroyed during the spell remain that way.|5*CASTERLEVEL|PRERULE:1,DisplayFullSpell
+Unchain Companion				CLASSES:Vanguard=2											SCHOOL:Transmutation													COMPS:V, S, M (a broken chain)		CASTTIME:1 standard action	RANGE:Medium				TARGETAREA:your construct companion										DURATION:(CASTERLEVEL*10) minutes						SAVEINFO:None										SPELLRES:No						SOURCEPAGE:p.106	SOURCELINK:https://www.d20pfsrd.com/magic/3rd-party-spells/ascension-games/unchain-companion					DESC:This spell breaks the link between you and your companion. This spell allows your construct companion to venture more than 100 feet away from you without penalty (or greater distance, if the companion has the greater link ability). It can travel any distance while this spell is in effect without penalty, but if the spell expires while the construct is farther than its link allows, it runs the risk becoming staggered or shutting down entirely.|PRERULE:1,DisplayFullSpell
+Steel Sight					CLASSES:Druid,Shaman,Sorcerer,Vanguard,Wizard=2							SCHOOL:Divination						DESCRIPTOR:metal						COMPS:V, S, M (one silver coin)		CASTTIME:1 standard action	RANGE:60 ft					TARGETAREA:cone-shaped emanation										DURATION:(CASTERLEVEL) minutes						SAVEINFO:None										SPELLRES:No						SOURCEPAGE:p.102	SOURCELINK:https://www.d20pfsrd.com/magic/3rd-party-spells/ascension-games/steel-sight						DESC:When you cast this spell, your eyes glaze over with a silver sheen before polishing, appearing as though your eyes were actually mirrors. &nl;Steel Sight lets you see through metal as if it were invisible. You can see through walls, armor, weapons, containers, objects, and creatures that are made of metal. This can even penetrate metals that normally block divinations, such as lead. However, this does not allow any other divination effects you have active to bypass metal. &nl;Normally you see through any sort of metal, but you can designate either a specific metal to see through, or see through all metals save for a specific type.|PRERULE:1,DisplayFullSpell
+Ward Object					CLASSES:Cleric,Druid,Shaman,Sorcerer,Summoner,Vanguard,Wizard=2				SCHOOL:Abjuration														COMPS:V, S						CASTTIME:1 standard action	RANGE:Touch					TARGETAREA:object touched											DURATION:(CASTERLEVEL) hours or until discharged			SAVEINFO:Will negates (harmless, object)						SPELLRES:Yes (harmless, object)		SOURCEPAGE:p.107	SOURCELINK:https://www.d20pfsrd.com/magic/3rd-party-spells/ascension-games/ward-object						DESC:This spell functions as Protection from Energy, except it can only affect objects and lasts for much longer.|PRERULE:1,DisplayFullSpell
+Combustion					CLASSES:Bloodrager,Magus,Sorcerer,Vanguard,Wizard=3						SCHOOL:Evocation						DESCRIPTOR:fire						COMPS:V, S, M (a tindertwig)			CASTTIME:1 standard action	RANGE:Medium				TARGETAREA:one creature or object										DURATION:%1 rounds|1+floor(CASTERLEVEL/2)					SAVEINFO:Fortitude half (object)							SPELLRES:Yes (object)				SOURCEPAGE:p.85	SOURCELINK:https://www.d20pfsrd.com/magic/3rd-party-spells/ascension-games/combustion						DESC:The targeted creature or object bursts into flames, taking 4d4 fire damage. The fire lingers an additional %1 rounds, dealing an additional 4d4 fire damage each round. A Fortitude save can be made to halve the fire damage in that round only. &nl;A creature or object that is submersed in water stops burning and takes no damage so long as it remains submersed, but if it emerges from the water while combustion has duration remaining, the target is set alight again. Particularly flammable objects or constructs, such as those made of wood or cloth, or are covered in flammable oils, may have their hardness bypassed and take full damage from combustion (rather than the normal half), subject to GM discretion.|floor(CASTERLEVEL/2)|PRERULE:1,DisplayFullSpell
+Reconstruct					CLASSES:Cleric,Sorcerer,Vanguard,Wizard=5								SCHOOL:Transmutation													COMPS:V, S, see text				CASTTIME:1 minute			RANGE:Close					TARGETAREA:object of up to (20*CASTERLEVEL) cu ft or one construct creature of any size	DURATION:instantaneous								SAVEINFO:Will negates (harmless, object)						SPELLRES:Yes (harmless, object)		SOURCEPAGE:p.96	SOURCELINK:https://www.d20pfsrd.com/magic/3rd-party-spells/ascension-games/reconstruct						DESC:This spell functions like Make Whole, except when used on an object or construct it restores it to its full hit points. Reconstruct can repair any items that Make Whole can. &nl;Reconstruct has a more powerful function that allows its caster to rebind the animating forces to a destroyed construct, essentially raising it from "death". The construct cannot have been destroyed for more than %1 days. The construct is repaired to half its maximum hit points. While reconstruct fixes nearly any sort of damage or disrepair, the body of the construct must be whole. Any missing parts remain missing and must be repaired by other means, usually through the use of the Craft Construct feat, subject to GM discretion. &nl;Reconstructing a destroyed construct requires a material component consisting of precious gemstones such as rubies, sapphires, or diamonds worth a total of 500 gp per hit die of the destroyed construct. When targeting a construct, Reconstruct bypasses any immunity to magic as if the spell did not allow spell resistance.|CASTERLEVEL|PRERULE:1,DisplayFullSpell
+Replicate					CLASSES:Magus,Sorcerer,Wizard=6|Vanguard=5							SCHOOL:Conjuration	SUBSCHOOL:Creation									COMPS:V, S						CASTTIME:1 standard action	RANGE:Close					TARGETAREA:object weighing no more than (5*CASTERLEVEL) lbs						DURATION:(CASTERLEVEL) minutes						SAVEINFO:None										SPELLRES:No						SOURCEPAGE:p.97	SOURCELINK:https://www.d20pfsrd.com/magic/3rd-party-spells/ascension-games/replicate						DESC:You create a replica of an existing object. The replicated object appears in your hand if you desire, or in the hands of a willing creature within range of the spell, otherwise it appears in the nearest open space. The object has the same shape, size, coloration, weight, and use as the original, appearing to be an exact replica, though it does not have any magical properties. An Appraise check or appropriate Craft or Knowledge check can be made to identify that it's not the original object. The DC of this check is %1 for the Craft check, or %2 when making an Appraise or Knowledge check. &nl;If the original object is masterwork, so is the duplicate. The new object has the same material properties as the original, even if made out of a special material like adamantine or cold iron. If the original object has less than full hit points, you can make the replicated item have the same hit points or be created with full hit points, even if the original item has the broken condition (but is not destroyed). The replicated item does not have any magical properties of the original. &nl;You cannot replicate an artifact with this spell.|CASTERLEVEL+15|CASTERLEVEL+20|PRERULE:1,DisplayFullSpell
+Vanguard's Call				CLASSES:Vanguard=5											SCHOOL:Conjuration	SUBSCHOOL:Teleportation									COMPS:V, S						CASTTIME:1 standard action	RANGE:see text				TARGETAREA:your construct companion										DURATION:instantaneous								SAVEINFO:None										SPELLRES:No						SOURCEPAGE:p.106	SOURCELINK:https://www.d20pfsrd.com/magic/3rd-party-spells/ascension-games/vanguard-s-call					DESC:You instantly summon your construct companion to your side, similarly to a Call Construct spell with no material component required. The companion appears anywhere within 100 feet of you that you designate. &nl;If your construct companion is destroyed, the spell fails, but you know roughly where your companion's remains are. This spell does not work across planes.|PRERULE:1,DisplayFullSpell
+
+Spikes					CLASSES:Antipaladin,Bloodrager,Cleric,Magus,Sorcerer,Vanguard,Wizard=2			SCHOOL:Transmutation					DESCRIPTOR:metal						COMPS:V, S						CASTTIME:1 standard action	RANGE:Close					TARGETAREA:see text												DURATION:(CASTERLEVEL) minutes						SAVEINFO:Will negates (object)							SPELLRES:Yes (object, see text)		SOURCEPAGE:p.100	SOURCELINK:https://www.d20pfsrd.com/magic/3rd-party-spells/ascension-games/spikes							DESC:Spikes is a versatile spell that causes sharp, metallic spikes to grow from a surface, object, or creature. The uses of spikes vary greatly, as shown below:|PRERULE:1,DisplayFullSpell
+Spikes.MOD						DESC:&nl;* You can cover a weapon in spikes. A weapon with spikes can be used to deal piercing damage (if it couldn't already) and causes creatures struck to take 1 point of bleeding damage each round.|PRERULE:1,DisplayFullSpell
+Spikes.MOD						DESC:&nl;* You can make the outside of a single suit of armor or a shield spiky, treating it as having armor spikes or shield spikes respectively.|PRERULE:1,DisplayFullSpell
+Spikes.MOD						DESC:&nl;* You can cause the handle of a weapon or shield to become spiky. The creature carrying it takes 1d6 piercing damage each round unless it drops the item.|PRERULE:1,DisplayFullSpell
+Spikes.MOD						DESC:&nl;* You can cause a relatively flat surface to grow spikes, affecting a space up to one 5-foot square per caster level (max 10 squares). The spaces are treated as having caltrops scattered within them, though the spikes deal 1d6 damage instead of just 1.|PRERULE:1,DisplayFullSpell
+Spikes.MOD						DESC:&nl;* You can make a creature's skin grow spikes. You can affect all or some of its body. The target's natural attacks and unarmed strikes deal piercing damage, and any creature striking the target with natural weapons or grappling it takes 1d6 points of piercing damage (this damage occurs each round it is grappled).|PRERULE:1,DisplayFullSpell
+Spikes.MOD						DESC:&nl;* You can make a single unattended object spiky all over. The object cannot exceed %1 cubic feet. Any creature that carries, wears, touches, or wields the object takes 1d6 piercing damage each round.|min(2*CASTERLEVEL,20)|PRERULE:1,DisplayFullSpell
+Spikes.MOD						DESC:&nl;The spell can create any other effect that would logically extend from making an object spiky, such as growing spikes from boots or a wagon wheel to create traction, subject to GM discretion. A creature or magic item that does not wish to receive a spikes spell can make a Will save to negate its effects, and spell resistance applies. Non-magic items do not receive a saving throw unless they are attended.|PRERULE:1,DisplayFullSpell
+
+###BLOCK: Spell's short descriptions
+# Spell Name					Description
+Conjure Tool.MOD					DESC:Conjures a simple mundane tool.|!PRERULE:1,DisplayFullSpell
+Constructed Anatomy.MOD				DESC:Take on the form of a half-construct, gaining several benefits.|!PRERULE:1,DisplayFullSpell
+Create Caltrops.MOD				DESC:Caltrops fill one or more 5-ft. squares.|!PRERULE:1,DisplayFullSpell
+Fling.MOD						DESC:Launch a lightweight object.|!PRERULE:1,DisplayFullSpell
+Hastening Discharge.MOD				DESC:End resonance to let allies move instantly.|!PRERULE:1,DisplayFullSpell
+Blinding Discharge.MOD				DESC:End resonance to blind enemies.|!PRERULE:1,DisplayFullSpell
+Rejuvenating Discharge.MOD			DESC:End resonance to cure 2d8 damage for allies.|!PRERULE:1,DisplayFullSpell
+Forceful Discharge.MOD				DESC:End resonance to deal 3d8 force damage, push back foes.|!PRERULE:1,DisplayFullSpell
+Protective Discharge.MOD			DESC:End resonance to increase allies' AC by +%1.|CASTERLEVEL|!PRERULE:1,DisplayFullSpell
+Static Discharge.MOD				DESC:End resonance to deal 4d6 electricity damage, stun foes.|!PRERULE:1,DisplayFullSpell
+Enable Function.MOD				DESC:Grant a feat or skill ranks to a construct.|!PRERULE:1,DisplayFullSpell
+Steadfast Companion.MOD				DESC:Companion becomes resistant to mind-affecting effects, immune to fear.|!PRERULE:1,DisplayFullSpell
+Armament Reservoir.MOD				DESC:Weapon or armor gains the spell storing property.|!PRERULE:1,DisplayFullSpell
+Spikes.MOD						DESC:Target grows metallic spikes.|!PRERULE:1,DisplayFullSpell
+Squire's Aid.MOD					DESC:Quickly pack gear and don equipment.|!PRERULE:1,DisplayFullSpell
+Detect Metals and Ores.MOD			DESC:Locate worked metals and unworked metal ores.|!PRERULE:1,DisplayFullSpell
+Refine Ore.MOD					DESC:Turn unrefined ore into usable materials.|!PRERULE:1,DisplayFullSpell
+Energy Weapon.MOD					DESC:Weapon gains elemental properties.|!PRERULE:1,DisplayFullSpell
+Weaken Structure.MOD				DESC:Target object or structure has its hardness and hit points reduced.|!PRERULE:1,DisplayFullSpell
+Unchain Companion.MOD				DESC:Remove distance restrictions on construct companion.|!PRERULE:1,DisplayFullSpell
+Steel Sight.MOD					DESC:See through metal as if it were invisible.|!PRERULE:1,DisplayFullSpell
+Ward Object.MOD					DESC:As Protection from Energy, but lasting longer and only affecting objects.|!PRERULE:1,DisplayFullSpell
+Combustion.MOD					DESC:Target object or creature burns, taking 4d4 fire damage each round.|!PRERULE:1,DisplayFullSpell
+Reconstruct.MOD					DESC:Restore object or construct to full hit points, reanimate destroyed constructs.|!PRERULE:1,DisplayFullSpell
+Replicate.MOD					DESC:Create an exact replica of an object.|!PRERULE:1,DisplayFullSpell
+Vanguard's Call.MOD				DESC:Teleport your construct companion.|!PRERULE:1,DisplayFullSpell
+
+###BLOCK: TEMPBONUSes
+# Spell Name				Temporary effect description								Temporary Bonus																								TEMPVALUE
+Constructed Anatomy.MOD															TEMPBONUS:PC|STAT|STR|2|TYPE=Size		TEMPBONUS:PC|VAR|AC_Natural_Armor|2|TYPE=Base.STACK
+
+
+# Spell Name				Classes of caster
+Acid Splash.MOD				CLASSES:Vanguard=0
+Arcane Mark.MOD				CLASSES:Vanguard=0
+Detect Magic.MOD				CLASSES:Vanguard=0
+Know Direction.MOD			CLASSES:Vanguard=0
+Light.MOD					CLASSES:Vanguard=0
+Mage Hand.MOD				CLASSES:Vanguard=0
+Mending.MOD					CLASSES:Vanguard=0
+Message.MOD					CLASSES:Vanguard=0
+Open/Close.MOD				CLASSES:Vanguard=0
+Read Magic.MOD				CLASSES:Vanguard=0
+Spark.MOD					CLASSES:Vanguard=0
+
+Abundant Ammunition.MOD			CLASSES:Vanguard=1
+Alchemical Tinkering.MOD		CLASSES:Vanguard=1
+Animate Rope.MOD				CLASSES:Vanguard=1
+Ant Haul.MOD				CLASSES:Vanguard=1
+Anticipate Peril.MOD			CLASSES:Vanguard=1
+Blade Lash.MOD				CLASSES:Vanguard=1
+Break.MOD					CLASSES:Vanguard=1
+Bungle.MOD					CLASSES:Vanguard=1
+Burning Hands.MOD				CLASSES:Vanguard=1
+Compel Hostility.MOD			CLASSES:Vanguard=1
+Corrosive Touch.MOD			CLASSES:Vanguard=1
+Crafter's Curse.MOD			CLASSES:Vanguard=1
+Crafter's Fortune.MOD			CLASSES:Vanguard=1
+Cure Light Wounds.MOD			CLASSES:Vanguard=1
+Damp Powder.MOD				CLASSES:Vanguard=1
+Dancing Lantern.MOD			CLASSES:Vanguard=1
+Detect Secret Doors.MOD			CLASSES:Vanguard=1
+Enlarge Person.MOD			CLASSES:Vanguard=1
+Erase.MOD					CLASSES:Vanguard=1
+Expeditious Retreat.MOD			CLASSES:Vanguard=1
+Fabricate Bullets.MOD			CLASSES:Vanguard=1
+Feather Fall.MOD				CLASSES:Vanguard=1
+Glue Seal.MOD				CLASSES:Vanguard=1
+Gravity Bow.MOD				CLASSES:Vanguard=1
+Grease.MOD					CLASSES:Vanguard=1
+Heightened Awareness.MOD		CLASSES:Vanguard=1
+Hold Portal.MOD				CLASSES:Vanguard=1
+Identify.MOD				CLASSES:Vanguard=1
+Ironbeard.MOD				CLASSES:Vanguard=1
+Jury-Rig.MOD				CLASSES:Vanguard=1
+Lead Blades.MOD				CLASSES:Vanguard=1
+Liberating Command.MOD			CLASSES:Vanguard=1
+Line in the Sand.MOD			CLASSES:Vanguard=1
+Longshot.MOD				CLASSES:Vanguard=1
+Magic Aura.MOD				CLASSES:Vanguard=1
+Magic Weapon.MOD				CLASSES:Vanguard=1
+Mirror Polish.MOD				CLASSES:Vanguard=1
+Peacebond.MOD				CLASSES:Vanguard=1
+Reduce Person.MOD				CLASSES:Vanguard=1
+Refine Improvised Weapon.MOD		CLASSES:Vanguard=1
+Reinforce Armaments.MOD			CLASSES:Vanguard=1
+Shield.MOD					CLASSES:Vanguard=1
+Shield of Fortification.MOD		CLASSES:Vanguard=1
+Shock Shield.MOD				CLASSES:Vanguard=1
+Shocking Grasp.MOD			CLASSES:Vanguard=1
+Sunder Breaker.MOD			CLASSES:Vanguard=1
+Sundering Shards.MOD			CLASSES:Vanguard=1
+Theft Ward.MOD				CLASSES:Vanguard=1
+Touch of Combustion.MOD			CLASSES:Vanguard=1
+True Strike.MOD				CLASSES:Vanguard=1
+Unerring Weapon.MOD			CLASSES:Vanguard=1
+Unseen Servant.MOD			CLASSES:Vanguard=1
+Warding Weapon.MOD			CLASSES:Vanguard=1
+Weaken Powder.MOD				CLASSES:Vanguard=1
+
+Ablative Barrier.MOD			CLASSES:Vanguard=2
+Acid Arrow.MOD				CLASSES:Vanguard=2
+Ant Haul (Communal).MOD			CLASSES:Vanguard=2
+Arcane Lock.MOD				CLASSES:Vanguard=2
+Arrow Eruption.MOD			CLASSES:Vanguard=2
+Badger's Ferocity.MOD			CLASSES:Vanguard=2
+Bear's Endurance.MOD			CLASSES:Vanguard=2
+Bestow Weapon Proficiency.MOD		CLASSES:Vanguard=2
+Brow Gasher.MOD				CLASSES:Vanguard=2
+Bullet Shield.MOD				CLASSES:Vanguard=2
+Bull's Strength.MOD			CLASSES:Vanguard=2
+Bullet Ward.MOD				CLASSES:Vanguard=2
+Cat's Grace.MOD				CLASSES:Vanguard=2
+Chill Metal.MOD				CLASSES:Vanguard=2
+Cure Moderate Wounds.MOD		CLASSES:Vanguard=2
+Defensive Shock.MOD			CLASSES:Vanguard=2
+Destabilize Powder.MOD			CLASSES:Vanguard=2
+Eagle's Splendor.MOD			CLASSES:Vanguard=2
+Effortless Armor.MOD			CLASSES:Vanguard=2
+Find Traps.MOD				CLASSES:Vanguard=2
+Flaming Sphere.MOD			CLASSES:Vanguard=2
+Fox's Cunning.MOD				CLASSES:Vanguard=2
+Heat Metal.MOD				CLASSES:Vanguard=2
+Kinetic Reverberation.MOD		CLASSES:Vanguard=2
+Knock.MOD					CLASSES:Vanguard=2
+Levitate.MOD				CLASSES:Vanguard=2
+Magic Siege Engine.MOD			CLASSES:Vanguard=2
+Make Whole.MOD				CLASSES:Vanguard=2
+Masterwork Transformation.MOD		CLASSES:Vanguard=2
+Mirror Hideaway.MOD			CLASSES:Vanguard=2
+Molten Orb.MOD				CLASSES:Vanguard=2
+Owl's Wisdom.MOD				CLASSES:Vanguard=2
+Protection from Arrows.MOD		CLASSES:Vanguard=2
+Pyrotechnics.MOD				CLASSES:Vanguard=2
+Recoil Fire.MOD				CLASSES:Vanguard=2
+Reinforce Armaments (Communal).MOD	CLASSES:Vanguard=2
+Reloading Hands.MOD			CLASSES:Vanguard=2
+Resist Energy.MOD				CLASSES:Vanguard=2
+Returning Weapon.MOD			CLASSES:Vanguard=2
+Ricochet Shot.MOD				CLASSES:Vanguard=2
+Rope Trick.MOD				CLASSES:Vanguard=2
+Scorching Ray.MOD				CLASSES:Vanguard=2
+Shatter.MOD					CLASSES:Vanguard=2
+Shield Other.MOD				CLASSES:Vanguard=2
+Silk to Steel.MOD				CLASSES:Vanguard=2
+Stabilize Powder.MOD			CLASSES:Vanguard=2
+Status.MOD					CLASSES:Vanguard=2
+Tactical Acumen.MOD			CLASSES:Vanguard=2
+Telekinetic Assembly.MOD		CLASSES:Vanguard=2
+Thunder Fire.MOD				CLASSES:Vanguard=2
+Versatile Weapon.MOD			CLASSES:Vanguard=2
+Whispering Wind.MOD			CLASSES:Vanguard=2
+
+Arcane Sight.MOD				CLASSES:Vanguard=3
+Burst of Speed.MOD			CLASSES:Vanguard=3
+Coordinated Effort.MOD			CLASSES:Vanguard=3
+Cure Serious Wounds.MOD			CLASSES:Vanguard=3
+Disable Construct.MOD			CLASSES:Vanguard=3
+Dispel Magic.MOD				CLASSES:Vanguard=3
+Fireball.MOD				CLASSES:Vanguard=3
+Flame Arrow.MOD				CLASSES:Vanguard=3
+Flash Fire.MOD				CLASSES:Vanguard=3
+Haste.MOD					CLASSES:Vanguard=3
+Heart of the Metal.MOD			CLASSES:Vanguard=3
+Hostile Levitation.MOD			CLASSES:Vanguard=3
+Improve Trap.MOD				CLASSES:Vanguard=3
+Keen Edge.MOD				CLASSES:Vanguard=3
+Lightning Bolt.MOD			CLASSES:Vanguard=3
+Locate Weakness.MOD			CLASSES:Vanguard=3
+Magic Vestment.MOD			CLASSES:Vanguard=3
+Magic Weapon (Greater).MOD		CLASSES:Vanguard=3
+Pellet Blast.MOD				CLASSES:Vanguard=3
+Protection from Arrows (Communal).MOD	CLASSES:Vanguard=3
+Protection from Energy.MOD		CLASSES:Vanguard=3
+Shield Companion.MOD			CLASSES:Vanguard=3
+Shield of Fortification (Greater).MOD	CLASSES:Vanguard=3
+Shrink Item.MOD				CLASSES:Vanguard=3
+Silver Darts.MOD				CLASSES:Vanguard=3
+Slow.MOD					CLASSES:Vanguard=3
+
+Ball Lightning.MOD			CLASSES:Vanguard=4
+Battlemind Link.MOD			CLASSES:Vanguard=4
+Cure Critical Wounds.MOD		CLASSES:Vanguard=4
+Dimension Door.MOD			CLASSES:Vanguard=4
+Enlarge Person (Mass).MOD		CLASSES:Vanguard=4
+Fire Shield.MOD				CLASSES:Vanguard=4
+Firefall.MOD				CLASSES:Vanguard=4
+Flaming Sphere (Greater).MOD		CLASSES:Vanguard=4
+Magic Siege Engine (Greater).MOD	CLASSES:Vanguard=4
+Minor Creation.MOD			CLASSES:Vanguard=4
+Mirror Transport.MOD			CLASSES:Vanguard=4
+Named Bullet.MOD				CLASSES:Vanguard=4
+Protection from Energy (Communal).MOD	CLASSES:Vanguard=4
+Reduce Person (Mass).MOD		CLASSES:Vanguard=4
+Rusting Grasp.MOD				CLASSES:Vanguard=4
+Secure Shelter.MOD			CLASSES:Vanguard=4
+Soothe Construct.MOD			CLASSES:Vanguard=4
+Stoneskin.MOD				CLASSES:Vanguard=4
+Vitriolic Mist.MOD			CLASSES:Vanguard=4
+Wall of Fire.MOD				CLASSES:Vanguard=4
+Wreath of Blades.MOD			CLASSES:Vanguard=4
+
+Acidic Spray.MOD				CLASSES:Vanguard=5
+Animate Objects.MOD			CLASSES:Vanguard=5
+Cure Light Wounds (Mass).MOD		CLASSES:Vanguard=5
+Dispel Magic (Greater).MOD		CLASSES:Vanguard=5
+Energy Siege Shot.MOD			CLASSES:Vanguard=5
+Fabricate.MOD				CLASSES:Vanguard=5
+Fire Snake.MOD				CLASSES:Vanguard=5
+Lightning Arc.MOD				CLASSES:Vanguard=5
+Major Creation.MOD			CLASSES:Vanguard=5
+Rapid Repair.MOD				CLASSES:Vanguard=5
+Sending.MOD					CLASSES:Vanguard=5
+Stoneskin (Communal).MOD		CLASSES:Vanguard=5
+Telekinesis.MOD				CLASSES:Vanguard=5
+Telepathic Bond.MOD			CLASSES:Vanguard=5
+Teleport.MOD				CLASSES:Vanguard=5
+Unbreakable Construct.MOD		CLASSES:Vanguard=5
+Wall of Iron.MOD				CLASSES:Vanguard=5
+Wall of Force.MOD				CLASSES:Vanguard=5
+
+Analyze Dweomer.MOD			CLASSES:Vanguard=6
+Arcane Cannon.MOD				CLASSES:Vanguard=6
+Bear's Endurance (Mass).MOD		CLASSES:Vanguard=6
+Bull's Strength (Mass).MOD		CLASSES:Vanguard=6
+Call Construct.MOD			CLASSES:Vanguard=6
+Cat's Grace (Mass).MOD			CLASSES:Vanguard=6
+Chain Lightning.MOD			CLASSES:Vanguard=6
+Chains of Fire.MOD			CLASSES:Vanguard=6
+Control Construct.MOD			CLASSES:Vanguard=6
+Cure Moderate Wounds (Mass).MOD	CLASSES:Vanguard=6
+Disintegrate.MOD				CLASSES:Vanguard=6
+Eagle's Splendor (Mass).MOD		CLASSES:Vanguard=6
+Energy Siege Shot (Greater).MOD	CLASSES:Vanguard=6
+Firebrand.MOD				CLASSES:Vanguard=6
+Fox's Cunning (Mass).MOD		CLASSES:Vanguard=6
+Getaway.MOD					CLASSES:Vanguard=6
+Iron Body.MOD				CLASSES:Vanguard=6
+Named Bullet (Greater).MOD		CLASSES:Vanguard=6
+Owl's Wisdom (Mass).MOD			CLASSES:Vanguard=6
+Repel Metal or Stone.MOD		CLASSES:Vanguard=6
+Teleport Object.MOD			CLASSES:Vanguard=6
+
+
+
+#
+# End
+#

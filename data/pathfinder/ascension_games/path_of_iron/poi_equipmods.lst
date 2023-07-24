@@ -1,0 +1,5 @@
+SOURCELONG:Path of Iron	SOURCESHORT:PoI	SOURCEWEB:https://www.opengamingstore.com/collections/premier-partners/products/path-of-iron	SOURCEDATE:2015-01
+# Original Entry by: Sean Butler (Tamdrik)
+
+# Modifier Name	Unique Key					Naming Format	Naming Option	Type						Visible		Type granted	Source Page		Multiple Requirements										Special Property
+Integrated		KEY:Special Quality ~ Integrated	FORMATCAT:PARENS	NAMEOPT:NORMAL	TYPE:Shield.Weapon.Ammunition		VISIBLE:QUALIFY				SOURCEPAGE:p.xx	PRETYPE:1,Weapon,Shield,Ammunition	PRERACE:1,RACESUBTYPE=ConstructCompanion	SPROP:Cannot be removed intact (e.g., disarm, steal). Cannot be detected when stowed.
