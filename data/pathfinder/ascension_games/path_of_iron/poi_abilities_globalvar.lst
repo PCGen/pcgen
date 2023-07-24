@@ -1,0 +1,73 @@
+SOURCELONG:Path of Iron	SOURCESHORT:PoI	SOURCEWEB:https://www.opengamingstore.com/collections/premier-partners/products/path-of-iron	SOURCEDATE:2015-01
+# Original Entry by: Sean Butler (Tamdrik)
+
+# Ability Name	Category of Ability	Define			Ability							Modify VAR
+Vanguard		CATEGORY:Class
+
+###Block:
+
+
+#
+CATEGORY=Class|Vanguard.MOD											ABILITY:Internal|AUTOMATIC|Vanguard ~ Class Skills|PREVAREQ:Vanguard_CF_ClassSkills,0
+
+CATEGORY=Class|Vanguard.MOD		DEFINE:Vanguard_CF_ClassSkills|0
+
+CATEGORY=Class|Vanguard.MOD		DEFINE:Vanguard_CF_WeaponProficiencies|0
+CATEGORY=Class|Vanguard.MOD		DEFINE:Vanguard_CF_ArmorProficiencies|0
+CATEGORY=Class|Vanguard.MOD		DEFINE:Vanguard_CF_ConstructCompanion|0
+CATEGORY=Class|Vanguard.MOD		DEFINE:Vanguard_CF_Augmentation|0
+CATEGORY=Class|Vanguard.MOD		DEFINE:Vanguard_CF_Resonance|0
+CATEGORY=Class|Vanguard.MOD		DEFINE:Vanguard_CF_Cantrips|0
+CATEGORY=Class|Vanguard.MOD		DEFINE:Vanguard_CF_Imbue|0
+CATEGORY=Class|Vanguard.MOD		DEFINE:Vanguard_CF_IntuitiveConstruction|0
+CATEGORY=Class|Vanguard.MOD		DEFINE:Vanguard_CF_BonusFeats|0
+CATEGORY=Class|Vanguard.MOD		DEFINE:Vanguard_CF_VanguardTactics|0
+CATEGORY=Class|Vanguard.MOD		DEFINE:Vanguard_CF_VanguardArcana|0
+CATEGORY=Class|Vanguard.MOD		DEFINE:Vanguard_CF_RapidReconstruction|0
+CATEGORY=Class|Vanguard.MOD		DEFINE:Vanguard_CF_PerfectResonance|0
+
+CATEGORY=Class|Vanguard.MOD																																								BONUS:VAR|Vanguard_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vanguard_CF_ClassSkills=True
+CATEGORY=Class|Vanguard.MOD																																								BONUS:VAR|Vanguard_CF_WeaponProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vanguard_CF_WeaponProficiencies=True
+CATEGORY=Class|Vanguard.MOD																																								BONUS:VAR|Vanguard_CF_ArmorProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vanguard_CF_ArmorProficiencies=True
+CATEGORY=Class|Vanguard.MOD																																								BONUS:VAR|Vanguard_CF_ConstructCompanion|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vanguard_CF_ConstructCompanion=True
+CATEGORY=Class|Vanguard.MOD																																								BONUS:VAR|Vanguard_CF_Augmentation|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vanguard_CF_Augmentation=True
+CATEGORY=Class|Vanguard.MOD																																								BONUS:VAR|Vanguard_CF_Resonance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vanguard_CF_Resonance=True
+CATEGORY=Class|Vanguard.MOD																																								BONUS:VAR|Vanguard_CF_Cantrips|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vanguard_CF_Cantrips=True
+CATEGORY=Class|Vanguard.MOD																																								BONUS:VAR|Vanguard_CF_Imbue|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vanguard_CF_Imbue=True
+CATEGORY=Class|Vanguard.MOD																																								BONUS:VAR|Vanguard_CF_IntuitiveConstruction|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vanguard_CF_IntuitiveConstruction=True
+CATEGORY=Class|Vanguard.MOD																																								BONUS:VAR|Vanguard_CF_VanguardArcana|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vanguard_CF_VanguardArcana=True
+CATEGORY=Class|Vanguard.MOD																																								BONUS:VAR|Vanguard_CF_VanguardTactics|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vanguard_CF_VanguardTactics=True
+#CATEGORY=Class|Vanguard.MOD																																								BONUS:VAR|Vanguard_CF_BonusFeats|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vanguard_CF_BonusFeats=True
+CATEGORY=Class|Vanguard.MOD																																								BONUS:VAR|Vanguard_CF_RapidReconstruction|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vanguard_CF_RapidReconstruction=True
+CATEGORY=Class|Vanguard.MOD																																								BONUS:VAR|Vanguard_CF_PerfectResonance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vanguard_CF_PerfectResonance=True
+
+CATEGORY=Class|Vanguard.MOD																																								BONUS:VAR|Vanguard_CF_WeaponProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.VanguardWeaponProficiencies
+CATEGORY=Class|Vanguard.MOD																																								BONUS:VAR|Vanguard_CF_ArmorProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.VanguardArmorProficiencies
+CATEGORY=Class|Vanguard.MOD																																								BONUS:VAR|Vanguard_CF_ConstructCompanion|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.VanguardConstructCompanion
+CATEGORY=Class|Vanguard.MOD																																								BONUS:VAR|Vanguard_CF_Augmentation|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.VanguardAugmentation
+CATEGORY=Class|Vanguard.MOD																																								BONUS:VAR|Vanguard_CF_Resonance|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.VanguardResonance
+CATEGORY=Class|Vanguard.MOD																																								BONUS:VAR|Vanguard_CF_Cantrips|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.VanguardCantrips
+CATEGORY=Class|Vanguard.MOD																																								BONUS:VAR|Vanguard_CF_Imbue|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.VanguardImbue
+CATEGORY=Class|Vanguard.MOD																																								BONUS:VAR|Vanguard_CF_IntuitiveConstruction|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.VanguardIntuitiveConstruction
+CATEGORY=Class|Vanguard.MOD																																								BONUS:VAR|Vanguard_CF_VanguardArcana|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.VanguardVanguardArcana
+CATEGORY=Class|Vanguard.MOD																																								BONUS:VAR|Vanguard_CF_VanguardTactics|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.VanguardVanguardTactics
+CATEGORY=Class|Vanguard.MOD																																								BONUS:VAR|Vanguard_CF_BonusFeats|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.VanguardBonusFeats
+CATEGORY=Class|Vanguard.MOD																																								BONUS:VAR|Vanguard_CF_RapidReconstruction|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.VanguardRapidReconstruction
+CATEGORY=Class|Vanguard.MOD																																								BONUS:VAR|Vanguard_CF_PerfectResonance|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.VanguardPerfectResonance
+
+
+CATEGORY=Class|Vanguard.MOD		DEFINE:Vanguard_CF_BonusFeat3|0
+CATEGORY=Class|Vanguard.MOD		DEFINE:Vanguard_CF_BonusFeat6|0
+CATEGORY=Class|Vanguard.MOD		DEFINE:Vanguard_CF_BonusFeat8|0
+CATEGORY=Class|Vanguard.MOD		DEFINE:Vanguard_CF_BonusFeat9|0
+CATEGORY=Class|Vanguard.MOD		DEFINE:Vanguard_CF_BonusFeat12|0
+CATEGORY=Class|Vanguard.MOD		DEFINE:Vanguard_CF_BonusFeat15|0
+CATEGORY=Class|Vanguard.MOD		DEFINE:Vanguard_CF_BonusFeat18|0
+
+CATEGORY=Class|Vanguard.MOD																																								BONUS:VAR|Vanguard_CF_BonusFeat3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vanguard_CF_BonusFeat3=True
+CATEGORY=Class|Vanguard.MOD																																								BONUS:VAR|Vanguard_CF_BonusFeat6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vanguard_CF_BonusFeat6=True
+CATEGORY=Class|Vanguard.MOD																																								BONUS:VAR|Vanguard_CF_BonusFeat8|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vanguard_CF_BonusFeat8=True
+CATEGORY=Class|Vanguard.MOD																																								BONUS:VAR|Vanguard_CF_BonusFeat9|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vanguard_CF_BonusFeat9=True
+CATEGORY=Class|Vanguard.MOD																																								BONUS:VAR|Vanguard_CF_BonusFeat12|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vanguard_CF_BonusFeat12=True
+CATEGORY=Class|Vanguard.MOD																																								BONUS:VAR|Vanguard_CF_BonusFeat15|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vanguard_CF_BonusFeat15=True
+CATEGORY=Class|Vanguard.MOD																																								BONUS:VAR|Vanguard_CF_BonusFeat18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Vanguard_CF_BonusFeat18=True

@@ -1,0 +1,64 @@
+SOURCELONG:Path of Iron	SOURCESHORT:PoI	SOURCEWEB:http://www.opengamingstore.com/collections/premier-partners/products/path-of-iron	SOURCEDATE:2015-01
+# Original Entry by: Sean Butler (Tamdrik) [Vanguard Class only]
+###
+###################################################################################
+###
+
+
+###Block: Vanguard
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Define			Combat bonus																	Save bonus																																		Modify VAR																																																																		Monster Role	FACT
+CLASS:Vanguard	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.xx	DEFINE:VanguardLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|VanguardLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	ROLE:Combat.Druid	FACT:ClassType|PC	FACT:Abb|Hun	FACT:SpellType|Arcane
+# Class Name	Skill Pts/Lvl
+CLASS:Vanguard	STARTSKILLPTS:4
+# Class Name	Spell Stat		Memorize		Caster level			Use Spell List
+CLASS:Vanguard	SPELLSTAT:CHA	MEMORIZE:NO		BONUS:CASTERLEVEL|Vanguard|CL	SPELLLIST:1|Vanguard
+1	ABILITY:Class|AUTOMATIC|Vanguard
+###Block: Level Progression Abilities
+1	ABILITY:Vanguard Class Feature|AUTOMATIC|Vanguard ~ Weapon and Armor Proficiency
+1	ABILITY:Vanguard Class Feature|AUTOMATIC|Vanguard ~ Construct Companion|PREVAREQ:Vanguard_CF_ConstructCompanion,0
+1	ABILITY:Vanguard Class Feature|AUTOMATIC|Vanguard ~ Augmentation|PREVAREQ:Vanguard_CF_Augmentation,0
+1	ABILITY:Vanguard Class Feature|AUTOMATIC|Vanguard ~ Resonance|PREVAREQ:Vanguard_CF_Resonance,0
+1	ABILITY:Vanguard Class Feature|AUTOMATIC|Vanguard ~ Cantrips|PREVAREQ:Vanguard_CF_Cantrips,0
+2	ABILITY:Vanguard Class Feature|AUTOMATIC|Vanguard ~ Imbue|PREVAREQ:Vanguard_CF_Imbue,0
+2	ABILITY:Vanguard Class Feature|AUTOMATIC|Vanguard ~ Intuitive Construction|PREVAREQ:Vanguard_CF_IntuitiveConstruction,0
+3	ABILITY:Vanguard Class Feature|AUTOMATIC|Vanguard ~ Bonus Feats|PREVAREQ:Vanguard_CF_BonusFeats,0
+3	ABILITY:Vanguard Class Feature|AUTOMATIC|Vanguard ~ Vanguard Tactics|PREVAREQ:Vanguard_CF_VanguardTactics,0
+5	ABILITY:Vanguard Class Feature|AUTOMATIC|Vanguard ~ Vanguard Arcana|PREVAREQ:Vanguard_CF_VanguardArcana,0
+8	ABILITY:Vanguard Class Feature|AUTOMATIC|Vanguard ~ Repurpose|PREVAREQ:Vanguard_CF_Repurpose,0
+14	ABILITY:Vanguard Class Feature|AUTOMATIC|Vanguard ~ Rapid Reconstruction|PREVAREQ:Vanguard_CF_RapidReconstruction,0
+20	ABILITY:Vanguard Class Feature|AUTOMATIC|Vanguard ~ Perfect Resonance|PREVAREQ:Vanguard_CF_PerfectResonance,0
+
+###Block: Level progression
+1	CAST:0,1			KNOWN:4,2
+2	CAST:0,2			KNOWN:5,3
+3	CAST:0,3			KNOWN:6,4
+4	CAST:0,3,1			KNOWN:6,4,2
+5	CAST:0,4,2			KNOWN:6,4,3
+6	CAST:0,4,3			KNOWN:6,4,4
+7	CAST:0,4,3,1		KNOWN:6,5,4,2
+8	CAST:0,4,4,2		KNOWN:6,5,4,3
+9	CAST:0,5,4,3		KNOWN:6,5,4,4
+10	CAST:0,5,4,3,1		KNOWN:6,5,5,4,2
+11	CAST:0,5,4,4,2		KNOWN:6,6,5,4,3
+12	CAST:0,5,5,4,3		KNOWN:6,6,5,4,4
+13	CAST:0,5,5,4,3,1		KNOWN:6,6,5,5,4,2
+14	CAST:0,5,5,4,4,2		KNOWN:6,6,6,5,4,3
+15	CAST:0,5,5,5,4,3		KNOWN:6,6,6,5,4,4
+16	CAST:0,5,5,5,4,3,1	KNOWN:6,6,6,5,5,4,2
+17	CAST:0,5,5,5,4,4,2	KNOWN:6,6,6,6,5,4,3
+18	CAST:0,5,5,5,5,4,3	KNOWN:6,6,6,6,5,4,4
+19	CAST:0,5,5,5,5,5,4	KNOWN:6,6,6,6,5,5,4
+20	CAST:0,5,5,5,5,5,5	KNOWN:6,6,6,6,6,5,5
+
+
+# Class Name	Output Name			Hit Dice	Type				Max Level	Source Page		Ability					Visible	Define														Bonus Ability Pool																	Combat bonus																	Save bonus																																		Modify VAR																																																																																									FACT
+CLASS:Construct Companion	OUTPUTNAME:Construct	HD:10		TYPE:Monster.Companion.Construct	MAXLEVEL:20	SOURCEPAGE:p.xx	ABILITY:FEAT|AUTOMATIC|CMB Output	VISIBLE:NO	DEFINE:ConstructCompanionMasterLVL|0	DEFINE:CompanionClassLevel|0	DEFINE:ConstructCompanionSkill|0	DEFINE:BaseClassSkillPts|0		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0		BONUS:SAVE|BASE.Will,BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|CompanionClassLevel|CL	BONUS:VAR|ConstructCompanionSkill|1|PREVARLT:INTSCORE,3	BONUS:VAR|BaseClassSkillPts|MAX(1,2+INT)|!PRETEMPLATE:1,No Intelligence Score	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|Companion	FACT:Abb|CC
+# Class Name	Skill Pts/Lvl				Add INT to Skill Points?	Class Skill
+CLASS:Construct Companion	STARTSKILLPTS:0+BaseClassSkillPts	MODTOSKILLS:NO			CSKILL:TYPE=Craft|Disable Device|Knowledge (Engineering)|Perception
+###Block: Level Advancement
+
+
+#
+# End
+#
