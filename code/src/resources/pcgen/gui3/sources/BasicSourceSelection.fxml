@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+<?import javafx.scene.web.WebView?>
+<Tab text="Basic" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1"
+     fx:controller="pcgen.gui3.sources.BasicSourceSelectionController">
+    <VBox>
+        <TextFlow>
+            <Text text="Select a predefined source below to load, or use the "/>
+            <Text fill="#4000ff" text="Advanced"/>
+            <Text text=" tab to select from our huge list of supported sources."/>
+        </TextFlow>
+        <SplitPane fx:id="splitPane" dividerPositions="0.35" VBox.vgrow="ALWAYS">
+            <ListView fx:id="sourceList" SplitPane.resizableWithParent="false"/>
+            <WebView fx:id="infoPane"/>
+        </SplitPane>
+
+    </VBox>
+</Tab>

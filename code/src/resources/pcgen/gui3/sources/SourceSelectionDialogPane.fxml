@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.net.URL?>
+<fx:root type="javafx.scene.control.DialogPane" xmlns="http://javafx.com/javafx"
+         xmlns:fx="http://javafx.com/fxml" prefHeight="600.0" prefWidth="800.0">
+    <fx:define>
+        <ButtonType fx:id="btnSave" buttonData="HELP_2" text="Save Source Selection"/>
+        <ButtonType fx:id="btnAlways" buttonData="SMALL_GAP" text="Always Use Advanced Sources"/>
+        <ButtonType fx:id="btnDelete" buttonData="LEFT" text="Delete"/>
+    </fx:define>
+    <content>
+        <TabPane fx:id="tabSources" tabClosingPolicy="UNAVAILABLE">
+            <fx:include source="BasicSourceSelection.fxml" fx:id="basicTab"
+                        onSelectionChanged="#onSelectionTabChanged" />
+            <fx:include source="AdvancedSourceSelection.fxml" fx:id="advancedTab"
+                        onSelectionChanged="#onSelectionTabChanged"/>
+        </TabPane>
+    </content>
+
+    <buttonTypes>
+        <ButtonType fx:id="btnInstallData" buttonData="LEFT" text="Install Data"/>
+        <ButtonType fx:id="btnCancel" buttonData="CANCEL_CLOSE" text="Cancel"/>
+        <ButtonType fx:id="btnLoad" buttonData="OK_DONE" text="Load"/>
+    </buttonTypes>
+    <stylesheets>
+        <URL value="@SourceSelectionDialogPane.css"/>
+    </stylesheets>
+</fx:root>

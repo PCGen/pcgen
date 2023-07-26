@@ -1,0 +1,10 @@
+.tab-pane .tab
+{
+    -fx-pref-width: 150.0;
+    -fx-alignment: CENTER;
+
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab > .tab-container > .tab-label {
+    -fx-alignment: CENTER;
+}
