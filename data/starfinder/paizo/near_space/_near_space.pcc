@@ -26,7 +26,7 @@ COPYRIGHT:PCGen dataset conversion for "Starfinder Near Space" Copyright 2020, P
 
 
 # COVER should be cover_gameMode_pub_book.file
-COVER:PZO7113_cover.jpg
+COVER:PZO7113_cover.jpeg
 # LOGO should be logo_pub.file
 LOGO:*/_images/logo/Paizo_Publishing.png
 
