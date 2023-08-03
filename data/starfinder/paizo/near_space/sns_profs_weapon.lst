@@ -1,0 +1,70 @@
+
+#Weapon Name				Type
+###Block:ADVANCED MELEE WEAPONS
+#One-Handed Weapons
+Doshakari (tactical)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Doshakari (advanced)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Doshakari (ultrathin)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Doshakari (zero-edge)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Doshakari (molecular rift)	TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+
+
+#Two-Handed Weapons
+Frosthaft doshko (chill)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Frosthaft doshko (subzero)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Frosthaft doshko (glacial)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Frosthaft doshko (avalanche)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+
+Storm doshko (static)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Storm doshko (aurora)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Storm doshko (tempest)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Storm doshko (lightning)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+
+Skitterstaff (rustic)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Skitterstaff (provincial)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Skitterstaff (agrarian)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Skitterstaff (bucolic)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+
+###Block:SMALL ARMS
+#One-Handed Weapons
+#Flame
+Infernian (ifrit-class)			TYPE:SMALL ARMS
+Infernian (salamander-class)		TYPE:SMALL ARMS
+Infernian (hellhound-class)		TYPE:SMALL ARMS
+Infernian (firedrake-class)		TYPE:SMALL ARMS
+Infernian (phoenix-class)		TYPE:SMALL ARMS
+
+#Projectile
+Skipshot pistol (tactical)		TYPE:SMALL ARMS
+Skipshot pistol (advanced)		TYPE:SMALL ARMS
+Skipshot pistol (elite)			TYPE:SMALL ARMS
+Skipshot pistol (paragon)		TYPE:SMALL ARMS
+
+###Block:LONG ARMS
+#Two-Handed Weapons
+#Sonic
+Rackarack (pulse)				TYPE:LONGARMS
+Rackarack (surge)				TYPE:LONGARMS
+Rackarack (drum)				TYPE:LONGARMS
+Rackarack (hammer)			TYPE:LONGARMS
+
+#Uncategorized
+Formian venomcaster (tactical)	TYPE:LONGARMS
+Formian venomcaster (advanced)	TYPE:LONGARMS
+Formian venomcaster (elite)		TYPE:LONGARMS
+Formian venomcaster (paragon)		TYPE:LONGARMS
+
+###Block:HEAVY WEAPONS
+#Two-Handed Weapons
+#Plasma
+Desperation cannon (rage-bringer)	TYPE:HEAVY WEAPONS
+Desperation cannon (doom-caller)	TYPE:HEAVY WEAPONS
+Desperation cannon (sky-piercer)	TYPE:HEAVY WEAPONS
+Desperation cannon (titan-killer)	TYPE:HEAVY WEAPONS
+
+###Block:SNIPER WEAPONS
+#Two-Handed Weapons
+Kin-killer rifle (tactical)		TYPE:SNIPER WEAPONS
+Kin-killer rifle (advanced)		TYPE:SNIPER WEAPONS
+Kin-killer rifle (elite)		TYPE:SNIPER WEAPONS
+Kin-killer rifle (paragon)		TYPE:SNIPER WEAPONS
