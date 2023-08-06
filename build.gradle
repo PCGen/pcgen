@@ -56,7 +56,7 @@ plugins {
     id 'application'                                    // Creating application bundles
     id 'build-dashboard'                                // Produces a build report
     id 'checkstyle'                                     // Checkstyle for Java, configured further below
-    id "com.github.spotbugs" version '5.1.0'           // Spotbugs for Java
+    id "com.github.spotbugs" version '5.1.1'           // Spotbugs for Java
     id 'java'                                           // Core java / javac
     id 'maven-publish'                                  // Publishing to Maven Central
     id 'pmd'                                            // PMD for Java, configured further below
