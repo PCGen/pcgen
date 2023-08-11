@@ -34,12 +34,12 @@
                 <TextField fx:id="fldSearch" GridPane.columnIndex="3" GridPane.rowIndex="0" />
                 <Button fx:id="btnFilterClear" onAction="#onFilterClearAction" GridPane.columnIndex="4" GridPane.rowIndex="0" />
 
-                <TreeTableView fx:id="treeAvailable" GridPane.columnIndex="0" GridPane.columnSpan="5" GridPane.rowIndex="1"  >
+                <TreeTableView fx:id="treeAvailable" GridPane.columnIndex="0" GridPane.columnSpan="5" GridPane.rowIndex="1"  showRoot="false" >
                     <columns>
                         <TreeTableColumn text="%in_src_pubSetName"/>
                         <TreeTableColumn text="%in_src_bookType"/>
                         <TreeTableColumn text="%in_src_status"/>
-                        <TreeTableColumn text="%in_src_loaded"/>
+                        <TreeTableColumn text="%in_src_loaded" visible="false"/>
                     </columns>
                 </TreeTableView>
 
