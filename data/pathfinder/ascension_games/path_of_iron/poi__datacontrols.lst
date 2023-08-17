@@ -1,0 +1,49 @@
+# Name											Dataformat			Required	Selectable		Visible	Displayname					Explanation
+
+# Vanguard
+FACTDEF:ABILITY|Vanguard_Archetype_Proficiencies				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+
+FACTDEF:ABILITY|Vanguard_Archetype_ClassSkills					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Vanguard_Archetype_WeaponProficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Vanguard_Archetype_ArmorProficiencies				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Vanguard_Archetype_ConstructCompanion				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Vanguard_Archetype_Augmentation					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Vanguard_Archetype_Resonance					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Vanguard_Archetype_Cantrips					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Vanguard_Archetype_Imbue						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Vanguard_Archetype_ImprovedImbue				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Vanguard_Archetype_GreaterImbue					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Vanguard_Archetype_IntuitiveConstruction			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Vanguard_Archetype_VanguardTactics				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Vanguard_Archetype_VanguardArcana				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Vanguard_Archetype_RapidReconstruction			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Vanguard_Archetype_PerfectResonance				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Vanguard_Archetype_BonusFeat3					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Vanguard_Archetype_BonusFeat6					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Vanguard_Archetype_BonusFeat8					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Vanguard_Archetype_BonusFeat9					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Vanguard_Archetype_BonusFeat12					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Vanguard_Archetype_BonusFeat15					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Vanguard_Archetype_BonusFeat18					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+
+
+FACTDEF:ABILITY|Vanguard_CF_ClassSkills						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Vanguard Proficiencies removed
+FACTDEF:ABILITY|Vanguard_CF_WeaponProficiencies					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Vanguard Proficiencies removed
+FACTDEF:ABILITY|Vanguard_CF_ArmorProficiencies					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Vanguard Proficiencies removed
+FACTDEF:ABILITY|Vanguard_CF_ConstructCompanion					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Vanguard Proficiencies removed
+FACTDEF:ABILITY|Vanguard_CF_Augmentation						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Vanguard Proficiencies removed
+FACTDEF:ABILITY|Vanguard_CF_Resonance						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Vanguard Proficiencies removed
+FACTDEF:ABILITY|Vanguard_CF_Cantrips						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Vanguard Proficiencies removed
+FACTDEF:ABILITY|Vanguard_CF_Imbue							DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Vanguard Proficiencies removed
+FACTDEF:ABILITY|Vanguard_CF_IntuitiveConstruction				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Vanguard Proficiencies removed
+FACTDEF:ABILITY|Vanguard_CF_VanguardTactics					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Vanguard Proficiencies removed
+FACTDEF:ABILITY|Vanguard_CF_VanguardArcana					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Vanguard Proficiencies removed
+FACTDEF:ABILITY|Vanguard_CF_RapidReconstruction					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Vanguard Proficiencies removed
+FACTDEF:ABILITY|Vanguard_CF_PerfectResonance					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Vanguard Proficiencies removed
+FACTDEF:ABILITY|Vanguard_CF_BonusFeat3						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Vanguard Proficiencies removed
+FACTDEF:ABILITY|Vanguard_CF_BonusFeat6						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Vanguard Proficiencies removed
+FACTDEF:ABILITY|Vanguard_CF_BonusFeat8						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Vanguard Proficiencies removed
+FACTDEF:ABILITY|Vanguard_CF_BonusFeat9						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Vanguard Proficiencies removed
+FACTDEF:ABILITY|Vanguard_CF_BonusFeat12						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Vanguard Proficiencies removed
+FACTDEF:ABILITY|Vanguard_CF_BonusFeat15						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Vanguard Proficiencies removed
+FACTDEF:ABILITY|Vanguard_CF_BonusFeat18						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Vanguard Proficiencies removed

@@ -1,0 +1,83 @@
+SOURCELONG:Path of Iron	SOURCESHORT:PoI	SOURCEWEB:https://www.opengamingstore.com/collections/premier-partners/products/path-of-iron	SOURCEDATE:2015-01
+# Original Entry by: Sean Butler (Tamdrik)
+
+FOLLOWER:VanguardLVL=1				TYPE:Construct Companion	RACETYPE:Construct	BONUS:VAR|ConstructCompanionMasterLVL|mastervar("VanguardLVL")	TEMPLATE:Construct	TEMPLATE:No Constitution Score
+FOLLOWER:VanguardLVL=1				TYPE:Construct Companion	ABILITY:Special Ability|AUTOMATIC|Base Companion ~ Construct Companion
+
+# Basic companion progression
+FOLLOWER:VanguardLVL=2				TYPE:Construct Companion	HD:1
+FOLLOWER:VanguardLVL=3				TYPE:Construct Companion	HD:1
+FOLLOWER:VanguardLVL=5				TYPE:Construct Companion	HD:1
+FOLLOWER:VanguardLVL=6				TYPE:Construct Companion	HD:1
+FOLLOWER:VanguardLVL=7				TYPE:Construct Companion	HD:1
+FOLLOWER:VanguardLVL=9				TYPE:Construct Companion	HD:1
+FOLLOWER:VanguardLVL=10				TYPE:Construct Companion	HD:1
+FOLLOWER:VanguardLVL=11				TYPE:Construct Companion	HD:1
+FOLLOWER:VanguardLVL=13				TYPE:Construct Companion	HD:1
+FOLLOWER:VanguardLVL=14				TYPE:Construct Companion	HD:1
+FOLLOWER:VanguardLVL=15				TYPE:Construct Companion	HD:1
+FOLLOWER:VanguardLVL=17				TYPE:Construct Companion	HD:1
+FOLLOWER:VanguardLVL=18				TYPE:Construct Companion	HD:1
+FOLLOWER:VanguardLVL=19				TYPE:Construct Companion	HD:1
+
+FOLLOWER:VanguardLVL=2				TYPE:Construct Companion	BONUS:COMBAT|AC|2|TYPE=Armor.STACK
+FOLLOWER:VanguardLVL=5				TYPE:Construct Companion	BONUS:COMBAT|AC|2|TYPE=Armor.STACK
+FOLLOWER:VanguardLVL=7				TYPE:Construct Companion	BONUS:COMBAT|AC|2|TYPE=Armor.STACK
+FOLLOWER:VanguardLVL=10				TYPE:Construct Companion	BONUS:COMBAT|AC|2|TYPE=Armor.STACK
+FOLLOWER:VanguardLVL=12				TYPE:Construct Companion	BONUS:COMBAT|AC|2|TYPE=Armor.STACK
+FOLLOWER:VanguardLVL=15				TYPE:Construct Companion	BONUS:COMBAT|AC|2|TYPE=Armor.STACK
+FOLLOWER:VanguardLVL=17				TYPE:Construct Companion	BONUS:COMBAT|AC|2|TYPE=Armor.STACK
+FOLLOWER:VanguardLVL=20				TYPE:Construct Companion	BONUS:COMBAT|AC|2|TYPE=Armor.STACK
+
+# Augmentations
+FOLLOWER:VanguardAbilityAugmentations=1	TYPE:Construct Companion	ADD:ABILITY|Special Ability|NORMAL|TYPE=AbilityAugmentationChoice
+FOLLOWER:VanguardAbilityAugmentations=2	TYPE:Construct Companion	ADD:ABILITY|Special Ability|NORMAL|TYPE=AbilityAugmentationChoice
+FOLLOWER:VanguardAbilityAugmentations=3	TYPE:Construct Companion	ADD:ABILITY|Special Ability|NORMAL|TYPE=AbilityAugmentationChoice
+FOLLOWER:VanguardAbilityAugmentations=4	TYPE:Construct Companion	ADD:ABILITY|Special Ability|NORMAL|TYPE=AbilityAugmentationChoice
+FOLLOWER:VanguardAbilityAugmentations=5	TYPE:Construct Companion	ADD:ABILITY|Special Ability|NORMAL|TYPE=AbilityAugmentationChoice
+
+FOLLOWER:VanguardEnergyDischarges=1		TYPE:Construct Companion	ADD:ABILITY|Special Ability|NORMAL|TYPE=EnergyDischargeChoice
+FOLLOWER:VanguardEnergyDischarges=2		TYPE:Construct Companion	ADD:ABILITY|Special Ability|NORMAL|TYPE=EnergyDischargeChoice
+FOLLOWER:VanguardEnergyDischarges=3		TYPE:Construct Companion	ADD:ABILITY|Special Ability|NORMAL|TYPE=EnergyDischargeChoice
+FOLLOWER:VanguardEnergyDischarges=4		TYPE:Construct Companion	ADD:ABILITY|Special Ability|NORMAL|TYPE=EnergyDischargeChoice
+
+FOLLOWER:VanguardEnergyShieldings=1		TYPE:Construct Companion	ADD:ABILITY|Special Ability|NORMAL|TYPE=EnergyShieldingChoice
+FOLLOWER:VanguardEnergyShieldings=2		TYPE:Construct Companion	ADD:ABILITY|Special Ability|NORMAL|TYPE=EnergyShieldingChoice
+FOLLOWER:VanguardEnergyShieldings=3		TYPE:Construct Companion	ADD:ABILITY|Special Ability|NORMAL|TYPE=EnergyShieldingChoice
+FOLLOWER:VanguardEnergyShieldings=4		TYPE:Construct Companion	ADD:ABILITY|Special Ability|NORMAL|TYPE=EnergyShieldingChoice
+
+FOLLOWER:VanguardEnergyStrikes=1		TYPE:Construct Companion	ADD:ABILITY|Special Ability|NORMAL|TYPE=EnergyStrikeChoice
+FOLLOWER:VanguardEnergyStrikes=2		TYPE:Construct Companion	ADD:ABILITY|Special Ability|NORMAL|TYPE=EnergyStrikeChoice
+FOLLOWER:VanguardEnergyStrikes=3		TYPE:Construct Companion	ADD:ABILITY|Special Ability|NORMAL|TYPE=EnergyStrikeChoice
+FOLLOWER:VanguardEnergyStrikes=4		TYPE:Construct Companion	ADD:ABILITY|Special Ability|NORMAL|TYPE=EnergyStrikeChoice
+
+FOLLOWER:VanguardEldritchBoost=1		TYPE:Construct Companion	ABILITY:Special Ability|AUTOMATIC|Construct Companion ~ Eldritch Boost|PRESTAT:1,CHA=10
+FOLLOWER:VanguardEldritchCaster=1		TYPE:Construct Companion	ABILITY:Special Ability|AUTOMATIC|Construct Companion ~ Eldritch Caster|PRESTAT:1,CHA=11
+FOLLOWER:VanguardEldritchMight=1		TYPE:Construct Companion	ABILITY:Special Ability|AUTOMATIC|Construct Companion ~ Eldritch Might|PRESTAT:1,CHA=12
+FOLLOWER:VanguardEldritchPower=1		TYPE:Construct Companion	ABILITY:Special Ability|AUTOMATIC|Construct Companion ~ Eldritch Power|PRESTAT:1,CHA=13
+
+FOLLOWER:VanguardAblativeShielding=1	TYPE:Construct Companion	ABILITY:Special Ability|AUTOMATIC|Construct Companion ~ Ablative Shielding
+FOLLOWER:VanguardArmorEmpowerment=1		TYPE:Construct Companion	ABILITY:Special Ability|AUTOMATIC|Construct Companion ~ Armor Empowerment
+FOLLOWER:VanguardDisruptionField=1		TYPE:Construct Companion	ABILITY:Special Ability|AUTOMATIC|Construct Companion ~ Disruption Field
+FOLLOWER:VanguardExtradimensionalArsenal=1	TYPE:Construct Companion	ABILITY:Special Ability|AUTOMATIC|Construct Companion ~ Extradimensional Arsenal
+FOLLOWER:VanguardMendingTouch=1		TYPE:Construct Companion	ABILITY:Special Ability|AUTOMATIC|Construct Companion ~ Mending Touch
+FOLLOWER:VanguardMentalLink=1			TYPE:Construct Companion	ABILITY:Special Ability|AUTOMATIC|Construct Companion ~ Mental Link
+FOLLOWER:VanguardMunitionsGeneration=1	TYPE:Construct Companion	ABILITY:Special Ability|AUTOMATIC|Construct Companion ~ Munitions Generation
+FOLLOWER:VanguardReinforcement=1		TYPE:Construct Companion	ABILITY:Special Ability|AUTOMATIC|Construct Companion ~ Reinforcement
+FOLLOWER:VanguardTacticalReposition=1	TYPE:Construct Companion	ABILITY:Special Ability|AUTOMATIC|Construct Companion ~ Tactical Reposition
+FOLLOWER:VanguardTerrainAdaptation=1	TYPE:Construct Companion	ADD:ABILITY|Special Ability|NORMAL|TYPE=TerrainAdaptationChoice
+FOLLOWER:VanguardTechnicalKnowledges=1	TYPE:Construct Companion	ADD:ABILITY|Special Ability|NORMAL|Construct Companion ~ Technical Knowledge	DEFINE:CCTechnicalKnowledges|0	BONUS:VAR|CCTechnicalKnowledges|mastervar("VanguardTechnicalKnowledges")	BONUS:SKILLPOINTS|NUMBER|3*CCTechnicalKnowledges
+FOLLOWER:VanguardWeaponEmpowerment=1	TYPE:Construct Companion	ABILITY:Special Ability|AUTOMATIC|Construct Companion ~ Weapon Empowerment
+
+# Favored Class Bonuses
+FOLLOWER:HalfElfVanguardFavClassBonus=1	TYPE:Construct Companion	BONUS:VAR|CCLinkRange|5*mastervar("HalfElfVanguardFavClassBonus")
+FOLLOWER:VanguardFavClassCCHPBonus=1	TYPE:Construct Companion	BONUS:HP|CURRENTMAX|mastervar("VanguardFavClassCCHPBonus")
+FOLLOWER:VanguardFavClassCCSkillBonus=1	TYPE:Construct Companion	BONUS:ABILITYPOOL|Companion Skill|mastervar("VanguardFavClassCCSkillBonus")
+FOLLOWER:TieflingVanguardFavClassBonus=1	TYPE:Construct Companion	ABILITY:Internal|AUTOMATIC|Construct Companion Energy Resistance Tracker	BONUS:ABILITYPOOL|Construct Companion Energy Resistance|mastervar("TieflingVanguardFavClassBonus")
+
+# Feats
+FOLLOWER:VanguardResoluteCompanion=1	TYPE:Construct Companion	DEFINE:CCResoluteCompanion|0	BONUS:VAR|CCResoluteCompanion|1
+
+#
+# End
+#

@@ -1,0 +1,32 @@
+###Block: Class Ability Display
+# Ability Category							Visible		Editable?		Change Pool?	Category of Object		Type of Object				Plural description for UI		Display Location
+ABILITYCATEGORY:Vanguard Class Feature				VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Vanguard Class Feature		PLURAL:Vanguard Class Features	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Vanguard Augmentation				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:VanguardAugmentation		PLURAL:Vanguard Augmentations		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Vanguard Arcana Spells				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:VanguardArcanaSpell		PLURAL:Vanguard Arcana Spells		DISPLAYLOCATION:Class Features
+
+###Block: Archetype Buckets
+# Ability Category							Visible		Editable?		Change Pool?	Category of Object		Type of Object				Plural description for UI		Display Location
+ABILITYCATEGORY:Vanguard Archetype					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Archetype		TYPE:VanguardArchetype			PLURAL:Vanguard Archetypes		DISPLAYLOCATION:Archetype
+
+###Block: Class Bonus Feat Categories
+# Ability Category							Visible		Editable?		Change Pool?	Category of Object		Type of Object				Plural description for UI		Display Location
+ABILITYCATEGORY:Vanguard Bonus Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:FEAT			TYPE:Teamwork.ItemCreation		PLURAL:Vanguard Bonus Feats		DISPLAYLOCATION:Feats
+
+###Block: Favoured Class Choice Categories
+# Ability Category							Visible		Editable?		Change Pool?	Category of Object		Type of Object				Plural description for UI		Display Location
+ABILITYCATEGORY:Vanguard Bonus Spell Known Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:BonusSpellKnownVanguard		PLURAL:Bonus Spells Known		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Construct Companion Energy Resistance		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Internal			TYPE:ConstructCompanionFavoredEnergyResistance					DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Eldritch Boost SLA					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:EldritchBoostSLA			PLURAL:Eldritch Boost SLAs		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Eldritch Caster SLA					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:EldritchCasterSLA			PLURAL:Eldritch Caster SLAs		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Eldritch Might SLA					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:EldritchMightSLA			PLURAL:Eldritch Might SLAs		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Eldritch Power SLA					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:EldritchPowerSLA			PLURAL:Eldritch Power SLAs		DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Technical Knowledge Class Skill Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Internal			TYPE:CCTechnicalKnowledge		PLURAL:Tech Knowledge Class Skills	DISPLAYLOCATION:Class Features
+
+# Vestigial, carried over from Hunter class, in case it's ever needed
+ABILITYCATEGORY:Vanguard Construct Companion Status		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:VanguardConstructCompanionStatus	PLURAL:Vanguard Construct Companion Statuses	DISPLAYLOCATION:Class Features
+
+#
+# End
+#
