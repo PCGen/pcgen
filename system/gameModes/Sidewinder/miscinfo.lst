@@ -77,8 +77,7 @@ TAB:TEMPMOD		NAME:in_InfoTempMod	CONTEXT:tabpages\tabtemporarybonuses.html
 # use & for mnemonic, && for & (MENUENTRY only)
 #
 MENUENTRY:Sidewinder
-MENUTOOLTIP:Use Sidewinder:Recoiled character creation settings
-DISPLAYORDER:2
+DISPLAYORDER:1
 #
 #SHORTRANGE sets the Short Range as referenced by TOHIT-SHORTRANGE and DAMAGE-SHORTRANGE
 # Integer value, defaults to zero if tag not present to allow GameModes without shortrange bonus/limitations
