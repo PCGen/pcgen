@@ -1465,6 +1465,15 @@
 	<ideals>
 	<@abilityBlock category="Special Ability" nature="ALL" hidden=false typeName="Ideal" nodeName="ideal" />
 	</ideals>
+	<!--
+	  ====================================
+	  ====================================
+			Background
+	  ====================================
+	  ====================================-->
+	<background>
+	<@abilityBlock category="Special Ability" nature="ALL" hidden=false typeName="Background" nodeName="background" />
+	</background>
 
 	<!--
 	====================================
