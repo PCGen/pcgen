@@ -546,6 +546,25 @@ ${pcstring('WEAPON.${weap}.MISC')}[MISC]
 </p>
 
 
+<p>Test New Formula Export</p>
+<!--   uses *val.   -->
+
+
+
+
+<p>Test New FACT Export</p>
+<!--   uses *fact.   -->
+
+
+
+<p>Test New INFO Export</p>
+<!--   uses *info.   -->
+<p>Test for INFO using 'Wildness' = 
+	<#if (pcstring('pc.race.info.wildness') != "")> 
+		${pc.race.info.wildness}
+	</#if>
+</p>
+
 <font size="-2">Created using PCGen ${pcstring('EXPORT.VERSION')} on ${pcstring('EXPORT.DATE')} </font>
 
 

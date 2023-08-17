@@ -63,102 +63,42 @@ ${pcstring('TEXT.LOWERCASE.ABILITYALL.Special Ability.VISIBLE.${specialAbilities
 
 <!-- armor class -->
 <p>
-<b>AC</b> ${pcstring('AC.Total')}, <b>touch</b> ${pcstring('AC.Touch')}, <b>flat-footed</b> ${pcstring('AC.Flatfooted')} (<#t>
+<b>EAC</b> ${pcstring('AC.EAC')}(<#t>
 <#t>
-<#if (pcstring("AC.Armor") = "0")>
-<#else>
-${pcstring('AC.Armor.SIGN')} armor<#t>
-</#if>
-<#if (pcstring("AC.Armor") = "0")>
-<#else>
-<#if (pcvar("AC.Deflection") = 0 && pcvar("AC.Ability") = 0 && pcvar("AC.Dodge") = 0 && pcvar("AC.NaturalArmor") = 0 && pcvar("AC.Size") = 0 && pcvar("AC.Shield") = 0 && pcvar("AC.Misc") = 0) >
-<#else>
-, <#t>
-</#if>
-</#if>
+${pcstring('AC.BASE')} Base<#t>
 <#t>
-<#if (pcstring("AC.Deflection") = "0")>
-<#else>
-${pcstring('AC.Deflection.SIGN')} deflection<#t>
-</#if>
-<#if (pcstring("AC.Deflection") = "0")>
-<#else>
-<#if (pcvar("AC.Ability") = 0 && pcvar("AC.Dodge") = 0 && pcvar("AC.NaturalArmor") = 0 && pcvar("AC.Size") = 0 && pcvar("AC.Shield") = 0 && pcvar("AC.Misc") = 0) >
-<#else>
-, <#t>
-</#if>
-</#if>
-<#t>
-<#if (pcstring("AC.Ability") = "0")>
-<#else>
 ${pcstring('AC.Ability.SIGN')} Dex<#t>
-</#if>
-<#if (pcstring("AC.Ability") = "0")>
+<#if (pcstring("AC.EAC_Armor") = "0")>
 <#else>
-<#if (pcvar("AC.Dodge") = 0 && pcvar("AC.NaturalArmor") = 0 && pcvar("AC.Size") = 0 && pcvar("AC.Shield") = 0 && pcvar("AC.Misc") = 0) >
-<#else>
-, <#t>
-</#if>
+${pcstring('AC.EAC_Armor.SIGN')} EAC Armor<#t>
 </#if>
 <#t>
-<#if (pcstring("AC.Dodge") = "0")>
+${pcstring('AC.Misc.SIGN')} Misc<#t>
+)<#lt>
+
+</p>
+<p>
+<b>KAC</b> ${pcstring('AC.KAC')}(<#t>
+<#t>
+${pcstring('AC.BASE')} Base<#t>
+<#t>
+${pcstring('AC.Ability.SIGN')} Dex<#t>
+<#t>
+<#if (pcstring("AC.KAC_Armor") = "0")>
 <#else>
-${pcstring('AC.Dodge.SIGN')} dodge<#t>
-</#if>
-<#if (pcstring("AC.Dodge") = "0")>
-<#else>
-<#if (pcvar("AC.NaturalArmor") = 0 && pcvar("AC.Size") = 0 && pcvar("AC.Shield") = 0 && pcvar("AC.Misc") = 0) >
-<#else>
-, <#t>
-</#if>
+${pcstring('AC.KAC_Armor.SIGN')} EAC Armor<#t>
 </#if>
 <#t>
-<#if (pcstring("AC.NaturalArmor") = "0")>
-<#else>
-${pcstring('AC.NaturalArmor.SIGN')} natural<#t>
-</#if>
-<#if (pcstring("AC.NaturalArmor") = "0")>
-<#else>
-<#if (pcvar("AC.Size") = 0 && pcvar("AC.Shield") = 0 && pcvar("AC.Misc") = 0) >
-<#else>
-, <#t>
-</#if>
-</#if>
-<#t>
-<#if (pcstring("AC.Size") = "0")>
-<#else>
-${pcstring('AC.Size.SIGN')} size<#t>
-</#if>
-<#if (pcstring("AC.Size") = "0")>
-<#else>
-<#if (pcvar("AC.Shield") = 0 && pcvar("AC.Misc") = 0) >
-<#else>
-, <#t>
-</#if>
-</#if>
-<#t>
-<#if (pcstring("AC.Shield") = "0")>
-<#else>
-${pcstring('AC.Shield.SIGN')} shield<#t>
-</#if>
-<#if (pcstring("AC.Shield") = "0")>
-<#else>
-<#if (pcstring("AC.Misc") = "0")>
-<#else>
-, <#t>
-</#if>
-</#if>
-<#t>
-<#if (pcstring("AC.Misc") = "0")>
-<#else>
-${pcstring('AC.Misc.SIGN')} misc
-</#if>
+${pcstring('AC.Misc.SIGN')} Misc<#t>
 )<#lt>
 </p>
 
+
 <!-- hit points -->
-<b>hp</b> ${pcstring('HP')} (${pcstring('HITDICE.MEDIUM')})<#t>
+<p><b>Stamina</b> ${pcstring('ALTHP')}</p>
+<b>hp</b> ${pcstring('HP')} (${pcstring('HITDICE.MEDIUM')})<#t>	Resolve ${pcvar('VAR.Resolve')}
 <#t>
+
 <!-- ModifyHP TYPE Abilities --><#t>
 <@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=ModifyHP","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; specialHitPoints , specialHitPoints_has_next>
 <#if (specialHitPoints_has_next) >

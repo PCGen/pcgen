@@ -84,7 +84,7 @@ Profession (Woodcutter).MOD			TYPE:Background
 ###Block: New Skills
 # Skill Name							Key Stat	Untrained?		Classes	Type							Required Var. value
 Artistry								KEYSTAT:INT						TYPE:Intelligence.Base.Background		PREVAREQ:UsePathfinderUnchainedSkills,1
-Lore (           )						KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background.Lore	PREVAREQ:UsePathfinderUnchainedSkills,1
+Lore (_______________________)				KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background.Lore	PREVAREQ:UsePathfinderUnchainedSkills,1
 
 Lore (A particular small city)				KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background.Lore	PREVAREQ:UsePathfinderUnchainedSkills,1
 Lore (One district of a large city or metropolis)	KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:Intelligence.Base.Background.Lore	PREVAREQ:UsePathfinderUnchainedSkills,1
