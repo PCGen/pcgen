@@ -17,26 +17,23 @@
  */
 package plugin.exporttokens;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.IOException;
-import java.io.StringWriter;
-
 import org.junit.Before;
 import org.junit.Test;
-
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.ChronicleEntry;
 import pcgen.core.PlayerCharacter;
-import pcgen.io.ExportHandler;
 import pcgen.io.FileAccess;
 import pcgen.util.TestHelper;
 
+import java.io.IOException;
+
+import static pcgen.util.TestHelper.evaluateToken;
+
 /**
- * CampaignHistoryTokenTest validates the functions of the 
+ * CampaignHistoryTokenTest validates the functions of the
  * CampaignHistoryToken class.
- * 
- * 
+ *
+ *
  */
 public class CampaignHistoryTokenTest  extends AbstractCharacterTestCase
 {
@@ -60,7 +57,7 @@ public class CampaignHistoryTokenTest  extends AbstractCharacterTestCase
 
 		hiddenEntry = TestHelper.buildChronicleEntry(false, "Campaign", "Date", "GM", "Party",
 			"Adventure", 1390, "Chronicle");
-		
+
 		character.addChronicleEntry(visibleEntry);
 		character.addChronicleEntry(hiddenEntry);
 	}
@@ -120,20 +117,4 @@ public class CampaignHistoryTokenTest  extends AbstractCharacterTestCase
 		assertEquals("Invalid visibility", "",
 			evaluateToken("CAMPAIGNHISTORY.LALALA.0.ADVENTURE", character));
 	}
-
-	
-	private String evaluateToken(String token, PlayerCharacter pc)
-		throws IOException
-	{
-		StringWriter retWriter = new StringWriter();
-		BufferedWriter bufWriter = new BufferedWriter(retWriter);
-		ExportHandler export = new ExportHandler(new File(""));
-		export.replaceTokenSkipMath(pc, token, bufWriter);
-		retWriter.flush();
-
-		bufWriter.flush();
-
-		return retWriter.toString();
-	}
-
 }
