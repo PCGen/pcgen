@@ -17,15 +17,17 @@
  */
 package plugin.exporttokens;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNotSame;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNotSame;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static pcgen.util.TestHelper.evaluateToken;
 
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.nio.file.FileSystems;
 
 import javax.imageio.ImageIO;
 
@@ -34,6 +36,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.core.PlayerCharacter;
 
 import org.junit.jupiter.api.Test;
+import pcgen.io.FileAccess;
 
 /**
  * The Class {@code PortraitTokenTest} checks the function of PortraitToken.
@@ -59,9 +62,9 @@ public class PortraitTokenTest extends AbstractCharacterTestCase
 		assertNotNull("THUMB should not be null ", thumbResult);
 		assertNotSame("Thumb should not be portrait", pc.getDisplay().getPortraitPath(), thumbResult);
 		File thumbFile = new File(thumbResult);
-		assertTrue("File should exist", thumbFile.exists());
+		assertTrue(thumbFile.exists(), "File should exist");
 		BufferedImage image = ImageIO.read(thumbFile);
-		assertNotNull("THUMB image should not be null ", image);
+		assertNotNull(image, "THUMB image should not be null");
 	}
 
 	/**
@@ -76,14 +79,14 @@ public class PortraitTokenTest extends AbstractCharacterTestCase
 		pc.setPortraitPath("code/src/resources/pcgen/images/SplashPcgen_Alpha.png");
 		pc.setPortraitThumbnailRect(new Rectangle(160, 70, 140, 140));
 		String thumbResult = portraitToken.getToken("PORTRAIT.THUMB", pc, null);
-		assertNotNull("THUMB should not be null ", thumbResult);
+		assertNotNull("THUMB should not be null", thumbResult);
 		assertNotSame("Thumb should not be portrait", pc.getDisplay().getPortraitPath(), thumbResult);
 		File thumbFile = new File(thumbResult);
-		assertTrue("File should exist", thumbFile.exists());
+		assertTrue(thumbFile.exists(), "File should exist");
 		BufferedImage image = ImageIO.read(thumbFile);
-		assertNotNull("THUMB image should not be null ", image);
-		assertEquals("Incorrect scaled width",  Constants.THUMBNAIL_SIZE, image.getWidth());
-		assertEquals("Incorrect scaled height",  Constants.THUMBNAIL_SIZE, image.getHeight());
+		assertNotNull(image, "THUMB image should not be null");
+		assertEquals(Constants.THUMBNAIL_SIZE, image.getWidth(), "Incorrect scaled width");
+		assertEquals(Constants.THUMBNAIL_SIZE, image.getHeight(), "Incorrect scaled height");
 	}
 
 	/**
@@ -96,20 +99,40 @@ public class PortraitTokenTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		pc.setName("PortraitTokenTest");
 		String thumbResult = portraitToken.getToken("PORTRAIT.THUMB", pc, null);
-		assertNull("No image or rect should be null", thumbResult);
-		
+		assertNull(thumbResult, "No image or rect should be null");
+
 		pc.setPortraitPath("code/src/resources/pcgen/images/SplashPcgen_Alpha.png");
 		thumbResult = portraitToken.getToken("PORTRAIT.THUMB", pc, null);
-		assertNull("No rect should be null", thumbResult);
+		assertNull(thumbResult, "No rect should be null");
 
 		pc.setPortraitPath("");
 		pc.setPortraitThumbnailRect(new Rectangle(160, 70, 140, 140));
 		thumbResult = portraitToken.getToken("PORTRAIT.THUMB", pc, null);
-		assertNull("No image should be null", thumbResult);
+		assertNull(thumbResult, "No image should be null");
 
 		pc.setPortraitPath("foo1gghas");
 		thumbResult = portraitToken.getToken("PORTRAIT.THUMB", pc, null);
-		assertNull("Invalid image should be null", thumbResult);
+		assertNull(thumbResult, "Invalid image should be null");
 	}
 
+	/**
+	 * The portrait URI shouldn't be encoded, because if the path to the file has "unsafe" characters (e.g., '&')
+	 * The generated XML uses FreeMarker's url_path, and it encodes URIs correctly.
+	 * See OS-538 for further details.
+	 * @throws Exception Not expected.
+	 */
+	@Test
+	public void testNonEncodedURI() throws Exception {
+		var inputPortraitPath = FileSystems.getDefault()
+				.getPath("code", "src", "resources", "pcgen", "D&D 3.Xe", "portrait.png")
+				.toString();
+
+		PlayerCharacter pc = getCharacter();
+		pc.setName("PortraitTokenTest");
+		pc.setPortraitPath(inputPortraitPath);
+
+		FileAccess.setCurrentOutputFilter("xml");
+		var outputPortraitPath = evaluateToken("PORTRAIT", pc);
+		assertEquals(inputPortraitPath, outputPortraitPath, "PORTRAIT token must not be encoded");
+	}
 }

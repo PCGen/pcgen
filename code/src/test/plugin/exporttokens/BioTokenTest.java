@@ -18,16 +18,11 @@
 package plugin.exporttokens;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.IOException;
-import java.io.StringWriter;
+import static pcgen.util.TestHelper.evaluateToken;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.core.PlayerCharacter;
-import pcgen.io.ExportHandler;
 import pcgen.io.FileAccess;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -92,27 +87,4 @@ public class BioTokenTest extends AbstractCharacterTestCase
 				"<p>Test bio &lt;br/&gt;entry,</p>\n<p>2nd line,</p>\n<p>Third line,</p>\n<p>last one,</p>";
 		assertEquals(expected, actual, "New Style Bio start only");
 	}
-
-	/**
-	 * Evaluate token.
-	 *
-	 * @param token the token
-	 * @param pc the pc
-	 * @return the string
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 */
-	private static String evaluateToken(String token, PlayerCharacter pc)
-		throws IOException
-	{
-		StringWriter retWriter = new StringWriter();
-		BufferedWriter bufWriter = new BufferedWriter(retWriter);
-		ExportHandler export = ExportHandler.createExportHandler(new File(""));
-		export.replaceTokenSkipMath(pc, token, bufWriter);
-		retWriter.flush();
-
-		bufWriter.flush();
-
-		return retWriter.toString();
-	}
-
 }
