@@ -24,7 +24,7 @@ plugins {
     id 'application'                                    // Creating application bundles
     id 'build-dashboard'                                // Produces a build report
     id 'checkstyle'                                     // Checkstyle for Java, configured further below
-    id "com.github.spotbugs" version '5.1.2'           // Spotbugs for Java
+    id "com.github.spotbugs" version '5.1.3'           // Spotbugs for Java
     id 'java'                                           // Core java / javac
     id 'maven-publish'                                  // Publishing to Maven Central
     id 'pmd'                                            // PMD for Java, configured further below
@@ -233,7 +233,7 @@ dependencies {
     implementation group: 'org.springframework', name: 'spring-beans', version:'6.0.11'
     implementation group: 'org.springframework', name: 'spring-core', version:'6.0.11'
     implementation group: 'org.apache.commons', name: 'commons-lang3', version:'3.13.0'
-    implementation('org.apache.xmlgraphics:fop:2.8')
+    implementation('org.apache.xmlgraphics:fop:2.9')
     {
         exclude group: 'xml-apis', module: 'xml-apis'
     }
