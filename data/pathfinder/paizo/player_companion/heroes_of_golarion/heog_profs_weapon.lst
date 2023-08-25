@@ -1,0 +1,8 @@
+# Mon Aug  9 21:33:57 2021 -- reformatted by PCGen TidyLst v1.04.00
+#Original Entry by pokemonpasta
+SOURCELONG:Heroes of Golarion	SOURCESHORT:HEOG
+
+###Block: Firearms
+# Weapon Name	Type
+Air Repeater	TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.Weapon Group Firearms.TwoHandedFireArm
+Breech-Loader	TYPE:Ranged.Piercing.Bludgeoning.Proficiency_Group_Firearm.Firearm.Weapon Group Firearms.OneHandedFireArm.Pistol
