@@ -1,0 +1,8 @@
+# Sun Jul 23 13:18:10 2023 -- reformatted by PCGen TidyLst v1.04.00
+#Original Entry by pokemonpasta
+SOURCELONG:Heroes of Golarion	SOURCESHORT:HEOG
+
+###Block: Medium !PREABILITY on universal path abilities
+# Ability Name										Required Ability
+CATEGORY=Special Ability|Mythic Path Ability ~ Returning Flasks.MOD	!PREABILITY:1,CATEGORY=Internal,Mythic Medium ~ Tie Mythic Powers To Spirit
+CATEGORY=Special Ability|Mythic Path Ability ~ Splash Back.MOD		!PREABILITY:1,CATEGORY=Internal,Mythic Medium ~ Tie Mythic Powers To Spirit

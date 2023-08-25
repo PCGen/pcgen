@@ -1,0 +1,17 @@
+# Sun Jul 23 13:18:10 2023 -- reformatted by PCGen TidyLst v1.04.00
+#Original Entry by pokemonpasta
+SOURCELONG:Heroes of Golarion	SOURCESHORT:HEOG
+
+###Block: Ammunition
+# Equipment Name					Type										Cost		Source Page		Special Property
+Air Reservoir					TYPE:Ammunition.Resizable.FirearmGear				COST:6
+Alchemical Cartridge (Gray Dust)		TYPE:Ammunition.Resizable.FirearmGear.FirearmCartridge	COST:50
+Alchemical Cartridge (Gray Dust Shot)	TYPE:Ammunition.Resizable.FirearmGear.FirearmCartridge	COST:50
+Alchemical Cartridge (Smoke)			TYPE:Ammunition.Resizable.FirearmGear.FirearmCartridge	COST:35
+Bullet (Screaming)				TYPE:Ammunition.Resizable.FirearmGear.FirearmBullet		COST:20
+Dispelling Bullet					TYPE:Ammunition.Resizable.FirearmGear.FirearmBullet.Magic	COST:250	SOURCEPAGE:p.18	SPROP:This +1 firearm bullet deals no damage but instead dispels one magical effect on the target, as dispel magic cast by a 5th-level wizard. If the target has multiple magical effects active, the lowest-level effect is targeted.
+
+###Block: Firearms
+# Equipment Name	Required Weapon Proficiency		Type																						Contains				Cost		Weight	Crit Mult	Crit Range	Damage	Modifier			Wield Category		Range		Size		Source Page		Special Property
+Air Repeater	PROFICIENCY:WEAPON|Air Repeater	TYPE:Weapon.Resizable.Exotic.Ranged.Standard.Piercing.Bludgeoning.Container.Projectile.Firearm.Weapon Group Firearms.AirRepeater	CONTAINS:1|FirearmCartridge=6	COST:600	WT:6		CRITMULT:x4	CRITRANGE:1	DAMAGE:1d8	EQMOD:Material ~ Steel	WIELD:TwoHandsOnly	RANGE:50	SIZE:M	SOURCEPAGE:p.18	SPROP:Misfire 1 (A misfire while an air repeater has the broken condition does not cause the firearm to explode, but it does destroy the air reservoir.)
+Breech-Loader	PROFICIENCY:WEAPON|Breech-Loader	TYPE:Weapon.Resizable.Exotic.Ranged.Standard.Piercing.Bludgeoning.Container.Projectile.Firearm.Weapon Group Firearms.Pistol		CONTAINS:1|FirearmCartridge=2	COST:3000	WT:4		CRITMULT:x4	CRITRANGE:1	DAMAGE:1d6	EQMOD:Material ~ Steel	WIELD:OneHandOnly		RANGE:20	SIZE:M	SOURCEPAGE:p.18	SPROP:Misfire 1 (5 ft.)
