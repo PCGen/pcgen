@@ -1,0 +1,32 @@
+# Sun Jul 23 13:18:10 2023 -- reformatted by PCGen TidyLst v1.04.00
+#Original Entry by pokemonpasta
+
+###Block: Class Abilities
+#Venom Speaker Alchemist Ability choices
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Specific choices list																																														Plural description for UI			Display Location
+ABILITYCATEGORY:Venom Speaker Alchemist Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:VenomSpeakerAlchemistChoice																																																		PLURAL:Venom Speaker Alchemist Choices	DISPLAYLOCATION:Class Features
+#Shifter Lion Major Feat Choice
+ABILITYCATEGORY:Lion Major Aspect Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:LionMajorAspectFeat																																																			PLURAL:Lion Major Aspect Feats		DISPLAYLOCATION:Class Features
+#Frost Shaman Hexes
+ABILITYCATEGORY:Shaman Frost Wandering Hex	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ShamanSpiritHex.ShamanFrostHex																																																		PLURAL:Shaman Frost Wandering Hexes		DISPLAYLOCATION:Class Features
+#Ardril Death Curses (ACG-dependent)
+ABILITYCATEGORY:Medium Death Curse			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability							ABILITYLIST:Rage Power ~ Linnorm Death Curse (Cairn)|Rage Power ~ Linnorm Death Curse (Crag)|Rage Power ~ Linnorm Death Curse (Fjord)|Rage Power ~ Linnorm Death Curse (Ice)|Rage Power ~ Linnorm Death Curse (Taiga)|Rage Power ~ Linnorm Death Curse (Tarn)|Rage Power ~ Linnorm Death Curse (Tor)	PLURAL:Medium Death Curses			DISPLAYLOCATION:Class Features
+#Mythmaker Hero-God
+ABILITYCATEGORY:Mythmaker Hero-God			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:MythmakerHeroGod																																																				PLURAL:Mythmaker Hero-Gods			DISPLAYLOCATION:Class Features
+#Divine Fury Shifter Aspect or Favored Terrain
+ABILITYCATEGORY:Divine Fury Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:DivineFurySelection																																																			PLURAL:Divine Fury Selections			DISPLAYLOCATION:Class Features
+
+###Block: Mythic Abilities
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object	Type of Object				Plural description for UI			Display Location
+ABILITYCATEGORY:Mythic Psychic Spellcaster Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:MythicPsychicSpellcasterChoice	PLURAL:Mythic Psychic Spellcaster Choices	DISPLAYLOCATION:Mythic Abilities
+ABILITYCATEGORY:Mythic Medium Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:MythicMediumChoice			PLURAL:Mythic Medium Choices			DISPLAYLOCATION:Mythic Abilities
+
+###Block: Racial Abilities
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object	Type of Object			Specific choices list		Plural description for UI		Display Location
+ABILITYCATEGORY:Wyrwood Experimental Body	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:WyrwoodExperimentalBody						PLURAL:Wyrwood Experimental Bodies	DISPLAYLOCATION:Racial Abilities
+#Wizard Wyrwood FCB
+ABILITYCATEGORY:Wyrwood Wizard Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:ItemCreation.Metamagic	ABILITYLIST:Spell Mastery	PLURAL:Wyrwood Wizard Bonus Feats	DISPLAYLOCATION:Racial Abilities
+
+###Block: Feats
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object	Type of Object			Plural description for UI		Display Location
+ABILITYCATEGORY:Beast Speaker Companion	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:BeastSpeakerCompanion	PLURAL:Beast Speaker Companions	DISPLAYLOCATION:Feats

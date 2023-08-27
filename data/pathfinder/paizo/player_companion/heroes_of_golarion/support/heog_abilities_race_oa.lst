@@ -1,0 +1,8 @@
+# Sun Jul 23 13:18:10 2023 -- reformatted by PCGen TidyLst v1.04.00
+#Original Entry by pokemonpasta
+SOURCELONG:Heroes of Golarion	SOURCESHORT:HEOG
+
+###Block: Wyrwood Favored Class Options
+#Psychic
+# Ability Name			Unique Key							Source Page		Category of Ability		Type										Visible	Required Class		Required Race	Define					Description									Stackable?	Multiple?	Choose		Bonus Ability Pool								Modify VAR
+Bonus Phrenic Amplification	KEY:Favored Class Bonus ~ Psychic ~ Wyrwood	SOURCEPAGE:p.6	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPsychic	VISIBLE:YES	PRECLASS:1,Psychic=1	PRERACE:1,Wyrwood	DEFINE:BonusPsychicPAmpWyrwood|0	DESC:The psychic gains 1/6 of a phrenic amplification.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Phrenic Amplification|BonusPsychicPAmpWyrwood/6	BONUS:VAR|BonusPsychicPAmpWyrwood|1

@@ -1,0 +1,25 @@
+# Sun Jul 23 13:18:10 2023 -- reformatted by PCGen TidyLst v1.04.00
+#Original Entry by pokemonpasta
+SOURCELONG:Heroes of Golarion	SOURCESHORT:HEOG
+
+###Block: Phantom Mythmaker Selection
+# Class of the Master			Type			Ability
+FOLLOWER:MythmakerArchmage=1		TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Phantom ~ Mythmaker Archmage
+FOLLOWER:MythmakerChampion=1		TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Phantom ~ Mythmaker Champion
+FOLLOWER:MythmakerGuardian=1		TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Phantom ~ Mythmaker Guardian
+FOLLOWER:MythmakerHierophant=1	TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Phantom ~ Mythmaker Hierophant
+FOLLOWER:MythmakerMarshal=1		TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Phantom ~ Mythmaker Marshal
+FOLLOWER:MythmakerTrickster=1		TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Phantom ~ Mythmaker Trickster
+
+###Block: Spirit Animal Abilities
+# Class of the Master			Type			Ability
+FOLLOWER:ShamanFrostSpiritAnimal=1	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Spirit Animal ~ Frost
+
+###Block: Beast Speaker, Beast Speaker Mastery
+# Class of the Master				Type				Ability
+FOLLOWER:MasterHasBeastSpeaker=1		TYPE:Animal Companion	DEFINE:BeastSpeakerCompanionDC|0	BONUS:VAR|BeastSpeakerCompanionDC|10+TL/2+CON
+FOLLOWER:MasterHasBeastSpeakerMastery=1	TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Beast Speaker Mastery ~ Basilisk|PRERACE:1,Companion (Basilisk)
+FOLLOWER:MasterHasBeastSpeakerMastery=1	TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Beast Speaker Mastery ~ Behir|PRERACE:1,Companion (Behir)
+FOLLOWER:MasterHasBeastSpeakerMastery=1	TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Beast Speaker Mastery ~ Bulette|PRERACE:1,Companion (Bulette)
+FOLLOWER:MasterHasBeastSpeakerMastery=1	TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Beast Speaker Mastery ~ Death Worm|PRERACE:1,Companion (Death Worm)
+FOLLOWER:MasterHasBeastSpeakerMastery=1	TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Beast Speaker Mastery ~ Sun Falcon|PRERACE:1,Companion (Sun Falcon)
