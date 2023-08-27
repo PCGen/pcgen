@@ -17,17 +17,14 @@
  */
 package plugin.exporttokens;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.IOException;
-import java.io.StringWriter;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.NotePCAttribute;
 import pcgen.core.PlayerCharacter;
-import pcgen.io.ExportHandler;
 import pcgen.io.FileAccess;
+
+import static pcgen.util.TestHelper.evaluateToken;
 
 /**
  * <code>BioTokenTest</code> is ...
@@ -99,27 +96,4 @@ public class BioTokenTest extends AbstractCharacterTestCase
 				"<p>Test bio &lt;br/&gt;entry,</p>\n<p>2nd line,</p>\n<p>Third line,</p>\n<p>last one,</p>";
 		assertEquals("New Style Bio start only", expected, actual);
 	}
-
-	/**
-	 * Evaluate token.
-	 *
-	 * @param token the token
-	 * @param pc the pc
-	 * @return the string
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 */
-	private String evaluateToken(String token, PlayerCharacter pc)
-		throws IOException
-	{
-		StringWriter retWriter = new StringWriter();
-		BufferedWriter bufWriter = new BufferedWriter(retWriter);
-		ExportHandler export = new ExportHandler(new File(""));
-		export.replaceTokenSkipMath(pc, token, bufWriter);
-		retWriter.flush();
-
-		bufWriter.flush();
-
-		return retWriter.toString();
-	}
-
 }

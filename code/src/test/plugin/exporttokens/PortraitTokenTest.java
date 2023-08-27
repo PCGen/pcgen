@@ -17,21 +17,24 @@
  */
 package plugin.exporttokens;
 
-import java.awt.Rectangle;
-import java.awt.image.BufferedImage;
-import java.io.File;
-
-import javax.imageio.ImageIO;
-
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.core.PlayerCharacter;
+import pcgen.io.FileAccess;
+
+import javax.imageio.ImageIO;
+import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.nio.file.FileSystems;
+
+import static pcgen.util.TestHelper.evaluateToken;
 
 /**
  * The Class <code>PortraitTokenTest</code> checks the function of PortraitToken.
  *
  * <br/>
- * 
+ *
  */
 
 public class PortraitTokenTest extends AbstractCharacterTestCase
@@ -89,7 +92,7 @@ public class PortraitTokenTest extends AbstractCharacterTestCase
 		pc.setName("PortraitTokenTest");
 		String thumbResult = portraitToken.getToken("PORTRAIT.THUMB", pc, null);
 		assertNull("No image or rect should be null", thumbResult);
-		
+
 		pc.setPortraitPath("code/src/java/pcgen/resources/images/SplashPcgen_Alpha.png");
 		thumbResult = portraitToken.getToken("PORTRAIT.THUMB", pc, null);
 		assertNull("No rect should be null", thumbResult);
@@ -104,4 +107,23 @@ public class PortraitTokenTest extends AbstractCharacterTestCase
 		assertNull("Invalid image should be null", thumbResult);
 	}
 
+	/**
+	 * The portrait URI shouldn't be encoded, because if the path to the file has "unsafe" characters (e.g., '&')
+	 * The generated XML uses FreeMarker's url_path, and it encodes URIs correctly.
+	 * See OS-538 for further details.
+	 * @throws Exception Not expected.
+	 */
+	public void testNonEncodedURI() throws Exception {
+		var inputPortraitPath = FileSystems.getDefault()
+				.getPath("code", "src", "resources", "pcgen", "D&D 3.Xe", "portrait.png")
+				.toString();
+
+		PlayerCharacter pc = getCharacter();
+		pc.setName("PortraitTokenTest");
+		pc.setPortraitPath(inputPortraitPath);
+
+		FileAccess.setCurrentOutputFilter("xml");
+		var outputPortraitPath = evaluateToken("PORTRAIT", pc);
+		assertEquals(inputPortraitPath, outputPortraitPath, "PORTRAIT token must not be encoded");
+	}
 }
