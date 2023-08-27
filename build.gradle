@@ -526,14 +526,13 @@ task downloadJRE {
             def url = "https://api.adoptium.net/v3/binary/latest/${major}/ga/${os}/${arch}/jdk/hotspot/normal/eclipse"
             def jreDir = new File("${projectDir}/jre/${os}/jre_${arch}")
             if(!jreDir.exists()){
-                
                 println("Downloading Java ${major} ${arch} for ${os} from ${url}")
                 download.run {
                     src url
                     dest new File("${projectDir}/jre/${os}/", "jre_${arch}.${extension}")
                     overwrite false
                 }
-                
+
                 // Now unzip them
                 if(extension == "zip"){
                     fileTree(dir: "${projectDir}/jre/${os}/").include("*.${extension}").each { simLib ->
@@ -594,7 +593,7 @@ task downloadJRE {
 
 task downloadJavaFXModules(dependsOn: downloadJRE) {
     // We support Windows/Mac/Linux - x64, Mac/Linux - aarch64, and Windows x86 (32-bit)
-    def major = "17.0.7"
+    def major = "17.0.8"
     def archs = ['x64', 'x86', 'aarch64']
     def osList = ["windows", "mac", "linux"]
 
