@@ -91,10 +91,9 @@ public class PortraitTokenTest extends AbstractCharacterTestCase
 
 	/**
 	 * Check the generation of a thumbnail file for invalid conditions.
-	 * @throws Exception Not expected.
 	 */
 	@Test
-	public void testThumbInvalid() throws Exception
+	public void testThumbInvalid()
 	{
 		PlayerCharacter pc = getCharacter();
 		pc.setName("PortraitTokenTest");
