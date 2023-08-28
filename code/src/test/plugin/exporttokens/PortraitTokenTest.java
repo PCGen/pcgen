@@ -45,7 +45,7 @@ import pcgen.io.FileAccess;
 public class PortraitTokenTest extends AbstractCharacterTestCase
 {
 
-	private PortraitToken portraitToken = new PortraitToken();
+	private final PortraitToken portraitToken = new PortraitToken();
 
 	/**
 	 * Check the generation of a thumbnail file for valid, no scaling conditions.
@@ -59,8 +59,8 @@ public class PortraitTokenTest extends AbstractCharacterTestCase
 		pc.setPortraitPath("code/src/resources/pcgen/images/SplashPcgen_Alpha.png");
 		pc.setPortraitThumbnailRect(new Rectangle(160, 70, Constants.THUMBNAIL_SIZE, Constants.THUMBNAIL_SIZE));
 		String thumbResult = portraitToken.getToken("PORTRAIT.THUMB", pc, null);
-		assertNotNull("THUMB should not be null ", thumbResult);
-		assertNotSame("Thumb should not be portrait", pc.getDisplay().getPortraitPath(), thumbResult);
+		assertNotNull(thumbResult, "THUMB should not be null ");
+		assertNotSame(pc.getDisplay().getPortraitPath(), thumbResult, "Thumb should not be portrait");
 		File thumbFile = new File(thumbResult);
 		assertTrue(thumbFile.exists(), "File should exist");
 		BufferedImage image = ImageIO.read(thumbFile);
@@ -79,8 +79,8 @@ public class PortraitTokenTest extends AbstractCharacterTestCase
 		pc.setPortraitPath("code/src/resources/pcgen/images/SplashPcgen_Alpha.png");
 		pc.setPortraitThumbnailRect(new Rectangle(160, 70, 140, 140));
 		String thumbResult = portraitToken.getToken("PORTRAIT.THUMB", pc, null);
-		assertNotNull("THUMB should not be null", thumbResult);
-		assertNotSame("Thumb should not be portrait", pc.getDisplay().getPortraitPath(), thumbResult);
+		assertNotNull(thumbResult, "THUMB should not be null");
+		assertNotSame(pc.getDisplay().getPortraitPath(), thumbResult, "Thumb should not be portrait");
 		File thumbFile = new File(thumbResult);
 		assertTrue(thumbFile.exists(), "File should exist");
 		BufferedImage image = ImageIO.read(thumbFile);
