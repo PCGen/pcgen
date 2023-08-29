@@ -94,14 +94,9 @@ ext {
     releaseDir = "${buildDir}/release"
 }
 
-/*
- * The gradle plugin for netbeans sets the 'mainClass' property instead of
- * 'mainClassName'.
- *
- * If other IDEs set different properties when trying to execute
- * a given class feel free to add them here.
- */
-mainClassName = project.hasProperty('mainClass') ? mainClass : 'pcgen.system.Main'
+application {
+    mainClass.set('pcgen.system.Main')
+}
 
 /*
  * Which binary repositories this build uses.
