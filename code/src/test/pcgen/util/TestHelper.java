@@ -28,6 +28,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.io.StringWriter;
 import java.lang.reflect.Field;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -64,6 +65,7 @@ import pcgen.core.WeaponProf;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.spell.Spell;
+import pcgen.io.ExportHandler;
 import pcgen.persistence.CampaignFileLoader;
 import pcgen.persistence.GameModeFileLoader;
 import pcgen.persistence.PersistenceLayerException;
@@ -123,7 +125,7 @@ public final class TestHelper
 				.silentlyGetConstructedCDOMObject(SizeAdjustment.class, "M").put(
 						ObjectKey.IS_DEFAULT_SIZE, true);
 	}
-	
+
 	/**
 	 * Make some equipment
 	 * @param input Equipment source line to be parsed
@@ -316,8 +318,8 @@ public final class TestHelper
 		return false;
 	}
 
-	
-	
+
+
 	/**
 	 * Set the important info about a WeaponProf
 	 * @param name The weaponprof name
@@ -399,7 +401,7 @@ public final class TestHelper
 	}
 
 	/**
-	 * Set the important info about a Kit. Note the key of the kit created will 
+	 * Set the important info about a Kit. Note the key of the kit created will
 	 * be the provided name with KEY_ added at the front. e.g. KEY_name
 	 * @param name The kit name
 	 * @return The kit (which has also been added to global storage)
@@ -428,7 +430,7 @@ public final class TestHelper
 		Globals.getContext().getReferenceContext().importObject(aTemplate);
 		return aTemplate;
 	}
-	
+
 	/**
      * Get the Ability Category of the Ability object passed in.  If it does
      * not exist in the game mode, a new object wil be created and added to
@@ -453,7 +455,7 @@ public final class TestHelper
 
 	/**
 	 * Checks to see if this PC has the weapon proficiency key aKey
-	 * 
+	 *
 	 * @param aKey
 	 * @return boolean
 	 */
@@ -466,9 +468,9 @@ public final class TestHelper
 	}
 
 	/**
-	 * Locate the data folder which contains the primary set of LST data. This 
-	 * defaults to the data folder under the current directory, but can be 
-	 * customised in the config.ini folder. 
+	 * Locate the data folder which contains the primary set of LST data. This
+	 * defaults to the data folder under the current directory, but can be
+	 * customised in the config.ini folder.
 	 * @return The path of the data folder.
 	 */
 	public static String findDataFolder()
@@ -522,7 +524,7 @@ public final class TestHelper
 		}
 
 	}
-	
+
 	public static void loadGameModes(String testConfigFile)
 	{
 		String configFolder = "testsuite";
@@ -584,5 +586,26 @@ public final class TestHelper
 			}
 		}
 		return reconstClass;
+	}
+
+	/**
+	 * Evaluate a token, used in several "export" tests. By default, the token encoding is ignored.
+	 * If encoded value is required, use @see pcgen.io.FileAccess#setCurrentOutputFilter(java.lang.String) before
+	 * calling this static method.
+	 *
+	 * @param token the token to evaluate (e.g., any token from @see plugin.exporttokens such as "PORTRAIT")
+	 * @param pc    the pc or a PlayerCharacter object
+	 * @return      the string containing the evaluated token
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
+	public static String evaluateToken(String token, PlayerCharacter pc)
+			throws IOException {
+		StringWriter retWriter = new StringWriter();
+		try (BufferedWriter bufWriter = new BufferedWriter(retWriter)) {
+			ExportHandler export = ExportHandler.createExportHandler(new File(""));
+			export.replaceTokenSkipMath(pc, token, bufWriter);
+		}
+
+		return retWriter.toString();
 	}
 }

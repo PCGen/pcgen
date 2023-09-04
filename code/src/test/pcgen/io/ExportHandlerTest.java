@@ -19,6 +19,7 @@ package pcgen.io;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static pcgen.util.TestHelper.evaluateToken;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -91,7 +92,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		LoadContext context = Globals.getContext();
 
 		BonusObj aBonus = Bonus.newBonus(context, "MODSKILLPOINTS|NUMBER|INT");
-		
+
 		if (aBonus != null)
 		{
 			intel.addToListFor(ListKey.BONUS, aBonus);
@@ -137,13 +138,13 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		balance.addToListFor(ListKey.TYPE, Type.getConstant("DEX"));
 		balance.put(ObjectKey.KEY_STAT, dexRef);
 		aBonus = Bonus.newBonus(context, "SKILL|Balance|2|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK");
-		
+
 		if (aBonus != null)
 		{
 			balance.addToListFor(ListKey.BONUS, aBonus);
 		}
 		Globals.getContext().getReferenceContext().importObject(balance);
-		
+
 		weapon = new Equipment();
 		weapon.setName("TestWpn");
 		weapon.addToListFor(ListKey.TYPE, Type.WEAPON);
@@ -152,7 +153,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		gem.setName("TestGem");
 		gem.addToListFor(ListKey.TYPE, Type.getConstant("gem"));
 		gem.setQty(1);
-		
+
 		armor = new Equipment();
 		armor.setName("TestArmorSuit");
 		TestHelper.addType(armor, "armor.suit");
@@ -262,31 +263,31 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		Ability dummyFeat1 = new Ability();
 		dummyFeat1.setName("1");
 		dummyFeat1.setCDOMCategory(BuildUtilities.getFeatCat());
-		
+
 		Ability dummyFeat2 = new Ability();
 		dummyFeat2.setName("2");
 		dummyFeat2.setCDOMCategory(BuildUtilities.getFeatCat());
-		
+
 		Ability dummyFeat3 = new Ability();
 		dummyFeat3.setName("3");
 		dummyFeat3.setCDOMCategory(BuildUtilities.getFeatCat());
-		
+
 		Ability dummyFeat4 = new Ability();
 		dummyFeat4.setName("4");
 		dummyFeat4.setCDOMCategory(BuildUtilities.getFeatCat());
-		
+
 		Ability dummyFeat5 = new Ability();
 		dummyFeat5.setName("5");
 		dummyFeat5.setCDOMCategory(BuildUtilities.getFeatCat());
-		
+
 		Ability dummyFeat6 = new Ability();
 		dummyFeat6.setName("6");
 		dummyFeat6.setCDOMCategory(BuildUtilities.getFeatCat());
-		
+
 		Ability dummyFeat7 = new Ability();
 		dummyFeat7.setName("7");
-		dummyFeat7.setCDOMCategory(BuildUtilities.getFeatCat());	
-		
+		dummyFeat7.setCDOMCategory(BuildUtilities.getFeatCat());
+
 		addAbility(BuildUtilities.getFeatCat(), dummyFeat1);
 		addAbility(BuildUtilities.getFeatCat(), dummyFeat2);
 		addAbility(BuildUtilities.getFeatCat(), dummyFeat3);
@@ -294,7 +295,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		addAbility(BuildUtilities.getFeatCat(), dummyFeat5);
 		addAbility(BuildUtilities.getFeatCat(), dummyFeat6);
 		addAbility(BuildUtilities.getFeatCat(), dummyFeat7);
-		
+
 		assertEquals("----------------",
 			evaluateToken(
 				"FOR.1,((24-STRLEN[SKILL.0])),24,-,NONE,NONE,1", pc), "Test for evaluates correctly"
@@ -303,7 +304,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 			evaluateToken(
 				"FOR.1,((24-STRLEN[SKILL.0])),24, ,NONE,NONE,1", pc), "Test for evaluates correctly"
 		);
-		
+
 		String tok = "DFOR."
 			+ "0"
 			+ ",${((count(\"ABILITIES\";\"CATEGORY=FEAT\")+1)/2)}"
@@ -314,20 +315,20 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 			+ ",["
 			+ ",]"
 			+ ",0";
-		
-		
+
+
 		//Logging.errorPrint( "DFOR Test: " + evaluateToken(tok, pc));
-		
-		
-		// Test DFOR with alternate syntax for jep passthrough.  ie, anything 
+
+
+		// Test DFOR with alternate syntax for jep passthrough.  ie, anything
 		// surrounded by ${x} will tbe sent straight to be processed.  We
-		// will assume that x is a well formed type of value.  This was to get around 
+		// will assume that x is a well formed type of value.  This was to get around
 		// the problems with DFOR not taking ((count("ABILITIES";"CATEGORY=FEAT")+1)
 		// since it could not figure out how to parse it to send to the right place.
 		assertEquals("[ 1  5 ][ 2  6 ][ 3  7 ][ 4   ]",
 			evaluateToken(tok, pc), "Test for DFOR "
 		);
-					
+
 	}
 
 	@Test
@@ -347,7 +348,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 			evaluateToken(
 				"FOR.0,100,1,\\ARMOR.SUIT.ALL.%.NAME\\,S,F,1", pc), "Test for evaluates correctly"
 		);
-		
+
 	}
 
 	@Test
@@ -368,12 +369,12 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		dummyFeat2.setName("DummyFeat2");
 		dummyFeat2.setCDOMCategory(BuildUtilities.getFeatCat());
 		final BonusObj aBonus = Bonus.newBonus(context, "VAR|NegLevels|7");
-		
+
 		if (aBonus != null)
 		{
 			dummyFeat2.addToListFor(ListKey.BONUS, aBonus);
 		}
-		
+
 		AbilityCategory cat = context.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "Maneuver");
 		AbilityCategory cat2 = context.getReferenceContext().constructCDOMObject(
@@ -381,49 +382,49 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		Ability dummyFeat3 = new Ability();
 		dummyFeat3.setName("DummyFeat3");
 		dummyFeat3.setCDOMCategory(cat);
-		
+
 		Ability dummyFeat4 = new Ability();
 		dummyFeat4.setName("DummyFeat4");
 		dummyFeat4.setCDOMCategory(cat2);
-		
+
 		addAbility(BuildUtilities.getFeatCat(), dummyFeat);
 		addAbility(BuildUtilities.getFeatCat(), dummyFeat2);
 		addAbility(cat, dummyFeat3);
 		addAbility(cat2, dummyFeat4);
-		
+
 		assertEquals("7", evaluateToken(
 			"VAR.NegLevels.INTVAL", pc), "Unsigned output");
 		assertEquals("+7", evaluateToken(
 			"VAR.NegLevels.INTVAL.SIGN", pc), "Signed output");
-	
+
 		String tok;
-	
-		tok = "count(\"ABILITIES\", \"CATEGORY=Maneuver\")";		
+
+		tok = "count(\"ABILITIES\", \"CATEGORY=Maneuver\")";
 		// if this evaluates math wise, the values should be string "1.0"
 		assertNotEquals("1.0", evaluateToken(tok, pc), "Token: |" + tok + "| != 1.0: ");
-		
+
 		tok = "VAR.count(\"ABILITIES\", \"CATEGORY=Maneuver\")";
 		assertEquals("1.0", evaluateToken(tok, pc), "Token: |" + tok + "| == 1.0: ");
-	
+
 		tok = "COUNT[\"ABILITIES\", \"CATEGORY=Maneuver\"]";
 		assertNotEquals("1.0", evaluateToken(tok, pc), "Token: |" + tok + "| != 1.0: ");
-		
+
 		tok = "count(\"ABILITIES\", \"CATEGORY=Maneuver(Special)\")";
 		assertNotEquals("1.0", evaluateToken(tok, pc), "Token: |" + tok + "| != 1.0 ");
-		
+
 		tok = "${count(\"ABILITIES\", \"CATEGORY=Maneuver(Special)\")+5}";
 		assertNotEquals("5.0", evaluateToken(tok, pc), "Token: |" + tok + "| == 5.0 ");
-		
+
 		tok = "${count(\"ABILITIES\", \"CATEGORY=Maneuver(Special)\")+5}";
 		assertEquals("6.0", evaluateToken(tok, pc), "Token: |" + tok + "| != 6.0 ");
-		
+
 		tok = "${(count(\"ABILITIES\", \"CATEGORY=Maneuver(Special)\")+5)/3}";
 		assertNotEquals("3.0", evaluateToken(tok, pc), "Token: |" + tok + "| == 3.0 ");
-		
+
 		tok = "${(count(\"ABILITIES\", \"CATEGORY=Maneuver(Special)\")+5)/3}";
 		assertEquals("2.0", evaluateToken(tok, pc), "Token: |" + tok + "| != 2.0 ");
-		
-		
+
+
 	}
 
 	@Test
@@ -446,20 +447,6 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		);
 	}
 
-	private static String evaluateToken(String token, PlayerCharacter pc)
-		throws IOException
-	{
-		StringWriter retWriter = new StringWriter();
-		BufferedWriter bufWriter = new BufferedWriter(retWriter);
-		ExportHandler export = ExportHandler.createExportHandler(new File(""));
-		export.replaceToken(token, bufWriter, pc);
-		retWriter.flush();
-
-		bufWriter.flush();
-
-		return retWriter.toString();
-	}
-	
 	private static String evaluatePartyToken(String token, List<PlayerCharacter> pcs)
 		throws IOException
 	{
@@ -490,6 +477,6 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 	{
 		//We will handle this locally
 	}
-	
-	
+
+
 }

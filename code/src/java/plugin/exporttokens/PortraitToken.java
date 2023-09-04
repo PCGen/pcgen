@@ -40,7 +40,7 @@ import org.apache.commons.lang3.StringUtils;
  * The Class {@code PortraitToken} supports the PORTRAIT
  * token and its and PORTRAIT.THUMB variant.
  *
- * 
+ *
  */
 public class PortraitToken extends AbstractExportToken
 {
@@ -48,6 +48,16 @@ public class PortraitToken extends AbstractExportToken
 	public String getTokenName()
 	{
 		return "PORTRAIT";
+	}
+
+	/**
+	 * True if the token should be encoded during the export
+	 * @return False because the Portrait path must be unchanged
+	 */
+	@Override
+	public boolean isEncoded()
+	{
+		return false;
 	}
 
 	//TODO: Move this to a token that has all of the descriptive stuff about a character
@@ -113,9 +123,9 @@ public class PortraitToken extends AbstractExportToken
 	}
 
 	/**
-	 * Generate a thumbnail image based on the character's portrait and 
+	 * Generate a thumbnail image based on the character's portrait and
 	 * the thumnbnail rectangle.
-	 * 
+	 *
 	 * @param display The character being output.
 	 * @return The thumbnail image, or null if not defined.
 	 */
