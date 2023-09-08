@@ -33,7 +33,7 @@ plugins {
     id 'edu.sc.seis.launch4j' version '3.0.4'           // Creates launch4j
     id 'com.github.ben-manes.versions' version '0.47.0' // Checks versions for plugins and dependencies
     id "com.dorongold.task-tree" version '2.1.1'        // Prints the task dependency tree
-    id 'org.openjfx.javafxplugin' version '0.0.14'      // JavaFX support
+    id 'org.openjfx.javafxplugin' version '0.1.0'      // JavaFX support
     id 'org.beryx.runtime' version '1.13.0'             // Creates custom runtimes
 }
 
