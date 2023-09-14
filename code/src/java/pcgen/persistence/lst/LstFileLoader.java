@@ -112,7 +112,7 @@ public final class LstFileLoader
 			}
 		}
 		catch (MalformedInputException ie) {
-			Logging.errorPrint("ERROR: " + uri + "\nThe file doesn't use UTF-8 encoding. LST files must be UTF-8", e);
+			Logging.errorPrint("ERROR: " + uri + "\nThe file doesn't use UTF-8 encoding. LST files must be UTF-8", ie);
 		}
 		catch (IOException | InterruptedException e)
 		{
