@@ -59,9 +59,11 @@ FORWARDREF:ABILITY=Internal|Combat Trick Tracker
 FORWARDREF:SPELL|Accept Affliction,Angelic Aspect,Angelic Aspect (Lesser),Burst of Radiance,Celestial Healing,Celestial Healing (Greater),Eaglesoul,Hymn of Mercy,Martyr's Bargain,Shield of the Dawnflower,Shield of the Dawnflower (Greater),Touch of Mercy
 
 # Support
+ABILITY:support/botb_abilities_class_aoe.lst|PRECAMPAIGN:1,INCLUDES=Agents of Evil
 ABILITY:support/botb_abilities_class_acg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
 ABILITY:support/botb_abilities_class_bos.lst|PRECAMPAIGN:1,INCLUDES=Blood of Shadows
 ABILITY:support/botb_abilities_class_mm.lst|PRECAMPAIGN:1,INCLUDES=Magical Marketplace
+ABILITY:support/botb_abilities_class_pcs.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Campaign Setting
 ABILITY:support/botb_abilities_class_pu_fap.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained|PRECAMPAIGN:1,INCLUDES=Faiths and Philosophies
 ABILITY:support/botb_abilities_class_pu.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained
 ABILITY:support/botb_abilities_class_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
