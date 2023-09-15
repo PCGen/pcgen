@@ -266,7 +266,7 @@ dependencies {
     testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-params', version: '5.10.0'
     testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.10.0'
     testImplementation group: 'org.hamcrest', name: 'hamcrest', version: '2.2'
-    testImplementation group: 'org.testfx', name: 'testfx-junit5', version: '4.0.16-alpha'
+    testImplementation group: 'org.testfx', name: 'testfx-junit5', version: '4.0.17'
     // TODO openjfx-monocle is no longer updated and chances are openjfx-monocle doesn't work with latest OpenJFX
     // https://github.com/TestFX/Monocle/issues/79
     testImplementation group: 'org.testfx', name: 'openjfx-monocle', version: 'jdk-12.0.1+2'
