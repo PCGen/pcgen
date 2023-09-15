@@ -67,6 +67,9 @@ public final class LstFileLoader
 	/** The String that separates individual objects */
 	public static final String LINE_SEPARATOR_REGEXP = "(\r\n?|\n)"; //$NON-NLS-1$
 
+	/** BOM prefix, used to warn the user that BOM-strings are not supported */
+	private static final String BOM = "\uFEFF";
+
 	/**
 	 * This method reads the given URI and returns its content as a string. If an error occurs, we don't throw an
 	 * exception, but log the error in the logger. It is possible to read file content from the remote link, but
@@ -90,7 +93,13 @@ public final class LstFileLoader
 			if (!CoreUtility.isNetURI(uri)) // only load local URIs
 			{
 				Path path = Path.of(uri);
-				return Files.readString(path);
+				String result = Files.readString(path);
+				if (result.startsWith(BOM)) {
+					Logging.log(Logging.WARNING,
+							"The file %s uses UTF-8-BOM encoding. LST files must be UTF-8".formatted(uri));
+					result = result.substring(1);
+				}
+				return result;
 			}
 			else if (SettingsHandler.isLoadURLs()) // load from remote URIs
 			{
