@@ -4,7 +4,7 @@ SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/st
 # Original Entry by: Eric C. Smith (Maredudd)
 
 # Weapon Name			Unique Key				Type																								Nb Hands
-Bomb										TYPE:Exotic.Ranged.Splash.Weapon Group Thrown
+Bomb										TYPE:Exotic.Ranged.Splash.Weapon Group Thrown.Light
 # SIMPLE WEAPONS
 # -- unarmed
 # Weapon Name			Type																		Nb Hands
