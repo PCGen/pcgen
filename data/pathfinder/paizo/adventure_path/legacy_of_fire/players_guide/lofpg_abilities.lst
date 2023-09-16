@@ -61,9 +61,15 @@ Gnoll Killer ~ Spellcaster																	CATEGORY:Internal																				
 
 
 
+# DATA-4292 Patch
+Finding Haleen			KEY:Trait ~ Finding Haleen					CATEGORY:Special Ability	TYPE:Trait.CampaignTrait												PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Finding Haleen],[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.CampaignTrait]									DESC:You never knew your parents--perhaps they died when you were a child, or maybe you were taken from them and raised elsewhere as a slave. You owe your sanity and your life to a woman named Haleen.																																																																																																																																																																					SOURCEPAGE:p.11
 
-Finding Haleen							KEY:Trait ~ Finding Haleen								CATEGORY:Special Ability	TYPE:Trait.CampaignTrait																									PREMULT:1,[PREVAREQ:BypassTraitRestriction,1],[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Finding Haleen],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.CampaignTrait]												DEFINE:FindingHaleen_FavoredClassLVL|0	DESC:You never knew your parents--perhaps they died when you were a child, or maybe you were taken from them and raised elsewhere as a slave. You owe your sanity and your life to a woman named Haleen.																																																																																					STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|CLASS|TYPE=Base																																																																BONUS:ABILITYPOOL|Favored Class Bonus ~ Skill Rank|FindingHaleen_FavoredClassLVL										BONUS:HP|CURRENTMAX|FindingHaleen_FavoredClassLVL																																																																																																																																																																																		BONUS:VAR|FindingHaleen_FavoredClassLVL|CL=%LIST																																		SOURCEPAGE:p.11
+###Block: Finding Haleen Trait Support
+Finding Haleen Bonus																		CATEGORY:Special Ability	TYPE:FavoredClassBonus												VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Trait ~ Finding Haleen																																																																																																																																																																								DESC:Gain both +1 hit point and +1 skill rank.																																																																																																																																																																									STACK:YES	MULT:YES	CHOOSE:SKILL|TYPE=Charisma|TYPE=Dexterity|TYPE=Intelligence|TYPE=Strength|TYPE=Wisdom																																																																														BONUS:HP|CURRENTMAX|1																																																		BONUS:SKILLRANK|LIST|1
 
+
+CATEGORY=Special Ability|Favored Class Bonus ~ Hit Point.MOD																																																!PREABILITY:1,CATEGORY=Special Ability,Trait ~ Finding Haleen
+CATEGORY=Special Ability|Favored Class Bonus ~ Skill Rank.MOD																																																!PREABILITY:1,CATEGORY=Special Ability,Trait ~ Finding Haleen
 
 ###Block:
 # Ability Name				Category of Ability	Bonus to skill
