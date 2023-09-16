@@ -154,7 +154,7 @@ CLASSTYPE:Companion	CRFORMULA:NONE	ISMONSTER:YES	XPPENALTY:NO
 
 ACTYPE:Total				ADD:TOTAL
 # Actual AC representation
-ACTYPE:EAC					ADD:TOTAL	REMOVE:KAC|KAC_Armor|KACArmorEnhancement
+ACTYPE:EAC					ADD:TOTAL	REMOVE:KAC|KAC_Armor|KACArmorEnhancement|KACArmorInsight
 # ADD:Base|EAC|Ability|EAC_Armor|Misc
 ACTYPE:KAC					ADD:TOTAL	REMOVE:EAC|EAC_Armor|EACArmorEnhancement
 #ADD:Base|KAC|Ability|KAC_Armor|Misc
@@ -165,14 +165,14 @@ ACTYPE:Base					ADD:Base
 ACTYPE:Ability				ADD:Ability
 # Armor Modification
 ACTYPE:EAC_Armor				ADD:EAC_Armor|EACArmorEnhancement
-ACTYPE:KAC_Armor				ADD:KAC_Armor|KACArmorEnhancement
+ACTYPE:KAC_Armor				ADD:KAC_Armor|KACArmorEnhancement|KACArmorInsight
 # The catch-all
 ACTYPE:Misc					ADD:TOTAL	REMOVE:Base|Ability|EAC|KAC|EAC_Armor|KAC_Armor|Size
 
 ACTYPE:EACArmorEnhancement		ADD:EACArmorEnhancement			
 ACTYPE:KACArmorEnhancement		ADD:KACArmorEnhancement			
 
-
+ACTYPE:KACArmorInsight			ADD:KACArmorInsight
 
 
 
