@@ -69,6 +69,7 @@ ABILITY:support/acg_abilities_arg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
 ABILITY:support/acg_abilities_cob.lst|PRECAMPAIGN:1,INCLUDES=Champions of Balance
 ABILITY:support/acg_abilities_dep.lst|PRECAMPAIGN:1,INCLUDES=Dragon Empires Primer
 ABILITY:support/acg_abilities_heog.lst|PRECAMPAIGN:1,INCLUDES=Heroes of Golarion
+ABILITY:support/acg_abilities_hh.lst|PRECAMPAIGN:1,INCLUDES=The Harrow Handbook
 ABILITY:support/acg_abilities_oog.lst|PRECAMPAIGN:1,INCLUDES=Orcs of Golarion
 ABILITY:support/acg_abilities_potr.lst|PRECAMPAIGN:1,INCLUDES=People of the River
 ABILITY:support/acg_abilities_psand.lst|PRECAMPAIGN:1,INCLUDES=People of the Sands
