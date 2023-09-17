@@ -68,6 +68,10 @@ Shub-Niggurath	NAMEISPI:YES	DOMAINS:Animal,Chaos,Evil,Plant,Void|PREALIGN:NE,CN,
 Xhamen-Dor		NAMEISPI:YES	DOMAINS:Death,Evil,Plant,Trickery|PREALIGN:TN,LE,NE,CE		FACTSET:Pantheon|Great Old Ones & Outer Gods	DEITYWEAP:Spear		ALIGN:NE	SOURCEPAGE:p.20
 Yog-Sothoth		NAMEISPI:YES	DOMAINS:Chaos,Darkness,Knowledge,Travel,Void|PREALIGN:CG,TN,CN,CE	FACTSET:Pantheon|Great Old Ones & Outer Gods	DEITYWEAP:Dagger		ALIGN:CN	SOURCEPAGE:p.20
 
+###Block: Inquisitor Support
+# Inquisitor Domains
+Yog-Sothoth.MOD	BONUS:VAR|InquisitorDomainChaos,InquisitorDomainDarkness,InquisitorDomainKnowledge,InquisitorDomainTravel,InquisitorDomainVoid|1|PREALIGN:CG,TN,CN,CE
+
 #
 # End
 #
