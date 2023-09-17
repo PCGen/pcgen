@@ -317,9 +317,15 @@ SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloa
 CATEGORY=Internal|Default.MOD																																																													DEFINE:DomainNotAllowed|0
 
 ###Block: Resistance Saves
-CATEGORY=Internal|Default.MOD	DEFINE:FortitudeSave_ResistanceBonus|0	BONUS:SAVE|Fortitude|FortitudeSave_ResistanceBonus|TYPE=Resistance
-CATEGORY=Internal|Default.MOD	DEFINE:ReflexSave_ResistanceBonus|0		BONUS:SAVE|Reflex|ReflexSave_ResistanceBonus|TYPE=Resistance
-CATEGORY=Internal|Default.MOD	DEFINE:WillSave_ResistanceBonus|0		BONUS:SAVE|Will|WillSave_ResistanceBonus|TYPE=Resistance
+CATEGORY=Internal|Default.MOD	DEFINE:FortitudeSave_ResistanceBonus|0	BONUS:SAVE|Fortitude|FortitudeSave_ResistanceBonus|TYPE=Resistance		
+CATEGORY=Internal|Default.MOD	DEFINE:ReflexSave_ResistanceBonus|0		BONUS:SAVE|Reflex|ReflexSave_ResistanceBonus|TYPE=Resistance			
+CATEGORY=Internal|Default.MOD	DEFINE:WillSave_ResistanceBonus|0		BONUS:SAVE|Will|WillSave_ResistanceBonus|TYPE=Resistance				
+
+CATEGORY=Internal|Default.MOD	DEFINE:FortitudeSave_LuckBonus|0	BONUS:SAVE|Fortitude|FortitudeSave_LuckBonus+Global_LuckBonus|TYPE=Luck		
+CATEGORY=Internal|Default.MOD	DEFINE:ReflexSave_LuckBonus|0		BONUS:SAVE|Reflex|ReflexSave_LuckBonus+Global_LuckBonus|TYPE=Luck			
+CATEGORY=Internal|Default.MOD	DEFINE:WillSave_LuckBonus|0		BONUS:SAVE|Will|WillSave_LuckBonus+Global_LuckBonus|TYPE=Luck				
+
+
 
 #CATEGORY=Internal|Default.MOD	ABILITY:Natural Attack|AUTOMATIC|Natural Attack ~ Shield Bash|PREWEAPONPROF:1,Shieldbash|PREEQUIP:1,TYPE=Shield
 
