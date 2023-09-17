@@ -1483,12 +1483,6 @@ CATEGORY=Special Ability|Ranger ~ Favored Enemy.MOD		BONUS:ABILITYPOOL|Favored E
 Archery		KEY:Ranger Combat Style ~ Archery			CATEGORY:Special Ability	TYPE:RangerClassFeatures.RangerCombatStyle.ClassFeatures	VISIBLE:DISPLAY	BONUS:VAR|Ranger_Combat_Style_Feat_Far_Shot|1	BONUS:VAR|Ranger_Combat_Style_Feat_Point_Blank_Shot|1	BONUS:VAR|Ranger_Combat_Style_Feat_Precise_Shot|1	BONUS:VAR|Ranger_Combat_Style_Feat_Rapid_Shot|1	BONUS:VAR|Ranger_Combat_Style_Feat_Improved_Precise_Shot|1|PREVARGTEQ:CombatStyleLVL,6	BONUS:VAR|Ranger_Combat_Style_Feat_Manyshot|1|PREVARGTEQ:CombatStyleLVL,6	BONUS:VAR|Ranger_Combat_Style_Feat_Pinpoint_Targeting|1|PREVARGTEQ:CombatStyleLVL,10	BONUS:VAR|Ranger_Combat_Style_Feat_Shot_on_the_Run|1|PREVARGTEQ:CombatStyleLVL,10							SOURCEPAGE:p.65
 Two-Weapon Combat	KEY:Ranger Combat Style ~ Two-Weapon Combat	CATEGORY:Special Ability	TYPE:RangerClassFeatures.RangerCombatStyle.ClassFeatures	VISIBLE:DISPLAY	BONUS:VAR|Ranger_Combat_Style_Feat_Double_Slice|1	BONUS:VAR|Ranger_Combat_Style_Feat_Improved_Shield_Bash|1	BONUS:VAR|Ranger_Combat_Style_Feat_Quick_Draw|1	BONUS:VAR|Ranger_Combat_Style_Feat_Two_Weapon_Fighting|1	BONUS:VAR|Ranger_Combat_Style_Feat_Improved_Two_Weapon_Fighting|1|PREVARGTEQ:CombatStyleLVL,6	BONUS:VAR|Ranger_Combat_Style_Feat_Two_Weapon_Defense|1|PREVARGTEQ:CombatStyleLVL,6	BONUS:VAR|Ranger_Combat_Style_Feat_Greater_Two_Weapon_Fighting|1|PREVARGTEQ:CombatStyleLVL,10	BONUS:VAR|Ranger_Combat_Style_Feat_Two_Weapon_Rend|1|PREVARGTEQ:CombatStyleLVL,10	SOURCEPAGE:p.65
 
-###Block# Archetype Support
-# Ability Name			Category of Ability	Ability
-CATEGORY=Internal|Default.MOD					ABILITY:Internal|AUTOMATIC|Ranger Archetype Support|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerArchetype
-#
-Ranger Archetype Support	CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Ranger ~ Evasion|PREABILITY:1,CATEGORY=Archetype,TYPE.RangerEvasion|PREVARGTEQ:RangerLvl,16
-
 ###Block: Ranger Combat Style Feats
 # Ability Name			Unique Key									Category of Ability		Type				Visible		Restricted Ability							Var. Min. Value										Description																				Ability																	Source Page
 Far Shot				KEY:Ranger Combat Style Feat ~ Far Shot				CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Far Shot				PREVARGTEQ:Ranger_Combat_Style_Feat_Far_Shot,1					DESC:You are more accurate at longer ranges.														ABILITY:FEAT|VIRTUAL|Far Shot|PREVARLT:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1				SOURCEPAGE:p.124
