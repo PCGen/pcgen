@@ -3,7 +3,6 @@ SOURCELONG:Pathfinder Player Companion: Martial Arts Handbook	SOURCESHORT:MAH	SO
 # ORIGINAL ENTRY DATE: 01 March 2019
 
 # Weapon Name			Unique Key					Type
-Handwraps											TYPE:Simple.Light.Melee.TwoHanded.Unarmed.Bludgeoning
 Traveling Kettle									TYPE:Simple.Light.Melee.Bludgeoning.Monk.Weapon Group Monk
 Broken-Back Seax									TYPE:Exotic.OneHanded.Melee.Slashing.MeleeSlashing.Piercing.MeleePiercing.Sword.Bladelight.Weapon Group Blades Light
 Split-Blade Sword		KEY:Sword (Split-Blade)		TYPE:Exotic.OneHanded.Melee.Slashing.MeleeSlashing.Sword.Bladeheavy.Weapon Group Blades Heavy
