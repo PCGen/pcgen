@@ -852,11 +852,11 @@ Druid Wild Shape Times						CATEGORY:Special Ability	TYPE:DruidClassFeatures.Int
 Druid Wild Shape Progression					CATEGORY:Special Ability	TYPE:DruidClassFeatures.Internal.ClassFeatures.DruidWildshape	VISIBLE:NO																								BONUS:VAR|WildShapeProgression|(DruidWildShape>=4)+(DruidWildShape>=6)+(DruidWildShape>=8)+(DruidWildShape>=10)+(DruidWildShape>=12)+(DruidWildShape>=14)+(DruidWildShape>=16)+(DruidWildShape>=18)+(DruidWildShape>=20)|TYPE=BASE	DEFINE:WildShapeProgression|0
 
 CATEGORY=Special Ability|Wild Shape.MOD																					DEFINE:WildShapeAbilityLevel|0
-CATEGORY=Special Ability|Wild Shape.MOD																																												BONUS:VAR|WildShapeAbilityLevel|1|PREMULT:2,[PREVARGTEQ:DruidWildShape,4],[PREVAREQ:Druid_CF_WildShapeOptions4,1]
-CATEGORY=Special Ability|Wild Shape.MOD																																												BONUS:VAR|WildShapeAbilityLevel|1|PREMULT:2,[PREVARGTEQ:DruidWildShape,6],[PREVAREQ:Druid_CF_WildShapeOptions6,1]
-CATEGORY=Special Ability|Wild Shape.MOD																																												BONUS:VAR|WildShapeAbilityLevel|1|PREMULT:2,[PREVARGTEQ:DruidWildShape,8],[PREVAREQ:Druid_CF_WildShapeOptions8,1]
-CATEGORY=Special Ability|Wild Shape.MOD																																												BONUS:VAR|WildShapeAbilityLevel|1|PREMULT:2,[PREVARGTEQ:DruidWildShape,10],[PREVAREQ:Druid_CF_WildShapeOptions10,1]
-CATEGORY=Special Ability|Wild Shape.MOD																																												BONUS:VAR|WildShapeAbilityLevel|1|PREMULT:2,[PREVARGTEQ:DruidWildShape,12],[PREVAREQ:Druid_CF_WildShapeOptions12,1]
+CATEGORY=Special Ability|Wild Shape.MOD																																												BONUS:VAR|WildShapeAbilityLevel|1|PREMULT:2,[PREVARGTEQ:DruidWildShape,4],[PREVAREQ:Druid_CF_WildShapeOptions4,0]
+CATEGORY=Special Ability|Wild Shape.MOD																																												BONUS:VAR|WildShapeAbilityLevel|1|PREMULT:2,[PREVARGTEQ:DruidWildShape,6],[PREVAREQ:Druid_CF_WildShapeOptions6,0]
+CATEGORY=Special Ability|Wild Shape.MOD																																												BONUS:VAR|WildShapeAbilityLevel|1|PREMULT:2,[PREVARGTEQ:DruidWildShape,8],[PREVAREQ:Druid_CF_WildShapeOptions8,0]
+CATEGORY=Special Ability|Wild Shape.MOD																																												BONUS:VAR|WildShapeAbilityLevel|1|PREMULT:2,[PREVARGTEQ:DruidWildShape,10],[PREVAREQ:Druid_CF_WildShapeOptions10,0]
+CATEGORY=Special Ability|Wild Shape.MOD																																												BONUS:VAR|WildShapeAbilityLevel|1|PREMULT:2,[PREVARGTEQ:DruidWildShape,12],[PREVAREQ:Druid_CF_WildShapeOptions12,0]
 
 CATEGORY=Special Ability|Druid Wild Shape Times.MOD																																										BONUS:VAR|WildShapeTimes|-1|PREMULT:2,[PREVARGTEQ:DruidWildShape,4],[PREVAREQ:Druid_CF_WildShapeUses4,1]
 CATEGORY=Special Ability|Druid Wild Shape Times.MOD																																										BONUS:VAR|WildShapeTimes|-1|PREMULT:2,[PREVARGTEQ:DruidWildShape,6],[PREVAREQ:Druid_CF_WildShapeUses6,1]
