@@ -1043,6 +1043,8 @@ Young Creature		CR:-1			VISIBLE:YES												SOURCEPAGE:p.295																	
 # Template Name			Visible		Adjust PC Size
 Size Change (Increase by 1)	VISIBLE:DISPLAY	BONUS:SIZEMOD|NUMBER|1
 Size Change (Increase by 2)	VISIBLE:DISPLAY	BONUS:SIZEMOD|NUMBER|2
+Size Change (Increase by 3)	VISIBLE:DISPLAY	BONUS:SIZEMOD|NUMBER|3
+Size Change (Increase by 4)	VISIBLE:DISPLAY	BONUS:SIZEMOD|NUMBER|4
 Size Change (Decrease by 1)	VISIBLE:DISPLAY	BONUS:SIZEMOD|NUMBER|-1
 Size Change (Decrease by 2)	VISIBLE:DISPLAY	BONUS:SIZEMOD|NUMBER|-2
 
