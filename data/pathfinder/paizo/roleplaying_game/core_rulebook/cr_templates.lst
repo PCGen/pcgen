@@ -301,7 +301,12 @@ Wild Shape Medium Animal (Squid)			LEGS:0	HANDS:0	VISIBLE:EXPORT	TEMPLATE:Wild S
 #TODO Stingray should get poison and blindsense on bs 3
 Wild Shape Medium Animal (Stingray)			LEGS:0	HANDS:0	VISIBLE:EXPORT	TEMPLATE:Wild Shape (Medium Animal)	SOURCEPAGE:TODO						PREVARGTEQ:WildShapeProgression,1																												ABILITY:Special Ability|AUTOMATIC|Grab|PREVARGTEQ:WildShapeProgression,2	ABILITY:Internal|AUTOMATIC|Sting																																						MOVE:Swim,40			TYPE:WildshapeTemplate.WildshapeMedium	VISION:Low-Light Vision
 
-Wild Shape Huge Animal (Allosaurus)			LEGS:2			VISIBLE:EXPORT	TEMPLATE:Wild Shape (Huge Animal)	SOURCEPAGE:TODO						PREVARGTEQ:WildShapeProgression,1								BONUS:WEAPONPROF=Bite|DAMAGE|max(0,(STR/2))													ABILITY:Special Ability|AUTOMATIC|Grab	ABILITY:Special Ability|AUTOMATIC|Scent	ABILITY:Special Ability|AUTOMATIC|Pounce|PREVARGTEQ:WildShapeProgression,1	ABILITY:Special Ability|AUTOMATIC|Rake	ABILITY:Internal|AUTOMATIC|Bite|Talons																MOVE:Walk,50			TYPE:WildshapeTemplate.WildshapeHuge	VISION:Low-Light Vision	NATURALATTACKS:Claws,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,1d8
+Wild Shape Huge Animal (Allosaurus)			LEGS:2			VISIBLE:EXPORT	TEMPLATE:Wild Shape (Huge Animal)	SOURCEPAGE:TODO						PREVARGTEQ:WildShapeProgression,3								BONUS:WEAPONPROF=Bite|DAMAGE|max(0,(STR/2))													ABILITY:Special Ability|AUTOMATIC|Grab	ABILITY:Special Ability|AUTOMATIC|Scent	ABILITY:Special Ability|AUTOMATIC|Pounce|PREVARGTEQ:WildShapeProgression,1	ABILITY:Special Ability|AUTOMATIC|Rake	ABILITY:Internal|AUTOMATIC|Bite|Talons																MOVE:Walk,50			TYPE:WildshapeTemplate.WildshapeHuge	VISION:Low-Light Vision	NATURALATTACKS:Claws,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,1d8
+
+
+
+
+
 
 
 #Bonus Language ~ xxx		VISIBLE:NO		LANGBONUS:
