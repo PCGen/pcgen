@@ -22,8 +22,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 
 import pcgen.base.lang.StringUtil;
@@ -37,14 +37,16 @@ import org.junit.jupiter.api.Test;
 public class CoreUtilityTest
 {
 	@Test
-	public void testisNetURL() throws MalformedURLException
+	public void testIsNetURL() throws URISyntaxException
 	{
-		URL https = new URL("https://127.0.0.1");
-		URL http = new URL("http://127.0.0.1");
-		URL ftp = new URL("ftp://127.0.0.1");
-		assertTrue(CoreUtility.isNetURL(https));
-		assertTrue(CoreUtility.isNetURL(http));
-		assertTrue(CoreUtility.isNetURL(ftp));
+		URI https = URI.create("https://127.0.0.1");
+		URI http = URI.create("http://127.0.0.1");
+		URI ftp = URI.create("ftp://127.0.0.1");
+		URI file = URI.create("file:///C:/pcgen/build/reports/tests/slowtest/index.html");
+		assertTrue(CoreUtility.isNetURI(https));
+		assertTrue(CoreUtility.isNetURI(http));
+		assertTrue(CoreUtility.isNetURI(ftp));
+		assertFalse(CoreUtility.isNetURI(file));
 	}
 
 	/**
@@ -65,7 +67,7 @@ public class CoreUtilityTest
 	{
 		int[] firstVer = {5, 13, 6};
 		int[] secondVer = {5, 13, 6};
-		
+
 		assertEquals(0, CoreUtility.compareVersions(firstVer, secondVer), "Check for equal values");
 		secondVer[2] = 4;
 		assertEquals(1, CoreUtility.compareVersions(firstVer, secondVer), "Check for first later");
@@ -87,11 +89,11 @@ public class CoreUtilityTest
 	public void testCompareVersionsString()
 	{
 		String firstVer = "5.13.6";
-		
+
 		assertEquals(0, CoreUtility.compareVersions(firstVer, firstVer), "Check for equal values");
 		assertEquals(1, CoreUtility.compareVersions(firstVer, "5.13.4"), "Check for first later");
 	}
-	
+
 	@Test
 	public void testConvertVersionToNumber()
 	{
