@@ -270,6 +270,13 @@ dependencies {
     // TODO openjfx-monocle is no longer updated and chances are openjfx-monocle doesn't work with latest OpenJFX
     // https://github.com/TestFX/Monocle/issues/79
     testImplementation group: 'org.testfx', name: 'openjfx-monocle', version: 'jdk-12.0.1+2'
+    constraints {
+        implementation('org.openjfx:javafx-base:17')
+        implementation('org.openjfx:javafx-controls:17')
+        implementation('org.openjfx:javafx-graphics:17') {
+            because 'Monocle uses 12.0.1+2 that does not support Mac`s ARM'
+        }
+    }
 
     testImplementation group: 'org.xmlunit', name: 'xmlunit-matchers', version:'2.9.1'
     spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.12.0'
