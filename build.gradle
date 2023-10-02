@@ -61,11 +61,11 @@ plugins {
     id 'maven-publish'                                  // Publishing to Maven Central
     id 'pmd'                                            // PMD for Java, configured further below
     id 'idea'                                           // For IntelliJ IDEA users
-    id "de.undercouch.download" version '5.4.0'         // Shows download percentage
-    id 'edu.sc.seis.launch4j' version '3.0.4'           // Creates launch4j
-    id 'com.github.ben-manes.versions' version '0.47.0' // Checks versions for plugins and dependencies
+    id "de.undercouch.download" version '5.5.0'         // Shows download percentage
+    id 'edu.sc.seis.launch4j' version '3.0.5'           // Creates launch4j
+    id 'com.github.ben-manes.versions' version '0.48.0' // Checks versions for plugins and dependencies
     id "com.dorongold.task-tree" version '2.1.1'        // Prints the task dependency tree
-    id 'org.openjfx.javafxplugin' version '0.0.14'      // JavaFX support
+    id 'org.openjfx.javafxplugin' version '0.1.0'      // JavaFX support
     id 'org.beryx.runtime' version '1.13.0'             // Creates custom runtimes
 }
 
@@ -126,10 +126,8 @@ ext {
     releaseDir = "${buildDir}/release"
 }
 
-// Set main class for the Java application
 application {
-    // mainClassName = project.hasProperty('mainClass') ? mainClass : 'pcgen.system.Main'
-    mainClass = project.hasProperty('mainClass') ? mainClass : 'pcgen.system.Main'
+    mainClass.set('pcgen.system.Main')
 }
 
 /*
@@ -260,9 +258,9 @@ dependencies {
 
     implementation group: 'commons-io', name: 'commons-io', version:'2.13.0'
 
-    implementation group: 'org.springframework', name: 'spring-web', version:'6.0.11'
-    implementation group: 'org.springframework', name: 'spring-beans', version:'6.0.11'
-    implementation group: 'org.springframework', name: 'spring-core', version:'6.0.11'
+    implementation group: 'org.springframework', name: 'spring-web', version:'6.0.12'
+    implementation group: 'org.springframework', name: 'spring-beans', version:'6.0.12'
+    implementation group: 'org.springframework', name: 'spring-core', version:'6.0.12'
     implementation group: 'org.apache.commons', name: 'commons-lang3', version:'3.13.0'
     implementation('org.apache.xmlgraphics:fop:2.9')
     {
@@ -581,14 +579,13 @@ task downloadJRE {
             def url = "https://api.adoptium.net/v3/binary/latest/${major}/ga/${os}/${arch}/jdk/hotspot/normal/eclipse"
             def jreDir = new File("${projectDir}/jre/${os}/jre_${arch}")
             if(!jreDir.exists()){
-                
                 println("Downloading Java ${major} ${arch} for ${os} from ${url}")
                 download.run {
                     src url
                     dest new File("${projectDir}/jre/${os}/", "jre_${arch}.${extension}")
                     overwrite false
                 }
-                
+
                 // Now unzip them
                 if(extension == "zip"){
                     fileTree(dir: "${projectDir}/jre/${os}/").include("*.${extension}").each { simLib ->
@@ -652,7 +649,7 @@ task downloadJavaFXModules(dependsOn: downloadJRE) {
     println("IN downloadJavaFXModules")
 
     // We support Windows/Mac/Linux - x64, Mac/Linux - aarch64, and Windows x86 (32-bit)
-    def major = "17.0.7"
+    def major = "17.0.8"
     def archs = ['x64', 'x86', 'aarch64']
     def osList = ["windows", "mac", "linux"]
 

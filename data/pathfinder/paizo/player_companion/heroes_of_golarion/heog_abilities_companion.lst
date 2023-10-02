@@ -1,0 +1,23 @@
+# Sun Jul 23 13:18:10 2023 -- reformatted by PCGen TidyLst v1.04.00
+#Original Entry by pokemonpasta
+SOURCELONG:Heroes of Golarion	SOURCESHORT:HEOG
+
+###Block: Companion Advancement
+# Ability Name				Unique Key						Category of Ability		Type					Visible		Required Race		Ability					Adjust PC Size		Stat bonus										Modify VAR
+Companion Advancement (Basilisk)	KEY:Companion Advancement ~ Basilisk	CATEGORY:Special Ability	TYPE:CompanionAdvancement	VISIBLE:DISPLAY	PRERACE:1,Companion (Basilisk)	ABILITY:Internal|AUTOMATIC|Bite					BONUS:STAT|DEX,CON|4|TYPE=Racial						BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK
+Companion Advancement (Sun Falcon)	KEY:Companion Advancement ~ Sun Falcon	CATEGORY:Special Ability	TYPE:CompanionAdvancement	VISIBLE:DISPLAY	PRERACE:1,Companion (Sun Falcon)	ABILITY:Internal|AUTOMATIC|Talons	BONUS:SIZEMOD|NUMBER|1	BONUS:STAT|STR,CHA|2|TYPE=Racial	BONUS:STAT|CON|4|TYPE=Racial	BONUS:VAR|AC_Natural_Armor|4|TYPE=Base.STACK	BONUS:VAR|BurnDamageDieSize|2
+
+
+###Block: Mastery
+# Ability Name		Unique Key						Category of Ability		Type							Visible		Required Race				Description																																																																	Ability																	Adjust PC Size		Stat bonus														Modify VAR
+Basilisk Mastery		KEY:Beast Speaker Mastery ~ Basilisk	CATEGORY:Special Ability	TYPE:BeastSpeakerMastery.SpecialAttack				PRERACE:1,Companion (Basilisk)	DESC:The basilisk’s gaze attack functions as flesh to stone (caster level equals basilisk’s HD) instead of inflicting paralysis.
+Behir Mastery		KEY:Beast Speaker Mastery ~ Behir		CATEGORY:Special Ability	TYPE:BeastSpeakerMastery.SpecialAttack				PRERACE:1,Companion (Behir)		DESC:Breath weapon (three times per day)																																																												ABILITY:Special Ability|AUTOMATIC|Immunity to Electricity									BONUS:SIZEMOD|NUMBER|1	BONUS:STAT|STR|4|TYPE=Racial	BONUS:STAT|DEX|-2|TYPE=Racial	BONUS:STAT|CON|2|TYPE=Racial	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK
+Bulette Mastery		KEY:Beast Speaker Mastery ~ Bulette		CATEGORY:Special Ability	TYPE:BeastSpeakerMastery			VISIBLE:DISPLAY	PRERACE:1,Companion (Bulette)																																																																				ABILITY:Special Ability|AUTOMATIC|Bulette ~ Leap										BONUS:SIZEMOD|NUMBER|1	BONUS:STAT|STR|4|TYPE=Racial	BONUS:STAT|DEX|-2|TYPE=Racial	BONUS:STAT|CON|2|TYPE=Racial	BONUS:VAR|AC_Natural_Armor|4|TYPE=Base.STACK
+Death Worm Mastery	KEY:Beast Speaker Mastery ~ Death Worm	CATEGORY:Special Ability	TYPE:BeastSpeakerMastery			VISIBLE:DISPLAY	PRERACE:1,Companion (Death Worm)																																																																			ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Acid|Immunity to Electricity|Immunity to Acid	BONUS:SIZEMOD|NUMBER|1	BONUS:STAT|STR|4|TYPE=Racial	BONUS:STAT|DEX|-2|TYPE=Racial	BONUS:STAT|CON|2|TYPE=Racial	BONUS:VAR|AC_Natural_Armor|4|TYPE=Base.STACK	BONUS:VAR|BreathWeaponLine|30	BONUS:VAR|BreathWeaponDice|8	BONUS:VAR|BreathWeaponDamageDie|6	BONUS:VAR|BreathWeaponDC|BeastSpeakerCompanionDC
+Sun Falcon Mastery	KEY:Beast Speaker Mastery ~ Sun Falcon	CATEGORY:Special Ability	TYPE:BeastSpeakerMastery.SpecialAttack				PRERACE:1,Companion (Sun Falcon)	DESC:Three times per day, the sun falcon can blast an intense wave of heat and light in a 20-foot cone as a standard action. Creatures within this area must succeed at a Reflex save (DC %1) or take 1d6 points of fire damage and be blinded for 1d4+1 rounds. Creatures that succeed at this save take no fire damage and are instead dazzled for 1 round. The save DC is Charisma-based.|10+TL/2+CHA
+
+###Block: Misc
+# Ability Name	Unique Key				Source Page		Category of Ability		Type						Description																																		Modify VAR
+Leap			KEY:Bulette ~ Leap					CATEGORY:Special Ability	TYPE:SpecialAttack			DESC:When charging, it can attempt a DC 20 Acrobatics check to jump into the air and land next to its enemies. If successful, it can make four claw attacks against foes in reach but cannot make a bite attack.
+#Frost Shaman Spirit Animal
+Spirit Animal	KEY:Spirit Animal ~ Frost	SOURCEPAGE:p.11	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:The shaman’s spirit animal is covered in a light layer of glimmering frost, and its breath comes out as mist regardless of the temperature. The animal has resistance 5 to cold and electricity.		BONUS:VAR|ColdResistanceBonus,ElectricityResistanceBonus|5|TYPE=Resistance

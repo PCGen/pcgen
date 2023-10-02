@@ -78,7 +78,7 @@ ${pcstring('AC.Ability.SIGN')}[STAT]
 ${pcstring('AC.NaturalArmor.SIGN')}[NATURAL] 
 </#if>
 <#if (pcvar('AC.Deflection') != 0)> 
-${pcstring('AC.Deflection.SIGN')}[NATURAL]
+${pcstring('AC.Deflection.SIGN')}[DEFLECTION]
 </#if>
 <#if (pcvar('AC.Misc') != 0)> 
 ${pcstring('AC.Misc.SIGN')}[MISC]
@@ -115,7 +115,7 @@ ${pcstring('STAT.${stat}.LEVEL.1.NOPOST.NOEQUIP.NOTEMP-(STAT.${stat}.BASE-(STAT.
 
 <blockquote>
 <@loop from=0 to=pcvar('COUNT[CHECKS]-1') ; check, check_has_next><#-- TODO: Loop was of early exit type 1 -->
-<b>${pcstring('CHECK.${check}.NAME')}</b>: ${pcstring('CHECK.FORTITUDE.TOTAL')} = 
+<b>${pcstring('CHECK.${check}.NAME')}</b>: ${pcstring('CHECK.${check}.TOTAL')} = 
 ${pcstring('CHECK.${check}.BASE')}[BASE] 
 <#if (pcvar('CHECK.${check}.STATMOD') != 0)> 
 ${pcstring('CHECK.${check}.STATMOD')}[STAT]
@@ -123,7 +123,7 @@ ${pcstring('CHECK.${check}.STATMOD')}[STAT]
 <#if (pcvar('CHECK.${check}.MAGIC') != 0)> 
 ${pcstring('CHECK.${check}.MAGIC')}[MAGIC]
 </#if>
-<#if (pcvar('CHECK.FORTITUDE.FEAT') != 0)> 
+<#if (pcvar('CHECK.${check}.FEAT') != 0)> 
 ${pcstring('CHECK.${check}.FEAT')}[FEAT]
 </#if>
 <#if (pcvar('CHECK.${check}.EPIC') != 0)> 
@@ -560,9 +560,6 @@ ${pcstring('WEAPON.${weap}.MISC')}[MISC]
 <p>Test New INFO Export</p>
 <!--   uses *info.   -->
 <p>Test for INFO using 'Wildness' = 
-	<#if (pcstring('pc.race.info.wildness') != "")> 
-		${pc.race.info.wildness}
-	</#if>
 </p>
 
 <font size="-2">Created using PCGen ${pcstring('EXPORT.VERSION')} on ${pcstring('EXPORT.DATE')} </font>

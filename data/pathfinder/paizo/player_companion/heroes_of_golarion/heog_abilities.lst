@@ -1,0 +1,11 @@
+# Sun Jul 23 13:18:10 2023 -- reformatted by PCGen TidyLst v1.04.00
+#Original Entry by pokemonpasta
+SOURCELONG:Heroes of Golarion	SOURCESHORT:HEOG
+
+###Block: Beast Speaker
+# Ability Name	Unique Key						Category of Ability	Type					Required Skill												Modify VAR						Allowed Companions
+Basilisk		KEY:Beast Speaker Companion ~ Basilisk	CATEGORY:Internal		TYPE:BeastSpeakerCompanion															BONUS:VAR|BeastSpeakerMasteryPreLvl|11	COMPANIONLIST:Animal Companion|Companion (Basilisk)
+Behir			KEY:Beast Speaker Companion ~ Behir		CATEGORY:Internal		TYPE:BeastSpeakerCompanion	PRESKILL:1,Knowledge (Arcana)=7	PRESKILL:1,Diplomacy=7,Intimidate=7			BONUS:VAR|BeastSpeakerMasteryPreLvl|11	COMPANIONLIST:Animal Companion|Companion (Behir)
+Bulette		KEY:Beast Speaker Companion ~ Bulette	CATEGORY:Internal		TYPE:BeastSpeakerCompanion															BONUS:VAR|BeastSpeakerMasteryPreLvl|11	COMPANIONLIST:Animal Companion|Companion (Bulette)
+Death Worm		KEY:Beast Speaker Companion ~ Death Worm	CATEGORY:Internal		TYPE:BeastSpeakerCompanion	PRESKILL:1,Survival=7											BONUS:VAR|BeastSpeakerMasteryPreLvl|11	COMPANIONLIST:Animal Companion|Companion (Death Worm)
+Sun Falcon		KEY:Beast Speaker Companion ~ Sun Falcon	CATEGORY:Internal		TYPE:BeastSpeakerCompanion	PRESKILL:1,Diplomacy=7	PRESKILL:1,Knowledge (Arcana)=7,Knowledge (Religion)=7	BONUS:VAR|BeastSpeakerMasteryPreLvl|11	COMPANIONLIST:Animal Companion|Companion (Sun Falcon)

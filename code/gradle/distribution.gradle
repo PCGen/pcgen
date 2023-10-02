@@ -39,7 +39,7 @@ ext {
             include 'docs/**'
         }
     }
-    
+
     programDistsImage = copySpec {
         from("$buildDir/launch4j") {
             include 'pcgen.exe'
@@ -83,17 +83,17 @@ ext {
     }
 }
 
-application {
+application{
+    // Output the startScripts (.bat and .sh) in main distribute folder rather than .bin
+    executableDir = ""
+    applicationDefaultJvmArgs = ["-Dsun.java2d.d3d=false"]
+
     applicationDistribution.with(dataDistsImage)
     applicationDistribution.with(docsDistsImage)
     applicationDistribution.with(autobuildSpec)
     applicationDistribution.with(charactersImage)
     applicationDistribution.with(programScriptImage)
     applicationDistribution.with(programDistsImage)
-
-    // Output the startScripts (.bat and .sh) in main distribute folder rather than .bin
-    executableDir = ""
-    applicationDefaultJvmArgs = ["-Dsun.java2d.d3d=false"]
 }
 
 run {
