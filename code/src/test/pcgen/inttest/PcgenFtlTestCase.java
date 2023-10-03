@@ -17,31 +17,23 @@
  */
 package pcgen.inttest;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.nio.charset.StandardCharsets;
-import java.util.Locale;
-
-import org.assertj.core.util.Files;
-import pcgen.LocaleDependentTestCase;
-import pcgen.cdom.base.Constants;
-import pcgen.system.Main;
-import pcgen.util.TestHelper;
-
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.xmlunit.builder.DiffBuilder;
 import org.xmlunit.builder.Input;
 import org.xmlunit.diff.Diff;
+import pcgen.LocaleDependentTestCase;
+import pcgen.cdom.base.Constants;
+import pcgen.system.Main;
+import pcgen.util.TestHelper;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.util.Locale;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * PcgenFtlTestCase is a base class for tests which use the FreeMarker
@@ -53,13 +45,13 @@ public abstract class PcgenFtlTestCase
 	private static final String TEST_CONFIG_FILE = "config.ini.junit";
 
 	@BeforeEach
-	public void setUp() throws Exception
+	public void setUp()
 	{
 		LocaleDependentTestCase.before(Locale.US);
 	}
 
 	@AfterEach
-	public void tearDown() throws Exception
+	public void tearDown()
 	{
 		LocaleDependentTestCase.after();
 	}
@@ -105,48 +97,14 @@ public abstract class PcgenFtlTestCase
 						outputFile, TEST_CONFIG_FILE), "Export of " + character + " failed.");
 
 		// Read in the actual XML produced by PCGen
-		actual = readFile(new File(outputFile));
-		System.out.println(Files.newTemporaryFile().getAbsolutePath());
+		actual = Files.readString(outputFileFile.toPath());
 		// Read in the expected XML
-		expected = readFile(
-				new File("code/testsuite/csheets/" + character + ".xml"));
+		expected = Files.readString(
+                new File("code/testsuite/csheets/" + character + ".xml").toPath());
 
 		Diff myDiff = DiffBuilder.compare(Input.fromString(expected))
 		                         .withTest(Input.fromString(actual)).build();
 
 		assertFalse(myDiff.hasDifferences(), myDiff.toString());
-	}
-
-	/**
-	 * Read the XML file and return it as a String.
-	 * @param outputFile
-	 * @return String
-	 *
-	 * @throws UnsupportedEncodingException
-	 * @throws FileNotFoundException
-	 * @throws IOException
-	 */
-	private static String readFile(File outputFile)
-			throws UnsupportedEncodingException, FileNotFoundException, IOException
-	{
-		BufferedReader br =
-				new BufferedReader(new InputStreamReader(new FileInputStream(
-						outputFile), StandardCharsets.UTF_8));
-		StringBuilder output = new StringBuilder();
-		try
-		{
-			String line = br.readLine();
-			while (line != null)
-			{
-				output.append(line).append('\n');
-				line = br.readLine();
-			}
-		}
-		catch (IOException e)
-		{
-			br.close();
-			fail();
-		}
-		return output.toString();
 	}
 }
