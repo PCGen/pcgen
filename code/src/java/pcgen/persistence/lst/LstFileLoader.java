@@ -27,7 +27,7 @@ import java.net.http.HttpResponse;
 import java.nio.charset.MalformedInputException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-
+import org.jetbrains.annotations.Nullable;
 import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.core.utils.CoreUtility;
@@ -35,8 +35,6 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.Logging;
-
-import org.jetbrains.annotations.Nullable;
 
 /**
  * This class is a base class for LST file loaders.
@@ -94,7 +92,8 @@ public final class LstFileLoader
 			{
 				Path path = Path.of(uri);
 				String result = Files.readString(path);
-				if (result.startsWith(BOM)) {
+				if (result.startsWith(BOM))
+				{
 					Logging.log(Logging.WARNING,
 							"The file %s uses UTF-8-BOM encoding. LST files must be UTF-8".formatted(uri));
 					result = result.substring(1);
@@ -119,8 +118,8 @@ public final class LstFileLoader
 					+ "sources from web links.\n" + uri + " is a web link", Constants.APPLICATION_NAME,
 					MessageType.ERROR);
 			}
-		}
-		catch (MalformedInputException ie) {
+		} catch (MalformedInputException ie)
+		{
 			Logging.errorPrint("ERROR: " + uri + "\nThe file doesn't use UTF-8 encoding. LST files must be UTF-8", ie);
 		}
 		catch (IOException | InterruptedException e)
