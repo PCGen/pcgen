@@ -25,10 +25,11 @@ import java.awt.GraphicsEnvironment;
 import java.io.File;
 import java.io.IOException;
 import java.util.Locale;
+import java.util.Optional;
 import java.util.logging.Level;
-
 import javax.swing.JOptionPane;
-
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.SystemUtils;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.formula.PluginFunctionLibrary;
 import pcgen.core.CustomData;
@@ -57,13 +58,6 @@ import pcgen.util.Logging;
 import pcgen.util.PJEP;
 
 import javafx.embed.swing.JFXPanel;
-import net.sourceforge.argparse4j.ArgumentParsers;
-import net.sourceforge.argparse4j.impl.Arguments;
-import net.sourceforge.argparse4j.inf.ArgumentParser;
-import net.sourceforge.argparse4j.inf.MutuallyExclusiveGroup;
-import net.sourceforge.argparse4j.inf.Namespace;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.SystemUtils;
 
 /**
  * Main entry point for pcgen.
@@ -72,15 +66,7 @@ public final class Main
 {
 
 	private static PropertyContextFactory configFactory;
-
-	private static boolean startNameGen;
-	private static String settingsDir;
-	private static String campaignMode;
-	private static String characterSheet;
-	private static String exportSheet;
-	private static String partyFile;
-	private static String characterFile;
-	private static String outputFile;
+	private static CommandLineArguments commandLineArguments = new CommandLineArguments(new String[0]);
 
 	private Main()
 	{
@@ -88,17 +74,17 @@ public final class Main
 
 	public static boolean shouldStartInCharacterSheet()
 	{
-		return characterSheet != null;
+		return commandLineArguments.getCharacterFile().isPresent();
 	}
 
-	public static String getStartupCampaign()
+	public static Optional<String> getStartupCampaign()
 	{
-		return campaignMode;
+		return commandLineArguments.getCampaignMode();
 	}
 
-	public static String getStartupCharacterFile()
+	public static Optional<File> getStartupCharacterFile()
 	{
-		return characterFile;
+		return commandLineArguments.getCharacterFile();
 	}
 
 	private static void logSystemProps()
@@ -111,7 +97,7 @@ public final class Main
 	/**
 	 * @param args the command line arguments
 	 */
-	public static void main(String[] args)
+	public static void main(String... args)
 	{
 		Logging.log(Level.INFO, "Starting PCGen v" + PCGenPropBundle.getVersionNumber() //$NON-NLS-1$
 			+ PCGenPropBundle.getAutobuildString());
@@ -121,33 +107,39 @@ public final class Main
 		deadlockDetectorTask.initialize();
 
 		logSystemProps();
+
+		commandLineArguments = parseCommands(args);
+
 		configFactory = new PropertyContextFactory(getConfigPath());
-		configFactory.registerAndLoadPropertyContext(ConfigurationSettings.getInstance());
+		if (commandLineArguments.getConfigFileName().isPresent())
+		{
+			configFactory.registerAndLoadPropertyContext(
+					ConfigurationSettings.getInstance(commandLineArguments.getConfigFileName().get()));
+		}
+		else
+		{
+			configFactory.registerAndLoadPropertyContext(ConfigurationSettings.getInstance());
+		}
 
-		parseCommands(args);
-
-		if (startNameGen)
+		if (commandLineArguments.isStartNameGenerator())
 		{
 			Component dialog = new RandomNameDialog(null, null);
 			dialog.setVisible(true);
 			System.exit(0);
 		}
 
-		if (exportSheet == null)
+		if (commandLineArguments.getExportSheet().isEmpty())
 		{
 			startupWithGUI();
 		}
 		else
 		{
-			startupWithoutGUI();
-			shutdown();
+			shutdown(startupWithoutGUI());
 		}
 	}
 
 	private static String getConfigPath()
 	{
-		//TODO: convert to a proper command line argument instead of a -D java property
-		// First see if it was specified on the command line
 		String aPath = System.getProperty("pcgen.config"); //$NON-NLS-1$
 		if (aPath != null)
 		{
@@ -158,20 +150,11 @@ public final class Main
 				return aPath;
 			}
 		}
+		// Otherwise return command line argument for the settings directory
 		// Otherwise return user dir
-		return SystemUtils.USER_DIR;
-	}
-
-	public static boolean loadCharacterAndExport(String characterFile, String exportSheet, String outputFile,
-		String configFile)
-	{
-		Main.characterFile = characterFile;
-		Main.exportSheet = exportSheet;
-		Main.outputFile = outputFile;
-
-		configFactory = new PropertyContextFactory(SystemUtils.USER_DIR);
-		configFactory.registerAndLoadPropertyContext(ConfigurationSettings.getInstance(configFile));
-		return startupWithoutGUI();
+		return commandLineArguments.getSettingsDir()
+				.map(File::getPath)
+				.orElse(SystemUtils.USER_DIR);
 	}
 
 	/**
@@ -179,26 +162,16 @@ public final class Main
 	 *
 	 * @param argv the command line arguments to be parsed
 	 */
-	private static Namespace parseCommands(String[] argv)
+	private static CommandLineArguments parseCommands(String[] argv)
 	{
-		Namespace args = getParser().parseArgsOrFail(argv);
+		CommandLineArguments result = new CommandLineArguments(argv);
 
-		if (args.getInt("verbose") > 0)
+		if (result.isVerbose())
 		{
-
 			Logging.setCurrentLoggingLevel(Logging.DEBUG);
 		}
 
-		settingsDir = args.getString("settingsdir");
-		campaignMode = args.getString("campaignmode");
-		characterSheet = args.get("D");
-		exportSheet = args.get("E");
-		partyFile = args.get("p");
-		characterFile = args.get("c");
-		outputFile = args.get("o");
-		startNameGen = args.get("name_generator");
-
-		return args;
+		return result;
 	}
 
 	private static void startupWithGUI()
@@ -263,7 +236,7 @@ public final class Main
 				missingDirs.append("  ").append(path).append('\n');
 			}
 		}
-		if (missingDirs.length() > 0)
+		if (!missingDirs.isEmpty())
 		{
 			String message;
 			message = "This installation of PCGen is missing the following required folders:\n" + missingDirs;
@@ -279,7 +252,7 @@ public final class Main
 
 	public static void loadProperties(boolean useGui)
 	{
-		if ((settingsDir == null)
+		if (commandLineArguments.getSettingsDir().isEmpty()
 				&& (ConfigurationSettings.getSystemProperty(ConfigurationSettings.SETTINGS_FILES_PATH) == null))
 		{
 			if (!useGui)
@@ -293,7 +266,7 @@ public final class Main
 			);
 			panel.showAndBlock("Directory for options.ini location");
 		}
-		PropertyContextFactory.setDefaultFactory(settingsDir);
+		PropertyContextFactory.setDefaultFactory(commandLineArguments.getSettingsDir().map(File::getPath).orElse(null));
 
 		//Existing PropertyContexts are registered here
 		PropertyContextFactory defaultFactory = PropertyContextFactory.getDefaultFactory();
@@ -361,23 +334,25 @@ public final class Main
 
 		UIDelegate uiDelegate = new ConsoleUIDelegate();
 
-		BatchExporter exporter = new BatchExporter(exportSheet, uiDelegate);
+		BatchExporter exporter = new BatchExporter(commandLineArguments.getExportSheet().map(File::getPath).orElse(null), uiDelegate);
 
 		boolean result = true;
-		if (partyFile != null)
+		if (commandLineArguments.getPartyFile().isPresent())
 		{
-			result = exporter.exportParty(partyFile, outputFile);
+			result = exporter.exportParty(commandLineArguments.getPartyFile().map(File::getPath).orElseThrow(),
+					commandLineArguments.getOutputFile().map(File::getPath).orElse(null));
 		}
 
-		if (characterFile != null)
+		if (commandLineArguments.getCharacterFile().isPresent())
 		{
-			result = exporter.exportCharacter(characterFile, outputFile);
+			result = exporter.exportCharacter(commandLineArguments.getCharacterFile().map(File::getPath).orElseThrow(),
+					commandLineArguments.getOutputFile().map(File::getPath).orElse(null));
 		}
 
 		return result;
 	}
 
-	public static void shutdown()
+	public static void shutdown(boolean success)
 	{
 		configFactory.savePropertyContexts();
 		BatchExporter.removeTemporaryFiles();
@@ -389,7 +364,7 @@ public final class Main
 			CustomData.writeCustomItems();
 		}
 
-		System.exit(0);
+		System.exit(success ? 0 : 1);
 	}
 
 	private static void initPrintPreviewFonts()
@@ -409,43 +384,4 @@ public final class Main
 			Logging.errorPrint("Unexpected exception loading fonts fo print p", ex);
 		}
 	}
-
-	/**
-	 * @return an ArgumentParser used to perform argument parsing
-	 */
-	private static ArgumentParser getParser()
-	{
-		ArgumentParser parser = ArgumentParsers.newFor(Constants.APPLICATION_NAME).build().defaultHelp(false)
-			.description("RPG Character Generator").version(PCGenPropBundle.getVersionNumber());
-
-		parser.addArgument("-v", "--verbose").help("verbose logging").type(Boolean.class).action(Arguments.count());
-
-		parser.addArgument("-V", "--version").action(Arguments.version());
-
-		MutuallyExclusiveGroup startupMode =
-				parser.addMutuallyExclusiveGroup().description("start up on a specific mode");
-
-		startupMode.addArgument("--name-generator").help("run the name generator").type(Boolean.class)
-			.action(Arguments.storeTrue());
-
-		startupMode.addArgument("-D", "--tab").nargs(1);
-
-		parser.addArgument("-s", "--settingsdir").nargs(1)
-			.type(Arguments.fileType().verifyIsDirectory().verifyCanRead().verifyExists());
-		parser.addArgument("-m", "--campaignmode").nargs(1).type(String.class);
-		parser.addArgument("-E", "--exportsheet").nargs(1)
-			.type(Arguments.fileType().verifyCanRead().verifyExists().verifyIsFile());
-
-		parser.addArgument("-o", "--outputfile").nargs(1)
-			.type(Arguments.fileType().verifyCanCreate().verifyCanWrite().verifyNotExists());
-
-		parser.addArgument("-c", "--character").nargs(1)
-			.type(Arguments.fileType().verifyCanRead().verifyExists().verifyIsFile());
-
-		parser.addArgument("-p", "--party").nargs(1)
-			.type(Arguments.fileType().verifyCanRead().verifyExists().verifyIsFile());
-
-		return parser;
-	}
-
 }

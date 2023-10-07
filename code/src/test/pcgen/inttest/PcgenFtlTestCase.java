@@ -17,6 +17,10 @@
  */
 package pcgen.inttest;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.util.Locale;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.xmlunit.builder.DiffBuilder;
@@ -26,14 +30,11 @@ import pcgen.LocaleDependentTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.system.Main;
 import pcgen.util.TestHelper;
+import util.SystemExitInterceptor;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.util.Locale;
-
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * PcgenFtlTestCase is a base class for tests which use the FreeMarker
@@ -92,9 +93,19 @@ public abstract class PcgenFtlTestCase
 				+ Constants.EXTENSION_CHARACTER_FILE;
 
 		String outputFile = outputFileFile.getCanonicalPath();
-		assertTrue(
-				Main.loadCharacterAndExport(characterFile, "code/testsuite/base-xml.ftl",
-						outputFile, TEST_CONFIG_FILE), "Export of " + character + " failed.");
+
+		Runnable revertSystemExitInterceptor = SystemExitInterceptor.startInterceptor();
+
+		assertEquals(0,
+				assertThrows(SystemExitInterceptor.SystemExitCalledException.class,
+						() -> Main.main("--character", characterFile,
+								"--exportsheet", "code/testsuite/base-xml.ftl",
+								"--outputfile", outputFile,
+								"--configfilename", TEST_CONFIG_FILE)
+				).getStatusCode(),
+				"Export of " + character + " failed.");
+
+		revertSystemExitInterceptor.run();
 
 		// Read in the actual XML produced by PCGen
 		actual = Files.readString(outputFileFile.toPath());
