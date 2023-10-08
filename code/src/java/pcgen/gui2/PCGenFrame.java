@@ -18,8 +18,6 @@
  */
 package pcgen.gui2;
 
-import static javax.swing.JOptionPane.CLOSED_OPTION;
-
 import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -38,7 +36,6 @@ import java.util.Observer;
 import java.util.Optional;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.LogRecord;
-
 import javax.swing.Action;
 import javax.swing.ActionMap;
 import javax.swing.InputMap;
@@ -54,7 +51,7 @@ import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.SwingWorker;
 import javax.swing.WindowConstants;
-
+import org.apache.commons.lang3.StringUtils;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Campaign;
 import pcgen.core.GameMode;
@@ -115,7 +112,8 @@ import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.ToolBar;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import org.apache.commons.lang3.StringUtils;
+
+import static javax.swing.JOptionPane.CLOSED_OPTION;
 
 /**
  * The main window for PCGen. In addition, this class is responsible for providing
@@ -322,7 +320,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 
 		private boolean maybeLoadCampaign() throws InterruptedException
 		{
-			String camp = Main.getStartupCampaign();
+			String camp = Main.getStartupCampaign().orElse(null);
 			if (camp != null)
 			{
 				SourceSelectionFacade selection = null;
@@ -360,15 +358,15 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		 */
 		private boolean maybeLoadOrCreateCharacter() throws InterruptedException, InvocationTargetException
 		{
-			if (Main.getStartupCharacterFile() == null)
+			if (Main.getStartupCharacterFile().isEmpty())
 			{
 				return false;
 			}
-			final File file = new File(Main.getStartupCharacterFile());
+			final File file = Main.getStartupCharacterFile().get();
 			final DataSetFacade dataset = currentDataSetRef.get();
 			if (!file.exists() && dataset == null)
 			{
-				//TODO: complain about it
+				Logging.errorPrint("The provided file does not exist: '{0}'.", file);
 				return false;
 			}
 			if (Main.shouldStartInCharacterSheet())
