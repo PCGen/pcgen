@@ -226,7 +226,7 @@ dependencies {
 
     implementation group: 'org.springframework', name: 'spring-web', version:'6.0.12'
     implementation group: 'org.springframework', name: 'spring-beans', version:'6.0.12'
-    implementation group: 'org.springframework', name: 'spring-core', version:'6.0.12'
+    implementation group: 'org.springframework', name: 'spring-core', version:'6.0.13'
     implementation group: 'org.apache.commons', name: 'commons-lang3', version:'3.13.0'
     implementation('org.apache.xmlgraphics:fop:2.9')
     {
