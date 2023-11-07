@@ -134,8 +134,8 @@ class SetSolverManagerTest
 		Object[] array = vc.get(regions);
 		List<Object> list;
 		assertEquals(0, array.length);
-		assertTrue(vc.set.contains(regions));
-		assertEquals(1, vc.set.size());
+		assertTrue(vc.getSet().contains(regions));
+		assertEquals(1, vc.getSet().size());
 		vc.reset();
 
 		ModifierFactory am1 = new plugin.modifier.set.AddModifierFactory<>();
@@ -147,8 +147,8 @@ class SetSolverManagerTest
 		list = Arrays.asList(array);
 		assertTrue(list.contains("England"));
 		assertTrue(list.contains("France"));
-		assertTrue(vc.set.contains(regions));
-		assertEquals(1, vc.set.size());
+		assertTrue(vc.getSet().contains(regions));
+		assertEquals(1, vc.getSet().size());
 		vc.reset();
 
 		ModifierFactory am2 = new plugin.modifier.set.AddModifierFactory<>();
@@ -161,8 +161,8 @@ class SetSolverManagerTest
 		assertTrue(list.contains("England"));
 		assertTrue(list.contains("France"));
 		assertTrue(list.contains("Greece"));
-		assertTrue(vc.set.contains(regions));
-		assertEquals(1, vc.set.size());
+		assertTrue(vc.getSet().contains(regions));
+		assertEquals(1, vc.getSet().size());
 		vc.reset();
 	}
 
