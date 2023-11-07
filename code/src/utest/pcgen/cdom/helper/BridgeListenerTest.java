@@ -48,7 +48,7 @@ public class BridgeListenerTest
 	@Test
 	void testBadConstructionFirstArg()
 	{
-		AbstractSourcedListFacet<CharID, PCGenScoped> target = new Target();
+		AbstractSourcedListFacet<CharID, PCGenScoped> target = new Target1();
 		assertThrows(NullPointerException.class, () -> new BridgeListener(null, target, this));
 	}
 
@@ -66,7 +66,7 @@ public class BridgeListenerTest
 	{
 		DataSetID dsID = DataSetID.getID();
 		CharID id = CharID.getID(dsID);
-		AbstractSourcedListFacet<CharID, PCGenScoped> target = new Target();
+		AbstractSourcedListFacet<CharID, PCGenScoped> target = new Target1();
 		BridgeListener bridge1 = new BridgeListener(id, target, this);
 		BridgeListener bridge2 = new BridgeListener(id, target, this);
 		assertEquals(bridge1.hashCode(), bridge2.hashCode());
@@ -89,7 +89,7 @@ public class BridgeListenerTest
 		owner.setName("Race");
 		DataSetID dsID = DataSetID.getID();
 		CharID id = CharID.getID(dsID);
-		AbstractSourcedListFacet<CharID, PCGenScoped> target = new Target();
+		AbstractSourcedListFacet<CharID, PCGenScoped> target = new Target1();
 		BridgeListener bridge = new BridgeListener(id, target, this);
 		GlobalPCScope scope = new GlobalPCScope();
 		ScopeInstance instance =
@@ -122,7 +122,7 @@ public class BridgeListenerTest
 		owner.setName("Race");
 		DataSetID dsID = DataSetID.getID();
 		CharID id = CharID.getID(dsID);
-		AbstractSourcedListFacet<CharID, PCGenScoped> target = new Target();
+		AbstractSourcedListFacet<CharID, PCGenScoped> target = new Target1();
 		BridgeListener bridge = new BridgeListener(id, target, this);
 		GlobalPCScope scope = new GlobalPCScope();
 		ScopeInstance instance =
@@ -164,7 +164,7 @@ public class BridgeListenerTest
 		owner.setName("Race");
 		DataSetID dsID = DataSetID.getID();
 		CharID id = CharID.getID(dsID);
-		AbstractSourcedListFacet<CharID, PCGenScoped> target = new Target();
+		AbstractSourcedListFacet<CharID, PCGenScoped> target = new Target1();
 		BridgeListener bridge = new BridgeListener(id, target, this);
 		PCTemplate t1 = new PCTemplate();
 		t1.setName("Template1");
@@ -189,7 +189,7 @@ public class BridgeListenerTest
 		owner.setName("Race");
 		DataSetID dsID = DataSetID.getID();
 		CharID id = CharID.getID(dsID);
-		AbstractSourcedListFacet<CharID, PCGenScoped> target = new Target();
+		AbstractSourcedListFacet<CharID, PCGenScoped> target = new Target1();
 		BridgeListener bridge = new BridgeListener(id, target, this);
 		PCTemplate t1 = new PCTemplate();
 		t1.setName("Template1");
@@ -216,9 +216,9 @@ public class BridgeListenerTest
 		assertTrue(target.getSet(id).contains(t2));
 	}
 
-	private class Target extends AbstractSourcedListFacet<CharID, PCGenScoped>
+	private static class Target1 extends AbstractSourcedListFacet<CharID, PCGenScoped>
 	{
-		// TODO When we make this static, Java 21 doesn't like it
+		// TODO Java 21 doesn't like it
 		// M B PI: Class name ?>?1/1??? in source file ?>?2/1??? shadows the publicly available identifier from the Java Standard Library.  At BridgeListenerTest.java:[line 219]
 	}
 }
