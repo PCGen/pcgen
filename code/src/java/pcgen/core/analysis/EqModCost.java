@@ -90,7 +90,7 @@ public final class EqModCost
 			val += eqMod.bonusTo(aPC, bonusType, typeString, parent);
 		}
 
-		return new BigDecimal(val * qty);
+		return BigDecimal.valueOf(val * qty);
 	}
 
 	public static boolean getCostDouble(EquipmentModifier eqMod)

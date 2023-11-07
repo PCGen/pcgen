@@ -89,7 +89,7 @@ public class AbilityChooseController extends ChooseController<Ability>
 				int choicesPerUnitCost = ccm.getChoicesPerUnitCost();
 				int basePriorCost = ((preChooserChoices + (choicesPerUnitCost - 1)) / choicesPerUnitCost);
 				int baseTotalCost = ((selected.size() + (choicesPerUnitCost - 1)) / choicesPerUnitCost);
-				pc.adjustAbilities(AbilityCategory.FEAT, new BigDecimal(cost * (basePriorCost - baseTotalCost)));
+				pc.adjustAbilities(AbilityCategory.FEAT, BigDecimal.valueOf(cost * (basePriorCost - baseTotalCost)));
 			}
 		}
 	}
