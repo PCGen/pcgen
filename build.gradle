@@ -308,7 +308,7 @@ jar {
  * Create a Java runtime built from Java modules
  */
 runtime {
-    options = ['--compress', '2']
+    options = ['--compress', 'zip-6'] // Equivalent to the old '2' value pre Java 21
     modules = [
     'jdk.httpserver',
     'java.rmi',
