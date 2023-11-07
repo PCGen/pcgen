@@ -41,20 +41,8 @@ plugins {
  * Set the version and the modules we want from JavaFX (not everything)
  */
 javafx {
-    version = "17"
+    version = "21"
     modules = [ 'javafx.controls', 'javafx.web', 'javafx.swing', 'javafx.fxml', 'javafx.graphics' ]
-
-    /*
-     * Check if running in intellij ide. If so bundles javafx in to jar. If not only
-     * compiles so that runtime can add different platform javafx later.
-     *
-     * Also allows for gradle property which if true will force the single
-     * platforms javafx to be bundled to create local build. Can be added in
-     * command line with "-PlocalOnly=true."
-     */
-    if (!System.getProperty('idea.active') && !(localOnly.toBoolean())) {
-        configuration = "compileOnly"
-    }
 }
 
 // Set the groupId as it helps with Maven
@@ -66,10 +54,12 @@ description = """PCGen"""
 // Default task if you just run ./gradlew
 defaultTasks 'build'
 
+String buildDirectory = getLayout().getBuildDirectory().toString()
+
 // Configure Java, in particular the version to test/compile/run with
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
+        languageVersion = JavaLanguageVersion.of(21)
     }
 }
 
@@ -79,7 +69,8 @@ ext {
     binDir = "code/bin"
 
     // Folder where build output is primarily stored
-    String buildDir = "$projectDir/build"
+    //String buildDir = "$projectDir/build"
+    //String buildDirectory = getLayout().getBuildDirectory().toString()
 
     // Folder where exe / jar files are placed.
     outputDir = "$projectDir/output"
@@ -91,7 +82,7 @@ ext {
     modsDir = "$projectDir/mods"
 
     // Installers are placed here
-    releaseDir = "${buildDir}/release"
+    releaseDir = "$projectDir/build/release"
 }
 
 application {
@@ -268,16 +259,9 @@ dependencies {
     testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.10.2'
     testImplementation group: 'org.hamcrest', name: 'hamcrest', version: '2.2'
     testImplementation group: 'org.testfx', name: 'testfx-junit5', version: '4.0.18'
-    // TODO openjfx-monocle is no longer updated and chances are openjfx-monocle doesn't work with latest OpenJFX
-    // https://github.com/TestFX/Monocle/issues/79
-    testImplementation group: 'org.testfx', name: 'openjfx-monocle', version: 'jdk-12.0.1+2'
-    constraints {
-        implementation('org.openjfx:javafx-base:22')
-        implementation('org.openjfx:javafx-controls:22')
-        implementation('org.openjfx:javafx-graphics:22') {
-            because 'Monocle uses 12.0.1+2 that does not support Mac`s ARM'
-        }
-    }
+    // In case the official openjfx-monocle is no longer updated, we can swap to a community provided one
+    //testImplementation group: 'one.jpro', name: 'openjfx-monocle', version: 'jfx-21'
+    testImplementation group: 'org.testfx', name: 'openjfx-monocle', version: '21.0.2'
 
     testImplementation group: 'org.xmlunit', name: 'xmlunit-matchers', version:'2.9.1'
     spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.13.0'
@@ -345,11 +329,10 @@ runtime {
     'javafx.graphics'
     ]
 
-    // We support Mac/Win/Linux x86-64, Mac/Linux aarch64, and Win x86-32
+    // We support Mac/Win/Linux x86-64, Mac/Linux aarch64
     targetPlatform('linux-x64', "$projectDir/jre/linux/jre_x64")
     targetPlatform('linux-aarch64', "$projectDir/jre/linux/jre_aarch64")
     targetPlatform('windows-x64', "$projectDir/jre/windows/jre_x64")
-    targetPlatform('windows-x32', "$projectDir/jre/windows/jre_x32")
     targetPlatform('mac-x64', "$projectDir/jre/mac/jre_x64/Contents/Home")
     targetPlatform('mac-aarch64', "$projectDir/jre/mac/jre_aarch64/Contents/Home")
 
@@ -391,7 +374,7 @@ runtime {
 tasks.jpackageImage.doLast {
     copy {
         includeEmptyDirs = false
-        from "${buildDir}/install/pcgen/"
+        from "${buildDirectory}/install/pcgen/"
         exclude "**/*.exe"
         exclude "**/*.bat"
         exclude "pcgen"
@@ -410,9 +393,9 @@ tasks.jpackageImage.doLast {
             from "${projectDir}/installers/mac-installer"
             include "MacDirLauncher"
             fileMode 0755
-            into "${buildDir}/jpackage/PcGen.app/Contents/MacOS"
+            into "${buildDirectory}/jpackage/PcGen.app/Contents/MacOS"
         }
-        ant.replace(file: "${buildDir}/jpackage/PcGen.app/Contents/Info.plist", token: "<key>CFBundleExecutable</key>\n  <string>PcGen</string>", value: "<key>CFBundleExecutable</key>\n  <string>MacDirLauncher</string>")
+        ant.replace(file: "${buildDirectory}/jpackage/PcGen.app/Contents/Info.plist", token: "<key>CFBundleExecutable</key>\n  <string>PcGen</string>", value: "<key>CFBundleExecutable</key>\n  <string>MacDirLauncher</string>")
     }
 }
 
@@ -438,14 +421,15 @@ artifacts {
 
 task copyToLibs(type: Copy, dependsOn:[startScripts,distTar,distZip,installDist]) {
     mustRunAfter createExe
-    into "$buildDir/libs"
+    into "${buildDirectory}/libs"
     from configurations.runtimeClasspath
 }
 
 task copyToOutput(type: Copy, dependsOn: [createExe, copyToLibs, jar, converterJar]) {
-    from "$buildDir/libs/pcgen-${version}.jar"
-    from "$buildDir/libs/pcgen-${version}-batch-convert.jar"
-    from "$buildDir/launch4j/pcgen.exe"
+    println("IN copyToOutput")
+    from "${buildDirectory}/libs/pcgen-${version}.jar"
+    from "${buildDirectory}/libs/pcgen-${version}-batch-convert.jar"
+    from "${buildDirectory}/launch4j/pcgen.exe"
     from "$projectDir/code/pcgen.bat"
     from("$projectDir/code/pcgen.sh") {
         filter(FixCrLfFilter, eol:FixCrLfFilter.CrLf.newInstance("lf"))
@@ -458,7 +442,7 @@ task copyToOutput(type: Copy, dependsOn: [createExe, copyToLibs, jar, converterJ
 
 task qbuild(type: Copy, dependsOn: [copyToOutput, jar]) {
     description="Copy the executable file into 'output' to create a working environment"
-    from "$buildDir/libs/pcgen-${version}.jar"
+    from "${buildDirectory}/libs/pcgen-${version}.jar"
 
     into outputDir
 
@@ -509,8 +493,10 @@ clean {
 build.mustRunAfter clean
 
 task downloadJRE {
-    def major = 17
-    def archs = ['x64', 'x32', 'aarch64']
+    println("IN downloadJRE")
+
+    def major = 21
+    def archs = ['x64', 'aarch64']
     def osList = ['windows', 'mac', 'linux']
     def extension = 'zip'
 
@@ -523,7 +509,6 @@ task downloadJRE {
         }
         archs.each {
             def arch = "${it}"
-            if (arch == "x32" && os != "windows") return
             if (arch == "aarch64" && os == "windows") return
 
             def url = "https://api.adoptium.net/v3/binary/latest/${major}/ga/${os}/${arch}/jdk/hotspot/normal/eclipse"
@@ -595,9 +580,11 @@ task downloadJRE {
 }
 
 task downloadJavaFXModules(dependsOn: downloadJRE) {
-    // We support Windows/Mac/Linux - x64, Mac/Linux - aarch64, and Windows x86 (32-bit)
-    def major = "17.0.8"
-    def archs = ['x64', 'x86', 'aarch64']
+    println("IN downloadJavaFXModules")
+
+    // We support Windows/Mac/Linux - x64, and Mac/Linux - aarch64
+    def major = "21.0.1"
+    def archs = ['x64', 'aarch64']
     def osList = ["windows", "mac", "linux"]
 
     println("Downloading JavaFX modules (.mods) for use in the runtime bundles.")
@@ -610,14 +597,7 @@ task downloadJavaFXModules(dependsOn: downloadJRE) {
 
             // build the architecture part of the download filename string
             def archAppend
-            if (arch == "x86") {
-                // Only Windows for x86-32 bit
-                if (os == "windows") {
-                    archAppend = "-x86"
-                } else {
-                    return
-                }
-            } else if (arch == "x64") {
+            if (arch == "x64") {
                 archAppend = "-x64"
             } else if (arch == "aarch64") {
                 // Only Linux and Mac for aarch64
@@ -637,7 +617,7 @@ task downloadJavaFXModules(dependsOn: downloadJRE) {
                 osPackage = "osx"
             }
 
-            // URLs look like this: https://download2.gluonhq.com/openjfx/17.0.6/openjfx-17.0.6_osx-aarch64_bin-jmods.zip
+            // URLs look like this: https://download2.gluonhq.com/openjfx/17.0.9/openjfx-17.0.9_osx-aarch64_bin-jmods.zip
             def url = "https://download2.gluonhq.com/openjfx/${major}/openjfx-${major}_${osPackage}${archAppend}_bin-jmods.zip"
 
             def jmodsZip = new File("${projectDir}/jre/${os}/jmods${arch}.zip")
@@ -645,6 +625,13 @@ task downloadJavaFXModules(dependsOn: downloadJRE) {
             // to the correct place.
             if (!jmodsZip.exists()) {
                 println("Downloading Javafx mods ${major} ${arch} for ${os} from ${url}")
+
+                if (url == "https://download2.gluonhq.com/openjfx/17.0.9/openjfx-17.0.9_windows-x86_bin-jmods.zip") {
+                    url = "https://download2.gluonhq.com/openjfx/17.0.8/openjfx-17.0.8_windows-x86_bin-jmods.zip"
+                } else if (url == "https://download2.gluonhq.com/openjfx/17.0.9/openjfx-17.0.9_linux-aarch64_bin-jmods.zip") {
+                    url = "https://download2.gluonhq.com/openjfx/17.0.8/openjfx-17.0.8_linux-aarch64_bin-jmods.zip"
+                }
+
                 download.run {
                     src url
                     dest new File("${projectDir}/jre/${os}/", "jmods${arch}.zip")
@@ -658,10 +645,12 @@ task downloadJavaFXModules(dependsOn: downloadJRE) {
                     {
                         outputDir = "${projectDir}/jre/${os}/jre_${arch}/Contents/Home/jmods"
                     }
+                    /*
                     else if(os == "windows" && arch == "x86")
                     {
                         outputDir = "${projectDir}/jre/${os}/jre_x32/jmods"
                     }
+                    */
                     println "Unzipping ${zipFile} to ${outputDir}"
                     from zipTree(zipFile)
                     into outputDir
@@ -699,8 +688,6 @@ task downloadJavaFXModules(dependsOn: downloadJRE) {
         def archAppend= ""
         if (hostArchitecture == "x86_64" || hostArchitecture == "amd64") {
             archAppend= "-x64"
-        } else if (hostArchitecture == "i386") {
-            archAppend= "-x86" // TODO Not sure if this is supported.
         } else if (hostArchitecture == "aarch64") {
             archAppend= "-aarch64"
         } else {
@@ -849,10 +836,14 @@ allprojects {
                 '-Djavafx.macosx.embedded=true',
 
                 "--module-path", "${projectDir}/mods/lib/",
-                "--add-modules", "javafx.controls,javafx.web,javafx.swing,javafx.fxml",
+                //"--add-modules", "javafx.controls,javafx.web,javafx.swing,javafx.fxml", // TODO I assume we do not add javafx.graphics as this is headless testing
+                "--add-modules", "javafx.controls,javafx.web,javafx.swing,javafx.fxml,javafx.graphics",
 
                 // Needed to fix issue with testfx test crashing due to issue with modularity of whole program. Slightly related issue. https://github.com/TestFX/TestFX/issues/638
                 '--add-exports', 'javafx.graphics/com.sun.javafx.application=ALL-UNNAMED',
+                // Next two needed to support monocle testing
+                '--add-exports', 'javafx.graphics/com.sun.javafx.util=ALL-UNNAMED',
+                '--add-exports', 'javafx.base/com.sun.javafx.logging=ALL-UNNAMED',
                 '--add-opens', 'javafx.graphics/com.sun.glass.ui=ALL-UNNAMED',
         ]
     }
@@ -861,7 +852,8 @@ allprojects {
 
             if (name.toLowerCase().contains("test")) {
                 options.compilerArgs << "--module-path" << "${projectDir}/mods/lib/"
-                options.compilerArgs << "--add-modules" << "javafx.controls,javafx.web,javafx.swing,javafx.fxml"
+                //options.compilerArgs << "--add-modules" << "javafx.controls,javafx.web,javafx.swing,javafx.fxml" // Not sure why no javafx.graphics here
+                options.compilerArgs << "--add-modules" << "javafx.controls,javafx.web,javafx.swing,javafx.fxml,javafx.graphics"
             }
             println "Args for for $name are $options.allCompilerArgs"
         }

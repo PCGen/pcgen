@@ -1,5 +1,7 @@
 import java.time.LocalDateTime
 
+String buildDirectory = getLayout().getBuildDirectory().toString()
+
 /*
  * PCGen distributable generation tasks. This file specifies the
  * archives included in the PCGen autobuild and PCGen releases. It
@@ -41,7 +43,7 @@ ext {
     }
 
     programDistsImage = copySpec {
-        from("$buildDir/launch4j") {
+        from("${buildDirectory}/launch4j") {
             include 'pcgen.exe'
         }
     }
@@ -64,7 +66,7 @@ ext {
     }
 
     libsDistsImage = copySpec {
-        from("$buildDir/libs") {
+        from("${buildDirectory}/libs") {
             into 'libs'
             exclude 'pcgen-*.jar'
         }
@@ -102,9 +104,8 @@ run {
 
         jvmArgs = ["-ea",                       // -ea enables assertions
                    "--enable-preview",          // enable Java preview features
-                   "--module-path",
-                   "${projectDir}/mods/lib/",
-                   "--add-modules", "javafx.controls,javafx.web,javafx.swing,javafx.fxml"
+                   "--module-path", "${projectDir}/mods/lib/",
+                   "--add-modules", "javafx.controls,javafx.web,javafx.swing,javafx.fxml,javafx.graphics"
         ]
 
     }
@@ -114,7 +115,7 @@ tasks.run.dependsOn(downloadJavaFXModules)
 
 installDist.doLast{
     delete {
-        delete fileTree("${buildDir}/install/pcgen/lib") {
+        delete fileTree("${buildDirectory}/install/pcgen/lib") {
             include 'javafx-*'
         }
     }
