@@ -39,7 +39,14 @@ public final class TrackingVariableCache extends SimpleVariableStore
 		set.clear();
 	}
 
-	public Set<Object> getSet() {
-		return set;
+	public boolean contains(Object o)
+	{
+		return set.contains(o);
 	}
+
+	public int size()
+	{
+		return set.size();
+	}
+
 }

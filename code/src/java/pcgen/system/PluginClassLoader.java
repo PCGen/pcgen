@@ -188,6 +188,7 @@ class PluginClassLoader extends PCGenTask
 		}
 	}
 
+	@SuppressWarnings("PMD.UseArraysAsList")
 	private void findJarFiles(File pluginDir)
 	{
 		if (!pluginDir.isDirectory())
@@ -199,12 +200,12 @@ class PluginClassLoader extends PCGenTask
 		{
 		    for (final File file : pluginFiles)
 		    {
-			if (file.isDirectory())
-			{
-			    findJarFiles(file);
-			    continue;
-			}
-			jarFiles.add(file);
+				if (file.isDirectory())
+				{
+					findJarFiles(file);
+					continue;
+				}
+				jarFiles.add(file);
 		    }
 		}
 		else 

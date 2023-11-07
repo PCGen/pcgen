@@ -33,6 +33,7 @@ public class PreVisionInvertedConvertPlugin implements TokenProcessorPlugin
 	public static final String SET_ZERO_ANY = "Set zero values to ANY (identify as 'present')";
 	public static final String SET_ZERO_ONE = "Set zero values to 1 (identify as 'possessing distance')";
 
+	@SuppressWarnings("PMD.UseArraysAsList")
 	@Override
 	public String process(TokenProcessEvent tpe)
 	{

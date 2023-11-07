@@ -26,6 +26,8 @@
         <exclude name="LiteralsFirstInComparisons"/>
         <exclude name="LooseCoupling"/>
         <exclude name="MethodReturnsInternalArray"/>
+        <!-- One to fix later as there are loads of these reported -->
+        <exclude name="ReplaceVectorWithList" />
         <exclude name="SwitchStmtsShouldHaveDefault"/>
         <exclude name="SystemPrintln"/>
         <exclude name="UnusedAssignment"/>
@@ -70,12 +72,20 @@
         <exclude name="PrematureDeclaration"/>
         <exclude name="ShortClassName"/>
         <exclude name="ShortVariable"/>
+        <!-- new in PMD 7.0.0, lots of hits -->
+        <exclude name="UnnecessaryBoxing" />
+        <!-- new in PMD 7.0.0, lots of hits -->
+        <exclude name="UnnecessaryCast" />
         <exclude name="UnnecessaryConstructor"/>
         <exclude name="UnnecessaryFullyQualifiedName"/>
+        <!-- This is a buggy rule in 7.0.0-rc4, IDE is more accurate -->
+        <exclude name="UnnecessaryImport"/>
         <exclude name="UnnecessaryLocalBeforeReturn"/>
         <!-- This is excluded because we use "public" in Interfaces almost universally (as a semantic hint as to its real behavior) -->
         <exclude name="UnnecessaryModifier"/>
         <exclude name="UnnecessaryReturn"/>
+        <!-- CDOM seems to want to use raw types although we can revisit that later -->
+        <exclude name="UseDiamondOperator"/>
         <!-- Underscores not required for readability -->
         <exclude name="UseUnderscoresInNumericLiterals" />
         <!-- This is excluded because we use "useless" parenthesis for readability -->
@@ -95,6 +105,8 @@
         <exclude name="AvoidDeeplyNestedIfStmts"/>
         <exclude name="AvoidThrowingNullPointerException"/>
         <exclude name="AvoidThrowingRawExceptionTypes"/>
+        <!-- lots of these in CDOM inner classes, can probably fix later -->
+        <exclude name="ClassWithOnlyPrivateConstructorsShouldBeFinal" />
         <exclude name="CognitiveComplexity"/>
         <exclude name="CollapsibleIfStatements"/>
         <exclude name="CouplingBetweenObjects"/>
@@ -169,6 +181,8 @@
         <exclude name="AppendCharacterWithChar"/>
         <exclude name="AvoidFileStream"/>
         <exclude name="AvoidInstantiatingObjectsInLoops"/>
+        <!-- Wait for full Java 21 support in gradle and then remove this -->
+        <exclude name="BigIntegerInstantiation"/>
         <exclude name="StringInstantiation"/>
         <!-- This is excluded because it's a micro-optimization (JIT compilation would eliminate the performance penalty) and enforcing it encourages writing less readable code -->
         <exclude name="ConsecutiveAppendsShouldReuse"/>

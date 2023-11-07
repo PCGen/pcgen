@@ -34,6 +34,7 @@ public abstract class AbstractPreEqualConvertPlugin implements TokenProcessorPlu
 	public static final String SET_ONE = "Set unspecified values to one (identify as 'present')";
 
 	// Just process over these magical tokens for now
+	@SuppressWarnings("PMD.UseArraysAsList")
 	@Override
 	public String process(TokenProcessEvent tpe)
 	{
