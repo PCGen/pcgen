@@ -48,7 +48,7 @@ public class BridgeListenerTest
 	@Test
 	void testBadConstructionFirstArg()
 	{
-		AbstractSourcedListFacet<CharID, PCGenScoped> target = new Target1();
+		AbstractSourcedListFacet<CharID, PCGenScoped> target = new Target();
 		assertThrows(NullPointerException.class, () -> new BridgeListener(null, target, this));
 	}
 
@@ -66,7 +66,7 @@ public class BridgeListenerTest
 	{
 		DataSetID dsID = DataSetID.getID();
 		CharID id = CharID.getID(dsID);
-		AbstractSourcedListFacet<CharID, PCGenScoped> target = new Target1();
+		AbstractSourcedListFacet<CharID, PCGenScoped> target = new Target();
 		BridgeListener bridge1 = new BridgeListener(id, target, this);
 		BridgeListener bridge2 = new BridgeListener(id, target, this);
 		assertEquals(bridge1.hashCode(), bridge2.hashCode());
@@ -89,7 +89,7 @@ public class BridgeListenerTest
 		owner.setName("Race");
 		DataSetID dsID = DataSetID.getID();
 		CharID id = CharID.getID(dsID);
-		AbstractSourcedListFacet<CharID, PCGenScoped> target = new Target1();
+		AbstractSourcedListFacet<CharID, PCGenScoped> target = new Target();
 		BridgeListener bridge = new BridgeListener(id, target, this);
 		GlobalPCScope scope = new GlobalPCScope();
 		ScopeInstance instance =
@@ -122,7 +122,7 @@ public class BridgeListenerTest
 		owner.setName("Race");
 		DataSetID dsID = DataSetID.getID();
 		CharID id = CharID.getID(dsID);
-		AbstractSourcedListFacet<CharID, PCGenScoped> target = new Target1();
+		AbstractSourcedListFacet<CharID, PCGenScoped> target = new Target();
 		BridgeListener bridge = new BridgeListener(id, target, this);
 		GlobalPCScope scope = new GlobalPCScope();
 		ScopeInstance instance =
@@ -164,7 +164,7 @@ public class BridgeListenerTest
 		owner.setName("Race");
 		DataSetID dsID = DataSetID.getID();
 		CharID id = CharID.getID(dsID);
-		AbstractSourcedListFacet<CharID, PCGenScoped> target = new Target1();
+		AbstractSourcedListFacet<CharID, PCGenScoped> target = new Target();
 		BridgeListener bridge = new BridgeListener(id, target, this);
 		PCTemplate t1 = new PCTemplate();
 		t1.setName("Template1");
