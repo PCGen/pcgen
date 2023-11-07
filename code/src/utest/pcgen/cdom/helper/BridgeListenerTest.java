@@ -216,8 +216,9 @@ public class BridgeListenerTest
 		assertTrue(target.getSet(id).contains(t2));
 	}
 
-	private static class Target extends AbstractSourcedListFacet<CharID, PCGenScoped>
+	private class Target extends AbstractSourcedListFacet<CharID, PCGenScoped>
 	{
-
+		// TODO When we make this static, Java 21 doesn't like it
+		// M B PI: Class name ?>?1/1??? in source file ?>?2/1??? shadows the publicly available identifier from the Java Standard Library.  At BridgeListenerTest.java:[line 219]
 	}
 }
