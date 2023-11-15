@@ -385,12 +385,12 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 	{
 		RegionCacheInfo rci = getInfo(id);
 		Optional<Region> current = rci.cachedRegion;
-		Optional<Region> newRegion = getRegion(id);
-		if (current.isEmpty() || !current.equals(newRegion))
+		Optional<Region> optNewRegion = getRegion(id);
+		if (current.isEmpty() || !current.equals(optNewRegion))
 		{
 			current.ifPresent(region -> fireDataFacetChangeEvent(id, region.toString(), DataFacetChangeEvent.DATA_REMOVED));
-			rci.cachedRegion = newRegion;
-			fireDataFacetChangeEvent(id, newRegion.get().toString(), DataFacetChangeEvent.DATA_ADDED);
+			rci.cachedRegion = optNewRegion;
+			optNewRegion.map(Region::toString).ifPresent(newRegion -> fireDataFacetChangeEvent(id, newRegion, DataFacetChangeEvent.DATA_ADDED));
 		}
 	}
 
