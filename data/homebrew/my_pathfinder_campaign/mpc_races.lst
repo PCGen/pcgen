@@ -13,7 +13,7 @@ SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mpcwebsit
 #	TYPE:yyy
 #	RACESUBTYPE:zzz
 #	MOVE:Walk,0
-#	BONUS:VAR|Manueverability|0
+#	BONUS:VAR|Maneuverability|0
 #	BONUS:VAR|AC_Natural_Armor|0|TYPE=Base
 #	FACE:5
 #	REACH:5
