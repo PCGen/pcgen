@@ -1,0 +1,71 @@
+# CVS $Revision: 1 $ $Author$ David Brough -- Tue Nov 28 07:22:08 2023
+SOURCELONG:Ultimate Equipment	SOURCESHORT:UE	SOURCEWEB:http://paizo.com/products/btpy8tmc?Pathfinder-Roleplaying-Game-Ultimate-Equipment	SOURCEDATE:2012-08
+# Original Entry by: DavidBrough
+
+#
+# Blank Spell Template
+#	XXX
+#	KEY:XXX
+#	SOURCEPAGE:p.
+#	SOURCESHORT:
+#	SOURCELONG:
+#	SCHOOL:
+#	SUBSCHOOL:
+#	DESCRIPTOR:
+#	CLASSES:x,x=y|x=y
+#	DOMAINS:x,x=y|x=y
+#	CASTTIME:
+#	COMPS:
+#	RANGE:
+#	TARGETAREA:
+#	DURATION:
+#	ITEM:POTION
+#	SAVEINFO:
+#	SPELLRES:
+#	DESC:
+#	TEMPBONUS:ANYPC|x|y
+
+#Item spell like ability data
+Medusa Mask Gaze	TYPE:Arcane	SCHOOL:Transmutation	COMPS:F	CASTTIME:1 standard action	RANGE:30 ft	TARGETAREA:One creature	DURATION:1 minute	SAVEINFO:Fortitude negates	SPELLRES:Yes	DESC:The subject, along with all its carried gear, turns into a mindless, inert statue.
+
+
+#Every line that starts with a '#' is a comment. You may want to remove these comments, if you use this file to set up
+#your own data. Remember not to put the '#' at the start of your own data, as PCGen would see it as a comment only.
+#
+#When Running PCGen, you can select "Help > Documentation > List Files > List File Tag Index > Spell File tags" to find
+#out how the tags in the spells file work. Some of the tags used here are global tags. You will see an alphabetical
+#listing of all PCGen tags to the left of the documentation window. You can find the global tags there as well.
+#
+#To learn the basics of coding a spell, you can also visit "Help > Documentation > List Files > LST File Class > Lesson 7"
+#
+#
+#####Example
+
+#Teleport		CLASSES:Sorcerer,Wizard=5		DOMAINS:Travel=5		SCHOOL:Conjuration	SUBSCHOOL:Teleportation		TYPE:Arcane.Divine	COMPS:V		CASTTIME:1 standard action		RANGE:Personal and touch	TARGETAREA:You and touched objects or other touched willing creatures		DURATION:Instantaneous		SAVEINFO:None and Will negates (object)		SPELLRES:No and Yes (object)		DESC:Instantly transports you as far as (CASTERLEVEL*100) miles.		SOURCEPAGE:SpellsT-Z	ITEM:Potion
+
+#####
+#Teleport is the name of the spell. It will appear in the spells list on PCGen's Spells tab and will be used if a spell is
+#added by use of the SPELLS tag. Every spell must have a name.
+#
+#The CLASSES tag indicates that this spell is the indicated level for the named class. It will appear in most spells, unless
+#the spell is for some reason not associated with a class.
+#
+#The DOMAINS tag indicates that this spell is the indicated level for the named domain. It is only used with spells that
+#belong to a domain.
+#
+#The SCHOOL tag lists the Schools the spell belongs to and is used for specialist wizards to determine their favored schools
+#bonus spells. It should be used if the spell belongs to a school (which almost always is the case).
+#
+#The SUBSCHOOL tag lists the Sub-Schools the spell belongs to and is also used for specialist wizards to determine their
+#favored schools bonus spells. You can usually find it in the books in parentheses after the School. If it exists, it should
+#be used.
+#
+#The TYPE tag indicates what "types" are associated with the spell. Every spell should have it.
+#
+#COMPS, CASTTIME, RANGE, TARGETAREA, DURATION, SAVEINFO, SPELLRES, and DESC are the tags that actually describe the spell.
+#Most if not all of them will be used in every spell.
+#
+#The SOURCEPAGE tag can be used to hold a reference to where you can find the spell. This will be displayed in PCGen and on
+#the output sheet.
+#
+#The ITEM tag tells PCGen what types of items this spell can be used to make (Potions, wands, wondrous items, etc).
