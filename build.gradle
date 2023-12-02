@@ -222,7 +222,7 @@ compileJava {
  */
 dependencies {
 
-    implementation group: 'commons-io', name: 'commons-io', version:'2.15.0'
+    implementation group: 'commons-io', name: 'commons-io', version:'2.15.1'
 
     implementation group: 'org.springframework', name: 'spring-web', version:'6.1.1'
     implementation group: 'org.springframework', name: 'spring-beans', version:'6.1.1'
