@@ -1820,11 +1820,20 @@ Bonus Ranger Animal Companion DR	KEY:Favored Class Bonus ~ Ranger ~ Svirfneblin	
 ###Block: Vanara
 # Ability Name						Unique Key							Category of Ability		Type										Required Class		Required Race				Define					Description																Stackable?	Multiple?	Choose		Ability								Bonus to skill							Modify VAR															Source Page
 Bonus Alchemist Bomb Damage				KEY:Favored Class Bonus ~ Alchemist ~ Vanara	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassAlchemist	PRECLASS:1,Alchemist=1	PRERACE:1,Vanara,RACESUBTYPE=Vanara							DESC:Alchemist: Add +1/2 to the alchemist's bomb damage.								STACK:YES	MULT:YES	CHOOSE:NOCHOICE																			BONUS:VAR|Bonus_Bomb_Damage_two|1											SOURCEPAGE:p.206
-Bonus Druid Wild Empathy and Handle Animal	KEY:Favored Class Bonus ~ Druid ~ Vanara		CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassDruid	PRECLASS:1,Druid=1	PRERACE:1,Vanara,RACESUBTYPE=Vanara	DEFINE:Bonus_Druid_Skill_Varana|0	DESC:Druid: Add a +1/2 bonus on wild empathy checks and a +1/2 bonus on Handle Animal skill checks.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:SKILL|Handle Animal|Bonus_Druid_Skill_Varana/2	BONUS:VAR|Bonus_Druid_Skill_Varana|1	BONUS:VAR|WildEmpathy|Bonus_Druid_Skill_Varana/2	SOURCEPAGE:p.206
+Bonus Druid Wild Empathy and Handle Animal	KEY:Favored Class Bonus ~ Druid ~ Vanara		CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassDruid	PRECLASS:1,Druid=1	PRERACE:1,Vanara,RACESUBTYPE=Vanara	DEFINE:Bonus_Druid_Skill_Varana|0	DESC:Druid: Add a +1/2 bonus on wild empathy checks and a +1/2 bonus on Handle Animal skill checks.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																			SOURCEPAGE:p.206	ABILITY:Internal|AUTOMATIC|ARG FCB Tracker	BONUS:VAR|Bonus_Druid_Skill_Varana|1
 Bonus Fighter Reposition or Trip CMD		KEY:Favored Class Bonus ~ Fighter ~ Vanara	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassFighter	PRECLASS:1,Fighter=1	PRERACE:1,Vanara,RACESUBTYPE=Vanara							DESC:Fighter: Add +1 to the fighter's CMD when resisting a reposition or trip attempt.			STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																			SOURCEPAGE:p.206
 Bonus Monk Jump Skill					KEY:Favored Class Bonus ~ Monk ~ Vanara		CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMonk	PRECLASS:1,Monk=1		PRERACE:1,Vanara,RACESUBTYPE=Vanara							DESC:Monk: Add a +1 bonus on Acrobatics checks made to jump.							STACK:YES	MULT:YES	CHOOSE:NOCHOICE																			BONUS:VAR|HighJumpBonus|1												SOURCEPAGE:p.206
 Bonus Ranger Favored Enemy Dodge Bonus		KEY:Favored Class Bonus ~ Ranger ~ Vanara		CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRanger	PRECLASS:1,Ranger=1	PRERACE:1,Vanara,RACESUBTYPE=Vanara							DESC:Ranger: Add +1/4 dodge bonus to Armor Class against the ranger's favored enemies.			STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																			SOURCEPAGE:p.206
 Bonus Rogue Talent					KEY:Favored Class Bonus ~ Rogue ~ Vanara		CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRogue	PRECLASS:1,TYPE.Rogue=1	PRERACE:1,Vanara,RACESUBTYPE=Vanara							DESC:Rogue: The rogue gains 1/6 of a new rogue talent.								STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Internal|AUTOMATIC|Rogue Talent Bonus Tracker										BONUS:VAR|RogueBonusTalentCount|1											SOURCEPAGE:p.206
+
+
+ARG FCB Tracker	CATEGORY:Internal	BONUS:SKILL|Handle Animal|Bonus_Druid_Skill_Varana/2|TYPE=NoStack	BONUS:VAR|WildEmpathy|Bonus_Druid_Skill_Varana/2|TYPE=NoStack
+
+
+
+
+
+
 
 ###Block: Vishkanya
 # Ability Name					Unique Key							Category of Ability		Type										Required Class		Required Race					Description																																						Stackable?	Multiple?	Choose		Source Page

@@ -438,6 +438,9 @@ Add a Feat Ignoring Restrictions	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:G
 Add a Class Skill				SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	DESC:GM awarded PC with 1 class skill.								STACK:YES	MULT:YES	CHOOSE:ABILITYSELECTION|Class Skill|ANY				ABILITY:Class Skill|AUTOMATIC|%LIST																																										COST:0
 Bypass Alignment Restricted Spells	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	DESC:GM allows to bypass alignment restrictions on spells.																																																							BONUS:VAR|BypassProhibitSpellAlignment_Restriction|1|TYPE=Bypass	COST:0
 
+Add Witch Patron				SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	DESC:GM awarded PC with +1 Patron.									STACK:YES	MULT:YES	CHOOSE:NOCHOICE														BONUS:ABILITYPOOL|Witch Patron|1																																				COST:0
+
+
 ###Block: GM Award Bonus Spells known
 # Ability Name		SORTKEY		Category of Ability		Type							Description							Stackable?	Multiple?	Choose				Bonus to spell known/L
 +1 Level 1 Spell Known	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:SpecialQuality.GM Bonus Spell Known	DESC:GM awarded PC with +1 level 1 spell known.	STACK:YES	MULT:YES	CHOOSE:CLASS|SPELLCASTER	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=1|1
