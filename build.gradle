@@ -224,7 +224,7 @@ dependencies {
 
     implementation group: 'commons-io', name: 'commons-io', version:'2.15.1'
 
-    implementation group: 'org.springframework', name: 'spring-web', version:'6.1.2'
+    implementation group: 'org.springframework', name: 'spring-web', version:'6.1.3'
     implementation group: 'org.springframework', name: 'spring-beans', version:'6.1.3'
     implementation group: 'org.springframework', name: 'spring-core', version:'6.1.2'
     implementation group: 'org.apache.commons', name: 'commons-lang3', version:'3.14.0'
