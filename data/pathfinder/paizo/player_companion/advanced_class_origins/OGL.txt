@@ -32,7 +32,7 @@ The following text is the property of Wizards of the Coast, Inc. and is Copyrigh
 
 15 COPYRIGHT NOTICE
 Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
-System Reference Document Copyright 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+System Reference Document Copyright 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, MonteÂ Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
 Demon Lord, Baphomet from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on material by Gary Gygax.
 Pathfinder Player Companion: Advanced Class Origins Copyright 2014, Paizo Inc.; Authors: Dennis Baker, Ross Byers, Tom Phillips, Stephen Radney-MacFarland, and Owen K.C. Stephens.
 PCGen dataset conversion for "Pathfinder Player Companion: Advanced Class Origins" Copyright 2017, PCGen Data team (Including, but not limited to Stefan Radermacher, Andrew Maitland, Vincent Hatakeyama, and Gwen T.).
