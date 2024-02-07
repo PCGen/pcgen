@@ -9589,8 +9589,10 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	{
 		// int spMod = getSkillPoints();
 		int spMod = pcClass.getSafe(FormulaKey.START_SKILL_POINTS).resolve(this, pcClass.getQualifiedKey()).intValue();
+		int classSp = spMod; // retain class based skillpoints mod
 
 		spMod += (int) getTotalBonusTo("SKILLPOINTS", "NUMBER");
+		int raceSp = spMod - classSp; // this should be the race based skillpoints mod
 
 		if (pcClass.isMonster())
 		{
@@ -9622,6 +9624,12 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 
 		spMod = updateBaseSkillMod(pcClass, spMod);
+		int otherSp = spMod - classSp - raceSp; // should mostly be stat related skillpoints
+		final int classSpMin = (int) getTotalBonusTo("MINCLASSSKILLPOINTS", "NUMBER");
+		// if a MINCLASSSKILLPOINTS.NUMBER is defined and spMod was lower due to INT penalty
+		if (classSpMin>0 && (classSp+otherSp<classSpMin)) {
+			spMod = Math.max(classSpMin,classSp+otherSp)+raceSp;
+		}
 
 		if (characterLevel == 1)
 		{
