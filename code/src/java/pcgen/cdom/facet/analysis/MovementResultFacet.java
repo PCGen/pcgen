@@ -40,7 +40,13 @@ import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
-import pcgen.core.*;
+import pcgen.core.Equipment;
+import pcgen.core.Globals;
+import pcgen.core.MoveClone;
+import pcgen.core.Race;
+import pcgen.core.RuleConstants;
+import pcgen.core.SettingsHandler;
+import pcgen.core.SimpleMovement;
 import pcgen.core.utils.CoreUtility;
 import pcgen.util.enumeration.Load;
 
