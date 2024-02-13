@@ -5444,6 +5444,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	@Deprecated
 	public int processOldAcCheck()
 	{
+		System.out.println("Using old AC Check!");
 		Load load = getHouseRuledLoadType();
 		int bonus = 0;
 
