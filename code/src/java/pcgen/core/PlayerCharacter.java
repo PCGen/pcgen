@@ -9403,7 +9403,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		int otherSp = spMod - classSp - raceSp; // should mostly be stat related skillpoints
 		final int classSpMin = (int) getTotalBonusTo("MINCLASSSKILLPOINTS", "NUMBER");
 		// if a MINCLASSSKILLPOINTS.NUMBER is defined and spMod was lower due to INT penalty
-		if (classSpMin>0 && (classSp+otherSp<classSpMin)) {
+		if (classSpMin>0 && (classSp+otherSp<classSpMin))
+		{
 			spMod = Math.max(classSpMin,classSp+otherSp)+raceSp;
 		}
 

@@ -259,13 +259,18 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 			// Ignore armor weight if the house rule has disabled it
 			if (Globals.checkRule(RuleConstants.SYS_LDPACSK))
 			{
-				for (Equipment eq : equipmentFacet.getSet(id)) {
-					if (!eq.typeStringContains("Armor") || !eq.isEquipped() || eq.isShield()) {
+				for (Equipment eq : equipmentFacet.getSet(id))
+				{
+					if (!eq.typeStringContains("Armor") || !eq.isEquipped() || eq.isShield())
+					{
 						continue;
 					}
-					if (eq.isHeavy() && !unencumberedArmorFacet.ignoreLoad(id, Load.HEAVY)) {
+					if (eq.isHeavy() && !unencumberedArmorFacet.ignoreLoad(id, Load.HEAVY))
+					{
 						armorLoad = armorLoad.max(Load.HEAVY);
-					} else if (eq.isMedium() && !unencumberedArmorFacet.ignoreLoad(id, Load.MEDIUM)) {
+					}
+					else if (eq.isMedium() && !unencumberedArmorFacet.ignoreLoad(id, Load.MEDIUM))
+					{
 						armorLoad = armorLoad.max(Load.MEDIUM);
 					}
 				}
