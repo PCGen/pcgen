@@ -208,7 +208,7 @@ This is almost exactly the command Travis runs to verify, if it fails locally yo
 If you have an error stating `Task :run FAILED Error: --module-path requires module path specification` in Intellij,
 create a run configuration using Gradle and have the command be `run`. This should fix this error.
 
-If you want to debug, using the `Main` configuration and run it in debug mode.
+If you want to debug in Intellij, using the `Main` configuration and run it in debug mode.
 You can change the Java version to whatever version is supported, and you have installed.
 
 

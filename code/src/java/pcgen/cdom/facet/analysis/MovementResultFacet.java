@@ -257,7 +257,8 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 			Load armorLoad = Load.LIGHT;
 
 			// Ignore armor weight if the house rule has disabled it
-			if (Globals.checkRule(RuleConstants.SYS_LDPACSK)) {
+			if (Globals.checkRule(RuleConstants.SYS_LDPACSK))
+			{
 				for (Equipment eq : equipmentFacet.getSet(id)) {
 					if (!eq.typeStringContains("Armor") || !eq.isEquipped() || eq.isShield()) {
 						continue;
@@ -273,7 +274,8 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 			double armorMove = armorLoad.calcEncumberedMove(moveInFeet);
 
 			Load pcLoad = Load.LIGHT;
-			if (Globals.checkRule(RuleConstants.SYS_LDPACSK)) {
+			if (Globals.checkRule(RuleConstants.SYS_LDPACSK))
+			{
 				pcLoad = loadFacet.getLoadType(id);
 			}
 			double loadMove = calcEncumberedMove(id, pcLoad, moveInFeet);
