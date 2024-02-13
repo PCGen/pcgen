@@ -2161,13 +2161,13 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	/**
 	 * Sets the total Experience Points for the Player Character to the given value.
-	 * 
+	 *
 	 * Note this sets earned Experience Points as a side effect (calculated based on the
 	 * level-adjusted Experience Points the Player Character may have). If the given xp
 	 * value is less than the level-adjusted Experience Points possessed by the Player
 	 * Character, then an error will be logged, and the earned Experience Points will be
 	 * set to 0.
-	 * 
+	 *
 	 * @param xp
 	 *            The total Experience Points for the Player Character
 	 */
@@ -2191,7 +2191,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	/**
 	 * Return the total Experience Points for the Player Character.
-	 * 
+	 *
 	 * @return The total Experience Points for the Player Character
 	 */
 	public int getXP()
@@ -2203,7 +2203,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	/**
 	 * Returns the level-adjusted Experience Points for the Player Character.
-	 * 
+	 *
 	 * @return The level-adjusted Experience Points for the Player Character
 	 */
 	private int getLAXP()
@@ -5408,6 +5408,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	private Load getHouseRuledLoadType()
 	{
+		System.out.println("getHouseRuledLoadType");
 		if (Globals.checkRule(RuleConstants.SYS_LDPACSK))
 		{
 			return getLoadType();
@@ -5477,7 +5478,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	{
 		final int statBonus = (int) getStatBonusTo("MISC", "MAXDEX");
 		final Load load = getHouseRuledLoadType();
-		int bonus = (load == Load.MEDIUM) ? 3 : (load == Load.HEAVY) ? 1 : (load == Load.OVERLOAD) ? 0 : statBonus;
+		int bonus = (load == Load.MEDIUM) ? 2 : (load == Load.HEAVY) ? 1 : (load == Load.OVERLOAD) ? 0 : statBonus;
 
 		// If this is still true after all the equipment has been
 		// examined, then we should use the Maximum - Maximum Dex modifier.
@@ -7854,10 +7855,10 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		for (CDOMReference<Ability> objref : mods)
 		{
 			Collection<Ability> objs = null;
-			try 
+			try
 			{
 				objs = objref.getContainedObjects();
-			} catch (Exception e) 
+			} catch (Exception e)
 			{
 				Logging.log(Logging.LST_ERROR, "Missing object referenced in the ability list for '" + cdo
 						+ "' list is " + ref + ". Source " + cdo.getSourceURI());
@@ -9402,7 +9403,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		int otherSp = spMod - classSp - raceSp; // should mostly be stat related skillpoints
 		final int classSpMin = (int) getTotalBonusTo("MINCLASSSKILLPOINTS", "NUMBER");
 		// if a MINCLASSSKILLPOINTS.NUMBER is defined and spMod was lower due to INT penalty
-		if (classSpMin>0 && (classSp+otherSp<classSpMin)) {
+		if (classSpMin>0 && (classSp+otherSp<classSpMin))
+		{
 			spMod = Math.max(classSpMin,classSp+otherSp)+raceSp;
 		}
 
@@ -9909,7 +9911,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	/**
 	 * Returns the value of a CodeControl, or the default value if the code control has
 	 * not been set in the data.
-	 * 
+	 *
 	 * @param control
 	 *            The CodeControl for which the value should be returned
 	 * @return The value of a CodeControl, or the default value if the code control has
@@ -9930,7 +9932,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	/**
 	 * Returns true if a feature code control is enabled.
-	 * 
+	 *
 	 * @param feature
 	 *            The feature code control for which the value should be returned
 	 * @return true if a feature code control is enabled; false otherwise
@@ -9944,7 +9946,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	/**
 	 * Directly solves the given NEPFormula in context to this PlayerCharacter.
-	 * 
+	 *
 	 * @param formula
 	 *            The NEPFormula to be solved
 	 * @return The result of solving the given NEPFormula in context to this
