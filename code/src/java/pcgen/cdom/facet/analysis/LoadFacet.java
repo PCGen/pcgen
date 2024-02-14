@@ -4,12 +4,12 @@
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
@@ -25,6 +25,8 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.BonusCheckingFacet;
 import pcgen.cdom.facet.FormulaResolvingFacet;
 import pcgen.cdom.facet.PlayerCharacterTrackingFacet;
+import pcgen.core.Globals;
+import pcgen.core.RuleConstants;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
 import pcgen.util.enumeration.Load;
@@ -33,7 +35,7 @@ import pcgen.util.enumeration.Load;
  * LoadFacet calculates information about the Load for a Player Character. The
  * underlying Load information used for these calculations is defined in the
  * Game Mode LST files.
- * 
+ *
  */
 public class LoadFacet
 {
@@ -46,7 +48,7 @@ public class LoadFacet
 
 	/**
 	 * Returns the Load for the Player Character identified by the given CharID.
-	 * 
+	 *
 	 * @param id
 	 *            The CharID identifying the Player Character for which the Load
 	 *            should be returned
@@ -57,6 +59,10 @@ public class LoadFacet
 		Float weight = totalWeightFacet.getTotalWeight(id);
 		double dbl = weight / getMaxLoad(id).doubleValue();
 
+		if (!Globals.checkRule(RuleConstants.SYS_LDPACSK))
+		{
+			return Load.LIGHT;
+		}
 		Float lightMult = SettingsHandler.getGameAsProperty().get().getLoadInfo().getLoadMultiplier("LIGHT");
 		if (lightMult != null && dbl <= lightMult.doubleValue())
 		{
@@ -81,7 +87,7 @@ public class LoadFacet
 	/**
 	 * Returns the maximum Load for the Player Character identified by the given
 	 * CharID.
-	 * 
+	 *
 	 * @param id
 	 *            The CharID identifying the Player Character for which the
 	 *            maximum Load should be returned.
@@ -96,7 +102,7 @@ public class LoadFacet
 	/**
 	 * Returns the maximum Load for the Player Character identified by the given
 	 * CharID, multiplied by the given multiplier.
-	 * 
+	 *
 	 * @param id
 	 *            The CharID identifying the Player Character for which the
 	 *            maximum Load should be returned.
@@ -122,7 +128,7 @@ public class LoadFacet
 	/**
 	 * Returns the Load Multiplier for the size of the Player Character
 	 * identified by the given CharID.
-	 * 
+	 *
 	 * @param id
 	 *            The CharID identifying the Player Character for which the Load
 	 *            Multiplier will be returned.
