@@ -1,0 +1,24 @@
+# Reign of Winter Player's Guide
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Winter Witch
+Winter Witch	CATEGORY:Aligned Class		TYPE:Aligned Class	PREABILITY:1,CATEGORY=Class,Winter Witch	BONUS:PCLEVEL|Winter Witch|EvangelistLVL-1		BONUS:VAR|WinterWitchLVL|EvangelistLVL-1	ADD:SPELLCASTER|Witch	BONUS:CASTERLEVEL|Witch|WinterWitchLVL-2	BONUS:PCLEVEL|Witch|var("WinterWitchLVL")-2		
