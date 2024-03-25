@@ -5,24 +5,13 @@ SOURCELONG:Reign of Winter Player's Guide	SOURCESHORT:ROWPG	SOURCEWEB:http://pai
 
 
 # Class Name		Hit Dice	Type			Max Level	Combat bonus																	Save bonus																																		Modify VAR
-CLASS:Winter Witch	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")+1/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|WitchLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+CLASS:Winter Witch	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")+1/2|PREVAREQ:UseAlternateSaveProgression,0	DEFINE:WinterWitchLVL|0	BONUS:VAR|WinterWitchLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
 # Class Name		Required Skill						Required Text
 CLASS:Winter Witch	PRESKILL:2,Knowledge (Arcana)=5,Spellcraft=5	PRETEXT:Skills: Knowledge (arcana) 5 ranks, Spellcraft 5 ranks. Spells: Able to cast at least three different spells with the cold descriptor, one of which must be of 3rd level or higher. Special: Must have a patron and the ice magic class feature (Inner Sea Magic 43).
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Winter Witch	STARTSKILLPTS:2	CSKILL:Bluff|Intimidate|Knowledge (Arcana)|Knowledge (Nobility)|Survival|Use Magic Device
 ###Block:
-1	ABILITY:Winter Witch Class Feature|AUTOMATIC|Winter Witch ~ Weapon and Armor Proficiency
-1	ABILITY:Winter Witch Class Feature|AUTOMATIC|Winter Witch ~ Spells per Day
-1	ABILITY:Winter Witch Class Feature|AUTOMATIC|Winter Witch ~ Hyperboreal Patronage
-2	ABILITY:Winter Witch Class Feature|AUTOMATIC|Winter Witch ~ Winter Witchcraft
-3	ABILITY:Winter Witch Class Feature|AUTOMATIC|Winter Witch ~ Freeze and Thaw
-4	ABILITY:Winter Witch Class Feature|AUTOMATIC|Winter Witch ~ Unnatural Cold
-5	ABILITY:Winter Witch Class Feature|AUTOMATIC|Winter Witch ~ Sculpt Ice and Snow
-6	ABILITY:Winter Witch Class Feature|AUTOMATIC|Winter Witch ~ Winter Hex
-7	ABILITY:Winter Witch Class Feature|AUTOMATIC|Winter Witch ~ Blizzard Sight
-8	ABILITY:Winter Witch Class Feature|AUTOMATIC|Winter Witch ~ Unearthly Cold
-10	ABILITY:Winter Witch Class Feature|AUTOMATIC|Winter Witch ~ Iceglide
-10	ABILITY:Winter Witch Class Feature|AUTOMATIC|Winter Witch ~ Inexorable Cold
+1	ABILITY:Class|AUTOMATIC|Winter Witch
 ###Block:
 2:REPEATLEVEL:1	ADD:SPELLCASTER|Witch
 

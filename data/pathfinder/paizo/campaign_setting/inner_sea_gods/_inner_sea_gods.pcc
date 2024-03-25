@@ -69,6 +69,9 @@ ABILITY:support/isg_abilities_races_b4.lst|PRECAMPAIGN:1,INCLUDES=Bestiary 4
 KIT:support/isg_kits_race_b4.lst|PRECAMPAIGN:1,INCLUDES=Bestiary 4
 RACE:support/isg_races_b4.lst|PRECAMPAIGN:1,INCLUDES=Bestiary 4
 
+# Additional Support
+ABILITY:support/abilities_rowpg.lst|PRECAMPAIGN:1,INCLUDES=Reign of Winter Player's Guide
+
 # ENTRY DATE: 2015-02
 # LST MONKEY: Andrew Maitland
 # LICENSE MONKEY: Paul Grosse (2015-11-04)
