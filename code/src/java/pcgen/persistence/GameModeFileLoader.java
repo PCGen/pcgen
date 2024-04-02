@@ -1,16 +1,16 @@
 /*
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
@@ -65,9 +65,7 @@ public class GameModeFileLoader extends PCGenTask
 
 			if (d.isDirectory())
 			{
-				// the directory must contain
-				// a "miscinfo.lst" file and a
-				// "statsandchecks.lst" file to be
+				// the directory must contain a "miscinfo.lst" file and a "statsandchecks.lst" file to be
 				// a complete gameMode
 				return new File(d, "statsandchecks.lst").exists() && new File(d, "miscinfo.lst").exists();
 			}
@@ -126,10 +124,10 @@ public class GameModeFileLoader extends PCGenTask
 
 	private void loadGameModes(String[] gameFiles)
 	{
-
 		SystemCollections.clearGameModeList();
 		File gameModeDir = new File(ConfigurationSettings.getSystemsDir(), "gameModes");
 		int progress = 0;
+
 		for (final String gameFile : gameFiles)
 		{
 			File specGameModeDir = new File(gameModeDir, gameFile);
@@ -264,7 +262,7 @@ public class GameModeFileLoader extends PCGenTask
 		String data;
 		try
 		{
-			data = LstFileLoader.readFromURI(uri).toString();
+			data = LstFileLoader.readFromURI(uri);
 		}
 		catch (final PersistenceLayerException ple)
 		{
@@ -313,7 +311,7 @@ public class GameModeFileLoader extends PCGenTask
 		String data;
 		try
 		{
-			data = LstFileLoader.readFromURI(uri).toString();
+			data = LstFileLoader.readFromURI(uri);
 		}
 		catch (final PersistenceLayerException ple)
 		{

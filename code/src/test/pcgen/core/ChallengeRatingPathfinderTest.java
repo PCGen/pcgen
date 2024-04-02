@@ -75,15 +75,15 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 		SimpleLoader<ClassType> methodLoader = new SimpleLoader<>(ClassType.class);
 		LoadContext modeContext = gameMode.getModeContext();
 		methodLoader.parseLine(modeContext,
-			"PC			CRFORMULA:CL	ISMONSTER:NO	CRMOD:-1	CRMODPRIORITY:1",
-			TestURI.getURI());
+			"PC					CRFORMULA:CL	ISMONSTER:NO	CRMOD:-1	CRMODPRIORITY:1", TestURI.getURI());
 		methodLoader.parseLine(modeContext,
-			"NPC			CRFORMULA:CL	ISMONSTER:NO	CRMOD:-2	CRMODPRIORITY:2",
-			TestURI.getURI());
+			"NPC					CRFORMULA:CL	ISMONSTER:NO	CRMOD:-2	CRMODPRIORITY:2", TestURI.getURI());
 		methodLoader.parseLine(modeContext,
-			"Monster		CRFORMULA:0		ISMONSTER:YES", TestURI.getURI());
-		methodLoader.parseLine(modeContext, "Companion	CRFORMULA:NONE	ISMONSTER:YES",
-			TestURI.getURI());
+			"Monster				CRFORMULA:0		ISMONSTER:YES", TestURI.getURI());
+		methodLoader.parseLine(modeContext,
+			"TestMonsterClass	CRFORMULA:0		ISMONSTER:YES", TestURI.getURI());
+		methodLoader.parseLine(modeContext,
+			"Companion			CRFORMULA:NONE	ISMONSTER:YES", TestURI.getURI());
 		
 		LoadContext context = Globals.getContext();
 
@@ -131,7 +131,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 		raceLoader.parseLine(context, null, beetleLine, source);
 		beetleRace = context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "Beetle");
 
-		final String centipedeLine = "Centipede	MONSTERCLASS:TestMonsterClass:1	CR:1/8	Centipede";
+		final String centipedeLine = "Centipede	MONSTERCLASS:TestMonsterClass:1	CR:1/8	ROLE:Combat";
 		raceLoader.parseLine(context, null, centipedeLine, source);
 		centipedeRace = context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "Centipede");
 		
@@ -147,10 +147,10 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 		final String npcClassLine2 = "CLASS:TestNPCClass2	TYPE:NPC";
 		npcClass2 = classLoader.parseLine(context, null, npcClassLine2, source);
 
-		final String monsterClassLine = "CLASS:TestMonsterClass	HD:8	CLASSTYPE:Monster";
+		final String monsterClassLine = "CLASS:TestMonsterClass	HD:8	TYPE:Monster";
 		classLoader.parseLine(context, null, monsterClassLine, source);
 
-		final String companionClassLine = "CLASS:TestCompanionClass	HD:8	CLASSTYPE:Companion";
+		final String companionClassLine = "CLASS:TestCompanionClass	HD:8	TYPE:Companion";
 		companionClass = classLoader.parseLine(context, null, companionClassLine, source);
 
 		finishLoad();

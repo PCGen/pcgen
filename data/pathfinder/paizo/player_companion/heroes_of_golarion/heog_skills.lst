@@ -1,0 +1,49 @@
+# Sun Jul 23 13:18:10 2023 -- reformatted by PCGen TidyLst v1.04.00
+#Original Entry by pokemonpasta
+SOURCELONG:Heroes of Golarion	SOURCESHORT:HEOG
+
+# Skill Name		Situational Skill
+Acrobatics.MOD		SITUATION:Difficult Terrain
+Bluff.MOD			SITUATION:Dealing with non-Wyrwoods
+Knowledge (Nature).MOD	SITUATION:Cold Climate
+Sleight of Hand.MOD	SITUATION:Night
+Spellcraft.MOD		SITUATION:Avoid triggering primal magic
+Stealth.MOD			SITUATION:Night
+
+###Block: Terrain SITUATIONs
+# Skill Name	Situational Skill
+Perception.MOD	SITUATION:Cold Terrain
+Perception.MOD	SITUATION:Desert Terrain
+Perception.MOD	SITUATION:Forest Terrain
+Perception.MOD	SITUATION:Jungle Terrain
+Perception.MOD	SITUATION:Mountain Terrain
+Perception.MOD	SITUATION:Plains Terrain
+Perception.MOD	SITUATION:Planes Terrain
+Perception.MOD	SITUATION:Swamp Terrain
+Perception.MOD	SITUATION:Underground Terrain
+Perception.MOD	SITUATION:Urban Terrain
+Perception.MOD	SITUATION:Water Terrain
+#
+Stealth.MOD		SITUATION:Cold Terrain
+Stealth.MOD		SITUATION:Desert Terrain
+Stealth.MOD		SITUATION:Forest Terrain
+Stealth.MOD		SITUATION:Jungle Terrain
+Stealth.MOD		SITUATION:Mountain Terrain
+Stealth.MOD		SITUATION:Plains Terrain
+Stealth.MOD		SITUATION:Planes Terrain
+Stealth.MOD		SITUATION:Swamp Terrain
+Stealth.MOD		SITUATION:Underground Terrain
+Stealth.MOD		SITUATION:Urban Terrain
+Stealth.MOD		SITUATION:Water Terrain
+Survival.MOD	SITUATION:Cold Terrain
+#
+Survival.MOD	SITUATION:Desert Terrain
+Survival.MOD	SITUATION:Forest Terrain
+Survival.MOD	SITUATION:Jungle Terrain
+Survival.MOD	SITUATION:Mountain Terrain
+Survival.MOD	SITUATION:Plains Terrain
+Survival.MOD	SITUATION:Planes Terrain
+Survival.MOD	SITUATION:Swamp Terrain
+Survival.MOD	SITUATION:Underground Terrain
+Survival.MOD	SITUATION:Urban Terrain
+Survival.MOD	SITUATION:Water Terrain

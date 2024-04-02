@@ -203,23 +203,23 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable> implemen
 			if (type == null || type.isEmpty())
 			{
 				throw new IllegalArgumentException(
-					"Attempt to acquire empty Type " + "(the type String contains a null or empty element)");
+					"Attempt to acquire empty Type (the type String contains a null or empty element)");
 			}
 			if (type.indexOf('.') != -1)
 			{
-				throw new IllegalArgumentException("Cannot build Reference with type conaining a period: " + type);
+				throw new IllegalArgumentException("Cannot build Reference with type containing a period: " + type);
 			}
 			if (type.indexOf('=') != -1)
 			{
-				throw new IllegalArgumentException("Cannot build Reference with type conaining an equals: " + type);
+				throw new IllegalArgumentException("Cannot build Reference with type containing an equals: " + type);
 			}
 			if (type.indexOf(',') != -1)
 			{
-				throw new IllegalArgumentException("Cannot build Reference with type conaining a comma: " + type);
+				throw new IllegalArgumentException("Cannot build Reference with type containing a comma: " + type);
 			}
 			if (type.indexOf('|') != -1)
 			{
-				throw new IllegalArgumentException("Cannot build Reference with type conaining a pipe: " + type);
+				throw new IllegalArgumentException("Cannot build Reference with type containing a pipe: " + type);
 			}
 		}
 		Arrays.sort(types);

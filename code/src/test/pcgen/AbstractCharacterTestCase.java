@@ -98,10 +98,16 @@ public abstract class AbstractCharacterTestCase
 		gamemode.addXPTableName("Normal");
 		gamemode.setDefaultXPTableName("Normal");
 		gamemode.clearLoadContext();
+
+		// Added LoadInfo to avoid warnings during tests
 		LoadInfo loadable =
 				gamemode.getModeContext().getReferenceContext().constructNowIfNecessary(
 						LoadInfo.class, gamemode.getName());
 		loadable.addLoadScoreValue(0, BigDecimal.ONE);
+		loadable.addLoadMultiplier("LIGHT", 1/3.0f, "", 0);
+		loadable.addLoadMultiplier("MEDIUM", 2/3.0f, "", -3);
+		loadable.addLoadMultiplier("HEAVY", 1.0f, "", -6);
+
 		GameModeFileLoader.addDefaultTabInfo(gamemode);
 		SystemCollections.addToGameModeList(gamemode);
 		SettingsHandler.setGame("3.5");
@@ -197,7 +203,6 @@ public abstract class AbstractCharacterTestCase
 		FactDefinition<?, String> fd =
 				BuildUtilities.createFact(context, "SpellType", PCClass.class);
 		fd.setSelectable(true);
-		SourceFileLoader.processFactDefinitions(context);
 
 		fine = BuildUtilities.createSize("Fine", 0);
 		diminutive = BuildUtilities.createSize("Diminutive", 1);

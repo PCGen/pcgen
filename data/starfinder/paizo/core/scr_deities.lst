@@ -4,7 +4,7 @@ SOURCELONG:Starfinder Core Rulebook	SOURCESHORT:SCR	SOURCEDATE:2017-09
 
 ###Core Deities###
 # Deity Name			Product Identity?	Description of Deity/Title								FACT																	FACTSET							Align		Source Page
-Abadar				NAMEISPI:YES	DESC:God of civilization, commerce, law,Â wealth				FACT:Title|Master of the First Vault	FACT:Symbol|A golden key						FACTSET:Pantheon|Starfinder Setting			ALIGN:LN	SOURCEPAGE:p.483
+Abadar				NAMEISPI:YES	DESC:God of civilization, commerce, law,Ã‚ wealth				FACT:Title|Master of the First Vault	FACT:Symbol|A golden key						FACTSET:Pantheon|Starfinder Setting			ALIGN:LN	SOURCEPAGE:p.483
 Besmara				NAMEISPI:YES	DESC:Goddess of piracy, space monsters, strife					FACT:Title|The Pirate Queen	FACT:Symbol|A skull and crossbones							FACTSET:Pantheon|Starfinder Setting			ALIGN:CN	SOURCEPAGE:p.483
 Damoritosh				NAMEISPI:YES	DESC:God of conquest, duty, war							FACT:Title|The Conqueror	FACT:Symbol|Red doshko energy blades on a black field				FACTSET:Pantheon|Starfinder Setting			ALIGN:LE	SOURCEPAGE:p.484
 Desna					NAMEISPI:YES	DESC:Goddess of dreams, luck, stars, travelers					FACT:Title|Song of the Spheres	FACT:Symbol|A butterfly with stars, suns, and moons on its wings	FACTSET:Pantheon|Starfinder Setting			ALIGN:CG	SOURCEPAGE:p.484
@@ -15,15 +15,15 @@ Ibra					NAMEISPI:YES	DESC:God of celestial bodies, the cosmos, mysteries of the
 Iomedae				NAMEISPI:YES	DESC:Goddess of honorable battle, humanity, justice, valor			FACT:Title|The Spirit of Golarion	FACT:Symbol|A longsword surrounded by a sunburst			FACTSET:Pantheon|Starfinder Setting			ALIGN:LG	SOURCEPAGE:p.487
 Lao Shu Po				NAMEISPI:YES	DESC:Goddess of assassins, rats, spies, thieves					FACT:Title|Grandmother Rat	FACT:Symbol|A curled and emaciated rat						FACTSET:Pantheon|Starfinder Setting			ALIGN:NE	SOURCEPAGE:p.487
 Nyarlathotep			NAMEISPI:YES	DESC:Outer God of conspiracies, dangerous secrets, forbidden magic	FACT:Title|The Crawling Chaos	FACT:Symbol|An inverted black ankh							FACTSET:Pantheon|Starfinder Setting|Outer Gods	ALIGN:CE	SOURCEPAGE:p.488
-Oras					NAMEISPI:YES	DESC:God of adaptation, evolution, naturalÂ selection				FACT:Title|Agent of Change	FACT:Symbol|A double helix								FACTSET:Pantheon|Starfinder Setting			ALIGN:CN	SOURCEPAGE:p.488
+Oras					NAMEISPI:YES	DESC:God of adaptation, evolution, naturalÃ‚ selection				FACT:Title|Agent of Change	FACT:Symbol|A double helix								FACTSET:Pantheon|Starfinder Setting			ALIGN:CN	SOURCEPAGE:p.488
 Pharasma				NAMEISPI:YES	DESC:Goddess of birth, death, fate, prophecy					FACT:Title|Lady of Graves	FACT:Symbol|A cometlike spiral of energy						FACTSET:Pantheon|Starfinder Setting			ALIGN:TN	SOURCEPAGE:p.489
-Sarenrae				NAMEISPI:YES	DESC:Goddess of healing, redemption, theÂ sun					FACT:Title|The Dawnflower	FACT:Symbol|An angel with flaming wings						FACTSET:Pantheon|Starfinder Setting			ALIGN:NG	SOURCEPAGE:p.489
+Sarenrae				NAMEISPI:YES	DESC:Goddess of healing, redemption, theÃ‚ sun					FACT:Title|The Dawnflower	FACT:Symbol|An angel with flaming wings						FACTSET:Pantheon|Starfinder Setting			ALIGN:NG	SOURCEPAGE:p.489
 Talavet				NAMEISPI:YES	DESC:Goddess of community, self-reliance, tradition				FACT:Title|The Storyteller	FACT:Symbol|An ancient kasathan sigil of community				FACTSET:Pantheon|Starfinder Setting			ALIGN:LN	SOURCEPAGE:p.490
 Triune				NAMEISPI:YES	DESC:God of artificial intelligence, computers, the Drift			FACT:Title|The All-Code	FACT:Symbol|Three interlocking circles of computer code				FACTSET:Pantheon|Starfinder Setting			ALIGN:TN	SOURCEPAGE:p.490
-Urgathoa				NAMEISPI:YES	DESC:Goddess of disease, gluttony, undeath					FACT:Title|The Pallid Princess	FACT:Symbol|A skull-backed fly or deathâ€™s headÂ moth		FACTSET:Pantheon|Starfinder Setting			ALIGN:NE	SOURCEPAGE:p.491
-Weydan				NAMEISPI:YES	DESC:God of discovery, equality, exploration,Â freedom			FACT:Title|The Endless Horizon	FACT:Symbol|A starship heading into the unknown				FACTSET:Pantheon|Starfinder Setting			ALIGN:CG	SOURCEPAGE:p.491
+Urgathoa				NAMEISPI:YES	DESC:Goddess of disease, gluttony, undeath					FACT:Title|The Pallid Princess	FACT:Symbol|A skull-backed fly or deathÃ¢â‚¬â„¢s headÃ‚ moth		FACTSET:Pantheon|Starfinder Setting			ALIGN:NE	SOURCEPAGE:p.491
+Weydan				NAMEISPI:YES	DESC:God of discovery, equality, exploration,Ã‚ freedom			FACT:Title|The Endless Horizon	FACT:Symbol|A starship heading into the unknown				FACTSET:Pantheon|Starfinder Setting			ALIGN:CG	SOURCEPAGE:p.491
 Yaraesa				NAMEISPI:YES	DESC:Goddess of knowledge, mental perfection, scholarship, science	FACT:Title|Lady of Wisdom	FACT:Symbol|An atom with a brain as its nucleus					FACTSET:Pantheon|Starfinder Setting			ALIGN:NG	SOURCEPAGE:p.492
-Zon-Kuthon				NAMEISPI:YES	DESC:God of darkness, envy, loss, pain						FACT:Title|The Midnight Lord	FACT:Symbol|A skull with spiked chains through its eyeÂ sockets		FACTSET:Pantheon|Starfinder Setting			ALIGN:LE	SOURCEPAGE:p.492
+Zon-Kuthon				NAMEISPI:YES	DESC:God of darkness, envy, loss, pain						FACT:Title|The Midnight Lord	FACT:Symbol|A skull with spiked chains through its eyeÃ‚ sockets		FACTSET:Pantheon|Starfinder Setting			ALIGN:LE	SOURCEPAGE:p.492
 
 ###Philosophies###
 The Cycle				NAMEISPI:YES	DESC:Philosophy of the solarians																								FACTSET:Pantheon|Starfinder Setting					SOURCEPAGE:p.482

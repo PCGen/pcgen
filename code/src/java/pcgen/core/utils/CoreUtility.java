@@ -18,13 +18,12 @@
 package pcgen.core.utils;
 
 import java.io.File;
-import java.net.URL;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Locale;
 import java.util.regex.Pattern;
 
 import pcgen.cdom.base.Constants;
@@ -34,11 +33,11 @@ import pcgen.util.Logging;
 
 /**
  * {@code CoreUtility}.
- * 
+ *
  * Assorted generic-ish functionality moved from Globals and PlayerCharacter
  * (the two biggest classes in the project.) Some of this code seems awfully
  * similar, and should probably be further refactored.
- * 
+ *
  */
 public final class CoreUtility
 {
@@ -107,23 +106,19 @@ public final class CoreUtility
 
 	/**
 	 * return true if the protocol of the URL represented is FTP or HTTP
-	 * 
-	 * @param url
-	 *            the URL object to test for a network protocol
-	 * @return true if the protocol of this URL is FTP or HTTP
+	 *
+	 * @param uri
+	 *            the URI object to test for a network protocol
+	 * @return true if the protocol of this URI is FTP or HTTP
 	 */
-	public static boolean isNetURL(final URL url)
+	public static boolean isNetURI(final URI uri)
 	{
-		if ("file".equals(url.getProtocol().toLowerCase(Locale.ENGLISH)))
-		{
-			return false;
-		}
-		return true;
+		return !"file".equals(uri.getScheme());
 	}
 
 	/**
 	 * Capitalize the first letter of every word in a string
-	 * 
+	 *
 	 * @param aString
 	 *            the string to convert to Title case
 	 * @return a new string with the first letter of every word capitalised
@@ -155,7 +150,7 @@ public final class CoreUtility
 
 	/**
 	 * Compare two doubles within a given epsilon.
-	 * 
+	 *
 	 * @param a
 	 *            first operand
 	 * @param b
@@ -172,7 +167,7 @@ public final class CoreUtility
 
 	/**
 	 * Compare two doubles within an epsilon of 0.0001.
-	 * 
+	 *
 	 * @param a
 	 *            first operand
 	 * @param b
@@ -198,7 +193,7 @@ public final class CoreUtility
 	/**
 	 * Changes a path to make sure all instances of \ or / are replaced with
 	 * File.separatorChar.
-	 * 
+	 *
 	 * @param argFileName
 	 *            The path to be fixed
 	 * @return String
@@ -210,7 +205,7 @@ public final class CoreUtility
 
 	/**
 	 * Get the inner most String end
-	 * 
+	 *
 	 * @param aString
 	 *            The string to be searched for the innermost (
 	 * @return inner most String end
@@ -248,11 +243,11 @@ public final class CoreUtility
 
 	/**
 	 * Get the innermost String start
-	 * 
+	 *
 	 * @param aString
 	 *            the string sto be searched for the ) that closes the innermost
 	 *            parenthesised expression
-	 * 
+	 *
 	 * @return innermost String start
 	 */
 	public static int innerMostStringStart(final String aString)
@@ -284,7 +279,7 @@ public final class CoreUtility
 
 	/**
 	 * Return the english suffix for a given ordinal value
-	 * 
+	 *
 	 * @param iValue
 	 *            the ordinal value
 	 * @return ordinal suffix (st, nd, etc.)
@@ -312,7 +307,7 @@ public final class CoreUtility
 	 * Turn a 'separator' separated string into a ArrayList of strings, each
 	 * corresponding to one trimmed 'separator'-separated portion of the
 	 * original string.
-	 * 
+	 *
 	 * @param aString
 	 *            The string to be split
 	 * @param separator
@@ -339,12 +334,12 @@ public final class CoreUtility
 
 	/**
 	 * Merge the equipment list
-	 * 
+	 *
 	 * @param equip
 	 *            the collection of Equipment
 	 * @param merge
 	 *            The type of merge to perform
-	 * 
+	 *
 	 * @return merged list
 	 */
 	public static List<Equipment> mergeEquipmentList(final Collection<Equipment> equip, final int merge)
@@ -405,7 +400,7 @@ public final class CoreUtility
 
 	/**
 	 * Compare the two PCGen versions.
-	 * 
+	 *
 	 * @param ver
 	 *            The first version
 	 * @param compVer
@@ -430,7 +425,7 @@ public final class CoreUtility
 
 	/**
 	 * Compare the two PCGen versions.
-	 * 
+	 *
 	 * @param ver
 	 *            The first version
 	 * @param compVer
@@ -451,7 +446,7 @@ public final class CoreUtility
 
 	/**
 	 * Check if a version is earlier or equal to the current pcgen version.
-	 * 
+	 *
 	 * @param version
 	 *            PCGen version to be checked.
 	 * @return True if the version is before or equal to the current pcgen
@@ -464,7 +459,7 @@ public final class CoreUtility
 
 	/**
 	 * Convert a PCGen version to its numerical format.
-	 * 
+	 *
 	 * @param version
 	 *            the String version
 	 * @return the version as an array of 3 ints
@@ -501,7 +496,7 @@ public final class CoreUtility
 	/**
 	 * Checks if the supplied version shares the same major and minor versions
 	 * as the currently running version of PCGen.
-	 * 
+	 *
 	 * @param ver
 	 *            the version to check
 	 * @return true, if it is the current minor version
@@ -518,9 +513,9 @@ public final class CoreUtility
 	}
 
 	/**
-	 * Check if the two versions are different only in release number. i.e. 
+	 * Check if the two versions are different only in release number. i.e.
 	 * they have the same major and minor versions.
-	 * 
+	 *
 	 * @param ver1 A PCGen version number to be compared.
 	 * @param ver2 A PCGen version number to be compared.
 	 * @return true if they have the same major and minor versions.

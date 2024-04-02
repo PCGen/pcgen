@@ -42,20 +42,6 @@ BIO
 			<shortform>Fas3,Infi3</shortform>
 			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
 		</classes>
-		<deity>
-			<name></name>
-			<alignment></alignment>
-			<description></description>
-			<domainlist></domainlist>
-			<favoredweapon></favoredweapon>
-			<holyitem></holyitem>
-			<pantheonlist></pantheonlist>
-			<source></source>
-			<special_abilities></special_abilities>
-			<appearance></appearance>
-			<title></title>
-			<worshippers></worshippers>
-		</deity>
 		<description></description>
 		<experience>
 			<current>15000</current>
@@ -1081,7 +1067,46 @@ BIO
 			<critical>20/x2</critical>
 			<!-- Should be changed to a variable due to improved crit -->
 		</unarmed>
-		
+
+		<weapon>
+			<common>
+				<name>
+					<short>*Unarmed Lethal Strike</short>
+					<long>*Unarmed Lethal Strike (Natural/Primary)</long>
+				</name>
+				<category>Natural-Natural,Melee</category>
+				<critical>
+					<range>20</range>
+					<multiplier>2</multiplier>
+				</critical>
+				<to_hit>
+					<hit>+3</hit>
+					<magic_hit>+0</magic_hit>
+					<total_hit>+3</total_hit>
+				</to_hit>
+				<feat>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</feat>
+				<hand>Primary</hand>
+				<num_attacks>1</num_attacks>
+				<reach>5</reach>
+				<size>M</size>
+				<special_properties></special_properties>
+				<template>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</template>
+				<type>Bl</type>
+				<weight>0</weight>
+				<sequence>0</sequence>
+			</common>
+			<simple>
+				<to_hit>+3</to_hit>
+				<damage>1d3</damage>
+				<range>0 ft.</range>
+			</simple>
+		</weapon>
 		<weapon>
 			<common>
 				<name>
@@ -1098,16 +1123,22 @@ BIO
 					<magic_hit>+1</magic_hit>
 					<total_hit>+7</total_hit>
 				</to_hit>
-				<feat></feat>
+				<feat>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</feat>
 				<hand>Primary</hand>
 				<num_attacks>1</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
 				<special_properties>Magazine 6 ,Lic(+1), Mastercraft (+1)</special_properties>
-				<template></template>
+				<template>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</template>
 				<type>Ba</type>
 				<weight>3</weight>
-				<sequence>0</sequence>
+				<sequence>1</sequence>
 			</common>
 			<ranges>
 				<ammunition>
@@ -1157,16 +1188,22 @@ BIO
 					<magic_hit>+0</magic_hit>
 					<total_hit>+4</total_hit>
 				</to_hit>
-				<feat></feat>
+				<feat>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</feat>
 				<hand>Primary</hand>
 				<num_attacks>1</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
 				<special_properties>Non-Lethal</special_properties>
-				<template></template>
+				<template>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</template>
 				<type></type>
 				<weight>0</weight>
-				<sequence>1</sequence>
+				<sequence>2</sequence>
 			</common>
 			<simple>
 				<to_hit>+4</to_hit>
@@ -1220,6 +1257,32 @@ BIO
 	  ====================================
 	  ====================================-->
 	<equipment>
+		<item>
+			<longname>Unarmed Lethal Strike (Natural/Primary)</longname>
+			<id></id>
+			<name>Unarmed Lethal Strike</name>
+			<carried>1.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
+			<cost>0</cost>
+			<equipped>Y</equipped>
+			<location>Equipped</location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>1</quantity>
+			<checkbox>1</checkbox>
+			<size>
+				<long>Medium</long>
+				<short>M</short>
+			</size>
+			<special_properties></special_properties>
+			<type>WEAPON.NATURAL.MELEE.BLUDGEONING</type>
+			<weight>0</weight>
+			<bonuslist></bonuslist>
+		</item>
 		<item>
 			<longname>Colt Python (.357 revolver)</longname>
 			<id></id>
@@ -1462,6 +1525,27 @@ BIO
 		</total>
 		<equipmentsets>
 		<equipmentset name="Default Set">
+			<item>
+				<name>Unarmed Lethal Strike</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>0</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>WEAPON.NATURAL.MELEE.BLUDGEONING</type>
+				<weight>0</weight>
+				<bonuslist></bonuslist>
+			</item>
 			<item>
 				<name>Colt Python (.357 revolver)</name>
 				<carried>1.0</carried>
@@ -1915,9 +1999,27 @@ BIO
 	  ====================================
 	  ====================================-->
 
-	<weapon_proficiencies>Air Pistol, Air Rifle, AKM/AK-47, Barrett Light Fifty, Beam Sword, Benelli 121 M1, Beretta 92F, Beretta 93R, Beretta M3P, Blowgun, Brass Knuckles, Brawl, Browning BPS, Cleaver, Club, Colt Double Eagle, Colt M1911, Colt Python, Concussion Rifle, Concussion Rod, Crossbow, Cryonic Rifle, Crystal Pistol, Derringer, Desert Eagle, Disintegrator, Falcon .45, Flamethrower, Flare Gun, Gauntlet, Glock 17, Glock 20, Gravity Snare, Heavy Mace, High Frequency Sword, HK G3, HK MP5, HK MP5K, HK PSG1, Javelin, Ketch-all Pole, Knife, Laser Optics, Laser Pistol, Laser Rifle, Laser Sniper Rifle, Light Mace, Lightning Gun, M-60, M16A2, M4 Carbine, MAC Ingram M10, Metal Baton, Mini-Grenade Launcher, Mini-Rocket Launcher, Mossberg, OICW Assault Rifle, Paint Ball Gun, Pathfinder, Pepper Spray, Pistol Whip, Plasma Pistol, Plasma Rifle, Pulse Rifle, Punching Dagger, Quarterstaff, Rail Gun, Remington 700, Rifle Butt, Ruger Service-Six, S and W M29, Sap, Sawed-Off Shotgun, Shortspear, Sickle, SITES M9, Skorpion, Slingshot, Sonic Beam, Speargun, Spiked Club, Steyr AUG, Sticky Foam Sprayer, Stun Baton, Stun Gun, Super Watergun, TACMIL Sniper Rifle, Tangler Gun, Taser, TEC-9, Tonfa, Twin thunder machine gun, Unarmed Strike, Uzi, Walther PPK, Water Cannon, Whip, Winchester 94</weapon_proficiencies>
+	<weapon_proficiencies>Air Pistol, Air Rifle, AKM/AK-47, Barrett Light Fifty, Beam Sword, Benelli 121 M1, Beretta 92F, Beretta 93R, Beretta M3P, Blowgun, Brass Knuckles, Brawl, Browning BPS, Cleaver, Club, Colt Double Eagle, Colt M1911, Colt Python, Concussion Rifle, Concussion Rod, Crossbow, Cryonic Rifle, Crystal Pistol, Derringer, Desert Eagle, Disintegrator, Falcon .45, Flamethrower, Flare Gun, Gauntlet, Glock 17, Glock 20, Gravity Snare, Heavy Mace, High Frequency Sword, HK G3, HK MP5, HK MP5K, HK PSG1, Javelin, Ketch-all Pole, Knife, Laser Optics, Laser Pistol, Laser Rifle, Laser Sniper Rifle, Light Mace, Lightning Gun, M-60, M16A2, M4 Carbine, MAC Ingram M10, Metal Baton, Mini-Grenade Launcher, Mini-Rocket Launcher, Mossberg, OICW Assault Rifle, Paint Ball Gun, Pathfinder, Pepper Spray, Pistol Whip, Plasma Pistol, Plasma Rifle, Pulse Rifle, Punching Dagger, Quarterstaff, Rail Gun, Remington 700, Rifle Butt, Ruger Service-Six, S and W M29, Sap, Sawed-Off Shotgun, Shortspear, Sickle, SITES M9, Skorpion, Slingshot, Sonic Beam, Speargun, Spiked Club, Steyr AUG, Sticky Foam Sprayer, Stun Baton, Stun Gun, Super Watergun, TACMIL Sniper Rifle, Tangler Gun, Taser, TEC-9, Tonfa, Twin thunder machine gun, Unarmed Lethal Strike, Unarmed Strike, Uzi, Walther PPK, Water Cannon, Whip, Winchester 94</weapon_proficiencies>
 	<languages>English, German</languages>
 
+	<templates>
+		<list>Unarmed Lethal Strike</list>
+		<template>
+			<name>Unarmed Lethal Strike</name>
+			<strmod>0</strmod>
+			<dexmod>0</dexmod>
+			<conmod>0</conmod>
+			<intmod>0</intmod>
+			<wismod>0</wismod>
+			<chamod>0</chamod>
+			<cr>0</cr>
+			<dr></dr>
+			<feat></feat>
+			<sa></sa>
+			<sr>0</sr>
+			<bonuslist></bonuslist>
+		</template>
+	</templates>
 
 	<misc>
 	</misc>

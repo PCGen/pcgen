@@ -20,7 +20,6 @@ package pcgen.gui2;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-
 import pcgen.cdom.base.Constants;
 import pcgen.gui2.dialog.PreferencesDialog;
 import pcgen.gui3.GuiAssertions;
@@ -30,6 +29,7 @@ import pcgen.system.Main;
 import pcgen.util.Logging;
 
 import javafx.application.Platform;
+
 
 /**
  * The PCGenUIManager is responsible for starting up and shutting down PCGen's
@@ -93,6 +93,6 @@ public final class PCGenUIManager
 
 			pcgenFrame.dispose();
 		}
-		Main.shutdown();
+		Main.shutdown(true);
 	}
 }

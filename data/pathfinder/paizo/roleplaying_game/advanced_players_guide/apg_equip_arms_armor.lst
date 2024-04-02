@@ -95,7 +95,7 @@ Chakram																PROFICIENCY:WEAPON|Chakram			TYPE:Weapon.Resizable.Martia
 Pilum																	PROFICIENCY:WEAPON|Pilum			TYPE:Weapon.Resizable.Martial.Ranged.Thrown.Standard.Piercing.Pilum.Javelin.Spear										COST:5	WT:4		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8				EQMOD:Material ~ Wood																RANGE:20				SIZE:M	SOURCEPAGE:p.177
 Boomerang																PROFICIENCY:WEAPON|Boomerang			TYPE:Weapon.Resizable.Exotic.Ranged.Standard.Bludgeoning.Thrown.Consumable											COST:3	WT:3		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6				EQMOD:Material ~ Wood																RANGE:30				SIZE:M	SOURCEPAGE:p.177
 Crossbow (Double)									OUTPUTNAME:Crossbow, [NAME]		PROFICIENCY:WEAPON|Crossbow (Double)	TYPE:Weapon.Resizable.Exotic.Ranged.Standard.Piercing.Container.Projectile.Crossbow							CONTAINS:2|Bolt=2	COST:300	WT:18		CRITMULT:x2	CRITRANGE:2	DAMAGE:1d8				EQMOD:Material ~ Wood																RANGE:80						SOURCEPAGE:p.177	BONUS:WEAPON|TOHIT|-4
-Bomb																	PROFICIENCY:WEAPON|Bomb				TYPE:Weapon.Exotic.Ranged.Standard.Thrown.Splash.Fire.NoAttackPenalty																CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6																				WIELD:OneHandedNoSize			RANGE:20									BONUS:WEAPON|TOHIT|4|!PREWEAPONPROF:1,Bomb	SPROP:%d% bonus damage|AlchemistBombAdditionalDice|AlchemistBombDiceSize|PREVARGT:AlchemistBombAdditionalDice,0
+Bomb																	PROFICIENCY:WEAPON|Bomb				TYPE:Weapon.Exotic.Ranged.Standard.Thrown.Splash.Fire.NoAttackPenalty.Light															CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6																				WIELD:OneHandedNoSize			RANGE:20									BONUS:WEAPON|TOHIT|4|!PREWEAPONPROF:1,Bomb	SPROP:%d% bonus damage|AlchemistBombAdditionalDice|AlchemistBombDiceSize|PREVARGT:AlchemistBombAdditionalDice,0
 
 
 ####Block: Natural Weapons

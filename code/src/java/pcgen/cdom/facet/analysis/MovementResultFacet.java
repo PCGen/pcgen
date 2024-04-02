@@ -4,12 +4,12 @@
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
@@ -41,8 +41,10 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.Equipment;
+import pcgen.core.Globals;
 import pcgen.core.MoveClone;
 import pcgen.core.Race;
+import pcgen.core.RuleConstants;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SimpleMovement;
 import pcgen.core.utils.CoreUtility;
@@ -53,7 +55,7 @@ import pcgen.util.enumeration.Load;
  * that this does not store the Movement objects granted by CDOMObjects; rather
  * this is storing the resulting values post aggregation of those Movement
  * objects.
- * 
+ *
  */
 public class MovementResultFacet extends AbstractStorageFacet<CharID>
 		implements DataFacetChangeListener<CharID, CDOMObject>
@@ -74,7 +76,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 	 * Returns the movement value of the given type for the Player Character
 	 * identified by the given CharID. All appropriate BONUSes are added to the
 	 * movement before the result is returned.
-	 * 
+	 *
 	 * @param id
 	 *            The CharID identifying the Player Character for which the
 	 *            movement value of the given type to be returned
@@ -97,11 +99,11 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 	 * Returns the type-safe MovementCacheInfo for this MoneyFacet and the given
 	 * CharID. Will return a new, empty MovementCacheInfo if no Money
 	 * information has been set for the given CharID. Will not return null.
-	 * 
+	 *
 	 * Note that this method SHOULD NOT be public. The MovementCacheInfo object
 	 * is owned by MoneyFacet, and since it can be modified, a reference to that
 	 * object should not be exposed to any object other than MoneyFacet.
-	 * 
+	 *
 	 * @param id
 	 *            The CharID for which the MovementCacheInfo should be returned
 	 * @return The MovementCacheInfo for the Player Character represented by the
@@ -122,11 +124,11 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 	 * Returns the type-safe MovementCacheInfo for this MoneyFacet and the given
 	 * CharID. May return null if no Movement information has been set for the
 	 * given CharID.
-	 * 
+	 *
 	 * Note that this method SHOULD NOT be public. The MovementCacheInfo object
 	 * is owned by MoneyFacet, and since it can be modified, a reference to that
 	 * object should not be exposed to any object other than MoneyFacet.
-	 * 
+	 *
 	 * @param id
 	 *            The CharID for which the MovementCacheInfo should be returned
 	 * @return The MovementCacheInfo for the Player Character represented by the
@@ -208,7 +210,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 		/**
 		 * get the base MOVE: plus any bonuses from BONUS:MOVE additions takes
 		 * into account Armor restrictions to movement and load carried
-		 * 
+		 *
 		 * @param id
 		 * @return movement
 		 */
@@ -260,25 +262,33 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 			// get a list of all equipped Armor
 			Load armorLoad = Load.LIGHT;
 
-			for (Equipment eq : equipmentFacet.getSet(id))
+			// Ignore armor weight if the house rule has disabled it
+			if (Globals.checkRule(RuleConstants.SYS_LDPACSK))
 			{
-				if (!eq.typeStringContains("Armor") || !eq.isEquipped() || eq.isShield())
+				for (Equipment eq : equipmentFacet.getSet(id))
 				{
-					continue;
-				}
-				if (eq.isHeavy() && !unencumberedArmorFacet.ignoreLoad(id, Load.HEAVY))
-				{
-					armorLoad = armorLoad.max(Load.HEAVY);
-				}
-				else if (eq.isMedium() && !unencumberedArmorFacet.ignoreLoad(id, Load.MEDIUM))
-				{
-					armorLoad = armorLoad.max(Load.MEDIUM);
+					if (!eq.typeStringContains("Armor") || !eq.isEquipped() || eq.isShield())
+					{
+						continue;
+					}
+					if (eq.isHeavy() && !unencumberedArmorFacet.ignoreLoad(id, Load.HEAVY))
+					{
+						armorLoad = armorLoad.max(Load.HEAVY);
+					}
+					else if (eq.isMedium() && !unencumberedArmorFacet.ignoreLoad(id, Load.MEDIUM))
+					{
+						armorLoad = armorLoad.max(Load.MEDIUM);
+					}
 				}
 			}
 
 			double armorMove = armorLoad.calcEncumberedMove(moveInFeet);
 
-			Load pcLoad = loadFacet.getLoadType(id);
+			Load pcLoad = Load.LIGHT;
+			if (Globals.checkRule(RuleConstants.SYS_LDPACSK))
+			{
+				pcLoad = loadFacet.getLoadType(id);
+			}
 			double loadMove = calcEncumberedMove(id, pcLoad, moveInFeet);
 
 			// It is possible to have a PC that is not encumbered by Armor
@@ -304,7 +314,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 		 * Returns the base movement value of the given type for the Player
 		 * Character. No BONUSes are added to the movement before it is
 		 * returned.
-		 * 
+		 *
 		 * @param moveType
 		 *            The movement type to be returned
 		 * @return The movement value of the given type for the Player Character
@@ -318,7 +328,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 		 * Returns the base movement value of the given type for the Player
 		 * Character, when the Player Character is under the given Load. No
 		 * BONUSes are added to the movement before it is returned.
-		 * 
+		 *
 		 * @param moveType
 		 *            The movement type to be returned
 		 * @param load
@@ -335,7 +345,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 		/**
 		 * Returns true if the Player Character has a movement value of the
 		 * given type.
-		 * 
+		 *
 		 * @param moveType
 		 *            The movement type to be tested to see if the Player
 		 *            Character has a movement value of this type
@@ -351,7 +361,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 		 * Works for dnd according to the method noted in the faq. (NOTE: The
 		 * table in the dnd faq is wrong for speeds 80 and 90) Not as sure it
 		 * works for all other d20 games.
-		 * 
+		 *
 		 * @param load
 		 * @param unencumberedMove
 		 *            the unencumbered move value
@@ -411,7 +421,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 	/**
 	 * Returns the number of movement types for the Player Character identified
 	 * by the given CharID.
-	 * 
+	 *
 	 * @param id
 	 *            The CharID identifying the Player Character for which the
 	 *            number of movement types is to be returned
@@ -431,7 +441,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 	/**
 	 * Recalculates all movement values for the Player Character identified by
 	 * the given CharID.
-	 * 
+	 *
 	 * @param id
 	 *            The CharID for which all of the movement values is to be
 	 *            recalculated
@@ -444,7 +454,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 	/**
 	 * Returns a non-null List of the movement values for the Player Character
 	 * represented by the given CharID.
-	 * 
+	 *
 	 * This method is value-semantic in that ownership of the returned List is
 	 * transferred to the class calling this method. Modification of the
 	 * returned List will not modify this MovementResultFacet and modification
@@ -454,7 +464,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 	 * MovementResultFacet. If you wish to modify the information stored in this
 	 * MovementResultFacet, you must add Movement objects to the Player
 	 * Character and call reset(CharID).
-	 * 
+	 *
 	 * @param id
 	 *            The CharID identifying the Player Character for which the
 	 *            movement values should be returned
@@ -475,7 +485,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 	 * Returns the base movement value of the given type for the Player
 	 * Character identified by the given CharID. No BONUSes are added to the
 	 * movement before it is returned.
-	 * 
+	 *
 	 * @param id
 	 *            The CharID identifying the Player Character for which the
 	 *            movement value of the given type to be returned
@@ -499,7 +509,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 	 * Character identified by the given CharID, when the Player Character is
 	 * under the given Load. No BONUSes are added to the movement before it is
 	 * returned.
-	 * 
+	 *
 	 * @param id
 	 *            The CharID identifying the Player Character for which the
 	 *            movement value of the given type to be returned
@@ -524,7 +534,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 	/**
 	 * Returns true if the Player Character identified by the given CharID has a
 	 * movement value of the given type.
-	 * 
+	 *
 	 * @param id
 	 *            The CharID identifying the Player Character which will be
 	 *            tested to see if it contains a movement of the given type
@@ -547,11 +557,11 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 	/**
 	 * Triggers a full recalculation of Player Character movement when a
 	 * CDOMObject is added to a Player Character.
-	 * 
+	 *
 	 * Triggered when one of the Facets to which MovementResultFacet listens
 	 * fires a DataFacetChangeEvent to indicate a CDOMObject was added to a
 	 * Player Character.
-	 * 
+	 *
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
@@ -565,11 +575,11 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 	/**
 	 * Triggers a full recalculation of Player Character movement when a
 	 * CDOMObject is added to a Player Character.
-	 * 
+	 *
 	 * Triggered when one of the Facets to which MovementResultFacet listens
 	 * fires a DataFacetChangeEvent to indicate a CDOMObject was removed from a
 	 * Player Character.
-	 * 
+	 *
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
@@ -637,7 +647,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 
 	/**
 	 * Initializes the connections for MovementResultFacet to other facets.
-	 * 
+	 *
 	 * This method is automatically called by the Spring framework during
 	 * initialization of the MovementResultFacet.
 	 */
@@ -651,18 +661,18 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 	 * Copies the contents of the MovementResultFacet from one Player Character
 	 * to another Player Character, based on the given CharIDs representing
 	 * those Player Characters.
-	 * 
+	 *
 	 * This is a method in MovementResultFacet in order to avoid exposing the
 	 * mutable Map object to other classes. This should not be inlined, as the
 	 * Map is internal information to MovementResultFacet and should not be
 	 * exposed to other classes.
-	 * 
+	 *
 	 * Note also the copy is a one-time event and no references are maintained
 	 * between the Player Characters represented by the given CharIDs (meaning
 	 * once this copy takes place, any change to the MovementResultFacet of one
 	 * Player Character will only impact the Player Character where the
 	 * MovementResultFacet was changed).
-	 * 
+	 *
 	 * @param source
 	 *            The CharID representing the Player Character from which the
 	 *            information should be copied
@@ -680,7 +690,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 			copymci.moveRates.putAll(mci.moveRates);
 		}
 	}
-	
+
 	private class MoveSorter implements Comparator<NamedValue>
 	{
 
@@ -697,7 +707,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 			}
 			return o1.getName().compareTo(o2.getName());
 		}
-		
+
 	}
-	
+
 }

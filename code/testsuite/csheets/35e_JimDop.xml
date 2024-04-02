@@ -920,7 +920,7 @@ BIO
 			<critical>20/x2</critical>
 			<!-- Should be changed to a variable due to improved crit -->
 		</unarmed>
-		
+
 		<weapon>
 			<common>
 				<name>
@@ -937,13 +937,19 @@ BIO
 					<magic_hit>+0</magic_hit>
 					<total_hit>+15/+15</total_hit>
 				</to_hit>
-				<feat></feat>
+				<feat>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</feat>
 				<hand>Carried</hand>
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
 				<special_properties></special_properties>
-				<template></template>
+				<template>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</template>
 				<type>PS</type>
 				<weight>0</weight>
 				<sequence>0</sequence>
@@ -970,13 +976,19 @@ BIO
 					<magic_hit>+0</magic_hit>
 					<total_hit>+15</total_hit>
 				</to_hit>
-				<feat></feat>
+				<feat>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</feat>
 				<hand>Primary</hand>
 				<num_attacks>1</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
 				<special_properties></special_properties>
-				<template></template>
+				<template>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</template>
 				<type>B</type>
 				<weight>0</weight>
 				<sequence>1</sequence>
@@ -1003,13 +1015,19 @@ BIO
 					<magic_hit>+0</magic_hit>
 					<total_hit>+10</total_hit>
 				</to_hit>
-				<feat></feat>
+				<feat>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</feat>
 				<hand>Off-hand</hand>
 				<num_attacks>1</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
 				<special_properties></special_properties>
-				<template></template>
+				<template>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</template>
 				<type>BPS</type>
 				<weight>0</weight>
 				<sequence>2</sequence>
@@ -1036,13 +1054,19 @@ BIO
 					<magic_hit>+0</magic_hit>
 					<total_hit>+10</total_hit>
 				</to_hit>
-				<feat></feat>
+				<feat>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</feat>
 				<hand>Off-hand</hand>
 				<num_attacks>1</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
 				<special_properties></special_properties>
-				<template></template>
+				<template>
+					<hit>+0</hit>
+					<damage>+0</damage>
+				</template>
 				<type>PS</type>
 				<weight>0</weight>
 				<sequence>3</sequence>

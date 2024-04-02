@@ -5033,6 +5033,7 @@ public final class Equipment extends PObject
 			}
 		}
 
+		assert wCat != null;
 		int aBump = 0;
 
 		// TODO Remove this code when support for this "feature" goes away

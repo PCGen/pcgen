@@ -160,6 +160,22 @@
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - Background
+====================================
+====================================-->
+	<xsl:template match="background">
+		<xsl:if test="count(background) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'special_qualities'" />
+				<xsl:with-param name="title" select="'Background'" />
+				<xsl:with-param name="list" select="background"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
 	<!--	
 ====================================
 ====================================

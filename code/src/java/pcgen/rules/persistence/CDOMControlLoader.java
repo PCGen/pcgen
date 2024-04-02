@@ -42,7 +42,7 @@ public class CDOMControlLoader extends LstLineFileLoader
 
 	public CDOMControlLoader()
 	{
-		//CONSIDER better way to load these?
+		//CONSIDER a better way to load these?
 		addLineLoader(new CDOMSubLineLoader<>("FACTDEF", FactDefinition.class));
 		addLineLoader(new CDOMSubLineLoader<>("FACTSETDEF", FactSetDefinition.class));
 		addLineLoader(new CDOMSubLineLoader<>("DEFAULTVARIABLEVALUE", DefaultVarValue.class));

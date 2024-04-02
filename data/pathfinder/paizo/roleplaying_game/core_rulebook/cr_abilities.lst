@@ -317,9 +317,15 @@ SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloa
 CATEGORY=Internal|Default.MOD																																																													DEFINE:DomainNotAllowed|0
 
 ###Block: Resistance Saves
-CATEGORY=Internal|Default.MOD	DEFINE:FortitudeSave_ResistanceBonus|0	BONUS:SAVE|Fortitude|FortitudeSave_ResistanceBonus|TYPE=Resistance
-CATEGORY=Internal|Default.MOD	DEFINE:ReflexSave_ResistanceBonus|0		BONUS:SAVE|Reflex|ReflexSave_ResistanceBonus|TYPE=Resistance
-CATEGORY=Internal|Default.MOD	DEFINE:WillSave_ResistanceBonus|0		BONUS:SAVE|Will|WillSave_ResistanceBonus|TYPE=Resistance
+CATEGORY=Internal|Default.MOD	DEFINE:FortitudeSave_ResistanceBonus|0	BONUS:SAVE|Fortitude|FortitudeSave_ResistanceBonus|TYPE=Resistance		
+CATEGORY=Internal|Default.MOD	DEFINE:ReflexSave_ResistanceBonus|0		BONUS:SAVE|Reflex|ReflexSave_ResistanceBonus|TYPE=Resistance			
+CATEGORY=Internal|Default.MOD	DEFINE:WillSave_ResistanceBonus|0		BONUS:SAVE|Will|WillSave_ResistanceBonus|TYPE=Resistance				
+
+CATEGORY=Internal|Default.MOD	DEFINE:FortitudeSave_LuckBonus|0	BONUS:SAVE|Fortitude|FortitudeSave_LuckBonus+Global_LuckBonus|TYPE=Luck		
+CATEGORY=Internal|Default.MOD	DEFINE:ReflexSave_LuckBonus|0		BONUS:SAVE|Reflex|ReflexSave_LuckBonus+Global_LuckBonus|TYPE=Luck			
+CATEGORY=Internal|Default.MOD	DEFINE:WillSave_LuckBonus|0		BONUS:SAVE|Will|WillSave_LuckBonus+Global_LuckBonus|TYPE=Luck				
+
+
 
 #CATEGORY=Internal|Default.MOD	ABILITY:Natural Attack|AUTOMATIC|Natural Attack ~ Shield Bash|PREWEAPONPROF:1,Shieldbash|PREEQUIP:1,TYPE=Shield
 
@@ -431,6 +437,9 @@ Add Language				SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQu
 Add a Feat Ignoring Restrictions	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	DESC:GM awarded PC with 1 feat that ignores restrictions.					STACK:YES	MULT:YES	CHOOSE:ABILITYSELECTION|FEAT|ANY					ABILITY:FEAT|NORMAL|%LIST																																											COST:0
 Add a Class Skill				SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	DESC:GM awarded PC with 1 class skill.								STACK:YES	MULT:YES	CHOOSE:ABILITYSELECTION|Class Skill|ANY				ABILITY:Class Skill|AUTOMATIC|%LIST																																										COST:0
 Bypass Alignment Restricted Spells	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	DESC:GM allows to bypass alignment restrictions on spells.																																																							BONUS:VAR|BypassProhibitSpellAlignment_Restriction|1|TYPE=Bypass	COST:0
+
+Add Witch Patron				SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	DESC:GM awarded PC with +1 Patron.									STACK:YES	MULT:YES	CHOOSE:NOCHOICE														BONUS:ABILITYPOOL|Witch Patron|1																																				COST:0
+
 
 ###Block: GM Award Bonus Spells known
 # Ability Name		SORTKEY		Category of Ability		Type							Description							Stackable?	Multiple?	Choose				Bonus to spell known/L
