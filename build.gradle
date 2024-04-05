@@ -259,8 +259,6 @@ dependencies {
     testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.10.2'
     testImplementation group: 'org.hamcrest', name: 'hamcrest', version: '2.2'
     testImplementation group: 'org.testfx', name: 'testfx-junit5', version: '4.0.18'
-    // In case the official openjfx-monocle is no longer updated, we can swap to a community provided one
-    //testImplementation group: 'one.jpro', name: 'openjfx-monocle', version: 'jfx-21'
     testImplementation group: 'org.testfx', name: 'openjfx-monocle', version: '21.0.2'
 
     testImplementation group: 'org.xmlunit', name: 'xmlunit-matchers', version:'2.9.1'
@@ -311,6 +309,7 @@ runtime {
     options = ['--compress', 'zip-6'] // Equivalent to the old '2' value pre Java 21
     modules = [
     'jdk.httpserver',
+    'java.lang.management',
     'java.rmi',
     'java.desktop',
     'java.xml',
@@ -390,7 +389,7 @@ tasks.jpackageImage.doLast {
         }
     }
 
-    // Mac specific
+    // Mac OS X specific config for jpackage
     if (Os.isFamily(Os.FAMILY_MAC)){
         copy {
             from "${projectDir}/installers/mac-installer"
@@ -512,6 +511,7 @@ task downloadJRE {
         }
         archs.each {
             def arch = "${it}"
+            // TODO We don't currently support Windows Aarch64 but once Eclipse Adoptium does we should remove this line
             if (arch == "aarch64" && os == "windows") return
 
             def url = "https://api.adoptium.net/v3/binary/latest/${major}/ga/${os}/${arch}/jdk/hotspot/normal/eclipse"
@@ -586,7 +586,6 @@ task downloadJavaFXModules(dependsOn: downloadJRE) {
     println("IN downloadJavaFXModules")
 
     // We support Windows/Mac/Linux - x64, and Mac/Linux - aarch64
-    // def major = "17.0.10" // Previously support LTS release
     def major = "21.0.1"  // TODO Gluon has not release 21.0.2 mod files for all our supported architectures yet
     def archs = ['x64', 'aarch64']
     def osList = ["windows", "mac", "linux"]
@@ -621,24 +620,13 @@ task downloadJavaFXModules(dependsOn: downloadJRE) {
                 osPackage = "osx"
             }
 
-            // URLs look like this: https://download2.gluonhq.com/openjfx/17.0.9/openjfx-17.0.9_osx-aarch64_bin-jmods.zip
+            // URLs look like this: https://download2.gluonhq.com/openjfx/21.0.1/openjfx-21.0.1_osx-aarch64_bin-jmods.zip
             def url = "https://download2.gluonhq.com/openjfx/${major}/openjfx-${major}_${osPackage}${archAppend}_bin-jmods.zip"
 
             def jmodsZip = new File("${projectDir}/jre/${os}/jmods${arch}.zip")
-            // If we don't already have the jmods, download them and unzip them
-            // to the correct place.
+            // If we don't already have the jmods, download them and unzip them to the correct place.
             if (!jmodsZip.exists()) {
                 println("Downloading Javafx mods ${major} ${arch} for ${os} from ${url}")
-
-                /*
-                 * For previous LTS (Java 17), Gluon did not release > 17.0.8 for Win 32
-                if (url == "https://download2.gluonhq.com/openjfx/17.0.10/openjfx-17.0.10_windows-x86_bin-jmods.zip") {
-                    url = "https://download2.gluonhq.com/openjfx/17.0.8/openjfx-17.0.8_windows-x86_bin-jmods.zip"
-                // For Java 17 support Gluon did not release > 17.0.8 for Linux Aarch64
-                } else if (url == "https://download2.gluonhq.com/openjfx/17.0.10/openjfx-17.0.10_linux-aarch64_bin-jmods.zip") {
-                    url = "https://download2.gluonhq.com/openjfx/17.0.8/openjfx-17.0.8_linux-aarch64_bin-jmods.zip"
-                }
-                */
 
                 download.run {
                     src url
@@ -653,13 +641,7 @@ task downloadJavaFXModules(dependsOn: downloadJRE) {
                     {
                         outputDir = "${projectDir}/jre/${os}/jre_${arch}/Contents/Home/jmods"
                     }
-                    /*
-                     * For Java 21+ we can no longer support Windows 32-bit
-                    else if(os == "windows" && arch == "x86")
-                    {
-                        outputDir = "${projectDir}/jre/${os}/jre_x32/jmods"
-                    }
-                    */
+
                     println "Unzipping ${zipFile} to ${outputDir}"
                     from zipTree(zipFile)
                     into outputDir

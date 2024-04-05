@@ -178,8 +178,7 @@ class PluginClassLoader extends PCGenTask
 		Future<?> future = dispatcher.submit(dispatcher::shutdown);
 		try
 		{
-			//This is done to cause this thread to wait until the shutdown task
-			//has been executed.
+			// This is done to cause this thread to wait until the shutdown task has been executed.
 			future.get();
 		}
 		catch (ExecutionException | InterruptedException ex)
@@ -211,7 +210,7 @@ class PluginClassLoader extends PCGenTask
 		else 
 		{
 		    Logging.errorPrint("pluginFiles array was NULL after trying to load the plugins from the plugin class loader");
-        	}
+		}
 	}
 
 	private void loadClasses()
