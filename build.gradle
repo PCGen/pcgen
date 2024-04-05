@@ -431,6 +431,7 @@ task copyToLibs(type: Copy, dependsOn:[startScripts,distTar,distZip,installDist]
 
 task copyToOutput(type: Copy, dependsOn: [createExe, copyToLibs, jar, converterJar]) {
     println("IN copyToOutput")
+
     from "${buildDirectory}/libs/pcgen-${version}.jar"
     from "${buildDirectory}/libs/pcgen-${version}-batch-convert.jar"
     from "${buildDirectory}/launch4j/pcgen.exe"
@@ -588,7 +589,7 @@ task downloadJavaFXModules(dependsOn: downloadJRE) {
     println("IN downloadJavaFXModules")
 
     // We support Windows/Mac/Linux - x64, and Mac/Linux - aarch64
-    def major = "21.0.1"  // TODO Gluon has not release 21.0.2 mod files for all our supported architectures yet
+    def major = "21.0.1"  // TODO Gluon has not released 21.0.2 mod files for all our supported architectures yet
     def archs = ['x64', 'aarch64']
     def osList = ["windows", "mac", "linux"]
 
@@ -829,7 +830,6 @@ allprojects {
                 '-Djavafx.macosx.embedded=true',
 
                 "--module-path", "${projectDir}/mods/lib/",
-                //"--add-modules", "javafx.controls,javafx.web,javafx.swing,javafx.fxml", // TODO I assume we do not add javafx.graphics as this is headless testing
                 "--add-modules", "javafx.controls,javafx.web,javafx.swing,javafx.fxml,javafx.graphics",
 
                 // Needed to fix issue with testfx test crashing due to issue with modularity of whole program. Slightly related issue. https://github.com/TestFX/TestFX/issues/638

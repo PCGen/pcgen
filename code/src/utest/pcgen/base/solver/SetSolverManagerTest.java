@@ -134,7 +134,6 @@ class SetSolverManagerTest
 		Object[] array = vc.get(regions);
 		List<Object> list;
 		assertEquals(0, array.length);
-		//assertTrue(vc.getSet().contains(regions));
 		assertTrue(vc.contains(regions));
 		assertEquals(1, vc.size());
 		vc.reset();

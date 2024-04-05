@@ -84,7 +84,7 @@
         <!-- This is excluded because we use "public" in Interfaces almost universally (as a semantic hint as to its real behavior) -->
         <exclude name="UnnecessaryModifier"/>
         <exclude name="UnnecessaryReturn"/>
-        <!-- CDOM seems to want to use raw types although we can revisit that later -->
+        <!-- CDOM seems to want to use raw types, although we can revisit that later -->
         <exclude name="UseDiamondOperator"/>
         <!-- Underscores not required for readability -->
         <exclude name="UseUnderscoresInNumericLiterals" />
@@ -181,8 +181,6 @@
         <exclude name="AppendCharacterWithChar"/>
         <exclude name="AvoidFileStream"/>
         <exclude name="AvoidInstantiatingObjectsInLoops"/>
-        <!-- Wait for full Java 21 support in gradle and then remove this -->
-        <exclude name="BigIntegerInstantiation"/>
         <exclude name="StringInstantiation"/>
         <!-- This is excluded because it's a micro-optimization (JIT compilation would eliminate the performance penalty) and enforcing it encourages writing less readable code -->
         <exclude name="ConsecutiveAppendsShouldReuse"/>
