@@ -54,6 +54,8 @@ description = """PCGen"""
 // Default task if you just run ./gradlew
 defaultTasks 'build'
 
+// Folder where build output is primarily stored
+// TODO try to figure out why we need it here and not in ext block
 String buildDirectory = getLayout().getBuildDirectory().toString()
 
 // Configure Java, in particular the version to test/compile/run with
@@ -67,10 +69,6 @@ java {
 ext {
     // Where code gets compiled to
     binDir = "code/bin"
-
-    // Folder where build output is primarily stored
-    //String buildDir = "$projectDir/build"
-    //String buildDirectory = getLayout().getBuildDirectory().toString()
 
     // Folder where exe / jar files are placed.
     outputDir = "$projectDir/output"
@@ -112,7 +110,8 @@ repositories {
         url 'http://pc-gen.org/librepo/'
         allowInsecureProtocol = true
     }
-    // Use Maven plugin to reference jboss repository as well
+    // Use Maven plugin to reference freehep (https://java.freehep.org/) artifact repository
+    // TODO Which libs do we pull from here?
     maven {
         name = 'free'
         url = 'https://java.freehep.org/maven2'
@@ -121,7 +120,10 @@ repositories {
         name = 'local'
         url = 'installers'
     }
+    // Use Maven plugin to reference JBoss artifact repository
+    // TODO Which libs do we pull from here?
     maven {
+        name = 'jboss'
         url "https://repository.jboss.org/nexus/content/repositories/thirdparty-releases/"
     }
 }
