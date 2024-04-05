@@ -586,7 +586,8 @@ task downloadJavaFXModules(dependsOn: downloadJRE) {
     println("IN downloadJavaFXModules")
 
     // We support Windows/Mac/Linux - x64, and Mac/Linux - aarch64
-    def major = "21.0.1"
+    // def major = "17.0.10" // Previously support LTS release
+    def major = "21.0.1"  // TODO Gluon has not release 21.0.2 mod files for all our supported architectures yet
     def archs = ['x64', 'aarch64']
     def osList = ["windows", "mac", "linux"]
 
@@ -629,11 +630,15 @@ task downloadJavaFXModules(dependsOn: downloadJRE) {
             if (!jmodsZip.exists()) {
                 println("Downloading Javafx mods ${major} ${arch} for ${os} from ${url}")
 
-                if (url == "https://download2.gluonhq.com/openjfx/17.0.9/openjfx-17.0.9_windows-x86_bin-jmods.zip") {
+                /*
+                 * For previous LTS (Java 17), Gluon did not release > 17.0.8 for Win 32
+                if (url == "https://download2.gluonhq.com/openjfx/17.0.10/openjfx-17.0.10_windows-x86_bin-jmods.zip") {
                     url = "https://download2.gluonhq.com/openjfx/17.0.8/openjfx-17.0.8_windows-x86_bin-jmods.zip"
-                } else if (url == "https://download2.gluonhq.com/openjfx/17.0.9/openjfx-17.0.9_linux-aarch64_bin-jmods.zip") {
+                // For Java 17 support Gluon did not release > 17.0.8 for Linux Aarch64
+                } else if (url == "https://download2.gluonhq.com/openjfx/17.0.10/openjfx-17.0.10_linux-aarch64_bin-jmods.zip") {
                     url = "https://download2.gluonhq.com/openjfx/17.0.8/openjfx-17.0.8_linux-aarch64_bin-jmods.zip"
                 }
+                */
 
                 download.run {
                     src url
@@ -649,6 +654,7 @@ task downloadJavaFXModules(dependsOn: downloadJRE) {
                         outputDir = "${projectDir}/jre/${os}/jre_${arch}/Contents/Home/jmods"
                     }
                     /*
+                     * For Java 21+ we can no longer support Windows 32-bit
                     else if(os == "windows" && arch == "x86")
                     {
                         outputDir = "${projectDir}/jre/${os}/jre_x32/jmods"
