@@ -258,8 +258,9 @@ dependencies {
     testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.10.0'
     testImplementation group: 'org.hamcrest', name: 'hamcrest', version: '2.2'
     testImplementation group: 'org.testfx', name: 'testfx-junit5', version: '4.0.17'
-    // 'Official' openjfx-monocle is no longer updated, so we swapped to a community provided one
-    testImplementation group: 'one.jpro', name: 'openjfx-monocle', version: 'jfx-21'
+    // In case the official openjfx-monocle is no longer updated, we can swap to a community provided one
+    //testImplementation group: 'one.jpro', name: 'openjfx-monocle', version: 'jfx-21'
+    testImplementation group: 'org.testfx', name: 'openjfx-monocle', version: '21.0.2'
 
     testImplementation group: 'org.xmlunit', name: 'xmlunit-matchers', version:'2.9.1'
     spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.12.0'
