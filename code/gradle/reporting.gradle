@@ -9,7 +9,7 @@ checkstyle {
     configFile = new File('code/standards/checkstyle.xml')
     configProperties = [samedir: "${rootDir}/code/standards"]
     showViolations = true
-    toolVersion = '10.12.4'
+    toolVersion = '10.15.0'
     sourceSets = []
 }
 
@@ -19,13 +19,13 @@ pmd {
     ruleSetFiles = files('code/standards/ruleset.xml')
     consoleOutput = true
     sourceSets = []
-    toolVersion = "7.0.0-rc4"
+    toolVersion = "7.0.0"
     incrementalAnalysis = true
 }
 
 // TODO fix the outstanding bugs and then remove the ignoreFailures
 spotbugs {
-    toolVersion = '4.8.0'
+    toolVersion = '4.8.3'
     excludeFilter = file("$rootProject.projectDir/code/standards/spotbugs_ignore.xml")
     omitVisitors = ['Naming', 'CrossSiteScripting', 'DontUseEnum', 'DoInsideDoPrivileged']
     reportLevel = 'low'

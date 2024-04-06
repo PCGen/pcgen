@@ -266,8 +266,8 @@ dependencies {
     testImplementation group: 'org.xmlunit', name: 'xmlunit-matchers', version:'2.9.1'
     spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.13.0'
 
-    pmd 'net.sourceforge.pmd:pmd-ant:7.0.0-rc4'
-    pmd 'net.sourceforge.pmd:pmd-java:7.0.0-rc4'
+    pmd 'net.sourceforge.pmd:pmd-ant:7.0.0'
+    pmd 'net.sourceforge.pmd:pmd-java:7.0.0'
 }
 
 // Properties to support Ant builds
@@ -589,7 +589,7 @@ task downloadJavaFXModules(dependsOn: downloadJRE) {
     println("IN downloadJavaFXModules")
 
     // We support Windows/Mac/Linux - x64, and Mac/Linux - aarch64
-    def major = "21.0.1"  // TODO Gluon has not released 21.0.2 mod files for all our supported architectures yet
+    def major = "21.0.2"
     def archs = ['x64', 'aarch64']
     def osList = ["windows", "mac", "linux"]
 
@@ -623,7 +623,7 @@ task downloadJavaFXModules(dependsOn: downloadJRE) {
                 osPackage = "osx"
             }
 
-            // URLs look like this: https://download2.gluonhq.com/openjfx/21.0.1/openjfx-21.0.1_osx-aarch64_bin-jmods.zip
+            // URLs look like this: https://download2.gluonhq.com/openjfx/21.0.2/openjfx-21.0.2_osx-aarch64_bin-jmods.zip
             def url = "https://download2.gluonhq.com/openjfx/${major}/openjfx-${major}_${osPackage}${archAppend}_bin-jmods.zip"
 
             def jmodsZip = new File("${projectDir}/jre/${os}/jmods${arch}.zip")
