@@ -876,7 +876,6 @@ dependencyUpdates.resolutionStrategy {
 // Support for creating IntelliJ IDEA files.
 idea {
     project {
-
         def javafxLib = file("$projectDir/mods/lib")
         def files = javafxLib.listFiles( { _, name -> name.contains(".jar") } as FilenameFilter)
                 .toList() // no direct way to convert from Array to Set
