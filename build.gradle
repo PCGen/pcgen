@@ -24,7 +24,7 @@ plugins {
     id 'application'                                    // Creating application bundles
     id 'build-dashboard'                                // Produces a build report
     id 'checkstyle'                                     // Checkstyle for Java, configured further below
-    id "com.github.spotbugs" version '5.2.5'           // Spotbugs for Java
+    id "com.github.spotbugs" version '6.0.9'            // Spotbugs for Java
     id 'java'                                           // Core java / javac
     id 'maven-publish'                                  // Publishing to Maven Central
     id 'pmd'                                            // PMD for Java, configured further below
@@ -33,7 +33,7 @@ plugins {
     id 'edu.sc.seis.launch4j' version '3.0.5'           // Creates launch4j
     id 'com.github.ben-manes.versions' version '0.51.0' // Checks versions for plugins and dependencies
     id "com.dorongold.task-tree" version '3.0.0'        // Prints the task dependency tree
-    id 'org.openjfx.javafxplugin' version '0.1.0'      // JavaFX support
+    id 'org.openjfx.javafxplugin' version '0.1.0'       // JavaFX support
     id 'org.beryx.runtime' version '1.13.1'             // Creates custom runtimes
 }
 

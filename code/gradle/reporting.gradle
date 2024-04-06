@@ -25,21 +25,24 @@ pmd {
 
 // TODO fix the outstanding bugs and then remove the ignoreFailures
 spotbugs {
+    def classLoader = plugins["com.github.spotbugs"].class.classLoader
+    def SpotBugsConfidence = classLoader.findLoadedClass("com.github.spotbugs.snom.Confidence")
+
     toolVersion = '4.8.3'
     excludeFilter = file("$rootProject.projectDir/code/standards/spotbugs_ignore.xml")
     omitVisitors = ['Naming', 'CrossSiteScripting', 'DontUseEnum', 'DoInsideDoPrivileged']
-    reportLevel = 'low'
+    reportLevel = SpotBugsConfidence.LOW
     ignoreFailures = true
 }
 
 spotbugsMain {
     reports {
-        xml.enabled = false
-        html.enabled = true
+        xml.required = false
+        html.required = true
         html.stylesheet resources.text.fromFile('code/standards/fancy-hist.xsl')
     }
 }
 
-task allReports {
+tasks.register('allReports') {
     dependsOn = ['checkstyleMain', 'pmdMain', 'spotbugsMain']
 }
