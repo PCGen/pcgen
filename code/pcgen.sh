@@ -1,6 +1,10 @@
 #!/bin/sh
 set -e
 
+# Most GUIs will change directory to the location of the script
+# when the script is double-clicked.  But nooooo, not macOS.
+# So if we don't find the script in the current directory, we
+# need to find it.
 if [ ! -e ./pcgen.sh ]; then
     # We're not in the directory where the script lives.
     # Change to it so relative paths will work.
