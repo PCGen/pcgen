@@ -588,8 +588,9 @@ task downloadJRE {
 task downloadJavaFXModules(dependsOn: downloadJRE) {
     println("IN downloadJavaFXModules")
 
-    // We support Windows/Mac/Linux - x64, and Mac - aarch64 (JavaFX doesn't support Linux/aarch64 in 21 LTS)
-    def major = "21.0.1" // TODO move to 21.0.2 once Gluon has released 21.0.2 for all platforms
+    // We support Windows/Mac/Linux - x64, and Mac/Linux - aarch64
+    // (JavaFX doesn't support Linux/aarch64 in 21 LTS, use 21.0.1 instead)
+    def major = "21.0.2"
     def archs = ['x64', 'aarch64']
     def osList = ["windows", "mac", "linux"]
 
@@ -604,9 +605,11 @@ task downloadJavaFXModules(dependsOn: downloadJRE) {
             def archAppend
             if (arch == "x64") {
                 archAppend = "-x64"
-            } else if (arch == "aarch64" && os == "mac") {
-                // Mac for aarch64 only
+            } else if (arch == "aarch64" && os != "windows") {
                 archAppend = "-aarch64"
+                if (os == "linux") {
+                    major = "21.0.1" // TODO other versions don't supply aarch64 for Linux, use 21.0.1 instead
+                }
             } else {
                 return
             }
