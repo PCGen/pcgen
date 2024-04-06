@@ -57,6 +57,8 @@
         <exclude name="ConfusingTernary"/>
         <!-- default "do nothing" behavior is reasonable -->
         <exclude name="EmptyMethodInAbstractClassShouldBeAbstract"/>
+        <!-- Using the var keyword is fine -->
+        <exclude name="UseExplicitTypes"/>
         <exclude name="FieldDeclarationsShouldBeAtStartOfClass"/>
         <exclude name="ForLoopShouldBeWhileLoop"/>
         <!-- we use longer names (e.g. 'IDT') -->
@@ -113,8 +115,9 @@
         <!-- useless metric -->
         <exclude name="CyclomaticComplexity"/>
         <exclude name="DataClass"/>
-        <exclude name="ExcessiveClassLength"/>
-        <exclude name="ExcessiveMethodLength"/>
+        <!-- PMD runner didn't seem to like these next two, although they are valid rules according to the docs -->
+        <!-- <exclude name="ExcessiveClassLength"/> -->
+        <!-- <exclude name="ExcessiveMethodLength"/> -->
         <exclude name="ExcessiveImports"/>
         <exclude name="ExcessiveParameterList"/>
         <exclude name="ExcessivePublicCount"/>
@@ -155,8 +158,9 @@
         <exclude name="ConstructorCallsOverridableMethod"/>
         <exclude name="DoNotTerminateVM"/>
         <exclude name="EmptyCatchBlock"/>
-        <exclude name="EmptyIfStmt"/>
-        <exclude name="EmptyStatementNotInLoop"/>
+        <!-- PMD runner didn't seem to like these next two, although they are valid rules according to the docs -->
+        <!-- <exclude name="EmptyIfStmt"/> -->
+        <!-- <exclude name="EmptyStatementNotInLoop"/> -->
         <exclude name="ImplicitSwitchFallThrough"/>
         <exclude name="InstantiationToGetClass"/>
         <!-- we don't use serialization -->

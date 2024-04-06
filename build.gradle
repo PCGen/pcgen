@@ -311,7 +311,7 @@ runtime {
     options = ['--compress', 'zip-6'] // Equivalent to the old '2' value pre Java 21
     modules = [
     'jdk.httpserver',
-    'java.lang.management',
+    'java.management',
     'java.rmi',
     'java.desktop',
     'java.xml',
@@ -589,7 +589,7 @@ task downloadJavaFXModules(dependsOn: downloadJRE) {
     println("IN downloadJavaFXModules")
 
     // We support Windows/Mac/Linux - x64, and Mac/Linux - aarch64
-    def major = "21.0.2"
+    def major = "21.0.1" // TODO move to 21.0.2 once Gluon has released 21.0.2 for all platforms
     def archs = ['x64', 'aarch64']
     def osList = ["windows", "mac", "linux"]
 

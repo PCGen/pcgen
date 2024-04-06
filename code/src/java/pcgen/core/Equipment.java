@@ -727,7 +727,7 @@ public final class Equipment extends PObject
 				//
 				if (!ignoresCostDouble())
 				{
-					c1 = c1.subtract(nonDoubleCost).multiply(new BigDecimal("2"));
+					c1 = c1.subtract(nonDoubleCost).multiply(BigDecimal.TWO);
 					c1 = c1.add(nonDoubleCost);
 
 					// c = c.multiply(new BigDecimal("2"));
