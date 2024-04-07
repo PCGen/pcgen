@@ -247,7 +247,7 @@ Reset Attack Start Value ~ Wing	CATEGORY:Internal		BONUS:VAR|WingAttacks|-2
 # Wing -		1 1d2 1d3 1d4 1d6 1d8 2d6 2d8 B		Secondary	x2	(Max set up is 7)
 
 # Ability Name	Category of Ability	Type									Define											Ability												Modify VAR																			Weapon prof. bonus
-Bite			CATEGORY:Internal		TYPE:NaturalAttack.NaturalAttackPrimary.Primary		DEFINE:NaturalAttacks|0	DEFINE:BiteAttacks|0	DEFINE:BiteOnlyAttack|0	ABILITY:Internal|AUTOMATIC|Bite Damage Increase|PREVAREQ:BiteOnlyAttack,1	BONUS:VAR|BiteAttacks|1	BONUS:VAR|NaturalAttacks|BiteAttacks	BONUS:VAR|BiteOnlyAttack|1|TYPE=Base|PREVARLT:NaturalAttacks,2	BONUS:WEAPONPROF=Bite|TOHIT|-5|PREVAREQ:UseWeaponsWithNaturalAttacks,1	BONUS:WEAPONPROF=Bite|DAMAGE|floor(STR/2)-STR|PREVAREQ:UseWeaponsWithNaturalAttacks,1
+Bite			CATEGORY:Internal		TYPE:NaturalAttack.NaturalAttackPrimary.Primary		DEFINE:NaturalAttacks|0	DEFINE:BiteAttacks|0	DEFINE:BiteOnlyAttack|0														BONUS:VAR|BiteAttacks|1	BONUS:VAR|NaturalAttacks|BiteAttacks	BONUS:VAR|BiteOnlyAttack|1|TYPE=Base|PREVARLT:NaturalAttacks,2	BONUS:WEAPONPROF=Bite|TOHIT|-5|PREVAREQ:UseWeaponsWithNaturalAttacks,1	BONUS:WEAPONPROF=Bite|DAMAGE|floor(STR/2)-STR|PREVAREQ:UseWeaponsWithNaturalAttacks,1	BONUS:WEAPONPROF=Bite|DAMAGE|MAX(STR/2,0)|PREVAREQ:BiteOnlyAttack,1
 Gore			CATEGORY:Internal		TYPE:NaturalAttack.NaturalAttackPrimary.Primary		DEFINE:NaturalAttacks|0	DEFINE:GoreAttacks|0																		BONUS:VAR|GoreAttacks|1	BONUS:VAR|NaturalAttacks|GoreAttacks												BONUS:WEAPONPROF=Gore|TOHIT|-5|PREVAREQ:UseWeaponsWithNaturalAttacks,1	BONUS:WEAPONPROF=Gore|DAMAGE|floor(STR/2)-STR|PREVAREQ:UseWeaponsWithNaturalAttacks,1	BONUS:WEAPONPROF=Gore|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1|!PREVAREQ:UseWeaponsWithNaturalAttacks,1
 Claw			CATEGORY:Internal		TYPE:NaturalAttack.NaturalAttackPrimary.Primary		DEFINE:NaturalAttacks|0	DEFINE:ClawAttacks|0																		BONUS:VAR|ClawAttacks|2	BONUS:VAR|NaturalAttacks|ClawAttacks										BONUS:WEAPONPROF=Claw|TOHIT|-5|PREVAREQ:UseWeaponsWithNaturalAttacks,1	BONUS:WEAPONPROF=Claw|DAMAGE|floor(STR/2)-STR|PREVAREQ:UseWeaponsWithNaturalAttacks,1	BONUS:WEAPONPROF=Claw|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1|!PREVAREQ:UseWeaponsWithNaturalAttacks,1
 Slam			CATEGORY:Internal		TYPE:NaturalAttack.NaturalAttackPrimary.Primary		DEFINE:NaturalAttacks|0	DEFINE:SlamAttacks|0																		BONUS:VAR|SlamAttacks|1	BONUS:VAR|NaturalAttacks|SlamAttacks												BONUS:WEAPONPROF=Slam|TOHIT|-5|PREVAREQ:UseWeaponsWithNaturalAttacks,1	BONUS:WEAPONPROF=Slam|DAMAGE|floor(STR/2)-STR|PREVAREQ:UseWeaponsWithNaturalAttacks,1	BONUS:WEAPONPROF=Slam|DAMAGE|MAX(STR/2,0)|PREVAREQ:NaturalAttacks,1|!PREVAREQ:UseWeaponsWithNaturalAttacks,1
@@ -274,29 +274,24 @@ Tail Sweep		CATEGORY:Internal		TYPE:NaturalAttack.NaturalAttackSecondary.Seconda
 Crush			CATEGORY:Internal		TYPE:NaturalAttack.NaturalAttackSecondary.Secondary	DEFINE:NaturalAttacks|0																						BONUS:VAR|NaturalAttacks|1																BONUS:WEAPONPROF=Crush|DAMAGE|(STR/2)
 
 
-###Block: Mechanism to Grant STR 1-1/2 damage by other non-stacking means
-# Ability Name		Category of Ability	Weapon prof. bonus
-Bite Damage Increase	CATEGORY:Internal		BONUS:WEAPONPROF=Bite|DAMAGE|MAX(STR/2,0)|!PREVAREQ:UseWeaponsWithNaturalAttacks,1
-
-
 ###Block: Mechanism to fix Wield Category Alterations by SIZEMOD
 # Ability Name				Define				Modify VAR							Weapon prof. bonus
-CATEGORY=Internal|Bite.MOD															BONUS:WEAPONPROF=Bite|WIELDCATEGORY|SizeIncrease
-CATEGORY=Internal|Gore.MOD															BONUS:WEAPONPROF=Gore|WIELDCATEGORY|SizeIncrease
-CATEGORY=Internal|Pincers.MOD															BONUS:WEAPONPROF=Pincers|WIELDCATEGORY|SizeIncrease
-CATEGORY=Internal|Tail Slap.MOD														BONUS:WEAPONPROF=Tail Slap|WIELDCATEGORY|SizeIncrease
-CATEGORY=Internal|Claw.MOD															BONUS:WEAPONPROF=Claw|WIELDCATEGORY|SizeIncrease
-CATEGORY=Internal|Slam.MOD															BONUS:WEAPONPROF=Slam|WIELDCATEGORY|SizeIncrease
-CATEGORY=Internal|Sting.MOD															BONUS:WEAPONPROF=Sting|WIELDCATEGORY|SizeIncrease
-CATEGORY=Internal|Talons.MOD															BONUS:WEAPONPROF=Talons|WIELDCATEGORY|SizeIncrease
-CATEGORY=Internal|Hoof.MOD															BONUS:WEAPONPROF=Hoof|WIELDCATEGORY|SizeIncrease
-CATEGORY=Internal|Tentacle.MOD														BONUS:WEAPONPROF=Tentacle|WIELDCATEGORY|SizeIncrease
-CATEGORY=Internal|Wing.MOD															BONUS:WEAPONPROF=Wing|WIELDCATEGORY|SizeIncrease
-CATEGORY=Internal|Rake.MOD															BONUS:WEAPONPROF=Rake|WIELDCATEGORY|SizeIncrease
-CATEGORY=Internal|Tail Sweep.MOD														BONUS:WEAPONPROF=Tail Sweep|WIELDCATEGORY|SizeIncrease
-CATEGORY=Internal|Crush.MOD															BONUS:WEAPONPROF=Crush|WIELDCATEGORY|SizeIncrease
-CATEGORY=Internal|Hair.MOD															BONUS:WEAPONPROF=Hair|WIELDCATEGORY|SizeIncrease
-CATEGORY=Internal|Ranged Slam.MOD														BONUS:WEAPONPROF=Ranged Slam|WIELDCATEGORY|SizeIncrease
+#CATEGORY=Internal|Bite.MOD															BONUS:WEAPONPROF=Bite|WIELDCATEGORY|0
+#CATEGORY=Internal|Gore.MOD															BONUS:WEAPONPROF=Gore|WIELDCATEGORY|SizeIncrease
+#CATEGORY=Internal|Pincers.MOD															BONUS:WEAPONPROF=Pincers|WIELDCATEGORY|SizeIncrease
+#CATEGORY=Internal|Tail Slap.MOD														BONUS:WEAPONPROF=Tail Slap|WIELDCATEGORY|SizeIncrease
+#CATEGORY=Internal|Claw.MOD															BONUS:WEAPONPROF=Claw|WIELDCATEGORY|SizeIncrease
+#CATEGORY=Internal|Slam.MOD															BONUS:WEAPONPROF=Slam|WIELDCATEGORY|SizeIncrease
+#CATEGORY=Internal|Sting.MOD															BONUS:WEAPONPROF=Sting|WIELDCATEGORY|SizeIncrease
+#CATEGORY=Internal|Talons.MOD															BONUS:WEAPONPROF=Talons|WIELDCATEGORY|SizeIncrease
+#CATEGORY=Internal|Hoof.MOD															BONUS:WEAPONPROF=Hoof|WIELDCATEGORY|SizeIncrease
+#CATEGORY=Internal|Tentacle.MOD														BONUS:WEAPONPROF=Tentacle|WIELDCATEGORY|SizeIncrease
+#CATEGORY=Internal|Wing.MOD															BONUS:WEAPONPROF=Wing|WIELDCATEGORY|SizeIncrease
+#CATEGORY=Internal|Rake.MOD															BONUS:WEAPONPROF=Rake|WIELDCATEGORY|SizeIncrease
+#CATEGORY=Internal|Tail Sweep.MOD														BONUS:WEAPONPROF=Tail Sweep|WIELDCATEGORY|SizeIncrease
+#CATEGORY=Internal|Crush.MOD															BONUS:WEAPONPROF=Crush|WIELDCATEGORY|SizeIncrease
+#CATEGORY=Internal|Hair.MOD															BONUS:WEAPONPROF=Hair|WIELDCATEGORY|SizeIncrease
+#CATEGORY=Internal|Ranged Slam.MOD														BONUS:WEAPONPROF=Ranged Slam|WIELDCATEGORY|SizeIncrease
 
 CATEGORY=Internal|Default.MOD		DEFINE:NaturalAttackSize|0
 CATEGORY=Internal|Default.MOD							BONUS:VAR|NaturalAttackSize|1|PREBASESIZEEQ:F
