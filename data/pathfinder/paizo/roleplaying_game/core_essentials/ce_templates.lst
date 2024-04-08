@@ -1315,3 +1315,8 @@ Legs ~ 26						LEGS:26			VISIBLE:NO
 Legs ~ 27						LEGS:27			VISIBLE:NO
 Legs ~ 28						LEGS:28			VISIBLE:NO
 
+Decrease Bite Wield Category by 1	BONUS:WEAPONPROF=Bite|WIELDCATEGORY|-1
+Decrease Bite Wield Category by 2	BONUS:WEAPONPROF=Bite|WIELDCATEGORY|-2
+
+Increase Bite Wield Category by 1	BONUS:WEAPONPROF=Bite|WIELDCATEGORY|1
+Increase Bite Wield Category by 2	BONUS:WEAPONPROF=Bite|WIELDCATEGORY|2
