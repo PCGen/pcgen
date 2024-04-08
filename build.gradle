@@ -21,7 +21,8 @@ plugins {
     id 'application'
     id 'build-dashboard'
     id 'checkstyle'
-    id "com.github.spotbugs-base" version '5.0.13'
+    // id "com.github.spotbugs-base" version '5.0.13'
+    id "com.github.spotbugs" version '6.0.9'
     id 'java'
     //id 'maven'
     id 'maven-publish'
@@ -186,6 +187,7 @@ dependencies {
     
 
     compileOnly group: 'org.jetbrains', name: 'annotations', version:'16.0.3'
+    compileOnly group: 'com.github.spotbugs', name: 'spotbugs-annotations', version: '4.8.3'
     compileOnly group: 'com.yuvimasory', name: 'orange-extensions', version: '1.3.0'
 
     testImplementation group: 'org.junit.platform', name: 'junit-platform-runner', version: '1.3.2'
@@ -196,6 +198,7 @@ dependencies {
     testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.3.2'
 
     testImplementation group: 'org.hamcrest', name: 'hamcrest', version: '2.1'
+    spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.13.0'
 
     slowtestImplementation group: 'org.xmlunit', name: 'xmlunit-core', version:'2.6.2'
     slowtestImplementation group: 'org.xmlunit', name: 'xmlunit-matchers', version:'2.6.2'

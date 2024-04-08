@@ -124,6 +124,6 @@ public class PortraitTokenTest extends AbstractCharacterTestCase
 
 		FileAccess.setCurrentOutputFilter("xml");
 		var outputPortraitPath = evaluateToken("PORTRAIT", pc);
-		assertEquals(inputPortraitPath, outputPortraitPath, "PORTRAIT token must not be encoded");
+		assertEquals("PORTRAIT token must not be encoded", inputPortraitPath, outputPortraitPath);
 	}
 }
