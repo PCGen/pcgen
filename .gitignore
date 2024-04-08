@@ -19,6 +19,11 @@ characters/*
 !characters/Sorcerer.pcg
 !characters/SpecialWizard.pcg
 
+# JEnv local version setup
+.java-version
+
+
+
 # JVM Error log if Java craches
 hs_err_*.log
 
@@ -105,3 +110,4 @@ code/manifest-tests
 *.lst~
 *.pcc~
 *.swp
+**/*.DS_Store

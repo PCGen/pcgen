@@ -1267,7 +1267,7 @@ jar-all-plugins - Generate the plugin jar files
 		<jar jarfile="${bonusplugins.dir}/BonusToken-MINCLASSSKILLPOINTS.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
-					<include name="plugin/bonustokens/MinClassSkillPts.class" />
+					<include name="plugin/bonustokens/MinClassSkillPoints.class" />
 				</patternset>
 			</fileset>
 		</jar>

@@ -27,21 +27,24 @@ pmd {
 	toolVersion = "6.7.0"
 }
 
+// TODO fix the outstanding bugs and then remove the ignoreFailures
 spotbugs {
+	def classLoader = plugins["com.github.spotbugs"].class.classLoader
+	def SpotBugsConfidence = classLoader.findLoadedClass("com.github.spotbugs.snom.Confidence")
+
+	toolVersion = '4.8.3'
 	excludeFilter = file("$rootProject.projectDir/code/standards/spotbugs_ignore.xml")
 	omitVisitors = ['Naming', 'CrossSiteScripting', 'DontUseEnum', 'DoInsideDoPrivileged']
-	reportLevel = 'low'
+	reportLevel = SpotBugsConfidence.LOW
 	ignoreFailures = true
-	toolVersion = '5.0.13'
 }
 
-//Unable to determine how to do this with SpotBugs - this is consistent with their docs, but dumps stack
-//tasks.withType(com.github.spotbugs.SpotBugs) {
-//	reports {
-//		xml.enabled = false
-//		html.enabled = true
-//		html.stylesheet resources.text.fromFile('code/standards/fancy-hist.xsl')
-//	}
-//}
+spotbugsMain {
+	reports {
+		xml.required = false
+		html.required = true
+		html.stylesheet resources.text.fromFile('code/standards/fancy-hist.xsl')
+	}
+}
 
 task allReports { dependsOn = ['checkstyleMain', 'pmdMain', 'spotbugsMain'] }
