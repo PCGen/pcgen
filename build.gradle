@@ -51,7 +51,7 @@ plugins {
  * Set the version and the modules we want from JavaFX (not everything)
  */
 javafx {
-    version = "20"
+    version = "17"
     modules = [ 'javafx.controls', 'javafx.web', 'javafx.swing', 'javafx.fxml', 'javafx.graphics' ]
 
     /*
