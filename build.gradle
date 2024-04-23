@@ -273,7 +273,7 @@ dependencies {
     testImplementation group: 'org.testfx', name: 'openjfx-monocle', version: 'jdk-12.0.1+2'
     constraints {
         implementation('org.openjfx:javafx-base:22.0.1')
-        implementation('org.openjfx:javafx-controls:22')
+        implementation('org.openjfx:javafx-controls:22.0.1')
         implementation('org.openjfx:javafx-graphics:22.0.1') {
             because 'Monocle uses 12.0.1+2 that does not support Mac`s ARM'
         }
