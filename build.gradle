@@ -226,7 +226,7 @@ dependencies {
 
     implementation group: 'org.springframework', name: 'spring-web', version:'6.1.7'
     implementation group: 'org.springframework', name: 'spring-beans', version:'6.1.7'
-    implementation group: 'org.springframework', name: 'spring-core', version:'6.1.7'
+    implementation group: 'org.springframework', name: 'spring-core', version:'6.1.8'
     implementation group: 'org.apache.commons', name: 'commons-lang3', version:'3.14.0'
     implementation group: 'xalan', name: 'serializer', version: '2.7.3'
     implementation('org.apache.xmlgraphics:fop:2.9')
