@@ -1,16 +1,16 @@
 /*
  * Copyright (c) Thomas Parker, 2009.
- * 
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
@@ -41,7 +41,7 @@ import pcgen.output.publish.OutputDB;
 /**
  * ClassFacet is a Facet that tracks the PCClass objects possessed by a Player
  * Character.
- * 
+ *
  */
 public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements SetFacet<CharID, PCClass>
 {
@@ -50,7 +50,7 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements Se
 	/**
 	 * Add the given PCClass to the list of PCClass objects stored in this
 	 * ClassFacet for the Player Character represented by the given CharID.
-	 * 
+	 *
 	 * @param id
 	 *            The CharID representing the Player Character for which the
 	 *            given PCClass should be added
@@ -73,10 +73,10 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements Se
 	 * Character represented by the given CharID. Returns true if the set is successful.
 	 * The set will be successful if the given PCClass is possessed by the given
 	 * PlayerCharacter; false otherwise.
-	 * 
+	 *
 	 * The (numeric) class level for which the given PCClassLevel should be applied is
 	 * determined by the level value set in the PCClassLevel.
-	 * 
+	 *
 	 * @param id
 	 *            The CharID representing the Player Character for which the given
 	 *            PCClassLevel should be set
@@ -109,7 +109,7 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements Se
 	 * Returns the PCClassLevel object associated with the Player Character
 	 * represented by the given CharID, the given PCClass, and the given
 	 * (numeric) class level.
-	 * 
+	 *
 	 * @param id
 	 *            The CharID representing the Player Character for which the
 	 *            associated PCClassLevel will be returned
@@ -136,7 +136,7 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements Se
 	/**
 	 * Remove the given PCClass from the list of PCClass objects stored in this
 	 * ClassFacet for the Player Character represented by the given CharID.
-	 * 
+	 *
 	 * @param id
 	 *            The CharID representing the Player Character from which the
 	 *            given PCClass should be removed
@@ -167,7 +167,7 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements Se
 	/**
 	 * Removes all PCClass objects from the list of PCClass objects stored in
 	 * this ClassFacet for the Player Character represented by the given CharID.
-	 * 
+	 *
 	 * @param id
 	 *            The CharID representing the Player Character from which all
 	 *            PCClass objects should be removed
@@ -190,7 +190,7 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements Se
 	/**
 	 * Replaces the given old PCClass stored in this ClassFacet with the given
 	 * new PCClass for the Player Character represented by the given CharID.
-	 * 
+	 *
 	 * @param id
 	 *            The CharID representing the Player Character from which the
 	 *            given old PCClass should be replaced
@@ -217,7 +217,7 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements Se
 	 * for the Player Character represented by the given CharID. This method
 	 * returns an empty Set if no objects are in this ClassFacet for the Player
 	 * Character identified by the given CharID.
-	 * 
+	 *
 	 * This method is value-semantic in that ownership of the returned List is
 	 * transferred to the class calling this method. Modification of the
 	 * returned List will not modify this ClassFacet and modification of this
@@ -226,7 +226,7 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements Se
 	 * returned by this (or other) methods on ClassFacet. If you wish to modify
 	 * the information stored in this ClassFacet, you must use the add*() and
 	 * remove*() methods of ClassFacet.
-	 * 
+	 *
 	 * @param id
 	 *            The CharID representing the Player Character for which the
 	 *            items in this ClassFacet should be returned.
@@ -247,7 +247,7 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements Se
 	/**
 	 * Returns the count of PCClass objects in this ClassFacet for the Player
 	 * Character represented by the given CharID.
-	 * 
+	 *
 	 * @param id
 	 *            The CharID representing the Player Character for which the
 	 *            count of PCClass objects should be returned
@@ -268,7 +268,7 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements Se
 	/**
 	 * Returns true if this ClassFacet does not contain any PCClass objects for
 	 * the Player Character represented by the given CharID.
-	 * 
+	 *
 	 * @param id
 	 *            The CharId representing the PlayerCharacter to test if any
 	 *            PCClass objects are contained by this AbstractListFacet
@@ -285,7 +285,7 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements Se
 	/**
 	 * Returns true if this ClassFacet contains the given PCClass in the list of
 	 * PCClass objects for the Player Character represented by the given CharID.
-	 * 
+	 *
 	 * @param id
 	 *            The CharID representing the Player Character used for testing
 	 * @param obj
@@ -303,7 +303,7 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements Se
 	/**
 	 * Sets the level for the given PCClass and the Player Character identified
 	 * by the given CharID to the given value.
-	 * 
+	 *
 	 * @param id
 	 *            The CharID identifying the Player Character for which a level
 	 *            value is being set
@@ -322,7 +322,7 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements Se
 	/**
 	 * Returns the current (numerical) level for the given PCClass in the Player
 	 * Character identified by the given CharID.
-	 * 
+	 *
 	 * @param id
 	 *            The CharID identifying the Player Character for which the
 	 *            level of the given PCClass should be returned
@@ -342,11 +342,11 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements Se
 	 * Returns the ClassInfo for this ClassFacet and the given CharID. May
 	 * return null if no information has been set in this ClassFacet for the
 	 * given CharID.
-	 * 
+	 *
 	 * Note that this method SHOULD NOT be public. The ClassInfo is owned by
 	 * ClassFacet, and since it can be modified, a reference to that object
 	 * should not be exposed to any object other than ClassFacet.
-	 * 
+	 *
 	 * @param id
 	 *            The CharID for which the ClassInfo should be returned
 	 * @return The ClassInfo for the Player Character represented by the given
@@ -362,11 +362,11 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements Se
 	 * Returns a ClassInfo for this ClassFacet and the given CharID. Will return
 	 * a new, empty ClassInfo if no information has been set in this ClassFacet
 	 * for the given CharID. Will not return null.
-	 * 
+	 *
 	 * Note that this method SHOULD NOT be public. The ClassInfo object is owned
 	 * by ClassFacet, and since it can be modified, a reference to that object
 	 * should not be exposed to any object other than ClassFacet.
-	 * 
+	 *
 	 * @param id
 	 *            The CharID for which the ClassInfo should be returned
 	 * @return The ClassInfo for the Player Character represented by the given
@@ -388,7 +388,7 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements Se
 	 * global character cache. This stores both the PCClassLevel objects active
 	 * for a PCClass and Player Character, as well as the levels of the
 	 * PCClasses for a Player Character.
-	 * 
+	 *
 	 */
 	public static class ClassInfo
 	{
@@ -430,7 +430,7 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements Se
 					"Cannot set level for PCClass " + pcc.getKeyName() + " which is not added");
 			}
 			Integer oldlvl = levelmap.put(pcc, level);
-			return (oldlvl == null) ? 0 : oldlvl;
+			return (oldlvl == null) ? Integer.valueOf(0) : oldlvl;
 		}
 
 		public int getLevel(PCClass pcc)
@@ -619,7 +619,7 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements Se
 		/**
 		 * Returns an identifier indicating the PlayerCharacter on which this
 		 * event occurred.
-		 * 
+		 *
 		 * @return A identifier indicating the PlayerCharacter on which this
 		 *         event occurred.
 		 */
@@ -671,7 +671,7 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements Se
 		/**
 		 * Returns an identifier indicating the PlayerCharacter on which this
 		 * event occurred.
-		 * 
+		 *
 		 * @return A identifier indicating the PlayerCharacter on which this
 		 *         event occurred.
 		 */
@@ -707,7 +707,7 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements Se
 		/**
 		 * Adds a new ClassLevelChangeListener to receive LevelChangeEvents
 		 * (EdgeChangeEvent and NodeChangeEvent) from the source ClassFacet.
-		 * 
+		 *
 		 * @param listener
 		 *            The LevelChangeListener to receive LevelChangeEvents
 		 */
@@ -719,13 +719,13 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements Se
 		/**
 		 * Returns an Array of LevelChangeListeners receiving LevelChangeEvents
 		 * from the source ClassFacet.
-		 * 
+		 *
 		 * Ownership of the returned Array is transferred to the calling Object.
 		 * No reference to the Array is maintained by ClassLevelChangeSupport.
 		 * However, the LevelChangeListeners contained in the Array are
 		 * (obviously!) returned BY REFERENCE, and care should be taken with
 		 * modifying those LevelChangeListeners.*
-		 * 
+		 *
 		 * @return An Array of LevelChangeListeners receiving LevelChangeEvents
 		 *         from the source ClassFacet
 		 */
@@ -737,7 +737,7 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements Se
 		/**
 		 * Removes a LevelChangeListener so that it will no longer receive
 		 * LevelChangeEvents from the source ClassFacet.
-		 * 
+		 *
 		 * @param listener
 		 *            The LevelChangeListener to be removed
 		 */
@@ -749,7 +749,7 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements Se
 		/**
 		 * Sends a NodeChangeEvent to the LevelChangeListeners that are
 		 * receiving LevelChangeEvents from the source ClassFacet.
-		 * 
+		 *
 		 * @param id
 		 *            The CharID that has beed added to or removed from the source
 		 *            ClassFacet
@@ -759,7 +759,7 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements Se
 		 *            by the given CharID
 		 * @param oldLevel
 		 * 			  The chracter's previous level
-		 * 
+		 *
 		 * @param newLevel
 		 * 			  The new level specified by the user.
 		 */

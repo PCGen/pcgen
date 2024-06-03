@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import org.junit.jupiter.api.Disabled;
 import pcgen.system.LanguageBundle;
 
 import javafx.fxml.FXMLLoader;
@@ -35,6 +36,7 @@ import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 import org.testfx.matcher.base.NodeMatchers;
 
+// @Disabled // Receiver class com.sun.glass.ui.monocle.MonocleWindow does not define or inherit an implementation of the resolved method 'abstract void _updateViewSize(long)' of abstract class com.sun.glass.ui.Window.
 @ExtendWith(ApplicationExtension.class)
 class AboutDialogTest
 {

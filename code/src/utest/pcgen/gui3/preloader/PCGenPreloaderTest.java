@@ -20,6 +20,7 @@ package pcgen.gui3.preloader;
 
 import java.io.IOException;
 
+import org.junit.jupiter.api.Disabled;
 import pcgen.system.LanguageBundle;
 
 import javafx.fxml.FXMLLoader;

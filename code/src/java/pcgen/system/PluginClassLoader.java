@@ -178,8 +178,7 @@ class PluginClassLoader extends PCGenTask
 		Future<?> future = dispatcher.submit(dispatcher::shutdown);
 		try
 		{
-			//This is done to cause this thread to wait until the shutdown task
-			//has been executed.
+			// This is done to cause this thread to wait until the shutdown task has been executed.
 			future.get();
 		}
 		catch (ExecutionException | InterruptedException ex)
@@ -188,6 +187,7 @@ class PluginClassLoader extends PCGenTask
 		}
 	}
 
+	@SuppressWarnings("PMD.UseArraysAsList")
 	private void findJarFiles(File pluginDir)
 	{
 		if (!pluginDir.isDirectory())
@@ -199,18 +199,18 @@ class PluginClassLoader extends PCGenTask
 		{
 		    for (final File file : pluginFiles)
 		    {
-			if (file.isDirectory())
-			{
-			    findJarFiles(file);
-			    continue;
-			}
-			jarFiles.add(file);
+				if (file.isDirectory())
+				{
+					findJarFiles(file);
+					continue;
+				}
+				jarFiles.add(file);
 		    }
 		}
 		else 
 		{
 		    Logging.errorPrint("pluginFiles array was NULL after trying to load the plugins from the plugin class loader");
-        	}
+		}
 	}
 
 	private void loadClasses()

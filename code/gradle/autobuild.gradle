@@ -1,5 +1,7 @@
 import java.time.LocalDateTime
 
+String buildDirectory = getLayout().getBuildDirectory().toString()
+
 /*
  * PCGen autobuild generation tasks. This file specifies the way in which the
  * autobuild site is generated and the outputs from other tasks that are to be
@@ -11,7 +13,7 @@ ext {
     if (System.env.BUILD_NUMBER) {
         destAutobuildDir = '/home/pcgen1/public_html/autobuilds/'
     } else {
-        destAutobuildDir = "${buildDir}/autobuilds/"
+        destAutobuildDir = "${buildDirectory}/autobuilds/"
     }
 
     buildTimestamp = LocalDateTime.now(Clock.systemUTC())
@@ -23,7 +25,7 @@ task copyDocs(type: Sync) {
 }
 
 task copyDist(type: Sync, dependsOn: 'buildDist') {
-    from "${buildDir}/distributions"
+    from "${buildDirectory}/distributions"
     into "${destAutobuildDir}/downloads/"
 }
 

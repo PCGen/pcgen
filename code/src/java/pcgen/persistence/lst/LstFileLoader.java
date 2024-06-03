@@ -102,12 +102,14 @@ public final class LstFileLoader
 			}
 			else if (SettingsHandler.isLoadURLs()) // load from remote URIs
 			{
-				HttpClient client = HttpClient.newHttpClient();
-				HttpRequest request = HttpRequest.newBuilder()
-						.uri(uri)
-						.build();
-				HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-				return response.body();
+				try (HttpClient client = HttpClient.newHttpClient())
+				{
+					HttpRequest request = HttpRequest.newBuilder()
+							.uri(uri)
+							.build();
+					HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+					return response.body();
+				}
 			}
 			else
 			{
