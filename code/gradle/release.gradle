@@ -27,7 +27,7 @@ import org.apache.tools.ant.filters.FixCrLfFilter
 import org.apache.tools.ant.taskdefs.condition.Os
 import org.gradle.api.internal.file.copy.DefaultCopySpec
 
-String buildDirectory = getLayout().getBuildDirectory().toString()
+String buildDirectory = layout.buildDirectory.dir(".").get()
 
 ext {
 

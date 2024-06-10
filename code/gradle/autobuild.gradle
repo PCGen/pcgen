@@ -1,6 +1,6 @@
 import java.time.LocalDateTime
 
-String buildDirectory = getLayout().getBuildDirectory().toString()
+String buildDirectory = layout.buildDirectory.dir(".").get()
 
 /*
  * PCGen autobuild generation tasks. This file specifies the way in which the
