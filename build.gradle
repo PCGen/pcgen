@@ -432,6 +432,7 @@ tasks.register("copyToLibs", Copy) {
 
 tasks.register("copyToOutput", Copy) {
     println("IN copyToOutput")
+    dependsOn copyToLibs, createExe, converterJar, jar
 
     from layout.buildDirectory.file("libs/pcgen-${version}.jar"),
         layout.buildDirectory.file("libs/pcgen-${version}-batch-convert.jar"),
