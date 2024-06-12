@@ -389,27 +389,31 @@ tasks.register("genProjectNsis") {
 }
 
 // Call NSIS to generate windows installer - Removed "genDataList"
-task buildNsis(dependsOn: [layoutNsisBase, layoutNsisOptional,
-        genProjectNsis, downloadJRE , genDataList]) doLast {
-    if (System.properties['os.name'].toLowerCase(Locale.ROOT).contains('windows')) {
-        new ByteArrayOutputStream().withStream { os ->
-            def result = exec {
-                workingDir = "${buildDirectory}/nsis"
-                executable = 'C:/Program Files (x86)/NSIS/makensis.exe'
-                args = ["/V3", "${projectDir}/installers/win-installer/pcgen.nsi"]
+tasks.register("buildNsis") {
+    dependsOn layoutNsisBase, layoutNsisOptional,
+            genProjectNsis, downloadJRE, genDataList
+    mustRunAfter createExe
+
+    doLast {
+        if (System.properties['os.name'].toLowerCase(Locale.ROOT).contains('windows')) {
+            new ByteArrayOutputStream().withStream { os ->
+                def result = exec {
+                    workingDir = layout.buildDirectory.dir("nsis")
+                    executable = 'C:/Program Files (x86)/NSIS/makensis.exe'
+                    args = ["/V3", "${projectDir}/installers/win-installer/pcgen.nsi"]
+                }
             }
-        }
-    } else {
-        new ByteArrayOutputStream().withStream { os ->
-            def result = exec {
-                workingDir = "${buildDirectory}/nsis"
-                executable = 'makensis'
-                args = ["-V3", "${projectDir}/installers/win-installer/pcgen.nsi"]
+        } else {
+            new ByteArrayOutputStream().withStream { os ->
+                def result = exec {
+                    workingDir = layout.buildDirectory.dir("nsis")
+                    executable = 'makensis'
+                    args = ["-V3", "${projectDir}/installers/win-installer/pcgen.nsi"]
+                }
             }
         }
     }
 }
-buildNsis.mustRunAfter createExe
 
 task cleanNsis(type: Delete) {
     delete nsisBaseFolder, nsisOptionFolder, layout.buildDirectory.dir("nsis/Local")
