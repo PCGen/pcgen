@@ -1,7 +1,5 @@
 import java.time.LocalDateTime
 
-String buildDirectory = layout.buildDirectory.dir(".").get()
-
 /*
  * PCGen autobuild generation tasks. This file specifies the way in which the
  * autobuild site is generated and the outputs from other tasks that are to be
@@ -11,40 +9,42 @@ String buildDirectory = layout.buildDirectory.dir(".").get()
  */
 ext {
     if (System.env.BUILD_NUMBER) {
-        destAutobuildDir = '/home/pcgen1/public_html/autobuilds/'
+        destAutobuildDir = file('/home/pcgen1/public_html/autobuilds/')
     } else {
-        destAutobuildDir = "${buildDirectory}/autobuilds/"
+        destAutobuildDir = layout.buildDirectory.dir("autobuilds").get()
     }
 
     buildTimestamp = LocalDateTime.now(Clock.systemUTC())
 }
 
-task copyDocs(type: Sync) {
+tasks.register("copyDocs", Sync) {
     from 'docs'
-    into "${destAutobuildDir}/pcgen-docs/"
+    into destAutobuildDir.dir("pcgen-docs/")
 }
 
-task copyDist(type: Sync, dependsOn: 'buildDist') {
-    from "${buildDirectory}/distributions"
-    into "${destAutobuildDir}/downloads/"
+tasks.register("copyDist", Sync) {
+    dependsOn buildDist
+    from layout.buildDirectory.dir("distributions")
+    into destAutobuildDir.dir("downloads")
 }
 
-task copySite(type: Copy) {
+tasks.register("copySite", Copy) {
     // Ensure this always runs - we don't want an incorrect date
     outputs.upToDateWhen { false }
-    from "${projectDir}/code/gradle/site"
-    into "${destAutobuildDir}"
+    from layout.projectDirectory.dir("code/gradle/site")
+    into destAutobuildDir
     expand(copyright: Calendar.instance.get(Calendar.YEAR), version: version, timestamp: buildTimestamp,
         simpleVersion: version.replaceAll('-SNAPSHOT', '').replaceAll(/\./, ''))
 }
 
-task copyInstaller(type: Copy) {
+tasks.register("copyInstaller", Copy) {
     // Ensure this always runs - we don't want an outdated installer
     outputs.upToDateWhen { false }
     from "${releaseDir}"
-    into "${destAutobuildDir}/downloads/"
+    into destAutobuildDir.dir("downloads")
 }
 
 // The Main Task
-task deployAutobuild (dependsOn: ['copyDocs', 'copyDist', 'copySite', 'copyInstaller']) {
+tasks.register("deployAutobuild") {
+    dependsOn copyDocs, copyDist, copySite, copyInstaller
 }

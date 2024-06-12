@@ -1,11 +1,9 @@
 import java.util.regex.Matcher
 
-
-
 void unSnapshotVersion() {
 	def version = project.version.toString()
 	def origVersion = version
-	
+
 	if (version.contains('-SNAPSHOT')) {
 		project.ext.set('usesSnapshot', true)
 		project.ext.set('snapshotVersion', version)
@@ -24,22 +22,22 @@ void updateVersion() {
 	//noinspection GroovyUnusedAssignment
 	Closure handler = { Matcher m, Project p -> m.replaceAll("${ String.format( '%02d', (m[0][1] as int) + 1 )}${ m[0][2] }") }
 	Matcher matcher = version =~ pattern
-	
+
 	if (matcher.find()) {
 		String nextVersion = handler(matcher, project)
 		//if (project.properties['usesSnapshot']) {
 			nextVersion += '-SNAPSHOT'
 		//}
-		
+
 		nextVersion = getNextVersion(nextVersion);
 		println "nextVersion is " + nextVersion
-		
+
 		project.ext.set("release.oldVersion", project.version)
 		project.ext.set("release.newVersion", nextVersion)
 		updateVersionProperty(nextVersion)
 		return
 	}
-	
+
 	throw new GradleException("Failed to increase version [$version] - unknown pattern")
 }
 
@@ -98,4 +96,3 @@ File findPropertiesFile() {
 	}
 	propertiesFile
 }
-

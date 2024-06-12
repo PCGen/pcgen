@@ -1,7 +1,5 @@
 import java.time.LocalDateTime
 
-String buildDirectory = layout.buildDirectory.dir(".").get()
-
 /*
  * PCGen distributable generation tasks. This file specifies the
  * archives included in the PCGen autobuild and PCGen releases. It
@@ -43,7 +41,7 @@ ext {
     }
 
     programDistsImage = copySpec {
-        from("${buildDirectory}/launch4j") {
+        from(layout.buildDirectory.dir("launch4j")) {
             include 'pcgen.exe'
         }
     }
@@ -57,7 +55,7 @@ ext {
         from('code') {
             include 'LICENSE'
 
-            eachFile{ file ->
+            eachFile { file ->
                 if(file.getName().endsWith(".sh")) {
                     file.setMode(0755)
                 }
@@ -66,7 +64,7 @@ ext {
     }
 
     libsDistsImage = copySpec {
-        from("${buildDirectory}/libs") {
+        from(layout.buildDirectory.dir("libs")) {
             into 'libs'
             exclude 'pcgen-*.jar'
         }
@@ -115,7 +113,7 @@ tasks.run.dependsOn(downloadJavaFXModules)
 
 installDist.doLast{
     delete {
-        delete fileTree("${buildDirectory}/install/pcgen/lib") {
+        delete fileTree(layout.buildDirectory.dir("install/pcgen/lib")) {
             include 'javafx-*'
         }
     }
@@ -168,6 +166,7 @@ task libsZip(type: Zip, dependsOn: 'copyToLibs') {
     }
 }
 
-task buildDist(dependsOn: ['dataZip', 'docsZip', 'programZip', 'libsZip', 'runtimeZip']) {
+tasks.register("buildDist") {
+    dependsOn dataZip, docsZip, programZip, libsZip, runtimeZip
     description = "Build the five zip files (docs, data, program, libs and full) which comprise the autobuild distribution."
 }

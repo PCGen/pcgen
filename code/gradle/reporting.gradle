@@ -44,5 +44,5 @@ spotbugsMain {
 }
 
 tasks.register('allReports') {
-    dependsOn = ['checkstyleMain', 'pmdMain', 'spotbugsMain']
+    dependsOn checkstyleMain, pmdMain, spotbugsMain
 }

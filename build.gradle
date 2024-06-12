@@ -32,7 +32,7 @@ plugins {
     id "de.undercouch.download" version '5.6.0'         // Shows download percentage
     id 'edu.sc.seis.launch4j' version '3.0.5'           // Creates launch4j
     id 'com.github.ben-manes.versions' version '0.51.0' // Checks versions for plugins and dependencies
-    id "com.dorongold.task-tree" version '3.0.0'        // Prints the task dependency tree
+    id "com.dorongold.task-tree" version '4.0.0'        // Prints the task dependency tree
     id 'org.openjfx.javafxplugin' version '0.1.0'       // JavaFX support
     id 'org.beryx.runtime' version '1.13.1'             // Creates custom runtimes
 }
@@ -54,10 +54,6 @@ description = """PCGen"""
 // Default task if you just run ./gradlew
 defaultTasks 'build'
 
-// Folder where build output is primarily stored
-// TODO try to figure out why we need it here and not in ext block
-String buildDirectory = layout.buildDirectory.dir(".").get()
-
 // Configure Java, in particular the version to test/compile/run with
 java {
     toolchain {
@@ -71,16 +67,16 @@ ext {
     binDir = "code/bin"
 
     // Folder where exe / jar files are placed.
-    outputDir = "$projectDir/output"
+    outputDir = layout.projectDirectory.dir("output")
 
     // Folder where the jres are downloaded for building releases
-    jresDir = "$projectDir/jre"
+    jresDir = layout.projectDirectory.dir("jre")
 
     // Folder where the JavaFX mods are downloaded for building releases
-    modsDir = "$projectDir/mods"
+    modsDir = layout.projectDirectory.dir("mods")
 
     // Installers are placed here
-    releaseDir = "$projectDir/build/release"
+    releaseDir = layout.projectDirectory.dir("build/release")
 }
 
 application {
@@ -378,7 +374,7 @@ runtime {
 tasks.jpackageImage.doLast {
     copy {
         includeEmptyDirs = false
-        from "${buildDirectory}/install/pcgen/"
+        from layout.buildDirectory.dir("install/pcgen")
         exclude "**/*.exe"
         exclude "**/*.bat"
         exclude "pcgen"
@@ -397,14 +393,16 @@ tasks.jpackageImage.doLast {
             from "${projectDir}/installers/mac-installer"
             include "MacDirLauncher"
             fileMode 0755
-            into "${buildDirectory}/jpackage/PcGen.app/Contents/MacOS"
+            into layout.buildDirectory.dir("jpackage/PcGen.app/Contents/MacOS")
         }
-        ant.replace(file: "${buildDirectory}/jpackage/PcGen.app/Contents/Info.plist", token: "<key>CFBundleExecutable</key>\n  <string>PcGen</string>", value: "<key>CFBundleExecutable</key>\n  <string>MacDirLauncher</string>")
+        ant.replace(file: layout.buildDirectory.file("jpackage/PcGen.app/Contents/Info.plist"),
+                token: "<key>CFBundleExecutable</key>\n  <string>PcGen</string>", value: "<key>CFBundleExecutable</key>\n  <string>MacDirLauncher</string>")
     }
 }
 
 // Create the Data Convertor JAR
-task converterJar(type: Jar, dependsOn: jar) {
+tasks.register("converterJar", Jar) {
+    dependsOn jar
     manifest {
         attributes 'Implementation-Title': 'PCGen Data Converter', 'Implementation-Version': archiveVersion,
                 'Main-Class': 'pcgen.gui2.converter.PCGenDataConvert', 'Class-Path': 'pcgen.jar' + classpath
@@ -423,31 +421,37 @@ artifacts {
     archives converterJar
 }
 
-task copyToLibs(type: Copy, dependsOn:[startScripts, distTar, distZip, installDist]) {
+tasks.register("copyToLibs", Copy) {
+    println("IN copyToLibs")
+    dependsOn startScripts, distTar, distZip, installDist
     mustRunAfter createExe
-    into "${buildDirectory}/libs"
+
+    into layout.buildDirectory.dir("libs")
     from configurations.runtimeClasspath
 }
 
-task copyToOutput(type: Copy, dependsOn: [createExe, copyToLibs, jar, converterJar]) {
+tasks.register("copyToOutput", Copy) {
     println("IN copyToOutput")
 
-    from "${buildDirectory}/libs/pcgen-${version}.jar"
-    from "${buildDirectory}/libs/pcgen-${version}-batch-convert.jar"
-    from "${buildDirectory}/launch4j/pcgen.exe"
-    from "$projectDir/code/pcgen.bat"
-    from("$projectDir/code/pcgen.sh") {
+    from layout.buildDirectory.file("libs/pcgen-${version}.jar"),
+        layout.buildDirectory.file("libs/pcgen-${version}-batch-convert.jar"),
+        layout.buildDirectory.file("launch4j/pcgen.exe"),
+        layout.projectDirectory.file("code/pcgen.bat")
+    from(layout.projectDirectory.file("code/pcgen.sh")) {
         filter(FixCrLfFilter, eol:FixCrLfFilter.CrLf.newInstance("lf"))
-        fileMode 0755
+        filePermissions {
+            unix(0755)
+        }
     }
     into outputDir
 
     rename "(.+)-$version(.+)", '$1$2'
 }
 
-task qbuild(type: Copy, dependsOn: [copyToOutput, jar]) {
-    description="Copy the executable file into 'output' to create a working environment"
-    from "${buildDirectory}/libs/pcgen-${version}.jar"
+tasks.register("qbuild", Copy) {
+    dependsOn copyToOutput, jar
+    description = "Copy the executable file into 'output' to create a working environment"
+    from layout.buildDirectory.file("libs/pcgen-${version}.jar")
 
     into outputDir
 
@@ -455,42 +459,42 @@ task qbuild(type: Copy, dependsOn: [copyToOutput, jar]) {
     mustRunAfter clean
 }
 
-task cleanOutput(type: Delete) {
-    description="Clean up things copied to the output folder by the build"
+tasks.register("cleanOutput", Delete) {
+    description = "Clean up things copied to the output folder by the build"
     delete outputDir
 }
 
 // TODO - Hook this into a clean phase properly
-task cleanJre(type: Delete) {
-    description="Clean up things copied to the jre folder by the build"
+tasks.register("cleanJre", Delete) {
+    description = "Clean up things copied to the jre folder by the build"
     delete jresDir
 }
 
 // TODO - Hook this into a clean phase properly
-task cleanMods(type: Delete) {
+tasks.register("cleanMods", Delete) {
     description="Clean up things copied to the mods folder by the build"
     delete modsDir
 }
 
 // Alias tasks
 tasks.register("buildonly") {
-    dependsOn 'copyToOutput'
+    println("IN buildonly")
+    dependsOn copyToOutput
 }
 
 tasks.register("quickbuild") {
-    dependsOn 'copyToOutput', 'test'
+    dependsOn copyToOutput, test
 }
 
-build {
-    it.dependsOn 'copyToOutput'
+tasks.named("build") {
+    dependsOn copyToOutput
 }
 
 // TODO This clean is not as nuclear as it perhaps should be.
 // For jlink and friends to work when you get odd Zip errors
 // you will also need to clean out output/ bin/ jre/ and mods/
-clean {
-    it.dependsOn 'clean-plugins'
-    it.dependsOn 'cleanOutput'
+tasks.named("clean") {
+    dependsOn tasks.named("clean-plugins"), cleanOutput
 }
 
 // Ensures that clean is never run after build and when clean is called it is
@@ -711,22 +715,29 @@ task downloadJavaFXModules(dependsOn: downloadJRE) {
     }
 }
 
-compileJava.dependsOn(downloadJavaFXModules)
-tasks.runtime.dependsOn(downloadJavaFXModules)
+tasks.named("compileJava") {
+    dependsOn downloadJavaFXModules
+}
 
-test {
+tasks.named("runtime") {
+    dependsOn downloadJavaFXModules
+}
+
+tasks.named("test") {
     exclude 'pcgen/testsupport/**'
     useJUnitPlatform()
 }
 
-task itest(type: Test, dependsOn: [jar]) {
+tasks.register("itest", Test) {
+    dependsOn jar
     useJUnitPlatform()
     testClassesDirs = sourceSets.itest.output.classesDirs
     classpath = sourceSets.itest.runtimeClasspath
     systemProperties['jar.path'] = jar.getArchiveFile().get().getAsFile()
 }
 
-task slowtest(type: Test, dependsOn: ['jar', 'itest']) {
+tasks.register("slowtest", Test) {
+    dependsOn jar, itest
     useJUnitPlatform()
     testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
@@ -737,68 +748,70 @@ task slowtest(type: Test, dependsOn: ['jar', 'itest']) {
     exclude 'pcgen/core/AllJUnitTests.class'
 }
 
-task datatest(type: Test, dependsOn: 'jar') {
+tasks.register("datatest", Test) {
+    dependsOn jar
     testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
     include 'pcgen/persistence/lst/DataTest.class'
     include 'pcgen/persistence/lst/DataLoadTest.class'
 }
 
-task inttest(type: Test, dependsOn: 'jar') {
+tasks.register("inttest", Test) {
+    dependsOn jar
     testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
     include 'pcgen/inttest/**/*Test.class'
 }
 
-task sfinttest(type: Test, dependsOn: 'jar') {
+tasks.register("sfinttest", Test) {
+    dependsOn jar
     testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
     include 'pcgen/inttest/game_starfinder/*Test.class'
 }
 
-task pfinttest(type: Test, dependsOn: 'jar') {
+tasks.register("pfinttest", Test) {
+    dependsOn jar
     testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
     include 'pcgen/inttest/game_pathfinder/*Test.class'
 }
 
-task rsrdinttest(type: Test, dependsOn: 'jar') {
+tasks.register("rsrdinttest", Test) {
+    dependsOn jar
     testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
     include 'pcgen/inttest/game_35e/*Test.class'
 }
 
-task srdinttest(type: Test, dependsOn: 'jar') {
+tasks.register("srdinttest", Test) {
+    dependsOn jar
     testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
     include 'pcgen/inttest/game_3e/*Test.class'
 }
 
-task msrdinttest(type: Test, dependsOn: 'jar') {
+tasks.register("msrdinttest", Test) {
+    dependsOn jar
     testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
     include 'pcgen/inttest/game_modern/*Test.class'
 }
 
-// Do the lot!  TODO reenable slowtest
-task all(dependsOn: ['build', 'slowtest', 'javadoc', 'buildNsis', 'allReports']) {
-//task all(dependsOn: ['build', 'javadoc', 'buildNsis', 'allReports']) {
-}
-
 allprojects {
     tasks.withType(JavaCompile).configureEach {
         options.fork = true
     }
-    tasks.withType(Javadoc) {
+    tasks.withType(Javadoc).configureEach {
         options.addBooleanOption('Xdoclint:none', true)
     }
-    tasks.withType(Test) {
+    tasks.withType(Test).configureEach {
         maxHeapSize = "1024m"
         maxParallelForks = 1
         enableAssertions = true
@@ -814,7 +827,7 @@ allprojects {
                 '-Dprism.verbose=true',
                 '-Djavafx.macosx.embedded=true',
 
-                "--module-path", "${projectDir}/mods/lib/",
+                "--module-path", layout.projectDirectory.dir("/mods/lib/"),
                 "--add-modules", "javafx.controls,javafx.web,javafx.swing,javafx.fxml,javafx.graphics",
 
                 // Needed to fix issue with testfx test crashing due to issue with modularity of whole program. Slightly related issue. https://github.com/TestFX/TestFX/issues/638
@@ -825,9 +838,8 @@ allprojects {
                 '--add-opens', 'javafx.graphics/com.sun.glass.ui=ALL-UNNAMED',
         ]
     }
-    tasks.withType(JavaCompile) {
+    tasks.withType(JavaCompile).configureEach {
         doFirst {
-
             if (name.toLowerCase().contains("test")) {
                 options.compilerArgs << "--module-path" << "${projectDir}/mods/lib/"
                 //options.compilerArgs << "--add-modules" << "javafx.controls,javafx.web,javafx.swing,javafx.fxml" // Not sure why no javafx.graphics here
@@ -837,40 +849,40 @@ allprojects {
         }
     }
     // https://youtrack.jetbrains.com/issue/KT-46165
-    tasks.withType(org.gradle.jvm.tasks.Jar) {
+    tasks.withType(Jar).configureEach {
         duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     }
-    tasks.withType(JavaExec) {
+    tasks.withType(JavaExec).configureEach {
         maxHeapSize = "2048m"
     }
 }
 
-dependencyUpdates {
-    revision='release'
-}
+tasks.named("dependencyUpdates") {
+    revision = 'release'
 
-dependencyUpdates.resolutionStrategy {
-    componentSelection { rules ->
-        rules.all { ComponentSelection selection ->
-            if (['atlassian'].any { qualifier ->
+    resolutionStrategy {
+        componentSelection { rules ->
+            rules.all { ComponentSelection selection ->
+                if (['atlassian'].any { qualifier ->
                     selection.candidate.version ==~ /(?i).*[.-]${qualifier}[.\d-]*/
                 }) {
-                selection.reject('unofficial release')
-            }
-            boolean rejected = ['alpha', 'beta', 'rc', 'cr', 'm', 'preview', 'b', 'ea'].any { qualifier ->
-                selection.candidate.version ==~ /(?i).*[.-]$qualifier[.\d-+]*/
-            }
-            if (rejected) {
-                selection.reject('Release candidate')
-            }
-            if (selection.candidate.version == '2.0.2' && selection.candidate.name == 'xml-apis') {
-                selection.reject('older than current')
-            }
-            if (selection.candidate.version == '2.24' && selection.candidate.name == 'jep') {
-                selection.reject('older than current')
-            }
-            if (selection.candidate.version == '1.8.0_20' && selection.candidate.name == 'openjfx-monocle') {
-                selection.reject('older than current')
+                    selection.reject('unofficial release')
+                }
+                boolean rejected = ['alpha', 'beta', 'rc', 'cr', 'm', 'preview', 'b', 'ea'].any { qualifier ->
+                    selection.candidate.version ==~ /(?i).*[.-]$qualifier[.\d-+]*/
+                }
+                if (rejected) {
+                    selection.reject('Release candidate')
+                }
+                if (selection.candidate.version == '2.0.2' && selection.candidate.name == 'xml-apis') {
+                    selection.reject('older than current')
+                }
+                if (selection.candidate.version == '2.24' && selection.candidate.name == 'jep') {
+                    selection.reject('older than current')
+                }
+                if (selection.candidate.version == '1.8.0_20' && selection.candidate.name == 'openjfx-monocle') {
+                    selection.reject('older than current')
+                }
             }
         }
     }
@@ -904,12 +916,17 @@ idea {
 }
 
 // Use the gradle wrapper
-wrapper {
+tasks.named("wrapper") {
     distributionType = Wrapper.DistributionType.ALL
 }
 
 // Bring in the rest of the gradle build config
-apply from: 'code/gradle/autobuild.gradle'
 apply from: 'code/gradle/distribution.gradle'
+apply from: 'code/gradle/autobuild.gradle'    // depends on distribution.gradle
 apply from: 'code/gradle/reporting.gradle'
 apply from: 'code/gradle/release.gradle'
+
+tasks.register("allTasks") {
+    dependsOn build, slowtest, javadoc, buildNsis, allReports
+    description = "Runs tasks build, slowtest, javadoc, buildNsis and allReports"
+}
