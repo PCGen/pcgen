@@ -330,11 +330,11 @@ runtime {
     ]
 
     // We support Mac/Win/Linux x86-64, Mac/Linux aarch64
-    targetPlatform('linux-x64', "$projectDir/jre/linux/jre_x64")
-    targetPlatform('linux-aarch64', "$projectDir/jre/linux/jre_aarch64")
-    targetPlatform('windows-x64', "$projectDir/jre/windows/jre_x64")
-    targetPlatform('mac-x64', "$projectDir/jre/mac/jre_x64/Contents/Home")
-    targetPlatform('mac-aarch64', "$projectDir/jre/mac/jre_aarch64/Contents/Home")
+    targetPlatform('linux-x64',     layout.projectDirectory.dir("jre/linux/jre_x64").asFile.absolutePath)
+    targetPlatform('linux-aarch64', layout.projectDirectory.dir("jre/linux/jre_aarch64").asFile.absolutePath)
+    targetPlatform('windows-x64',   layout.projectDirectory.dir("jre/windows/jre_x64").asFile.absolutePath)
+    targetPlatform('mac-x64',       layout.projectDirectory.dir("jre/mac/jre_x64/Contents/Home").asFile.absolutePath)
+    targetPlatform('mac-aarch64',   layout.projectDirectory.dir("jre/mac/jre_aarch64/Contents/Home").asFile.absolutePath)
 
     // Use the jpackage tool that comes with Java to build native installers
     jpackage{
@@ -353,7 +353,7 @@ runtime {
                 targetPlatformName = 'NOT SUPPORTED'
             }
             installerOptions += ["--mac-package-identifier", "PcGen", "--mac-package-name", "PcGen"]
-            resourceDir = file("${projectDir}/installers/mac-installer")
+            resourceDir = layout.projectDirecotry.dir("installers/mac-installer").asFile
         }
         // This may seem weird but there's no LINUX family detection in the OS lib
         else if (Os.isFamily(Os.FAMILY_UNIX)) {

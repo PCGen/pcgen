@@ -496,8 +496,9 @@ tasks.register("checksum") {
 
 // genDataList removed as it causes release errors, 'genDataList'
 tasks.register("prepareRelease") {
-    dependsOn clean, build, runtime
-    description = "Prepare PCGen for release. This will update and commit the version, do a clean build including the unit tests and generate the data list for the installer."
+    dependsOn clean, build
+    description = """Prepare PCGen for release. This will update and commit the version, \
+do a clean build including the unit tests and generate the data list for the installer."""
 }
 
 tasks.register("pcgenRelease") {
