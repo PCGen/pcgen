@@ -353,7 +353,7 @@ runtime {
                 targetPlatformName = 'NOT SUPPORTED'
             }
             installerOptions += ["--mac-package-identifier", "PcGen", "--mac-package-name", "PcGen"]
-            resourceDir = layout.projectDirecotry.dir("installers/mac-installer").asFile
+            resourceDir = layout.projectDirectory.dir("installers/mac-installer").asFile
         }
         // This may seem weird but there's no LINUX family detection in the OS lib
         else if (Os.isFamily(Os.FAMILY_UNIX)) {
