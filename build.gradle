@@ -489,6 +489,10 @@ tasks.register("quickbuild") {
 
 tasks.named("build") {
     dependsOn copyToOutput
+
+    // Ensures that clean is never run after build and when clean is called it is
+    // run before build so it doesn't delete the new build folder.
+    mustRunAfter clean
 }
 
 // TODO This clean is not as nuclear as it perhaps should be.
@@ -498,11 +502,7 @@ tasks.named("clean") {
     dependsOn tasks.named("clean-plugins"), cleanOutput
 }
 
-// Ensures that clean is never run after build and when clean is called it is
-// run before build so it doesn't delete the new build folder.
-build.mustRunAfter clean
-
-task downloadJRE {
+tasks.register("downloadJRE") {
     println("IN downloadJRE")
 
     def major = 21
@@ -590,12 +590,13 @@ task downloadJRE {
     }
 }
 
-task downloadJavaFXModules(dependsOn: downloadJRE) {
+tasks.register("downloadJavaFXModules") {
     println("IN downloadJavaFXModules")
+    dependsOn downloadJRE
 
     // We support Windows/Mac/Linux - x64, and Mac/Linux - aarch64
     // (JavaFX doesn't support Linux/aarch64 in 21 LTS, use 21.0.1 instead)
-    def major = "21.0.2"
+    def major = "21.0.3"
     def archs = ['x64', 'aarch64']
     def osList = ["windows", "mac", "linux"]
 
@@ -622,7 +623,7 @@ task downloadJavaFXModules(dependsOn: downloadJRE) {
             // URLs look like this: https://download2.gluonhq.com/openjfx/21.0.2/openjfx-21.0.2_osx-aarch64_bin-jmods.zip
             def url = "https://download2.gluonhq.com/openjfx/${major}/openjfx-${major}_${osPackage}${archAppend}_bin-jmods.zip"
 
-            def jmodsZip = new File("${projectDir}/jre/${os}/jmods${arch}.zip")
+            def jmodsZip = layout.projectDirectory.file("/jre/${os}/jmods${arch}.zip").asFile
 
             // If we don't already have the jmods, download them and unzip them to the correct place.
             if (!jmodsZip.exists()) {
@@ -725,6 +726,7 @@ tasks.named("runtime") {
 }
 
 tasks.named("test") {
+    dependsOn downloadJavaFXModules
     exclude 'pcgen/testsupport/**'
     useJUnitPlatform()
 }
@@ -828,7 +830,7 @@ allprojects {
                 '-Dprism.verbose=true',
                 '-Djavafx.macosx.embedded=true',
 
-                "--module-path", layout.projectDirectory.dir("/mods/lib/"),
+                "--module-path", layout.projectDirectory.dir("mods/lib"),
                 "--add-modules", "javafx.controls,javafx.web,javafx.swing,javafx.fxml,javafx.graphics",
 
                 // Needed to fix issue with testfx test crashing due to issue with modularity of whole program. Slightly related issue. https://github.com/TestFX/TestFX/issues/638
@@ -842,7 +844,7 @@ allprojects {
     tasks.withType(JavaCompile).configureEach {
         doFirst {
             if (name.toLowerCase().contains("test")) {
-                options.compilerArgs << "--module-path" << "${projectDir}/mods/lib/"
+                options.compilerArgs << "--module-path" << layout.projectDirectory.dir("mods/lib").asFile.absolutePath
                 //options.compilerArgs << "--add-modules" << "javafx.controls,javafx.web,javafx.swing,javafx.fxml" // Not sure why no javafx.graphics here
                 options.compilerArgs << "--add-modules" << "javafx.controls,javafx.web,javafx.swing,javafx.fxml,javafx.graphics"
             }
@@ -892,14 +894,13 @@ tasks.named("dependencyUpdates") {
 // Support for creating IntelliJ IDEA files.
 idea {
     project {
-        def javafxLib = file("$projectDir/mods/lib")
-        def files = javafxLib.listFiles( { _, name -> name.contains(".jar") } as FilenameFilter)
-                .toList() // no direct way to convert from Array to Set
-                .toSet()
+        def javafxLib = layout.projectDirectory.dir("mods/lib")
+                .asFileTree.matching { include "*.jar" }
+                .files
 
         def projectLibrary = new ProjectLibrary()
         projectLibrary.name = "lib"
-        projectLibrary.classes += files
+        projectLibrary.classes += javafxLib
 
         projectLibraries += [ projectLibrary ]
     }

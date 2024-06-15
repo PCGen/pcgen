@@ -102,7 +102,7 @@ run {
 
         jvmArgs = ["-ea",                       // -ea enables assertions
                    "--enable-preview",          // enable Java preview features
-                   "--module-path", "${projectDir}/mods/lib/",
+                   "--module-path", layout.projectDirectory.dir("mods/lib").asFile.absolutePath,
                    "--add-modules", "javafx.controls,javafx.web,javafx.swing,javafx.fxml,javafx.graphics"
         ]
 
