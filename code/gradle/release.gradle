@@ -28,7 +28,6 @@ import org.apache.tools.ant.taskdefs.condition.Os
 import org.gradle.api.internal.file.copy.DefaultCopySpec
 
 ext {
-
     // Work out the path to the release notes for our current version.
     plainVerNum = version.replaceAll('-SNAPSHOT', '')
     shortVerNum = plainVerNum.replaceAll(/\./, '')
@@ -124,7 +123,8 @@ ext {
     installerVerNum = result[0].toInteger() + "." + result[1].toInteger() + "." + result[2].take(2).toInteger() + ".0"
 }
 
-task layoutNsisBase(type: Copy, dependsOn: [runtimeZip, createExe, copyToLibs, jar, converterJar]) {
+tasks.register("layoutNsisBase", Copy) {
+    dependsOn runtimeZip, createExe, copyToLibs, jar, converterJar
 
     description="Assemble the required files for all PCGen installations"
 
@@ -185,175 +185,148 @@ launch4j {
     downloadUrl = "http://pcgen.org/download/"
 }
 
-task layoutNsisOptional(type: Copy, dependsOn: ['copyToOutput', 'runtime']) {
-    description="Assemble the optional files for PCGen installations"
+tasks.register("layoutNsisOptional", Copy) {
+    dependsOn copyToOutput, tasks.named("runtime")
+    description = "Assemble the optional files for PCGen installations"
     into nsisOptionFolder
 
-    with pdfLibs
-    with gmgenPlugins
-    with pdfOutput
-    with optionalData
-    with lib32
-    with lib64
+    with pdfLibs, gmgenPlugins, pdfOutput, optionalData, lib32, lib64
 }
 
 // Generate the publisher/data list for the Windows installer script
 tasks.register("genDataList") {
     doLast {
-        //TODO: find a way to move it to ext section.
+        // TODO: find a way to move it to ext section.
         // The list of publishers - add an entry here to correct a reported missing publisher
-        Map<String,String> publisherMap  = new TreeMap<String,String>();
-        publisherMap.put("12_to_midnight","12 to Midnight");
-        publisherMap.put("4_winds_fantasy_gaming","4 Winds Fantasy Gaming");
-        publisherMap.put("alderac_entertainment_group","Alderac Entertainment Group");
-        publisherMap.put("alderac_ent_group","Alderac Entertainment Group");
-        publisherMap.put("alea_publishing_group","Alea Publishing Group");
-        publisherMap.put("alluria_publishing","Alluria Publishing");
-        publisherMap.put("ascension_games","Ascension Games");
-        publisherMap.put("atlas_games","Atlas Games");
-        publisherMap.put("auran_d20","Auran d20");
-        publisherMap.put("avalanche_press","Avalanche Press");
-        publisherMap.put("badaxe_games","Bad Axe Games");
-        publisherMap.put("bards_and_sages","Bards and Sages");
-        publisherMap.put("bastion_press","Bastion Press");
-        publisherMap.put("battlefield_press","Battlefield Press");
-        publisherMap.put("behemoth3","Behemoth3");
-        publisherMap.put("big_finger_games","Big Finger Games");
-        publisherMap.put("bloodstone_press","Bloodstone Press");
-        publisherMap.put("blue_devil_games","Blue Devil Games");
-        publisherMap.put("broken_ruler_games","Broken Ruler Games");
-        publisherMap.put("crafty_games","Crafty Games");
-        publisherMap.put("creativemountaingames","Creative Mountain Games");
-        publisherMap.put("distant_horizons_games","Distant Horizons Games");
-        publisherMap.put("doghouse_rules","Dog House Rules");
-        publisherMap.put("dragonwing_games","DragonWing Games");
-        publisherMap.put("dreamscarred_press","Dreamscarred Press");
-        publisherMap.put("en_publishing","EN Publishing");
-        publisherMap.put("everyman_gaming","Everyman Gaming");
-        publisherMap.put("fantasy_community_council","Fantasy Community Council");
-        publisherMap.put("fantasy_flight_games","Fantasy Flight Games");
-        publisherMap.put("gallantry_productions","Gallantry Productions");
-        publisherMap.put("goodman_games","Goodman Games");
-        publisherMap.put("green_ronin","Green Ronin");
-        publisherMap.put("kobold_press","Kobold Press");
-        publisherMap.put("legendary_games","Legendary Games");
-        publisherMap.put("lions_den_press","Lions Den Press");
-        publisherMap.put("lone_wanderer_entertainment","Lone Wanderer Entertainment");
-        publisherMap.put("malhavoc_press","Malhavoc Press");
-        publisherMap.put("minotaur_games","Minotaur Games");
-        publisherMap.put("mongoose","Mongoose");
-        publisherMap.put("mongoose_publishing","Mongoose Publishing");
-        publisherMap.put("msrd","MSRD");
-        publisherMap.put("mythic_dream_studios","Mythic Dreams Studios");
-        publisherMap.put("necromancer_games","Necromancer Games");
-        publisherMap.put("nitehawk_interactive","Nitehawk Interactive Games");
-        publisherMap.put("pandahead","Pandahead");
-        publisherMap.put("paradigm_concepts","Paradigm Concepts Inc");
-        publisherMap.put("paizo","Paizo Publishing");
-        publisherMap.put("parents_basement_games","Parents Basement Games");
-        publisherMap.put("pcgen","PCGen OGL");
-        publisherMap.put("pfsrd_publishing","Open Game Network (d20pfsrd)");
-        publisherMap.put("pinnacle_entertainment","Pinnacle Entertainment");
-        publisherMap.put("reality_deviant","Reality Deviant Publications");
-        publisherMap.put("rite","Rite Publishing");
-        publisherMap.put("rite_publishing","Rite Publishing");
-        publisherMap.put("rpg_objects","RPG Objects");
-        publisherMap.put("sagaborn","Sagaborn");
-        publisherMap.put("secular_games","Secular Games");
-        publisherMap.put("silven_publishing","Silven Publishing");
-        publisherMap.put("silverthorne_games","Silverthorne Games");
-        publisherMap.put("skirmisher_publishing","Skirmisher Publishing LLC");
-        publisherMap.put("sovereign_press","Sovereign Press");
-        publisherMap.put("srd","SRD");
-        publisherMap.put("srd35","SRD35");
-        publisherMap.put("st_cooley_publishing","S T Cooley Publishing");
-        publisherMap.put("storm_bunny_studios","Storm Bunny Studios");
-        publisherMap.put("super_genius_games","Super Genius Games");
-        publisherMap.put("sword_and_sorcery_studios","Sword and Sorcery Studios");
-        publisherMap.put("swords_edge_publishing","Swords Edge Publishing");
-        publisherMap.put("the_game_mechanics","The Game Mechanics Inc");
-        publisherMap.put("vigilance_press","Vigilance Press");
-        publisherMap.put("wizards_of_the_coast","Wizards of the Coast");
-        publisherMap.put("lpj_design","Louis Porter Jr. Design");
-        publisherMap.put("tripod_machine","Tripod Machine");
-        publisherMap.put("total_party_kill_games","Total Party Kill Games");
-        publisherMap.put("starfinder","Starfinder");
+        Map<String, String> publisherMap = new TreeMap<String, String>()
+        publisherMap.put("12_to_midnight", "12 to Midnight")
+        publisherMap.put("4_winds_fantasy_gaming", "4 Winds Fantasy Gaming")
+        publisherMap.put("alderac_entertainment_group", "Alderac Entertainment Group")
+        publisherMap.put("alderac_ent_group", "Alderac Entertainment Group")
+        publisherMap.put("alea_publishing_group", "Alea Publishing Group")
+        publisherMap.put("alluria_publishing", "Alluria Publishing")
+        publisherMap.put("ascension_games", "Ascension Games")
+        publisherMap.put("atlas_games", "Atlas Games")
+        publisherMap.put("auran_d20", "Auran d20")
+        publisherMap.put("avalanche_press", "Avalanche Press")
+        publisherMap.put("badaxe_games", "Bad Axe Games")
+        publisherMap.put("bards_and_sages", "Bards and Sages")
+        publisherMap.put("bastion_press", "Bastion Press")
+        publisherMap.put("battlefield_press", "Battlefield Press")
+        publisherMap.put("behemoth3", "Behemoth3")
+        publisherMap.put("big_finger_games", "Big Finger Games")
+        publisherMap.put("bloodstone_press", "Bloodstone Press")
+        publisherMap.put("blue_devil_games", "Blue Devil Games")
+        publisherMap.put("broken_ruler_games", "Broken Ruler Games")
+        publisherMap.put("crafty_games", "Crafty Games")
+        publisherMap.put("creativemountaingames", "Creative Mountain Games")
+        publisherMap.put("distant_horizons_games", "Distant Horizons Games")
+        publisherMap.put("doghouse_rules", "Dog House Rules")
+        publisherMap.put("dragonwing_games", "DragonWing Games")
+        publisherMap.put("dreamscarred_press", "Dreamscarred Press")
+        publisherMap.put("en_publishing", "EN Publishing")
+        publisherMap.put("everyman_gaming", "Everyman Gaming")
+        publisherMap.put("fantasy_community_council", "Fantasy Community Council")
+        publisherMap.put("fantasy_flight_games", "Fantasy Flight Games")
+        publisherMap.put("gallantry_productions", "Gallantry Productions")
+        publisherMap.put("goodman_games", "Goodman Games")
+        publisherMap.put("green_ronin", "Green Ronin")
+        publisherMap.put("kobold_press", "Kobold Press")
+        publisherMap.put("legendary_games", "Legendary Games")
+        publisherMap.put("lions_den_press", "Lions Den Press")
+        publisherMap.put("lone_wanderer_entertainment", "Lone Wanderer Entertainment")
+        publisherMap.put("malhavoc_press", "Malhavoc Press")
+        publisherMap.put("minotaur_games", "Minotaur Games")
+        publisherMap.put("mongoose", "Mongoose")
+        publisherMap.put("mongoose_publishing", "Mongoose Publishing")
+        publisherMap.put("msrd", "MSRD")
+        publisherMap.put("mythic_dream_studios", "Mythic Dreams Studios")
+        publisherMap.put("necromancer_games", "Necromancer Games")
+        publisherMap.put("nitehawk_interactive", "Nitehawk Interactive Games")
+        publisherMap.put("pandahead", "Pandahead")
+        publisherMap.put("paradigm_concepts", "Paradigm Concepts Inc")
+        publisherMap.put("paizo", "Paizo Publishing")
+        publisherMap.put("parents_basement_games", "Parents Basement Games")
+        publisherMap.put("pcgen", "PCGen OGL")
+        publisherMap.put("pfsrd_publishing", "Open Game Network (d20pfsrd)")
+        publisherMap.put("pinnacle_entertainment", "Pinnacle Entertainment")
+        publisherMap.put("reality_deviant", "Reality Deviant Publications")
+        publisherMap.put("rite", "Rite Publishing")
+        publisherMap.put("rite_publishing", "Rite Publishing")
+        publisherMap.put("rpg_objects", "RPG Objects")
+        publisherMap.put("sagaborn", "Sagaborn")
+        publisherMap.put("secular_games", "Secular Games")
+        publisherMap.put("silven_publishing", "Silven Publishing")
+        publisherMap.put("silverthorne_games", "Silverthorne Games")
+        publisherMap.put("skirmisher_publishing", "Skirmisher Publishing LLC")
+        publisherMap.put("sovereign_press", "Sovereign Press")
+        publisherMap.put("srd", "SRD")
+        publisherMap.put("srd35", "SRD35")
+        publisherMap.put("st_cooley_publishing", "S T Cooley Publishing")
+        publisherMap.put("storm_bunny_studios", "Storm Bunny Studios")
+        publisherMap.put("super_genius_games", "Super Genius Games")
+        publisherMap.put("sword_and_sorcery_studios", "Sword and Sorcery Studios")
+        publisherMap.put("swords_edge_publishing", "Swords Edge Publishing")
+        publisherMap.put("the_game_mechanics", "The Game Mechanics Inc")
+        publisherMap.put("vigilance_press", "Vigilance Press")
+        publisherMap.put("wizards_of_the_coast", "Wizards of the Coast")
+        publisherMap.put("lpj_design", "Louis Porter Jr. Design")
+        publisherMap.put("tripod_machine", "Tripod Machine")
+        publisherMap.put("total_party_kill_games", "Total Party Kill Games")
+        publisherMap.put("starfinder", "Starfinder")
 
         def dataNsh = layout.projectDirectory.file("installers/win-installer/includes/data.nsh")
         project.delete(dataNsh)
         def out = new StringBuilder()
 
         // List of folder names to ignore.
-        List<String> ignoreList = new ArrayList<String>();
-        ignoreList.add("homebrew");
-        ignoreList.add("zen_test");
-        ignoreList.add("customsources");
-        ignoreList.add("_universal");
-        ignoreList.add("_images");
-        ignoreList.add("publisher_logos");
+        List<String> ignoreList = new ArrayList<String>()
+        ignoreList.add("homebrew")
+        ignoreList.add("zen_test")
+        ignoreList.add("customsources")
+        ignoreList.add("_universal")
+        ignoreList.add("_images")
+        ignoreList.add("publisher_logos")
+
+        // List of sections
+        def sectionsIn = [msrd: "3 6", pcgen: "3 4 5", srd: "3 4", srd35: "3 5", necromancergames: "3 5", paizo: "3"]
+
         layout.projectDirectory.dir("data").asFile.eachDir{
             if (ignoreList.contains(it.name))
             {
                 return
             }
             out.append("SubSection \"$it.name\"\n")
-            String dir = it.name
-            int subFolders=0
+            def dir = it.name
+            def subFolders = 0
             it.eachDir {
                 if (ignoreList.contains(it.name))
                 {
                     return
                 }
-                String pubname
-                if(publisherMap.get(it.name) != null){
-                    pubname = publisherMap.get(it.name)
-                }else{
-                    pubname = it.name
-                }
-                out.append("\tSection \"$pubname\"\n")
-                out.append("\tSectionIn 1 2")
-                if (it.name == 'msrd')
-                {
-                    out.append(" 3 6");
-                }
-                if (it.name ==  'pcgen')
-                {
-                    out.append(" 3 4 5");
-                }
-                if (it.name ==  'srd')
-                {
-                    out.append(" 3 4");
-                }
-                if (it.name ==  'srd35' || it.name ==  'necromancergames')
-                {
-                    out.append(" 3 5");
-                }
-                if (it.name ==  'paizo')
-                {
-                    out.append(" 3");
-                }
-                out.append("\n");
-                out.append("\tSetOutPath \"\$INSTDIR\\\${APPDIR}\\data\\${dir}\\${it.name}\"\n");
-                out.append("\tFile /r \"\${SrcDir}\\PCGen_\${SIMPVER}_opt\\data\\${dir}\\${it.name}\\*.*\"\n");
+                def pubname = publisherMap.getOrDefault(it.name, it.name)
+                def sectionIn = sectionsIn.getOrDefault(it.name, "")
 
-                out.append("\tSectionEnd\n\n");
+                out.append("""\tSection "$pubname"
+\t\tSectionIn 1 2 ${sectionIn}
+\t\tSetOutPath "\$INSTDIR\\\${APPDIR}\\data\\${dir}\\${it.name}"
+\t\tFile /r "\${SrcDir}\\PCGen_\${SIMPVER}_opt\\data\\${dir}\\${it.name}\\*.*"
+\tSectionEnd
+
+""")
                 subFolders++
             }
             if(subFolders == 0){
-                String pubname
-                if(publisherMap.get(it.name) != null){
-                    pubname = publisherMap.get(it.name)
-                }else{
-                    pubname = it.name
-                }
-                out.append("\tSection \"$pubname\"\n")
-                out.append("\tSectionIn 1 2")
-                out.append("\n");
-                out.append("\tSetOutPath \"\$INSTDIR\\\${APPDIR}\\data\\${dir}\"\n");
-                out.append("\tFile /r \"\${SrcDir}\\PCGen_\${SIMPVER}_opt\\data\\${dir}\\*.*\"\n");
-                out.append("\tSectionEnd\n\n");
+                def pubname = publisherMap.getOrDefault(it.name, it.name)
+                out.append("""\tSection "$pubname"
+\t\tSectionIn 1 2
+\t\tSetOutPath "\$INSTDIR\\\${APPDIR}\\data\\${dir}"
+\t\tFile /r "\${SrcDir}\\PCGen_\${SIMPVER}_opt\\data\\${dir}\\*.*"
+\tSectionEnd
+
+""")
             }
-            out.append("SubSectionEnd\n\n");
+            out.append("SubSectionEnd\n\n")
         }
 
         println("Writing data to: ${dataNsh}")
@@ -426,15 +399,22 @@ tasks.register("cleanNsis", Delete) {
     delete nsisBaseFolder, nsisOptionFolder, layout.buildDirectory.dir("nsis/Local")
 }
 
-task sourcesJar(type: Jar, dependsOn: ['classes', 'copyToOutput', 'createExe', 'distTar', 'distZip',
-                                       'layoutNsisBase', 'startScripts']) {
+tasks.register("sourcesJar", Jar) {
+    dependsOn classes, copyToOutput, createExe, distTar, distZip, layoutNsisBase, startScripts
     duplicatesStrategy DuplicatesStrategy.INCLUDE
     description = "build source jar file"
     archiveClassifier.set('sources')
     from sourceSets.main.allSource
 }
 
-task assembleArtifacts(type: Copy, dependsOn: ['build', 'runtimeZip', 'sourcesJar', 'buildNsis']) {
+def assembleArtifacts = tasks.register("assembleArtifacts", Copy) {
+    dependsOn build, runtimeZip, sourcesJar, buildNsis
+
+    if (Os.isFamily(Os.FAMILY_MAC) || Os.isFamily(Os.FAMILY_UNIX))
+    {
+        dependsOn jpackage
+    }
+
     description = "Create the release artifacts and get them into the release folder."
     into releaseDir
     // buildNsis puts the exe into the release folder directly
@@ -454,11 +434,6 @@ task assembleArtifacts(type: Copy, dependsOn: ['build', 'runtimeZip', 'sourcesJa
     from(layout.buildDirectory.dir("jpackage")){
         include 'pcgen-*.*'
     }
-}
-
-if (Os.isFamily(Os.FAMILY_MAC) || Os.isFamily(Os.FAMILY_UNIX))
-{
-    assembleArtifacts.dependsOn jpackage
 }
 
 // Produce SHA-256 checksums for each release artifact
