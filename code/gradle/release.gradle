@@ -280,18 +280,12 @@ tasks.register("genDataList") {
         def out = new StringBuilder()
 
         // List of folder names to ignore.
-        List<String> ignoreList = new ArrayList<String>()
-        ignoreList.add("homebrew")
-        ignoreList.add("zen_test")
-        ignoreList.add("customsources")
-        ignoreList.add("_universal")
-        ignoreList.add("_images")
-        ignoreList.add("publisher_logos")
+        def ignoreList = ["homebrew", "zen_test", "customsources", "_universal", "_images", "publisher_logos"]
 
         // List of sections
         def sectionsIn = [msrd: "3 6", pcgen: "3 4 5", srd: "3 4", srd35: "3 5", necromancergames: "3 5", paizo: "3"]
 
-        layout.projectDirectory.dir("data").asFile.eachDir{
+        layout.projectDirectory.dir("data").asFile.eachDir {
             if (ignoreList.contains(it.name))
             {
                 return
