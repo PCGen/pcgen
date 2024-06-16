@@ -279,7 +279,9 @@ tasks.register("genDataList") {
         publisherMap.put("total_party_kill_games","Total Party Kill Games");
         publisherMap.put("starfinder","Starfinder");
 
-        project.delete(layout.projectDir.file("installers/win-installer/includes/data.nsh"))
+        def dataNsh = layout.projectDirectory.file("installers/win-installer/includes/data.nsh")
+        project.delete(dataNsh)
+        def out = new StringBuilder()
 
         // List of folder names to ignore.
         List<String> ignoreList = new ArrayList<String>();
@@ -353,6 +355,9 @@ tasks.register("genDataList") {
             }
             out.append("SubSectionEnd\n\n");
         }
+
+        println("Writing data to: ${dataNsh}")
+        dataNsh.asFile.write(out.toString())
     }
 }
 
