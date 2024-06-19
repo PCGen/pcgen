@@ -163,22 +163,22 @@ Section "-Local" Section4
 # We no longer provide the .bat file.
 #	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\${APPNAMEANDVERSION}-Low.lnk" "$INSTDIR\${APPDIR}\pcgen_low_mem.bat" "" \
 #				"$INSTDIR\${APPDIR}\Local\PCGen.ico" 0 SW_SHOWMINIMIZED
-        CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\${APPNAMEANDVERSION}-Bat.lnk" "$INSTDIR\${APPDIR}\pcgen.bat" "" \
+	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\${APPNAMEANDVERSION}-Bat.lnk" "$INSTDIR\${APPDIR}\pcgen.bat" "" \
 				"$INSTDIR\${APPDIR}\Local\PCGen.ico" 0 SW_SHOWMINIMIZED
 	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\${APPNAMEANDVERSION}.lnk" "$INSTDIR\${APPDIR}\pcgen.exe" "" \
 				"$INSTDIR\${APPDIR}\Local\pcgen2.ico" 0 SW_SHOWMINIMIZED
-        CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\Convert Data.lnk" "$INSTDIR\${APPDIR}\jre\bin\javaw.exe" \
-                                "-Xmx256M -jar pcgen-batch-convert.jar" \
+	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\Convert Data.lnk" "$INSTDIR\${APPDIR}\jre\bin\javaw.exe" \
+				"-Xmx256M -jar pcgen-batch-convert.jar" \
 				"$INSTDIR\${APPDIR}\Local\convert.ico"
 	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\Release Notes.lnk" \
-                                "$INSTDIR\${APPDIR}\pcgen-release-notes-${SIMPVER}.html" "" \
-                                "$INSTDIR\${APPDIR}\Local\knight.ico"
+				"$INSTDIR\${APPDIR}\pcgen-release-notes-${SIMPVER}.html" "" \
+				"$INSTDIR\${APPDIR}\Local\knight.ico"
 	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\News.lnk" "http://pcgen.sourceforge.net/02_news.php" "" \
-                                "$INSTDIR\${APPDIR}\Local\queen.ico"
+				"$INSTDIR\${APPDIR}\Local\queen.ico"
 	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\uninstall-${LONGVER}.lnk" \
-                                "$INSTDIR\uninstall-${LONGVER}.exe"
+				"$INSTDIR\uninstall-${LONGVER}.exe"
 	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\Manual.lnk" "$INSTDIR\${APPDIR}\docs\index.html" "" \
-                                "$INSTDIR\${APPDIR}\Local\castle.ico"
+				"$INSTDIR\${APPDIR}\Local\castle.ico"
         ;Add file extension registration
         ;File association. See: http://nsis.sourceforge.net/FileAssoc
         !insertmacro APP_ASSOCIATE "pcg" "PCGen.File" "PCGen Character file" \

@@ -173,9 +173,7 @@ sourceSets {
 }
 
 /* Copy 'master' outputsheets into different genre folders */
-task copyMasterSheets(type: Copy) {
-    outputs.upToDateWhen { false }
-
+tasks.register("copyMasterSheets", Copy) {
     include 'eqsheet_fantasy_std.htm'
     include 'psheet_fantasy_std.htm'
     from 'outputsheets/d20/fantasy/htmlxml'
@@ -370,32 +368,35 @@ runtime {
 }
 
 // Package up other files with the main program
-tasks.jpackageImage.doLast {
-    copy {
-        includeEmptyDirs = false
-        from layout.buildDirectory.dir("install/pcgen")
-        exclude "**/*.exe"
-        exclude "**/*.bat"
-        exclude "pcgen"
-        exclude "**/lib/**"
-        if (Os.isFamily(Os.FAMILY_MAC)){
-            into "build/jpackage/PcGen.app/Contents/MacOS"
-        }
-        else {
-            into "build/jpackage/PcGen/bin"
-        }
-    }
-
-    // Mac OS X specific config for jpackage
-    if (Os.isFamily(Os.FAMILY_MAC)){
+tasks.named("jpackageImage") {
+    dependsOn tasks.named("runtime")
+    doLast {
         copy {
-            from "${projectDir}/installers/mac-installer"
-            include "MacDirLauncher"
-            fileMode 0755
-            into layout.buildDirectory.dir("jpackage/PcGen.app/Contents/MacOS")
+            includeEmptyDirs = false
+            from layout.buildDirectory.dir("install/pcgen")
+            exclude "**/*.exe"
+            exclude "**/*.bat"
+            exclude "pcgen"
+            exclude "**/lib/**"
+            if (Os.isFamily(Os.FAMILY_MAC)){
+                into "build/jpackage/PcGen.app/Contents/MacOS"
+            }
+            else {
+                into "build/jpackage/PcGen/bin"
+            }
         }
-        ant.replace(file: layout.buildDirectory.file("jpackage/PcGen.app/Contents/Info.plist"),
-                token: "<key>CFBundleExecutable</key>\n  <string>PcGen</string>", value: "<key>CFBundleExecutable</key>\n  <string>MacDirLauncher</string>")
+
+        // Mac OS X specific config for jpackage
+        if (Os.isFamily(Os.FAMILY_MAC)){
+            copy {
+                from layout.projectDirectory.dir("installers/mac-installer")
+                include "MacDirLauncher"
+                fileMode 0755
+                into layout.buildDirectory.dir("jpackage/PcGen.app/Contents/MacOS")
+            }
+            ant.replace(file: layout.buildDirectory.file("jpackage/PcGen.app/Contents/Info.plist"),
+                    token: "<key>CFBundleExecutable</key>\n  <string>PcGen</string>", value: "<key>CFBundleExecutable</key>\n  <string>MacDirLauncher</string>")
+        }
     }
 }
 
@@ -504,86 +505,84 @@ tasks.named("clean") {
 tasks.register("downloadJRE") {
     println("IN downloadJRE")
 
-    def major = 21
-    def archs = ['x64', 'aarch64']
-    def osList = ['windows', 'mac', 'linux']
-    def extension = 'zip'
+    doLast {
+        def major = 21
+        def archs = ['x64', 'aarch64']
+        def osList = ['windows', 'mac', 'linux']
 
-    println("Downloading JDKs for use in creating the runtime bundles.")
+        println("Downloading JDKs for use in creating the runtime bundles.")
 
-    osList.each{
-        def os = "${it}"
-        if(os != "windows") {
-            extension = 'tar.gz'
-        }
-        archs.each {
-            def arch = "${it}"
-            // TODO We don't currently support Windows Aarch64 but once Eclipse Adoptium does we should remove this line
-            if (arch == "aarch64" && os == "windows") return
+        osList.each {
+            def os = "${it}"
+            def extension = (os == "windows" ? "zip" : "tar.gz")
 
-            def url = "https://api.adoptium.net/v3/binary/latest/${major}/ga/${os}/${arch}/jdk/hotspot/normal/eclipse"
-            def jreDir = new File("${projectDir}/jre/${os}/jre_${arch}")
-            if(!jreDir.exists()){
+            archs.each {
+                def arch = "${it}"
+                // TODO We don't currently support Windows aarch64, but once Eclipse Adoptium does we should remove this line
+                if (arch == "aarch64" && os == "windows") return
+
+                def url = "https://api.adoptium.net/v3/binary/latest/${major}/ga/${os}/${arch}/jdk/hotspot/normal/eclipse"
+                def jreDir = layout.projectDirectory.dir("jre/${os}/jre_${arch}").asFile
+                def jreRelease = (os == "mac"
+                        ? layout.projectDirectory.dir("jre/${os}/jre_${arch}/Contents/Home/release").asFile
+                        : layout.projectDirectory.dir("jre/${os}/jre_${arch}/release").asFile)
+                def shouldDownloadJDK = true;
+
+                try {
+                    if (jreRelease.exists()) {
+                        def props = new Properties()
+                        jreRelease.withInputStream { props.load(it) }
+                        def javaVersion = props.get("JAVA_VERSION");
+                        println "JDK ${major} ${arch.padLeft(7)} for ${os.padLeft(7)} found with version ${javaVersion} at ${jreDir}, skipping downloading"
+                        shouldDownloadJDK = false
+                    }
+                } catch (e) {
+                    println "There was an error in :downloadJRE"
+                    e.printStackTrace()
+                }
+
+                if (!shouldDownloadJDK) {
+                    return
+                }
                 println("Downloading Java ${major} ${arch} for ${os} from ${url}")
                 download.run {
                     src url
-                    dest new File("${projectDir}/jre/${os}/", "jre_${arch}.${extension}")
+                    dest layout.projectDirectory.file("jre/${os}/jre_${arch}.${extension}").asFile.absolutePath
                     overwrite false
                 }
 
-                // Now unzip them
-                if(extension == "zip"){
-                    fileTree(dir: "${projectDir}/jre/${os}/").include("*.${extension}").each { simLib ->
-                        copy {
-                            println "Unzip $simLib.name"
-                            def zipFile = file("${projectDir}/jre/${os}/${simLib.name}")
-                            def outputDir = "${projectDir}/jre/${os}/jre_${arch}/"
+                def outputDir = layout.projectDirectory.dir("jre/${os}/jre_${arch}")
 
-                            from zipTree(zipFile)
-                            into outputDir
-                            eachFile { fcd ->
-                                def relPath = fcd.relativePath
-                                if(relPath.lastName.startsWith("jdk-")  && fcd.isDirectory()) {
-                                    fcd.exclude()
+                layout.projectDirectory.dir("jre/${os}")
+                        .asFileTree
+                        .matching { include "*.${extension}" }
+                        .each { simLib ->
+                            def archFile = layout.projectDirectory.file("jre/${os}/${simLib.name}")
+
+                            copy {
+                                println "* Unpack $simLib.name to ${outputDir}"
+
+                                if (extension == "zip") {
+                                    from zipTree(archFile)
                                 } else {
+                                    from tarTree(archFile)
+                                }
+                                into outputDir
+                                eachFile { FileCopyDetails fcd ->
+                                    def relPath = fcd.relativePath
                                     def segments = relPath.segments
-                                    fcd.relativePath = new RelativePath( !fcd.isDirectory() ,(segments[1..-1]) as String[]  )
+                                    fcd.relativePath = new RelativePath(!fcd.isDirectory(), segments[1..-1] as String[])
                                 }
                             }
-                        }
-                        new File("${projectDir}/jre/${os}/${simLib.name}").delete()
-                    }
-                } else {
-                    fileTree(dir: "${projectDir}/jre/${os}/").include("*.${extension}").each { simLib ->
-                        copy {
-                            println "Unzip $simLib.name"
-                            def name = simLib.name - '.$extension'
-                            def zipFile = file("${projectDir}/jre/${os}/${simLib.name}")
-                            def outputDir = "${projectDir}/jre/${os}/jre_${arch}/"
 
-                            from tarTree(zipFile)
-                            into outputDir
-                            eachFile { fcd ->
-                                def relPath = fcd.relativePath
-                                if(relPath.lastName.startsWith("jdk-")  && fcd.isDirectory()) {
-                                    fcd.exclude()
-                                } else {
-                                    def segments = relPath.segments
-                                    fcd.relativePath = new RelativePath( !fcd.isDirectory() ,(segments[1..-1]) as String[] )
-                                }
-                            }
+                            project.delete(archFile)
                         }
-                        new File("${projectDir}/jre/${os}/${simLib.name}").delete()
-                    }
-                }
-                file("${projectDir}/jre/${os}/jre_${arch}").list().each { f->
-                    if(f.startsWith("jdk")) {
+
+                file("${projectDir}/jre/${os}/jre_${arch}").list().each { f ->
+                    if (f.startsWith("jdk")) {
                         file("${projectDir}/jre/${os}/jre_${arch}/" + f).deleteDir()
                     }
                 }
-            }
-            else {
-                println("* Java ${major} ${arch} for ${os} already exists at ${jreDir}")
             }
         }
     }
@@ -591,141 +590,142 @@ tasks.register("downloadJRE") {
 
 tasks.register("downloadJavaFXModules") {
     println("IN downloadJavaFXModules")
-    dependsOn downloadJRE
 
-    // We support Windows/Mac/Linux - x64, and Mac/Linux - aarch64
-    // (JavaFX doesn't support Linux/aarch64 in 21 LTS, use 21.0.1 instead)
-    def major = "21.0.3"
-    def archs = ['x64', 'aarch64']
-    def osList = ["windows", "mac", "linux"]
+    doLast {
+        // We support Windows/Mac/Linux - x64, and Mac/Linux - aarch64
+        // (JavaFX doesn't support Linux/aarch64 in 21 LTS, use 21.0.1 instead)
+        def major = "21.0.3"
+        def archs = ['x64', 'aarch64']
+        def osList = ["windows", "mac", "linux"]
 
-    println("Downloading JavaFX modules (.mods) for use in the runtime bundles.")
-    // Downloads javafx .mods for custom runtime image. All platforms downloaded
-    osList.each { os ->
-        // Build the os part of the filename string. Gluon renamed the mac package to osx
-        def osPackage = (os == "mac") ? "osx" : os
+        println("Downloading JavaFX modules (.mods) for use in the runtime bundles.")
+        // Downloads javafx .mods for custom runtime image. All platforms downloaded
+        osList.each { os ->
+            // Build the os part of the filename string. Gluon renamed the mac package to osx
+            def osPackage = (os == "mac") ? "osx" : os
 
-        archs.each { arch ->
-            // build the architecture part of the download filename string
-            def archAppend
-            if (arch == "x64") {
-                archAppend = "-x64"
-            } else if (arch == "aarch64" && os != "windows") {
-                archAppend = "-aarch64"
-                if (os == "linux") {
-                    major = "21.0.1" // TODO other versions don't supply aarch64 for Linux, use 21.0.1 instead
-                }
-            } else {
-                return
-            }
-
-            // URLs look like this: https://download2.gluonhq.com/openjfx/21.0.2/openjfx-21.0.2_osx-aarch64_bin-jmods.zip
-            def url = "https://download2.gluonhq.com/openjfx/${major}/openjfx-${major}_${osPackage}${archAppend}_bin-jmods.zip"
-
-            def jmodsZip = layout.projectDirectory.file("/jre/${os}/jmods${arch}.zip").asFile
-
-            // If we don't already have the jmods, download them and unzip them to the correct place.
-            if (!jmodsZip.exists()) {
-                println("Downloading JavaFX mods ${major} ${arch} for ${os} from ${url} to ${projectDir}/jre/${os}/")
-
-                download.run {
-                    src url
-                    dest new File("${projectDir}/jre/${os}/", "jmods${arch}.zip")
-                    overwrite false
-                }
-
-                copy {
-                    def zipFile = file("${projectDir}/jre/${os}/jmods${arch}.zip")
-                    def outputDir = (os == "mac")
-                            ? "${projectDir}/jre/${os}/jre_${arch}/Contents/Home/jmods"
-                            : "${projectDir}/jre/${os}/jre_${arch}/jmods"
-
-                    println "Unzipping ${zipFile} to ${outputDir}"
-                    from zipTree(zipFile)
-                    into outputDir
-                    eachFile { fcd ->
-                        def relPath = fcd.relativePath
-                        def segments = relPath.segments
-                        fcd.relativePath = new RelativePath(!fcd.isDirectory(), (segments[1..-1]) as String[])
+            archs.each { arch ->
+                // build the architecture part of the download filename string
+                def archAppend
+                if (arch == "x64") {
+                    archAppend = "-x64"
+                } else if (arch == "aarch64" && os != "windows") {
+                    archAppend = "-aarch64"
+                    if (os == "linux") {
+                        major = "21.0.1" // TODO other versions don't supply aarch64 for Linux, use 21.0.1 instead
                     }
+                } else {
+                    return
                 }
+
+                // URLs look like this: https://download2.gluonhq.com/openjfx/21.0.2/openjfx-21.0.2_osx-aarch64_bin-jmods.zip
+                def url = "https://download2.gluonhq.com/openjfx/${major}/openjfx-${major}_${osPackage}${archAppend}_bin-jmods.zip"
+
+                def jmodsZip = layout.projectDirectory.file("/jre/${os}/jmods${arch}.zip").asFile
+
+                // If we don't already have the jmods, download them and unzip them to the correct place.
+                if (!jmodsZip.exists()) {
+                    println("Downloading JavaFX mods ${major} ${arch} for ${os} from ${url} to ${projectDir}/jre/${os}/")
+
+                    download.run {
+                        src url
+                        dest new File("${projectDir}/jre/${os}/", "jmods${arch}.zip")
+                        overwrite false
+                    }
+
+                    copy {
+                        def zipFile = file("${projectDir}/jre/${os}/jmods${arch}.zip")
+                        def outputDir = (os == "mac")
+                                ? "${projectDir}/jre/${os}/jre_${arch}/Contents/Home/jmods"
+                                : "${projectDir}/jre/${os}/jre_${arch}/jmods"
+
+                        println "Unzipping ${zipFile} to ${outputDir}"
+                        from zipTree(zipFile)
+                        into outputDir
+                        eachFile { fcd ->
+                            def relPath = fcd.relativePath
+                            def segments = relPath.segments
+                            fcd.relativePath = new RelativePath(!fcd.isDirectory(), (segments[1..-1]) as String[])
+                        }
+                    }
+                } else {
+                    println("* ${jmodsZip} already exists")
+                }
+            }
+        }
+
+        // TODO extract this into its own function
+        // Downloads javafx sdk for local platform. Used for running tests.
+        println("Downloading JavaFX SDK for use in local testing.")
+        def sdkDir = new File("${projectDir}/mods")
+        if (!sdkDir.exists() || !sdkDir.list()) {
+            // TODO I'll confess much of this seems redundant, but I'm not touching it
+            def os
+            if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+                os = "windows"
+            } else if (Os.isFamily(Os.FAMILY_MAC)) {
+                os = "mac"
             } else {
-                println("* ${jmodsZip} already exists")
+                os = "linux"
             }
-        }
-    }
 
-    // TODO extract this into its own function
-    // Downloads javafx sdk for local platform. Used for running tests.
-    println("Downloading JavaFX SDK for use in local testing.")
-    def sdkDir = new File("${projectDir}/mods")
-    if (!sdkDir.exists() || !sdkDir.list()) {
-        // TODO I'll confess much of this seems redundant, but I'm not touching it
-        def os
-        if (Os.isFamily(Os.FAMILY_WINDOWS)) {
-            os = "windows"
-        } else if (Os.isFamily(Os.FAMILY_MAC)) {
-            os = "mac"
-        } else {
-            os = "linux"
-        }
+            def hostArchitecture = System.getProperty("os.arch")
 
-        def hostArchitecture = System.getProperty("os.arch")
-
-        // We default to x86_64 as default
-        def archAppend
-        if (hostArchitecture == "x86_64" || hostArchitecture == "amd64") {
-            archAppend= "-x64"
-        } else if (hostArchitecture == "aarch64") {
-            archAppend= "-aarch64"
-        } else {
-            archAppend = "-UNSUPPORTED-ARCH"
-        }
-
-        println("Host arch is ${hostArchitecture}, host OS is ${os}")
-
-        // Gluon renamed the mac package so we deal with that but leave the
-        // the rest of the naming / packing as 'mac'.
-        def osPackage = (os == "mac") ? "osx" : os
-
-        def url = "https://download2.gluonhq.com/openjfx/${major}/openjfx-${major}_${osPackage}${archAppend}_bin-sdk.zip"
-
-        println("Downloading JavaFX SDK for ${os} from ${url}")
-
-        download.run {
-            src url
-            dest new File("${projectDir}/mods", "javaFXSdk-${os}.zip")
-            overwrite false
-        }
-
-        copy {
-            def zipFile = file("${projectDir}/mods/javaFXSdk-${os}.zip")
-            def outputDir = "${projectDir}/mods"
-            println "Unzipping ${zipFile} to ${outputDir}"
-
-            from zipTree(zipFile)
-            into outputDir
-            eachFile { fcd ->
-                def relPath = fcd.relativePath
-                def segments = relPath.segments
-                fcd.relativePath = new RelativePath(!fcd.isDirectory(), (segments[1..-1]) as String[])
+            // We default to x86_64 as default
+            def archAppend
+            if (hostArchitecture == "x86_64" || hostArchitecture == "amd64") {
+                archAppend = "-x64"
+            } else if (hostArchitecture == "aarch64") {
+                archAppend = "-aarch64"
+            } else {
+                archAppend = "-UNSUPPORTED-ARCH"
             }
+
+            println("Host arch is ${hostArchitecture}, host OS is ${os}")
+
+            // Gluon renamed the mac package so we deal with that but leave the
+            // the rest of the naming / packing as 'mac'.
+            def osPackage = (os == "mac") ? "osx" : os
+
+            def url = "https://download2.gluonhq.com/openjfx/${major}/openjfx-${major}_${osPackage}${archAppend}_bin-sdk.zip"
+
+            println("Downloading JavaFX SDK for ${os} from ${url}")
+
+            download.run {
+                src url
+                dest new File("${projectDir}/mods", "javaFXSdk-${os}.zip")
+                overwrite false
+            }
+
+            copy {
+                def zipFile = file("${projectDir}/mods/javaFXSdk-${os}.zip")
+                def outputDir = "${projectDir}/mods"
+                println "Unzipping ${zipFile} to ${outputDir}"
+
+                from zipTree(zipFile)
+                into outputDir
+                eachFile { fcd ->
+                    def relPath = fcd.relativePath
+                    def segments = relPath.segments
+                    fcd.relativePath = new RelativePath(!fcd.isDirectory(), (segments[1..-1]) as String[])
+                }
+            }
+        } else {
+            println("JavaFX SDK already exists at ${sdkDir}")
         }
-    } else {
-        println("JavaFX SDK already exists at ${sdkDir}")
     }
 }
 
 tasks.named("compileJava") {
-    dependsOn downloadJavaFXModules
+    dependsOn downloadJRE, downloadJavaFXModules
 }
 
 tasks.named("runtime") {
-    dependsOn downloadJavaFXModules
+    dependsOn downloadJRE, downloadJavaFXModules
 }
 
-tasks.named("test") {
-    dependsOn downloadJavaFXModules
+tasks.named("test", Test) {
+    dependsOn downloadJRE, downloadJavaFXModules
     exclude 'pcgen/testsupport/**'
     useJUnitPlatform()
 }

@@ -364,27 +364,25 @@ tasks.register("genProjectNsis") {
 }
 
 // Call NSIS to generate windows installer - Removed "genDataList"
-tasks.register("buildNsis") {
+tasks.register("buildNsis", Exec) {
     dependsOn layoutNsisBase, layoutNsisOptional, genProjectNsis, downloadJRE, genDataList
     mustRunAfter createExe
 
+    def makensisPaths = [windows: "C:/Program Files (x86)/NSIS/makensis.exe"]
+    def currentOs = System.properties['os.name'].toLowerCase(Locale.ROOT);
+    def makensis = makensisPaths.getOrDefault(currentOs, "makensis")
+    def pcgenNsi = layout.projectDirectory.file("installers/win-installer/pcgen.nsi").asFile.absolutePath
+
     doLast {
-        if (System.properties['os.name'].toLowerCase(Locale.ROOT).contains('windows')) {
-            new ByteArrayOutputStream().withStream { os ->
-                exec {
-                    workingDir = layout.buildDirectory.dir("nsis")
-                    executable = 'C:/Program Files (x86)/NSIS/makensis.exe'
-                    args = ["/V3", "/WX", layout.projectDirectory.file("installers/win-installer/pcgen.nsi").asFile.absolutePath]
-                }
-            }
+        println("Running makensis from the path '${makensis}':")
+
+        mkdir layout.buildDirectory.dir("nsis")
+        workingDir layout.buildDirectory.dir("nsis")
+        executable makensis
+        if (currentOs == "windows") {
+            args "/V3", "/WX", pcgenNsi
         } else {
-            new ByteArrayOutputStream().withStream { os ->
-                exec {
-                    workingDir = layout.buildDirectory.dir("nsis")
-                    executable = 'makensis'
-                    args = ["-V3", "-WX", layout.projectDirectory.file("installers/win-installer/pcgen.nsi").asFile.absolutePath]
-                }
-            }
+            args "-V3", "-WX", pcgenNsi
         }
     }
 }
@@ -401,7 +399,7 @@ tasks.register("sourcesJar", Jar) {
     from sourceSets.main.allSource
 }
 
-def assembleArtifacts = tasks.register("assembleArtifacts", Copy) {
+tasks.register("assembleArtifacts", Copy) {
     dependsOn build, runtimeZip, sourcesJar, buildNsis
 
     if (Os.isFamily(Os.FAMILY_MAC) || Os.isFamily(Os.FAMILY_UNIX))
@@ -440,23 +438,23 @@ tasks.register("checksum") {
             ant.checksum(file: file, property: "cs_$file.name", algorithm: "sha-256")
             def cs = ant.properties["cs_$file.name"]
             if (file.name.endsWith("zip")) {
-                zipChecksumsFile.append("SHA-256 digest for $file.name:\r\n$cs\r\n\r\n")
+                zipChecksumsFile << "SHA-256 digest for $file.name:\r\n$cs\r\n\r\n"
             }
             else if (file.name.endsWith(".exe")){
                 def exeChecksumsFile = layout.buildDirectory.file("release/SHA256-digests-exe-${version}.txt").get()
-                exeChecksumsFile.append("SHA-256 digest for $file.name:\r\n$cs\r\n\r\n")
+                exeChecksumsFile << "SHA-256 digest for $file.name:\r\n$cs\r\n\r\n"
             }
             else if (file.name.endsWith(".pkg")|| file.name.endsWith(".dmg")){
                 def macChecksumsFile = layout.buildDirectory.file("release/SHA256-digests-mac-${version}.txt").get()
-                macChecksumsFile.append("SHA-256 digest for $file.name:\r\n$cs\r\n\r\n")
+                macChecksumsFile << "SHA-256 digest for $file.name:\r\n$cs\r\n\r\n"
             }
             else if (file.name.endsWith(".deb")|| file.name.endsWith(".rpm")){
                 def linuxChecksumsFile = layout.buildDirectory.file("release/SHA256-digests-linux-${version}.txt").get()
-                linuxChecksumsFile.append("SHA-256 digest for $file.name:\r\n$cs\r\n\r\n")
+                linuxChecksumsFile << "SHA-256 digest for $file.name:\r\n$cs\r\n\r\n"
             }
             else if (file.name.endsWith(".jar")){
                 def jarChecksumsFile = layout.buildDirectory.file("release/SHA256-digests-jar-${version}.txt").get()
-                jarChecksumsFile.append("SHA-256 digest for $file.name:\r\n$cs\r\n\r\n")
+                jarChecksumsFile << "SHA-256 digest for $file.name:\r\n$cs\r\n\r\n"
             }
             else if (file.name.endsWith(".txt")) {
                 // does nothing
