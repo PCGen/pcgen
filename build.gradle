@@ -379,10 +379,9 @@ tasks.named("jpackageImage") {
             exclude "pcgen"
             exclude "**/lib/**"
             if (Os.isFamily(Os.FAMILY_MAC)){
-                into "build/jpackage/PcGen.app/Contents/MacOS"
-            }
-            else {
-                into "build/jpackage/PcGen/bin"
+                into layout.buildDirectory.dir("jpackage/PcGen.app/Contents/MacOS")
+            } else {
+                into layout.buildDirectory.dir("jpackage/PcGen/bin")
             }
         }
 
@@ -394,8 +393,9 @@ tasks.named("jpackageImage") {
                 fileMode 0755
                 into layout.buildDirectory.dir("jpackage/PcGen.app/Contents/MacOS")
             }
-            ant.replace(file: layout.buildDirectory.file("jpackage/PcGen.app/Contents/Info.plist"),
-                    token: "<key>CFBundleExecutable</key>\n  <string>PcGen</string>", value: "<key>CFBundleExecutable</key>\n  <string>MacDirLauncher</string>")
+            ant.replace(file: layout.buildDirectory.file("jpackage/PcGen.app/Contents/Info.plist").get(),
+                    token: "<key>CFBundleExecutable</key>\n  <string>PcGen</string>",
+                    value: "<key>CFBundleExecutable</key>\n  <string>MacDirLauncher</string>")
         }
     }
 }

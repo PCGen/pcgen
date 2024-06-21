@@ -372,19 +372,22 @@ tasks.register("buildNsis", Exec) {
     def currentOs = System.properties['os.name'].toLowerCase(Locale.ROOT);
     def makensis = makensisPaths.getOrDefault(currentOs, "makensis")
     def pcgenNsi = layout.projectDirectory.file("installers/win-installer/pcgen.nsi").asFile.absolutePath
+    def stdout = new ByteArrayOutputStream()
 
-    doLast {
-        println("Running makensis from the path '${makensis}':")
+    println("Running makensis from the path '${makensis}':")
 
+    doFirst {
         mkdir layout.buildDirectory.dir("nsis")
-        workingDir layout.buildDirectory.dir("nsis")
-        executable makensis
-        if (currentOs == "windows") {
-            args "/V3", "/WX", pcgenNsi
-        } else {
-            args "-V3", "-WX", pcgenNsi
-        }
     }
+    workingDir layout.buildDirectory.dir("nsis")
+
+    if (currentOs == "windows") {
+        commandLine makensis, "/V3", "/WX", pcgenNsi
+    } else {
+        commandLine makensis, "-V3", "-WX", pcgenNsi
+    }
+    standardOutput = stdout;
+    println "Output: $stdout"
 }
 
 tasks.register("cleanNsis", Delete) {
@@ -468,9 +471,9 @@ tasks.register("checksum") {
 
 // genDataList removed as it causes release errors, 'genDataList'
 tasks.register("prepareRelease") {
-    dependsOn clean, build
+    dependsOn build
     description = """Prepare PCGen for release. This will update and commit the version, \
-do a clean build including the unit tests and generate the data list for the installer."""
+do a build including the unit tests and generate the data list for the installer."""
 }
 
 tasks.register("pcgenRelease") {
