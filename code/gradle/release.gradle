@@ -435,7 +435,10 @@ tasks.register("assembleArtifacts", Copy) {
 tasks.register("checksum") {
     dependsOn assembleArtifacts
     doLast {
-        def zipChecksumsFile = layout.buildDirectory.file("release/SHA256-digests-zip-${version}.txt")
+        def zipChecksumsFile = layout.buildDirectory
+                .file("release/SHA256-digests-zip-${version}.txt")
+                .get()
+                .asFile
         project.delete(zipChecksumsFile)
         file(releaseDir).listFiles().each {File file ->
             ant.checksum(file: file, property: "cs_$file.name", algorithm: "sha-256")
@@ -444,19 +447,31 @@ tasks.register("checksum") {
                 zipChecksumsFile << "SHA-256 digest for $file.name:\r\n$cs\r\n\r\n"
             }
             else if (file.name.endsWith(".exe")){
-                def exeChecksumsFile = layout.buildDirectory.file("release/SHA256-digests-exe-${version}.txt").get()
+                def exeChecksumsFile = layout.buildDirectory
+                        .file("release/SHA256-digests-exe-${version}.txt")
+                        .get()
+                        .asFile
                 exeChecksumsFile << "SHA-256 digest for $file.name:\r\n$cs\r\n\r\n"
             }
             else if (file.name.endsWith(".pkg")|| file.name.endsWith(".dmg")){
-                def macChecksumsFile = layout.buildDirectory.file("release/SHA256-digests-mac-${version}.txt").get()
+                def macChecksumsFile = layout.buildDirectory
+                        .file("release/SHA256-digests-mac-${version}.txt")
+                        .get()
+                        .asFile
                 macChecksumsFile << "SHA-256 digest for $file.name:\r\n$cs\r\n\r\n"
             }
             else if (file.name.endsWith(".deb")|| file.name.endsWith(".rpm")){
-                def linuxChecksumsFile = layout.buildDirectory.file("release/SHA256-digests-linux-${version}.txt").get()
+                def linuxChecksumsFile = layout.buildDirectory
+                        .file("release/SHA256-digests-linux-${version}.txt")
+                        .get()
+                        .asFile
                 linuxChecksumsFile << "SHA-256 digest for $file.name:\r\n$cs\r\n\r\n"
             }
             else if (file.name.endsWith(".jar")){
-                def jarChecksumsFile = layout.buildDirectory.file("release/SHA256-digests-jar-${version}.txt").get()
+                def jarChecksumsFile = layout.buildDirectory
+                        .file("release/SHA256-digests-jar-${version}.txt")
+                        .get()
+                        .asFile
                 jarChecksumsFile << "SHA-256 digest for $file.name:\r\n$cs\r\n\r\n"
             }
             else if (file.name.endsWith(".txt")) {
