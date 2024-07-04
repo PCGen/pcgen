@@ -5,7 +5,7 @@
  *
  * Developer build: gradle
  * Incremental dev build: gradle build
- * Full build: gradle all
+ * Full build: gradle allTasks
  * Build and run all tests: gradle clean build slowtest
  * Run the data tests: gradle datatest
  * Run the character integration tests: gradle inttest
@@ -69,7 +69,7 @@ ext {
     // Folder where exe / jar files are placed.
     outputDir = layout.projectDirectory.dir("output")
 
-    // Folder where the jres are downloaded for building releases
+    // Folder where the JREs are downloaded for building releases
     jresDir = layout.projectDirectory.dir("jre")
 
     // Folder where the JavaFX mods are downloaded for building releases
@@ -77,6 +77,9 @@ ext {
 
     // Installers are placed here
     releaseDir = layout.projectDirectory.dir("build/release")
+
+    // JavaFX version
+    javaFXVersion = "21.0.3"
 }
 
 application {
@@ -190,11 +193,6 @@ tasks.register("copyMasterSheets", Copy) {
     }
 }
 
-// TODO Possibly misnamed task
-compileJava {
-    it.dependsOn 'copyMasterSheets'
-}
-
 /*
  * Dependencies for this project.
  *
@@ -264,9 +262,25 @@ dependencies {
 }
 
 // Properties to support Ant builds
-ant.importBuild 'build-gradle.xml'
+def antPluginTasks = []
+ant.importBuild('build-gradle.xml') {
+    def (projectName, taskName) = it.tokenize('.')
+
+    if (taskName == null && projectName.startsWith("jar") &&
+            (projectName.endsWith("plugins") || projectName.endsWith("plugin"))) {
+        antPluginTasks.push(projectName)
+    }
+    return it
+}
 ant.properties['src.java.dir']="code/src/java"
 ant.properties['build.classes.dir']="build/classes/java/main"
+
+// All plugins depend on compiled .class files
+antPluginTasks.each {
+    tasks.named(it) {
+        dependsOn tasks.named("compileJava")
+    }
+}
 
 // Configuration for creating JARs from all of the plugins
 configure('jar-all-plugins') {
@@ -334,7 +348,7 @@ runtime {
     targetPlatform('mac-aarch64',   layout.projectDirectory.dir("jre/mac/jre_aarch64/Contents/Home").asFile.absolutePath)
 
     // Use the jpackage tool that comes with Java to build native installers
-    jpackage{
+    jpackage {
         installerOptions = ["--app-version", "${version.replaceAll('-SNAPSHOT', '')}", "--license-file", "${projectDir}/code/LICENSE"]
 
         // Get the host architecture
@@ -488,7 +502,8 @@ tasks.register("quickbuild") {
 }
 
 tasks.named("build") {
-    dependsOn copyToOutput
+    // TODO reverts the commit f00f99c, because we don't have to generate all artifacts during the build
+    // dependsOn copyToOutput
 
     // Ensures that clean is never run after build and when clean is called it is
     // run before build so it doesn't delete the new build folder.
@@ -497,13 +512,15 @@ tasks.named("build") {
 
 // TODO This clean is not as nuclear as it perhaps should be.
 // For jlink and friends to work when you get odd Zip errors
-// you will also need to clean out output/ bin/ jre/ and mods/
+// you will also need to clean out output/ bin/
 tasks.named("clean") {
-    dependsOn tasks.named("clean-plugins"), cleanOutput
+   // dependsOn tasks.named("clean-plugins"), cleanOutput, cleanJre, cleanMods
 }
 
 tasks.register("downloadJRE") {
-    println("IN downloadJRE")
+    doFirst {
+        println("IN downloadJRE")
+    }
 
     doLast {
         def major = 21
@@ -537,8 +554,7 @@ tasks.register("downloadJRE") {
                         shouldDownloadJDK = false
                     }
                 } catch (e) {
-                    println "There was an error in :downloadJRE"
-                    e.printStackTrace()
+                    throw new GradleException("There was an error in :downloadJRE", e)
                 }
 
                 if (!shouldDownloadJDK) {
@@ -589,7 +605,9 @@ tasks.register("downloadJRE") {
 }
 
 tasks.register("downloadJavaFXModules") {
-    println("IN downloadJavaFXModules")
+    doFirst {
+        println("IN downloadJavaFXModules")
+    }
 
     doLast {
         // We support Windows/Mac/Linux - x64, and Mac/Linux - aarch64
@@ -621,7 +639,7 @@ tasks.register("downloadJavaFXModules") {
                 // URLs look like this: https://download2.gluonhq.com/openjfx/21.0.2/openjfx-21.0.2_osx-aarch64_bin-jmods.zip
                 def url = "https://download2.gluonhq.com/openjfx/${major}/openjfx-${major}_${osPackage}${archAppend}_bin-jmods.zip"
 
-                def jmodsZip = layout.projectDirectory.file("/jre/${os}/jmods${arch}.zip").asFile
+                def jmodsZip = layout.projectDirectory.file("jre/${os}/jmods${arch}.zip").asFile
 
                 // If we don't already have the jmods, download them and unzip them to the correct place.
                 if (!jmodsZip.exists()) {
@@ -629,7 +647,7 @@ tasks.register("downloadJavaFXModules") {
 
                     download.run {
                         src url
-                        dest new File("${projectDir}/jre/${os}/", "jmods${arch}.zip")
+                        dest layout.projectDirectory.file("jre/${os}/jmods${arch}.zip")
                         overwrite false
                     }
 
@@ -647,77 +665,73 @@ tasks.register("downloadJavaFXModules") {
                             def segments = relPath.segments
                             fcd.relativePath = new RelativePath(!fcd.isDirectory(), (segments[1..-1]) as String[])
                         }
+                        includeEmptyDirs = false
                     }
                 } else {
                     println("* ${jmodsZip} already exists")
                 }
             }
         }
-
-        // TODO extract this into its own function
-        // Downloads javafx sdk for local platform. Used for running tests.
-        println("Downloading JavaFX SDK for use in local testing.")
-        def sdkDir = new File("${projectDir}/mods")
-        if (!sdkDir.exists() || !sdkDir.list()) {
-            // TODO I'll confess much of this seems redundant, but I'm not touching it
-            def os
-            if (Os.isFamily(Os.FAMILY_WINDOWS)) {
-                os = "windows"
-            } else if (Os.isFamily(Os.FAMILY_MAC)) {
-                os = "mac"
-            } else {
-                os = "linux"
-            }
-
-            def hostArchitecture = System.getProperty("os.arch")
-
-            // We default to x86_64 as default
-            def archAppend
-            if (hostArchitecture == "x86_64" || hostArchitecture == "amd64") {
-                archAppend = "-x64"
-            } else if (hostArchitecture == "aarch64") {
-                archAppend = "-aarch64"
-            } else {
-                archAppend = "-UNSUPPORTED-ARCH"
-            }
-
-            println("Host arch is ${hostArchitecture}, host OS is ${os}")
-
-            // Gluon renamed the mac package so we deal with that but leave the
-            // the rest of the naming / packing as 'mac'.
-            def osPackage = (os == "mac") ? "osx" : os
-
-            def url = "https://download2.gluonhq.com/openjfx/${major}/openjfx-${major}_${osPackage}${archAppend}_bin-sdk.zip"
-
-            println("Downloading JavaFX SDK for ${os} from ${url}")
-
-            download.run {
-                src url
-                dest new File("${projectDir}/mods", "javaFXSdk-${os}.zip")
-                overwrite false
-            }
-
-            copy {
-                def zipFile = file("${projectDir}/mods/javaFXSdk-${os}.zip")
-                def outputDir = "${projectDir}/mods"
-                println "Unzipping ${zipFile} to ${outputDir}"
-
-                from zipTree(zipFile)
-                into outputDir
-                eachFile { fcd ->
-                    def relPath = fcd.relativePath
-                    def segments = relPath.segments
-                    fcd.relativePath = new RelativePath(!fcd.isDirectory(), (segments[1..-1]) as String[])
-                }
-            }
-        } else {
-            println("JavaFX SDK already exists at ${sdkDir}")
-        }
     }
 }
 
+tasks.register("downloadJavaFXLocal", Download) {
+    description = "Downloads the JavaFX modules for the current platform to the 'mods' directory for local testing"
+    def supportedOS = [(Os.FAMILY_WINDOWS): "windows",
+                       (Os.FAMILY_MAC)    : "osx",
+                       (Os.FAMILY_UNIX)   : "linux"]
+
+    def currentOS = supportedOS
+            .entrySet()
+            .stream()
+            .filter(i -> Os.isFamily(i.key))
+            .map { it.value }
+            .findFirst()
+            .orElseThrow { new GradleException("Unsupported OS detected: '${Os.OS_NAME}'. Supported families are: ${Os.FAMILY_WINDOWS}, ${Os.FAMILY_MAC} and ${Os.FAMILY_UNIX}") }
+
+    def supportedArch = ["x86_64" : "-x64",
+                         "amd64"  : "-x64",
+                         "aarch64": "-aarch64"];
+
+    def hostArchitecture = System.getProperty("os.arch")
+    def archAppend = supportedArch[hostArchitecture]
+    if (archAppend == null) {
+        throw new GradleException("Unsupported arch detected: '${hostArchitecture}'. Supported architectures are: x86_64, amd64 and aarch64")
+    }
+
+    doFirst {
+        println("Downloading JavaFX SDK for use in local testing.")
+    }
+
+    def fileName = "openjfx-${project.ext.javaFXVersion}_${currentOS}${archAppend}_bin-sdk.zip"
+
+    src "https://download2.gluonhq.com/openjfx/${project.ext.javaFXVersion}/${fileName}"
+    dest layout.projectDirectory.file("mods/${fileName}")
+    overwrite false
+    useETag true
+    tempAndMove true
+}
+
+tasks.register("extractJavaFXLocal", Copy) {
+    description = "Extracts the JavaFX modules for the current platform to the 'mods' directory for local testing"
+    dependsOn downloadJavaFXLocal
+
+    doFirst {
+        println "Extracting JavaFX SDK for use in local testing."
+    }
+
+    from zipTree(downloadJavaFXLocal.dest)
+    into layout.projectDirectory.dir("mods")
+    eachFile { fcd ->
+        def relPath = fcd.relativePath
+        def segments = relPath.segments
+        fcd.relativePath = new RelativePath(!fcd.isDirectory(), (segments[1..-1]) as String[])
+    }
+    includeEmptyDirs = false
+}
+
 tasks.named("compileJava") {
-    dependsOn downloadJRE, downloadJavaFXModules
+    dependsOn copyMasterSheets
 }
 
 tasks.named("runtime") {
@@ -725,7 +739,6 @@ tasks.named("runtime") {
 }
 
 tasks.named("test", Test) {
-    dependsOn downloadJRE, downloadJavaFXModules
     exclude 'pcgen/testsupport/**'
     useJUnitPlatform()
 }
@@ -807,9 +820,6 @@ tasks.register("msrdinttest", Test) {
 }
 
 allprojects {
-    tasks.withType(JavaCompile).configureEach {
-        options.fork = true
-    }
     tasks.withType(Javadoc).configureEach {
         options.addBooleanOption('Xdoclint:none', true)
     }
@@ -841,6 +851,9 @@ allprojects {
         ]
     }
     tasks.withType(JavaCompile).configureEach {
+        dependsOn extractJavaFXLocal
+        options.fork = true
+
         doFirst {
             if (name.toLowerCase().contains("test")) {
                 options.compilerArgs << "--module-path" << layout.projectDirectory.dir("mods/lib").asFile.absolutePath
