@@ -97,7 +97,7 @@ application {
 }
 
 tasks.named("run") {
-    dependsOn assemble, downloadJRE, downloadJavaFXModules
+    dependsOn assemble, extractJavaFXLocal
     // Required to fixed incorrectly added "--module-path" and adds correct modules.
     doFirst {
         jvmArgs = ["-ea",                       // -ea enables assertions

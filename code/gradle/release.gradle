@@ -374,9 +374,8 @@ tasks.register("buildNsis", Exec) {
     def pcgenNsi = layout.projectDirectory.file("installers/win-installer/pcgen.nsi").asFile.absolutePath
     def stdout = new ByteArrayOutputStream()
 
-    println("Running makensis from the path '${makensis}':")
-
     doFirst {
+        println("Running makensis from the path '${makensis}':")
         mkdir layout.buildDirectory.dir("nsis")
     }
     workingDir layout.buildDirectory.dir("nsis")
@@ -387,7 +386,9 @@ tasks.register("buildNsis", Exec) {
         commandLine makensis, "-V3", "-WX", pcgenNsi
     }
     standardOutput = stdout;
-    println "Output: $stdout"
+    doLast {
+        println "Output: $stdout"
+    }
 }
 
 tasks.register("cleanNsis", Delete) {

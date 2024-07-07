@@ -12,6 +12,8 @@
  */
 
 // import Ant helper static values to differ system families
+
+import org.apache.commons.lang3.StringUtils
 import org.apache.tools.ant.filters.FixCrLfFilter
 import org.apache.tools.ant.taskdefs.condition.Os
 import org.gradle.plugins.ide.idea.model.ProjectLibrary
@@ -436,17 +438,23 @@ artifacts {
 }
 
 tasks.register("copyToLibs", Copy) {
-    println("IN copyToLibs")
     dependsOn startScripts, distTar, distZip, installDist
     mustRunAfter createExe
+
+    doFirst {
+        println("IN copyToLibs")
+    }
 
     into layout.buildDirectory.dir("libs")
     from configurations.runtimeClasspath
 }
 
 tasks.register("copyToOutput", Copy) {
-    println("IN copyToOutput")
     dependsOn copyToLibs, createExe, converterJar, jar
+
+    doFirst {
+        println("IN copyToOutput")
+    }
 
     from layout.buildDirectory.file("libs/pcgen-${version}.jar"),
         layout.buildDirectory.file("libs/pcgen-${version}-batch-convert.jar"),
@@ -493,7 +501,9 @@ tasks.register("cleanMods", Delete) {
 
 // Alias tasks
 tasks.register("buildonly") {
-    println("IN buildonly")
+    doFirst {
+        println("IN buildonly")
+    }
     dependsOn copyToOutput
 }
 
@@ -510,18 +520,7 @@ tasks.named("build") {
     mustRunAfter clean
 }
 
-// TODO This clean is not as nuclear as it perhaps should be.
-// For jlink and friends to work when you get odd Zip errors
-// you will also need to clean out output/ bin/
-tasks.named("clean") {
-   // dependsOn tasks.named("clean-plugins"), cleanOutput, cleanJre, cleanMods
-}
-
 tasks.register("downloadJRE") {
-    doFirst {
-        println("IN downloadJRE")
-    }
-
     doLast {
         def major = 21
         def archs = ['x64', 'aarch64']
@@ -549,9 +548,9 @@ tasks.register("downloadJRE") {
                     if (jreRelease.exists()) {
                         def props = new Properties()
                         jreRelease.withInputStream { props.load(it) }
-                        def javaVersion = props.get("JAVA_VERSION");
-                        println "JDK ${major} ${arch.padLeft(7)} for ${os.padLeft(7)} found with version ${javaVersion} at ${jreDir}, skipping downloading"
-                        shouldDownloadJDK = false
+                        def javaVersion = StringUtils.strip((String)props.get("JAVA_VERSION"), "\"")
+                        shouldDownloadJDK = !javaVersion.startsWith(major.toString())
+                        println "JDK ${major} ${arch.padLeft(7)} for ${os.padLeft(7)} found with version ${javaVersion} at ${jreDir}, ${shouldDownloadJDK ? "starting" : "skipping"} downloading"
                     }
                 } catch (e) {
                     throw new GradleException("There was an error in :downloadJRE", e)
@@ -559,7 +558,11 @@ tasks.register("downloadJRE") {
 
                 if (!shouldDownloadJDK) {
                     return
+                } else if (jreDir.exists()) {
+                    println "Delete the previously downloaded JDK at ${jreDir} as outdated. JavaFX modules will be deleted from jdkDir/jmods."
+                    project.delete(jreDir)
                 }
+
                 println("Downloading Java ${major} ${arch} for ${os} from ${url}")
                 download.run {
                     src url
@@ -605,9 +608,7 @@ tasks.register("downloadJRE") {
 }
 
 tasks.register("downloadJavaFXModules") {
-    doFirst {
-        println("IN downloadJavaFXModules")
-    }
+    mustRunAfter downloadJRE
 
     doLast {
         // We support Windows/Mac/Linux - x64, and Mac/Linux - aarch64
@@ -680,14 +681,14 @@ tasks.register("downloadJavaFXLocal", Download) {
     def supportedOS = [(Os.FAMILY_WINDOWS): "windows",
                        (Os.FAMILY_MAC)    : "osx",
                        (Os.FAMILY_UNIX)   : "linux"]
-
+    def osName = System.getProperty("os.name").toLowerCase(Locale.ENGLISH)
     def currentOS = supportedOS
             .entrySet()
             .stream()
             .filter(i -> Os.isFamily(i.key))
             .map { it.value }
             .findFirst()
-            .orElseThrow { new GradleException("Unsupported OS detected: '${Os.OS_NAME}'. Supported families are: ${Os.FAMILY_WINDOWS}, ${Os.FAMILY_MAC} and ${Os.FAMILY_UNIX}") }
+            .orElseThrow { new GradleException("Unsupported OS detected: '${osName}'. Supported families are: ${Os.FAMILY_WINDOWS}, ${Os.FAMILY_MAC} and ${Os.FAMILY_UNIX}") }
 
     def supportedArch = ["x86_64" : "-x64",
                          "amd64"  : "-x64",
@@ -943,4 +944,12 @@ apply from: 'code/gradle/release.gradle'
 tasks.register("allTasks") {
     dependsOn build, slowtest, javadoc, buildNsis, allReports
     description = "Runs tasks build, slowtest, javadoc, buildNsis and allReports"
+}
+
+// TODO This clean is not as nuclear as it perhaps should be.
+// For jlink and friends to work when you get odd Zip errors
+// you will also need to clean out output/ bin/
+// This task is in the end, becaude other scripts contribute to the building process
+tasks.named("clean") {
+    dependsOn tasks.named("clean-plugins"), cleanOutput, cleanJre, cleanMods, cleanNsis
 }
