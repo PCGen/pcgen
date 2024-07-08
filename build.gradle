@@ -26,13 +26,13 @@ plugins {
     id 'application'                                    // Creating application bundles
     id 'build-dashboard'                                // Produces a build report
     id 'checkstyle'                                     // Checkstyle for Java, configured further below
-    id "com.github.spotbugs" version '6.0.15'           // Spotbugs for Java
+    id "com.github.spotbugs" version '6.0.18'           // Spotbugs for Java
     id 'java'                                           // Core java / javac
     id 'maven-publish'                                  // Publishing to Maven Central
     id 'pmd'                                            // PMD for Java, configured further below
     id 'idea'                                           // For IntelliJ IDEA users
     id "de.undercouch.download" version '5.6.0'         // Shows download percentage
-    id 'edu.sc.seis.launch4j' version '3.0.5'           // Creates launch4j
+    id 'edu.sc.seis.launch4j' version '3.0.6'           // Creates launch4j
     id 'com.github.ben-manes.versions' version '0.51.0' // Checks versions for plugins and dependencies
     id "com.dorongold.task-tree" version '4.0.0'        // Prints the task dependency tree
     id 'org.openjfx.javafxplugin' version '0.1.0'       // JavaFX support
@@ -210,18 +210,18 @@ tasks.register("copyMasterSheets", Copy) {
 dependencies {
     implementation group: 'commons-io', name: 'commons-io', version: '2.16.1'
 
-    implementation group: 'org.springframework', name: 'spring-web', version: '6.1.7'
-    implementation group: 'org.springframework', name: 'spring-beans', version: '6.1.8'
-    implementation group: 'org.springframework', name: 'spring-core', version: '6.1.8'
+    implementation group: 'org.springframework', name: 'spring-web', version: '6.1.10'
+    implementation group: 'org.springframework', name: 'spring-beans', version: '6.1.10'
+    implementation group: 'org.springframework', name: 'spring-core', version: '6.1.10'
     implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.14.0'
     implementation group: 'xalan', name: 'serializer', version: '2.7.3'
     implementation('org.apache.xmlgraphics:fop:2.9')
     {
         exclude group: 'xml-apis', module: 'xml-apis'
     }
-    implementation group: 'org.apache.commons', name: 'commons-collections4', version: '4.5.0-M1'
+    implementation group: 'org.apache.commons', name: 'commons-collections4', version: '4.5.0-M2'
     implementation group: 'org.scijava', name: 'jep', version: '2.4.2'
-    implementation group: 'org.freemarker', name: 'freemarker', version: '2.3.32'
+    implementation group: 'org.freemarker', name: 'freemarker', version: '2.3.33'
     implementation group: 'org.jdom', name: 'jdom2', version: '2.0.6.1'
     implementation('xalan:xalan:2.7.3')
     {
@@ -245,12 +245,12 @@ dependencies {
 
     compileOnly group: 'org.jetbrains', name: 'annotations', version: '24.1.0'
     compileOnly group: 'com.yuvimasory', name: 'orange-extensions', version: '1.3.0'
-    compileOnly group: 'com.github.spotbugs', name: 'spotbugs-annotations', version: '4.8.5'
+    compileOnly group: 'com.github.spotbugs', name: 'spotbugs-annotations', version: '4.8.6'
 
     testImplementation group: 'org.junit.platform', name: 'junit-platform-runner', version: '1.11.0-M2'
     testImplementation group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.11.0-M2'
     testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-api', version: '5.11.0-M2'
-    testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-params', version: '5.10.2'
+    testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-params', version: '5.11.0-M2'
     testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.11.0-M2'
     testImplementation group: 'org.hamcrest', name: 'hamcrest', version: '2.2'
     testImplementation group: 'org.testfx', name: 'testfx-junit5', version: '4.0.18'
@@ -259,8 +259,8 @@ dependencies {
     testImplementation group: 'org.xmlunit', name: 'xmlunit-matchers', version: '2.10.0'
     spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.13.0'
 
-    pmd 'net.sourceforge.pmd:pmd-ant:7.0.0'
-    pmd 'net.sourceforge.pmd:pmd-java:7.0.0'
+    pmd 'net.sourceforge.pmd:pmd-ant:7.3.0'
+    pmd 'net.sourceforge.pmd:pmd-java:7.3.0'
 }
 
 // Properties to support Ant builds

@@ -19,7 +19,7 @@ pmd {
     ruleSetFiles = files('code/standards/ruleset.xml')
     consoleOutput = true
     sourceSets = []
-    toolVersion = "7.1.0"
+    toolVersion = "7.3.0"
     incrementalAnalysis = true
 }
 
@@ -28,7 +28,7 @@ spotbugs {
     def classLoader = plugins["com.github.spotbugs"].class.classLoader
     def SpotBugsConfidence = classLoader.findLoadedClass("com.github.spotbugs.snom.Confidence")
 
-    toolVersion = '4.8.5'
+    toolVersion = '4.8.6'
     excludeFilter = file("$rootProject.projectDir/code/standards/spotbugs_ignore.xml")
     omitVisitors = ['Naming', 'CrossSiteScripting', 'DontUseEnum', 'DoInsideDoPrivileged']
     reportLevel = SpotBugsConfidence.LOW
