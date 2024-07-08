@@ -1,16 +1,16 @@
 /*
  * Copyright (c) 2007-18 Tom Parker <thpr@users.sourceforge.net>
- * 
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
@@ -19,18 +19,7 @@ package pcgen.cdom.base;
 
 import java.net.URI;
 import java.text.Collator;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 import org.jetbrains.annotations.NotNull;
 import pcgen.base.formula.Formula;
@@ -104,7 +93,7 @@ public abstract class CDOMObject extends ConcretePrereqObject
 	 * The display name for this CDOMObject.
 	 */
 	private String displayName = Constants.EMPTY_STRING;
-	
+
 	/**
 	 * Support object to store the variable information on an object.
 	 */
@@ -219,7 +208,7 @@ public abstract class CDOMObject extends ConcretePrereqObject
 	{
 		if (stringChar == null)
 		{
-			stringChar = new HashMap<>();
+			stringChar = new EnumMap<>(StringKey.class);
 		}
 		return stringChar.put(key, value);
 	}
@@ -236,7 +225,9 @@ public abstract class CDOMObject extends ConcretePrereqObject
 
 	public final Set<StringKey> getStringKeys()
 	{
-		return stringChar == null ? Collections.emptySet() : new HashSet<>(stringChar.keySet());
+		return stringChar == null
+				? EnumSet.noneOf(StringKey.class)
+				: EnumSet.copyOf(stringChar.keySet());
 	}
 
 	public final boolean containsKey(FormulaKey key)
@@ -524,15 +515,15 @@ public abstract class CDOMObject extends ConcretePrereqObject
 	/**
 	 * Returns a copy of the list of objects stored in this CDOMObject for the
 	 * given ListKey.
-	 * 
+	 *
 	 * No order is guaranteed, and the returned List may contain duplicates.
 	 * There is no guarantee that duplicate items are sequential items in the
 	 * returned List.
-	 * 
+	 *
 	 * This method is value-semantic in that no changes are made to the key
 	 * passed into the method and ownership of the returned List is transferred
 	 * to the class calling this method.
-	 * 
+	 *
 	 * @param key
 	 *            The ListKey for which a copy of the list should be returned.
 	 * @return A copy of the List contained in this CDOMObject for the given
@@ -546,15 +537,15 @@ public abstract class CDOMObject extends ConcretePrereqObject
 	/**
 	 * Returns a non-null copy of the list of objects stored in this CDOMObject
 	 * for the given ListKey.
-	 * 
+	 *
 	 * No order is guaranteed, and the returned List may contain duplicates.
 	 * There is no guarantee that duplicate items are sequential items in the
 	 * returned List.
-	 * 
+	 *
 	 * This method is value-semantic in that no changes are made to the key
 	 * passed into the method and ownership of the returned List is transferred
 	 * to the class calling this method.
-	 * 
+	 *
 	 * @param key
 	 *            The ListKey for which a copy of the list should be returned.
 	 * @return A copy of the List contained in this CDOMObject for the given
@@ -569,17 +560,17 @@ public abstract class CDOMObject extends ConcretePrereqObject
 	 * Returns a non-null Set of the objects stored in this CDOMObject for the
 	 * given ListKey. The List is converted to a Set to ensure that each entry
 	 * in the List is only occurs once.
-	 * 
+	 *
 	 * This is used because the loading system cannot guarantee "Set" behavior
 	 * (cannot guarantee uniqueness), and a specific infrastructure for a Set
 	 * (vs a List) is considered overkill for the few use cases that require it.
-	 * 
+	 *
 	 * No order of the objects is guaranteed.
-	 * 
+	 *
 	 * This method is value-semantic in that no changes are made to the key
 	 * passed into the method and ownership of the returned Set is transferred
 	 * to the class calling this method.
-	 * 
+	 *
 	 * @param key
 	 *            The ListKey for which a Set of the objects stored in this
 	 *            CDOMObject for the given ListKey should be returned.
@@ -660,7 +651,7 @@ public abstract class CDOMObject extends ConcretePrereqObject
 
 	/**
 	 * Add a value to the map of maps.
-	 * 
+	 *
 	 * @param mapKey The MapKey we are adding an entry to
 	 * @param key The key to assign against
 	 * @param value The value to be stored.
@@ -676,7 +667,7 @@ public abstract class CDOMObject extends ConcretePrereqObject
 
 	/**
 	 * Remove a value from the map of maps.
-	 * 
+	 *
 	 * @param mapKey The MapKey we are removing an entry from
 	 * @param key The key to eject
 	 */
@@ -694,7 +685,7 @@ public abstract class CDOMObject extends ConcretePrereqObject
 
 	/**
 	 * Remove a map from the map of maps.
-	 * 
+	 *
 	 * @param mapKey The MapKey we are removing
 	 */
 	public final <K, V> void removeMapFor(MapKey<K, V> mapKey)
@@ -711,7 +702,7 @@ public abstract class CDOMObject extends ConcretePrereqObject
 
 	/**
 	 * Retrieve the map of keys and values for the MapKey.
-	 * 
+	 *
 	 * @param mapKey The MapKey we are retrieving
 	 * @return The map of keys and values.
 	 */
@@ -724,7 +715,7 @@ public abstract class CDOMObject extends ConcretePrereqObject
 
 	/**
 	 * Retrieve the set of keys for the MapKey.
-	 * 
+	 *
 	 * @param mapKey The MapKey we are retrieving
 	 * @return The set of keys.
 	 */
@@ -735,9 +726,9 @@ public abstract class CDOMObject extends ConcretePrereqObject
 	}
 
 	/**
-	 * Get the value for the given MapKey and secondary key. If there is 
+	 * Get the value for the given MapKey and secondary key. If there is
 	 * not a mapping for the given keys, null is returned.
-	 * 
+	 *
 	 * @param mapKey
 	 *            The MapKey for retrieving the given value
 	 * @param key2
@@ -750,12 +741,12 @@ public abstract class CDOMObject extends ConcretePrereqObject
 	}
 
 	/**
-	 * Remove the value associated with the primary and secondary keys 
+	 * Remove the value associated with the primary and secondary keys
 	 * from the map.
-	 *  
+	 *
 	 * @param mapKey The MapKey of the entry we are removing
 	 * @param key2 The secondary key of the entry we are removing
-	 * @return true if the key and its associated value were successfully removed 
+	 * @return true if the key and its associated value were successfully removed
 	 *         from the map; false otherwise
 	 */
 	public final <K, V> boolean removeFromMap(MapKey<K, V> mapKey, K key2)
@@ -770,7 +761,7 @@ public abstract class CDOMObject extends ConcretePrereqObject
 
 	/**
 	 * Retrieve the set of mapkeys held.
-	 * 
+	 *
 	 * @return The set of mapkeys.
 	 */
 	public final Set<MapKey<?, ?>> getMapKeys()
@@ -957,7 +948,7 @@ public abstract class CDOMObject extends ConcretePrereqObject
 		{
 			if (stringChar == null)
 			{
-				stringChar = new HashMap<>();
+				stringChar = new EnumMap<>(StringKey.class);
 			}
 			stringChar.putAll(cdo.stringChar);
 		}
@@ -1032,7 +1023,7 @@ public abstract class CDOMObject extends ConcretePrereqObject
 	{
 		CDOMObject clone = (CDOMObject) super.clone();
 		clone.integerChar = integerChar == null ? null : new HashMap<>(integerChar);
-		clone.stringChar = stringChar == null ? null : new HashMap<>(stringChar);
+		clone.stringChar = stringChar == null ? null : new EnumMap<>(stringChar);
 		clone.formulaChar = formulaChar == null ? null : new HashMap<>(formulaChar);
 		clone.variableChar = variableChar == null ? null : new HashMap<>(variableChar);
 		clone.objectChar = objectChar == null ? null : new HashMap<>(objectChar);
@@ -1097,9 +1088,9 @@ public abstract class CDOMObject extends ConcretePrereqObject
 
 	/**
 	 * Set's all the BonusObj's to this creator
-	 * 
+	 *
 	 * Hopefully this is a temporary import - thpr Oct 9, 2008
-	 * @throws CloneNotSupportedException 
+	 * @throws CloneNotSupportedException
 	 */
 	public void ownBonuses(Object owner) throws CloneNotSupportedException
 	{
@@ -1117,11 +1108,11 @@ public abstract class CDOMObject extends ConcretePrereqObject
 
 	/**
 	 * Hopefully this is a temporary import - thpr Oct 11, 2008
-	 * 
-	 * Return the qualified key, ususally used as the source in a 
-	 * getVariableValue call. Always returns an empty string, but 
+	 *
+	 * Return the qualified key, ususally used as the source in a
+	 * getVariableValue call. Always returns an empty string, but
 	 * may be overridden by subclasses to return a required value.
-	 * 
+	 *
 	 * @return The qualified name of the object
 	 */
 	public String getQualifiedKey()
@@ -1329,7 +1320,7 @@ public abstract class CDOMObject extends ConcretePrereqObject
 	/**
 	 * Returns the local child of the given child type and child name. Returns null if no
 	 * such type or no child of that type with the given name exists.
-	 * 
+	 *
 	 * @param childType
 	 *            The child type for which the child should be returned
 	 * @param childName
@@ -1346,10 +1337,10 @@ public abstract class CDOMObject extends ConcretePrereqObject
 
 	/**
 	 * Returns the List of child types that this CDOMObject contains.
-	 * 
+	 *
 	 * Contract for implementations of this method: Will not return null (return an empty
 	 * list instead).
-	 * 
+	 *
 	 * @return The List of child types that this CDOMObject contains
 	 */
 	@Override
@@ -1362,7 +1353,7 @@ public abstract class CDOMObject extends ConcretePrereqObject
 	/**
 	 * Returns the List of children of the given child type. Returns null if this
 	 * CDOMObject has no children of the given type.
-	 * 
+	 *
 	 * @param childType
 	 *            The child type for which the list of children should be returned
 	 * @return The List of children of the given child type
@@ -1377,7 +1368,7 @@ public abstract class CDOMObject extends ConcretePrereqObject
 
 	/**
 	 * Indicates if this is the "UNSELECTED" item an object type for the loaded GameMode.
-	 * 
+	 *
 	 * @return true if this is the "Unselected" item; false otherwise
 	 */
 	public final boolean isUnselected()
