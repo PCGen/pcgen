@@ -18,7 +18,6 @@
 package pcgen.cdom.facet.fact;
 
 import java.util.EnumMap;
-import java.util.HashMap;
 import java.util.Map;
 
 import pcgen.cdom.enumeration.CharID;
