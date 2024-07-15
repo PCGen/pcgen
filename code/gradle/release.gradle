@@ -195,87 +195,90 @@ tasks.register("layoutNsisOptional", Copy) {
 
 // Generate the publisher/data list for the Windows installer script
 tasks.register("genDataList") {
-    doLast {
-        // TODO: find a way to move it to ext section.
-        // The list of publishers - add an entry here to correct a reported missing publisher
-        Map<String, String> publisherMap = new TreeMap<String, String>()
-        publisherMap.put("12_to_midnight", "12 to Midnight")
-        publisherMap.put("4_winds_fantasy_gaming", "4 Winds Fantasy Gaming")
-        publisherMap.put("alderac_entertainment_group", "Alderac Entertainment Group")
-        publisherMap.put("alderac_ent_group", "Alderac Entertainment Group")
-        publisherMap.put("alea_publishing_group", "Alea Publishing Group")
-        publisherMap.put("alluria_publishing", "Alluria Publishing")
-        publisherMap.put("ascension_games", "Ascension Games")
-        publisherMap.put("atlas_games", "Atlas Games")
-        publisherMap.put("auran_d20", "Auran d20")
-        publisherMap.put("avalanche_press", "Avalanche Press")
-        publisherMap.put("badaxe_games", "Bad Axe Games")
-        publisherMap.put("bards_and_sages", "Bards and Sages")
-        publisherMap.put("bastion_press", "Bastion Press")
-        publisherMap.put("battlefield_press", "Battlefield Press")
-        publisherMap.put("behemoth3", "Behemoth3")
-        publisherMap.put("big_finger_games", "Big Finger Games")
-        publisherMap.put("bloodstone_press", "Bloodstone Press")
-        publisherMap.put("blue_devil_games", "Blue Devil Games")
-        publisherMap.put("broken_ruler_games", "Broken Ruler Games")
-        publisherMap.put("crafty_games", "Crafty Games")
-        publisherMap.put("creativemountaingames", "Creative Mountain Games")
-        publisherMap.put("distant_horizons_games", "Distant Horizons Games")
-        publisherMap.put("doghouse_rules", "Dog House Rules")
-        publisherMap.put("dragonwing_games", "DragonWing Games")
-        publisherMap.put("dreamscarred_press", "Dreamscarred Press")
-        publisherMap.put("en_publishing", "EN Publishing")
-        publisherMap.put("everyman_gaming", "Everyman Gaming")
-        publisherMap.put("fantasy_community_council", "Fantasy Community Council")
-        publisherMap.put("fantasy_flight_games", "Fantasy Flight Games")
-        publisherMap.put("gallantry_productions", "Gallantry Productions")
-        publisherMap.put("goodman_games", "Goodman Games")
-        publisherMap.put("green_ronin", "Green Ronin")
-        publisherMap.put("kobold_press", "Kobold Press")
-        publisherMap.put("legendary_games", "Legendary Games")
-        publisherMap.put("lions_den_press", "Lions Den Press")
-        publisherMap.put("lone_wanderer_entertainment", "Lone Wanderer Entertainment")
-        publisherMap.put("malhavoc_press", "Malhavoc Press")
-        publisherMap.put("minotaur_games", "Minotaur Games")
-        publisherMap.put("mongoose", "Mongoose")
-        publisherMap.put("mongoose_publishing", "Mongoose Publishing")
-        publisherMap.put("msrd", "MSRD")
-        publisherMap.put("mythic_dream_studios", "Mythic Dreams Studios")
-        publisherMap.put("necromancer_games", "Necromancer Games")
-        publisherMap.put("nitehawk_interactive", "Nitehawk Interactive Games")
-        publisherMap.put("pandahead", "Pandahead")
-        publisherMap.put("paradigm_concepts", "Paradigm Concepts Inc")
-        publisherMap.put("paizo", "Paizo Publishing")
-        publisherMap.put("parents_basement_games", "Parents Basement Games")
-        publisherMap.put("pcgen", "PCGen OGL")
-        publisherMap.put("pfsrd_publishing", "Open Game Network (d20pfsrd)")
-        publisherMap.put("pinnacle_entertainment", "Pinnacle Entertainment")
-        publisherMap.put("reality_deviant", "Reality Deviant Publications")
-        publisherMap.put("rite", "Rite Publishing")
-        publisherMap.put("rite_publishing", "Rite Publishing")
-        publisherMap.put("rpg_objects", "RPG Objects")
-        publisherMap.put("sagaborn", "Sagaborn")
-        publisherMap.put("secular_games", "Secular Games")
-        publisherMap.put("silven_publishing", "Silven Publishing")
-        publisherMap.put("silverthorne_games", "Silverthorne Games")
-        publisherMap.put("skirmisher_publishing", "Skirmisher Publishing LLC")
-        publisherMap.put("sovereign_press", "Sovereign Press")
-        publisherMap.put("srd", "SRD")
-        publisherMap.put("srd35", "SRD35")
-        publisherMap.put("st_cooley_publishing", "S T Cooley Publishing")
-        publisherMap.put("storm_bunny_studios", "Storm Bunny Studios")
-        publisherMap.put("super_genius_games", "Super Genius Games")
-        publisherMap.put("sword_and_sorcery_studios", "Sword and Sorcery Studios")
-        publisherMap.put("swords_edge_publishing", "Swords Edge Publishing")
-        publisherMap.put("the_game_mechanics", "The Game Mechanics Inc")
-        publisherMap.put("vigilance_press", "Vigilance Press")
-        publisherMap.put("wizards_of_the_coast", "Wizards of the Coast")
-        publisherMap.put("lpj_design", "Louis Porter Jr. Design")
-        publisherMap.put("tripod_machine", "Tripod Machine")
-        publisherMap.put("total_party_kill_games", "Total Party Kill Games")
-        publisherMap.put("starfinder", "Starfinder")
+    inputs.dir layout.projectDirectory.dir("data")
 
-        def dataNsh = layout.projectDirectory.file("installers/win-installer/includes/data.nsh")
+    def dataNsh = layout.projectDirectory.file("installers/win-installer/includes/data.nsh")
+    outputs.file dataNsh
+
+    // TODO: find a way to move it to ext section.
+    // The list of publishers - add an entry here to correct a reported missing publisher
+    def publisherMap = ["12_to_midnight"             : "12 to Midnight",
+                        "4_winds_fantasy_gaming"     : "4 Winds Fantasy Gaming",
+                        "alderac_entertainment_group": "Alderac Entertainment Group",
+                        "alderac_ent_group"          : "Alderac Entertainment Group",
+                        "alea_publishing_group"      : "Alea Publishing Group",
+                        "alluria_publishing"         : "Alluria Publishing",
+                        "ascension_games"            : "Ascension Games",
+                        "atlas_games"                : "Atlas Games",
+                        "auran_d20"                  : "Auran d20",
+                        "avalanche_press"            : "Avalanche Press",
+                        "badaxe_games"               : "Bad Axe Games",
+                        "bards_and_sages"            : "Bards and Sages",
+                        "bastion_press"              : "Bastion Press",
+                        "battlefield_press"          : "Battlefield Press",
+                        "behemoth3"                  : "Behemoth3",
+                        "big_finger_games"           : "Big Finger Games",
+                        "bloodstone_press"           : "Bloodstone Press",
+                        "blue_devil_games"           : "Blue Devil Games",
+                        "broken_ruler_games"         : "Broken Ruler Games",
+                        "crafty_games"               : "Crafty Games",
+                        "creativemountaingames"      : "Creative Mountain Games",
+                        "distant_horizons_games"     : "Distant Horizons Games",
+                        "doghouse_rules"             : "Dog House Rules",
+                        "dragonwing_games"           : "DragonWing Games",
+                        "dreamscarred_press"         : "Dreamscarred Press",
+                        "en_publishing"              : "EN Publishing",
+                        "everyman_gaming"            : "Everyman Gaming",
+                        "fantasy_community_council"  : "Fantasy Community Council",
+                        "fantasy_flight_games"       : "Fantasy Flight Games",
+                        "gallantry_productions"      : "Gallantry Productions",
+                        "goodman_games"              : "Goodman Games",
+                        "green_ronin"                : "Green Ronin",
+                        "kobold_press"               : "Kobold Press",
+                        "legendary_games"            : "Legendary Games",
+                        "lions_den_press"            : "Lions Den Press",
+                        "lone_wanderer_entertainment": "Lone Wanderer Entertainment",
+                        "malhavoc_press"             : "Malhavoc Press",
+                        "minotaur_games"             : "Minotaur Games",
+                        "mongoose"                   : "Mongoose",
+                        "mongoose_publishing"        : "Mongoose Publishing",
+                        "msrd"                       : "MSRD",
+                        "mythic_dream_studios"       : "Mythic Dreams Studios",
+                        "necromancer_games"          : "Necromancer Games",
+                        "nitehawk_interactive"       : "Nitehawk Interactive Games",
+                        "pandahead"                  : "Pandahead",
+                        "paradigm_concepts"          : "Paradigm Concepts Inc",
+                        "paizo"                      : "Paizo Publishing",
+                        "parents_basement_games"     : "Parents Basement Games",
+                        "pcgen"                      : "PCGen OGL",
+                        "pfsrd_publishing"           : "Open Game Network (d20pfsrd,",
+                        "pinnacle_entertainment"     : "Pinnacle Entertainment",
+                        "reality_deviant"            : "Reality Deviant Publications",
+                        "rite"                       : "Rite Publishing",
+                        "rite_publishing"            : "Rite Publishing",
+                        "rpg_objects"                : "RPG Objects",
+                        "sagaborn"                   : "Sagaborn",
+                        "secular_games"              : "Secular Games",
+                        "silven_publishing"          : "Silven Publishing",
+                        "silverthorne_games"         : "Silverthorne Games",
+                        "skirmisher_publishing"      : "Skirmisher Publishing LLC",
+                        "sovereign_press"            : "Sovereign Press",
+                        "srd"                        : "SRD",
+                        "srd35"                      : "SRD35",
+                        "st_cooley_publishing"       : "S T Cooley Publishing",
+                        "storm_bunny_studios"        : "Storm Bunny Studios",
+                        "super_genius_games"         : "Super Genius Games",
+                        "sword_and_sorcery_studios"  : "Sword and Sorcery Studios",
+                        "swords_edge_publishing"     : "Swords Edge Publishing",
+                        "the_game_mechanics"         : "The Game Mechanics Inc",
+                        "vigilance_press"            : "Vigilance Press",
+                        "wizards_of_the_coast"       : "Wizards of the Coast",
+                        "lpj_design"                 : "Louis Porter Jr. Design",
+                        "tripod_machine"             : "Tripod Machine",
+                        "total_party_kill_games"     : "Total Party Kill Games",
+                        "starfinder"                 : "Starfinder"]
+
+    doLast {
         project.delete(dataNsh)
         def out = new StringBuilder()
 
@@ -310,7 +313,7 @@ tasks.register("genDataList") {
 """)
                 subFolders++
             }
-            if(subFolders == 0){
+            if (subFolders == 0){
                 def pubname = publisherMap.getOrDefault(it.name, it.name)
                 out.append("""\tSection "$pubname"
 \t\tSectionIn 1 2
@@ -323,22 +326,32 @@ tasks.register("genDataList") {
             out.append("SubSectionEnd\n\n")
         }
 
-        println("Writing data to: ${dataNsh}")
-        dataNsh.asFile.write(out.toString())
+        println("Writing data to: ${outputs.files.singleFile}")
+        outputs.files.singleFile.text = out
     }
 }
 
 // Create the version specific config files for NSIS
 tasks.register("genProjectNsis") {
+    def licenseFile = layout.projectDirectory.file("code/LICENSE")
+    inputs.file licenseFile
+    inputs.property("plainVerNum", plainVerNum)
+    inputs.property("installerVerNum", installerVerNum)
+
+    def projectNsh = layout.projectDirectory.file("installers/win-installer/project.nsh")
+    def constantsNsh = layout.projectDirectory.file("installers/win-installer/includes/constants.nsh")
+
+    outputs.files projectNsh, constantsNsh
+
     doLast {
-        layout.projectDirectory.file("installers/win-installer/project.nsh").asFile
+        projectNsh.asFile
                 .text = """
 ; Projects file generated by release.gradle
 !define PROJECT_BUILD_DIR "${layout.buildDirectory.dir(".").get()}"
 !define PROJECT_DIST_BIN_DIR "${layout.buildDirectory.dir("nsis").get()}"
 !define PROJECT_DIST_DIR "${layout.buildDirectory.dir(".").get()}"
 !define PROJECT_FINAL_NAME "pcgen"
-!define PROJECT_LICENSE_FILE "${projectDir}\\code\\LICENSE"
+!define PROJECT_LICENSE_FILE "${licenseFile.asFile.absolutePath}"
 !define PROJECT_LICENSE_TEXT "This program is Licensed under The GNU Lesser General Public License, Version 2.1."
 !define PROJECT_NAME "PCGen"
 !define PROJECT_ORGANIZATION "SourceForge"
@@ -350,7 +363,7 @@ tasks.register("genProjectNsis") {
 !define INSTALLER_VERSION "${installerVerNum}"
 """
 
-        layout.projectDirectory.file("installers/win-installer/includes/constants.nsh").asFile
+        constantsNsh.asFile
                 .text = """
 ; Constants file generated by release.gradle
 !define SIMPVER "${shortVerNum}"
@@ -369,7 +382,7 @@ tasks.register("buildNsis", Exec) {
     mustRunAfter createExe
 
     def makensisPaths = [windows: "C:/Program Files (x86)/NSIS/makensis.exe"]
-    def currentOs = System.properties['os.name'].toLowerCase(Locale.ROOT);
+    def currentOs = System.getProperty('os.name').toLowerCase(Locale.ROOT);
     def makensis = makensisPaths.getOrDefault(currentOs, "makensis")
     def pcgenNsi = layout.projectDirectory.file("installers/win-installer/pcgen.nsi").asFile.absolutePath
     def stdout = new ByteArrayOutputStream()
@@ -380,14 +393,18 @@ tasks.register("buildNsis", Exec) {
     }
     workingDir layout.buildDirectory.dir("nsis")
 
-    if (currentOs == "windows") {
-        commandLine makensis, "/V3", "/WX", pcgenNsi
-    } else {
-        commandLine makensis, "-V3", "-WX", pcgenNsi
-    }
     standardOutput = stdout;
+    errorOutput = stdout;
+
+    if (currentOs == "windows") {
+        commandLine makensis, "/V4", "/WX", "/Onsis.output", pcgenNsi
+    } else {
+        commandLine makensis, "-V4", "-WX", "-Onsis.output", pcgenNsi
+    }
+
     doLast {
-        println "Output: $stdout"
+        def nsisOutput = layout.buildDirectory.file("nsis/nsis.output").get()
+        println "NSIS output is located in : ${nsisOutput.asFile.absolutePath}"
     }
 }
 
