@@ -371,8 +371,6 @@ tasks.register("genProjectNsis") {
 !define OutDir "${layout.buildDirectory.dir("nsisRelease").get()}"
 !define SrcDir "${layout.buildDirectory.dir("nsis").get()}"
 """
-
-        mkdir layout.buildDirectory.dir("nsisRelease")
     }
 }
 
@@ -390,6 +388,7 @@ tasks.register("buildNsis", Exec) {
     doFirst {
         println("Running makensis from the path '${makensis}':")
         mkdir layout.buildDirectory.dir("nsis")
+        mkdir layout.buildDirectory.dir("nsisRelease")
     }
     workingDir layout.buildDirectory.dir("nsis")
 
