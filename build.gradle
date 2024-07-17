@@ -356,30 +356,24 @@ runtime {
         def licenseFile = layout.projectDirectory.file("code/LICENSE")
         installerOptions = ["--app-version", "${version.replaceAll('-SNAPSHOT', '')}", "--license-file", licenseFile.asFile.absolutePath]
 
-        // Get the host architecture
         def hostArchitecture = System.getProperty("os.arch")
+        def osFamily = (Os.isFamily(Os.FAMILY_MAC)
+                ? "mac"
+                : (Os.isFamily(Os.FAMILY_UNIX)
+                    ? "linux"
+                    : (Os.isFamily(Os.FAMILY_WINDOWS) ? "win" : "unknown")))
+        def targetPlatform = ["x86_64" : "x64",
+                              "amd64" : "x64",
+                              "aarch64" : "aarch64"]
+        // formats a string such as "mac-aarch64", or "linux-x64"
+        targetPlatformName = "${osFamily}-${targetPlatform.get(hostArchitecture, "NOT SUPPORTED")}"
 
-        if (Os.isFamily(Os.FAMILY_MAC))
-        {
-            if (hostArchitecture == "x86_64" || hostArchitecture == "amd64") {
-                targetPlatformName = 'mac-x64'
-            } else if (hostArchitecture == "aarch64") {
-                targetPlatformName = 'mac-aarch64'
-            } else {
-                targetPlatformName = 'NOT SUPPORTED'
-            }
+        if (osFamily == "mac") {
             installerOptions += ["--mac-package-identifier", "PcGen", "--mac-package-name", "PcGen"]
             resourceDir = layout.projectDirectory.dir("installers/mac-installer").asFile
         }
         // This may seem weird but there's no LINUX family detection in the OS lib
-        else if (Os.isFamily(Os.FAMILY_UNIX)) {
-            if (hostArchitecture == "x86_64" || hostArchitecture == "amd64") {
-                targetPlatformName = 'linux-x64'
-            } else if (hostArchitecture == "aarch64") {
-                targetPlatformName = 'linux-aarch64'
-            } else {
-                targetPlatformName = 'NOT SUPPORTED'
-            }
+        else if (osFamily == "linux") {
             installerOptions += ['--linux-shortcut']
         }
         imageName = "PcGen"
