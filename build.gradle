@@ -81,7 +81,7 @@ ext {
     releaseDir = layout.projectDirectory.dir("build/release")
 
     // JavaFX version
-    javaFXVersion = "21.0.3"
+    javaFXVersion = "21.0.4"
 }
 
 application {
@@ -618,7 +618,7 @@ tasks.register("downloadJavaFXModules") {
 
     // We support Windows/Mac/Linux - x64, and Mac/Linux - aarch64
     // (JavaFX doesn't support Linux/aarch64 in 21 LTS, use 21.0.1 instead)
-    def major = "21.0.3"
+    def major = project.ext.javaFXVersion
     def archs = ['x64', 'aarch64']
     def osList = ["windows", "mac", "linux"]
 
