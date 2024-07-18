@@ -742,7 +742,7 @@ tasks.named("compileJava") {
     dependsOn copyMasterSheets
 }
 
-tasks.named("runtime") {
+tasks.named("jre") {
     dependsOn downloadJRE, downloadJavaFXModules
 }
 
