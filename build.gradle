@@ -947,7 +947,7 @@ tasks.register("allTasks") {
 // TODO This clean is not as nuclear as it perhaps should be.
 // For jlink and friends to work when you get odd Zip errors
 // you will also need to clean out output/ bin/
-// This task is in the end, becaude other scripts contribute to the building process
+// This task is in the end, because other scripts contribute to the building process
 tasks.named("clean") {
     dependsOn tasks.named("clean-plugins"), cleanOutput, cleanJre, cleanMods, cleanNsis
 
@@ -963,7 +963,8 @@ tasks.named("clean") {
                 layout.projectDirectory.file("outputsheets/d20/horror/htmlxml/psheet_fantasy_std.htm"),
                 layout.projectDirectory.file("outputsheets/d20/sciencefiction/htmlxml/eqsheet_fantasy_std.htm"),
                 layout.projectDirectory.file("outputsheets/d20/sciencefiction/htmlxml/psheet_fantasy_std.htm"),
-                layout.projectDirectory.file("outputsheets/d20/western/htmlxml/eqsheet_fantasy_std.htm")
+                layout.projectDirectory.file("outputsheets/d20/western/htmlxml/eqsheet_fantasy_std.htm"),
+                layout.projectDirectory.file("outputsheets/d20/western/htmlxml/psheet_fantasy_std.htm")
         )
 
         // Delete plugin folders
