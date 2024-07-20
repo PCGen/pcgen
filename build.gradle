@@ -81,7 +81,7 @@ ext {
     releaseDir = layout.projectDirectory.dir("build/release")
 
     // JavaFX version
-    javaFXVersion = "21.0.3"
+    javaFXVersion = "21.0.4"
 }
 
 application {
@@ -179,20 +179,29 @@ sourceSets {
 
 /* Copy 'master' outputsheets into different genre folders */
 tasks.register("copyMasterSheets", Copy) {
-    include 'eqsheet_fantasy_std.htm'
-    include 'psheet_fantasy_std.htm'
-    from 'outputsheets/d20/fantasy/htmlxml'
-    into 'outputsheets/d20/historical/htmlxml'
+    def filesToCopy = copySpec {
+        include 'eqsheet_fantasy_std.htm', 'psheet_fantasy_std.htm'
+        from 'outputsheets/d20/fantasy/htmlxml'
+    }
 
-    into ('../../horror/htmlxml') {
-        from 'outputsheets/d20/fantasy/htmlxml'
-    }
-    into ('../../sciencefiction/htmlxml') {
-        from 'outputsheets/d20/fantasy/htmlxml'
-    }
-    into ('../../western/htmlxml') {
-        from 'outputsheets/d20/fantasy/htmlxml'
-    }
+    into(layout.projectDirectory.dir('outputsheets/d20'))
+
+    into('historical/htmlxml') { with filesToCopy }
+    into('horror/htmlxml') { with filesToCopy }
+    into('sciencefiction/htmlxml') { with filesToCopy }
+    into('western/htmlxml') { with filesToCopy }
+}
+
+/* Delete 'master' outputsheets from different genre folders */
+tasks.register("cleanMasterSheets", Delete) {
+    delete layout.projectDirectory.file("outputsheets/d20/historical/htmlxml/eqsheet_fantasy_std.htm"),
+            layout.projectDirectory.file("outputsheets/d20/historical/htmlxml/psheet_fantasy_std.htm"),
+            layout.projectDirectory.file("outputsheets/d20/horror/htmlxml/eqsheet_fantasy_std.htm"),
+            layout.projectDirectory.file("outputsheets/d20/horror/htmlxml/psheet_fantasy_std.htm"),
+            layout.projectDirectory.file("outputsheets/d20/sciencefiction/htmlxml/eqsheet_fantasy_std.htm"),
+            layout.projectDirectory.file("outputsheets/d20/sciencefiction/htmlxml/psheet_fantasy_std.htm"),
+            layout.projectDirectory.file("outputsheets/d20/western/htmlxml/eqsheet_fantasy_std.htm"),
+            layout.projectDirectory.file("outputsheets/d20/western/htmlxml/psheet_fantasy_std.htm")
 }
 
 /*
@@ -353,32 +362,27 @@ runtime {
 
     // Use the jpackage tool that comes with Java to build native installers
     jpackage {
-        installerOptions = ["--app-version", "${version.replaceAll('-SNAPSHOT', '')}", "--license-file", "${projectDir}/code/LICENSE"]
+        def licenseFile = layout.projectDirectory.file("code/LICENSE")
+        installerOptions = ["--app-version", "${version.replaceAll('-SNAPSHOT', '')}", "--license-file", licenseFile.asFile.absolutePath]
 
-        // Get the host architecture
         def hostArchitecture = System.getProperty("os.arch")
+        def osFamily = (Os.isFamily(Os.FAMILY_MAC)
+                ? "mac"
+                : (Os.isFamily(Os.FAMILY_UNIX)
+                    ? "linux"
+                    : (Os.isFamily(Os.FAMILY_WINDOWS) ? "win" : "unknown")))
+        def targetPlatform = ["x86_64" : "x64",
+                              "amd64" : "x64",
+                              "aarch64" : "aarch64"]
+        // formats a string such as "mac-aarch64", or "linux-x64"
+        targetPlatformName = "${osFamily}-${targetPlatform.get(hostArchitecture, "NOT SUPPORTED")}"
 
-        if (Os.isFamily(Os.FAMILY_MAC))
-        {
-            if (hostArchitecture == "x86_64" || hostArchitecture == "amd64") {
-                targetPlatformName = 'mac-x64'
-            } else if (hostArchitecture == "aarch64") {
-                targetPlatformName = 'mac-aarch64'
-            } else {
-                targetPlatformName = 'NOT SUPPORTED'
-            }
+        if (osFamily == "mac") {
             installerOptions += ["--mac-package-identifier", "PcGen", "--mac-package-name", "PcGen"]
             resourceDir = layout.projectDirectory.dir("installers/mac-installer").asFile
         }
         // This may seem weird but there's no LINUX family detection in the OS lib
-        else if (Os.isFamily(Os.FAMILY_UNIX)) {
-            if (hostArchitecture == "x86_64" || hostArchitecture == "amd64") {
-                targetPlatformName = 'linux-x64'
-            } else if (hostArchitecture == "aarch64") {
-                targetPlatformName = 'linux-aarch64'
-            } else {
-                targetPlatformName = 'NOT SUPPORTED'
-            }
+        else if (osFamily == "linux") {
             installerOptions += ['--linux-shortcut']
         }
         imageName = "PcGen"
@@ -523,11 +527,11 @@ tasks.named("build") {
 }
 
 tasks.register("downloadJRE") {
-    doLast {
-        def major = 21
-        def archs = ['x64', 'aarch64']
-        def osList = ['windows', 'mac', 'linux']
+    def major = 21
+    def archs = ['x64', 'aarch64']
+    def osList = ['windows', 'mac', 'linux']
 
+    doLast {
         println("Downloading JDKs for use in creating the runtime bundles.")
 
         osList.each {
@@ -540,10 +544,12 @@ tasks.register("downloadJRE") {
                 if (arch == "aarch64" && os == "windows") return
 
                 def url = "https://api.adoptium.net/v3/binary/latest/${major}/ga/${os}/${arch}/jdk/hotspot/normal/eclipse"
+                def jreDownloadDest = layout.projectDirectory.file("jre/${os}/jre_${arch}.${extension}")
                 def jreDir = layout.projectDirectory.dir("jre/${os}/jre_${arch}").asFile
                 def jreRelease = (os == "mac"
                         ? layout.projectDirectory.dir("jre/${os}/jre_${arch}/Contents/Home/release").asFile
                         : layout.projectDirectory.dir("jre/${os}/jre_${arch}/release").asFile)
+                def outputDir = layout.projectDirectory.dir("jre/${os}/jre_${arch}")
                 def shouldDownloadJDK = true;
 
                 try {
@@ -568,11 +574,9 @@ tasks.register("downloadJRE") {
                 println("Downloading Java ${major} ${arch} for ${os} from ${url}")
                 download.run {
                     src url
-                    dest layout.projectDirectory.file("jre/${os}/jre_${arch}.${extension}").asFile.absolutePath
+                    dest jreDownloadDest.asFile.absolutePath
                     overwrite false
                 }
-
-                def outputDir = layout.projectDirectory.dir("jre/${os}/jre_${arch}")
 
                 layout.projectDirectory.dir("jre/${os}")
                         .asFileTree
@@ -612,13 +616,15 @@ tasks.register("downloadJRE") {
 tasks.register("downloadJavaFXModules") {
     mustRunAfter downloadJRE
 
-    doLast {
-        // We support Windows/Mac/Linux - x64, and Mac/Linux - aarch64
-        // (JavaFX doesn't support Linux/aarch64 in 21 LTS, use 21.0.1 instead)
-        def major = "21.0.3"
-        def archs = ['x64', 'aarch64']
-        def osList = ["windows", "mac", "linux"]
+    // We support Windows/Mac/Linux - x64, and Mac/Linux - aarch64
+    // (JavaFX doesn't support Linux/aarch64 in 21 LTS, use 21.0.1 instead)
+    def major = project.ext.javaFXVersion
+    def archs = ['x64', 'aarch64']
+    def osList = ["windows", "mac", "linux"]
 
+    inputs.property("major", major)
+
+    doLast {
         println("Downloading JavaFX modules (.mods) for use in the runtime bundles.")
         // Downloads javafx .mods for custom runtime image. All platforms downloaded
         osList.each { os ->
@@ -641,21 +647,20 @@ tasks.register("downloadJavaFXModules") {
 
                 // URLs look like this: https://download2.gluonhq.com/openjfx/21.0.2/openjfx-21.0.2_osx-aarch64_bin-jmods.zip
                 def url = "https://download2.gluonhq.com/openjfx/${major}/openjfx-${major}_${osPackage}${archAppend}_bin-jmods.zip"
-
-                def jmodsZip = layout.projectDirectory.file("jre/${os}/jmods${arch}.zip").asFile
+                def jmodsZip = layout.projectDirectory.file("jre/${os}/jmods${arch}.zip")
 
                 // If we don't already have the jmods, download them and unzip them to the correct place.
-                if (!jmodsZip.exists()) {
+                if (!jmodsZip.asFile.exists()) {
                     println("Downloading JavaFX mods ${major} ${arch} for ${os} from ${url} to ${projectDir}/jre/${os}/")
 
                     download.run {
                         src url
-                        dest layout.projectDirectory.file("jre/${os}/jmods${arch}.zip")
+                        dest jmodsZip
                         overwrite false
                     }
 
                     copy {
-                        def zipFile = file("${projectDir}/jre/${os}/jmods${arch}.zip")
+                        def zipFile = jmodsZip
                         def outputDir = (os == "mac")
                                 ? "${projectDir}/jre/${os}/jre_${arch}/Contents/Home/jmods"
                                 : "${projectDir}/jre/${os}/jre_${arch}/jmods"
@@ -737,7 +742,7 @@ tasks.named("compileJava") {
     dependsOn copyMasterSheets
 }
 
-tasks.named("runtime") {
+tasks.named("jre") {
     dependsOn downloadJRE, downloadJavaFXModules
 }
 
@@ -951,7 +956,23 @@ tasks.register("allTasks") {
 // TODO This clean is not as nuclear as it perhaps should be.
 // For jlink and friends to work when you get odd Zip errors
 // you will also need to clean out output/ bin/
-// This task is in the end, becaude other scripts contribute to the building process
+// This task is in the end, because other scripts contribute to the building process
 tasks.named("clean") {
-    dependsOn tasks.named("clean-plugins"), cleanOutput, cleanJre, cleanMods, cleanNsis
+    dependsOn tasks.named("clean-plugins"), cleanOutput, cleanJre, cleanMods, cleanNsis, cleanMasterSheets
+
+    doLast {
+        // Delete a file generated by pluginbuild.xml
+        project.delete(layout.projectDirectory.file("code/manifest"))
+
+        // Delete plugin folders
+        project.delete(
+                layout.projectDirectory.dir("plugins/bonusplugins"),
+                layout.projectDirectory.dir("plugins/converterplugins"),
+                layout.projectDirectory.dir("plugins/jepplugins"),
+                layout.projectDirectory.dir("plugins/lstplugins"),
+                layout.projectDirectory.dir("plugins/outputplugins"),
+                layout.projectDirectory.dir("plugins/preplugins"),
+                layout.projectDirectory.dir("plugins/systemlstplugins")
+        )
+    }
 }
