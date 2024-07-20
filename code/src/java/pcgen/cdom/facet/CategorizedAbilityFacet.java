@@ -1,16 +1,16 @@
 /*
  * Copyright (c) Thomas Parker, 2009.
- * 
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
@@ -19,6 +19,7 @@ package pcgen.cdom.facet;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.Map;
@@ -35,7 +36,7 @@ import pcgen.core.Ability;
 /**
  * A CategorizedAbilityFacet is a DataFacet that contains information about
  * Ability objects that are contained in a PlayerCharacter
- * 
+ *
  */
 public class CategorizedAbilityFacet extends AbstractDataFacet<CharID, Ability>
 {
@@ -44,7 +45,7 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<CharID, Ability>
 	 * Add the given Ability to the list of Abilities defined by the given
 	 * Category and Nature, which is stored in this CategorizedAbilityFacet for
 	 * the Player Character represented by the given CharID
-	 * 
+	 *
 	 * @param id
 	 *            The CharID representing the Player Character for which the
 	 *            given Ability should be added
@@ -74,7 +75,7 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<CharID, Ability>
 	 * Abilities defined by the given Category and Nature, which is stored in
 	 * this CategorizedAbilityFacet for the Player Character represented by the
 	 * given CharID
-	 * 
+	 *
 	 * @param id
 	 *            The CharID representing the Player Character for which the
 	 *            given Abilities should be added
@@ -104,7 +105,7 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<CharID, Ability>
 	 * Removes the given Ability from the list of Abilities defined by the given
 	 * Category and Nature, which is stored in this CategorizedAbilityFacet for
 	 * the Player Character represented by the given CharID
-	 * 
+	 *
 	 * @param id
 	 *            The CharID representing the Player Character from which the
 	 *            given Ability should be removed
@@ -135,7 +136,7 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<CharID, Ability>
 	 * given CharID. This method returns an empty set if no objects are in this
 	 * CategorizedAbilityFacet for the Player Character identified by the given
 	 * CharID.
-	 * 
+	 *
 	 * This method is value-semantic in that ownership of the returned Set is
 	 * transferred to the class calling this method. Modification of the
 	 * returned Set will not modify this CategorizedAbilityFacet and
@@ -145,7 +146,7 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<CharID, Ability>
 	 * CategorizedAbilityFacet. If you wish to modify the information stored in
 	 * this CategorizedAbilityFacet, you must use the add*() and remove*()
 	 * methods of CategorizedAbilityFacet.
-	 * 
+	 *
 	 * @param id
 	 *            The CharID representing the Player Character for which the
 	 *            items in this CategorizedAbilityFacet should be returned.
@@ -172,7 +173,7 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<CharID, Ability>
 	 * Returns true if this CategorizedAbilityFacet contains the given Ability
 	 * in the list of items for the Player Character represented by the given
 	 * CharID.
-	 * 
+	 *
 	 * @param id
 	 *            The CharID representing the Player Character used for testing
 	 * @param cat
@@ -227,7 +228,7 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<CharID, Ability>
 		if (natureMap == null)
 		{
 			isNew = true;
-			natureMap = new HashMap<>();
+			natureMap = new EnumMap<>(Nature.class);
 			catMap.put(cat, natureMap);
 		}
 		Set<Ability> abilitySet = natureMap.get(nat);
@@ -245,12 +246,12 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<CharID, Ability>
 	 * Returns the type-safe Set for this CategorizedAbilityFacet and the given
 	 * CharID. May return null if no information has been set in this
 	 * CategorizedAbilityFacet for the given CharID.
-	 * 
+	 *
 	 * Note that this method SHOULD NOT be public. The Set is owned by
 	 * CategorizedAbilityFacet, and since it can be modified, a reference to
 	 * that Set should not be exposed to any object other than
 	 * CategorizedAbilityFacet.
-	 * 
+	 *
 	 * @param id
 	 *            The CharID for which the Set should be returned
 	 * @param cat
@@ -282,12 +283,12 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<CharID, Ability>
 	 * Returns the type-safe Map for this CategorizedAbilityFacet and the given
 	 * CharID. May return null if no information has been set in this
 	 * CategorizedAbilityFacet for the given CharID.
-	 * 
+	 *
 	 * Note that this method SHOULD NOT be public. The Map is owned by
 	 * CategorizedAbilityFacet, and since it can be modified, a reference to
 	 * that Map should not be exposed to any object other than
 	 * CategorizedAbilityFacet.
-	 * 
+	 *
 	 * @param id
 	 *            The CharID for which the Map should be returned
 	 * @return The Map for the Player Character represented by the given CharID;
@@ -303,7 +304,7 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<CharID, Ability>
 	 * Removes all Abilities from the list of Abilities stored in this
 	 * CategorizedAbilityFacet for the Player Character represented by the given
 	 * CharID
-	 * 
+	 *
 	 * @param id
 	 *            The CharID representing the Player Character from which all
 	 *            Abilities should be removed
@@ -327,7 +328,7 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<CharID, Ability>
 	 * Removes all of the Ability objects in the given Category from the lists
 	 * of Abilities stored in this CategorizedAbilityFacet for the Player
 	 * Character represented by the given CharID
-	 * 
+	 *
 	 * @param id
 	 *            The CharID representing the Player Character from which the
 	 *            given Abilities should be removed
@@ -356,7 +357,7 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<CharID, Ability>
 	 * Removes all of the objects of the given Category and Nature from the list
 	 * of Abilities stored in this CategorizedAbilityFacet for the Player
 	 * Character represented by the given CharID
-	 * 
+	 *
 	 * @param id
 	 *            The CharID representing the Player Character from which the
 	 *            given Abilities should be removed
@@ -403,7 +404,7 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<CharID, Ability>
 	 * Removes all of the Ability objects in the given Nature from the lists of
 	 * Abilities stored in this CategorizedAbilityFacet for the Player Character
 	 * represented by the given CharID
-	 * 
+	 *
 	 * @param id
 	 *            The CharID representing the Player Character from which the
 	 *            given Abilities should be removed
@@ -446,7 +447,7 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<CharID, Ability>
 	 * CharID. This method returns an empty set if no objects are in this
 	 * CategorizedAbilityFacet for the Player Character identified by the given
 	 * CharID.
-	 * 
+	 *
 	 * This method is value-semantic in that ownership of the returned Set is
 	 * transferred to the class calling this method. Modification of the
 	 * returned Set will not modify this CategorizedAbilityFacet and
@@ -456,7 +457,7 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<CharID, Ability>
 	 * CategorizedAbilityFacet. If you wish to modify the information stored in
 	 * this CategorizedAbilityFacet, you must use the add*() and remove*()
 	 * methods of CategorizedAbilityFacet.
-	 * 
+	 *
 	 * @param id
 	 *            The CharID representing the Player Character for which the
 	 *            items in this CategorizedAbilityFacet should be returned.
@@ -478,18 +479,18 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<CharID, Ability>
 	 * Copies the contents of the CategorizedAbilityFacet from one Player
 	 * Character to another Player Character, based on the given CharIDs
 	 * representing those Player Characters.
-	 * 
+	 *
 	 * This is a method in CategorizedAbilityFacet in order to avoid exposing
 	 * the mutable Map object to other classes. This should not be inlined, as
 	 * the Map is internal information to CategorizedAbilityFacet and should not
 	 * be exposed to other classes.
-	 * 
+	 *
 	 * Note also the copy is a one-time event and no references are maintained
 	 * between the Player Characters represented by the given CharIDs (meaning
 	 * once this copy takes place, any change to the CategorizedAbilityFacet of
 	 * one Player Character will only impact the Player Character where the
 	 * CategorizedAbilityFacet was changed).
-	 * 
+	 *
 	 * @param source
 	 *            The CharID representing the Player Character from which the
 	 *            information should be copied

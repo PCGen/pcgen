@@ -165,6 +165,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 		}
 	}
 
+	@SuppressWarnings("PMD.UnusedNullCheckInEquals")
 	private void storeObject(LoadContext context, T pObj)
 	{
 		final T currentObj = getMatchingObject(context, pObj);

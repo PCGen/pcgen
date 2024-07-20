@@ -123,7 +123,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 			        .filter(PCGFile::isPCGenCampaignFile)
 			        .map(uri -> Globals.getCampaignByURI(uri, false))
 			        .filter(Objects::nonNull)
-			        .forEach(subcampaign -> totalCampaigns.add(subcampaign));
+			        .forEach(totalCampaigns::add);
 		}
 		sortCampaignsByRank(totalCampaigns);
 
@@ -336,7 +336,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 	}
 
 	/**
-	 * A log handler to capture load errors and warnings and 
+	 * A log handler to capture load errors and warnings and
 	 * display them in the message section of the panel.
 	 */
 	private final class LoadHandler extends Handler

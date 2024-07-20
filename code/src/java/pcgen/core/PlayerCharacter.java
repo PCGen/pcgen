@@ -5408,7 +5408,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	private Load getHouseRuledLoadType()
 	{
-		System.out.println("getHouseRuledLoadType");
 		if (Globals.checkRule(RuleConstants.SYS_LDPACSK))
 		{
 			return getLoadType();

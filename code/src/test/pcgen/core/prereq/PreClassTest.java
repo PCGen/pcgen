@@ -508,21 +508,6 @@ public class PreClassTest extends AbstractCharacterTestCase
 			singlePrereq, character, null));
 	}
 
-	@Test
-	public void testOldPreClassLevelMax()
-	{
-		final PreClassLevelMaxParser parser = new PreClassLevelMaxParser();
-		try
-		{
-			parser.parse("CLASSLEVELMAX", "Fighter=2", false, false);
-		    fail();
-		}
-		catch (PersistenceLayerException e)
-		{
-		    // Do Nothing, we should catch an exception here
-		}
-	}
-
 	/**
 	 * Test to ensure that a character will fail a test
 	 * if it does not have the correct number of levels

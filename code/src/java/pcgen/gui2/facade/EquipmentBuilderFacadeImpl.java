@@ -20,8 +20,8 @@ package pcgen.gui2.facade;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.EnumMap;
 import java.util.EnumSet;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -56,12 +56,12 @@ import pcgen.util.enumeration.View;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * EquipmentBuilderFacadeImpl is an implementation of the 
- * {@link EquipmentBuilderFacade} interface for the new user interface. It is 
- * intended to allow the ui to control the creation of a custom item of 
+ * EquipmentBuilderFacadeImpl is an implementation of the
+ * {@link EquipmentBuilderFacade} interface for the new user interface. It is
+ * intended to allow the ui to control the creation of a custom item of
  * equipment without direct interaction with the core.
- * 
- * 
+ *
+ *
  */
 public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 {
@@ -76,7 +76,7 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 	private final DefaultReferenceFacade<SizeAdjustment> sizeRef;
 
 	/**
-	 * Create a new EquipmentBuilderFacadeImpl instance for the customization of 
+	 * Create a new EquipmentBuilderFacadeImpl instance for the customization of
 	 * a particular item of equipment for the character.
 	 * @param equip The equipment item being customized (must not be the base item).
 	 * @param character The character the equipment will be for.
@@ -97,8 +97,8 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 		equipHeads = equip.isDouble() ? EnumSet.range(EquipmentHead.PRIMARY, EquipmentHead.SECONDARY)
 			: EnumSet.of(EquipmentHead.PRIMARY);
 
-		availListMap = new HashMap<>();
-		selectedListMap = new HashMap<>();
+		availListMap = new EnumMap<>(EquipmentBuilderFacade.EquipmentHead.class);
+		selectedListMap = new EnumMap<>(EquipmentBuilderFacade.EquipmentHead.class);
 		for (EquipmentHead head : equipHeads)
 		{
 			availListMap.put(head, new DefaultListFacade<>());

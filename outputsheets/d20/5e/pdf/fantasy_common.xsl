@@ -339,7 +339,7 @@
 								</fo:table-cell>
 							</fo:table-row>
 						</xsl:if>
-					
+
 				</xsl:for-each>
 			</fo:table-body>
 		</fo:table>
@@ -1005,7 +1005,7 @@
 		<xsl:variable name="label">
 			<xsl:call-template name="str:substring-after-last">
 				<xsl:with-param name="text" select="$string"/>
-				<xsl:with-param name="char" select="' '"/>
+				<xsl:with-param name="chars" select="' '"/>
 			</xsl:call-template>
 		</xsl:variable>
 
@@ -1093,4 +1093,3 @@
 	</xsl:template>
 
 </xsl:stylesheet>
-

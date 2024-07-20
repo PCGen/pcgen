@@ -41,7 +41,7 @@ ext {
     }
 
     programDistsImage = copySpec {
-        from("$buildDir/launch4j") {
+        from(layout.buildDirectory.dir("launch4j")) {
             include 'pcgen.exe'
         }
     }
@@ -55,7 +55,7 @@ ext {
         from('code') {
             include 'LICENSE'
 
-            eachFile{ file ->
+            eachFile { file ->
                 if(file.getName().endsWith(".sh")) {
                     file.setMode(0755)
                 }
@@ -64,7 +64,7 @@ ext {
     }
 
     libsDistsImage = copySpec {
-        from("$buildDir/libs") {
+        from(layout.buildDirectory.dir("libs")) {
             into 'libs'
             exclude 'pcgen-*.jar'
         }
@@ -83,7 +83,7 @@ ext {
     }
 }
 
-application{
+application {
     // Output the startScripts (.bat and .sh) in main distribute folder rather than .bin
     executableDir = ""
     applicationDefaultJvmArgs = ["-Dsun.java2d.d3d=false"]
@@ -96,33 +96,39 @@ application{
     applicationDistribution.with(programDistsImage)
 }
 
-run {
+tasks.named("run") {
+    dependsOn assemble, extractJavaFXLocal
     // Required to fixed incorrectly added "--module-path" and adds correct modules.
     doFirst {
-
         jvmArgs = ["-ea",                       // -ea enables assertions
                    "--enable-preview",          // enable Java preview features
-                   "--module-path",
-                   "${projectDir}/mods/lib/",
-                   "--add-modules", "javafx.controls,javafx.web,javafx.swing,javafx.fxml"
+                   "--module-path", layout.projectDirectory.dir("mods/lib").asFile.absolutePath,
+                   "--add-modules", "javafx.controls,javafx.web,javafx.swing,javafx.fxml,javafx.graphics"
         ]
-
     }
 }
-tasks.run.dependsOn(assemble)
-tasks.run.dependsOn(downloadJavaFXModules)
 
-installDist.doLast{
-    delete {
-        delete fileTree("${buildDir}/install/pcgen/lib") {
-            include 'javafx-*'
+tasks.named("installDist") {
+    dependsOn createExe
+    doLast{
+        delete {
+            delete fileTree(layout.buildDirectory.dir("install/pcgen/lib")) {
+                include 'javafx-*'
+            }
         }
     }
 }
 
-[distZip, distTar, installDist]*.dependsOn createExe
+tasks.named("distTar") {
+    dependsOn createExe
+}
 
-task testZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', 'copyToOutput']) {
+tasks.named("distZip") {
+    dependsOn createExe
+}
+
+tasks.register("testZip", Zip) {
+    dependsOn converterJar, copyToLibs, copyToOutput
     archiveClassifier.set('test')
     into(zipRootFolder) {
         with dataDistsImage
@@ -134,7 +140,8 @@ task testZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', 'copyToOutput'
     }
 }
 
-task dataZip(type: Zip, dependsOn: ['copyMasterSheets']) {
+tasks.register("dataZip", Zip) {
+    dependsOn copyMasterSheets
     archiveClassifier.set('data')
     into(zipRootFolder) {
         with dataDistsImage
@@ -142,7 +149,7 @@ task dataZip(type: Zip, dependsOn: ['copyMasterSheets']) {
     }
 }
 
-task docsZip(type: Zip) {
+tasks.register("docsZip", Zip) {
     archiveClassifier.set('docs')
     into(zipRootFolder) {
         with docsDistsImage
@@ -150,7 +157,8 @@ task docsZip(type: Zip) {
     }
 }
 
-task programZip(type: Zip, dependsOn: ['converterJar', 'createExe']) {
+tasks.register("programZip", Zip) {
+    dependsOn converterJar, createExe
     archiveClassifier.set('program')
     into(zipRootFolder) {
         with programDistsImage
@@ -159,7 +167,8 @@ task programZip(type: Zip, dependsOn: ['converterJar', 'createExe']) {
     }
 }
 
-task libsZip(type: Zip, dependsOn: 'copyToLibs') {
+tasks.register("libsZip", Zip) {
+    dependsOn copyToLibs
     archiveClassifier.set('libs')
     into(zipRootFolder) {
         with libsDistsImage
@@ -167,6 +176,7 @@ task libsZip(type: Zip, dependsOn: 'copyToLibs') {
     }
 }
 
-task buildDist(dependsOn: ['dataZip', 'docsZip', 'programZip', 'libsZip', 'runtimeZip']) {
+tasks.register("buildDist") {
+    dependsOn dataZip, docsZip, programZip, libsZip, runtimeZip
     description = "Build the five zip files (docs, data, program, libs and full) which comprise the autobuild distribution."
 }

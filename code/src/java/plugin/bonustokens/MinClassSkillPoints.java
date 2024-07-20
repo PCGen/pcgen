@@ -22,7 +22,7 @@ import pcgen.core.bonus.MultiTagBonusObj;
 /**
  * Handles the BONUS:MINCLASSSKILLPOINTS token.
  */
-public final class MinClassSkillPts extends MultiTagBonusObj
+public final class MinClassSkillPoints extends MultiTagBonusObj
 {
     private static final String[] BONUS_TAGS = {"NUMBER", "LOCKNUMBER"};
 

@@ -1,16 +1,16 @@
 /*
  * Copyright (c) Thomas Parker, 2009.
- * 
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
@@ -34,7 +34,7 @@ import pcgen.core.PCTemplate;
  * RegionFacet is a Facet that tracks the Region and SubRegion of a Player
  * Character. The Region and SubRegion can be set explicitly or inferred from
  * the PCTemplate objects possessed by the PlayerCharacter.
- * 
+ *
  */
 public class RegionFacet extends AbstractDataFacet<CharID, String>
 		implements DataFacetChangeListener<CharID, PCTemplate>
@@ -46,11 +46,11 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 	 * Returns the type-safe RegionCacheInfo for this RegionFacet and the given
 	 * CharID. Will return a new, empty RegionCacheInfo if no Region information
 	 * has been set for the given CharID. Will not return null.
-	 * 
+	 *
 	 * Note that this method SHOULD NOT be public. The RegionCacheInfo object is
 	 * owned by RegionFacet, and since it can be modified, a reference to that
 	 * object should not be exposed to any object other than RegionFacet.
-	 * 
+	 *
 	 * @param id
 	 *            The CharID for which the RegionCacheInfo should be returned
 	 * @return The RegionCacheInfo for the Player Character represented by the
@@ -71,11 +71,11 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 	 * Returns the type-safe RegionCacheInfo for this RegionFacet and the given
 	 * CharID. May return null if no Region information has been set for the
 	 * given CharID.
-	 * 
+	 *
 	 * Note that this method SHOULD NOT be public. The RegionCacheInfo object is
 	 * owned by RegionFacet, and since it can be modified, a reference to that
 	 * object should not be exposed to any object other than RegionFacet.
-	 * 
+	 *
 	 * @param id
 	 *            The CharID for which the RegionCacheInfo should be returned
 	 * @return The RegionCacheInfo for the Player Character represented by the
@@ -91,7 +91,7 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 	 * Sets the character Region for the Player Character represented by the
 	 * given CharID to the given Region. This set Region will override any
 	 * Region provided by a PCTemplate.
-	 * 
+	 *
 	 * @param id
 	 *            The CharID representing the Player Character for which the
 	 *            Region will be set
@@ -109,7 +109,7 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 	 * Sets the character SubRegion for the Player Character represented by the
 	 * given CharID to the given SubRegion. This set SubRegion will override any
 	 * SubRegion provided by a PCTemplate.
-	 * 
+	 *
 	 * @param id
 	 *            The CharID representing the Player Character for which the
 	 *            SubRegion will be set
@@ -126,11 +126,11 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 	 * Returns a String representation of the character Region for the Player
 	 * Character represented by the given CharID. Returns "NONE" if no character
 	 * Region is set for the Player Character
-	 * 
+	 *
 	 * **NOTE** Unless you are analyzing (or storing) raw values for a Player
 	 * Character, it is unlikely that you want this method. It is more likely
 	 * that you should be using getRegion(CharID id)
-	 * 
+	 *
 	 * @param id
 	 *            The CharID representing the Player Character for which the
 	 *            character Region should be returned.
@@ -151,7 +151,7 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 	/**
 	 * Returns an Optional Region for the Player Character represented by the given
 	 * CharID.
-	 * 
+	 *
 	 * @param id
 	 *            The CharID representing the Player Character for which the Region should
 	 *            be returned.
@@ -167,7 +167,7 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 	 * Returns a String representation of the Region for the Player Character
 	 * represented by the given CharID. Returns "NONE" if no Region is set for
 	 * the Player Character.
-	 * 
+	 *
 	 * @param id
 	 *            The CharID representing the Player Character for which the
 	 *            Region should be returned.
@@ -195,7 +195,7 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 	 * given CharID matches the given Region. This method tests the Region
 	 * (which includes Region as set by PCTemplate objects), not solely the
 	 * character Region. This does not compare the SubRegion.
-	 * 
+	 *
 	 * @param id
 	 *            The CharID representing the Player Character for which the
 	 *            given Region will be tested to see if it matches the Player
@@ -216,13 +216,13 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 	 * Returns a String representation of the character SubRegion for the Player
 	 * Character represented by the given CharID. Returns "NONE" if no character
 	 * SubRegion is set for the Player Character
-	 * 
+	 *
 	 * **NOTE** Unless you are analyzing (or storing) raw values for a Player
 	 * Character, it is unlikely that you want this method. It is more likely
 	 * that you should be using getSubRegion(CharID id)
-	 * 
+	 *
 	 * @see RegionFacet#getSubRegion(CharID)
-	 * 
+	 *
 	 * @param id
 	 *            The CharID representing the Player Character for which the
 	 *            character SubRegion should be returned.
@@ -245,7 +245,7 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 	 * Returns a String representation of the SubRegion for the Player Character
 	 * represented by the given CharID. Returns "NONE" if no SubRegion is set
 	 * for the Player Character.
-	 * 
+	 *
 	 * @param id
 	 *            The CharID representing the Player Character for which the
 	 *            Region should be returned.
@@ -273,7 +273,7 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 	 * Returns a String representation of the full Region (Region and SubRegion)
 	 * for the Player Character represented by the given CharID. Returns "NONE"
 	 * if no Region is set for the Player Character.
-	 * 
+	 *
 	 * @param id
 	 *            The CharID representing the Player Character for which the
 	 *            full Region should be returned.
@@ -286,7 +286,7 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 		Optional<String> sub = getSubRegion(id);
 		StringBuilder tempRegName = new StringBuilder(40).append(getRegionString(id));
 
-		sub.ifPresent(subRegion -> tempRegName.append(" (").append(subRegion.toString()).append(')'));
+		sub.ifPresent(subRegion -> tempRegName.append(" (").append(subRegion).append(')'));
 
 		return tempRegName.toString();
 	}
@@ -333,17 +333,17 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 	 * Copies the contents of the RegionFacet from one Player Character to
 	 * another Player Character, based on the given CharIDs representing those
 	 * Player Characters.
-	 * 
+	 *
 	 * This is a method in RegionFacet in order to avoid exposing the mutable
 	 * RegionCacheInfo object to other classes. This should not be inlined, as
 	 * RegionCacheInfo is internal information to RegionFacet and should not be
 	 * exposed to other classes.
-	 * 
+	 *
 	 * Note also the copy is a one-time event and no Region references are
 	 * maintained between the Player Characters represented by the given CharIDs
 	 * (meaning once this copy takes place, any change to the Region will only
 	 * impact the Player Character where the Region was changed).
-	 * 
+	 *
 	 * @param source
 	 *            The CharID representing the Player Character from which the
 	 *            Region information should be copied
@@ -366,11 +366,11 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 	/**
 	 * Drives an update of the Region and SubRegion for a Player Character when
 	 * a CDOMObject is added to a Player Character.
-	 * 
+	 *
 	 * Triggered when one of the Facets to which RegionFacet listens fires a
 	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
 	 * Character.
-	 * 
+	 *
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
@@ -397,11 +397,11 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 	/**
 	 * Drives an update of the Region and SubRegion for a Player Character when
 	 * a CDOMObject is removed from a Player Character.
-	 * 
+	 *
 	 * Triggered when one of the Facets to which RegionFacet listens fires a
 	 * DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
 	 * Character.
-	 * 
+	 *
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change

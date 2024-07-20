@@ -48,7 +48,7 @@ public class BridgeListenerTest
 	@Test
 	void testBadConstructionFirstArg()
 	{
-		AbstractSourcedListFacet<CharID, PCGenScoped> target = new Target();
+		AbstractSourcedListFacet<CharID, PCGenScoped> target = new Target1();
 		assertThrows(NullPointerException.class, () -> new BridgeListener(null, target, this));
 	}
 
@@ -66,19 +66,19 @@ public class BridgeListenerTest
 	{
 		DataSetID dsID = DataSetID.getID();
 		CharID id = CharID.getID(dsID);
-		AbstractSourcedListFacet<CharID, PCGenScoped> target = new Target();
+		AbstractSourcedListFacet<CharID, PCGenScoped> target = new Target1();
 		BridgeListener bridge1 = new BridgeListener(id, target, this);
 		BridgeListener bridge2 = new BridgeListener(id, target, this);
 		assertEquals(bridge1.hashCode(), bridge2.hashCode());
 		assertTrue(bridge1.equals(bridge2));
 		assertTrue(bridge2.equals(bridge1));
-		//Not
+		// Not
 		CharID altID = CharID.getID(dsID);
 		BridgeListener bridge3 = new BridgeListener(altID, target, this);
 		assertNotEquals(bridge1.hashCode(), bridge3.hashCode());
 		assertFalse(bridge1.equals(bridge3));
 		assertFalse(bridge3.equals(bridge1));
-		//Should not fail with an exception (should check before casting)
+		// Should not fail with an exception (should check before casting)
 		assertFalse(bridge3.equals(1));
 	}
 
@@ -89,7 +89,7 @@ public class BridgeListenerTest
 		owner.setName("Race");
 		DataSetID dsID = DataSetID.getID();
 		CharID id = CharID.getID(dsID);
-		AbstractSourcedListFacet<CharID, PCGenScoped> target = new Target();
+		AbstractSourcedListFacet<CharID, PCGenScoped> target = new Target1();
 		BridgeListener bridge = new BridgeListener(id, target, this);
 		GlobalPCScope scope = new GlobalPCScope();
 		ScopeInstance instance =
@@ -122,7 +122,7 @@ public class BridgeListenerTest
 		owner.setName("Race");
 		DataSetID dsID = DataSetID.getID();
 		CharID id = CharID.getID(dsID);
-		AbstractSourcedListFacet<CharID, PCGenScoped> target = new Target();
+		AbstractSourcedListFacet<CharID, PCGenScoped> target = new Target1();
 		BridgeListener bridge = new BridgeListener(id, target, this);
 		GlobalPCScope scope = new GlobalPCScope();
 		ScopeInstance instance =
@@ -164,7 +164,7 @@ public class BridgeListenerTest
 		owner.setName("Race");
 		DataSetID dsID = DataSetID.getID();
 		CharID id = CharID.getID(dsID);
-		AbstractSourcedListFacet<CharID, PCGenScoped> target = new Target();
+		AbstractSourcedListFacet<CharID, PCGenScoped> target = new Target1();
 		BridgeListener bridge = new BridgeListener(id, target, this);
 		PCTemplate t1 = new PCTemplate();
 		t1.setName("Template1");
@@ -189,7 +189,7 @@ public class BridgeListenerTest
 		owner.setName("Race");
 		DataSetID dsID = DataSetID.getID();
 		CharID id = CharID.getID(dsID);
-		AbstractSourcedListFacet<CharID, PCGenScoped> target = new Target();
+		AbstractSourcedListFacet<CharID, PCGenScoped> target = new Target1();
 		BridgeListener bridge = new BridgeListener(id, target, this);
 		PCTemplate t1 = new PCTemplate();
 		t1.setName("Template1");
@@ -216,8 +216,8 @@ public class BridgeListenerTest
 		assertTrue(target.getSet(id).contains(t2));
 	}
 
-	private static class Target extends AbstractSourcedListFacet<CharID, PCGenScoped>
+	private static class Target1 extends AbstractSourcedListFacet<CharID, PCGenScoped>
 	{
-
+		
 	}
 }
