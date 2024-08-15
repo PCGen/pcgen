@@ -136,6 +136,7 @@ Unarmed Vicious					CATEGORY:Special Ability	TYPE:UnarmedDisplay																
 Unarmed Wounding					CATEGORY:Special Ability	TYPE:UnarmedDisplay																																			ASPECT:UnarmedNotes|unarmed and natural attacks deal 1 point of bleed damage per hit
 
 Headband of Intellect Skill Selection	CATEGORY:Special Ability	TYPE:HeadbandSkill										STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Base													BONUS:SKILLRANK|%LIST|TL
+Ioun Stone Skill Selection			CATEGORY:Special Ability	TYPE:IounStoneSkill										STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Base													BONUS:SKILLRANK|%LIST|TL
 
 ###Block: Abilities for Intelligent Magic Items
 
