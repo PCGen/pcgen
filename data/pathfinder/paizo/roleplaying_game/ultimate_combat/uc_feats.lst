@@ -384,9 +384,9 @@ Greater Called Shot	CATEGORY:FEAT		TYPE:Called Shot	PREABILITY:2,CATEGORY=FEAT,C
 Non-Monk Levels Unarmed Damage Tracker		CATEGORY:Internal	BONUS:UDAM|CLASS.Monk|NonMonkClassLevels/2|TYPE=Base	BONUS:VAR|MonkUnarmedDamageLVL|NonMonkClassLevels/2|TYPE=Base	DEFINE:NonMonkClassLevels|0	BONUS:VAR|NonMonkClassLevels|(TL-MonkLVL)|TYPE=Base
 
 ###Block: Guided Hand Choices
-Guided Hand ~ Melee								CATEGORY:Internal			TYPE:Guided Hand																											MULT:YES	CHOOSE:WEAPONPROFICIENCY|DEITYWEAPON,TYPE=Melee																	BONUS:WEAPONPROF=%LIST|TOHIT|WIS-STR
-Guided Hand ~ Ranged								CATEGORY:Internal			TYPE:Guided Hand																											MULT:YES	CHOOSE:WEAPONPROFICIENCY|DEITYWEAPON,TYPE=Ranged																BONUS:WEAPONPROF=%LIST|TOHIT|WIS-DEX
-Guided Hand ~ Both								CATEGORY:Internal			TYPE:Guided Hand																											MULT:YES	CHOOSE:WEAPONPROFICIENCY|DEITYWEAPON,TYPE=Melee,TYPE=Ranged															BONUS:WEAPONPROF=%LIST|TOHIT|DEX-STR|TYPE=NotRanged	BONUS:WEAPONPROF=%LIST|TOHIT|WIS-DEX
+Guided Hand ~ Melee								CATEGORY:Internal			TYPE:Guided Hand																											MULT:YES	CHOOSE:WEAPONPROFICIENCY|DEITYWEAPON,TYPE=Melee																	BONUS:WEAPONPROF=%LIST|TOHIT|WIS-STR|TYPE=Ability
+Guided Hand ~ Ranged								CATEGORY:Internal			TYPE:Guided Hand																											MULT:YES	CHOOSE:WEAPONPROFICIENCY|DEITYWEAPON,TYPE=Ranged																BONUS:WEAPONPROF=%LIST|TOHIT|WIS-DEX|TYPE=Ability
+Guided Hand ~ Both								CATEGORY:Internal			TYPE:Guided Hand																											MULT:YES	CHOOSE:WEAPONPROFICIENCY|DEITYWEAPON,TYPE=Melee,TYPE=Ranged															BONUS:WEAPONPROF=%LIST|TOHIT|DEX-STR|TYPE=NotRanged	BONUS:WEAPONPROF=%LIST|TOHIT|WIS-DEX|TYPE=Ability
 
 ###Block: Master of Many Styles Wildcard
 Style Feat Wildcard				CATEGORY:FEAT		TYPE:Style		VISIBLE:EXPORT						PRECLASS:1,Monk=6	PREABILITY:1,CATEGORY=Archetype,Monk Archetype ~ Master Of Many Styles			DEFINE:MonkWildcardSlot|0		DESC:This wildcard slot can be used to take on feats in a style feat path as long as the prerequisites are met. This wildcard can be changed every time the master of many styles changes styles.																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE					SOURCEPAGE:p.59			BONUS:VAR|MonkWildcardSlot|1													BENEFIT: The master of many monks currently has %1 wildcard slots available|MonkWildcardSlot
