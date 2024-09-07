@@ -33,13 +33,13 @@ Turn/Rebuke Outsiders		CATEGORY:Special Ability	TYPE:Special.Turning.Outsiders	V
 
 ###Block: FX Class Abilities
 # Ability Name	Category of Ability		Type				Visible	Special ABility				Define			Description																											Add Spell Lvl	Modify VAR			Allow Follower		Allowed Companions										Source Page
-Brew Potion		CATEGORY:Special Ability					VISIBLE:NO							DEFINE:BrewLevel|0	DESC:Brew a potion, level is set at time of creation...																						BONUS:VAR|BrewLevel|3																		SOURCEPAGE:msrdadvancedclassesII
-Maximize Spell	CATEGORY:Special Ability					VISIBLE:NO											DESC:All variable,numeric effects of a spell automatically achieve their maximum values; treat any spell this is a pplied to as three higher for memorization purposes	ADDSPELLLEVEL:3																						SOURCEPAGE:msrdadvancedclassesII
-Quicken Spell	CATEGORY:Special Ability	TYPE:Special		VISIBLE:NO																																							ADDSPELLLEVEL:4
-Scribe Scroll	CATEGORY:Special Ability					VISIBLE:NO											DESC:Create a scroll, level is set at time of creation...																																											SOURCEPAGE:msrdadvancedclassesII
-Scribe Tattoo	CATEGORY:Special Ability					VISIBLE:NO											DESC:Create a tattoo, level is set at time of creation...																																											SOURCEPAGE:msrdadvancedclassesII
-Summon Familiar	CATEGORY:Special Ability					VISIBLE:NO	SAB:Summon Familiar			DEFINE:FamiliarLVL|0																																				FOLLOWERS:Familiar|1	COMPANIONLIST:Familiar|Bat,Cat,Ferret,Hawk,Owl,Rat,Snake (Tiny/Viper),Toad
-Web Access Spells	CATEGORY:Special Ability	TYPE:VirtualPossession	VISIBLE:NO	SAB:Can use Web Access as spellbook
+Brew Potion		CATEGORY:Special Ability	TYPE:SpecialQuality							DEFINE:BrewLevel|0	DESC:Brew a potion, level is set at time of creation...																						BONUS:VAR|BrewLevel|3																		SOURCEPAGE:msrdadvancedclassesII
+Maximize Spell	CATEGORY:Special Ability	TYPE:SpecialQuality														DESC:All variable,numeric effects of a spell automatically achieve their maximum values; treat any spell this is a pplied to as three higher for memorization purposes	ADDSPELLLEVEL:3																						SOURCEPAGE:msrdadvancedclassesII
+Quicken Spell	CATEGORY:Special Ability	TYPE:SpecialQuality.Special																																								ADDSPELLLEVEL:4
+Scribe Scroll	CATEGORY:Special Ability	TYPE:SpecialQuality														DESC:Create a scroll, level is set at time of creation...																																											SOURCEPAGE:msrdadvancedclassesII
+Scribe Tattoo	CATEGORY:Special Ability	TYPE:SpecialQuality														DESC:Create a tattoo, level is set at time of creation...																																											SOURCEPAGE:msrdadvancedclassesII
+Summon Familiar	CATEGORY:Special Ability	TYPE:SpecialQuality							DEFINE:FamiliarLVL|0																																				FOLLOWERS:Familiar|1	COMPANIONLIST:Familiar|Bat,Cat,Ferret,Hawk,Owl,Rat,Snake (Tiny/Viper),Toad
+Web Access Spells	CATEGORY:Special Ability	TYPE:SpecialQuality.VirtualPossession	DESC:Can use Web Access as spellbook
 
 ###Block: Artificer Craft Artifice Abilities
 # Ability Name		Category of Ability		Type				Visible	Required Skill							Special ABility
