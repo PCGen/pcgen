@@ -4,4 +4,4 @@
 
 # Ability Category								Visible			Editable?			Change Pool?		Fractional values?			Category of Object					Type of Object							Specific choices list						Plural description for UI					Display Location
 ABILITYCATEGORY:Weapon Familiarity Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:WeaponFamiliarityChoice											PLURAL:Weapon Familiarity Choices	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Ward Speaker Kami Fortune	VISIBLE:YES		EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:WardSpeakerKami													PLURAL:Ward Speaker Kami Fortunes	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Ward Speaker Kami Fortune	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:WardSpeakerKami													PLURAL:Ward Speaker Kami Fortunes	DISPLAYLOCATION:Class Features
