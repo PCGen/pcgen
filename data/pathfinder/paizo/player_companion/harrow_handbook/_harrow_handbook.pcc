@@ -43,7 +43,7 @@ SPELL:hh_spells.lst
 TEMPLATE:hh_templates.lst
 
 CLASS:support/hh_classes_acg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
-CLASS:support/hh_abilities_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+ABILITY:support/hh_abilities_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 
 # ENTRY DATE: 2018-09
 # LST MONKEY: Gwen T. (evilpixie87)
