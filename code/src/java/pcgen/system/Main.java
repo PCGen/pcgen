@@ -24,9 +24,12 @@ import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Locale;
 import java.util.Optional;
+import java.util.function.Predicate;
 import java.util.logging.Level;
+import java.util.stream.Collectors;
 import javax.swing.JOptionPane;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.SystemUtils;
@@ -215,31 +218,31 @@ public final class Main
 	private static void validateEnvironment(boolean useGui)
 	{
 		// Check our main folders are present
-		String[] neededDirs = {ConfigurationSettings.getSystemsDir(), ConfigurationSettings.getPccFilesDir(),
-			ConfigurationSettings.getPluginsDir(), ConfigurationSettings.getPreviewDir(),
-			ConfigurationSettings.getOutputSheetsDir()};
-		StringBuilder missingDirs = new StringBuilder();
-		for (final String dirPath : neededDirs)
-		{
-			File dir = new File(dirPath);
-			if (!dir.exists())
-			{
-				String path = dirPath;
-				try
-				{
-					path = dir.getCanonicalPath();
-				}
-				catch (IOException e)
-				{
-					Logging.errorPrint("Unable to find canonical path for " + dir);
-				}
-				missingDirs.append("  ").append(path).append('\n');
-			}
-		}
+		String[] neededDirs = {
+				ConfigurationSettings.getSystemsDir(), ConfigurationSettings.getPccFilesDir(),
+				ConfigurationSettings.getPluginsDir(), ConfigurationSettings.getPreviewDir(),
+				ConfigurationSettings.getOutputSheetsDir()
+		};
+		String missingDirs = Arrays.stream(neededDirs)
+				.map(File::new)
+				.filter(Predicate.not(File::exists))
+				.map(dir -> {
+					try
+					{
+						return dir.getCanonicalPath();
+					}
+					catch (IOException e)
+					{
+						Logging.errorPrint("Unable to find canonical path for " + dir);
+						return dir.getPath();
+					}
+				})
+				.map(path -> "  " + path)
+				.collect(Collectors.joining("\n"));
+
 		if (!missingDirs.isEmpty())
 		{
-			String message;
-			message = "This installation of PCGen is missing the following required folders:\n" + missingDirs;
+			String message = "This installation of PCGen is missing the following required folders:\n" + missingDirs;
 			Logging.errorPrint(message);
 			if (useGui)
 			{

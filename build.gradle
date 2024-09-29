@@ -20,21 +20,21 @@ import org.gradle.plugins.ide.idea.model.ProjectLibrary
 
 /**
  * Plugins without versions are ones that are bundled with Gradle at the version
- * being used (should be through gradlew.
+ * being used (should be through gradlew).
  */
 plugins {
     id 'application'                                    // Creating application bundles
     id 'build-dashboard'                                // Produces a build report
     id 'checkstyle'                                     // Checkstyle for Java, configured further below
-    id "com.github.spotbugs" version '6.0.18'           // Spotbugs for Java
+    id 'com.github.spotbugs' version '6.0.23'           // Spotbugs for Java
     id 'java'                                           // Core java / javac
     id 'maven-publish'                                  // Publishing to Maven Central
     id 'pmd'                                            // PMD for Java, configured further below
     id 'idea'                                           // For IntelliJ IDEA users
-    id "de.undercouch.download" version '5.6.0'         // Shows download percentage
+    id 'de.undercouch.download' version '5.6.0'         // Shows download percentage
     id 'edu.sc.seis.launch4j' version '3.0.6'           // Creates launch4j
     id 'com.github.ben-manes.versions' version '0.51.0' // Checks versions for plugins and dependencies
-    id "com.dorongold.task-tree" version '4.0.0'        // Prints the task dependency tree
+    id 'com.dorongold.task-tree' version '4.0.0'        // Prints the task dependency tree
     id 'org.openjfx.javafxplugin' version '0.1.0'       // JavaFX support
     id 'org.beryx.runtime' version '1.13.1'             // Creates custom runtimes
 }
@@ -320,7 +320,9 @@ jar {
     }
 
     from {
-        configurations.runtimeClasspath.collect { it.directory ? it : zipTree(it) }
+        configurations.runtimeClasspath.collect {
+            it.directory ? it : zipTree(it)
+        }
     }
 }
 
@@ -400,15 +402,15 @@ tasks.named("jpackageImage") {
             exclude "**/*.bat"
             exclude "pcgen"
             exclude "**/lib/**"
-            if (Os.isFamily(Os.FAMILY_MAC)){
-                into layout.buildDirectory.dir("jpackage/PcGen.app/Contents/MacOS")
+            if (Os.isFamily(Os.FAMILY_MAC)) {
+                into layout.buildDirectory.dir("jpackage/PcGen.app/Contents/app")
             } else {
                 into layout.buildDirectory.dir("jpackage/PcGen/bin")
             }
         }
 
         // Mac OS X specific config for jpackage
-        if (Os.isFamily(Os.FAMILY_MAC)){
+        if (Os.isFamily(Os.FAMILY_MAC)) {
             copy {
                 from layout.projectDirectory.dir("installers/mac-installer")
                 include "MacDirLauncher"
