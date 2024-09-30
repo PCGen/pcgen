@@ -196,10 +196,10 @@ public class WeaponToken extends Token
 
 	/**
 	 * Get the Weapon Token output
-	 * 
+	 *
 	 * @param pc The character being exported
 	 * @param eq The weapon being exported
-	 * @param aTok The exporttoken split by . and up to the weapon property 
+	 * @param aTok The exporttoken split by . and up to the weapon property
 	 * @param tokenSource The original source of the export token (for error reporting.)
 	 * @return The output for the token for the weapon and character.
 	 */
@@ -719,8 +719,8 @@ public class WeaponToken extends Token
 
 	/**
 	 * Retrieve the proficiency name for the provided item of equipment. That is
-	 * the name of the weapon proficiency that is required to correctly use the 
-	 * item. 
+	 * the name of the weapon proficiency that is required to correctly use the
+	 * item.
 	 * @param eq The equipment item.
 	 * @return The name of the proficiency, or empty string if no proficiency is defined.
 	 */
@@ -2541,8 +2541,8 @@ public class WeaponToken extends Token
 		GameMode game = SettingsHandler.getGameAsProperty().get();
 		TreeSet<String> set = game.getWeaponTypes().stream()
 			.filter(type -> eq.isType(type, primary))
-			.map(type -> game.getWeaponTypeAbbrev(type))
-			.collect(Collectors.toCollection(() -> new TreeSet<>()));
+			.map(game::getWeaponTypeAbbrev)
+			.collect(Collectors.toCollection(TreeSet::new));
 		return StringUtil.join(set, "");
 	}
 

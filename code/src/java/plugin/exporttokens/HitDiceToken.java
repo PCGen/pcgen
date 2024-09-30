@@ -122,7 +122,6 @@ public class HitDiceToken extends Token
 	{
 		StringBuilder ret = new StringBuilder();
 		String del = "";
-		Integer total = 0;
 
 		HashMap<Integer, Integer> hdMap = new LinkedHashMap<>();
 
@@ -138,12 +137,12 @@ public class HitDiceToken extends Token
 			ret.append(getShortToken(display));
 			ret.append(" HD; ");
 		}
+
 		for (final Map.Entry<Integer, Integer> entry : hdMap.entrySet())
 		{
 			Integer value = entry.getValue();
 			ret.append(del);
 			ret.append(value).append('d').append((int) entry.getKey());
-			total += value;
 			del = "+";
 		}
 

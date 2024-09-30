@@ -33,6 +33,7 @@ public class PreVisionConvertPlugin implements TokenProcessorPlugin
 	public static final String SET_ZERO_ANY = "Set zero values to ANY (identify as 'present')";
 	public static final String SET_ZERO_ONE = "Set zero values to 1 (identify as 'possessing distance')";
 
+	@SuppressWarnings("PMD.UseArraysAsList")
 	@Override
 	public String process(TokenProcessEvent tpe)
 	{
@@ -84,9 +85,9 @@ public class PreVisionConvertPlugin implements TokenProcessorPlugin
 			boolean withoutEquals = false;
 			boolean lastWithEquals = false;
 			List<String> list = new ArrayList<>();
-			for (String tok : strings)
+			for (String token : strings)
 			{
-				int equalLoc = tok.indexOf('=');
+				int equalLoc = token.indexOf('=');
 				if (equalLoc == -1)
 				{
 					withoutEquals = true;
@@ -97,7 +98,7 @@ public class PreVisionConvertPlugin implements TokenProcessorPlugin
 					withEquals++;
 					lastWithEquals = true;
 				}
-				list.add(tok);
+				list.add(token);
 			}
 			if (withEquals == 1 && lastWithEquals)
 			{

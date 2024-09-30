@@ -25,7 +25,7 @@ import pcgen.base.formula.inst.SimpleVariableStore;
 
 public final class TrackingVariableCache extends SimpleVariableStore
 {
-	public final Set<Object> set = new HashSet<>();
+	private final Set<Object> set = new HashSet<>();
 
 	@Override
 	public <T> T put(VariableID<T> id, T process)
@@ -38,4 +38,15 @@ public final class TrackingVariableCache extends SimpleVariableStore
 	{
 		set.clear();
 	}
+
+	public boolean contains(Object o)
+	{
+		return set.contains(o);
+	}
+
+	public int size()
+	{
+		return set.size();
+	}
+
 }

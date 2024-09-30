@@ -123,10 +123,10 @@ import org.apache.commons.lang3.StringUtils;
 
 /**
  * The Class {@code Gui2InfoFactory} provides character related information
- * on various facade objects. The information is displayed to the user via the 
- * new user interface. 
+ * on various facade objects. The information is displayed to the user via the
+ * new user interface.
  *
- * 
+ *
  */
 public class Gui2InfoFactory implements InfoFactory
 {
@@ -194,7 +194,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 			infoText.appendLineBreak();
 			String size = getSize(race);
-			
+
 			if (StringUtils.isNotEmpty(size))
 			{
 				infoText.appendI18nElement("in_size", size); //$NON-NLS-1$
@@ -1745,7 +1745,7 @@ public class Gui2InfoFactory implements InfoFactory
 		b.appendLineBreak();
 
 		b.append(LanguageBundle.getFormattedString("InfoSpells.html.spellbook.details", //$NON-NLS-1$
-			new Object[]{book.getNumPages(), book.getNumPagesUsed(), book.getPageFormula(), book.getNumSpells()}));
+                book.getNumPages(), book.getNumPagesUsed(), book.getPageFormula(), book.getNumSpells()));
 
 		if (book.getDescription() != null)
 		{
@@ -1980,11 +1980,11 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	/**
-	 * Retrieve a wrapped instance of the provided ability, whether the 
-	 * character has the ability or not. This will either be a list of the 
-	 * specific occurrences of the ability the character, or a list of a new 
+	 * Retrieve a wrapped instance of the provided ability, whether the
+	 * character has the ability or not. This will either be a list of the
+	 * specific occurrences of the ability the character, or a list of a new
 	 * CNAbility if the character does not possess the ability.
-	 *   
+	 *
 	 * @param a The ability to be wrapped.
 	 * @return The list of wrapped abilities.
 	 */
