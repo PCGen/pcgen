@@ -797,17 +797,17 @@
 						<!-- Commenting this out (will need a test as well)
 			3.0 uses "Subdual", 3.5 uses "nonlethal".  We'll need a separate node for both.	-->
 			<#if (gamemodename = "3e")>
-			<#if (pcvar('VAR.Unarmed') > 0)>
-			<type>(subdual or normal)</type>
+				<#if (pcvar('VAR.Unarmed') > 0)>
+					<type>(subdual or normal)</type>
+				<#else>
+					<type>(subdual only)</type>
+				</#if>
 			<#else>
-			<type>(subdual only)</type>
-			</#if>
-			<#else>
-			<#if (pcvar('VAR.UnarmedLethal') > 0)>
-			<type>(lethal or nonlethal)</type>
-			<#else>
-			<type>(nonlethal only)</type>
-			</#if>
+				<#if (pcvar('VAR.UnarmedLethal') > 0)>
+					<type>(lethal or nonlethal)</type>
+				<#else>
+					<type>(nonlethal only)</type>
+				</#if>
 			</#if>
 		</unarmed>
 		</#if>
