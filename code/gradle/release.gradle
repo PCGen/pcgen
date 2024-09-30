@@ -33,12 +33,12 @@ ext {
     shortVerNum = plainVerNum.replaceAll(/\./, '')
     releaseNotes = "${projectDir}/installers/release-notes/pcgen-release-notes-${shortVerNum}.html"
 
-    nsisBaseFolder = "${buildDir}/nsis/PCGen_${shortVerNum}_base"
-    nsisOptionFolder = "${buildDir}/nsis/PCGen_${shortVerNum}_opt"
+    nsisBaseFolder = layout.buildDirectory.dir("nsis/PCGen_${shortVerNum}_base")
+    nsisOptionFolder = layout.buildDirectory.dir("nsis/PCGen_${shortVerNum}_opt")
 
     // specifications for what to copy to the NSIS base and optional folders
     baseLibs = copySpec {
-        from("${buildDir}/libs") {
+        from(layout.buildDirectory.dir("libs")) {
             exclude 'pcgen-*.jar'
             exclude 'fop*.jar'
             exclude 'batik*.jar'
@@ -47,7 +47,7 @@ ext {
     } as DefaultCopySpec
 
     lib32 = copySpec {
-        from("${buildDir}/image/pcgen-windows-x32/lib") {
+        from(layout.buildDirectory.dir("image/pcgen-windows-x32/lib")) {
             exclude 'fop*.jar'
             exclude 'batik*.jar'
         }
@@ -55,7 +55,7 @@ ext {
     } as DefaultCopySpec
 
     lib64 = copySpec {
-        from("${buildDir}/image/pcgen-windows-x64/lib") {
+        from(layout.buildDirectory.dir("image/pcgen-windows-x64/lib")) {
             exclude 'fop*.jar'
             exclude 'batik*.jar'
             exclude 'javafx*.jar'
@@ -64,7 +64,7 @@ ext {
     } as DefaultCopySpec
 
     pdfLibs = copySpec {
-        from("${buildDir}/libs") {
+        from(layout.buildDirectory.dir("libs")) {
             include 'fop*.jar'
             include 'batik*.jar'
         }
@@ -72,7 +72,7 @@ ext {
     } as DefaultCopySpec
 
     basePlugins = copySpec {
-        from("${projectDir}/plugins") {
+        from(layout.projectDirectory.dir("plugins")) {
             include '*plugins/**'
             include 'Random Names/**'
             include 'DoomsdayBook.jar'
@@ -81,7 +81,7 @@ ext {
     } as DefaultCopySpec
 
     gmgenPlugins = copySpec {
-        from("${projectDir}/plugins") {
+        from(layout.projectDirectory.dir("plugins")) {
             exclude '*plugins/**'
             exclude 'Random Names/**'
             exclude 'DoomsdayBook.jar'
@@ -90,21 +90,21 @@ ext {
     } as DefaultCopySpec
 
     nonPdfOutput = copySpec {
-        from("${projectDir}/outputsheets") {
+        from(layout.projectDirectory.dir("outputsheets")) {
             exclude '**/pdf/**'
         }
         into ('/outputsheets')
     } as DefaultCopySpec
 
     pdfOutput = copySpec {
-        from("${projectDir}/outputsheets") {
+        from(layout.projectDirectory.dir("outputsheets")) {
             include '**/pdf/**'
         }
         into ('/plugin/pdf/outputsheets')
     } as DefaultCopySpec
 
     baseData = copySpec {
-        from("${projectDir}/data") {
+        from(layout.projectDirectory.dir("data")) {
             include 'customsources/**'
             include 'homebrew/**'
         }
@@ -112,7 +112,7 @@ ext {
     } as DefaultCopySpec
 
     optionalData = copySpec {
-        from("${projectDir}/data") {
+        from(layout.projectDirectory.dir("data")) {
             exclude 'customsources/**'
             exclude 'homebrew/**'
         }
@@ -123,7 +123,8 @@ ext {
     installerVerNum = result[0].toInteger() + "." + result[1].toInteger() + "." + result[2].take(2).toInteger() + ".0"
 }
 
-task layoutNsisBase(type: Copy, dependsOn: [runtimeZip, createExe, copyToLibs, jar, converterJar]) {
+tasks.register("layoutNsisBase", Copy) {
+    dependsOn runtimeZip, createExe, copyToLibs, jar, converterJar
 
     description="Assemble the required files for all PCGen installations"
 
@@ -133,28 +134,30 @@ task layoutNsisBase(type: Copy, dependsOn: [runtimeZip, createExe, copyToLibs, j
     //}
 
     into nsisBaseFolder
-    from ("${projectDir}/installers/win-installer/Local") {
+    from(layout.projectDirectory.dir("installers/win-installer/Local")) {
         into "../Local"
     }
-    from ("${projectDir}/installers/win-installer/") {
+    from(layout.projectDirectory.dir("installers/win-installer")) {
         into "/docs/acknowledgments/"
         include "PCGenLicense.txt"
     }
-    from ("${projectDir}") {
+    from(layout.projectDirectory) {
         include 'logging.properties'
         include 'system/**' // Later we want to split out the game modes to optional
         include 'docs/**'
         include 'preview/**'
         include 'characters/*.pcg'
     }
-    from ("${buildDir}/launch4j") {
+    from(layout.buildDirectory.dir("launch4j")) {
         include 'pcgen.exe'
     }
-    from ("${buildDir}/install/pcgen") {
+    from(layout.buildDirectory.dir("install/pcgen")) {
         include 'pcgen.bat'
         include 'pcgen'
         filter(FixCrLfFilter, eol:FixCrLfFilter.CrLf.newInstance("lf"))
-        fileMode 0755
+        filePermissions {
+            unix(0755)
+        }
     }
     with basePlugins
     with nonPdfOutput
@@ -164,14 +167,14 @@ task layoutNsisBase(type: Copy, dependsOn: [runtimeZip, createExe, copyToLibs, j
 // See: https://github.com/TheBoegl/gradle-launch4j
 launch4j {
     mainClassName = 'pcgen.system.Main'
-    icon = "${projectDir}/installers/win-installer/Local/pcgen.ico"
+    icon = layout.projectDirectory.file("installers/win-installer/Local/pcgen.ico").asFile.absolutePath
     requiresJdk = false     // false means it'll grab a JRE first if available
     maxHeapPercent = 80
     stayAlive = false
     requires64Bit = false   // false means it auto-selects 64 or 32 bit as required.
     bundledJrePath = '.'
     dontWrapJar = true
-    splashFileName = "${projectDir}/installers/win-installer/Local/splash.bmp"
+    splashFileName = layout.projectDirectory.file("installers/win-installer/Local/splash.bmp").asFile.absolutePath
     splashWaitForWindows = true
     splashTimeout = 60
     splashTimeoutError = true
@@ -182,183 +185,173 @@ launch4j {
     downloadUrl = "http://pcgen.org/download/"
 }
 
-task layoutNsisOptional(type: Copy, dependsOn: ['copyToOutput', 'runtime']) {
-    description="Assemble the optional files for PCGen installations"
+tasks.register("layoutNsisOptional", Copy) {
+    dependsOn copyToOutput, tasks.named("runtime")
+    description = "Assemble the optional files for PCGen installations"
     into nsisOptionFolder
 
-    with pdfLibs
-    with gmgenPlugins
-    with pdfOutput
-    with optionalData
-    with lib32
-    with lib64
+    with pdfLibs, gmgenPlugins, pdfOutput, optionalData, lib32, lib64
 }
 
 // Generate the publisher/data list for the Windows installer script
-task genDataList doLast {
-    //TODO: find a way to move it to ext section.
+tasks.register("genDataList") {
+    inputs.dir layout.projectDirectory.dir("data")
+
+    def dataNsh = layout.projectDirectory.file("installers/win-installer/includes/data.nsh")
+    outputs.file dataNsh
+
+    // TODO: find a way to move it to ext section.
     // The list of publishers - add an entry here to correct a reported missing publisher
-    Map<String,String> publisherMap  = new TreeMap<String,String>();
-    publisherMap.put("12_to_midnight","12 to Midnight");
-    publisherMap.put("4_winds_fantasy_gaming","4 Winds Fantasy Gaming");
-    publisherMap.put("alderac_entertainment_group","Alderac Entertainment Group");
-    publisherMap.put("alderac_ent_group","Alderac Entertainment Group");
-    publisherMap.put("alea_publishing_group","Alea Publishing Group");
-    publisherMap.put("alluria_publishing","Alluria Publishing");
-    publisherMap.put("ascension_games","Ascension Games");
-    publisherMap.put("atlas_games","Atlas Games");
-    publisherMap.put("auran_d20","Auran d20");
-    publisherMap.put("avalanche_press","Avalanche Press");
-    publisherMap.put("badaxe_games","Bad Axe Games");
-    publisherMap.put("bards_and_sages","Bards and Sages");
-    publisherMap.put("bastion_press","Bastion Press");
-    publisherMap.put("battlefield_press","Battlefield Press");
-    publisherMap.put("behemoth3","Behemoth3");
-    publisherMap.put("big_finger_games","Big Finger Games");
-    publisherMap.put("bloodstone_press","Bloodstone Press");
-    publisherMap.put("blue_devil_games","Blue Devil Games");
-    publisherMap.put("broken_ruler_games","Broken Ruler Games");
-    publisherMap.put("crafty_games","Crafty Games");
-    publisherMap.put("creativemountaingames","Creative Mountain Games");
-    publisherMap.put("distant_horizons_games","Distant Horizons Games");
-    publisherMap.put("doghouse_rules","Dog House Rules");
-    publisherMap.put("dragonwing_games","DragonWing Games");
-    publisherMap.put("dreamscarred_press","Dreamscarred Press");
-    publisherMap.put("en_publishing","EN Publishing");
-    publisherMap.put("everyman_gaming","Everyman Gaming");
-    publisherMap.put("fantasy_community_council","Fantasy Community Council");
-    publisherMap.put("fantasy_flight_games","Fantasy Flight Games");
-    publisherMap.put("gallantry_productions","Gallantry Productions");
-    publisherMap.put("goodman_games","Goodman Games");
-    publisherMap.put("green_ronin","Green Ronin");
-    publisherMap.put("kobold_press","Kobold Press");
-    publisherMap.put("legendary_games","Legendary Games");
-    publisherMap.put("lions_den_press","Lions Den Press");
-    publisherMap.put("lone_wanderer_entertainment","Lone Wanderer Entertainment");
-    publisherMap.put("malhavoc_press","Malhavoc Press");
-    publisherMap.put("minotaur_games","Minotaur Games");
-    publisherMap.put("mongoose","Mongoose");
-    publisherMap.put("mongoose_publishing","Mongoose Publishing");
-    publisherMap.put("msrd","MSRD");
-    publisherMap.put("mythic_dream_studios","Mythic Dreams Studios");
-    publisherMap.put("necromancer_games","Necromancer Games");
-    publisherMap.put("nitehawk_interactive","Nitehawk Interactive Games");
-    publisherMap.put("pandahead","Pandahead");
-    publisherMap.put("paradigm_concepts","Paradigm Concepts Inc");
-    publisherMap.put("paizo","Paizo Publishing");
-    publisherMap.put("parents_basement_games","Parents Basement Games");
-    publisherMap.put("pcgen","PCGen OGL");
-    publisherMap.put("pfsrd_publishing","Open Game Network (d20pfsrd)");
-    publisherMap.put("pinnacle_entertainment","Pinnacle Entertainment");
-    publisherMap.put("reality_deviant","Reality Deviant Publications");
-    publisherMap.put("rite","Rite Publishing");
-    publisherMap.put("rite_publishing","Rite Publishing");
-    publisherMap.put("rpg_objects","RPG Objects");
-    publisherMap.put("sagaborn","Sagaborn");
-    publisherMap.put("secular_games","Secular Games");
-    publisherMap.put("silven_publishing","Silven Publishing");
-    publisherMap.put("silverthorne_games","Silverthorne Games");
-    publisherMap.put("skirmisher_publishing","Skirmisher Publishing LLC");
-    publisherMap.put("sovereign_press","Sovereign Press");
-    publisherMap.put("srd","SRD");
-    publisherMap.put("srd35","SRD35");
-    publisherMap.put("st_cooley_publishing","S T Cooley Publishing");
-    publisherMap.put("storm_bunny_studios","Storm Bunny Studios");
-    publisherMap.put("super_genius_games","Super Genius Games");
-    publisherMap.put("sword_and_sorcery_studios","Sword and Sorcery Studios");
-    publisherMap.put("swords_edge_publishing","Swords Edge Publishing");
-    publisherMap.put("the_game_mechanics","The Game Mechanics Inc");
-    publisherMap.put("vigilance_press","Vigilance Press");
-    publisherMap.put("wizards_of_the_coast","Wizards of the Coast");
-    publisherMap.put("lpj_design","Louis Porter Jr. Design");
-    publisherMap.put("tripod_machine","Tripod Machine");
-    publisherMap.put("total_party_kill_games","Total Party Kill Games");
-    publisherMap.put("starfinder","Starfinder");
-    File out = new File("$projectDir/installers/win-installer/includes/data.nsh")
-    out.delete()
-    // List of folder names to ignore.
-    List<String> ignoreList = new ArrayList<String>();
-    ignoreList.add("homebrew");
-    ignoreList.add("zen_test");
-    ignoreList.add("customsources");
-    ignoreList.add("_universal");
-    ignoreList.add("_images");
-    ignoreList.add("publisher_logos");
-    new File("${projectDir}/data").eachDir{
-        if (ignoreList.contains(it.name))
-        {
-            return
-        }
-        out.append("SubSection \"$it.name\"\n")
-        String dir = it.name
-        int subFolders=0
-        it.eachDir {
+    def publisherMap = ["12_to_midnight"             : "12 to Midnight",
+                        "4_winds_fantasy_gaming"     : "4 Winds Fantasy Gaming",
+                        "alderac_entertainment_group": "Alderac Entertainment Group",
+                        "alderac_ent_group"          : "Alderac Entertainment Group",
+                        "alea_publishing_group"      : "Alea Publishing Group",
+                        "alluria_publishing"         : "Alluria Publishing",
+                        "ascension_games"            : "Ascension Games",
+                        "atlas_games"                : "Atlas Games",
+                        "auran_d20"                  : "Auran d20",
+                        "avalanche_press"            : "Avalanche Press",
+                        "badaxe_games"               : "Bad Axe Games",
+                        "bards_and_sages"            : "Bards and Sages",
+                        "bastion_press"              : "Bastion Press",
+                        "battlefield_press"          : "Battlefield Press",
+                        "behemoth3"                  : "Behemoth3",
+                        "big_finger_games"           : "Big Finger Games",
+                        "bloodstone_press"           : "Bloodstone Press",
+                        "blue_devil_games"           : "Blue Devil Games",
+                        "broken_ruler_games"         : "Broken Ruler Games",
+                        "crafty_games"               : "Crafty Games",
+                        "creativemountaingames"      : "Creative Mountain Games",
+                        "distant_horizons_games"     : "Distant Horizons Games",
+                        "doghouse_rules"             : "Dog House Rules",
+                        "dragonwing_games"           : "DragonWing Games",
+                        "dreamscarred_press"         : "Dreamscarred Press",
+                        "en_publishing"              : "EN Publishing",
+                        "everyman_gaming"            : "Everyman Gaming",
+                        "fantasy_community_council"  : "Fantasy Community Council",
+                        "fantasy_flight_games"       : "Fantasy Flight Games",
+                        "gallantry_productions"      : "Gallantry Productions",
+                        "goodman_games"              : "Goodman Games",
+                        "green_ronin"                : "Green Ronin",
+                        "kobold_press"               : "Kobold Press",
+                        "legendary_games"            : "Legendary Games",
+                        "lions_den_press"            : "Lions Den Press",
+                        "lone_wanderer_entertainment": "Lone Wanderer Entertainment",
+                        "malhavoc_press"             : "Malhavoc Press",
+                        "minotaur_games"             : "Minotaur Games",
+                        "mongoose"                   : "Mongoose",
+                        "mongoose_publishing"        : "Mongoose Publishing",
+                        "msrd"                       : "MSRD",
+                        "mythic_dream_studios"       : "Mythic Dreams Studios",
+                        "necromancer_games"          : "Necromancer Games",
+                        "nitehawk_interactive"       : "Nitehawk Interactive Games",
+                        "pandahead"                  : "Pandahead",
+                        "paradigm_concepts"          : "Paradigm Concepts Inc",
+                        "paizo"                      : "Paizo Publishing",
+                        "parents_basement_games"     : "Parents Basement Games",
+                        "pcgen"                      : "PCGen OGL",
+                        "pfsrd_publishing"           : "Open Game Network (d20pfsrd,",
+                        "pinnacle_entertainment"     : "Pinnacle Entertainment",
+                        "reality_deviant"            : "Reality Deviant Publications",
+                        "rite"                       : "Rite Publishing",
+                        "rite_publishing"            : "Rite Publishing",
+                        "rpg_objects"                : "RPG Objects",
+                        "sagaborn"                   : "Sagaborn",
+                        "secular_games"              : "Secular Games",
+                        "silven_publishing"          : "Silven Publishing",
+                        "silverthorne_games"         : "Silverthorne Games",
+                        "skirmisher_publishing"      : "Skirmisher Publishing LLC",
+                        "sovereign_press"            : "Sovereign Press",
+                        "srd"                        : "SRD",
+                        "srd35"                      : "SRD35",
+                        "st_cooley_publishing"       : "S T Cooley Publishing",
+                        "storm_bunny_studios"        : "Storm Bunny Studios",
+                        "super_genius_games"         : "Super Genius Games",
+                        "sword_and_sorcery_studios"  : "Sword and Sorcery Studios",
+                        "swords_edge_publishing"     : "Swords Edge Publishing",
+                        "the_game_mechanics"         : "The Game Mechanics Inc",
+                        "vigilance_press"            : "Vigilance Press",
+                        "wizards_of_the_coast"       : "Wizards of the Coast",
+                        "lpj_design"                 : "Louis Porter Jr. Design",
+                        "tripod_machine"             : "Tripod Machine",
+                        "total_party_kill_games"     : "Total Party Kill Games",
+                        "starfinder"                 : "Starfinder"]
+
+    doLast {
+        project.delete(dataNsh)
+        def out = new StringBuilder()
+
+        // List of folder names to ignore.
+        def ignoreList = ["homebrew", "zen_test", "customsources", "_universal", "_images", "publisher_logos"]
+
+        // List of sections
+        def sectionsIn = [msrd: "3 6", pcgen: "3 4 5", srd: "3 4", srd35: "3 5", necromancergames: "3 5", paizo: "3"]
+
+        layout.projectDirectory.dir("data").asFile.eachDir {
             if (ignoreList.contains(it.name))
             {
                 return
             }
-            String pubname
-            if(publisherMap.get(it.name) != null){
-                pubname = publisherMap.get(it.name)
-            }else{
-                pubname = it.name
-            }
-            out.append("\tSection \"$pubname\"\n")
-            out.append("\tSectionIn 1 2")
-            if (it.name == 'msrd')
-            {
-                out.append(" 3 6");
-            }
-            if (it.name ==  'pcgen')
-            {
-                out.append(" 3 4 5");
-            }
-            if (it.name ==  'srd')
-            {
-                out.append(" 3 4");
-            }
-            if (it.name ==  'srd35' || it.name ==  'necromancergames')
-            {
-                out.append(" 3 5");
-            }
-            if (it.name ==  'paizo')
-            {
-                out.append(" 3");
-            }
-            out.append("\n");
-            out.append("\tSetOutPath \"\$INSTDIR\\\${APPDIR}\\data\\${dir}\\${it.name}\"\n");
-            out.append("\tFile /r \"\${SrcDir}\\PCGen_\${SIMPVER}_opt\\data\\${dir}\\${it.name}\\*.*\"\n");
+            out.append("SubSection \"$it.name\"\n")
+            def dir = it.name
+            def subFolders = 0
+            it.eachDir {
+                if (ignoreList.contains(it.name))
+                {
+                    return
+                }
+                def pubname = publisherMap.getOrDefault(it.name, it.name)
+                def sectionIn = sectionsIn.getOrDefault(it.name, "")
 
-            out.append("\tSectionEnd\n\n");
-            subFolders++
-        }
-        if(subFolders == 0){
-            String pubname
-            if(publisherMap.get(it.name) != null){
-                pubname = publisherMap.get(it.name)
-            }else{
-                pubname = it.name
+                out.append("""\tSection "$pubname"
+\t\tSectionIn 1 2 ${sectionIn}
+\t\tSetOutPath "\$INSTDIR\\\${APPDIR}\\data\\${dir}\\${it.name}"
+\t\tFile /r "\${SrcDir}\\PCGen_\${SIMPVER}_opt\\data\\${dir}\\${it.name}\\*.*"
+\tSectionEnd
+
+""")
+                subFolders++
             }
-            out.append("\tSection \"$pubname\"\n")
-            out.append("\tSectionIn 1 2")
-            out.append("\n");
-            out.append("\tSetOutPath \"\$INSTDIR\\\${APPDIR}\\data\\${dir}\"\n");
-            out.append("\tFile /r \"\${SrcDir}\\PCGen_\${SIMPVER}_opt\\data\\${dir}\\*.*\"\n");
-            out.append("\tSectionEnd\n\n");
+            if (subFolders == 0){
+                def pubname = publisherMap.getOrDefault(it.name, it.name)
+                out.append("""\tSection "$pubname"
+\t\tSectionIn 1 2
+\t\tSetOutPath "\$INSTDIR\\\${APPDIR}\\data\\${dir}"
+\t\tFile /r "\${SrcDir}\\PCGen_\${SIMPVER}_opt\\data\\${dir}\\*.*"
+\tSectionEnd
+
+""")
+            }
+            out.append("SubSectionEnd\n\n")
         }
-        out.append("SubSectionEnd\n\n");
+
+        println("Writing data to: ${outputs.files.singleFile}")
+        outputs.files.singleFile.text = out
     }
 }
 
 // Create the version specific config files for NSIS
-task genProjectNsis doLast {
-    new File("${projectDir}/installers/win-installer/project.nsh").write("""
+tasks.register("genProjectNsis") {
+    def licenseFile = layout.projectDirectory.file("code/LICENSE")
+    inputs.file licenseFile
+    inputs.property("plainVerNum", plainVerNum)
+    inputs.property("installerVerNum", installerVerNum)
+
+    def projectNsh = layout.projectDirectory.file("installers/win-installer/project.nsh")
+    def constantsNsh = layout.projectDirectory.file("installers/win-installer/includes/constants.nsh")
+
+    outputs.files projectNsh, constantsNsh
+
+    doLast {
+        projectNsh.asFile
+                .text = """
 ; Projects file generated by release.gradle
-!define PROJECT_BUILD_DIR "${buildDir}"
-!define PROJECT_DIST_BIN_DIR "${buildDir}\\nsis"
-!define PROJECT_DIST_DIR "${buildDir}"
+!define PROJECT_BUILD_DIR "${layout.buildDirectory.dir(".").get()}"
+!define PROJECT_DIST_BIN_DIR "${layout.buildDirectory.dir("nsis").get()}"
+!define PROJECT_DIST_DIR "${layout.buildDirectory.dir(".").get()}"
 !define PROJECT_FINAL_NAME "pcgen"
-!define PROJECT_LICENSE_FILE "${projectDir}\\code\\LICENSE"
+!define PROJECT_LICENSE_FILE "${licenseFile.asFile.absolutePath}"
 !define PROJECT_LICENSE_TEXT "This program is Licensed under The GNU Lesser General Public License, Version 2.1."
 !define PROJECT_NAME "PCGen"
 !define PROJECT_ORGANIZATION "SourceForge"
@@ -368,136 +361,176 @@ task genProjectNsis doLast {
 !define PROJECT_URL "http://pcgen.sourceforge.net/"
 !define PROJECT_VERSION "${plainVerNum}"
 !define INSTALLER_VERSION "${installerVerNum}"
-""")
+"""
 
-    new File("${projectDir}/installers/win-installer/includes/constants.nsh").write("""
+        constantsNsh.asFile
+                .text = """
 ; Constants file generated by release.gradle
 !define SIMPVER "${shortVerNum}"
 !define LONGVER "${plainVerNum}"
-!define OutDir "${buildDir}\\nsisRelease"
-!define SrcDir "${buildDir}\\nsis"
-""")
-
-    mkdir "${buildDir}\\nsisRelease"
+!define OutDir "${layout.buildDirectory.dir("nsisRelease").get()}"
+!define SrcDir "${layout.buildDirectory.dir("nsis").get()}"
+"""
+    }
 }
 
 // Call NSIS to generate windows installer - Removed "genDataList"
-task buildNsis(dependsOn: [layoutNsisBase, layoutNsisOptional,
-        genProjectNsis, downloadJRE , genDataList]) doLast {
-    if (System.properties['os.name'].toLowerCase(Locale.ROOT).contains('windows')) {
-        new ByteArrayOutputStream().withStream { os ->
-            def result = exec {
-                workingDir = "${buildDir}/nsis"
-                executable = 'C:/Program Files (x86)/NSIS/makensis.exe'
-                args = ["/V3", "${projectDir}/installers/win-installer/pcgen.nsi"]
-            }
-        }
+tasks.register("buildNsis", Exec) {
+    dependsOn layoutNsisBase, layoutNsisOptional, genProjectNsis, downloadJRE, genDataList
+    mustRunAfter createExe
+
+    def makensisPaths = [windows: "C:/Program Files (x86)/NSIS/makensis.exe"]
+    def currentOs = System.getProperty('os.name').toLowerCase(Locale.ROOT);
+    def makensis = makensisPaths.getOrDefault(currentOs, "makensis")
+    def pcgenNsi = layout.projectDirectory.file("installers/win-installer/pcgen.nsi").asFile.absolutePath
+    def stdout = new ByteArrayOutputStream()
+
+    doFirst {
+        println("Running makensis from the path '${makensis}':")
+        mkdir layout.buildDirectory.dir("nsis")
+        mkdir layout.buildDirectory.dir("nsisRelease")
+    }
+    workingDir layout.buildDirectory.dir("nsis")
+
+    standardOutput = stdout;
+    errorOutput = stdout;
+
+    if (currentOs == "windows") {
+        commandLine makensis, "/V4", "/WX", "/Onsis.output", pcgenNsi
     } else {
-        new ByteArrayOutputStream().withStream { os ->
-            def result = exec {
-                workingDir = "${buildDir}/nsis"
-                executable = 'makensis'
-                args = ["-V3", "${projectDir}/installers/win-installer/pcgen.nsi"]
-            }
-        }
+        commandLine makensis, "-V4", "-WX", "-Onsis.output", pcgenNsi
+    }
+
+    doLast {
+        def nsisOutput = layout.buildDirectory.file("nsis/nsis.output").get()
+        println "NSIS output is located in : ${nsisOutput.asFile.absolutePath}"
     }
 }
-buildNsis.mustRunAfter createExe
 
-task cleanNsis(type: Delete) {
-    delete nsisBaseFolder, nsisOptionFolder, "${buildDir}/nsis/Local"
+tasks.register("cleanNsis", Delete) {
+    delete nsisBaseFolder, nsisOptionFolder, layout.buildDirectory.dir("nsis/Local")
 }
 
-task sourcesJar(type: Jar, dependsOn: ['classes', 'copyToOutput', 'createExe', 'distTar', 'distZip',
-                                       'layoutNsisBase', 'startScripts']) {
+tasks.register("sourcesJar", Jar) {
+    dependsOn classes, copyToOutput, createExe, distTar, distZip, layoutNsisBase, startScripts
     duplicatesStrategy DuplicatesStrategy.INCLUDE
     description = "build source jar file"
     archiveClassifier.set('sources')
     from sourceSets.main.allSource
 }
 
-task assembleArtifacts(type: Copy, dependsOn: ['build', 'runtimeZip', 'sourcesJar', 'buildNsis']) {
+tasks.register("assembleArtifacts", Copy) {
+    dependsOn build, runtimeZip, sourcesJar, buildNsis
+
+    if (Os.isFamily(Os.FAMILY_MAC) || Os.isFamily(Os.FAMILY_UNIX))
+    {
+        dependsOn jpackage
+    }
+
     description = "Create the release artifacts and get them into the release folder."
     into releaseDir
     // buildNsis puts the exe into the release folder directly
 
-    from("$buildDir/nsisRelease"){
+    from(layout.buildDirectory.dir("nsisRelease")){
         include '*.exe'
     }
-    from("${buildDir}/libs") {
+    from(layout.buildDirectory.dir("libs")){
         include 'pcgen*-sources.jar'
     }
-    from("${buildDir}") {
+    from(layout.buildDirectory){
         include 'image*.zip'
     }
-    delete fileTree(buildDir).matching {
+    delete fileTree(layout.buildDirectory).matching {
         include "image*.zip"
     }
-    from ("${buildDir}/jpackage/"){
+    from(layout.buildDirectory.dir("jpackage")){
         include 'pcgen-*.*'
     }
 }
 
-if (Os.isFamily(Os.FAMILY_MAC) || Os.isFamily(Os.FAMILY_UNIX))
-{
-    assembleArtifacts.dependsOn jpackage
-}
-
 // Produce SHA-256 checksums for each release artifact
-task checksum(dependsOn: assembleArtifacts) doLast {
-    File zipChecksumsFile = new File("${buildDir}/release/SHA256-digests-zip-${version}.txt")
-    zipChecksumsFile.delete()
-    file(releaseDir).listFiles().each {File file ->
-        ant.checksum(file: file, property: "cs_$file.name", algorithm: "sha-256")
-        def cs = ant.properties["cs_$file.name"]
-        if (file.name.endsWith("zip")) {
-            zipChecksumsFile.append("SHA-256 digest for $file.name:\r\n$cs\r\n\r\n")
-        }
-        else if (file.name.endsWith(".exe")){
-            File exeChecksumsFile = new File("${buildDir}/release/SHA256-digests-exe-${version}.txt")
-            exeChecksumsFile.append("SHA-256 digest for $file.name:\r\n$cs\r\n\r\n")
-        }
-        else if (file.name.endsWith(".pkg")|| file.name.endsWith(".dmg")){
-            File macChecksumsFile = new File("${buildDir}/release/SHA256-digests-mac-${version}.txt")
-            macChecksumsFile.append("SHA-256 digest for $file.name:\r\n$cs\r\n\r\n")
-        }
-        else if (file.name.endsWith(".deb")|| file.name.endsWith(".rpm")){
-            File linuxChecksumsFile = new File("${buildDir}/release/SHA256-digests-linux-${version}.txt")
-            linuxChecksumsFile.append("SHA-256 digest for $file.name:\r\n$cs\r\n\r\n")
-        }
-        else if (file.name.endsWith(".jar")){
-            File jarChecksumsFile = new File("${buildDir}/release/SHA256-digests-jar-${version}.txt")
-            jarChecksumsFile.append("SHA-256 digest for $file.name:\r\n$cs\r\n\r\n")
-        }
-        else if (file.name.endsWith(".txt")) {}
-        else {
-            throw new GradleException("Checksums should account for all file.")
+tasks.register("checksum") {
+    dependsOn assembleArtifacts
+    doLast {
+        def zipChecksumsFile = layout.buildDirectory
+                .file("release/SHA256-digests-zip-${version}.txt")
+                .get()
+                .asFile
+        project.delete(zipChecksumsFile)
+        file(releaseDir).listFiles().each {File file ->
+            ant.checksum(file: file, property: "cs_$file.name", algorithm: "sha-256")
+            def cs = ant.properties["cs_$file.name"]
+            if (file.name.endsWith("zip")) {
+                zipChecksumsFile << "SHA-256 digest for $file.name:\r\n$cs\r\n\r\n"
+            }
+            else if (file.name.endsWith(".exe")){
+                def exeChecksumsFile = layout.buildDirectory
+                        .file("release/SHA256-digests-exe-${version}.txt")
+                        .get()
+                        .asFile
+                exeChecksumsFile << "SHA-256 digest for $file.name:\r\n$cs\r\n\r\n"
+            }
+            else if (file.name.endsWith(".pkg")|| file.name.endsWith(".dmg")){
+                def macChecksumsFile = layout.buildDirectory
+                        .file("release/SHA256-digests-mac-${version}.txt")
+                        .get()
+                        .asFile
+                macChecksumsFile << "SHA-256 digest for $file.name:\r\n$cs\r\n\r\n"
+            }
+            else if (file.name.endsWith(".deb")|| file.name.endsWith(".rpm")){
+                def linuxChecksumsFile = layout.buildDirectory
+                        .file("release/SHA256-digests-linux-${version}.txt")
+                        .get()
+                        .asFile
+                linuxChecksumsFile << "SHA-256 digest for $file.name:\r\n$cs\r\n\r\n"
+            }
+            else if (file.name.endsWith(".jar")){
+                def jarChecksumsFile = layout.buildDirectory
+                        .file("release/SHA256-digests-jar-${version}.txt")
+                        .get()
+                        .asFile
+                jarChecksumsFile << "SHA-256 digest for $file.name:\r\n$cs\r\n\r\n"
+            }
+            else if (file.name.endsWith(".txt")) {
+                // does nothing
+            }
+            else {
+                throw new GradleException("Checksums should account for all file.")
+            }
         }
     }
 }
 
 // genDataList removed as it causes release errors, 'genDataList'
-task prepareRelease (dependsOn: ['clean', 'build', 'runtime']) {
-    description="Prepare PCGen for release. This will update and commit the version, do a clean build including the unit tests and generate the data list for the installer."
+tasks.register("prepareRelease") {
+    dependsOn build
+    description = """Prepare PCGen for release. This will update and commit the version, \
+do a build including the unit tests and generate the data list for the installer."""
 }
 
-task pcgenRelease (dependsOn: ['prepareRelease', 'assembleArtifacts', 'checksum']) {
-    description="Release a new version of PCGen. This will build PCGen and produce the release artifacts."
-    //Installer is placed in outputDir
-}
-
-task pcgenReleaseOfficial (dependsOn: ['pcgenRelease', 'updateVersionRelease']) {
-    description="Release a new offical version of PCGen."
+tasks.register("pcgenRelease") {
+    dependsOn prepareRelease, assembleArtifacts, checksum
+    description = "Release a new version of PCGen. This will build PCGen and produce the release artifacts."
+    // Installer is placed in outputDir
 }
 
 // Update the PCGen version to indicate a release, then commit the new version
-task updateVersionRelease doLast {
-    unSnapshotVersion()
-    commitFile(new File("gradle.properties"), "Update version for release ${project.version}")
+tasks.register("updateVersionRelease") {
+    doLast {
+        unSnapshotVersion()
+        commitFile(file("gradle.properties"), "Update version for release ${project.version}")
+    }
+}
+
+tasks.register("pcgenReleaseOfficial") {
+    dependsOn pcgenRelease, updateVersionRelease
+    description = "Release a new official version of PCGen."
 }
 
 // Update the PCGen version for development of the next release, then commit the new version
-task updateVersionToNext doLast {
-    updateVersion()
-    commitFile(new File("gradle.properties"), "Update version for dev work ${project.version}")
+tasks.register("updateVersionToNext") {
+    doLast {
+        updateVersion()
+        commitFile(file("gradle.properties"), "Update version for dev work ${project.version}")
+    }
 }

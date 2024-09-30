@@ -21,8 +21,9 @@ jar-all-plugins - Generate the plugin jar files
 	<property name="systemlstplugins.dir" value="${plugins.dir}/systemlstplugins" />
 	<property name="jepplugins.dir" value="${plugins.dir}/jepplugins" />
 	<property name="converterplugins.dir" value="${plugins.dir}/converterplugins" />
-	<target name="jar-all-plugins" depends="makeplugindirs,jar-export-plugins,jar-bonus-plugins,jar-pre-plugins,jar-lst-plugins,jar-grouping-plugins,jar-modifier-plugins,jar-variable-plugins,jar-systemlst-plugins, jar-converter-plugins, jar-jep-plugins, jar-deprecated-plugin, jar-primitive-plugins, jar-qualifier-plugins, jar-function-plugins" description="Build (Link) plugin jar files">
-	</target>
+	<target name="jar-all-plugins"
+			depends="makeplugindirs,jar-export-plugins,jar-bonus-plugins,jar-pre-plugins,jar-lst-plugins,jar-grouping-plugins,jar-modifier-plugins,jar-variable-plugins,jar-systemlst-plugins, jar-converter-plugins, jar-jep-plugins, jar-deprecated-plugin, jar-primitive-plugins, jar-qualifier-plugins, jar-function-plugins"
+			description="Build (Link) plugin jar files"/>
 
 	<target name="jar-export-plugins" depends="makeplugindirs" description="Build (Link) Export Token plugin jar files">
 		<!-- Export tokens-->
@@ -1261,6 +1262,13 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/bonustokens/SizeMod.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${bonusplugins.dir}/BonusToken-MINCLASSSKILLPOINTS.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/bonustokens/MinClassSkillPoints.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -7632,7 +7640,7 @@ Class-Path: ${manifest.extra.jars}
 		</delete>
 	</target>
 
-	<target name="makeplugindirs" description="Creates any needed directories">
+	<target name="makeplugindirs" description="Create any needed directories">
 		<mkdir dir="${outputplugins.dir}" />
 		<mkdir dir="${bonusplugins.dir}" />
 		<mkdir dir="${preplugins.dir}" />

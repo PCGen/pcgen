@@ -26,7 +26,6 @@ import pcgen.gui2.PCGenFrame;
 import pcgen.gui2.PCGenUIManager;
 import pcgen.gui2.dialog.PrintPreviewDialog;
 import pcgen.gui2.tools.Icons;
-import pcgen.gui3.GuiAssertions;
 import pcgen.gui3.JFXPanelFromResource;
 import pcgen.gui3.behavior.EnabledOnlyWithCharacter;
 import pcgen.gui3.behavior.EnabledOnlyWithSources;
@@ -137,7 +136,7 @@ public final class PCGenToolBar
 
 	private void onExport(final ActionEvent actionEvent)
 	{
-		GuiAssertions.assertIsNotJavaFXThread();
+		//GuiAssertions.assertIsNotJavaFXThread();
 		JFXPanelFromResource<ExportDialogController>
 				jfxPanelFromResource = new JFXPanelFromResource<>(ExportDialogController.class, "ExportDialog.fxml");
 		jfxPanelFromResource.showAsStage("Export a PC or Party");

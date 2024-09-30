@@ -5,7 +5,7 @@
 !include ${INCLUDES_DIR}\constants.nsh
 ;File association
 !include ${INCLUDES_DIR}\FileAssociation.nsh
-;Windows 32 or 64 bit version
+;Windows 64 bit version
 !include "x64.nsh"
 ;Used for installation size calculation
 !include "FileFunc.nsh"
@@ -26,7 +26,7 @@
 !define MUI_HEADERIMAGE_BITMAP "${PROJECT_BUILD_DIR}\..\installers\win-installer\Local\splash.bmp"
 !define MUI_HEADERIMAGE_RIGHT
 ;Uncomment when a better images is available.
-;!define MUI_WELCOMEFINISHPAGE_BITMAP "${PROJECT_BUILD_DIR}\..\installers\win-installer\Local\splash.bmp" 
+;!define MUI_WELCOMEFINISHPAGE_BITMAP "${PROJECT_BUILD_DIR}\..\installers\win-installer\Local\splash.bmp"
 
 ; Main Install settings
 Name "${APPNAMEANDVERSION}"
@@ -163,22 +163,22 @@ Section "-Local" Section4
 # We no longer provide the .bat file.
 #	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\${APPNAMEANDVERSION}-Low.lnk" "$INSTDIR\${APPDIR}\pcgen_low_mem.bat" "" \
 #				"$INSTDIR\${APPDIR}\Local\PCGen.ico" 0 SW_SHOWMINIMIZED
-        CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\${APPNAMEANDVERSION}-Bat.lnk" "$INSTDIR\${APPDIR}\pcgen.bat" "" \
+	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\${APPNAMEANDVERSION}-Bat.lnk" "$INSTDIR\${APPDIR}\pcgen.bat" "" \
 				"$INSTDIR\${APPDIR}\Local\PCGen.ico" 0 SW_SHOWMINIMIZED
 	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\${APPNAMEANDVERSION}.lnk" "$INSTDIR\${APPDIR}\pcgen.exe" "" \
 				"$INSTDIR\${APPDIR}\Local\pcgen2.ico" 0 SW_SHOWMINIMIZED
-        CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\Convert Data.lnk" "$INSTDIR\${APPDIR}\jre\bin\javaw.exe" \ 
-                                "-Xmx256M -jar pcgen-batch-convert.jar" \
+	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\Convert Data.lnk" "$INSTDIR\${APPDIR}\jre\bin\javaw.exe" \
+				"-Xmx256M -jar pcgen-batch-convert.jar" \
 				"$INSTDIR\${APPDIR}\Local\convert.ico"
-	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\Release Notes.lnk" \ 
-                                "$INSTDIR\${APPDIR}\pcgen-release-notes-${SIMPVER}.html" "" \ 
-                                "$INSTDIR\${APPDIR}\Local\knight.ico"
-	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\News.lnk" "http://pcgen.sourceforge.net/02_news.php" "" \ 
-                                "$INSTDIR\${APPDIR}\Local\queen.ico"
-	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\uninstall-${LONGVER}.lnk" \ 
-                                "$INSTDIR\uninstall-${LONGVER}.exe"
-	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\Manual.lnk" "$INSTDIR\${APPDIR}\docs\index.html" "" \ 
-                                "$INSTDIR\${APPDIR}\Local\castle.ico"
+	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\Release Notes.lnk" \
+				"$INSTDIR\${APPDIR}\pcgen-release-notes-${SIMPVER}.html" "" \
+				"$INSTDIR\${APPDIR}\Local\knight.ico"
+	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\News.lnk" "http://pcgen.sourceforge.net/02_news.php" "" \
+				"$INSTDIR\${APPDIR}\Local\queen.ico"
+	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\uninstall-${LONGVER}.lnk" \
+				"$INSTDIR\uninstall-${LONGVER}.exe"
+	CreateShortCut "$SMPROGRAMS\PCGen\${APPDIR}\Manual.lnk" "$INSTDIR\${APPDIR}\docs\index.html" "" \
+				"$INSTDIR\${APPDIR}\Local\castle.ico"
         ;Add file extension registration
         ;File association. See: http://nsis.sourceforge.net/FileAssoc
         !insertmacro APP_ASSOCIATE "pcg" "PCGen.File" "PCGen Character file" \
@@ -188,32 +188,19 @@ Section "-Local" Section4
 SectionEnd
 
 Section "Java 64 Bit" Section5
-        SectionIn RO
+    SectionIn RO
 
-        ;Use the right java version
-        DetailPrint "Java extraction..."
-        SetOutPath "$INSTDIR\${APPDIR}\bin"
-        File /r "${SrcDir}\..\image\pcgen-windows-x64\bin\*.*"
+    ;Use the right java version
+    DetailPrint "Java extraction..."
+    SetOutPath "$INSTDIR\${APPDIR}\bin"
+    File /r "${SrcDir}\..\image\pcgen-windows-x64\bin\*.*"
 
-        SetOutPath "$INSTDIR\${APPDIR}\lib"
-	    File /r "${SrcDir}\PCGen_${SIMPVER}_opt\lib64\*.*"
-        DetailPrint "Java extraction complete!"
-SectionEnd
-
-Section "Java 32 Bit" Section6
-        SectionIn RO
-
-        ;Use the right java version
-        DetailPrint "Java extraction..."
-        SetOutPath "$INSTDIR\${APPDIR}\bin"
-        File /r "${SrcDir}\..\image\pcgen-windows-x32\bin\*.*"
-        SetOutPath "$INSTDIR\${APPDIR}\lib"
-	    File /r "${SrcDir}\PCGen_${SIMPVER}_opt\lib32\*.*"
-        DetailPrint "Java extraction complete!"
+    SetOutPath "$INSTDIR\${APPDIR}\lib"
+    File /r "${SrcDir}\PCGen_${SIMPVER}_opt\lib64\*.*"
+    DetailPrint "Java extraction complete!"
 SectionEnd
 
 Section -FinishSection
-
 	WriteRegStr HKLM "Software\${APPNAME}\${APPDIR}" "" "$INSTDIR\${APPDIR}"
 	WriteRegStr HKLM "${ARP}" "DisplayName" "${APPNAMEANDVERSION}"
 	WriteRegStr HKLM "${ARP}" "UninstallString" "$INSTDIR\uninstall-${APPDIR}.exe"
@@ -224,7 +211,6 @@ Section -FinishSection
  	IntFmt $0 "0x%08X" $0
  	WriteRegDWORD HKLM "${ARP}" "EstimatedSize" "$0"
 	DetailPrint "Done!"
-
 SectionEnd
 
 ; Modern install component descriptions
@@ -288,14 +274,13 @@ Section Uninstall
 	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen"
 #	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen_low_mem.bat"
 	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen.bat"
-	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen_JREx32.bat"
 	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen_JREx64.bat"
 	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen-batch-convert.jar"
 	Delete /REBOOTOK "$INSTDIR\${APPDIR}\filepaths.ini"
 	Delete /REBOOTOK "$INSTDIR\${APPDIR}\config.ini"
 	Delete /REBOOTOK "$INSTDIR\${APPDIR}\logging.properties"
 	Delete /REBOOTOK "$INSTDIR\${APPDIR}\pcgen.log"
-	
+
 	RMDir "$INSTDIR\${APPDIR}"
 
 	# Always delete uninstaller as the last action
@@ -312,13 +297,13 @@ Section Uninstall
 	;Run the uninstaller
   	ClearErrors
   	ExecWait '$R0 _?=$INSTDIR' ;Do not copy the uninstaller to a temp file
- 
+
   	IfErrors no_remove_uninstaller done
     	;You can either use Delete /REBOOTOK in the uninstaller or add some code
     	;here to remove the uninstaller. Use a registry key to check
     	;whether the user has chosen to uninstall. If you are using an uninstaller
     	;components page, make sure all sections are uninstalled.
-  	
+
 	no_remove_uninstaller:
 
 	done:
@@ -329,7 +314,7 @@ Function .onInit
   	"Software\Microsoft\Windows\CurrentVersion\Uninstall\${APPDIR}" \
   	"UninstallString"
   	StrCmp $R0 "" done
- 
+
   	MessageBox MB_OKCANCEL|MB_ICONEXCLAMATION \
   	"${APPNAME} is already installed. $\n$\nClick `OK` to remove the \
   	previous version or `Cancel` to cancel this upgrade." \
@@ -340,7 +325,7 @@ Function .onInit
 	uninst:
   		ClearErrors
   		ExecWait '$R0 _?=$INSTDIR' ;Do not copy the uninstaller to a temp file
- 
+
   		IfErrors no_remove_uninstaller done
     		;You can either use Delete /REBOOTOK in the uninstaller or add some code
     		;here to remove the uninstaller. Use a registry key to check
@@ -348,17 +333,15 @@ Function .onInit
     		;components page, make sure all sections are uninstalled.
   	no_remove_uninstaller:
 
-	done:
-
-	#Determine the bitness of the OS and enable the correct section
-  	IntOp $0 ${SF_SELECTED} | ${SF_RO}
-  	${If} ${RunningX64}
-    		SectionSetFlags ${Section5} $0
-    		SectionSetFlags ${Section6} ${SECTION_OFF}
-  	${Else}
-    		SectionSetFlags ${Section5} ${SECTION_OFF} 
-    		SectionSetFlags ${Section6} $0
-  	${EndIf}
+    done:
+        # Check the bitness of the OS and fail, if 32-bit OS is used
+        IntOp $0 ${SF_SELECTED} | ${SF_RO}
+        ${If} ${RunningX64}
+            SectionSetFlags ${Section5} $0
+        ${Else}
+            DetailPrint "Error: 32-bit OS is not supported"
+            Abort
+        ${EndIf}
 FunctionEnd
 
 ; eof

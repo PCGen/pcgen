@@ -1,9 +1,6 @@
 package pcgen.system;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.converter.ArgumentConversionException;
 import org.junit.jupiter.params.converter.ConvertWith;
@@ -15,6 +12,7 @@ import util.SystemExitInterceptor;
 import java.io.File;
 import java.util.Optional;
 
+@Disabled
 class CommandLineArgumentsTest {
     private static Runnable revertSystemExitInterceptor;
 

@@ -203,6 +203,15 @@ This is almost exactly the command Travis runs to verify, if it fails locally yo
 ### Generate IntelliJ IDEA Project
     ./gradlew idea
 
+## Troubleshooting
+####
+If you have an error stating `Task :run FAILED Error: --module-path requires module path specification` in Intellij,
+create a run configuration using Gradle and have the command be `run`. This should fix this error.
+
+If you want to debug in Intellij, using the `Main` configuration and run it in debug mode.
+You can change the Java version to whatever version is supported, and you have installed.
+
+
 [PCGen]: https://github.com/PCGen/pcgen
 [JIRA]: https://pcgenorg.atlassian.net
 [CODE]: https://pcgenorg.atlassian.net/projects/CODE/issues

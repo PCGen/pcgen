@@ -9,7 +9,7 @@ checkstyle {
     configFile = new File('code/standards/checkstyle.xml')
     configProperties = [samedir: "${rootDir}/code/standards"]
     showViolations = true
-    toolVersion = '10.7.0'
+    toolVersion = '10.18.1'
     sourceSets = []
 }
 
@@ -19,27 +19,30 @@ pmd {
     ruleSetFiles = files('code/standards/ruleset.xml')
     consoleOutput = true
     sourceSets = []
-    toolVersion = "6.54.0"
+    toolVersion = "7.6.0"
     incrementalAnalysis = true
 }
 
 // TODO fix the outstanding bugs and then remove the ignoreFailures
 spotbugs {
-    toolVersion = '4.7.3'
+    def classLoader = plugins["com.github.spotbugs"].class.classLoader
+    def SpotBugsConfidence = classLoader.findLoadedClass("com.github.spotbugs.snom.Confidence")
+
+    toolVersion = '4.8.6'
     excludeFilter = file("$rootProject.projectDir/code/standards/spotbugs_ignore.xml")
     omitVisitors = ['Naming', 'CrossSiteScripting', 'DontUseEnum', 'DoInsideDoPrivileged']
-    reportLevel = 'low'
+    reportLevel = SpotBugsConfidence.LOW
     ignoreFailures = true
 }
 
 spotbugsMain {
     reports {
-        xml.enabled = false
-        html.enabled = true
+        xml.required = false
+        html.required = true
         html.stylesheet resources.text.fromFile('code/standards/fancy-hist.xsl')
     }
 }
 
-task allReports {
-    dependsOn = ['checkstyleMain', 'pmdMain', 'spotbugsMain']
+tasks.register('allReports') {
+    dependsOn checkstyleMain, pmdMain, spotbugsMain
 }

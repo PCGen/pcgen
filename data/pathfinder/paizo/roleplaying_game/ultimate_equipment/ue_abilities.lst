@@ -82,6 +82,9 @@ Equipment ~ Blood Reservoir of Physical Prowess (CON)	CATEGORY:Internal									
 
 +2 Circumstance Bonus	CATEGORY:Internal	TYPE:Circumstance Bonus from Masterwork Tool	CHOOSE:SKILL|TYPE=Base	MULT:YES	STACK:NO	TEMPBONUS:PC|SKILL|%LIST|2|TYPE=Circumstance	
 
+###Block: Medusa Mask
+Equipment ~ Medusa Mask	CATEGORY:Internal	DEFINE:MedusaMaskProtection|0		ASPECT:SaveBonus|+%1 bonus on all saving throws against visual effects, including gaze attacks and sight-based illusions.|MedusaMaskProtection	BONUS:VAR|MedusaMaskProtection|4
+
 
 #
 # EOF

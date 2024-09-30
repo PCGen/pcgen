@@ -22,7 +22,7 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.HashMap;
+import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
 
@@ -74,9 +74,9 @@ import pcgen.system.LanguageBundle;
 
 /**
  * The Class {@code EquipCustomPanel} displays an available/selected table
- * pair to allow the creation of a custom piece of equipment.. 
+ * pair to allow the creation of a custom piece of equipment..
  *
- * 
+ *
  */
 public final class EquipCustomPanel extends FlippingSplitPane
 {
@@ -153,12 +153,12 @@ public final class EquipCustomPanel extends FlippingSplitPane
 	}
 
 	/**
-	 * Setup any data related to multiple equipment heads. 
+	 * Setup any data related to multiple equipment heads.
 	 */
 	private void initHeadMaps()
 	{
-		availEqmodModelMap = new HashMap<>();
-		selectedEqmodModelMap = new HashMap<>();
+		availEqmodModelMap = new EnumMap<>(EquipmentBuilderFacade.EquipmentHead.class);
+		selectedEqmodModelMap = new EnumMap<>(EquipmentBuilderFacade.EquipmentHead.class);
 
 		for (EquipmentHead head : validHeads)
 		{
@@ -679,7 +679,7 @@ public final class EquipCustomPanel extends FlippingSplitPane
 		}
 
 		/**
-		 * Create a TreeViewPath for the equipment modifier and paths. 
+		 * Create a TreeViewPath for the equipment modifier and paths.
 		 * @param pobj The equipment modifier
 		 * @param path The paths under which the equipment modifier should be shown.
 		 * @return The TreeViewPath.

@@ -226,6 +226,7 @@ ABILITYCATEGORY:Human Ethnicity				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRA
 ABILITYCATEGORY:Region of Origin				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Background			TYPE:Region																		PLURAL:Regions of Origin			DISPLAYLOCATION:Background
 
 ABILITYCATEGORY:Headband of Intellect Skill Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability		TYPE:HeadbandSkill																							DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Scarlet and blue Sphere Ioun Stone Skill Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO						CATEGORY:Special Ability		TYPE:IounStoneSkill																							DISPLAYLOCATION:Misc
 
 ABILITYCATEGORY:Intelligence-Based Skill			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO												CATEGORY:Special Ability		TYPE:IntBaseSkill																								DISPLAYLOCATION:Class Features
 
