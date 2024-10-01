@@ -271,7 +271,7 @@ dependencies {
     spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.13.0'
 
     pmd 'net.sourceforge.pmd:pmd-ant:7.6.0'
-    pmd 'net.sourceforge.pmd:pmd-java:7.3.0'
+    pmd 'net.sourceforge.pmd:pmd-java:7.6.0'
 }
 
 // Properties to support Ant builds
