@@ -213,7 +213,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		aPrClass.setName("PreReqClass");
 		aPrClass.put(StringKey.KEY_NAME, "KEY_PreReqClass");
 		final BonusObj aBonus = Bonus.newBonus(context, "MISC|SR|10|PREVARGTEQ:Foo,2");
-		
+
 		if (aBonus != null)
 		{
 			aPrClass.addToListFor(ListKey.BONUS, aBonus);
@@ -298,7 +298,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		aPrClass.setName("PreReqClass");
 		aPrClass.put(StringKey.KEY_NAME, "KEY_PreReqClass");
 		final BonusObj aBonus = Bonus.newBonus(context, "MISC|SR|10|PREVARGTEQ:Foo,2");
-		
+
 		if (aBonus != null)
 		{
 			aPrClass.addToListFor(ListKey.BONUS, aBonus);
@@ -608,7 +608,8 @@ public class PCClassTest extends AbstractCharacterTestCase
 				"Should be able to cast 11th level spells with feat"
 		);
 
-		for (int li = 1; li < 15; ++li) {
+		for (int li = 1; li < 15; ++li)
+		{
 			BonusSpellInfo bsi = new BonusSpellInfo();
 			bsi.setName(Integer.toString(li));
 			bsi.setStatScore(10 + 2 * li);
@@ -831,8 +832,8 @@ public class PCClassTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test the definition and application of abilities. 
-	 * @throws PersistenceLayerException 
+	 * Test the definition and application of abilities.
+	 * @throws PersistenceLayerException
 	 */
 	@Test
 	void testAddAbility() throws PersistenceLayerException
@@ -882,7 +883,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		assertEquals(ab1, abilities.iterator().next());
 		Collection<AssociatedPrereqObject> assocs = pcclass.getListAssociations(autoList, ref);
 		assertEquals(1, assocs.size());
-		
+
 		PCClassLevel level = pcclass.getOriginalClassLevel(2);
 		mods = level.getListMods(autoList);
 		assertEquals(1, mods.size());
@@ -907,7 +908,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		assertTrue(hasAbility(pc, cat,
 			Nature.AUTOMATIC, ab2), "Character should have ability2.");
 	}
-	
+
 	/**
 	 * Test the function of the LEVELSPERFEAT in setLevel()
 	 * Monster class without a levels per feat setting.
@@ -1100,7 +1101,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		prClass.setName("PreReqClass");
 		prClass.put(StringKey.KEY_NAME, "KEY_PreReqClass");
 		final BonusObj aBonus = Bonus.newBonus(context, "MISC|SR|10|PREVARGTEQ:Foo,2");
-		
+
 		if (aBonus != null)
 		{
 			prClass.addToListFor(ListKey.BONUS, aBonus);
@@ -1111,7 +1112,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		qClass.put(StringKey.KEY_NAME, "KEY_QualClass");
 		CDOMDirectSingleRef<PCClass> ref = CDOMDirectSingleRef.getRef(prClass);
 		qClass.addToListFor(ListKey.QUALIFY, new Qualifier(ref));
-		nqClass = new PCClass();		
+		nqClass = new PCClass();
 		nqClass.setName("NonQualClass");
 		nqClass.put(StringKey.KEY_NAME, "KEY_NonQualClass");
 		nqClass.put(VariableKey.getConstant("Foo"), FormulaFactory.ONE);

@@ -73,10 +73,10 @@ class ScanForUnusedIl8nKeysTest
 		 * classes will be deemed present and removed from the missing keys set.
 		 */
 		Predicate<String> whitelistedKey =
-				key -> key.startsWith("in_mnu") ||
-					key.startsWith("in_mn_mnu") ||
-					key.startsWith("in_EqBuilder_") ||
-					key.startsWith("PrerequisiteOperator.display");
+				key -> key.startsWith("in_mnu")
+						|| key.startsWith("in_mn_mnu")
+						|| key.startsWith("in_EqBuilder_")
+						|| key.startsWith("PrerequisiteOperator.display");
 
 		try (var reader = new FileInputStream(RESOURCES_PATH + PROPERTIES_PATH + PROPERTIES_FILE))
 		{
@@ -104,15 +104,15 @@ class ScanForUnusedIl8nKeysTest
 
 			// Report all missing entries
 			log.info(() -> String.format(Locale.ENGLISH, "Total unused keys: %d from a set of %d defined keys: %.2f%%.",
-				missingKeys.size(), keys.size(), missingKeys.size() * 100.0 / keys.size()));
+					missingKeys.size(), keys.size(), missingKeys.size() * 100.0 / keys.size()));
 
 			// Output a new set with all properties that are used within the project
 			outputCleanedProperties(new File(RESOURCES_PATH + PROPERTIES_PATH + PROPERTIES_FILE),
-				new File(TEST_RESOURCES_PATH + PROPERTIES_PATH + NEW_PROPERTIES_FILE), missingKeys);
+					new File(TEST_RESOURCES_PATH + PROPERTIES_PATH + NEW_PROPERTIES_FILE), missingKeys);
 
 			// Output a new set with properties (including comments), where keys are not used
 			outputUnusedProperties(new File(RESOURCES_PATH + PROPERTIES_PATH + PROPERTIES_FILE),
-				new File(TEST_RESOURCES_PATH + PROPERTIES_PATH + UNUSED_PROPERTIES_FILE), missingKeys);
+					new File(TEST_RESOURCES_PATH + PROPERTIES_PATH + UNUSED_PROPERTIES_FILE), missingKeys);
 		}
 	}
 
@@ -124,20 +124,18 @@ class ScanForUnusedIl8nKeysTest
 			if (file.getName().endsWith(".java"))
 			{
 				return keys.stream()
-					.filter(key -> javaFile.contains("\"%s\"".formatted(key)))
-					.collect(Collectors.toSet());
-			}
-			else if (file.getName().endsWith(".fxml"))
+						.filter(key -> javaFile.contains("\"%s\"".formatted(key)))
+						.collect(Collectors.toSet());
+			} else if (file.getName().endsWith(".fxml"))
 			{
 				return keys.stream()
-					.filter(key -> javaFile.contains("%%%s".formatted(key)))
-					.collect(Collectors.toSet());
-			}
-			else
+						.filter(key -> javaFile.contains("%%%s".formatted(key)))
+						.collect(Collectors.toSet());
+			} else
 			{
 				log.warning(
-					"Unknown file extension: %s. This file will be ignored, because only .java and .fxml are supported"
-						.formatted(file.getAbsolutePath()));
+						"Unknown file extension: %s. This file will be ignored, because only .java and .fxml are supported"
+								.formatted(file.getAbsolutePath()));
 				return Collections.emptySet();
 			}
 
@@ -162,9 +160,9 @@ class ScanForUnusedIl8nKeysTest
 			 var writer = new BufferedWriter(new PrintWriter(cleanPropsFile, StandardCharsets.UTF_8)))
 		{
 			String result =
-				reader.lines()
-					.filter(line -> unusedKeys.stream().noneMatch(key -> line.startsWith(key + '=')))
-					.collect(Collectors.joining("\n"));
+					reader.lines()
+							.filter(line -> unusedKeys.stream().noneMatch(key -> line.startsWith(key + '=')))
+							.collect(Collectors.joining("\n"));
 			writer.write(result);
 		}
 	}
@@ -182,13 +180,13 @@ class ScanForUnusedIl8nKeysTest
 			 var writer = new BufferedWriter(new PrintWriter(unusedPropsFile, StandardCharsets.UTF_8)))
 		{
 			String result = reader.lines()
-				.filter(line -> {
-					var trimmedLine = line.trim();
-					return trimmedLine.startsWith("#") ||
-						trimmedLine.isEmpty() ||
-						unusedKeys.stream().anyMatch(key -> trimmedLine.startsWith(key + '='));
-				}).collect(Collectors.joining("\n"))
-				.replaceAll("(\n){3,}", "\n\n");
+					.filter(line -> {
+						var trimmedLine = line.trim();
+						return trimmedLine.startsWith("#")
+								|| trimmedLine.isEmpty()
+								|| unusedKeys.stream().anyMatch(key -> trimmedLine.startsWith(key + '='));
+					}).collect(Collectors.joining("\n"))
+					.replaceAll("(\n){3,}", "\n\n");
 			writer.write(result);
 		}
 	}
@@ -206,26 +204,26 @@ class ScanForUnusedIl8nKeysTest
 			 Stream<Path> resourcesWalk = Files.walk(Paths.get(RESOURCES_PATH)))
 		{
 			List<File> javaFiles = codeWalk
-				.filter(Files::isRegularFile)
-				.filter(e -> e.toString().endsWith(".java"))
+					.filter(Files::isRegularFile)
+					.filter(e -> e.toString().endsWith(".java"))
 					.map(Path::toFile)
 					.toList();
 			allFiles.addAll(javaFiles);
 
 			List<File> fxmlFiles = resourcesWalk
-				.filter(Files::isRegularFile)
-				.filter(e -> e.toString().endsWith(".fxml"))
-				.map(Path::toFile)
-				.toList();
+					.filter(Files::isRegularFile)
+					.filter(e -> e.toString().endsWith(".fxml"))
+					.map(Path::toFile)
+					.toList();
 			allFiles.addAll(fxmlFiles);
 		}
 
 		log.info("The size of found files is %d, that will be scanned.".formatted(allFiles.size()));
 		log.fine(() -> {
 			var firstTenFiles = allFiles.stream()
-				.limit(10)
-				.map(File::getPath)
-				.collect(Collectors.joining("\n"));
+					.limit(10)
+					.map(File::getPath)
+					.collect(Collectors.joining("\n"));
 			return "Top 10 files:\n" + firstTenFiles;
 		});
 		return allFiles;
