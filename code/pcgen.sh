@@ -1,5 +1,6 @@
 #!/bin/sh
 set -e
+cd "$(dirname "$0")"
 
 # Most GUIs will change directory to the location of the script
 # when the script is double-clicked.  But nooooo, not macOS.
