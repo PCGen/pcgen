@@ -54,6 +54,7 @@ import java.util.stream.Stream;
  */
 class ScanForUnusedIl8nKeysTest
 {
+	private static final int EXPECTED_TOTAL_FILES_COUNT = 3000;
 	private static final String CODE_PATH = "code/src/java/";
 	private static final String RESOURCES_PATH = "code/src/resources/";
 	private static final String TEST_RESOURCES_PATH = "code/src/testResources/";
@@ -71,17 +72,19 @@ class ScanForUnusedIl8nKeysTest
 		 * PCGenActionMap and PCGenAction dynamically construct keys. All keys starting with the pattern used in those
 		 * classes will be deemed present and removed from the missing keys set.
 		 */
-		Predicate<String> whitelistedKey = key -> key.startsWith("in_mnu")
-				|| key.startsWith("in_mn_mnu")
-				|| key.startsWith("in_EqBuilder_")
-				|| key.startsWith("PrerequisiteOperator.display");
+		Predicate<String> whitelistedKey =
+				key -> key.startsWith("in_mnu") ||
+					key.startsWith("in_mn_mnu") ||
+					key.startsWith("in_EqBuilder_") ||
+					key.startsWith("PrerequisiteOperator.display");
 
-		try (var reader = new FileInputStream(RESOURCES_PATH + PROPERTIES_PATH + PROPERTIES_FILE)) {
+		try (var reader = new FileInputStream(RESOURCES_PATH + PROPERTIES_PATH + PROPERTIES_FILE))
+		{
 			// Read in a bundle, grab all keys
-			Properties p = new Properties();
-			p.load(reader);
+			var props = new Properties();
+			props.load(reader);
 
-			Set<String> keys = p.keySet()
+			Set<String> keys = props.keySet()
 					.stream()
 					.map(o -> (String) o)
 					.filter(Predicate.not(whitelistedKey))
@@ -94,38 +97,53 @@ class ScanForUnusedIl8nKeysTest
 			Set<String> missingKeys = ConcurrentHashMap.newKeySet(keys.size());
 			missingKeys.addAll(keys);
 
-			fileList.parallelStream()
-					.forEach(file -> {
-						var missingSet = scanFilesForMissingKeys(file, missingKeys);
-						missingKeys.removeAll(missingSet);
-					});
+			fileList.parallelStream().forEach(file -> {
+				var missingSet = scanFilesForMissingKeys(file, missingKeys);
+				missingKeys.removeAll(missingSet);
+			});
 
 			// Report all missing entries
 			log.info(() -> String.format(Locale.ENGLISH, "Total unused keys: %d from a set of %d defined keys: %.2f%%.",
-					missingKeys.size(), keys.size(), missingKeys.size() * 100.0 / keys.size()));
+				missingKeys.size(), keys.size(), missingKeys.size() * 100.0 / keys.size()));
 
 			// Output a new set with all properties that are used within the project
-			outputCleanedProperties(new File(RESOURCES_PATH + PROPERTIES_PATH
-					+ PROPERTIES_FILE), new File(TEST_RESOURCES_PATH + PROPERTIES_PATH
-					+ NEW_PROPERTIES_FILE), missingKeys);
+			outputCleanedProperties(new File(RESOURCES_PATH + PROPERTIES_PATH + PROPERTIES_FILE),
+				new File(TEST_RESOURCES_PATH + PROPERTIES_PATH + NEW_PROPERTIES_FILE), missingKeys);
 
 			// Output a new set with properties (including comments), where keys are not used
-			outputUnusedProperties(new File(RESOURCES_PATH + PROPERTIES_PATH
-					+ PROPERTIES_FILE), new File(TEST_RESOURCES_PATH + PROPERTIES_PATH
-					+ UNUSED_PROPERTIES_FILE), missingKeys);
+			outputUnusedProperties(new File(RESOURCES_PATH + PROPERTIES_PATH + PROPERTIES_FILE),
+				new File(TEST_RESOURCES_PATH + PROPERTIES_PATH + UNUSED_PROPERTIES_FILE), missingKeys);
 		}
 	}
 
 	private static Set<String> scanFilesForMissingKeys(File file, Set<String> keys)
 	{
-		try (var reader = new BufferedReader(new FileReader(file, StandardCharsets.UTF_8))) {
-			var javaFile = reader
-					.lines()
-					.collect(Collectors.joining("\n"));
-			return keys.stream()
-					.filter(key -> javaFile.contains("\"%s\"".formatted(key)) || javaFile.contains("%%%s".formatted(key)))
+		try (var reader = new BufferedReader(new FileReader(file, StandardCharsets.UTF_8)))
+		{
+			var javaFile = reader.lines().collect(Collectors.joining("\n"));
+			if (file.getName().endsWith(".java"))
+			{
+				return keys.stream()
+					.filter(key -> javaFile.contains("\"%s\"".formatted(key)))
 					.collect(Collectors.toSet());
-		} catch (IOException e) {
+			}
+			else if (file.getName().endsWith(".fxml"))
+			{
+				return keys.stream()
+					.filter(key -> javaFile.contains("%%%s".formatted(key)))
+					.collect(Collectors.toSet());
+			}
+			else
+			{
+				log.warning(
+					"Unknown file extension: %s. This file will be ignored, because only .java and .fxml are supported"
+						.formatted(file.getAbsolutePath()));
+				return Collections.emptySet();
+			}
+
+
+		} catch (IOException e)
+		{
 			log.log(Level.WARNING, "Couldn't process file: %s".formatted(file.getAbsolutePath()), e);
 			return Collections.emptySet();
 		}
@@ -141,9 +159,10 @@ class ScanForUnusedIl8nKeysTest
 												Collection<String> unusedKeys) throws IOException
 	{
 		try (var reader = new BufferedReader(new FileReader(inputPropsFile, StandardCharsets.UTF_8));
-			 var writer = new BufferedWriter(new PrintWriter(cleanPropsFile, StandardCharsets.UTF_8))) {
-			String result = reader
-					.lines()
+			 var writer = new BufferedWriter(new PrintWriter(cleanPropsFile, StandardCharsets.UTF_8)))
+		{
+			String result =
+				reader.lines()
 					.filter(line -> unusedKeys.stream().noneMatch(key -> line.startsWith(key + '=')))
 					.collect(Collectors.joining("\n"));
 			writer.write(result);
@@ -160,17 +179,16 @@ class ScanForUnusedIl8nKeysTest
 											   Collection<String> unusedKeys) throws IOException
 	{
 		try (var reader = new BufferedReader(new FileReader(inputPropsFile, StandardCharsets.UTF_8));
-			 var writer = new BufferedWriter(new PrintWriter(unusedPropsFile, StandardCharsets.UTF_8))) {
-			String result = reader
-					.lines()
-					.filter(line -> {
-						var trimmedLine = line.trim();
-						return trimmedLine.startsWith("#")
-								|| trimmedLine.isEmpty()
-								|| unusedKeys.stream().anyMatch(key -> trimmedLine.startsWith(key + '='));
-					})
-					.collect(Collectors.joining("\n"))
-					.replaceAll("(\n){3,}", "\n\n");
+			 var writer = new BufferedWriter(new PrintWriter(unusedPropsFile, StandardCharsets.UTF_8)))
+		{
+			String result = reader.lines()
+				.filter(line -> {
+					var trimmedLine = line.trim();
+					return trimmedLine.startsWith("#") ||
+						trimmedLine.isEmpty() ||
+						unusedKeys.stream().anyMatch(key -> trimmedLine.startsWith(key + '='));
+				}).collect(Collectors.joining("\n"))
+				.replaceAll("(\n){3,}", "\n\n");
 			writer.write(result);
 		}
 	}
@@ -181,32 +199,33 @@ class ScanForUnusedIl8nKeysTest
 	 */
 	private static List<File> buildFileList() throws IOException
 	{
-		List<File> allFiles = new ArrayList<>(3000);
+		List<File> allFiles = new ArrayList<>(EXPECTED_TOTAL_FILES_COUNT);
 		log.info("Current working directory: " + ConfigurationSettings.getUserDir());
 
 		try (Stream<Path> codeWalk = Files.walk(Paths.get(CODE_PATH));
-			 Stream<Path> resourcesWalk = Files.walk(Paths.get(RESOURCES_PATH))) {
-			List<File> collect = codeWalk
-					.filter(Files::isRegularFile)
-					.filter(e -> e.toString().endsWith(".java"))
+			 Stream<Path> resourcesWalk = Files.walk(Paths.get(RESOURCES_PATH)))
+		{
+			List<File> javaFiles = codeWalk
+				.filter(Files::isRegularFile)
+				.filter(e -> e.toString().endsWith(".java"))
 					.map(Path::toFile)
 					.toList();
-			allFiles.addAll(collect);
+			allFiles.addAll(javaFiles);
 
-			List<File> collect2 = resourcesWalk
-					.filter(Files::isRegularFile)
-					.filter(e -> e.toString().endsWith(".fxml"))
-					.map(Path::toFile)
-					.toList();
-			allFiles.addAll(collect2);
+			List<File> fxmlFiles = resourcesWalk
+				.filter(Files::isRegularFile)
+				.filter(e -> e.toString().endsWith(".fxml"))
+				.map(Path::toFile)
+				.toList();
+			allFiles.addAll(fxmlFiles);
 		}
 
 		log.info("The size of found files is %d, that will be scanned.".formatted(allFiles.size()));
 		log.fine(() -> {
 			var firstTenFiles = allFiles.stream()
-					.limit(10)
-					.map(File::getPath)
-					.collect(Collectors.joining("\n"));
+				.limit(10)
+				.map(File::getPath)
+				.collect(Collectors.joining("\n"));
 			return "Top 10 files:\n" + firstTenFiles;
 		});
 		return allFiles;
