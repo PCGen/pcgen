@@ -63,8 +63,13 @@ class ScanForUnusedIl8nKeysTest
 	private static final String NEW_PROPERTIES_FILE = "cleaned.properties";
 	private static final String UNUSED_PROPERTIES_FILE = "unused.properties";
 
-	private static Logger log = Logger.getLogger("slowtest");
+	private static final Logger LOG = Logger.getLogger("slowtest");
 
+	/*
+	 * Current test case loads all keys from LanguageBundle.properties file and searches for them in *.java and *.fxml
+	 * files, whether they exist or not.
+	 * Java uses "key" syntax, and FXML uses "%key" syntax.
+	 */
 	@Test
 	void scanForUnusedKeys() throws IOException
 	{
@@ -93,29 +98,40 @@ class ScanForUnusedIl8nKeysTest
 			// Grab a list of files to be scanned
 			List<File> fileList = buildFileList();
 
-			// Scan each file marking each found entry
-			Set<String> missingKeys = ConcurrentHashMap.newKeySet(keys.size());
-			missingKeys.addAll(keys);
+			// Copy the identified keys to a concurrent hash map that will be cleaned slightly later
+			Set<String> unusedKeys = ConcurrentHashMap.newKeySet(keys.size());
+			unusedKeys.addAll(keys);
 
 			fileList.parallelStream().forEach(file -> {
-				var missingSet = scanFilesForMissingKeys(file, missingKeys);
-				missingKeys.removeAll(missingSet);
+				// Every time the scanFilesForMissingKeys function returns unused keys
+				// that will be removed from {@code unusedKeys} concurrently
+				var missingSet = scanFilesForMissingKeys(file, unusedKeys);
+				unusedKeys.removeAll(missingSet);
 			});
 
-			// Report all missing entries
-			log.info(() -> String.format(Locale.ENGLISH, "Total unused keys: %d from a set of %d defined keys: %.2f%%.",
-					missingKeys.size(), keys.size(), missingKeys.size() * 100.0 / keys.size()));
+			// Report all missing entries for statistics purposes
+			LOG.info(() -> String.format(Locale.ENGLISH, "Total unused keys: %d from a set of %d defined keys: %.2f%%.",
+					unusedKeys.size(), keys.size(), unusedKeys.size() * 100.0 / keys.size()));
 
 			// Output a new set with all properties that are used within the project
 			outputCleanedProperties(new File(RESOURCES_PATH + PROPERTIES_PATH + PROPERTIES_FILE),
-					new File(TEST_RESOURCES_PATH + PROPERTIES_PATH + NEW_PROPERTIES_FILE), missingKeys);
+					new File(TEST_RESOURCES_PATH + PROPERTIES_PATH + NEW_PROPERTIES_FILE), unusedKeys);
 
 			// Output a new set with properties (including comments), where keys are not used
 			outputUnusedProperties(new File(RESOURCES_PATH + PROPERTIES_PATH + PROPERTIES_FILE),
-					new File(TEST_RESOURCES_PATH + PROPERTIES_PATH + UNUSED_PROPERTIES_FILE), missingKeys);
+					new File(TEST_RESOURCES_PATH + PROPERTIES_PATH + UNUSED_PROPERTIES_FILE), unusedKeys);
 		}
 	}
 
+	/**
+	 * The function scans a file and searches there for a key from {@code keys} set.
+	 * Java files must contain a localization property using syntax "key" (with double quotes). Other patterns are not
+	 * supported.
+	 * FXML files must use "%key" syntax
+	 * @param file a current file that will be scanned
+	 * @param keys a set of keys that will be used for searching
+	 * @return unused  keys that will be later removed from the initial {@code unusedKey} set
+	 */
 	private static Set<String> scanFilesForMissingKeys(File file, Set<String> keys)
 	{
 		try (var reader = new BufferedReader(new FileReader(file, StandardCharsets.UTF_8)))
@@ -129,29 +145,29 @@ class ScanForUnusedIl8nKeysTest
 			} else if (file.getName().endsWith(".fxml"))
 			{
 				return keys.stream()
-						.filter(key -> javaFile.contains("%%%s".formatted(key)))
+						.filter(key -> javaFile.contains("\"%%%s\"".formatted(key)))
 						.collect(Collectors.toSet());
 			} else
 			{
-				log.warning(
+				LOG.warning(
 						"Unknown file extension: %s. This file will be ignored, because only .java and .fxml are supported"
 								.formatted(file.getAbsolutePath()));
-				return Collections.emptySet();
 			}
-
-
 		} catch (IOException e)
 		{
-			log.log(Level.WARNING, "Couldn't process file: %s".formatted(file.getAbsolutePath()), e);
-			return Collections.emptySet();
+			LOG.log(Level.WARNING, "Couldn't process file: %s".formatted(file.getAbsolutePath()), e);
 		}
+		return Collections.emptySet();
 	}
 
 	/**
-	 * @param inputPropsFile
-	 * @param cleanPropsFile
-	 * @param unusedKeys
-	 * @throws IOException
+	 * Creates a file "unused.properties" containing all key from a language bundle that are used neither in *.java,
+	 * nor in *.fxml files.
+	 * Adds an empty line at the end of file.
+	 * @param inputPropsFile a input file containing all language bundle properties
+	 * @param cleanPropsFile an output file "unused.properties" with the final result
+	 * @param unusedKeys a set of unused keys that are used for scanning within {@code inputPropsFile}
+	 * @throws IOException if the reading or writing throws an exception
 	 */
 	private static void outputCleanedProperties(File inputPropsFile, File cleanPropsFile,
 												Collection<String> unusedKeys) throws IOException
@@ -164,14 +180,18 @@ class ScanForUnusedIl8nKeysTest
 							.filter(line -> unusedKeys.stream().noneMatch(key -> line.startsWith(key + '=')))
 							.collect(Collectors.joining("\n"));
 			writer.write(result);
+			writer.write("\n");
 		}
 	}
 
 	/**
-	 * @param inputPropsFile
-	 * @param unusedPropsFile
-	 * @param unusedKeys
-	 * @throws IOException
+	 * Creates a file "cleaned.properties" containing all key from a language bundle that are used either in *.java,
+	 * nor in *.fxml files. The code also replaces two continuous empty lines with one.
+	 * Adds an empty line at the end of file.
+	 * @param inputPropsFile a input file containing all language bundle properties
+	 * @param unusedPropsFile an output file "cleaned.properties" with the final result
+	 * @param unusedKeys a set of unused keys that are used for scanning within {@code inputPropsFile}
+	 * @throws IOException if the reading or writing throws an exception
 	 */
 	private static void outputUnusedProperties(File inputPropsFile, File unusedPropsFile,
 											   Collection<String> unusedKeys) throws IOException
@@ -186,19 +206,21 @@ class ScanForUnusedIl8nKeysTest
 								|| trimmedLine.isEmpty()
 								|| unusedKeys.stream().anyMatch(key -> trimmedLine.startsWith(key + '='));
 					}).collect(Collectors.joining("\n"))
-					.replaceAll("(\n){3,}", "\n\n");
+					.replaceAll("(\n){3,}", "\n\n"); // replaces two blank lines with one
 			writer.write(result);
+			writer.write("\n");
 		}
 	}
 
 	/**
+	 * Recursively gets a list of *.java and *.fxml files from project's directories.
 	 * @return A list of files that will be scanned for i18n labels
 	 * @throws IOException if an I/O error is thrown when accessing the starting file.
 	 */
 	private static List<File> buildFileList() throws IOException
 	{
 		List<File> allFiles = new ArrayList<>(EXPECTED_TOTAL_FILES_COUNT);
-		log.info("Current working directory: " + ConfigurationSettings.getUserDir());
+		LOG.info("Current working directory: " + ConfigurationSettings.getUserDir());
 
 		try (Stream<Path> codeWalk = Files.walk(Paths.get(CODE_PATH));
 			 Stream<Path> resourcesWalk = Files.walk(Paths.get(RESOURCES_PATH)))
@@ -218,8 +240,8 @@ class ScanForUnusedIl8nKeysTest
 			allFiles.addAll(fxmlFiles);
 		}
 
-		log.info("The size of found files is %d, that will be scanned.".formatted(allFiles.size()));
-		log.fine(() -> {
+		LOG.info("The size of found files is %d, that will be scanned.".formatted(allFiles.size()));
+		LOG.fine(() -> {
 			var firstTenFiles = allFiles.stream()
 					.limit(10)
 					.map(File::getPath)
