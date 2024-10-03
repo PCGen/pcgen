@@ -121,7 +121,8 @@ public class PortraitTokenTest extends AbstractCharacterTestCase
 	 * @throws Exception Not expected.
 	 */
 	@Test
-	public void testNonEncodedURI() throws Exception {
+	public void testNonEncodedURI() throws Exception
+	{
 		var inputPortraitPath = FileSystems.getDefault()
 				.getPath("code", "src", "resources", "pcgen", "D&D 3.Xe", "portrait.png")
 				.toString();
