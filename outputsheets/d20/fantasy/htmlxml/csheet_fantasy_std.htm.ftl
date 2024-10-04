@@ -2095,39 +2095,35 @@ ${pcstring('ABILITYALL.Words of Power.VISIBLE.${ClassFeature}.TYPE=WordsOfPowerO
 </#if>
 <!-- STOP Words of Power Table -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!-- START Conditions Table -->
+<#if (pcvar('countdistinct("ABILITIES","CATEGORY=Condition","TYPE=Condition","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+    <tr>
+     <th bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: small"><b>condition</b></font></th>
+    </tr>
+<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Condition","TYPE=Condition","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; object , object_has_next>
+<#if (object % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
+     <td valign="top" width="70%" class="font8"><b>
+<#assign typeOfAbility = pcstring("ABILITYALL.Condition.VISIBLE.${object}.TYPE=condition.TYPE")?lower_case />
+<#if (pcstring("ABILITYALL.Condition.VISIBLE.${object}.TYPE=condition.HASASPECT.Name") = "Y")>
+${pcstring('ABILITYALL.Condition.VISIBLE.${object}.TYPE=condition.ASPECT.Name')}
+<@typeOfAbilitySuffix typeOfAbility=typeOfAbility />
+<#else>
+${pcstring('ABILITYALL.Condition.VISIBLE.${object}.TYPE=condition')}
+<@typeOfAbilitySuffix typeOfAbility=typeOfAbility />
+</#if>
+</b>
+</td>
+<td class="font8" valign="top" width="30%" align="right">[${pcstring('ABILITYALL.Condition.VISIBLE.${object}.TYPE=condition.SOURCE')}]</td>
+<tr>
+<#if (object % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
+<td class="font8" valign="top" align="indent" colspan="2">&#160;&#160;&#160;&#160;
+${pcstring('ABILITYALL.Condition.VISIBLE.${object}.TYPE=condition.DESC')}</td>
+    </tr>
+</@loop>
+   </table>
+</#if>
+<!-- STOP Conditions Table -->
 
 
 

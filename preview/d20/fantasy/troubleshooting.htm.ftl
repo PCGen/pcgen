@@ -297,12 +297,12 @@ ${pcstring('WEAPON.${weap}.MISC')}[MISC]
 </@loop>
 </blockquote>
 
-<#if (pcvar('count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') != 0)>
+<#if (pcvar('count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') != 0)>	<!-- " -->
 <hr />
 </#if>
 
 
-<#if (pcvar('count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")') != 0)>
+<#if (pcvar('count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")') != 0)>	<!-- " -->
 <b>Special Abilities</b>
 </#if>
 <blockquote>
@@ -311,7 +311,7 @@ ${pcstring('WEAPON.${weap}.MISC')}[MISC]
 </@loop>
 </blockquote>
 
-<#if (pcvar('count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC")') != 0)>
+<#if (pcvar('count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC")') != 0)>	<!-- " -->
 <b>Special Abilities (Automatic)</b>
 </#if>
 <blockquote>
@@ -320,7 +320,7 @@ ${pcstring('WEAPON.${weap}.MISC')}[MISC]
 </@loop>
 </blockquote>
 
-<#if (pcvar('count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL")') != 0)>
+<#if (pcvar('count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL")') != 0)>	<!-- " -->
 <b>Special Abilities (Virtual)</b>
 </#if>
 <blockquote>
@@ -329,11 +329,11 @@ ${pcstring('WEAPON.${weap}.MISC')}[MISC]
 </@loop>
 </blockquote>
 
-<#if (pcvar('count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY")') != 0)>
+<#if (pcvar('count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY")') != 0)>	<!-- " -->
 <hr />
 </#if>
 
-<#if (pcvar('count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=NORMAL")') != 0)>
+<#if (pcvar('count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=NORMAL")') != 0)>	<!-- " -->
 <b>Special Abilities (Hidden)</b>
 </#if>
 <blockquote>
@@ -342,7 +342,7 @@ ${pcstring('WEAPON.${weap}.MISC')}[MISC]
 </@loop>
 </blockquote>
 
-<#if (pcvar('count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=AUTOMATIC")') != 0)>
+<#if (pcvar('count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=AUTOMATIC")') != 0)>	<!-- " -->
 <b>Special Abilities (Hidden Automatic)</b>
 </#if>
 <blockquote>
@@ -351,7 +351,7 @@ ${pcstring('WEAPON.${weap}.MISC')}[MISC]
 </@loop>
 </blockquote>
 
-<#if (pcvar('count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=VIRTUAL")') != 0)>
+<#if (pcvar('count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=VIRTUAL")') != 0)>	<!-- " -->
 <b>Special Abilities (Hidden Virtual)</b>
 </#if>
 <blockquote>
@@ -360,11 +360,11 @@ ${pcstring('WEAPON.${weap}.MISC')}[MISC]
 </@loop>
 </blockquote>
 
-<#if (pcvar('count("ABILITIES","CATEGORY=Internal","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') != 0)>
+<#if (pcvar('count("ABILITIES","CATEGORY=Internal","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') != 0)>	<!-- " -->
 <hr />
 </#if>
 
-<#if (pcvar('count("ABILITIES","CATEGORY=Internal","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")') != 0)>
+<#if (pcvar('count("ABILITIES","CATEGORY=Internal","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")') != 0)>	<!-- " -->
 <b>Internal Abilities</b>
 </#if>
 <blockquote>
@@ -373,7 +373,7 @@ ${pcstring('WEAPON.${weap}.MISC')}[MISC]
 </@loop>
 </blockquote>
 
-<#if (pcvar('count("ABILITIES","CATEGORY=Internal","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC")') != 0)>
+<#if (pcvar('count("ABILITIES","CATEGORY=Internal","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC")') != 0)>	<!-- " -->
 <b>Internal Abilities (Automatic)</b>
 </#if>
 <blockquote>
@@ -382,7 +382,7 @@ ${pcstring('WEAPON.${weap}.MISC')}[MISC]
 </@loop>
 </blockquote>
 
-<#if (pcvar('count("ABILITIES","CATEGORY=Internal","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL")') != 0)>
+<#if (pcvar('count("ABILITIES","CATEGORY=Internal","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL")') != 0)>	<!-- " -->
 <b>Internal Abilities (Virtual)</b>
 </#if>
 <blockquote>
@@ -391,11 +391,11 @@ ${pcstring('WEAPON.${weap}.MISC')}[MISC]
 </@loop>
 </blockquote>
 
-<#if (pcvar('count("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY")') != 0)>
+<#if (pcvar('count("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY")') != 0)>	<!-- " -->
 <hr />
 </#if>
 
-<#if (pcvar('count("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=NORMAL")') != 0)>
+<#if (pcvar('count("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=NORMAL")') != 0)>	<!-- " -->
 <b>Internal Abilities (Hidden)</b>
 </#if>
 <blockquote>
@@ -404,7 +404,7 @@ ${pcstring('WEAPON.${weap}.MISC')}[MISC]
 </@loop>
 </blockquote>
 
-<#if (pcvar('count("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=AUTOMATIC")') != 0)>
+<#if (pcvar('count("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=AUTOMATIC")') != 0)>	<!-- " -->
 <b>Internal Abilities (Hidden Automatic)</b>
 </#if>
 <blockquote>
@@ -413,7 +413,7 @@ ${pcstring('WEAPON.${weap}.MISC')}[MISC]
 </@loop>
 </blockquote>
 
-<#if (pcvar('count("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=VIRTUAL")') != 0)>
+<#if (pcvar('count("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=VIRTUAL")') != 0)>	<!-- " -->
 <b>Internal Abilities (Hidden Virtual)</b>
 </#if>
 <blockquote>
@@ -422,7 +422,7 @@ ${pcstring('WEAPON.${weap}.MISC')}[MISC]
 </@loop>
 </blockquote>
 
-<#if (pcvar('count("ABILITIES","CATEGORY=Skill")') != 0)>
+<#if (pcvar('count("ABILITIES","CATEGORY=Skill")') != 0)>	<!-- " -->
 <b>Skill Abilities</b>
 </#if>
 <blockquote>
@@ -431,7 +431,7 @@ ${pcstring('WEAPON.${weap}.MISC')}[MISC]
 </@loop>
 </blockquote>
 
-<#if (pcvar('count("ABILITIES","CATEGORY=Language")') != 0)>
+<#if (pcvar('count("ABILITIES","CATEGORY=Language")') != 0)>	<!-- " -->
 <b>Language Abilities</b>
 </#if>
 <blockquote>
@@ -440,7 +440,7 @@ ${pcstring('WEAPON.${weap}.MISC')}[MISC]
 </@loop>
 </blockquote>
 
-<#if (pcvar('count("ABILITIES","CATEGORY=Weapon")') != 0)>
+<#if (pcvar('count("ABILITIES","CATEGORY=Weapon")') != 0)>	<!-- " -->
 <b>Weapon Abilities</b>
 </#if>
 <blockquote>
@@ -449,7 +449,7 @@ ${pcstring('WEAPON.${weap}.MISC')}[MISC]
 </@loop>
 </blockquote>
 
-<#if (pcvar('count("ABILITIES","CATEGORY=Class")') != 0)>
+<#if (pcvar('count("ABILITIES","CATEGORY=Class")') != 0)>	<!-- " -->
 <b>Class Abilities</b>
 </#if>
 <blockquote>
@@ -458,7 +458,7 @@ ${pcstring('WEAPON.${weap}.MISC')}[MISC]
 </@loop>
 </blockquote>
 
-<#if (pcvar('count("ABILITIES","CATEGORY=Natural Attack")') != 0)>
+<#if (pcvar('count("ABILITIES","CATEGORY=Natural Attack")') != 0)>	<!-- " -->
 <b>Natural Attack Abilities</b>
 </#if>
 <blockquote>
@@ -467,7 +467,7 @@ ${pcstring('WEAPON.${weap}.MISC')}[MISC]
 </@loop>
 </blockquote>
 
-<#if (pcvar('count("ABILITIES","CATEGORY=Domain")') != 0)>
+<#if (pcvar('count("ABILITIES","CATEGORY=Domain")') != 0)>	<!-- " -->
 <b>Domain Abilities</b>
 </#if>
 <blockquote>
@@ -476,7 +476,7 @@ ${pcstring('WEAPON.${weap}.MISC')}[MISC]
 </@loop>
 </blockquote>
 
-<#if (pcvar('count("ABILITIES","CATEGORY=Special Ability")') != 0)>
+<#if (pcvar('count("ABILITIES","CATEGORY=Special Ability")') != 0)>	<!-- " -->
 <b>Special Abilities (Everything)</b>
 </#if>
 <blockquote>
@@ -485,10 +485,20 @@ ${pcstring('WEAPON.${weap}.MISC')}[MISC]
 </@loop>
 </blockquote>
 
+<!-- Conditions -->
+
+<#if (pcvar('count("ABILITIES","CATEGORY=Condition")') != 0)>	<!-- " -->
+<b>Conditions</b>
+</#if>
+<blockquote>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Condition")')-1 ; ability , ability_has_next>
+<b>${pcstring('ABILITYALLCondition.ALL.${ability}.KEY')}</b> ${pcstring('ABILITYALL.Condition.ALL.${ability}.ASSOCIATED')}</b> [<i>${pcstring('ABILITYALL.Condition.ALL.${ability}.SOURCE')}</i>]<br>
+</@loop>
+</blockquote>
 
 
 
-<#if (pcvar('count("ABILITIES","CATEGORY=Internal")') != 0)>
+<#if (pcvar('count("ABILITIES","CATEGORY=Internal")') != 0)>	<!-- " -->
 <b>Internal Abilities (Everything)</b>
 </#if>
 <blockquote>
