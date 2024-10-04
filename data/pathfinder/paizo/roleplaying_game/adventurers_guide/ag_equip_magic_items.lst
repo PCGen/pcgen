@@ -1,65 +1,63 @@
-#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
-# Equipment Name				Product Identity?	Output Name					Type								Contains			Cost		Weight	Source Page		Ability								Innate Spells																												Save bonus										Bonus to skill							Stat bonus					Modify VAR						Special Property
-Amulet of the Storm												TYPE:Magic.Wondrous.Neck.Amulet							COST:3600	WT:0		SOURCEPAGE:p.184
-Aspis Badge of Last Resort		NAMEISPI:YES							TYPE:Magic.Wondrous.Consumable							COST:750			SOURCEPAGE:p.36
-Bands of Unbreakable Camaraderie										TYPE:Magic.Wondrous.Wrist								COST:5000	WT:1		SOURCEPAGE:p.147
-Banner of the Scarlet Rose											TYPE:Magic.Wondrous									COST:18000	WT:3		SOURCEPAGE:p.86
-Caparison of Resistance +1 (Rider)										TYPE:Magic.Wondrous									COST:2700			SOURCEPAGE:p.16																																								BONUS:SAVE|ALL|1|TYPE=Resistance
-Caparison of Resistance +1 (Mount)										TYPE:Magic.Wondrous											WT:4		SOURCEPAGE:p.16																																								BONUS:SAVE|ALL|1|TYPE=Resistance
-Caparison of Resistance +2 (Rider)										TYPE:Magic.Wondrous									COST:10800			SOURCEPAGE:p.16																																								BONUS:SAVE|ALL|2|TYPE=Resistance
-Caparison of Resistance +2 (Mount)										TYPE:Magic.Wondrous											WT:4		SOURCEPAGE:p.16																																								BONUS:SAVE|ALL|2|TYPE=Resistance
-Caparison of Resistance +3 (Rider)										TYPE:Magic.Wondrous									COST:24300			SOURCEPAGE:p.16																																								BONUS:SAVE|ALL|3|TYPE=Resistance
-Caparison of Resistance +3 (Mount)										TYPE:Magic.Wondrous											WT:4		SOURCEPAGE:p.16																																								BONUS:SAVE|ALL|3|TYPE=Resistance
-Caparison of Resistance +4 (Rider)										TYPE:Magic.Wondrous									COST:43200			SOURCEPAGE:p.16																																								BONUS:SAVE|ALL|4|TYPE=Resistance
-Caparison of Resistance +4 (Mount)										TYPE:Magic.Wondrous											WT:4		SOURCEPAGE:p.16																																								BONUS:SAVE|ALL|4|TYPE=Resistance
-Caparison of Resistance +5 (Rider)										TYPE:Magic.Wondrous									COST:67500			SOURCEPAGE:p.16																																								BONUS:SAVE|ALL|5|TYPE=Resistance
-Caparison of Resistance +5 (Mount)										TYPE:Magic.Wondrous											WT:4		SOURCEPAGE:p.16																																								BONUS:SAVE|ALL|5|TYPE=Resistance
-Cloak of Heavenly Fire												TYPE:Magic.Wondrous.Shoulders.Cloak							COST:6000	WT:1		SOURCEPAGE:p.16
-Dhoti of Style Mastery												TYPE:Magic.Wondrous.Body								COST:54000	WT:1		SOURCEPAGE:p.107
-Discretion Charm													TYPE:Magic.Wondrous									COST:3500			SOURCEPAGE:p.177
-Dust of Hex Hiding												TYPE:Magic.Wondrous.Consumable							COST:250			SOURCEPAGE:p.36
-Efreeti Horns													TYPE:Magic.Wondrous.Headband								COST:24000	WT:1		SOURCEPAGE:p.107																																																												BONUS:STAT|WIS|4|TYPE=Enhancement
-Erinyes Company Cloak												TYPE:Magic.Wondrous.Shoulders.Cloak							COST:23000	WT:3		SOURCEPAGE:p.86																																								BONUS:SAVE|ALL|2|TYPE=Resistance|PREEQUIP:1,Gray Maiden Plate%	BONUS:SKILL|FLY|-ACHECK|PREEQUIP:1,Gray Maiden Plate%
-Eye of the Mantis													TYPE:Magic.Wondrous									COST:2000			SOURCEPAGE:p.159
-First Aid Gloves													TYPE:Magic.Wondrous.Hands.Glove							COST:4500	WT:1		SOURCEPAGE:p.147
-Gloves of Unfolding Wind											TYPE:Magic.Wondrous.Hands.Glove							COST:10000	WT:1		SOURCEPAGE:p.107
-Golden Eagle Epaulets												TYPE:Magic.Wondrous.Shoulders								COST:4500	WT:1		SOURCEPAGE:p.77
-Goz Mask					NAMEISPI:YES							TYPE:Magic.Wondrous.Headgear								COST:8000	WT:1		SOURCEPAGE:p.185																																																																									SPROP:see through obscuring vapor or silt, resist wind, breath water 1 hr/day
-Greathelm of the Mammoth Lord											TYPE:Magic.Wondrous.Head.Helm								COST:24700	WT:5		SOURCEPAGE:p.133
-Helm of the Fanged Crown											TYPE:Magic.Wondrous.Head.Helm								COST:12000	WT:3		SOURCEPAGE:p.86
-Ioun Spite Bracers												TYPE:Magic.Wondrous.Wrist.Bracer							COST:15000	WT:2		SOURCEPAGE:p.36
-Ironbound Ring (Master's)											TYPE:Magic.Ring										COST:8000			SOURCEPAGE:p.36
-Ironbound Ring (Minion's)											TYPE:Magic.Ring										COST:500			SOURCEPAGE:p.36
-Jar of Lightning													TYPE:Magic.Wondrous.Consumable							COST:800	WT:1		SOURCEPAGE:p.185
-Lantern of Hidden Light												TYPE:Magic.Wondrous									COST:1000	WT:2		SOURCEPAGE:p.115
-Liberator's Key													TYPE:Magic.Wondrous.Consumable							COST:2000			SOURCEPAGE:p.45
-Maiden's Helm													TYPE:Magic.Wondrous.Head.Helm								COST:3500	WT:3		SOURCEPAGE:p.87										SPELLS:Innate|TIMES=3|CASTERLEVEL=(max(TL,1))|Command																																	BONUS:SKILL|Intimidate|5|TYPE=Competence
-Maiden's Promise (Pair)												TYPE:Magic.Wondrous.Neck.Amulet							COST:500	WT:0		SOURCEPAGE:p.87
-Mantis Embrace													TYPE:Magic.Wondrous.Hands.Glove							COST:50000	WT:1		SOURCEPAGE:p.159
-Mask of the Mantis												TYPE:Magic.Wondrous.Headgear								COST:6000	WT:1		SOURCEPAGE:p.159																																																																									SPROP:3 charges/day (darkvision 60 ft., see invisibility, deathwatch, or +5 competence to perception) for 30 mins
-Mountainshaper's Girdle												TYPE:Magic.Wondrous.Belt								COST:25000	WT:1		SOURCEPAGE:p.107																																																												BONUS:STAT|STR|4|TYPE=Enhancement
-Ring of Retreat													TYPE:Magic.Ring										COST:12000			SOURCEPAGE:p.115
-Rod (Storm Kindler's)						OUTPUTNAME:Storm Kindler's Rod	TYPE:Artifact.Minor.Combat Gear									WT:4		SOURCEPAGE:p.185
-Sterling Salt													TYPE:Magic.Wondrous									COST:1500	WT:1		SOURCEPAGE:p.177
-Subtle Slippers													TYPE:Magic.Wondrous.Feet.Slippers							COST:5500	WT:2		SOURCEPAGE:p.45
-Swordlord's Cloak +1			NAMEISPI:YES							TYPE:Magic.Wondrous.Shoulders.Cloak							COST:4000	WT:1		SOURCEPAGE:p.26																																								BONUS:SAVE|ALL|1|TYPE=Resistance
-Swordlord's Cloak +2			NAMEISPI:YES							TYPE:Magic.Wondrous.Shoulders.Cloak							COST:16000	WT:1		SOURCEPAGE:p.26																																								BONUS:SAVE|ALL|2|TYPE=Resistance
-Swordlord's Cloak +3			NAMEISPI:YES							TYPE:Magic.Wondrous.Shoulders.Cloak							COST:37000	WT:1		SOURCEPAGE:p.26																																								BONUS:SAVE|ALL|3|TYPE=Resistance
-Swordlord's Cloak +4			NAMEISPI:YES							TYPE:Magic.Wondrous.Shoulders.Cloak							COST:64000	WT:1		SOURCEPAGE:p.26																																								BONUS:SAVE|ALL|4|TYPE=Resistance
-Swordlord's Cloak +5			NAMEISPI:YES							TYPE:Magic.Wondrous.Shoulders.Cloak							COST:100000	WT:1		SOURCEPAGE:p.26																																								BONUS:SAVE|ALL|5|TYPE=Resistance
-Tiller's Pendant													TYPE:Magic.Wondrous.Neck.Pendant							COST:6400			SOURCEPAGE:p.45
-Traveling Master's Turban											TYPE:Magic.Wondrous.Head.Hat								COST:4000	WT:1		SOURCEPAGE:p.107
-Wayfinder														TYPE:Magic.Wondrous.Wayfinder.Compass.Container	CONTAINS:UNLIM|Ioun=1	COST:500	WT:1		SOURCEPAGE:p.148	ABILITY:Internal|AUTOMATIC|Equipment ~ Wayfinder	SPELLS:Wayfinder|TIMES=ATWILL|CASTERLEVEL=5|Light																																																							SPROP:light at will, +2 competence to Survival (avoid becoming lost), can contain an ioun stone
-Wayfinder (Ebon)							OUTPUTNAME:Wayfinder, [NAME]		TYPE:Magic.Wondrous.Wayfinder.Compass.Container	CONTAINS:UNLIM|Ioun=2	COST:18000	WT:1		SOURCEPAGE:p.148	ABILITY:Internal|AUTOMATIC|Equipment ~ Wayfinder	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=5|Darkvision	SPELLS:Innate|TIMES=1|CASTERLEVEL=5|Darkness																																								BONUS:VAR|WayfinderStoneSlots|2|TYPE=Base	SPROP:Can contain 2 slotted ioun stones. Casts darkness 1/day (0 slots filled) and provides darkvision (0-1 slots filled)
-Wayfinder (Shining)						OUTPUTNAME:Wayfinder, [NAME]		TYPE:Magic.Wondrous.Wayfinder.Compass.Container	CONTAINS:UNLIM|Ioun=1	COST:2000	WT:1		SOURCEPAGE:p.148	ABILITY:Internal|AUTOMATIC|Equipment ~ Wayfinder	SPELLS:Wayfinder|TIMES=ATWILL|CASTERLEVEL=3|Light	SPELLS:Wayfinder|TIMES=ATWILL|CASTERLEVEL=3|Detect Evil	SPELLS:Wayfinder|TIMES=1|CASTERLEVEL=3|Protection from Evil,11																																		SPROP:light and detect evil at will, protection from evil 1/day, +2 competence to Survival (avoid becoming lost), can contain an ioun stone
-Wayfinder (Vanishing)						OUTPUTNAME:Wayfinder, [NAME]		TYPE:Magic.Wondrous.Wayfinder.Compass.Container	CONTAINS:UNLIM|Ioun=1	COST:8000	WT:1		SOURCEPAGE:p.148	ABILITY:Internal|AUTOMATIC|Equipment ~ Wayfinder	SPELLS:Wayfinder|TIMES=ATWILL|CASTERLEVEL=5|Light																																																							SPROP:light at will, +2 competence to Survival (avoid becoming lost), invisibility up to 5 minutes per day, each activation counts as 1 minute minimum
-Wayfinder of Hidden Strength											TYPE:Magic.Wondrous.Wayfinder.Compass.Container	CONTAINS:UNLIM|Ioun=1	COST:5000	WT:1		SOURCEPAGE:p.148	ABILITY:Internal|AUTOMATIC|Equipment ~ Wayfinder	SPELLS:Wayfinder|TIMES=ATWILL|CASTERLEVEL=5|Light																																																							SPROP:light at will, +2 competence to Survival (avoid becoming lost), can contain an ioun stone
-Whispering Shell													TYPE:Magic.Wondrous									COST:3000			SOURCEPAGE:p.45
-Zoic Fetish (Mammal)						OUTPUTNAME:[NAME] Zoic Fetish		TYPE:Magic.Wondrous									COST:7500			SOURCEPAGE:p.134										SPELLS:Mammal Zoic Fetish|TIMES=1|CASTERLEVEL=5|Dominate Animal,14																																													BONUS:VAR|WildEmpathy|4|TYPE=insight	SPROP:+1 insight bonus to AC vs. animals, +4 insight bonus to wild empathy, dominate animal (mammal) 1/day
-Zoic Fetish (Bird)						OUTPUTNAME:[NAME] Zoic Fetish		TYPE:Magic.Wondrous									COST:7500			SOURCEPAGE:p.134										SPELLS:Bird Zoic Fetish|TIMES=1|CASTERLEVEL=5|Dominate Animal,14																																														BONUS:VAR|WildEmpathy|4|TYPE=insight	SPROP:+1 insight bonus to AC vs. animals, +4 insight bonus to wild empathy, dominate animal (bird) 1/day
-Zoic Fetish (Reptile)						OUTPUTNAME:[NAME] Zoic Fetish		TYPE:Magic.Wondrous									COST:7500			SOURCEPAGE:p.134										SPELLS:Reptile Zoic Fetish|TIMES=1|CASTERLEVEL=5|Dominate Animal,14																																													BONUS:VAR|WildEmpathy|4|TYPE=insight	SPROP:+1 insight bonus to AC vs. animals, +4 insight bonus to wild empathy, dominate animal (reptile) 1/day
-Zoic Fetish (Amphibian)						OUTPUTNAME:[NAME] Zoic Fetish		TYPE:Magic.Wondrous									COST:7500			SOURCEPAGE:p.134										SPELLS:Amphibian Zoic Fetish|TIMES=1|CASTERLEVEL=5|Dominate Animal,14																																													BONUS:VAR|WildEmpathy|4|TYPE=insight	SPROP:+1 insight bonus to AC vs. animals, +4 insight bonus to wild empathy, dominate animal (amphibian) 1/day
-Zoic Fetish (Fish)						OUTPUTNAME:[NAME] Zoic Fetish		TYPE:Magic.Wondrous									COST:7500			SOURCEPAGE:p.134										SPELLS:Fish Zoic Fetish|TIMES=1|CASTERLEVEL=5|Dominate Animal,14																																														BONUS:VAR|WildEmpathy|4|TYPE=insight	SPROP:+1 insight bonus to AC vs. animals, +4 insight bonus to wild empathy, dominate animal (fish) 1/day
+Amulet of the Storm								TYPE:Magic.Wondrous.Neck.Amulet								COST:3600		WT:0			SOURCEPAGE:p.184
+Aspis Badge of Last Resort				NAMEISPI:YES	TYPE:Magic.Wondrous.Consumable								COST:750					SOURCEPAGE:p.36
+Bands of Unbreakable Camaraderie						TYPE:Magic.Wondrous.Wrist									COST:5000		WT:1			SOURCEPAGE:p.147
+Banner of the Scarlet Rose							TYPE:Magic.Wondrous										COST:18000		WT:3			SOURCEPAGE:p.86
+Caparison of Resistance +1 (Rider)						TYPE:Magic.Wondrous										COST:2700					SOURCEPAGE:p.16		BONUS:SAVE|ALL|1|TYPE=Resistance
+Caparison of Resistance +1 (Mount)						TYPE:Magic.Wondrous													WT:4			SOURCEPAGE:p.16		BONUS:SAVE|ALL|1|TYPE=Resistance
+Caparison of Resistance +2 (Rider)						TYPE:Magic.Wondrous										COST:10800					SOURCEPAGE:p.16		BONUS:SAVE|ALL|2|TYPE=Resistance
+Caparison of Resistance +2 (Mount)						TYPE:Magic.Wondrous													WT:4			SOURCEPAGE:p.16		BONUS:SAVE|ALL|2|TYPE=Resistance
+Caparison of Resistance +3 (Rider)						TYPE:Magic.Wondrous										COST:24300					SOURCEPAGE:p.16		BONUS:SAVE|ALL|3|TYPE=Resistance
+Caparison of Resistance +3 (Mount)						TYPE:Magic.Wondrous													WT:4			SOURCEPAGE:p.16		BONUS:SAVE|ALL|3|TYPE=Resistance
+Caparison of Resistance +4 (Rider)						TYPE:Magic.Wondrous										COST:43200					SOURCEPAGE:p.16		BONUS:SAVE|ALL|4|TYPE=Resistance
+Caparison of Resistance +4 (Mount)						TYPE:Magic.Wondrous													WT:4			SOURCEPAGE:p.16		BONUS:SAVE|ALL|4|TYPE=Resistance
+Caparison of Resistance +5 (Rider)						TYPE:Magic.Wondrous										COST:67500					SOURCEPAGE:p.16		BONUS:SAVE|ALL|5|TYPE=Resistance
+Caparison of Resistance +5 (Mount)						TYPE:Magic.Wondrous													WT:4			SOURCEPAGE:p.16		BONUS:SAVE|ALL|5|TYPE=Resistance
+Cloak of Heavenly Fire								TYPE:Magic.Wondrous.Shoulders.Cloak								COST:6000		WT:1			SOURCEPAGE:p.16
+Dhoti of Style Mastery								TYPE:Magic.Wondrous.Body									COST:54000		WT:1			SOURCEPAGE:p.107
+Discretion Charm									TYPE:Magic.Wondrous										COST:3500					SOURCEPAGE:p.177
+Dust of Hex Hiding								TYPE:Magic.Wondrous.Consumable								COST:250					SOURCEPAGE:p.36
+Efreeti Horns									TYPE:Magic.Wondrous.Headband									COST:24000		WT:1			SOURCEPAGE:p.107		BONUS:STAT|WIS|4|TYPE=Enhancement
+Erinyes Company Cloak								TYPE:Magic.Wondrous.Shoulders.Cloak								COST:23000		WT:3			SOURCEPAGE:p.86		BONUS:SAVE|ALL|2|TYPE=Resistance|PREEQUIP:1,Gray Maiden Plate%	BONUS:SKILL|FLY|-ACHECK|PREEQUIP:1,Gray Maiden Plate%
+Eye of the Mantis									TYPE:Magic.Wondrous										COST:2000					SOURCEPAGE:p.159
+First Aid Gloves									TYPE:Magic.Wondrous.Hands.Glove								COST:4500		WT:1			SOURCEPAGE:p.147
+Gloves of Unfolding Wind							TYPE:Magic.Wondrous.Hands.Glove								COST:10000		WT:1			SOURCEPAGE:p.107
+Golden Eagle Epaulets								TYPE:Magic.Wondrous.Shoulders									COST:4500		WT:1			SOURCEPAGE:p.77
+Goz Mask							NAMEISPI:YES	TYPE:Magic.Wondrous.Headgear									COST:8000		WT:1			SOURCEPAGE:p.185		SPROP:see through obscuring vapor or silt, resist wind, breath water 1 hr/day
+Greathelm of the Mammoth Lord							TYPE:Magic.Wondrous.Head.Helm									COST:24700		WT:5			SOURCEPAGE:p.133
+Helm of the Fanged Crown							TYPE:Magic.Wondrous.Head.Helm									COST:12000		WT:3			SOURCEPAGE:p.86
+Ioun Spite Bracers								TYPE:Magic.Wondrous.Wrist.Bracer								COST:15000		WT:2			SOURCEPAGE:p.36
+Ironbound Ring (Master's)							TYPE:Magic.Ring											COST:8000					SOURCEPAGE:p.36
+Ironbound Ring (Minion's)							TYPE:Magic.Ring											COST:500					SOURCEPAGE:p.36
+Jar of Lightning									TYPE:Magic.Wondrous.Consumable								COST:800		WT:1			SOURCEPAGE:p.185
+Lantern of Hidden Light								TYPE:Magic.Wondrous										COST:1000		WT:2			SOURCEPAGE:p.115
+Liberator's Key									TYPE:Magic.Wondrous.Consumable								COST:2000					SOURCEPAGE:p.45
+Maiden's Helm									TYPE:Magic.Wondrous.Head.Helm									COST:3500		WT:3			SOURCEPAGE:p.87		BONUS:SKILL|Intimidate|5|TYPE=Competence		SPELLS:Innate|TIMES=3|CASTERLEVEL=(max(TL,1))|Command
+Maiden's Promise (Pair)								TYPE:Magic.Wondrous.Neck.Amulet								COST:500		WT:0			SOURCEPAGE:p.87
+Mantis Embrace									TYPE:Magic.Wondrous.Hands.Glove								COST:50000		WT:1			SOURCEPAGE:p.159
+Mask of the Mantis								TYPE:Magic.Wondrous.Headgear									COST:6000		WT:1			SOURCEPAGE:p.159		SPROP:3 charges/day (darkvision 60 ft., see invisibility, deathwatch, or +5 competence to perception) for 30 mins
+Mountainshaper's Girdle								TYPE:Magic.Wondrous.Belt									COST:25000		WT:1			SOURCEPAGE:p.107		BONUS:STAT|STR|4|TYPE=Enhancement
+Ring of Retreat									TYPE:Magic.Ring											COST:12000					SOURCEPAGE:p.115
+Rod (Storm Kindler's)		OUTPUTNAME:Storm Kindler's Rod	TYPE:Artifact.Minor.Combat Gear											WT:4			SOURCEPAGE:p.185
+Sterling Salt									TYPE:Magic.Wondrous										COST:1500		WT:1			SOURCEPAGE:p.177
+Subtle Slippers									TYPE:Magic.Wondrous.Feet.Slippers								COST:5500		WT:2			SOURCEPAGE:p.45
+Swordlord's Cloak +1								TYPE:Magic.Wondrous.Shoulders.Cloak								COST:4000		WT:1			SOURCEPAGE:p.26		BONUS:SAVE|ALL|1|TYPE=Resistance	NAMEISPI:YES
+Swordlord's Cloak +2								TYPE:Magic.Wondrous.Shoulders.Cloak								COST:16000		WT:1			SOURCEPAGE:p.26		BONUS:SAVE|ALL|2|TYPE=Resistance	NAMEISPI:YES
+Swordlord's Cloak +3								TYPE:Magic.Wondrous.Shoulders.Cloak								COST:37000		WT:1			SOURCEPAGE:p.26		BONUS:SAVE|ALL|3|TYPE=Resistance	NAMEISPI:YES
+Swordlord's Cloak +4								TYPE:Magic.Wondrous.Shoulders.Cloak								COST:64000		WT:1			SOURCEPAGE:p.26		BONUS:SAVE|ALL|4|TYPE=Resistance	NAMEISPI:YES
+Swordlord's Cloak +5								TYPE:Magic.Wondrous.Shoulders.Cloak								COST:100000		WT:1			SOURCEPAGE:p.26		BONUS:SAVE|ALL|5|TYPE=Resistance	NAMEISPI:YES
+Tiller's Pendant									TYPE:Magic.Wondrous.Neck.Pendant								COST:6400					SOURCEPAGE:p.45
+Traveling Master's Turban							TYPE:Magic.Wondrous.Head.Hat									COST:4000		WT:1			SOURCEPAGE:p.107
+Wayfinder										TYPE:Magic.Wondrous.Wayfinder.Compass.Container		CONTAINS:UNLIM|Ioun=1	COST:500		WT:1			SOURCEPAGE:p.148		ABILITY:Internal|AUTOMATIC|Equipment ~ Wayfinder	SPELLS:Wayfinder|TIMES=ATWILL|CASTERLEVEL=5|Light																						BONUS:VAR|WayfinderStoneSlots|1|TYPE=Base	SPROP:light at will, +2 competence to Survival (avoid becoming lost), can contain an ioun stone
+Wayfinder (Ebon)			OUTPUTNAME:Wayfinder, [NAME]		TYPE:Magic.Wondrous.Wayfinder.Compass.Container		CONTAINS:UNLIM|Ioun=2	COST:18000		WT:1			SOURCEPAGE:p.148		ABILITY:Internal|AUTOMATIC|Equipment ~ Wayfinder	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=5|Darkvision	SPELLS:Innate|TIMES=1|CASTERLEVEL=5|Darkness														BONUS:VAR|WayfinderStoneSlots|2|TYPE=Base	SPROP:Can contain 2 slotted ioun stones. Casts darkness 1/day (0 slots filled) and provides darkvision (0-1 slots filled)	
+Wayfinder (Shining)		OUTPUTNAME:Wayfinder, [NAME]		TYPE:Magic.Wondrous.Wayfinder.Compass.Container		CONTAINS:UNLIM|Ioun=1	COST:2000		WT:1			SOURCEPAGE:p.148		ABILITY:Internal|AUTOMATIC|Equipment ~ Wayfinder	SPELLS:Wayfinder|TIMES=ATWILL|CASTERLEVEL=3|Light	SPELLS:Wayfinder|TIMES=ATWILL|CASTERLEVEL=3|Detect Evil	SPELLS:Wayfinder|TIMES=1|CASTERLEVEL=3|Protection from Evil,11	BONUS:VAR|WayfinderStoneSlots|1|TYPE=Base	SPROP:light and detect evil at will, protection from evil 1/day, +2 competence to Survival (avoid becoming lost), can contain an ioun stone
+Wayfinder (Vanishing)		OUTPUTNAME:Wayfinder, [NAME]		TYPE:Magic.Wondrous.Wayfinder.Compass.Container		CONTAINS:UNLIM|Ioun=1	COST:8000		WT:1			SOURCEPAGE:p.148		ABILITY:Internal|AUTOMATIC|Equipment ~ Wayfinder	SPELLS:Wayfinder|TIMES=ATWILL|CASTERLEVEL=5|Light																						BONUS:VAR|WayfinderStoneSlots|1|TYPE=Base	SPROP:light at will, +2 competence to Survival (avoid becoming lost), invisibility up to 5 minutes per day, each activation counts as 1 minute minimum
+Wayfinder of Hidden Strength							TYPE:Magic.Wondrous.Wayfinder.Compass.Container		CONTAINS:UNLIM|Ioun=1	COST:5000		WT:1			SOURCEPAGE:p.148		ABILITY:Internal|AUTOMATIC|Equipment ~ Wayfinder	SPELLS:Wayfinder|TIMES=ATWILL|CASTERLEVEL=5|Light																						BONUS:VAR|WayfinderStoneSlots|1|TYPE=Base	SPROP:light at will, +2 competence to Survival (avoid becoming lost), can contain an ioun stone
+Whispering Shell									TYPE:Magic.Wondrous										COST:3000					SOURCEPAGE:p.45
+Zoic Fetish (Mammal)		OUTPUTNAME:[NAME] Zoic Fetish		TYPE:Magic.Wondrous										COST:7500					SOURCEPAGE:p.134		SPELLS:Mammal Zoic Fetish|TIMES=1|CASTERLEVEL=5|Dominate Animal,14	BONUS:VAR|WildEmpathy|4|TYPE=insight	SPROP:+1 insight bonus to AC vs. animals, +4 insight bonus to wild empathy, dominate animal (mammal) 1/day
+Zoic Fetish (Bird)		OUTPUTNAME:[NAME] Zoic Fetish		TYPE:Magic.Wondrous										COST:7500					SOURCEPAGE:p.134		SPELLS:Bird Zoic Fetish|TIMES=1|CASTERLEVEL=5|Dominate Animal,14		BONUS:VAR|WildEmpathy|4|TYPE=insight	SPROP:+1 insight bonus to AC vs. animals, +4 insight bonus to wild empathy, dominate animal (bird) 1/day
+Zoic Fetish (Reptile)		OUTPUTNAME:[NAME] Zoic Fetish		TYPE:Magic.Wondrous										COST:7500					SOURCEPAGE:p.134		SPELLS:Reptile Zoic Fetish|TIMES=1|CASTERLEVEL=5|Dominate Animal,14	BONUS:VAR|WildEmpathy|4|TYPE=insight	SPROP:+1 insight bonus to AC vs. animals, +4 insight bonus to wild empathy, dominate animal (reptile) 1/day
+Zoic Fetish (Amphibian)		OUTPUTNAME:[NAME] Zoic Fetish		TYPE:Magic.Wondrous										COST:7500					SOURCEPAGE:p.134		SPELLS:Amphibian Zoic Fetish|TIMES=1|CASTERLEVEL=5|Dominate Animal,14	BONUS:VAR|WildEmpathy|4|TYPE=insight	SPROP:+1 insight bonus to AC vs. animals, +4 insight bonus to wild empathy, dominate animal (amphibian) 1/day
+Zoic Fetish (Fish)		OUTPUTNAME:[NAME] Zoic Fetish		TYPE:Magic.Wondrous										COST:7500					SOURCEPAGE:p.134		SPELLS:Fish Zoic Fetish|TIMES=1|CASTERLEVEL=5|Dominate Animal,14		BONUS:VAR|WildEmpathy|4|TYPE=insight	SPROP:+1 insight bonus to AC vs. animals, +4 insight bonus to wild empathy, dominate animal (fish) 1/day
 
 #Support for Halcyon Mask
-Halcyon Bonded Mask												TYPE:Magic.Wondrous.Head								COST:0
+Halcyon Bonded Mask								TYPE:Magic.Wondrous.Head									COST:0
