@@ -406,6 +406,7 @@
 						<xsl:apply-templates select="prestige_awards"/>
 						<xsl:apply-templates select="intelligent_items"/>
 						<xsl:apply-templates select="talents"/>	
+						<xsl:apply-templates select="conditions"/>	
 						<xsl:apply-templates select="words_of_powers"/>	
 						<!-- Eclipse Section - Having it's own section is creating an additional blank page -->
 						<xsl:apply-templates select="charcreations"/>
@@ -440,9 +441,9 @@
 						<xsl:apply-templates select="salient_divine_abilities"/>
 						<xsl:apply-templates select="feats"/>
 						<xsl:apply-templates select="pfs_chronicles"/>
-            <xsl:apply-templates select="pfs_boons"/>
+						<xsl:apply-templates select="pfs_boons"/>
 
-            <xsl:apply-templates select="domains"/>
+						<xsl:apply-templates select="domains"/>
 						<xsl:apply-templates select="weapon_proficiencies"/>
 <!-->						<xsl:apply-templates select="proficiency_specials"/>-->
 						<xsl:apply-templates select="templates"/>

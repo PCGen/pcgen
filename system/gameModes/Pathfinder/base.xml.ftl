@@ -1560,7 +1560,7 @@
 	  ====================================
 	  ====================================-->
 	<archetypes>
-	<#if (pcvar('countdistinct("ABILITIES";"CATEGORY=Archetype";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Archetype")') = 0)>
+	<#if (pcvar('countdistinct("ABILITIES";"CATEGORY=Archetype";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Archetype")') = 0)> <!-- " -->
 	<#else>
 	<!-- Archetypes -->
 	</#if>
@@ -1581,7 +1581,7 @@
 	  ====================================
 			SPECIAL QUALITIES
 	  ====================================
-	  ====================================-->
+	  ==================================== -->
 	<special_qualities>
 	<@abilityBlock category="Special Ability" nature="ALL" hidden=false typeName="SpecialQuality" nodeName="special_quality" />
 	</special_qualities>
@@ -1868,6 +1868,16 @@
 	<pfs_boons>
 	<@abilityBlock category="Special Ability" nature="ALL" hidden=false typeName="PFSBoon" nodeName="pfs_boon" />
 	</pfs_boons>
+	<!--
+	  ====================================
+	  ====================================
+			Conditions
+	  ====================================
+	  ==================================== -->
+	<conditions>
+	<@abilityBlock category="Condition" nature="ALL" hidden=false typeName="Condition" nodeName="condition" />
+	</conditions>
+
 	<!--
 	====================================
 	  ====================================
