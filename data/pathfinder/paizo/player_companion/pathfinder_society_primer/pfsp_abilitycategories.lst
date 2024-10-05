@@ -1,5 +1,5 @@
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
-# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+
 # SOURCELONG:Pathfinder Society Primer	SOURCESHORT:PFSP	SOURCEWEB:http://paizo.com/products/btpy8yw6?Pathfinder-Player-Companion-Pathfinder-Society-Primer	SOURCEDATE:2013-07
 # ORIGINAL ENTRY: Gwen T. (evilpixie87)
 # ORIGINAL ENTRY DATE: 26 May 2016
@@ -13,3 +13,7 @@ ABILITYCATEGORY:Pathfinder Field Agent Training		VISIBLE:QUALIFY	EDITABLE:YES	ED
 ABILITYCATEGORY:Field Agent Wayfinder Upgrade		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Field Agent Wayfinder Upgrade		PLURAL:Field Agent Wayfinder Upgrades	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Pathfinder Field Agent Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Pathfinder Field Agent Bonus Feat	PLURAL:Pathfinder Field Agent Bonus Feats	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Field Agent Teamwork Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Teamwork					PLURAL:Field Agent Teamwork Feats		DISPLAYLOCATION:Feats
+
+###Block: Background Support
+ABILITYCATEGORY:Vanities					VISIBLE:YES		EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Vanity.Vanities				PLURAL:Vanities					DISPLAYLOCATION:Misc
+
