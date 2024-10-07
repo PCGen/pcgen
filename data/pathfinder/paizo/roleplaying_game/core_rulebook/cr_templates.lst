@@ -188,6 +188,7 @@ Ability Damaged (Intelligence)	VISIBLE:NO	TEMPBONUS:ANYPC|VAR|AbilityDamageINT|%
 Ability Damaged (Wisdom)		VISIBLE:NO	TEMPBONUS:ANYPC|VAR|AbilityDamageWIS|%CHOICE	TEMPVALUE:MIN=1|MAX=20|TITLE=Wisdom Damage		TEMPDESC:Choose number of damage points to add
 Ability Damaged (Charisma)		VISIBLE:NO	TEMPBONUS:ANYPC|VAR|AbilityDamageCHA|%CHOICE	TEMPVALUE:MIN=1|MAX=20|TITLE=Charisma Damage		TEMPDESC:Choose number of damage points to add
 
+###Block: Ability Penalty
 Ability Penalized (Strength)		VISIBLE:NO	TEMPBONUS:ANYPC|VAR|AbilityPenaltySTR|%CHOICE	TEMPVALUE:MIN=1|MAX=20|TITLE=Strength Penalty		TEMPDESC:Choose number of penalty points to add
 Ability Penalized (Constitution)	VISIBLE:NO	TEMPBONUS:ANYPC|VAR|AbilityPenaltyCON|%CHOICE	TEMPVALUE:MIN=1|MAX=20|TITLE=Constitution Penalty	TEMPDESC:Choose number of penalty points to add
 Ability Penalized (Dexterity)		VISIBLE:NO	TEMPBONUS:ANYPC|VAR|AbilityPenaltyDEX|%CHOICE	TEMPVALUE:MIN=1|MAX=20|TITLE=Dexterity Penalty		TEMPDESC:Choose number of penalty points to add
