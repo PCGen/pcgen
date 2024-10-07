@@ -940,19 +940,17 @@ CATEGORY=Internal|Default.MOD	DEFINE:AbilityModifierCHA|0	BONUS:VAR|AbilityModif
 
 ###Effects of Ability Modifers
 CATEGORY=Internal|Default.MOD		BONUS:COMBAT|TOHIT.Melee,DAMAGE.Melee|-AbilityModifierSTR|TYPE=AbilityDamage	BONUS:SKILL|TYPE.Strength|-AbilityModifierSTR|TYPE=AbilityDamage	BONUS:VAR|CMB|-AbilityModifierSTR|TYPE=AbilityDamage|PRESIZEGTEQ:S	BONUS:VAR|CMD|-AbilityModifierSTR|TYPE=AbilityDamage
-CATEGORY=Internal|Default.MOD		BONUS:SKILL|TYPE.Dexterity|-AbilityModifierDEX|TYPE=AbilityDamage	BONUS:COMBAT|TOHIT.Ranged|-AbilityModifierDEX|TYPE=AbilityDamage	BONUS:COMBAT|INITIATIVE|-AbilityModifierDEX|TYPE=AbilityDamage	BONUS:SAVE|Reflex|-AbilityModifierDEX|TYPE=AbilityDamage	BONUS:COMBAT|AC|-AbilityModifierDEX|TYPE=AbilityDamage	BONUS:VAR|CMB|-AbilityModifierDEX|TYPE=AbilityDamage|PRESIZELTEQ:T	BONUS:VAR|CMD|-AbilityModifierDEX|TYPE=AbilityDamage
+CATEGORY=Internal|Default.MOD		BONUS:SAVE|Reflex|-AbilityModifierDEX|TYPE=AbilityDamage				BONUS:SKILL|TYPE.Dexterity|-AbilityModifierDEX|TYPE=AbilityDamage	BONUS:COMBAT|TOHIT.Ranged|-AbilityModifierDEX|TYPE=AbilityDamage	BONUS:COMBAT|INITIATIVE|-AbilityModifierDEX|TYPE=AbilityDamage	BONUS:COMBAT|AC|-AbilityModifierDEX|TYPE=AbilityDamage	BONUS:VAR|CMB|-AbilityModifierDEX|TYPE=AbilityDamage|PRESIZELTEQ:T	BONUS:VAR|CMD|-AbilityModifierDEX|TYPE=AbilityDamage
 CATEGORY=Internal|Default.MOD		BONUS:SAVE|Fortitude|-AbilityModifierCON|TYPE=AbilityDamage	BONUS:HP|CURRENTMAX|-AbilityModifierCON*TL|TYPE=AbilityDamage
 
 #The way that the next lines implement the effects of INT, WIS, and CHA damage/penalty on DCs of relevant spells is brittle. It won't automatically
 #apply the modifiers if new classes are added, such as homebrew.
 #Perhaps in the future new code features will be added to allow a more general solution, such as changing SPELLSTAT so that BONUS:DC|SPELLSTAT.INT|-AbilityModifierINT works
-CATEGORY=Internal|Default.MOD		BONUS:SKILL|TYPE.Intelligence|-AbilityModifierINT|TYPE=AbilityDamage.AbilityPenalty	BONUS:DC|CLASS.Rogue,CLASS.Arcanist,CLASS.Investigator,CLASS.Alchemist,CLASS.Witch,CLASS.Wizard,CLASS.Occultist,CLASS.Psychic,CLASS.Psychic Detective,CLASS.VWarlock,CLASS.VCabalist,CLASS.Magus|-AbilityModifierINT
+CATEGORY=Internal|Default.MOD															BONUS:SKILL|TYPE.Intelligence|-AbilityModifierINT|TYPE=AbilityDamage.AbilityPenalty	BONUS:DC|CLASS.Rogue,CLASS.Arcanist,CLASS.Investigator,CLASS.Alchemist,CLASS.Witch,CLASS.Wizard,CLASS.Occultist,CLASS.Psychic,CLASS.Psychic Detective,CLASS.VWarlock,CLASS.VCabalist,CLASS.Magus|-AbilityModifierINT
+CATEGORY=Internal|Default.MOD		BONUS:SAVE|Will|-AbilityModifierWIS|TYPE=AbilityDamage				BONUS:SKILL|TYPE.Wisdom|-AbilityModifierWIS|TYPE=AbilityDamage.AbilityPenalty		BONUS:DC|CLASS.Daughter of Urgathoa,CLASS.Hunter,CLASS.Shaman,CLASS.Warpriest,CLASS.Inquisitor,CLASS.Cleric,CLASS.Druid,CLASS.Ranger,CLASS.Adept,CLASS.Spiritualist|-AbilityModifierWIS
+CATEGORY=Internal|Default.MOD															BONUS:SKILL|TYPE.Charisma|-AbilityModifierCHA|TYPE=AbilityDamage.AbilityPenalty	BONUS:DC|CLASS.Red Mantis Assassin,CLASS.Bloodrager,CLASS.Skald,CLASS.Oracle,CLASS.Summoner,CLASS.Antipaladin,CLASS.Couatl Outsider,CLASS.Guardian Naga,CLASS.Spirit Naga,CLASS.Sorcerer/Cleric (Arcane),CLASS.Bard,CLASS.Paladin,CLASS.Sorcerer,CLASS.Medium,CLASS.Mesmerist|-AbilityModifierCHA
 
-CATEGORY=Internal|Default.MOD		BONUS:SAVE|Will|-AbilityModifierWIS|TYPE=AbilityDamage	BONUS:SKILL|TYPE.Wisdom|-AbilityModifierWIS|TYPE=AbilityDamage.AbilityPenalty		BONUS:DC|CLASS.Daughter of Urgathoa,CLASS.Hunter,CLASS.Shaman,CLASS.Warpriest,CLASS.Inquisitor,CLASS.Cleric,CLASS.Druid,CLASS.Ranger,CLASS.Adept,CLASS.Spiritualist|-AbilityModifierWIS
-
-CATEGORY=Internal|Default.MOD		BONUS:SKILL|TYPE.Charisma|-AbilityModifierCHA|TYPE=AbilityDamage.AbilityPenalty	BONUS:DC|CLASS.Red Mantis Assassin,CLASS.Bloodrager,CLASS.Skald,CLASS.Oracle,CLASS.Summoner,CLASS.Antipaladin,CLASS.Couatl Outsider,CLASS.Guardian Naga,CLASS.Spirit Naga,CLASS.Sorcerer/Cleric (Arcane),CLASS.Bard,CLASS.Paladin,CLASS.Sorcerer,CLASS.Medium,CLASS.Mesmerist|-AbilityModifierCHA
-
-#Make text show up on output if there's any ability damage or penalty.
+#Make text show up on output if there is any ability damage or penalty.
 CATEGORY=Internal|Default.MOD		ABILITY:Condition|AUTOMATIC|Ability Damaged Output Text|PREMULT:1,[PREVARGT:AbilityDamageSTR,0],[PREVARGT:AbilityDamageDEX,0],[PREVARGT:AbilityDamageCON,0],[PREVARGT:AbilityDamageINT,0],[PREVARGT:AbilityDamageWIS,0],[PREVARGT:AbilityDamageCHA,0]
 CATEGORY=Internal|Default.MOD		ABILITY:Condition|AUTOMATIC|Ability Penalized Output Text|PREMULT:1,[PREVARGT:AbilityPenaltySTR,0],[PREVARGT:AbilityPenaltyDEX,0],[PREVARGT:AbilityPenaltyCON,0],[PREVARGT:AbilityPenaltyINT,0],[PREVARGT:AbilityPenaltyWIS,0],[PREVARGT:AbilityPenaltyCHA,0]
 
