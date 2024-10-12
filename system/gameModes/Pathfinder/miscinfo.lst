@@ -202,6 +202,8 @@ WIELDCATEGORY:TooSmall				HANDS:999
 WIELDCATEGORY:TooLarge				HANDS:999
 WIELDCATEGORY:Unusable				HANDS:999
 WIELDCATEGORY:None				HANDS:0
+WIELDCATEGORY:LightCrossbow1			HANDS:1
+WIELDCATEGORY:LightCrossbow2			HANDS:2
 WIELDCATEGORY:OneHandOnly			HANDS:1
 WIELDCATEGORY:OneHandOnlyTooSmall		HANDS:999
 WIELDCATEGORY:OneHandOnlyTooLarge		HANDS:999
@@ -210,6 +212,12 @@ WIELDCATEGORY:TwoHandsOnlyTooSmall		HANDS:999
 WIELDCATEGORY:TwoHandsOnlyTooLarge		HANDS:999
 WIELDCATEGORY:OneHandedNoSize			HANDS:1
 WIELDCATEGORY:TwoHandedNoSize			HANDS:2
+WIELDCATEGORY:LightCrossbow0			HANDS:999
+WIELDCATEGORY:LightCrossbow3			HANDS:999
+
+
+
+
 
 # Light weapon vs PC size changes
 WIELDCATEGORY:Light		PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-1	SWITCH:TooSmall
@@ -248,13 +256,17 @@ WIELDCATEGORY:TwoHanded							DOWN:OneHanded|Light
 WIELDCATEGORY:TooLarge							DOWN:TwoHanded|OneHanded|Light	
 
 WIELDCATEGORY:TwoHandsOnly	UP:TwoHandsOnlyTooLarge	DOWN:TwoHandsOnlyTooSmall
-WIELDCATEGORY:OneHandOnlyOnly	UP:OneHandOnlyTooLarge	DOWN:OneHandOnlyTooSmall
+WIELDCATEGORY:OneHandOnly	UP:OneHandOnlyTooLarge	DOWN:OneHandOnlyTooSmall
 
 WIELDCATEGORY:TwoHandsOnlyTooSmall							UP:TwoHandsOnly
 WIELDCATEGORY:TwoHandsOnlyTooLarge							DOWN:TwoHandsOnly
 
 WIELDCATEGORY:OneHandOnlyTooSmall							UP:OneHandOnly
 WIELDCATEGORY:OneHandOnlyTooLarge							DOWN:OneHandOnly
+
+WIELDCATEGORY:LightCrossbow1	UP:LightCrossbow2	DOWN:LightCrossbow0
+WIELDCATEGORY:LightCrossbow2	UP:LightCrossbow3	DOWN:LightCrossbow1
+
 
 #
 # Dice rolling methods for character creation

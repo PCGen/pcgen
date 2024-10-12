@@ -42,7 +42,7 @@ Scarlet And Blue Sphere		KEY:Equipment ~ Scarlet and blue Sphere	CATEGORY:Intern
 
 ###Block: Wayfinder
 # Ability Name		Unique Key							Category of Ability	Define					Bonus Ability Pool
-Equipment ~ Wayfinder									CATEGORY:Internal		DEFINE:WayfinderStoneSlots|0		BONUS:ABILITYPOOL|Slotted Ioun Stone|WayfinderStoneSlots	BONUS:ABILITYPOOL|Slotted Ioun Rule|1
+Equipment ~ Wayfinder									CATEGORY:Internal		DEFINE:WayfinderStoneSlots|0		BONUS:ABILITYPOOL|Slotted Ioun Stone|WayfinderStoneSlots	BONUS:ABILITYPOOL|Slotted Ioun Rule|1|TYPE=Base	BONUS:VAR|WayfinderStoneSlots|1|TYPE=Base
 
 Use Non-Static Method	KEY:Rule ~ Wayfinder uses Non-Static Method	CATEGORY:Internal		DEFINE:WayfinderIounStonesUsed|0	BONUS:ABILITYPOOL|Slotted Ioun Stone Resonant Power|WayfinderIounStonesUsed
 
