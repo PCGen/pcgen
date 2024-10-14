@@ -1,6 +1,11 @@
 #!/bin/sh
 set -e
 
+# Changing the current directory temporarily to the file location.
+# Ensuring the script operates relative to its own location, regardless
+# of where it is run from
+cd "$(dirname "$0")"
+
 # Most GUIs will change directory to the location of the script
 # when the script is double-clicked.  But nooooo, not macOS.
 # So if we don't find the script in the current directory, we
