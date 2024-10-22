@@ -259,7 +259,7 @@ dependencies {
     compileOnly group: 'com.github.spotbugs', name: 'spotbugs-annotations', version: '4.8.6'
 
     testImplementation group: 'org.junit.platform', name: 'junit-platform-runner', version: '1.11.2'
-    testImplementation group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.11.2'
+    testImplementation group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.11.3'
     testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-api', version: '5.11.3'
     testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-params', version: '5.11.2'
     testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.11.3'
