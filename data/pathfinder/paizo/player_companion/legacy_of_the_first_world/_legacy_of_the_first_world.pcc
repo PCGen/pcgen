@@ -54,6 +54,7 @@ TEMPLATE:lotfw_templates.lst
 ABILITY:support/lotfw_abilities_class_hotw.lst|PRECAMPAIGN:1,INCLUDES=Heroes of the Wild
 ABILITY:support/lotfw_abilities_class_oa.lst|PRECAMPAIGN:1,INCLUDES=Occult Adventures
 ABILITY:support/lotfw_abilities_class_ui.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Intrigue
+ABILITY:support/lotfw_abilities_class_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 ABILITY:support/lotfw_abilities_race_uw.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Wilderness
 ABILITY:support/lotfw_abilties_companion_pu.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained
 
