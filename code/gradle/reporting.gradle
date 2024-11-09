@@ -9,7 +9,7 @@ checkstyle {
     configFile = new File('code/standards/checkstyle.xml')
     configProperties = [samedir: "${rootDir}/code/standards"]
     showViolations = true
-    toolVersion = '10.18.1'
+    toolVersion = '10.20.1'
     sourceSets = []
 }
 
@@ -19,7 +19,7 @@ pmd {
     ruleSetFiles = files('code/standards/ruleset.xml')
     consoleOutput = true
     sourceSets = []
-    toolVersion = "7.6.0"
+    toolVersion = "7.7.0"
     incrementalAnalysis = true
 }
 

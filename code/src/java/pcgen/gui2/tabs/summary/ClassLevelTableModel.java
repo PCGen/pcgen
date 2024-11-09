@@ -151,11 +151,7 @@ public class ClassLevelTableModel extends AbstractTableModel implements ListList
 	@Override
 	public Class<?> getColumnClass(int columnIndex)
 	{
-		return switch (columnIndex)
-				{
-					case 0, 1 -> Integer.class;
-					default -> Object.class;
-				};
+		return (columnIndex < 2 ? Integer.class : Object.class);
 	}
 
 	@Override
