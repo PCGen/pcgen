@@ -358,7 +358,7 @@ runtime {
     // We support Mac/Win/Linux x86-64, Mac/Linux aarch64
     targetPlatform('linux-x64',     layout.projectDirectory.dir("jre/linux/jre_x64").asFile.absolutePath)
     targetPlatform('linux-aarch64', layout.projectDirectory.dir("jre/linux/jre_aarch64").asFile.absolutePath)
-    targetPlatform('windows-x64',   layout.projectDirectory.dir("jre/windows/jre_x64").asFile.absolutePath)
+    targetPlatform('win-x64',       layout.projectDirectory.dir("jre/windows/jre_x64").asFile.absolutePath)
     targetPlatform('mac-x64',       layout.projectDirectory.dir("jre/mac/jre_x64/Contents/Home").asFile.absolutePath)
     targetPlatform('mac-aarch64',   layout.projectDirectory.dir("jre/mac/jre_aarch64/Contents/Home").asFile.absolutePath)
 
