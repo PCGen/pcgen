@@ -173,8 +173,8 @@ import org.apache.commons.lang3.StringUtils;
 
 /**
  * The Class {@code CharacterFacadeImpl} is an implementation of
- * the {@link CharacterFacade} interface for the new user interface. It is 
- * intended to provide a full implementation of the new ui/core 
+ * the {@link CharacterFacade} interface for the new user interface. It is
+ * intended to provide a full implementation of the new ui/core
  * interaction layer.
  * TODO: Who is responsible for undo management and how will it work?
  */
@@ -265,7 +265,7 @@ public class CharacterFacadeImpl
 
 	/**
 	 * Create a new character facade for an existing character.
-	 * 
+	 *
 	 * @param pc The character to be represented
 	 * @param delegate the UIDelegate for this CharacterFacade
 	 * @param dataSetFacade The data set in use for the character
@@ -432,6 +432,7 @@ public class CharacterFacadeImpl
 
 		initTodoList();
 
+		poolPointText = new DefaultReferenceFacade<>();
 		statTotalLabelText = new DefaultReferenceFacade<>();
 		statTotalText = new DefaultReferenceFacade<>();
 		modTotalLabelText = new DefaultReferenceFacade<>();
@@ -487,8 +488,8 @@ public class CharacterFacadeImpl
 	}
 
 	/**
-	 * Initialize the equipment set facades, ensuring that the character has a 
-	 * default equipment set. 
+	 * Initialize the equipment set facades, ensuring that the character has a
+	 * default equipment set.
 	 */
 	private void initEquipSet()
 	{
@@ -540,7 +541,7 @@ public class CharacterFacadeImpl
 	}
 
 	/**
-	 * Create the list of known age categories in the current BioSet. 
+	 * Create the list of known age categories in the current BioSet.
 	 */
 	private void buildAgeCategories()
 	{
@@ -568,7 +569,7 @@ public class CharacterFacadeImpl
 	}
 
 	/**
-	 * Create an initial list of todo items 
+	 * Create an initial list of todo items
 	 */
 	private void initTodoList()
 	{
@@ -679,7 +680,7 @@ public class CharacterFacadeImpl
 	@Override
 	public Nature getAbilityNature(AbilityFacade ability)
 	{
-		if (ability == null || !(ability instanceof Ability))
+		if (!(ability instanceof Ability))
 		{
 			return null;
 		}
@@ -802,7 +803,7 @@ public class CharacterFacadeImpl
 			charLevelsFacade.removeLastLevel();
 		}
 
-		// Clean up the class list 
+		// Clean up the class list
 		for (Iterator<PCClass> iterator = pcClasses.iterator(); iterator.hasNext();)
 		{
 			PCClass pcClass = iterator.next();
@@ -1115,7 +1116,7 @@ public class CharacterFacadeImpl
 	@Override
 	public void addTempBonus(TempBonusFacade bonusFacade)
 	{
-		if (bonusFacade == null || !(bonusFacade instanceof TempBonusFacadeImpl tempBonus))
+		if (!(bonusFacade instanceof TempBonusFacadeImpl tempBonus))
 		{
 			return;
 		}
@@ -1153,7 +1154,7 @@ public class CharacterFacadeImpl
 	@Override
 	public void removeTempBonus(TempBonusFacade bonusFacade)
 	{
-		if (bonusFacade == null || !(bonusFacade instanceof TempBonusFacadeImpl tempBonus))
+		if (!(bonusFacade instanceof TempBonusFacadeImpl tempBonus))
 		{
 			return;
 		}
@@ -1174,7 +1175,7 @@ public class CharacterFacadeImpl
 	@Override
 	public void setTempBonusActive(TempBonusFacade bonusFacade, boolean active)
 	{
-		if (bonusFacade == null || !(bonusFacade instanceof TempBonusFacadeImpl tempBonus))
+		if (!(bonusFacade instanceof TempBonusFacadeImpl tempBonus))
 		{
 			return;
 		}
@@ -1218,10 +1219,10 @@ public class CharacterFacadeImpl
 	}
 
 	/**
-	 * Validate the new alignment matches those allowed for the character's 
-	 * classes. If not offer the user a choice of backing out or making the 
+	 * Validate the new alignment matches those allowed for the character's
+	 * classes. If not offer the user a choice of backing out or making the
 	 * classes into ex-classes.
-	 * 
+	 *
 	 * @param newAlign The alignment to be set
 	 */
 	private boolean validateAlignmentChange(PCAlignment newAlign)
@@ -1248,7 +1249,7 @@ public class CharacterFacadeImpl
 				{
 					if (aClass.containsKey(ObjectKey.EX_CLASS))
 					{
-						if (unqualified.length() > 0)
+						if (!unqualified.isEmpty())
 						{
 							unqualified.append(", "); //$NON-NLS-1$
 						}
@@ -1263,7 +1264,7 @@ public class CharacterFacadeImpl
 		//
 		// Give the user a chance to bail
 		//
-		if (unqualified.length() > 0)
+		if (!unqualified.isEmpty())
 		{
 			if (!delegate.showWarningConfirm(Constants.APPLICATION_NAME,
 				LanguageBundle.getString("in_sumExClassesWarning") + Constants.LINE_SEPARATOR + unqualified))
@@ -1522,7 +1523,7 @@ public class CharacterFacadeImpl
 
 	/**
 	 * Assess if the new score is valid for the stat.
-	 * 
+	 *
 	 * @param score The new score being checked.
 	 * @param pcStat The stats being checked
 	 * @param pcPlayerLevels The number of non monster levels the character currently has.
@@ -1607,7 +1608,7 @@ public class CharacterFacadeImpl
 	}
 
 	/**
-	 * Update the  
+	 * Update the
 	 */
 	private void showPointPool()
 	{
@@ -1993,10 +1994,10 @@ public class CharacterFacadeImpl
 
 	/**
 	 * Check if a domain is a list of domains, irrespective of prerequisites.
-	 *  
+	 *
 	 * @param qualDomainList The list of domains with their prerequisites.
 	 * @param domain The domain to search for.
-	 * @return true if the domain is in the list 
+	 * @return true if the domain is in the list
 	 */
 	private boolean isDomainInList(List<QualifiedObject<Domain>> qualDomainList, Domain domain)
 	{
@@ -2199,8 +2200,8 @@ public class CharacterFacadeImpl
 	}
 
 	/**
-	 * Identify the object that the language is associated with. i.e. The rules 
-	 * object that granted the ability to use the language. 
+	 * Identify the object that the language is associated with. i.e. The rules
+	 * object that granted the ability to use the language.
 	 * @param lang The language to be found.
 	 * @return The granting rules object, or null if none or automatic.
 	 */
@@ -2226,6 +2227,11 @@ public class CharacterFacadeImpl
 	@Override
 	public void setFile(File file)
 	{
+		if (file == null)
+		{
+			throw new IllegalArgumentException("Cannot set a null as a character's file");
+		}
+
 		this.file.set(file);
 		try
 		{
@@ -2239,10 +2245,10 @@ public class CharacterFacadeImpl
 	}
 
 	/**
-	 * Retrieve a copy of the current character suitable for export. This 
-	 * attempts to minimize the expensive cloning function, by returning the 
-	 * previously cloned character if the base character has not changed in 
-	 * the meantime. 
+	 * Retrieve a copy of the current character suitable for export. This
+	 * attempts to minimize the expensive cloning function, by returning the
+	 * previously cloned character if the base character has not changed in
+	 * the meantime.
 	 * @return A copy of the current character.
 	 */
 	private synchronized PlayerCharacter getExportCharacter()
@@ -2414,8 +2420,8 @@ public class CharacterFacadeImpl
 	}
 
 	/**
-	 * Save the character to disc using its filename. Note this method is not 
-	 * part of the CharacterFacade and should only be used by the 
+	 * Save the character to disc using its filename. Note this method is not
+	 * part of the CharacterFacade and should only be used by the
 	 * ChracterManager class.
 	 */
 	public void save()
@@ -2641,9 +2647,9 @@ public class CharacterFacadeImpl
 	}
 
 	/**
-	 * This method updates the purchase point pool and the stat total text. The 
-	 * stat total text will be updated whether we are in purchase mode or not. 
-	 * displayed 
+	 * This method updates the purchase point pool and the stat total text. The
+	 * stat total text will be updated whether we are in purchase mode or not.
+	 * displayed
 	 * @param checkPurchasePoints boolean true if the pool should be checked
 	 * for available points before doing the update.
 	 */
@@ -2734,8 +2740,8 @@ public class CharacterFacadeImpl
 	}
 
 	/**
-	 * Identify if the character can still change purchase pool values - spent 
-	 * or available. This action is restricted by level. 
+	 * Identify if the character can still change purchase pool values - spent
+	 * or available. This action is restricted by level.
 	 * @return true if the character is allowed to change the purchase pool
 	 */
 	public boolean canChangePurchasePool()
@@ -2842,9 +2848,9 @@ public class CharacterFacadeImpl
 	}
 
 	/**
-	 * Reset the stat score to the neutral value (usually 10) for 
+	 * Reset the stat score to the neutral value (usually 10) for
 	 * the point buy method.
-	 * 
+	 *
 	 * @param pcStat The stat being adjusted.
 	 * @param scoreRef The reference to the current score.
 	 */
@@ -3146,8 +3152,7 @@ public class CharacterFacadeImpl
 		// Update the PC and equipment
 		if (!free)
 		{
-			@SuppressWarnings("PMD.AvoidDecimalLiteralsInBigDecimalConstructor")
-			BigDecimal removed = new BigDecimal(numRemoved);
+			BigDecimal removed = BigDecimal.valueOf(numRemoved);
 			BigDecimal itemCost = calcItemCost(updatedItem, removed.negate(),
 				(GearBuySellScheme) gearBuySellSchemeRef.get());
 			BigDecimal currentGold =
@@ -3164,7 +3169,7 @@ public class CharacterFacadeImpl
 	@Override
 	public void deleteCustomEquipment(EquipmentFacade eqFacade)
 	{
-		if (eqFacade == null || !(eqFacade instanceof Equipment itemToBeDeleted))
+		if (!(eqFacade instanceof Equipment itemToBeDeleted))
 		{
 			return;
 		}
@@ -3267,7 +3272,7 @@ public class CharacterFacadeImpl
 	}
 
 	/**
-	 * Whether we should automatically resize all purchased gear to match the 
+	 * Whether we should automatically resize all purchased gear to match the
 	 * character's size.
 	 * @return true if equipment should be auto resize.
 	 */
@@ -3278,9 +3283,9 @@ public class CharacterFacadeImpl
 	}
 
 	/**
-	 * Update whether we should automatically resize all purchased gear to match  
+	 * Update whether we should automatically resize all purchased gear to match
 	 * the character's size.
-	 * 
+	 *
 	 * @param autoResize The new value for auto resize equipment option.
 	 */
 	@Override
@@ -3305,7 +3310,7 @@ public class CharacterFacadeImpl
 	@Override
 	public void deleteEquipmentSet(EquipmentSetFacade set)
 	{
-		if (set == null || !(set instanceof EquipmentSetFacadeImpl setImpl))
+		if (!(set instanceof EquipmentSetFacadeImpl setImpl))
 		{
 			return;
 		}
@@ -3364,7 +3369,7 @@ public class CharacterFacadeImpl
 	}
 
 	/**
-	 * Refreshes the total weight by reading it from the current equipment set.  
+	 * Refreshes the total weight by reading it from the current equipment set.
 	 */
 	private void refreshTotalWeight()
 	{
@@ -3751,9 +3756,9 @@ public class CharacterFacadeImpl
 	}
 
 	/**
-	 * Show the user any warnings from thekit application and get 
+	 * Show the user any warnings from thekit application and get
 	 * their approval to continue.
-	 * 
+	 *
 	 * @param kit The kit being applied.
 	 * @param warnings The warnings generated in the test application.
 	 * @return true if the kit should be applied, false if not.
@@ -3825,9 +3830,9 @@ public class CharacterFacadeImpl
 		List<Equipment> chargedEquip = new ArrayList<>();
 		for (EquipmentFacade equipmentFacade : targets)
 		{
-			if (equipmentFacade instanceof Equipment && ((Equipment) equipmentFacade).getMaxCharges() > 0)
+			if (equipmentFacade instanceof Equipment equipment && equipment.getMaxCharges() > 0)
 			{
-				chargedEquip.add((Equipment) equipmentFacade);
+				chargedEquip.add(equipment);
 			}
 		}
 
@@ -3888,9 +3893,9 @@ public class CharacterFacadeImpl
 		List<Equipment> notedEquip = new ArrayList<>();
 		for (EquipmentFacade equipmentFacade : targets)
 		{
-			if (equipmentFacade instanceof Equipment)
+			if (equipmentFacade instanceof Equipment equipment)
 			{
-				notedEquip.add((Equipment) equipmentFacade);
+				notedEquip.add(equipment);
 			}
 		}
 
@@ -3999,7 +4004,7 @@ public class CharacterFacadeImpl
 	}
 
 	/**
-	 * The Class {@code AutoEquipListener} tracks changes to the character's 
+	 * The Class {@code AutoEquipListener} tracks changes to the character's
 	 * automatically granted equipment.
 	 */
 	public class AutoEquipListener implements DataFacetChangeListener<CharID, QualifiedObject<CDOMReference<Equipment>>>

@@ -24,7 +24,9 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.StreamSupport;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -101,7 +103,7 @@ public final class FacadeFactory
 				DefaultListFacade<Campaign> campaignList = campaignListMap.get(gameMode);
 				if (campaignList.containsElement(campaign))
 				{
-					String sourceUri = ((CDOMObject) campaign).getSourceURI().toString();
+					String sourceUri = campaign.getSourceURI().toString();
 					Logging
 						.errorPrint("Campaign " + sourceUri + " lists GAMEMODE:" + gameMode + " multiple times.");
 				}
@@ -110,7 +112,7 @@ public final class FacadeFactory
 					campaignList.addElement(campaign);
 				}
 			}
-			if (campaign.getSafe(ObjectKey.SHOW_IN_MENU) && !gameModeList.isEmpty())
+			if (Boolean.TRUE.equals(campaign.getSafe(ObjectKey.SHOW_IN_MENU)) && !gameModeList.isEmpty())
 			{
 				GameMode game = gameModeList.getElementAt(0);
 				ListFacade<Campaign> list = new DefaultListFacade<>(Collections.singleton(campaign));
@@ -128,7 +130,7 @@ public final class FacadeFactory
 			{
 				title = mode.getName();
 			}
-			if (title != null && !"".equals(title))
+			if (title != null && !title.isEmpty())
 			{
 				DefaultListFacade<Campaign> qcamps = new DefaultListFacade<>();
 				List<String> sources = mode.getDefaultDataSetList();
@@ -165,13 +167,8 @@ public final class FacadeFactory
 
 	private static void initCustomSourceSelections()
 	{
-		String[] keys = SOURCES_CONTEXT.getStringArray("selectionNames");
-		if (keys == null)
-		{
-			return;
-		}
-		for (String name : keys)
-		{
+		var keys = SOURCES_CONTEXT.getStringList("selectionNames");
+		keys.forEach(name -> {
 			PropertyContext context = SOURCES_CONTEXT.createChildContext(name);
 			String modeName = context.getProperty("gamemode");
 			GameMode mode = SystemCollections.getGameModeNamed(modeName);
@@ -179,41 +176,36 @@ public final class FacadeFactory
 			{
 				Logging
 					.errorPrint("Unable to load quick source '" + name + "'. Game mode '" + modeName + "' is missing");
-				continue;
+				return;
 			}
-			String[] selectionArray = context.getStringArray("campaigns");
-			List<Campaign> sources = new ArrayList<>();
-			boolean error = false;
-			for (String campaign : selectionArray)
-			{
-				Campaign c = campaignMap.get(campaign);
-				if (c != null)
-				{
-					sources.add(c);
-				}
-				else
-				{
-					error = true;
-					Logging.log(Logging.WARNING, '\'' + campaign + '\'' + " campaign not found, custom quick source '"
-						+ name + "' might not work correctly.");
-				}
-			}
+			var selectionList = context.getStringList("campaigns");
+
+			var groupedCampaigns = selectionList.stream()
+					.collect(Collectors.partitioningBy(campaignMap::containsKey));
+			var availableCampaigns = groupedCampaigns.getOrDefault(true, Collections.emptyList());
+			var absentCampaigns = groupedCampaigns.getOrDefault(false, Collections.emptyList());
+			absentCampaigns.forEach(campaign ->
+					Logging.log(Logging.WARNING, '\'' + campaign + '\'' + " campaign not found, custom quick source '" + name + "' might not work correctly."));
+
+			List<Campaign> sources = availableCampaigns.stream()
+					.map(campaignMap::get)
+					.toList();
 			if (sources.isEmpty())
 			{
 				Logging.errorPrint("Unable to load quick source '" + name + "'. All of its sources are missing");
-				continue;
+				return;
 			}
 			CustomSourceSelectionFacade selection = new CustomSourceSelectionFacade(name);
 			selection.setGameMode(mode);
 			selection.setCampaigns(sources);
-			if (error)
+			if (!absentCampaigns.isEmpty())
 			{
 				selection.setLoadingState(LoadingState.LOADED_WITH_ERRORS);
 				selection.setErrorMessage("Some campaigns are missing");
 			}
 			customSources.addElement(selection);
 			quickSources.addElement(selection);
-		}
+		});
 	}
 
 	public static SourceSelectionFacade createCustomSourceSelection(String name)
@@ -243,12 +235,10 @@ public final class FacadeFactory
 
 	private static void setCustomSourceSelectionArray()
 	{
-		List<String> sources = new ArrayList<>();
-		for (SourceSelectionFacade csel : customSources)
-		{
-			sources.add(csel.toString());
-		}
-		SOURCES_CONTEXT.setStringArray("selectionNames", sources);
+		var sources = StreamSupport.stream(customSources.spliterator(), false)
+				.map(Object::toString)
+				.toList();
+		SOURCES_CONTEXT.setStringList("selectionNames", sources);
 	}
 
 	public static SourceSelectionFacade createSourceSelection(GameMode gameMode,
@@ -436,12 +426,10 @@ public final class FacadeFactory
 		public void setCampaigns(List<Campaign> campaign)
 		{
 			campaigns.setContents(campaign);
-			List<String> camps = new ArrayList<>();
-			for (Campaign camp : campaign)
-			{
-				camps.add(camp.getKeyName());
-			}
-			context.setStringArray("campaigns", camps);
+			var camps = campaign.stream()
+					.map(CDOMObject::getKeyName)
+					.toList();
+			context.setStringList("campaigns", camps);
 		}
 
 		@Override

@@ -17,43 +17,44 @@ package pcgen.system;
 
 import java.io.File;
 import java.net.URI;
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
+import java.util.OptionalInt;
 import java.util.stream.IntStream;
 
 import pcgen.facade.util.AbstractListFacade;
 
-import org.apache.commons.lang3.ArrayUtils;
-
 class RecentFileList extends AbstractListFacade<File>
 {
-
-	private static final int MAX_RECENT_FILES = 8;
-	private final LinkedList<File> fileList = new LinkedList<>();
+	private static final int MAX_RECENT_FILES = 20;
+	private final List<File> fileList = new LinkedList<>();
 	private final String contextProp;
 
 	RecentFileList(String contextProp)
 	{
 		this.contextProp = contextProp;
-		String[] recentFiles = PCGenSettings.getInstance().getStringArray(contextProp);
-		if (!ArrayUtils.isEmpty(recentFiles))
-		{
-			URI userdir = new File(ConfigurationSettings.getUserDir()).toURI();
-			for (int i = recentFiles.length - 1; i >= 0; i--)
-			{
-				addRecentFile(new File(userdir.resolve(recentFiles[i])));
-			}
-		}
+
+		URI userDir = new File(ConfigurationSettings.getUserDir()).toURI();
+		var recentFiles = PCGenSettings.getInstance().getStringList(contextProp);
+		recentFiles.stream()
+				.sorted(Collections.reverseOrder())
+				.map(userDir::resolve)
+				.map(File::new)
+				.forEach(this::addRecentFile);
 	}
 
 	private void updateRecentFileProp()
 	{
-		URI userdir = new File(ConfigurationSettings.getUserDir()).toURI();
+		URI userDir = new File(ConfigurationSettings.getUserDir()).toURI();
 
-		List<String> uris = new ArrayList<>(fileList.size());
-		fileList.stream().map(file -> userdir.relativize(file.toURI()).toString()).forEach(uris::add);
-		PCGenSettings.getInstance().setStringArray(contextProp, uris);
+		List<String> uris = fileList.stream()
+				.map(File::toURI)
+				.map(userDir::relativize)
+				.map(URI::toString)
+				.toList();
+		PCGenSettings.getInstance().setStringList(contextProp, uris);
 	}
 
 	void addRecentFile(File file)
@@ -63,12 +64,11 @@ class RecentFileList extends AbstractListFacade<File>
 			return;
 		}
 		//Remove the file if it already exists, that way it gets moved to the top
-		int index = indexOf(file);
-		if (index != -1)
-		{
+		indexOf(file).ifPresent(index -> {
 			File oldFile = fileList.remove(index);
 			fireElementRemoved(this, oldFile, index);
-		}
+		});
+
 		//add it to the front
 		fileList.addFirst(file);
 		fireElementAdded(this, file, 0);
@@ -96,18 +96,15 @@ class RecentFileList extends AbstractListFacade<File>
 	@Override
 	public boolean containsElement(File element)
 	{
-		return indexOf(element) != -1;
+		return indexOf(element).isPresent();
 	}
 
-	private int indexOf(File element)
+	private OptionalInt indexOf(File element)
 	{
-		if (element != null)
-		{
-			return IntStream.range(0, fileList.size())
-				.filter(i -> fileList.get(i).getAbsolutePath().equals(element.getAbsolutePath())).findFirst()
-				.orElse(-1);
-		}
-		return -1;
+		return Optional.ofNullable(element)
+				.map(e -> IntStream.range(0, fileList.size())
+						.filter(i -> fileList.get(i).getAbsolutePath().equals(e.getAbsolutePath()))
+						.findFirst())
+				.orElse(OptionalInt.empty());
 	}
-
 }
