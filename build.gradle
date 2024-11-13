@@ -358,7 +358,7 @@ runtime {
     // We support Mac/Win/Linux x86-64, Mac/Linux aarch64
     targetPlatform('linux-x64',     layout.projectDirectory.dir("jre/linux/jre_x64").asFile.absolutePath)
     targetPlatform('linux-aarch64', layout.projectDirectory.dir("jre/linux/jre_aarch64").asFile.absolutePath)
-    targetPlatform('win-x64',       layout.projectDirectory.dir("jre/windows/jre_x64").asFile.absolutePath)
+    targetPlatform('windows-x64',       layout.projectDirectory.dir("jre/windows/jre_x64").asFile.absolutePath)
     targetPlatform('mac-x64',       layout.projectDirectory.dir("jre/mac/jre_x64/Contents/Home").asFile.absolutePath)
     targetPlatform('mac-aarch64',   layout.projectDirectory.dir("jre/mac/jre_aarch64/Contents/Home").asFile.absolutePath)
 
@@ -372,7 +372,7 @@ runtime {
                 ? "mac"
                 : (Os.isFamily(Os.FAMILY_UNIX)
                     ? "linux"
-                    : (Os.isFamily(Os.FAMILY_WINDOWS) ? "win" : "unknown")))
+                    : (Os.isFamily(Os.FAMILY_WINDOWS) ? "windows" : "unknown")))
         def targetPlatform = ["x86_64" : "x64",
                               "amd64" : "x64",
                               "aarch64" : "aarch64"]
@@ -552,7 +552,7 @@ tasks.register("downloadJRE") {
                         ? layout.projectDirectory.dir("jre/${os}/jre_${arch}/Contents/Home/release").asFile
                         : layout.projectDirectory.dir("jre/${os}/jre_${arch}/release").asFile)
                 def outputDir = layout.projectDirectory.dir("jre/${os}/jre_${arch}")
-                def shouldDownloadJDK = true;
+                def shouldDownloadJDK = true
 
                 try {
                     if (jreRelease.exists()) {
@@ -701,7 +701,7 @@ tasks.register("downloadJavaFXLocal", Download) {
 
     def supportedArch = ["x86_64" : "-x64",
                          "amd64"  : "-x64",
-                         "aarch64": "-aarch64"];
+                         "aarch64": "-aarch64"]
 
     def hostArchitecture = System.getProperty("os.arch")
     def archAppend = supportedArch[hostArchitecture]
