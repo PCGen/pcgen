@@ -87,7 +87,7 @@ public interface CharacterFacade extends CompanionFacade
 	 * @param stat The stat to retrieve the base for
 	 * @return A reference to the base score for the stat
 	 */
-    ReferenceFacade<Number> getScoreBaseRef(PCStat stat);
+	ReferenceFacade<Number> getScoreBaseRef(PCStat stat);
 
 	/**
 	 * @param stat The stat to retrieve the mod total for
@@ -141,8 +141,8 @@ public interface CharacterFacade extends CompanionFacade
 	 * Note: This method should never return null. If the character does not possess
 	 * any abilities in the parameter category, this method should create a new
 	 * DefaultGenericListModel for that category and keep a reference to it for future use.
-	 * @param category
-	 * @return a List of Abilities the character posseses in the specified category
+	 * @param category for which abilities are returned
+	 * @return a List of Abilities the character possesses in the specified category
 	 */
     ListFacade<AbilityFacade> getAbilities(AbilityCategory category);
 
@@ -327,7 +327,7 @@ public interface CharacterFacade extends CompanionFacade
 
 	/**
 	 * Sets this character's race
-	 * @param race
+	 * @param race a character's race to be set
 	 */
     void setRace(Race race);
 
