@@ -1,16 +1,16 @@
 /*
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
@@ -95,7 +95,7 @@ public final class CharacterManager
 			String name = createNewCharacterName();
 			character.setName(name);
 			CHARACTERS.addElement(character);
-			Logging.log(Logging.INFO, "Created new character " + name + '.'); //$NON-NLS-1$ 
+			Logging.log(Logging.INFO, "Created new character " + name + '.'); //$NON-NLS-1$
 			MESSAGE_HANDLER.handleMessage(new PlayerCharacterWasLoadedMessage(delegate, pc));
 			return character;
 		}
@@ -223,10 +223,10 @@ public final class CharacterManager
 	}
 
 	/**
-	 * Show the user any warnings or errors from the character load and get 
+	 * Show the user any warnings or errors from the character load and get
 	 * their approval to continue.
-	 * 
-	 * @param errors Is this a list of errors?  
+	 *
+	 * @param errors Is this a list of errors?
 	 * @param warnings The warnings generated on load.
 	 * @param fileName The name of the file being loaded.
 	 * @param delegate The UIDelegate to use for notifications.
@@ -275,7 +275,7 @@ public final class CharacterManager
 	/**
 	 * This opens an existing party from a file and adds all characters to the
 	 * list of open characters.
-	 *  
+	 *
 	 * @param file the file to load this party from
 	 * @param delegate the UIDelegate that these characters will use
 	 * @param dataset the dataset that this will be loaded with
@@ -328,7 +328,7 @@ public final class CharacterManager
 	}
 
 	/**
-	 * 
+	 *
 	 * @param pcgFile a character file
 	 * @param delegate  The UIDelegate used to display message to the user
 	 * @return a SourceSelectionFacade or null if no sources could be found
@@ -354,7 +354,7 @@ public final class CharacterManager
 	}
 
 	/**
-	 * Check if the character's filename is ready to be saved to.    
+	 * Check if the character's filename is ready to be saved to.
 	 * @param character The character to be checked.
 	 * @return true if the file can be written to, false otherwise.
 	 */
@@ -379,7 +379,7 @@ public final class CharacterManager
 	 * This is expected to be called before a character is to
 	 * be removed from the list of open characters.
 	 * @param character the character to be saved
-	 * @return true if the save succeeded, false if not 
+	 * @return true if the save succeeded, false if not
 	 */
 	public static boolean saveCharacter(CharacterFacade character)
 	{
@@ -392,12 +392,12 @@ public final class CharacterManager
 		Logging.log(Logging.INFO, "Saving character " + character.getNameRef().get() //$NON-NLS-1$
 			+ " - " + file.getAbsolutePath()); //$NON-NLS-1$
 
-		if (character instanceof CharacterFacadeImpl)
+		if (character instanceof CharacterFacadeImpl characterFacade)
 		{
 			UIDelegate delegate = character.getUIDelegate();
 			try
 			{
-				((CharacterFacadeImpl) character).save();
+				characterFacade.save();
 			}
 			catch (final NullPointerException e)
 			{
@@ -471,11 +471,11 @@ public final class CharacterManager
 	}
 
 	/**
-	 * Retrieve the loaded character matching the character stub. The character 
-	 * may not have been saved yet, so may not have a file name, in which case 
-	 * the match is made on character name. This is often used for retrieval of 
-	 * a loaded master or companion.  
-	 * 
+	 * Retrieve the loaded character matching the character stub. The character
+	 * may not have been saved yet, so may not have a file name, in which case
+	 * the match is made on character name. This is often used for retrieval of
+	 * a loaded master or companion.
+	 *
 	 * @param companion The companion to be searched for.
 	 * @return The character, or null if the companion is not loaded.
 	 */
