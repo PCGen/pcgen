@@ -3,7 +3,7 @@
 <!--
    - Code quality rule set for use with the PCGen Java code.
    - See https://pmd.github.io/latest/pmd_rules_java.html
-   - for descriptions of the rules applied. 
+   - for descriptions of the rules applied.
  -->
 <ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          name="PCGen Code Rules"
@@ -28,7 +28,7 @@
         <exclude name="MethodReturnsInternalArray"/>
         <!-- One to fix later as there are loads of these reported -->
         <exclude name="ReplaceVectorWithList" />
-        <exclude name="SwitchStmtsShouldHaveDefault"/>
+        <exclude name="NonExhaustiveSwitch"/>
         <exclude name="SystemPrintln"/>
         <exclude name="UnusedAssignment"/>
         <exclude name="UnusedFormalParameter"/>
@@ -36,7 +36,7 @@
         <exclude name="UnusedPrivateMethod"/>
         <!-- it's a tradeoff: it creates a warning to use it, which then has to be addressed -->
         <exclude name="UseVarargs"/>
-        <exclude name="JUnitAssertionsShouldIncludeMessage"/>
+        <exclude name="UnitTestAssertionsShouldIncludeMessage"/>
         <!-- no networking code, but has false positives -->
         <exclude name="AvoidUsingHardCodedIP"/>
         <exclude name="SimplifiableTestAssertion"/>
@@ -194,7 +194,7 @@
         <exclude name="InsufficientStringBufferDeclaration"/>
         <exclude name="RedundantFieldInitializer"/>
         <exclude name="StringToString"/>
-        <exclude name="TooFewBranchesForASwitchStatement"/>
+        <exclude name="TooFewBranchesForSwitch"/>
         <exclude name="UseIndexOfChar"/>
         <exclude name="UseStringBufferForStringAppends"/>
         <exclude name="UselessStringValueOf"/>

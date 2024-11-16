@@ -81,7 +81,7 @@ ext {
     releaseDir = layout.projectDirectory.dir("build/release")
 
     // JavaFX version
-    javaFXVersion = "21.0.4"
+    javaFXVersion = "21.0.5"
 }
 
 application {
@@ -372,7 +372,7 @@ runtime {
                 ? "mac"
                 : (Os.isFamily(Os.FAMILY_UNIX)
                     ? "linux"
-                    : (Os.isFamily(Os.FAMILY_WINDOWS) ? "win" : "unknown")))
+                    : (Os.isFamily(Os.FAMILY_WINDOWS) ? "windows" : "unknown")))
         def targetPlatform = ["x86_64" : "x64",
                               "amd64" : "x64",
                               "aarch64" : "aarch64"]
@@ -552,7 +552,7 @@ tasks.register("downloadJRE") {
                         ? layout.projectDirectory.dir("jre/${os}/jre_${arch}/Contents/Home/release").asFile
                         : layout.projectDirectory.dir("jre/${os}/jre_${arch}/release").asFile)
                 def outputDir = layout.projectDirectory.dir("jre/${os}/jre_${arch}")
-                def shouldDownloadJDK = true;
+                def shouldDownloadJDK = true
 
                 try {
                     if (jreRelease.exists()) {
@@ -701,7 +701,7 @@ tasks.register("downloadJavaFXLocal", Download) {
 
     def supportedArch = ["x86_64" : "-x64",
                          "amd64"  : "-x64",
-                         "aarch64": "-aarch64"];
+                         "aarch64": "-aarch64"]
 
     def hostArchitecture = System.getProperty("os.arch")
     def archAppend = supportedArch[hostArchitecture]
