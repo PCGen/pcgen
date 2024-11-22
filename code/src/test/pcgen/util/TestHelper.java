@@ -81,7 +81,11 @@ import java.lang.reflect.Field;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.StringTokenizer;
+import java.util.logging.Logger;
+import java.util.logging.Level;
 
 /**
  * Helps Junit tests
@@ -89,6 +93,8 @@ import java.util.StringTokenizer;
 @SuppressWarnings("nls")
 public final class TestHelper
 {
+	private static final Logger LOG = Logger.getLogger(TestHelper.class.getName());
+
 	private static boolean loaded = false;
 	private static final LstObjectFileLoader<Equipment> eqLoader = new GenericLoader<>(Equipment.class);
 	private static final LstObjectFileLoader<Ability> abLoader = new AbilityLoader();
@@ -208,7 +214,7 @@ public final class TestHelper
 
 		} catch (SecurityException e)
 		{
-			System.out.println(e);
+			LOG.log(Level.SEVERE, "SecurityException is thrown in findField", e);
 		}
 		return null;
 	}
@@ -460,29 +466,25 @@ public final class TestHelper
 	}
 
 	/**
-	 * Locate the data folder which contains the primary set of LST data. This
-	 * defaults to the data folder under the current directory, but can be
-	 * customised in the config.ini folder.
+	 * Locate the data folder which contains the primary set of LST data. This defaults to the data folder under the
+	 * current directory but can be customized in the config.ini folder.
 	 * @return The path of the data folder.
 	 */
 	public static String findDataFolder()
 	{
 		// Set the pcc location to "data"
 		String pccLoc = "data";
-		// Read in options.ini and override the pcc location if it exists
-		try (BufferedReader br = new BufferedReader(new InputStreamReader(
-				new FileInputStream("config.ini"), StandardCharsets.UTF_8)))
+
+		// Read in config.ini and override the pcc location if it exists
+		try (var lines = Files.lines(Path.of("config.ini")))
 		{
-			while (br.ready())
-			{
-				String line = br.readLine();
-				if (line != null
-						&& line.startsWith("pccFilesPath="))
-				{
-					pccLoc = line.substring(13);
-					break;
-				}
-			}
+			var pccFilesPath = lines
+					.filter(line -> line.startsWith("pccFilesPath="))
+					.map(line -> line.substring(13))
+					.findFirst()
+					.orElse(pccLoc);
+
+			return pccFilesPath;
 		} catch (IOException e)
 		{
 			// Ignore, see method comment
@@ -508,7 +510,7 @@ public final class TestHelper
 			bw.write("settingsPath=" + configFolder + "\r\n");
 			if (pccLoc != null)
 			{
-				System.out.println("Using PCC Location of '" + pccLoc + "'.");
+				LOG.info("Using PCC Location of '" + pccLoc + "'.");
 				bw.write("pccFilesPath=" + pccLoc + "\r\n");
 			}
 			bw.write("customPath=testsuite\\\\customdata\r\n");
@@ -520,7 +522,7 @@ public final class TestHelper
 	{
 		String configFolder = "testsuite";
 		String pccLoc = TestHelper.findDataFolder();
-		System.out.println("Got data folder of " + pccLoc);
+		LOG.info("Got data folder of " + pccLoc);
 		try
 		{
 			TestHelper.createDummySettingsFile(testConfigFile, configFolder,
@@ -570,7 +572,7 @@ public final class TestHelper
 			String line = tok.nextToken();
 			if (!StringUtils.isBlank(line))
 			{
-				System.out.println("Processing line:'" + line + "'.");
+				LOG.info("Processing line:'" + line + "'.");
 				reconstClass =
 						pcClassLoader.parseLine(Globals.getContext(),
 								reconstClass, line, source);

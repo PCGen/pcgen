@@ -41,7 +41,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
  */
 public abstract class PcgenFtlTestCase
 {
-	private static final Logger log = Logger.getLogger(PcgenFtlTestCase.class.getName());
+	private static final Logger LOG = Logger.getLogger(PcgenFtlTestCase.class.getName());
 
 	private static final String TEST_CONFIG_FILE = "config.ini.junit";
 
@@ -66,7 +66,7 @@ public abstract class PcgenFtlTestCase
 	 */
 	public static void runTest(String character, String mode) throws IOException
 	{
-		log.info("RUNTEST with the character: " + character	+ " and the game mode: " + mode);
+		LOG.info("RUNTEST with the character: " + character	+ " and the game mode: " + mode);
 		// Delete the old generated output for this test
 		File outputFolder = new File("code/testsuite/output");
 		outputFolder.mkdirs();
