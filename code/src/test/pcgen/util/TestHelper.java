@@ -1,40 +1,27 @@
 /**
  * Copyright 2005 (c) Andrew Wilson <nuance@sourceforge.net>
- *
+ * <p>
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- *
+ * <p>
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- *
+ * <p>
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
+ * <p>
  * Current Version: $Revision$
  */
 
 package pcgen.util;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.StringWriter;
-import java.lang.reflect.Field;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.nio.charset.StandardCharsets;
-import java.util.StringTokenizer;
-
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.SystemUtils;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
@@ -81,8 +68,20 @@ import pcgen.system.PCGenTask;
 import pcgen.system.PropertyContextFactory;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.SystemUtils;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.StringWriter;
+import java.lang.reflect.Field;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.nio.charset.StandardCharsets;
+import java.util.StringTokenizer;
 
 /**
  * Helps Junit tests
@@ -92,7 +91,7 @@ public final class TestHelper
 {
 	private static boolean loaded = false;
 	private static final LstObjectFileLoader<Equipment> eqLoader = new GenericLoader<>(Equipment.class);
-	private static final LstObjectFileLoader<Ability>   abLoader = new AbilityLoader();
+	private static final LstObjectFileLoader<Ability> abLoader = new AbilityLoader();
 	private static CampaignSourceEntry source;
 
 	private TestHelper()
@@ -139,8 +138,7 @@ public final class TestHelper
 			final CampaignSourceEntry source = createSource(TestHelper.class);
 			eqLoader.parseLine(Globals.getContext(), null, input, source);
 			return true;
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			// TODO Deal with Exception?
 		}
@@ -159,8 +157,7 @@ public final class TestHelper
 		{
 			source = new CampaignSourceEntry(new Campaign(),
 					new URI("file:/" + cls.getName() + ".java"));
-		}
-		catch (URISyntaxException e)
+		} catch (URISyntaxException e)
 		{
 			throw new UnreachableError(e);
 		}
@@ -185,7 +182,7 @@ public final class TestHelper
 	 * @param fieldName the field to search for
 	 * @return the field related to a name in the class
 	 */
-    public static Object findField(final Class<?> aClass, final String fieldName)
+	public static Object findField(final Class<?> aClass, final String fieldName)
 	{
 		try
 		{
@@ -203,15 +200,13 @@ public final class TestHelper
 				if (!"Object".equals(clazz.getName()))
 				{
 					clazz = clazz.getSuperclass();
-				}
-				else
+				} else
 				{
 					break;
 				}
 			}
 
-		}
-		catch (SecurityException e)
+		} catch (SecurityException e)
 		{
 			System.out.println(e);
 		}
@@ -227,11 +222,11 @@ public final class TestHelper
 	 * @param armorCheck should an armor check penalty be applied
 	 */
 	public static Skill makeSkill(
-            final String name,
-            final String type,
-            final PCStat stat,
-		    final boolean untrained,
-            final SkillArmorCheck armorCheck)
+			final String name,
+			final String type,
+			final PCStat stat,
+			final boolean untrained,
+			final SkillArmorCheck armorCheck)
 	{
 		final Skill aSkill = new Skill();
 		aSkill.setName(name);
@@ -285,7 +280,7 @@ public final class TestHelper
 
 	/**
 	 * Make an ability
-     *
+	 *
 	 * @param input the Ability source string to parse and create the ability from
 	 * @return true if OK
 	 */
@@ -301,8 +296,7 @@ public final class TestHelper
 				{
 					source = new CampaignSourceEntry(new Campaign(),
 							new URI("file:/" + TestHelper.class.getName() + ".java"));
-				}
-				catch (URISyntaxException e)
+				} catch (URISyntaxException e)
 				{
 					throw new UnreachableError(e);
 				}
@@ -310,14 +304,12 @@ public final class TestHelper
 
 			abLoader.parseLine(Globals.getContext(), null, input, source);
 			return true;
-		}
-		catch (Exception e)
+		} catch (Exception e)
 		{
 			Logging.errorPrint(e.getLocalizedMessage());
 		}
 		return false;
 	}
-
 
 
 	/**
@@ -432,10 +424,10 @@ public final class TestHelper
 	}
 
 	/**
-     * Get the Ability Category of the Ability object passed in.  If it does
-     * not exist in the game mode, a new object wil be created and added to
-     * the game mode
-     *
+	 * Get the Ability Category of the Ability object passed in.  If it does
+	 * not exist in the game mode, a new object wil be created and added to
+	 * the game mode
+	 *
 	 * @param ability an ability in the AbilityCategory we want to retrieve
 	 * @return the AbilityCategory
 	 */
@@ -460,7 +452,7 @@ public final class TestHelper
 	 * @return boolean
 	 */
 	public static boolean hasWeaponProfKeyed(PlayerCharacter pc,
-			final String aKey)
+											 final String aKey)
 	{
 		WeaponProf wp = Globals.getContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(WeaponProf.class, aKey);
@@ -491,8 +483,7 @@ public final class TestHelper
 					break;
 				}
 			}
-		}
-		catch (IOException e)
+		} catch (IOException e)
 		{
 			// Ignore, see method comment
 		}
@@ -507,7 +498,7 @@ public final class TestHelper
 	 * @throws IOException If the file cannot be written.
 	 */
 	public static void createDummySettingsFile(String configFileName,
-	                                           String configFolder, String pccLoc) throws IOException
+											   String configFolder, String pccLoc) throws IOException
 	{
 		File configFile = new File(configFileName);
 		configFile.deleteOnExit();
@@ -533,9 +524,8 @@ public final class TestHelper
 		try
 		{
 			TestHelper.createDummySettingsFile(testConfigFile, configFolder,
-				pccLoc);
-		}
-		catch (IOException e)
+					pccLoc);
+		} catch (IOException e)
 		{
 			Logging.errorPrint("DataTest.loadGameModes failed", e);
 		}
@@ -543,7 +533,7 @@ public final class TestHelper
 		PropertyContextFactory configFactory =
 				new PropertyContextFactory(SystemUtils.USER_DIR);
 		configFactory.registerAndLoadPropertyContext(ConfigurationSettings
-			.getInstance(testConfigFile));
+				.getInstance(testConfigFile));
 		Main.loadProperties(false);
 		PCGenTask loadPluginTask = Main.createLoadPluginTask();
 		loadPluginTask.run();
@@ -554,7 +544,8 @@ public final class TestHelper
 	}
 
 	public static ChronicleEntry buildChronicleEntry(boolean visible, String campaign, String date,
-		String gm, String party, String adventure, int xp, String chronicle)
+													 String gm, String party, String adventure, int xp,
+													 String chronicle)
 	{
 		ChronicleEntry chronEntry = new ChronicleEntry();
 		chronEntry.setOutputEntry(visible);
@@ -569,7 +560,7 @@ public final class TestHelper
 	}
 
 	public static PCClass parsePCClassText(String classPCCText,
-		CampaignSourceEntry source) throws PersistenceLayerException
+										   CampaignSourceEntry source) throws PersistenceLayerException
 	{
 		PCClassLoader pcClassLoader = new PCClassLoader();
 		PCClass reconstClass = null;
@@ -582,7 +573,7 @@ public final class TestHelper
 				System.out.println("Processing line:'" + line + "'.");
 				reconstClass =
 						pcClassLoader.parseLine(Globals.getContext(),
-							reconstClass, line, source);
+								reconstClass, line, source);
 			}
 		}
 		return reconstClass;
@@ -595,13 +586,15 @@ public final class TestHelper
 	 *
 	 * @param token the token to evaluate (e.g., any token from @see plugin.exporttokens such as "PORTRAIT")
 	 * @param pc    the pc or a PlayerCharacter object
-	 * @return      the string containing the evaluated token
+	 * @return the string containing the evaluated token
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
 	public static String evaluateToken(String token, PlayerCharacter pc)
-			throws IOException {
+			throws IOException
+	{
 		StringWriter retWriter = new StringWriter();
-		try (BufferedWriter bufWriter = new BufferedWriter(retWriter)) {
+		try (BufferedWriter bufWriter = new BufferedWriter(retWriter))
+		{
 			ExportHandler export = ExportHandler.createExportHandler(new File(""));
 			export.replaceTokenSkipMath(pc, token, bufWriter);
 		}

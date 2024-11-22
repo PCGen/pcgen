@@ -530,6 +530,24 @@
 		</xsl:if>
 	</xsl:template>
 
+	<!--
+====================================
+====================================
+	TEMPLATE - CONDITIONS
+====================================
+====================================-->
+	<xsl:template match="conditions">
+		<xsl:if test="count(condition) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'conditions'" />
+				<xsl:with-param name="title" select="'Conditions'" />
+				<xsl:with-param name="list" select="condition"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+
 <!-- 4e Section -->
 
 <!--

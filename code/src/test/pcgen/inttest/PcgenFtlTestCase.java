@@ -28,13 +28,9 @@ import org.xmlunit.builder.Input;
 import org.xmlunit.diff.Diff;
 import pcgen.LocaleDependentTestCase;
 import pcgen.cdom.base.Constants;
-import pcgen.system.Main;
 import pcgen.util.TestHelper;
-import util.SystemExitInterceptor;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * PcgenFtlTestCase is a base class for tests which use the FreeMarker

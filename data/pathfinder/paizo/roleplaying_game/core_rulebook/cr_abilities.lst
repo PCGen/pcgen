@@ -439,8 +439,6 @@ Add a Feat Ignoring Restrictions	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:G
 Add a Class Skill				SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	DESC:GM awarded PC with 1 class skill.								STACK:YES	MULT:YES	CHOOSE:ABILITYSELECTION|Class Skill|ANY				ABILITY:Class Skill|AUTOMATIC|%LIST																																										COST:0
 Bypass Alignment Restricted Spells	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	DESC:GM allows to bypass alignment restrictions on spells.																																																							BONUS:VAR|BypassProhibitSpellAlignment_Restriction|1|TYPE=Bypass	COST:0
 
-Add Witch Patron				SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	DESC:GM awarded PC with +1 Patron.									STACK:YES	MULT:YES	CHOOSE:NOCHOICE														BONUS:ABILITYPOOL|Witch Patron|1																																				COST:0
-
 
 ###Block: GM Award Bonus Spells known
 # Ability Name		SORTKEY		Category of Ability		Type							Description							Stackable?	Multiple?	Choose				Bonus to spell known/L
@@ -905,9 +903,55 @@ Summon Nature's Ally I		KEY:Spell ~ Summon Nature's Ally I		CATEGORY:Internal		T
 
 
 ### Ability Damage
-#CATEGORY=Internal|Default.MOD	DEFINE:AbilityDamageSTR|0	DEFINE:AbilityDamagePenaltySTR|0	BONUS:VAR|AbilityDamagePenaltySTR|floor(AbilityDamageSTR/2)
-#CATEGORY=Internal|Default.MOD	DEFINE:AbilityDamageDEX|0	DEFINE:AbilityDamagePenaltyDEX|0	BONUS:VAR|AbilityDamagePenaltyDEX|floor(AbilityDamageDEX/2)
-#CATEGORY=Internal|Default.MOD	DEFINE:AbilityDamageCON|0	DEFINE:AbilityDamagePenaltyCON|0	BONUS:VAR|AbilityDamagePenaltyCON|floor(AbilityDamageCON/2)
-#CATEGORY=Internal|Default.MOD	DEFINE:AbilityDamageINT|0	DEFINE:AbilityDamagePenaltyINT|0	BONUS:VAR|AbilityDamagePenaltyINT|floor(AbilityDamageINT/2)
-#CATEGORY=Internal|Default.MOD	DEFINE:AbilityDamageWIS|0	DEFINE:AbilityDamagePenaltyWIS|0	BONUS:VAR|AbilityDamagePenaltyWIS|floor(AbilityDamageWIS/2)
-#CATEGORY=Internal|Default.MOD	DEFINE:AbilityDamageCHA|0	DEFINE:AbilityDamagePenaltyCHA|0	BONUS:VAR|AbilityDamagePenaltyCHA|floor(AbilityDamageCHA/2)
+#Create global variables to keep running tallies of damage to each ability
+CATEGORY=Internal|Default.MOD	DEFINE:AbilityDamageSTR|0
+CATEGORY=Internal|Default.MOD	DEFINE:AbilityDamageDEX|0
+CATEGORY=Internal|Default.MOD	DEFINE:AbilityDamageCON|0
+CATEGORY=Internal|Default.MOD	DEFINE:AbilityDamageINT|0
+CATEGORY=Internal|Default.MOD	DEFINE:AbilityDamageWIS|0
+CATEGORY=Internal|Default.MOD	DEFINE:AbilityDamageCHA|0
+
+### Ability Penalties
+#Create global variables to keep running tallies of penalties to each ability
+CATEGORY=Internal|Default.MOD	DEFINE:AbilityPenaltySTR|0
+CATEGORY=Internal|Default.MOD	DEFINE:AbilityPenaltyDEX|0
+CATEGORY=Internal|Default.MOD	DEFINE:AbilityPenaltyCON|0
+CATEGORY=Internal|Default.MOD	DEFINE:AbilityPenaltyINT|0
+CATEGORY=Internal|Default.MOD	DEFINE:AbilityPenaltyWIS|0
+CATEGORY=Internal|Default.MOD	DEFINE:AbilityPenaltyCHA|0
+
+###Modifiers Due To Ability Damage and Penalites
+#Is "floor" necessary? Doesn't PCGen automatically round down?
+#It is not clear from the rules whether there should be two modifiers...one for damage and one for penalty. For example,
+#suppose a character has 1 point each of STR damage and penalty. Should there be no effect (since both are below 2) or a 
+#modifier of 1 because they add to two? I think the latter is more in keeping with the spirit of the rules.
+#Penalties have a simple sounding rule that's actually very complicated: at all times score > damage + penalty.
+#The code includes a kluge that does not actually reduce a penalty if necessary. But instead limits the impact of an
+#excessively large penalty.
+#Finally, no check has been included for the error case in which a damage or penalty is negative...which they should never be.
+CATEGORY=Internal|Default.MOD	DEFINE:AbilityModifierSTR|0	BONUS:VAR|AbilityModifierSTR|floor((AbilityDamageSTR+max(0,min(AbilityPenaltySTR,(STRSCORE-AbilityDamageSTR-1))))/2)
+CATEGORY=Internal|Default.MOD	DEFINE:AbilityModifierDEX|0	BONUS:VAR|AbilityModifierDEX|floor((AbilityDamageDEX+max(0,min(AbilityPenaltyDEX,(STRSCORE-AbilityDamageDEX-1))))/2)
+CATEGORY=Internal|Default.MOD	DEFINE:AbilityModifierCON|0	BONUS:VAR|AbilityModifierCON|floor((AbilityDamageCON+max(0,min(AbilityPenaltyCON,(STRSCORE-AbilityDamageCON-1))))/2)
+CATEGORY=Internal|Default.MOD	DEFINE:AbilityModifierINT|0	BONUS:VAR|AbilityModifierINT|floor((AbilityDamageINT+max(0,min(AbilityPenaltyINT,(STRSCORE-AbilityDamageINT-1))))/2)
+CATEGORY=Internal|Default.MOD	DEFINE:AbilityModifierWIS|0	BONUS:VAR|AbilityModifierWIS|floor((AbilityDamageWIS+max(0,min(AbilityPenaltyWIS,(STRSCORE-AbilityDamageWIS-1))))/2)
+CATEGORY=Internal|Default.MOD	DEFINE:AbilityModifierCHA|0	BONUS:VAR|AbilityModifierCHA|floor((AbilityDamageCHA+max(0,min(AbilityPenaltyCHA,(STRSCORE-AbilityDamageCHA-1))))/2)
+
+###Effects of Ability Modifers
+CATEGORY=Internal|Default.MOD		BONUS:COMBAT|TOHIT.Melee,DAMAGE.Melee|-AbilityModifierSTR|TYPE=AbilityDamage	BONUS:SKILL|TYPE.Strength|-AbilityModifierSTR|TYPE=AbilityDamage	BONUS:VAR|CMB|-AbilityModifierSTR|TYPE=AbilityDamage|PRESIZEGTEQ:S	BONUS:VAR|CMD|-AbilityModifierSTR|TYPE=AbilityDamage
+CATEGORY=Internal|Default.MOD		BONUS:SAVE|Reflex|-AbilityModifierDEX|TYPE=AbilityDamage				BONUS:SKILL|TYPE.Dexterity|-AbilityModifierDEX|TYPE=AbilityDamage	BONUS:COMBAT|TOHIT.Ranged|-AbilityModifierDEX|TYPE=AbilityDamage	BONUS:COMBAT|INITIATIVE|-AbilityModifierDEX|TYPE=AbilityDamage	BONUS:COMBAT|AC|-AbilityModifierDEX|TYPE=AbilityDamage	BONUS:VAR|CMB|-AbilityModifierDEX|TYPE=AbilityDamage|PRESIZELTEQ:T	BONUS:VAR|CMD|-AbilityModifierDEX|TYPE=AbilityDamage
+CATEGORY=Internal|Default.MOD		BONUS:SAVE|Fortitude|-AbilityModifierCON|TYPE=AbilityDamage	BONUS:HP|CURRENTMAX|-AbilityModifierCON*TL|TYPE=AbilityDamage
+
+#The way that the next lines implement the effects of INT, WIS, and CHA damage/penalty on DCs of relevant spells is brittle. It won't automatically
+#apply the modifiers if new classes are added, such as homebrew.
+#Perhaps in the future new code features will be added to allow a more general solution, such as changing SPELLSTAT so that BONUS:DC|SPELLSTAT.INT|-AbilityModifierINT works
+CATEGORY=Internal|Default.MOD															BONUS:SKILL|TYPE.Intelligence|-AbilityModifierINT|TYPE=AbilityDamage.AbilityPenalty	BONUS:DC|CLASS.Rogue,CLASS.Arcanist,CLASS.Investigator,CLASS.Alchemist,CLASS.Witch,CLASS.Wizard,CLASS.Occultist,CLASS.Psychic,CLASS.Psychic Detective,CLASS.VWarlock,CLASS.VCabalist,CLASS.Magus|-AbilityModifierINT
+CATEGORY=Internal|Default.MOD		BONUS:SAVE|Will|-AbilityModifierWIS|TYPE=AbilityDamage				BONUS:SKILL|TYPE.Wisdom|-AbilityModifierWIS|TYPE=AbilityDamage.AbilityPenalty		BONUS:DC|CLASS.Daughter of Urgathoa,CLASS.Hunter,CLASS.Shaman,CLASS.Warpriest,CLASS.Inquisitor,CLASS.Cleric,CLASS.Druid,CLASS.Ranger,CLASS.Adept,CLASS.Spiritualist|-AbilityModifierWIS
+CATEGORY=Internal|Default.MOD															BONUS:SKILL|TYPE.Charisma|-AbilityModifierCHA|TYPE=AbilityDamage.AbilityPenalty	BONUS:DC|CLASS.Red Mantis Assassin,CLASS.Bloodrager,CLASS.Skald,CLASS.Oracle,CLASS.Summoner,CLASS.Antipaladin,CLASS.Couatl Outsider,CLASS.Guardian Naga,CLASS.Spirit Naga,CLASS.Sorcerer/Cleric (Arcane),CLASS.Bard,CLASS.Paladin,CLASS.Sorcerer,CLASS.Medium,CLASS.Mesmerist|-AbilityModifierCHA
+
+#Make text show up on output if there is any ability damage or penalty.
+CATEGORY=Internal|Default.MOD		ABILITY:Condition|AUTOMATIC|Ability Damaged Output Text|PREMULT:1,[PREVARGT:AbilityDamageSTR,0],[PREVARGT:AbilityDamageDEX,0],[PREVARGT:AbilityDamageCON,0],[PREVARGT:AbilityDamageINT,0],[PREVARGT:AbilityDamageWIS,0],[PREVARGT:AbilityDamageCHA,0]
+CATEGORY=Internal|Default.MOD		ABILITY:Condition|AUTOMATIC|Ability Penalized Output Text|PREMULT:1,[PREVARGT:AbilityPenaltySTR,0],[PREVARGT:AbilityPenaltyDEX,0],[PREVARGT:AbilityPenaltyCON,0],[PREVARGT:AbilityPenaltyINT,0],[PREVARGT:AbilityPenaltyWIS,0],[PREVARGT:AbilityPenaltyCHA,0]
+
+#Output text abilities
+Ability Damaged	KEY:Ability Damaged Output Text	CATEGORY:Condition	TYPE:Condition.Afflictions	DESC:You have accumulated points of ability damage: %1 STR, %2 DEX, %3 CON, %4 INT, %5 WIS, %6 CHA|AbilityDamageSTR|AbilityDamageDEX|AbilityDamageCON|AbilityDamageINT|AbilityDamageWIS|AbilityDamageCHA
+Ability Penalized	KEY:Ability Penalized Output Text	CATEGORY:Condition	TYPE:Condition.Afflictions	DESC:You have accumulated points of ability Penalty: %1 STR, %2 DEX, %3 CON, %4 INT, %5 WIS, %6 CHA|AbilityPenaltySTR|AbilityPenaltyDEX|AbilityPenaltyCON|AbilityPenaltyINT|AbilityPenaltyWIS|AbilityPenaltyCHA

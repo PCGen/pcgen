@@ -40,7 +40,7 @@ import pcgen.system.LanguageBundle;
 import org.apache.commons.lang3.SystemUtils;
 
 /**
- * This contains logging functions. It is a proxy for the 
+ * This contains logging functions. It is a proxy for the
  * Java logging API.
  */
 @SuppressWarnings({"PMD.MoreThanOneLogger", "UseOfSystemOutOrSystemErr", "PMD.AvoidPrintStackTrace"})
@@ -90,7 +90,7 @@ public final class Logging
 		}
 		//System.out.println("Using log settings from " + propsFile.getAbsolutePath());
 
-		// Get Java Logging to read in the config. 
+		// Get Java Logging to read in the config.
 		try
 		{
 			LogManager.getLogManager().readConfiguration();
@@ -129,7 +129,7 @@ public final class Logging
 	}
 
 	/**
-	 * Ensure that our root loggers (pcgen and plugin) do not get garbage 
+	 * Ensure that our root loggers (pcgen and plugin) do not get garbage
 	 * collected, otherwise we lose the logging level!
 	 */
 	private static void retainRootLoggers()
@@ -149,8 +149,8 @@ public final class Logging
 	}
 
 	/**
-	 * Check if the level of logs would be output for the caller. This can 
-	 * be used to prevent building logging output if it will not be used. 
+	 * Check if the level of logs would be output for the caller. This can
+	 * be used to prevent building logging output if it will not be used.
 	 * @param level The logging level to be checked.
 	 * @return true if the level would be output, false if not.
 	 */
@@ -190,7 +190,7 @@ public final class Logging
 	}
 
 	/**
-	 * Print localised information message if PCGen is debugging.
+	 * Print a localized information message if PCGen is debugging.
 	 *
 	 * @param message String information message (usually variable)
 	 * @param params Object information message (usually value)
@@ -239,7 +239,7 @@ public final class Logging
 	 * <p>
 	 * This method accepts a variable number of parameters and will replace
 	 * {@code {argno}} in the string with each passed paracter in turn.
-	 * 
+	 *
 	 * @param aKey
 	 *            A key for the localized string in the language bundle
 	 * @param varargs
@@ -265,7 +265,7 @@ public final class Logging
 	 * Beep and print error message if PCGen is debugging.
 	 *
 	 * @param s String error message
-	 * @param context the LoadContext containing the deprecated resource 
+	 * @param context the LoadContext containing the deprecated resource
 	 */
 	public static void deprecationPrint(final String s, final LoadContext context)
 	{
@@ -286,7 +286,7 @@ public final class Logging
 	/**
 	 * Report where an issue was encountered.
 	 *
-	 * @param context the LoadContext containing the resource 
+	 * @param context the LoadContext containing the resource
 	 */
 	public static void reportSource(final Level lvl, final LoadContext context)
 	{
@@ -307,7 +307,7 @@ public final class Logging
 	/**
 	 * Report where an issue was encountered.
 	 *
-	 * @param sourceUri the source containing the resource 
+	 * @param sourceUri the source containing the resource
 	 */
 	public static void reportSource(final Level lvl, final URI sourceUri)
 	{
@@ -332,18 +332,14 @@ public final class Logging
 	 */
 	public static void errorPrint(final String s)
 	{
-		Logger l = getLogger();
-		if (l.isLoggable(ERROR))
-		{
-			l.log(ERROR, s);
-		}
+        log(ERROR, s);
 	}
 
 	/**
 	 * Beep and print error message if PCGen is debugging.
 	 *
 	 * @param s String error message
-	 * @param params Varargs list of parameters for substitution into the 
+	 * @param params Varargs list of parameters for substitution into the
 	 * error message.
 	 */
 	public static void errorPrint(final String s, final Object... params)
@@ -415,9 +411,9 @@ public final class Logging
 	}
 
 	/**
-	 * Log a message, if logging is enabled at the
-	 * supplied level of detail. 
-	 * 
+	 * Log a message if logging is enabled at the
+	 * supplied level of detail.
+	 *
 	 * @param lvl The detail level of the message
 	 * @param msg String message
 	 */
@@ -432,8 +428,8 @@ public final class Logging
 
 	/**
 	 * Log a message with a stack trace, if logging is enabled at the
-	 * supplied level of detail. 
-	 * 
+	 * supplied level of detail.
+	 *
 	 * @param lvl The detail level of the message
 	 * @param msg String message
 	 * @param thr Throwable stack frame
@@ -449,9 +445,9 @@ public final class Logging
 
 	/**
 	 * Log a message with a stack trace, if logging is enabled at the
-	 * supplied level of detail. 
+	 * supplied level of detail.
 	 * This is mainly for use with the pcgen.rules.persistence.token.ParseResult class.
-	 * 
+	 *
 	 * @param lvl        The detail level of the message
 	 * @param msg        String message
 	 * @param stackTrace The stack trace
@@ -507,10 +503,10 @@ public final class Logging
 	}
 
 	/**
-	 * Retrieve a Logger object with the specified name. Generally 
-	 * this name should be either the fully qualified class name, 
+	 * Retrieve a Logger object with the specified name. Generally
+	 * this name should be either the fully qualified class name,
 	 * or the package name.
-	 * 
+	 *
 	 * @return An instance of Logger that deals with the specified name.
 	 */
 	private static java.util.logging.Logger getLogger()
@@ -545,7 +541,7 @@ public final class Logging
 	}
 
 	/**
-	 * List the current stack of all threads to STDOUT. 
+	 * List the current stack of all threads to STDOUT.
 	 */
 	public static void reportAllThreads()
 	{
@@ -586,7 +582,7 @@ public final class Logging
 	}
 
 	/**
-	 * Return a list of the supported logging levels in 
+	 * Return a list of the supported logging levels in
 	 * descending order of rank.
 	 * @return List of logging levels.
 	 */

@@ -1,20 +1,20 @@
 /*
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- * 
+ *
  */
 package pcgen.gui2.filter;
 
@@ -30,6 +30,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -211,6 +213,7 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 	 */
 	private static class FilterLayout extends FlowLayout
 	{
+		private transient Lock instanceLock = new ReentrantLock();
 
 		public FilterLayout()
 		{
@@ -220,8 +223,10 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 		@Override
 		public void layoutContainer(Container target)
 		{
-			synchronized (target.getTreeLock())
+			try
 			{
+				instanceLock.lock();
+
 				Insets insets = target.getInsets();
 				int maxwidth = target.getWidth() - (insets.left + insets.right + getHgap() * 2);
 				int nmembers = target.getComponentCount();
@@ -272,6 +277,9 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 				}
 				layoutComponents(target, insets.left + getHgap(), y, maxwidth, rowh, xChildren, yChildren, start,
 					nmembers, ltr);
+			} finally
+			{
+				instanceLock.unlock();
 			}
 		}
 
@@ -300,8 +308,10 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 		@Override
 		public Dimension preferredLayoutSize(Container target)
 		{
-			synchronized (target.getTreeLock())
+			try
 			{
+				instanceLock.lock();
+
 				Dimension dim = new Dimension(0, 0);
 				int nmembers = target.getComponentCount();
 
@@ -340,14 +350,19 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 				dim.width += insets.left + insets.right + getHgap() * 2;
 				dim.height += insets.top + insets.bottom + getVgap() * 2;
 				return dim;
+			} finally
+			{
+				instanceLock.unlock();
 			}
 		}
 
 		@Override
 		public Dimension minimumLayoutSize(Container target)
 		{
-			synchronized (target.getTreeLock())
+			try
 			{
+				instanceLock.lock();
+
 				Dimension dim = new Dimension(0, 0);
 				int nmembers = target.getComponentCount();
 
@@ -384,9 +399,10 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 				dim.width += insets.left + insets.right + getHgap() * 2;
 				dim.height += insets.top + insets.bottom + getVgap() * 2;
 				return dim;
+			} finally
+			{
+				instanceLock.unlock();
 			}
 		}
-
 	}
-
 }

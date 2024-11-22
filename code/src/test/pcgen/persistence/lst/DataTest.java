@@ -26,14 +26,12 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.EnumMap;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import org.junit.Ignore;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
@@ -71,37 +69,37 @@ class DataTest
 	{
 		loadGameModes();
 	}
-	
+
 	/**
-	 * Tidy up the config file we created. 
+	 * Tidy up the config file we created.
 	 */
 	@AfterAll
 	static void afterClass()
 	{
-		new File(TEST_CONFIG_FILE).delete();		
+		new File(TEST_CONFIG_FILE).delete();
 	}
-	
+
 	/**
-	 * Check the data for files with extraordinarily long path names. The files 
-	 * as at the time of writing are grandfathered in, but any new data files 
-	 * with path names longer than 150 characters will be flagged. 
+	 * Check the data for files with extraordinarily long path names. The files
+	 * as at the time of writing are grandfathered in, but any new data files
+	 * with path names longer than 150 characters will be flagged.
 	 */
 	@Test
 	public void pathLengthTest()
 	{
 		String dataPath = ConfigurationSettings.getPccFilesDir();
 		System.out.println("Got datapath of " + new File(dataPath).getAbsolutePath());
-		
+
 		Collection<String> allowedNames =
 				new HashSet<>(Arrays.asList(
 						"cotct_pg_abilities_pfrpg.lst",
 						"fortress_of_the_stone_giants_pfrpg.pcc",
 						"rise_of_the_runelords_players_guide_pfrpg.pcc"));
 		Collection<File> newLongPaths = new ArrayList<>();
-		
+
 		int dataPathLen = new File(dataPath).getAbsolutePath().length();
 		List<String> longPaths = new ArrayList<>();
-		
+
 		File dataFolder = new File(dataPath);
 		Collection<File> listFiles =
 				FileUtils.listFiles(dataFolder, new String[]{"pcc", "lst"},
@@ -110,7 +108,7 @@ class DataTest
 		{
 			String path = file.getAbsolutePath();
 			int pathLen = path.length() - dataPathLen;
-			
+
 			if (pathLen > 150)
 			{
 				longPaths.add(pathLen + " .. " + path.substring(dataPathLen));
@@ -120,11 +118,11 @@ class DataTest
 				}
 			}
 		}
-		
+
 		// Output the list
 		Collections.sort(longPaths);
 		longPaths.forEach(System.out::println);
-				
+
 		// Flag any change for the worse.
 		assertEquals(
 				"[]", newLongPaths.toString(), "New data file(s) with name longer than 150 characters detected.");
@@ -147,9 +145,9 @@ class DataTest
 				+ " format output to "
 				+ new File(repType.getValue()).getAbsolutePath()).forEach(System.out::println);
 	}
-	
+
 	/**
-	 * Scan for any campaigns referring to missing data files. 
+	 * Scan for any campaigns referring to missing data files.
 	 * @throws IOException If the data path cannot be found.
 	 */
 	@Test
@@ -186,7 +184,7 @@ class DataTest
 		assertEquals(
 				"", report, "Some data files are missing.");
 	}
-	
+
 	/**
 	 * Scan for any data files that are not referred to by any campaign.
 	 * @throws IOException If a file path cannot be converted.
@@ -203,7 +201,7 @@ class DataTest
 			fileNames.add(file.getCanonicalPath());
 		}
 		int dataPathLen = dataFolder.getCanonicalPath().length();
-		
+
 		for (Campaign campaign : Globals.getCampaignList())
 		{
 			List<CampaignSourceEntry> cseList =
@@ -240,8 +238,8 @@ class DataTest
 		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_PCC));
 		return cseList;
 	}
-	
-	
+
+
 	private static void loadGameModes()
 	{
 		String pccLoc = TestHelper.findDataFolder();
@@ -256,7 +254,7 @@ class DataTest
 		{
 			Logging.errorPrint("DataTest.loadGameModes failed", e);
 		}
-		
+
 		PropertyContextFactory configFactory = new PropertyContextFactory(SystemUtils.USER_DIR);
 		configFactory.registerAndLoadPropertyContext(ConfigurationSettings.getInstance(TEST_CONFIG_FILE));
 		Main.loadProperties(false);
@@ -268,4 +266,3 @@ class DataTest
 		campaignFileLoader.run();
 	}
 }
-

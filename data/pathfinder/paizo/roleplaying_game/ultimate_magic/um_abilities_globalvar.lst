@@ -22,11 +22,11 @@ CATEGORY=Class|Magus.MOD												ABILITY:Magus Class Feature|AUTOMATIC|Magus 
 CATEGORY=Class|Magus.MOD												ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Counterstrike|PREMULT:2,[!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusCounterstrike],[PREVAREQ:Magus_CF_Counterstrike,0]|PREVARGTEQ:Magus_CFP_Level,16
 CATEGORY=Class|Magus.MOD												ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Greater Spell Access|PREMULT:2,[!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusGreaterSpellAccess],[PREVAREQ:Magus_CF_GreaterSpellAccess,0]|PREVARGTEQ:Magus_CFP_Level,19
 CATEGORY=Class|Magus.MOD												ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ True Magus|PREMULT:2,[!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusTrueMagus],[PREVAREQ:Magus_CF_TrueMagus,0]|PREVARGTEQ:Magus_CFP_Level,20
+CATEGORY=Class|Magus.MOD												ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Medium Armor|PREMULT:3,[!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArmorProficiency,TYPE.MagusMediumArmorProficiency],[PREVAREQ:Magus_CF_MediumArmorProficiency,0],[PREVARGTEQ:Magus_CF_ArmorProficiency,0]|PREVARGTEQ:MagusArmorProficiencyLVL,7
+CATEGORY=Class|Magus.MOD												ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Heavy Armor|PREMULT:3,[!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArmorProficiency,TYPE.MagusHeavyArmorProficiency],[PREVAREQ:Magus_CF_HeavyArmorProficiency,0],[PREVARGTEQ:Magus_CF_ArmorProficiency,0]|PREVARGTEQ:MagusArmorProficiencyLVL,13
 
 CATEGORY=Class|Magus.MOD												ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|PREMULT:2,[!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusWeaponProficiency],[PREVAREQ:Magus_CF_WeaponProficiency,0]
 CATEGORY=Class|Magus.MOD												ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight|PREMULT:2,[!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArmorProficiency,TYPE.MagusLightArmorProficiency],[PREVARGTEQ:Magus_CF_ArmorProficiency,0]|PREVARGTEQ:MagusArmorProficiencyLVL,1
-CATEGORY=Class|Magus.MOD												ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfMedium|PREMULT:3,[!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArmorProficiency,TYPE.MagusMediumArmorProficiency],[PREVAREQ:Magus_CF_MediumArmorProficiency,0],[PREVARGTEQ:Magus_CF_ArmorProficiency,0]|PREVARGTEQ:MagusArmorProficiencyLVL,7
-CATEGORY=Class|Magus.MOD												ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfHeavy|PREMULT:3,[!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArmorProficiency,TYPE.MagusHeavyArmorProficiency],[PREVAREQ:Magus_CF_HeavyArmorProficiency,0],[PREVARGTEQ:Magus_CF_ArmorProficiency,0]|PREVARGTEQ:MagusArmorProficiencyLVL,13
 CATEGORY=Class|Magus.MOD												ABILITY:Internal|AUTOMATIC|Magus ~ Class Skills|PREVAREQ:Magus_CF_ClassSkills,0
 
 CATEGORY=Class|Magus.MOD					DEFINE:Magus_CF_Spells|0

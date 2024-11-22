@@ -84,15 +84,10 @@ public final class SystemCollections
 	 */
 	public static GameMode getGameModeNamed(final String aString)
 	{
-		for (GameMode gameMode : GAME_MODE_LIST)
-		{
-			if (gameMode.getName().equalsIgnoreCase(aString))
-			{
-				return gameMode;
-			}
-		}
-
-		return null;
+		return GAME_MODE_LIST.stream()
+				.filter(gameMode -> gameMode.getName().equalsIgnoreCase(aString))
+				.findFirst()
+				.orElse(null);
 	}
 
 	/**
@@ -171,7 +166,7 @@ public final class SystemCollections
 	}
 
 	/**
-	 * Return an <b>unmodifiable</b> version of the body structure list for the 
+	 * Return an <b>unmodifiable</b> version of the body structure list for the
 	 * current gamemode.
 	 * @return an <b>unmodifiable</b> version of the body structure list.
 	 */

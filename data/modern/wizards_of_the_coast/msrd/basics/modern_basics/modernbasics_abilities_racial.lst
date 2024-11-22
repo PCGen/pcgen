@@ -244,7 +244,7 @@ Vulnerability							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	D
 Wall Smash								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Wall Smash (Ex)
 Wavesense								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Wavesense (Ex)
 Weakness								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Weakness (Ex)
-Web									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Web (Ex)|PREVAREQ:WebEscapeDC,0	DDESC:Web (Ex) - Escape DC %1 Break DC %2 Hit Points %3|WebEscapeDC|WebBreakDC|WebHitPoints|PREVARGT:WebEscapeDC,0				DEFINE:WebEscapeDC|0	DEFINE:WebBreakDC|0	DEFINE:WebHitPoints|0
+Web									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Web (Ex)|PREVAREQ:WebEscapeDC,0	DESC:Web (Ex) - Escape DC %1 Break DC %2 Hit Points %3|WebEscapeDC|WebBreakDC|WebHitPoints|PREVARGT:WebEscapeDC,0				DEFINE:WebEscapeDC|0	DEFINE:WebBreakDC|0	DEFINE:WebHitPoints|0
 Web Cocoon								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Web Cocoon (Ex)
 Wheels								CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:Wheels
 Wild Empathy							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Wild Empathy (Ex) (1d20+%1)|6+CHA

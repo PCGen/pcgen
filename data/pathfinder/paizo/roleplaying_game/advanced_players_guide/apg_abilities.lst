@@ -2,6 +2,8 @@
 # CVS $Revision: 21722 $ $Author: zaister $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 
+Add Witch Patron				SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	DESC:GM awarded PC with +1 Patron.									STACK:YES	MULT:YES	CHOOSE:NOCHOICE														BONUS:ABILITYPOOL|Witch Patron|1																																				COST:0
+
 ###Block: Modify default ability
 # Add traits for PCs only
 # Ability Name			Modify VAR
