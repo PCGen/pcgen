@@ -748,6 +748,10 @@ tasks.named("jre") {
     dependsOn downloadJRE, downloadJavaFXModules
 }
 
+tasks.withType(Test) {
+    testLogging.showStandardStreams = true
+}
+
 tasks.named("test", Test) {
     exclude 'pcgen/testsupport/**'
     useJUnitPlatform()
