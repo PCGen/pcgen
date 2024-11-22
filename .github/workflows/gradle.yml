@@ -34,6 +34,15 @@ jobs:
       - name: Build with Gradle Wrapper
         run: ./gradlew build test slowtest
 
+      - name: Publish Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        if: always()
+        with:
+          files: |
+            build/test-results/**/*.xml
+            build/test-results/**/*.trx
+            build/test-results/**/*.json
+
 #      - name: Upload build artifacts
 #        uses: actions/upload-artifact@v4
 #        with:

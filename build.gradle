@@ -749,7 +749,7 @@ tasks.named("jre") {
 }
 
 tasks.withType(Test) {
-    testLogging.showStandardStreams = true
+    testLogging.showStandardStreams = false
 }
 
 tasks.named("test", Test) {
