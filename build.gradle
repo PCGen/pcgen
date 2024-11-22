@@ -217,9 +217,9 @@ tasks.register("cleanMasterSheets", Delete) {
  * https://docs.gradle.org/current/userguide/dependency_downgrade_and_exclude.html
  */
 dependencies {
-    implementation group: 'commons-io', name: 'commons-io', version: '2.17.0'
+    implementation group: 'commons-io', name: 'commons-io', version: '2.18.0'
 
-    implementation group: 'commons-io', name: 'commons-io', version:'2.17.0'
+    implementation group: 'commons-io', name: 'commons-io', version:'2.18.0'
 
     implementation group: 'org.springframework', name: 'spring-web', version:'6.2.0'
     implementation group: 'org.springframework', name: 'spring-beans', version:'6.2.0'
