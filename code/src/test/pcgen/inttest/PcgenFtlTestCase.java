@@ -21,6 +21,8 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.Locale;
+import java.util.logging.Logger;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.xmlunit.builder.DiffBuilder;
@@ -39,6 +41,8 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
  */
 public abstract class PcgenFtlTestCase
 {
+	private static final Logger log = Logger.getLogger(PcgenFtlTestCase.class.getName());
+
 	private static final String TEST_CONFIG_FILE = "config.ini.junit";
 
 	@BeforeEach
@@ -62,8 +66,7 @@ public abstract class PcgenFtlTestCase
 	 */
 	public static void runTest(String character, String mode) throws IOException
 	{
-		System.out.println("RUNTEST with the character: " + character
-				+ " and the game mode: " + mode);
+		log.info("RUNTEST with the character: " + character	+ " and the game mode: " + mode);
 		// Delete the old generated output for this test
 		File outputFolder = new File("code/testsuite/output");
 		outputFolder.mkdirs();
