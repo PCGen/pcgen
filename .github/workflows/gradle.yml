@@ -26,6 +26,12 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
           cache: gradle
+          cache-dependency-path:
+            build.gradle
+            code/gradle/autobuild.gradle
+            code/gradle/distribution.gradle
+            code/gradle/release.gradle
+            code/gradle/reporting.gradle
 
       # Configure Gradle for optimal use in GitHub Actions, including caching of downloaded dependencies.
       # See: https://github.com/gradle/actions/blob/main/setup-gradle/README.md
