@@ -24,6 +24,27 @@ CATEGORY=Special Ability|Companion ~ Familiar.MOD																															
 CATEGORY=Special Ability|Companion ~ Psicrystal.MOD																																																																													COMPANIONLIST:Psicrystal|Psicrystal
 
 
+###Block: Psicrystal personalities
+# Ability Name			Unique Key				Combat bonus			Save bonus			Bonus to skill				Source Page
+CATEGORY=Special Ability|Psicrystal (Artiste).MOD											BONUS:SKILL|TYPE.Craft|3		SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Bully).MOD												BONUS:SKILL|Intimidate|3		SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Coward).MOD											BONUS:SKILL|Hide|3			SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Friendly).MOD											BONUS:SKILL|Diplomacy|3			SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Hero).MOD							BONUS:SAVE|Fortitude|2								SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Liar).MOD												BONUS:SKILL|Bluff|3			SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Meticulous).MOD											BONUS:SKILL|Search|3			SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Nimble).MOD		BONUS:COMBAT|INITIATIVE|2											SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Observant).MOD											BONUS:SKILL|Spot|3			SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Poised).MOD											BONUS:SKILL|Balance|3			SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Resolved).MOD							BONUS:SAVE|Will|2								SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Sage).MOD																		SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Single Minded).MOD										BONUS:SKILL|Concentration|3		SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Sneaky).MOD											BONUS:SKILL|Move Silently|3		SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Sympathetic).MOD											BONUS:SKILL|Sense Motive|3		SOURCEPAGE:PsionicClasses
+
+
+
+
 
 
 
