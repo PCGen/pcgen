@@ -39,7 +39,7 @@ Dispel Magic.MOD		CLASSES:Alchemical Hedge Magician=3
 Ectoplasm			CLASSES:Alchemical Hedge Magician=3	DESC:(Shadow Conjuration)	SCHOOL:Transmutation	CASTTIME:1 standard Action	COMPS:V,S,M	SAVEINFO:None	DURATION:Instantaneous	RANGE:Touch		SOURCEPAGE:p.22
 Haste.MOD			CLASSES:Alchemical Hedge Magician=3
 Magic Circle		CLASSES:Alchemical Hedge Magician=3	DESC: (immobile but affects all alignments)	SCHOOL:Transmutation	CASTTIME:1 standard Action	COMPS:V,S,M	SAVEINFO:None	DURATION:Instantaneous	RANGE:Touch		SOURCEPAGE:p.22
-The Naming of Names	CLASSES:Alchemical Hedge Magician=3	DESC:(attempts to control someone by invoking their true name. Nothing to do with alchemy, but it’s a basic component of magic in the campaign, so OK)	SCHOOL:Transmutation	CASTTIME:1 standard Action	COMPS:V,S,M	SAVEINFO:Will negates	DURATION:Instantaneous	RANGE:Close		SOURCEPAGE:p.22
+The Naming of Names	CLASSES:Alchemical Hedge Magician=3	DESC:(attempts to control someone by invoking their true name. Nothing to do with alchemy, but itâ€™s a basic component of magic in the campaign, so OK)	SCHOOL:Transmutation	CASTTIME:1 standard Action	COMPS:V,S,M	SAVEINFO:Will negates	DURATION:Instantaneous	RANGE:Close		SOURCEPAGE:p.22
 Poison.MOD			CLASSES:Alchemical Hedge Magician=3	DESC: (can produce various toxins, not just Con poison).	SAVEINFO:None	DURATION:Instantaneous	RANGE:Close		SOURCEPAGE:p.22
 #L4: 
 Break Enchantment.MOD	CLASSES:Alchemical Hedge Magician=4
@@ -48,7 +48,7 @@ Rusting Grasp.MOD		CLASSES:Alchemical Hedge Magician=4
 Protoplasmic Salve	CLASSES:Alchemical Hedge Magician=4	DESC: (cures only 3d6 damage and takes several minute to cast, otherwise as per Heal)	SCHOOL:Transmutation	CASTTIME:1 standard Action	COMPS:V,S,M	SAVEINFO:None	DURATION:Instantaneous	RANGE:Touch		SOURCEPAGE:p.22
 Stoneskin.MOD		CLASSES:Alchemical Hedge Magician=4
 Touch of Alkahest		CLASSES:Alchemical Hedge Magician=4	DESC:(as per Disintegrate, but requires a touch attack since it has no range, resistance to acid applies, the damage is distributed over several rounds, it can be stopped by washing it off or applying a base, and it's capped at 30d6. It may be pushing it, but the GM allows it)	SCHOOL:Transmutation	CASTTIME:1 standard Action	COMPS:V,S,M	SAVEINFO:Fort half	DURATION:Instantaneous	RANGE:Touch		SOURCEPAGE:p.22
-Vital Elixir		CLASSES:Alchemical Hedge Magician=4	DESC: (a combined version of Bull’s Strength, Bear’s Endurance, and Cat’s Grace; OK at level four)	SCHOOL:Transmutation	CASTTIME:1 standard Action	COMPS:V,S,M	SAVEINFO:None		DURATION:Instantaneous	RANGE:Close		SOURCEPAGE:p.22
+Vital Elixir		CLASSES:Alchemical Hedge Magician=4	DESC: (a combined version of Bullâ€™s Strength, Bearâ€™s Endurance, and Catâ€™s Grace; OK at level four)	SCHOOL:Transmutation	CASTTIME:1 standard Action	COMPS:V,S,M	SAVEINFO:None		DURATION:Instantaneous	RANGE:Close		SOURCEPAGE:p.22
 
 
 
