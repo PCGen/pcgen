@@ -163,3 +163,26 @@ CATEGORY=Special Ability|Innate Enchantment ~ L1 ~ Sure Step.MOD																
 CATEGORY=Special Ability|Innate Enchantment ~ L1 ~ Scalywrath.MOD																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																											BONUS:SKILL|Balance,Jump,Swim|4|TYPE=Racial
 CATEGORY=Special Ability|Innate Enchantment ~ L1 ~ Jump.MOD																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																												BONUS:SKILL|Jump|2|TYPE=Competence
 CATEGORY=Special Ability|Innate Enchantment ~ L1 ~ Light Foot.MOD																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																											BONUS:SKILL|Jump|10|TYPE=Circumstance
+
+
+
+CATEGORY=Special Ability|Psicrystal (Artiste).MOD												BONUS:SKILL|TYPE.Craft|3		SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Bully).MOD													BONUS:SKILL|Intimidate|3		SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Coward).MOD												BONUS:SKILL|Hide|3			SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Friendly).MOD												BONUS:SKILL|Diplomacy|3			SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Hero).MOD									BONUS:SAVE|Fortitude|2							SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Liar).MOD													BONUS:SKILL|Bluff|3			SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Meticulous).MOD												BONUS:SKILL|Search|3			SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Nimble).MOD			BONUS:COMBAT|INITIATIVE|2											SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Observant).MOD												BONUS:SKILL|Spot|3			SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Poised).MOD												BONUS:SKILL|Balance|3			SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Resolved).MOD								BONUS:SAVE|Will|2								SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Sage).MOD																			SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Single Minded).MOD											BONUS:SKILL|Concentration|3		SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Sneaky).MOD												BONUS:SKILL|Move Silently|3		SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Sympathetic).MOD												BONUS:SKILL|Sense Motive|3		SOURCEPAGE:PsionicClasses
+
+CATEGORY=Special Ability|Psicrystal ~ Skills.MOD	BONUS:SKILL|Spot|4|-min(4,skillinfo("TOTALRANK","Spot"))
+CATEGORY=Special Ability|Psicrystal ~ Skills.MOD	BONUS:SKILL|Listen|4|-min(4,skillinfo("TOTALRANK","Listen"))
+CATEGORY=Special Ability|Psicrystal ~ Skills.MOD	BONUS:SKILL|Move Silently|4|-min(4,skillinfo("TOTALRANK","Move Silently"))
+CATEGORY=Special Ability|Psicrystal ~ Skills.MOD	BONUS:SKILL|Search|4|-min(4,skillinfo("TOTALRANK","Search"))

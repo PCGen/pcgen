@@ -150,3 +150,8 @@ ABILITYCATEGORY:Eclipse Favored Foe					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO
 ABILITYCATEGORY:Eclipse Favored Foe Bonus				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:FavoredFoeBonus				PLURAL:Favored Foe Bonus Choices			DISPLAYLOCATION:Character Creation Pool
 
 ABILITYCATEGORY:Psicrystal Personality		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:PsicrystalPersonality										PLURAL:Psicrystal Personalities		DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Invocation Mighty Bonus Spell Level Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:Invocation Mighty Bonus Spell Level Selection										PLURAL:Invocation Mighty Bonus Spell Level Selections		DISPLAYLOCATION:Character Creation Pool
+
+
+

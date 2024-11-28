@@ -37,6 +37,7 @@ RACE:*/_universal/races.lst
 
 
 ABILITY:eclipse_msrd_abilities.lst
+RACE:eclipse_msrd_races.lst
 SKILL:eclipse_msrd_skills.lst
 
 #Block: Core Files ---------------------------------------------------------
