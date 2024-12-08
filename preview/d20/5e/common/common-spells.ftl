@@ -155,38 +155,6 @@
  </tr>
 </table>
 <!-- End Spell List Header Table (Known) -->
-<!-- Start Known Spells -->
-<table width="100%" cellspacing="0" cellpadding="2" summary="Spell List">
-<@loop from=0 to=pcvar('MAXSPELLLEVEL.${class}') ; level , level_has_next><#-- TODO: Loop was of early exit type 1 -->
-<@loop from=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]') to=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]') ; spellcount , spellcount_has_next>
-<#if (spellcount = 0)>
-<#else>
- <tr>
-  <td colspan="10" class="splevel"><b>LEVEL ${level}</b></td>
- </tr>
-<#if pcboolean("SPELLLISTMEMORIZE.${class}") >
-<#else>
- <tr>
-  <td colspan="10" class="splevel"><b>
-  <@loop from=1 to=pcvar("COUNT[SPELLLISTCAST.${class}.${level}]")>&#9744;</@loop>
-  </b></td>
- </tr>
-</#if>
-<@spellBlock class=class spellbook=spellbook level=level isKnownList=true />
-
-</#if>
-</@loop>
-</@loop>
- <tr>
-  <td colspan="10" bgcolor="black"><font style="font-size: x-small" color="white">* = Domain/Specialty Spell</font></td>
- </tr>
-</table>
-<br />
-</#if>
-</@loop>
-</@loop>
-<!-- End Known Spells -->
-<!-- ================================================================ -->
 <!-- Start Prepared Spells -->
 <@loop from=pcvar('COUNT[SPELLRACE]+COUNT[SPELLBOOKS]-2') to=pcvar('COUNT[SPELLRACE]+COUNT[SPELLBOOKS]-2') ; memorised , memorised_has_next>
 <#if (memorised = 0)>
@@ -365,3 +333,57 @@
 
 <!-- End Prepared Spells -->
 <!-- ================================================================= -->
+<!-- Start Used Spell Slots Table-->
+<table width="100%" cellspacing="0" cellpadding="2" summary="Used Spell Slots">
+ <tr>
+  <td colspan="${pcvar('MAXSPELLLEVEL.${class}')+2}" class="sphead"><b>Used Spell Slots</b></td>
+ </tr>
+<@loop from=1 to=pcvar('MAXSPELLLEVEL.${class}') ; level , level_has_next><#-- TODO: Loop was of early exit type 1 -->
+<#if (level < 10 && pcvar(pcstring('SPELLLISTCAST.${class}.${level}')) > 0)>
+ <tr>
+  <td class="sptab"><b>LEVEL ${level}</b></td>
+  <td>
+<@loop from=0 to=pcvar(pcstring('SPELLLISTCAST.${class}.${level}'))-1 ; slot>
+<#if (slot > 0)>
+   &nbsp;&nbsp;
+</#if>
+   <b>&#x274F;</b>
+</@loop>
+  </td>
+ </tr>
+</#if>
+</@loop>
+</table>
+<!-- End Used Spell Slots Table -->
+<!-- Start Known Spells -->
+<table width="100%" cellspacing="0" cellpadding="2" summary="Spell List">
+<@loop from=0 to=pcvar('MAXSPELLLEVEL.${class}') ; level , level_has_next><#-- TODO: Loop was of early exit type 1 -->
+<@loop from=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]') to=pcvar('COUNT[SPELLSINBOOK.${class}.${spellbook}.${level}]') ; spellcount , spellcount_has_next>
+<#if (spellcount = 0)>
+<#else>
+ <tr>
+  <td colspan="10" class="splevel"><b>LEVEL ${level}</b></td>
+ </tr>
+<#if pcboolean("SPELLLISTMEMORIZE.${class}") >
+<#else>
+ <tr>
+  <td colspan="10" class="splevel"><b>
+  <@loop from=1 to=pcvar("COUNT[SPELLLISTCAST.${class}.${level}]")>&#9744;</@loop>
+  </b></td>
+ </tr>
+</#if>
+<@spellBlock class=class spellbook=spellbook level=level isKnownList=true />
+
+</#if>
+</@loop>
+</@loop>
+ <tr>
+  <td colspan="10" bgcolor="black"><font style="font-size: x-small" color="white">* = Domain/Specialty Spell</font></td>
+ </tr>
+</table>
+<br />
+</#if>
+</@loop>
+</@loop>
+<!-- End Known Spells -->
+<!-- ================================================================ -->
