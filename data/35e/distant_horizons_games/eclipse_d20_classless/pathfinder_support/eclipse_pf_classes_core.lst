@@ -1,0 +1,21 @@
+#CLASS:Cleric.MOD
+#20	CAST:4,4,4,4,4,4,4,4,4,4
+
+#CLASS:Druid.MOD
+#20	CAST:4,4,4,4,4,4,4,4,4,4
+
+CLASS:Sorcerer.MOD
+20	CAST:0,6,6,6,6,6,6,6,6,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0	KNOWN:9,5,5,4,4,4,3,3,3,3,SorcererKnown10,SorcererKnown11,SorcererKnown12,SorcererKnown13,SorcererKnown14,SorcererKnown15,SorcererKnown16,SorcererKnown17,SorcererKnown18,SorcererKnown19,SorcererKnown20,SorcererKnown21,SorcererKnown22,SorcererKnown22,SorcererKnown23,SorcererKnown24
+
+
+CLASS:Wizard.MOD
+20	CAST:4,4,4,4,4,4,4,4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+
+
+
+
+
+
+
+
+

@@ -40,8 +40,10 @@ ABILITY:eclipse_rsrd_abilities_skills.lst
 ABILITYCATEGORY:eclipse_rsrd_ability_categories.lst
 
 CLASS:eclipse_rsrd_class_mods.lst
+CLASS:eclipse_rsrd_races.lst
 SKILL:eclipse_rsrd_skills_mods.lst
 WEAPONPROF:eclipse_rsrd_profs_weapons.lst
+
 #Block: Universal Functions -------------------------------------------
 BONUS:ABILITYPOOL|Disadvantages|3|PREVARGTEQ:EclipseClass,1
 
