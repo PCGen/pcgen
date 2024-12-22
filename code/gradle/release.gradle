@@ -420,7 +420,7 @@ tasks.register("sourcesJar", Jar) {
 }
 
 tasks.register("assembleArtifacts", Copy) {
-    dependsOn build, runtimeZip, sourcesJar, buildNsis
+    dependsOn build, runtimeZip, sourcesJar
 
     if (Os.isFamily(Os.FAMILY_MAC) || Os.isFamily(Os.FAMILY_UNIX))
     {
@@ -431,9 +431,6 @@ tasks.register("assembleArtifacts", Copy) {
     into releaseDir
     // buildNsis puts the exe into the release folder directly
 
-    from(layout.buildDirectory.dir("nsisRelease")){
-        include '*.exe'
-    }
     from(layout.buildDirectory.dir("libs")){
         include 'pcgen*-sources.jar'
     }

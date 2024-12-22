@@ -29,7 +29,7 @@ import org.xmlunit.builder.DiffBuilder;
 import org.xmlunit.builder.Input;
 import org.xmlunit.diff.Diff;
 import pcgen.LocaleDependentTestCase;
-import pcgen.cdom.base.Constants;
+import pcgen.system.Main;
 import pcgen.util.TestHelper;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -66,32 +66,32 @@ public abstract class PcgenFtlTestCase
 	 */
 	public static void runTest(String character, String mode) throws IOException
 	{
-		LOG.info("RUNTEST with the character: " + character	+ " and the game mode: " + mode);
+		LOG.info("RUNTEST with the character: " + character + " and the game mode: " + mode);
 		// Delete the old generated output for this test
-		File outputFolder = new File("code/testsuite/output");
+		String characterFileName = character + ".xml";
+		String characterPCFileName = character + ".pcg";
+		var inputFolder = new File("code/testsuite/PCGfiles");
+		var outputFolder = new File("code/testsuite/output");
+		var csheetsFolder = new File("code/testsuite/csheets");
 		outputFolder.mkdirs();
-		String outputFileName = character + ".xml";
-		File outputFileFile = new File(outputFolder, outputFileName);
+
+		var inputFile = new File(inputFolder, characterPCFileName);
+		var outputFile = new File(outputFolder, characterFileName);
+		var expectedFile = new File(csheetsFolder, characterFileName);
 
 		String pccLoc = TestHelper.findDataFolder();
 
-		// The String holder for the XML of the expected result
-		String expected;
-		// The String holder for the XML of the actual result
-		String actual;
 		/*
 		 * Override the pcc location, game mode and several other properties in
 		 * the options.ini file
 		 */
 		String configFolder = "testsuite";
-		TestHelper.createDummySettingsFile(TEST_CONFIG_FILE, configFolder,
-				pccLoc);
+		TestHelper.createDummySettingsFile(TEST_CONFIG_FILE, configFolder, pccLoc);
 
 		// Fire off PCGen, which will produce an XML file
-		String characterFile = "code/testsuite/PCGfiles/" + character
-				+ Constants.EXTENSION_CHARACTER_FILE;
+		//String characterFile = "code/testsuite/PCGfiles/" + character + Constants.EXTENSION_CHARACTER_FILE;
 
-		String outputFile = outputFileFile.getCanonicalPath();
+		//String outputFile = outputFile.getCanonicalPath();
 
 		// The code below had to be commented out as in Java 21+ there's no more SecurityManager
 		// At time of writing there is no replacement, see <a href="https://bugs.openjdk.org/browse/JDK-8199704">JDK-8199704</a>
@@ -111,14 +111,19 @@ public abstract class PcgenFtlTestCase
 		revertSystemExitInterceptor.run();
 		*/
 
-		// Read in the actual XML produced by PCGen
-		actual = Files.readString(outputFileFile.toPath());
-		// Read in the expected XML
-		expected = Files.readString(
-                new File("code/testsuite/csheets/" + character + ".xml").toPath());
+		Main.main("--character", inputFile.getCanonicalPath(),
+				"--exportsheet", "code/testsuite/base-xml.ftl",
+				"--outputfile", outputFile.getCanonicalPath(),
+				"--configfilename", TEST_CONFIG_FILE);
+
+		// the XML of the expected result
+		var expected = Files.readString(expectedFile.toPath());
+		// the XML of the actual result
+		var actual = Files.readString(outputFile.toPath());
 
 		Diff myDiff = DiffBuilder.compare(Input.fromString(expected))
-		                         .withTest(Input.fromString(actual)).build();
+				.withTest(Input.fromString(actual))
+				.build();
 
 		assertFalse(myDiff.hasDifferences(), myDiff.toString());
 	}

@@ -515,7 +515,6 @@ public final class TestHelper
 			}
 			bw.write("customPath=testsuite\\\\customdata\r\n");
 		}
-
 	}
 
 	public static void loadGameModes(String testConfigFile)
