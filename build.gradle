@@ -748,6 +748,10 @@ tasks.named("jre") {
     dependsOn downloadJRE, downloadJavaFXModules
 }
 
+tasks.withType(Test) {
+    testLogging.showStandardStreams = false
+}
+
 tasks.named("test", Test) {
     exclude 'pcgen/testsupport/**'
     useJUnitPlatform()
@@ -951,7 +955,7 @@ apply from: 'code/gradle/reporting.gradle'
 apply from: 'code/gradle/release.gradle'
 
 tasks.register("allTasks") {
-    dependsOn build, slowtest, javadoc, buildNsis, allReports
+    dependsOn build, slowtest, javadoc, allReports
     description = "Runs tasks build, slowtest, javadoc, buildNsis and allReports"
 }
 

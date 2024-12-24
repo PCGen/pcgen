@@ -8,14 +8,17 @@ import java.security.Permission;
  * <p>
  * <b>Note:</b> A replacement API to intercept System.exit is in discussion in <a href="https://bugs.openjdk.org/browse/JDK-8199704">JDK-8199704</a>.
  * The SecurityManager is unlikely to be removed from Java before such an alternative exists.
+ *
+ * There is no alternative in Java 21. Probably this is the time to remove this class and everything that uses it.
  */
+@Deprecated(forRemoval = true, since = "17")
 public class SystemExitInterceptor
 {
 
 	/**
-	 * Temporarily replaces the security manager in order to intercept calls to System.exit.
+	 * Temporarily replaces the security manager to intercept calls to System.exit.
 	 *
-	 * @return A runnable that needs to be called in order to revert the change.
+	 * @return A runnable that needs to be called to revert the change.
 	 */
 	@SuppressWarnings("removal")
 	public static Runnable startInterceptor()

@@ -367,7 +367,10 @@ public final class Main
 			CustomData.writeCustomItems();
 		}
 
-		System.exit(success ? 0 : 1);
+		if (!success)
+		{
+			System.exit(1);
+		}
 	}
 
 	private static void initPrintPreviewFonts()

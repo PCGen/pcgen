@@ -27,7 +27,8 @@ import java.net.http.HttpResponse;
 import java.nio.charset.MalformedInputException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import org.jetbrains.annotations.Nullable;
+import java.util.Optional;
+
 import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.core.utils.CoreUtility;
@@ -70,21 +71,18 @@ public final class LstFileLoader
 
 	/**
 	 * This method reads the given URI and returns its content as a string. If an error occurs, we don't throw an
-	 * exception, but log the error in the logger. It is possible to read file content from the remote link, but
+	 * exception but log the error in the logger. It is possible to read file content from the remote link, but
 	 * a corresponding option must be enabled in settings.
 	 *
-	 * @param uri	URI of the remote content
-	 * @return String	file content
-	 * @throws PersistenceLayerException	is thrown when a null URI is provided
+	 * @param uri URI of the remote content
+	 * @return String file content
+	 * @throws PersistenceLayerException is thrown when a null URI is provided
 	 */
-	@Nullable
-	public static String readFromURI(URI uri) throws PersistenceLayerException
+	public static Optional<String> readFromURI(URI uri) throws PersistenceLayerException
 	{
-		if (uri == null)
-		{
-			// We have a problem!
-			throw new PersistenceLayerException("LstFileLoader.readFromURI() received a null URI parameter!");
-		}
+		uri = Optional.ofNullable(uri)
+			.orElseThrow(() -> new PersistenceLayerException(
+					"LstFileLoader.readFromURI() received a null URI parameter!"));
 
 		try
 		{
@@ -98,9 +96,8 @@ public final class LstFileLoader
 							"The file %s uses UTF-8-BOM encoding. LST files must be UTF-8".formatted(uri));
 					result = result.substring(1);
 				}
-				return result;
-			}
-			else if (SettingsHandler.isLoadURLs()) // load from remote URIs
+				return Optional.of(result);
+			} else if (SettingsHandler.isLoadURLs()) // load from remote URIs
 			{
 				try (HttpClient client = HttpClient.newHttpClient())
 				{
@@ -108,30 +105,26 @@ public final class LstFileLoader
 							.uri(uri)
 							.build();
 					HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-					return response.body();
+					return Optional.of(response.body());
 				}
-			}
-			else
+			} else
 			{
-				// Just to protect people from using web
-				// sources without their knowledge,
-				// we added a preference.
+				// Just to protect people from using web sources without their knowledge, we added a preference.
 				ShowMessageDelegate.showMessageDialog("Preferences are currently set to NOT allow\nloading of "
-					+ "sources from web links.\n" + uri + " is a web link", Constants.APPLICATION_NAME,
-					MessageType.ERROR);
+								+ "sources from web links.\n" + uri + " is a web link", Constants.APPLICATION_NAME,
+						MessageType.ERROR);
 			}
 		} catch (MalformedInputException ie)
 		{
 			Logging.errorPrint("ERROR: " + uri + "\nThe file doesn't use UTF-8 encoding. LST files must be UTF-8", ie);
-		}
-		catch (IOException | InterruptedException e)
+		} catch (IOException | InterruptedException e)
 		{
 			// Don't throw an exception here because a simple
 			// file not found will prevent ANY other files from
 			// being loaded/processed -- NOT what we want
 			Logging.errorPrint("ERROR: " + uri + '\n' + "Exception type: " + e.getClass().getName() + "\n" + "Message: "
-				+ e.getMessage(), e);
+					+ e.getMessage(), e);
 		}
-		return null;
+		return Optional.empty();
 	}
 }
