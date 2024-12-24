@@ -3,17 +3,17 @@
  * Copyright 2008-10 (C) Tom Parker <thpr@users.sourceforge.net>
  * Copyright 2003 (C) David Hibbs <sage_sam@users.sourceforge.net>
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
- * 
+ *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
@@ -89,7 +89,7 @@ public class VariableLoader extends Observable
 
 	/**
 	 * This method loads a single LST formatted file.
-	 * 
+	 *
 	 * @param sourceEntry
 	 *            CampaignSourceEntry containing the absolute file path or the
 	 *            URL from which to read LST formatted data.
@@ -100,11 +100,10 @@ public class VariableLoader extends Observable
 		URI uri = sourceEntry.getURI();
 		notifyObservers(uri);
 
-		String dataBuffer;
-
+		String aString;
 		try
 		{
-			dataBuffer = LstFileLoader.readFromURI(uri);
+			aString = LstFileLoader.readFromURI(uri).get();
 		}
 		catch (PersistenceLayerException ple)
 		{
@@ -115,7 +114,6 @@ public class VariableLoader extends Observable
 			return;
 		}
 
-		String aString = dataBuffer;
 		if (context != null)
 		{
 			context.setSourceURI(uri);

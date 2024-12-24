@@ -42,8 +42,8 @@ import pcgen.rules.context.LoadContext;
  */
 public abstract class LstLineFileLoader extends Observable
 {
-	/** 
-	 * Stores what game mode the objects loaded by this loader should be 
+	/**
+	 * Stores what game mode the objects loaded by this loader should be
 	 * associated with.
 	 */
 	// TODO - Should be a constant.
@@ -59,7 +59,8 @@ public abstract class LstLineFileLoader extends Observable
 	 */
 	public void loadLstFile(LoadContext context, URI uri) throws PersistenceLayerException
 	{
-		String dataBuffer = LstFileLoader.readFromURI(uri);
+		String dataBuffer = LstFileLoader.readFromURI(uri)
+				.orElseThrow(() -> new PersistenceLayerException("Failed to read from URI: " + uri));
 		if (context != null)
 		{
 			context.setSourceURI(uri);
