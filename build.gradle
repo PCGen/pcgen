@@ -26,7 +26,7 @@ plugins {
     id 'application'                                    // Creating application bundles
     id 'build-dashboard'                                // Produces a build report
     id 'checkstyle'                                     // Checkstyle for Java, configured further below
-    id 'com.github.spotbugs' version '6.0.26'           // Spotbugs for Java
+    id 'com.github.spotbugs' version '6.0.27'           // Spotbugs for Java
     id 'java'                                           // Core java / javac
     id 'maven-publish'                                  // Publishing to Maven Central
     id 'pmd'                                            // PMD for Java, configured further below
@@ -232,7 +232,7 @@ dependencies {
     }
     implementation group: 'org.apache.commons', name: 'commons-collections4', version: '4.5.0-M3'
     implementation group: 'org.scijava', name: 'jep', version: '2.4.2'
-    implementation group: 'org.freemarker', name: 'freemarker', version: '2.3.33'
+    implementation group: 'org.freemarker', name: 'freemarker', version: '2.3.34'
     implementation group: 'org.jdom', name: 'jdom2', version: '2.0.6.1'
     implementation('xalan:xalan:2.7.3')
     {
