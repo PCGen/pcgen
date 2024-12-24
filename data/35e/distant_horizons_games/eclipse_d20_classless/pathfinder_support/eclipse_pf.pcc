@@ -1,4 +1,3 @@
-# CVS $Revision$ $Author$ -- Sat Nov 20 04:10:09 2004 -- reformated by prettylst.pl v1.34 (build 422)
 CAMPAIGN:Eclipse - The Codex Persona (PF)
 GAMEMODE:Pathfinder
 GENRE:Any
@@ -37,9 +36,8 @@ RACE:*/_universal/races.lst
 
 
 ABILITY:eclipse_pf_abilities.lst
-
 ABILITYCATEGORY:eclipse_pf_ability_categories.lst
-
+RACE:eclipse_pf_races.lst
 SKILL:eclipse_pf_skills.lst
 
 #Block: Core Files ---------------------------------------------------------
@@ -63,6 +61,7 @@ ABILITY:../eclipse_abilities_enchantments.lst
 ABILITYCATEGORY:../eclipse_ability_categories.lst
 
 CLASS:../eclipse_class.lst
+CLASS:eclipse_pf_classes_core.lst
 
 # Make something for PF
 #COMPANIONMOD:../eclipse_companionmods.lst

@@ -1,4 +1,25 @@
-# CVS $Revision$ $Author$ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+
+CATEGORY=Internal|Default.MOD		DEFINE:SorcererKnown10|0
+CATEGORY=Internal|Default.MOD		DEFINE:SorcererKnown11|0
+CATEGORY=Internal|Default.MOD		DEFINE:SorcererKnown12|0
+CATEGORY=Internal|Default.MOD		DEFINE:SorcererKnown13|0
+CATEGORY=Internal|Default.MOD		DEFINE:SorcererKnown14|0
+CATEGORY=Internal|Default.MOD		DEFINE:SorcererKnown15|0
+CATEGORY=Internal|Default.MOD		DEFINE:SorcererKnown16|0
+CATEGORY=Internal|Default.MOD		DEFINE:SorcererKnown17|0
+CATEGORY=Internal|Default.MOD		DEFINE:SorcererKnown18|0
+CATEGORY=Internal|Default.MOD		DEFINE:SorcererKnown19|0
+CATEGORY=Internal|Default.MOD		DEFINE:SorcererKnown20|0
+CATEGORY=Internal|Default.MOD		DEFINE:SorcererKnown21|0
+CATEGORY=Internal|Default.MOD		DEFINE:SorcererKnown22|0
+CATEGORY=Internal|Default.MOD		DEFINE:SorcererKnown22|0
+CATEGORY=Internal|Default.MOD		DEFINE:SorcererKnown23|0
+CATEGORY=Internal|Default.MOD		DEFINE:SorcererKnown24|0
+
+
+
+
+
 
 # Ability Name							Unique Key					SORTKEY					Category of Ability		Type					Define				Ability										Add					Bonus Ability Pool																									Caster level						Caster level bonus									Modify VAR																										Cost
 CATEGORY=Internal|Min Skill.MOD																										DEFINE:CharacterSkillPts|0																	BONUS:ABILITYPOOL|Character Skills|CharacterSkillPts																																								BONUS:VAR|CharacterSkillPts|TL|TYPE=Human|PRERACE:1,Human	BONUS:VAR|CharacterSkillPts|EclipseClassLvl*INT|PRESTAT:1,INT=12
@@ -21,8 +42,8 @@ Initial Adept Magic Level					KEY:Initial Adept Magic Level		SORTKEY:Magic_Level
 Initial Bard Magic Level					KEY:Initial Bard Magic Level		SORTKEY:Magic_Level_01_Bard		CATEGORY:Special Ability	TYPE:MagicLevels.BaseLevel	DEFINE:BardCasterLevel|0												ADD:SPELLCASTER|Bard																														BONUS:CASTERLEVEL|Bard|BardCasterLevel		BONUS:PCLEVEL|Bard|var("BardMagicLvls")-1						BONUS:VAR|BardCasterLevel|-var("BardMagicLvls")	BONUS:VAR|BardCasterLevel|var("PointBuyBardCasterLvl")+var("CasterLevelAll")							COST:0
 Initial Cleric Magic Level					KEY:Initial Cleric Magic Level	SORTKEY:Magic_Level_01_Cleric		CATEGORY:Special Ability	TYPE:MagicLevels.BaseLevel	DEFINE:ClericCasterLevel|0												ADD:SPELLCASTER|Cleric																														BONUS:CASTERLEVEL|Cleric|ClericCasterLevel	BONUS:PCLEVEL|Cleric|var("ClericMagicLvls")-1					BONUS:VAR|ClericCasterLevel|-var("ClericMagicLvls")	BONUS:VAR|ClericCasterLevel|var("PointBuyClericCasterLvl")+var("CasterLevelAll")					COST:0
 Initial Druid Magic Level					KEY:Initial Druid Magic Level		SORTKEY:Magic_Level_01_Druid		CATEGORY:Special Ability	TYPE:MagicLevels.BaseLevel	DEFINE:DruidCasterLevel|0												ADD:SPELLCASTER|Druid																														BONUS:CASTERLEVEL|Druid|DruidCasterLevel		BONUS:PCLEVEL|Druid|var("DruidMagicLvls")-1					BONUS:VAR|DruidCasterLevel|-var("DruidMagicLvls")	BONUS:VAR|DruidCasterLevel|var("PointBuyDruidCasterLvl")+var("CasterLevelAll")					COST:0
-Initial Wizard Magic Level					KEY:Initial Wizard Magic Level	SORTKEY:Magic_Level_01_Wizard		CATEGORY:Special Ability	TYPE:MagicLevels.BaseLevel	DEFINE:WizardCasterLevel|0												ADD:SPELLCASTER|Wizard																														BONUS:CASTERLEVEL|Wizard|WizardCasterLevel	BONUS:PCLEVEL|Wizard|var("WizardMagicLvls")-1					BONUS:VAR|WizardCasterLevel|-var("WizardMagicLvls")	BONUS:VAR|WizardCasterLevel|var("PointBuyWizardCasterLvl")+var("CasterLevelAll")					COST:0
-Initial Sorcerer Magic Level					KEY:Initial Sorcerer Magic Level	SORTKEY:Magic_Level_01_Sorcerer	CATEGORY:Special Ability	TYPE:MagicLevels.BaseLevel	DEFINE:SorcererCasterLevel|0												ADD:SPELLCASTER|Sorcerer																													BONUS:CASTERLEVEL|Sorcerer|SorcererCasterLevel	BONUS:PCLEVEL|Sorcerer|var("SorcererMagicLvls")-1				BONUS:VAR|SorcererCasterLevel|-var("SorcererMagicLvls")	BONUS:VAR|SorcererCasterLevel|var("PointBuySorcererCasterLvl")+var("CasterLevelAll")			COST:0
+Initial Wizard Magic Level					KEY:Initial Wizard Magic Level	SORTKEY:Magic_Level_01_Wizard		CATEGORY:Special Ability	TYPE:MagicLevels.BaseLevel	DEFINE:Caster_Level_Wizard|0												ADD:SPELLCASTER|Wizard																														BONUS:CASTERLEVEL|Wizard|Caster_Level_Wizard	BONUS:PCLEVEL|Wizard|var("WizardMagicLvls")-1					BONUS:VAR|Caster_Level_Wizard|-var("WizardMagicLvls")	BONUS:VAR|Caster_Level_Wizard|var("PointBuyWizardCasterLvl")+var("CasterLevelAll")					COST:0
+Initial Sorcerer Magic Level					KEY:Initial Sorcerer Magic Level	SORTKEY:Magic_Level_01_Sorcerer	CATEGORY:Special Ability	TYPE:MagicLevels.BaseLevel	DEFINE:Caster_Level_Sorcerer|0												ADD:SPELLCASTER|Sorcerer																													BONUS:CASTERLEVEL|Sorcerer|Caster_Level_Sorcerer	BONUS:PCLEVEL|Sorcerer|var("SorcererMagicLvls")-1				BONUS:VAR|Caster_Level_Sorcerer|-var("SorcererMagicLvls")	BONUS:VAR|Caster_Level_Sorcerer|var("PointBuySorcererCasterLvl")+var("CasterLevelAll")			COST:0
 
 # PRC
 Initial Assassin Magic Level					KEY:Initial Assassin Magic Level	SORTKEY:Magic_Level_01_Assassin	CATEGORY:Special Ability	TYPE:MagicLevels.BaseLevel	DEFINE:AssassinCasterLevel|0												ADD:SPELLCASTER|Assassin																													BONUS:CASTERLEVEL|Asssassin|AssassinCasterLevel	BONUS:PCLEVEL|Assassin|var("AssassinMagicLvls")-1				BONUS:VAR|AssassinCasterLevel|-var("AssassinMagicLvls")	BONUS:VAR|AssassinCasterLevel|var("PointBuyAssassinCasterLvl")+var("CasterLevelAll")			COST:0
@@ -310,3 +331,45 @@ Druid Learn Level 9								CATEGORY:Special Ability	TYPE:ClassSpellsChoice	STACK
 #
 
 CATEGORY=Special Ability|Innate Enchantment ~ L1 ~ Sure Step.MOD																							BONUS:SKILL|Acrobatics,Climb|10|TYPE=Competence
+
+
+
+
+
+###Block: Support for Invocation (Mighty)
+CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Highest__Arcane|0
+CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Total__Arcane|0
+
+CATEGORY=Internal|Default.MOD	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Sorcerer|TYPE=Base	
+CATEGORY=Internal|Default.MOD	BONUS:VAR|Caster_Level_Total__Arcane|Caster_Level_Sorcerer|TYPE=Base
+
+CATEGORY=Internal|Default.MOD	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Wizard|TYPE=Base	
+CATEGORY=Internal|Default.MOD	BONUS:VAR|Caster_Level_Total__Arcane|Caster_Level_Wizard|TYPE=Base
+
+
+
+###Block: Psicrystal personalities
+# Ability Name			Unique Key				Combat bonus			Save bonus			Bonus to skill				Source Page
+CATEGORY=Special Ability|Psicrystal (Artiste).MOD											BONUS:SKILL|TYPE.Craft|3		SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Bully).MOD												BONUS:SKILL|Intimidate|3		SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Coward).MOD											BONUS:SKILL|Stealth|3			SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Friendly).MOD											BONUS:SKILL|Diplomacy|3			SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Hero).MOD								BONUS:SAVE|Fortitude|2							SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Liar).MOD												BONUS:SKILL|Bluff|3			SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Meticulous).MOD											BONUS:SKILL|Perception|3		SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Nimble).MOD		BONUS:COMBAT|INITIATIVE|2											SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Observant).MOD											BONUS:SKILL|Perception|3		SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Poised).MOD											BONUS:SKILL|Acrobatics|3		SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Resolved).MOD							BONUS:SAVE|Will|2								SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Sage).MOD																		SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Single Minded).MOD																SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Sneaky).MOD											BONUS:SKILL|Stealth|3			SOURCEPAGE:PsionicClasses
+CATEGORY=Special Ability|Psicrystal (Sympathetic).MOD											BONUS:SKILL|Sense Motive|3		SOURCEPAGE:PsionicClasses
+
+
+CATEGORY=Special Ability|Psicrystal ~ Skills.MOD	BONUS:SKILL|Perception|4|-min(4,skillinfo("TOTALRANK","Perception"))
+CATEGORY=Special Ability|Psicrystal ~ Skills.MOD	BONUS:SKILL|Stealth|4|-min(4,skillinfo("TOTALRANK","Stealth"))
+
+
+
+
