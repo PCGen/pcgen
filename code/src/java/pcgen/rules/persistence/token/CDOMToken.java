@@ -22,7 +22,7 @@ import pcgen.rules.context.LoadContext;
 
 public interface CDOMToken<T> extends LstToken
 {
-	public ParseResult parseToken(LoadContext context, T obj, String value);
+	ParseResult parseToken(LoadContext context, T obj, String value);
 
-	public Class<T> getTokenClass();
+	Class<T> getTokenClass();
 }
