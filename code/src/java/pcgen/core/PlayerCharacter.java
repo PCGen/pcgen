@@ -5477,7 +5477,13 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	{
 		final int statBonus = (int) getStatBonusTo("MISC", "MAXDEX");
 		final Load load = getHouseRuledLoadType();
-		int bonus = (load == Load.MEDIUM) ? 2 : (load == Load.HEAVY) ? 1 : (load == Load.OVERLOAD) ? 0 : statBonus;
+		int bonus = switch (load)
+		{
+			case MEDIUM -> 3;
+			case HEAVY -> 1;
+			case OVERLOAD -> 0;
+			default -> statBonus;
+		};
 
 		// If this is still true after all the equipment has been
 		// examined, then we should use the Maximum - Maximum Dex modifier.

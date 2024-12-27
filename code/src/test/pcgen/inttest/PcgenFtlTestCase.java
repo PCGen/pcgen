@@ -20,6 +20,7 @@ package pcgen.inttest;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.text.MessageFormat;
 import java.util.Locale;
 import java.util.logging.Logger;
 
@@ -89,7 +90,7 @@ public abstract class PcgenFtlTestCase
 		TestHelper.createDummySettingsFile(TEST_CONFIG_FILE, configFolder, pccLoc);
 
 		// Fire off PCGen, which will produce an XML file
-		//String characterFile = "code/testsuite/PCGfiles/" + character + Constants.EXTENSION_CHARACTER_FILE;
+		// String characterFile = "code/testsuite/PCGfiles/" + character + Constants.EXTENSION_CHARACTER_FILE;
 
 		//String outputFile = outputFile.getCanonicalPath();
 
@@ -121,6 +122,8 @@ public abstract class PcgenFtlTestCase
 		// the XML of the actual result
 		var actual = Files.readString(outputFile.toPath());
 
+		LOG.info(
+				MessageFormat.format("Comparing the expected ({0}) and actual ({1}) results", expectedFile, outputFile));
 		Diff myDiff = DiffBuilder.compare(Input.fromString(expected))
 				.withTest(Input.fromString(actual))
 				.build();
