@@ -69,8 +69,8 @@ public final class Logging
 	/** Log level for application debug output. */
 	public static final Level DEBUG = Level.FINER;
 
-	private static Logger pcgenLogger;
-	private static Logger pluginLogger;
+	private static Logger pcgenLogger = Logger.getLogger("pcgen");
+	private static Logger pluginLogger = Logger.getLogger("plugin");
 
 	/**
 	 * Do any required initialization of the Logger.
@@ -113,29 +113,17 @@ public final class Logging
 	 */
 	public static void setDebugMode(final boolean argDebugMode)
 	{
-		retainRootLoggers();
-
 		debugMode = argDebugMode;
 		if (debugMode)
 		{
-			Logger.getLogger("pcgen").setLevel(DEBUG);
-			Logger.getLogger("plugin").setLevel(DEBUG);
+			pcgenLogger.setLevel(DEBUG);
+			pluginLogger.setLevel(DEBUG);
 		}
 		else
 		{
-			Logger.getLogger("pcgen").setLevel(LST_WARNING);
-			Logger.getLogger("plugin").setLevel(LST_WARNING);
+			pcgenLogger.setLevel(LST_WARNING);
+			pluginLogger.setLevel(LST_WARNING);
 		}
-	}
-
-	/**
-	 * Ensure that our root loggers (pcgen and plugin) do not get garbage
-	 * collected, otherwise we lose the logging level!
-	 */
-	private static void retainRootLoggers()
-	{
-		pcgenLogger = Logger.getLogger("pcgen");
-		pluginLogger = Logger.getLogger("plugin");
 	}
 
 	/**
@@ -613,10 +601,9 @@ public final class Logging
 	 */
 	public static void setCurrentLoggingLevel(Level level)
 	{
-		retainRootLoggers();
 		debugMode = (level == Logging.DEBUG);
-		Logger.getLogger("pcgen").setLevel(level);
-		Logger.getLogger("plugin").setLevel(level);
+		pcgenLogger.setLevel(level);
+		pluginLogger.setLevel(level);
 	}
 
 	private static final LinkedList<QueuedMessage> queuedMessages = new LinkedList<>();
