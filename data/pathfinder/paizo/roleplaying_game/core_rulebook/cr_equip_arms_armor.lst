@@ -357,14 +357,14 @@ Improvised Weapon (2d10)	PROFICIENCY:WEAPON|Improvised Weapon	TYPE:Weapon.Melee.
 
 ###Block: Improvised / WT and WIELD guessed based upon equivalents.
 # Equipment Name					Required Weapon Proficiency				Type								Cost		Weight	Crit Mult	Crit Range	Damage	Wield Category	Size
-Improvised Weapon (Thrown) (1d2)		PROFICIENCY:WEAPON|Improvised Weapon (Thrown)	TYPE:Weapon.Melee.Improvised.Improvised Thrown	COST:0	WT:1		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d2	WIELD:OneHanded	SIZE:M
-Improvised Weapon (Thrown) (1d3)		PROFICIENCY:WEAPON|Improvised Weapon (Thrown)	TYPE:Weapon.Melee.Improvised.Improvised Thrown	COST:0	WT:1		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3	WIELD:OneHanded	SIZE:M
-Improvised Weapon (Thrown) (1d4)		PROFICIENCY:WEAPON|Improvised Weapon (Thrown)	TYPE:Weapon.Melee.Improvised.Improvised Thrown	COST:0	WT:2		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4	WIELD:OneHanded	SIZE:M
-Improvised Weapon (Thrown) (1d6)		PROFICIENCY:WEAPON|Improvised Weapon (Thrown)	TYPE:Weapon.Melee.Improvised.Improvised Thrown	COST:0	WT:6		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	WIELD:OneHanded	SIZE:M
-Improvised Weapon (Thrown) (1d8)		PROFICIENCY:WEAPON|Improvised Weapon (Thrown)	TYPE:Weapon.Melee.Improvised.Improvised Thrown	COST:0	WT:10		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8	WIELD:OneHanded	SIZE:M
-Improvised Weapon (Thrown) (1d10)		PROFICIENCY:WEAPON|Improvised Weapon (Thrown)	TYPE:Weapon.Melee.Improvised.Improvised Thrown	COST:0	WT:12		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d10	WIELD:OneHanded	SIZE:M
-Improvised Weapon (Thrown) (1d12)		PROFICIENCY:WEAPON|Improvised Weapon (Thrown)	TYPE:Weapon.Melee.Improvised.Improvised Thrown	COST:0	WT:12		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d12	WIELD:TwoHanded	SIZE:M
-Improvised Weapon (Thrown) (2d4)		PROFICIENCY:WEAPON|Improvised Weapon (Thrown)	TYPE:Weapon.Melee.Improvised.Improvised Thrown	COST:0	WT:12		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d4	WIELD:TwoHanded	SIZE:M
-Improvised Weapon (Thrown) (2d6)		PROFICIENCY:WEAPON|Improvised Weapon (Thrown)	TYPE:Weapon.Melee.Improvised.Improvised Thrown	COST:0	WT:12		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d6	WIELD:TwoHanded	SIZE:M
-Improvised Weapon (Thrown) (2d8)		PROFICIENCY:WEAPON|Improvised Weapon (Thrown)	TYPE:Weapon.Melee.Improvised.Improvised Thrown	COST:0	WT:12		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d8	WIELD:TwoHanded	SIZE:M
-Improvised Weapon (Thrown) (2d10)		PROFICIENCY:WEAPON|Improvised Weapon (Thrown)	TYPE:Weapon.Melee.Improvised.Improvised Thrown	COST:0	WT:12		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d10	WIELD:TwoHanded	SIZE:M
+Improvised Weapon (Thrown) (1d2)		PROFICIENCY:WEAPON|Improvised Weapon (Thrown)	TYPE:Weapon.Ranged.Thrown.Improvised.Improvised Thrown	COST:0	WT:1		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d2	WIELD:OneHanded	SIZE:M
+Improvised Weapon (Thrown) (1d3)		PROFICIENCY:WEAPON|Improvised Weapon (Thrown)	TYPE:Weapon.Ranged.Thrown.Improvised.Improvised Thrown	COST:0	WT:1		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3	WIELD:OneHanded	SIZE:M
+Improvised Weapon (Thrown) (1d4)		PROFICIENCY:WEAPON|Improvised Weapon (Thrown)	TYPE:Weapon.Ranged.Thrown.Improvised.Improvised Thrown	COST:0	WT:2		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4	WIELD:OneHanded	SIZE:M
+Improvised Weapon (Thrown) (1d6)		PROFICIENCY:WEAPON|Improvised Weapon (Thrown)	TYPE:Weapon.Ranged.Thrown.Improvised.Improvised Thrown	COST:0	WT:6		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	WIELD:OneHanded	SIZE:M
+Improvised Weapon (Thrown) (1d8)		PROFICIENCY:WEAPON|Improvised Weapon (Thrown)	TYPE:Weapon.Ranged.Thrown.Improvised.Improvised Thrown	COST:0	WT:10		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8	WIELD:OneHanded	SIZE:M
+Improvised Weapon (Thrown) (1d10)		PROFICIENCY:WEAPON|Improvised Weapon (Thrown)	TYPE:Weapon.Ranged.Thrown.Improvised.Improvised Thrown	COST:0	WT:12		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d10	WIELD:OneHanded	SIZE:M
+Improvised Weapon (Thrown) (1d12)		PROFICIENCY:WEAPON|Improvised Weapon (Thrown)	TYPE:Weapon.Ranged.Thrown.Improvised.Improvised Thrown	COST:0	WT:12		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d12	WIELD:TwoHanded	SIZE:M
+Improvised Weapon (Thrown) (2d4)		PROFICIENCY:WEAPON|Improvised Weapon (Thrown)	TYPE:Weapon.Ranged.Thrown.Improvised.Improvised Thrown	COST:0	WT:12		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d4	WIELD:TwoHanded	SIZE:M
+Improvised Weapon (Thrown) (2d6)		PROFICIENCY:WEAPON|Improvised Weapon (Thrown)	TYPE:Weapon.Ranged.Thrown.Improvised.Improvised Thrown	COST:0	WT:12		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d6	WIELD:TwoHanded	SIZE:M
+Improvised Weapon (Thrown) (2d8)		PROFICIENCY:WEAPON|Improvised Weapon (Thrown)	TYPE:Weapon.Ranged.Thrown.Improvised.Improvised Thrown	COST:0	WT:12		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d8	WIELD:TwoHanded	SIZE:M
+Improvised Weapon (Thrown) (2d10)		PROFICIENCY:WEAPON|Improvised Weapon (Thrown)	TYPE:Weapon.Ranged.Thrown.Improvised.Improvised Thrown	COST:0	WT:12		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d10	WIELD:TwoHanded	SIZE:M
