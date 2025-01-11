@@ -1,6 +1,6 @@
 <#ftl encoding="UTF-8" strip_whitespace=true >
 <?xml version="1.0" encoding="UTF-8"?>
-<#-- 
+<#--
 # Freemarker template for the character integration tests.
 # Copyright James Dempsey, 2013
 #
@@ -57,7 +57,7 @@
 				<sequence>${class}</sequence>
 			</class>
 			</#list>
-			</#if>		
+			</#if>
 			<levels_total><@pcstring tag="TOTALLEVELS"/></levels_total>
 			<levels_ecl><@pcstring tag="ECL"/></levels_ecl>
 			<!-- shortform below should be removed - it can be derived from class info above -->
@@ -187,7 +187,7 @@
 	  ====================================
 	  ====================================-->
 	<abilities>
-<@loop from=0 to=pcvar('COUNT[STATS]-1') ; stat , stat_has_next >	
+<@loop from=0 to=pcvar('COUNT[STATS]-1') ; stat , stat_has_next >
 		<ability>
 			<name>
 				<long><@pcstring tag="STAT.${stat}.LONGNAME"/></long>
@@ -202,7 +202,7 @@
 			<no_temp_score><@pcstring tag="STAT.${stat}.NOTEMP"/></no_temp_score>
 			<no_temp_modifier><@pcstring tag="STAT.${stat}.MOD.NOTEMP"/></no_temp_modifier>
 		</ability>
-</@loop>		
+</@loop>
 	</abilities>
 	<!--
 	  ====================================
@@ -226,7 +226,7 @@
 				<stat><@pcstring tag="HPROLL.${level}.STAT"/></stat>
 				<total><@pcstring tag="HPROLL.${level}.TOTAL"/></total>
 			</roll>
-</@loop>		
+</@loop>
 		</history>
 	</hit_points>
 	<!--
@@ -470,7 +470,7 @@
 				</w2_o>
 			</melee>
 </#macro>
-<#t>	  
+<#t>
 	<weapons>
 		<unarmed>
 			<total><@pcstring tag="WEAPONH.TOTALHIT"/></total>
@@ -483,7 +483,7 @@
 		<#assign weaponCategory>
 			<@pcstring tag="WEAPON.${weap}.CATEGORY" /><#t>
 		</#assign>
-		<#-- For weapons of category 'both' we expect to see two consective 
+		<#-- For weapons of category 'both' we expect to see two consective
 		   - weapons, one defining the melee use and one the ranged use. -->
 		<#if weaponCategory?lower_case?contains('both')>
 			<#if !weaponCategory?lower_case?contains('ranged')>
@@ -852,7 +852,7 @@
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
-</@loop>	
+</@loop>
 
 		<!-- Auto feats -->
 <@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=FEAT","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC")-1') ; feat , feat_has_next >
@@ -866,7 +866,7 @@
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
-</@loop>	
+</@loop>
 
 		<!-- Virtual Feats -->
 <@loop from=0 to=pcvar('COUNT[VFEATS.VISIBLE]-1') ; feat , feat_has_next >
@@ -880,7 +880,7 @@
 			<hidden>F</hidden>
 			<virtual>T</virtual>
 		</feat>
-</@loop>	
+</@loop>
 		<!-- End Virtual Feats -->
 		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
 <@loop from=0 to=pcvar('COUNT[FEATS.HIDDEN]-1') ; feat , feat_has_next >
@@ -1241,7 +1241,7 @@
 	<memorized_spells/>
 <#else>
 	<memorized_spells>
-		<!-- ### BEGIN innate memorized spell section -->	
+		<!-- ### BEGIN innate memorized spell section -->
 	<#if (pcvar('COUNT[SPELLRACE]') > 0) >
 		<!-- ### BEGIN innate memorized spells ### -->
 		<#assign spellbook = 1 />
@@ -1278,7 +1278,7 @@
 			<!-- ### END class innate memorized spells ### -->
 	</#if>
 		<!-- ### END innate memorized spell section -->
-	
+
 		<!-- ### BEGIN class Spellbook memorized spells ### -->
 	<@loop from=2 to=pcvar('COUNT[SPELLBOOKS]-1') ; spellbook >
 		<#assign foo = pcvar('COUNT[SPELLRACE]') />
