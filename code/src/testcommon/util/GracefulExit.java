@@ -7,6 +7,11 @@ import java.util.function.Predicate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * This class provides a mechanism to intercept calls to System.exit and perform additional actions before the JVM exits.
+ * <p>
+ * This class is thread-safe.
+ */
 public class GracefulExit
 {
 	private static final Logger LOG = Logger.getLogger(GracefulExit.class.getName());
@@ -24,6 +29,17 @@ public class GracefulExit
 
 	private static ExitFunction exitFunction = System::exit;
 
+	private GracefulExit()
+	{
+	}
+
+	/**
+	 * Exits the JVM with the given status code. This method will call all registered interceptors before exiting.
+	 * <p>
+	 * If any interceptor returns false, the exit will be canceled.
+	 *
+	 * @param status The status code to exit with
+	 */
 	static void exit(int status)
 	{
 		synchronized (lock)
@@ -56,6 +72,12 @@ public class GracefulExit
 		}
 	}
 
+	/**
+	 * Adds an interceptor to the list of interceptors. This method can be called before or after shutdown has started,
+	 * otherwise an exception will be thrown.
+	 *
+	 * @param interceptor The interceptor to add
+	 */
 	public static void addExitInterceptor(ExitInterceptor interceptor)
 	{
 		synchronized (lock)
@@ -72,6 +94,10 @@ public class GracefulExit
 		}
 	}
 
+	/**
+	 * Clears all registered interceptors. This method can be called before or after shutdown has started, otherwise an
+	 * exception will be thrown.
+	 */
 	public static void clearExitInterceptors()
 	{
 		synchronized (lock)
@@ -84,6 +110,12 @@ public class GracefulExit
 		}
 	}
 
+	/**
+	 * Registers an exit function to be called when the JVM exits. This method can be called before or after shutdown has
+	 * started, otherwise an exception will be thrown.
+	 *
+	 * @param exitFunction The exit function to register
+	 */
 	public static void registerExitFunction(ExitFunction exitFunction)
 	{
 		synchronized (lock)
