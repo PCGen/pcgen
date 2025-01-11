@@ -128,6 +128,6 @@ public abstract class PcgenFtlTestCase
 				.withTest(Input.fromString(actual))
 				.build();
 
-		assertFalse(myDiff.hasDifferences(), myDiff.toString());
+		assertFalse(myDiff.hasDifferences(), myDiff.fullDescription());
 	}
 }
