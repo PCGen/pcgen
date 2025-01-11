@@ -852,6 +852,7 @@ allprojects {
                 '-Dprism.order=sw',
                 '-Dprism.verbose=true',
                 '-Djavafx.macosx.embedded=true',
+                '-Djava.security.manager=disallow',
 
                 "--module-path", layout.projectDirectory.dir("mods/lib"),
                 "--add-modules", "javafx.controls,javafx.web,javafx.swing,javafx.fxml,javafx.graphics",
