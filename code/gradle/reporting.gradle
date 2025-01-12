@@ -39,7 +39,7 @@ spotbugsMain {
     reports {
         xml.required = false
         html.required = true
-        html.stylesheet resources.text.fromFile('code/standards/fancy-hist.xsl')
+        html.stylesheet = resources.text.fromFile('code/standards/fancy-hist.xsl')
     }
 }
 

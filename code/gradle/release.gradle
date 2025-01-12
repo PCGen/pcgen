@@ -413,7 +413,7 @@ tasks.register("cleanNsis", Delete) {
 
 tasks.register("sourcesJar", Jar) {
     dependsOn classes, copyToOutput, createExe, distTar, distZip, layoutNsisBase, startScripts
-    duplicatesStrategy DuplicatesStrategy.INCLUDE
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
     description = "build source jar file"
     archiveClassifier.set('sources')
     from sourceSets.main.allSource
