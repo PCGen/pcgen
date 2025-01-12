@@ -18,7 +18,7 @@ public class PcgenFtlErrorTest
 	{
 		GracefulExit.registerExitFunction((int status) -> {
 			assertEquals(1, status,
-					MessageFormat.format("The export of {0} failed with an error: {1}.", "chlen", status));
+					MessageFormat.format("The PCGen execution returned an unexpected status code: {0}.", status));
 			throw new IllegalStateException("The test execution is aborted intentionally.");
 		});
 	}
