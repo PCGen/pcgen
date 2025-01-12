@@ -107,8 +107,8 @@ repositories {
     //}
     ivy {
         // TODO Enable HTTPS (e.g., add letsencrypt) for that location
-        name "fileRepo"
-        url 'http://pc-gen.org/librepo/'
+        name = 'fileRepo'
+        url = 'http://pc-gen.org/librepo/'
         allowInsecureProtocol = true
     }
     // Use Maven plugin to reference freehep (https://java.freehep.org/) artifact repository
@@ -125,7 +125,7 @@ repositories {
     // TODO Which libs do we pull from here?
     maven {
         name = 'jboss'
-        url "https://repository.jboss.org/nexus/content/repositories/thirdparty-releases/"
+        url = 'https://repository.jboss.org/nexus/content/repositories/thirdparty-releases/'
     }
 }
 
