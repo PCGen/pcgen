@@ -57,6 +57,7 @@ import pcgen.rules.persistence.TokenLibrary;
 import pcgen.system.application.DeadlockDetectorTask;
 import pcgen.system.application.LoggingUncaughtExceptionHandler;
 import pcgen.system.application.PCGenLoggingDeadlockHandler;
+import pcgen.util.GracefulExit;
 import pcgen.util.Logging;
 import pcgen.util.PJEP;
 
@@ -128,7 +129,7 @@ public final class Main
 		{
 			Component dialog = new RandomNameDialog(null, null);
 			dialog.setVisible(true);
-			System.exit(0);
+			GracefulExit.exit(0);
 		}
 
 		if (commandLineArguments.getExportSheet().isEmpty())
@@ -367,10 +368,7 @@ public final class Main
 			CustomData.writeCustomItems();
 		}
 
-		if (!success)
-		{
-			System.exit(1);
-		}
+		GracefulExit.exit(success ? 0 : 1);
 	}
 
 	private static void initPrintPreviewFonts()
