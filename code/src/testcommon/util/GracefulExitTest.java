@@ -2,14 +2,18 @@ package util;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import pcgen.util.ExitFunction;
+import pcgen.util.ExitInterceptor;
+import pcgen.util.GracefulExit;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class GracefulExitTest
 {
-
 	public static final ExitFunction EXIT_FUNCTION_WITH_EXCEPTION = status -> {
 		throw new RuntimeException("Test exception");
 	};
@@ -33,16 +37,19 @@ class GracefulExitTest
 	}
 
 	@Test
-	void testExitWithThrownException() {
+	void testExitWithThrownException()
+	{
 		GracefulExit.registerExitFunction(EXIT_FUNCTION_WITH_EXCEPTION);
 		assertThrows(RuntimeException.class, () -> GracefulExit.exit(0), "Should throw an exception");
 	}
 
 	@Test
-	void testNoExitWithExceptionThrown() {
+	void testNoExitWithExceptionThrown()
+	{
 		GracefulExit.registerExitFunction(EXIT_FUNCTION_WITH_EXCEPTION);
 		GracefulExit.addExitInterceptor(status -> false);
-		assertDoesNotThrow(() -> GracefulExit.exit(0), "Should not throw an exception because the exit was intercepted");
+		assertDoesNotThrow(() -> GracefulExit.exit(0),
+				"Should not throw an exception because the exit was intercepted");
 	}
 
 	@Test
@@ -59,7 +66,8 @@ class GracefulExitTest
 	@Test
 	void testAddHookDuringExit()
 	{
-		GracefulExit.registerExitFunction(status -> {});
+		GracefulExit.registerExitFunction(status -> {
+		});
 
 		GracefulExit.addExitInterceptor(status -> {
 			assertThrows(IllegalStateException.class, () -> {
@@ -85,7 +93,8 @@ class GracefulExitTest
 	void testClearHooksDuringExit()
 	{
 		GracefulExit.registerExitFunction(status -> {
-			assertThrows(IllegalStateException.class, GracefulExit::clearExitInterceptors, "Should throw an exception because the interceptors are cleared during exit");
+			assertThrows(IllegalStateException.class, GracefulExit::clearExitInterceptors,
+					"Should throw an exception because the interceptors are cleared during exit");
 		});
 		GracefulExit.exit(0);
 	}
