@@ -17,7 +17,7 @@ import pcgen.util.GracefulExit;
 
 public class CommandLineArguments
 {
-    private final Namespace namespace = new Namespace(new HashMap<>());
+    private Namespace namespace = new Namespace(new HashMap<>());
 
     public CommandLineArguments(String[] args)
     {
@@ -25,7 +25,7 @@ public class CommandLineArguments
         var parser = this.getParser();
         try
         {
-            parser.parseArgs(args, this.namespace);
+            this.namespace = parser.parseArgs(args);
         } catch (HelpScreenException e)
         {
             parser.handleError(e);
@@ -140,7 +140,7 @@ public class CommandLineArguments
     {
         // Why allow the flag multiple times and count them if we just evaluate them to boolean afterward?
         // Seems unintentional.
-        return Optional.ofNullable(namespace.getBoolean("verbose"))
-                .orElse(false);
+        return Optional.ofNullable(namespace.getInt("verbose"))
+                .orElse(0) > 0;
     }
 }
