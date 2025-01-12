@@ -49,11 +49,11 @@ public final class GracefulExit
 			isShuttingDown = true;
 
 			boolean shouldExit = interceptors.stream()
-					.map(interceptor -> interceptor.intercept(status))
-					.map((Boolean intercepted) -> {
+					.map((ExitInterceptor interceptor) -> {
+						boolean intercepted = interceptor.intercept(status);
 						LOG.log(Level.FINEST,
 								MessageFormat.format("Intercepted exit: {0} from registered interceptor: {1}",
-										intercepted, intercepted.getClass().getName()));
+										intercepted, interceptor.getClass().getName()));
 						return intercepted;
 					})
 					.filter(Predicate.isEqual(Boolean.FALSE))

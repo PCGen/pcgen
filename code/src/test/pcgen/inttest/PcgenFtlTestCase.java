@@ -17,13 +17,6 @@
  */
 package pcgen.inttest;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.text.MessageFormat;
-import java.util.Locale;
-import java.util.logging.Logger;
-
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.xmlunit.builder.DiffBuilder;
@@ -31,8 +24,17 @@ import org.xmlunit.builder.Input;
 import org.xmlunit.diff.Diff;
 import pcgen.LocaleDependentTestCase;
 import pcgen.system.Main;
+import pcgen.util.GracefulExit;
 import pcgen.util.TestHelper;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.text.MessageFormat;
+import java.util.Locale;
+import java.util.logging.Logger;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 /**
@@ -56,13 +58,14 @@ public abstract class PcgenFtlTestCase
 	public void tearDown()
 	{
 		LocaleDependentTestCase.after();
+		GracefulExit.registerExitFunction(System::exit);
 	}
 
 	/**
 	 * Run the test.
 	 *
 	 * @param character The PC
-	 * @param mode The game mode
+	 * @param mode      The game mode
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
 	public static void runTest(String character, String mode) throws IOException
@@ -83,34 +86,14 @@ public abstract class PcgenFtlTestCase
 		String pccLoc = TestHelper.findDataFolder();
 
 		/*
-		 * Override the pcc location, game mode and several other properties in
-		 * the options.ini file
+		 * Override the pcc location, game mode and several other properties in the options.ini file
 		 */
 		String configFolder = "testsuite";
 		TestHelper.createDummySettingsFile(TEST_CONFIG_FILE, configFolder, pccLoc);
 
-		// Fire off PCGen, which will produce an XML file
-		// String characterFile = "code/testsuite/PCGfiles/" + character + Constants.EXTENSION_CHARACTER_FILE;
-
-		//String outputFile = outputFile.getCanonicalPath();
-
-		// The code below had to be commented out as in Java 21+ there's no more SecurityManager
-		// At time of writing there is no replacement, see <a href="https://bugs.openjdk.org/browse/JDK-8199704">JDK-8199704</a>
-		// The tests seem to pass regardless.
-		/*
-		Runnable revertSystemExitInterceptor = SystemExitInterceptor.startInterceptor();
-
-		assertEquals(0,
-				assertThrows(SystemExitInterceptor.SystemExitCalledException.class,
-						() -> Main.main("--character", characterFile,
-								"--exportsheet", "code/testsuite/base-xml.ftl",
-								"--outputfile", outputFile,
-								"--configfilename", TEST_CONFIG_FILE)
-				).getStatusCode(),
-				"Export of " + character + " failed.");
-
-		revertSystemExitInterceptor.run();
-		*/
+		GracefulExit.registerExitFunction((int status) ->
+				assertEquals(0, status,
+						MessageFormat.format("The export of {0} failed with an error: {1}.", character, status)));
 
 		Main.main("--character", inputFile.getCanonicalPath(),
 				"--exportsheet", "code/testsuite/base-xml.ftl",
@@ -122,8 +105,8 @@ public abstract class PcgenFtlTestCase
 		// the XML of the actual result
 		var actual = Files.readString(outputFile.toPath());
 
-		LOG.info(
-				MessageFormat.format("Comparing the expected ({0}) and actual ({1}) results", expectedFile, outputFile));
+		LOG.info(() -> MessageFormat.format("Comparing the expected ({0}) and actual ({1}) results",
+				expectedFile, outputFile));
 		Diff myDiff = DiffBuilder.compare(Input.fromString(expected))
 				.withTest(Input.fromString(actual))
 				.build();
