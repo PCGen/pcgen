@@ -175,7 +175,7 @@ public class ConvertPanel extends JPanel
 		if (response == JOptionPane.OK_OPTION)
 		{
 			PCGenDataConvert.savePrefs();
-			System.exit(0);
+			GracefulExit.exit(0);
 		}
 	}
 

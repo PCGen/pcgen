@@ -4,6 +4,8 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Predicate;
+
 import net.sourceforge.argparse4j.ArgumentParsers;
 import net.sourceforge.argparse4j.helper.HelpScreenException;
 import net.sourceforge.argparse4j.impl.Arguments;
@@ -82,12 +84,9 @@ public class CommandLineArguments
 
     private <T> Optional<T> getSingle(List<T> list)
     {
-        if (list == null || list.isEmpty())
-        {
-            return Optional.empty();
-        }
-
-        return Optional.ofNullable(list.get(0));
+        return Optional.ofNullable(list)
+                .filter(Predicate.not(List::isEmpty))
+                .map(List::getFirst);
     }
 
     public Optional<File> getSettingsDir()

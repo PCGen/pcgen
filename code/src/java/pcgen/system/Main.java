@@ -250,7 +250,7 @@ public final class Main
 				JOptionPane.showMessageDialog(null, message + "\nPlease reinstall PCGen.", Constants.APPLICATION_NAME,
 					JOptionPane.ERROR_MESSAGE);
 			}
-			System.exit(1);
+			GracefulExit.exit(1);
 		}
 	}
 
@@ -262,7 +262,7 @@ public final class Main
 			if (!useGui)
 			{
 				Logging.errorPrint("No settingsDir specified via -s in batch mode and no default exists.");
-				System.exit(1);
+				GracefulExit.exit(1);
 			}
 			var panel = new JFXPanelFromResource<>(
 					OptionsPathDialogController.class,
