@@ -5,7 +5,7 @@ name: Build PCGen with Gradle
 
 on:
   push:
-    branches: [ "gh_build" ] # use current branch for testing purposes only
+    branches: [ "gh_build" ] # use the current branch for testing purposes only
   pull_request:
     branches: [ "master" ]
 
