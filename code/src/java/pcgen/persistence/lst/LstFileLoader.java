@@ -19,6 +19,15 @@
  */
 package pcgen.persistence.lst;
 
+import pcgen.cdom.base.Constants;
+import pcgen.core.SettingsHandler;
+import pcgen.core.utils.CoreUtility;
+import pcgen.core.utils.MessageType;
+import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -27,15 +36,8 @@ import java.net.http.HttpResponse;
 import java.nio.charset.MalformedInputException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.text.MessageFormat;
 import java.util.Optional;
-
-import pcgen.cdom.base.Constants;
-import pcgen.core.SettingsHandler;
-import pcgen.core.utils.CoreUtility;
-import pcgen.core.utils.MessageType;
-import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.util.Logging;
 
 /**
  * This class is a base class for LST file loaders.
@@ -50,7 +52,7 @@ import pcgen.util.Logging;
  *
  * <p>
  * Instances of LstFileLoader or its subclasses are not thread-safe,
- * so any thread should only acccess a single loader (or group of loaders)
+ * so any thread should only access a single loader (or group of loaders)
  * at a time.
  */
 public final class LstFileLoader
@@ -60,13 +62,19 @@ public final class LstFileLoader
 		//Utility class
 	}
 
-	/** The String that represents the start of a line comment. */
+	/**
+	 * The String that represents the start of a line comment.
+	 */
 	public static final char LINE_COMMENT_CHAR = '#';
 
-	/** The String that separates individual objects */
+	/**
+	 * The String that separates individual objects
+	 */
 	public static final String LINE_SEPARATOR_REGEXP = "(\r\n?|\n)"; //$NON-NLS-1$
 
-	/** BOM prefix, used to warn the user that BOM-strings are not supported */
+	/**
+	 * BOM prefix, used to warn the user that BOM-strings are not supported
+	 */
 	private static final String BOM = "\uFEFF";
 
 	/**
@@ -81,8 +89,8 @@ public final class LstFileLoader
 	public static Optional<String> readFromURI(URI uri) throws PersistenceLayerException
 	{
 		uri = Optional.ofNullable(uri)
-			.orElseThrow(() -> new PersistenceLayerException(
-					"LstFileLoader.readFromURI() received a null URI parameter!"));
+				.orElseThrow(() -> new PersistenceLayerException(
+						"LstFileLoader.readFromURI() received a null URI parameter!"));
 
 		try
 		{
@@ -92,8 +100,8 @@ public final class LstFileLoader
 				String result = Files.readString(path);
 				if (result.startsWith(BOM))
 				{
-					Logging.log(Logging.WARNING,
-							"The file %s uses UTF-8-BOM encoding. LST files must be UTF-8".formatted(uri));
+					Logging.log(Logging.WARNING, MessageFormat.format(
+							"The file {0} uses UTF-8-BOM encoding. LST files must be UTF-8", uri));
 					result = result.substring(1);
 				}
 				return Optional.of(result);
@@ -110,20 +118,21 @@ public final class LstFileLoader
 			} else
 			{
 				// Just to protect people from using web sources without their knowledge, we added a preference.
-				ShowMessageDelegate.showMessageDialog("Preferences are currently set to NOT allow\nloading of "
-								+ "sources from web links.\n" + uri + " is a web link", Constants.APPLICATION_NAME,
-						MessageType.ERROR);
+				ShowMessageDelegate.showMessageDialog(LanguageBundle.getFormattedString("in_err_remote_lst_warn", uri),
+						Constants.APPLICATION_NAME, MessageType.ERROR);
 			}
 		} catch (MalformedInputException ie)
 		{
-			Logging.errorPrint("ERROR: " + uri + "\nThe file doesn't use UTF-8 encoding. LST files must be UTF-8", ie);
+			Logging.errorPrint(MessageFormat.format(
+					"ERROR: file {0}\nThe file does not use UTF-8 encoding. LST files must be UTF-8",
+					uri), ie);
 		} catch (IOException | InterruptedException e)
 		{
 			// Don't throw an exception here because a simple
 			// file not found will prevent ANY other files from
 			// being loaded/processed -- NOT what we want
-			Logging.errorPrint("ERROR: " + uri + '\n' + "Exception type: " + e.getClass().getName() + "\n" + "Message: "
-					+ e.getMessage(), e);
+			Logging.errorPrint(MessageFormat.format("ERROR: {0}\nException type: {1}\nMessage: {2}",
+					uri, e.getClass().getName(), e.getMessage()), e);
 		}
 		return Optional.empty();
 	}

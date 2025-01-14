@@ -384,8 +384,7 @@ public final class Logging
 	}
 
 	/**
-	 * Print error message with a stack trace if PCGen is
-	 * debugging.
+	 * Print an error message with a stack trace if PCGen is debugging.
 	 *
 	 * @param s String error message
 	 * @param thr Throwable stack frame
