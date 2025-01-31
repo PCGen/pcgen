@@ -4,10 +4,7 @@
 name: Build PCGen with Gradle
 
 on:
-  push:
-    branches: [ "gh_build" ] # use the current branch for testing purposes only
   pull_request:
-    branches: [ "master" ]
 
 jobs:
   build:
@@ -45,14 +42,18 @@ jobs:
       - uses: actions/cache@v4
         with:
           path: |
-            build/classes
-            build/jre
+            ${{ github.workspace }}/build/jre
+            ${{ github.workspace }}/build/libs
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: |
-            ${{ runner.os }}-gradle-
+            ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+            ${{ runner.os }}-gradle
 
       - name: Build with Gradle Wrapper
-        run: ./gradlew build test slowtest
+        run: ./gradlew build
+
+      - name: Run tests
+        run: ./gradlew test itest datatest slowtest
 
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2
@@ -62,6 +63,31 @@ jobs:
             build/test-results/**/*.xml
             build/test-results/**/*.trx
             build/test-results/**/*.json
+
+      - name: Run Coverage
+        run: ./gradlew testCoverage
+
+      - name: Upload Report to artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: testCoverage
+          path: ${{ github.workspace }}/build/reports/jacoco/testCoverage/html
+
+      - name: Jacoco Report to PR
+        id: jacoco
+        uses: madrapps/jacoco-report@v1.7.1
+        with:
+          paths: |
+            ${{ github.workspace }}/build/reports/jacoco/testCoverage/testCoverage.xml
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: '## :construction: PCGen Code Coverage'
+          update-comment: true
+          debug-mode: false
+
+      - name: Get the Coverage info
+        run: |
+          echo "Total coverage ${{ steps.jacoco.outputs.coverage-overall }}"
+          echo "Changed Files coverage ${{ steps.jacoco.outputs.coverage-changed-files }}"
 
 #      - name: Upload build artifacts
 #        uses: actions/upload-artifact@v4
