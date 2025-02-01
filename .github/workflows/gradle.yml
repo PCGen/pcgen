@@ -89,8 +89,12 @@ jobs:
           echo "Total coverage ${{ steps.jacoco.outputs.coverage-overall }}"
           echo "Changed Files coverage ${{ steps.jacoco.outputs.coverage-changed-files }}"
 
-#      - name: Upload build artifacts
-#        uses: actions/upload-artifact@v4
-#        with:
-#          name: Package
-#          path: build/libs
+      - name: Build the image
+        if: success()
+        run: ./gradlew jpackage
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: Release
+          path: ${{ github.workspace }}/build/jpackage
