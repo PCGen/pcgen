@@ -100,4 +100,4 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ needs.create_release.outputs.tag-name }}
-          files: pcgen-*.*
+          files: ${{ github.workspace }}/build/jpackage/pcgen-*.*
