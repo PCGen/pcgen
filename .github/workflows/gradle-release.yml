@@ -79,18 +79,21 @@ jobs:
         uses: actions/upload-artifact@v4
         if: matrix.os == 'macos-latest'
         with:
+          name: ${{ matrix.os }}
           path: ${{ github.workspace }}/build/jpackage/*.dmg
 
       - name: Upload release assets for ubuntu
         uses: actions/upload-artifact@v4
         if: matrix.os == 'ubuntu-latest'
         with:
+          name: ${{ matrix.os }}
           path: ${{ github.workspace }}/build/jpackage/*.deb
 
       - name: Upload release assets for windows
         uses: actions/upload-artifact@v4
         if: matrix.os == 'windows-latest'
         with:
+          name: ${{ matrix.os }}
           path: ${{ github.workspace }}/build/jpackage/*.msi
 
       - name: Release - ${{ matrix.os }}
