@@ -75,23 +75,20 @@ jobs:
         if: success()
         run: ./gradlew jpackage
 
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: Release - ${{ matrix.os }}
-          path: ${{ github.workspace }}/build/jpackage
-
       - name: Upload release assets for macos
+        uses: actions/upload-artifact@v4
         if: matrix.os == 'macos-latest'
         with:
           path: ${{ github.workspace }}/build/jpackage/*.dmg
 
       - name: Upload release assets for ubuntu
+        uses: actions/upload-artifact@v4
         if: matrix.os == 'ubuntu-latest'
         with:
           path: ${{ github.workspace }}/build/jpackage/*.deb
 
       - name: Upload release assets for windows
+        uses: actions/upload-artifact@v4
         if: matrix.os == 'windows-latest'
         with:
           path: ${{ github.workspace }}/build/jpackage/*.msi
