@@ -81,8 +81,23 @@ jobs:
           name: Release - ${{ matrix.os }}
           path: ${{ github.workspace }}/build/jpackage
 
+      - name: Upload release assets for macos
+        if: matrix.os == 'macos-latest'
+        with:
+          path: ${{ github.workspace }}/build/jpackage/*.dmg
+
+      - name: Upload release assets for ubuntu
+        if: matrix.os == 'ubuntu-latest'
+        with:
+          path: ${{ github.workspace }}/build/jpackage/*.deb
+
+      - name: Upload release assets for windows
+        if: matrix.os == 'windows-latest'
+        with:
+          path: ${{ github.workspace }}/build/jpackage/*.msi
+
       - name: Release - ${{ matrix.os }}
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ needs.create_release.outputs.tag-name }}
-          files: release_${{ matrix.release_suffix }}
+          files: pcgen-*.*
