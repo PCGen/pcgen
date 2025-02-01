@@ -4,7 +4,10 @@ on:
   push:
     tags:
       - "v*.*.*"
-
+      
+permissions:
+  contents: write
+  
 jobs:
   create_release:
     name: Create Release
