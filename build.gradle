@@ -410,7 +410,7 @@ tasks.named("jpackageImage") {
             if (Os.isFamily(Os.FAMILY_MAC)) {
                 into layout.buildDirectory.dir("jpackage/PcGen.app/Contents/app")
             } else {
-                into layout.buildDirectory.dir("jpackage/PcGen/bin")
+                into layout.buildDirectory.dir("jpackage/PcGen")
             }
         }
 
