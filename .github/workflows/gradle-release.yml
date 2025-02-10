@@ -27,10 +27,12 @@ jobs:
     needs: create_release
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [ubuntu-latest, ubuntu-24.04-arm, macos-latest, windows-latest]
         include:
           - os: ubuntu-latest
             release_suffix: ubuntu
+          - os: ubuntu-24.04-arm
+            release_suffix: ubuntu-arm
           - os: macos-latest
             release_suffix: mac
           - os: windows-latest
