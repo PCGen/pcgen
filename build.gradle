@@ -717,7 +717,13 @@ tasks.register("downloadJavaFXLocal", Download) {
     }
 
     doFirst {
-        println("Downloading JavaFX SDK for use in local testing.")
+        println("Downloading JavaFX SDK for use in local testing for ${currentOS} ${hostArchitecture}.")
+    }
+
+    // We support Windows/Mac/Linux - x64, and Mac/Linux - aarch64
+    // (JavaFX doesn't support Linux/aarch64 in 21 LTS, use 21.0.1 instead)
+    if (currentOS == "linux" && hostArchitecture == "aarch64") {
+        project.ext.javaFXVersion = "21.0.1"
     }
 
     def fileName = "openjfx-${project.ext.javaFXVersion}_${currentOS}${archAppend}_bin-sdk.zip"
