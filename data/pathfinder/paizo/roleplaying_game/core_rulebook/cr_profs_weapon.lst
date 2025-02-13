@@ -107,6 +107,7 @@ Halfling Sling Staff		KEY:Sling Staff (Halfling)		TYPE:Exotic.Ranged.Bludgeoning
 # SPECIALS
 Flurry of Blows									TYPE:Special.Light.Melee.Unarmed.Bludgeoning.Monk
 Improvised Weapon									TYPE:Improvised
+Improvised Weapon (Thrown)							TYPE:Improvised.Improvised Thrown
 
 # Thrown Rocks
 Rock											TYPE:Simple.Ranged.Bludgeoning.Thrown.Rock
