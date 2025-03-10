@@ -37,6 +37,7 @@ plugins {
     id 'com.dorongold.task-tree' version '4.0.1'        // Prints the task dependency tree
     id 'org.openjfx.javafxplugin' version '0.1.0'       // JavaFX support
     id 'org.beryx.runtime' version '1.13.1'             // Creates custom runtimes
+    id 'jacoco'                                         // Code coverage
 }
 
 /**
@@ -45,6 +46,10 @@ plugins {
 javafx {
     version = "21"
     modules = [ 'javafx.controls', 'javafx.web', 'javafx.swing', 'javafx.fxml', 'javafx.graphics' ]
+}
+
+jacoco {
+    toolVersion = '0.8.12'
 }
 
 // Set the groupId as it helps with Maven
@@ -81,7 +86,7 @@ ext {
     releaseDir = layout.projectDirectory.dir("build/release")
 
     // JavaFX version
-    javaFXVersion = "21.0.5"
+    javaFXVersion = "21.0.6"
 }
 
 application {
@@ -107,8 +112,8 @@ repositories {
     //}
     ivy {
         // TODO Enable HTTPS (e.g., add letsencrypt) for that location
-        name "fileRepo"
-        url 'http://pc-gen.org/librepo/'
+        name = 'fileRepo'
+        url = 'http://pc-gen.org/librepo/'
         allowInsecureProtocol = true
     }
     // Use Maven plugin to reference freehep (https://java.freehep.org/) artifact repository
@@ -125,7 +130,7 @@ repositories {
     // TODO Which libs do we pull from here?
     maven {
         name = 'jboss'
-        url "https://repository.jboss.org/nexus/content/repositories/thirdparty-releases/"
+        url = 'https://repository.jboss.org/nexus/content/repositories/thirdparty-releases/'
     }
 }
 
@@ -405,7 +410,7 @@ tasks.named("jpackageImage") {
             if (Os.isFamily(Os.FAMILY_MAC)) {
                 into layout.buildDirectory.dir("jpackage/PcGen.app/Contents/app")
             } else {
-                into layout.buildDirectory.dir("jpackage/PcGen/bin")
+                into layout.buildDirectory.dir("jpackage/PcGen")
             }
         }
 
@@ -414,7 +419,9 @@ tasks.named("jpackageImage") {
             copy {
                 from layout.projectDirectory.dir("installers/mac-installer")
                 include "MacDirLauncher"
-                fileMode 0755
+                filePermissions {
+                    unix(0755)
+                }
                 into layout.buildDirectory.dir("jpackage/PcGen.app/Contents/MacOS")
             }
             ant.replace(file: layout.buildDirectory.file("jpackage/PcGen.app/Contents/Info.plist").get(),
@@ -570,7 +577,7 @@ tasks.register("downloadJRE") {
                     return
                 } else if (jreDir.exists()) {
                     println "Delete the previously downloaded JDK at ${jreDir} as outdated. JavaFX modules will be deleted from jdkDir/jmods."
-                    project.delete(jreDir)
+                    delete(jreDir)
                 }
 
                 println("Downloading Java ${major} ${arch} for ${os} from ${url}")
@@ -602,7 +609,7 @@ tasks.register("downloadJRE") {
                                 }
                             }
 
-                            project.delete(archFile)
+                            delete(archFile)
                         }
 
                 file("${projectDir}/jre/${os}/jre_${arch}").list().each { f ->
@@ -710,7 +717,13 @@ tasks.register("downloadJavaFXLocal", Download) {
     }
 
     doFirst {
-        println("Downloading JavaFX SDK for use in local testing.")
+        println("Downloading JavaFX SDK for use in local testing for ${currentOS} ${hostArchitecture}.")
+    }
+
+    // We support Windows/Mac/Linux - x64, and Mac/Linux - aarch64
+    // (JavaFX doesn't support Linux/aarch64 in 21 LTS, use 21.0.1 instead)
+    if (currentOS == "linux" && hostArchitecture == "aarch64") {
+        project.ext.javaFXVersion = "21.0.1"
     }
 
     def fileName = "openjfx-${project.ext.javaFXVersion}_${currentOS}${archAppend}_bin-sdk.zip"
@@ -746,6 +759,25 @@ tasks.named("compileJava") {
 
 tasks.named("jre") {
     dependsOn downloadJRE, downloadJavaFXModules
+}
+
+tasks.register("testCoverage", JacocoReport) {
+    dependsOn test
+    group = "Reporting"
+    description = "Generate Jacoco coverage reports for the test build."
+
+    reports {
+        html.required.set(true)
+        xml.required.set(true)
+    }
+
+    classDirectories.from = fileTree(dir: layout.buildDirectory.dir("classes/java/main"))
+
+    sourceDirectories.from = files([
+            "$project.projectDir/code/src/java"
+    ])
+
+    executionData.from = fileTree(dir: layout.buildDirectory.dir("jacoco")).include("*.exec")
 }
 
 tasks.named("test", Test) {
@@ -848,6 +880,7 @@ allprojects {
                 '-Dprism.order=sw',
                 '-Dprism.verbose=true',
                 '-Djavafx.macosx.embedded=true',
+                '-Djava.security.manager=disallow',
 
                 "--module-path", layout.projectDirectory.dir("mods/lib"),
                 "--add-modules", "javafx.controls,javafx.web,javafx.swing,javafx.fxml,javafx.graphics",
@@ -951,7 +984,7 @@ apply from: 'code/gradle/reporting.gradle'
 apply from: 'code/gradle/release.gradle'
 
 tasks.register("allTasks") {
-    dependsOn build, slowtest, javadoc, buildNsis, allReports
+    dependsOn build, slowtest, javadoc, allReports
     description = "Runs tasks build, slowtest, javadoc, buildNsis and allReports"
 }
 
@@ -964,17 +997,17 @@ tasks.named("clean") {
 
     doLast {
         // Delete a file generated by pluginbuild.xml
-        project.delete(layout.projectDirectory.file("code/manifest"))
+        delete(layout.projectDirectory.file("code/manifest"))
 
         // Delete plugin folders
-        project.delete(
-                layout.projectDirectory.dir("plugins/bonusplugins"),
-                layout.projectDirectory.dir("plugins/converterplugins"),
-                layout.projectDirectory.dir("plugins/jepplugins"),
-                layout.projectDirectory.dir("plugins/lstplugins"),
-                layout.projectDirectory.dir("plugins/outputplugins"),
-                layout.projectDirectory.dir("plugins/preplugins"),
-                layout.projectDirectory.dir("plugins/systemlstplugins")
+        delete(
+            layout.projectDirectory.dir("plugins/bonusplugins"),
+            layout.projectDirectory.dir("plugins/converterplugins"),
+            layout.projectDirectory.dir("plugins/jepplugins"),
+            layout.projectDirectory.dir("plugins/lstplugins"),
+            layout.projectDirectory.dir("plugins/outputplugins"),
+            layout.projectDirectory.dir("plugins/preplugins"),
+            layout.projectDirectory.dir("plugins/systemlstplugins")
         )
     }
 }
