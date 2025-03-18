@@ -222,7 +222,7 @@ dependencies {
     implementation group: 'commons-io', name: 'commons-io', version:'2.18.0'
 
     implementation group: 'org.springframework', name: 'spring-web', version:'6.2.4'
-    implementation group: 'org.springframework', name: 'spring-beans', version:'6.2.3'
+    implementation group: 'org.springframework', name: 'spring-beans', version:'6.2.4'
     implementation group: 'org.springframework', name: 'spring-core', version:'6.2.4'
     implementation group: 'org.apache.commons', name: 'commons-lang3', version:'3.17.0'
     implementation group: 'xalan', name: 'serializer', version: '2.7.3'
