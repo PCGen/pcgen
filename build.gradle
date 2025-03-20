@@ -262,7 +262,7 @@ dependencies {
     testImplementation group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.12.1'
     testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-api', version: '5.12.1'
     testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-params', version: '5.12.0'
-    testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.12.0'
+    testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.12.1'
     testImplementation group: 'org.hamcrest', name: 'hamcrest', version: '3.0'
     testImplementation group: 'org.testfx', name: 'testfx-junit5', version: '4.0.18'
     testImplementation group: 'org.testfx', name: 'openjfx-monocle', version: '21.0.2'
