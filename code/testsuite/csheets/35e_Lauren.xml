@@ -1263,7 +1263,7 @@ BIO
 		<!-- ### END Known spells ### -->
 		<!-- ### BEGIN memorized spells ### -->
 	<memorized_spells>
-		<!-- ### BEGIN innate memorized spell section -->	
+		<!-- ### BEGIN innate memorized spell section -->
 		<!-- ### BEGIN innate memorized spells ### -->
 		<racial_innate_memorized>
 					<spell>
@@ -1302,7 +1302,7 @@ BIO
 		</class_innate_memorized>
 			<!-- ### END class innate memorized spells ### -->
 		<!-- ### END innate memorized spell section -->
-	
+
 		<!-- ### BEGIN class Spellbook memorized spells ### -->
 	</memorized_spells>
 <!-- ### END class Spellbook memorized spells ### -->
