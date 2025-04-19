@@ -105,5 +105,8 @@ ABILITYCATEGORY:Slotted Ioun Stone						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YE
 ABILITYCATEGORY:Slotted Ioun Stone Resonant Power			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Slotted Ioun Stone Resonant Power																				DISPLAYLOCATION:Equipment
 ABILITYCATEGORY:Slotted Ioun Rule						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Slotted Ioun Rule																							DISPLAYLOCATION:Equipment
 
-ABILITYCATEGORY:+1 Competence to Knowledge Skill			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal										ABILITYLIST:Equipment ~ Select Single Knowledge Skill for +1 Competence Bonus							DISPLAYLOCATION:Equipment
-ABILITYCATEGORY:Ioun Stone Rogue Talent					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal										ABILITYLIST:Ioun Stone Rogue Talent														DISPLAYLOCATION:Equipment
+ABILITYCATEGORY:+1 Competence to Knowledge Skill	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal																ABILITYLIST:Equipment ~ Select Single Knowledge Skill for +1 Competence Bonus									DISPLAYLOCATION:Equipment
+ABILITYCATEGORY:Ioun Stone Rogue Talent			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal																ABILITYLIST:Ioun Stone Rogue Talent																DISPLAYLOCATION:Equipment
+
+#Feat Support (Probably should move this to common)
+ABILITYCATEGORY:Spell Mastery					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT																ABILITYLIST:Spell Mastery											PLURAL:Spell Mastery			DISPLAYLOCATION:Feats
