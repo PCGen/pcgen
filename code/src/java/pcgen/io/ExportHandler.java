@@ -32,14 +32,7 @@ import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.StringTokenizer;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import pcgen.cdom.base.CDOMObject;
@@ -1614,6 +1607,25 @@ public abstract class ExportHandler
 				csheetTag2 = tokenString.substring(11, 12);
 				FileAccess.maxLength(-1);
 				return 0;
+			}
+			else if (tokenString.indexOf(".INFO.")>-1) {
+				List<? extends CDOMObject> plist = aPC.getCDOMObjectList();
+				String v = tokenString;
+				for (String key : TOKEN_MAP.keySet()) {
+					Token token = TOKEN_MAP.get(key);
+					for (CDOMObject cd : plist) {
+						if (cd instanceof PObject) {
+							PObject po = (PObject) cd;
+							v = token.getInfoToken(tokenString, po);
+							if (!v.equals(tokenString)) {
+								FileAccess.encodeWrite(output, v);
+								break;
+							}
+						}
+					}
+					if (!v.equals(tokenString))
+						break;
+				}
 			}
 			// Else if the token is in the list of valid output tokens
 			else if (TOKEN_MAP.get(firstToken) != null)
