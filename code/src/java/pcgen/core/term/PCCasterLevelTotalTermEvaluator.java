@@ -21,6 +21,7 @@
 package pcgen.core.term;
 
 import pcgen.cdom.base.Constants;
+import pcgen.core.Equipment;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.character.CharacterSpell;
@@ -33,11 +34,31 @@ public class PCCasterLevelTotalTermEvaluator extends BasePCTermEvaluator impleme
 		this.originalText = originalText;
 	}
 
-	// Makes no sense without a spell
+	// If no spell is given then we just want to total caster level
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		return 0.0f;
+
+		int iLev = 0;
+
+		for (PCClass pcClass : pc.getDisplay().getClassSet())
+		{
+			if (!pcClass.getSpellType().equals(Constants.NONE))
+			{
+				final String classKey = pcClass.getKeyName();
+
+				final int pcBonus = (int) pc.getTotalBonusTo("PCLEVEL", classKey);
+				final int castBonus = (int) pc.getTotalBonusTo("CASTERLEVEL", classKey);
+				final int iClass = (castBonus == 0) ? pc.getDisplay().getLevel(pcClass) : 0;
+
+				String spellType = pcClass.getSpellType();
+
+				iLev += pc.getTotalCasterLevelWithSpellBonus(null, null,
+						spellType, classKey, iClass + pcBonus);
+			}
+		}
+
+		return (float) iLev;
 	}
 
 	@Override
@@ -65,6 +86,7 @@ public class PCCasterLevelTotalTermEvaluator extends BasePCTermEvaluator impleme
 
 		return (float) iLev;
 	}
+
 
 	@Override
 	public boolean isSourceDependant()
