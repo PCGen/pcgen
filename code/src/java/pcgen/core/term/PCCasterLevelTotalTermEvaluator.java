@@ -38,27 +38,7 @@ public class PCCasterLevelTotalTermEvaluator extends BasePCTermEvaluator impleme
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-
-		int iLev = 0;
-
-		for (PCClass pcClass : pc.getDisplay().getClassSet())
-		{
-			if (!pcClass.getSpellType().equals(Constants.NONE))
-			{
-				final String classKey = pcClass.getKeyName();
-
-				final int pcBonus = (int) pc.getTotalBonusTo("PCLEVEL", classKey);
-				final int castBonus = (int) pc.getTotalBonusTo("CASTERLEVEL", classKey);
-				final int iClass = (castBonus == 0) ? pc.getDisplay().getLevel(pcClass) : 0;
-
-				String spellType = pcClass.getSpellType();
-
-				iLev += pc.getTotalCasterLevelWithSpellBonus(null, null,
-						spellType, classKey, iClass + pcBonus);
-			}
-		}
-
-		return (float) iLev;
+		return resolve(pc, null);
 	}
 
 	@Override
