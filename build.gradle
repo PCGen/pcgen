@@ -230,7 +230,7 @@ dependencies {
     {
         exclude group: 'xml-apis', module: 'xml-apis'
     }
-    implementation group: 'org.apache.commons', name: 'commons-collections4', version: '4.5.0-M3'
+    implementation group: 'org.apache.commons', name: 'commons-collections4', version: '4.5.0'
     implementation group: 'org.scijava', name: 'jep', version: '2.4.2'
     implementation group: 'org.freemarker', name: 'freemarker', version: '2.3.34'
     implementation group: 'org.jdom', name: 'jdom2', version: '2.0.6.1'
