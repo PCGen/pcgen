@@ -258,7 +258,9 @@ public class SpellMemToken extends Token
 						}
 						else if ("DESC".equals(aLabel) || "EFFECT".equals(aLabel))
 						{
-							String mString = aPC.parseSpellString(selectedCSpell, aPC.getDescription(aSpell));
+							String mString = aPC.getInfoToken(".INFO.DESC", aSpell);
+							if (mString.equals(".INFO.DESC"))
+								mString = aPC.parseSpellString(selectedCSpell, aPC.getDescription(aSpell));
 							retValue.append(mString);
 						}
 						else if ("TARGET".equals(aLabel) || "EFFECTYPE".equals(aLabel))

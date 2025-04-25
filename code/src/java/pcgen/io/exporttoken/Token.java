@@ -102,26 +102,4 @@ public abstract class Token
 		}
 		return retInt;
 	}
-
-	public String getInfoToken(String token, PObject po) {
-		// looking for a token in the form of RACE.INFO.TAG where
-		// RACE indicate which token map to check for a INFO label of TAG to return
-		int i = token.indexOf(".INFO.");
-		String ts = token;
-		if (i>-1)
-			ts = token.substring(i+6).toUpperCase();
-		else
-			return token;
-		Set<MapKey<?, ?>> keys = po.getMapKeys();
-		for (MapKey<?, ?> key : keys) {
-			Map<?, ?> key2 = po.getMapFor(key);
-			for(Object k : key2.keySet()) {
-				if (k.toString().equals(ts)) {
-					MessageFormat m = (MessageFormat) key2.get(k);
-					return m.toPattern();
-				}
-			}
-		}
-		return token;
-	}
 }

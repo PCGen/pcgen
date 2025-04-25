@@ -1616,7 +1616,7 @@ public abstract class ExportHandler
 					for (CDOMObject cd : plist) {
 						if (cd instanceof PObject) {
 							PObject po = (PObject) cd;
-							v = token.getInfoToken(tokenString, po);
+							v = aPC.getInfoToken(tokenString, po);
 							if (!v.equals(tokenString)) {
 								FileAccess.encodeWrite(output, v);
 								break;
