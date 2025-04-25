@@ -1632,7 +1632,7 @@ public abstract class ExportHandler
 			{
 				Token token = TOKEN_MAP.get(firstToken);
 				if (tokenString.indexOf(".INFO.")>-1) {
-					FileAccess.encodeWrite(output, token.getInfoToken(tokenString, aPC.getDisplay().getRace()));
+					FileAccess.encodeWrite(output, aPC.getInfoToken(tokenString, aPC.getDisplay().getRace()));
 				}
 				else if (token.isEncoded())
 				{
