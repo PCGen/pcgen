@@ -67,6 +67,7 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 import pcgen.cdom.base.Constants;
+import pcgen.core.Equipment;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.EquipmentListFacade;
@@ -1553,7 +1554,17 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			super(LanguageBundle.getString("in_igModifyCharges")); //$NON-NLS-1$
 			this.character = character;
 			this.targets = targets;
-
+			// Set enabled only if there are items with charges
+			boolean hasItemWithCharges = false;
+			for (EquipmentFacade equipment : targets)
+			{
+				if (equipment instanceof Equipment && ((Equipment) equipment).getMaxCharges() > 0)
+				{
+					hasItemWithCharges = true;
+					break;
+				}
+			}
+			setEnabled(hasItemWithCharges);
 			addActionListener(this);
 		}
 
