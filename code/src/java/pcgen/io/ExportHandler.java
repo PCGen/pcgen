@@ -1616,7 +1616,7 @@ public abstract class ExportHandler
 					for (CDOMObject cd : plist) {
 						if (cd instanceof PObject) {
 							PObject po = (PObject) cd;
-							v = token.getInfoToken(tokenString, po);
+							v = aPC.getInfoToken(tokenString, po);
 							if (!v.equals(tokenString)) {
 								FileAccess.encodeWrite(output, v);
 								break;
@@ -1632,7 +1632,7 @@ public abstract class ExportHandler
 			{
 				Token token = TOKEN_MAP.get(firstToken);
 				if (tokenString.indexOf(".INFO.")>-1) {
-					FileAccess.encodeWrite(output, token.getInfoToken(tokenString, aPC.getDisplay().getRace()));
+					FileAccess.encodeWrite(output, aPC.getInfoToken(tokenString, aPC.getDisplay().getRace()));
 				}
 				else if (token.isEncoded())
 				{
