@@ -268,7 +268,7 @@ dependencies {
     testImplementation group: 'org.testfx', name: 'openjfx-monocle', version: '21.0.2'
 
     testImplementation group: 'org.xmlunit', name: 'xmlunit-matchers', version: '2.10.0'
-    spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.13.0'
+    spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.14.0'
 
     pmd 'net.sourceforge.pmd:pmd-ant:7.13.0'
     pmd 'net.sourceforge.pmd:pmd-java:7.12.0'
