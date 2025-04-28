@@ -33,6 +33,7 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
+import pcgen.util.Logging;
 
 /**
  * AddedTemplateFacet is a Facet that tracks the Templates that have been added
@@ -151,6 +152,11 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<CharID, PCTempl
 				availableList.add(pct);
 			}
 		}
+		if(list.isEmpty())
+		{
+			Logging.log(Logging.WARNING, "CHOOSE entry in " + anOwner.getDisplayName()
+					+ " contains no valid templates");
+		}
 		if (availableList.size() == 1)
 		{
 			return availableList.get(0);
@@ -158,6 +164,12 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<CharID, PCTempl
 		// If we are left without a choice, don't show the chooser.
 		if (availableList.isEmpty())
 		{
+			if(!list.isEmpty())
+			{
+				// We have entries, but none of them apply to our target. Typically fine, but occasionally undesired.
+				Logging.log(Logging.INFO, "CHOOSE entry in " + anOwner.getDisplayName()
+						+ " contains templates, but none qualify");
+			}
 			return null;
 		}
 		List<PCTemplate> selectedList = new ArrayList<>(1);

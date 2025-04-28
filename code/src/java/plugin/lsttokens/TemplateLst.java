@@ -42,6 +42,7 @@ import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
 
 public class TemplateLst extends AbstractToken implements CDOMPrimaryToken<CDOMObject>, ChooseSelectionActor<PCTemplate>
 {
@@ -114,6 +115,10 @@ public class TemplateLst extends AbstractToken implements CDOMPrimaryToken<CDOMO
 				CDOMReference<PCTemplate> ref = TokenUtilities.getTypeOrPrimitive(rm, templKey);
 				if (ref == null)
 				{
+					// If we have an invalid template reference, regardless of type, log it
+					Logging.log(Logging.WARNING, "Invalid template reference in TEMPLATE token in " +
+							cdo.getDisplayName() + ": " + templKey);
+
 					return ParseResult.INTERNAL_ERROR;
 				}
 				list.add(ref);
