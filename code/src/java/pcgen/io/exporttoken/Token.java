@@ -20,8 +20,11 @@
  */
 package pcgen.io.exporttoken;
 
-import java.util.StringTokenizer;
+import java.text.MessageFormat;
+import java.util.*;
 
+import pcgen.cdom.enumeration.MapKey;
+import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 

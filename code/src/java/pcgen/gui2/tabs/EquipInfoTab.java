@@ -30,6 +30,7 @@ import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
@@ -58,6 +59,7 @@ import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
+import pcgen.core.Equipment;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.EquipmentSetFacade;
@@ -1009,6 +1011,8 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			popupMenu.add(new MoveEquipDownMenuItem(character, targets));
 			popupMenu.addSeparator();
 			popupMenu.add(new SortEquipMenuItem(character, targets));
+			popupMenu.addSeparator();
+			popupMenu.add(new EditChargesMenuItem(character, targets));
 			popupMenu.show(e.getComponent(), e.getX(), e.getY());
 		}
 
@@ -1132,4 +1136,45 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 	}
 
+	/**
+	 * Menu item for editing the number of charges on an item.
+	 */
+	private static class EditChargesMenuItem extends JMenuItem implements ActionListener
+	{
+		private final CharacterFacade character;
+		private final List<? extends EquipNode> targets;
+
+		EditChargesMenuItem(CharacterFacade character, List<? extends EquipNode> targets)
+		{
+			super(LanguageBundle.getString("in_igModifyCharges")); //$NON-NLS-1$
+			this.character = character;
+			this.targets = targets;
+			setIcon(Icons.Edit16.getImageIcon());
+			// Set enabled only if there are items with charges
+			boolean hasItemWithCharges = false;
+			for (EquipNode node : targets)
+			{
+				EquipmentFacade equipment = node.getEquipment();
+				if (equipment instanceof Equipment && ((Equipment) equipment).getMaxCharges() > 0)
+				{
+					hasItemWithCharges = true;
+					break;
+				}
+			}
+			setEnabled(hasItemWithCharges);
+
+			addActionListener(this);
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+			List<EquipmentFacade> equipmentList = targets.stream()
+					.map(EquipNode::getEquipment)
+					.filter(Objects::nonNull)
+					.collect(Collectors.toList());
+
+			character.modifyCharges(equipmentList);
+		}
+	}
 }

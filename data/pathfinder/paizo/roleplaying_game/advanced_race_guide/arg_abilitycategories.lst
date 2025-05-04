@@ -17,8 +17,13 @@ ABILITYCATEGORY:Elven Spirit Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	
 # Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location
 ABILITYCATEGORY:Elf Elemental Resistance		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Choice			TYPE:Elf Elemental Resistance		PLURAL:Elf Elemental Resistances		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Adoptive Parentage			VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Adoptive Parentage
-ABILITYCATEGORY:Heart of the... Trait		VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Heart of the... Trait
+ABILITYCATEGORY:Heart of the... Trait		VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Heart of the... Trait	
 ABILITYCATEGORY:Focused Study Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Choice			TYPE:Focused Study Choice		PLURAL:Focused Study Choices			DISPLAYLOCATION:Racial Abilities
+
+
+ABILITYCATEGORY:Heart of the Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Heart of the... Trait	TYPE:Heart of the Trait		PLURAL:Heart of the Traits			DISPLAYLOCATION:Racial Abilities	
+
+
 
 ###Block: Core Races Feat Categories
 ABILITYCATEGORY:Multitalented Mastery Bonus	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MultitalentedMasteryBonus	PLURAL:Multitalented Mastery Bonuses	DISPLAYLOCATION:Racial Abilities
