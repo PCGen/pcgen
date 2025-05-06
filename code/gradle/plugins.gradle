@@ -1,50 +1,61 @@
 
+def PLUGINS_GROUP = "PCGen plugins"
+
 def manifestFile = "code/manifest"
 
 def srcJavaDir = "code/src/java"
 def buildClassesDir = "build/classes/java/main"
 
 def pluginsDir = "${projectDir}/plugins"
-// def outputPluginsDir = "$pluginsDir/outputplugins"
-def bonusPluginsDir = "$pluginsDir/bonusplugins"
-def prePluginsDir = "$pluginsDir/preplugins"
-def lstPluginsDir = "$pluginsDir/lstplugins"
-def systemLstPluginsDir = "$pluginsDir/systemlstplugins"
-def jepPluginsDir = "$pluginsDir/jepplugins"
-def converterPluginsDir = "$pluginsDir/converterplugins"
 
-tasks.register("makeplugindirs-gradle") {
-    description = "Create any needed directories"
+tasks.register("cleanPlugins", Delete) {
+    description = "Clean all working files"
+    group = PLUGINS_GROUP
 
-    doLast {
-        // mkdir outputPluginsDir
-        mkdir bonusPluginsDir
-        mkdir prePluginsDir
-        mkdir lstPluginsDir
-        mkdir systemLstPluginsDir
-        mkdir jepPluginsDir
-        mkdir converterPluginsDir
+    delete fileTree(dir: pluginsDir, include: "*.jar")
+}
+
+def createJarTask = {taskName, archiveName, description, includePattern ->
+    tasks.register(taskName, Jar) {
+        this.description = description
+        group = PLUGINS_GROUP
+        dependsOn tasks.named("compileJava")
+
+        archiveFileName = archiveName
+        manifest {
+            attributes(
+                    "Implementation-Title": "PCGen ${taskName.replace('jar', '').toLowerCase()} plugins",
+                    "Implementation-Version": project.version,
+                    "Class-Path": "lib/pcgen.jar",
+                    "Built-Date": new Date(),
+                    "Built-JDK": "${System.getProperty('java.vm.version')} (${System.getProperty('java.vendor')})",
+                    "Created-By": "Gradle ${project.gradle.gradleVersion}"
+            )
+        }
+
+        destinationDirectory = file("${pluginsDir}")
+
+        from("${buildClassesDir}") {
+            include includePattern
+        }
     }
 }
 
-tasks.register("jarExportPlugins-gradle", Jar) {
-    description = "Build (Link) Export Token plugin jar files"
-    group = "PCGen plugins"
-    dependsOn makeplugindirs, tasks.named("compileJava")
+createJarTask("jarExportPlugins", "outputplugins.jar", "Build (Link) Export Token plugin jar files", "plugin/exporttokens/*.class")
+createJarTask("jarBonusPlugins", "bonusplugins.jar", "Build (Link) plugin Bonus Token jar files", "plugin/bonustokens/*.class")
+createJarTask("jarLstPlugins", "lstplugins.jar", "Build (Link) plugin LST Token jar files", "plugin/lsttokens/**/*.class")
+createJarTask("jarPrePlugins", "preplugins.jar", "Build (Link) Prereq Token plugin jar files", "plugin/pretokens/**/*.class")
+createJarTask("jarConverterPlugins", "converterplugins.jar", "Build (Link) Converter plugin jar files", "plugin/converter/**/*.class")
+createJarTask("jarModifierPlugins", "modifierplugins.jar", "Build (Link) Lst Modifier Token plugin jar files", "plugin/modifier/**/*.class")
+createJarTask("jarPrimitivePlugins", "primitiveplugins.jar", "Build (Link) Lst Primitive Token plugin jar files", "plugin/primitive/**/*.class")
+createJarTask("jarQualifierPlugins", "qualifierplugins.jar", "Build (Link) Lst Compatibility Token plugin jar files", "plugin/qualifier/**/*.class")
+createJarTask("jarFunctionPlugins", "functionplugins.jar", "Build (Link) Custom Function jar files", "plugin/function/**/*.class")
+createJarTask("jarGroupingPlugins", "groupingplugins.jar", "Build (Link) Grouping plugin jar files", "plugin/grouping/**/*.class")
+createJarTask("jarJepCommandsPlugins", "jepcommandsplugins.jar", "Build (Link) Jep Command plugin jar files", "plugin/jepcommands/**/*.class")
 
-    archiveFileName = "outputplugins.jar"
-    manifest {
-        attributes("Implementation-Title": "PCGen export plugins",
-                "Implementation-Version": project.version,
-                "Class-Path": "lib/pcgen.jar",
-                "Built-Date": new Date(),
-                "Built-JDK": "${System.getProperty('java.vm.version')} (${System.getProperty('java.vendor')})",
-                "Created-By": "Gradle ${project.gradle.gradleVersion}")
-    }
-
-    destinationDirectory = file("${pluginsDir}")
-
-    from("${buildClassesDir}") {
-            include "plugin/exporttokens/*.class"
-    }
+tasks.register("jarAllPlugins") {
+    description = "Create the plugin jars"
+    group =  BasePlugin.BUILD_GROUP
+    dependsOn jarExportPlugins, jarBonusPlugins, jarLstPlugins, jarPrePlugins, jarConverterPlugins, jarModifierPlugins,
+              jarPrimitivePlugins, jarQualifierPlugins, jarFunctionPlugins, jarGroupingPlugins, jarJepCommandsPlugins
 }
