@@ -41,8 +41,8 @@ def createJarTask = {taskName, archiveName, description, includePattern ->
     }
 }
 
-createJarTask("jarExportPlugins", "outputplugins.jar", "Build (Link) Export Token plugin jar files", "plugin/exporttokens/*.class")
-createJarTask("jarBonusPlugins", "bonusplugins.jar", "Build (Link) plugin Bonus Token jar files", "plugin/bonustokens/*.class")
+createJarTask("jarExportPlugins", "exportplugins.jar", "Build (Link) Export Token plugin jar files", "plugin/exporttokens/**/*.class")
+createJarTask("jarBonusPlugins", "bonusplugins.jar", "Build (Link) plugin Bonus Token jar files", "plugin/bonustokens/**/*.class")
 createJarTask("jarLstPlugins", "lstplugins.jar", "Build (Link) plugin LST Token jar files", "plugin/lsttokens/**/*.class")
 createJarTask("jarPrePlugins", "preplugins.jar", "Build (Link) Prereq Token plugin jar files", "plugin/pretokens/**/*.class")
 createJarTask("jarConverterPlugins", "converterplugins.jar", "Build (Link) Converter plugin jar files", "plugin/converter/**/*.class")
