@@ -116,8 +116,8 @@ public class TemplateLst extends AbstractToken implements CDOMPrimaryToken<CDOMO
 				if (ref == null)
 				{
 					// If we have an invalid template reference, regardless of type, log it
-					Logging.log(Logging.WARNING, "Invalid template reference in TEMPLATE token in " +
-							cdo.getDisplayName() + ": " + templKey);
+					Logging.log(Logging.WARNING, "Invalid template reference in TEMPLATE token in "
+							+ cdo.getDisplayName() + ": " + templKey);
 
 					return ParseResult.INTERNAL_ERROR;
 				}
