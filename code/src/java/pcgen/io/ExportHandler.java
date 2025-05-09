@@ -32,7 +32,14 @@ import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.ParseException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.StringTokenizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import pcgen.cdom.base.CDOMObject;
@@ -75,13 +82,13 @@ import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
 
 /**
- * This class deals with exporting a PC to various types of output sheets 
- * including XML, HTML, PDF and Text.
- * 
- * Very basically it takes a PC (or PCs) and replaces tokens in a character 
- * sheet template with the appropriate values from the PC (PCs).  Much of the 
- * code in here deals with replacing tokens and dealing with the FOR and IIF 
- * constructs that can be found in the character sheet templates. 
+ * This class deals with exporting a PC to various types of output sheets
+ * including XML, HTML, PDF, and Text.
+ * <p>
+ * Very basically, it takes a PC (or PCs) and replaces tokens in a character
+ * sheet template with the appropriate values from the PC (PCs).  Much of the
+ * code in here deals with replacing tokens and dealing with the FOR and IIF
+ * constructs that can be found in the character sheet templates.
  *
  */
 public abstract class ExportHandler
@@ -104,9 +111,9 @@ public abstract class ExportHandler
 	/** A map of output tokens to export */
 	private static final Map<String, Token> TOKEN_MAP = new HashMap<>();
 
-	/** 
+	/**
 	 * A variable to hold the state of whether or not the output token map to
-	 * be exported is populated or not. 
+	 * be exported is populated or not.
 	 */
 	private static boolean tokenMapPopulated;
 
@@ -125,7 +132,7 @@ public abstract class ExportHandler
 	private final File templateFile;
 
 	/**
-	 * These maps hold the loop variables and parameters of FOR constructs that 
+	 * These maps hold the loop variables and parameters of FOR constructs that
 	 * will be replaced by their actual values when evaluated.
 	 */
 	protected final Map<Object, Object> loopVariables = new HashMap<>();
@@ -138,9 +145,9 @@ public abstract class ExportHandler
 	private boolean skipMath;
 
 	/**
-	 * A state variable to indicate whether we should write out what we are currently 
+	 * A state variable to indicate whether we should write out what we are currently
 	 * processing, would be set to false for example if we were filtering some output
-	 *  
+	 *
 	 * defaults to true.
 	 */
 	private boolean canWrite = true;
@@ -150,7 +157,7 @@ public abstract class ExportHandler
 
 
 	/**
-	 * Constructor.  Populates the token map (a list of possible output tokens) and 
+	 * Constructor.  Populates the token map (a list of possible output tokens) and
 	 * sets the character sheet template we are using.
 	 *
 	 * @param templateFile the template to use while exporting.
@@ -163,9 +170,9 @@ public abstract class ExportHandler
 
 	/**
 	 * Replace the token, but deliberately skip the math
-	 * 
+	 *
 	 * @param aPC The PC being exported
-	 * @param aString the string which will have its tokens replaced 
+	 * @param aString the string which will have its tokens replaced
 	 * @param output the object that represents the sheet we are exporting
 	 */
 	public void replaceTokenSkipMath(PlayerCharacter aPC, String aString, BufferedWriter output)
@@ -179,7 +186,7 @@ public abstract class ExportHandler
 	/**
 	 * Exports the contents of the given PlayerCharacter to a Writer
 	 * according to the handler's template
-	 * 
+	 *
 	 * <br>author: Thomas Behr 12-04-02
 	 *
 	 * @param aPC the PlayerCharacter to write
@@ -191,7 +198,7 @@ public abstract class ExportHandler
 	/**
 	 * Exports a PlayerCharacter-Party to a Writer
 	 * according to the handler's template
-	 * 
+	 *
 	 * <br>author: Thomas Behr 13-11-02
 	 *
 	 * @param PCs the Collection of PlayerCharacter instances which compromises the Party to write
@@ -212,10 +219,10 @@ public abstract class ExportHandler
 	}
 
 	/**
-	 * Get variable value from the variable string passed in, this might be 
-	 * an old style variable string (COUNT[EQ and STRLEN) or a new style 
+	 * Get variable value from the variable string passed in, this might be
+	 * an old style variable string (COUNT[EQ and STRLEN) or a new style
 	 * (JEP formula)
-	 * 
+	 *
 	 * @param varString Variable string that we want to calculate value from
 	 * @param aPC The PC that holds the data that we need to get the info from
 	 * @return The result
@@ -241,7 +248,7 @@ public abstract class ExportHandler
 
 	/**
 	 * Helper method for getting the variable value out of a variable string
-	 * 
+	 *
 	 * @param vString The variable String
 	 * @param aPC The PC to get the token from
 	 * @return the altered variable string
@@ -253,7 +260,7 @@ public abstract class ExportHandler
 		{
 			char chC = vString.charAt(countIndex + 8);
 
-			// If the character after COUNT[EQ is . or [1-9]  
+			// If the character after COUNT[EQ is . or [1-9]
 			if ((chC == '.') || ((chC >= '0') && (chC <= '9')))
 			{
 				final int i = vString.indexOf(']', countIndex + 8);
@@ -285,9 +292,9 @@ public abstract class ExportHandler
 	}
 
 	/**
-	 * Helper method for getting the variable value out of a variable string, 
+	 * Helper method for getting the variable value out of a variable string,
 	 * deals with STRLEN tokens
-	 * 
+	 *
 	 * @param vString The variable string to get the values out of
 	 * @param aPC The PC to get the token value out of
 	 * @return The altered variable string
@@ -327,7 +334,7 @@ public abstract class ExportHandler
 
 	/**
 	 * Add to the token map, called mainly by the plugin loader
-	 * 
+	 *
 	 * @param newToken the token to add
 	 */
 	public static void addToTokenMap(Token newToken)
@@ -401,7 +408,7 @@ public abstract class ExportHandler
 
 	/**
 	 * Helper method to evaluate an expression, used by OIF and IIF tokens
-	 * 
+	 *
 	 * @param expr Expression to evaluate
 	 * @param aPC PC containing values to help evaluate the expression
 	 * @return true if the expression was evaluated successfully, else false
@@ -426,7 +433,7 @@ public abstract class ExportHandler
 			return (evaluateExpression(part1, aPC) || evaluateExpression(part2, aPC));
 		}
 
-		/* 
+		/*
 		 * Deal with objects held in the loopVariables and loopParameters
 		 * sets, e.g. replace the key place holder with the actual value
 		 */
@@ -515,16 +522,16 @@ public abstract class ExportHandler
 
 		}
 
-		// Deal with JEP formula 
+		// Deal with JEP formula
 		final Float res = aPC.getVariableProcessor().getJepOnlyVariableValue(null, expr1, "", 0);
 		if (res != null)
 		{
 			return res.equals(JEP_TRUE);
 		}
 
-		/* 
+		/*
 		 * Deal with anything else
-		 * 
+		 *
 		 * Before returning a default false, let's see if this is a valid token, like this:
 		 *
 		 * |IIF(WEAPON%weap.CATEGORY:Ranged)|
@@ -532,10 +539,10 @@ public abstract class ExportHandler
 		 * |ELSE|
 		 * something 2
 		 * |ENDIF|
-		 * 
+		 *
 		 * It can theoretically be used with any valid token, doing an equal compare
 		 * (integer or string equalities are valid)
-		 * 
+		 *
 		 * Can now contain a token on the right side as well, so two tokens can be
 		 * compared to each other. Comparison is case-insensitive.
 		 */
@@ -617,9 +624,9 @@ public abstract class ExportHandler
 
 	/**
 	 * Deal with SPELLCASTER.
-	 *  
+	 *
 	 * Could look like one of the following:
-	 * 
+	 *
 	 * Arcane
 	 * Chaos
 	 * Divine
@@ -706,14 +713,14 @@ public abstract class ExportHandler
 
 	/**
 	 * Helper method to evaluate a IIF token
-	 * 
+	 *
 	 * @param node The IIFNode to evaluate
 	 * @param output The output to write to (character sheet template)
 	 * @param aPC The PC we are outputting
 	 */
 	private void evaluateIIF(final IIFNode node, final BufferedWriter output, final PlayerCharacter aPC)
 	{
-		// Comma is a delimiter for a higher-level parser, so 
+		// Comma is a delimiter for a higher-level parser, so
 		// we'll use a semicolon and replace it with a comma for
 		// expressions like:
 		// |IIF(VAR.IF(var("COUNT[SKILLTYPE=Strength]")>0;1;0):1)|
@@ -732,7 +739,7 @@ public abstract class ExportHandler
 
 	/**
 	 * Helper method to evaluate the results of a IIF child node
-	 * 
+	 *
 	 * @param children The list of children for the IIF node
 	 * @param output The output to write to (filling in the character sheet template)
 	 * @param aPC THe PC to output
@@ -743,7 +750,7 @@ public abstract class ExportHandler
 		{
 			if (aChild instanceof final FORNode nextFor)
 			{
-				// If the child is a FORNode then put it in the loopVariables map as 
+				// If the child is a FORNode then put it in the loopVariables map as
 				// a key with a corresponding value of 0
 				loopVariables.put(nextFor.var(), 0);
 				existsOnly = nextFor.exists();
@@ -777,7 +784,7 @@ public abstract class ExportHandler
 				existsOnly = nextFor.exists();
 				loopVariables.remove(nextFor.var());
 			}
-			// If child is an IIFNode, then evaluate that 
+			// If child is an IIFNode, then evaluate that
 			else if (aChild instanceof IIFNode)
 			{
 				evaluateIIF((IIFNode) aChild, output, aPC);
@@ -792,7 +799,7 @@ public abstract class ExportHandler
 				replaceLine(lineString, output, aPC);
 
 				// Each time we replace a line that is part of an IIF statement
-				// we output a newline if we are allowed to write and the 
+				// we output a newline if we are allowed to write and the
 				// whitespace is not controlled by the OS author
 				if (canWrite && !manualWhitespace)
 				{
@@ -804,7 +811,7 @@ public abstract class ExportHandler
 
 	/**
 	 * Loop through a set of output as required by a FOR loop.
-	 * 
+	 *
 	 * @param node The node being processed
 	 * @param start The starting value of the loop
 	 * @param end The ending value of the loop
@@ -826,7 +833,7 @@ public abstract class ExportHandler
 
 	/**
 	 * Process an iteration of a FOR loop.
-	 * 
+	 *
 	 * @param node The node being processed
 	 * @param output The writer output is to be sent to.
 	 * @param aPC The character being processed.
@@ -884,7 +891,7 @@ public abstract class ExportHandler
 				noMoreItems = false;
 				replaceLine(lineString, output, aPC);
 
-				// If the output sheet author has no control 
+				// If the output sheet author has no control
 				// over the whitespace then print a newline.
 				if (canWrite && !manualWhitespace)
 				{
@@ -1154,7 +1161,7 @@ public abstract class ExportHandler
 
 	/**
 	 * Helper method to process the math for Knowledge (xx) types of tokens
-	 * 
+	 *
 	 * @param str String to process
 	 * @param aPC PC we are exporting
 	 * @return Processed string
@@ -1192,7 +1199,7 @@ public abstract class ExportHandler
 
 	/**
 	 * Helper class to output normal text
-	 * 
+	 *
 	 * @param nonToken
 	 * @param output
 	 */
@@ -1218,7 +1225,7 @@ public abstract class ExportHandler
 
 	/**
 	 * Helper method to parse |FOR tokens (pre-processing for a template)
-	 * 
+	 *
 	 * @param forLine
 	 * @param tokens
 	 * @return A FORNode of the parsed tokens
@@ -1277,11 +1284,11 @@ public abstract class ExportHandler
 	}
 
 	/**
-	 * Retrieve the parameters of a comma separated command such as a 
-	 * FOR token. Commas inside brackets are ignored, thus allowing JEP 
+	 * Retrieve the parameters of a comma separated command such as a
+	 * FOR token. Commas inside brackets are ignored, thus allowing JEP
 	 * functions with multiple parameters to be included in FOR loops.
-	 *  
-	 * @param forToken The token to be broken up. 
+	 *
+	 * @param forToken The token to be broken up.
 	 * @return The token parameters.
 	 */
 	public static List<String> getParameters(String forToken)
@@ -1319,9 +1326,9 @@ public abstract class ExportHandler
 	}
 
 	/**
-	 * Helper method to parse the IIF tokens, includes dealing with a 
+	 * Helper method to parse the IIF tokens, includes dealing with a
 	 * |FOR child, |IIF child, ELSE, END IF and plain text
-	 * 
+	 *
 	 * @param expr
 	 * @param tokens
 	 * @return IIFNode representing the parsed tokens
@@ -1330,8 +1337,8 @@ public abstract class ExportHandler
 	{
 		final IIFNode node = new IIFNode(expr);
 
-		// Flag to indicate whether we are adding the 
-		// true case (e.g.  The IF) or the false case 
+		// Flag to indicate whether we are adding the
+		// true case (e.g.  The IF) or the false case
 		// (e.g.  The ELSE)
 		boolean trueCase = true;
 
@@ -1344,7 +1351,7 @@ public abstract class ExportHandler
 			{
 				StringTokenizer newFor = new StringTokenizer(line, ",");
 				newFor.nextToken();
-				// It's the first type of |FOR, e.g.  With a variable name, 
+				// It's the first type of |FOR, e.g.  With a variable name,
 				// see PCGen docs for |FOR token
 				if (newFor.nextToken().startsWith("%"))
 				{
@@ -1409,7 +1416,7 @@ public abstract class ExportHandler
 	}
 
 	/**
-	 * Populate the token map (if not already done so), e.g. Add all 
+	 * Populate the token map (if not already done so), e.g. Add all
 	 * of the types of Output Tokens to the map
 	 */
 	private static void populateTokenMap()
@@ -1434,10 +1441,10 @@ public abstract class ExportHandler
 	}
 
 	/**
-	 * This method performs some work on a given character sheet template line, 
-	 * namely replacing tokens, dealing with Malformed lines and simply outputting 
+	 * This method performs some work on a given character sheet template line,
+	 * namely replacing tokens, dealing with Malformed lines and simply outputting
 	 * plain text.
-	 *  
+	 *
 	 * @param aLine The line to do the work on
 	 * @param output The output buffer that is effectively the character sheet template
 	 * @param aPC The PC that we are outputting
@@ -1497,7 +1504,7 @@ public abstract class ExportHandler
 				{
 					outputNonToken(tok, output);
 				}
-				// Reverse the inPipe state, causing the next token to 
+				// Reverse the inPipe state, causing the next token to
 				// take the other decision path
 				if (aTok.hasMoreTokens())
 				{
@@ -1509,7 +1516,7 @@ public abstract class ExportHandler
 
 	/**
 	 * Replace the token with the value it represents
-	 * 
+	 *
 	 * @param aString The string containing the token to be replaced
 	 * @param output The object that will capture the output
 	 * @param aPC The PC currently being exported
@@ -1569,7 +1576,7 @@ public abstract class ExportHandler
 			StringTokenizer tok = new StringTokenizer(tokenString, ".,", false);
 			String firstToken = tok.nextToken();
 
-			// Get the remaining token/test string 
+			// Get the remaining token/test string
 			// TODO Understand this
 			String testString = tokenString;
 			if (testString.indexOf(',') > -1)
@@ -1608,30 +1615,36 @@ public abstract class ExportHandler
 				FileAccess.maxLength(-1);
 				return 0;
 			}
-			else if (tokenString.indexOf(".INFO.")>-1) {
+			else if (tokenString.contains(".INFO."))
+			{
 				List<? extends CDOMObject> plist = aPC.getCDOMObjectList();
 				String v = tokenString;
-				for (String key : TOKEN_MAP.keySet()) {
-					Token token = TOKEN_MAP.get(key);
-					for (CDOMObject cd : plist) {
-						if (cd instanceof PObject) {
-							PObject po = (PObject) cd;
+				for (String ignored : TOKEN_MAP.keySet())
+				{
+					for (CDOMObject cd : plist)
+					{
+						if (cd instanceof PObject po)
+						{
 							v = aPC.getInfoToken(tokenString, po);
-							if (!v.equals(tokenString)) {
+							if (!v.equals(tokenString))
+							{
 								FileAccess.encodeWrite(output, v);
 								break;
 							}
 						}
 					}
 					if (!v.equals(tokenString))
+					{
 						break;
+					}
 				}
 			}
 			// Else if the token is in the list of valid output tokens
 			else if (TOKEN_MAP.get(firstToken) != null)
 			{
 				Token token = TOKEN_MAP.get(firstToken);
-				if (tokenString.indexOf(".INFO.")>-1) {
+				if (tokenString.contains(".INFO."))
+				{
 					FileAccess.encodeWrite(output, aPC.getInfoToken(tokenString, aPC.getDisplay().getRace()));
 				}
 				else if (token.isEncoded())
@@ -1674,13 +1687,13 @@ public abstract class ExportHandler
 
 	/**
 	 * Helper method to determine if a line of text needs replacing or not
-	 * 
+	 *
 	 * @param aString
 	 * @return true If it is plain text (e.g. Does not need replacing)
 	 */
 	private boolean isPlainText(String aString)
 	{
-		// If we 'cannot write' and the string is non-empty, non-filter token then 
+		// If we 'cannot write' and the string is non-empty, non-filter token then
 		// there is nothing to replace so return 0
 		if (!canWrite && (!aString.isEmpty()) && (aString.charAt(0) != '%'))
 		{
@@ -1691,7 +1704,7 @@ public abstract class ExportHandler
 
 	/**
 	 * Helper method to determine if a token is a filter token or not
-	 * 
+	 *
 	 * @param aString token to evaluate
 	 * @return true if it is a filter token
 	 */
@@ -1703,7 +1716,7 @@ public abstract class ExportHandler
 
 	/**
 	 * Helper method, determines if a token is a valid SUB token
-	 * 
+	 *
 	 * @param tokenString token to evaluate
 	 * @return true if it is a valid SUB token
 	 */
@@ -1714,9 +1727,9 @@ public abstract class ExportHandler
 
 	/**
 	 * Helper method to detect if a token is a DFOR or FOR token
-	 * 
+	 *
 	 * @param tokenString token to check
-	 * @return true if it is a DFOR or FOR token 
+	 * @return true if it is a DFOR or FOR token
 	 */
 	private boolean isForOrDForToken(String tokenString)
 	{
@@ -1725,9 +1738,9 @@ public abstract class ExportHandler
 
 	/**
 	 * Helper method to determine if a string contains a mathematical token
-	 * 
+	 *
 	 * @param testString String to test
-	 * @return true if it 
+	 * @return true if it
 	 */
 	private boolean containsMathematicalToken(String testString)
 	{
@@ -1738,7 +1751,7 @@ public abstract class ExportHandler
 
 	/**
 	 * Helper method, deals with replacing the SUB token
-	 * 
+	 *
 	 * @param tokenString the SUB token
 	 * @return The altered SUB token
 	 */
@@ -1768,9 +1781,9 @@ public abstract class ExportHandler
 	}
 
 	/**
-	 * Helper method that deals with Processing the FOR./DFOR. tokens as a 
+	 * Helper method that deals with Processing the FOR./DFOR. tokens as a
 	 * DFOR loop
-	 * 
+	 *
 	 * @param tokenString the token to loop over
 	 * @param output The writer we write to
 	 * @param aPC The PC we are exporting
@@ -1790,12 +1803,12 @@ public abstract class ExportHandler
 	}
 
 	/**
-	 * Helper method for replaceToken, deals with the filter tokens e.g. %DOMAIN, basically 
+	 * Helper method for replaceToken, deals with the filter tokens e.g. %DOMAIN, basically
 	 * returns 0 if we should not be writing something out, e.g. It's filtered out
-	 * 
+	 *
 	 * @param aString
 	 * @param aPC
-	 * @return 0 If we should not be writing something out 
+	 * @return 0 If we should not be writing something out
 	 */
 	private int dealWithFilteredTokens(String aString, PlayerCharacter aPC)
 	{
@@ -2440,7 +2453,7 @@ public abstract class ExportHandler
 				canWrite = (aPC.getLevel(aClass) >= i);
 			}
 
-			// Filter out SPELLLISTCLASS			
+			// Filter out SPELLLISTCLASS
 			if (bString.startsWith("SPELLLISTCLASS"))
 			{
 				// New token syntax |%SPELLLISTCLASS.x| instead of |%SPELLLISTCLASSx|
@@ -2473,7 +2486,7 @@ public abstract class ExportHandler
 
 	/**
 	 * Helper method to get the equipment merging strategy
-	 * 
+	 *
 	 * @param aString
 	 * @return merging strategy constant
 	 */
@@ -2495,13 +2508,13 @@ public abstract class ExportHandler
 
 	/**
 	 * Helper method to deal with DFOR token, e.g.
-	 * 
+	 *
 	 * DFOR.0,(COUNT[SKILLS]+1)/2,1,COUNT[SKILLS],(COUNT[SKILLS]+1)/2,<td>\SKILL%\</td>
 	 * <td>\SKILL%.TOTAL\</td><td>\SKILL%.RANK\</td>
 	 * <td>\SKILL%.ABILITY\</td><td>\SKILL%.MOD\,<tr align="center">,</tr>,0
-	 * 
+	 *
 	 * Produces a 2 column row table of all skills.
-	 * 
+	 *
 	 * @param aString String to process
 	 * @param output Output we are writing to
 	 * @param aPC PC we are exporting
@@ -2727,13 +2740,13 @@ public abstract class ExportHandler
 
 	/**
 	 * Helper method to parse OIF token, e.g.
-	 * 
+	 *
 	 * OIF(expr,truepart,falsepart)
 	 * OIF(HASFEAT:Armor Prof (Light), <b>Yes</b>, <b>No</b>)
-	 * 
-	 * If the character has the Light Armor proficiency, then returns "Yes". 
+	 *
+	 * If the character has the Light Armor proficiency, then returns "Yes".
 	 * Otherwise it returns "No".
-	 * 
+	 *
 	 * @param aString String to parse
 	 * @param output output to write to
 	 * @param aPC PC we are exporting
@@ -2835,7 +2848,7 @@ public abstract class ExportHandler
 
 	/**
 	 * Helper method to deal with the SpellListBook token
-	 * 
+	 *
 	 * @param aString
 	 * @param aPC
 	 * @return 0
@@ -2875,7 +2888,7 @@ public abstract class ExportHandler
 
 	/**
 	 * Helper method for replacing token variables
-	 * 
+	 *
 	 * @param aString String to process
 	 * @param aPC PC we are exporting
 	 */
@@ -2956,7 +2969,7 @@ public abstract class ExportHandler
 	/**
 	 * Exports a PlayerCharacter-Party to a Writer
 	 * according to the handler's template
-	 * 
+	 *
 	 * <br>author: Thomas Behr 13-11-02
 	 *
 	 * @param PCs the PlayerCharacter[] which compromises the Party to write
@@ -2990,7 +3003,7 @@ public abstract class ExportHandler
 				// If not inside a TAG and there is no | character on this line
 				if (!betweenPipes && lastPipeIndex == -1)
 				{
-					// If output sheet author controls new lines 
+					// If output sheet author controls new lines
 					// then replace tabs with empty space.
 					if (manualWhitespace)
 					{
@@ -3004,17 +3017,17 @@ public abstract class ExportHandler
 					}
 				}
 
-				// Else if we are Inside a tag but we are not at the finish of 
-				// the tag e.g. 
+				// Else if we are Inside a tag but we are not at the finish of
+				// the tag e.g.
 				//
 				// |
 				// x
 				// |
-				// 
-				// Or we are at the start of a tag that wraps onto the next line e.g. 
-				// 
+				//
+				// Or we are at the start of a tag that wraps onto the next line e.g.
+				//
 				// |x
-				// 
+				//
 				// Collect this text (without the pipe)
 				// to be passed for replacement later.
 				else if (lastPipeIndex == (betweenPipes ? -1 : 0))
@@ -3055,10 +3068,10 @@ public abstract class ExportHandler
 
 	/**
 	 * Helper method to process a line that begins with a | (and may end with a |)
-	 * 
+	 *
 	 * @param PCs List of PCs to output
 	 * @param aLine Line to parse
-	 * @param buf 
+	 * @param buf
 	 * @param out character sheet we are building up
 	 * @param between Whether we are processing a line between pipes
 	 * @return true if we processed successfully
@@ -3080,7 +3093,7 @@ public abstract class ExportHandler
 		{
 			String tok = aTok.nextToken();
 
-			// If we're not between pipes then just write to the output 
+			// If we're not between pipes then just write to the output
 			// removing tab characters if asked to do so
 			if (!betweenPipes)
 			{
@@ -3118,7 +3131,7 @@ public abstract class ExportHandler
 					Matcher mat = Pattern.compile("^(\\d+)").matcher(aString);
 					int charNum = mat.matches() ? Integer.parseInt(mat.group()) : -1;
 
-					// This seems bizarre since we haven't stripped the 
+					// This seems bizarre since we haven't stripped the
 					// integer from the front of this string which means
 					// that it will not be recognised as a token and will
 					// just be written to the output verbatim
@@ -3145,7 +3158,7 @@ public abstract class ExportHandler
 
 	/**
 	 * Deal with the FOR. token, but at a party level
-	 * 
+	 *
 	 * @param PCs The PCs to export
 	 * @param out The Output we are writing to
 	 * @param tokenString The token string to process
@@ -3184,7 +3197,7 @@ public abstract class ExportHandler
 			// Note: This was changed from == to && since I can't see how
 			// == could possibly be correct behaviour.  If we were not
 			// just printing characters that exist the loop would
-			// terminate after printing one character. 
+			// terminate after printing one character.
 			boolean breakloop = (forParser.existsOnly() && (currPC == null));
 
 			++x;
@@ -3249,7 +3262,7 @@ public abstract class ExportHandler
 
 	/**
 	 * Get the token string
-	 * 
+	 *
 	 * @param aPC the PC being exported
 	 * @param aString The token string to convert
 	 * @return token string
