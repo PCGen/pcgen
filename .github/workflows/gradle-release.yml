@@ -53,6 +53,7 @@ jobs:
             code/gradle/distribution.gradle
             code/gradle/release.gradle
             code/gradle/reporting.gradle
+            code/gradle/plugins.gradle
 
       # Configure Gradle for optimal use in GitHub Actions, including caching of downloaded dependencies.
       # See: https://github.com/gradle/actions/blob/main/setup-gradle/README.md
