@@ -32,11 +32,11 @@ plugins {
     id 'pmd'                                            // PMD for Java, configured further below
     id 'idea'                                           // For IntelliJ IDEA users
     id 'de.undercouch.download' version '5.6.0'         // Shows download percentage
-    id 'edu.sc.seis.launch4j' version '3.0.6'           // Creates launch4j
     id 'com.github.ben-manes.versions' version '0.52.0' // Checks versions for plugins and dependencies
     id 'com.dorongold.task-tree' version '4.0.1'        // Prints the task dependency tree
     id 'org.openjfx.javafxplugin' version '0.1.0'       // JavaFX support
     id 'org.beryx.runtime' version '1.13.1'             // Creates custom runtimes
+    id 'jacoco'                                         // Code coverage
 }
 
 /**
@@ -45,6 +45,10 @@ plugins {
 javafx {
     version = "21"
     modules = [ 'javafx.controls', 'javafx.web', 'javafx.swing', 'javafx.fxml', 'javafx.graphics' ]
+}
+
+jacoco {
+    toolVersion = '0.8.12'
 }
 
 // Set the groupId as it helps with Maven
@@ -81,7 +85,7 @@ ext {
     releaseDir = layout.projectDirectory.dir("build/release")
 
     // JavaFX version
-    javaFXVersion = "21.0.5"
+    javaFXVersion = "21.0.7"
 }
 
 application {
@@ -107,16 +111,19 @@ repositories {
     //}
     ivy {
         // TODO Enable HTTPS (e.g., add letsencrypt) for that location
-        name "fileRepo"
-        url 'http://pc-gen.org/librepo/'
+        name = 'fileRepo'
+        url = 'http://pc-gen.org/librepo/'
         allowInsecureProtocol = true
     }
     // Use Maven plugin to reference freehep (https://java.freehep.org/) artifact repository
     // TODO Which libs do we pull from here?
+    /*
     maven {
         name = 'free'
         url = 'https://java.freehep.org/maven2'
     }
+
+     */
     maven {
         name = 'local'
         url = 'installers'
@@ -125,7 +132,7 @@ repositories {
     // TODO Which libs do we pull from here?
     maven {
         name = 'jboss'
-        url "https://repository.jboss.org/nexus/content/repositories/thirdparty-releases/"
+        url = 'https://repository.jboss.org/nexus/content/repositories/thirdparty-releases/'
     }
 }
 
@@ -270,35 +277,7 @@ dependencies {
     testImplementation group: 'org.xmlunit', name: 'xmlunit-matchers', version: '2.10.0'
     spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.14.0'
 
-    pmd 'net.sourceforge.pmd:pmd-ant:7.13.0'
     pmd 'net.sourceforge.pmd:pmd-java:7.13.0'
-}
-
-// Properties to support Ant builds
-def antPluginTasks = []
-ant.importBuild('build-gradle.xml') {
-    def (projectName, taskName) = it.tokenize('.')
-
-    if (taskName == null && projectName.startsWith("jar") &&
-            (projectName.endsWith("plugins") || projectName.endsWith("plugin"))) {
-        antPluginTasks.push(projectName)
-    }
-    return it
-}
-ant.properties['src.java.dir']="code/src/java"
-ant.properties['build.classes.dir']="build/classes/java/main"
-
-// All plugins depend on compiled .class files
-antPluginTasks.each {
-    tasks.named(it) {
-        dependsOn tasks.named("compileJava")
-    }
-}
-
-// Configuration for creating JARs from all of the plugins
-configure('jar-all-plugins') {
-    group = BasePlugin.BUILD_GROUP // Or use 'build'
-    description = 'Create the plugin jars'
 }
 
 ext {
@@ -308,15 +287,17 @@ ext {
 
 jar {
     // Pick up some configuration to JAR up the plugins
-    it.dependsOn 'jar-all-plugins'
+    it.dependsOn "jarAllPlugins"
 
     // If we detect duplicate JARs ignore the subsequent ones
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 
     // Create the manifest for the main JAR
     manifest {
-        attributes 'Implementation-Title': 'PCGen', 'Implementation-Version': archiveVersion,
-                'Main-Class': 'pcgen.system.Main', 'Class-Path': classpath
+        attributes 'Implementation-Title': 'PCGen',
+                'Implementation-Version': archiveVersion,
+                'Main-Class': 'pcgen.system.Main',
+                'Class-Path': classpath
     }
 
     from {
@@ -356,11 +337,14 @@ runtime {
     ]
 
     // We support Mac/Win/Linux x86-64, Mac/Linux aarch64
-    targetPlatform('linux-x64',     layout.projectDirectory.dir("jre/linux/jre_x64").asFile.absolutePath)
-    targetPlatform('linux-aarch64', layout.projectDirectory.dir("jre/linux/jre_aarch64").asFile.absolutePath)
-    targetPlatform('windows-x64',   layout.projectDirectory.dir("jre/windows/jre_x64").asFile.absolutePath)
-    targetPlatform('mac-x64',       layout.projectDirectory.dir("jre/mac/jre_x64/Contents/Home").asFile.absolutePath)
-    targetPlatform('mac-aarch64',   layout.projectDirectory.dir("jre/mac/jre_aarch64/Contents/Home").asFile.absolutePath)
+    //targetPlatform('linux-x64',     layout.projectDirectory.dir("jre/linux/jre_x64").asFile.absolutePath)
+    //targetPlatform('linux-aarch64', layout.projectDirectory.dir("jre/linux/jre_aarch64").asFile.absolutePath)
+    //targetPlatform('windows-x64',   layout.projectDirectory.dir("jre/windows/jre_x64").asFile.absolutePath)
+    //targetPlatform('mac-x64',       layout.projectDirectory.dir("jre/mac/jre_x64/Contents/Home").asFile.absolutePath)
+    //targetPlatform('mac-aarch64',   layout.projectDirectory.dir("jre/mac/jre_aarch64/Contents/Home").asFile.absolutePath)
+    targetPlatform("mac-aarch64") {
+        jdkHome = jdkDownload("https://api.adoptium.net/v3/binary/version/jdk-21.0.6+7/mac/aarch64/jdk/hotspot/normal/eclipse")
+    }
 
     // Use the jpackage tool that comes with Java to build native installers
     jpackage {
@@ -368,15 +352,14 @@ runtime {
         installerOptions = ["--app-version", "${version.replaceAll('-SNAPSHOT', '')}", "--license-file", licenseFile.asFile.absolutePath]
 
         def hostArchitecture = System.getProperty("os.arch")
-        def osFamily = (Os.isFamily(Os.FAMILY_MAC)
-                ? "mac"
-                : (Os.isFamily(Os.FAMILY_UNIX)
-                    ? "linux"
-                    : (Os.isFamily(Os.FAMILY_WINDOWS) ? "windows" : "unknown")))
+        def osFamily =
+                Os.isFamily(Os.FAMILY_MAC) ? "mac" :
+                Os.isFamily(Os.FAMILY_UNIX) ? "linux" :
+                Os.isFamily(Os.FAMILY_WINDOWS) ? "windows" : "unknown"
         def targetPlatform = ["x86_64" : "x64",
                               "amd64" : "x64",
                               "aarch64" : "aarch64"]
-        // formats a string such as "mac-aarch64", or "linux-x64"
+        // formats a string such as "mac    -aarch64", or "linux-x64"
         targetPlatformName = "${osFamily}-${targetPlatform.get(hostArchitecture, "NOT SUPPORTED")}"
 
         if (osFamily == "mac") {
@@ -405,7 +388,7 @@ tasks.named("jpackageImage") {
             if (Os.isFamily(Os.FAMILY_MAC)) {
                 into layout.buildDirectory.dir("jpackage/PcGen.app/Contents/app")
             } else {
-                into layout.buildDirectory.dir("jpackage/PcGen/bin")
+                into layout.buildDirectory.dir("jpackage/PcGen")
             }
         }
 
@@ -414,7 +397,9 @@ tasks.named("jpackageImage") {
             copy {
                 from layout.projectDirectory.dir("installers/mac-installer")
                 include "MacDirLauncher"
-                fileMode 0755
+                filePermissions {
+                    unix(0755)
+                }
                 into layout.buildDirectory.dir("jpackage/PcGen.app/Contents/MacOS")
             }
             ant.replace(file: layout.buildDirectory.file("jpackage/PcGen.app/Contents/Info.plist").get(),
@@ -446,8 +431,7 @@ artifacts {
 }
 
 tasks.register("copyToLibs", Copy) {
-    dependsOn startScripts, distTar, distZip, installDist
-    mustRunAfter createExe
+    dependsOn startScripts, installDist
 
     doFirst {
         println("IN copyToLibs")
@@ -458,7 +442,7 @@ tasks.register("copyToLibs", Copy) {
 }
 
 tasks.register("copyToOutput", Copy) {
-    dependsOn copyToLibs, createExe, converterJar, jar
+    dependsOn copyToLibs, converterJar, jar
 
     doFirst {
         println("IN copyToOutput")
@@ -466,7 +450,6 @@ tasks.register("copyToOutput", Copy) {
 
     from layout.buildDirectory.file("libs/pcgen-${version}.jar"),
         layout.buildDirectory.file("libs/pcgen-${version}-batch-convert.jar"),
-        layout.buildDirectory.file("launch4j/pcgen.exe"),
         layout.projectDirectory.file("code/pcgen.bat")
     from(layout.projectDirectory.file("code/pcgen.sh")) {
         filter(FixCrLfFilter, eol:FixCrLfFilter.CrLf.newInstance("lf"))
@@ -570,7 +553,7 @@ tasks.register("downloadJRE") {
                     return
                 } else if (jreDir.exists()) {
                     println "Delete the previously downloaded JDK at ${jreDir} as outdated. JavaFX modules will be deleted from jdkDir/jmods."
-                    project.delete(jreDir)
+                    delete(jreDir)
                 }
 
                 println("Downloading Java ${major} ${arch} for ${os} from ${url}")
@@ -602,7 +585,7 @@ tasks.register("downloadJRE") {
                                 }
                             }
 
-                            project.delete(archFile)
+                            delete(archFile)
                         }
 
                 file("${projectDir}/jre/${os}/jre_${arch}").list().each { f ->
@@ -710,7 +693,13 @@ tasks.register("downloadJavaFXLocal", Download) {
     }
 
     doFirst {
-        println("Downloading JavaFX SDK for use in local testing.")
+        println("Downloading JavaFX SDK for use in local testing for ${currentOS} ${hostArchitecture}.")
+    }
+
+    // We support Windows/Mac/Linux - x64, and Mac/Linux - aarch64
+    // (JavaFX doesn't support Linux/aarch64 in 21 LTS, use 21.0.1 instead)
+    if (currentOS == "linux" && hostArchitecture == "aarch64") {
+        project.ext.javaFXVersion = "21.0.1"
     }
 
     def fileName = "openjfx-${project.ext.javaFXVersion}_${currentOS}${archAppend}_bin-sdk.zip"
@@ -746,6 +735,25 @@ tasks.named("compileJava") {
 
 tasks.named("jre") {
     dependsOn downloadJRE, downloadJavaFXModules
+}
+
+tasks.register("testCoverage", JacocoReport) {
+    dependsOn test
+    group = "Reporting"
+    description = "Generate Jacoco coverage reports for the test build."
+
+    reports {
+        html.required.set(true)
+        xml.required.set(true)
+    }
+
+    classDirectories.from = fileTree(dir: layout.buildDirectory.dir("classes/java/main"))
+
+    sourceDirectories.from = files([
+            "$project.projectDir/code/src/java"
+    ])
+
+    executionData.from = fileTree(dir: layout.buildDirectory.dir("jacoco")).include("*.exec")
 }
 
 tasks.named("test", Test) {
@@ -848,6 +856,7 @@ allprojects {
                 '-Dprism.order=sw',
                 '-Dprism.verbose=true',
                 '-Djavafx.macosx.embedded=true',
+                '-Djava.security.manager=disallow',
 
                 "--module-path", layout.projectDirectory.dir("mods/lib"),
                 "--add-modules", "javafx.controls,javafx.web,javafx.swing,javafx.fxml,javafx.graphics",
@@ -949,10 +958,11 @@ apply from: 'code/gradle/distribution.gradle'
 apply from: 'code/gradle/autobuild.gradle'    // depends on distribution.gradle
 apply from: 'code/gradle/reporting.gradle'
 apply from: 'code/gradle/release.gradle'
+apply from: 'code/gradle/plugins.gradle'
 
 tasks.register("allTasks") {
-    dependsOn build, slowtest, javadoc, buildNsis, allReports
-    description = "Runs tasks build, slowtest, javadoc, buildNsis and allReports"
+    dependsOn build, slowtest, javadoc, allReports
+    description = "Runs tasks build, slowtest, javadoc and allReports"
 }
 
 // TODO This clean is not as nuclear as it perhaps should be.
@@ -960,21 +970,5 @@ tasks.register("allTasks") {
 // you will also need to clean out output/ bin/
 // This task is in the end, because other scripts contribute to the building process
 tasks.named("clean") {
-    dependsOn tasks.named("clean-plugins"), cleanOutput, cleanJre, cleanMods, cleanNsis, cleanMasterSheets
-
-    doLast {
-        // Delete a file generated by pluginbuild.xml
-        project.delete(layout.projectDirectory.file("code/manifest"))
-
-        // Delete plugin folders
-        project.delete(
-                layout.projectDirectory.dir("plugins/bonusplugins"),
-                layout.projectDirectory.dir("plugins/converterplugins"),
-                layout.projectDirectory.dir("plugins/jepplugins"),
-                layout.projectDirectory.dir("plugins/lstplugins"),
-                layout.projectDirectory.dir("plugins/outputplugins"),
-                layout.projectDirectory.dir("plugins/preplugins"),
-                layout.projectDirectory.dir("plugins/systemlstplugins")
-        )
-    }
+    dependsOn cleanPlugins, cleanOutput, cleanJre, cleanMods, cleanMasterSheets
 }
