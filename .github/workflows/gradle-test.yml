@@ -29,6 +29,7 @@ jobs:
             code/gradle/distribution.gradle
             code/gradle/release.gradle
             code/gradle/reporting.gradle
+            code/gradle/plugins.gradle
 
       # Configure Gradle for optimal use in GitHub Actions, including caching of downloaded dependencies.
       # See: https://github.com/gradle/actions/blob/main/setup-gradle/README.md
@@ -75,7 +76,7 @@ jobs:
 
       - name: Jacoco Report to PR
         id: jacoco
-        uses: madrapps/jacoco-report@v1.7.1
+        uses: madrapps/jacoco-report@v1.7.2
         with:
           paths: |
             ${{ github.workspace }}/build/reports/jacoco/testCoverage/testCoverage.xml
