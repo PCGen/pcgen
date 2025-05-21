@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
-build-gradle.xml - a stub ant file to allow Gradle to include just the plugin build tasks.
--->
-<project name="pcgen" basedir=".">
-    <property name="manifest.file" value="code/manifest" />
-    <import file="code/pluginbuild.xml" />
-</project>

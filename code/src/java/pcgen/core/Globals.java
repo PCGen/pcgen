@@ -540,8 +540,8 @@ public final class Globals
 
 	/**
 	 * Check if enough data has been loaded to support character creation.
-	 * Will also report to the log the number of items of each of the 
-	 * necessary types that are currently loaded.  
+	 * Will also report to the log the number of items of each of the
+	 * necessary types that are currently loaded.
 	 * @return true or false
 	 */
 	public static boolean displayListsHappy()
@@ -722,7 +722,7 @@ public final class Globals
 	}
 
 	/**
-	 * Apply the user's preferences to the initial state of the Globals.  
+	 * Apply the user's preferences to the initial state of the Globals.
 	 */
 	public static void initPreferences()
 	{
@@ -789,8 +789,8 @@ public final class Globals
 
 	/**
 	 * Sort Pcgen Object list by name
-	 * @param <T> 
-	 * 
+	 * @param <T>
+	 *
 	 * @param aList
 	 * @return Sorted list of Pcgen Objects
 	 */
@@ -1033,7 +1033,7 @@ public final class Globals
 
 	private static int bonusParsing(final String l, final int level, int num, final PlayerCharacter aPC)
 	{
-		// should be in format levelnum,rangenum[,numchoices] 
+		// should be in format levelnum,rangenum[,numchoices]
 		final StringTokenizer aTok = new StringTokenizer(l, "|", false);
 		final int startLevel = Integer.parseInt(aTok.nextToken());
 		final String rangeLevelFormula = aTok.nextToken();
