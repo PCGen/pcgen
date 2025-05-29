@@ -123,9 +123,6 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		setOrientation(VERTICAL_SPLIT);
 		setResizeWeight(0.70);
 
-		JSpinner spinner = new JSpinner();
-		spinner.setEditor(new JSpinner.NumberEditor(spinner, "#0.#")); //$NON-NLS-1$
-		skillTable.setDefaultRenderer(Float.class, new SpinnerRenderer(spinner));
 		skillTable.setDefaultRenderer(Integer.class, new TableCellUtilities.AlignRenderer(SwingConstants.CENTER));
 		skillTable.setDefaultRenderer(String.class, new TableCellUtilities.AlignRenderer(SwingConstants.CENTER));
 		skillTable.setRowHeight(26);
