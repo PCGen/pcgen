@@ -239,7 +239,7 @@ dependencies {
         exclude group: 'xml-apis', module: 'xml-apis'
     }
     implementation group: 'net.sourceforge.argparse4j', name: 'argparse4j', version: '0.9.0'
-    implementation group: 'org.xmlunit', name: 'xmlunit-core', version: '2.10.2'
+    implementation group: 'org.xmlunit', name: 'xmlunit-core', version: '2.10.3'
     implementation group: 'org.controlsfx', name: 'controlsfx', version: '11.2.2'
 
     implementation group: 'net.sourceforge.pcgen', name: 'PCGen-base', version: '1.0.170'
@@ -267,7 +267,7 @@ dependencies {
     testImplementation group: 'org.testfx', name: 'testfx-junit5', version: '4.0.18'
     testImplementation group: 'org.testfx', name: 'openjfx-monocle', version: '21.0.2'
 
-    testImplementation group: 'org.xmlunit', name: 'xmlunit-matchers', version: '2.10.2'
+    testImplementation group: 'org.xmlunit', name: 'xmlunit-matchers', version: '2.10.3'
     spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.14.0'
 
     pmd 'net.sourceforge.pmd:pmd-ant:7.14.0'
