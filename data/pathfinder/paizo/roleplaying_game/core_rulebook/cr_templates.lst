@@ -186,7 +186,7 @@ Ability Damaged (Strength)		VISIBLE:NO	TEMPBONUS:ANYPC|VAR|AbilityDamageSTR|%CHO
 Ability Damaged (Constitution)	VISIBLE:NO	TEMPBONUS:ANYPC|VAR|AbilityDamageCON|%CHOICE	TEMPVALUE:MIN=1|MAX=20|TITLE=Constitution Damage	TEMPDESC:Choose number of damage points to add
 Ability Damaged (Dexterity)		VISIBLE:NO	TEMPBONUS:ANYPC|VAR|AbilityDamageDEX|%CHOICE	TEMPVALUE:MIN=1|MAX=20|TITLE=Dexterity Damage		TEMPDESC:Choose number of damage points to add
 Ability Damaged (Intelligence)	VISIBLE:NO	TEMPBONUS:ANYPC|VAR|AbilityDamageINT|%CHOICE	TEMPVALUE:MIN=1|MAX=20|TITLE=Intelligence Damage	TEMPDESC:Choose number of damage points to add
-Ability Damaged (Wisdom)		VISIBLE:NO	TEMPBONUS:ANYPC|VAR|AbilityDamageWIS|%CHOICE	TEMPVALUE:MIN=1|MAX=20|TITLE=Wisdom Damage		TEMPDESC:Choose number of damage points to add
+Ability Damaged (Wisdom)		VISIBLE:NO	TEMPBONUS:ANYPC|VAR|AbilityDamageWIS|%CHOICE	TEMPVALUE:MIN=1|MAX=20|TITLE=Wisdom Damage			TEMPDESC:Choose number of damage points to add
 Ability Damaged (Charisma)		VISIBLE:NO	TEMPBONUS:ANYPC|VAR|AbilityDamageCHA|%CHOICE	TEMPVALUE:MIN=1|MAX=20|TITLE=Charisma Damage		TEMPDESC:Choose number of damage points to add
 
 ###Block: Ability Penalty
@@ -194,7 +194,7 @@ Ability Penalized (Strength)		VISIBLE:NO	TEMPBONUS:ANYPC|VAR|AbilityPenaltySTR|%
 Ability Penalized (Constitution)	VISIBLE:NO	TEMPBONUS:ANYPC|VAR|AbilityPenaltyCON|%CHOICE	TEMPVALUE:MIN=1|MAX=20|TITLE=Constitution Penalty	TEMPDESC:Choose number of penalty points to add
 Ability Penalized (Dexterity)		VISIBLE:NO	TEMPBONUS:ANYPC|VAR|AbilityPenaltyDEX|%CHOICE	TEMPVALUE:MIN=1|MAX=20|TITLE=Dexterity Penalty		TEMPDESC:Choose number of penalty points to add
 Ability Penalized (Intelligence)	VISIBLE:NO	TEMPBONUS:ANYPC|VAR|AbilityPenaltyINT|%CHOICE	TEMPVALUE:MIN=1|MAX=20|TITLE=Intelligence Penalty	TEMPDESC:Choose number of penalty points to add
-Ability Penalized (Wisdom)		VISIBLE:NO	TEMPBONUS:ANYPC|VAR|AbilityPenaltyWIS|%CHOICE	TEMPVALUE:MIN=1|MAX=20|TITLE=Wisdom Penalty		TEMPDESC:Choose number of penalty points to add
+Ability Penalized (Wisdom)			VISIBLE:NO	TEMPBONUS:ANYPC|VAR|AbilityPenaltyWIS|%CHOICE	TEMPVALUE:MIN=1|MAX=20|TITLE=Wisdom Penalty			TEMPDESC:Choose number of penalty points to add
 Ability Penalized (Charisma)		VISIBLE:NO	TEMPBONUS:ANYPC|VAR|AbilityPenaltyCHA|%CHOICE	TEMPVALUE:MIN=1|MAX=20|TITLE=Charisma Penalty		TEMPDESC:Choose number of penalty points to add
 
 ###Block: Ability Drain
@@ -205,6 +205,35 @@ Ability Drained (Constitution)	VISIBLE:NO	SOURCEPAGE:p.555	TEMPDESC:Choose numbe
 Ability Drained (Intelligence)	VISIBLE:NO	SOURCEPAGE:p.555	TEMPDESC:Choose number of ability points to drain		TEMPBONUS:ANYPC|STAT|INT|-1*(%CHOICE)	TEMPVALUE:MIN=1|MAX=20|TITLE=Intelligence Drain
 Ability Drained (Wisdom)		VISIBLE:NO	SOURCEPAGE:p.555	TEMPDESC:Choose number of ability points to drain		TEMPBONUS:ANYPC|STAT|WIS|-1*(%CHOICE)	TEMPVALUE:MIN=1|MAX=20|TITLE=Wisdom Drain
 Ability Drained (Charisma)		VISIBLE:NO	SOURCEPAGE:p.555	TEMPDESC:Choose number of ability points to drain		TEMPBONUS:ANYPC|STAT|CHA|-1*(%CHOICE)	TEMPVALUE:MIN=1|MAX=20|TITLE=Charisma Drain
+
+###Block: Ability Bonus
+# Template Name				Visible	Source Page		Temporary effect description						Temporary Bonus					TEMPVALUE
+Ability Bonus (Strength)		VISIBLE:NO	SOURCEPAGE:p.555	TEMPDESC:Choose number of ability points to gain		TEMPBONUS:ANYPC|STAT|STR|+1*(%CHOICE)		TEMPVALUE:MIN=1|MAX=20|TITLE=Strength Bonus
+Ability Bonus (Dexterity)		VISIBLE:NO	SOURCEPAGE:p.555	TEMPDESC:Choose number of ability points to gain		TEMPBONUS:ANYPC|STAT|DEX|+1*(%CHOICE)		TEMPVALUE:MIN=1|MAX=20|TITLE=Dexterity Bonus
+Ability Bonus (Constitution)	VISIBLE:NO	SOURCEPAGE:p.555	TEMPDESC:Choose number of ability points to gain		TEMPBONUS:ANYPC|STAT|CON|+1*(%CHOICE)		TEMPVALUE:MIN=1|MAX=20|TITLE=Constitution Bonus
+Ability Bonus (Intelligence)	VISIBLE:NO	SOURCEPAGE:p.555	TEMPDESC:Choose number of ability points to gain		TEMPBONUS:ANYPC|STAT|INT|+1*(%CHOICE)		TEMPVALUE:MIN=1|MAX=20|TITLE=Intelligence Bonus
+Ability Bonus (Wisdom)			VISIBLE:NO	SOURCEPAGE:p.555	TEMPDESC:Choose number of ability points to gain		TEMPBONUS:ANYPC|STAT|WIS|+1*(%CHOICE)		TEMPVALUE:MIN=1|MAX=20|TITLE=Wisdom Bonus
+Ability Bonus (Charisma)		VISIBLE:NO	SOURCEPAGE:p.555	TEMPDESC:Choose number of ability points to gain		TEMPBONUS:ANYPC|STAT|CHA|+1*(%CHOICE)		TEMPVALUE:MIN=1|MAX=20|TITLE=Charisma Bonus
+
+###Block: AC Bonus and Penalty
+# Template Name				Visible	Source Page		Temporary effect description						Temporary Bonus					TEMPVALUE
+AC Bonus						VISIBLE:NO	SOURCEPAGE:p.555	TEMPDESC:Choose value to add to AC						TEMPBONUS:ANYPC|COMBAT|AC|+1*(%CHOICE)	TEMPVALUE:MIN=1|MAX=20|TITLE=AC Bonus
+AC Penalty						VISIBLE:NO	SOURCEPAGE:p.555	TEMPDESC:Choose value to remove from AC					TEMPBONUS:ANYPC|COMBAT|AC|-1*(%CHOICE)	TEMPVALUE:MIN=1|MAX=20|TITLE=AC Penalty
+
+###Block: Fortitude Bonus and Penalty
+# Template Name				Visible	Source Page		Temporary effect description						Temporary Bonus					TEMPVALUE
+Fortitude Bonus						VISIBLE:NO	SOURCEPAGE:p.555	TEMPDESC:Choose value to add to Fortitude						TEMPBONUS:ANYPC|SAVE|Will|+1*(%CHOICE)		TEMPVALUE:MIN=1|MAX=20|TITLE=Fortitude Bonus
+Fortitude Penalty					VISIBLE:NO	SOURCEPAGE:p.555	TEMPDESC:Choose value to remove from Fortitude					TEMPBONUS:ANYPC|SAVE|Will|-1*(%CHOICE)		TEMPVALUE:MIN=1|MAX=20|TITLE=Fortitude Penalty
+
+###Block: Reflex Bonus and Penalty
+# Template Name				Visible	Source Page		Temporary effect description						Temporary Bonus					TEMPVALUE
+Reflex Bonus						VISIBLE:NO	SOURCEPAGE:p.555	TEMPDESC:Choose value to add to Reflex							TEMPBONUS:ANYPC|SAVE|Reflex|+1*(%CHOICE)	TEMPVALUE:MIN=1|MAX=20|TITLE=Reflex Bonus
+Reflex Penalty						VISIBLE:NO	SOURCEPAGE:p.555	TEMPDESC:Choose value to remove from Reflex						TEMPBONUS:ANYPC|SAVE|Reflex|-1*(%CHOICE)	TEMPVALUE:MIN=1|MAX=20|TITLE=Reflex Penalty
+
+###Block: Will Bonus and Penalty
+# Template Name				Visible	Source Page		Temporary effect description						Temporary Bonus					TEMPVALUE
+Will Bonus							VISIBLE:NO	SOURCEPAGE:p.555	TEMPDESC:Choose value to add to Will							TEMPBONUS:ANYPC|SAVE|Will|+1*(%CHOICE)		TEMPVALUE:MIN=1|MAX=20|TITLE=Will Bonus
+Will Penalty						VISIBLE:NO	SOURCEPAGE:p.555	TEMPDESC:Choose value to remove from Will						TEMPBONUS:ANYPC|SAVE|Will|-1*(%CHOICE)		TEMPVALUE:MIN=1|MAX=20|TITLE=Will Penalty
 
 ###Block: Negative Levels
 # Template Name	Visible	Source Page		Temporary effect description					Temporary Bonus																																																																TEMPVALUE
