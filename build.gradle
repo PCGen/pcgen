@@ -757,7 +757,7 @@ tasks.register("testCoverage", JacocoReport) {
 }
 
 tasks.named("test", Test) {
-    exclude 'pcgen/testsupport/**'
+    exclude 'test/pcgen/testsupport/**'
     useJUnitPlatform()
 }
 
@@ -776,17 +776,14 @@ tasks.register("slowtest", Test) {
     classpath = sourceSets.slowtest.runtimeClasspath
     systemProperties['jar.path'] = jar.getArchiveFile().get().getAsFile()
     forkEvery = 1
-    // Exclude the two suites to avoid duplicate test runs.
-    exclude 'AllJUnitTests.class'
-    exclude 'pcgen/core/AllJUnitTests.class'
 }
 
 tasks.register("datatest", Test) {
     dependsOn jar
     testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
-    include 'pcgen/persistence/lst/DataTest.class'
-    include 'pcgen/persistence/lst/DataLoadTest.class'
+    include 'main/pcgen/persistence/lst/DataTest.class'
+    include 'main/pcgen/persistence/lst/DataLoadTest.class'
 }
 
 tasks.register("inttest", Test) {
@@ -794,7 +791,7 @@ tasks.register("inttest", Test) {
     testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
-    include 'pcgen/inttest/**/*Test.class'
+    include 'slowtest/pcgen/inttest/**/*Test.class'
 }
 
 tasks.register("sfinttest", Test) {
@@ -802,7 +799,7 @@ tasks.register("sfinttest", Test) {
     testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
-    include 'pcgen/inttest/game_starfinder/*Test.class'
+    include 'slowtest/pcgen/inttest/game_starfinder/*Test.class'
 }
 
 tasks.register("pfinttest", Test) {
@@ -810,7 +807,7 @@ tasks.register("pfinttest", Test) {
     testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
-    include 'pcgen/inttest/game_pathfinder/*Test.class'
+    include 'slowtest/pcgen/inttest/game_pathfinder/*Test.class'
 }
 
 tasks.register("rsrdinttest", Test) {
@@ -818,7 +815,7 @@ tasks.register("rsrdinttest", Test) {
     testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
-    include 'pcgen/inttest/game_35e/*Test.class'
+    include 'slowtest/pcgen/inttest/game_35e/*Test.class'
 }
 
 tasks.register("srdinttest", Test) {
@@ -826,7 +823,7 @@ tasks.register("srdinttest", Test) {
     testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
-    include 'pcgen/inttest/game_3e/*Test.class'
+    include 'slowtest/pcgen/inttest/game_3e/*Test.class'
 }
 
 tasks.register("msrdinttest", Test) {
@@ -834,7 +831,7 @@ tasks.register("msrdinttest", Test) {
     testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
-    include 'pcgen/inttest/game_modern/*Test.class'
+    include 'slowtest/pcgen/inttest/game_modern/*Test.class'
 }
 
 allprojects {
