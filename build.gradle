@@ -85,7 +85,7 @@ ext {
     releaseDir = layout.projectDirectory.dir("build/release")
 
     // JavaFX version
-    javaFXVersion = "21.0.7"
+    javaFXVersion = "21.0.8"
 }
 
 application {
