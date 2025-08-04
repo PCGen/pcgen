@@ -187,7 +187,7 @@ public final class GameMode implements Comparable<Object>
 	}
 
 	/**
-	 * Apply the stored preferences to the game mode. 
+	 * Apply the stored preferences to the game mode.
 	 */
 	public void applyPreferences()
 	{
@@ -240,7 +240,7 @@ public final class GameMode implements Comparable<Object>
 	}
 
 	/**
-	 * Retrieve the correct case of the supplied ACType name. 
+	 * Retrieve the correct case of the supplied ACType name.
 	 * @param acType The name to be found.
 	 * @return The name in the correct case.
 	 */
@@ -636,7 +636,7 @@ public final class GameMode implements Comparable<Object>
 
 	/**
 	 * Gets the abbreviation for the given weapon Type.
-	 * 
+	 *
 	 * @param type
 	 *            The Type
 	 * @return The abbreviation for the given Type
@@ -1939,7 +1939,7 @@ public final class GameMode implements Comparable<Object>
 	 * Takes references and abbreviations that have been placed into the
 	 * LoadContext for this GameMode and copies those references and
 	 * abbreviations into the given ReferenceContext
-	 * 
+	 *
 	 * @param referenceContext
 	 *            The Reference Context into which the references from this
 	 *            GameMode should be copied.
@@ -1960,20 +1960,24 @@ public final class GameMode implements Comparable<Object>
 	{
 		String identityName = rm.getPersistentFormat();
 		ReferenceManufacturer<T> mfg = rc.getManufacturerByFormatName(identityName, rm.getReferenceClass());
-		// If format fails, fall back to class
+		// If a format fails, fall back to class
 		if ((mfg == null) && (identityName.indexOf('=') == -1))
 		{
 			Class<T> cl = rm.getReferenceClass();
 			mfg = rc.getManufacturer(cl);
 		}
-		if (mfg!=null) {
-			for (CDOMReference<T> ref : rm.getAllReferences()) {
+		if (mfg != null)
+		{
+			for (CDOMReference<T> ref : rm.getAllReferences())
+			{
 				((TransparentReference<T>) ref).resolve(mfg);
 			}
 			rm.injectConstructed(mfg);
 		}
 		else
-			System.out.println("idname="+identityName+" had a null mfg - skipping");
+		{
+			Logging.debugPrint("idname = " + identityName + " had a null mfg - skipping");
+		}
 	}
 
 	public LoadContext getContext()
@@ -2250,7 +2254,7 @@ public final class GameMode implements Comparable<Object>
 	}
 
 	/**
-	 * Retrieve the priority of the listed type;s icon. A higher number means a higher 
+	 * Retrieve the priority of the listed type;s icon. A higher number means a higher
 	 * priority, generally the highest priority icon will be used.
 	 * @param equipType The equipment type
 	 * @return The priority, or 0 if none is known.

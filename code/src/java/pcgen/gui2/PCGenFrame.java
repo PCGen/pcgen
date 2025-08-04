@@ -1560,6 +1560,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 			updateTitle();
 		}
 
+		// TODO there are no examples with licenses. Either remove this or add a test.
 		private void showLicenses()
 		{
 			PropertyContext context = PCGenSettings.OPTIONS_CONTEXT;
@@ -1576,11 +1577,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 					{
 						showLicenseDialog(LanguageBundle.getString("in_specialLicenses"), licenses); //$NON-NLS-1$
 					}
-					for (String license : loader.getOtherLicenses())
-					{
-						showLicenseDialog(LanguageBundle.getString("in_specialLicenses"), license); //$NON-NLS-1$
-					}
-
+					loader.getOtherLicenses()
+							.forEach(license -> showLicenseDialog(LanguageBundle.getString("in_specialLicenses"), license)); //$NON-NLS-1$
 				}
 			}
 			if (loader.hasMatureCampaign() && context.initBoolean(PCGenSettings.OPTION_SHOW_MATURE_ON_LOAD, true))
