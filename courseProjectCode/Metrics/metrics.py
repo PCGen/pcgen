@@ -24,22 +24,22 @@ def analyze_java_file(path: Path):
             total = total + 1
             line = line.strip()
 
-        if in_block:
-            comments = comments + 1
-            # If we encounter the end of a comment block
-            if "*/" in line:
-                in_block = False
+            if in_block:
+                comments = comments + 1
+                # If we encounter the end of a comment block
+                if "*/" in line:
+                    in_block = False
 
-        if line.startswith("//"):
-            comments = comments + 1
-        elif "/*" in line:
-            comments = comments + 1
-            # Catches a case where /* example comment */ occurs
-            if "*/" not in line:
-                in_block = True
-            # Ignore empty lines
-        elif line != "":
-            code += 1
+            if line.startswith("//"):
+                comments = comments + 1
+            elif "/*" in line:
+                comments = comments + 1
+                # Catches a case where /* example comment */ occurs
+                if "*/" not in line:
+                    in_block = True
+                # Ignore empty lines
+            elif line != "":
+                code += 1
     
     return total, code, comments
 
@@ -66,7 +66,10 @@ def collect_metrics(project_root: str):
         if skip_file:
             continue
         
-        total_lines, total_code, total_comments = analyze_java_file(path)
+        t, c, cm = analyze_java_file(path)
+        total_lines += t
+        total_code  += c
+        total_comments += cm
 
     # Catching a divide by 0 error
     if total_lines != 0:
@@ -77,6 +80,7 @@ def collect_metrics(project_root: str):
     return total_lines, total_code, total_comments, density
 
 if __name__ == "__main__":
+    # Getting the right files
     cwd = Path.cwd()
     project_dir = cwd.parent.parent / "code/src/java"
 
