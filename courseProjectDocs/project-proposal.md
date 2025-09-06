@@ -6,22 +6,23 @@
 
 ## Project Overview
 
-The goal of this deliverable is develop code to collect metrics relating to Maintainability and Testability.
+The goal of this deliverable is to collect metrics relating to Maintainability and Testability.
 
 Our proposed solution includes developing a python script to obtain, calculate, and output the metrics required.
 
 Our deliverable includes:
 
 1. Reproducible code that computes maintainability and testability metrics.
-2. A short report discussing results, and a README.md for instructions on how to run the code.
+2. A short report inlcluding the project overview and key quality metrics.
+3. A README.md file detailing how to run the metrics collection.
 
 ## Metrics
 
 For Maintainability we will be focusing on 2 key metrics.
 
 1. Code Structure
-    - Lines of code (LOC) per file.
-    - Comment density (comments / total lines).
+    - Average lines of code (LOC) per file.
+    - Comment density (number of comments / total lines).
 2. Testability
     - Number of unit test cases / test suites.
     - Test coverage.
