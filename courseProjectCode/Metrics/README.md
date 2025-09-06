@@ -35,3 +35,16 @@ Tests: 16741  Failures: 0  Errors: 0  Skipped: 20
 Line coverage: 26.07%  (covered=137351, missed=389414)
 ```
 
+*Note*:
+
+You may need to do a clean gradle build before running metrics.py. To do this open your terminal and navigate to the root folder.
+
+`cd PCGEN/`
+
+After this, run the command below.
+
+`./gradlew build`
+
+Finally, follow the steps listed above to run metrics.py.
+
+
