@@ -74,5 +74,14 @@ def collect_metrics(project_root: str):
 
     return total_lines, total_code, total_comments, density
 
+if __name__ == "__main__":
+    project_dir = "PCGEN/code/src"
 
+    total, code, comments, density = collect_metrics(project_dir)
+
+    print("--Maintainability Metrics--")
+    print(f"Total lines: {total}")
+    print(f"Code lines: {code}")
+    print(f"Comment lines: {comments}")
+    print(f"Comment density: {density:.3f}")
 
