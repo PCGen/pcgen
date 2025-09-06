@@ -62,3 +62,17 @@ For Maintainability we will be focusing on 2 key metrics.
 # Expected Output
 
 The expected output of this program is command line outputs that output the metrics after calculation. 
+
+Example output:
+
+```
+-- Maintainability Metrics --
+Total lines: 398017
+Total lines of code: 339724
+Total lines of comments: 111386
+Comment density: 0.280
+
+-- Testability --
+Tests: 16741  Failures: 0  Errors: 0  Skipped: 20
+Line coverage: 26.07%  (covered=137351, missed=389414)
+```
