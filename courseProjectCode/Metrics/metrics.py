@@ -44,6 +44,7 @@ def analyze_java_file(path: Path):
     return total, code, comments
 
 def collect_metrics(project_root: str):
+    """This function goes through all of the relevant files and calls the analyze_java_file function for each found .java file"""
     root = Path(project_root)
     total_lines = 0
     total_code = 0
@@ -79,6 +80,7 @@ def collect_metrics(project_root: str):
     return total_lines, total_code, total_comments, density
 
 if __name__ == "__main__":
+    """This is the function that outputs the metric results"""
     # Getting the right files
     cwd = Path.cwd()
     project_dir = cwd.parent.parent / "code/src/java"
