@@ -13,7 +13,7 @@ Our proposed solution includes developing a python script to obtain, calculate, 
 Our deliverable includes:
 
 1. Reproducible code that computes maintainability and testability metrics.
-2. A short report discussing results, limitations, and recommendations.
+2. A short report discussing results, and a README.md for instructions on how to run the code.
 
 ## Metrics
 
