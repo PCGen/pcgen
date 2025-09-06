@@ -63,5 +63,16 @@ def collect_metrics(project_root: str):
         
         if skip_file:
             continue
+        
+        total_lines, total_code, total_comments = analyze_java_file(path)
+
+    # Catching a divide by 0 error
+    if total_lines != 0:
+        density = total_comments / total_lines
+    else:
+        density = 0
+
+    return total_lines, total_code, total_comments, density
+
 
 
