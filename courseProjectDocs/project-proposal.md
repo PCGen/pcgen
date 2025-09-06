@@ -12,7 +12,7 @@ Our proposed solution includes developing a python script to obtain, calculate, 
 
 Our deliverable includes:
 
-1. Reproducible code that computes maintainability and testability metrics
+1. Reproducible code that computes maintainability and testability metrics.
 2. A short report discussing results, limitations, and recommendations.
 
 ## Metrics
@@ -20,11 +20,11 @@ Our deliverable includes:
 For Maintainability we will be focusing on 2 key metrics.
 
 1. Code Structure
-    - Lines of code (LOC) per file
-    - Comment density (comments / total lines)
+    - Lines of code (LOC) per file.
+    - Comment density (comments / total lines).
 2. Testability
-    - Number of unit test cases / test suites
-    - Test coverage
+    - Number of unit test cases / test suites.
+    - Test coverage.
 
 ### Maintainability
 
