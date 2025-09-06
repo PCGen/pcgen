@@ -6,32 +6,32 @@
 
 ## Project Overview
 
-The goal of this deliverable is to collect metrics relating to Maintainability and Testability.
+The goal of this deliverable is to collect metrics relating to Maintainability, which includes Tesability.
 
 Our proposed solution includes developing a python script to obtain, calculate, and output the metrics required.
 
 Our deliverable includes:
 
 1. Reproducible code that computes maintainability and testability metrics.
-2. A short report inlcluding the project overview and key quality metrics.
+2. A short report including the project overview and key quality metrics.
 3. A README.md file detailing how to run the metrics collection.
 
 ## Metrics
 
-For Maintainability we will be focusing on 2 key metrics.
+For Maintainability, we will be focusing on 2 key metrics.
 
 1. Code Structure
     - Average lines of code (LOC) per file.
     - Comment density (number of comments / total lines).
 2. Testability
-    - Number of unit test cases / test suites.
+    - Number of unit test cases/test suites.
     - Test coverage.
 
 ### Maintainability
 
 1. **Lines of Code (LOC) per file (production code only)**  
    - *Definition:* Count of non-blank, non-comment lines in each Java source file. 
-   - *Why it matters:* Very large files are harder to maintain, and follow logic.
+   - *Why it matters:* Very large files are harder to maintain and follow logic.
    - *Computation:* Ignore `//` line comments and `/* ... */` block comments. Ignore blank lines.
 
 2. **Comment Density**  
@@ -62,7 +62,7 @@ For Maintainability we will be focusing on 2 key metrics.
 
 # Expected Output
 
-The expected output of this program is command line outputs that output the metrics after calculation. 
+The program will display the calculated metrics directly in the terminal after execution.
 
 Example output:
 
