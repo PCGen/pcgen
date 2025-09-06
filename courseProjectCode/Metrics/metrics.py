@@ -43,6 +43,25 @@ def analyze_java_file(path: Path):
     
     return total, code, comments
 
+def collect_metrics(project_root: str):
+    root = Path(project_root)
+    total_lines = 0
+    total_code = 0
+    total_comments = 0
 
+    # We want to skip any irrelevant files such as test files, and gradle files
+    skip_dirs = {"test", "tests", "itest", "utest", "build", ".gradle"}
+
+    for path in root.rglob("*.java"):
+        skip_file = False
+
+        # If we find a file that we want to skip, break then continue through the loop
+        for part in path.parts:
+            if part.lower() in skip_dirs:
+                skip_file = True
+                break
+        
+        if skip_file:
+            continue
 
 
