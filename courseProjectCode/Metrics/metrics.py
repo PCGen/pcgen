@@ -66,6 +66,7 @@ def collect_metrics(project_root: str):
         if skip_file:
             continue
         
+        # Update the totals
         t, c, cm = analyze_java_file(path)
         total_lines += t
         total_code  += c
@@ -88,7 +89,7 @@ if __name__ == "__main__":
 
     print("-- Maintainability Metrics --")
     print(f"Total lines: {total}")
-    print(f"Code lines: {code}")
-    print(f"Comment lines: {comments}")
+    print(f"Total lines of code: {code}")
+    print(f"Total lines of comments: {comments}")
     print(f"Comment density: {density:.3f}")
 
