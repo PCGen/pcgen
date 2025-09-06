@@ -49,6 +49,8 @@ def collect_metrics(project_root: str):
     total_code = 0
     total_comments = 0
 
+    print(f"made it to path: {project_root}")
+
     # We want to skip any irrelevant files such as test files, and gradle files
     skip_dirs = {"test", "tests", "itest", "utest", "build", ".gradle"}
 
@@ -75,11 +77,12 @@ def collect_metrics(project_root: str):
     return total_lines, total_code, total_comments, density
 
 if __name__ == "__main__":
-    project_dir = "PCGEN/code/src"
+    cwd = Path.cwd()
+    project_dir = cwd.parent.parent / "code/src/java"
 
     total, code, comments, density = collect_metrics(project_dir)
 
-    print("--Maintainability Metrics--")
+    print("-- Maintainability Metrics --")
     print(f"Total lines: {total}")
     print(f"Code lines: {code}")
     print(f"Comment lines: {comments}")
