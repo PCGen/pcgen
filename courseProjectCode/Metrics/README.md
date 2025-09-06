@@ -32,5 +32,6 @@ Comment density: 0.280
 
 -- Testability --
 Tests: 16741  Failures: 0  Errors: 0  Skipped: 20
-Line coverage: 26.07%  (covered=137351, missed=389414)```
+Line coverage: 26.07%  (covered=137351, missed=389414)
+```
 
