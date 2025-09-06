@@ -46,6 +46,7 @@ def analyze_java_file(path: Path):
 def collect_metrics(project_root: str):
     """This function goes through all of the relevant files and calls the analyze_java_file function for each found .java file"""
     root = Path(project_root)
+    total_files = 0
     total_lines = 0
     total_code = 0
     total_comments = 0
@@ -66,6 +67,7 @@ def collect_metrics(project_root: str):
             continue
         
         # Update the totals
+        total_files += 1
         t, c, cm = analyze_java_file(path)
         total_lines += t
         total_code  += c
@@ -77,7 +79,7 @@ def collect_metrics(project_root: str):
     else:
         density = 0
 
-    return total_lines, total_code, total_comments, density
+    return total_files, total_lines, total_code, total_comments, density
 
 if __name__ == "__main__":
     """This is the function that outputs the metric results"""
@@ -85,11 +87,13 @@ if __name__ == "__main__":
     cwd = Path.cwd()
     project_dir = cwd.parent.parent / "code/src/java"
 
-    total, code, comments, density = collect_metrics(project_dir)
+    file_count, total, code, comments, density = collect_metrics(project_dir)
 
     print("-- Maintainability Metrics --")
+    print(f"Files scanned: {file_count}")
     print(f"Total lines: {total}")
     print(f"Total lines of code: {code}")
+    print(f"Average LOC per file: {code / file_count:.0f}")
     print(f"Total lines of comments: {comments}")
     print(f"Comment density: {density:.3f}")
 
