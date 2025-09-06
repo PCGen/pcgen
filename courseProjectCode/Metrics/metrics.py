@@ -49,8 +49,6 @@ def collect_metrics(project_root: str):
     total_code = 0
     total_comments = 0
 
-    print(f"made it to path: {project_root}")
-
     # We want to skip any irrelevant files such as test files, and gradle files
     skip_dirs = {"test", "tests", "itest", "utest", "build", ".gradle"}
 
