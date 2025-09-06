@@ -61,4 +61,4 @@ For Maintainability we will be focusing on 2 key metrics.
 
 # Expected Output
 
-The expected output of this program is a text or XML file of the current metrics after calculation. 
+The expected output of this program is command line outputs that output the metrics after calculation. 
