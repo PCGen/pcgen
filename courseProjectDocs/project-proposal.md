@@ -6,6 +6,10 @@
 
 ## Project Overview
 
+PCGen allows a user to create, manage, and optimize playable characters in board games such as Dungeons and Dragons. This project uses the Java JDK which allows it to run across multiple operating systems such as Windows, Mac, and Linux.
+
+## Deliverable Overview
+
 The goal of this deliverable is to collect metrics relating to Maintainability, which includes Tesability.
 
 Our proposed solution includes developing a python script to obtain, calculate, and output the metrics required.
