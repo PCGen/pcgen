@@ -8,7 +8,7 @@
 
 PCGen allows a user to create, manage, and optimize playable characters in board games such as Dungeons and Dragons. This project uses the Java JDK which allows it to run across multiple operating systems such as Windows, Mac, and Linux. PCGen also uses gradle to build, and the developers added deployables (installers) for ease of use for the end-user.
 
-The GUI allows the end-user to enter/reroll stats such as strength, dexterity, intelligence, etc. These are vital stats for playable characters in games such as Dungeons and Dragons, and can become tedious to keep track of, and manage, with pen and paper. The GUI also outputs full statistics for the character, such as HP, race, gender, max load (weight), etc. This allows the end-user to quickly view a "rundown" of the character they have created. PCGen makes it easy, and reliable, to manage characters in an efficient way, solving the tediousness for players looking to play many board games.
+The GUI allows the end-user to enter/reroll stats such as strength, dexterity, intelligence, etc. These are vital stats for playable characters in games such as Dungeons and Dragons, and can become tedious to keep track of, and manage, with pen and paper. The GUI also outputs full statistics for the character, such as HP, race, gender, max load (weight), etc. This allows the end-user to quickly view a "rundown" of the character they have created, or edited. PCGen makes it easy, and reliable, to manage characters in an efficient way, solving the tediousness for players looking to play many board games.
 
 ## Deliverable Overview
 
