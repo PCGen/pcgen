@@ -2,5 +2,5 @@
 
 
 ###Block: Playable Races
-# Race Name	SORTKEY		Starting Feats	Base size		Move			Ability								Nb Legs	Nb Hands	Main Race Type	Type				Source Page		FACT
-Aasimar	SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|S	MOVE:Walk,30	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Aasimar	LEGS:2	HANDS:2	RACETYPE:Outsider	TYPE:Base.PC.Featured	SOURCEPAGE:p.7	FACT:IsPC|true
+# Race Name	SORTKEY		Starting Feats	Base size		Move			Ability					Nb Legs	Nb Hands	Main Race Type	Type				Source Page		FACT
+Aasimar	SORTKEY:a_base_pc	STARTFEATS:1	FACT:BaseSize|S	MOVE:Walk,30	ABILITY:Race|AUTOMATIC|Aasimar	LEGS:2	HANDS:2	RACETYPE:Outsider	TYPE:Base.PC.Featured	SOURCEPAGE:p.7	FACT:IsPC|true
