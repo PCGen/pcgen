@@ -10,17 +10,30 @@ SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/
 
 
 ###Block: Familiar Choices
-CATEGORY=Internal|Improved Familiar List (5th Level).MOD	COMPANIONLIST:Familiar|Familiar (Brownie)|PREALIGN:TN,NE,NG,CN,LN
-CATEGORY=Internal|Improved Familiar List (5th Level).MOD	COMPANIONLIST:Familiar|Familiar (Elemental (Ice/Small)),Familiar (Elemental (Lightning/Small)),Familiar (Elemental (Magma/Small)),Familiar (Elemental (Mud/Small))|PREALIGN:TN,NE,NG,CN,LN
-
-CATEGORY=Internal|Improved Familiar List (7th Level).MOD	COMPANIONLIST:Familiar|Familiar (Paracletus)|PREALIGN:TN,NE,NG,CN,LN
-CATEGORY=Internal|Improved Familiar List (7th Level).MOD	COMPANIONLIST:Familiar|Familiar (Silvanshee)|PREALIGN:LG,NG,CG,LN,TN,CN
-CATEGORY=Internal|Improved Familiar List (7th Level).MOD	COMPANIONLIST:Familiar|Familiar (Cassisian)|PREALIGN:LG,LN,NG,TN
-CATEGORY=Internal|Improved Familiar List (7th Level).MOD	COMPANIONLIST:Familiar|Familiar (Lyrakien)|PREALIGN:CG,NG,CN,TN
+CATEGORY=Internal|Improved Familiar List (5th Level).MOD	ABILITY:Internal|AUTOMATIC|Improved Familiar List (5th Level) ~ Master is TN NE NG CN LN|PREALIGN:TN,NE,NG,CN,LN
+CATEGORY=Internal|Improved Familiar List (7th Level).MOD	ABILITY:Internal|AUTOMATIC|Improved Familiar List (7th Level) ~ Master is TN NE NG CN LN|PREALIGN:TN,NE,NG,CN,LN
+CATEGORY=Internal|Improved Familiar List (7th Level).MOD	ABILITY:Internal|AUTOMATIC|Improved Familiar List (7th Level) ~ Master is LG NG CG LN TN CN|PREALIGN:LG,NG,CG,LN,TN,CN
+CATEGORY=Internal|Improved Familiar List (7th Level).MOD	ABILITY:Internal|AUTOMATIC|Improved Familiar List (7th Level) ~ Master is LG LN NG TN|PREALIGN:LG,LN,NG,TN
+CATEGORY=Internal|Improved Familiar List (7th Level).MOD	ABILITY:Internal|AUTOMATIC|Improved Familiar List (7th Level) ~ Master is CG NG CN TN|PREALIGN:CG,NG,CN,TN
 CATEGORY=Internal|Improved Familiar List (7th Level).MOD	COMPANIONLIST:Familiar|Familiar (Cacodaemon)
-CATEGORY=Internal|Improved Familiar List (7th Level).MOD	COMPANIONLIST:Familiar|Familiar (Arbiter)|PREALIGN:LN,LG,LE,NG,TN,NE
-CATEGORY=Internal|Improved Familiar List (7th Level).MOD	COMPANIONLIST:Familiar|Familiar (Voidworm)|PREALIGN:CN,CG,CE,NG,TN,NE
-CATEGORY=Internal|Improved Familiar List (7th Level).MOD	COMPANIONLIST:Familiar|Familiar (Cythnigot)|PREALIGN:CE,CN,NE,TN
+CATEGORY=Internal|Improved Familiar List (7th Level).MOD	ABILITY:Internal|AUTOMATIC|Improved Familiar List (7th Level) ~ Master is LN LG LE NG TN NE|PREALIGN:LN,LG,LE,NG,TN,NE
+CATEGORY=Internal|Improved Familiar List (7th Level).MOD	ABILITY:Internal|AUTOMATIC|Improved Familiar List (7th Level) ~ Master is CN CG CE NG TN NE|PREALIGN:CN,CG,CE,NG,TN,NE
+CATEGORY=Internal|Improved Familiar List (7th Level).MOD	ABILITY:Internal|AUTOMATIC|Improved Familiar List (7th Level) ~ Master is CE CN NE TN|PREALIGN:CE,CN,NE,TN
+
+
+Improved Familiar List (5th Level) ~ Master is TN NE NG CN LN	CATEGORY:Internal		COMPANIONLIST:Familiar|Familiar (Brownie),Familiar (Elemental (Ice/Small)),Familiar (Elemental (Lightning/Small)),Familiar (Elemental (Magma/Small)),Familiar (Elemental (Mud/Small))
+Improved Familiar List (7th Level) ~ Master is TN NE NG CN LN	CATEGORY:Internal		COMPANIONLIST:Familiar|Familiar (Paracletus)
+Improved Familiar List (7th Level) ~ Master is LG NG CG LN TN CN	CATEGORY:Internal		COMPANIONLIST:Familiar|Familiar (Silvanshee)
+
+Improved Familiar List (7th Level) ~ Master is LG LN NG TN		CATEGORY:Internal		COMPANIONLIST:Familiar|Familiar (Cassisian)
+Improved Familiar List (7th Level) ~ Master is CG NG CN TN		CATEGORY:Internal		COMPANIONLIST:Familiar|Familiar (Lyrakien)
+Improved Familiar List (7th Level) ~ Master is LN LG LE NG TN NE	CATEGORY:Internal		COMPANIONLIST:Familiar|Familiar (Arbiter)
+Improved Familiar List (7th Level) ~ Master is CN CG CE NG TN NE	CATEGORY:Internal		COMPANIONLIST:Familiar|Familiar (Voidworm)
+Improved Familiar List (7th Level) ~ Master is CE CN NE TN		CATEGORY:Internal		COMPANIONLIST:Familiar|Familiar (Cythnigot)
+
+
+
+
 
 
 ###Block: Familiar Choices
