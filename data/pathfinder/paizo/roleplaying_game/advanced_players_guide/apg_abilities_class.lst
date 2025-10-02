@@ -2607,7 +2607,7 @@ CATEGORY=Internal|Default.MOD																DEFINE:Ranger_Combat_Style_Feat_Mul
 
 ###Block: Special Requirement
 # Ability Name											Required Ability
-CATEGORY=Special Ability|Ranger Combat Style Feat ~ Point Blank Master.MOD	PREABILITY:1,CATEGORY=FEAT,Weapon Focus (Longbow),Weapon Focus (Shortbow)
+CATEGORY=Special Ability|Ranger Combat Style Feat ~ Point Blank Master.MOD	PREABILITY:1,CATEGORY=FEAT,Weapon Focus
 
 ###Block: Ranger Combat Style Bonus Feats
 # Archery
