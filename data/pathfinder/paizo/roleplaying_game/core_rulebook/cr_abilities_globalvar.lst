@@ -148,6 +148,23 @@ CATEGORY=Class|Bard.MOD								ABILITY:Bard Class Feature|AUTOMATIC|Weapon and A
 CATEGORY=Class|Bard.MOD								ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Simple|Weapon Proficiencies ~ Bard|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardWeaponProficiencies
 CATEGORY=Class|Bard.MOD								ABILITY:Internal|AUTOMATIC|Armor Prof ~ Light|Shield Prof|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardArmorProficiencies
 CATEGORY=Class|Bard.MOD
+CATEGORY=Class|Bard.MOD	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Armored Casting		
+CATEGORY=Class|Bard.MOD	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Knowledge		
+CATEGORY=Class|Bard.MOD	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Countersong		
+CATEGORY=Class|Bard.MOD	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Performance		
+CATEGORY=Class|Bard.MOD	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Cantrips			
+CATEGORY=Class|Bard.MOD	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Versatile Performance|PREVARGTEQ:BardLVL,2	
+CATEGORY=Class|Bard.MOD	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Well-Versed|PREVARGTEQ:BardLVL,2		
+CATEGORY=Class|Bard.MOD	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Lore Master|PREVARGTEQ:BardLVL,5		
+CATEGORY=Class|Bard.MOD	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Jack of All Trades|PREVARGTEQ:BardLVL,10	
+
+
+
+
+
+
+
+
 
 CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_BardicKnowledge|0
 CATEGORY=Class|Bard.MOD	DEFINE:Bard_CF_CounterSong|0
