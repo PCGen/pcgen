@@ -170,7 +170,7 @@ CATEGORY=Class|Barbarian ~ Standard Ex-Class.MOD	ABILITY:Barbarian Class Feature
 # Ability Name					Ability
 CATEGORY=Class|Monk ~ Standard Class.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Unarmed Strike|PREVAREQ:Monk_CF_UnarmedStrike,0|PREVARGTEQ:Monk_CFP_Level,1
 CATEGORY=Class|Monk ~ Standard Class.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Flurry of Blows|PREVAREQ:Monk_CF_FlurryOfBlows,0|PREVARGTEQ:Monk_CFP_Level,1
-CATEGORY=Class|Monk ~ Standard Class.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Monk Bonus Feat|PREVARGTEQ:Monk_CFP_Level,1
+CATEGORY=Class|Monk ~ Standard Class.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Monk Bonus Feat|PREVAREQ:Monk_CF_BonusFeats,0|PREVARGTEQ:Monk_CFP_Level,1
 CATEGORY=Class|Monk ~ Standard Class.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ AC Bonus|PREVAREQ:Monk_CF_ACBonus,0|PREVARGTEQ:Monk_CFP_Level,1
 CATEGORY=Class|Monk ~ Standard Class.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Stunning Fist|PREVAREQ:Monk_CF_StunningFist,0|PREVARGTEQ:Monk_CFP_Level,1
 CATEGORY=Class|Monk ~ Standard Class.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Evasion|PREVAREQ:Monk_CF_Evasion,0|PREVARGTEQ:Monk_CFP_Level,2
