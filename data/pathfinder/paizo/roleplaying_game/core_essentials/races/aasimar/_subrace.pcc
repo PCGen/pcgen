@@ -15,5 +15,4 @@ ISOGL:YES
 # Data Files
 ABILITY:aasimar_abilities_globalvar_subrace.lst
 ABILITY:aasimar_abilities_race_subrace.lst
-ABILITYCATEGORY:aasimar_abilitycategories_subrace.lst
 TEMPLATE:aasimar_templates_subrace.lst

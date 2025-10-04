@@ -9,6 +9,9 @@
 # Ability Name		Category of Ability								Define																								Template					Modify VAR
 Aasimar			CATEGORY:Race		BONUS:ABILITYPOOL|Aasimar Subrace|1		DEFINE:Aasimar_RacialCastingStat|0	DEFINE:Aasimar_RacialCastingMod|0	DEFINE:Aasimar_RacialCasterlevel|0	DEFINE:Aasimar_RacialConcentration|0	TEMPLATE:Racial Heritage ~ Aasimar	BONUS:VAR|Aasimar_RacialCastingStat|CHASCORE	BONUS:VAR|Aasimar_RacialCastingMod|CHA	BONUS:VAR|Aasimar_RacialCasterlevel|TL	BONUS:VAR|Aasimar_RacialConcentration|Aasimar_RacialCasterlevel+Aasimar_RacialCastingMod
 
+Aasimar				KEY:Aasimar ~ Default			SORTKEY:1	CATEGORY:Special Ability	TYPE:Aasimar Subrace		DESC:Most aasimars do not know exactly where their celestial powers came from, and the similar qualities of many such celestially touched beings hint at a relatively indistinct or all-encompassing heavenly force in their lineage.	SOURCEPAGE:xx	ASPECT:Alternate Ability Modifiers|+2 Wis, +2 Cha	ASPECT:Skill Modifiers|Diplomacy, Perception	ASPECT:Spell-Like Ability|Aasimars gain daylight as a spell-like ability.	INFO:Alternate Ability Modifiers|+2 Wis, +2 Cha	INFO:Skill Modifiers|Diplomacy, Perception	INFO:Spell-Like Ability|Aasimars gain daylight as a spell-like ability.
+
+
 ###Block: Racial Traits
 # Ability Name		Unique Key					Category of Ability		Type																	Visible		Description																															Template																									Move			Auto Language			Ability									Bonus to skill						Stat bonus					Modify VAR															Vision			Source Page		Aspects
 +2 Wisdom, +2 Charisma	KEY:Aasimar ~ Ability Scores		CATEGORY:Special Ability	TYPE:RacialTraits.Aasimar Racial Trait.Aasimar Racial Default.SpecialQuality.Racial Ability Scores	VISIBLE:DISPLAY	DESC:Aasimars are insightful, confident, and personable.																																																																											BONUS:STAT|WIS,CHA|2|TYPE=Racial																					SOURCEPAGE:p.7
