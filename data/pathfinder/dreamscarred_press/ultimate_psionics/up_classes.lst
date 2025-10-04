@@ -1296,6 +1296,19 @@ CLASS:Astral Warrior	PRERACETYPE:Construct
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Astral Warrior	STARTSKILLPTS:0	MODTOSKILLS:NO
 
+
+
+### Unlocked Talent support 
+# Class Name	Type			Visible	FACT
+CLASS:Unlocked Talent	TYPE:Psionic	VISIBLE:NO	FACT:SpellType|Psionic
+# Class Name	Spell Stat		Memorize		Caster level
+CLASS:Unlocked Talent	SPELLSTAT:OTHER	MEMORIZE:NO	BONUS:CASTERLEVEL|Unlocked Talent|1	SPELLLIST:1|Psion
+1	KNOWN:0,1
+1	CAST:0,0
+
+
+
+
 #
 # End
 #
