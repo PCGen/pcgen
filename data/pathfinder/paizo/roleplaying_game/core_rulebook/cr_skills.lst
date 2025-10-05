@@ -50,7 +50,6 @@ Knowledge (Nature)			KEYSTAT:INT	USEUNTRAINED:NO				TYPE:Intelligence.Knowledge.
 Knowledge (Nobility)			KEYSTAT:INT	USEUNTRAINED:NO				TYPE:Intelligence.Knowledge.Base																						PREVARLT:AnimalCompanionSkill,1	SOURCEPAGE:p.100												BONUS:SKILL|Knowledge (Nobility)|3|TYPE=ClassSkill|PRECSKILL:1,Knowledge (Nobility)|PRESKILL:1,Knowledge (Nobility)=1
 Knowledge (Planes)			KEYSTAT:INT	USEUNTRAINED:NO				TYPE:Intelligence.Knowledge.Base																						PREVARLT:AnimalCompanionSkill,1	SOURCEPAGE:p.100												BONUS:SKILL|Knowledge (Planes)|3|TYPE=ClassSkill|PRECSKILL:1,Knowledge (Planes)|PRESKILL:1,Knowledge (Planes)=1
 Knowledge (Religion)			KEYSTAT:INT	USEUNTRAINED:NO				TYPE:Intelligence.Knowledge.Base																						PREVARLT:AnimalCompanionSkill,1	SOURCEPAGE:p.100												BONUS:SKILL|Knowledge (Religion)|3|TYPE=ClassSkill|PRECSKILL:1,Knowledge (Religion)|PRESKILL:1,Knowledge (Religion)=1
-Knowledge (Untrained)			KEYSTAT:INT							TYPE:Intelligence.Knowledge		VISIBLE:EXPORT	PREMULT:1,[PREVARGTEQ:UseUntrainedSkills,1],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Bardic Knowledge]							SOURCEPAGE:p.100
 Linguistics					KEYSTAT:INT	USEUNTRAINED:NO				TYPE:Intelligence.Base																								PREVARLT:AnimalCompanionSkill,1	SOURCEPAGE:p.101	CHOOSE:LANG|!PC[TYPE=Spoken]	SELECT:Linguisitcs_NumLanguages	BONUS:SKILL|Linguistics|3|TYPE=ClassSkill|PRECSKILL:1,Linguistics|PRESKILL:1,Linguistics=1																																																										AUTO:LANG|%LIST
 Perception					KEYSTAT:WIS							TYPE:Wisdom.Base																															SOURCEPAGE:p.102												BONUS:SKILL|Perception|3|TYPE=ClassSkill|PRECSKILL:1,Perception|PRESKILL:1,Perception=1
 Perform (Act)				KEYSTAT:CHA	USEUNTRAINED:NO				TYPE:Charisma.Perform.Base																							PREVARLT:AnimalCompanionSkill,1	SOURCEPAGE:p.102												BONUS:SKILL|Perform (Act)|3|TYPE=ClassSkill|PRECSKILL:1,Perform (Act)|PRESKILL:1,Perform (Act)=1
@@ -201,19 +200,20 @@ Swim.MOD						BONUS:SKILL|Swim|3|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Skil
 Use Magic Device.MOD				BONUS:SKILL|Use Magic Device|3|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Use Magic Device)	BONUS:SKILL|Use Magic Device|6|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Use Magic Device)|PRESKILL:1,Use Magic Device=10
 
 ###Block: Improvisation
-# Skill Name		SORTKEY	Unique Key					Key Stat	Visible		Prohibited Skill				Var. Min. Value
-Untrained Strength	SORTKEY:z							KEYSTAT:STR	VISIBLE:EXPORT							PREVARGTEQ:UseUntrainedSkills,1
-Untrained Dexterity	SORTKEY:z							KEYSTAT:DEX	VISIBLE:EXPORT							PREVARGTEQ:UseUntrainedSkills,1
-Untrained Intelligence	SORTKEY:z							KEYSTAT:INT	VISIBLE:EXPORT							PREVARGTEQ:UseUntrainedSkills,1
-Untrained Wisdom		SORTKEY:z							KEYSTAT:WIS	VISIBLE:EXPORT							PREVARGTEQ:UseUntrainedSkills,1
-Untrained Charisma	SORTKEY:z							KEYSTAT:CHA	VISIBLE:EXPORT							PREVARGTEQ:UseUntrainedSkills,1
-Profession (Untrained)									KEYSTAT:WIS	VISIBLE:EXPORT							PREVARGTEQ:UseUntrainedSkills,1
-Disable Device				KEY:Untrained ~ Disable Device	KEYSTAT:DEX	VISIBLE:EXPORT	!PRESKILL:1,Disable Device=1		PREVARGTEQ:UseUntrainedSkills,1
-Handle Animal				KEY:Untrained ~ Handle Animal		KEYSTAT:CHA	VISIBLE:EXPORT	!PRESKILL:1,Handle Animal=1		PREVARGTEQ:UseUntrainedSkills,1
-Linguistics					KEY:Untrained ~ Linguistics		KEYSTAT:INT	VISIBLE:EXPORT	!PRESKILL:1,Linguistics=1		PREVARGTEQ:UseUntrainedSkills,1
-Sleight of Hand				KEY:Untrained ~ Sleight of Hand	KEYSTAT:DEX	VISIBLE:EXPORT	!PRESKILL:1,Sleight of Hand=1		PREVARGTEQ:UseUntrainedSkills,1
-Spellcraft					KEY:Untrained ~ Spellcraft		KEYSTAT:INT	VISIBLE:EXPORT	!PRESKILL:1,Spellcraft=1		PREVARGTEQ:UseUntrainedSkills,1
-Use Magic Device				KEY:Untrained ~ Use Magic Device	KEYSTAT:CHA	VISIBLE:EXPORT	!PRESKILL:1,Use Magic Device=1	PREVARGTEQ:UseUntrainedSkills,1
+# Skill Name		SORTKEY	Unique Key					Key Stat							Visible		Prohibited Skill				Var. Min. Value
+Knowledge (Untrained)									KEYSTAT:INT	TYPE:Intelligence.Knowledge		VISIBLE:EXPORT	PREMULT:1,[PREVARGTEQ:UseUntrainedSkills,1],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Bardic Knowledge],[PREVARGTEQ:UseKnowledgeUntrained,1]
+Profession (Untrained)									KEYSTAT:WIS	TYPE:Wisdom.Profession			VISIBLE:EXPORT	PREMULT:1,[PREVARGTEQ:UseUntrainedSkills,1],[PREVARGTEQ:UseProfessionUntrained,1]
+Untrained Strength	SORTKEY:z							KEYSTAT:STR							VISIBLE:EXPORT							PREVARGTEQ:UseUntrainedSkills,1
+Untrained Dexterity	SORTKEY:z							KEYSTAT:DEX							VISIBLE:EXPORT							PREVARGTEQ:UseUntrainedSkills,1
+Untrained Intelligence	SORTKEY:z							KEYSTAT:INT							VISIBLE:EXPORT							PREVARGTEQ:UseUntrainedSkills,1
+Untrained Wisdom		SORTKEY:z							KEYSTAT:WIS							VISIBLE:EXPORT							PREVARGTEQ:UseUntrainedSkills,1
+Untrained Charisma	SORTKEY:z							KEYSTAT:CHA							VISIBLE:EXPORT							PREVARGTEQ:UseUntrainedSkills,1
+Disable Device				KEY:Untrained ~ Disable Device	KEYSTAT:DEX							VISIBLE:EXPORT	!PRESKILL:1,Disable Device=1		PREVARGTEQ:UseUntrainedSkills,1
+Handle Animal				KEY:Untrained ~ Handle Animal		KEYSTAT:CHA							VISIBLE:EXPORT	!PRESKILL:1,Handle Animal=1		PREVARGTEQ:UseUntrainedSkills,1
+Linguistics					KEY:Untrained ~ Linguistics		KEYSTAT:INT							VISIBLE:EXPORT	!PRESKILL:1,Linguistics=1		PREVARGTEQ:UseUntrainedSkills,1
+Sleight of Hand				KEY:Untrained ~ Sleight of Hand	KEYSTAT:DEX							VISIBLE:EXPORT	!PRESKILL:1,Sleight of Hand=1		PREVARGTEQ:UseUntrainedSkills,1
+Spellcraft					KEY:Untrained ~ Spellcraft		KEYSTAT:INT							VISIBLE:EXPORT	!PRESKILL:1,Spellcraft=1		PREVARGTEQ:UseUntrainedSkills,1
+Use Magic Device				KEY:Untrained ~ Use Magic Device	KEYSTAT:CHA							VISIBLE:EXPORT	!PRESKILL:1,Use Magic Device=1	PREVARGTEQ:UseUntrainedSkills,1
 
 #
 # EOF
