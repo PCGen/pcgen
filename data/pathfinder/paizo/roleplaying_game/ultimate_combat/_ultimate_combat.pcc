@@ -58,10 +58,10 @@ ARMORPROF:uc_profs_armor.lst
 WEAPONPROF:uc_profs_weapon.lst
 
 # Support
+ABILITYCATEGORY:support/uc_abilitycategories_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 ABILITY:support/uc_abilities_class_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 ABILITY:support/uc_abilities_class_apg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
 ABILITY:support/uc_abilities_class_mtt.lst|PRECAMPAIGN:1,INCLUDES=Melee Tactics Toolbox
-ABILITYCATEGORY:support/uc_abilitycategories_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 ABILITY:support/uc_abilities_class_acg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
 ABILITY:support/uc_abilities_class_ag.lst|PRECAMPAIGN:1,INCLUDES=Adventurer's Guide
 ABILITY:support/uc_abilities_class_amh.lst|PRECAMPAIGN:1,INCLUDES=Armor Master's Handbook
@@ -82,7 +82,6 @@ ABILITY:support/uc_abilities_class_ui.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Intrig
 ABILITY:support/uc_abilities_class_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 ABILITY:support/uc_abilities_class_uw.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Wilderness
 ABILITY:support/uc_abilities_class_wmh.lst|PRECAMPAIGN:1,INCLUDES=Weapon Master's Handbook
-ABILITY:support/uc_abilitycategories_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 
 # TODO: If Pathfinder Player Companion: Blood of the Ancients is created, enable this.
 ABILITY:support/uc_abilities_class_bota.lst|PRECAMPAIGN:1,INCLUDES=Blood of the Ancients
