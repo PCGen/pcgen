@@ -172,7 +172,7 @@ public class TempBonusHelper
 				if (passesConditions && !found)
 				{
 					possibleEquipment.add(aEq);
-					found = true;
+					break;
 				}
 			}
 		}

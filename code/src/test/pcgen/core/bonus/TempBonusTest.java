@@ -104,4 +104,47 @@ public class TempBonusTest extends AbstractCharacterTestCase
 		assertEquals("Dagger", eList.iterator().next().getKeyName());
 	}
 
+	@Test
+	public void testMultipleEquipmentTemporaryBonus()
+	{
+		PlayerCharacter character = getCharacter();
+		LoadContext context = Globals.getContext();
+		BonusObj bonus = Bonus.newBonus(context, "WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement");
+		EquipBonus tb = new EquipBonus(bonus, "MARTIAL;SIMPLE;EXOTIC");
+		Spell spell = context.getReferenceContext().constructNowIfNecessary(Spell.class, "MultiWeaponBonusItem");
+		spell.addToListFor(ListKey.BONUS_EQUIP, tb);
+		
+		// Create multiple weapons of different types that should all match
+		Equipment dagger = context.getReferenceContext().constructNowIfNecessary(Equipment.class, "Dagger");
+		dagger.addToListFor(ListKey.TYPE, Type.WEAPON);
+		dagger.addToListFor(ListKey.TYPE, Type.getConstant("Martial"));
+		character.addEquipment(dagger);
+		
+		Equipment longsword = context.getReferenceContext().constructNowIfNecessary(Equipment.class, "Longsword");
+		longsword.addToListFor(ListKey.TYPE, Type.WEAPON);
+		longsword.addToListFor(ListKey.TYPE, Type.getConstant("Martial"));
+		character.addEquipment(longsword);
+		
+		Equipment sling = context.getReferenceContext().constructNowIfNecessary(Equipment.class, "Sling");
+		sling.addToListFor(ListKey.TYPE, Type.WEAPON);
+		sling.addToListFor(ListKey.TYPE, Type.getConstant("Simple"));
+		character.addEquipment(sling);
+		
+		Equipment longbow = context.getReferenceContext().constructNowIfNecessary(Equipment.class, "Longbow");
+		longbow.addToListFor(ListKey.TYPE, Type.WEAPON);
+		longbow.addToListFor(ListKey.TYPE, Type.getConstant("Martial"));
+		character.addEquipment(longbow);
+		
+		// Verify all matching equipment is returned, not just the first one
+		List<InfoFacade> eList = TempBonusHelper.getListOfApplicableEquipment(spell, character);
+		assertEquals(4, eList.size(), "Should return all 4 weapons that match the MARTIAL;SIMPLE;EXOTIC condition");
+		
+		// Verify all expected weapons are in the list
+		List<String> weaponNames = eList.stream().map(InfoFacade::getKeyName).toList();
+		assertTrue(weaponNames.contains("Dagger"), "List should contain Dagger");
+		assertTrue(weaponNames.contains("Longsword"), "List should contain Longsword");
+		assertTrue(weaponNames.contains("Sling"), "List should contain Sling");
+		assertTrue(weaponNames.contains("Longbow"), "List should contain Longbow");
+	}
+
 }
