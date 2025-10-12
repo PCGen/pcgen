@@ -8,3 +8,5 @@ ABILITYCATEGORY:Tiefling Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		
 ###Block: Support Categories
 # Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object	Type of Object			Display Location
 ABILITYCATEGORY:Tiefling Language Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Choice		TYPE:Tiefling Language Choice	DISPLAYLOCATION:Racial Abilities
+
+ABILITYCATEGORY:Tiefling Subrace	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Tiefling Subrace	DISPLAYLOCATION:Racial Abilities

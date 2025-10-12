@@ -54,6 +54,8 @@ CATEGORY=Internal|Default.MOD	DEFINE:ClassFeatureDR_Silver|0
 
 CATEGORY=Internal|Default.MOD							ABILITY:Internal|AUTOMATIC|Damage Reduction ~ All|PREVARGTEQ:ClassFeatureDR_ALL,1
 CATEGORY=Internal|Default.MOD							ABILITY:Internal|AUTOMATIC|Damage Reduction ~ Silver|PREVARGTEQ:ClassFeatureDR_Silver,1
+CATEGORY=Internal|Default.MOD	DEFINE:FeatQualifier_WizardLVL|0
+
 
 ###Block: Damage Resistance Abilities
 # Ability Name			Category of Ability	Damage Reduction
@@ -73,7 +75,7 @@ Paladin		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MUL
 Ranger		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|RangerLVL
 Rogue			CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|RogueLVL
 Sorcerer		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|SorcererLVL
-Wizard		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|WizardLVL
+Wizard		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|WizardLVL		BONUS:VAR|FeatQualifier_WizardLVL|WizardLVL
 
 # NPC classes
 Adept			CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|AdeptLVL
@@ -168,7 +170,7 @@ CATEGORY=Class|Barbarian ~ Standard Ex-Class.MOD	ABILITY:Barbarian Class Feature
 # Ability Name					Ability
 CATEGORY=Class|Monk ~ Standard Class.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Unarmed Strike|PREVAREQ:Monk_CF_UnarmedStrike,0|PREVARGTEQ:Monk_CFP_Level,1
 CATEGORY=Class|Monk ~ Standard Class.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Flurry of Blows|PREVAREQ:Monk_CF_FlurryOfBlows,0|PREVARGTEQ:Monk_CFP_Level,1
-CATEGORY=Class|Monk ~ Standard Class.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Monk Bonus Feat|PREVARGTEQ:Monk_CFP_Level,1
+CATEGORY=Class|Monk ~ Standard Class.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Monk Bonus Feat|PREVAREQ:Monk_CF_BonusFeats,0|PREVARGTEQ:Monk_CFP_Level,1
 CATEGORY=Class|Monk ~ Standard Class.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ AC Bonus|PREVAREQ:Monk_CF_ACBonus,0|PREVARGTEQ:Monk_CFP_Level,1
 CATEGORY=Class|Monk ~ Standard Class.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Stunning Fist|PREVAREQ:Monk_CF_StunningFist,0|PREVARGTEQ:Monk_CFP_Level,1
 CATEGORY=Class|Monk ~ Standard Class.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Evasion|PREVAREQ:Monk_CF_Evasion,0|PREVARGTEQ:Monk_CFP_Level,2

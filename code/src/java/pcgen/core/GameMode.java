@@ -1966,11 +1966,14 @@ public final class GameMode implements Comparable<Object>
 			Class<T> cl = rm.getReferenceClass();
 			mfg = rc.getManufacturer(cl);
 		}
-		for (CDOMReference<T> ref : rm.getAllReferences())
-		{
-			((TransparentReference<T>) ref).resolve(mfg);
+		if (mfg!=null) {
+			for (CDOMReference<T> ref : rm.getAllReferences()) {
+				((TransparentReference<T>) ref).resolve(mfg);
+			}
+			rm.injectConstructed(mfg);
 		}
-		rm.injectConstructed(mfg);
+		else
+			System.out.println("idname="+identityName+" had a null mfg - skipping");
 	}
 
 	public LoadContext getContext()
