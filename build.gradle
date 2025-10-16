@@ -343,7 +343,7 @@ runtime {
     //targetPlatform('mac-x64',       layout.projectDirectory.dir("jre/mac/jre_x64/Contents/Home").asFile.absolutePath)
     //targetPlatform('mac-aarch64',   layout.projectDirectory.dir("jre/mac/jre_aarch64/Contents/Home").asFile.absolutePath)
     targetPlatform("mac-aarch64") {
-        jdkHome = jdkDownload("https://api.adoptium.net/v3/binary/version/jdk-21.0.6+7/mac/aarch64/jdk/hotspot/normal/eclipse")
+        jdkHome = jdkDownload("https://api.adoptium.net/v3/binary/version/jdk-21.0.8+9/mac/aarch64/jdk/hotspot/normal/eclipse")
     }
 
     // Use the jpackage tool that comes with Java to build native installers
