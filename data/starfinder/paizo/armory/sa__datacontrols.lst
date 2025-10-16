@@ -1,1 +1,3 @@
-FACTDEF:ABILITY|Augmented		DATAFORMAT:BOOLEAN		VISIBLE:YES
+# Sat Oct  4 08:50:56 2025 -- reformated by PCGen PrettyLST v6.08.00
+# Name				Dataformat			Visible
+FACTDEF:ABILITY|Augmented	DATAFORMAT:BOOLEAN	VISIBLE:YES
