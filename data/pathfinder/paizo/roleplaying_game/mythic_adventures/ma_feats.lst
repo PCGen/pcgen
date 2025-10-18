@@ -140,7 +140,7 @@ Powerful Shape (Mythic)			KEY:Powerful Shape				CATEGORY:Mythic Feat		TYPE:Mythi
 Prophetic Visionary (Mythic)		KEY:Prophetic Visionary				CATEGORY:Mythic Feat		TYPE:Mythic								PREABILITY:1,CATEGORY=FEAT,Prophetic Visionary																									PREVARGTEQ:MythicTierLevel,1																																																																		DESC:Your precognitive powers aid you further.																																																	ABILITY:FEAT|AUTOMATIC|Mythic Feat Output ~ Prophetic Visionary																																																																																																																																																													SOURCEPAGE:p.71																		BENEFIT:You can use Prophetic Visionary's augury ability at will, spending 10 minutes in a deep trance each time. Your chance of a successful augury increases by %1%%. A successful augury made by using this feat also grants you the benefits of guidance, but the bonus is +%1 and is an insight bonus instead of a competence bonus.|MythicLevel																																																																																																																																																																																																																																																																																			INFO:Prerequisite|Prophetic Visionary.
 Quick Draw (Mythic)			KEY:Quick Draw					CATEGORY:Mythic Feat		TYPE:Mythic								PREABILITY:1,CATEGORY=FEAT,Quick Draw																										PREVARGTEQ:MythicTierLevel,1																																																																		DESC:You can retrieve any item quickly, not just weapons.																																															ABILITY:FEAT|AUTOMATIC|Mythic Feat Output ~ Quick Draw																																																																																																																																																														SOURCEPAGE:p.71																		BENEFIT:You can use Quick Draw to draw items of any kind, not just weapons, provided they are stored or concealed on your person. As a move action, you can expend one use of mythic power to retrieve up to two hidden items. You must have two hands free to do so.																																																																																																																																																																																																																																																																																																INFO:Prerequisite|Quick Draw.
 #Find a way to implement Racial Heritage
-Racial Heritage (Mythic)		KEY:Racial Heritage				CATEGORY:Mythic Feat		TYPE:Mythic								PREABILITY:1,CATEGORY=FEAT,Racial Heritage																									PREVARGTEQ:MythicTierLevel,1																																																																		DESC:Your racial heritage mingles with your mythic power to become more pronounced.																																											ABILITY:FEAT|AUTOMATIC|Mythic Feat Output ~ Racial Heritage																																																																																																																																																														SOURCEPAGE:p.71																		BENEFIT:You gain a single racial trait of your choice from the race you picked when you took non-mythic Racial Heritage. That racial trait can't modify your size or ability scores. You also gain the racial language of the race (if any) if you don't already know it. For races with multiple racial languages, you gain all of them.																																																																																																																																																																																																																																																																																					INFO:Prerequisite|Racial Heritage.
+Racial Heritage (Mythic)		KEY:Racial Heritage				CATEGORY:Mythic Feat		TYPE:Mythic								PREABILITY:1,CATEGORY=FEAT,Racial Heritage																									PREVARGTEQ:MythicTierLevel,1																																																																		DESC:Your racial heritage mingles with your mythic power to become more pronounced.																																											ABILITY:FEAT|AUTOMATIC|Mythic Feat Output ~ Racial Heritage																																																																																																																																																														SOURCEPAGE:p.71																		BENEFIT:You gain a single racial trait of your choice from the race you picked when you took non-mythic Racial Heritage. That racial trait can't modify your size or ability scores. You also gain the racial language of the race (if any) if you don't already know it. For races with multiple racial languages, you gain all of them.																																																																																																																																																																																																																																																																																					INFO:Prerequisite|Racial Heritage.																																	BONUS:ABILITYPOOL|Mythic Racial Heritage|1
 Rapid Reload (Mythic)			KEY:Rapid Reload					CATEGORY:Mythic Feat		TYPE:Mythic								PREABILITY:1,CATEGORY=FEAT,Rapid Reload																										PREVARGTEQ:MythicTierLevel,1																																																																		DESC:You can reload any type of weapon with astounding speed.																																														ABILITY:FEAT|AUTOMATIC|Mythic Feat Output ~ Rapid Reload																																																																																																																																																														SOURCEPAGE:p.72																		BENEFIT:You gain the benefits of Rapid Reload with all crossbows and firearms, not just the one you originally chose when you gained that feat. As a swift action, you can expend one use of mythic power to gain the ability to reload crossbows and firearms without provoking attacks of opportunity for 1 minute.																																																																																																																																																																																																																																																																																								INFO:Prerequisite|Rapid Reload.
 Rapid Shot (Mythic)			KEY:Rapid Shot					CATEGORY:Mythic Feat		TYPE:Mythic								PREABILITY:1,CATEGORY=FEAT,Rapid Shot																										PREVARGTEQ:MythicTierLevel,1																																																																		DESC:You can fire many times each round with amazing precision.																																														ABILITY:FEAT|AUTOMATIC|Mythic Feat Output ~ Rapid Shot	ABILITY:Internal|AUTOMATIC|Rapid Shot (Mythic) ~ Ignore Penalty|Rapid Shot (Mythic) ~ Additional Attack																																																																																																																																												SOURCEPAGE:p.72																		BENEFIT:When using Rapid Shot, you can either ignore the feat's -2 penalty on attack rolls or make two additional attacks instead of one.																																																																																																																																																																																																																																																																																																																					INFO:Prerequisite|Rapid Shot.
 Rhetorical Flourish (Mythic)		KEY:Rhetorical Flourish				CATEGORY:Mythic Feat		TYPE:Mythic								PREABILITY:1,CATEGORY=FEAT,Rhetorical Flourish																									PREVARGTEQ:MythicTierLevel,1																																																																		DESC:You're supremely skilled at using verbal misdirection and finesse to influence others.																																									ABILITY:FEAT|AUTOMATIC|Mythic Feat Output ~ Rhetorical Flourish																																																																																																																																																													SOURCEPAGE:p.72																		BENEFIT:When you successfully use Rhetorical Flourish against a non-mythic creature, the bonus on your Diplomacy check increases by +%1. If the target is a mythic creature, you instead increase the bonus by +%2. You can expend one use of mythic power to reroll a single failed Bluff check. You must take the new result even if it is lower.|MythicLevel|HalfMythicLevel																																																																																																																																																																																																																																																																														INFO:Prerequisite|Rhetorical Flourish.
@@ -386,3 +386,384 @@ Weapon Finesse (Mythic)			KEY:Mythic Feat Output ~ Weapon Finesse			CATEGORY:FEA
 Weapon Focus (Mythic)			KEY:Mythic Feat Output ~ Weapon Focus			CATEGORY:FEAT		TYPE:Mythic	VISIBLE:EXPORT	DESC:You're a master of one type of weapon.															SOURCEPAGE:p.77	BENEFIT:Double the bonuses on your attack rolls from Weapon Focus and Greater Weapon Focus. As a swift action, you can expend one use of mythic power to gain a +%1 bonus on attack rolls with your selected weapon until the end of your turn.|HalfMythicLevel
 Weapon Specialization (Mythic)	KEY:Mythic Feat Output ~ Weapon Specialization		CATEGORY:FEAT		TYPE:Mythic	VISIBLE:EXPORT	DESC:The damage you deal with your chosen weapon is truly awesome to behold.										SOURCEPAGE:p.77	BENEFIT:When using your chosen weapon, you gain a +%1 bonus on damage rolls. This stacks with the bonus from Weapon Specialization and Greater Weapon Specialization.|HalfMythicLevel
 Witch Knife (Mythic)			KEY:Mythic Feat Output ~ Witch Knife			CATEGORY:FEAT		TYPE:Mythic	VISIBLE:EXPORT	DESC:Your witch knife is as much an extension of your body as it is an extension of your power.							SOURCEPAGE:p.77	BENEFIT:You can use your witch knife as an additional focus component for all your witch spells, not just your patron spells, adding 1 to their DC. This bonus stacks with the bonus to patron spells granted by Witch Knife, granting your patron spells a total +2 bonus to their DC. Additionally, the hand holding the witch knife is still considered free for the purpose of casting spells and delivering touch attacks.
+
+###Block: Racial Heritage
+# You gain a single racial trait of your choice from the race you picked when you took non-mythic Racial Heritage. That racial trait can't modify your size or ability scores. You also gain the racial language of the race (if any) if you don't already know it. For races with multiple racial languages, you gain all of them.
+Aasimar		PRETEMPLATE:1,Racial Heritage ~ Aasimar		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common|Celestial																BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Aasimar|1
+Android		PRETEMPLATE:1,Racial Heritage ~ Android		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common																		BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Android|1
+Aquatic Elf		PRETEMPLATE:1,Racial Heritage ~ Aquatic Elf	CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common|Elven																	BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Aquatic Elf|1
+Catfolk		PRETEMPLATE:1,Racial Heritage ~ Catfolk		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common|Catfolk																BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Catfolk|1
+Changeling		PRETEMPLATE:1,Racial Heritage ~ Changeling	CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common																		BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Changeling|1
+Dhampir		PRETEMPLATE:1,Racial Heritage ~ Dhampir		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common																		BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Dhampir|1
+Drow			PRETEMPLATE:1,Racial Heritage ~ Drow		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Elven|Undercommon																BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Drow|1
+Duergar		PRETEMPLATE:1,Racial Heritage ~ Duergar		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common|Dwarven|Undercommon														BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Duergar|1
+Dwarf			PRETEMPLATE:1,Racial Heritage ~ Dwarf		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common|Dwarven																BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Dwarf|1
+Elf			PRETEMPLATE:1,Racial Heritage ~ Elf			CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common|Elven																	BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Elf|1
+Fetchling		PRETEMPLATE:1,Racial Heritage ~ Fetchling		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common																		BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Fetchling|1
+Gathlain		PRETEMPLATE:1,Racial Heritage ~ Gathlain		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common|Sylvan																	BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Gathlain|1
+Ghoran		PRETEMPLATE:1,Racial Heritage ~ Ghoran		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common|Sylvan																	BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Ghoran|1
+Gillman		PRETEMPLATE:1,Racial Heritage ~ Gillman		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common|Aboleth																BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Gillman|1
+Gnome			PRETEMPLATE:1,Racial Heritage ~ Gnome		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common|Gnome|Sylvan																BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Gnome|1
+Goblin		PRETEMPLATE:1,Racial Heritage ~ Goblin		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Goblin																		BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Goblin|1
+Grippli		PRETEMPLATE:1,Racial Heritage ~ Grippli		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common|Grippli																BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Grippli|1
+Halfling		PRETEMPLATE:1,Racial Heritage ~ Halfling		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common|Halfling																BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Halfling|1
+Hobgoblin		PRETEMPLATE:1,Racial Heritage ~ Hobgoblin		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common|Goblin																	BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Hobgoblin|1
+Ifrit			PRETEMPLATE:1,Racial Heritage ~ Ifrit		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common|Ignan																	BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Ifrit|1
+Kasatha		PRETEMPLATE:1,Racial Heritage ~ Kasatha		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common|Kasatha																BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Kasatha|1
+Kitsune		PRETEMPLATE:1,Racial Heritage ~ Kitsune		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common|Sylvan																	BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Kitsune|1
+Kobold		PRETEMPLATE:1,Racial Heritage ~ Kobold		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Draconic																	BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Kobold|1
+Lashunta		PRETEMPLATE:1,Racial Heritage ~ Lashunta		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Lashunta|Elven																BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Lashunta|1
+Merfolk		PRETEMPLATE:1,Racial Heritage ~ Merfolk		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common|Aquan																	BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Merfolk|1
+Monkey Goblin	PRETEMPLATE:1,Racial Heritage ~ Monkey Goblin	CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Goblin																		BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Monkey Goblin|1
+Nagaji		PRETEMPLATE:1,Racial Heritage ~ Nagaji		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common|Nagaji																	BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Nagaji|1
+Orc			PRETEMPLATE:1,Racial Heritage ~ Orc			CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common|Orc																	BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Orc|1
+Oread			PRETEMPLATE:1,Racial Heritage ~ Oread		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common|Terran																	BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Oread|1
+Ratfolk		PRETEMPLATE:1,Racial Heritage ~ Ratfolk		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common																		BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Ratfolk|1
+Rougarou		PRETEMPLATE:1,Racial Heritage ~ Rougarou		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common|Rougarou																BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Rougarou|1
+Samsaran		PRETEMPLATE:1,Racial Heritage ~ Samsaran		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common|Samsaran																BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Samsaran|1
+Skinwalker		PRETEMPLATE:1,Racial Heritage ~ Skinwalker	CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common																		BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Skinwalker|1
+Strix			PRETEMPLATE:1,Racial Heritage ~ Strix		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Strix																		BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Strix|1
+Suli			PRETEMPLATE:1,Racial Heritage ~ Suli		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common	BONUS:ABILITYPOOL|Suli Language Choice|1											BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Suli|1
+Svirfneblin		PRETEMPLATE:1,Racial Heritage ~ Svirfneblin	CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Gnome|Undercommon																BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Svirfneblin|1
+Sylph			PRETEMPLATE:1,Racial Heritage ~ Sylph		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common|Auran																	BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Sylph|1
+Syrinx		PRETEMPLATE:1,Racial Heritage ~ Syrinx		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Syrinx																		BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Syrinx|1
+Tengu			PRETEMPLATE:1,Racial Heritage ~ Tengu		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common|Tengu																	BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Tengu|1
+Tiefling		PRETEMPLATE:1,Racial Heritage ~ Tiefling		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common																		BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Tiefling|1
+Triaxian		PRETEMPLATE:1,Racial Heritage ~ Triaxian		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Triaxian																	BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Triaxian|1
+Trox			PRETEMPLATE:1,Racial Heritage ~ Trox		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Terran																		BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Trox|1
+Undine		PRETEMPLATE:1,Racial Heritage ~ Undine		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common|Aquan																	BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Undine|1
+Vanara		PRETEMPLATE:1,Racial Heritage ~ Vanara		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common|Vanaran																BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Vanara|1
+Wayang		PRETEMPLATE:1,Racial Heritage ~ Wayang		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common|Wayang																	BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Wayang|1
+Wyrwood		PRETEMPLATE:1,Racial Heritage ~ Wyrwood		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common																		BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Wyrwood|1
+Wyvaran		PRETEMPLATE:1,Racial Heritage ~ Wyvaran		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common|Draconic																BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Wyvaran|1
+
+
+# COMMENT: xxx MA Racial Trait in order to enable this for Mythic Racial Trait selection
+###Block: Enable Racial Traits that qualify
+CATEGORY=Special Ability|Aasimar ~ Vision.MOD				TYPE:Aasimar MA Racial Trait
+CATEGORY=Special Ability|Aasimar ~ Skilled.MOD				TYPE:Aasimar MA Racial Trait
+CATEGORY=Special Ability|Aasimar ~ Spell-Like Ability.MOD		TYPE:Aasimar MA Racial Trait
+CATEGORY=Special Ability|Aasimar ~ Celestial Resistance.MOD		TYPE:Aasimar MA Racial Trait
+CATEGORY=Special Ability|Aasimar ~ Languages.MOD			TYPE:Aasimar MA Racial Trait
+#
+CATEGORY=Special Ability|Android ~ Vision.MOD				TYPE:Android MA Racial Trait
+CATEGORY=Special Ability|Android ~ Constructed.MOD			TYPE:Android MA Racial Trait
+CATEGORY=Special Ability|Android ~ Emotionless.MOD			TYPE:Android MA Racial Trait
+CATEGORY=Special Ability|Android ~ Nanite Surge.MOD			TYPE:Android MA Racial Trait
+CATEGORY=Special Ability|Android ~ Languages.MOD			TYPE:Android MA Racial Trait
+#
+CATEGORY=Special Ability|Aquatic Elf ~ Vision.MOD			TYPE:Aquatic Elf MA Racial Trait
+CATEGORY=Special Ability|Aquatic Elf ~ Swim Speed.MOD			TYPE:Aquatic Elf MA Racial Trait
+CATEGORY=Special Ability|Aquatic Elf ~ Amphibious.MOD			TYPE:Aquatic Elf MA Racial Trait
+CATEGORY=Special Ability|Aquatic Elf ~ Elven Immunities.MOD		TYPE:Aquatic Elf MA Racial Trait
+CATEGORY=Special Ability|Aquatic Elf ~ Elven Magic.MOD		TYPE:Aquatic Elf MA Racial Trait
+CATEGORY=Special Ability|Aquatic Elf ~ Keen Senses.MOD		TYPE:Aquatic Elf MA Racial Trait
+CATEGORY=Special Ability|Aquatic Elf ~ Weapon Familiarity.MOD	TYPE:Aquatic Elf MA Racial Trait
+CATEGORY=Special Ability|Aquatic Elf ~ Languages.MOD			TYPE:Aquatic Elf MA Racial Trait
+#
+CATEGORY=Special Ability|Catfolk ~ Vision.MOD				TYPE:Catfolk MA Racial Trait
+CATEGORY=Special Ability|Catfolk ~ Cat's Luck.MOD			TYPE:Catfolk MA Racial Trait
+CATEGORY=Special Ability|Catfolk ~ Natural Hunter.MOD			TYPE:Catfolk MA Racial Trait
+CATEGORY=Special Ability|Catfolk ~ Sprinter.MOD				TYPE:Catfolk MA Racial Trait
+CATEGORY=Special Ability|Catfolk ~ Languages.MOD			TYPE:Catfolk MA Racial Trait
+#
+CATEGORY=Special Ability|Changeling ~ Vision.MOD			TYPE:Changeling MA Racial Trait
+CATEGORY=Special Ability|Changeling ~ Hag Racial Trait.MOD		TYPE:Changeling MA Racial Trait
+CATEGORY=Special Ability|Changeling ~ Claws.MOD				TYPE:Changeling MA Racial Trait
+CATEGORY=Special Ability|Changeling ~ Natural Armor.MOD		TYPE:Changeling MA Racial Trait
+CATEGORY=Special Ability|Changeling ~ Languages.MOD			TYPE:Changeling MA Racial Trait
+#
+CATEGORY=Special Ability|Dhampir ~ Vision.MOD				TYPE:Dhampir MA Racial Trait
+CATEGORY=Special Ability|Dhampir ~ Skilled.MOD				TYPE:Dhampir MA Racial Trait
+CATEGORY=Special Ability|Dhampir ~ Undead Resistance.MOD		TYPE:Dhampir MA Racial Trait
+CATEGORY=Special Ability|Dhampir ~ Weakness.MOD				TYPE:Dhampir MA Racial Trait
+CATEGORY=Special Ability|Dhampir ~ Negative Energy Affinity.MOD	TYPE:Dhampir MA Racial Trait
+CATEGORY=Special Ability|Dhampir ~ Spell-Like Ability.MOD		TYPE:Dhampir MA Racial Trait
+CATEGORY=Special Ability|Dhampir ~ Resist Level Drain.MOD		TYPE:Dhampir MA Racial Trait
+CATEGORY=Special Ability|Dhampir ~ Languages.MOD			TYPE:Dhampir MA Racial Trait
+#
+CATEGORY=Special Ability|Drow ~ Vision.MOD				TYPE:Drow MA Racial Trait
+CATEGORY=Special Ability|Drow ~ Drow Immunities.MOD			TYPE:Drow MA Racial Trait
+CATEGORY=Special Ability|Drow ~ Keen Senses.MOD				TYPE:Drow MA Racial Trait
+CATEGORY=Special Ability|Drow ~ Spell Resistance.MOD			TYPE:Drow MA Racial Trait
+CATEGORY=Special Ability|Drow ~ Spell-Like Abilities.MOD		TYPE:Drow MA Racial Trait
+CATEGORY=Special Ability|Drow ~ Light Blindness.MOD			TYPE:Drow MA Racial Trait
+CATEGORY=Special Ability|Drow ~ Poison Use.MOD				TYPE:Drow MA Racial Trait
+CATEGORY=Special Ability|Drow ~ Weapon Familiarity.MOD		TYPE:Drow MA Racial Trait
+CATEGORY=Special Ability|Drow ~ Languages.MOD				TYPE:Drow MA Racial Trait
+#
+CATEGORY=Special Ability|Duergar ~ Vision.MOD				TYPE:Duergar MA Racial Trait
+CATEGORY=Special Ability|Duergar ~ Duergar Immunities.MOD		TYPE:Duergar MA Racial Trait
+CATEGORY=Special Ability|Duergar ~ Stability.MOD			TYPE:Duergar MA Racial Trait
+CATEGORY=Special Ability|Duergar ~ Spell-Like Abilities.MOD		TYPE:Duergar MA Racial Trait
+CATEGORY=Special Ability|Duergar ~ Light Sensitivity.MOD		TYPE:Duergar MA Racial Trait
+CATEGORY=Special Ability|Duergar ~ Languages.MOD			TYPE:Duergar MA Racial Trait
+#
+CATEGORY=Special Ability|Dwarf ~ Vision.MOD			TYPE:Dwarf MA Racial Trait
+CATEGORY=Special Ability|Dwarf ~ Defensive Training.MOD	TYPE:Dwarf MA Racial Trait
+CATEGORY=Special Ability|Dwarf ~ Greed.MOD			TYPE:Dwarf MA Racial Trait
+CATEGORY=Special Ability|Dwarf ~ Hatred.MOD			TYPE:Dwarf MA Racial Trait
+CATEGORY=Special Ability|Dwarf ~ Hardy.MOD			TYPE:Dwarf MA Racial Trait
+CATEGORY=Special Ability|Dwarf ~ Stability.MOD			TYPE:Dwarf MA Racial Trait
+CATEGORY=Special Ability|Dwarf ~ Stonecunning.MOD		TYPE:Dwarf MA Racial Trait
+CATEGORY=Special Ability|Dwarf ~ Weapon Familiarity.MOD	TYPE:Dwarf MA Racial Trait
+CATEGORY=Special Ability|Dwarf ~ Languages.MOD			TYPE:Dwarf MA Racial Trait
+#
+CATEGORY=Special Ability|Elf ~ Vision.MOD				TYPE:Elf MA Racial Trait
+CATEGORY=Special Ability|Elf ~ Elven Immunities.MOD		TYPE:Elf MA Racial Trait
+CATEGORY=Special Ability|Elf ~ Elven Magic.MOD			TYPE:Elf MA Racial Trait
+CATEGORY=Special Ability|Elf ~ Keen Senses.MOD			TYPE:Elf MA Racial Trait
+CATEGORY=Special Ability|Elf ~ Weapon Familiarity.MOD		TYPE:Elf MA Racial Trait
+CATEGORY=Special Ability|Elf ~ Languages.MOD			TYPE:Elf MA Racial Trait
+#
+CATEGORY=Special Ability|Fetchling ~ Vision.MOD					TYPE:Fetchling MA Racial Trait
+CATEGORY=Special Ability|Fetchling ~ Low-Light Vision.MOD			TYPE:Fetchling MA Racial Trait
+CATEGORY=Special Ability|Fetchling ~ Skilled.MOD				TYPE:Fetchling MA Racial Trait
+CATEGORY=Special Ability|Fetchling ~ Shadow Blending.MOD			TYPE:Fetchling MA Racial Trait
+CATEGORY=Special Ability|Fetchling ~ Shadowy Resistance.MOD			TYPE:Fetchling MA Racial Trait
+CATEGORY=Special Ability|Fetchling ~ Spell-Like Abilities.MOD		TYPE:Fetchling MA Racial Trait
+CATEGORY=Special Ability|Fetchling ~ Languages.MOD				TYPE:Fetchling MA Racial Trait
+#
+CATEGORY=Special Ability|Gathlain ~ Vision.MOD				TYPE:Gathlain MA Racial Trait
+CATEGORY=Special Ability|Gathlain ~ Natural Armor.MOD			TYPE:Gathlain MA Racial Trait
+CATEGORY=Special Ability|Gathlain ~ Spell-Like Abilities.MOD	TYPE:Gathlain MA Racial Trait
+CATEGORY=Special Ability|Gathlain ~ Languages.MOD			TYPE:Gathlain MA Racial Trait
+#
+CATEGORY=Special Ability|Ghoran ~ +2 Natural Armor.MOD		TYPE:Ghoran MA Racial Trait
+CATEGORY=Special Ability|Ghoran ~ Delicious.MOD				TYPE:Ghoran MA Racial Trait
+CATEGORY=Special Ability|Ghoran ~ Natural Magic.MOD			TYPE:Ghoran MA Racial Trait
+CATEGORY=Special Ability|Ghoran ~ Seed.MOD				TYPE:Ghoran MA Racial Trait
+CATEGORY=Special Ability|Ghoran ~ Light Dependent.MOD			TYPE:Ghoran MA Racial Trait
+CATEGORY=Special Ability|Ghoran ~ Past-Life Knowledge.MOD		TYPE:Ghoran MA Racial Trait
+CATEGORY=Special Ability|Ghoran ~ Languages.MOD				TYPE:Ghoran MA Racial Trait
+#
+CATEGORY=Special Ability|Gillman ~ Amphibious.MOD			TYPE:Gillman MA Racial Trait
+CATEGORY=Special Ability|Gillman ~ Enchantment Resistance.MOD	TYPE:Gillman MA Racial Trait
+CATEGORY=Special Ability|Gillman ~ Servitor.MOD				TYPE:Gillman MA Racial Trait
+CATEGORY=Special Ability|Gillman ~ Water Dependent.MOD		TYPE:Gillman MA Racial Trait
+CATEGORY=Special Ability|Gillman ~ Languages.MOD			TYPE:Gillman MA Racial Trait
+#
+CATEGORY=Special Ability|Gnome ~ Vision.MOD				TYPE:Gnome MA Racial Trait
+CATEGORY=Special Ability|Gnome ~ Defensive Training.MOD		TYPE:Gnome MA Racial Trait
+CATEGORY=Special Ability|Gnome ~ Gnome Magic.MOD			TYPE:Gnome MA Racial Trait
+CATEGORY=Special Ability|Gnome ~ Hatred.MOD				TYPE:Gnome MA Racial Trait
+CATEGORY=Special Ability|Gnome ~ Illusion Resistance.MOD		TYPE:Gnome MA Racial Trait
+CATEGORY=Special Ability|Gnome ~ Keen Senses.MOD			TYPE:Gnome MA Racial Trait
+CATEGORY=Special Ability|Gnome ~ Obsessive.MOD				TYPE:Gnome MA Racial Trait
+CATEGORY=Special Ability|Gnome ~ Weapon Familiarity.MOD		TYPE:Gnome MA Racial Trait
+CATEGORY=Special Ability|Gnome ~ Languages.MOD				TYPE:Gnome MA Racial Trait
+#
+CATEGORY=Special Ability|Goblin ~ Vision.MOD			TYPE:Goblin MA Racial Trait
+CATEGORY=Special Ability|Goblin ~ Skilled.MOD			TYPE:Goblin MA Racial Trait
+CATEGORY=Special Ability|Goblin ~ Languages.MOD			TYPE:Goblin MA Racial Trait
+#
+CATEGORY=Special Ability|Grippli ~ Vision.MOD				TYPE:Grippli MA Racial Trait
+CATEGORY=Special Ability|Grippli ~ Natural Climber.MOD		TYPE:Grippli MA Racial Trait
+CATEGORY=Special Ability|Grippli ~ Camouflage.MOD			TYPE:Grippli MA Racial Trait
+CATEGORY=Special Ability|Grippli ~ Swamp Stride.MOD			TYPE:Grippli MA Racial Trait
+CATEGORY=Special Ability|Grippli ~ Weapon Familiarity.MOD		TYPE:Grippli MA Racial Trait
+CATEGORY=Special Ability|Grippli ~ Languages.MOD			TYPE:Grippli MA Racial Trait
+#
+CATEGORY=Special Ability|Halfling ~ Fearless.MOD			TYPE:Halfling MA Racial Trait
+CATEGORY=Special Ability|Halfling ~ Halfling Luck.MOD			TYPE:Halfling MA Racial Trait
+CATEGORY=Special Ability|Halfling ~ Keen Senses.MOD			TYPE:Halfling MA Racial Trait
+CATEGORY=Special Ability|Halfling ~ Sure-Footed.MOD			TYPE:Halfling MA Racial Trait
+CATEGORY=Special Ability|Halfling ~ Weapon Familiarity.MOD		TYPE:Halfling MA Racial Trait
+CATEGORY=Special Ability|Halfling ~ Languages.MOD			TYPE:Halfling MA Racial Trait
+#
+CATEGORY=Special Ability|Hobgoblin ~ Vision.MOD			TYPE:Hobgoblin MA Racial Trait
+CATEGORY=Special Ability|Hobgoblin ~ Sneaky.MOD			TYPE:Hobgoblin MA Racial Trait
+CATEGORY=Special Ability|Hobgoblin ~ Languages.MOD		TYPE:Hobgoblin MA Racial Trait
+#
+CATEGORY=Special Ability|Ifrit ~ Vision.MOD			TYPE:Ifrit MA Racial Trait
+CATEGORY=Special Ability|Ifrit ~ Spell-Like Ability.MOD	TYPE:Ifrit MA Racial Trait
+CATEGORY=Special Ability|Ifrit ~ Energy Resistance.MOD	TYPE:Ifrit MA Racial Trait
+CATEGORY=Special Ability|Ifrit ~ Fire Affinity.MOD		TYPE:Ifrit MA Racial Trait
+CATEGORY=Special Ability|Ifrit ~ Languages.MOD			TYPE:Ifrit MA Racial Trait
+#
+CATEGORY=Special Ability|Kasatha ~ Defensive Training.MOD	TYPE:Kasatha MA Racial Trait
+CATEGORY=Special Ability|Kasatha ~ Desert Runner.MOD		TYPE:Kasatha MA Racial Trait
+CATEGORY=Special Ability|Kasatha ~ Desert Stride.MOD		TYPE:Kasatha MA Racial Trait
+CATEGORY=Special Ability|Kasatha ~ Jumper.MOD			TYPE:Kasatha MA Racial Trait
+CATEGORY=Special Ability|Kasatha ~ Multi-Armed.MOD		TYPE:Kasatha MA Racial Trait
+CATEGORY=Special Ability|Kasatha ~ Stalker.MOD			TYPE:Kasatha MA Racial Trait
+CATEGORY=Special Ability|Kasatha ~ Languages.MOD		TYPE:Kasatha MA Racial Trait
+#
+CATEGORY=Special Ability|Kitsune ~ Vision.MOD			TYPE:Kitsune MA Racial Trait
+CATEGORY=Special Ability|Kitsune ~ Change Shape.MOD		TYPE:Kitsune MA Racial Trait
+CATEGORY=Special Ability|Kitsune ~ Agile.MOD			TYPE:Kitsune MA Racial Trait
+CATEGORY=Special Ability|Kitsune ~ Kitsune Magic.MOD		TYPE:Kitsune MA Racial Trait
+CATEGORY=Special Ability|Kitsune ~ Natural Weapons.MOD	TYPE:Kitsune MA Racial Trait
+CATEGORY=Special Ability|Kitsune ~ Languages.MOD		TYPE:Kitsune MA Racial Trait
+#
+CATEGORY=Special Ability|Kobold ~ Vision.MOD			TYPE:Kobold MA Racial Trait
+CATEGORY=Special Ability|Kobold ~ Armor.MOD			TYPE:Kobold MA Racial Trait
+CATEGORY=Special Ability|Kobold ~ Crafty.MOD			TYPE:Kobold MA Racial Trait
+CATEGORY=Special Ability|Kobold ~ Weakness.MOD			TYPE:Kobold MA Racial Trait
+CATEGORY=Special Ability|Kobold ~ Languages.MOD			TYPE:Kobold MA Racial Trait
+#
+CATEGORY=Special Ability|Lashunta ~ Sexual Dimorphism.MOD		TYPE:Lashunta MA Racial Trait
+CATEGORY=Special Ability|Lashunta ~ Lashunta Magic.MOD		TYPE:Lashunta MA Racial Trait
+CATEGORY=Special Ability|Lashunta ~ Knowledgeable.MOD			TYPE:Lashunta MA Racial Trait
+CATEGORY=Special Ability|Lashunta ~ Limited Telepathy.MOD		TYPE:Lashunta MA Racial Trait
+CATEGORY=Special Ability|Lashunta ~ Languages.MOD			TYPE:Lashunta MA Racial Trait
+#
+CATEGORY=Special Ability|Merfolk ~ Vision.MOD				TYPE:Merfolk MA Racial Trait
+CATEGORY=Special Ability|Merfolk ~ Amphibious.MOD			TYPE:Merfolk MA Racial Trait
+CATEGORY=Special Ability|Merfolk ~ Armor.MOD				TYPE:Merfolk MA Racial Trait
+CATEGORY=Special Ability|Merfolk ~ Legless.MOD				TYPE:Merfolk MA Racial Trait
+CATEGORY=Special Ability|Merfolk ~ Languages.MOD			TYPE:Merfolk MA Racial Trait
+#
+CATEGORY=Special Ability|Monkey Goblin ~ Vision.MOD			TYPE:Monkey Goblin MA Racial Trait
+CATEGORY=Special Ability|Monkey Goblin ~ Acrobatic.MOD		TYPE:Monkey Goblin MA Racial Trait
+CATEGORY=Special Ability|Monkey Goblin ~ Fearless.MOD			TYPE:Monkey Goblin MA Racial Trait
+CATEGORY=Special Ability|Monkey Goblin ~ Natural Climber.MOD	TYPE:Monkey Goblin MA Racial Trait
+CATEGORY=Special Ability|Monkey Goblin ~ Prehensile Tail.MOD	TYPE:Monkey Goblin MA Racial Trait
+CATEGORY=Special Ability|Monkey Goblin ~ Languages.MOD		TYPE:Monkey Goblin MA Racial Trait
+#
+CATEGORY=Special Ability|Nagaji ~ Vision.MOD			TYPE:Nagaji MA Racial Trait
+CATEGORY=Special Ability|Nagaji ~ Armored Scales.MOD		TYPE:Nagaji MA Racial Trait
+CATEGORY=Special Ability|Nagaji ~ Resistant.MOD			TYPE:Nagaji MA Racial Trait
+CATEGORY=Special Ability|Nagaji ~ Serpent's Sense.MOD		TYPE:Nagaji MA Racial Trait
+CATEGORY=Special Ability|Nagaji ~ Languages.MOD			TYPE:Nagaji MA Racial Trait
+#
+CATEGORY=Special Ability|Orc ~ Vision.MOD				TYPE:Orc MA Racial Trait
+CATEGORY=Special Ability|Orc ~ Light Sensitivity.MOD		TYPE:Orc MA Racial Trait
+CATEGORY=Special Ability|Orc ~ Ferocity.MOD			TYPE:Orc MA Racial Trait
+CATEGORY=Special Ability|Orc ~ Weapon Familiarity.MOD		TYPE:Orc MA Racial Trait
+CATEGORY=Special Ability|Orc ~ Languages.MOD			TYPE:Orc MA Racial Trait
+#
+CATEGORY=Special Ability|Oread ~ Vision.MOD			TYPE:Oread MA Racial Trait
+CATEGORY=Special Ability|Oread ~ Spell-Like Ability.MOD	TYPE:Oread MA Racial Trait
+CATEGORY=Special Ability|Oread ~ Energy Resistance.MOD	TYPE:Oread MA Racial Trait
+CATEGORY=Special Ability|Oread ~ Earth Affinity.MOD		TYPE:Oread MA Racial Trait
+CATEGORY=Special Ability|Oread ~ Languages.MOD			TYPE:Oread MA Racial Trait
+#
+CATEGORY=Special Ability|Ratfolk ~ Vision.MOD			TYPE:Ratfolk MA Racial Trait
+CATEGORY=Special Ability|Ratfolk ~ Rodent Empathy.MOD		TYPE:Ratfolk MA Racial Trait
+CATEGORY=Special Ability|Ratfolk ~ Swarming.MOD			TYPE:Ratfolk MA Racial Trait
+CATEGORY=Special Ability|Ratfolk ~ Tinker.MOD			TYPE:Ratfolk MA Racial Trait
+CATEGORY=Special Ability|Ratfolk ~ Languages.MOD		TYPE:Ratfolk MA Racial Trait
+#
+CATEGORY=Special Ability|Rougarou ~ Vision.MOD				TYPE:Rougarou MA Racial Trait
+CATEGORY=Special Ability|Rougarou ~ Change Shape.MOD			TYPE:Rougarou MA Racial Trait
+CATEGORY=Special Ability|Rougarou ~ Natural Weapon.MOD		TYPE:Rougarou MA Racial Trait
+CATEGORY=Special Ability|Rougarou ~ Languages.MOD			TYPE:Rougarou MA Racial Trait
+#
+CATEGORY=Special Ability|Samsaran ~ Vision.MOD				TYPE:Samsaran MA Racial Trait
+CATEGORY=Special Ability|Samsaran ~ Lifebound.MOD			TYPE:Samsaran MA Racial Trait
+CATEGORY=Special Ability|Samsaran ~ Samsaran Magic.MOD		TYPE:Samsaran MA Racial Trait
+CATEGORY=Special Ability|Samsaran ~ Shards of the Past.MOD		TYPE:Samsaran MA Racial Trait
+CATEGORY=Special Ability|Samsaran ~ Languages.MOD			TYPE:Samsaran MA Racial Trait
+#
+CATEGORY=Special Ability|Skinwalker ~ Vision.MOD			TYPE:Skinwalker MA Racial Trait
+CATEGORY=Special Ability|Skinwalker ~ Animal-Minded.MOD		TYPE:Skinwalker MA Racial Trait
+CATEGORY=Special Ability|Skinwalker ~ Change Shape.MOD		TYPE:Skinwalker MA Racial Trait
+CATEGORY=Special Ability|Skinwalker ~ Spell-Like Ability.MOD	TYPE:Skinwalker MA Racial Trait
+CATEGORY=Special Ability|Skinwalker ~ Languages.MOD			TYPE:Skinwalker MA Racial Trait
+#
+CATEGORY=Special Ability|Strix ~ Flight.MOD			TYPE:Strix MA Racial Trait
+CATEGORY=Special Ability|Strix ~ Low-Light Vision.MOD		TYPE:Strix MA Racial Trait
+CATEGORY=Special Ability|Strix ~ Darkvision.MOD			TYPE:Strix MA Racial Trait
+CATEGORY=Special Ability|Strix ~ Hatred.MOD			TYPE:Strix MA Racial Trait
+CATEGORY=Special Ability|Strix ~ Nocturnal.MOD			TYPE:Strix MA Racial Trait
+CATEGORY=Special Ability|Strix ~ Suspicious.MOD			TYPE:Strix MA Racial Trait
+CATEGORY=Special Ability|Strix ~ Languages.MOD			TYPE:Strix MA Racial Trait
+#
+CATEGORY=Special Ability|Suli ~ Vision.MOD			TYPE:Suli MA Racial Trait
+CATEGORY=Special Ability|Suli ~ Negotiator.MOD			TYPE:Suli MA Racial Trait
+CATEGORY=Special Ability|Suli ~ Elemental Assault.MOD		TYPE:Suli MA Racial Trait
+CATEGORY=Special Ability|Suli ~ Energy Resistance.MOD		TYPE:Suli MA Racial Trait
+CATEGORY=Special Ability|Suli ~ Languages.MOD			TYPE:Suli MA Racial Trait
+#
+CATEGORY=Special Ability|Svirfneblin ~ Vision.MOD			TYPE:Svirfneblin MA Racial Trait
+CATEGORY=Special Ability|Svirfneblin ~ Defensive Training.MOD	TYPE:Svirfneblin MA Racial Trait
+CATEGORY=Special Ability|Svirfneblin ~ Fortunate.MOD			TYPE:Svirfneblin MA Racial Trait
+CATEGORY=Special Ability|Svirfneblin ~ Skilled.MOD			TYPE:Svirfneblin MA Racial Trait
+CATEGORY=Special Ability|Svirfneblin ~ Hatred.MOD			TYPE:Svirfneblin MA Racial Trait
+CATEGORY=Special Ability|Svirfneblin ~ Stonecunning.MOD		TYPE:Svirfneblin MA Racial Trait
+CATEGORY=Special Ability|Svirfneblin ~ Spell Resistance.MOD		TYPE:Svirfneblin MA Racial Trait
+CATEGORY=Special Ability|Svirfneblin ~ Svirfneblin Magic.MOD	TYPE:Svirfneblin MA Racial Trait
+CATEGORY=Special Ability|Svirfneblin ~ Languages.MOD			TYPE:Svirfneblin MA Racial Trait
+#
+CATEGORY=Special Ability|Sylph ~ Vision.MOD			TYPE:Sylph MA Racial Trait
+CATEGORY=Special Ability|Sylph ~ Spell-Like Ability.MOD	TYPE:Sylph MA Racial Trait
+CATEGORY=Special Ability|Sylph ~ Energy Resistance.MOD	TYPE:Sylph MA Racial Trait
+CATEGORY=Special Ability|Sylph ~ Air Affinity.MOD		TYPE:Sylph MA Racial Trait
+CATEGORY=Special Ability|Sylph ~ Languages.MOD			TYPE:Sylph MA Racial Trait
+#
+CATEGORY=Special Ability|Syrinx ~ Flight.MOD			TYPE:Syrinx MA Racial Trait
+CATEGORY=Special Ability|Syrinx ~ Low-Light Vision.MOD	TYPE:Syrinx MA Racial Trait
+CATEGORY=Special Ability|Syrinx ~ Darkvision.MOD		TYPE:Syrinx MA Racial Trait
+CATEGORY=Special Ability|Syrinx ~ Nocturnal.MOD			TYPE:Syrinx MA Racial Trait
+CATEGORY=Special Ability|Syrinx ~ Pride.MOD			TYPE:Syrinx MA Racial Trait
+CATEGORY=Special Ability|Syrinx ~ Speak with Avians.MOD	TYPE:Syrinx MA Racial Trait
+CATEGORY=Special Ability|Syrinx ~ Languages.MOD			TYPE:Syrinx MA Racial Trait
+#
+CATEGORY=Special Ability|Tengu ~ Vision.MOD			TYPE:Tengu MA Racial Trait
+CATEGORY=Special Ability|Tengu ~ Sneaky.MOD			TYPE:Tengu MA Racial Trait
+CATEGORY=Special Ability|Tengu ~ Gifted Linguist.MOD		TYPE:Tengu MA Racial Trait
+CATEGORY=Special Ability|Tengu ~ Swordtrained.MOD		TYPE:Tengu MA Racial Trait
+CATEGORY=Special Ability|Tengu ~ Natural Weapon.MOD		TYPE:Tengu MA Racial Trait
+CATEGORY=Special Ability|Tengu ~ Languages.MOD			TYPE:Tengu MA Racial Trait
+#
+CATEGORY=Special Ability|Tiefling ~ Vision.MOD			TYPE:Tiefling MA Racial Trait
+CATEGORY=Special Ability|Tiefling ~ Skilled.MOD			TYPE:Tiefling MA Racial Trait
+CATEGORY=Special Ability|Tiefling ~ Spell-Like Ability.MOD	TYPE:Tiefling MA Racial Trait
+CATEGORY=Special Ability|Tiefling ~ Fiendish Resistance.MOD	TYPE:Tiefling MA Racial Trait
+CATEGORY=Special Ability|Tiefling ~ Fiendish Sorcery.MOD	TYPE:Tiefling MA Racial Trait
+CATEGORY=Special Ability|Tiefling ~ Languages.MOD		TYPE:Tiefling MA Racial Trait
+#
+CATEGORY=Special Ability|Triaxian ~ Vision.MOD			TYPE:Triaxian MA Racial Trait
+CATEGORY=Special Ability|Triaxian ~ Keen Senses.MOD		TYPE:Triaxian MA Racial Trait
+CATEGORY=Special Ability|Triaxian ~ Bonus Feat.MOD		TYPE:Triaxian MA Racial Trait
+CATEGORY=Special Ability|Triaxian ~ Seasoned.MOD		TYPE:Triaxian MA Racial Trait
+CATEGORY=Special Ability|Triaxian ~ Languages.MOD		TYPE:Triaxian MA Racial Trait
+#
+CATEGORY=Special Ability|Trox ~ Vision.MOD			TYPE:Trox MA Racial Trait
+CATEGORY=Special Ability|Trox ~ Burrow.MOD			TYPE:Trox MA Racial Trait
+CATEGORY=Special Ability|Trox ~ Frenzy.MOD			TYPE:Trox MA Racial Trait
+CATEGORY=Special Ability|Trox ~ Grabbing Appendages.MOD	TYPE:Trox MA Racial Trait
+CATEGORY=Special Ability|Trox ~ Languages.MOD			TYPE:Trox MA Racial Trait
+#
+CATEGORY=Special Ability|Undine ~ Vision.MOD			TYPE:Undine MA Racial Trait
+CATEGORY=Special Ability|Undine ~ Spell-Like Ability.MOD	TYPE:Undine MA Racial Trait
+CATEGORY=Special Ability|Undine ~ Energy Resistance.MOD	TYPE:Undine MA Racial Trait
+CATEGORY=Special Ability|Undine ~ Water Affinity.MOD		TYPE:Undine MA Racial Trait
+CATEGORY=Special Ability|Undine ~ Languages.MOD			TYPE:Undine MA Racial Trait
+#
+CATEGORY=Special Ability|Vanara ~ Vision.MOD			TYPE:Vanara MA Racial Trait
+CATEGORY=Special Ability|Vanara ~ Nimble.MOD			TYPE:Vanara MA Racial Trait
+CATEGORY=Special Ability|Vanara ~ Prehensile Tail.MOD		TYPE:Vanara MA Racial Trait
+CATEGORY=Special Ability|Vanara ~ Languages.MOD			TYPE:Vanara MA Racial Trait
+#
+CATEGORY=Special Ability|Vishkanya ~ Vision.MOD			TYPE:Vishkanya MA Racial Trait
+CATEGORY=Special Ability|Vishkanya ~ Keen Senses.MOD		TYPE:Vishkanya MA Racial Trait
+CATEGORY=Special Ability|Vishkanya ~ Limber.MOD			TYPE:Vishkanya MA Racial Trait
+CATEGORY=Special Ability|Vishkanya ~ Poison Resistance.MOD	TYPE:Vishkanya MA Racial Trait
+CATEGORY=Special Ability|Vishkanya ~ Poison Use.MOD		TYPE:Vishkanya MA Racial Trait
+CATEGORY=Special Ability|Vishkanya ~ Toxic.MOD			TYPE:Vishkanya MA Racial Trait
+CATEGORY=Special Ability|Vishkanya ~ Weapon Familiarity.MOD	TYPE:Vishkanya MA Racial Trait
+CATEGORY=Special Ability|Vishkanya ~ Languages.MOD		TYPE:Vishkanya MA Racial Trait
+#
+CATEGORY=Special Ability|Wayang ~ Vision.MOD			TYPE:Wayang MA Racial Trait
+CATEGORY=Special Ability|Wayang ~ Light and Dark.MOD		TYPE:Wayang MA Racial Trait
+CATEGORY=Special Ability|Wayang ~ Lurker.MOD			TYPE:Wayang MA Racial Trait
+CATEGORY=Special Ability|Wayang ~ Shadow Magic.MOD		TYPE:Wayang MA Racial Trait
+CATEGORY=Special Ability|Wayang ~ Shadow Resistance.MOD	TYPE:Wayang MA Racial Trait
+CATEGORY=Special Ability|Wayang ~ Languages.MOD			TYPE:Wayang MA Racial Trait
+#
+CATEGORY=Special Ability|Wyrwood ~ Speed.MOD			TYPE:Wyrwood MA Racial Trait
+CATEGORY=Special Ability|Wyrwood ~ Darkvision.MOD		TYPE:Wyrwood MA Racial Trait
+CATEGORY=Special Ability|Wyrwood ~ Low-Light Vision.MOD	TYPE:Wyrwood MA Racial Trait
+CATEGORY=Special Ability|Wyrwood ~ Languages.MOD		TYPE:Wyrwood MA Racial Trait
+#
+CATEGORY=Special Ability|Wyvaran ~ Speed.MOD			TYPE:Wyvaran MA Racial Trait
+CATEGORY=Special Ability|Wyvaran ~ Flight.MOD			TYPE:Wyvaran MA Racial Trait
+CATEGORY=Special Ability|Wyvaran ~ Slapping Tail.MOD		TYPE:Wyvaran MA Racial Trait
+CATEGORY=Special Ability|Wyvaran ~ Darkvision.MOD		TYPE:Wyvaran MA Racial Trait
+CATEGORY=Special Ability|Wyvaran ~ Low-Light Vision.MOD	TYPE:Wyvaran MA Racial Trait
+CATEGORY=Special Ability|Wyvaran ~ Languages.MOD		TYPE:Wyvaran MA Racial Trait
+
+
+
