@@ -57,16 +57,45 @@ Still Spell		CATEGORY:FEAT		TYPE:Metamagic.Mage.Acolyte	DESC:You can cast spells
 #Magical Heritage: as Divine Heritage, except for cantrips
 
 ###Block: Initial feats.
-# Feat Name		Type			Required Non-Monster Lvl	Required Stat	Description																																										Multiple?	Choose								Save bonus			Vision			Source Page
 # Ability Name	Category of Ability	Type			Required Non-Monster Lvl	Required Stat	Description																																										Multiple?	Choose								Save bonus			Vision			Source Page
-Divine Heritage	CATEGORY:FEAT		TYPE:Initial	PREPCLEVEL:MAX=1			PRESTAT:1,WIS=10	DESC:You have divine spellcasting abilities in your background, such as a saint in your family tree, or you have had a divine experience, revelation, or epiphany which has left you with modest divine abilities																												SOURCEPAGE:ArcanaOccupationsandFeats
-Magical Heritage	CATEGORY:FEAT		TYPE:Initial	PREPCLEVEL:MAX=1			PRESTAT:1,INT=10	DESC:You have magical ability in your background, such as a sorcerer in your bloodline, or you gained access to magic at a particularly young age (by discovering a spellbook in your attic, for example). As a result, you mastered some basic spellcasting.																				SOURCEPAGE:ArcanaOccupationsandFeats
+Divine Heritage	CATEGORY:FEAT		TYPE:Initial	PREPCLEVEL:MAX=1			PRESTAT:1,WIS=10	DESC:You have divine spellcasting abilities in your background, such as a saint in your family tree, or you have had a divine experience, revelation, or epiphany which has left you with modest divine abilities																												SOURCEPAGE:ArcanaOccupationsandFeats	BONUS:ABILITYPOOL|Divine Heritage|3
+Magical Heritage	CATEGORY:FEAT		TYPE:Initial	PREPCLEVEL:MAX=1			PRESTAT:1,INT=10	DESC:You have magical ability in your background, such as a sorcerer in your bloodline, or you gained access to magic at a particularly young age (by discovering a spellbook in your attic, for example). As a result, you mastered some basic spellcasting.																				SOURCEPAGE:ArcanaOccupationsandFeats	BONUS:ABILITYPOOL|Magical Heritage|3
 Shadow Heritage	CATEGORY:FEAT		TYPE:Initial	PREPCLEVEL:MAX=1						DESC:You have a creature of Shadow in your distant ancestry. The exact nature of that shadowblood is immaterial (though it may be a source of adventure), as the overpowering human genetic tide has reduced its special abilities to a few salient features	MULT:YES	CHOOSE:NUMCHOICES=1|STRING|Fortitude|Reflex|Will	BONUS:SAVE|%LIST|1	VISION:Low-Light Vision	SOURCEPAGE:ArcanaOccupationsandFeats
 
 ###Block: For Creatures
-# Feat Name			Type			Min. nb of Hands	Required Stat	Description															Combat bonus									Source Page
 # Ability Name		Category of Ability	Type			Min. nb of Hands	Required Stat	Description															Combat bonus									Source Page
 Multiweapon Fighting	CATEGORY:FEAT		TYPE:General	PREHANDSGT:2	PRESTAT:1,DEX=13	DESC:The primary attack takes a -2 penalty, and all the secondary attacks take a -6 penalty.	BONUS:COMBAT|TOHIT-PRIMARY|2	BONUS:COMBAT|TOHIT-SECONDARY|6	SOURCEPAGE:ArcanaCreatures
+
+
+###Block: Feat Support
+
+# Divine Heritage
+Create Water			KEY:Divine Heritage ~ Create Water			CATEGORY:Special Ability	TYPE:Divine Heritage	SPELLS:Divine Heritage|TIMES=1|CASTERLEVEL=1|Create Water		
+Cure Minor Wounds			KEY:Divine Heritage ~ Cure Minor Wounds		CATEGORY:Special Ability	TYPE:Divine Heritage	SPELLS:Divine Heritage|TIMES=1|CASTERLEVEL=1|Cure Minor Wounds		
+Detect Magical Aura		KEY:Divine Heritage ~ Detect Magical Aura		CATEGORY:Special Ability	TYPE:Divine Heritage	SPELLS:Divine Heritage|TIMES=1|CASTERLEVEL=1|Detect Magical Aura	
+Haywire				KEY:Divine Heritage ~ Haywire				CATEGORY:Special Ability	TYPE:Divine Heritage	SPELLS:Divine Heritage|TIMES=1|CASTERLEVEL=1|Haywire			
+Inflict Minor Wounds		KEY:Divine Heritage ~ Inflict Minor Wounds	CATEGORY:Special Ability	TYPE:Divine Heritage	SPELLS:Divine Heritage|TIMES=1|CASTERLEVEL=1|Inflict Minor Wounds	
+Light					KEY:Divine Heritage ~ Light				CATEGORY:Special Ability	TYPE:Divine Heritage	SPELLS:Divine Heritage|TIMES=1|CASTERLEVEL=1|Light				
+Mending				KEY:Divine Heritage ~ Mending				CATEGORY:Special Ability	TYPE:Divine Heritage	SPELLS:Divine Heritage|TIMES=1|CASTERLEVEL=1|Mending			
+Read Magic				KEY:Divine Heritage ~ Read Magic			CATEGORY:Special Ability	TYPE:Divine Heritage	SPELLS:Divine Heritage|TIMES=1|CASTERLEVEL=1|Read Magic			
+Resistance				KEY:Divine Heritage ~ Resistance			CATEGORY:Special Ability	TYPE:Divine Heritage	SPELLS:Divine Heritage|TIMES=1|CASTERLEVEL=1|Resistance			
+Virtue				KEY:Divine Heritage ~ Virtue				CATEGORY:Special Ability	TYPE:Divine Heritage	SPELLS:Divine Heritage|TIMES=1|CASTERLEVEL=1|Virtue			
+
+# Magical Heritage
+Arcane Graffiti			KEY:Magical Heritage ~ Arcane Graffiti		CATEGORY:Special Ability	TYPE:Magical Heritage	SPELLS:Magical Heritage|TIMES=1|CASTERLEVEL=1|Arcane Graffiti		
+Dancing Lights			KEY:Magical Heritage ~ Dancing Lights		CATEGORY:Special Ability	TYPE:Magical Heritage	SPELLS:Magical Heritage|TIMES=1|CASTERLEVEL=1|Dancing Lights		
+Daze					KEY:Magical Heritage ~ Daze				CATEGORY:Special Ability	TYPE:Magical Heritage	SPELLS:Magical Heritage|TIMES=1|CASTERLEVEL=1|Daze				
+Detect Magical Aura		KEY:Magical Heritage ~ Detect Magical Aura	CATEGORY:Special Ability	TYPE:Magical Heritage	SPELLS:Magical Heritage|TIMES=1|CASTERLEVEL=1|Detect Magical Aura	
+Haywire				KEY:Magical Heritage ~ Haywire			CATEGORY:Special Ability	TYPE:Magical Heritage	SPELLS:Magical Heritage|TIMES=1|CASTERLEVEL=1|Haywire			
+Light					KEY:Magical Heritage ~ Light				CATEGORY:Special Ability	TYPE:Magical Heritage	SPELLS:Magical Heritage|TIMES=1|CASTERLEVEL=1|Light				
+Mage Hand				KEY:Magical Heritage ~ Mage Hand			CATEGORY:Special Ability	TYPE:Magical Heritage	SPELLS:Magical Heritage|TIMES=1|CASTERLEVEL=1|Mage Hand			
+Magic ID				KEY:Magical Heritage ~ Magic ID			CATEGORY:Special Ability	TYPE:Magical Heritage	SPELLS:Magical Heritage|TIMES=1|CASTERLEVEL=1|Magic ID			
+Mending				KEY:Magical Heritage ~ Mending			CATEGORY:Special Ability	TYPE:Magical Heritage	SPELLS:Magical Heritage|TIMES=1|CASTERLEVEL=1|Mending			
+Message				KEY:Magical Heritage ~ Message			CATEGORY:Special Ability	TYPE:Magical Heritage	SPELLS:Magical Heritage|TIMES=1|CASTERLEVEL=1|Message			
+Prestidigitation			KEY:Magical Heritage ~ Prestidigitation		CATEGORY:Special Ability	TYPE:Magical Heritage	SPELLS:Magical Heritage|TIMES=1|CASTERLEVEL=1|Prestidigitation		
+Read Magic				KEY:Magical Heritage ~ Read Magic			CATEGORY:Special Ability	TYPE:Magical Heritage	SPELLS:Magical Heritage|TIMES=1|CASTERLEVEL=1|Read Magic			
+Resistance				KEY:Magical Heritage ~ Resistance			CATEGORY:Special Ability	TYPE:Magical Heritage	SPELLS:Magical Heritage|TIMES=1|CASTERLEVEL=1|Resistance			
+
 
 #
 # End
