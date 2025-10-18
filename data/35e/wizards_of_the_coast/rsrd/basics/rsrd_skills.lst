@@ -194,3 +194,17 @@ Perform (Untrained).MOD																																											BONUS:SKILL|Pe
 
 Diplomacy.MOD						SITUATION:Draconic Creatures
 Ride.MOD							SITUATION:Dragon
+
+
+###Block: Jack of all trades support
+Decipher Script (Untrained)		KEYSTAT:INT	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillDisplay	VISIBLE:EXPORT	PREMULT:2,[PREVAREQ:skillinfo("TOTALRANK","Decipher Script"),0],[PREVAREQ:UseUntrainedSkill_Decipher_Script,1]	
+Disable Device (Untrained)		KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillDisplay	VISIBLE:EXPORT	PREMULT:2,[PREVAREQ:skillinfo("TOTALRANK","Disable Device"),0],[PREVAREQ:UseUntrainedSkill_Disable_Device,1]	
+Handle Animal (Untrained)		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillDisplay	VISIBLE:EXPORT	PREMULT:2,[PREVAREQ:skillinfo("TOTALRANK","Handle Animal"),0],[PREVAREQ:UseUntrainedSkill_Handle_Animal,1]	
+Open Lock (Untrained)			KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillDisplay	VISIBLE:EXPORT	PREMULT:2,[PREVAREQ:skillinfo("TOTALRANK","Open Lock"),0],[PREVAREQ:UseUntrainedSkill_Open_Lock,1]		
+Sleight of Hand (Untrained)		KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillDisplay	VISIBLE:EXPORT	PREMULT:2,[PREVAREQ:skillinfo("TOTALRANK","Sleight of Hand"),0],[PREVAREQ:UseUntrainedSkill_Sleight_of_Hand,1]	
+Speak Language (Untrained)				USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillDisplay	VISIBLE:EXPORT	PREMULT:2,[PREVAREQ:skillinfo("TOTALRANK","Speak Language"),0],[PREVAREQ:UseUntrainedSkill_Speak_Language,1]	
+Spellcraft (Untrained)			KEYSTAT:INT	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillDisplay	VISIBLE:EXPORT	PREMULT:2,[PREVAREQ:skillinfo("TOTALRANK","Spellcraft"),0],[PREVAREQ:UseUntrainedSkill_Spellcraft,1]		
+Tumble (Untrained)			KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillDisplay	VISIBLE:EXPORT	PREMULT:2,[PREVAREQ:skillinfo("TOTALRANK","Tumble"),0],[PREVAREQ:UseUntrainedSkill_Tumble,1]		
+Use Magic Device (Untrained)		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillDisplay	VISIBLE:EXPORT	PREMULT:2,[PREVAREQ:skillinfo("TOTALRANK","Use Magic Device"),0],[PREVAREQ:UseUntrainedSkill_Use_Magic_Device,1]	
+
+
