@@ -10,10 +10,10 @@ SHOWINMENU:YES
 !PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=MultiSet,[Starfinder RPG Core Supplements]
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
-PUBNAMEWEB:http://paizo.com
+PUBNAMEWEB:http://www.paizo.com
 SOURCELONG:Starfinder Core
 SOURCESHORT:SC
-PUBNAMEWEB:http://www.paizo.com
+SOURCEWEB:http://www.paizo.com
 SOURCEDATE:2017-09
 RANK:201709
 ISOGL:YES

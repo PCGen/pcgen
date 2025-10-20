@@ -19,15 +19,12 @@ SOURCEDATE:2014-08
 RANK:201408
 ISOGL:YES
 
-DESC:WARNING: ONLY LOAD THIS IF YOU ARE PLAYING BY PATHFINDER SOCIETY RULES.
-
 COVER:guide_to_pathfinder_society_organized_play.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
 URL:Paizo Publishing|http://paizo.com/products/btpy84k4?Guide-to-Pathfinder-Society-Organized-Play|Download this publication from Paizo Publishing!
-DESC:This contains the traits for the various factions within the Pathfinder Society.  It is based on version 6.0 of the Pathfinder Society Guide to Organized Play released 14th August 2014.
-DESC:http://paizo.com/pathfinderSociety/about/additionalResources contains a book-by-book analysis of campaign-legal feat, races, languages, items, etc. choices beyond the Core Rulebook. Check there before taking any feat from a non-Core Rulebook source
+DESC:WARNING: ONLY LOAD THIS IF YOU ARE PLAYING BY PATHFINDER SOCIETY RULES. This contains the traits for the various factions within the Pathfinder Society.  It is based on version 6.0 of the Pathfinder Society Guide to Organized Play released 14th August 2014. http://paizo.com/pathfinderSociety/about/additionalResources contains a book-by-book analysis of campaign-legal feat, races, languages, items, etc. choices beyond the Core Rulebook. Check there before taking any feat from a non-Core Rulebook source
 
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 COPYRIGHT:Open Game License v 1.0a © 2000, Wizards of the Coast, Inc.

@@ -66,7 +66,7 @@ EQUIPMOD:spycraft_gadget_mods.lst
 EQUIPMENT:spycraft_vehicles.lst
 EQUIPMOD:spycraft_vehicle_mods.lst
 
-HELP:data/permissioned/alderacentgroup/spycraft/spycraft/help_spycraft.html
+HELP:./help_spycraft.html
 
 
 SKILL:spycraft_skills_mod.lst
