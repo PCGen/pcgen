@@ -37,7 +37,7 @@ ABILITYCATEGORY:Mythic Weapon Training					VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES
 ABILITYCATEGORY:Path Dabbling							VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Path Dabbling
 
 
-ABILITYCATEGORY:Mythic Racial Heritage					VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability		TYPE:Mythic Racial Heritage																					DISPLAYLOCATION:Mythic Abilities
+ABILITYCATEGORY:Mythic Racial Heritage					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability		TYPE:Mythic Racial Heritage																					DISPLAYLOCATION:Mythic Abilities
 
 #
 ABILITYCATEGORY:Racial Heritage Racial Trait ~ Aasimar		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability		TYPE:Aasimar MA Racial Trait																						DISPLAYLOCATION:Mythic Abilities
