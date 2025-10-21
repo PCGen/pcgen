@@ -1,12 +1,6 @@
 # Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
 
 
-###Block: Racial Heritage
-# Template Name	Unique Key				Visible	Template		Type				FACT
-Undine		KEY:Racial Heritage ~ Undine	VISIBLE:NO	TEMPLATE:IsUndine	TYPE:Racial Heritage	FACT:IsUndine|True
-IsUndine							VISIBLE:NO
-
-
 ###Block: Creature Subtypes
 # Template Name	Visible	Race Subtype
 Native		VISIBLE:NO	RACESUBTYPE:Native
