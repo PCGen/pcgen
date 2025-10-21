@@ -1,12 +1,6 @@
 # Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
 
 
-###Block: Racial Heritage
-# Template Name	Unique Key					Visible	Template			Type				FACT
-Tiefling		KEY:Racial Heritage ~ Tiefling	VISIBLE:NO	TEMPLATE:IsTiefling	TYPE:Racial Heritage	FACT:IsTiefling|True
-IsTiefling								VISIBLE:NO
-
-
 ###Block: Creature Subtypes
 # Template Name	Visible	Race Subtype
 Native		VISIBLE:NO	RACESUBTYPE:Native

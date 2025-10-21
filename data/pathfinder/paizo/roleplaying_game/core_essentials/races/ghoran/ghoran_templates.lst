@@ -1,7 +1,3 @@
 # Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
 
 
-###Block: Racial Heritage
-# Template Name	Unique Key				Visible	Template		Type				FACT
-Ghoran		KEY:Racial Heritage ~ Ghoran	VISIBLE:NO	TEMPLATE:IsGhoran	TYPE:Racial Heritage	FACT:IsGhoran|True
-IsGhoran							VISIBLE:NO

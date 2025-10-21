@@ -1,7 +1,3 @@
 # Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
 
 
-###Block: Racial Heritage
-# Template Name	Unique Key				Visible	Template			Type				FACT
-Wyrwood		KEY:Racial Heritage ~ Wyrwood	VISIBLE:NO	TEMPLATE:IsWyrwood	TYPE:Racial Heritage	FACT:IsWyrwood|True
-IsWyrwood							VISIBLE:NO
