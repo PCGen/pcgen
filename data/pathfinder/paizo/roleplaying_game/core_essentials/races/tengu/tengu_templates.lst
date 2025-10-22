@@ -6,7 +6,7 @@ IsTengu							VISIBLE:NO	FACT:IsTengu|True
 
 ###Block: Racial Heritage
 # Template Name	Unique Key				Visible	Template		Type
-Tengu			KEY:Racial Heritage ~ Tengu	VISIBLE:NO	TEMPLATE:IsTengu	TYPE:Racial Heritage
+Tengu			KEY:Racial Heritage ~ Tengu	VISIBLE:NO	TEMPLATE:IsTengu|Tengu	TYPE:Racial Heritage
 
 
 ###Block: Creature Subtypes

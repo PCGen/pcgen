@@ -185,7 +185,7 @@ CATEGORY=Special Ability|Advanced Weapon Training ~ Knockout Training ~ Thrown.M
 # ==============================
 # Bloodrager Archetype - Prowler at World's End
 # ==============================
-CATEGORY=Archetype,Bloodrager Archetype ~ Prowler at World's End.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal		PRERACE:1,Catfolk
+CATEGORY=Archetype,Bloodrager Archetype ~ Prowler at World's End.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal		PREFACT:1,TEMPLATES,IsCatfolk=true
 ####Shared Seance was included because it apperars to be a sub-ability tied to Spirit (mentioned in the main Spirit description in OA). Taboo was included because taboos were mentioned in Spirit description in BotB description. No errata or support available at this time to confirm or refute these assumptions.
 CATEGORY=Special Ability|Prowler at World's End ~ Spirit.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
 CATEGORY=Special Ability|Prowler at World's End ~ Spirit Surge.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
@@ -273,7 +273,7 @@ CATEGORY=Raging Blood Feat Bloodline|Naga Bloodline.MOD	TYPE:PFSLegal	PRETYPE:1,
 # Cavalier Archetype - First Mother's Fang
 # ==============================
 
-CATEGORY=Archetype|Cavalier Archetype ~ First Mother's Fang.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal	PRERACE:1,Nagaji
+CATEGORY=Archetype|Cavalier Archetype ~ First Mother's Fang.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal	PREFACT:1,TEMPLATES,IsNagaji=true
 
 #CATEGORY=Internal|First Mother's Fang ~ Class Skills.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
 CATEGORY=Special Ability|First Mother's Fang ~ Weapon and Armor Proficiency.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
@@ -621,7 +621,7 @@ CATEGORY=Special Ability|Scavenger ~ Construct Mastery.MOD	TYPE:PFSLegal	PRETYPE
 # Medium Archetype - Fiend Keeper
 # ==============================
 
-CATEGORY=Archetype|Medium Archetype ~ Fiend Keeper.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal	PRERACE:1,Grippli
+CATEGORY=Archetype|Medium Archetype ~ Fiend Keeper.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal	PREFACT:1,TEMPLATES,IsGrippli=true
 
 CATEGORY=Special Ability|Fiend Keeper ~ Evil SpiritFiend Keeper.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
 CATEGORY=Special Ability|Fiend Keeper ~ Dark CommunionFiend Keeper.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
@@ -740,7 +740,7 @@ CATEGORY=Special Ability|War Painter ~ Arcane Flourish.MOD	TYPE:PFSLegal	PRETYPE
 # Sorcerer Archetype - Nine-Tailed Heir
 # ==============================
 
-CATEGORY=Archetype|Sorcerer Archetype ~ Nine-Tailed Heir.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal	PRERACE:1,Kitsune
+CATEGORY=Archetype|Sorcerer Archetype ~ Nine-Tailed Heir.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal	PREFACT:1,TEMPLATES,IsKitsune=true
 
 CATEGORY=Special Ability|Nine-Tailed Heir ~ Magical Tail.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
 
@@ -792,7 +792,7 @@ CATEGORY=Special Ability|Social Talent ~ Transformation Sequence.MOD	TYPE:PFSLeg
 
 CATEGORY=Special Ability|Vigilante Talent ~ Brutal Maneuver.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
 CATEGORY=Special Ability|Vigilante Talent ~ Deceitful Trick.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
-CATEGORY=Special Ability|Vigilante Talent ~ Racial Paragon.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal	PRERACE:1,Kitsune
+CATEGORY=Special Ability|Vigilante Talent ~ Racial Paragon.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal	PREFACT:1,TEMPLATES,IsKitsune=true
 
 # ==============================
 # Vigilante Wildsoul Natural Course - Feline
@@ -809,7 +809,7 @@ CATEGORY=Special Ability|Feline Natural Course ~ Nine Lives.MOD	TYPE:PFSLegal	PR
 # Witch Archetype - Jinx Witch
 # ==============================
 
-CATEGORY=Archetype|Witch Archetype ~ Jinx Witch.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal	PRERACE:1,Tengu
+CATEGORY=Archetype|Witch Archetype ~ Jinx Witch.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal	PREFACT:1,TEMPLATES,IsTengu=true
 
 CATEGORY=Special Ability|Jinx Witch ~ Class Skills.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
 CATEGORY=Special Ability|Jinx Witch ~ Spell Awareness.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
