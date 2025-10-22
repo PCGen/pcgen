@@ -389,6 +389,7 @@ Witch Knife (Mythic)			KEY:Mythic Feat Output ~ Witch Knife			CATEGORY:FEAT		TYP
 
 ###Block: Racial Heritage
 # You gain a single racial trait of your choice from the race you picked when you took non-mythic Racial Heritage. That racial trait can't modify your size or ability scores. You also gain the racial language of the race (if any) if you don't already know it. For races with multiple racial languages, you gain all of them.
+Android		PRETEMPLATE:1,Racial Heritage ~ Android		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common																		BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Android|1
 Aquatic Elf		PRETEMPLATE:1,Racial Heritage ~ Aquatic Elf	CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common|Elven																	BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Aquatic Elf|1
 Catfolk		PRETEMPLATE:1,Racial Heritage ~ Catfolk		CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common|Catfolk																BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Catfolk|1
 Changeling		PRETEMPLATE:1,Racial Heritage ~ Changeling	CATEGORY:Special Ability	TYPE:Mythic Racial Heritage	AUTO:LANG|Common																		BONUS:ABILITYPOOL|Racial Heritage Racial Trait ~ Changeling|1
@@ -426,6 +427,12 @@ Wayang		PRETEMPLATE:1,Racial Heritage ~ Wayang		CATEGORY:Special Ability	TYPE:My
 
 # COMMENT: xxx MA Racial Trait in order to enable this for Mythic Racial Trait selection
 ###Block: Enable Racial Traits that qualify
+CATEGORY=Special Ability|Android ~ Vision.MOD				TYPE:Android MA Racial Trait
+CATEGORY=Special Ability|Android ~ Constructed.MOD			TYPE:Android MA Racial Trait
+CATEGORY=Special Ability|Android ~ Emotionless.MOD			TYPE:Android MA Racial Trait
+CATEGORY=Special Ability|Android ~ Nanite Surge.MOD			TYPE:Android MA Racial Trait
+CATEGORY=Special Ability|Android ~ Languages.MOD			TYPE:Android MA Racial Trait
+#
 CATEGORY=Special Ability|Aquatic Elf ~ Vision.MOD			TYPE:Aquatic Elf MA Racial Trait
 CATEGORY=Special Ability|Aquatic Elf ~ Swim Speed.MOD			TYPE:Aquatic Elf MA Racial Trait
 CATEGORY=Special Ability|Aquatic Elf ~ Amphibious.MOD			TYPE:Aquatic Elf MA Racial Trait
