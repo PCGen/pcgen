@@ -1,3 +1,5 @@
 # Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
 
 
+Ghoran	KEY:Race ~ Ghoran	VISIBLE:NO	TEMPLATE:IsGhoran
+IsGhoran							VISIBLE:NO	FACT:IsGhoran|True

@@ -1,5 +1,13 @@
 # Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
 
+Android	KEY:Race ~ Android	VISIBLE:NO	TEMPLATE:IsAndroid
+IsAndroid							VISIBLE:NO	FACT:IsAndroid|True
+
+
+###Block: Racial Heritage
+# Template Name	Unique Key				Visible	Template				Type				FACT
+Android		KEY:Racial Heritage ~ Android	VISIBLE:NO	TEMPLATE:IsAndroid|Android	TYPE:Racial Heritage
+
 
 ###Block: Creature Subtypes
 # Template Name	Visible	Race Subtype

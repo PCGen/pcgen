@@ -1,10 +1,12 @@
 # Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
 
 
+Vishkanya	KEY:Race ~ Vishkanya	VISIBLE:NO	TEMPLATE:IsVishkanya
+IsVishkanya								VISIBLE:NO	FACT:IsVishkanya|True
+
 ###Block: Racial Heritage
-# Template Name	Unique Key					Visible	Template			Type				FACT
-Vishkanya		KEY:Racial Heritage ~ Vishkanya	VISIBLE:NO	TEMPLATE:IsVishkanya	TYPE:Racial Heritage	FACT:IsVishkanya|True
-IsVishkanya								VISIBLE:NO
+# Template Name	Unique Key					Visible	Template					Type			
+Vishkanya		KEY:Racial Heritage ~ Vishkanya	VISIBLE:NO	TEMPLATE:IsVishkanya|Vishkanya	TYPE:Racial Heritage
 
 
 ###Block: Creature Subtypes

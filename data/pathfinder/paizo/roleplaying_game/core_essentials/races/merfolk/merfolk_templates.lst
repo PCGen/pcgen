@@ -1,10 +1,12 @@
 # Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
 
 
+Merfolk	KEY:Race ~ Merfolk	VISIBLE:NO	TEMPLATE:IsMerfolk
+IsMerfolk							VISIBLE:NO	FACT:IsMerfolk|True
+
 ###Block: Racial Heritage
 # Template Name	Unique Key				Visible	Template			Type				FACT
-Merfolk		KEY:Racial Heritage ~ Merfolk	VISIBLE:NO	TEMPLATE:IsMerfolk	TYPE:Racial Heritage	FACT:IsMerfolk|True
-IsMerfolk							VISIBLE:NO
+Merfolk		KEY:Racial Heritage ~ Merfolk	VISIBLE:NO	TEMPLATE:IsMerfolk	TYPE:Racial Heritage
 
 
 ###Block: Creature Subtypes

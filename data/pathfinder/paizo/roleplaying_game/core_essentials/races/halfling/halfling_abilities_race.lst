@@ -7,7 +7,7 @@
 
 ###Block: Racial Abilities ~ grantor/removal MODs in halfling_abilities_globalvar.lst
 # Ability Name			Category of Ability	Define																								Template					Modify VAR
-Racial Traits ~ Halfling	CATEGORY:Internal		DEFINE:Halfling_RacialCastingStat|0	DEFINE:Halfling_RacialCastingMod|0	DEFINE:Halfling_RacialCasterlevel|0	DEFINE:Halfling_RacialConcentration|0	TEMPLATE:Racial Heritage ~ Halfling	BONUS:VAR|Halfling_RacialCastingStat|CHASCORE	BONUS:VAR|Halfling_RacialCastingMod|CHA	BONUS:VAR|Halfling_RacialCasterlevel|TL	BONUS:VAR|Halfling_RacialConcentration|Halfling_RacialCasterlevel+Halfling_RacialCastingMod
+Racial Traits ~ Halfling	CATEGORY:Internal		DEFINE:Halfling_RacialCastingStat|0	DEFINE:Halfling_RacialCastingMod|0	DEFINE:Halfling_RacialCasterlevel|0	DEFINE:Halfling_RacialConcentration|0	TEMPLATE:Race ~ Halfling		BONUS:VAR|Halfling_RacialCastingStat|CHASCORE	BONUS:VAR|Halfling_RacialCastingMod|CHA	BONUS:VAR|Halfling_RacialCasterlevel|TL	BONUS:VAR|Halfling_RacialConcentration|Halfling_RacialCasterlevel+Halfling_RacialCastingMod
 
 ###Block: Racial Trait Support
 # Ability Name								Type
