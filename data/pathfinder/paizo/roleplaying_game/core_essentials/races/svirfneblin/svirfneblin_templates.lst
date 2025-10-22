@@ -1,9 +1,11 @@
 # Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
 
 
+Svirfneblin	KEY:Race ~ Svirfneblin	VISIBLE:NO	TEMPLATE:IsSvirfneblin	FACT:IsSvirfneblin|True
+
 ###Block: Racial Heritage
-# Template Name	Unique Key					Visible	Template			Type				FACT
-Svirfneblin		KEY:Racial Heritage ~ Svirfneblin	VISIBLE:NO	TEMPLATE:IsSvirfneblin	TYPE:Racial Heritage	FACT:IsSvirfneblin|True
+# Template Name	Unique Key					Visible	Template				Type				FACT
+Svirfneblin		KEY:Racial Heritage ~ Svirfneblin	VISIBLE:NO	TEMPLATE:IsSvirfneblin|Gnome	TYPE:Racial Heritage	FACT:IsSvirfneblin|True
 IsSvirfneblin							VISIBLE:NO
 
 

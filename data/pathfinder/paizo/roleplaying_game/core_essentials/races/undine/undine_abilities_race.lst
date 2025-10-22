@@ -7,7 +7,7 @@
 
 ###Block: Racial Abilities ~ grantor/removal MODs in undine abilities globalvar.lst
 # Ability Name		Category of Ability	Define																							Template					Modify VAR
-Racial Traits ~ Undine	CATEGORY:Internal		DEFINE:Undine_RacialCastingStat|0	DEFINE:Undine_RacialCastingMod|0	DEFINE:Undine_RacialCasterlevel|0	DEFINE:Undine_RacialConcentration|0	TEMPLATE:Racial Heritage ~ Undine	BONUS:VAR|Undine_RacialCastingStat|CHASCORE	BONUS:VAR|Undine_RacialCastingMod|CHA	BONUS:VAR|Undine_RacialCasterlevel|TL	BONUS:VAR|Undine_RacialConcentration|Undine_RacialCasterlevel+Undine_RacialCastingMod
+Racial Traits ~ Undine	CATEGORY:Internal		DEFINE:Undine_RacialCastingStat|0	DEFINE:Undine_RacialCastingMod|0	DEFINE:Undine_RacialCasterlevel|0	DEFINE:Undine_RacialConcentration|0	TEMPLATE:Race ~ Undine			BONUS:VAR|Undine_RacialCastingStat|CHASCORE	BONUS:VAR|Undine_RacialCastingMod|CHA	BONUS:VAR|Undine_RacialCasterlevel|TL	BONUS:VAR|Undine_RacialConcentration|Undine_RacialCasterlevel+Undine_RacialCastingMod
 
 ###Block: Racial Traits
 # Ability Name					Unique Key					Category of Ability		Type																					Visible		Prohibited Fact								Define		Description																																												Template																													Move				Auto Language		Ability																										Caster level																																			Stat bonus										Modify VAR							Vision			Source Page

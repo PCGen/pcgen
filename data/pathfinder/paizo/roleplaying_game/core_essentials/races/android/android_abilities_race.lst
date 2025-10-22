@@ -7,7 +7,7 @@
 
 ###Block: Racial Abilities ~ grantor/removal MODs in android_abilities_globalvar.lst
 # Ability Name		Category of Ability	Define																								Template					Modify VAR
-Racial Traits ~ Android	CATEGORY:Internal		DEFINE:Android_RacialCastingStat|0	DEFINE:Android_RacialCastingMod|0	DEFINE:Android_RacialCasterlevel|0	DEFINE:Android_RacialConcentration|0	TEMPLATE:Racial Heritage ~ Android	BONUS:VAR|Android_RacialCastingStat|CHASCORE	BONUS:VAR|Android_RacialCastingMod|CHA	BONUS:VAR|Android_RacialCasterlevel|TL	BONUS:VAR|Android_RacialConcentration|Android_RacialCasterlevel+Android_RacialCastingMod
+Racial Traits ~ Android	CATEGORY:Internal		DEFINE:Android_RacialCastingStat|0	DEFINE:Android_RacialCastingMod|0	DEFINE:Android_RacialCasterlevel|0	DEFINE:Android_RacialConcentration|0	TEMPLATE:Race ~ Android			BONUS:VAR|Android_RacialCastingStat|CHASCORE	BONUS:VAR|Android_RacialCastingMod|CHA	BONUS:VAR|Android_RacialCasterlevel|TL	BONUS:VAR|Android_RacialConcentration|Android_RacialCasterlevel+Android_RacialCastingMod
 
 ###Block: Racial Traits
 # Ability Name						Unique Key				Category of Ability		Type																													Visible		Prohibited Fact								Define				Description																																																															Template						Move			Auto Language	Ability																			Bonus to skill					Stat bonus										Modify VAR																				Vision							Source Page		Aspects																								Information

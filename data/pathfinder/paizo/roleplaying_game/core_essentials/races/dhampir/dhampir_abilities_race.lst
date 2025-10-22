@@ -6,7 +6,7 @@
 
 ###Block: Racial Abilities ~ grantor/removal MODs in dhampir_abilities_globalvar.lst
 # Ability Name		Category of Ability	Define																								Template					Modify VAR
-Racial Traits ~ Dhampir	CATEGORY:Internal		DEFINE:Dhampir_RacialCastingStat|0	DEFINE:Dhampir_RacialCastingMod|0	DEFINE:Dhampir_RacialCasterlevel|0	DEFINE:Dhampir_RacialConcentration|0	TEMPLATE:Racial Heritage ~ Dhampir	BONUS:VAR|Dhampir_RacialCastingStat|CHASCORE	BONUS:VAR|Dhampir_RacialCastingMod|CHA	BONUS:VAR|Dhampir_RacialCasterlevel|TL	BONUS:VAR|Dhampir_RacialConcentration|Dhampir_RacialCasterlevel+Dhampir_RacialCastingMod
+Racial Traits ~ Dhampir	CATEGORY:Internal		DEFINE:Dhampir_RacialCastingStat|0	DEFINE:Dhampir_RacialCastingMod|0	DEFINE:Dhampir_RacialCasterlevel|0	DEFINE:Dhampir_RacialConcentration|0	TEMPLATE:Race ~ Dhampir			BONUS:VAR|Dhampir_RacialCastingStat|CHASCORE	BONUS:VAR|Dhampir_RacialCastingMod|CHA	BONUS:VAR|Dhampir_RacialCasterlevel|TL	BONUS:VAR|Dhampir_RacialConcentration|Dhampir_RacialCasterlevel+Dhampir_RacialCastingMod
 
 ###Block: Racial Traits
 # Ability Name						Unique Key						Category of Ability		Type																	Visible		Prohibited Fact								Define		Description																																											Template						Move			Auto Language	Ability													Bonus to skill						Stat bonus										Modify VAR																Vision						Source Page		Aspects

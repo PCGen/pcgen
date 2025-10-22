@@ -1,6 +1,9 @@
 # Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
 
 
+Sylph	KEY:Race ~ Sylph	VISIBLE:NO	TEMPLATE:IsSylph
+IsSylph							VISIBLE:NO	FACT:IsSylph|True
+
 
 ###Block: Creature Subtypes
 # Template Name	Visible	Race Subtype

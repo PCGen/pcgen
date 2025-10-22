@@ -1,3 +1,6 @@
 # Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
 
 
+Trox	KEY:Race ~ Trox	VISIBLE:NO	TEMPLATE:IsTrox
+IsTrox							VISIBLE:NO	FACT:IsTrox|True
+

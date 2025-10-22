@@ -1,3 +1,5 @@
 # Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
 
 
+Gathlain	KEY:Race ~ Gathlain	VISIBLE:NO	TEMPLATE:IsGathlain
+IsGathlain							VISIBLE:NO	FACT:IsGathlain|True

@@ -7,7 +7,7 @@
 
 ###Block: Racial Abilities ~ grantor/removal MODs in suli_abilities_globalvar.lst
 # Ability Name		Category of Ability	Define																							Template					Modify VAR
-Racial Traits ~ Suli	CATEGORY:Internal		DEFINE:Suli_RacialCastingStat|0	DEFINE:Suli_RacialCastingMod|0	DEFINE:Suli_RacialCasterlevel|0	DEFINE:Suli_RacialConcentration|0	TEMPLATE:Racial Heritage ~ Suli	BONUS:VAR|Suli_RacialCastingStat|CHASCORE	BONUS:VAR|Suli_RacialCastingMod|CHA	BONUS:VAR|Suli_RacialCasterlevel|TL	BONUS:VAR|Suli_RacialConcentration|Suli_RacialCasterlevel+Suli_RacialCastingMod
+Racial Traits ~ Suli	CATEGORY:Internal		DEFINE:Suli_RacialCastingStat|0	DEFINE:Suli_RacialCastingMod|0	DEFINE:Suli_RacialCasterlevel|0	DEFINE:Suli_RacialConcentration|0	TEMPLATE:Race ~ Suli			BONUS:VAR|Suli_RacialCastingStat|CHASCORE	BONUS:VAR|Suli_RacialCastingMod|CHA	BONUS:VAR|Suli_RacialCasterlevel|TL	BONUS:VAR|Suli_RacialConcentration|Suli_RacialCasterlevel+Suli_RacialCastingMod
 
 ###Block: Racial Traits
 # Ability Name					Unique Key				Category of Ability		Type																			Visible		Prohibited Fact								Define						Description																																																													Template																					Move			Auto Language	Bonus Ability Pool				Bonus to skill							Stat bonus										Modify VAR																			Vision			Source Page		Aspects

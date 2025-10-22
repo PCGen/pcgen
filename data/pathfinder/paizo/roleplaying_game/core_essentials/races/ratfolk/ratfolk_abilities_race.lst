@@ -7,7 +7,7 @@
 
 ###Block: Racial Abilities ~ grantor/removal MODs in ratfolk_abilities_globalvar.lst
 # Ability Name		Category of Ability	Define																								Template					Modify VAR
-Racial Traits ~ Ratfolk	CATEGORY:Internal		DEFINE:Ratfolk_RacialCastingStat|0	DEFINE:Ratfolk_RacialCastingMod|0	DEFINE:Ratfolk_RacialCasterlevel|0	DEFINE:Ratfolk_RacialConcentration|0	TEMPLATE:Racial Heritage ~ Ratfolk	BONUS:VAR|Ratfolk_RacialCastingStat|CHASCORE	BONUS:VAR|Ratfolk_RacialCastingMod|CHA	BONUS:VAR|Ratfolk_RacialCasterlevel|TL	BONUS:VAR|Ratfolk_RacialConcentration|Ratfolk_RacialCasterlevel+Ratfolk_RacialCastingMod
+Racial Traits ~ Ratfolk	CATEGORY:Internal		DEFINE:Ratfolk_RacialCastingStat|0	DEFINE:Ratfolk_RacialCastingMod|0	DEFINE:Ratfolk_RacialCasterlevel|0	DEFINE:Ratfolk_RacialConcentration|0	TEMPLATE:Race ~ Ratfolk			BONUS:VAR|Ratfolk_RacialCastingStat|CHASCORE	BONUS:VAR|Ratfolk_RacialCastingMod|CHA	BONUS:VAR|Ratfolk_RacialCasterlevel|TL	BONUS:VAR|Ratfolk_RacialConcentration|Ratfolk_RacialCasterlevel+Ratfolk_RacialCastingMod
 
 ###Block: Racial Traits
 # Ability Name						Unique Key				Category of Ability		Type																					Visible		Prohibited Fact								Define		Description																																																							Template																																					Move			Auto Language	Bonus to Situation								Bonus to skill										Stat bonus										Modify VAR				Vision			Source Page		Aspects
