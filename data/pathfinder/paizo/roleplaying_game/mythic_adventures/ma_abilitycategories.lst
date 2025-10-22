@@ -40,6 +40,7 @@ ABILITYCATEGORY:Path Dabbling							VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTI
 ABILITYCATEGORY:Mythic Racial Heritage					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability		TYPE:Mythic Racial Heritage																					DISPLAYLOCATION:Mythic Abilities
 
 #
+ABILITYCATEGORY:Racial Heritage Racial Trait ~ Android		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability		TYPE:Android MA Racial Trait																					DISPLAYLOCATION:Mythic Abilities
 ABILITYCATEGORY:Racial Heritage Racial Trait ~ Aquatic Elf		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability		TYPE:Aquatic Elf MA Racial Trait																					DISPLAYLOCATION:Mythic Abilities
 ABILITYCATEGORY:Racial Heritage Racial Trait ~ Catfolk		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability		TYPE:Catfolk MA Racial Trait																						DISPLAYLOCATION:Mythic Abilities
 ABILITYCATEGORY:Racial Heritage Racial Trait ~ Changeling		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability		TYPE:Changeling MA Racial Trait																					DISPLAYLOCATION:Mythic Abilities
