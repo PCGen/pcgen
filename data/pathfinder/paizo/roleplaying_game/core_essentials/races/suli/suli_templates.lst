@@ -1,6 +1,9 @@
 # Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
 
 
+Suli	KEY:Race ~ Suli	VISIBLE:NO	TEMPLATE:IsSuli
+IsSuli							VISIBLE:NO	FACT:IsSuli|True
+
 ###Block: Creature Subtypes
 # Template Name	Visible	Race Subtype
 Native		VISIBLE:NO	RACESUBTYPE:Native

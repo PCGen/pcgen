@@ -7,7 +7,7 @@
 
 ###Block: Racial Abilities ~ grantor/removal MODs in ghoran_abilities_globalvar.lst
 # Ability Name		Category of Ability	Define																							Template					Modify VAR
-Racial Traits ~ Ghoran	CATEGORY:Internal		DEFINE:Ghoran_RacialCastingStat|0	DEFINE:Ghoran_RacialCastingMod|0	DEFINE:Ghoran_RacialCasterlevel|0	DEFINE:Ghoran_RacialConcentration|0	TEMPLATE:Racial Heritage ~ Ghoran	BONUS:VAR|Ghoran_RacialCastingStat|CHASCORE	BONUS:VAR|Ghoran_RacialCastingMod|CHA	BONUS:VAR|Ghoran_RacialCasterlevel|TL	BONUS:VAR|Ghoran_RacialConcentration|Ghoran_RacialCasterlevel+Ghoran_RacialCastingMod
+Racial Traits ~ Ghoran	CATEGORY:Internal		DEFINE:Ghoran_RacialCastingStat|0	DEFINE:Ghoran_RacialCastingMod|0	DEFINE:Ghoran_RacialCasterlevel|0	DEFINE:Ghoran_RacialConcentration|0	TEMPLATE:Race ~ Ghoran			BONUS:VAR|Ghoran_RacialCastingStat|CHASCORE	BONUS:VAR|Ghoran_RacialCastingMod|CHA	BONUS:VAR|Ghoran_RacialCasterlevel|TL	BONUS:VAR|Ghoran_RacialConcentration|Ghoran_RacialCasterlevel+Ghoran_RacialCastingMod
 
 ###Block: Racial Traits
 # Ability Name						Unique Key					Category of Ability		Type																									Visible		Prohibited Fact								Define		Description																																																																										Template						Move			Auto Language		Ability																							Stat bonus										Modify VAR						Vision			Source Page		Aspects																																																	Information

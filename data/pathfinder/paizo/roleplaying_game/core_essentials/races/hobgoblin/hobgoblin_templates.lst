@@ -1,10 +1,12 @@
 # Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
 
 
+Hobgoblin	KEY:Race ~ Hobgoblin	VISIBLE:NO	TEMPLATE:IsHobgoblin
+IsHobgoblin								VISIBLE:NO	FACT:IsHobgoblin|True
+
 ###Block: Racial Heritage
 # Template Name	Unique Key					Visible	Template			Type				FACT
-Hobgoblin		KEY:Racial Heritage ~ Hobgoblin	VISIBLE:NO	TEMPLATE:IsHobgoblin	TYPE:Racial Heritage	FACT:IsHobgoblin|True
-IsHobgoblin								VISIBLE:NO
+Hobgoblin		KEY:Racial Heritage ~ Hobgoblin	VISIBLE:NO	TEMPLATE:IsHobgoblin	TYPE:Racial Heritage
 
 
 ###Block: Creature Subtypes
