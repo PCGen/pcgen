@@ -20,6 +20,8 @@ package pcgen.persistence;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.net.URI;
+import java.util.Optional;
+import java.util.logging.Level;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.TabInfo;
@@ -57,7 +59,6 @@ import pcgen.util.enumeration.Tab;
 
 public class GameModeFileLoader extends PCGenTask
 {
-
 	private static final FilenameFilter GAME_MODE_FILE_FILTER = (aFile, aString) -> {
 		try
 		{
@@ -132,57 +133,58 @@ public class GameModeFileLoader extends PCGenTask
 		{
 			File specGameModeDir = new File(gameModeDir, gameFile);
 			File miscInfoFile = new File(specGameModeDir, "miscinfo.lst");
-			final GameMode gm = GameModeFileLoader.loadGameModeMiscInfo(gameFile, miscInfoFile.toURI());
-			if (gm != null)
-			{
-				String gmName = gm.getName();
-				//SettingsHandler.setGame(gmName);
-				LoadContext context = gm.getModeContext();
-				loadGameModeInfoFile(gm, new File(specGameModeDir, "level.lst").toURI(), "level");
-				loadGameModeInfoFile(gm, new File(specGameModeDir, "rules.lst").toURI(), "rules");
 
-				// Load equipmentslot.lst
-				GameModeFileLoader.loadGameModeLstFile(context, eqSlotLoader, gmName, gameFile, "equipmentslots.lst");
+			GameModeFileLoader.loadGameModeMiscInfo(gameFile, miscInfoFile.toURI())
+				.ifPresentOrElse((GameMode gameMode) -> {
+					String gmName = gameMode.getName();
+					//SettingsHandler.setGame(gmName);
+					LoadContext context = gameMode.getModeContext();
+					loadGameModeInfoFile(gameMode, new File(specGameModeDir, "level.lst").toURI(), "level");
+					loadGameModeInfoFile(gameMode, new File(specGameModeDir, "rules.lst").toURI(), "rules");
 
-				// Load paperInfo.lst
-				GameModeFileLoader.loadGameModeLstFile(context, paperLoader, gmName, gameFile, "paperInfo.lst");
+					// Load equipmentslot.lst
+					GameModeFileLoader.loadGameModeLstFile(context, eqSlotLoader, gmName, gameFile, "equipmentslots.lst");
 
-				// Load bio files
-				GameModeFileLoader.loadGameModeLstFile(context, traitLoader, gmName, gameFile,
-					"bio" + File.separator + "traits.lst");
-				GameModeFileLoader.loadGameModeLstFile(context, locationLoader, gmName, gameFile,
-					"bio" + File.separator + "locations.lst");
+					// Load paperInfo.lst
+					GameModeFileLoader.loadGameModeLstFile(context, paperLoader, gmName, gameFile, "paperInfo.lst");
 
-				// Load load.lst and check for completeness
-				GameModeFileLoader.loadGameModeLstFile(context, loadInfoLoader, gmName, gameFile, "load.lst");
+					// Load bio files
+					GameModeFileLoader.loadGameModeLstFile(context, traitLoader, gmName, gameFile,
+							"bio" + File.separator + "traits.lst");
+					GameModeFileLoader.loadGameModeLstFile(context, locationLoader, gmName, gameFile,
+							"bio" + File.separator + "locations.lst");
 
-				// Load sizeAdjustment.lst
-				GameModeFileLoader.loadGameModeLstFile(context, sizeLoader, gmName, gameFile, "sizeAdjustment.lst",
-					false);
+					// Load load.lst and check for completeness
+					GameModeFileLoader.loadGameModeLstFile(context, loadInfoLoader, gmName, gameFile, "load.lst");
 
-				// Load statsandchecks.lst
-				GameModeFileLoader.loadGameModeLstFile(context, statCheckLoader, gmName, gameFile, "statsandchecks.lst",
-					false);
+					// Load sizeAdjustment.lst
+					GameModeFileLoader.loadGameModeLstFile(context, sizeLoader, gmName, gameFile, "sizeAdjustment.lst",
+							false);
 
-				// Load equipIcons.lst
-				GameModeFileLoader.loadGameModeLstFile(context, equipIconLoader, gmName, gameFile, "equipIcons.lst");
+					// Load statsandchecks.lst
+					GameModeFileLoader.loadGameModeLstFile(context, statCheckLoader, gmName, gameFile, "statsandchecks.lst",
+							false);
 
-				GameModeFileLoader.loadGameModeLstFile(context, codeControlLoader, gmName, gameFile, "codeControl.lst");
+					// Load equipIcons.lst
+					GameModeFileLoader.loadGameModeLstFile(context, equipIconLoader, gmName, gameFile, "equipIcons.lst");
 
-				// Load pointbuymethods.lst
-				loadPointBuyFile(context, gameFile, gmName);
-				for (final PointBuyCost pbc : context.getReferenceContext()
-					.getConstructedCDOMObjects(PointBuyCost.class))
-				{
-					gm.addPointBuyStatCost(pbc);
-				}
+					GameModeFileLoader.loadGameModeLstFile(context, codeControlLoader, gmName, gameFile, "codeControl.lst");
 
-				// Load migration.lst
-				GameModeFileLoader.loadGameModeLstFile(context, migrationLoader, gmName, gameFile, "migration.lst");
+					// Load pointbuymethods.lst
+					loadPointBuyFile(context, gameFile, gmName);
+					for (final PointBuyCost pbc : context.getReferenceContext()
+							.getConstructedCDOMObjects(PointBuyCost.class))
+					{
+						gameMode.addPointBuyStatCost(pbc);
+					}
 
-				GameModeFileLoader.loadGameModeLstFile(context, bioLoader, gmName, gameFile,
-					"bio" + File.separator + "biosettings.lst");
-			}
+					// Load migration.lst
+					GameModeFileLoader.loadGameModeLstFile(context, migrationLoader, gmName, gameFile, "migration.lst");
+
+					GameModeFileLoader.loadGameModeLstFile(context, bioLoader, gmName, gameFile,
+							"bio" + File.separator + "biosettings.lst");
+				}, () -> Logging.log(Level.WARNING, "There is no data for game mode: " + gameFile
+						+ ", and the URI: " +  miscInfoFile.toURI()));
 
 			progress++;
 			setProgress(progress);
@@ -259,10 +261,40 @@ public class GameModeFileLoader extends PCGenTask
 
 	private void loadGameModeInfoFile(GameMode gameMode, URI uri, String aType)
 	{
-		String data;
 		try
 		{
-			data = LstFileLoader.readFromURI(uri);
+			LstFileLoader.readFromURI(uri)
+					.ifPresentOrElse((String data) -> {
+						String[] fileLines = data.split(LstFileLoader.LINE_SEPARATOR_REGEXP);
+						String xpTable = "";
+						for (int i = 0; i < fileLines.length; i++)
+						{
+							String aLine = fileLines[i];
+
+							// Ignore commented-out and empty lines
+							if (aLine.isEmpty() || (aLine.charAt(0) == '#'))
+							{
+								continue;
+							}
+
+							if (aType.equals("level"))
+							{
+								xpTable = LevelLoader.parseLine(gameMode, aLine, i + 1, uri, xpTable);
+							} else if (aType.equals("rules"))
+							{
+								try
+								{
+									ruleCheckLoader.parseLine(gameMode.getModeContext(), aLine, uri);
+								} catch (final PersistenceLayerException e)
+								{
+									Logging.errorPrint(
+											LanguageBundle.getFormattedString(
+													"Errors.LstSystemLoader.loadGameModeInfoFile", //$NON-NLS-1$
+													uri, e.getMessage()));
+								}
+							}
+						}
+					}, () -> Logging.log(Level.WARNING, "There was no data in the URI: " + uri));
 		}
 		catch (final PersistenceLayerException ple)
 		{
@@ -270,48 +302,52 @@ public class GameModeFileLoader extends PCGenTask
 				LanguageBundle.getFormattedString(
 					"Errors.LstSystemLoader.loadGameModeInfoFile", //$NON-NLS-1$
 				uri, ple.getMessage()));
-			return;
-		}
-
-		String[] fileLines = data.split(LstFileLoader.LINE_SEPARATOR_REGEXP);
-		String xpTable = "";
-		for (int i = 0; i < fileLines.length; i++)
-		{
-			String aLine = fileLines[i];
-
-			// Ignore commented-out and empty lines
-			if (aLine.isEmpty() || (aLine.charAt(0) == '#'))
-			{
-				continue;
-			}
-
-			if (aType.equals("level"))
-			{
-				xpTable = LevelLoader.parseLine(gameMode, aLine, i + 1, uri, xpTable);
-			}
-			else if (aType.equals("rules"))
-			{
-				try
-				{
-					ruleCheckLoader.parseLine(gameMode.getModeContext(), aLine, uri);
-				}
-				catch (final PersistenceLayerException e)
-				{
-					Logging.errorPrint(
-						LanguageBundle.getFormattedString(
-							"Errors.LstSystemLoader.loadGameModeInfoFile", //$NON-NLS-1$
-						uri, e.getMessage()));
-				}
-			}
 		}
 	}
 
-	private static GameMode loadGameModeMiscInfo(String aName, URI uri)
+	private static Optional<GameMode> loadGameModeMiscInfo(String aName, URI uri)
 	{
-		String data;
 		try
 		{
-			data = LstFileLoader.readFromURI(uri);
+			return LstFileLoader.readFromURI(uri)
+					.map((String data) -> {
+						String[] fileLines = data.split(LstFileLoader.LINE_SEPARATOR_REGEXP);
+
+						GameMode gameMode = new GameMode(aName);
+						SystemCollections.addToGameModeList(gameMode);
+						gameMode.getModeContext().getReferenceContext().importObject(AbilityCategory.FEAT);
+
+						for (int i = 0; i < fileLines.length; i++)
+						{
+							String aLine = fileLines[i];
+
+							// Ignore commented-out and empty lines
+							if (aLine.isEmpty() || (aLine.charAt(0) == '#'))
+							{
+								continue;
+							}
+
+							GameModeLoader.parseMiscGameInfoLine(gameMode, aLine, uri, i + 1);
+						}
+
+						// Record how the FEAT category was configured
+						AbilityCategory feat = new AbilityCategory();
+						feat.copyFields(AbilityCategory.FEAT);
+						gameMode.setFeatTemplate(feat);
+
+						int[] dieSizes = gameMode.getDieSizes();
+						if (dieSizes == null || dieSizes.length == 0)
+						{
+							final int[] defaultDieSizes = {1, 2, 3, 4, 6, 8, 10, 12, 20, 100, 1000};
+							gameMode.setDieSizes(defaultDieSizes);
+							Logging.log(Logging.LST_ERROR, "GameMode (" + gameMode.getName()
+									+ ") : MiscInfo.lst did not contain any valid DIESIZES. " + "Using the system default DIESIZES.");
+						}
+						addDefaultUnitSet(gameMode);
+						addDefaultTabInfo(gameMode);
+						gameMode.applyPreferences();
+						return gameMode;
+					});
 		}
 		catch (final PersistenceLayerException ple)
 		{
@@ -319,45 +355,8 @@ public class GameModeFileLoader extends PCGenTask
 				LanguageBundle.getFormattedString(
 					"Errors.LstSystemLoader.loadGameModeInfoFile", //$NON-NLS-1$
 				uri, ple.getMessage()));
-			return null;
+			return Optional.empty();
 		}
-
-		String[] fileLines = data.split(LstFileLoader.LINE_SEPARATOR_REGEXP);
-
-		GameMode gameMode = new GameMode(aName);
-		SystemCollections.addToGameModeList(gameMode);
-		gameMode.getModeContext().getReferenceContext().importObject(AbilityCategory.FEAT);
-
-		for (int i = 0; i < fileLines.length; i++)
-		{
-			String aLine = fileLines[i];
-
-			// Ignore commented-out and empty lines
-			if (aLine.isEmpty() || (aLine.charAt(0) == '#'))
-			{
-				continue;
-			}
-
-			GameModeLoader.parseMiscGameInfoLine(gameMode, aLine, uri, i + 1);
-		}
-
-		// Record how the FEAT category was configured
-		AbilityCategory feat = new AbilityCategory();
-		feat.copyFields(AbilityCategory.FEAT);
-		gameMode.setFeatTemplate(feat);
-
-		int[] dieSizes = gameMode.getDieSizes();
-		if (dieSizes == null || dieSizes.length == 0)
-		{
-			final int[] defaultDieSizes = {1, 2, 3, 4, 6, 8, 10, 12, 20, 100, 1000};
-			gameMode.setDieSizes(defaultDieSizes);
-			Logging.log(Logging.LST_ERROR, "GameMode (" + gameMode.getName()
-				+ ") : MiscInfo.lst did not contain any valid DIESIZES. " + "Using the system default DIESIZES.");
-		}
-		addDefaultUnitSet(gameMode);
-		addDefaultTabInfo(gameMode);
-		gameMode.applyPreferences();
-		return gameMode;
 	}
 
 	/**
