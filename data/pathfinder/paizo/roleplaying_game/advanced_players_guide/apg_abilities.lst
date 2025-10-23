@@ -409,3 +409,9 @@ Spark				KEY:Spell ~ Spark				CATEGORY:Internal		TYPE:SLA_LVL0.Bard_SLA_LVL0.Cle
 Unwitting Ally		KEY:Spell ~ Unwitting Ally		CATEGORY:Internal		TYPE:SLA_LVL0.Bard_SLA_LVL0											ABILITY:Spell-Like Ability|AUTOMATIC|Unwitting Ally
 Brand				KEY:Spell ~ Brand				CATEGORY:Internal		TYPE:SLA_LVL0.Inquisitor_SLA_LVL0										ABILITY:Spell-Like Ability|AUTOMATIC|Brand
 Putrefy Food and Drink	KEY:Spell ~ Putrefy Food and Drink	CATEGORY:Internal		TYPE:SLA_LVL0.Witch_SLA_LVL0											ABILITY:Spell-Like Ability|AUTOMATIC|Putrefy Food and Drink
+
+
+###Block: eqmod support
+Special Ability ~ Dueling ~ Melee	CATEGORY:Special Ability	ASPECT:CombatBonus|Dueling grants +4 on initiative checks when in hand, +2 on disarm and feint checks, +2 to CMD to resist disarm, +2 to DC to feint against the wielder	TEMPBONUS:PC|COMBAT|INITIATIVE|4	TEMPBONUS:PC|VAR|CMD_Disarm|2
+
+
