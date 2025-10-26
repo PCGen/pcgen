@@ -8223,14 +8223,14 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		int i = token.indexOf(".INFO.");
 		String ts = token;
 		if (i>-1)
-			ts = token.substring(i+6).toUpperCase();
+			ts = token.substring(i+6);
 		else
 			return token;
 		Set<MapKey<?, ?>> keys = po.getMapKeys();
 		for (MapKey<?, ?> key : keys) {
 			Map<?, ?> key2 = po.getMapFor(key);
 			for(Object k : key2.keySet()) {
-				if (k.toString().equals(ts)) {
+				if (k.toString().equalsIgnoreCase(ts)) {
 					MessageFormat m = (MessageFormat) key2.get(k);
 					return m.toPattern();
 				}
