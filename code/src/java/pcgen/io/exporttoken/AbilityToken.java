@@ -503,9 +503,21 @@ public class AbilityToken extends Token
 				eh.setNoMoreItems(true);
 			}
 
-			if (tokenSource.endsWith(".DESC"))
+			if (tokenSource.contains(".HASINFO."))
 			{
-				retString = pc.getDescription(abilities);
+				final String key = ".INFO."+tokenSource.substring(tokenSource.indexOf(".HASINFO.") + 9);
+				retString = getHasInfoString(pc, aAbility, key);
+			}
+			else if (tokenSource.contains(".INFO."))
+			{
+				final String key = tokenSource.substring(tokenSource.indexOf(".INFO.") + 6);
+				retString = getInfoString(pc, aAbility, key);
+			}
+			else if (tokenSource.endsWith(".DESC") && !tokenSource.contains(".ASPECT."))
+			{
+				retString = getInfoString(pc, aAbility, "DESC");
+				if (retString.equals(".INFO.DESC"))
+					retString = pc.getDescription(abilities);
 			}
 			else if (tokenSource.endsWith(".BENEFIT"))
 			{
@@ -584,7 +596,7 @@ public class AbilityToken extends Token
 		{
 			eh.setNoMoreItems(true);
 		}
-
+		System.out.println(retString);
 		return retString;
 	}
 
@@ -708,6 +720,46 @@ public class AbilityToken extends Token
 			return "N";
 		}
 		return "Y";
+	}
+
+	/**
+	 * Gets the boolean (Y/N) string for the presence of the named INFO tag.
+	 *
+	 * @param ability
+	 *            The ability being queried.
+	 * @param key
+	 *            The key (name only) of the INFO to check
+	 *
+	 * @return Y if the INFO tag is present, N if not.
+	 */
+	private String getHasInfoString(PlayerCharacter pc, Ability ability, String key)
+	{
+		String tokenString = key;
+		String v = pc.getInfoToken(tokenString, ability);
+
+		if (!v.equals(tokenString))
+			return "Y";
+		return "N";
+	}
+
+	/**
+	 * Gets the INFO string.
+	 *
+	 * @param ability
+	 *            The ability being queried.
+	 * @param key
+	 *            The key (name only) of the INFO to check
+	 *
+	 * @return Y the value of the INFO tag if it exists, the token itself if it doesn't exist
+	 */
+	private String getInfoString(PlayerCharacter pc, Ability ability, String key)
+	{
+		String tokenString = ".INFO."+key;
+		String v = pc.getInfoToken(tokenString, ability);
+
+		if (!v.equals(tokenString))
+			return v;
+		return tokenString;
 	}
 
 	/**
