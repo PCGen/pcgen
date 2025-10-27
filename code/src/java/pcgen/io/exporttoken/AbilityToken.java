@@ -749,7 +749,7 @@ public class AbilityToken extends Token
 	 * @param key
 	 *            The key (name only) of the INFO to check
 	 *
-	 * @return Y the value of the INFO tag if it exists, the token itself if it doesn't exist
+	 * @return the value of the INFO tag if it exists, or an empty string if the token doesn't exist
 	 */
 	private String getInfoString(PlayerCharacter pc, Ability ability, String key)
 	{
@@ -758,7 +758,7 @@ public class AbilityToken extends Token
 
 		if (!v.equals(tokenString))
 			return v;
-		return tokenString;
+		return "";
 	}
 
 	/**
