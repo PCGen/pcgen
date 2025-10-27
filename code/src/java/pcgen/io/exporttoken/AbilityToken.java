@@ -515,9 +515,7 @@ public class AbilityToken extends Token
 			}
 			else if (tokenSource.endsWith(".DESC") && !tokenSource.contains(".ASPECT."))
 			{
-				retString = getInfoString(pc, aAbility, "DESC");
-				if (retString.equals(".INFO.DESC"))
-					retString = pc.getDescription(abilities);
+				retString = pc.getDescription(abilities);
 			}
 			else if (tokenSource.endsWith(".BENEFIT"))
 			{
@@ -749,7 +747,7 @@ public class AbilityToken extends Token
 	 * @param key
 	 *            The key (name only) of the INFO to check
 	 *
-	 * @return the value of the INFO tag if it exists, or an empty string if the token doesn't exist
+	 * @return the value of the INFO tag if it exists, otherwise an empty string
 	 */
 	private String getInfoString(PlayerCharacter pc, Ability ability, String key)
 	{
