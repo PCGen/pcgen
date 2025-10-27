@@ -596,7 +596,6 @@ public class AbilityToken extends Token
 		{
 			eh.setNoMoreItems(true);
 		}
-		System.out.println(retString);
 		return retString;
 	}
 
