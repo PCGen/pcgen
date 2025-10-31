@@ -103,3 +103,9 @@ Craft Psionic Construct		CATEGORY:FEAT		TYPE:ItemCreation	PREABILITY:2,CATEGORY=
 Craft Universal Item		CATEGORY:FEAT		TYPE:ItemCreation														PRECLASS:1,SPELLCASTER.Psionic=3	PRETEMPLATE:1,Psionic	SOURCEPAGE:PsionicFeatsDESC:You can create universal psionic items.
 Imprint Stone			CATEGORY:FEAT		TYPE:ItemCreation														PRECLASS:1,SPELLCASTER.Psionic=1	PRETEMPLATE:1,Psionic	SOURCEPAGE:PsionicFeatsDESC:You can create power stones to store psionic powers.
 Scribe Tattoo			CATEGORY:FEAT		TYPE:ItemCreation														PRECLASS:1,SPELLCASTER.Psionic=3	PRETEMPLATE:1,Psionic	SOURCEPAGE:PsionicFeatsDESC:You can create psionic tattoos, which store powers within their designs.
+
+
+###Block:
+CATEGORY=FEAT|Jack Of All Trades.MOD	BONUS:VAR|UseUntrainedSkill_Autohypnosis|1|TYPE=Boolean		
+CATEGORY=FEAT|Jack Of All Trades.MOD	BONUS:VAR|UseUntrainedSkill_Psicraft|1|TYPE=Boolean		
+CATEGORY=FEAT|Jack Of All Trades.MOD	BONUS:VAR|UseUntrainedSkill_Use Psionic Device|1|TYPE=Boolean

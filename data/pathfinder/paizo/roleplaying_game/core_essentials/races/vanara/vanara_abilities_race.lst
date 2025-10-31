@@ -7,7 +7,7 @@
 
 ###Block: Racial Abilities ~ grantor/removal MODs in vanara abilities globalvar.lst
 # Ability Name		Category of Ability	Define																							Template					Modify VAR
-Racial Traits ~ Vanara	CATEGORY:Internal		DEFINE:Vanara_RacialCastingStat|0	DEFINE:Vanara_RacialCastingMod|0	DEFINE:Vanara_RacialCasterlevel|0	DEFINE:Vanara_RacialConcentration|0	TEMPLATE:Racial Heritage ~ Vanara	BONUS:VAR|Vanara_RacialCastingStat|CHASCORE	BONUS:VAR|Vanara_RacialCastingMod|CHA	BONUS:VAR|Vanara_RacialCasterlevel|TL	BONUS:VAR|Vanara_RacialConcentration|Vanara_RacialCasterlevel+Vanara_RacialCastingMod
+Racial Traits ~ Vanara	CATEGORY:Internal		DEFINE:Vanara_RacialCastingStat|0	DEFINE:Vanara_RacialCastingMod|0	DEFINE:Vanara_RacialCasterlevel|0	DEFINE:Vanara_RacialConcentration|0	TEMPLATE:Race ~ Vanara			BONUS:VAR|Vanara_RacialCastingStat|CHASCORE	BONUS:VAR|Vanara_RacialCastingMod|CHA	BONUS:VAR|Vanara_RacialCasterlevel|TL	BONUS:VAR|Vanara_RacialConcentration|Vanara_RacialCasterlevel+Vanara_RacialCastingMod
 
 ###Block: Racial Traits
 # Ability Name					Unique Key				Category of Ability		Type																	Visible		Prohibited Fact								Define		Description																																			Template																									Move				Auto Language			Bonus to skill						Stat bonus										Modify VAR				Vision			Source Page		Aspects

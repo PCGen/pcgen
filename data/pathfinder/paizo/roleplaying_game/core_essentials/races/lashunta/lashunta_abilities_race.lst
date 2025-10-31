@@ -7,7 +7,7 @@
 
 ###Block: Racial Abilities ~ grantor/removal MODs in lashunta_abilities_globalvar.lst
 # Ability Name			Category of Ability	Define																								Template					Modify VAR
-Racial Traits ~ Lashunta	CATEGORY:Internal		DEFINE:Lashunta_RacialCastingStat|0	DEFINE:Lashunta_RacialCastingMod|0	DEFINE:Lashunta_RacialCasterlevel|0	DEFINE:Lashunta_RacialConcentration|0	TEMPLATE:Racial Heritage ~ Lashunta	BONUS:VAR|Lashunta_RacialCastingStat|CHASCORE	BONUS:VAR|Lashunta_RacialCastingMod|CHA	BONUS:VAR|Lashunta_RacialCasterlevel|TL	BONUS:VAR|Lashunta_RacialConcentration|Lashunta_RacialCasterlevel+Lashunta_RacialCastingMod
+Racial Traits ~ Lashunta	CATEGORY:Internal		DEFINE:Lashunta_RacialCastingStat|0	DEFINE:Lashunta_RacialCastingMod|0	DEFINE:Lashunta_RacialCasterlevel|0	DEFINE:Lashunta_RacialConcentration|0	TEMPLATE:Race ~ Lashunta		BONUS:VAR|Lashunta_RacialCastingStat|CHASCORE	BONUS:VAR|Lashunta_RacialCastingMod|CHA	BONUS:VAR|Lashunta_RacialCasterlevel|TL	BONUS:VAR|Lashunta_RacialConcentration|Lashunta_RacialCasterlevel+Lashunta_RacialCastingMod
 
 ###Block: Racial Traits
 # Ability Name	Unique Key					Category of Ability		Type																				Visible		Prohibited Fact								Define		Description																																																				Template						Move			Auto Language			Ability																				Bonus Ability Pool						Stat bonus																											Modify VAR																				Source Page		Aspects			Information

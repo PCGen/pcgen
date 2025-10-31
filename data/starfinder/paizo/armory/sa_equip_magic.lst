@@ -1,155 +1,157 @@
-SOURCELONG:Starfinder ARMORY	SOURCESHORT:SA	SOURCEDATE:2018-11
+# Sat Oct  4 08:50:56 2025 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Starfinder Armory	SOURCESHORT:SA	SOURCEDATE:2018-10
 # Original Entry by: Brad Grinstead
 #MAGIC ITEMS
-Brooch of shielding		QUALITY:Level|2		COST:1000		QUALITY:BULK|0		TYPE:Magic.WornMagic		SOURCEPAGE:p.110
-Cover seed		QUALITY:Level|2		COST:200		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic		SOURCEPAGE:p.112
-Lingo serum		QUALITY:Level|2		COST:100		QUALITY:BULK|0		TYPE:Magic.Serum.Consumable		SOURCEPAGE:p.116
-Starfinder backpack	NAMEISPI:YES	QUALITY:Level|2		COST:750		QUALITY:BULK|1		BONUS:VAR|Bulk|1		TYPE:Magic.WornMagic		SOURCEPAGE:p.116		CONTAINS:2|ANY		BONUS:VAR|LOADSCORE|4
-Elemental gem Mk 1		QUALITY:Level|3		COST:250		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Gem.Consumable		SOURCEPAGE:p.112
-Obfuscated journal		QUALITY:Level|3		COST:1250		QUALITY:BULK|1		BONUS:VAR|Bulk|1		TYPE:Magic		SOURCEPAGE:p.114
-Recovery aegis		QUALITY:Level|3		COST:1350		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.WornMagic		SOURCEPAGE:p.115
-Daywalker serum		QUALITY:Level|3		COST:200		QUALITY:BULK|0		TYPE:Magic.Serum.Consumable		SOURCEPAGE:p.116
-Aeon stone (amber hyperboloid)		QUALITY:Level|4		COST:2200		QUALITY:BULK|0		TYPE:Magic.Aeon.WornMagic		SOURCEPAGE:p.110
-Darksight goggles		QUALITY:Level|4		COST:2100		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.WornMagic		SOURCEPAGE:p.112
-Improvisation adornment Mk 1		QUALITY:Level|4		COST:1800		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.WornMagic		SOURCEPAGE:p.114
-Planar runeplates Mk 1		QUALITY:Level|4		COST:2000		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.WornMagic		SOURCEPAGE:p.115
-Shadowblend serum		QUALITY:Level|4		COST:325		QUALITY:BULK|0		TYPE:Magic.Serum.Consumable		SOURCEPAGE:p.116
-X-ray serum		QUALITY:Level|4		COST:350		QUALITY:BULK|0		TYPE:Magic.Serum.Consumable		SOURCEPAGE:p.116
-Tangleburst seed		QUALITY:Level|4		COST:675		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Consumable		SOURCEPAGE:p.117
-Aeon stone (sapphire cone)		QUALITY:Level|5		COST:3200		QUALITY:BULK|0		TYPE:Magic.Aeon.WornMagic		SOURCEPAGE:p.110
-Clearsight trinket		QUALITY:Level|5		COST:2750		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.WornMagic		SOURCEPAGE:p.-
-Dented kasa		QUALITY:Level|5		COST:3000		QUALITY:BULK|1		BONUS:VAR|Bulk|1		TYPE:Magic.WornMagic		SOURCEPAGE:p.112
-Diffraction cloak Mk 1		QUALITY:Level|5		COST:3200		QUALITY:BULK|1		BONUS:VAR|Bulk|1		TYPE:Magic.WornMagic		SOURCEPAGE:p.112
-Fiery runeplates Mk 1		QUALITY:Level|5		COST:3500		QUALITY:BULK|3		BONUS:VAR|Bulk|3		TYPE:Magic.WornMagic		SOURCEPAGE:p.113
-Figurine of wondrous power (obsidian electrovore)		QUALITY:Level|5		COST:3000		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic		SOURCEPAGE:p.113
-Veracity serum		QUALITY:Level|5		COST:450		QUALITY:BULK|0		TYPE:Magic.Serum.Consumable		SOURCEPAGE:p.116
-Skyfire saddle		QUALITY:Level|5		COST:2650		QUALITY:BULK|1		BONUS:VAR|Bulk|1		TYPE:Magic		SOURCEPAGE:p.116
-Storage goo		QUALITY:Level|5		COST:500		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic		SOURCEPAGE:p.116
-Travel treads Mk 1		QUALITY:Level|5		COST:2750		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Footgear.WornMagic		SOURCEPAGE:p.117
-Aeon stone (viridian balbis)		QUALITY:Level|6		COST:4200		QUALITY:BULK|0		TYPE:Magic.Aeon.WornMagic		SOURCEPAGE:p.110
-Elemental gem Mk 2		QUALITY:Level|6		COST:650		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Consumable		SOURCEPAGE:p.112
-Energy-relay gloves		QUALITY:Level|6		COST:4250		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Handgear.WornMagic		SOURCEPAGE:p.112
-Ferocity blazon		QUALITY:Level|6		COST:4000		QUALITY:BULK|1		BONUS:VAR|Bulk|1		TYPE:Magic.WornMagic		SOURCEPAGE:p.113
-Hat of disguise		QUALITY:Level|6		COST:3850		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.WornMagic		SOURCEPAGE:p.114
-Plasma beads Mk 1		QUALITY:Level|6		COST:4200		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.WornMagic		SOURCEPAGE:p.115
-Conspirator's emblem		QUALITY:Level|7		COST:6500		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.WornMagic		SOURCEPAGE:p.111
-Furtive garment		QUALITY:Level|7		COST:5500		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.WornMagic		SOURCEPAGE:p.114
-Pathing telescope		QUALITY:Level|7		COST:7000		QUALITY:BULK|2		BONUS:VAR|Bulk|2		TYPE:Magic		SOURCEPAGE:p.115
-Restoring rod		QUALITY:Level|7		COST:6750		QUALITY:BULK|1		BONUS:VAR|Bulk|1		TYPE:Magic		SOURCEPAGE:p.115
-Close-quarters serum		QUALITY:Level|7		COST:950		QUALITY:BULK|0		TYPE:Magic.Serum.Consumable		SOURCEPAGE:p.116
-Calcification rod		QUALITY:Level|8		COST:9500		QUALITY:BULK|2		BONUS:VAR|Bulk|2		TYPE:Magic		SOURCEPAGE:p.110
-Figurine of wondrous power (bone crest-eater)		QUALITY:Level|8		COST:9000		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic		SOURCEPAGE:p.113
-Improvisation adornment Mk 2		QUALITY:Level|8		COST:8400		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.WornMagic		SOURCEPAGE:p.115
-Planar runeplates Mk 2		QUALITY:Level|8		COST:8500		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.WornMagic		SOURCEPAGE:p.115
-Techbane rod		QUALITY:Level|8		COST:10000		QUALITY:BULK|1		BONUS:VAR|Bulk|1		TYPE:Magic		SOURCEPAGE:p.117
-Teleportation puck		QUALITY:Level|8		COST:1500		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Consumable		SOURCEPAGE:p.117
-Diffraction cloak Mk 2		QUALITY:Level|9		COST:12500		QUALITY:BULK|1		BONUS:VAR|Bulk|1		TYPE:Magic.WornMagic		SOURCEPAGE:p.112
-Elemental gem Mk 3		QUALITY:Level|9		COST:2000		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Consumable		SOURCEPAGE:p.112
-Fiery runeplates Mk 2		QUALITY:Level|9		COST:14000		QUALITY:BULK|3		BONUS:VAR|Bulk|3		TYPE:Magic.WornMagic		SOURCEPAGE:p.113
-Plasma beads Mk 2		QUALITY:Level|9		COST:12500		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.WornMagic		SOURCEPAGE:p.115
-Travel treads Mk 2		QUALITY:Level|9		COST:12000		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Footgear.WornMagic		SOURCEPAGE:p.117
-Aeon stone (alabaster helix)		QUALITY:Level|11		COST:30000		QUALITY:BULK|0		TYPE:Magic.Aeon.WornMagic		SOURCEPAGE:p.110
-Inspiration blazon		QUALITY:Level|11		COST:23500		QUALITY:BULK|1		BONUS:VAR|Bulk|1		TYPE:Magic.WornMagic		SOURCEPAGE:p.114
-Ring of counterspells		QUALITY:Level|11		COST:24000		QUALITY:BULK|0		TYPE:Magic.Ring.WornMagic		SOURCEPAGE:p.116
-Aeon stone (kaleidoscopic icosahedron)		QUALITY:Level|12		COST:35000		QUALITY:BULK|0		TYPE:Magic.Aeon.WornMagic		SOURCEPAGE:p.110
-Elemental gem Mk 4		QUALITY:Level|12		COST:5000		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Consumable		SOURCEPAGE:p.112
-Improvisation adornment Mk 3		QUALITY:Level|12		COST:33500		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.WornMagic		SOURCEPAGE:p.114
-Mantle of willpower		QUALITY:Level|12		COST:37000		QUALITY:BULK|1		BONUS:VAR|Bulk|1		TYPE:Magic.Shoulders.WornMagic		SOURCEPAGE:p.113
-Planar runeplates Mk 3		QUALITY:Level|12		COST:34000		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.WornMagic		SOURCEPAGE:p.115
-Plasma beads Mk 3		QUALITY:Level|12		COST:37500		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.WornMagic		SOURCEPAGE:p.115
-Aeon stone (obsidian annulus)		QUALITY:Level|13		COST:55000		QUALITY:BULK|0		TYPE:Magic.Aeon.WornMagic		SOURCEPAGE:p.110
-Diffraction cloak Mk 3		QUALITY:Level|13		COST:51000		QUALITY:BULK|1		BONUS:VAR|Bulk|1		TYPE:Magic.Cloak.WornMagic		SOURCEPAGE:p.112
-Fiery runeplates Mk 3		QUALITY:Level|13		COST:56000		QUALITY:BULK|3		BONUS:VAR|Bulk|3		TYPE:Magic.WornMagic		SOURCEPAGE:p.113
-Figurine of wondrous power (bloodstone bloodbrother)		QUALITY:Level|13		COST:48000		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic		SOURCEPAGE:p.113
-Travel treads Mk 3		QUALITY:Level|13		COST:46500		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Footgear.WornMagic		SOURCEPAGE:p.117
-Aeon stone (silver lemniscate)		QUALITY:Level|14		COST:65000		QUALITY:BULK|0		TYPE:Magic.Aeon.WornMagic		SOURCEPAGE:p.110
-Elemental gem Mk 5		QUALITY:Level|15		COST:16000		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Consumable		SOURCEPAGE:p.112
-Figurine of wondrous power (plastic sharpwing)		QUALITY:Level|15		COST:100000		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic		SOURCEPAGE:p.113
-Elemental gem Mk 6		QUALITY:Level|18		COST:49000		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Consumable		SOURCEPAGE:p.112
-Containment tesseract		QUALITY:Level|19		COST:500000		QUALITY:BULK|1		BONUS:VAR|Bulk|1		TYPE:Magic		SOURCEPAGE:p.112
-Atrocite Sphere		QUALITY:Level|20				QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Artifact		SOURCEPAGE:p.118
-Book of Unwritten Truths		QUALITY:Level|20				QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Artifact		SOURCEPAGE:p.118
-Trafodi Paradox		QUALITY:Level|20				QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Artifact		SOURCEPAGE:p.118
+# Equipment Name							Unique Key				Product Identity?	Required Weapon Proficiency	Type																		Contains		Cost		Wield Category	Requires Modification?	Range		Source Page		Modify VAR						Quality and value					Special Property			MODIFY
+Brooch of shielding																			TYPE:Magic.WornMagic																		COST:1000										SOURCEPAGE:p.110								QUALITY:Level|2	QUALITY:BULK|0
+Cover seed																					TYPE:Magic																				COST:200										SOURCEPAGE:p.112	BONUS:VAR|LightBulk|1				QUALITY:Level|2	QUALITY:BULK|L
+Lingo serum																					TYPE:Magic.Serum.Consumable																	COST:100										SOURCEPAGE:p.116								QUALITY:Level|2	QUALITY:BULK|0
+Starfinder backpack											NAMEISPI:YES						TYPE:Magic.WornMagic															CONTAINS:2|ANY	COST:750										SOURCEPAGE:p.116	BONUS:VAR|Bulk|1	BONUS:VAR|LOADSCORE|4	QUALITY:Level|2	QUALITY:BULK|1
+Elemental gem Mk 1																			TYPE:Magic.Gem.Consumable																	COST:250										SOURCEPAGE:p.112	BONUS:VAR|LightBulk|1				QUALITY:Level|3	QUALITY:BULK|L
+Obfuscated journal																			TYPE:Magic																				COST:1250										SOURCEPAGE:p.114	BONUS:VAR|Bulk|1					QUALITY:Level|3	QUALITY:BULK|1
+Recovery aegis																				TYPE:Magic.WornMagic																		COST:1350										SOURCEPAGE:p.115	BONUS:VAR|LightBulk|1				QUALITY:Level|3	QUALITY:BULK|L
+Daywalker serum																				TYPE:Magic.Serum.Consumable																	COST:200										SOURCEPAGE:p.116								QUALITY:Level|3	QUALITY:BULK|0
+Aeon stone (amber hyperboloid)																	TYPE:Magic.Aeon.WornMagic																	COST:2200										SOURCEPAGE:p.110								QUALITY:Level|4	QUALITY:BULK|0
+Darksight goggles																				TYPE:Magic.WornMagic																		COST:2100										SOURCEPAGE:p.112	BONUS:VAR|LightBulk|1				QUALITY:Level|4	QUALITY:BULK|L
+Improvisation adornment Mk 1																		TYPE:Magic.WornMagic																		COST:1800										SOURCEPAGE:p.114	BONUS:VAR|LightBulk|1				QUALITY:Level|4	QUALITY:BULK|L
+Planar runeplates Mk 1																			TYPE:Magic.WornMagic																		COST:2000										SOURCEPAGE:p.115	BONUS:VAR|LightBulk|1				QUALITY:Level|4	QUALITY:BULK|L
+Shadowblend serum																				TYPE:Magic.Serum.Consumable																	COST:325										SOURCEPAGE:p.116								QUALITY:Level|4	QUALITY:BULK|0
+X-ray serum																					TYPE:Magic.Serum.Consumable																	COST:350										SOURCEPAGE:p.116								QUALITY:Level|4	QUALITY:BULK|0
+Tangleburst seed																				TYPE:Magic.Consumable																		COST:675										SOURCEPAGE:p.117	BONUS:VAR|LightBulk|1				QUALITY:Level|4	QUALITY:BULK|L
+Aeon stone (sapphire cone)																		TYPE:Magic.Aeon.WornMagic																	COST:3200										SOURCEPAGE:p.110								QUALITY:Level|5	QUALITY:BULK|0
+Clearsight trinket																			TYPE:Magic.WornMagic																		COST:2750										SOURCEPAGE:p.-	BONUS:VAR|LightBulk|1				QUALITY:Level|5	QUALITY:BULK|L
+Dented kasa																					TYPE:Magic.WornMagic																		COST:3000										SOURCEPAGE:p.112	BONUS:VAR|Bulk|1					QUALITY:Level|5	QUALITY:BULK|1
+Diffraction cloak Mk 1																			TYPE:Magic.WornMagic																		COST:3200										SOURCEPAGE:p.112	BONUS:VAR|Bulk|1					QUALITY:Level|5	QUALITY:BULK|1
+Fiery runeplates Mk 1																			TYPE:Magic.WornMagic																		COST:3500										SOURCEPAGE:p.113	BONUS:VAR|Bulk|3					QUALITY:Level|5	QUALITY:BULK|3
+Figurine of wondrous power (obsidian electrovore)														TYPE:Magic																				COST:3000										SOURCEPAGE:p.113	BONUS:VAR|LightBulk|1				QUALITY:Level|5	QUALITY:BULK|L
+Veracity serum																				TYPE:Magic.Serum.Consumable																	COST:450										SOURCEPAGE:p.116								QUALITY:Level|5	QUALITY:BULK|0
+Skyfire saddle																				TYPE:Magic																				COST:2650										SOURCEPAGE:p.116	BONUS:VAR|Bulk|1					QUALITY:Level|5	QUALITY:BULK|1
+Storage goo																					TYPE:Magic																				COST:500										SOURCEPAGE:p.116	BONUS:VAR|LightBulk|1				QUALITY:Level|5	QUALITY:BULK|L
+Travel treads Mk 1																			TYPE:Magic.Footgear.WornMagic																	COST:2750										SOURCEPAGE:p.117	BONUS:VAR|LightBulk|1				QUALITY:Level|5	QUALITY:BULK|L
+Aeon stone (viridian balbis)																		TYPE:Magic.Aeon.WornMagic																	COST:4200										SOURCEPAGE:p.110								QUALITY:Level|6	QUALITY:BULK|0
+Elemental gem Mk 2																			TYPE:Magic.Consumable																		COST:650										SOURCEPAGE:p.112	BONUS:VAR|LightBulk|1				QUALITY:Level|6	QUALITY:BULK|L
+Energy-relay gloves																			TYPE:Magic.Handgear.WornMagic																	COST:4250										SOURCEPAGE:p.112	BONUS:VAR|LightBulk|1				QUALITY:Level|6	QUALITY:BULK|L
+Ferocity blazon																				TYPE:Magic.WornMagic																		COST:4000										SOURCEPAGE:p.113	BONUS:VAR|Bulk|1					QUALITY:Level|6	QUALITY:BULK|1
+Hat of disguise																				TYPE:Magic.WornMagic																		COST:3850										SOURCEPAGE:p.114	BONUS:VAR|LightBulk|1				QUALITY:Level|6	QUALITY:BULK|L
+Plasma beads Mk 1																				TYPE:Magic.WornMagic																		COST:4200										SOURCEPAGE:p.115	BONUS:VAR|LightBulk|1				QUALITY:Level|6	QUALITY:BULK|L
+Conspirator's emblem																			TYPE:Magic.WornMagic																		COST:6500										SOURCEPAGE:p.111	BONUS:VAR|LightBulk|1				QUALITY:Level|7	QUALITY:BULK|L
+Furtive garment																				TYPE:Magic.WornMagic																		COST:5500										SOURCEPAGE:p.114	BONUS:VAR|LightBulk|1				QUALITY:Level|7	QUALITY:BULK|L
+Pathing telescope																				TYPE:Magic																				COST:7000										SOURCEPAGE:p.115	BONUS:VAR|Bulk|2					QUALITY:Level|7	QUALITY:BULK|2
+Restoring rod																				TYPE:Magic																				COST:6750										SOURCEPAGE:p.115	BONUS:VAR|Bulk|1					QUALITY:Level|7	QUALITY:BULK|1
+Close-quarters serum																			TYPE:Magic.Serum.Consumable																	COST:950										SOURCEPAGE:p.116								QUALITY:Level|7	QUALITY:BULK|0
+Calcification rod																				TYPE:Magic																				COST:9500										SOURCEPAGE:p.110	BONUS:VAR|Bulk|2					QUALITY:Level|8	QUALITY:BULK|2
+Figurine of wondrous power (bone crest-eater)															TYPE:Magic																				COST:9000										SOURCEPAGE:p.113	BONUS:VAR|LightBulk|1				QUALITY:Level|8	QUALITY:BULK|L
+Improvisation adornment Mk 2																		TYPE:Magic.WornMagic																		COST:8400										SOURCEPAGE:p.115	BONUS:VAR|LightBulk|1				QUALITY:Level|8	QUALITY:BULK|L
+Planar runeplates Mk 2																			TYPE:Magic.WornMagic																		COST:8500										SOURCEPAGE:p.115	BONUS:VAR|LightBulk|1				QUALITY:Level|8	QUALITY:BULK|L
+Techbane rod																				TYPE:Magic																				COST:10000										SOURCEPAGE:p.117	BONUS:VAR|Bulk|1					QUALITY:Level|8	QUALITY:BULK|1
+Teleportation puck																			TYPE:Magic.Consumable																		COST:1500										SOURCEPAGE:p.117	BONUS:VAR|LightBulk|1				QUALITY:Level|8	QUALITY:BULK|L
+Diffraction cloak Mk 2																			TYPE:Magic.WornMagic																		COST:12500										SOURCEPAGE:p.112	BONUS:VAR|Bulk|1					QUALITY:Level|9	QUALITY:BULK|1
+Elemental gem Mk 3																			TYPE:Magic.Consumable																		COST:2000										SOURCEPAGE:p.112	BONUS:VAR|LightBulk|1				QUALITY:Level|9	QUALITY:BULK|L
+Fiery runeplates Mk 2																			TYPE:Magic.WornMagic																		COST:14000										SOURCEPAGE:p.113	BONUS:VAR|Bulk|3					QUALITY:Level|9	QUALITY:BULK|3
+Plasma beads Mk 2																				TYPE:Magic.WornMagic																		COST:12500										SOURCEPAGE:p.115	BONUS:VAR|LightBulk|1				QUALITY:Level|9	QUALITY:BULK|L
+Travel treads Mk 2																			TYPE:Magic.Footgear.WornMagic																	COST:12000										SOURCEPAGE:p.117	BONUS:VAR|LightBulk|1				QUALITY:Level|9	QUALITY:BULK|L
+Aeon stone (alabaster helix)																		TYPE:Magic.Aeon.WornMagic																	COST:30000										SOURCEPAGE:p.110								QUALITY:Level|11	QUALITY:BULK|0
+Inspiration blazon																			TYPE:Magic.WornMagic																		COST:23500										SOURCEPAGE:p.114	BONUS:VAR|Bulk|1					QUALITY:Level|11	QUALITY:BULK|1
+Ring of counterspells																			TYPE:Magic.Ring.WornMagic																	COST:24000										SOURCEPAGE:p.116								QUALITY:Level|11	QUALITY:BULK|0
+Aeon stone (kaleidoscopic icosahedron)																TYPE:Magic.Aeon.WornMagic																	COST:35000										SOURCEPAGE:p.110								QUALITY:Level|12	QUALITY:BULK|0
+Elemental gem Mk 4																			TYPE:Magic.Consumable																		COST:5000										SOURCEPAGE:p.112	BONUS:VAR|LightBulk|1				QUALITY:Level|12	QUALITY:BULK|L
+Improvisation adornment Mk 3																		TYPE:Magic.WornMagic																		COST:33500										SOURCEPAGE:p.114	BONUS:VAR|LightBulk|1				QUALITY:Level|12	QUALITY:BULK|L
+Mantle of willpower																			TYPE:Magic.Shoulders.WornMagic																COST:37000										SOURCEPAGE:p.113	BONUS:VAR|Bulk|1					QUALITY:Level|12	QUALITY:BULK|1
+Planar runeplates Mk 3																			TYPE:Magic.WornMagic																		COST:34000										SOURCEPAGE:p.115	BONUS:VAR|LightBulk|1				QUALITY:Level|12	QUALITY:BULK|L
+Plasma beads Mk 3																				TYPE:Magic.WornMagic																		COST:37500										SOURCEPAGE:p.115	BONUS:VAR|LightBulk|1				QUALITY:Level|12	QUALITY:BULK|L
+Aeon stone (obsidian annulus)																		TYPE:Magic.Aeon.WornMagic																	COST:55000										SOURCEPAGE:p.110								QUALITY:Level|13	QUALITY:BULK|0
+Diffraction cloak Mk 3																			TYPE:Magic.Cloak.WornMagic																	COST:51000										SOURCEPAGE:p.112	BONUS:VAR|Bulk|1					QUALITY:Level|13	QUALITY:BULK|1
+Fiery runeplates Mk 3																			TYPE:Magic.WornMagic																		COST:56000										SOURCEPAGE:p.113	BONUS:VAR|Bulk|3					QUALITY:Level|13	QUALITY:BULK|3
+Figurine of wondrous power (bloodstone bloodbrother)														TYPE:Magic																				COST:48000										SOURCEPAGE:p.113	BONUS:VAR|LightBulk|1				QUALITY:Level|13	QUALITY:BULK|L
+Travel treads Mk 3																			TYPE:Magic.Footgear.WornMagic																	COST:46500										SOURCEPAGE:p.117	BONUS:VAR|LightBulk|1				QUALITY:Level|13	QUALITY:BULK|L
+Aeon stone (silver lemniscate)																	TYPE:Magic.Aeon.WornMagic																	COST:65000										SOURCEPAGE:p.110								QUALITY:Level|14	QUALITY:BULK|0
+Elemental gem Mk 5																			TYPE:Magic.Consumable																		COST:16000										SOURCEPAGE:p.112	BONUS:VAR|LightBulk|1				QUALITY:Level|15	QUALITY:BULK|L
+Figurine of wondrous power (plastic sharpwing)															TYPE:Magic																				COST:100000										SOURCEPAGE:p.113	BONUS:VAR|LightBulk|1				QUALITY:Level|15	QUALITY:BULK|L
+Elemental gem Mk 6																			TYPE:Magic.Consumable																		COST:49000										SOURCEPAGE:p.112	BONUS:VAR|LightBulk|1				QUALITY:Level|18	QUALITY:BULK|L
+Containment tesseract																			TYPE:Magic																				COST:500000										SOURCEPAGE:p.112	BONUS:VAR|Bulk|1					QUALITY:Level|19	QUALITY:BULK|1
+Atrocite Sphere																				TYPE:Magic.Artifact																													SOURCEPAGE:p.118	BONUS:VAR|LightBulk|1				QUALITY:Level|20	QUALITY:BULK|L
+Book of Unwritten Truths																		TYPE:Magic.Artifact																													SOURCEPAGE:p.118	BONUS:VAR|LightBulk|1				QUALITY:Level|20	QUALITY:BULK|L
+Trafodi Paradox																				TYPE:Magic.Artifact																													SOURCEPAGE:p.118	BONUS:VAR|LightBulk|1				QUALITY:Level|20	QUALITY:BULK|L
 #HYBRID ITEMS
-Software imp (tier 1)		QUALITY:Level|1		COST:400		QUALITY:BULK|0		TYPE:Magic.Hybrid		SOURCEPAGE:p.124
-Metal nitro (silver)		QUALITY:Level|2		COST:175		QUALITY:BULK|0		TYPE:Magic.Hybrid.Consumable		SOURCEPAGE:p.123
-Animistic tools Mk 1		QUALITY:Level|3		COST:1350		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Hybrid.Tools		SOURCEPAGE:p.120
-Software imp (tier 2)		QUALITY:Level|3		COST:1400		QUALITY:BULK|0		TYPE:Magic.Hybrid		SOURCEPAGE:p.124
-Computer idol Mk 1		QUALITY:Level|4		COST:1850		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Hybrid		SOURCEPAGE:p.120
-Creator capsule Mk 1		QUALITY:Level|4		COST:2000		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Hybrid		SOURCEPAGE:p.120
-Vital seed (beast)		QUALITY:Level|4		COST:650		QUALITY:BULK|0		TYPE:Magic.Hybrid.Consumable		SOURCEPAGE:p.125
-Software imp (tier 3)		QUALITY:Level|5		COST:2800		QUALITY:BULK|0		TYPE:Magic.Hybrid		SOURCEPAGE:p.124
-Universal solvent (basic)		QUALITY:Level|5		COST:500		QUALITY:BULK|0		TYPE:Magic.Hybrid		SOURCEPAGE:p.125
-Holding gloves Mk 1		QUALITY:Level|6		COST:4250		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Hybrid.Gloves.WornMagic		SOURCEPAGE:p.122
-Metal nitro (gold)		QUALITY:Level|6		COST:675		QUALITY:BULK|0		TYPE:Magic.Hybrid.Consumable		SOURCEPAGE:p.123
-Phase detector		QUALITY:Level|6		COST:4000		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Hybrid		SOURCEPAGE:p.124
-Scrambler gloves Mk 1	QUALITY:Level|1		COST:6		QUALITY:BULK|4,500		BONUS:VAR|Bulk|4,500		TYPE:Magic.Hybrid.Gloves.WornMagic		SOURCEPAGE:p.124
-Animistic tools Mk 2		QUALITY:Level|7		COST:5500		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Hybrid.Tools		SOURCEPAGE:p.120
-Retrieval charms Mk 1		QUALITY:Level|7		COST:6500		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Hybrid		SOURCEPAGE:p.124
-Software imp (tier 4)		QUALITY:Level|7		COST:6000		QUALITY:BULK|0		TYPE:Magic.Hybrid		SOURCEPAGE:p.124
-Computer idol Mk 2		QUALITY:Level|8		COST:8500		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Hybrid		SOURCEPAGE:p.120
-Creator capsule Mk 2		QUALITY:Level|8		COST:9000		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Hybrid		SOURCEPAGE:p.120
-Kinetic converter Mk 1		QUALITY:Level|8		COST:10500		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Hybrid.WornMagic		SOURCEPAGE:p.123
-Memory crypt		QUALITY:Level|8		COST:9500		QUALITY:BULK|0		TYPE:Magic.Hybrid.WornMagic		SOURCEPAGE:p.123
-Vampiric charger		QUALITY:Level|8		COST:10000		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Hybrid		SOURCEPAGE:p.125
-Captive-star amulet (red dwarf)		QUALITY:Level|9		COST:14500		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Hybrid.Amulet.WornMagic		SOURCEPAGE:p.120
-Entropy gloves		QUALITY:Level|9		COST:13000		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Hybrid.Gloves.WornMagic		SOURCEPAGE:p.122
-Software imp (tier 5)		QUALITY:Level|9		COST:12500		QUALITY:BULK|0		TYPE:Magic.Hybrid		SOURCEPAGE:p.124
-Telekinetic gloves		QUALITY:Level|9		COST:13500		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Hybrid.Gloves.WornMagic		SOURCEPAGE:p.125
-Universal solvent (concentrated)		QUALITY:Level|9		COST:2000		QUALITY:BULK|0		TYPE:Magic.Hybrid		SOURCEPAGE:p.125
-Earthbound anklets		QUALITY:Level|10		COST:17000		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Hybrid.WornMagic		SOURCEPAGE:p.121
-Metal nitro (platinum)		QUALITY:Level|10		COST:2700		QUALITY:BULK|0		TYPE:Magic.Hybrid.Consumable		SOURCEPAGE:p.123
-Scrambler gloves Mk 2		QUALITY:Level|10		COST:18000		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Hybrid.Gloves.WornMagic		SOURCEPAGE:p.124
-Vital seed (zeolite)		QUALITY:Level|10		COST:5000		QUALITY:BULK|0		TYPE:Magic.Hybrid.Consumable		SOURCEPAGE:p.125
-Void dust		QUALITY:Level|10		COST:2550		QUALITY:BULK|0		TYPE:Magic.Hybrid.Consumable		SOURCEPAGE:p.126
-Animistic tools Mk 3		QUALITY:Level|11		COST:22000		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Hybrid.Tools		SOURCEPAGE:p.120
-Infiltration assistant		QUALITY:Level|11		COST:28000		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Hybrid.WornMagic		SOURCEPAGE:p.122
-Retrieval charms Mk 2		QUALITY:Level|11		COST:26000		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Hybrid		SOURCEPAGE:p.124
-Software imp (tier 6)		QUALITY:Level|11		COST:25000		QUALITY:BULK|0		TYPE:Magic.Hybrid		SOURCEPAGE:p.124
-Computer idol Mk 3		QUALITY:Level|12		COST:34000		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Hybrid		SOURCEPAGE:p.120
-Creator capsule Mk 3		QUALITY:Level|12		COST:38000		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Hybrid		SOURCEPAGE:p.120
-Holding gloves Mk 2		QUALITY:Level|12		COST:35000		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Hybrid.Gloves.WornMagic		SOURCEPAGE:p.122
-Kinetic converter Mk 2		QUALITY:Level|12		COST:42000		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Hybrid.WornMagic		SOURCEPAGE:p.123
-Captive-star amulet (magnetar)		QUALITY:Level|13		COST:54000		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Hybrid.Amulet.WornMagic		SOURCEPAGE:p.120
-Software imp (tier 7)		QUALITY:Level|13		COST:50000		QUALITY:BULK|0		TYPE:Magic.Hybrid.SUBTYPE		SOURCEPAGE:p.124
-Universal solvent (forte)		QUALITY:Level|13		COST:7500		QUALITY:BULK|0		TYPE:Magic.Hybrid		SOURCEPAGE:p.125
-Metal nitro (star)		QUALITY:Level|14		COST:10800		QUALITY:BULK|0		TYPE:Magic.Hybrid.Consumable		SOURCEPAGE:p.123
-Scrambler gloves Mk 3		QUALITY:Level|14		COST:73000		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Hybrid.Gloves.WornMagic		SOURCEPAGE:p.124
-Retrieval charms Mk 3		QUALITY:Level|15		COST:105000		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Hybrid		SOURCEPAGE:p.124
-Software imp (tier 8)		QUALITY:Level|15		COST:100000		QUALITY:BULK|0		TYPE:Magic.Hybrid.SUBTYPE		SOURCEPAGE:p.124
-Kinetic converter Mk 3		QUALITY:Level|16		COST:172000		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Hybrid.WornMagic		SOURCEPAGE:p.123
-Captive-star amulet (pulsar)		QUALITY:Level|17		COST:270000		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Hybrid.Amulet.WornMagic		SOURCEPAGE:p.120
-Software imp (tier 9)		QUALITY:Level|17		COST:225000		QUALITY:BULK|0		TYPE:Magic.Hybrid.SUBTYPE		SOURCEPAGE:p.124
-Universal solvent (regia)		QUALITY:Level|17		COST:36000		QUALITY:BULK|0		TYPE:Magic.Hybrid		SOURCEPAGE:p.125
-Vital seed (regrower)		QUALITY:Level|17		COST:40000		QUALITY:BULK|0		TYPE:Magic.Hybrid.Consumable		SOURCEPAGE:p.125
-Energy-matter gateway		QUALITY:Level|19		COST:600000		QUALITY:BULK|4		BONUS:VAR|Bulk|4		TYPE:Magic.Hybrid		SOURCEPAGE:p.121
-Retrieval charms Mk 4		QUALITY:Level|19		COST:480000		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Magic.Hybrid		SOURCEPAGE:p.124
-Software imp (tier 10)		QUALITY:Level|19		COST:550000		QUALITY:BULK|0		TYPE:Magic.Hybrid.SUBTYPE		SOURCEPAGE:p.124
+Software imp (tier 1)																			TYPE:Magic.Hybrid																			COST:400										SOURCEPAGE:p.124								QUALITY:Level|1	QUALITY:BULK|0
+Metal nitro (silver)																			TYPE:Magic.Hybrid.Consumable																	COST:175										SOURCEPAGE:p.123								QUALITY:Level|2	QUALITY:BULK|0
+Animistic tools Mk 1																			TYPE:Magic.Hybrid.Tools																		COST:1350										SOURCEPAGE:p.120	BONUS:VAR|LightBulk|1				QUALITY:Level|3	QUALITY:BULK|L
+Software imp (tier 2)																			TYPE:Magic.Hybrid																			COST:1400										SOURCEPAGE:p.124								QUALITY:Level|3	QUALITY:BULK|0
+Computer idol Mk 1																			TYPE:Magic.Hybrid																			COST:1850										SOURCEPAGE:p.120	BONUS:VAR|LightBulk|1				QUALITY:Level|4	QUALITY:BULK|L
+Creator capsule Mk 1																			TYPE:Magic.Hybrid																			COST:2000										SOURCEPAGE:p.120	BONUS:VAR|LightBulk|1				QUALITY:Level|4	QUALITY:BULK|L
+Vital seed (beast)																			TYPE:Magic.Hybrid.Consumable																	COST:650										SOURCEPAGE:p.125								QUALITY:Level|4	QUALITY:BULK|0
+Software imp (tier 3)																			TYPE:Magic.Hybrid																			COST:2800										SOURCEPAGE:p.124								QUALITY:Level|5	QUALITY:BULK|0
+Universal solvent (basic)																		TYPE:Magic.Hybrid																			COST:500										SOURCEPAGE:p.125								QUALITY:Level|5	QUALITY:BULK|0
+Holding gloves Mk 1																			TYPE:Magic.Hybrid.Gloves.WornMagic																COST:4250										SOURCEPAGE:p.122	BONUS:VAR|LightBulk|1				QUALITY:Level|6	QUALITY:BULK|L
+Metal nitro (gold)																			TYPE:Magic.Hybrid.Consumable																	COST:675										SOURCEPAGE:p.123								QUALITY:Level|6	QUALITY:BULK|0
+Phase detector																				TYPE:Magic.Hybrid																			COST:4000										SOURCEPAGE:p.124	BONUS:VAR|LightBulk|1				QUALITY:Level|6	QUALITY:BULK|L
+Scrambler gloves Mk 1																			TYPE:Magic.Hybrid.Gloves.WornMagic																COST:6										SOURCEPAGE:p.124	BONUS:VAR|Bulk|4,500				QUALITY:Level|1	QUALITY:BULK|4,500
+Animistic tools Mk 2																			TYPE:Magic.Hybrid.Tools																		COST:5500										SOURCEPAGE:p.120	BONUS:VAR|LightBulk|1				QUALITY:Level|7	QUALITY:BULK|L
+Retrieval charms Mk 1																			TYPE:Magic.Hybrid																			COST:6500										SOURCEPAGE:p.124	BONUS:VAR|LightBulk|1				QUALITY:Level|7	QUALITY:BULK|L
+Software imp (tier 4)																			TYPE:Magic.Hybrid																			COST:6000										SOURCEPAGE:p.124								QUALITY:Level|7	QUALITY:BULK|0
+Computer idol Mk 2																			TYPE:Magic.Hybrid																			COST:8500										SOURCEPAGE:p.120	BONUS:VAR|LightBulk|1				QUALITY:Level|8	QUALITY:BULK|L
+Creator capsule Mk 2																			TYPE:Magic.Hybrid																			COST:9000										SOURCEPAGE:p.120	BONUS:VAR|LightBulk|1				QUALITY:Level|8	QUALITY:BULK|L
+Kinetic converter Mk 1																			TYPE:Magic.Hybrid.WornMagic																	COST:10500										SOURCEPAGE:p.123	BONUS:VAR|LightBulk|1				QUALITY:Level|8	QUALITY:BULK|L
+Memory crypt																				TYPE:Magic.Hybrid.WornMagic																	COST:9500										SOURCEPAGE:p.123								QUALITY:Level|8	QUALITY:BULK|0
+Vampiric charger																				TYPE:Magic.Hybrid																			COST:10000										SOURCEPAGE:p.125	BONUS:VAR|LightBulk|1				QUALITY:Level|8	QUALITY:BULK|L
+Captive-star amulet (red dwarf)																	TYPE:Magic.Hybrid.Amulet.WornMagic																COST:14500										SOURCEPAGE:p.120	BONUS:VAR|LightBulk|1				QUALITY:Level|9	QUALITY:BULK|L
+Entropy gloves																				TYPE:Magic.Hybrid.Gloves.WornMagic																COST:13000										SOURCEPAGE:p.122	BONUS:VAR|LightBulk|1				QUALITY:Level|9	QUALITY:BULK|L
+Software imp (tier 5)																			TYPE:Magic.Hybrid																			COST:12500										SOURCEPAGE:p.124								QUALITY:Level|9	QUALITY:BULK|0
+Telekinetic gloves																			TYPE:Magic.Hybrid.Gloves.WornMagic																COST:13500										SOURCEPAGE:p.125	BONUS:VAR|LightBulk|1				QUALITY:Level|9	QUALITY:BULK|L
+Universal solvent (concentrated)																	TYPE:Magic.Hybrid																			COST:2000										SOURCEPAGE:p.125								QUALITY:Level|9	QUALITY:BULK|0
+Earthbound anklets																			TYPE:Magic.Hybrid.WornMagic																	COST:17000										SOURCEPAGE:p.121	BONUS:VAR|LightBulk|1				QUALITY:Level|10	QUALITY:BULK|L
+Metal nitro (platinum)																			TYPE:Magic.Hybrid.Consumable																	COST:2700										SOURCEPAGE:p.123								QUALITY:Level|10	QUALITY:BULK|0
+Scrambler gloves Mk 2																			TYPE:Magic.Hybrid.Gloves.WornMagic																COST:18000										SOURCEPAGE:p.124	BONUS:VAR|LightBulk|1				QUALITY:Level|10	QUALITY:BULK|L
+Vital seed (zeolite)																			TYPE:Magic.Hybrid.Consumable																	COST:5000										SOURCEPAGE:p.125								QUALITY:Level|10	QUALITY:BULK|0
+Void dust																					TYPE:Magic.Hybrid.Consumable																	COST:2550										SOURCEPAGE:p.126								QUALITY:Level|10	QUALITY:BULK|0
+Animistic tools Mk 3																			TYPE:Magic.Hybrid.Tools																		COST:22000										SOURCEPAGE:p.120	BONUS:VAR|LightBulk|1				QUALITY:Level|11	QUALITY:BULK|L
+Infiltration assistant																			TYPE:Magic.Hybrid.WornMagic																	COST:28000										SOURCEPAGE:p.122	BONUS:VAR|LightBulk|1				QUALITY:Level|11	QUALITY:BULK|L
+Retrieval charms Mk 2																			TYPE:Magic.Hybrid																			COST:26000										SOURCEPAGE:p.124	BONUS:VAR|LightBulk|1				QUALITY:Level|11	QUALITY:BULK|L
+Software imp (tier 6)																			TYPE:Magic.Hybrid																			COST:25000										SOURCEPAGE:p.124								QUALITY:Level|11	QUALITY:BULK|0
+Computer idol Mk 3																			TYPE:Magic.Hybrid																			COST:34000										SOURCEPAGE:p.120	BONUS:VAR|LightBulk|1				QUALITY:Level|12	QUALITY:BULK|L
+Creator capsule Mk 3																			TYPE:Magic.Hybrid																			COST:38000										SOURCEPAGE:p.120	BONUS:VAR|LightBulk|1				QUALITY:Level|12	QUALITY:BULK|L
+Holding gloves Mk 2																			TYPE:Magic.Hybrid.Gloves.WornMagic																COST:35000										SOURCEPAGE:p.122	BONUS:VAR|LightBulk|1				QUALITY:Level|12	QUALITY:BULK|L
+Kinetic converter Mk 2																			TYPE:Magic.Hybrid.WornMagic																	COST:42000										SOURCEPAGE:p.123	BONUS:VAR|LightBulk|1				QUALITY:Level|12	QUALITY:BULK|L
+Captive-star amulet (magnetar)																	TYPE:Magic.Hybrid.Amulet.WornMagic																COST:54000										SOURCEPAGE:p.120	BONUS:VAR|LightBulk|1				QUALITY:Level|13	QUALITY:BULK|L
+Software imp (tier 7)																			TYPE:Magic.Hybrid.SUBTYPE																	COST:50000										SOURCEPAGE:p.124								QUALITY:Level|13	QUALITY:BULK|0
+Universal solvent (forte)																		TYPE:Magic.Hybrid																			COST:7500										SOURCEPAGE:p.125								QUALITY:Level|13	QUALITY:BULK|0
+Metal nitro (star)																			TYPE:Magic.Hybrid.Consumable																	COST:10800										SOURCEPAGE:p.123								QUALITY:Level|14	QUALITY:BULK|0
+Scrambler gloves Mk 3																			TYPE:Magic.Hybrid.Gloves.WornMagic																COST:73000										SOURCEPAGE:p.124	BONUS:VAR|LightBulk|1				QUALITY:Level|14	QUALITY:BULK|L
+Retrieval charms Mk 3																			TYPE:Magic.Hybrid																			COST:105000										SOURCEPAGE:p.124	BONUS:VAR|LightBulk|1				QUALITY:Level|15	QUALITY:BULK|L
+Software imp (tier 8)																			TYPE:Magic.Hybrid.SUBTYPE																	COST:100000										SOURCEPAGE:p.124								QUALITY:Level|15	QUALITY:BULK|0
+Kinetic converter Mk 3																			TYPE:Magic.Hybrid.WornMagic																	COST:172000										SOURCEPAGE:p.123	BONUS:VAR|LightBulk|1				QUALITY:Level|16	QUALITY:BULK|L
+Captive-star amulet (pulsar)																		TYPE:Magic.Hybrid.Amulet.WornMagic																COST:270000										SOURCEPAGE:p.120	BONUS:VAR|LightBulk|1				QUALITY:Level|17	QUALITY:BULK|L
+Software imp (tier 9)																			TYPE:Magic.Hybrid.SUBTYPE																	COST:225000										SOURCEPAGE:p.124								QUALITY:Level|17	QUALITY:BULK|0
+Universal solvent (regia)																		TYPE:Magic.Hybrid																			COST:36000										SOURCEPAGE:p.125								QUALITY:Level|17	QUALITY:BULK|0
+Vital seed (regrower)																			TYPE:Magic.Hybrid.Consumable																	COST:40000										SOURCEPAGE:p.125								QUALITY:Level|17	QUALITY:BULK|0
+Energy-matter gateway																			TYPE:Magic.Hybrid																			COST:600000										SOURCEPAGE:p.121	BONUS:VAR|Bulk|4					QUALITY:Level|19	QUALITY:BULK|4
+Retrieval charms Mk 4																			TYPE:Magic.Hybrid																			COST:480000										SOURCEPAGE:p.124	BONUS:VAR|LightBulk|1				QUALITY:Level|19	QUALITY:BULK|L
+Software imp (tier 10)																			TYPE:Magic.Hybrid.SUBTYPE																	COST:550000										SOURCEPAGE:p.124								QUALITY:Level|19	QUALITY:BULK|0
 #HYBRID GRENADES
-Holo grenade Mk 1		KEY:Holo grenade Mk 1		PROFICIENCY:WEAPON|Grenades		TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade		WIELD:OneHanded		MODIFY:ItemLevel|SET|1		QUALITY:Level|1		COST:50		RANGE:20		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		SPROP:Explode (10 ; see text)
-Diminisher grenade Mk 1		KEY:Diminisher grenade Mk 1		PROFICIENCY:WEAPON|Grenades		TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade		WIELD:OneHanded		MODIFY:ItemLevel|SET|3		QUALITY:Level|3		COST:270		RANGE:20		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		SPROP:Explode (10 ; see text)
-Summoning grenade Mk 1		KEY:Summoning grenade Mk 1		PROFICIENCY:WEAPON|Grenades		TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade		WIELD:OneHanded		MODIFY:ItemLevel|SET|3		QUALITY:Level|3		COST:250		RANGE:20		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		SPROP:Explode (10 ; see text)
-Holo grenade Mk 2		KEY:Holo grenade Mk 2		PROFICIENCY:WEAPON|Grenades		TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade		WIELD:OneHanded		MODIFY:ItemLevel|SET|4		QUALITY:Level|4		COST:300		RANGE:20		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		SPROP:Explode (15 ; see text)
-Diminisher grenade Mk 2		KEY:Diminisher grenade Mk 2		PROFICIENCY:WEAPON|Grenades		TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade		WIELD:OneHanded		MODIFY:ItemLevel|SET|6		QUALITY:Level|6		COST:675		RANGE:20		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		SPROP:Explode (15 ; see text)
-Microbot grenade Mk 1		KEY:Microbot grenade Mk 1		PROFICIENCY:WEAPON|Grenades		TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade		WIELD:OneHanded		MODIFY:ItemLevel|SET|6		QUALITY:Level|6		COST:1400		RANGE:20		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		SPROP:Explode (5 ; see text)
-Summoning grenade Mk 2		KEY:Summoning grenade Mk 2		PROFICIENCY:WEAPON|Grenades		TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade		WIELD:OneHanded		MODIFY:ItemLevel|SET|6		QUALITY:Level|6		COST:650		RANGE:20		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		SPROP:Explode (10 ; see text)
-Holo grenade Mk 3		KEY:Holo grenade Mk 3		PROFICIENCY:WEAPON|Grenades		TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade		WIELD:OneHanded		MODIFY:ItemLevel|SET|7		QUALITY:Level|7		COST:900		RANGE:20		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		SPROP:Explode (20 ; see text)
-Diminisher grenade Mk 3		KEY:Diminisher grenade Mk 3		PROFICIENCY:WEAPON|Grenades		TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade		WIELD:OneHanded		MODIFY:ItemLevel|SET|9		QUALITY:Level|9		COST:2100		RANGE:20		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		SPROP:Explode (20 ; see text)
-Junkbot grenade		KEY:Junkbot grenade		PROFICIENCY:WEAPON|Grenades		TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade		WIELD:OneHanded		MODIFY:ItemLevel|SET|9		QUALITY:Level|9		COST:2250		RANGE:20		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		SPROP:Explode (10 ; see text)
-Microbot grenade Mk 2		KEY:Microbot grenade Mk 2		PROFICIENCY:WEAPON|Grenades		TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade		WIELD:OneHanded		MODIFY:ItemLevel|SET|9		QUALITY:Level|9		COST:4200		RANGE:20		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		SPROP:Explode (5 ; see text)
-Summoning grenade Mk 3		KEY:Summoning grenade Mk 3		PROFICIENCY:WEAPON|Grenades		TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade		WIELD:OneHanded		MODIFY:ItemLevel|SET|9		QUALITY:Level|9		COST:2000		RANGE:20		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		SPROP:Explode (15 ; see text)
-Wonder grenade		KEY:Wonder grenade		PROFICIENCY:WEAPON|Grenades		TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade		WIELD:OneHanded		MODIFY:ItemLevel|SET|10		QUALITY:Level|10		COST:2500		RANGE:20		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		SPROP:Explode (10 ; see text)
-Containment grenade		KEY:Containment grenade		PROFICIENCY:WEAPON|Grenades		TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade		WIELD:OneHanded		MODIFY:ItemLevel|SET|12		QUALITY:Level|12		COST:6000		RANGE:20		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		SPROP:Explode (5 ; see text)
-Diminisher grenade Mk 4		KEY:Diminisher grenade Mk 4		PROFICIENCY:WEAPON|Grenades		TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade		WIELD:OneHanded		MODIFY:ItemLevel|SET|12		QUALITY:Level|12		COST:5700		RANGE:20		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		SPROP:Explode (20 ; see text)
-Microbot grenade Mk 3		KEY:Microbot grenade Mk 3		PROFICIENCY:WEAPON|Grenades		TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade		WIELD:OneHanded		MODIFY:ItemLevel|SET|12		QUALITY:Level|12		COST:12500		RANGE:20		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		SPROP:Explode (5 ; see text)
-Summoning grenade Mk 4		KEY:Summoning grenade Mk 4		PROFICIENCY:WEAPON|Grenades		TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade		WIELD:OneHanded		MODIFY:ItemLevel|SET|12		QUALITY:Level|12		COST:5000		RANGE:20		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		SPROP:Explode (20 ; see text)
-Diminisher grenade Mk 5		KEY:Diminisher grenade Mk 5		PROFICIENCY:WEAPON|Grenades		TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade		WIELD:OneHanded		MODIFY:ItemLevel|SET|15		QUALITY:Level|15		COST:17000		RANGE:20		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		SPROP:Explode (20 ; see text)
-Microbot grenade Mk 4		KEY:Microbot grenade Mk 4		PROFICIENCY:WEAPON|Grenades		TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade		WIELD:OneHanded		MODIFY:ItemLevel|SET|15		QUALITY:Level|15		COST:37000		RANGE:20		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		SPROP:Explode (5 ; see text)
-Summoning grenade Mk 5		KEY:Summoning grenade (mk 5)		PROFICIENCY:WEAPON|Grenades		TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade		WIELD:OneHanded		MODIFY:ItemLevel|SET|15		QUALITY:Level|15		COST:16000		RANGE:20		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		SPROP:Explode (25 ; see text)
-Diminisher grenade Mk 6		KEY:Diminisher grenade (mk 6)		PROFICIENCY:WEAPON|Grenades		TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade		WIELD:OneHanded		MODIFY:ItemLevel|SET|18		QUALITY:Level|18		COST:51000		RANGE:20		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		SPROP:Explode (20 ; see text)
-Microbot grenade Mk 5		KEY:Microbot grenade (mk 5)		PROFICIENCY:WEAPON|Grenades		TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade		WIELD:OneHanded		MODIFY:ItemLevel|SET|18		QUALITY:Level|18		COST:109000		RANGE:20		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		SPROP:Explode (5 ; see text)
-Summoning grenade Mk 6		KEY:Summoning grenade (mk 6)		PROFICIENCY:WEAPON|Grenades		TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade		WIELD:OneHanded		MODIFY:ItemLevel|SET|18		QUALITY:Level|18		COST:49000		RANGE:20		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		SPROP:Explode (30 ; see text)
+Holo grenade Mk 1							KEY:Holo grenade Mk 1					PROFICIENCY:WEAPON|Grenades	TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade				COST:50	WIELD:OneHanded					RANGE:20				BONUS:VAR|LightBulk|1				QUALITY:Level|1	QUALITY:BULK|L		SPROP:Explode (10 ; see text)	MODIFY:ItemLevel|SET|1
+Diminisher grenade Mk 1						KEY:Diminisher grenade Mk 1				PROFICIENCY:WEAPON|Grenades	TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade				COST:270	WIELD:OneHanded					RANGE:20				BONUS:VAR|LightBulk|1				QUALITY:Level|3	QUALITY:BULK|L		SPROP:Explode (10 ; see text)	MODIFY:ItemLevel|SET|3
+Summoning grenade Mk 1						KEY:Summoning grenade Mk 1				PROFICIENCY:WEAPON|Grenades	TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade				COST:250	WIELD:OneHanded					RANGE:20				BONUS:VAR|LightBulk|1				QUALITY:Level|3	QUALITY:BULK|L		SPROP:Explode (10 ; see text)	MODIFY:ItemLevel|SET|3
+Holo grenade Mk 2							KEY:Holo grenade Mk 2					PROFICIENCY:WEAPON|Grenades	TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade				COST:300	WIELD:OneHanded					RANGE:20				BONUS:VAR|LightBulk|1				QUALITY:Level|4	QUALITY:BULK|L		SPROP:Explode (15 ; see text)	MODIFY:ItemLevel|SET|4
+Diminisher grenade Mk 2						KEY:Diminisher grenade Mk 2				PROFICIENCY:WEAPON|Grenades	TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade				COST:675	WIELD:OneHanded					RANGE:20				BONUS:VAR|LightBulk|1				QUALITY:Level|6	QUALITY:BULK|L		SPROP:Explode (15 ; see text)	MODIFY:ItemLevel|SET|6
+Microbot grenade Mk 1						KEY:Microbot grenade Mk 1				PROFICIENCY:WEAPON|Grenades	TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade				COST:1400	WIELD:OneHanded					RANGE:20				BONUS:VAR|LightBulk|1				QUALITY:Level|6	QUALITY:BULK|L		SPROP:Explode (5 ; see text)	MODIFY:ItemLevel|SET|6
+Summoning grenade Mk 2						KEY:Summoning grenade Mk 2				PROFICIENCY:WEAPON|Grenades	TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade				COST:650	WIELD:OneHanded					RANGE:20				BONUS:VAR|LightBulk|1				QUALITY:Level|6	QUALITY:BULK|L		SPROP:Explode (10 ; see text)	MODIFY:ItemLevel|SET|6
+Holo grenade Mk 3							KEY:Holo grenade Mk 3					PROFICIENCY:WEAPON|Grenades	TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade				COST:900	WIELD:OneHanded					RANGE:20				BONUS:VAR|LightBulk|1				QUALITY:Level|7	QUALITY:BULK|L		SPROP:Explode (20 ; see text)	MODIFY:ItemLevel|SET|7
+Diminisher grenade Mk 3						KEY:Diminisher grenade Mk 3				PROFICIENCY:WEAPON|Grenades	TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade				COST:2100	WIELD:OneHanded					RANGE:20				BONUS:VAR|LightBulk|1				QUALITY:Level|9	QUALITY:BULK|L		SPROP:Explode (20 ; see text)	MODIFY:ItemLevel|SET|9
+Junkbot grenade							KEY:Junkbot grenade					PROFICIENCY:WEAPON|Grenades	TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade				COST:2250	WIELD:OneHanded					RANGE:20				BONUS:VAR|LightBulk|1				QUALITY:Level|9	QUALITY:BULK|L		SPROP:Explode (10 ; see text)	MODIFY:ItemLevel|SET|9
+Microbot grenade Mk 2						KEY:Microbot grenade Mk 2				PROFICIENCY:WEAPON|Grenades	TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade				COST:4200	WIELD:OneHanded					RANGE:20				BONUS:VAR|LightBulk|1				QUALITY:Level|9	QUALITY:BULK|L		SPROP:Explode (5 ; see text)	MODIFY:ItemLevel|SET|9
+Summoning grenade Mk 3						KEY:Summoning grenade Mk 3				PROFICIENCY:WEAPON|Grenades	TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade				COST:2000	WIELD:OneHanded					RANGE:20				BONUS:VAR|LightBulk|1				QUALITY:Level|9	QUALITY:BULK|L		SPROP:Explode (15 ; see text)	MODIFY:ItemLevel|SET|9
+Wonder grenade							KEY:Wonder grenade					PROFICIENCY:WEAPON|Grenades	TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade				COST:2500	WIELD:OneHanded					RANGE:20				BONUS:VAR|LightBulk|1				QUALITY:Level|10	QUALITY:BULK|L		SPROP:Explode (10 ; see text)	MODIFY:ItemLevel|SET|10
+Containment grenade						KEY:Containment grenade					PROFICIENCY:WEAPON|Grenades	TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade				COST:6000	WIELD:OneHanded					RANGE:20				BONUS:VAR|LightBulk|1				QUALITY:Level|12	QUALITY:BULK|L		SPROP:Explode (5 ; see text)	MODIFY:ItemLevel|SET|12
+Diminisher grenade Mk 4						KEY:Diminisher grenade Mk 4				PROFICIENCY:WEAPON|Grenades	TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade				COST:5700	WIELD:OneHanded					RANGE:20				BONUS:VAR|LightBulk|1				QUALITY:Level|12	QUALITY:BULK|L		SPROP:Explode (20 ; see text)	MODIFY:ItemLevel|SET|12
+Microbot grenade Mk 3						KEY:Microbot grenade Mk 3				PROFICIENCY:WEAPON|Grenades	TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade				COST:12500	WIELD:OneHanded					RANGE:20				BONUS:VAR|LightBulk|1				QUALITY:Level|12	QUALITY:BULK|L		SPROP:Explode (5 ; see text)	MODIFY:ItemLevel|SET|12
+Summoning grenade Mk 4						KEY:Summoning grenade Mk 4				PROFICIENCY:WEAPON|Grenades	TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade				COST:5000	WIELD:OneHanded					RANGE:20				BONUS:VAR|LightBulk|1				QUALITY:Level|12	QUALITY:BULK|L		SPROP:Explode (20 ; see text)	MODIFY:ItemLevel|SET|12
+Diminisher grenade Mk 5						KEY:Diminisher grenade Mk 5				PROFICIENCY:WEAPON|Grenades	TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade				COST:17000	WIELD:OneHanded					RANGE:20				BONUS:VAR|LightBulk|1				QUALITY:Level|15	QUALITY:BULK|L		SPROP:Explode (20 ; see text)	MODIFY:ItemLevel|SET|15
+Microbot grenade Mk 4						KEY:Microbot grenade Mk 4				PROFICIENCY:WEAPON|Grenades	TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade				COST:37000	WIELD:OneHanded					RANGE:20				BONUS:VAR|LightBulk|1				QUALITY:Level|15	QUALITY:BULK|L		SPROP:Explode (5 ; see text)	MODIFY:ItemLevel|SET|15
+Summoning grenade Mk 5						KEY:Summoning grenade (mk 5)				PROFICIENCY:WEAPON|Grenades	TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade				COST:16000	WIELD:OneHanded					RANGE:20				BONUS:VAR|LightBulk|1				QUALITY:Level|15	QUALITY:BULK|L		SPROP:Explode (25 ; see text)	MODIFY:ItemLevel|SET|15
+Diminisher grenade Mk 6						KEY:Diminisher grenade (mk 6)				PROFICIENCY:WEAPON|Grenades	TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade				COST:51000	WIELD:OneHanded					RANGE:20				BONUS:VAR|LightBulk|1				QUALITY:Level|18	QUALITY:BULK|L		SPROP:Explode (20 ; see text)	MODIFY:ItemLevel|SET|18
+Microbot grenade Mk 5						KEY:Microbot grenade (mk 5)				PROFICIENCY:WEAPON|Grenades	TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade				COST:109000	WIELD:OneHanded					RANGE:20				BONUS:VAR|LightBulk|1				QUALITY:Level|18	QUALITY:BULK|L		SPROP:Explode (5 ; see text)	MODIFY:ItemLevel|SET|18
+Summoning grenade Mk 6						KEY:Summoning grenade (mk 6)				PROFICIENCY:WEAPON|Grenades	TYPE:RESIZABLE.Weapon.Ranged.Thrown.ToHit_UseStr.Prof Group Grenade.Weapon Atk Modifier Dex.Splash.Grenade				COST:49000	WIELD:OneHanded					RANGE:20				BONUS:VAR|LightBulk|1				QUALITY:Level|18	QUALITY:BULK|L		SPROP:Explode (30 ; see text)	MODIFY:ItemLevel|SET|18
 
 
 # Weapon Fusions
-Weapon Infusion Seal (SOULFIRE)		TYPE:Weapon Infusion Seal	MODS:REQUIRED
+Weapon Infusion Seal (SOULFIRE)																	TYPE:Weapon Infusion Seal																						MODS:REQUIRED

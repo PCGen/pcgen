@@ -7,7 +7,7 @@
 
 ###Block: Racial Abilities ~ grantor/removal MODs in halfelf_abilities_globalvar.lst
 # Ability Name			Category of Ability	Define																								Template									Modify VAR
-Racial Traits ~ Half-Elf	CATEGORY:Internal		DEFINE:Half-Elf_RacialCastingStat|0	DEFINE:Half-Elf_RacialCastingMod|0	DEFINE:Half-Elf_RacialCasterlevel|0	DEFINE:Half-Elf_RacialConcentration|0	TEMPLATE:Racial Heritage ~ Elf|Racial Heritage ~ Human	BONUS:VAR|Half-Elf_RacialCastingStat|CHASCORE	BONUS:VAR|Half-Elf_RacialCastingMod|CHA	BONUS:VAR|Half-Elf_RacialCasterlevel|TL	BONUS:VAR|Half-Elf_RacialConcentration|Half-Elf_RacialCasterlevel+Half-Elf_RacialCastingMod
+Racial Traits ~ Half-Elf	CATEGORY:Internal		DEFINE:Half-Elf_RacialCastingStat|0	DEFINE:Half-Elf_RacialCastingMod|0	DEFINE:Half-Elf_RacialCasterlevel|0	DEFINE:Half-Elf_RacialConcentration|0	TEMPLATE:Race ~ Elf|Race ~ Human					BONUS:VAR|Half-Elf_RacialCastingStat|CHASCORE	BONUS:VAR|Half-Elf_RacialCastingMod|CHA	BONUS:VAR|Half-Elf_RacialCasterlevel|TL	BONUS:VAR|Half-Elf_RacialConcentration|Half-Elf_RacialCasterlevel+Half-Elf_RacialCastingMod
 
 ###Block: Racial Trait Support
 # Ability Name								Type

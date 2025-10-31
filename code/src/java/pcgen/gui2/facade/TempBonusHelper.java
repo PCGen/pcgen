@@ -162,14 +162,14 @@ public final class TempBonusHelper
 			return possibleEquipment;
 		}
 		theCharacter.setCalcEquipmentList(theCharacter.getUseTempMods());
-		FINDEQ: for (Equipment aEq : charDisplay.getEquipmentSet())
+		for (Equipment aEq : charDisplay.getEquipmentSet())
 		{
 			for (EquipBonus eb : originObj.getSafeListFor(ListKey.BONUS_EQUIP))
 			{
 				if (passesConditions(aEq, eb.conditions))
 				{
 					possibleEquipment.add(aEq);
-					break FINDEQ;
+					break;
 				}
 			}
 		}

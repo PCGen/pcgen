@@ -13,6 +13,7 @@ ISOGL:YES
 # ==============================
 
 # Data Files
+ABILITY:tiefling_abilities_globalvar_subrace.lst
 ABILITY:tiefling_abilities_race_subrace.lst
 ABILITYCATEGORY:tiefling_abilitycategories_subrace.lst
 TEMPLATE:tiefling_templates_subrace.lst

@@ -245,8 +245,14 @@ Psicrystal (Single Minded)						CATEGORY:Special Ability	TYPE:ClassAbility.Psicr
 Psicrystal (Sneaky)							CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality																			BONUS:SKILL|Move Silently|3		SOURCEPAGE:PsionicClasses
 Psicrystal (Sympathetic)						CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPersonality																			BONUS:SKILL|Sense Motive|3		SOURCEPAGE:PsionicClasses
 
+###Block:
+Crystal Mask			KEY:Equipment ~ Crystal Mask	CATEGORY:Internal										STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Knowledge										BONUS:SKILL|LIST|5|TYPE=Competence
+
+###Block: Jack of all Trades Support
+CATEGORY=Internal|Default.MOD	DEFINE:UseUntrainedSkill_Autohypnosis|0		
+CATEGORY=Internal|Default.MOD	DEFINE:UseUntrainedSkill_Psicraft|0		
+CATEGORY=Internal|Default.MOD	DEFINE:UseUntrainedSkill_Use Psionic Device|0
+
 #
 # End
 #
-
-Crystal Mask			KEY:Equipment ~ Crystal Mask	CATEGORY:Internal										STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Knowledge										BONUS:SKILL|LIST|5|TYPE=Competence

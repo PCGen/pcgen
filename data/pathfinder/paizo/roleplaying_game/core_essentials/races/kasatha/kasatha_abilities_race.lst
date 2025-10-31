@@ -7,7 +7,7 @@
 
 ###Block: Racial Abilities ~ grantor/removal MODs in kasatha_abilities_globalvar.lst
 # Ability Name		Category of Ability	Define																								Template					Modify VAR
-Racial Traits ~ Kasatha	CATEGORY:Internal		DEFINE:Kasatha_RacialCastingStat|0	DEFINE:Kasatha_RacialCastingMod|0	DEFINE:Kasatha_RacialCasterlevel|0	DEFINE:Kasatha_RacialConcentration|0	TEMPLATE:Racial Heritage ~ Kasatha	BONUS:VAR|Kasatha_RacialCastingStat|CHASCORE	BONUS:VAR|Kasatha_RacialCastingMod|CHA	BONUS:VAR|Kasatha_RacialCasterlevel|TL	BONUS:VAR|Kasatha_RacialConcentration|Kasatha_RacialCasterlevel+Kasatha_RacialCastingMod
+Racial Traits ~ Kasatha	CATEGORY:Internal		DEFINE:Kasatha_RacialCastingStat|0	DEFINE:Kasatha_RacialCastingMod|0	DEFINE:Kasatha_RacialCasterlevel|0	DEFINE:Kasatha_RacialConcentration|0	TEMPLATE:Race ~ Kasatha			BONUS:VAR|Kasatha_RacialCastingStat|CHASCORE	BONUS:VAR|Kasatha_RacialCastingMod|CHA	BONUS:VAR|Kasatha_RacialCasterlevel|TL	BONUS:VAR|Kasatha_RacialConcentration|Kasatha_RacialCasterlevel+Kasatha_RacialCastingMod
 
 ###Block: Racial Traits
 # Ability Name		Unique Key					Category of Ability		Type																					Visible		Prohibited Fact								Description																																			Template																					Move			Auto Language			Ability								Combat bonus			Stat bonus					Source Page		Aspects

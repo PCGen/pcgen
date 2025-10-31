@@ -1,7 +1,8 @@
 # Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
 
+Aquatic Elf		KEY:Race ~ Aquatic Elf		VISIBLE:NO	TEMPLATE:IsAquaticElf
+IsAquaticElf							VISIBLE:NO	FACT:IsAquaticElf|True
 
 ###Block: Racial Heritage
-# Template Name	Unique Key					Visible	Template			Type				FACT
-Aquatic Elf		KEY:Racial Heritage ~ Aquatic Elf	VISIBLE:NO	TEMPLATE:IsAquaticElf	TYPE:Racial Heritage	FACT:IsAquaticElf|True
-IsAquaticElf							VISIBLE:NO
+# Template Name	Unique Key					Visible	Template				Type				FACT
+Aquatic Elf		KEY:Racial Heritage ~ Aquatic Elf	VISIBLE:NO	TEMPLATE:IsAquaticElf|Elf	TYPE:Racial Heritage

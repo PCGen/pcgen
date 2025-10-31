@@ -24,6 +24,9 @@ Starting Gold ACG ~ Random	VISIBLE:NO																		KIT:1|Starting Gold CRB ~
 Starting Gold ACG ~ Maximum	VISIBLE:NO																		KIT:1|Starting Gold CRB ~ Maximum
 Starting Gold ACG ~ Average	VISIBLE:NO																		KIT:1|Starting Gold CRB ~ Average
 
+###Block: Skald Inspired Rage Temporary Bonus
+Inspired Rage		VISIBLE:NO		TEMPDESC:Inspired Rage&colon; Morale bonuses to Strength, Constitution and Will saving throws depending on the ally's Skald level, but also take a –1 penalty to AC.	TEMPBONUS:ANYPC|SAVE|Will|(1+floor((%CHOICE)/4)*1)|TYPE=MORALE	TEMPBONUS:ANYPC|COMBAT|AC|-1	TEMPBONUS:ANYPC|STAT|STR,CON|(2+floor((%CHOICE)/8)*2)|TYPE=MORALE	TEMPBONUS:ANYPC|VAR|InspiredRageBonus|%CHOICE	TEMPVALUE:MIN=1|MAX=20|TITLE=Ally's Skald Level	
+
 ###Block: Skald's Instrument
 # Template Name			Visible	Template											Apply Kit
 Skald's Instrument		VISIBLE:NO	TEMPLATE:CHOOSE:Bard's Instrument (Choose)|Bard's Instrument (Random)

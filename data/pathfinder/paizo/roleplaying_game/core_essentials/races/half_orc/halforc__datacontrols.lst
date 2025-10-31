@@ -6,8 +6,8 @@
 # ------------------------------
 
 ###Block: Racial Identifiers
-# Name			Dataformat			Required	Selectable		Visible	Displayname		Explanation
-FACTDEF:TEMPLATE|IsOrc	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Orc	EXPLANATION:Determines whether the character is an Orc
+# Name				Dataformat			Required	Selectable		Visible	Displayname		Explanation
+FACTDEF:TEMPLATE|IsHalfOrc	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Half-Orc	EXPLANATION:Determines whether the character is a Half-Orc
 
 ###Block: Racial Traits
 # Name								Dataformat			Required	Selectable		Visible	Displayname							Explanation

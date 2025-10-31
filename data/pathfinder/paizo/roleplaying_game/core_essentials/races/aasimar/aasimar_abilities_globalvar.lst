@@ -5,26 +5,37 @@
 # Aasimar
 # ------------------------------
 
-###Block: Grant Abilities
-# Ability Name						Define							Ability																			FACT
-CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	DEFINE:Aasimar_ReplaceAbilityScores|0		ABILITY:Aasimar Racial Trait|AUTOMATIC|Aasimar ~ Ability Scores|PREVAREQ:Aasimar_ReplaceAbilityScores,0
-CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	DEFINE:Aasimar_ReplaceType|0				ABILITY:Aasimar Racial Trait|AUTOMATIC|Aasimar ~ Type|PREVAREQ:Aasimar_ReplaceType,0
-CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	DEFINE:Aasimar_ReplaceSize|0				ABILITY:Aasimar Racial Trait|AUTOMATIC|Aasimar ~ Size|PREVAREQ:Aasimar_ReplaceSize,0						FACT:RaceSizeAllowed_Medium|True
-CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	DEFINE:Aasimar_ReplaceSpeed|0				ABILITY:Aasimar Racial Trait|AUTOMATIC|Aasimar ~ Speed|PREVAREQ:Aasimar_ReplaceSpeed,0
-CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	DEFINE:Aasimar_ReplaceVision|0			ABILITY:Aasimar Racial Trait|AUTOMATIC|Aasimar ~ Vision|PREVAREQ:Aasimar_ReplaceVision,0
-CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	DEFINE:Aasimar_ReplaceSkilled|0			ABILITY:Aasimar Racial Trait|AUTOMATIC|Aasimar ~ Skilled|PREVAREQ:Aasimar_ReplaceSkilled,0
-CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	DEFINE:Aasimar_ReplaceSpellLikeAbility|0		ABILITY:Aasimar Racial Trait|AUTOMATIC|Aasimar ~ Spell-Like Ability|PREVAREQ:Aasimar_ReplaceSpellLikeAbility,0
-CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	DEFINE:Aasimar_ReplaceCelestialResistance|0	ABILITY:Aasimar Racial Trait|AUTOMATIC|Aasimar ~ Celestial Resistance|PREVAREQ:Aasimar_ReplaceCelestialResistance,0
-CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	DEFINE:Aasimar_ReplaceLanguages|0			ABILITY:Aasimar Racial Trait|AUTOMATIC|Aasimar ~ Languages|PREVAREQ:Aasimar_ReplaceLanguages,0
+###Block: Defines
+CATEGORY=Race|Aasimar.MOD	DEFINE:Aasimar_ReplaceAbilityScores|0		
+CATEGORY=Race|Aasimar.MOD	DEFINE:Aasimar_ReplaceType|0				
+CATEGORY=Race|Aasimar.MOD	DEFINE:Aasimar_ReplaceSize|0				
+CATEGORY=Race|Aasimar.MOD	DEFINE:Aasimar_ReplaceSpeed|0				
+CATEGORY=Race|Aasimar.MOD	DEFINE:Aasimar_ReplaceVision|0			
+CATEGORY=Race|Aasimar.MOD	DEFINE:Aasimar_ReplaceSkilled|0			
+CATEGORY=Race|Aasimar.MOD	DEFINE:Aasimar_ReplaceSpellLikeAbility|0		
+CATEGORY=Race|Aasimar.MOD	DEFINE:Aasimar_ReplaceCelestialResistance|0	
+CATEGORY=Race|Aasimar.MOD	DEFINE:Aasimar_ReplaceLanguages|0			
 
 ###Block: Remove Abilities
-# Ability Name						Modify VAR
-CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	BONUS:VAR|Aasimar_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Aasimar_ReplaceAbilityScores=True
-CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	BONUS:VAR|Aasimar_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Aasimar_ReplaceType=True
-CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	BONUS:VAR|Aasimar_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Aasimar_ReplaceSize=True
-CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	BONUS:VAR|Aasimar_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Aasimar_ReplaceSpeed=True
-CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	BONUS:VAR|Aasimar_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Aasimar_ReplaceVision=True
-CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	BONUS:VAR|Aasimar_ReplaceSkilled|1|TYPE=Boolean|PREFACT:1,ABILITIES,Aasimar_ReplaceSkilled=True
-CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	BONUS:VAR|Aasimar_ReplaceSpellLikeAbility|1|TYPE=Boolean|PREFACT:1,ABILITIES,Aasimar_ReplaceSpellLikeAbility=True
-CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	BONUS:VAR|Aasimar_ReplaceCelestialResistance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Aasimar_ReplaceCelestialResistance=True
-CATEGORY=Internal|Racial Traits ~ Aasimar.MOD	BONUS:VAR|Aasimar_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Aasimar_ReplaceLanguages=True
+CATEGORY=Race|Aasimar.MOD	BONUS:VAR|Aasimar_ReplaceAbilityScores|1|TYPE=Boolean|PREFACT:1,ABILITIES,Aasimar_ReplaceAbilityScores=True
+CATEGORY=Race|Aasimar.MOD	BONUS:VAR|Aasimar_ReplaceType|1|TYPE=Boolean|PREFACT:1,ABILITIES,Aasimar_ReplaceType=True
+CATEGORY=Race|Aasimar.MOD	BONUS:VAR|Aasimar_ReplaceSize|1|TYPE=Boolean|PREFACT:1,ABILITIES,Aasimar_ReplaceSize=True
+CATEGORY=Race|Aasimar.MOD	BONUS:VAR|Aasimar_ReplaceSpeed|1|TYPE=Boolean|PREFACT:1,ABILITIES,Aasimar_ReplaceSpeed=True
+CATEGORY=Race|Aasimar.MOD	BONUS:VAR|Aasimar_ReplaceVision|1|TYPE=Boolean|PREFACT:1,ABILITIES,Aasimar_ReplaceVision=True
+CATEGORY=Race|Aasimar.MOD	BONUS:VAR|Aasimar_ReplaceSkilled|1|TYPE=Boolean|PREFACT:1,ABILITIES,Aasimar_ReplaceSkilled=True
+CATEGORY=Race|Aasimar.MOD	BONUS:VAR|Aasimar_ReplaceSpellLikeAbility|1|TYPE=Boolean|PREFACT:1,ABILITIES,Aasimar_ReplaceSpellLikeAbility=True
+CATEGORY=Race|Aasimar.MOD	BONUS:VAR|Aasimar_ReplaceCelestialResistance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Aasimar_ReplaceCelestialResistance=True
+CATEGORY=Race|Aasimar.MOD	BONUS:VAR|Aasimar_ReplaceLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Aasimar_ReplaceLanguages=True
+
+###Block: Grant Abilities
+# Ability Name						Define							Ability																			FACT
+CATEGORY=Special Ability|Aasimar ~ Default.MOD	ABILITY:Aasimar Racial Trait|AUTOMATIC|Aasimar ~ Ability Scores|PREVAREQ:Aasimar_ReplaceAbilityScores,0
+CATEGORY=Special Ability|Aasimar ~ Default.MOD	ABILITY:Aasimar Racial Trait|AUTOMATIC|Aasimar ~ Type|PREVAREQ:Aasimar_ReplaceType,0
+CATEGORY=Special Ability|Aasimar ~ Default.MOD	ABILITY:Aasimar Racial Trait|AUTOMATIC|Aasimar ~ Size|PREVAREQ:Aasimar_ReplaceSize,0						FACT:RaceSizeAllowed_Medium|True
+CATEGORY=Special Ability|Aasimar ~ Default.MOD	ABILITY:Aasimar Racial Trait|AUTOMATIC|Aasimar ~ Speed|PREVAREQ:Aasimar_ReplaceSpeed,0
+CATEGORY=Special Ability|Aasimar ~ Default.MOD	ABILITY:Aasimar Racial Trait|AUTOMATIC|Aasimar ~ Vision|PREVAREQ:Aasimar_ReplaceVision,0
+CATEGORY=Special Ability|Aasimar ~ Default.MOD	ABILITY:Aasimar Racial Trait|AUTOMATIC|Aasimar ~ Skilled|PREVAREQ:Aasimar_ReplaceSkilled,0
+CATEGORY=Special Ability|Aasimar ~ Default.MOD	ABILITY:Aasimar Racial Trait|AUTOMATIC|Aasimar ~ Spell-Like Ability|PREVAREQ:Aasimar_ReplaceSpellLikeAbility,0
+CATEGORY=Special Ability|Aasimar ~ Default.MOD	ABILITY:Aasimar Racial Trait|AUTOMATIC|Aasimar ~ Celestial Resistance|PREVAREQ:Aasimar_ReplaceCelestialResistance,0
+CATEGORY=Special Ability|Aasimar ~ Default.MOD	ABILITY:Aasimar Racial Trait|AUTOMATIC|Aasimar ~ Languages|PREVAREQ:Aasimar_ReplaceLanguages,0
+

@@ -1,10 +1,11 @@
 # Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
 
+Dwarf	KEY:Race ~ Dwarf	VISIBLE:NO	TEMPLATE:IsDwarf
+IsDwarf							VISIBLE:NO	FACT:IsDwarf|True
 
 ###Block: Racial Heritage
-# Template Name	Unique Key				Visible	Template		Type				FACT
-Dwarf			KEY:Racial Heritage ~ Dwarf	VISIBLE:NO	TEMPLATE:IsDwarf	TYPE:Racial Heritage	FACT:IsDwarf|True
-IsDwarf							VISIBLE:NO
+# Template Name	Unique Key				Visible	Template			Type				FACT
+Dwarf			KEY:Racial Heritage ~ Dwarf	VISIBLE:NO	TEMPLATE:IsDwarf|Dwarf	TYPE:Racial Heritage
 
 
 ###Block: Creature Subtypes
