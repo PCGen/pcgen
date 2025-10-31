@@ -23,7 +23,7 @@ import pcgen.rules.persistence.token.AbstractYesNoToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
- * Class deals with ISOGL Token
+ * Class deals with ISMATURE Token
  */
 public class IsmatureToken extends AbstractYesNoToken<Campaign> implements CDOMPrimaryToken<Campaign>
 {
