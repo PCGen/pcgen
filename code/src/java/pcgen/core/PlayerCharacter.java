@@ -8023,15 +8023,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 		PObject cdo;
 		Object b = objList.get(0);
-		if (b instanceof PObject)
-		{
-			cdo = (PObject) b;
-			String dString = getInfoToken(".INFO.DESC", cdo);
-			if (!dString.equals(".INFO.DESC"))
-			{
-				return dString;
-			}
-		} else if (b instanceof CNAbility)
+		if (b instanceof CNAbility)
 		{
 			cdo = ((CNAbility) b).getAbility();
 		} else
@@ -8069,10 +8061,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		// RACE indicate which token map to check for a INFO label of TAG to return
 		int i = token.indexOf(".INFO.");
 		String ts = token;
-		if (i > -1)
-		{
-			ts = token.substring(i + 6).toUpperCase();
-		}
+		if (i>-1)
+			ts = token.substring(i+6);
 		else
 		{
 			return token;
@@ -8081,10 +8071,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		for (MapKey<?, ?> key : keys)
 		{
 			Map<?, ?> key2 = po.getMapFor(key);
-			for (Object k : key2.keySet())
-			{
-				if (k.toString().equals(ts))
-				{
+			for(Object k : key2.keySet()) {
+				if (k.toString().equalsIgnoreCase(ts)) {
 					MessageFormat m = (MessageFormat) key2.get(k);
 					return m.toPattern();
 				}

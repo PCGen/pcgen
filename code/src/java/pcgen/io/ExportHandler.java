@@ -1615,39 +1615,11 @@ public abstract class ExportHandler
 				FileAccess.maxLength(-1);
 				return 0;
 			}
-			else if (tokenString.contains(".INFO."))
-			{
-				List<? extends CDOMObject> plist = aPC.getCDOMObjectList();
-				String v = tokenString;
-				for (String ignored : TOKEN_MAP.keySet())
-				{
-					for (CDOMObject cd : plist)
-					{
-						if (cd instanceof PObject po)
-						{
-							v = aPC.getInfoToken(tokenString, po);
-							if (!v.equals(tokenString))
-							{
-								FileAccess.encodeWrite(output, v);
-								break;
-							}
-						}
-					}
-					if (!v.equals(tokenString))
-					{
-						break;
-					}
-				}
-			}
 			// Else if the token is in the list of valid output tokens
 			else if (TOKEN_MAP.get(firstToken) != null)
 			{
 				Token token = TOKEN_MAP.get(firstToken);
-				if (tokenString.contains(".INFO."))
-				{
-					FileAccess.encodeWrite(output, aPC.getInfoToken(tokenString, aPC.getDisplay().getRace()));
-				}
-				else if (token.isEncoded())
+				if (token.isEncoded())
 				{
 					FileAccess.encodeWrite(output, token.getToken(tokenString, aPC, this));
 				}

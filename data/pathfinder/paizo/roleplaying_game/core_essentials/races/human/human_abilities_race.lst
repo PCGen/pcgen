@@ -7,7 +7,7 @@
 
 ###Block: Racial Abilities ~ grantor/removal MODs in human_abilities_globalvar.lst
 # Ability Name		Category of Ability	Define																							Template					Modify VAR
-Racial Traits ~ Human	CATEGORY:Internal		DEFINE:Human_RacialCastingStat|0	DEFINE:Human_RacialCastingMod|0	DEFINE:Human_RacialCasterlevel|0	DEFINE:Human_RacialConcentration|0	TEMPLATE:Racial Heritage ~ Human	BONUS:VAR|Human_RacialCastingStat|CHASCORE	BONUS:VAR|Human_RacialCastingMod|CHA	BONUS:VAR|Human_RacialCasterlevel|TL	BONUS:VAR|Human_RacialConcentration|Human_RacialCasterlevel+Human_RacialCastingMod
+Racial Traits ~ Human	CATEGORY:Internal		DEFINE:Human_RacialCastingStat|0	DEFINE:Human_RacialCastingMod|0	DEFINE:Human_RacialCasterlevel|0	DEFINE:Human_RacialConcentration|0	TEMPLATE:Race ~ Human			BONUS:VAR|Human_RacialCastingStat|CHASCORE	BONUS:VAR|Human_RacialCastingMod|CHA	BONUS:VAR|Human_RacialCasterlevel|TL	BONUS:VAR|Human_RacialConcentration|Human_RacialCasterlevel+Human_RacialCastingMod
 
 ###Block: Racial Trait Support
 # Ability Name								Type

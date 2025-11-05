@@ -1,9 +1,13 @@
 # Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
 
 
+Gillman	KEY:Race ~ Gillman	VISIBLE:NO	TEMPLATE:IsGillman
+IsGillman							VISIBLE:NO	FACT:IsGillman|True
+
+
 ###Block: Racial Heritage
 # Template Name	Unique Key				Visible	Type				FACT
-Gillman		KEY:Racial Heritage ~ Gillman	VISIBLE:NO	TYPE:Racial Heritage	FACT:IsGillman|True
+Gillman		KEY:Racial Heritage ~ Gillman	VISIBLE:NO	TEMPLATE:IsGillman	TYPE:Racial Heritage
 
 
 ###Block: Creature Subtypes

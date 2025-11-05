@@ -72,6 +72,8 @@ public class CaseInsensitiveString
 		{
 			CaseInsensitiveString cis = (CaseInsensitiveString) obj;
 			return (string == cis.string) || string.equalsIgnoreCase(cis.string);
+		} else if (obj instanceof String) {
+			return string.equalsIgnoreCase(obj.toString());
 		}
 		return false;
 	}

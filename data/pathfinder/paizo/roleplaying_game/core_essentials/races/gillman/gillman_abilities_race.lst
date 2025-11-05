@@ -7,7 +7,7 @@
 
 ###Block: Racial Abilities ~ grantor/removal MODs in gillman_abilities_globalvar.lst
 # Ability Name		Category of Ability	Define																								Template					Modify VAR
-Racial Traits ~ Gillman	CATEGORY:Internal		DEFINE:Gillman_RacialCastingStat|0	DEFINE:Gillman_RacialCastingMod|0	DEFINE:Gillman_RacialCasterlevel|0	DEFINE:Gillman_RacialConcentration|0	TEMPLATE:Racial Heritage ~ Gillman	BONUS:VAR|Gillman_RacialCastingStat|CHASCORE	BONUS:VAR|Gillman_RacialCastingMod|CHA	BONUS:VAR|Gillman_RacialCasterlevel|TL	BONUS:VAR|Gillman_RacialConcentration|Gillman_RacialCasterlevel+Gillman_RacialCastingMod
+Racial Traits ~ Gillman	CATEGORY:Internal		DEFINE:Gillman_RacialCastingStat|0	DEFINE:Gillman_RacialCastingMod|0	DEFINE:Gillman_RacialCasterlevel|0	DEFINE:Gillman_RacialConcentration|0	TEMPLATE:Race ~ Gillman			BONUS:VAR|Gillman_RacialCastingStat|CHASCORE	BONUS:VAR|Gillman_RacialCastingMod|CHA	BONUS:VAR|Gillman_RacialCasterlevel|TL	BONUS:VAR|Gillman_RacialConcentration|Gillman_RacialCasterlevel+Gillman_RacialCastingMod
 
 ###Block: Racial Traits
 # Ability Name					Unique Key						Category of Ability		Type																	Visible		Prohibited Fact									Define		Description																																																																												Template																	Move				Auto Language			Ability					Stat bonus										Modify VAR																			Source Page		Aspects

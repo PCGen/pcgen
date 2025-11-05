@@ -1,10 +1,12 @@
 # Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
 
 
+Catfolk	KEY:Race ~ Catfolk	VISIBLE:NO	TEMPLATE:IsCatfolk
+IsCatfolk							VISIBLE:NO	FACT:IsCatfolk|True
+
 ###Block: Racial Heritage
-# Template Name	Unique Key				Visible	Template			Type				FACT
-Catfolk		KEY:Racial Heritage ~ Catfolk	VISIBLE:NO	TEMPLATE:IsCatfolk	TYPE:Racial Heritage	FACT:IsCatfolk|True
-IsCatfolk							VISIBLE:NO
+# Template Name	Unique Key				Visible	Template				Type				FACT
+Catfolk		KEY:Racial Heritage ~ Catfolk	VISIBLE:NO	TEMPLATE:IsCatfolk|Catfolk	TYPE:Racial Heritage
 
 
 ###Block: Creature Subtypes
