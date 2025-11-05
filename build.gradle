@@ -68,7 +68,7 @@ plugins {
     id 'com.github.ben-manes.versions' version '0.53.0' // Checks versions for plugins and dependencies
     id 'com.dorongold.task-tree' version '4.0.1'        // Prints the task dependency tree
     id 'org.openjfx.javafxplugin' version '0.1.0'       // JavaFX support
-    id 'org.beryx.runtime' version '2.0.0'             // Creates custom runtimes
+    id 'org.beryx.runtime' version '2.0.0'              // Creates custom runtimes
     id 'jacoco'                                         // Code coverage
 }
 
@@ -76,12 +76,12 @@ plugins {
  * Set the version and the modules we want from JavaFX (not everything)
  */
 javafx {
-    version = "21"
+    version = "25"
     modules = [ 'javafx.controls', 'javafx.web', 'javafx.swing', 'javafx.fxml', 'javafx.graphics' ]
 }
 
 jacoco {
-    toolVersion = '0.8.12'
+    toolVersion = '0.8.14'
 }
 
 // Set the groupId as it helps with Maven
@@ -96,7 +96,7 @@ defaultTasks 'build'
 // Configure Java, in particular the version to test/compile/run with
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
+        languageVersion = JavaLanguageVersion.of(25)
     }
 }
 
@@ -118,7 +118,7 @@ ext {
     releaseDir = layout.projectDirectory.dir("build/release")
 
     // JavaFX version
-    javaFXVersion = "21.0.8"
+    javaFXVersion = "25.0.1"
 }
 
 application {
@@ -630,7 +630,6 @@ tasks.register("downloadJavaFXModules") {
     mustRunAfter downloadJRE
 
     // We support Windows/Mac/Linux - x64, and Mac/Linux - aarch64
-    // (JavaFX doesn't support Linux/aarch64 in 21 LTS, use 21.0.1 instead)
     def major = project.ext.javaFXVersion
     def archs = ['x64', 'aarch64']
     def osList = ["windows", "mac", "linux"]
@@ -651,9 +650,6 @@ tasks.register("downloadJavaFXModules") {
                     archAppend = "-x64"
                 } else if (arch == "aarch64" && os != "windows") {
                     archAppend = "-aarch64"
-                    if (os == "linux") {
-                        major = "21.0.1" // TODO other versions don't supply aarch64 for Linux, use 21.0.1 instead
-                    }
                 } else {
                     return
                 }
@@ -722,12 +718,6 @@ tasks.register("downloadJavaFXLocal", Download) {
 
     doFirst {
         println("Downloading JavaFX SDK for use in local testing for ${currentOS} ${hostArchitecture}.")
-    }
-
-    // We support Windows/Mac/Linux - x64, and Mac/Linux - aarch64
-    // (JavaFX doesn't support Linux/aarch64 in 21 LTS, use 21.0.1 instead)
-    if (currentOS == "linux" && hostArchitecture == "aarch64") {
-        project.ext.javaFXVersion = "21.0.1"
     }
 
     def fileName = "openjfx-${project.ext.javaFXVersion}_${currentOS}${archAppend}_bin-sdk.zip"
