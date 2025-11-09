@@ -103,7 +103,8 @@ tasks.named("run") {
         jvmArgs = ["-ea",                       // -ea enables assertions
                    "--enable-preview",          // enable Java preview features
                    "--module-path", layout.projectDirectory.dir("mods/lib").asFile.absolutePath,
-                   "--add-modules", "javafx.controls,javafx.web,javafx.swing,javafx.fxml,javafx.graphics"
+                   "--add-modules", "javafx.controls,javafx.web,javafx.swing,javafx.fxml,javafx.graphics",
+                   "--enable-native-access", "javafx.graphics,javafx.web" // JDK-8347744
         ]
     }
 }
