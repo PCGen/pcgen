@@ -85,7 +85,7 @@ import pcgen.gui2.tools.TipOfTheDayHandler;
 import pcgen.gui2.util.ShowMessageGuiObserver;
 import pcgen.gui3.GuiAssertions;
 import pcgen.gui3.GuiUtility;
-import pcgen.gui3.JFXPanelFromResource;
+import pcgen.gui3.PanelFromResource;
 import pcgen.gui3.component.PCGenToolBar;
 import pcgen.gui3.dialog.AboutDialog;
 import pcgen.gui3.dialog.RememberingChoiceDialog;
@@ -243,12 +243,11 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 				if (!alternateStartup)
 				{
 					//Do a default startup
+					if (TipOfTheDayHandler.shouldShowTipOfTheDay())
+					{
+						Platform.runLater(PCGenFrame::showTipsOfTheDay);
+					}
 					SwingUtilities.invokeLater(() -> {
-						if (TipOfTheDayHandler.shouldShowTipOfTheDay())
-						{
-							showTipsOfTheDay();
-						}
-
 						if (!SourceSelectionDialog.skipSourceSelection())
 						{
 							showSourceSelectionDialog();
@@ -1296,7 +1295,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	 */
 	static void showTipsOfTheDay()
 	{
-		var totd = new JFXPanelFromResource<>(
+		var totd = new PanelFromResource<>(
 				TipOfTheDayController.class,
 				"TipOfTheDay.fxml"
 		);
