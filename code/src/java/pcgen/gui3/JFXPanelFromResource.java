@@ -112,5 +112,4 @@ public final class JFXPanelFromResource<T> extends JFXPanel implements Controlla
 		});
 		lock.join();
 	}
-
 }
