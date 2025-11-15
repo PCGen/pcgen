@@ -32,7 +32,7 @@
   -->
 
 <?import javafx.scene.web.WebView?>
-<Scene xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pcgen.gui3.dialog.TipOfTheDayController">
+<Scene xmlns="http://javafx.com/javafx/25.0.1" xmlns:fx="http://javafx.com/fxml" fx:controller="pcgen.gui3.dialog.TipOfTheDayController">
     <AnchorPane>
         <BorderPane>
          <left>
