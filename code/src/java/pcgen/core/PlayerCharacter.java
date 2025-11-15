@@ -8015,7 +8015,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		return getDescription(Collections.singletonList(pobj));
 	}
 
-	public String getDescription(List<? extends Object> objList)
+	public String getDescription(List<?> objList)
 	{
 		if (objList.isEmpty())
 		{
@@ -8023,7 +8023,13 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 		PObject cdo;
 		Object b = objList.get(0);
-		if (b instanceof CNAbility)
+		if (b instanceof PObject)
+		{
+			cdo = (PObject) b;
+			String dString = getInfoToken(".INFO.DESC", cdo);
+			if (!dString.equals(".INFO.DESC"))
+				return dString;
+		} else if (b instanceof CNAbility)
 		{
 			cdo = ((CNAbility) b).getAbility();
 		} else
