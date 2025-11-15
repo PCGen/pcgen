@@ -8015,7 +8015,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		return getDescription(Collections.singletonList(pobj));
 	}
 
-	public String getDescription(List<? extends Object> objList)
+	public String getDescription(List<?> objList)
 	{
 		if (objList.isEmpty())
 		{
