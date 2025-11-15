@@ -26,7 +26,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-<Scene xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+<Scene xmlns="http://javafx.com/javafx/25.0.1" xmlns:fx="http://javafx.com/fxml"
        fx:controller="pcgen.gui3.dialog.CalculatorDialogController" >
    <AnchorPane prefHeight="700" prefWidth="500">
       <BorderPane>

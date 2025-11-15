@@ -25,7 +25,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.Scene?>
 <?import javafx.scene.text.Text?>
-<Scene xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+<Scene xmlns="http://javafx.com/javafx/25.0.1" xmlns:fx="http://javafx.com/fxml"
        fx:controller="pcgen.gui3.dialog.AboutDialogController">
     <TabPane id="viewtabs" tabClosingPolicy="UNAVAILABLE">
         <Tab id="abt_credits" closable="false" text="%in_abt_credits">
