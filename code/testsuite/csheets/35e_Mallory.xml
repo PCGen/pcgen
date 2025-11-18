@@ -1520,7 +1520,7 @@ BIO
 		<!-- ### END Known spells ### -->
 		<!-- ### BEGIN memorized spells ### -->
 	<memorized_spells>
-		<!-- ### BEGIN innate memorized spell section -->	
+		<!-- ### BEGIN innate memorized spell section -->
 		<!-- ### BEGIN innate memorized spells ### -->
 		<racial_innate_memorized>
 					<spell>
@@ -1677,7 +1677,7 @@ BIO
 		</class_innate_memorized>
 			<!-- ### END class innate memorized spells ### -->
 		<!-- ### END innate memorized spell section -->
-	
+
 		<!-- ### BEGIN class Spellbook memorized spells ### -->
 <!-- Either we do not have a innate race, or if we do we do not have any 0 level spell for the innate race -->
 		<spellbook number="2" name="TestSixSix">

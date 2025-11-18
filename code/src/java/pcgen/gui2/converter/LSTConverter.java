@@ -1,16 +1,16 @@
 /*
  * Copyright (c) 2009 Tom Parker <thpr@users.sourceforge.net>
- * 
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
  * any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
@@ -30,6 +30,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Observable;
+import java.util.Optional;
 import java.util.Set;
 
 import pcgen.base.util.DoubleKeyMapToList;
@@ -117,7 +118,7 @@ public class LSTConverter extends Observable
 	}
 
 	/**
-	 * Initialise the list of campaigns. This will load the ability 
+	 * Initialise the list of campaigns. This will load the ability
 	 * categories in advance of the conversion.
 	 * @param campaigns The campaigns or sources to be converted.
 	 */
@@ -182,7 +183,7 @@ public class LSTConverter extends Observable
 					continue;
 				}
 				File in = new File(uri);
-				// Use canonical name to stop reruns for the same file referred to using .. 
+				// Use canonical name to stop reruns for the same file referred to using ..
 				URI canonicalUri;
 				try
 				{
@@ -223,19 +224,20 @@ public class LSTConverter extends Observable
 				try
 				{
 					changeLogWriter.append("\nProcessing ").append(String.valueOf(in)).append("\n");
-					String result = load(uri, loader);
-					if (result != null)
-					{
-						try (Writer out = new BufferedWriter(new OutputStreamWriter(
-								new FileOutputStream(outFile),
-								StandardCharsets.UTF_8
-						)))
-						{
-							out.write(result);
-						}
-					}
+					load(uri, loader)
+							.ifPresent((String result) -> {
+								try (Writer out = new BufferedWriter(new OutputStreamWriter(
+										new FileOutputStream(outFile),
+										StandardCharsets.UTF_8)))
+								{
+									out.write(result);
+								} catch (IOException e)
+								{
+									Logging.errorPrint(e.getLocalizedMessage(), e);
+								}
+							});
 				}
-				catch (PersistenceLayerException | IOException | InterruptedException e)
+				catch (PersistenceLayerException | IOException e)
 				{
 					Logging.errorPrint(e.getLocalizedMessage(), e);
 				}
@@ -299,49 +301,57 @@ public class LSTConverter extends Observable
 		return findSubRoot(root, parent);
 	}
 
-	private String load(URI uri, Loader loader) throws InterruptedException, PersistenceLayerException
+	private Optional<String> load(URI uri, Loader loader) throws PersistenceLayerException
 	{
-		String dataBuffer;
 		context.setSourceURI(uri);
 		context.setExtractURI(uri);
 		try
 		{
-			dataBuffer = LstFileLoader.readFromURI(uri);
+			return LstFileLoader.readFromURI(uri)
+				.map((String dataBuffer) -> {
+					StringBuilder resultBuffer = new StringBuilder(dataBuffer.length());
+
+					String[] fileLines = dataBuffer.split(LstFileLoader.LINE_SEPARATOR_REGEXP);
+					for (int line = 0; line < fileLines.length; line++)
+					{
+						String lineString = fileLines[line];
+						if ((lineString.isEmpty()) || (lineString.charAt(0) == LstFileLoader.LINE_COMMENT_CHAR)
+								|| lineString.startsWith("SOURCE"))
+						{
+							resultBuffer.append(lineString);
+						}
+						else
+						{
+							try
+							{
+								List<CDOMObject> newObj = loader.process(resultBuffer, line, lineString, decider);
+								if (newObj != null)
+								{
+									for (CDOMObject cdo : newObj)
+									{
+										injected.addToListFor(loader, uri, cdo);
+									}
+								}
+							}
+							catch (PersistenceLayerException | InterruptedException e)
+							{
+								String message = LanguageBundle.getFormattedString("Errors.LstFileLoader.LoadError", //$NON-NLS-1$
+										uri, e.getMessage());
+								Logging.errorPrint(message, e);
+								return null;
+							}
+						}
+						resultBuffer.append("\n");
+					}
+					return resultBuffer.toString();
+				});
 		}
 		catch (PersistenceLayerException ple)
 		{
-			String message = LanguageBundle.getFormattedString("Errors.LstFileLoader.LoadError", //$NON-NLS-1$
-				uri, ple.getMessage());
-			Logging.errorPrint(message);
-			return null;
+			Logging.errorPrint(LanguageBundle.getFormattedString("Errors.LstFileLoader.LoadError", //$NON-NLS-1$
+					uri, ple.getMessage()));
+			return Optional.empty();
 		}
-
-		StringBuilder resultBuffer = new StringBuilder(dataBuffer.length());
-		final String aString = dataBuffer;
-
-		String[] fileLines = aString.split(LstFileLoader.LINE_SEPARATOR_REGEXP);
-		for (int line = 0; line < fileLines.length; line++)
-		{
-			String lineString = fileLines[line];
-			if ((lineString.isEmpty()) || (lineString.charAt(0) == LstFileLoader.LINE_COMMENT_CHAR)
-				|| lineString.startsWith("SOURCE"))
-			{
-				resultBuffer.append(lineString);
-			}
-			else
-			{
-				List<CDOMObject> newObj = loader.process(resultBuffer, line, lineString, decider);
-				if (newObj != null)
-				{
-					for (CDOMObject cdo : newObj)
-					{
-						injected.addToListFor(loader, uri, cdo);
-					}
-				}
-			}
-			resultBuffer.append("\n");
-		}
-		return resultBuffer.toString();
 	}
 
 	public Collection<Loader> getInjectedLoaders()

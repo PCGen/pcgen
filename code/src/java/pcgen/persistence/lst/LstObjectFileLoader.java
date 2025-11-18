@@ -68,7 +68,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	/**
 	 * This method loads the given list of LST files.
 	 * @param fileList containing the list of files to read
-	 * @throws PersistenceLayerException 
+	 * @throws PersistenceLayerException
 	 */
 	public void loadLstFiles(LoadContext context, List<CampaignSourceEntry> fileList) throws PersistenceLayerException
 	{
@@ -129,22 +129,22 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	 * This method is called by the loading framework to signify that the
 	 * loading of this object is complete and the object should be added to the
 	 * system.
-	 * 
+	 *
 	 * <p>This method will check that the loaded object should be included via
 	 * a call to {@code includeObject} and if not add it to the list of
 	 * excluded objects.
-	 * 
+	 *
 	 * <p>Once the object has been verified the method will call
 	 * {@code finishObject} to give each object a chance to complete
 	 * processing.
-	 * 
+	 *
 	 * <p>The object is then added to the system if it doesn't already exist.
 	 * If the object exists, the object sources are compared by date and if the
 	 * System setting allowing over-rides is set it will use the object from the
 	 * newer source.
 	 * @param context TODO
 	 * @param pObj The object that has just completed loading.
-	 * 
+	 *
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#includeObject(SourceEntry, CDOMObject)
 	 */
 	public void completeObject(LoadContext context, SourceEntry source, final T pObj)
@@ -260,7 +260,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	 * duplicate loads
 	 * @param context TODO
 	 * @param key The CDOMObject containing the key to retrieve (for which there may be a duplicate)
-	 * 
+	 *
 	 * @return CDOMObject from Globals
 	 */
 	protected T getMatchingObject(LoadContext context, CDOMObject key)
@@ -278,10 +278,10 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 		setChanged();
 		URI uri = sourceEntry.getURI();
 		notifyObservers(uri);
-		String dataBuffer;
+		String aString;
 		try
 		{
-			dataBuffer = LstFileLoader.readFromURI(uri);
+			aString = LstFileLoader.readFromURI(uri).get();
 		}
 		catch (PersistenceLayerException ple)
 		{
@@ -291,7 +291,6 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 			setChanged();
 			return;
 		}
-		String aString = Objects.requireNonNull(dataBuffer);
 		if (context != null)
 		{
 			context.setSourceURI(uri);
@@ -426,8 +425,8 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	 * This method will perform a single .COPY operation based on the LST
 	 * file content.
 	 * @param context
-	 * @param me 
-	 * @throws PersistenceLayerException 
+	 * @param me
+	 * @throws PersistenceLayerException
 	 */
 	private void performCopy(LoadContext context, ModEntry me) throws PersistenceLayerException
 	{
@@ -461,7 +460,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	/**
 	 * Create a copy of an object with a new name. If the base object cannot be found, an error will be reported unless
 	 * the copy has been excluded by include/exclude rules for the source.
-	 * 
+	 *
 	 * @param context The current load context in whihc the new object is to be created.
 	 * @param baseName The name of the object to be copied.
 	 * @param copyName The name of the new object.
@@ -588,7 +587,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 
 	/**
 	 * This method will process the lines containing a .COPY directive
-	 * @throws PersistenceLayerException 
+	 * @throws PersistenceLayerException
 	 */
 	private void processCopies(LoadContext context) throws PersistenceLayerException
 	{
@@ -656,14 +655,14 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 		 * @param aLstLine LST syntax modification
 		 *         [must not be null]
 		 * @param aLineNumber
-		 * 
+		 *
 		 * @throws IllegalArgumentException if aSource or aLstLine is null.
 		 */
 		private ModEntry(final CampaignSourceEntry aSource, final String aLstLine, final int aLineNumber)
 		{
 			super();
 
-			// These are programming errors so the msgs don't need to be 
+			// These are programming errors so the msgs don't need to be
 			// internationalized.
 			Objects.requireNonNull(aSource, "source must not be null");
 
