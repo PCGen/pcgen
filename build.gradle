@@ -11,7 +11,7 @@
  * Run the character integration tests: gradle inttest
  */
 
-// import Ant helper static values to differ system families
+import groovy.json.JsonSlurper
 
 import org.apache.commons.lang3.StringUtils
 import org.apache.tools.ant.filters.FixCrLfFilter
@@ -26,7 +26,7 @@ plugins {
     id 'application'                                    // Creating application bundles
     id 'build-dashboard'                                // Produces a build report
     id 'checkstyle'                                     // Checkstyle for Java, configured further below
-    id 'com.github.spotbugs' version '6.4.4'           // Spotbugs for Java
+    id 'com.github.spotbugs' version '6.4.5'            // Spotbugs for Java
     id 'java'                                           // Core java / javac
     id 'maven-publish'                                  // Publishing to Maven Central
     id 'pmd'                                            // PMD for Java, configured further below
@@ -37,14 +37,6 @@ plugins {
     id 'org.openjfx.javafxplugin' version '0.1.0'       // JavaFX support
     id 'org.beryx.runtime' version '2.0.0'              // Creates custom runtimes
     id 'jacoco'                                         // Code coverage
-}
-
-/**
- * Set the version and the modules we want from JavaFX (not everything)
- */
-javafx {
-    version = "25"
-    modules = [ 'javafx.controls', 'javafx.web', 'javafx.swing', 'javafx.fxml', 'javafx.graphics' ]
 }
 
 jacoco {
@@ -59,13 +51,6 @@ description = """PCGen"""
 
 // Default task if you just run ./gradlew
 defaultTasks 'build'
-
-// Configure Java, in particular the version to test/compile/run with
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(25)
-    }
-}
 
 // Define properties for the build (directories)
 ext {
@@ -84,8 +69,31 @@ ext {
     // Installers are placed here
     releaseDir = layout.projectDirectory.dir("build/release")
 
-    // JavaFX version
-    javaFXVersion = "25.0.1"
+    // Java version (always latest release). It will affect JavaFX version too.
+    javaVersion = 25
+
+    latestJavaVersion = { majorJavaVersion ->
+        def uri = new URI("https://api.adoptium.net/v3/assets/feature_releases/${majorJavaVersion}/ga?architecture=x64&page=0&page_size=1&project=jdk&sort_order=DESC&vendor=eclipse")
+        def parsedJson = new JsonSlurper().parse(uri.toURL())
+
+        return parsedJson.first()
+                .version_data.with { [major, minor, security].join('.') }
+    }(javaVersion)
+}
+
+// Configure Java, in particular the version to test/compile/run with
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(javaVersion)
+    }
+}
+
+/**
+ * Set the version and the modules we want from JavaFX (not everything)
+ */
+javafx {
+    version = javaVersion
+    modules = [ 'javafx.controls', 'javafx.web', 'javafx.swing', 'javafx.fxml', 'javafx.graphics' ]
 }
 
 application {
@@ -307,38 +315,35 @@ jar {
 runtime {
     options = ['--compress', 'zip-6'] // Equivalent to the old '2' value pre Java 21
     modules = [
-    'jdk.httpserver',
-    'java.management',
-    'java.rmi',
-    'java.desktop',
-    'java.xml',
-    'java.sql',
-    'jdk.unsupported',
-    'java.prefs',
-    'java.logging',
-    'java.naming',
-    'jdk.xml.dom',
-    'jdk.unsupported.desktop',
-    'java.datatransfer',
-    'java.scripting',
-    'jdk.jfr',
-    'jdk.jsobject',
-    'javafx.controls',
-    'javafx.web',
-    'javafx.swing',
-    'javafx.fxml',
-    'javafx.graphics'
+            'jdk.httpserver',
+            'java.management',
+            'java.rmi',
+            'java.desktop',
+            'java.xml',
+            'java.sql',
+            'jdk.unsupported',
+            'java.prefs',
+            'java.logging',
+            'java.naming',
+            'jdk.xml.dom',
+            'jdk.unsupported.desktop',
+//            'java.datatransfer',
+            'java.scripting',
+            'jdk.jfr',
+            'jdk.jsobject',
+            'javafx.controls',
+            'javafx.web',
+            'javafx.swing',
+            'javafx.fxml',
+            'javafx.graphics'
     ]
 
     // We support Mac/Win/Linux x86-64, Mac/Linux aarch64
-    //targetPlatform('linux-x64',     layout.projectDirectory.dir("jre/linux/jre_x64").asFile.absolutePath)
-    //targetPlatform('linux-aarch64', layout.projectDirectory.dir("jre/linux/jre_aarch64").asFile.absolutePath)
-    //targetPlatform('windows-x64',   layout.projectDirectory.dir("jre/windows/jre_x64").asFile.absolutePath)
-    //targetPlatform('mac-x64',       layout.projectDirectory.dir("jre/mac/jre_x64/Contents/Home").asFile.absolutePath)
-    //targetPlatform('mac-aarch64',   layout.projectDirectory.dir("jre/mac/jre_aarch64/Contents/Home").asFile.absolutePath)
-    targetPlatform("mac-aarch64") {
-        jdkHome = jdkDownload("https://api.adoptium.net/v3/binary/version/jdk-21.0.8+9/mac/aarch64/jdk/hotspot/normal/eclipse")
-    }
+    targetPlatform('linux-x64',     layout.projectDirectory.dir("jre/linux/jre_x64").asFile.absolutePath)
+    targetPlatform('linux-aarch64', layout.projectDirectory.dir("jre/linux/jre_aarch64").asFile.absolutePath)
+    targetPlatform('windows-x64',   layout.projectDirectory.dir("jre/windows/jre_x64").asFile.absolutePath)
+    targetPlatform('mac-x64',       layout.projectDirectory.dir("jre/mac/jre_x64/Contents/Home").asFile.absolutePath)
+    targetPlatform('mac-aarch64',   layout.projectDirectory.dir("jre/mac/jre_aarch64/Contents/Home").asFile.absolutePath)
 
     // Use the jpackage tool that comes with Java to build native installers
     jpackage {
@@ -596,7 +601,7 @@ tasks.register("downloadJavaFXModules") {
     mustRunAfter downloadJRE
 
     // We support Windows/Mac/Linux - x64, and Mac/Linux - aarch64
-    def major = project.ext.javaFXVersion
+    def major = project.javaVersion
     def archs = ['x64', 'aarch64']
     def osList = ["windows", "mac", "linux"]
 
@@ -670,7 +675,7 @@ tasks.register("downloadJavaFXLocal", Download) {
             .filter(i -> Os.isFamily(i.key))
             .map { it.value }
             .findFirst()
-            .orElseThrow { new GradleException("Unsupported OS detected: '${osName}'. Supported families are: ${Os.FAMILY_WINDOWS}, ${Os.FAMILY_MAC} and ${Os.FAMILY_UNIX}") }
+            .orElseThrow { new GradleException("Unsupported OS detected: '${osName}'. Supported families are: ${supportedOS.keySet().join(", ")}") }
 
     def supportedArch = ["x86_64" : "-x64",
                          "amd64"  : "-x64",
@@ -686,9 +691,9 @@ tasks.register("downloadJavaFXLocal", Download) {
         println("Downloading JavaFX SDK for use in local testing for ${currentOS} ${hostArchitecture}.")
     }
 
-    def fileName = "openjfx-${project.ext.javaFXVersion}_${currentOS}${archAppend}_bin-sdk.zip"
+    def fileName = "openjfx-${project.ext.latestJavaVersion}_${currentOS}${archAppend}_bin-sdk.zip"
 
-    src "https://download2.gluonhq.com/openjfx/${project.ext.javaFXVersion}/${fileName}"
+    src "https://download2.gluonhq.com/openjfx/${project.ext.latestJavaVersion}/${fileName}"
     dest layout.projectDirectory.file("mods/${fileName}")
     overwrite false
     useETag true
@@ -822,6 +827,7 @@ allprojects {
     tasks.withType(Javadoc).configureEach {
         options.addBooleanOption('Xdoclint:none', true)
     }
+
     tasks.withType(Test).configureEach {
         maxHeapSize = "1024m"
         maxParallelForks = 1
@@ -850,9 +856,11 @@ allprojects {
                 '--add-opens', 'javafx.graphics/com.sun.glass.ui=ALL-UNNAMED',
         ]
     }
+
     tasks.withType(JavaCompile).configureEach {
         dependsOn extractJavaFXLocal
         options.fork = true
+        options.release = project.ext.javaVersion
 
         doFirst {
             if (name.toLowerCase().contains("test")) {
