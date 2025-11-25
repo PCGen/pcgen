@@ -5,7 +5,7 @@ pull_requests:
 
 nuget:
   disable_publish_on_pr: true
-  
+
 install:
  - cmd: |
     choco install gradle nsis
@@ -13,22 +13,22 @@ build_script:
   gradle build --info --no-daemon
 
 test_script:
-  gradle test compileSlowtest datatest pfinttest buildDist buildNsis --info --no-daemon
+  gradle test compileSlowtest datatest pfinttest buildDist --info --no-daemon
 
 environment:
   matrix:
   - JAVA_HOME: C:\Program Files\Java\jdk11
-  
+
 artifacts:
 - path: '**/release/*.exe'
   name: PCGen Installer
-  
+
 - path: '**/build/distributions/*.zip'
   name: PCGen Zip Distribution
 
 - path: '**/build/distributions/*.tar'
   name: PCGen Tar Distribution
-  
+
 matrix:
   fast_finish: true
 

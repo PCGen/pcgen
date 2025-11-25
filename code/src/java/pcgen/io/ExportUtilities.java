@@ -31,6 +31,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import freemarker.template.Configuration;
 import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.facade.core.CharacterFacade;
@@ -49,7 +50,7 @@ import org.apache.commons.lang3.SystemUtils;
 
 /**
  * ExportUtilities is a collection of useful tools for exporting characters.
- * 
+ *
  */
 public final class ExportUtilities
 {
@@ -57,14 +58,14 @@ public final class ExportUtilities
 	public static final String HTML_EXPORT_DIR_PROP = "htmlExportDir";
 
 	/**
-	 * This class should not be constructed. 
+	 * This class should not be constructed.
 	 */
 	private ExportUtilities()
 	{
 	}
 
 	/**
-	 * Retrieve the extension that should be used for the output file. This is base don the template name.  
+	 * Retrieve the extension that should be used for the output file. This is base don the template name.
 	 * @param templateFilename The filename of the export template.
 	 * @param isPdf Is this an export to a PDF file?
 	 * @return The output filename extension.
@@ -112,12 +113,12 @@ public final class ExportUtilities
 	}
 
 	/**
-	 * Returns an ObjectWrapper of sufficiently high version for pcgen
+	 * Returns an ObjectWrapper out of the latest version of Freemarker for pcgen
 	 */
 	public static ObjectWrapper getObjectWrapper()
 	{
 		DefaultObjectWrapperBuilder defaultObjectWrapperBuilder = new DefaultObjectWrapperBuilder(
-				new Version("2.3.28"));
+				new Version(Configuration.getVersion().toString()));
 		return defaultObjectWrapperBuilder.build();
 	}
 
