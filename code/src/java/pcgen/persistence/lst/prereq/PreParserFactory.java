@@ -166,13 +166,13 @@ public final class PreParserFactory implements PluginLoader
 		}
 		catch (Throwable t)
 		{
-			throw new PersistenceLayerException("Can not parse '" + prereqStr + "': " + t.getMessage(), t);
+			throw new PersistenceLayerException("Cannot parse '" + prereqStr + "': " + t.getMessage(), t);
 		}
 	}
 
 	/**
 	 * Identify if the token passed in defines a prerequisite.
-	 *  
+	 *
 	 * @param token The token to be checked.
 	 * @return True if the string is a prereq string.
 	 */

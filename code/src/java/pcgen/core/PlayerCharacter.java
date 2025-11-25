@@ -8081,8 +8081,10 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		for (MapKey<?, ?> key : keys)
 		{
 			Map<?, ?> key2 = po.getMapFor(key);
-			for(Object k : key2.keySet()) {
-				if (k.toString().equalsIgnoreCase(ts)) {
+			for(Object k : key2.keySet())
+			{
+				if (k.toString().equalsIgnoreCase(ts))
+				{
 					MessageFormat m = (MessageFormat) key2.get(k);
 					return m.toPattern();
 				}
