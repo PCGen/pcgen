@@ -7,7 +7,7 @@
 
 ###Block: Racial Abilities ~ grantor/removal MODs in goblin_abilities_globalvar.lst
 # Ability Name		Category of Ability	Define																							Template					Modify VAR
-Racial Traits ~ Goblin	CATEGORY:Internal		DEFINE:Goblin_RacialCastingStat|0	DEFINE:Goblin_RacialCastingMod|0	DEFINE:Goblin_RacialCasterlevel|0	DEFINE:Goblin_RacialConcentration|0	TEMPLATE:Racial Heritage ~ Goblin	BONUS:VAR|Goblin_RacialCastingStat|CHASCORE	BONUS:VAR|Goblin_RacialCastingMod|CHA	BONUS:VAR|Goblin_RacialCasterlevel|TL	BONUS:VAR|Goblin_RacialConcentration|Goblin_RacialCasterlevel+Goblin_RacialCastingMod
+Racial Traits ~ Goblin	CATEGORY:Internal		DEFINE:Goblin_RacialCastingStat|0	DEFINE:Goblin_RacialCastingMod|0	DEFINE:Goblin_RacialCasterlevel|0	DEFINE:Goblin_RacialConcentration|0	TEMPLATE:Race ~ Goblin			BONUS:VAR|Goblin_RacialCastingStat|CHASCORE	BONUS:VAR|Goblin_RacialCastingMod|CHA	BONUS:VAR|Goblin_RacialCasterlevel|TL	BONUS:VAR|Goblin_RacialConcentration|Goblin_RacialCasterlevel+Goblin_RacialCastingMod
 
 ###Block: Racial Traits
 # Ability Name					Unique Key				Category of Ability		Type																	Visible		Prohibited Fact							Define		Description																																		Template																													Move			Auto Language	Bonus to skill					Stat bonus						Modify VAR				Vision			Source Page		Aspects

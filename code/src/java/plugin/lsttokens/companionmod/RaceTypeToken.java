@@ -26,7 +26,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
- * Class deals with RACETYPE: Token
+ * Class deals with RACETYPE Token
  */
 public class RaceTypeToken extends AbstractNonEmptyToken<CompanionMod> implements CDOMPrimaryToken<CompanionMod>
 {

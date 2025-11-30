@@ -7,7 +7,7 @@
 
 ###Block: Racial Abilities ~ grantor/removal MODs in kitsune_abilities_globalvar.lst
 # Ability Name		Category of Ability	Define																								Template					Modify VAR
-Racial Traits ~ Kitsune	CATEGORY:Internal		DEFINE:Kitsune_RacialCastingStat|0	DEFINE:Kitsune_RacialCastingMod|0	DEFINE:Kitsune_RacialCasterlevel|0	DEFINE:Kitsune_RacialConcentration|0	TEMPLATE:Racial Heritage ~ Kitsune	BONUS:VAR|Kitsune_RacialCastingStat|CHASCORE	BONUS:VAR|Kitsune_RacialCastingMod|CHA	BONUS:VAR|Kitsune_RacialCasterlevel|TL	BONUS:VAR|Kitsune_RacialConcentration|Kitsune_RacialCasterlevel+Kitsune_RacialCastingMod
+Racial Traits ~ Kitsune	CATEGORY:Internal		DEFINE:Kitsune_RacialCastingStat|0	DEFINE:Kitsune_RacialCastingMod|0	DEFINE:Kitsune_RacialCasterlevel|0	DEFINE:Kitsune_RacialConcentration|0	TEMPLATE:Race ~ Kitsune			BONUS:VAR|Kitsune_RacialCastingStat|CHASCORE	BONUS:VAR|Kitsune_RacialCastingMod|CHA	BONUS:VAR|Kitsune_RacialCasterlevel|TL	BONUS:VAR|Kitsune_RacialConcentration|Kitsune_RacialCasterlevel+Kitsune_RacialCastingMod
 
 ###Block: Racial Traits
 # Ability Name					Unique Key				Category of Ability		Type																					Visible		Prohibited Fact								Define		Description																																																																							Template																											Move			Auto Language		Ability													Bonus DC				Bonus to skill					Stat bonus										Modify VAR											Weapon prof. bonus			Vision			Source Page		Aspects

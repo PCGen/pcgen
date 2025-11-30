@@ -1,11 +1,8 @@
 # Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
 
 
-###Block: Racial Heritage
-# Template Name	Unique Key				Visible	Template		Type				FACT
-Ifrit			KEY:Racial Heritage ~ Ifrit	VISIBLE:NO	TEMPLATE:IsIfrit	TYPE:Racial Heritage	FACT:IsIfrit|True
-IsIfrit							VISIBLE:NO
-
+Ifrit	KEY:Race ~ Ifrit	VISIBLE:NO	TEMPLATE:IsIfrit
+IsIfrit							VISIBLE:NO	FACT:IsIfrit|True
 
 ###Block: Creature Subtypes
 # Template Name	Visible	Race Subtype

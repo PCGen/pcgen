@@ -1,10 +1,12 @@
 # Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
 
 
+Kasatha	KEY:Race ~ Kasatha	VISIBLE:NO	TEMPLATE:IsKasatha
+IsKasatha							VISIBLE:NO	FACT:IsKasatha|True
+
 ###Block: Racial Heritage
-# Template Name	Unique Key				Visible	Template			Type				FACT
-Kasatha		KEY:Racial Heritage ~ Kasatha	VISIBLE:NO	TEMPLATE:IsKasatha	TYPE:Racial Heritage	FACT:IsKasatha|True
-IsKasatha							VISIBLE:NO
+# Template Name	Unique Key				Visible	Template				Type				FACT
+Kasatha		KEY:Racial Heritage ~ Kasatha	VISIBLE:NO	TEMPLATE:IsKasatha|Kasatha	TYPE:Racial Heritage
 
 
 ###Block: Creature Subtypes

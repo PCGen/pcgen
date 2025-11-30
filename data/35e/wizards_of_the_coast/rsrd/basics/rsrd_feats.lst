@@ -177,6 +177,21 @@ Superior Expertise								CATEGORY:FEAT		TYPE:General																											
 Cleave (Granted by Sylvan Scimitar)	KEY:Sylvan Scimitar ~ Cleave	CATEGORY:FEAT					VISIBLE:EXPORT																																								DESC:When outdoors, If you deal a creature enough damage to make it drop, you get an immediate, extra melee attack against another creature within reach. You can use this ability once per round.																																				SOURCEPAGE:Feats.rtf
 
 
+
+###Block: Jack Of All Trades Support
+CATEGORY=FEAT|Jack Of All Trades.MOD	BONUS:VAR|UseUntrainedSkill_Decipher_Script|1|TYPE=Boolean
+CATEGORY=FEAT|Jack Of All Trades.MOD	BONUS:VAR|UseUntrainedSkill_Disable_Device|1|TYPE=Boolean
+CATEGORY=FEAT|Jack Of All Trades.MOD	BONUS:VAR|UseUntrainedSkill_Handle_Animal|1|TYPE=Boolean
+CATEGORY=FEAT|Jack Of All Trades.MOD	BONUS:VAR|UseUntrainedSkill_Open_Lock|1|TYPE=Boolean
+CATEGORY=FEAT|Jack Of All Trades.MOD	BONUS:VAR|UseUntrainedSkill_Sleight_of_Hand|1|TYPE=Boolean
+CATEGORY=FEAT|Jack Of All Trades.MOD	BONUS:VAR|UseUntrainedSkill_Speak_Language|1|TYPE=Boolean
+CATEGORY=FEAT|Jack Of All Trades.MOD	BONUS:VAR|UseUntrainedSkill_Spellcraft|1|TYPE=Boolean
+CATEGORY=FEAT|Jack Of All Trades.MOD	BONUS:VAR|UseUntrainedSkill_Tumble|1|TYPE=Boolean
+CATEGORY=FEAT|Jack Of All Trades.MOD	BONUS:VAR|UseUntrainedSkill_Use_Magic_Device|1|TYPE=Boolean
+
+
+
+
 #
 # DONE
 #

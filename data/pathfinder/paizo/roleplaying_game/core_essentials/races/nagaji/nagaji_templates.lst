@@ -1,10 +1,12 @@
 # Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
 
 
+Nagaji	KEY:Race ~ Nagaji	VISIBLE:NO	TEMPLATE:IsNagaji
+IsNagaji							VISIBLE:NO	FACT:IsNagaji|True
+
 ###Block: Racial Heritage
 # Template Name	Unique Key				Visible	Template		Type				FACT
-Nagaji		KEY:Racial Heritage ~ Nagaji	VISIBLE:NO	TEMPLATE:IsNagaji	TYPE:Racial Heritage	FACT:IsNagaji|True
-IsNagaji							VISIBLE:NO
+Nagaji		KEY:Racial Heritage ~ Nagaji	VISIBLE:NO	TEMPLATE:IsNagaji	TYPE:Racial Heritage
 
 
 ###Block: Creature Subtypes

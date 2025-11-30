@@ -7,7 +7,7 @@
 
 ###Block: Racial Abilities ~ grantor/removal MODs in elf_abilities_globalvar.lst
 # Ability Name		Category of Ability	Define																						Template					Modify VAR
-Racial Traits ~ Elf	CATEGORY:Internal		DEFINE:Elf_RacialCastingStat|0	DEFINE:Elf_RacialCastingMod|0	DEFINE:Elf_RacialCasterlevel|0	DEFINE:Elf_RacialConcentration|0	TEMPLATE:Racial Heritage ~ Elf	BONUS:VAR|Elf_RacialCastingStat|CHASCORE	BONUS:VAR|Elf_RacialCastingMod|CHA	BONUS:VAR|Elf_RacialCasterlevel|TL	BONUS:VAR|Elf_RacialConcentration|Elf_RacialCasterlevel+Elf_RacialCastingMod
+Racial Traits ~ Elf	CATEGORY:Internal		DEFINE:Elf_RacialCastingStat|0	DEFINE:Elf_RacialCastingMod|0	DEFINE:Elf_RacialCasterlevel|0	DEFINE:Elf_RacialConcentration|0	TEMPLATE:Race ~ Elf			BONUS:VAR|Elf_RacialCastingStat|CHASCORE	BONUS:VAR|Elf_RacialCastingMod|CHA	BONUS:VAR|Elf_RacialCasterlevel|TL	BONUS:VAR|Elf_RacialConcentration|Elf_RacialCasterlevel+Elf_RacialCastingMod
 
 ###Block: Racial Trait Support
 # Ability Name								Type

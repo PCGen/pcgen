@@ -10,18 +10,18 @@ SOURCELONG:Pathfinder Player Companion: Blood of the Beast	SOURCESHORT:BOTB	SOUR
 # ==============================
 
 # Spell Name			Type					Classes of caster												School			Sub-School			Descriptor							Components	Casting Time			Range			Target Area or Effect											Duration										Save Info					Spell Resistance		Source Page		Description
-Batrachian Surge.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal	PRERACE:1,Grippli
-Bit of Luck.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal	PRERACE:1,Catfolk
+Batrachian Surge.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal	PREFACT:1,TEMPLATES,IsGrippli=true
+Bit of Luck.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal	PREFACT:1,TEMPLATES,IsCatfolk=true
 Contagious Suggestion.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
 Curse of Befouled Fortune.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
 Depilate.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
 Fumblestep.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
 Gullibility.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
 Hypnotism (Greater).MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
-Metabolic Molting.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal	PRERACE:1,Nagaji
-Naga Shape I.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal	PRERACE:1,Nagaji	PREABILITY:1,CATEGORY=Special Ability,Bloodrager Bloodline ~ Naga
-Naga Shape II.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal	PRERACE:1,Nagaji	PREABILITY:1,CATEGORY=Special Ability,Bloodrager Bloodline ~ Naga
-Naga Shape III.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal	PRERACE:1,Nagaji	PREABILITY:1,CATEGORY=Special Ability,Bloodrager Bloodline ~ Naga
+Metabolic Molting.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal	PREFACT:1,TEMPLATES,IsNagaji=true
+Naga Shape I.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal	PREFACT:1,TEMPLATES,IsNagaji=true	PREABILITY:1,CATEGORY=Special Ability,Bloodrager Bloodline ~ Naga
+Naga Shape II.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal	PREFACT:1,TEMPLATES,IsNagaji=true	PREABILITY:1,CATEGORY=Special Ability,Bloodrager Bloodline ~ Naga
+Naga Shape III.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal	PREFACT:1,TEMPLATES,IsNagaji=true	PREABILITY:1,CATEGORY=Special Ability,Bloodrager Bloodline ~ Naga
 Pouncing Fury.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
 Sweat Poison.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
 Lightfingers.MOD	TYPE:PFSNotLegal	PRETYPE:1,PFSLegal

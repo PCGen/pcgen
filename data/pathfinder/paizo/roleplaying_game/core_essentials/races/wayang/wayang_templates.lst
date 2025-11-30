@@ -1,10 +1,12 @@
 # Tue Aug 24 13:40:19 2021 -- reformated by PCGen PrettyLST v6.08.00
 
 
+Wayang	KEY:Race ~ Wayang	VISIBLE:NO	TEMPLATE:IsWayang
+IsWayang							VISIBLE:NO	FACT:IsWayang|True
+
 ###Block: Racial Heritage
-# Template Name	Unique Key				Visible	Template		Type				FACT
-Wayang		KEY:Racial Heritage ~ Wayang	VISIBLE:NO	TEMPLATE:IsWayang	TYPE:Racial Heritage	FACT:IsWayang|True
-IsWayang							VISIBLE:NO
+# Template Name	Unique Key				Visible	Template				Type
+Wayang		KEY:Racial Heritage ~ Wayang	VISIBLE:NO	TEMPLATE:IsWayang|Wayang	TYPE:Racial Heritage
 
 
 ###Block: Creature Subtypes

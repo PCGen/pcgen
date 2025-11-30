@@ -27,8 +27,8 @@ CATEGORY=Special Ability|Kitsune ~ Languages.MOD		SOURCELONG:Advanced Race Guide
 
 ###Block: Language Choices
 # Ability Name	Unique Key				Category of Ability	Type				Required Race	Ability												Modify VAR
-Golarion		KEY:Kitsune ~ Default		CATEGORY:Choice		TYPE:Regional Language	PRERACE:1,Kitsune
-Dragon Empires	KEY:Kitsune ~ Dragon Empires	CATEGORY:Choice		TYPE:Regional Language	PRERACE:1,Kitsune	ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Dragon Empires Languages	BONUS:VAR|Kitsune_AlternateLanguages|1|TYPE=Boolean
+Golarion		KEY:Kitsune ~ Default		CATEGORY:Choice		TYPE:Regional Language	PREFACT:1,TEMPLATES,IsKitsune=true
+Dragon Empires	KEY:Kitsune ~ Dragon Empires	CATEGORY:Choice		TYPE:Regional Language	PREFACT:1,TEMPLATES,IsKitsune=true	ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune ~ Dragon Empires Languages	BONUS:VAR|Kitsune_AlternateLanguages|1|TYPE=Boolean
 
 ###Block: Region-Specific Languages
 # Ability Name	Unique Key						Category of Ability		Type																Visible		Prohibited Fact							Required Var. value				Description																																						Template																																											Auto Language		Source Page
@@ -59,8 +59,8 @@ CATEGORY=Special Ability|Nagaji ~ Languages.MOD		SOURCELONG:Advanced Race Guide	
 
 ###Block: Language Choices
 # Ability Name	Unique Key				Category of Ability	Type				Required Race	Ability											Modify VAR
-Golarion		KEY:Nagaji ~ Default		CATEGORY:Choice		TYPE:Regional Language	PRERACE:1,Nagaji
-Dragon Empires	KEY:Nagaji ~ Dragon Empires	CATEGORY:Choice		TYPE:Regional Language	PRERACE:1,Nagaji	ABILITY:Nagaji Racial Trait|AUTOMATIC|Nagaji ~ Dragon Empires Languages	BONUS:VAR|Nagaji_AlternateLanguages|1|TYPE=Boolean
+Golarion		KEY:Nagaji ~ Default		CATEGORY:Choice		TYPE:Regional Language	PREFACT:1,TEMPLATES,IsNagaji=true
+Dragon Empires	KEY:Nagaji ~ Dragon Empires	CATEGORY:Choice		TYPE:Regional Language	PREFACT:1,TEMPLATES,IsNagaji=true	ABILITY:Nagaji Racial Trait|AUTOMATIC|Nagaji ~ Dragon Empires Languages	BONUS:VAR|Nagaji_AlternateLanguages|1|TYPE=Boolean
 
 ###Block: Region-Specific Languages
 # Ability Name	Unique Key						Category of Ability		Type																Visible		Prohibited Fact							Required Var. value				Description																																									Template																																																				Auto Language		Source Page
@@ -92,8 +92,8 @@ CATEGORY=Special Ability|Samsaran ~ Languages.MOD		SOURCELONG:Advanced Race Guid
 
 ###Block: Language Choices
 # Ability Name	Unique Key				Category of Ability	Type				Required Race		Ability												Modify VAR
-Golarion		KEY:Samsaran ~ Default		CATEGORY:Choice		TYPE:Regional Language	PRERACE:1,Samsaran
-Dragon Empires	KEY:Samsaran ~ Dragon Empires	CATEGORY:Choice		TYPE:Regional Language	PRERACE:1,Samsaran	ABILITY:Samsaran Racial Trait|AUTOMATIC|Samsaran ~ Dragon Empires Languages	BONUS:VAR|Samsaran_AlternateLanguages|1|TYPE=Boolean
+Golarion		KEY:Samsaran ~ Default		CATEGORY:Choice		TYPE:Regional Language	PREFACT:1,TEMPLATES,IsSamsaran=true
+Dragon Empires	KEY:Samsaran ~ Dragon Empires	CATEGORY:Choice		TYPE:Regional Language	PREFACT:1,TEMPLATES,IsSamsaran=true	ABILITY:Samsaran Racial Trait|AUTOMATIC|Samsaran ~ Dragon Empires Languages	BONUS:VAR|Samsaran_AlternateLanguages|1|TYPE=Boolean
 
 ###Block: Region-Specific Languages
 # Ability Name	Unique Key						Category of Ability		Type																Visible		Prohibited Fact							Required Var. value				Description																																												Template																																																											Auto Language		Source Page
@@ -124,8 +124,8 @@ CATEGORY=Special Ability|Tengu ~ Natural Weapon.MOD	SOURCEPAGE:p.12
 
 ###Block: Language Choices
 # Ability Name	Unique Key				Category of Ability	Type				Required Race	Ability											Modify VAR
-Golarion		KEY:Tengu ~ Default		CATEGORY:Choice		TYPE:Regional Language	PRERACE:1,Tengu
-Dragon Empires	KEY:Tengu ~ Dragon Empires	CATEGORY:Choice		TYPE:Regional Language	PRERACE:1,Tengu	ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Dragon Empires Languages	BONUS:VAR|Tengu_AlternateLanguages|1|TYPE=Boolean
+Golarion		KEY:Tengu ~ Default		CATEGORY:Choice		TYPE:Regional Language	PREFACT:1,TEMPLATES,IsTengu=true
+Dragon Empires	KEY:Tengu ~ Dragon Empires	CATEGORY:Choice		TYPE:Regional Language	PREFACT:1,TEMPLATES,IsTengu=true	ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Dragon Empires Languages	BONUS:VAR|Tengu_AlternateLanguages|1|TYPE=Boolean
 
 ###Block: Region-Specific Languages
 # Ability Name	Unique Key						Category of Ability		Type															Visible		Required Var. value			Description																					Template				Auto Language		Source Page
@@ -157,8 +157,8 @@ CATEGORY=Special Ability|Wayang ~ Languages.MOD			SOURCELONG:Advanced Race Guide
 
 ###Block: Language Choices
 # Ability Name	Unique Key				Category of Ability	Type				Required Race	Ability											Modify VAR
-Golarion		KEY:Wayang ~ Default		CATEGORY:Choice		TYPE:Regional Language	PRERACE:1,Wayang
-Dragon Empires	KEY:Wayang ~ Dragon Empires	CATEGORY:Choice		TYPE:Regional Language	PRERACE:1,Wayang	ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Dragon Empires Languages	BONUS:VAR|Wayang_AlternateLanguages|1|TYPE=Boolean
+Golarion		KEY:Wayang ~ Default		CATEGORY:Choice		TYPE:Regional Language	PREFACT:1,TEMPLATES,IsWayang=true
+Dragon Empires	KEY:Wayang ~ Dragon Empires	CATEGORY:Choice		TYPE:Regional Language	PREFACT:1,TEMPLATES,IsWayang=true	ABILITY:Wayang Racial Trait|AUTOMATIC|Wayang ~ Dragon Empires Languages	BONUS:VAR|Wayang_AlternateLanguages|1|TYPE=Boolean
 
 ###Block: Region-Specific Languages
 # Ability Name	Unique Key						Category of Ability		Type																Visible		Prohibited Fact							Required Var. value				Description																																				Template																																												Auto Language		Source Page

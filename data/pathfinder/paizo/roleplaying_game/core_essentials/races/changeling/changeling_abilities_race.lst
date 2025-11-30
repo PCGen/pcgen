@@ -7,7 +7,7 @@
 
 ###Block: Racial Abilities ~ grantor/removal MODs in changeling_abilities_globalvar.lst
 # Ability Name			Category of Ability	Define																											Template						Modify VAR
-Racial Traits ~ Changeling	CATEGORY:Internal		DEFINE:Changeling_RacialCastingStat|0	DEFINE:Changeling_RacialCastingMod|0	DEFINE:Changeling_RacialCasterlevel|0	DEFINE:Changeling_RacialConcentration|0	TEMPLATE:Racial Heritage ~ Changeling	BONUS:VAR|Changeling_RacialCastingStat|CHASCORE	BONUS:VAR|Changeling_RacialCastingMod|CHA	BONUS:VAR|Changeling_RacialCasterlevel|TL	BONUS:VAR|Changeling_RacialConcentration|Changeling_RacialCasterlevel+Changeling_RacialCastingMod
+Racial Traits ~ Changeling	CATEGORY:Internal		DEFINE:Changeling_RacialCastingStat|0	DEFINE:Changeling_RacialCastingMod|0	DEFINE:Changeling_RacialCasterlevel|0	DEFINE:Changeling_RacialConcentration|0	TEMPLATE:Race ~ Changeling			BONUS:VAR|Changeling_RacialCastingStat|CHASCORE	BONUS:VAR|Changeling_RacialCastingMod|CHA	BONUS:VAR|Changeling_RacialCasterlevel|TL	BONUS:VAR|Changeling_RacialConcentration|Changeling_RacialCasterlevel+Changeling_RacialCastingMod
 
 ###Block: Racial Traits
 # Ability Name					Unique Key					Category of Ability		Type																		Visible		Prohibited Fact								Define		Description																																							Template																																Move			Auto Language	Ability					Bonus Ability Pool					Stat bonus										Modify VAR						Vision			Source Page		Bonus language

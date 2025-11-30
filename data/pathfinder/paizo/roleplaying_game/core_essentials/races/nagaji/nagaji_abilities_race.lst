@@ -7,7 +7,7 @@
 
 ###Block: Racial Abilities ~ grantor/removal MODs in nagaji_abilities_globalvar.lst
 # Ability Name		Category of Ability	Define																							Template					Modify VAR
-Racial Traits ~ Nagaji	CATEGORY:Internal		DEFINE:Nagaji_RacialCastingStat|0	DEFINE:Nagaji_RacialCastingMod|0	DEFINE:Nagaji_RacialCasterlevel|0	DEFINE:Nagaji_RacialConcentration|0	TEMPLATE:Racial Heritage ~ Nagaji	BONUS:VAR|Nagaji_RacialCastingStat|CHASCORE	BONUS:VAR|Nagaji_RacialCastingMod|CHA	BONUS:VAR|Nagaji_RacialCasterlevel|TL	BONUS:VAR|Nagaji_RacialConcentration|Nagaji_RacialCasterlevel+Nagaji_RacialCastingMod
+Racial Traits ~ Nagaji	CATEGORY:Internal		DEFINE:Nagaji_RacialCastingStat|0	DEFINE:Nagaji_RacialCastingMod|0	DEFINE:Nagaji_RacialCasterlevel|0	DEFINE:Nagaji_RacialConcentration|0	TEMPLATE:Race ~ Nagaji			BONUS:VAR|Nagaji_RacialCastingStat|CHASCORE	BONUS:VAR|Nagaji_RacialCastingMod|CHA	BONUS:VAR|Nagaji_RacialCasterlevel|TL	BONUS:VAR|Nagaji_RacialConcentration|Nagaji_RacialCasterlevel+Nagaji_RacialCastingMod
 
 ###Block: Racial Traits
 # Ability Name					Unique Key				Category of Ability		Type																	Visible		Prohibited Fact							Define		Description																																			Template																																				Move			Auto Language		Bonus to Situation								Bonus to skill					Stat bonus										Modify VAR											Vision			Source Page		Aspects

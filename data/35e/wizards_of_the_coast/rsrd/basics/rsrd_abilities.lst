@@ -114,6 +114,26 @@ Grasping Hand	CATEGORY:Natural Attack	TYPE:NaturalAttack.Grasping Hand	DEFINE:Gr
 Poison		CATEGORY:Ability Focus	TYPE:Ability Focus
 
 
+
+CATEGORY=Internal|Default.MOD	DEFINE:UseUntrainedSkill_Decipher_Script|0
+CATEGORY=Internal|Default.MOD	DEFINE:UseUntrainedSkill_Disable_Device|0
+CATEGORY=Internal|Default.MOD	DEFINE:UseUntrainedSkill_Handle_Animal|0
+CATEGORY=Internal|Default.MOD	DEFINE:UseUntrainedSkill_Open_Lock|0
+CATEGORY=Internal|Default.MOD	DEFINE:UseUntrainedSkill_Sleight_of_Hand|0
+CATEGORY=Internal|Default.MOD	DEFINE:UseUntrainedSkill_Speak_Language|0
+CATEGORY=Internal|Default.MOD	DEFINE:UseUntrainedSkill_Spellcraft|0
+CATEGORY=Internal|Default.MOD	DEFINE:UseUntrainedSkill_Tumble|0
+CATEGORY=Internal|Default.MOD	DEFINE:UseUntrainedSkill_Use_Magic_Device|0
+
+
+
+
+
+
+
+
+
+
 #
 #EOF
 #

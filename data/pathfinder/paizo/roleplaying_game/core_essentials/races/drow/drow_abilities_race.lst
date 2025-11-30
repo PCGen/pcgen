@@ -7,7 +7,7 @@
 
 ###Block: Racial Abilities ~ grantor/removal MODs in drow_abilities_globalvar.lst
 # Ability Name		Category of Ability	Define																							Template					Modify VAR
-Racial Traits ~ Drow	CATEGORY:Internal		DEFINE:Drow_RacialCastingStat|0	DEFINE:Drow_RacialCastingMod|0	DEFINE:Drow_RacialCasterlevel|0	DEFINE:Drow_RacialConcentration|0	TEMPLATE:Racial Heritage ~ Drow	BONUS:VAR|Drow_RacialCastingStat|CHASCORE	BONUS:VAR|Drow_RacialCastingMod|CHA	BONUS:VAR|Drow_RacialCasterlevel|TL	BONUS:VAR|Drow_RacialConcentration|Drow_RacialCasterlevel+Drow_RacialCastingMod
+Racial Traits ~ Drow	CATEGORY:Internal		DEFINE:Drow_RacialCastingStat|0	DEFINE:Drow_RacialCastingMod|0	DEFINE:Drow_RacialCasterlevel|0	DEFINE:Drow_RacialConcentration|0	TEMPLATE:Race ~ Drow			BONUS:VAR|Drow_RacialCastingStat|CHASCORE	BONUS:VAR|Drow_RacialCastingMod|CHA	BONUS:VAR|Drow_RacialCasterlevel|TL	BONUS:VAR|Drow_RacialConcentration|Drow_RacialCasterlevel+Drow_RacialCastingMod
 
 ###Block: Racial Traits
 # Ability Name						Unique Key					Category of Ability		Type																	Visible		Prohibited Fact								Define					Description																															Template																																			Move			Auto Language			Auto Weapon Prof							Ability																														Bonus to skill							Stat bonus										Modify VAR									Vision			Spell Res.	Source Page		Aspects

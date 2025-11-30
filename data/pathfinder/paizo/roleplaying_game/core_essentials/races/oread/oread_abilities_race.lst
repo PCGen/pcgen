@@ -7,7 +7,7 @@
 
 ###Block: Racial Abilities ~ grantor/removal MODs in oread_abilities_globalvar.lst
 # Ability Name		Category of Ability	Define																							Template					Modify VAR
-Racial Traits ~ Oread	CATEGORY:Internal		DEFINE:Oread_RacialCastingStat|0	DEFINE:Oread_RacialCastingMod|0	DEFINE:Oread_RacialCasterlevel|0	DEFINE:Oread_RacialConcentration|0	TEMPLATE:Racial Heritage ~ Oread	BONUS:VAR|Oread_RacialCastingStat|CHASCORE	BONUS:VAR|Oread_RacialCastingMod|CHA	BONUS:VAR|Oread_RacialCasterlevel|TL	BONUS:VAR|Oread_RacialConcentration|Oread_RacialCasterlevel+Oread_RacialCastingMod
+Racial Traits ~ Oread	CATEGORY:Internal		DEFINE:Oread_RacialCastingStat|0	DEFINE:Oread_RacialCastingMod|0	DEFINE:Oread_RacialCasterlevel|0	DEFINE:Oread_RacialConcentration|0	TEMPLATE:Race ~ Oread			BONUS:VAR|Oread_RacialCastingStat|CHASCORE	BONUS:VAR|Oread_RacialCastingMod|CHA	BONUS:VAR|Oread_RacialCasterlevel|TL	BONUS:VAR|Oread_RacialConcentration|Oread_RacialCasterlevel+Oread_RacialCastingMod
 
 ###Block: Racial Traits
 # Ability Name				Unique Key					Category of Ability		Type																				Visible		Prohibited Fact								Define		Description																																										Template																																	Move			Auto Language		Ability																										Caster level																																											Stat bonus										Modify VAR							Vision			Source Page

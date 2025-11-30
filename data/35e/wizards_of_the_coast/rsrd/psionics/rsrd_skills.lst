@@ -10,3 +10,9 @@ Autohypnosis		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Base.Standard			SOURCEPAGE
 Knowledge (Psionics)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Base.Standard	SOURCEPAGE:PsionicSkills	BONUS:SKILL|Knowledge (Psionics)|SynergyBonus|PRESKILL:1,Autohypnosis=5|TYPE=Synergy.STACK
 Psicraft			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Base.Standard		SOURCEPAGE:PsionicSkills	BONUS:SKILL|Psicraft|SynergyBonus|PRESKILL:1,Knowledge (Psionics)=5|TYPE=Synergy.STACK
 Use Psionic Device	KEYSTAT:CHA	USEUNTRAINED:NO	TYPE:Charisma.Base.Standard			SOURCEPAGE:PsionicSkills
+
+###Block: Untrained Skill use support
+Autohypnosis (Untrained)			KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillDisplay	VISIBLE:EXPORT	PREMULT:2,[PREVAREQ:skillinfo("TOTALRANK","Autohypnosis"),0],[PREVAREQ:UseUntrainedSkill_Autohypnosis,1]		
+Psicraft (Untrained)				KEYSTAT:INT	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillDisplay	VISIBLE:EXPORT	PREMULT:2,[PREVAREQ:skillinfo("TOTALRANK","Psicraft"),0],[PREVAREQ:UseUntrainedSkill_Psicraft,1]		
+Use Psionic Device (Untrained)		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillDisplay	VISIBLE:EXPORT	PREMULT:2,[PREVAREQ:skillinfo("TOTALRANK","Use Psionic Device"),0],[PREVAREQ:UseUntrainedSkill_Use Psionic Device,1]		
+
