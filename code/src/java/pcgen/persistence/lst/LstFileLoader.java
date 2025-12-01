@@ -19,6 +19,15 @@
  */
 package pcgen.persistence.lst;
 
+import pcgen.cdom.base.Constants;
+import pcgen.core.SettingsHandler;
+import pcgen.core.utils.CoreUtility;
+import pcgen.core.utils.MessageType;
+import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -27,14 +36,8 @@ import java.net.http.HttpResponse;
 import java.nio.charset.MalformedInputException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import org.jetbrains.annotations.Nullable;
-import pcgen.cdom.base.Constants;
-import pcgen.core.SettingsHandler;
-import pcgen.core.utils.CoreUtility;
-import pcgen.core.utils.MessageType;
-import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.persistence.PersistenceLayerException;
-import pcgen.util.Logging;
+import java.text.MessageFormat;
+import java.util.Optional;
 
 /**
  * This class is a base class for LST file loaders.
@@ -49,7 +52,7 @@ import pcgen.util.Logging;
  *
  * <p>
  * Instances of LstFileLoader or its subclasses are not thread-safe,
- * so any thread should only acccess a single loader (or group of loaders)
+ * so any thread should only access a single loader (or group of loaders)
  * at a time.
  */
 public final class LstFileLoader
@@ -59,32 +62,35 @@ public final class LstFileLoader
 		//Utility class
 	}
 
-	/** The String that represents the start of a line comment. */
+	/**
+	 * The String that represents the start of a line comment.
+	 */
 	public static final char LINE_COMMENT_CHAR = '#';
 
-	/** The String that separates individual objects */
+	/**
+	 * The String that separates individual objects
+	 */
 	public static final String LINE_SEPARATOR_REGEXP = "(\r\n?|\n)"; //$NON-NLS-1$
 
-	/** BOM prefix, used to warn the user that BOM-strings are not supported */
+	/**
+	 * BOM prefix, used to warn the user that BOM-strings are not supported
+	 */
 	private static final String BOM = "\uFEFF";
 
 	/**
 	 * This method reads the given URI and returns its content as a string. If an error occurs, we don't throw an
-	 * exception, but log the error in the logger. It is possible to read file content from the remote link, but
+	 * exception but log the error in the logger. It is possible to read file content from the remote link, but
 	 * a corresponding option must be enabled in settings.
 	 *
-	 * @param uri	URI of the remote content
-	 * @return String	file content
-	 * @throws PersistenceLayerException	is thrown when a null URI is provided
+	 * @param uri URI of the remote content
+	 * @return String file content
+	 * @throws PersistenceLayerException is thrown when a null URI is provided
 	 */
-	@Nullable
-	public static String readFromURI(URI uri) throws PersistenceLayerException
+	public static Optional<String> readFromURI(URI uri) throws PersistenceLayerException
 	{
-		if (uri == null)
-		{
-			// We have a problem!
-			throw new PersistenceLayerException("LstFileLoader.readFromURI() received a null URI parameter!");
-		}
+		uri = Optional.ofNullable(uri)
+				.orElseThrow(() -> new PersistenceLayerException(
+						"LstFileLoader.readFromURI() received a null URI parameter!"));
 
 		try
 		{
@@ -94,13 +100,12 @@ public final class LstFileLoader
 				String result = Files.readString(path);
 				if (result.startsWith(BOM))
 				{
-					Logging.log(Logging.WARNING,
-							"The file %s uses UTF-8-BOM encoding. LST files must be UTF-8".formatted(uri));
+					Logging.log(Logging.WARNING, MessageFormat.format(
+							"The file {0} uses UTF-8-BOM encoding. LST files must be UTF-8", uri));
 					result = result.substring(1);
 				}
-				return result;
-			}
-			else if (SettingsHandler.isLoadURLs()) // load from remote URIs
+				return Optional.of(result);
+			} else if (SettingsHandler.isLoadURLs()) // load from remote URIs
 			{
 				try (HttpClient client = HttpClient.newHttpClient())
 				{
@@ -108,30 +113,27 @@ public final class LstFileLoader
 							.uri(uri)
 							.build();
 					HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-					return response.body();
+					return Optional.of(response.body());
 				}
-			}
-			else
+			} else
 			{
-				// Just to protect people from using web
-				// sources without their knowledge,
-				// we added a preference.
-				ShowMessageDelegate.showMessageDialog("Preferences are currently set to NOT allow\nloading of "
-					+ "sources from web links.\n" + uri + " is a web link", Constants.APPLICATION_NAME,
-					MessageType.ERROR);
+				// Just to protect people from using web sources without their knowledge, we added a preference.
+				ShowMessageDelegate.showMessageDialog(LanguageBundle.getFormattedString("in_err_remote_lst_warn", uri),
+						Constants.APPLICATION_NAME, MessageType.ERROR);
 			}
 		} catch (MalformedInputException ie)
 		{
-			Logging.errorPrint("ERROR: " + uri + "\nThe file doesn't use UTF-8 encoding. LST files must be UTF-8", ie);
-		}
-		catch (IOException | InterruptedException e)
+			Logging.errorPrint(MessageFormat.format(
+					"ERROR: file {0}\nThe file does not use UTF-8 encoding. LST files must be UTF-8",
+					uri), ie);
+		} catch (IOException | InterruptedException e)
 		{
 			// Don't throw an exception here because a simple
 			// file not found will prevent ANY other files from
 			// being loaded/processed -- NOT what we want
-			Logging.errorPrint("ERROR: " + uri + '\n' + "Exception type: " + e.getClass().getName() + "\n" + "Message: "
-				+ e.getMessage(), e);
+			Logging.errorPrint(MessageFormat.format("ERROR: {0}\nException type: {1}\nMessage: {2}",
+					uri, e.getClass().getName(), e.getMessage()), e);
 		}
-		return null;
+		return Optional.empty();
 	}
 }

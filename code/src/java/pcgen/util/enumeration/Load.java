@@ -33,7 +33,6 @@ public enum Load
 	HEAVY(FontManipulation::bold_italic, UIPropertyContext::getVirtualColor),
 	OVERLOAD(FontManipulation::bold_italic, UIPropertyContext::getNotQualifiedColor);
 
-
 	private static final DoubleFunction<Double> LIGHT_ENCUMBERED_MOVE = unencumberedMove -> unencumberedMove;
 	private static final DoubleFunction<Double>  MEDIUM_HEAVY_ENCUMBERED_MOVE = unencumberedMove -> {
 		if (CoreUtility.doublesEqual(unencumberedMove, 5) || CoreUtility.doublesEqual(unencumberedMove, 10))

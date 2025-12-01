@@ -58,21 +58,21 @@ It supports numerous game systems, most notably:
 1. Run installer and follow instruction
    - Windows: Open `pcgen-6.09.xx_win_install.exe`
    - Mac:
-   - - `dmg`: Open `dmg` and drag into Applications. Right click on `PcGen` and click open.
-   - - `pkg`: Right click and `pkg` and click open and click `open` on security warning due to application being unsigned. 
+   - - `dmg`: Open `dmg` and drag into Applications. Right-click on `PcGen` and click open.
+   - - `pkg`: Right-click and `pkg` and click open and click `open` on security warning due to application being unsigned. 
 
-1. You should be able to launch PcGen as normal application.
-   -  Mac: You may need to on first launch right click on application and then click `open`.
+1. You should be able to launch PcGen as a normal application.
+   -  Mac: You may need to on first launch right-click on application and then click `open`.
 
 # PCGen Needs You
 
-PCGen is an open source program driven by contributors, without your help no new fixes or content can be added.
-If you can program Java or want to contribute to expanding the book support please consider joining our team.
-Many of the original members have become inactive and we need new contributors to keep the project going.
+PCGen is an open-source program driven by contributors; without your help, no new fixes or content can be added.
+If you can program Java or want to contribute to expanding the book support, please consider joining our team.
+Many of the original members have become inactive, and we need new contributors to keep the project going.
 
 To join our group:
 - Join our [Discord](https://discord.gg/M7GH5BS)
-- Post in the volunteers channel to get access to the [Slack](https://slack.com). A senior member will add you by email.
+- Post in the volunteer channel to get access to the [Slack](https://slack.com). A senior member will add you by email.
 - Make an account on the [JIRA] bug tracker. See [CODE] and [DATA] issues. Work is tracked here to easily generate release notes.
 - Review the [Basic Workflow](#basic-workflow) & [Development Setup](#development-setup) below to get started.
 
@@ -82,28 +82,28 @@ Browse it when you have time, it can provide some insight into certain parts of 
 
 # PCGen LST Tutorial
 Andrew has made a series of videos [explaining the LST files](https://www.youtube.com/watch?v=LhGkqdXNtOw&list=PLLa5A1qjBOPekqEC_R9BAZW-8q5IT-klM).
-These are mainly targetted at new DATA contributors adding new books/content and fixing bugs.
-You can of course ask questions in the discord or slack if you are unsure.
+These are mainly targeted at new DATA contributors adding new books/content and fixing bugs.
+You can, of course, ask questions in the discord or Slack if you are unsure.
 Programmers may want to review these if they work on the LST parsing or related systems.
 
 # Basic Workflow
 
-1. Get a bug from [JIRA] primarily from the [CODE] or [DATA] sections. Alternatively if you want to propose a new feature/change, make a JIRA entry to track it.
+1. Get a bug from [JIRA] primarily from the [CODE] or [DATA] sections. Alternatively, if you want to propose a new feature/change, make a JIRA entry to track it.
 1. Create a branch in your fork of [PCGen] during development. It is good to name branches after ticket numbers, like fix_code_3444 or fix_data_3322.
-1. Work until the feature or bug is finished. Add tests if needed, especially if new code added.
-1. Push all work up into your copy of [PCGen]. Try to ensure build passes BEFORE submitting a pull request.
-1. Submit pull request from your fork to master and respond to review by members.
-1. Go back to first step.
+1. Work until the feature or bug is finished. Add tests if needed, especially if new code is added.
+1. Push all work up into your copy of [PCGen]. Try to ensure the build passes BEFORE submitting a pull request.
+1. Submit a pull request from your fork to master and respond to a review by members.
+1. Go back to the first step.
 
 # Development Setup
 
 These steps will guide you to a basic setup for development.
-These steps should work for Linux, Mac or Windows. Where steps differ it will be highlighted.
-If you have trouble, feel free to ask in the discord or slack once you have joined.
+These steps should work for Linux, Mac or Windows. Where steps differ, it will be highlighted.
+If you have trouble, feel free to ask in the Discord or Slack once you have joined.
 
 ### Running Commands
 Anything `written like this` should be executed in a terminal.
-For Windows this means opening the start menu and typing cmd.exe or Powershell. The latter is more modern if available.
+For Windows this means opening the start menu and typing cmd.exe or PowerShell. The latter is more modern if available.
 For Linux or Mac, whatever default terminal you have is fine.
 
 ### Install Java
@@ -128,17 +128,17 @@ You can install git on debian machines:
 On Windows, [Git For Windows](https://gitforwindows.org) is a good choice. Download and install.
 Be sure to install both the GUI & command line version. The default options are fine.
 
-If you do not know about git, reading the first 3 or 4 chapters of [Pro Git](https://git-scm.com/book/en/v2)
-will go a long way. It is designed about command line but all principles apply to the GUI version.
+If you do not know about git, reading the first three or four chapters of [Pro Git](https://git-scm.com/book/en/v2)
+will go a long way. It is designed about command line, but all principles apply to the GUI version.
 
 ### Fork and Clone PCGen
-Log in to github and go to [PCGen] in your browser.
+Log in to GitHub and go to [PCGen] in your browser.
 Fork the project to have your own copy.
-Clone the fork locally, if you use ssh for instance it should be:
+Clone the fork locally, if you use ssh for instance, it should be:
 
     git clone git@github.com:USERNAME/pcgen.git
 
-Where USERNAME is your github username.
+Where USERNAME is your GitHub username.
 This can be done on the command line, or else open the git GUI and clone from there.
 
 ### Stay Up To Date
@@ -147,39 +147,39 @@ Run the following command:
 
     git remote add upstream https://github.com/PCGen/pcgen
 
-This sets up the project for upstream rebasing, to keep you level with changes.
-You can rebase the master with latest changes with the following. It can be done from GUI as well.
+This sets up the project for upstream rebasing to keep you level with changes.
+You can rebase the master with the latest changes with the following. It can be done from GUI as well.
 
     git checkout master && git fetch upstream && git rebase master
 
 ### Get an IDE
 This step is optional. You are free to program in what you prefer, these are several popular IDEs for Java.
-If you are new we would suggest IntelliJ. Follow download/setup instructions then continue.
-These IDEs have git and gradle plugins either out of box or that can be installed.
+If you are new, we would suggest IntelliJ. Follow download/setup instructions, then continue.
+These IDEs have git and gradle plugins either out of the box or that can be installed.
 - [IntelliJ Community](https://www.jetbrains.com/idea)
 - [Eclipse](https://www.eclipse.org)
 - [Netbeans](https://netbeans.org)
 
 Once setup, open your IDE of choice. You should be able to import the cloned fork.
-Import the [PCGen] fork as a gradle project. From this point, you can work on the project.
+Import the [PCGen] fork as a Gradle project. From this point, you can work on the project.
 For IntelliJ Community do: File > New > Project from Existing Sources ...
 All of these IDEs have git and gradle plugins that can be used instead of commands.
 
 # Essential Gradle Tasks
 
-This is a __quick__ rundown on gradle. You can get more information from [gradle docs](https://gradle.org/guides).
+This is a __quick__ rundown on Gradle. You can get more information from [gradle docs](https://gradle.org/guides).
 Gradle is like make, it allows you to run commands to build projects.
 The tasks can depend on one another and will ensure all dependencies are met before running.
 These commands will be the same if you use a GUI to execute them.
 
-Note: `./gradlew` indicates you are executing the gradle wrapper command binary that comes with PCGen's source tree.
-This will automatically download and use the latest version of gradle. If you have gralde installed, you just
+Note: `./gradlew` indicates you are executing the Gradle wrapper command binary that comes with PCGen's source tree.
+This will automatically download and use the latest version of Gradle. If you have Gradle installed, you just
 substitute `./gradlew` for `gradle` on the command line.
 
 ### See All Available Commands
     ./gradlew tasks
 
-### Just (Re)Compile Java
+### (Re)Compile Java
     ./gradlew compileJava
 
 ### Build All Required Files
@@ -193,7 +193,7 @@ substitute `./gradlew` for `gradle` on the command line.
 
 ### Run Full Test Suite
 Do this primarily __before__ pull requests.
-This is almost exactly the command Travis runs to verify, if it fails locally you will fail the build and your PR will not be merged.
+This is almost exactly the command Travis runs to verify, if it fails locally you will fail the build, and your PR will not be merged.
 
     ./gradlew clean build copyToOutput test compileSlowtest datatest pfinttest allReports buildDist
 

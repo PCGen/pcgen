@@ -1,0 +1,106 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write
+
+jobs:
+  create_release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create Release
+        id: create_release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: ${{ github.ref_name }}
+          draft: false
+          prerelease: false
+          generate_release_notes: false
+
+  build_release:
+    name: Build Release
+    needs: create_release
+    strategy:
+      matrix:
+        os: [ubuntu-latest, ubuntu-24.04-arm, macos-latest, windows-latest]
+        include:
+          - os: ubuntu-latest
+            release_suffix: ubuntu
+          - os: ubuntu-24.04-arm
+            release_suffix: ubuntu-arm
+          - os: macos-latest
+            release_suffix: mac
+          - os: windows-latest
+            release_suffix: windows
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: gradle
+          cache-dependency-path: |
+            build.gradle
+            code/gradle/autobuild.gradle
+            code/gradle/distribution.gradle
+            code/gradle/release.gradle
+            code/gradle/reporting.gradle
+            code/gradle/plugins.gradle
+
+      # Configure Gradle for optimal use in GitHub Actions, including caching of downloaded dependencies.
+      # See: https://github.com/gradle/actions/blob/main/setup-gradle/README.md
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          cache-disabled: false
+          cache-read-only: false
+          cache-overwrite-existing: true
+
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ${{ github.workspace }}/build/jre
+            ${{ github.workspace }}/build/libs
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ matrix.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+            ${{ matrix.os }}-gradle
+
+      - name: Build the image
+        if: success()
+        run: ./gradlew jpackage
+
+      - name: Upload release assets for macos
+        uses: actions/upload-artifact@v4
+        if: matrix.os == 'macos-latest'
+        with:
+          name: ${{ matrix.os }}
+          path: ${{ github.workspace }}/build/jpackage/*.dmg
+
+      - name: Upload release assets for ubuntu
+        uses: actions/upload-artifact@v4
+        if: matrix.os == 'ubuntu-latest'
+        with:
+          name: ${{ matrix.os }}
+          path: ${{ github.workspace }}/build/jpackage/*.deb
+
+      - name: Upload release assets for windows
+        uses: actions/upload-artifact@v4
+        if: matrix.os == 'windows-latest'
+        with:
+          name: ${{ matrix.os }}
+          path: ${{ github.workspace }}/build/jpackage/*.msi
+
+      - name: Release - ${{ matrix.os }}
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ needs.create_release.outputs.tag-name }}
+          files: ${{ github.workspace }}/build/jpackage/pcgen-*.*

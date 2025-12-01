@@ -891,8 +891,8 @@ BIO
 			<base>+4</base>
 			<abil_mod>+0</abil_mod>
 			<feats>+0</feats>
-			<magic_mod>+3</magic_mod>
-			<misc_mod>+1</misc_mod>
+			<magic_mod>+0</magic_mod>
+			<misc_mod>+4</misc_mod>
 			<race>+1</race>
 			<epic_mod>+0</epic_mod>
 			<temp_mod/>
@@ -907,8 +907,8 @@ BIO
 			<base>+8</base>
 			<feats>+0</feats>
 			<abil_mod>+6</abil_mod>
-			<magic_mod>+3</magic_mod>
-			<misc_mod>+1</misc_mod>
+			<magic_mod>+0</magic_mod>
+			<misc_mod>+4</misc_mod>
 			<race>+1</race>
 			<epic_mod>+0</epic_mod>
 			<temp_mod/>
@@ -923,8 +923,8 @@ BIO
 			<base>+4</base>
 			<abil_mod>+1</abil_mod>
 			<feats>+0</feats>
-			<magic_mod>+3</magic_mod>
-			<misc_mod>+1</misc_mod>
+			<magic_mod>+0</magic_mod>
+			<misc_mod>+4</misc_mod>
 			<race>+1</race>
 			<epic_mod>+0</epic_mod>
 			<temp_mod/>

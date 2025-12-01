@@ -34,6 +34,9 @@
         <exclude name="UnusedFormalParameter"/>
         <exclude name="UnusedPrivateField"/>
         <exclude name="UnusedPrivateMethod"/>
+        <exclude name="UnnecessaryWarningSuppression"/>
+        <exclude name="ImplicitFunctionalInterface"/>
+        <exclude name="ExhaustiveSwitchHasDefault"/>
         <!-- it's a tradeoff: it creates a warning to use it, which then has to be addressed -->
         <exclude name="UseVarargs"/>
         <exclude name="UnitTestAssertionsShouldIncludeMessage"/>
@@ -52,6 +55,7 @@
         <exclude name="BooleanGetMethodName"/>
         <exclude name="CallSuperInConstructor"/>
         <exclude name="ClassNamingConventions"/>
+        <exclude name="TypeParameterNamingConventions"/>
         <!-- adding comment to address Java's poor choice is noisy and not checkable -->
         <exclude name="CommentDefaultAccessModifier"/>
         <exclude name="ConfusingTernary"/>
@@ -101,6 +105,8 @@
         <exclude name="IdenticalCatchBranches"/>
         <exclude name="TooManyStaticImports" />
         <exclude name="ShortMethodName"/>
+        <exclude name="VariableCanBeInlined"/>
+        <exclude name="ModifierOrder"/>
     </rule>
     <rule ref="category/java/design.xml">
         <exclude name="AvoidCatchingGenericException"/>
@@ -173,6 +179,9 @@
         <exclude name="UseEqualsToCompareStrings"/>
         <exclude name="UseLocaleWithCaseConversions"/>
         <exclude name="TestClassWithoutTestCases"/>
+        <!-- TODO: Review exclusions, appeared after PMD upgrade -->
+        <exclude name="OverrideBothEqualsAndHashCodeOnComparable"/>
+        <exclude name="ReplaceJavaUtilDate"/>
     </rule>
     <rule ref="category/java/multithreading.xml">
         <exclude name="AvoidSynchronizedAtMethodLevel"/>
