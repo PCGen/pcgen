@@ -98,11 +98,14 @@ application {
 
 tasks.named("run") {
     dependsOn assemble, extractJavaFXLocal
+
+    def modsLibPath = layout.projectDirectory.dir("mods/lib").asFile.absolutePath
+
     // Required to fixed incorrectly added "--module-path" and adds correct modules.
     doFirst {
         jvmArgs = ["-ea",                       // -ea enables assertions
                    "--enable-preview",          // enable Java preview features
-                   "--module-path", layout.projectDirectory.dir("mods/lib").asFile.absolutePath,
+                   "--module-path", modsLibPath,
                    "--add-modules", "javafx.controls,javafx.web,javafx.swing,javafx.fxml,javafx.graphics",
                    "--enable-native-access", "javafx.graphics,javafx.web" // JDK-8347744
         ]
