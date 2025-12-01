@@ -26,7 +26,7 @@ plugins {
     id 'application'                                    // Creating application bundles
     id 'build-dashboard'                                // Produces a build report
     id 'checkstyle'                                     // Checkstyle for Java, configured further below
-    id 'com.github.spotbugs' version '6.4.5'            // Spotbugs for Java
+    id 'com.github.spotbugs' version '6.4.7'            // Spotbugs for Java
     id 'maven-publish'                                  // Publishing to Maven Central
     id 'pmd'                                            // PMD for Java, configured further below
     id 'idea'                                           // For IntelliJ IDEA users
@@ -34,7 +34,7 @@ plugins {
     id 'com.github.ben-manes.versions' version '0.53.0' // Checks versions for plugins and dependencies
     id 'com.dorongold.task-tree' version '4.0.1'        // Prints the task dependency tree
     id 'org.openjfx.javafxplugin' version '0.1.0'       // JavaFX support
-    id 'org.beryx.runtime' version '2.0.0'              // Creates custom runtimes
+    id 'org.beryx.runtime' version '2.0.1'             // Creates custom runtimes
     id 'jacoco'                                         // Code coverage
 }
 
@@ -231,11 +231,11 @@ tasks.register("cleanMasterSheets", Delete) {
  * https://docs.gradle.org/current/userguide/dependency_downgrade_and_exclude.html
  */
 dependencies {
-    implementation 'commons-io:commons-io:2.20.0'
+    implementation 'commons-io:commons-io:2.21.0'
     implementation 'org.springframework:spring-web:6.2.12'
     implementation 'org.springframework:spring-beans:6.2.12'
     implementation 'org.springframework:spring-core:6.2.12'
-    implementation 'org.apache.commons:commons-lang3:3.19.0'
+    implementation 'org.apache.commons:commons-lang3:3.20.0'
     implementation 'xalan:serializer:2.7.3'
     implementation('org.apache.xmlgraphics:fop:2.11') {
         exclude group: 'xml-apis', module: 'xml-apis'
@@ -248,7 +248,7 @@ dependencies {
         exclude group: 'xml-apis', module: 'xml-apis'
     }
     implementation 'net.sourceforge.argparse4j:argparse4j:0.9.0'
-    implementation 'org.xmlunit:xmlunit-core:2.10.4'
+    implementation 'org.xmlunit:xmlunit-core:2.11.0'
     implementation 'org.controlsfx:controlsfx:11.2.2'
     implementation 'net.sourceforge.pcgen:PCGen-base:1.0.170'
     // The latest Base, but pcgen core would need refactoring to support it.
@@ -266,20 +266,20 @@ dependencies {
     compileOnly 'com.yuvimasory:orange-extensions:1.3.0'
     compileOnly 'com.github.spotbugs:spotbugs-annotations:4.9.8'
 
-    testImplementation 'org.junit.platform:junit-platform-runner:1.14.0'
-    testImplementation 'org.junit.platform:junit-platform-launcher:1.14.0'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:6.0.0'
-    testImplementation 'org.junit.jupiter:junit-jupiter-params:6.0.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:6.0.0'
-    testImplementation 'org.hamcrest:hamcrest:3.0'
-    testImplementation 'org.testfx:testfx-junit5:4.0.18'
-    testImplementation 'org.testfx:openjfx-monocle:21.0.2'
+    testImplementation group: 'org.junit.platform', name: 'junit-platform-runner', version: '1.14.1'
+    testImplementation group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.14.1'
+    testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-api', version: '6.0.1'
+    testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-params', version: '6.0.1'
+    testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '6.0.1'
+    testImplementation group: 'org.hamcrest', name: 'hamcrest', version: '3.0'
+    testImplementation group: 'org.testfx', name: 'testfx-junit5', version: '4.0.18'
+    testImplementation group: 'org.testfx', name: 'openjfx-monocle', version: '21.0.2'
 
-    testImplementation 'org.xmlunit:xmlunit-matchers:2.10.4'
+    testImplementation group: 'org.xmlunit', name: 'xmlunit-matchers', version: '2.11.0'
     spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.14.0'
 
-    pmd 'net.sourceforge.pmd:pmd-ant:7.17.0' // workaround: https://github.com/pmd/pmd/issues/4554
-    pmd 'net.sourceforge.pmd:pmd-java:7.17.0'
+    pmd 'net.sourceforge.pmd:pmd-ant:7.19.0' // workaround: https://github.com/pmd/pmd/issues/4554
+    pmd 'net.sourceforge.pmd:pmd-java:7.19.0'
 }
 
 ext {
