@@ -8069,9 +8069,9 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		// RACE indicate which token map to check for a INFO label of TAG to return
 		int i = token.indexOf(".INFO.");
 		String ts = token;
-		if (i > -1)
+		if (i>-1)
 		{
-			ts = token.substring(i + 6).toUpperCase();
+			ts = token.substring(i + 6);
 		}
 		else
 		{

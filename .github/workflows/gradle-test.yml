@@ -17,10 +17,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+<<<<<<< HEAD
       - name: Set up JDK 25
         uses: actions/setup-java@v4
         with:
           java-version: '25'
+=======
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+>>>>>>> 2555af335ff8e1c74d03da27fabd10c557762ab9
           distribution: 'temurin'
           cache: gradle
           cache-dependency-path: |

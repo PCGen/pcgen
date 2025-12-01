@@ -22,6 +22,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.URI;
+import java.nio.charset.StandardCharsets;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -392,7 +393,7 @@ public final class Logging
 	public static void errorPrint(final String s, final Throwable thr)
 	{
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		PrintStream ps = new PrintStream(baos, true, java.nio.charset.StandardCharsets.UTF_8);
+		PrintStream ps = new PrintStream(baos, true, StandardCharsets.UTF_8);
 		thr.printStackTrace(ps);
 		errorPrint(s + '\n' + baos);
 	}
@@ -458,7 +459,7 @@ public final class Logging
 	public static void errorPrintLocalised(final String s, final Throwable thr)
 	{
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		try (PrintStream ps = new PrintStream(baos, true, java.nio.charset.StandardCharsets.UTF_8))
+		try (PrintStream ps = new PrintStream(baos, true, StandardCharsets.UTF_8))
 		{
 			thr.printStackTrace(ps);
 		}

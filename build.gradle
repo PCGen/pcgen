@@ -26,13 +26,11 @@ plugins {
     id 'application'                                    // Creating application bundles
     id 'build-dashboard'                                // Produces a build report
     id 'checkstyle'                                     // Checkstyle for Java, configured further below
-    id 'com.github.spotbugs' version '6.4.6'            // Spotbugs for Java
-    id 'java'                                           // Core java / javac
+    id 'com.github.spotbugs' version '6.4.7'            // Spotbugs for Java
     id 'maven-publish'                                  // Publishing to Maven Central
     id 'pmd'                                            // PMD for Java, configured further below
     id 'idea'                                           // For IntelliJ IDEA users
     id 'de.undercouch.download' version '5.6.0'         // Shows download percentage
-    id 'edu.sc.seis.launch4j' version '4.0.0'           // Creates launch4j
     id 'com.github.ben-manes.versions' version '0.53.0' // Checks versions for plugins and dependencies
     id 'com.dorongold.task-tree' version '4.0.1'        // Prints the task dependency tree
     id 'org.openjfx.javafxplugin' version '0.1.0'       // JavaFX support
@@ -95,7 +93,7 @@ java {
  */
 javafx {
     version = javaVersion
-    modules = [ 'javafx.controls', 'javafx.web', 'javafx.swing', 'javafx.fxml', 'javafx.graphics' ]
+    modules = [ 'javafx.controls', 'javafx.swing', 'javafx.fxml', 'javafx.graphics', 'javafx.web' ]
 }
 
 application {
@@ -283,7 +281,7 @@ dependencies {
     spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.14.0'
 
     pmd 'net.sourceforge.pmd:pmd-java:7.19.0'
-    pmd 'net.sourceforge.pmd:pmd-ant:7.19.0'
+    pmd 'net.sourceforge.pmd:pmd-ant:7.19.0' // workaround: https://github.com/pmd/pmd/issues/4554
 }
 
 ext {
@@ -317,7 +315,7 @@ jar {
  * Create a Java runtime built from Java modules
  */
 runtime {
-    options = ['--compress', 'zip-6'] // Equivalent to the old '2' value pre Java 21
+    options = []
     modules = [
             'jdk.httpserver',
             'java.management',
@@ -518,9 +516,12 @@ tasks.named("build") {
 }
 
 tasks.register("downloadJRE") {
-    def major = 25
-    def architectures = ['x64', 'aarch64']
+    notCompatibleWithConfigurationCache("Gradle download extension not compatible")
+
+    def major = project.ext.javaVersion
+    def archs = ['x64', 'aarch64']
     def osList = ['windows', 'mac', 'linux']
+    def baseJreDir = project.ext.jresDir
 
     doLast {
         println("Downloading JDKs for use in creating the runtime bundles.")
@@ -535,12 +536,12 @@ tasks.register("downloadJRE") {
                 if (arch == "aarch64" && os == "windows") return
 
                 def url = "https://api.adoptium.net/v3/binary/latest/${major}/ga/${os}/${arch}/jdk/hotspot/normal/eclipse"
-                def jreDownloadDest = layout.projectDirectory.file("jre/${os}/jre_${arch}.${extension}")
-                def jreDir = layout.projectDirectory.dir("jre/${os}/jre_${arch}").asFile
+                def jreDownloadDest = baseJreDir.file("${os}/jre_${arch}.${extension}")
+                def jreDir = baseJreDir.dir("${os}/jre_${arch}").asFile
                 def jreRelease = (os == "mac"
-                        ? layout.projectDirectory.dir("jre/${os}/jre_${arch}/Contents/Home/release").asFile
-                        : layout.projectDirectory.dir("jre/${os}/jre_${arch}/release").asFile)
-                def outputDir = layout.projectDirectory.dir("jre/${os}/jre_${arch}")
+                        ? baseJreDir.dir("${os}/jre_${arch}/Contents/Home/release").asFile
+                        : baseJreDir.dir("${os}/jre_${arch}/release").asFile)
+                def outputDir = baseJreDir.dir("${os}/jre_${arch}")
                 def shouldDownloadJDK = true
 
                 try {
@@ -569,11 +570,11 @@ tasks.register("downloadJRE") {
                     overwrite false
                 }
 
-                layout.projectDirectory.dir("jre/${os}")
+                baseJreDir.dir("${os}")
                         .asFileTree
                         .matching { include "*.${extension}" }
                         .each { simLib ->
-                            def archFile = layout.projectDirectory.file("jre/${os}/${simLib.name}")
+                            def archFile = baseJreDir.file("${os}/${simLib.name}")
 
                             copy {
                                 println "* Unpack $simLib.name to ${outputDir}"
@@ -605,12 +606,16 @@ tasks.register("downloadJRE") {
 }
 
 tasks.register("downloadJavaFXModules") {
+    notCompatibleWithConfigurationCache("Gradle download extension not compatible")
+
     mustRunAfter downloadJRE
 
     // We support Windows/Mac/Linux - x64, and Mac/Linux - aarch64
     def major = project.javaVersion
     def architectures = ['x64', 'aarch64']
     def osList = ["windows", "mac", "linux"]
+    def baseJreDir = project.ext.jresDir
+    def projectDirPath = projectDir.absolutePath
 
     inputs.property("major", major)
 
@@ -634,11 +639,11 @@ tasks.register("downloadJavaFXModules") {
 
                 // URLs look like this: https://download2.gluonhq.com/openjfx/25.0.1/openjfx-25.0.1_osx-aarch64_bin-jmods.zip
                 def url = "https://download2.gluonhq.com/openjfx/${major}/openjfx-${major}_${osPackage}${archAppend}_bin-jmods.zip"
-                def jmodsZip = layout.projectDirectory.file("jre/${os}/jmods${arch}.zip")
+                def jmodsZip = baseJreDir.file("${os}/jmods${arch}.zip")
 
                 // If we don't already have the jmods, download them and unzip them to the correct place.
                 if (!jmodsZip.asFile.exists()) {
-                    println("Downloading JavaFX mods ${major} ${arch} for ${os} from ${url} to ${projectDir}/jre/${os}/")
+                    println("Downloading JavaFX mods ${major} ${arch} for ${os} from ${url} to ${projectDirPath}/jre/${os}/")
 
                     download.run {
                         src url
@@ -649,8 +654,8 @@ tasks.register("downloadJavaFXModules") {
                     copy {
                         def zipFile = jmodsZip
                         def outputDir = (os == "mac")
-                                ? "${projectDir}/jre/${os}/jre_${arch}/Contents/Home/jmods"
-                                : "${projectDir}/jre/${os}/jre_${arch}/jmods"
+                                ? "${projectDirPath}/jre/${os}/jre_${arch}/Contents/Home/jmods"
+                                : "${projectDirPath}/jre/${os}/jre_${arch}/jmods"
 
                         println "Unzipping ${zipFile} to ${outputDir}"
                         from zipTree(zipFile)

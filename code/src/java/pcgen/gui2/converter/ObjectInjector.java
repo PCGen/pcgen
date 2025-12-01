@@ -171,7 +171,7 @@ public class ObjectInjector
             URI append = campaign.getSourceURI();
             File campaignFile = getNewOutputName(append);
 
-            try (FileWriter writer = new FileWriter(campaignFile, java.nio.charset.StandardCharsets.UTF_8, true))
+            try (FileWriter writer = new FileWriter(campaignFile, StandardCharsets.UTF_8, true))
             {
                 if (needHeader)
                 {
