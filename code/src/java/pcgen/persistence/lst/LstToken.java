@@ -19,6 +19,7 @@
 
 package pcgen.persistence.lst;
 
+@FunctionalInterface
 public interface LstToken
 {
 	/**

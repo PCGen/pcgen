@@ -86,7 +86,6 @@ public class GetFunction implements FormulaFunction
 	@Override
 	public Object evaluate(EvaluateVisitor visitor, Node[] args, EvaluationManager manager)
 	{
-		@SuppressWarnings("PMD.PrematureDeclaration")
 		String format =
 				(String) args[0].jjtAccept(visitor, manager.getWith(EvaluationManager.ASSERTED, Optional.empty()));
 		String stringRepresentation = (String) args[1].jjtAccept(visitor,
@@ -98,9 +97,7 @@ public class GetFunction implements FormulaFunction
 	@Override
 	public Optional<FormatManager<?>> getDependencies(DependencyVisitor visitor, DependencyManager manager, Node[] args)
 	{
-		@SuppressWarnings("PMD.PrematureDeclaration")
 		String format = ((ASTQuotString) args[0]).getText();
-		@SuppressWarnings("PMD.PrematureDeclaration")
 		String stringRepresentation = ((ASTQuotString) args[1]).getText();
 		AbstractReferenceContext refContext = manager.get(ManagerKey.CONTEXT).getReferenceContext();
 		FormatManager<?> formatManager = refContext.getFormatManager(format);

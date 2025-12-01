@@ -33,6 +33,7 @@ import freemarker.template.TemplateModelException;
  * @param <T>
  *            The type of object that this OutputActor can process
  */
+@FunctionalInterface
 public interface OutputActor<T>
 {
 	/**

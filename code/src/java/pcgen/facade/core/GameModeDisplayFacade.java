@@ -20,6 +20,7 @@ package pcgen.facade.core;
 
 import pcgen.core.GameMode;
 
+@FunctionalInterface
 public interface GameModeDisplayFacade
 {
 	@Override

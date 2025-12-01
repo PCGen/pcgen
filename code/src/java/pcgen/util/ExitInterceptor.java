@@ -3,6 +3,7 @@ package pcgen.util;
 /**
  * An interface that can be used to intercept the exit of the JVM.
  */
+@FunctionalInterface
 public interface ExitInterceptor
 {
 	/**

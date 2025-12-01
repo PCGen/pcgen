@@ -121,7 +121,6 @@ public class GroupFunction implements FormulaFunction
 	public Object evaluate(EvaluateVisitor visitor, Node[] args,
 		EvaluationManager manager)
 	{
-		@SuppressWarnings("PMD.PrematureDeclaration")
 		String scopeName = (String) args[0].jjtAccept(visitor,
 			manager.getWith(EvaluationManager.ASSERTED,
 				Optional.of(FormatUtilities.STRING_MANAGER)));
@@ -153,7 +152,6 @@ public class GroupFunction implements FormulaFunction
 	public Optional<FormatManager<?>> getDependencies(DependencyVisitor visitor,
 		DependencyManager manager, Node[] args)
 	{
-		@SuppressWarnings("PMD.PrematureDeclaration")
 		String format = ((ASTQuotString) args[0]).getText();
 		AbstractReferenceContext refContext =
 				manager.get(ManagerKey.CONTEXT).getReferenceContext();

@@ -108,13 +108,13 @@ public final class PreParserFactory implements PluginLoader
 			{
 				Logging.errorPrint(ple.getMessage(), ple);
 				//The message is now produced at a lower level, and thus has to be localized there.
-	//Logging.errorPrintLocalised(PropertyFactory.getString("PrereqHandler.Unable_to_parse"), object); //$NON-NLS-1$
+	            //Logging.errorPrintLocalised(PropertyFactory.getString("PrereqHandler.Unable_to_parse"), object); //$NON-NLS-1$
 			}
 		}
 		return ret;
 	}
 
-	public Prerequisite parse(String prereqStr) throws PersistenceLayerException
+    public Prerequisite parse(String prereqStr) throws PersistenceLayerException
 	{
 
 		if ((prereqStr == null) || (prereqStr.length() <= 0))

@@ -149,15 +149,18 @@ public interface SpellSupportFacade
 	{
 	}
 
+	@FunctionalInterface
 	public static interface RootNode extends SuperNode
 	{
 		public String getName();
 	}
 
+    @FunctionalInterface
 	public static interface SpellListNode extends RootNode
 	{
 	}
 
+    @FunctionalInterface
 	public static interface SpellBookNode extends RootNode
 	{
 	}

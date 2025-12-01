@@ -275,8 +275,7 @@ public class ChallengeRatingFacet
 		{
 			if (SettingsHandler.getGameAsProperty().get().getClassTypeByName(classType) != null)
 			{
-				Integer crMod = raceFacet.get(id).get(MapKey.CRMOD, classType);
-                return crMod;
+				return raceFacet.get(id).get(MapKey.CRMOD, classType);
 			}
 		}
 		else

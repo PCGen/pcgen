@@ -146,7 +146,7 @@ public class WieldCategoryLoader
 				Logging.clearParseMessages();
 			}
 		}
-		//TODO Error checking if preVal w/o preKey, vice versa, etc.
+		// TODO Error checking if preVal w/o preKey, vice versa, etc.
 		if ((cat != null) && (preVal != null) && (preKey != null))
 		{
 			try

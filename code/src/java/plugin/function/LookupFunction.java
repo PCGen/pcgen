@@ -88,7 +88,6 @@ public class LookupFunction implements FormulaFunction
 		LoadContext context = semantics.get(ManagerKey.CONTEXT);
 		AbstractReferenceContext refContext = context.getReferenceContext();
 		//Table node (must be a DataTable)
-		@SuppressWarnings("PMD.PrematureDeclaration")
 		Object format = args[0].jjtAccept(visitor,
 			semantics.getWith(FormulaSemantics.ASSERTED, Optional.of(refContext.getManufacturer(DATATABLE_CLASS))));
 		if (!(format instanceof TableFormatManager tableFormatManager))
@@ -99,7 +98,6 @@ public class LookupFunction implements FormulaFunction
 		FormatManager<?> lookupFormat = tableFormatManager.getLookupFormat();
 
 		//Lookup value (at this point we enforce based on the Table Format)
-		@SuppressWarnings("PMD.PrematureDeclaration")
 		FormatManager<?> luFormat = (FormatManager<?>) args[1].jjtAccept(visitor,
 			semantics.getWith(FormulaSemantics.ASSERTED, Optional.of(lookupFormat)));
 		if (!lookupFormat.equals(luFormat))
@@ -109,7 +107,6 @@ public class LookupFunction implements FormulaFunction
 		}
 
 		//Result Column
-		@SuppressWarnings("PMD.PrematureDeclaration")
 		Object resultColumn = args[2].jjtAccept(visitor,
 			semantics.getWith(FormulaSemantics.ASSERTED, Optional.of(refContext.getManufacturer(COLUMN_CLASS))));
 		if (!(resultColumn instanceof ColumnFormatManager<?> cf))
@@ -153,7 +150,6 @@ public class LookupFunction implements FormulaFunction
 		FormatManager<?> lookupFormat = dataTable.getFormat(0);
 
 		//Lookup value (format based on the table)
-		@SuppressWarnings("PMD.PrematureDeclaration")
 		Object lookupValue =
 				args[1].jjtAccept(visitor, manager.getWith(EvaluationManager.ASSERTED, Optional.of(lookupFormat)));
 

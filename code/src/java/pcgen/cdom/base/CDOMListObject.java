@@ -72,7 +72,6 @@ public abstract class CDOMListObject<T extends CDOMObject> extends ConcretePrere
 	}
 
 	@Override
-	@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
 	public boolean isInternal()
 	{
 		return false;

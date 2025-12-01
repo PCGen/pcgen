@@ -122,7 +122,7 @@ class PluginClassLoader extends PCGenTask
 		}
 	}
 
-	private boolean processClass(Class<?> clazz)
+    private boolean processClass(Class<?> clazz)
 	{
 		boolean loaded = false;
 		for (final Class<?> key : loaderMap.getKeySet())

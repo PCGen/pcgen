@@ -5,6 +5,8 @@
 .settings/
 /settings/
 
+testsuite/
+
 # Batch converter
 batch-convert.jar
 

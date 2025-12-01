@@ -94,7 +94,7 @@ public class VariableLoader extends Observable
 	 *            CampaignSourceEntry containing the absolute file path or the
 	 *            URL from which to read LST formatted data.
 	 */
-	protected void loadLstFile(LoadContext context, CampaignSourceEntry sourceEntry)
+    protected void loadLstFile(LoadContext context, CampaignSourceEntry sourceEntry)
 	{
 		setChanged();
 		URI uri = sourceEntry.getURI();

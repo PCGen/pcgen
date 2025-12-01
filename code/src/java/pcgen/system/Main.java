@@ -284,15 +284,12 @@ public final class Main
 		File savepath_dir = new File(savepath);
 		if (!savepath_dir.exists() && !savepath_dir.isDirectory())
 		{
-			try
-			{
-				Logging.log(Level.INFO, "Making directory " + savepath_dir);
-				savepath_dir.mkdir();
-			}
-			catch (Exception e)
-			{
-				Logging.log(Level.SEVERE, "Unable to create PCG_SAVE_PATH " + savepath_dir + ": " + e );
-			}
+            Logging.log(Level.INFO, "Making directory " + savepath_dir);
+            boolean succeeded = savepath_dir.mkdir();
+            if (!succeeded)
+            {
+                Logging.log(Level.SEVERE, "Unable to create PCG_SAVE_PATH " + savepath_dir);
+            }
 		}
 	}
 

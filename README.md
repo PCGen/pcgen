@@ -12,19 +12,19 @@ It supports numerous game systems, most notably:
 # Table of Contents
 1. [Installing From Release 6.08](#installing-from-release-608)
 
-1. [Installing From Release 6.09 (Alpha)](#installing-from-release-609-alpha)
+2. [Installing From Release 6.09 (Alpha)](#installing-from-release-609-alpha)
 
-1. [PCGen Needs You](#pcgen-needs-you)
+3. [PCGen Needs You](#pcgen-needs-you)
 
-1. [The Old Wiki](#the-old-wiki)
+4. [The Old Wiki](#the-old-wiki)
 
-1. [PCGen LST Tutorial](#pcgen-lst-tutorial)
+5. [PCGen LST Tutorial](#pcgen-lst-tutorial)
 
-1. [Basic Workflow](#basic-workflow)
+6. [Basic Workflow](#basic-workflow)
 
-1. [Development Setup](#development-setup)
+7. [Development Setup](#development-setup)
 
-1. [Essential Gradle Tasks](#essential-gradle-tasks)
+8. [Essential Gradle Tasks](#essential-gradle-tasks)
 
 # Installing From Release 6.08
 1. Install Java.
@@ -32,9 +32,9 @@ It supports numerous game systems, most notably:
    - To check if you have Java installed, see [Install Java](#install-java)
    - If you don't have it already, you can get it from [AdoptOpenJDK](https://adoptopenjdk.net/installation.html?variant=openjdk11&jvmVariant=hotspot).
    
-1. Download and extract the full zip file from https://github.com/PCGen/pcgen/releases/latest.
+2. Download and extract the full zip file from https://github.com/PCGen/pcgen/releases/latest.
 
-1. You should now be able to run PCGen. The exact invocation depends on your operating system, but you should be able to either double-click to launch the file for your platform.
+3. You should now be able to run PCGen. The exact invocation depends on your operating system, but you should be able to either double-click to launch the file for your platform.
     - Windows: `pcgen.exe` (`pcgen.bat` for command-line users)
     - Linux: `pcgen.sh` 
     - Mac: `pcgen.jar` (or `pcgen.dmg` if it exists)
@@ -43,25 +43,25 @@ It supports numerous game systems, most notably:
 > Note: Java does not need to be preinstalled with PcGen >6.09.05
 
 ## Using Zip bundle
-1. Download and extract the full zip file from https://github.com/PCGen/pcgen/releases/ labled 6.09.xx.
+1. Download and extract the full zip file from https://github.com/PCGen/pcgen/releases/ labeled 6.09.xx.
 
-1. You should now be able to run PCGen. The exact invocation depends on your operating system, but you should be able to either double-click to launch the file for your platform.
+2. You should now be able to run PCGen. The exact invocation depends on your operating system, but you should be able to either double-click to launch the file for your platform.
     - Windows: `pcgen.exe` (`pcgen.bat` for command-line users)
     - Linux: `pcgen.sh`
     - Mac: `pcgen.sh` (or `pcgen.dmg` if it exists. Launching .jar may throw java errors so generally avoid)
 
 ## Using installer (windows and mac only)
-1. Download and extract the full installer from https://github.com/PCGen/pcgen/releases/ labled 6.09.xx. 
+1. Download and extract the full installer from https://github.com/PCGen/pcgen/releases/ labeled 6.09.xx. 
     - Windows: `pcgen-6.09.xx_win_install.exe`
     - Mac: `pcgen-6.09.xx.dmg` or `pcgen-6.09.xx.pkg`
 
-1. Run installer and follow instruction
+2. Run installer and follow instruction
    - Windows: Open `pcgen-6.09.xx_win_install.exe`
    - Mac:
    - - `dmg`: Open `dmg` and drag into Applications. Right-click on `PcGen` and click open.
    - - `pkg`: Right-click and `pkg` and click open and click `open` on security warning due to application being unsigned. 
 
-1. You should be able to launch PcGen as a normal application.
+3. You should be able to launch PcGen as a normal application.
    -  Mac: You may need to on first launch right-click on application and then click `open`.
 
 # PCGen Needs You
@@ -89,11 +89,11 @@ Programmers may want to review these if they work on the LST parsing or related 
 # Basic Workflow
 
 1. Get a bug from [JIRA] primarily from the [CODE] or [DATA] sections. Alternatively, if you want to propose a new feature/change, make a JIRA entry to track it.
-1. Create a branch in your fork of [PCGen] during development. It is good to name branches after ticket numbers, like fix_code_3444 or fix_data_3322.
-1. Work until the feature or bug is finished. Add tests if needed, especially if new code is added.
-1. Push all work up into your copy of [PCGen]. Try to ensure the build passes BEFORE submitting a pull request.
-1. Submit a pull request from your fork to master and respond to a review by members.
-1. Go back to the first step.
+2. Create a branch in your fork of [PCGen] during development. It is good to name branches after ticket numbers, like fix_code_3444 or fix_data_3322.
+3. Work until the feature or bug is finished. Add tests if needed, especially if new code is added.
+4. Push all work up into your copy of [PCGen]. Try to ensure the build passes BEFORE submitting a pull request.
+5. Submit a pull request from your fork to master and respond to a review by members.
+6. Go back to the first step.
 
 # Development Setup
 

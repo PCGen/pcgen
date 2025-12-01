@@ -190,7 +190,6 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject> extends
 	}
 
 	@Override
-	@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
 	public boolean allow(T choice, PlayerCharacter pc, boolean allowStack)
 	{
 		/*

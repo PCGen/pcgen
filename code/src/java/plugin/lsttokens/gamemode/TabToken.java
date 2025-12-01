@@ -20,6 +20,7 @@ package plugin.lsttokens.gamemode;
 import java.net.URI;
 
 import pcgen.core.GameMode;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.GameModeLstToken;
 import pcgen.persistence.lst.TabLoader;
 import pcgen.rules.context.LoadContext;
@@ -48,7 +49,7 @@ public class TabToken implements GameModeLstToken
 			tabLoader.parseLine(modeContext, value, source);
 			return true;
 		}
-		catch (Exception e)
+		catch (PersistenceLayerException e)
 		{
 			Logging.errorPrint(e.getMessage(), e);
 			return false;

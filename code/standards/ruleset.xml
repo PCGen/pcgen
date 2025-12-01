@@ -5,10 +5,10 @@
    - See https://pmd.github.io/latest/pmd_rules_java.html
    - for descriptions of the rules applied.
  -->
-<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         name="PCGen Code Rules"
-         xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
-         xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+<ruleset name="PCGen Code Rules"
+             xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.github.io/schema/ruleset_2_0_0.xsd">
     <description>
         PMD rules customised for PCGen's code.
     </description>
@@ -20,6 +20,10 @@
         <exclude name="ArrayIsStoredDirectly"/>
         <exclude name="AvoidReassigningParameters"/>
         <exclude name="AvoidStringBufferField"/>
+        <!-- Introduced in 7.19.0 - this is valid, we should unexclude this later -->
+        <exclude name="EnumComparison"/>
+        <!-- Explicit defaults are still better to read -->
+        <exclude name="ExhaustiveSwitchHasDefault"/>
         <exclude name="ForLoopCanBeForeach"/>
         <exclude name="GuardLogStatement"/>
         <!-- It is better to throw a NPE and add explicit checks. Nulls should be rare -->
@@ -74,6 +78,8 @@
         <exclude name="PrematureDeclaration"/>
         <exclude name="ShortClassName"/>
         <exclude name="ShortVariable"/>
+        <!-- We allow for multiple character type parameter naming in PCGen -->
+        <exclude name="TypeParameterNamingConventions"/>
         <!-- new in PMD 7.0.0, lots of hits -->
         <exclude name="UnnecessaryBoxing" />
         <!-- new in PMD 7.0.0, lots of hits -->
@@ -146,6 +152,8 @@
         <exclude name="AssignmentInOperand"/>
         <exclude name="AssignmentToNonFinalStatic"/>
         <exclude name="AvoidBranchingStatementAsLastInLoop"/>
+        <!-- Suppressed these in files with some commentary, but there's still a bunch out there -->
+        <exclude name="AvoidCatchingGenericException"/>
         <exclude name="AvoidCatchingNPE"/>
         <exclude name="AvoidCatchingThrowable"/>
         <exclude name="AvoidDuplicateLiterals"/>
@@ -167,7 +175,11 @@
         <exclude name="MissingSerialVersionUID"/>
         <exclude name="NullAssignment"/>
         <exclude name="OverrideBothEqualsAndHashcode"/>
+        <!-- TODO This is not great, we should fix these -->
+        <exclude name="OverrideBothEqualsAndHashCodeOnComparable"/>
         <exclude name="ProperCloneImplementation"/>
+        <!-- TODO This is not great, we should fix these -->
+        <exclude name="ReplaceJavaUtilDate"/>
         <exclude name="ReturnEmptyCollectionRatherThanNull"/>
         <exclude name="SingleMethodSingleton"/>
         <exclude name="UseEqualsToCompareStrings"/>

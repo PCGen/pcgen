@@ -97,7 +97,7 @@ public class StatusWorker extends SwingWorker<List<LogRecord>, List<LogRecord>> 
 	}
 
 	@Override
-	protected List<LogRecord> doInBackground()
+    protected List<LogRecord> doInBackground()
 	{
 		final String oldMessage = statusBar.getContextMessage();
 		statusBar.startShowingProgress(statusMsg, false);

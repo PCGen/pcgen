@@ -107,6 +107,7 @@ public interface PrimitiveCollection<T>
 		}
 	};
 
+    @FunctionalInterface
 	public interface PrimLibrary
 	{
 		<PCT> PrimitiveCollection<PCT> invalid();

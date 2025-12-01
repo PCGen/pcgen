@@ -58,7 +58,8 @@ public final class SpringHelper
 	 * @param cl The type of bean to be retrieved.
 	 * @return The bean, or null if none exists.
 	 */
-	public static @Nullable <T> T getBean(Class<T> cl)
+	@Nullable
+	public static <T> T getBean(Class<T> cl)
 	{
 		String[] beanNamesForType = BEAN_FACTORY.getBeanNamesForType(cl);
 		if (beanNamesForType.length == 0)

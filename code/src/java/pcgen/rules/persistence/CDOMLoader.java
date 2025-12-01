@@ -22,6 +22,7 @@ import java.net.URI;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 
+@FunctionalInterface
 public interface CDOMLoader<T>
 {
 

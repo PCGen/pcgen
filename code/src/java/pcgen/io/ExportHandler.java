@@ -1522,7 +1522,7 @@ public abstract class ExportHandler
 	 * @param aPC The PC currently being exported
 	 * @return value
 	 */
-	public int replaceToken(String aString, BufferedWriter output, PlayerCharacter aPC)
+    public int replaceToken(String aString, BufferedWriter output, PlayerCharacter aPC)
 	{
 		try
 		{

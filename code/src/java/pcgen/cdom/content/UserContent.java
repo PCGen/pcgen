@@ -97,14 +97,12 @@ public abstract class UserContent implements Loadable
 	}
 
 	@Override
-	@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
 	public boolean isInternal()
 	{
 		return false;
 	}
 
 	@Override
-	@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
 	public boolean isType(String type)
 	{
 		return false;

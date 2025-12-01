@@ -88,7 +88,7 @@ public class PropertyContextFactory
 			loaded = true;
 			context.afterPropertiesLoaded();
 		}
-		catch (Exception ex)
+		catch (IOException ex)
 		{
 			Logging.errorPrint("Error occurred while reading properties", ex);
 		}

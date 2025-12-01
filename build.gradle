@@ -26,7 +26,7 @@ plugins {
     id 'application'                                    // Creating application bundles
     id 'build-dashboard'                                // Produces a build report
     id 'checkstyle'                                     // Checkstyle for Java, configured further below
-    id 'com.github.spotbugs' version '6.4.5'            // Spotbugs for Java
+    id 'com.github.spotbugs' version '6.4.6'            // Spotbugs for Java
     id 'java'                                           // Core java / javac
     id 'maven-publish'                                  // Publishing to Maven Central
     id 'pmd'                                            // PMD for Java, configured further below
@@ -36,7 +36,7 @@ plugins {
     id 'com.github.ben-manes.versions' version '0.53.0' // Checks versions for plugins and dependencies
     id 'com.dorongold.task-tree' version '4.0.1'        // Prints the task dependency tree
     id 'org.openjfx.javafxplugin' version '0.1.0'       // JavaFX support
-    id 'org.beryx.runtime' version '2.0.0'              // Creates custom runtimes
+    id 'org.beryx.runtime' version '2.0.1'              // Creates custom runtimes
     id 'jacoco'                                         // Code coverage
 }
 
@@ -70,9 +70,10 @@ ext {
     // Installers are placed here
     releaseDir = layout.projectDirectory.dir("build/release")
 
-    // Java version (always latest release). It will affect JavaFX version too.
+    // Java version. It will affect JavaFX version too.
     javaVersion = 25
 
+    // The Eclipse Adoptium API will return the latest patch release for the majorJava version set
     latestJavaVersion = { majorJavaVersion ->
         def uri = new URI("https://api.adoptium.net/v3/assets/feature_releases/${majorJavaVersion}/ga?architecture=x64&page=0&page_size=1&project=jdk&sort_order=DESC&vendor=eclipse")
         def parsedJson = new JsonSlurper().parse(uri.toURL())
@@ -233,11 +234,11 @@ tasks.register("cleanMasterSheets", Delete) {
  * https://docs.gradle.org/current/userguide/dependency_downgrade_and_exclude.html
  */
 dependencies {
-    implementation 'commons-io:commons-io:2.20.0'
-    implementation 'org.springframework:spring-web:6.2.12'
-    implementation 'org.springframework:spring-beans:6.2.12'
-    implementation 'org.springframework:spring-core:6.2.12'
-    implementation 'org.apache.commons:commons-lang3:3.19.0'
+    implementation 'commons-io:commons-io:2.21.0'
+    implementation 'org.springframework:spring-web:6.2.14'
+    implementation 'org.springframework:spring-beans:6.2.14'
+    implementation 'org.springframework:spring-core:6.2.14'
+    implementation 'org.apache.commons:commons-lang3:3.20.0'
     implementation 'xalan:serializer:2.7.3'
     implementation('org.apache.xmlgraphics:fop:2.11') {
         exclude group: 'xml-apis', module: 'xml-apis'
@@ -250,7 +251,7 @@ dependencies {
         exclude group: 'xml-apis', module: 'xml-apis'
     }
     implementation 'net.sourceforge.argparse4j:argparse4j:0.9.0'
-    implementation 'org.xmlunit:xmlunit-core:2.10.4'
+    implementation 'org.xmlunit:xmlunit-core:2.11.0'
     implementation 'org.controlsfx:controlsfx:11.2.2'
     implementation 'net.sourceforge.pcgen:PCGen-base:1.0.170'
     // The latest Base, but pcgen core would need refactoring to support it.
@@ -268,20 +269,21 @@ dependencies {
     compileOnly 'com.yuvimasory:orange-extensions:1.3.0'
     compileOnly 'com.github.spotbugs:spotbugs-annotations:4.9.8'
 
-    testImplementation 'org.junit.platform:junit-platform-runner:1.14.0'
-    testImplementation 'org.junit.platform:junit-platform-launcher:1.14.0'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:6.0.0'
-    testImplementation 'org.junit.jupiter:junit-jupiter-params:6.0.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:6.0.0'
+    testImplementation 'org.junit.platform:junit-platform-runner:1.14.1'
+    testImplementation 'org.junit.platform:junit-platform-launcher:6.0.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:6.0.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:6.0.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:6.0.1'
     testImplementation 'org.hamcrest:hamcrest:3.0'
     testImplementation 'org.testfx:testfx-junit5:4.0.18'
+    // 21.0.2 is the latest version. As of Nov 2025, we have moved to OpenJFX 25 so this may cause issues
     testImplementation 'org.testfx:openjfx-monocle:21.0.2'
 
-    testImplementation 'org.xmlunit:xmlunit-matchers:2.10.4'
+    testImplementation 'org.xmlunit:xmlunit-matchers:2.11.0'
     spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.14.0'
 
-    pmd 'net.sourceforge.pmd:pmd-ant:7.17.0'
-    pmd 'net.sourceforge.pmd:pmd-java:7.17.0'
+    pmd 'net.sourceforge.pmd:pmd-java:7.19.0'
+    pmd 'net.sourceforge.pmd:pmd-ant:7.19.0'
 }
 
 ext {
@@ -329,7 +331,6 @@ runtime {
             'java.naming',
             'jdk.xml.dom',
             'jdk.unsupported.desktop',
-//            'java.datatransfer',
             'java.scripting',
             'jdk.jfr',
             'jdk.jsobject',
@@ -442,6 +443,10 @@ tasks.register("copyToLibs", Copy) {
     from configurations.runtimeClasspath
 }
 
+// Fix implicit dependency issues with distribution tasks
+distZip.dependsOn copyToLibs
+distTar.dependsOn copyToLibs
+
 tasks.register("copyToOutput", Copy) {
     dependsOn copyToLibs, converterJar, jar
 
@@ -513,8 +518,8 @@ tasks.named("build") {
 }
 
 tasks.register("downloadJRE") {
-    def major = 21
-    def archs = ['x64', 'aarch64']
+    def major = 25
+    def architectures = ['x64', 'aarch64']
     def osList = ['windows', 'mac', 'linux']
 
     doLast {
@@ -524,7 +529,7 @@ tasks.register("downloadJRE") {
             def os = "${it}"
             def extension = (os == "windows" ? "zip" : "tar.gz")
 
-            archs.each {
+            architectures.each {
                 def arch = "${it}"
                 // TODO We don't currently support Windows aarch64, but once Eclipse Adoptium does we should remove this line
                 if (arch == "aarch64" && os == "windows") return
@@ -604,7 +609,7 @@ tasks.register("downloadJavaFXModules") {
 
     // We support Windows/Mac/Linux - x64, and Mac/Linux - aarch64
     def major = project.javaVersion
-    def archs = ['x64', 'aarch64']
+    def architectures = ['x64', 'aarch64']
     def osList = ["windows", "mac", "linux"]
 
     inputs.property("major", major)
@@ -616,7 +621,7 @@ tasks.register("downloadJavaFXModules") {
             // Build the os part of the filename string. Gluon renamed the mac package to osx
             def osPackage = (os == "mac") ? "osx" : os
 
-            archs.each { arch ->
+            architectures.each { arch ->
                 // build the architecture part of the download filename string
                 def archAppend
                 if (arch == "x64") {
@@ -627,7 +632,7 @@ tasks.register("downloadJavaFXModules") {
                     return
                 }
 
-                // URLs look like this: https://download2.gluonhq.com/openjfx/21.0.2/openjfx-21.0.2_osx-aarch64_bin-jmods.zip
+                // URLs look like this: https://download2.gluonhq.com/openjfx/25.0.1/openjfx-25.0.1_osx-aarch64_bin-jmods.zip
                 def url = "https://download2.gluonhq.com/openjfx/${major}/openjfx-${major}_${osPackage}${archAppend}_bin-jmods.zip"
                 def jmodsZip = layout.projectDirectory.file("jre/${os}/jmods${arch}.zip")
 

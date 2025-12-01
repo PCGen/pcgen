@@ -24,6 +24,7 @@ package pcgen.core;
  * small however it will be extended over time as the variable handling routines
  * are made common.
  */
+@FunctionalInterface
 public interface VariableContainer
 {
 	/**

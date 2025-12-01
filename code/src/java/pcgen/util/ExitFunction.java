@@ -3,6 +3,7 @@ package pcgen.util;
 /**
  * An interface that can be used to exit the JVM.
  */
+@FunctionalInterface
 public interface ExitFunction
 {
 	/**

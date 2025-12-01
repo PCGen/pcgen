@@ -122,6 +122,7 @@ public interface EquipmentSetFacade
 	 */
 	public String getLocation(EquipmentFacade equip);
 
+	@FunctionalInterface
 	public static interface EquipmentTreeListener extends EventListener
 	{
 

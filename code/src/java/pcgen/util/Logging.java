@@ -392,7 +392,7 @@ public final class Logging
 	public static void errorPrint(final String s, final Throwable thr)
 	{
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		PrintStream ps = new PrintStream(baos);
+		PrintStream ps = new PrintStream(baos, true, java.nio.charset.StandardCharsets.UTF_8);
 		thr.printStackTrace(ps);
 		errorPrint(s + '\n' + baos);
 	}
@@ -458,7 +458,7 @@ public final class Logging
 	public static void errorPrintLocalised(final String s, final Throwable thr)
 	{
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		try (PrintStream ps = new PrintStream(baos))
+		try (PrintStream ps = new PrintStream(baos, true, java.nio.charset.StandardCharsets.UTF_8))
 		{
 			thr.printStackTrace(ps);
 		}

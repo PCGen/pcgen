@@ -21,6 +21,7 @@ pmd {
     sourceSets = []
     toolVersion = "7.18.0"
     incrementalAnalysis = true
+    ignoreFailures = false
 }
 
 // TODO fix the outstanding bugs and then remove the ignoreFailures

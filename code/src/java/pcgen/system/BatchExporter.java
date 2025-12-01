@@ -432,7 +432,7 @@ public class BatchExporter
 	/**
 	 * Remove any temporary xml files produced while outputting characters. 
 	 */
-	static void removeTemporaryFiles()
+    static void removeTemporaryFiles()
 	{
 		final boolean cleanUp = UIPropertyContext.getInstance().initBoolean(UIPropertyContext.CLEANUP_TEMP_FILES, true);
 
