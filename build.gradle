@@ -519,7 +519,7 @@ tasks.register("downloadJRE") {
     notCompatibleWithConfigurationCache("Gradle download extension not compatible")
 
     def major = project.ext.javaVersion
-    def archs = ['x64', 'aarch64']
+    def architectures = ['x64', 'aarch64']
     def osList = ['windows', 'mac', 'linux']
     def baseJreDir = project.ext.jresDir
 
