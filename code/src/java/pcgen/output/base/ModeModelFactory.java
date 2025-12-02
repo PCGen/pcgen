@@ -25,6 +25,7 @@ import freemarker.template.TemplateModel;
  * A ModeModelFactory is a class that can generate TemplateModel objects for the
  * current Game Mode.
  */
+@FunctionalInterface
 public interface ModeModelFactory
 {
 	/**

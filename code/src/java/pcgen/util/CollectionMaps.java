@@ -38,7 +38,7 @@ public final class CollectionMaps
 		{
 			return c.newInstance();
 		}
-		catch (Exception ex)
+		catch (InstantiationException | IllegalAccessException ex)
 		{
 			Logger.getLogger(c.getName()).log(Level.SEVERE, null, ex);
 		}
@@ -52,7 +52,7 @@ public final class CollectionMaps
 		{
 			return new BasicListMap(mapClass, listClass);
 		}
-		catch (Exception ex)
+		catch (InstantiationException | IllegalAccessException ex)
 		{
 			Logger.getLogger(CollectionMaps.class.getName()).log(Level.SEVERE, null, ex);
 		}

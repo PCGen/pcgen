@@ -19,6 +19,7 @@ package pcgen.cdom.base;
  * This is used identify when a SORTKEY is a required part of an object. This avoids
  * implicit sorting of certain files (stat, et al).
  */
+@FunctionalInterface
 public interface SortKeyRequired
 {
 	/**

@@ -554,7 +554,7 @@ public class JTreeTable extends JTableEx
 		 * @param g
 		 **/
 		@Override
-		public void paint(final Graphics g)
+        public void paint(final Graphics g)
 		{
 			Rectangle rect = JTreeTable.this.getCellRect(visibleRow, 0, true);
 			int offset = -rect.y;

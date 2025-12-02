@@ -37,6 +37,7 @@ public interface EquipmentListFacade extends ListFacade<EquipmentFacade>
 	 */
 	public void modifyElement(EquipmentFacade equipment);
 
+	@FunctionalInterface
 	public static interface EquipmentListListener extends EventListener
 	{
 

@@ -24,6 +24,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.DatasetVariable;
 import pcgen.cdom.formula.scope.GlobalPCScope;
 import pcgen.cdom.formula.scope.PCGenScope;
+import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.VariableContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
@@ -81,7 +82,8 @@ public class LocalToken extends AbstractNonEmptyToken<DatasetVariable> implement
 		FormatManager<?> formatManager;
 		try
 		{
-			formatManager = context.getReferenceContext().getFormatManager(format);
+            AbstractReferenceContext referenceContext = context.getReferenceContext();
+			formatManager = referenceContext.getFormatManager(format);
 		}
 		catch (NullPointerException | IllegalArgumentException e)
 		{

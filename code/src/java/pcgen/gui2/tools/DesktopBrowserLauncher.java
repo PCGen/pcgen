@@ -61,7 +61,7 @@ public final class DesktopBrowserLauncher
 	 * @param uri URI to display in browser.
 	 * @throws IOException if the URL is bad or the browser can not be launched
 	 */
-	@SuppressWarnings({"ThrowInsideCatchBlockWhichIgnoresCaughtException", "PMD.PreserveStackTrace"})
+	@SuppressWarnings("ThrowInsideCatchBlockWhichIgnoresCaughtException")
 	public static void viewInBrowser(URI uri) throws IOException
 	{
 		if (Desktop.isDesktopSupported() && DESKTOP.isSupported(Action.BROWSE))

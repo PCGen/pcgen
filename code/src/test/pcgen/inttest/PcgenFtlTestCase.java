@@ -17,19 +17,24 @@
  */
 package pcgen.inttest;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.util.Locale;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.xmlunit.builder.DiffBuilder;
 import org.xmlunit.builder.Input;
 import org.xmlunit.diff.Diff;
 import pcgen.LocaleDependentTestCase;
-import pcgen.cdom.base.Constants;
+import pcgen.system.Main;
+import pcgen.util.GracefulExit;
 import pcgen.util.TestHelper;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.text.MessageFormat;
+import java.util.Locale;
+import java.util.logging.Logger;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 /**
@@ -39,6 +44,8 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
  */
 public abstract class PcgenFtlTestCase
 {
+	private static final Logger LOG = Logger.getLogger(PcgenFtlTestCase.class.getName());
+
 	private static final String TEST_CONFIG_FILE = "config.ini.junit";
 
 	@BeforeEach
@@ -51,72 +58,59 @@ public abstract class PcgenFtlTestCase
 	public void tearDown()
 	{
 		LocaleDependentTestCase.after();
+		GracefulExit.registerExitFunction(System::exit);
 	}
 
 	/**
 	 * Run the test.
 	 *
 	 * @param character The PC
-	 * @param mode The game mode
+	 * @param mode      The game mode
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
 	public static void runTest(String character, String mode) throws IOException
 	{
-		System.out.println("RUNTEST with the character: " + character
-				+ " and the game mode: " + mode);
+		LOG.info("RUNTEST with the character: " + character + " and the game mode: " + mode);
 		// Delete the old generated output for this test
-		File outputFolder = new File("code/testsuite/output");
+		String characterFileName = character + ".xml";
+		String characterPCFileName = character + ".pcg";
+		var inputFolder = new File("code/testsuite/PCGfiles");
+		var outputFolder = new File("code/testsuite/output");
+		var csheetsFolder = new File("code/testsuite/csheets");
 		outputFolder.mkdirs();
-		String outputFileName = character + ".xml";
-		File outputFileFile = new File(outputFolder, outputFileName);
+
+		var inputFile = new File(inputFolder, characterPCFileName);
+		var outputFile = new File(outputFolder, characterFileName);
+		var expectedFile = new File(csheetsFolder, characterFileName);
 
 		String pccLoc = TestHelper.findDataFolder();
 
-		// The String holder for the XML of the expected result
-		String expected;
-		// The String holder for the XML of the actual result
-		String actual;
 		/*
-		 * Override the pcc location, game mode and several other properties in
-		 * the options.ini file
+		 * Override the pcc location, game mode and several other properties in the options.ini file
 		 */
 		String configFolder = "testsuite";
-		TestHelper.createDummySettingsFile(TEST_CONFIG_FILE, configFolder,
-				pccLoc);
+		TestHelper.createDummySettingsFile(TEST_CONFIG_FILE, configFolder, pccLoc);
 
-		// Fire off PCGen, which will produce an XML file
-		String characterFile = "code/testsuite/PCGfiles/" + character
-				+ Constants.EXTENSION_CHARACTER_FILE;
+		GracefulExit.registerExitFunction((int status) ->
+				assertEquals(0, status,
+						MessageFormat.format("The export of {0} failed with an error: {1}.", character, status)));
 
-		String outputFile = outputFileFile.getCanonicalPath();
+		Main.main("--character", inputFile.getCanonicalPath(),
+				"--exportsheet", "code/testsuite/base-xml.ftl",
+				"--outputfile", outputFile.getCanonicalPath(),
+				"--configfilename", TEST_CONFIG_FILE);
 
-		// The code below had to be commented out as in Java 21+ there's no more SecurityManager
-		// At time of writing there is no replacement, see <a href="https://bugs.openjdk.org/browse/JDK-8199704">JDK-8199704</a>
-		// The tests seem to pass regardless.
-		/*
-		Runnable revertSystemExitInterceptor = SystemExitInterceptor.startInterceptor();
+		// the XML of the expected result
+		var expected = Files.readString(expectedFile.toPath());
+		// the XML of the actual result
+		var actual = Files.readString(outputFile.toPath());
 
-		assertEquals(0,
-				assertThrows(SystemExitInterceptor.SystemExitCalledException.class,
-						() -> Main.main("--character", characterFile,
-								"--exportsheet", "code/testsuite/base-xml.ftl",
-								"--outputfile", outputFile,
-								"--configfilename", TEST_CONFIG_FILE)
-				).getStatusCode(),
-				"Export of " + character + " failed.");
-
-		revertSystemExitInterceptor.run();
-		*/
-
-		// Read in the actual XML produced by PCGen
-		actual = Files.readString(outputFileFile.toPath());
-		// Read in the expected XML
-		expected = Files.readString(
-                new File("code/testsuite/csheets/" + character + ".xml").toPath());
-
+		LOG.info(() -> MessageFormat.format("Comparing the expected ({0}) and actual ({1}) results",
+				expectedFile, outputFile));
 		Diff myDiff = DiffBuilder.compare(Input.fromString(expected))
-		                         .withTest(Input.fromString(actual)).build();
+				.withTest(Input.fromString(actual))
+				.build();
 
-		assertFalse(myDiff.hasDifferences(), myDiff.toString());
+		assertFalse(myDiff.hasDifferences(), myDiff.fullDescription());
 	}
 }

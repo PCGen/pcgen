@@ -1341,7 +1341,6 @@ public abstract class CDOMObject extends ConcretePrereqObject
 	 * @return The local child of the given child type and child name
 	 */
 	@Override
-	@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
 	public PCGenScoped getLocalChild(String childType, String childName)
 	{
 		//none by default
@@ -1357,7 +1356,6 @@ public abstract class CDOMObject extends ConcretePrereqObject
 	 * @return The List of child types that this CDOMObject contains
 	 */
 	@Override
-	@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
 	public List<String> getChildTypes()
 	{
 		return Collections.emptyList();
@@ -1372,7 +1370,6 @@ public abstract class CDOMObject extends ConcretePrereqObject
 	 * @return The List of children of the given child type
 	 */
 	@Override
-	@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
 	public List<PCGenScoped> getChildren(String childType)
 	{
 		//none by default

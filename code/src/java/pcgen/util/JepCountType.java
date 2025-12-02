@@ -253,10 +253,8 @@ public abstract class JepCountType
 					break;
 				case WDC:
 					break;
-				default:
-					//Case not caught, should this cause an error?
-					break;
-			}
+                // All enum cases are covered so no default
+            }
 			return cs;
 		}
 	};
@@ -701,9 +699,7 @@ public abstract class JepCountType
 					filter = new AspectFilter(keyValue);
 					break;
 
-				default:
-					//Case not caught, should this cause an error?
-					break;
+                // All enum cases are covered so no default
 			}
 
 			List<CNAbility> ret = new ArrayList<>(coll);

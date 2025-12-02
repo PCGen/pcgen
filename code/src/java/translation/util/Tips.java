@@ -425,7 +425,7 @@ public final class Tips
 	 * @param o arguments
 	 * @see MessageFormat#format(String, Object...)
 	 */
-	@SuppressWarnings({"UseOfSystemOutOrSystemErr", "PMD.AvoidPrintStackTrace"})
+	@SuppressWarnings("UseOfSystemOutOrSystemErr")
 	private static void log(String string, Object... o)
 	{
 		System.out.println(MessageFormat.format(string, o));
@@ -437,7 +437,7 @@ public final class Tips
 	 * @param o arguments
 	 * @see MessageFormat#format(String, Object...)
 	 */
-	@SuppressWarnings({"CallToPrintStackTrace", "UseOfSystemOutOrSystemErr", "PMD.AvoidPrintStackTrace"})
+	@SuppressWarnings({"PMD.AvoidPrintStackTrace", "UseOfSystemOutOrSystemErr"})
 	private static void logError(String string, Throwable e, Object... o)
 	{
 		System.err.println(MessageFormat.format(string, o));

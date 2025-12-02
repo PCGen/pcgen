@@ -19,8 +19,8 @@
   -->
 
 <?import plugin.experience.gui3.PreferencesExperiencesPanelController?><?import javafx.scene.control.RadioButton?><?import javafx.scene.control.ToggleGroup?><?import javafx.scene.layout.VBox?><?import javafx.scene.Scene?>
-<Scene xmlns="http://javafx.com/javafx/11.0.1"
-       xmlns:fx="http://javafx.com/fxml/1"
+<Scene xmlns="http://javafx.com/javafx/25.0.1"
+       xmlns:fx="http://javafx.com/fxml"
        fx:controller="plugin.experience.gui3.PreferencesExperiencesPanelController">
     <fx:define>
         <ToggleGroup fx:id="experienceGroup" />

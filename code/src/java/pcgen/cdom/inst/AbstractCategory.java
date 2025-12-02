@@ -53,7 +53,6 @@ public abstract class AbstractCategory<T extends Categorized<T>> implements Cate
 	private URI sourceURI;
 
 	@Override
-	@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
 	public Category<T> getParentCategory()
 	{
 		//By default, no hierarchy
@@ -162,7 +161,6 @@ public abstract class AbstractCategory<T extends Categorized<T>> implements Cate
 	}
 
 	@Override
-	@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
 	public ManufacturableFactory<T> getParent()
 	{
 		return null;

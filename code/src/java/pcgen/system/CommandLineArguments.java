@@ -1,25 +1,42 @@
 package pcgen.system;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Predicate;
+
 import net.sourceforge.argparse4j.ArgumentParsers;
+import net.sourceforge.argparse4j.helper.HelpScreenException;
 import net.sourceforge.argparse4j.impl.Arguments;
 import net.sourceforge.argparse4j.inf.ArgumentParser;
+import net.sourceforge.argparse4j.inf.ArgumentParserException;
 import net.sourceforge.argparse4j.inf.MutuallyExclusiveGroup;
 import net.sourceforge.argparse4j.inf.Namespace;
 import org.apache.commons.lang3.Validate;
 import pcgen.cdom.base.Constants;
+import pcgen.util.GracefulExit;
 
 public class CommandLineArguments
 {
-
-    private final Namespace namespace;
+    private Namespace namespace = new Namespace(new HashMap<>());
 
     public CommandLineArguments(String[] args)
     {
         Validate.notNull(args, "Parameter 'args' must not be null");
-        this.namespace = getParser().parseArgsOrFail(args);
+        var parser = this.getParser();
+        try
+        {
+            this.namespace = parser.parseArgs(args);
+        } catch (HelpScreenException e)
+        {
+            parser.handleError(e);
+            GracefulExit.exit(0);
+        } catch (ArgumentParserException e)
+        {
+            parser.handleError(e);
+            GracefulExit.exit(1);
+        }
     }
 
     /**
@@ -67,12 +84,9 @@ public class CommandLineArguments
 
     private <T> Optional<T> getSingle(List<T> list)
     {
-        if (list == null || list.isEmpty())
-        {
-            return Optional.empty();
-        }
-
-        return Optional.ofNullable(list.get(0));
+        return Optional.ofNullable(list)
+                .filter(Predicate.not(List::isEmpty))
+                .map(List::getFirst);
     }
 
     public Optional<File> getSettingsDir()
@@ -117,13 +131,15 @@ public class CommandLineArguments
 
     public boolean isStartNameGenerator()
     {
-        return namespace.get("name_generator");
+        return Optional.ofNullable(namespace.getBoolean("name_generator"))
+                .orElse(false);
     }
 
     public boolean isVerbose()
     {
         // Why allow the flag multiple times and count them if we just evaluate them to boolean afterward?
         // Seems unintentional.
-        return namespace.getInt("verbose") > 0;
+        return Optional.ofNullable(namespace.getInt("verbose"))
+                .orElse(0) > 0;
     }
 }

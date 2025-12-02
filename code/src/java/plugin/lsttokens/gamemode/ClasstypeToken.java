@@ -4,6 +4,7 @@ import java.net.URI;
 
 import pcgen.core.ClassType;
 import pcgen.core.GameMode;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.GameModeLstToken;
 import pcgen.persistence.lst.SimpleLoader;
 import pcgen.util.Logging;
@@ -29,7 +30,7 @@ public class ClasstypeToken implements GameModeLstToken
 			methodLoader.parseLine(gameMode.getModeContext(), value, source);
 			return true;
 		}
-		catch (Exception e)
+		catch (PersistenceLayerException e)
 		{
 			Logging.errorPrint(e.getMessage());
 			return false;

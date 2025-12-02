@@ -275,15 +275,15 @@ Silver Tongued		KEY:Human ~ Silver Tongued		CATEGORY:Special Ability	TYPE:Racial
 Skill Focus		KEY:Focused Study Choice	CATEGORY:Choice		TYPE:Focused Study Choice	STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Charisma|TYPE=Dexterity|TYPE=Intelligence|TYPE=Strength|TYPE=Wisdom	ABILITY:FEAT|AUTOMATIC|Skill Focus (%LIST)
 
 ###Block: Selections for Mixed Heritage
-# Ability Name		Category of Ability				Multiple?	Choose								Ability
-Heart of the Fields	CATEGORY:Heart of the... Trait	TYPE:Heart of the Trait	MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Craft|TYPE=Profession	ABILITY:Human Racial Trait|AUTOMATIC|Human ~ Heart of the Fields (%LIST)
-Heart of the Mountain	CATEGORY:Heart of the... Trait	TYPE:Heart of the Trait												ABILITY:Human Racial Trait|AUTOMATIC|Human ~ Heart of the Mountain
-Heart of the Sea		CATEGORY:Heart of the... Trait	TYPE:Heart of the Trait												ABILITY:Human Racial Trait|AUTOMATIC|Human ~ Heart of the Sea
-Heart of the Slums	CATEGORY:Heart of the... Trait	TYPE:Heart of the Trait												ABILITY:Human Racial Trait|AUTOMATIC|Human ~ Heart of the Slums
-Heart of the Snows	CATEGORY:Heart of the... Trait	TYPE:Heart of the Trait												ABILITY:Human Racial Trait|AUTOMATIC|Human ~ Heart of the Snows
-Heart of the Streets	CATEGORY:Heart of the... Trait	TYPE:Heart of the Trait												ABILITY:Human Racial Trait|AUTOMATIC|Human ~ Heart of the Streets
-Heart of the Sun		CATEGORY:Heart of the... Trait	TYPE:Heart of the Trait												ABILITY:Human Racial Trait|AUTOMATIC|Human ~ Heart of the Sun
-Heart of the Wilderness	CATEGORY:Heart of the... Trait	TYPE:Heart of the Trait												ABILITY:Human Racial Trait|AUTOMATIC|Human ~ Heart of the Wilderness
+# Ability Name		Category of Ability			Multiple?	Choose								Ability
+Heart of the Fields	CATEGORY:Heart of the... Trait	MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Craft|TYPE=Profession	ABILITY:Human Racial Trait|AUTOMATIC|Human ~ Heart of the Fields (%LIST)
+Heart of the Mountain	CATEGORY:Heart of the... Trait												ABILITY:Human Racial Trait|AUTOMATIC|Human ~ Heart of the Mountain
+Heart of the Sea		CATEGORY:Heart of the... Trait												ABILITY:Human Racial Trait|AUTOMATIC|Human ~ Heart of the Sea
+Heart of the Slums	CATEGORY:Heart of the... Trait												ABILITY:Human Racial Trait|AUTOMATIC|Human ~ Heart of the Slums
+Heart of the Snows	CATEGORY:Heart of the... Trait												ABILITY:Human Racial Trait|AUTOMATIC|Human ~ Heart of the Snows
+Heart of the Streets	CATEGORY:Heart of the... Trait												ABILITY:Human Racial Trait|AUTOMATIC|Human ~ Heart of the Streets
+Heart of the Sun		CATEGORY:Heart of the... Trait												ABILITY:Human Racial Trait|AUTOMATIC|Human ~ Heart of the Sun
+Heart of the Wilderness	CATEGORY:Heart of the... Trait												ABILITY:Human Racial Trait|AUTOMATIC|Human ~ Heart of the Wilderness
 
 ###Block: Adoptive Parentage Options (a few)
 # This is by no means an exhaustive list.  Abilities granted are subject to DM approval so feel free to add your own.

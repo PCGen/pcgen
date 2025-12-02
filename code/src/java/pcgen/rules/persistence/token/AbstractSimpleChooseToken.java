@@ -235,7 +235,6 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends Abst
 	}
 
 	@Override
-	@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
 	public boolean allow(T choice, PlayerCharacter pc, boolean allowStack)
 	{
 		/*

@@ -29,7 +29,6 @@ import pcgen.base.util.CaseInsensitiveMap;
  * in a type-safe fashion, so that they can be quickly compared and use less
  * memory when identical DisplayLocations exist.
  */
-@SuppressWarnings("PMD.EQ_COMPARETO_USE_OBJECT_EQUALS")
 public final class DisplayLocation implements TypeSafeConstant, Comparable<DisplayLocation>
 {
 	/**

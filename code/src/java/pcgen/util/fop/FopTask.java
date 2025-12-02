@@ -35,6 +35,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.sax.SAXResult;
 import javax.xml.transform.stream.StreamSource;
 
+import org.xml.sax.SAXException;
 import pcgen.cdom.base.Constants;
 import pcgen.system.ConfigurationSettings;
 import pcgen.util.Logging;
@@ -81,7 +82,7 @@ public final class FopTask implements Runnable
 			{
 				parser = new FopConfParser(userConfigFile);
 			}
-			catch (Exception e)
+			catch (SAXException | IOException e)
 			{
 				Logging.errorPrint("FoPTask encountered a problem with FOP configuration " + configPath + ": ", e);
 				return null;
@@ -178,7 +179,7 @@ public final class FopTask implements Runnable
 	 * this FopTask.
 	 */
 	@Override
-	public void run()
+    public void run()
 	{
 		try (OutputStream out = outputStream)
 		{

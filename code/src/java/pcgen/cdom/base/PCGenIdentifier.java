@@ -24,6 +24,7 @@ import pcgen.cdom.enumeration.DataSetID;
  * Generics to have a minimal compile requirement of using an expected identifier rather
  * than an arbitrary object.
  */
+@FunctionalInterface
 public interface PCGenIdentifier
 {
 	/**
