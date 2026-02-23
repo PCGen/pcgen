@@ -29,7 +29,7 @@ Key entry point: `pcgen.system.Main` (code/src/java/pcgen/system/Main.java)
 - installers/ … installer assets (mac/win/linux), release notes
 - PCGen-base/, PCGen-Formula/ … separate Gradle builds for base/formula modules
 - Root Gradle files: build.gradle, settings.gradle, gradle.properties, gradlew*
-- CI: .github/workflows/gradle-test.yml, gradle-release.yml, codeql-analysis.yml
+- CI: `.github/workflows/gradle-test.yml`, `gradle-release.yml`, `codeql-analysis.yml`
 
 ## Essential Commands
 
@@ -53,7 +53,7 @@ Always use the wrapper (./gradlew). Java 25 is required; Gradle will fetch depen
   - ./gradlew inttest sfinttest rsrdinttest srdinttest msrdinttest
 - Coverage (Jacoco report in build/reports/jacoco/testCoverage/html)
   - ./gradlew testCoverage
-- Assemble distributables (zips for data/docs/program/libs + runtime)
+- Assemble files for distribution (zips for data/docs/program/libs + runtime)
   - ./gradlew buildDist
 - Quick dev binary to output/
   - ./gradlew qbuild
@@ -103,13 +103,13 @@ Batch export path exists in Main.startupWithoutGUI(). Tests demonstrate usage in
 
 ## Code Quality and Style
 
-- Checkstyle config: code/standards/checkstyle.xml (enforced via reporting.gradle; toolVersion 12.1.2). Newline at EOF; 201 char line length; prohibits System.exit (use pcgen.util.GracefulExit.exit).
+- Checkstyle config: code/standards/checkstyle.xml (enforced via reporting.gradle; toolVersion 12.1.2). Newline at EOF; 201 char line length; prohibits `System.exit` (use pcgen.util.GracefulExit.exit).
 - PMD: ruleset at code/standards/ruleset.xml (referenced from reporting.gradle).
 - SpotBugs: plugin 6.4.7; toolVersion 4.9.8; exclude filter code/standards/spotbugs_ignore.xml; ignoreFailures true; extra findsecbugs plugin.
 - Aggregate quality task: ./gradlew allReports
 
 Conventions/gotchas observed
-- Use GracefulExit.exit instead of System.exit (Checkstyle enforces via RegexpMultiline)
+- Use `GracefulExit.exit` instead of `System.exit` (Checkstyle enforces via RegexpMultiline)
 - Java version and JavaFX are tightly coupled to project.ext.javaVersion (25). Tests and run tasks add the needed JavaFX modules explicitly.
 - Source sets are nonstandard (itest, slowtest); when adding new tests, place them in the correct source set to be picked up by the corresponding Gradle task.
 - Plugins are built from compiled classes into plugin jars via tasks in code/gradle/plugins.gradle; main jar depends on jarAllPlugins.
@@ -117,11 +117,11 @@ Conventions/gotchas observed
 
 ## Build/Release Flow
 
-- For releases, see code/gradle/release.gradle and CI workflow .github/workflows/gradle-release.yml.
+- For releases, see `code/gradle/release.gradle` and CI workflow `.github/workflows/gradle-release.yml`.
 - Release tasks:
-  - prepareRelease (build; version handling handled by helper groovy script applied as releaseUtils.groovy)
-  - pcgenRelease (assemble artifacts, checksum)
-  - pcgenReleaseOfficial (pcgenRelease + updateVersionRelease)
+  - `prepareRelease` (build; version handling is done by helper groovy script applied as `releaseUtils.groovy`)
+  - `pcgenRelease` (assemble artifacts, checksum)
+  - `pcgenReleaseOfficial` (pcgenRelease + updateVersionRelease)
 - Artifacts collected into build/release; jpackage produces platform installers under build/jpackage.
 
 ## Data and Outputsheets
@@ -137,7 +137,7 @@ Conventions/gotchas observed
   - ./gradlew test itest datatest slowtest
   - ./gradlew testCoverage and publish report
 - codeql-analysis.yml analyzes Java
-- gradle-release.yml builds jpackage artifacts for macOS, Windows, Ubuntu (x64) and Ubuntu ARM on tag pushes v*.*.*
+- gradle-release.yml builds jpackage artifacts for macOS, Windows, Ubuntu (x64) and Ubuntu ARM on tag pushes `v*.*.*`
 
 ## How to Add/Modify Code
 
@@ -147,7 +147,7 @@ Conventions/gotchas observed
   - Integration tests → code/src/itest
   - Slow/long-running → code/src/test
 - Run: ./gradlew test itest slowtest locally; fix failing tests before PRs.
-- Follow style checks; do not use System.exit directly.
+- Follow style checks; do not use `System.exit` directly.
 
 ## Useful Paths
 
