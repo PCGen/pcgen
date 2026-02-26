@@ -408,8 +408,6 @@ public abstract class VariableProcessor
 						case MINUS -> total -= valFloat;
 						case MULTIPLY -> total *= valFloat;
 						case DIVIDE -> total /= valFloat;
-						default -> Logging.errorPrint(
-								"In PlayerCharacter.getVariableValue the mode " + mode + " is unsupported.");
 					}
 				}
 

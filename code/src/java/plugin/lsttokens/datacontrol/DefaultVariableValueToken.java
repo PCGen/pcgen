@@ -21,6 +21,7 @@ import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.DefaultVarValue;
+import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -46,7 +47,7 @@ public class DefaultVariableValueToken extends AbstractNonEmptyToken<DefaultVarV
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, DefaultVarValue dvv, String value)
+    protected ParseResult parseNonEmptyToken(LoadContext context, DefaultVarValue dvv, String value)
 	{
 		char separator = '|';
 		int pipeLoc = value.indexOf(separator);
@@ -76,7 +77,8 @@ public class DefaultVariableValueToken extends AbstractNonEmptyToken<DefaultVarV
 		FormatManager<?> fmtManager;
 		try
 		{
-			fmtManager = context.getReferenceContext().getFormatManager(formatName);
+            AbstractReferenceContext referenceContext = context.getReferenceContext();
+			fmtManager = referenceContext.getFormatManager(formatName);
 		}
 		catch (NullPointerException | IllegalArgumentException e)
 		{

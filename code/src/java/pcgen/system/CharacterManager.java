@@ -166,8 +166,7 @@ public final class CharacterManager
 		return newPC;
 	}
 
-	@SuppressWarnings("unchecked")
-	private static PlayerCharacter openPcInternal(File file, UIDelegate delegate, DataSetFacade dataset,
+    private static PlayerCharacter openPcInternal(File file, UIDelegate delegate, DataSetFacade dataset,
 		boolean blockLoadedMessage)
 	{
 		@SuppressWarnings("rawtypes")

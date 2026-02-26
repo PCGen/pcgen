@@ -24,6 +24,7 @@ package pcgen.gui2.util;
  *
  * 
  */
+@FunctionalInterface
 public interface DisplayAwareTab
 {
 	/**

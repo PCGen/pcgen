@@ -222,7 +222,6 @@ public final class ConfigurationSettings extends PropertyContext
 					throw new InternalError();
 			}
 		}
-
 	}
 
 	public static String getSettingsDirFromFilePath(String fType)

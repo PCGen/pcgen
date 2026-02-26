@@ -21,7 +21,7 @@
   </Match>
   <Match>
     <!-- not relevant to pcgen -->
-    <Bug pattern="IJU_SETUP_NO_SUPER,DP_DO_INSIDE_DO_PRIVILEGED,DM_EXIT,SE_NO_SERIALVERSIONID"/>
+    <Bug pattern="IJU_SETUP_NO_SUPER,DP_DO_INSIDE_DO_PRIVILEGED,SE_NO_SERIALVERSIONID"/>
   </Match>
   <Match>
     <!-- we have other tools for code style -->

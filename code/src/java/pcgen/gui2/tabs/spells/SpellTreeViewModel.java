@@ -128,9 +128,9 @@ public class SpellTreeViewModel implements TreeViewModel<SuperNode>
 						}
 						path = new TreeViewPath<>(pobj, pathList.toArray());
 					}
+                    // Don't need a default as the compiler will check that we've covered the enum options
 					default -> throw new InternalError();
 				}
-
 			}
 			else
 			{

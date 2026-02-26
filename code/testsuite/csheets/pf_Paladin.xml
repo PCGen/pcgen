@@ -3286,7 +3286,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Channel Positive Energy</name>
-			<description>You can unleash a wave of positive energy dealing 3d6 (DC 15 for half) /day. You can unleash a wave of positive energy. You must choose to deal 3d6 points of positive energy damage to undead creatures or to heal living creatures of 3d6 points of damage. Creatures that take damage from channeled energy receive a DC 15 Will save to halve the damage. Using this ability consumes two uses of her lay on hands ability.</description>
+			<description>You can unleash a wave of positive energy dealing 3d6 (DC 15 for half) 2/day. You can unleash a wave of positive energy. You must choose to deal 3d6 points of positive energy damage to undead creatures or to heal living creatures of 3d6 points of damage. Creatures that take damage from channeled energy receive a DC 15 Will save to halve the damage. Using this ability consumes two uses of her lay on hands ability.</description>
 			<type>PALADINCLASSFEATURES.SPECIALATTACK.SUPERNATURAL.CHANNEL ENERGY.CHANNEL ENERGY POSITIVE.CHANNEL POSITIVE ENERGY</type>
 			<associated></associated>
 			<count>0</count>
@@ -4878,7 +4878,7 @@ BIO
 		<!-- ### END Known spells ### -->
 		<!-- ### BEGIN memorized spells ### -->
 	<memorized_spells>
-		<!-- ### BEGIN innate memorized spell section -->	
+		<!-- ### BEGIN innate memorized spell section -->
 		<!-- ### BEGIN innate memorized spells ### -->
 		<!-- ### END innate memorized spells ### -->
 		<!-- ### BEGIN class innate memorized spells ### -->
@@ -4917,7 +4917,7 @@ BIO
 		</class_innate_memorized>
 			<!-- ### END class innate memorized spells ### -->
 		<!-- ### END innate memorized spell section -->
-	
+
 		<!-- ### BEGIN class Spellbook memorized spells ### -->
 <!-- Either we do not have a innate race, or if we do we do not have any 0 level spell for the innate race -->
 		<spellbook number="2" name="Class">

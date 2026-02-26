@@ -22,6 +22,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.URI;
+import java.nio.charset.StandardCharsets;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -69,8 +70,8 @@ public final class Logging
 	/** Log level for application debug output. */
 	public static final Level DEBUG = Level.FINER;
 
-	private static Logger pcgenLogger;
-	private static Logger pluginLogger;
+	private static Logger pcgenLogger = Logger.getLogger("pcgen");
+	private static Logger pluginLogger = Logger.getLogger("plugin");
 
 	/**
 	 * Do any required initialization of the Logger.
@@ -113,29 +114,17 @@ public final class Logging
 	 */
 	public static void setDebugMode(final boolean argDebugMode)
 	{
-		retainRootLoggers();
-
 		debugMode = argDebugMode;
 		if (debugMode)
 		{
-			Logger.getLogger("pcgen").setLevel(DEBUG);
-			Logger.getLogger("plugin").setLevel(DEBUG);
+			pcgenLogger.setLevel(DEBUG);
+			pluginLogger.setLevel(DEBUG);
 		}
 		else
 		{
-			Logger.getLogger("pcgen").setLevel(LST_WARNING);
-			Logger.getLogger("plugin").setLevel(LST_WARNING);
+			pcgenLogger.setLevel(LST_WARNING);
+			pluginLogger.setLevel(LST_WARNING);
 		}
-	}
-
-	/**
-	 * Ensure that our root loggers (pcgen and plugin) do not get garbage
-	 * collected, otherwise we lose the logging level!
-	 */
-	private static void retainRootLoggers()
-	{
-		pcgenLogger = Logger.getLogger("pcgen");
-		pluginLogger = Logger.getLogger("plugin");
 	}
 
 	/**
@@ -396,8 +385,7 @@ public final class Logging
 	}
 
 	/**
-	 * Print error message with a stack trace if PCGen is
-	 * debugging.
+	 * Print an error message with a stack trace if PCGen is debugging.
 	 *
 	 * @param s String error message
 	 * @param thr Throwable stack frame
@@ -405,7 +393,7 @@ public final class Logging
 	public static void errorPrint(final String s, final Throwable thr)
 	{
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		PrintStream ps = new PrintStream(baos);
+		PrintStream ps = new PrintStream(baos, true, StandardCharsets.UTF_8);
 		thr.printStackTrace(ps);
 		errorPrint(s + '\n' + baos);
 	}
@@ -471,7 +459,7 @@ public final class Logging
 	public static void errorPrintLocalised(final String s, final Throwable thr)
 	{
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		try (PrintStream ps = new PrintStream(baos))
+		try (PrintStream ps = new PrintStream(baos, true, StandardCharsets.UTF_8))
 		{
 			thr.printStackTrace(ps);
 		}
@@ -613,10 +601,9 @@ public final class Logging
 	 */
 	public static void setCurrentLoggingLevel(Level level)
 	{
-		retainRootLoggers();
 		debugMode = (level == Logging.DEBUG);
-		Logger.getLogger("pcgen").setLevel(level);
-		Logger.getLogger("plugin").setLevel(level);
+		pcgenLogger.setLevel(level);
+		pluginLogger.setLevel(level);
 	}
 
 	private static final LinkedList<QueuedMessage> queuedMessages = new LinkedList<>();

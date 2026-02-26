@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # This is a generalised script for crawling over all the HTML files and making changes en-masse.
-# In this particular case, it's changing all of the following to be lowercase:
+# In this particular case, it's changing all the following to be lowercase:
 #   - <span id="..."> attributes
 #   - <span name="..."> attributes
 #   - <h1 id="..."> and <h1 name="..."> attributes, and so on for h2, h3...
@@ -32,7 +32,7 @@ def process_one_file(html_filename):
             t["name"] = t["name"].lower()
         if t.has_attr("href"):
             href = t["href"]
-            if (not href.startswith("http://")) and ("#" in href):
+            if (not href.startswith("https://")) and ("#" in href):
                 #print (href)
                 # Find relative links within the pcgen docs.
                 # Find relative links that refer to a specific anchor ("#")
@@ -41,13 +41,13 @@ def process_one_file(html_filename):
                 #print (tag["href"])
 
     def delete_w3c_validation_stickers(t):
-        # Deleting things like the below - because it's the future and we are using XHTML now, not HTML 4.01 Strict.
+        # Deleting things like the below - because it's the future, and we are using XHTML now, not HTML 4.01 Strict.
         # <p>
-        #  <a href="http://validator.w3.org/check?uri=referer">
+        #  <a href="https://validator.w3.org/check?uri=referer">
         #   <img alt="Valid HTML 4.01 Strict" src="../../images/system/valid-html401.png"/>
         #  </a>
         # </p>
-        if t.has_attr("href") and t["href"] == "http://validator.w3.org/check?uri=referer":
+        if t.has_attr("href") and t["href"] == "https://validator.w3.org/check?uri=referer":
             t.extract() # delete tag
 
     with open(html_filename, "r") as fh:

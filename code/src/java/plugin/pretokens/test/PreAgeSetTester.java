@@ -43,12 +43,6 @@ public class PreAgeSetTester extends AbstractDisplayPrereqTest implements Prereq
 		{
 			anInt = display.getBioSet().getAgeSetNamed(prereq.getKey());
 		}
-		catch (Exception e)
-		{
-			throw new PrerequisiteException(
-				LanguageBundle.getFormattedString(
-					"PreAgeSet.error.badly_formed_attribute", prereq.getOperand()), e); //$NON-NLS-1$
-		}
 
 		if (anInt == -1)
 		{ //String was not recognized

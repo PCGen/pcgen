@@ -27,6 +27,7 @@ import freemarker.template.TemplateModel;
  * Facet and the CharID is sufficient to produce the necessary information to
  * build a TemplateModel.
  */
+@FunctionalInterface
 public interface ModelFactory
 {
 	/**

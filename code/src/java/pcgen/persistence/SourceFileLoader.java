@@ -28,9 +28,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.Optional;
 import java.util.Set;
 import java.util.logging.Handler;
 import java.util.logging.LogRecord;
+import java.util.stream.Stream;
 
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.LegalScope;
@@ -250,21 +252,22 @@ public class SourceFileLoader extends PCGenTask implements Observer
     /**
      * @return a list of licenses read from the campaign license files
      */
-    public Iterable<String> getOtherLicenses()
+    public Stream<String> getOtherLicenses()
     {
-        Collection<String> licenses = new ArrayList<>();
-        for (CampaignSourceEntry licenseFile : licenseFiles)
-        {
-            try
-            {
-                String dataBuffer = LstFileLoader.readFromURI(licenseFile.getURI());
-                licenses.add(dataBuffer);
-            } catch (PersistenceLayerException e)
-            {
-                Logging.errorPrint("Could not read license at " + licenseFile, e);
-            }
-        }
-        return licenses;
+        return licenseFiles.stream()
+                .map(CampaignSourceEntry::getURI)
+                .map((URI uri) -> {
+                    try
+                    {
+                        return LstFileLoader.readFromURI(uri);
+                    } catch (PersistenceLayerException e)
+                    {
+                        Logging.errorPrint("Could not read license at " + uri, e);
+                        return Optional.<String>empty();
+                    }
+                })
+                .filter(Optional::isPresent)
+                .map(Optional::get);
     }
 
     public String getMatureInfo()

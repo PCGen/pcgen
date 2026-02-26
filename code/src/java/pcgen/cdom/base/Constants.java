@@ -28,7 +28,6 @@ import java.text.DecimalFormat;
 @SuppressWarnings("PMD.ConstantsInInterface")
 public interface Constants
 {
-
 	/********************************************************************
 	 * Static definitions of Equipment location strings
 	 ********************************************************************/
@@ -111,7 +110,7 @@ public interface Constants
 	String INTERNAL_WEAPON_PROF = "PCGENi_WEAPON_PROFICIENCY"; //$NON-NLS-1$
 
 	/** Line Separator. */
-	String LINE_SEPARATOR = System.getProperty("line.separator"); //$NON-NLS-1$
+	String LINE_SEPARATOR = System.lineSeparator(); //$NON-NLS-1$
 
 	/** The constant string "None". */
 	String NONE = "None"; //$NON-NLS-1$

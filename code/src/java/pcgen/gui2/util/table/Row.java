@@ -21,6 +21,7 @@ package pcgen.gui2.util.table;
 /**
  *
  */
+@FunctionalInterface
 public interface Row
 {
 	public Object getValueAt(int column);

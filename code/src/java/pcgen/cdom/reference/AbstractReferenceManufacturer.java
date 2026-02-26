@@ -1178,7 +1178,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable> implemen
 				// Lazily create event
 				if (uEvent == null)
 				{
-					uEvent = new UnconstructedEvent(this, ref); // NOPMD
+					uEvent = new UnconstructedEvent(this, ref);
 				}
 				((UnconstructedListener) listeners[i + 1]).unconstructedReferenceFound(uEvent);
 			}

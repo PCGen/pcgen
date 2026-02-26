@@ -131,9 +131,7 @@ public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 			case STAT -> context.getObjectContext().addToList(obj, ListKey.NONSTAT_TO_STAT_STATS, stat);
 			case MINVALUE -> context.getObjectContext().addToList(obj, ListKey.STAT_MINVALUE, new StatLock(stat, f));
 			case MAXVALUE -> context.getObjectContext().addToList(obj, ListKey.STAT_MAXVALUE, new StatLock(stat, f));
-			default -> {
-			}
-			//Case not caught, should this cause an error?
+			// All enum cases are covered so no default
 		}
 
 		return ParseResult.SUCCESS;

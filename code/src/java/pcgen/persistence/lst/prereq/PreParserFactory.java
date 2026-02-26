@@ -108,13 +108,13 @@ public final class PreParserFactory implements PluginLoader
 			{
 				Logging.errorPrint(ple.getMessage(), ple);
 				//The message is now produced at a lower level, and thus has to be localized there.
-	//Logging.errorPrintLocalised(PropertyFactory.getString("PrereqHandler.Unable_to_parse"), object); //$NON-NLS-1$
+	            //Logging.errorPrintLocalised(PropertyFactory.getString("PrereqHandler.Unable_to_parse"), object); //$NON-NLS-1$
 			}
 		}
 		return ret;
 	}
 
-	public Prerequisite parse(String prereqStr) throws PersistenceLayerException
+    public Prerequisite parse(String prereqStr) throws PersistenceLayerException
 	{
 
 		if ((prereqStr == null) || (prereqStr.length() <= 0))
@@ -166,13 +166,13 @@ public final class PreParserFactory implements PluginLoader
 		}
 		catch (Throwable t)
 		{
-			throw new PersistenceLayerException("Can not parse '" + prereqStr + "': " + t.getMessage(), t);
+			throw new PersistenceLayerException("Cannot parse '" + prereqStr + "': " + t.getMessage(), t);
 		}
 	}
 
 	/**
 	 * Identify if the token passed in defines a prerequisite.
-	 *  
+	 *
 	 * @param token The token to be checked.
 	 * @return True if the string is a prereq string.
 	 */

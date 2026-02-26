@@ -30,6 +30,7 @@ import freemarker.template.TemplateModelException;
  * is used to resolve any character specific information necessary to
  * appropriate wrap an object.
  */
+@FunctionalInterface
 public interface PCGenObjectWrapper
 {
 	/**

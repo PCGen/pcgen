@@ -182,10 +182,7 @@ public class UnencumberedmoveLst extends AbstractTokenWithSeparator<CDOMObject> 
 				case HEAVY -> sb.append("HeavyLoad");
 				case MEDIUM -> sb.append("MediumLoad");
 				case LIGHT -> sb.append("LightLoad");
-				default -> {
-					context.addWriteMessage(getTokenName() + " encountered unknown Movement Load: " + load);
-					return null;
-				}
+                // We don't set a default as we've exhausted the enum
 			}
 		}
 		if (at != null)

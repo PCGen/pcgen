@@ -103,7 +103,7 @@ public class FreeMarkerExportHandler extends ExportHandler
 				{
 					outputWriter.flush();
 				}
-				catch (Exception ignored)
+				catch (IOException ignored)
 				{
 				}
 			}

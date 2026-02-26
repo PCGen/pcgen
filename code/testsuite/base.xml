@@ -95,9 +95,9 @@
 		<hitdice>|HITDICE|</hitdice>
 		<interests>|INTERESTS|</interests>
 		<languages>
-|FOR,%lang,0,COUNT[LANGUAGES]-1,1,0|		
+|FOR,%lang,0,COUNT[LANGUAGES]-1,1,0|
 			<language>|LANGUAGES.%lang|</language>
-|ENDFOR|		
+|ENDFOR|
 			<all>|LANGUAGES|</all>
 		</languages>
 		<location>|LOCATION|</location>
@@ -162,7 +162,7 @@
 	  ====================================
 	  ====================================-->
 	<abilities>
-|FOR,%stat,0,COUNT[STATS]-1,1,0|	
+|FOR,%stat,0,COUNT[STATS]-1,1,0|
 		<ability>
 			<name>
 				<long>|STAT.%stat.LONGNAME|</long>
@@ -177,7 +177,7 @@
 			<no_temp_score>|STAT.%stat.NOTEMP|</no_temp_score>
 			<no_temp_modifier>|STAT.%stat.MOD.NOTEMP|</no_temp_modifier>
 		</ability>
-|ENDFOR|		
+|ENDFOR|
 	</abilities>
 	<!--
 	  ====================================
@@ -201,7 +201,7 @@
 				<stat>|HPROLL.%level.STAT|</stat>
 				<total>|HPROLL.%level.TOTAL|</total>
 			</roll>
-|ENDFOR|		
+|ENDFOR|
 		</history>
 	</hit_points>
 	<!--
@@ -385,7 +385,7 @@
 			<!-- Should be changed to a variable due to improved crit -->
 		</unarmed>
 
-		
+
 |FOR,%weap,0,COUNT[EQTYPE.WEAPON]-1,1,1|
 
 |IIF(WEAPON.%weap.CATEGORY:BOTH)|
@@ -1008,7 +1008,7 @@
 	  ====================================-->
 	<feats>
 		<!-- Visible standard feats (not including the auto feats) -->
-|FOR,%feat,0,countdistinct("ABILITIES","CATEGORY=FEAT","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")-1,1,0|	
+|FOR,%feat,0,countdistinct("ABILITIES","CATEGORY=FEAT","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")-1,1,0|
 		<feat>
 			<name>|ABILITY.FEAT.VISIBLE.%feat|</name>
 			<description>|ABILITY.FEAT.VISIBLE.%feat.DESC|</description>
@@ -1019,10 +1019,10 @@
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
-|ENDFOR|	
+|ENDFOR|
 
 		<!-- Auto feats -->
-|FOR,%feat,0,countdistinct("ABILITIES","CATEGORY=FEAT","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC")-1,1,0|	
+|FOR,%feat,0,countdistinct("ABILITIES","CATEGORY=FEAT","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC")-1,1,0|
 		<feat>
 			<name>|ABILITYAUTO.FEAT.VISIBLE.%feat|</name>
 			<description>|ABILITYAUTO.FEAT.VISIBLE.%feat.DESC|</description>
@@ -1033,10 +1033,10 @@
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
-|ENDFOR|	
+|ENDFOR|
 
 		<!-- Virtual Feats -->
-|FOR,%feat,0,COUNT[VFEATS.VISIBLE]-1,1,0|	
+|FOR,%feat,0,COUNT[VFEATS.VISIBLE]-1,1,0|
 		<feat>
 			<name>|VFEAT.VISIBLE.%feat|</name>
 			<description>|VFEAT.VISIBLE.%feat.DESC|</description>
@@ -1047,7 +1047,7 @@
 			<hidden>F</hidden>
 			<virtual>T</virtual>
 		</feat>
-|ENDFOR|	
+|ENDFOR|
 		<!-- End Virtual Feats -->
 		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
 |FOR,%feat,0,COUNT[FEATS.HIDDEN]-1,1,0|
@@ -1511,7 +1511,7 @@
 	  ====================================
 	  ====================================-->
 	<companions>
-|%FOLLOWERTYPE.FAMILIAR|	
+|%FOLLOWERTYPE.FAMILIAR|
 		<familiar>
 			<!-- Note that only one familiar is allowed, so no support for multiple familiars -->
 			<name>|FOLLOWERTYPE.FAMILIAR.0.NAME|</name>
@@ -1881,7 +1881,7 @@
 	<memorized_spells/>
 |ELSE|
 	<memorized_spells>
-			<!-- ### BEGIN innate memorized spell section -->	
+			<!-- ### BEGIN innate memorized spell section -->
 |FOR,%spellrace,COUNT[SPELLRACE],COUNT[SPELLRACE],1,0|
 |IIF(%spellrace:0)|
 |ELSE|

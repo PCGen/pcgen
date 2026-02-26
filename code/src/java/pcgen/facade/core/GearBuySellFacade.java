@@ -23,6 +23,7 @@ package pcgen.facade.core;
  *
  * 
  */
+@FunctionalInterface
 public interface GearBuySellFacade
 {
 	/**

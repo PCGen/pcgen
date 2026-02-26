@@ -19,12 +19,11 @@
 package pcgen.persistence.lst;
 
 import java.io.File;
-import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
 import java.util.Objects;
 
+import org.apache.commons.lang3.ObjectUtils;
 import pcgen.base.lang.UnreachableError;
 import pcgen.core.utils.CoreUtility;
 import pcgen.system.ConfigurationSettings;
@@ -67,7 +66,7 @@ public class URIFactory
 
 	/**
 	 * Constructs a new URIFactory with the given root URI and offset
-	 * 
+	 *
 	 * @param root
 	 *            The root URI used as the starting point to determine the final
 	 *            URI
@@ -77,17 +76,15 @@ public class URIFactory
 	public URIFactory(URI root, String offset)
 	{
 		Objects.requireNonNull(root, "root URI cannot be null");
-		if (offset == null || offset.isEmpty())
-		{
-			throw new IllegalArgumentException("URI offset cannot be null");
-		}
-		rootURI = root;
+		ObjectUtils.requireNonEmpty(offset, "offset URI cannot be null or empty");
+
+		this.rootURI = root;
 		this.offset = offset;
 	}
 
 	/**
 	 * Returns the root URI for this URIFactory.
-	 * 
+	 *
 	 * @return The root URI for this URIFactory
 	 */
 	public URI getRootURI()
@@ -97,7 +94,7 @@ public class URIFactory
 
 	/**
 	 * Returns the offset for this URIFactory.
-	 * 
+	 *
 	 * @return The offset for this URIFactory
 	 */
 	public String getOffset()
@@ -108,7 +105,7 @@ public class URIFactory
 	/**
 	 * Returns the normalized URI resulting from the root URI and offset of this
 	 * URIFactory.
-	 * 
+	 *
 	 * @return The normalized URI resulting from the root URI and offset of this
 	 *         URIFactory
 	 */
@@ -136,7 +133,7 @@ public class URIFactory
 	/**
 	 * This method converts the provided filePath to either a URL or absolute
 	 * path as appropriate.
-	 * 
+	 *
 	 * @param pccPath
 	 *            URL where the Campaign that contained the source was at
 	 * @param basePath
@@ -196,13 +193,11 @@ public class URIFactory
 		{
 			try
 			{
-				// if it's a URL, then we are all done, just return a URI
-				URL url = new URL(basePath);
-				return new URI(url.getProtocol(), url.getHost(), url.getPath(), null);
+				return new URI(basePath);
 			}
-			catch (URISyntaxException | MalformedURLException e)
+			catch (URISyntaxException e)
 			{
-				//Something broke, so wasn't a URL
+				return FAILED_URI;
 			}
 		}
 
@@ -245,7 +240,7 @@ public class URIFactory
 	/**
 	 * This method trims the leading file separator or URL separator from the
 	 * front of a string.
-	 * 
+	 *
 	 * @param basePath
 	 *            String containing the base path to trim
 	 * @return String containing the trimmed path String

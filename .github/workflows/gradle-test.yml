@@ -1,0 +1,91 @@
+# This workflow will build a Java project with Gradle and cache/restore any dependencies to improve the workflow execution time
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-gradle
+
+name: Build PCGen with Gradle
+
+on:
+  pull_request:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    permissions:
+      checks: write
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 25
+        uses: actions/setup-java@v4
+        with:
+          java-version: '25'
+          distribution: 'temurin'
+          cache: gradle
+          cache-dependency-path: |
+            build.gradle
+            code/gradle/autobuild.gradle
+            code/gradle/distribution.gradle
+            code/gradle/release.gradle
+            code/gradle/reporting.gradle
+            code/gradle/plugins.gradle
+
+      # Configure Gradle for optimal use in GitHub Actions, including caching of downloaded dependencies.
+      # See: https://github.com/gradle/actions/blob/main/setup-gradle/README.md
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          cache-disabled: false
+          cache-read-only: false
+          cache-overwrite-existing: true
+
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ${{ github.workspace }}/build/jre
+            ${{ github.workspace }}/build/libs
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+            ${{ runner.os }}-gradle
+
+      - name: Build with Gradle Wrapper
+        run: ./gradlew build
+
+      - name: Run tests
+        run: ./gradlew test itest datatest slowtest
+
+      - name: Publish Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        if: always()
+        with:
+          files: |
+            build/test-results/**/*.xml
+            build/test-results/**/*.trx
+            build/test-results/**/*.json
+
+      - name: Run Coverage
+        run: ./gradlew testCoverage
+
+      - name: Upload Report to artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: testCoverage
+          path: ${{ github.workspace }}/build/reports/jacoco/testCoverage/html
+
+      - name: Jacoco Report to PR
+        id: jacoco
+        uses: madrapps/jacoco-report@v1.7.2
+        with:
+          paths: |
+            ${{ github.workspace }}/build/reports/jacoco/testCoverage/testCoverage.xml
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: '## :construction: PCGen Code Coverage'
+          update-comment: true
+          debug-mode: false
+
+      - name: Get the Coverage info
+        run: |
+          echo "Total coverage ${{ steps.jacoco.outputs.coverage-overall }}"
+          echo "Changed Files coverage ${{ steps.jacoco.outputs.coverage-changed-files }}"

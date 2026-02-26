@@ -31,7 +31,6 @@ public abstract class AbstractNonEmptyToken<T> extends AbstractToken implements 
 	 * Checks to make sure the value is non-empty before continuing parsing.
 	 */
 	@Override
-	@SuppressWarnings("PMD.StringInstantiation")
 	public ParseResult parseToken(LoadContext context, T obj, String value)
 	{
 		ParseResult pr = checkNonEmpty(value);

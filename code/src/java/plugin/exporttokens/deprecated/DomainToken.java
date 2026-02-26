@@ -62,7 +62,7 @@ public class DomainToken extends Token
 			{
 				domainIndex = Math.max(0, Integer.parseInt(aTok.nextToken()) - 1);
 			}
-			catch (Exception e)
+			catch (NumberFormatException | IndexOutOfBoundsException e)
 			{
 				// TODO - This exception needs to be handled
 			}
@@ -98,7 +98,7 @@ public class DomainToken extends Token
 
 			return OutputNameFormatting.getOutputName(domain);
 		}
-		catch (Exception e)
+		catch (IndexOutOfBoundsException e)
 		{
 			return Constants.EMPTY_STRING;
 		}
@@ -118,7 +118,7 @@ public class DomainToken extends Token
 
 			return DescriptionFormatting.piWrapDesc(domain, pc.getDescription(domain), true);
 		}
-		catch (Exception e)
+		catch (IndexOutOfBoundsException e)
 		{
 			return Constants.EMPTY_STRING;
 		}

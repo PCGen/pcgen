@@ -34,7 +34,7 @@ import pcgen.core.Globals;
  * getSafe(IntegerKey) is called in CDOMObject). The default "default value" is
  * zero.
  */
-@SuppressWarnings({"PMD.ClassWithOnlyPrivateConstructorsShouldBeFinal", "checkstyle:FinalClass"})
+@SuppressWarnings("checkstyle:FinalClass")
 public class IntegerKey
 {
 

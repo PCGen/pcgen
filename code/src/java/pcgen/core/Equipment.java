@@ -2651,7 +2651,6 @@ public final class Equipment extends PObject
 	 * @return Description of the Return Value
 	 */
 	@Override
-	@SuppressWarnings("PMD.CloneMethodMustImplementCloneable")
 	public Equipment clone()
 	{
 		Equipment eq = null;
