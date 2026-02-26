@@ -92,7 +92,7 @@ java {
  * Set the version and the modules we want from JavaFX (not everything)
  */
 javafx {
-    version = javaVersion
+    version = latestJavaVersion
     modules = [ 'javafx.controls', 'javafx.swing', 'javafx.fxml', 'javafx.graphics', 'javafx.web' ]
 }
 
