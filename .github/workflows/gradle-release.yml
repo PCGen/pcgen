@@ -4,6 +4,17 @@ on:
   push:
     tags:
       - "v*.*.*"
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'Tag name for the release (e.g., v6.09.08). Must already exist.'
+        required: true
+        type: string
+      prerelease:
+        description: 'Mark as a pre-release'
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -13,13 +24,58 @@ jobs:
     name: Create Release
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.tag_name || github.ref }}
+
+      - name: Validate tag matches gradle.properties version
+        run: |
+          TAG_NAME="${{ inputs.tag_name || github.ref_name }}"
+          GRADLE_VERSION=$(grep '^version=' gradle.properties | head -1 | cut -d'=' -f2 | tr -d '[:space:]')
+          EXPECTED_TAG="v${GRADLE_VERSION}"
+
+          echo "Tag name:                ${TAG_NAME}"
+          echo "gradle.properties version: ${GRADLE_VERSION}"
+          echo "Expected tag:            ${EXPECTED_TAG}"
+          echo ""
+
+          if [ "${TAG_NAME}" != "${EXPECTED_TAG}" ]; then
+            echo "::error::Tag '${TAG_NAME}' does not match gradle.properties version '${GRADLE_VERSION}'."
+            echo ""
+            echo "========================================="
+            echo " HOW TO FIX"
+            echo "========================================="
+            echo ""
+            echo "Option 1: Update gradle.properties to match the tag"
+            echo "  - Edit gradle.properties and set: version=${TAG_NAME#v}"
+            echo "  - Commit, push, then re-tag:"
+            echo "    git tag -d ${TAG_NAME}"
+            echo "    git push origin :refs/tags/${TAG_NAME}"
+            echo "    git tag ${TAG_NAME}"
+            echo "    git push origin ${TAG_NAME}"
+            echo ""
+            echo "Option 2: Create the correct tag for the current version"
+            echo "  - git tag ${EXPECTED_TAG}"
+            echo "  - git push origin ${EXPECTED_TAG}"
+            echo "  - Then trigger this workflow with tag: ${EXPECTED_TAG}"
+            echo ""
+            echo "Option 3: Manual dispatch with the correct tag"
+            echo "  - Go to Actions > 'Create Release' > Run workflow"
+            echo "  - Enter tag_name: ${EXPECTED_TAG}"
+            echo "========================================="
+            exit 1
+          fi
+
+          echo "✅ Tag matches gradle.properties version."
+
       - name: Create Release
         id: create_release
         uses: softprops/action-gh-release@v2
         with:
-          name: ${{ github.ref_name }}
+          tag_name: ${{ inputs.tag_name || github.ref_name }}
+          name: ${{ inputs.tag_name || github.ref_name }}
           draft: false
-          prerelease: false
+          prerelease: ${{ inputs.prerelease || false }}
           generate_release_notes: false
 
   build_release:
@@ -41,6 +97,23 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.tag_name || github.ref }}
+
+      - name: Update PCGenProp.properties with release version and date
+        run: |
+          PROPS_FILE="code/src/resources/pcgen/system/prop/PCGenProp.properties"
+          GRADLE_VERSION=$(grep '^version=' gradle.properties | head -1 | cut -d'=' -f2 | tr -d '[:space:]')
+          RELEASE_DATE=$(date -u +%Y-%m-%d)
+
+          echo "Setting VersionNumber=${GRADLE_VERSION} and ReleaseDate=${RELEASE_DATE} in ${PROPS_FILE}"
+
+          sed -i.bak "s/^VersionNumber=.*/VersionNumber=${GRADLE_VERSION}/" "${PROPS_FILE}"
+          sed -i.bak "s/^ReleaseDate=.*/ReleaseDate=${RELEASE_DATE}/" "${PROPS_FILE}"
+          rm -f "${PROPS_FILE}.bak"
+
+          echo "Updated ${PROPS_FILE}:"
+          grep -E '^(VersionNumber|ReleaseDate)=' "${PROPS_FILE}"
 
       - name: Set up JDK 25
         uses: actions/setup-java@v4
