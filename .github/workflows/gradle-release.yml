@@ -28,6 +28,16 @@ jobs:
         with:
           ref: ${{ inputs.tag_name || github.ref }}
 
+      - name: Update gradle.properties with release version
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          TAG_NAME="${{ inputs.tag_name }}"
+          VERSION="${TAG_NAME#v}"
+          echo "Updating gradle.properties version to ${VERSION}"
+          sed -i "s/^version=.*/version=${VERSION}/" gradle.properties
+          echo "Updated gradle.properties:"
+          grep '^version=' gradle.properties
+
       - name: Validate tag matches gradle.properties version
         run: |
           TAG_NAME="${{ inputs.tag_name || github.ref_name }}"
@@ -99,6 +109,17 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ inputs.tag_name || github.ref }}
+
+      - name: Update gradle.properties with release version
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          TAG_NAME="${{ inputs.tag_name }}"
+          VERSION="${TAG_NAME#v}"
+          echo "Updating gradle.properties version to ${VERSION}"
+          sed -i.bak "s/^version=.*/version=${VERSION}/" gradle.properties
+          rm -f gradle.properties.bak
+          echo "Updated gradle.properties:"
+          grep '^version=' gradle.properties
 
       - name: Update PCGenProp.properties with release version and date
         run: |
