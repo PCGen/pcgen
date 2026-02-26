@@ -1,4 +1,4 @@
-name: Create Release
+name: Create Release with Manual Tag
 
 on:
   push:
@@ -24,6 +24,35 @@ jobs:
     name: Create Release
     runs-on: ubuntu-latest
     steps:
+      - name: Validate tag exists in remote
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG_NAME: ${{ inputs.tag_name }}
+        run: |
+          if ! gh api "repos/${{ github.repository }}/git/ref/tags/${TAG_NAME}" > /dev/null 2>&1; then
+            echo "::error::Tag '${TAG_NAME}' does not exist in the remote repository."
+            echo ""
+            echo "========================================="
+            echo " HOW TO FIX"
+            echo "========================================="
+            echo ""
+            echo "The tag must exist before you run this workflow."
+            echo ""
+            echo "Create the tag from the latest commit on a branch:"
+            echo "  git tag ${TAG_NAME}"
+            echo "  git push origin ${TAG_NAME}"
+            echo ""
+            echo "Or create the tag from a specific commit:"
+            echo "  git tag ${TAG_NAME} <commit-sha>"
+            echo "  git push origin ${TAG_NAME}"
+            echo ""
+            echo "Then re-run this workflow with tag_name: ${TAG_NAME}"
+            echo "========================================="
+            exit 1
+          fi
+          echo "✅ Tag '${TAG_NAME}' exists in the remote repository."
+
       - uses: actions/checkout@v4
         with:
           ref: ${{ inputs.tag_name || github.ref }}
