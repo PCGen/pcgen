@@ -1,0 +1,180 @@
+name: Create Release with Manual Tag
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'Tag name for the release (e.g., v6.09.08 for production, v6.09.08-SNAPSHOT for nightly, v6.09.08.RC1 for release candidate). The tag will be created on the selected branch.'
+        required: true
+        type: string
+      prerelease:
+        description: 'Mark as a pre-release (use for nightly builds and RCs)'
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  create_release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create and push tag
+        env:
+          TAG_NAME: ${{ inputs.tag_name }}
+        run: |
+          if git ls-remote --exit-code --tags origin "refs/tags/${TAG_NAME}" > /dev/null 2>&1; then
+            echo "::error::Tag '${TAG_NAME}' already exists on the remote."
+            echo ""
+            echo "========================================="
+            echo " HOW TO FIX"
+            echo "========================================="
+            echo ""
+            echo "If you want to re-release this tag, delete it first:"
+            echo "  git tag -d ${TAG_NAME}"
+            echo "  git push origin :refs/tags/${TAG_NAME}"
+            echo ""
+            echo "Then re-run this workflow."
+            echo "========================================="
+            exit 1
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag "${TAG_NAME}"
+          git push origin "${TAG_NAME}"
+          echo "✅ Tag '${TAG_NAME}' created and pushed from $(git rev-parse --short HEAD) on branch ${GITHUB_REF_NAME}."
+
+      - name: Validate tag matches gradle.properties version
+        env:
+          TAG_NAME: ${{ inputs.tag_name }}
+        run: |
+          GRADLE_VERSION=$(grep '^version=' gradle.properties | head -1 | cut -d'=' -f2 | tr -d '[:space:]')
+          EXPECTED_TAG="v${GRADLE_VERSION}"
+
+          echo "Tag name:                ${TAG_NAME}"
+          echo "gradle.properties version: ${GRADLE_VERSION}"
+          echo "Expected tag:            ${EXPECTED_TAG}"
+          echo ""
+
+          if [ "${TAG_NAME}" != "${EXPECTED_TAG}" ]; then
+            echo "::error::Tag '${TAG_NAME}' does not match gradle.properties version '${GRADLE_VERSION}'."
+            echo ""
+            echo "========================================="
+            echo " HOW TO FIX"
+            echo "========================================="
+            echo ""
+            echo "Option 1: Update gradle.properties to match the tag"
+            echo "  - Edit gradle.properties and set: version=${TAG_NAME#v}"
+            echo "  - Commit, push, then re-tag:"
+            echo "    git tag -d ${TAG_NAME}"
+            echo "    git push origin :refs/tags/${TAG_NAME}"
+            echo "    git tag ${TAG_NAME}"
+            echo "    git push origin ${TAG_NAME}"
+            echo ""
+            echo "Option 2: Create the correct tag for the current version"
+            echo "  - git tag ${EXPECTED_TAG}"
+            echo "  - git push origin ${EXPECTED_TAG}"
+            echo "  - Then trigger this workflow with tag: ${EXPECTED_TAG}"
+            echo ""
+            echo "Option 3: Manual dispatch with the correct tag"
+            echo "  - Go to Actions > 'Create Release with Manual Tag' > Run workflow"
+            echo "  - Enter tag_name: ${EXPECTED_TAG}"
+            echo "========================================="
+            exit 1
+          fi
+
+          echo "✅ Tag matches gradle.properties version."
+
+      - name: Create Release
+        id: create_release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ inputs.tag_name }}
+          name: ${{ inputs.tag_name }}
+          draft: false
+          prerelease: ${{ inputs.prerelease || false }}
+          generate_release_notes: false
+
+  build_release:
+    name: Build Release
+    needs: create_release
+    strategy:
+      matrix:
+        os: [ubuntu-latest, ubuntu-24.04-arm, macos-latest, windows-latest]
+        include:
+          - os: ubuntu-latest
+            release_suffix: ubuntu
+          - os: ubuntu-24.04-arm
+            release_suffix: ubuntu-arm
+          - os: macos-latest
+            release_suffix: mac
+          - os: windows-latest
+            release_suffix: windows
+          # windows-arm removed - no GitHub-hosted runner available yet
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.tag_name }}
+
+      - name: Set up JDK 25
+        uses: actions/setup-java@v4
+        with:
+          java-version: '25'
+          distribution: 'temurin'
+          cache: gradle
+          cache-dependency-path: |
+            build.gradle
+            code/gradle/autobuild.gradle
+            code/gradle/distribution.gradle
+            code/gradle/release.gradle
+            code/gradle/reporting.gradle
+            code/gradle/plugins.gradle
+
+      # Configure Gradle for optimal use in GitHub Actions, including caching of downloaded dependencies.
+      # See: https://github.com/gradle/actions/blob/main/setup-gradle/README.md
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          cache-disabled: false
+          cache-read-only: false
+          cache-overwrite-existing: true
+
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ${{ github.workspace }}/build/jre
+            ${{ github.workspace }}/build/libs
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ matrix.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+            ${{ matrix.os }}-gradle
+
+      - name: Build the image
+        if: success()
+        run: ./gradlew clean build copyToOutput test compileSlowtest datatest pfinttest allReports buildDist prepareRelease pcgenRelease
+
+      - name: Upload zip based release assets for all platforms
+        uses: actions/upload-artifact@v4
+        if: matrix.os == 'macos-latest'
+        with:
+          name: ${{ matrix.os }}-zip
+          path: ${{ github.workspace }}/build/release/image-*.zip
+
+      - name: Upload DMG release asset for macos
+        uses: actions/upload-artifact@v4
+        if: matrix.os == 'macos-latest'
+        with:
+          name: ${{ matrix.os }}-dmg
+          path: ${{ github.workspace }}/build/release/*.dmg
+
+      - name: Upload PKG release asset for macos
+        uses: actions/upload-artifact@v4
+        if: matrix.os == 'macos-latest'
+        with:
+          name: ${{ matrix.os }}-pkg
+          path: ${{ github.workspace }}/build/release/*.pkg
