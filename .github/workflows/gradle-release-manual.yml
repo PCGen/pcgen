@@ -163,7 +163,6 @@ jobs:
 
       - name: Upload zip based release assets for all platforms
         uses: actions/upload-artifact@v4
-        if: matrix.os == 'macos-latest'
         with:
           name: ${{ matrix.os }}-zip
           path: ${{ github.workspace }}/build/release/image-*.zip
