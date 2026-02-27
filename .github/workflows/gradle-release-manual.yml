@@ -48,6 +48,16 @@ jobs:
           git push origin "${TAG_NAME}"
           echo "✅ Tag '${TAG_NAME}' created and pushed from $(git rev-parse --short HEAD) on branch ${GITHUB_REF_NAME}."
 
+      - name: Update gradle.properties with release version
+        env:
+          TAG_NAME: ${{ inputs.tag_name }}
+        run: |
+          VERSION="${TAG_NAME#v}"
+          echo "Updating gradle.properties version to ${VERSION}"
+          sed -i "s/^version=.*/version=${VERSION}/" gradle.properties
+          echo "Updated gradle.properties:"
+          grep '^version=' gradle.properties
+
       - name: Validate tag matches gradle.properties version
         env:
           TAG_NAME: ${{ inputs.tag_name }}
@@ -123,6 +133,16 @@ jobs:
 
       - name: Checkout tag
         run: git checkout "refs/tags/${{ inputs.tag_name }}"
+
+      - name: Update gradle.properties with release version
+        run: |
+          TAG_NAME="${{ inputs.tag_name }}"
+          VERSION="${TAG_NAME#v}"
+          echo "Updating gradle.properties version to ${VERSION}"
+          sed -i.bak "s/^version=.*/version=${VERSION}/" gradle.properties
+          rm -f gradle.properties.bak
+          echo "Updated gradle.properties:"
+          grep '^version=' gradle.properties
 
       - name: Set up JDK 25
         uses: actions/setup-java@v4
