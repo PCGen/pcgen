@@ -135,6 +135,7 @@ jobs:
         run: git checkout "refs/tags/${{ inputs.tag_name }}"
 
       - name: Update gradle.properties with release version
+        shell: bash
         run: |
           TAG_NAME="${{ inputs.tag_name }}"
           VERSION="${TAG_NAME#v}"
