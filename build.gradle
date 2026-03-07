@@ -283,8 +283,8 @@ dependencies {
 
     spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.14.0'
 
-    pmd 'net.sourceforge.pmd:pmd-java:7.21.0'
-    pmd 'net.sourceforge.pmd:pmd-ant:7.21.0' // workaround: https://github.com/pmd/pmd/issues/4554
+    pmd 'net.sourceforge.pmd:pmd-java:7.22.0'
+    pmd 'net.sourceforge.pmd:pmd-ant:7.22.0' // workaround: https://github.com/pmd/pmd/issues/4554
 }
 
 ext {
