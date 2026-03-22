@@ -234,9 +234,9 @@ tasks.register("cleanMasterSheets", Delete) {
 dependencies {
 
     implementation 'commons-io:commons-io:2.21.0'
-    implementation 'org.springframework:spring-web:7.0.5'
-    implementation 'org.springframework:spring-beans:7.0.5'
-    implementation 'org.springframework:spring-core:7.0.5'
+    implementation 'org.springframework:spring-web:7.0.6'
+    implementation 'org.springframework:spring-beans:7.0.6'
+    implementation 'org.springframework:spring-core:7.0.6'
     implementation 'org.apache.commons:commons-lang3:3.20.0'
     implementation 'xalan:serializer:2.7.3'
     implementation('org.apache.xmlgraphics:fop:2.11') {
