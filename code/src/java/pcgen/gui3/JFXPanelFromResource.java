@@ -41,6 +41,8 @@ public final class JFXPanelFromResource<T> extends JFXPanel implements Controlla
 {
 
 	private final FXMLLoader fxmlLoader = new FXMLLoader();
+	private final URL resource;
+	private volatile T dialogController;
 
 	/**
 	 * @param klass        the class that contains the resource load
@@ -48,7 +50,7 @@ public final class JFXPanelFromResource<T> extends JFXPanel implements Controlla
 	 */
 	public JFXPanelFromResource(Class<? extends T> klass, String resourceName)
 	{
-		URL resource = klass.getResource(resourceName);
+		resource = klass.getResource(resourceName);
 		Objects.requireNonNull(resource);
 		Logging.debugPrint(String.format("location for %s (%s) is %s", resourceName, klass, resource));
 		fxmlLoader.setLocation(resource);
@@ -69,6 +71,10 @@ public final class JFXPanelFromResource<T> extends JFXPanel implements Controlla
 	@Override
 	public T getController()
 	{
+		if (dialogController != null)
+		{
+			return dialogController;
+		}
 		if (Platform.isFxApplicationThread())
 		{
 			return fxmlLoader.getController();
@@ -101,14 +107,25 @@ public final class JFXPanelFromResource<T> extends JFXPanel implements Controlla
 		GuiAssertions.assertIsNotJavaFXThread();
 		CompletableFuture<Integer> lock = new CompletableFuture<>();
 		Platform.runLater(() -> {
-			Stage stage = new Stage();
-			stage.setTitle(title);
-			stage.setScene(getScene());
-			stage.sizeToScene();
-			stage.showAndWait();
-			Logging.errorPrint("passed wait");
-			lock.completeAsync(() -> 0);
-
+			try
+			{
+				FXMLLoader stageLoader = new FXMLLoader();
+				stageLoader.setLocation(resource);
+				stageLoader.setResources(LanguageBundle.getBundle());
+				Scene scene = stageLoader.load();
+				dialogController = stageLoader.getController();
+				Stage stage = new Stage();
+				stage.setTitle(title);
+				stage.setScene(scene);
+				stage.sizeToScene();
+				stage.showAndWait();
+			} catch (IOException e)
+			{
+				Logging.errorPrint("failed to load fxml for showAndBlock", e);
+			} finally
+			{
+				lock.complete(0);
+			}
 		});
 		lock.join();
 	}
