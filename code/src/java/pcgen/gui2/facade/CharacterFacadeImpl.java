@@ -623,6 +623,7 @@ public class CharacterFacadeImpl
 		buildAvailableDomainsList();
 		companionSupportFacade.refreshCompanionData();
 		refreshEquipment();
+		spellSupportFacade.refreshAvailableKnownSpells();
 		hpRef.set(theCharacter.hitPoints());
 	}
 
@@ -632,6 +633,7 @@ public class CharacterFacadeImpl
 		characterAbilities.removeAbility(category, ability);
 		refreshKitList();
 		companionSupportFacade.refreshCompanionData();
+		spellSupportFacade.refreshAvailableKnownSpells();
 		hpRef.set(theCharacter.hitPoints());
 	}
 

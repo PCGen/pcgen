@@ -21,7 +21,6 @@ import java.util.Collection;
 import java.util.List;
 
 import pcgen.cdom.base.CDOMList;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseSelectionActor;
@@ -46,23 +45,17 @@ import pcgen.util.Logging;
 
 /**
  * Token ADDSPELLTOCLASSLIST that adds spells chosen via CHOOSE:SPELLS
- * to the character's spell list for a target spellcasting class type.
+ * to the character's spell list for a target spellcasting class.
  *
- * Syntax: ADDSPELLTOCLASSLIST:SourceClassName|TargetSpellType
+ * Syntax: ADDSPELLTOCLASSLIST:SourceClassName|TargetClassOrSpellType
  * Example: ADDSPELLTOCLASSLIST:Wizard|Divine
- *
- * When a spell is chosen via CHOOSE:SPELLS, this token looks up the spell's
- * level on the source class spell list and adds it to the character's
- * target class spell list (first class matching the target spell type).
+ *          ADDSPELLTOCLASSLIST:Druid|Druid
  */
-public class AddSpellToClassListLst implements CDOMPrimaryToken<CDOMObject>, ChooseSelectionActor<Spell>
+public class AddSpellToClassListLst implements CDOMPrimaryToken<CDOMObject>
 {
 
 	private static final String TOKEN_NAME = "ADDSPELLTOCLASSLIST";
-	private static final String SOURCE = "ADDSPELLTOCLASSLIST";
-
-	private String sourceClassName;
-	private String targetSpellType;
+	static final String SOURCE = "ADDSPELLTOCLASSLIST";
 
 	@Override
 	public String getTokenName()
@@ -75,20 +68,18 @@ public class AddSpellToClassListLst implements CDOMPrimaryToken<CDOMObject>, Cho
 	{
 		if (value == null || value.isEmpty())
 		{
-			return new ParseResult.Fail("ADDSPELLTOCLASSLIST requires a value in the format SourceClass|TargetSpellType");
+			return new ParseResult.Fail("ADDSPELLTOCLASSLIST requires a value in the format SourceClass|TargetClassOrSpellType");
 		}
 
 		String[] parts = value.split("\\|");
 		if (parts.length != 2)
 		{
 			return new ParseResult.Fail(
-				"ADDSPELLTOCLASSLIST requires exactly two arguments separated by '|': SourceClass|TargetSpellType. Got: " + value);
+				"ADDSPELLTOCLASSLIST requires exactly two arguments separated by '|'. Got: " + value);
 		}
 
-		sourceClassName = parts[0];
-		targetSpellType = parts[1];
-
-		context.getObjectContext().addToList(obj, ListKey.NEW_CHOOSE_ACTOR, this);
+		SpellToClassListActor actor = new SpellToClassListActor(parts[0], parts[1]);
+		context.getObjectContext().addToList(obj, ListKey.NEW_CHOOSE_ACTOR, actor);
 		return ParseResult.SUCCESS;
 	}
 
@@ -106,7 +97,15 @@ public class AddSpellToClassListLst implements CDOMPrimaryToken<CDOMObject>, Cho
 		{
 			if (actor.getSource().equals(SOURCE))
 			{
-				return new String[]{sourceClassName + Constants.PIPE + targetSpellType};
+				try
+				{
+					return new String[]{actor.getLstFormat()};
+				}
+				catch (Exception e)
+				{
+					context.addWriteMessage("Error writing " + TOKEN_NAME + ": " + e);
+					return null;
+				}
 			}
 		}
 		return null;
@@ -118,134 +117,162 @@ public class AddSpellToClassListLst implements CDOMPrimaryToken<CDOMObject>, Cho
 		return CDOMObject.class;
 	}
 
-	@Override
-	public void applyChoice(ChooseDriver obj, Spell spell, PlayerCharacter pc)
+	/**
+	 * Separate actor class that holds per-object state (source class name
+	 * and target class/spell type). Each ADDSPELLTOCLASSLIST token usage
+	 * creates its own actor instance.
+	 */
+	static class SpellToClassListActor implements ChooseSelectionActor<Spell>
 	{
-		ClassSpellList sourceList = findClassSpellList(pc, sourceClassName);
-		if (sourceList == null)
+		private final String sourceClassName;
+		private final String targetClassOrType;
+
+		SpellToClassListActor(String sourceClassName, String targetClassOrType)
 		{
-			Logging.errorPrint("ADDSPELLTOCLASSLIST: Could not find spell list for class: " + sourceClassName);
-			return;
+			this.sourceClassName = sourceClassName;
+			this.targetClassOrType = targetClassOrType;
 		}
 
-		int spellLevel = findSpellLevel(pc, sourceList, spell);
-		if (spellLevel < 0)
+		@Override
+		public void applyChoice(ChooseDriver obj, Spell spell, PlayerCharacter pc)
 		{
-			Logging.errorPrint("ADDSPELLTOCLASSLIST: Spell " + spell.getKeyName()
-				+ " not found on " + sourceClassName + " spell list");
-			return;
-		}
-
-		PCClass targetClass = findTargetClass(pc, targetSpellType);
-		if (targetClass == null)
-		{
-			Logging.errorPrint("ADDSPELLTOCLASSLIST: No class with spell type " + targetSpellType + " found");
-			return;
-		}
-
-		ClassSpellList targetList = targetClass.get(ObjectKey.CLASS_SPELLLIST);
-		if (targetList == null)
-		{
-			Logging.errorPrint("ADDSPELLTOCLASSLIST: No spell list found for class " + targetClass.getKeyName());
-			return;
-		}
-
-		AvailableSpellFacet availableSpellFacet = FacetLibrary.getFacet(AvailableSpellFacet.class);
-		availableSpellFacet.add(pc.getCharID(), targetList, spellLevel, spell, obj);
-
-		KnownSpellFacet knownSpellFacet = FacetLibrary.getFacet(KnownSpellFacet.class);
-		knownSpellFacet.add(pc.getCharID(), targetList, spellLevel, spell, obj);
-	}
-
-	@Override
-	public void removeChoice(ChooseDriver obj, Spell spell, PlayerCharacter pc)
-	{
-		ClassSpellList sourceList = findClassSpellList(pc, sourceClassName);
-		if (sourceList == null)
-		{
-			return;
-		}
-
-		int spellLevel = findSpellLevel(pc, sourceList, spell);
-		if (spellLevel < 0)
-		{
-			return;
-		}
-
-		PCClass targetClass = findTargetClass(pc, targetSpellType);
-		if (targetClass == null)
-		{
-			return;
-		}
-
-		ClassSpellList targetList = targetClass.get(ObjectKey.CLASS_SPELLLIST);
-		if (targetList == null)
-		{
-			return;
-		}
-
-		AvailableSpellFacet availableSpellFacet = FacetLibrary.getFacet(AvailableSpellFacet.class);
-		availableSpellFacet.remove(pc.getCharID(), targetList, spellLevel, spell, obj);
-
-		KnownSpellFacet knownSpellFacet = FacetLibrary.getFacet(KnownSpellFacet.class);
-		knownSpellFacet.remove(pc.getCharID(), targetList, spellLevel, spell, obj);
-	}
-
-	@Override
-	public String getSource()
-	{
-		return SOURCE;
-	}
-
-	@Override
-	public String getLstFormat()
-	{
-		return sourceClassName + Constants.PIPE + targetSpellType;
-	}
-
-	@Override
-	public Class<Spell> getChoiceClass()
-	{
-		return Spell.class;
-	}
-
-	private ClassSpellList findClassSpellList(PlayerCharacter pc, String className)
-	{
-		DataSetID dsID = pc.getCharID().getDatasetID();
-		MasterAvailableSpellFacet masterFacet = FacetLibrary.getFacet(MasterAvailableSpellFacet.class);
-		Collection<AvailableSpell> allSpells = masterFacet.getSet(dsID);
-		for (AvailableSpell as : allSpells)
-		{
-			CDOMList<Spell> list = as.getSpelllist();
-			if (list instanceof ClassSpellList && list.getKeyName().equals(className))
+			ClassSpellList sourceList = findClassSpellList(pc, sourceClassName);
+			if (sourceList == null)
 			{
-				return (ClassSpellList) list;
+				Logging.errorPrint("ADDSPELLTOCLASSLIST: Could not find spell list for class: " + sourceClassName);
+				return;
 			}
-		}
-		return null;
-	}
 
-	private int findSpellLevel(PlayerCharacter pc, ClassSpellList sourceList, Spell spell)
-	{
-		DataSetID dsID = pc.getCharID().getDatasetID();
-		MasterAvailableSpellFacet masterFacet = FacetLibrary.getFacet(MasterAvailableSpellFacet.class);
-		List<AvailableSpell> matches = masterFacet.getMatchingSpellsInList(sourceList, dsID, spell);
-		if (!matches.isEmpty())
-		{
-			return matches.get(0).getLevel();
-		}
-		return -1;
-	}
-
-	private PCClass findTargetClass(PlayerCharacter pc, String spellType)
-	{
-		for (PCClass pcClass : pc.getClassSet())
-		{
-			if (spellType.equalsIgnoreCase(pcClass.getSpellType()))
+			int spellLevel = findSpellLevel(pc, sourceList, spell);
+			if (spellLevel < 0)
 			{
-				return pcClass;
+				Logging.errorPrint("ADDSPELLTOCLASSLIST: Spell " + spell.getKeyName()
+					+ " not found on " + sourceClassName + " spell list");
+				return;
 			}
+
+			PCClass targetClass = findTargetClass(pc, targetClassOrType);
+			if (targetClass == null)
+			{
+				Logging.errorPrint("ADDSPELLTOCLASSLIST: No class matching '" + targetClassOrType + "' found");
+				return;
+			}
+
+			ClassSpellList targetList = targetClass.get(ObjectKey.CLASS_SPELLLIST);
+			if (targetList == null)
+			{
+				Logging.errorPrint("ADDSPELLTOCLASSLIST: No spell list for class " + targetClass.getKeyName());
+				return;
+			}
+
+			Logging.debugPrint("ADDSPELLTOCLASSLIST: Adding " + spell.getKeyName() + " (level " + spellLevel
+				+ ") to " + targetList.getKeyName() + " spell list");
+
+			AvailableSpellFacet availableSpellFacet = FacetLibrary.getFacet(AvailableSpellFacet.class);
+			availableSpellFacet.add(pc.getCharID(), targetList, spellLevel, spell, obj);
+
+			KnownSpellFacet knownSpellFacet = FacetLibrary.getFacet(KnownSpellFacet.class);
+			knownSpellFacet.add(pc.getCharID(), targetList, spellLevel, spell, obj);
 		}
-		return null;
+
+		@Override
+		public void removeChoice(ChooseDriver obj, Spell spell, PlayerCharacter pc)
+		{
+			ClassSpellList sourceList = findClassSpellList(pc, sourceClassName);
+			if (sourceList == null)
+			{
+				return;
+			}
+
+			int spellLevel = findSpellLevel(pc, sourceList, spell);
+			if (spellLevel < 0)
+			{
+				return;
+			}
+
+			PCClass targetClass = findTargetClass(pc, targetClassOrType);
+			if (targetClass == null)
+			{
+				return;
+			}
+
+			ClassSpellList targetList = targetClass.get(ObjectKey.CLASS_SPELLLIST);
+			if (targetList == null)
+			{
+				return;
+			}
+
+			AvailableSpellFacet availableSpellFacet = FacetLibrary.getFacet(AvailableSpellFacet.class);
+			availableSpellFacet.remove(pc.getCharID(), targetList, spellLevel, spell, obj);
+
+			KnownSpellFacet knownSpellFacet = FacetLibrary.getFacet(KnownSpellFacet.class);
+			knownSpellFacet.remove(pc.getCharID(), targetList, spellLevel, spell, obj);
+		}
+
+		@Override
+		public String getSource()
+		{
+			return SOURCE;
+		}
+
+		@Override
+		public String getLstFormat()
+		{
+			return sourceClassName + Constants.PIPE + targetClassOrType;
+		}
+
+		@Override
+		public Class<Spell> getChoiceClass()
+		{
+			return Spell.class;
+		}
+
+		private ClassSpellList findClassSpellList(PlayerCharacter pc, String className)
+		{
+			DataSetID dsID = pc.getCharID().getDatasetID();
+			MasterAvailableSpellFacet masterFacet = FacetLibrary.getFacet(MasterAvailableSpellFacet.class);
+			Collection<AvailableSpell> allSpells = masterFacet.getSet(dsID);
+			for (AvailableSpell as : allSpells)
+			{
+				CDOMList<Spell> list = as.getSpelllist();
+				if (list instanceof ClassSpellList && list.getKeyName().equals(className))
+				{
+					return (ClassSpellList) list;
+				}
+			}
+			return null;
+		}
+
+		private int findSpellLevel(PlayerCharacter pc, ClassSpellList sourceList, Spell spell)
+		{
+			DataSetID dsID = pc.getCharID().getDatasetID();
+			MasterAvailableSpellFacet masterFacet = FacetLibrary.getFacet(MasterAvailableSpellFacet.class);
+			List<AvailableSpell> matches = masterFacet.getMatchingSpellsInList(sourceList, dsID, spell);
+			if (!matches.isEmpty())
+			{
+				return matches.get(0).getLevel();
+			}
+			return -1;
+		}
+
+		private PCClass findTargetClass(PlayerCharacter pc, String target)
+		{
+			for (PCClass pcClass : pc.getClassSet())
+			{
+				if (target.equalsIgnoreCase(pcClass.getKeyName())
+					|| target.equalsIgnoreCase(pcClass.getDisplayName()))
+				{
+					return pcClass;
+				}
+			}
+			for (PCClass pcClass : pc.getClassSet())
+			{
+				if (target.equalsIgnoreCase(pcClass.getSpellType()))
+				{
+					return pcClass;
+				}
+			}
+			return null;
+		}
 	}
 }
