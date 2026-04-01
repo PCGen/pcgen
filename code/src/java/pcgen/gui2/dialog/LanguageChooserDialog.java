@@ -168,35 +168,43 @@ public final class LanguageChooserDialog extends JDialog implements ReferenceLis
 
 	private void doAdd(final javafx.event.ActionEvent actionEvent)
 	{
-		List<Object> data = availTable.getSelectedData();
-		if (!data.isEmpty())
-		{
-			data.stream()
-			    .filter(object -> object instanceof Language)
-			    .map(object -> (Language) object)
-			    .forEach(chooser::addSelected);
-		}
+		javax.swing.SwingUtilities.invokeLater(() -> {
+			List<Object> data = availTable.getSelectedData();
+			if (!data.isEmpty())
+			{
+				data.stream()
+				    .filter(object -> object instanceof Language)
+				    .map(object -> (Language) object)
+				    .forEach(chooser::addSelected);
+			}
+		});
 	}
 
 	private void doRemove(final javafx.event.ActionEvent actionEvent)
 	{
-		Object value = list.getSelectedValue();
-		if (value != null)
-		{
-			chooser.removeSelected((Language) value);
-		}
+		javax.swing.SwingUtilities.invokeLater(() -> {
+			Object value = list.getSelectedValue();
+			if (value != null)
+			{
+				chooser.removeSelected((Language) value);
+			}
+		});
 	}
 
 	private void doOK(final javafx.event.ActionEvent actionEvent)
 	{
-		chooser.commit();
-		dispose();
+		javax.swing.SwingUtilities.invokeLater(() -> {
+			chooser.commit();
+			dispose();
+		});
 	}
 
 	private void doRollback(final javafx.event.ActionEvent actionEvent)
 	{
-		chooser.rollback();
-		dispose();
+		javax.swing.SwingUtilities.invokeLater(() -> {
+			chooser.rollback();
+			dispose();
+		});
 	}
 
 
