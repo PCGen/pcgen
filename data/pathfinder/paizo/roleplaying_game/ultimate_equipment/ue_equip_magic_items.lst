@@ -1180,21 +1180,21 @@ Lord's Banner (Victory).MOD													TYPE:GreaterMajor																							
 Lyre of Building.MOD														TYPE:LesserMedium																																				COST:13000	WT:5																													SOURCEPAGE:p.308
 Malleable Symbol															TYPE:Magic.Wondrous.LesserMedium																																	COST:10000	WT:1																													SOURCEPAGE:p.309
 Mallet of Building														TYPE:Magic.Wondrous.GreaterMinor																																	COST:5000	WT:2																													SOURCEPAGE:p.309
-Manual of Bodily Health (+1).MOD												TYPE:GreaterMedium																																			COST:27500	WT:5																													SOURCEPAGE:p.309
-Manual of Bodily Health (+2).MOD												TYPE:GreaterMajor																																				COST:55000	WT:5																													SOURCEPAGE:p.309
-Manual of Bodily Health (+3).MOD												TYPE:GreaterMajor																																				COST:82500	WT:5																													SOURCEPAGE:p.309
-Manual of Bodily Health (+4).MOD												TYPE:GreaterMajor																																				COST:110000	WT:5																													SOURCEPAGE:p.309
-Manual of Bodily Health (+5).MOD												TYPE:GreaterMajor																																				COST:137500	WT:5																													SOURCEPAGE:p.309
-Manual of Gainful Exercise (+1).MOD												TYPE:GreaterMedium																																			COST:27500	WT:5																													SOURCEPAGE:p.309
-Manual of Gainful Exercise (+2).MOD												TYPE:GreaterMajor																																				COST:55000	WT:5																													SOURCEPAGE:p.309
-Manual of Gainful Exercise (+3).MOD												TYPE:GreaterMajor																																				COST:82500	WT:5																													SOURCEPAGE:p.309
-Manual of Gainful Exercise (+4).MOD												TYPE:GreaterMajor																																				COST:110000	WT:5																													SOURCEPAGE:p.309
-Manual of Gainful Exercise (+5).MOD												TYPE:GreaterMajor																																				COST:137500	WT:5																													SOURCEPAGE:p.309
-Manual of Quickness of Action (+1).MOD											TYPE:GreaterMedium																																			COST:27500	WT:5																													SOURCEPAGE:p.309
-Manual of Quickness of Action (+2).MOD											TYPE:GreaterMajor																																				COST:55000	WT:5																													SOURCEPAGE:p.309
-Manual of Quickness of Action (+3).MOD											TYPE:GreaterMajor																																				COST:82500	WT:5																													SOURCEPAGE:p.309
-Manual of Quickness of Action (+4).MOD											TYPE:GreaterMajor																																				COST:110000	WT:5																													SOURCEPAGE:p.309
-Manual of Quickness of Action (+5).MOD											TYPE:GreaterMajor																																				COST:137500	WT:5																													SOURCEPAGE:p.309
+Manual of Bodily Health (+1).MOD												TYPE:GreaterMedium																																			COST:27500	WT:5		BONUS:STAT|CON|1|TYPE=Inherent																										SOURCEPAGE:p.309
+Manual of Bodily Health (+2).MOD												TYPE:GreaterMajor																																				COST:55000	WT:5		BONUS:STAT|CON|2|TYPE=Inherent																										SOURCEPAGE:p.309
+Manual of Bodily Health (+3).MOD												TYPE:GreaterMajor																																				COST:82500	WT:5		BONUS:STAT|CON|3|TYPE=Inherent																										SOURCEPAGE:p.309
+Manual of Bodily Health (+4).MOD												TYPE:GreaterMajor																																				COST:110000	WT:5		BONUS:STAT|CON|4|TYPE=Inherent																										SOURCEPAGE:p.309
+Manual of Bodily Health (+5).MOD												TYPE:GreaterMajor																																				COST:137500	WT:5		BONUS:STAT|CON|5|TYPE=Inherent																										SOURCEPAGE:p.309
+Manual of Gainful Exercise (+1).MOD												TYPE:GreaterMedium																																			COST:27500	WT:5		BONUS:STAT|STR|1|TYPE=Inherent																										SOURCEPAGE:p.309
+Manual of Gainful Exercise (+2).MOD												TYPE:GreaterMajor																																				COST:55000	WT:5		BONUS:STAT|STR|2|TYPE=Inherent																										SOURCEPAGE:p.309
+Manual of Gainful Exercise (+3).MOD												TYPE:GreaterMajor																																				COST:82500	WT:5		BONUS:STAT|STR|3|TYPE=Inherent																										SOURCEPAGE:p.309
+Manual of Gainful Exercise (+4).MOD												TYPE:GreaterMajor																																				COST:110000	WT:5		BONUS:STAT|STR|4|TYPE=Inherent																										SOURCEPAGE:p.309
+Manual of Gainful Exercise (+5).MOD												TYPE:GreaterMajor																																				COST:137500	WT:5		BONUS:STAT|STR|5|TYPE=Inherent																										SOURCEPAGE:p.309
+Manual of Quickness of Action (+1).MOD											TYPE:GreaterMedium																																			COST:27500	WT:5		BONUS:STAT|DEX|1|TYPE=Inherent																										SOURCEPAGE:p.309
+Manual of Quickness of Action (+2).MOD											TYPE:GreaterMajor																																				COST:55000	WT:5		BONUS:STAT|DEX|2|TYPE=Inherent																										SOURCEPAGE:p.309
+Manual of Quickness of Action (+3).MOD											TYPE:GreaterMajor																																				COST:82500	WT:5		BONUS:STAT|DEX|3|TYPE=Inherent																										SOURCEPAGE:p.309
+Manual of Quickness of Action (+4).MOD											TYPE:GreaterMajor																																				COST:110000	WT:5		BONUS:STAT|DEX|4|TYPE=Inherent																										SOURCEPAGE:p.309
+Manual of Quickness of Action (+5).MOD											TYPE:GreaterMajor																																				COST:137500	WT:5		BONUS:STAT|DEX|5|TYPE=Inherent																										SOURCEPAGE:p.309
 Manual of War															TYPE:Magic.Wondrous.GreaterMinor																																	COST:7500	WT:2																													SOURCEPAGE:p.310
 Martyr's Tear															TYPE:Magic.Wondrous.GreaterMinor																																	COST:6000	WT:0																													SOURCEPAGE:p.310
 Marvelous Pigments.MOD														TYPE:GreaterMinor																																				COST:4000	WT:0																													SOURCEPAGE:p.310
@@ -1293,21 +1293,21 @@ Stubborn Nail															TYPE:Magic.Wondrous.Consumable.LeastMinor											
 Summoning Shackle															TYPE:Magic.Wondrous.GreaterMinor																																	COST:5000	WT:1																													SOURCEPAGE:p.322
 Summon-Slave Crystal														TYPE:Magic.Wondrous.LesserMedium																																	COST:10000	WT:0																													SOURCEPAGE:p.322
 Sustaining Spoon.MOD														TYPE:GreaterMinor																																				COST:5400	WT:0																													SOURCEPAGE:p.322
-Tome of Clear Thought (+1).MOD												TYPE:GreaterMedium																																			COST:27500	WT:5																													SOURCEPAGE:p.323
-Tome of Clear Thought (+2).MOD												TYPE:GreaterMajor																																				COST:55000	WT:5																													SOURCEPAGE:p.323
-Tome of Clear Thought (+3).MOD												TYPE:GreaterMajor																																				COST:82500	WT:5																													SOURCEPAGE:p.323
-Tome of Clear Thought (+4).MOD												TYPE:GreaterMajor																																				COST:110000	WT:5																													SOURCEPAGE:p.323
-Tome of Clear Thought (+5).MOD												TYPE:GreaterMajor																																				COST:137500	WT:5																													SOURCEPAGE:p.323
-Tome of Leadership and Influence (+1).MOD											TYPE:GreaterMedium																																			COST:27500	WT:5																													SOURCEPAGE:p.323
-Tome of Leadership and Influence (+2).MOD											TYPE:GreaterMajor																																				COST:55000	WT:5																													SOURCEPAGE:p.323
-Tome of Leadership and Influence (+3).MOD											TYPE:GreaterMajor																																				COST:82500	WT:5																													SOURCEPAGE:p.323
-Tome of Leadership and Influence (+4).MOD											TYPE:GreaterMajor																																				COST:110000	WT:5																													SOURCEPAGE:p.323
-Tome of Leadership and Influence (+5).MOD											TYPE:GreaterMajor																																				COST:137500	WT:5																													SOURCEPAGE:p.323
-Tome of Understanding (+1).MOD												TYPE:GreaterMedium																																			COST:27500	WT:5																													SOURCEPAGE:p.323
-Tome of Understanding (+2).MOD												TYPE:GreaterMajor																																				COST:55000	WT:5																													SOURCEPAGE:p.323
-Tome of Understanding (+3).MOD												TYPE:GreaterMajor																																				COST:82500	WT:5																													SOURCEPAGE:p.323
-Tome of Understanding (+4).MOD												TYPE:GreaterMajor																																				COST:110000	WT:5																													SOURCEPAGE:p.323
-Tome of Understanding (+5).MOD												TYPE:GreaterMajor																																				COST:137500	WT:5																													SOURCEPAGE:p.323
+Tome of Clear Thought (+1).MOD												TYPE:GreaterMedium																																			COST:27500	WT:5		BONUS:STAT|INT|1|TYPE=Inherent																										SOURCEPAGE:p.323
+Tome of Clear Thought (+2).MOD												TYPE:GreaterMajor																																				COST:55000	WT:5		BONUS:STAT|INT|2|TYPE=Inherent																										SOURCEPAGE:p.323
+Tome of Clear Thought (+3).MOD												TYPE:GreaterMajor																																				COST:82500	WT:5		BONUS:STAT|INT|3|TYPE=Inherent																										SOURCEPAGE:p.323
+Tome of Clear Thought (+4).MOD												TYPE:GreaterMajor																																				COST:110000	WT:5		BONUS:STAT|INT|4|TYPE=Inherent																										SOURCEPAGE:p.323
+Tome of Clear Thought (+5).MOD												TYPE:GreaterMajor																																				COST:137500	WT:5		BONUS:STAT|INT|5|TYPE=Inherent																										SOURCEPAGE:p.323
+Tome of Leadership and Influence (+1).MOD											TYPE:GreaterMedium																																			COST:27500	WT:5		BONUS:STAT|CHA|1|TYPE=Inherent																										SOURCEPAGE:p.323
+Tome of Leadership and Influence (+2).MOD											TYPE:GreaterMajor																																				COST:55000	WT:5		BONUS:STAT|CHA|2|TYPE=Inherent																										SOURCEPAGE:p.323
+Tome of Leadership and Influence (+3).MOD											TYPE:GreaterMajor																																				COST:82500	WT:5		BONUS:STAT|CHA|3|TYPE=Inherent																										SOURCEPAGE:p.323
+Tome of Leadership and Influence (+4).MOD											TYPE:GreaterMajor																																				COST:110000	WT:5		BONUS:STAT|CHA|4|TYPE=Inherent																										SOURCEPAGE:p.323
+Tome of Leadership and Influence (+5).MOD											TYPE:GreaterMajor																																				COST:137500	WT:5		BONUS:STAT|CHA|5|TYPE=Inherent																										SOURCEPAGE:p.323
+Tome of Understanding (+1).MOD												TYPE:GreaterMedium																																			COST:27500	WT:5		BONUS:STAT|WIS|1|TYPE=Inherent																										SOURCEPAGE:p.323
+Tome of Understanding (+2).MOD												TYPE:GreaterMajor																																				COST:55000	WT:5		BONUS:STAT|WIS|2|TYPE=Inherent																										SOURCEPAGE:p.323
+Tome of Understanding (+3).MOD												TYPE:GreaterMajor																																				COST:82500	WT:5		BONUS:STAT|WIS|3|TYPE=Inherent																										SOURCEPAGE:p.323
+Tome of Understanding (+4).MOD												TYPE:GreaterMajor																																				COST:110000	WT:5		BONUS:STAT|WIS|4|TYPE=Inherent																										SOURCEPAGE:p.323
+Tome of Understanding (+5).MOD												TYPE:GreaterMajor																																				COST:137500	WT:5		BONUS:STAT|WIS|5|TYPE=Inherent																										SOURCEPAGE:p.323
 Traveler's Any-Tool														TYPE:Magic.Wondrous.LeastMinor																																	COST:250	WT:2																													SOURCEPAGE:p.323
 Treasurer's Seal															TYPE:Magic.Wondrous.LesserMedium																																	COST:10000	WT:1																													SOURCEPAGE:p.323
 Unguent of Timelessness.MOD													TYPE:LeastMinor																																				COST:150	WT:0																													SOURCEPAGE:p.324

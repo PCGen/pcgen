@@ -73,11 +73,15 @@ ext {
 
     // The Eclipse Adoptium API will return the latest patch release for the majorJava version set
     latestJavaVersion = { majorJavaVersion ->
-        def uri = new URI("https://api.adoptium.net/v3/assets/feature_releases/${majorJavaVersion}/ga?architecture=x64&page=0&page_size=1&project=jdk&sort_order=DESC&vendor=eclipse")
-        def parsedJson = new JsonSlurper().parse(uri.toURL())
-
-        return parsedJson.first()
-                .version_data.with { [major, minor, security].join('.') }
+        try {
+            def uri = new URI("https://api.adoptium.net/v3/assets/feature_releases/${majorJavaVersion}/ga?architecture=x64&page=0&page_size=1&project=jdk&sort_order=DESC&vendor=eclipse")
+            def parsedJson = new JsonSlurper().parse(uri.toURL())
+            return parsedJson.first()
+                    .version_data.with { [major, minor, security].join('.') }
+        } catch (Exception e) {
+            logger.warn("Could not fetch latest Java version from Adoptium API (offline?), using fallback")
+            return "${majorJavaVersion}.0.0"
+        }
     }(javaVersion)
 }
 
