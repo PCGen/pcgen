@@ -233,7 +233,7 @@ tasks.register("cleanMasterSheets", Delete) {
  */
 dependencies {
 
-    implementation 'commons-io:commons-io:2.21.0'
+    implementation 'commons-io:commons-io:2.22.0'
     implementation 'org.springframework:spring-web:7.0.6'
     implementation 'org.springframework:spring-beans:7.0.6'
     implementation 'org.springframework:spring-core:7.0.6'
