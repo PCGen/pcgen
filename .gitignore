@@ -115,6 +115,7 @@ pcgen.iws
 
 # Misc
 jre/
+jdks/
 mods/
 code/manifest-tests
 .DS_Store
