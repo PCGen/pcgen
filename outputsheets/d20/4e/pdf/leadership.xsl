@@ -3,7 +3,7 @@
 	version="1.0" 
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
 	xmlns:fo="http://www.w3.org/1999/XSL/Format"
-	xmlns:xalan="http://xml.apache.org/xalan" 
+	xmlns:exsl="http://exslt.org/common" 
 	xmlns:math="http://exslt.org/math"
  	xmlns:myAttribs="my:Attribs" 
 	xmlns:Leadership="my:Leadership" 
@@ -26,7 +26,7 @@
 				<xsl:copy-of select="document('leadership.xsl')/*/myAttribs:*/*"/>
 			</myAttribs:myAttribs>
 		</xsl:variable>
-		<xsl:variable name="vAttribs_all" select="xalan:nodeset($vAttribs_tree)"/>
+		<xsl:variable name="vAttribs_all" select="exsl:node-set($vAttribs_tree)"/>
 
 		Each attribute is a tag where the name of the tag is the name of the attribute. 
 		All of the attributes of the tag will become attributes of the calling element,
@@ -54,7 +54,7 @@
 			<xsl:copy-of select="document('leadership.xsl')/*/myAttribs:*/*"/>
 		</myAttribs:myAttribs>
 	</xsl:variable>
-	<xsl:variable name="vAttribs_all" select="xalan:nodeset($vAttribs_tree)"/>
+	<xsl:variable name="vAttribs_all" select="exsl:node-set($vAttribs_tree)"/>
 	<xsl:template name="attrib">
 		<xsl:param name="attribute"/>
 		<xsl:copy-of select="$vAttribs_all/*/*[name() = $attribute]/@*"/>
@@ -76,7 +76,7 @@
 	<xsl:template match="/character" mode="leadership">
 		<xsl:if test="class_features/leadership">
 			<!-- Build the leadership table, whcih will return a tree-fragment, then
-				use the xalan:nodeset() function to convert that to a nodeset so
+				use the exsl:node-set() function to convert that to a nodeset so
 				that we can use it for other calculations -->
 				
 			<xsl:variable name="score">
@@ -89,7 +89,7 @@
 					<xsl:with-param name="max_cohort_level" select="class_features/leadership/max_cohort_level"/>
 				</xsl:call-template>
 			</xsl:variable>
-			<xsl:variable name="leadership_table" select="xalan:nodeset($leader)"/>
+			<xsl:variable name="leadership_table" select="exsl:node-set($leader)"/>
 			<!-- Generate the table from the new leadership nodeset -->
 			<xsl:apply-templates select="$leadership_table" mode="table" />
 		</xsl:if>
@@ -265,7 +265,7 @@
 							<level><xsl:value-of select="$max_cohort_level"/></level>
 							<level><xsl:value-of select="$scores/@cohort"/></level>
 						</xsl:variable>
-						<xsl:variable name="cohort_levels_nodeset" select="xalan:nodeset($cohort_levels)"/>
+						<xsl:variable name="cohort_levels_nodeset" select="exsl:node-set($cohort_levels)"/>
 						<cohort>
 							<xsl:attribute name="level">
 								<xsl:value-of select="math:min($cohort_levels_nodeset/*)"/>
@@ -286,7 +286,7 @@
 							<level><xsl:value-of select="($score div 2)+5"/></level>
 						</xsl:variable>
 						<cohort>
-							<xsl:attribute name="level"><xsl:value-of select="math:min(xalan:nodeset($cohort_levels)/*)"/></xsl:attribute>
+							<xsl:attribute name="level"><xsl:value-of select="math:min(exsl:node-set($cohort_levels)/*)"/></xsl:attribute>
 						</cohort>
 						<followers>
 							<xsl:call-template name="calculated_follower_number">

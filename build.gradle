@@ -35,7 +35,7 @@ plugins {
     id 'com.github.ben-manes.versions' version '0.54.0' // Checks versions for plugins and dependencies
     id 'com.dorongold.task-tree' version '4.0.1'        // Prints the task dependency tree
     id 'org.openjfx.javafxplugin' version '0.1.0'       // JavaFX support
-    id 'org.beryx.runtime' version '2.0.1'              // Creates custom runtimes
+    id 'org.beryx.jlink' version '4.0.0'               // Creates custom runtimes with jlink
     id 'jacoco'                                         // Code coverage
 }
 
@@ -236,17 +236,16 @@ dependencies {
     implementation 'org.springframework:spring-beans:7.0.7'
     implementation 'org.springframework:spring-core:7.0.7'
     implementation 'org.apache.commons:commons-lang3:3.20.0'
-    implementation 'xalan:serializer:2.7.3'
     implementation('org.apache.xmlgraphics:fop:2.11') {
         exclude group: 'xml-apis', module: 'xml-apis'
+        exclude group: 'xalan', module: 'xalan'
+        exclude group: 'xalan', module: 'serializer'
     }
+    implementation 'net.sf.saxon:Saxon-HE:12.7'
     implementation 'org.apache.commons:commons-collections4:4.5.0'
     implementation 'org.scijava:jep:2.4.2'
     implementation 'org.freemarker:freemarker:2.3.34'
     implementation 'org.jdom:jdom2:2.0.6.1'
-    implementation('xalan:xalan:2.7.3') {
-        exclude group: 'xml-apis', module: 'xml-apis'
-    }
     implementation 'net.sourceforge.argparse4j:argparse4j:0.9.0'
     implementation 'org.xmlunit:xmlunit-core:2.11.0'
     implementation 'org.controlsfx:controlsfx:11.2.3'
@@ -306,52 +305,80 @@ jar {
     }
 
     from {
-        configurations.runtimeClasspath.collect {
-            it.directory ? it : zipTree(it)
-        }
+        configurations.runtimeClasspath
+            .filter { !it.name.startsWith('javafx-') }
+            .collect { it.directory ? it : zipTree(it) }
     }
+    exclude 'META-INF/*.SF', 'META-INF/*.DSA', 'META-INF/*.RSA', 'META-INF/*.EC'
 }
 
 /**
- * Create a Java runtime built from Java modules
+ * Create a Java runtime built from Java modules using jlink
  */
-runtime {
-    options = []
-    modules = [
-            'jdk.httpserver',
-            'java.management',
-            'java.rmi',
-            'java.desktop',
-            'java.xml',
-            'java.sql',
-            'jdk.unsupported',
-            'java.prefs',
-            'java.logging',
-            'java.naming',
-            'jdk.xml.dom',
-            'jdk.unsupported.desktop',
-            'java.scripting',
-            'jdk.jfr',
-            'jdk.jsobject',
-            'javafx.controls',
-            'javafx.web',
-            'javafx.swing',
-            'javafx.fxml',
-            'javafx.graphics'
+jlink {
+    options = ['--strip-debug', '--no-header-files', '--no-man-pages']
+    addExtraDependencies("javafx")
+    forceMerge('PCGen-base', 'PCGen-Formula', 'jep', 'fop', 'Saxon-HE',
+               'commons-lang3', 'commons-io', 'commons-collections4', 'spring',
+               'freemarker', 'jdom2', 'argparse4j', 'xmlunit', 'controlsfx',
+               'annotations', 'spotbugs')
+
+    mergedModule {
+        additive = true
+        requires 'java.desktop'
+        requires 'java.logging'
+        requires 'java.naming'
+        requires 'java.prefs'
+        requires 'java.scripting'
+        requires 'java.sql'
+        requires 'java.xml'
+        requires 'java.management'
+        requires 'java.rmi'
+        requires 'jdk.httpserver'
+        requires 'jdk.unsupported'
+        requires 'jdk.xml.dom'
+        requires 'jdk.unsupported.desktop'
+        requires 'jdk.jfr'
+        requires 'jdk.jsobject'
+
+        // Exclude service providers that reference optional/missing dependencies
+        excludeProvides(servicePattern: 'reactor\\.blockhound\\..*')
+        excludeProvides(servicePattern: 'jakarta\\.servlet\\..*')
+        excludeProvides(servicePattern: 'io\\.micrometer\\..*')
+        // FOP service files list factory classes that don't directly implement the service interface
+        excludeProvides(service: 'org.apache.fop.render.intermediate.IFDocumentHandler')
+        excludeProvides(service: 'org.apache.fop.render.Renderer')
+        excludeProvides(service: 'org.apache.fop.fo.FOEventHandler')
+    }
+
+    // Cross-platform images: only register platforms whose JDK javac can run on this host.
+    // CI sets PCGEN_ALL_PLATFORMS=true to build all targets (using platform-specific runners).
+    def hostArch = System.getProperty("os.arch")
+    def allPlatforms = System.getenv("PCGEN_ALL_PLATFORMS") == "true"
+
+    def platformDefs = [
+        'linux-x64'     : jdksDir.dir("jdk_linux_x64").asFile.absolutePath,
+        'linux-aarch64' : jdksDir.dir("jdk_linux_aarch64").asFile.absolutePath,
+        'windows-x64'   : jdksDir.dir("jdk_windows_x64").asFile.absolutePath,
+        'mac-x64'       : jdksDir.dir("jdk_mac_x64/Contents/Home").asFile.absolutePath,
+        'mac-aarch64'   : jdksDir.dir("jdk_mac_aarch64/Contents/Home").asFile.absolutePath,
     ]
 
-    // We support Mac/Win/Linux x86-64, Mac/Linux aarch64
-    targetPlatform('linux-x64',     jdksDir.dir("jdk_linux_x64").asFile.absolutePath)
-    targetPlatform('linux-aarch64', jdksDir.dir("jdk_linux_aarch64").asFile.absolutePath)
-    targetPlatform('windows-x64',   jdksDir.dir("jdk_windows_x64").asFile.absolutePath)
-    targetPlatform('mac-x64',       jdksDir.dir("jdk_mac_x64/Contents/Home").asFile.absolutePath)
-    targetPlatform('mac-aarch64',   jdksDir.dir("jdk_mac_aarch64/Contents/Home").asFile.absolutePath)
+    if (allPlatforms) {
+        platformDefs.each { name, jdk -> targetPlatform(name, jdk) }
+    } else if (Os.isFamily(Os.FAMILY_MAC)) {
+        def macPlatform = (hostArch == "aarch64") ? 'mac-aarch64' : 'mac-x64'
+        targetPlatform(macPlatform, platformDefs[macPlatform])
+    } else if (Os.isFamily(Os.FAMILY_UNIX)) {
+        def linuxPlatform = (hostArch == "aarch64") ? 'linux-aarch64' : 'linux-x64'
+        targetPlatform(linuxPlatform, platformDefs[linuxPlatform])
+    } else if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+        targetPlatform('windows-x64', platformDefs['windows-x64'])
+    }
 
     // Use the jpackage tool that comes with Java to build native installers
     jpackage {
         def licenseFile = layout.projectDirectory.file("code/LICENSE")
-        installerOptions = ["--app-version", "${version.replaceAll('-SNAPSHOT', '')}", "--license-file", licenseFile.asFile.absolutePath]
-
         def hostArchitecture = System.getProperty("os.arch")
         def osFamily =
                 Os.isFamily(Os.FAMILY_MAC) ? "mac" :
@@ -360,53 +387,73 @@ runtime {
         def targetPlatform = ["x86_64" : "x64",
                               "amd64" : "x64",
                               "aarch64" : "aarch64"]
-        // formats a string such as "mac    -aarch64", or "linux-x64"
         targetPlatformName = "${osFamily}-${targetPlatform.get(hostArchitecture, "NOT SUPPORTED")}"
 
+        def appVersionStr = version.replaceAll('-SNAPSHOT', '').replaceAll(/[^0-9.].*/, '').replaceAll(/\.$/, '')
+        appVersion = appVersionStr
+        def opts = ["--license-file", licenseFile.asFile.absolutePath]
+
         if (osFamily == "mac") {
-            installerOptions += ["--mac-package-identifier", "PcGen", "--mac-package-name", "PcGen"]
+            opts += ["--mac-package-identifier", "PcGen", "--mac-package-name", "PcGen"]
             resourceDir = layout.projectDirectory.dir("installers/mac-installer").asFile
         }
-        // This may seem weird but there's no LINUX family detection in the OS lib
         else if (osFamily == "linux") {
-            installerOptions += ['--linux-shortcut']
+            opts += ['--linux-shortcut']
         }
+
+        installerOptions = opts
         imageName = "PcGen"
     }
 }
 
-// Package up other files with the main program
+// Package up other files with the main program after jpackage creates the image
 tasks.named("jpackageImage") {
-    dependsOn tasks.named("runtime")
-    doLast {
-        copy {
-            includeEmptyDirs = false
-            from layout.buildDirectory.dir("install/pcgen")
-            exclude "**/*.exe"
-            exclude "**/*.bat"
-            exclude "pcgen"
-            exclude "**/lib/**"
-            if (Os.isFamily(Os.FAMILY_MAC)) {
-                into layout.buildDirectory.dir("jpackage/PcGen.app/Contents/app")
-            } else {
-                into layout.buildDirectory.dir("jpackage/PcGen")
-            }
-        }
+    dependsOn tasks.named("jlink")
+}
 
-        // Mac OS X specific config for jpackage
-        if (Os.isFamily(Os.FAMILY_MAC)) {
-            copy {
-                from layout.projectDirectory.dir("installers/mac-installer")
-                include "MacDirLauncher"
-                filePermissions {
-                    unix(0755)
-                }
-                into layout.buildDirectory.dir("jpackage/PcGen.app/Contents/MacOS")
-            }
-            ant.replace(file: layout.buildDirectory.file("jpackage/PcGen.app/Contents/Info.plist").get(),
-                    token: "<key>CFBundleExecutable</key>\n  <string>PcGen</string>",
-                    value: "<key>CFBundleExecutable</key>\n  <string>MacDirLauncher</string>")
+tasks.register("assembleJpackageImage", Copy) {
+    dependsOn tasks.named("jpackageImage"), tasks.named("installDist")
+    includeEmptyDirs = false
+    from layout.buildDirectory.dir("install/pcgen")
+    exclude "**/*.exe"
+    exclude "**/*.bat"
+    exclude "pcgen"
+    exclude "**/lib/**"
+    if (Os.isFamily(Os.FAMILY_MAC)) {
+        into layout.buildDirectory.dir("jpackage/PcGen.app/Contents/app")
+    } else {
+        into layout.buildDirectory.dir("jpackage/PcGen")
+    }
+}
+
+if (Os.isFamily(Os.FAMILY_MAC)) {
+    tasks.register("patchMacJpackage", Copy) {
+        dependsOn tasks.named("assembleJpackageImage")
+        from layout.projectDirectory.dir("installers/mac-installer")
+        include "MacDirLauncher"
+        filePermissions {
+            unix(0755)
         }
+        into layout.buildDirectory.dir("jpackage/PcGen.app/Contents/MacOS")
+        def plistFile = layout.buildDirectory.file("jpackage/PcGen.app/Contents/Info.plist")
+        doLast {
+            def plist = plistFile.get().asFile
+            def content = plist.text
+            content = content.replace(
+                "<key>CFBundleExecutable</key>\n  <string>PcGen</string>",
+                "<key>CFBundleExecutable</key>\n  <string>MacDirLauncher</string>")
+            plist.text = content
+        }
+    }
+
+    tasks.register("fullJpackage") {
+        dependsOn tasks.named("patchMacJpackage")
+        description = "Build the native application bundle with jpackage"
+    }
+} else {
+    tasks.register("fullJpackage") {
+        dependsOn tasks.named("assembleJpackageImage")
+        description = "Build the native application bundle with jpackage"
     }
 }
 
@@ -670,7 +717,8 @@ tasks.named("compileJava") {
     dependsOn copyMasterSheets
 }
 
-tasks.named("jre") {
+tasks.register("jre") {
+    description = "Prepares all platform JDKs with JavaFX modules for runtime image creation"
     dependsOn downloadJavaFXMods
 }
 
@@ -810,11 +858,17 @@ allprojects {
         options.fork = true
         options.release = project.ext.javaVersion
 
+        def modsLibPath = layout.projectDirectory.dir("mods/lib").asFile.absolutePath
+        def patchJars = configurations.runtimeClasspath.files.findAll {
+            !it.name.startsWith('javafx-') && !it.name.contains('annotations')
+        }.collect { it.absolutePath }.join(File.pathSeparator)
+
         doFirst {
             if (name.toLowerCase().contains("test")) {
-                options.compilerArgs << "--module-path" << layout.projectDirectory.dir("mods/lib").asFile.absolutePath
-                //options.compilerArgs << "--add-modules" << "javafx.controls,javafx.web,javafx.swing,javafx.fxml" // Not sure why no javafx.graphics here
+                options.compilerArgs << "--module-path" << modsLibPath
                 options.compilerArgs << "--add-modules" << "javafx.controls,javafx.web,javafx.swing,javafx.fxml,javafx.graphics"
+            } else if (name == "compileJava" && patchJars) {
+                options.compilerArgs << "--patch-module" << "pcgen=${patchJars}"
             }
             println "Args for for $name are $options.allCompilerArgs"
         }

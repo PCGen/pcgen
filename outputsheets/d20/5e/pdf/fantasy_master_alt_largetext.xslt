@@ -1,7 +1,7 @@
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:fo="http://www.w3.org/1999/XSL/Format"
-	xmlns:xalan="http://xml.apache.org/xalan"
+	xmlns:exsl="http://exslt.org/common"
 	xmlns:str="http://xsltsl.sourceforge.net/string.html"
 	xmlns:Psionics="my:Psionics"
 	xmlns:myAttribs="my:Attribs"
@@ -16,7 +16,7 @@
 			<xsl:copy-of select="$vAttribs/*"/>
 		</myAttribs:myAttribs>
 	</xsl:variable>
-	<xsl:variable name="vAttribs_all" select="xalan:nodeset($vAttribs_tree)"/>
+	<xsl:variable name="vAttribs_all" select="exsl:node-set($vAttribs_tree)"/>
 	<xsl:variable name="pageHeight">
 		<xsl:choose>
 			<xsl:when test="contains(/character/export/paperinfo/height, 'in')">
