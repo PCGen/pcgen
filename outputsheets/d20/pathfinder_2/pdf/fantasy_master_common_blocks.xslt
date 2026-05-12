@@ -49,10 +49,10 @@
 	<xsl:variable name="pageHeight">
 		<xsl:choose>
 			<xsl:when test="contains(/character/export/paperinfo/height, 'in')">
-				<xsl:value-of select="25.4 * substring-before(/character/export/paperinfo/height, 'in')"/>
+				<xsl:value-of select="25.4 * number(substring-before(/character/export/paperinfo/height, 'in'))"/>
 			</xsl:when>
 			<xsl:when test="contains(/character/export/paperinfo/height, 'cm')">
-				<xsl:value-of select="10 * substring-before(/character/export/paperinfo/height, 'cm')"/>
+				<xsl:value-of select="10 * number(substring-before(/character/export/paperinfo/height, 'cm'))"/>
 			</xsl:when>
 			<xsl:when test="contains(/character/export/paperinfo/height, 'mm')">
 				<xsl:value-of select="substring-before(/character/export/paperinfo/height, 'mm')"/>
@@ -72,10 +72,10 @@
 	<xsl:variable name="pageWidth">
 		<xsl:choose>
 			<xsl:when test="contains(/character/export/paperinfo/width, 'in')">
-				<xsl:value-of select="25.4 * substring-before(/character/export/paperinfo/width, 'in')"/>
+				<xsl:value-of select="25.4 * number(substring-before(/character/export/paperinfo/width, 'in'))"/>
 			</xsl:when>
 			<xsl:when test="contains(/character/export/paperinfo/width, 'cm')">
-				<xsl:value-of select="10 * substring-before(/character/export/paperinfo/width, 'cm')"/>
+				<xsl:value-of select="10 * number(substring-before(/character/export/paperinfo/width, 'cm'))"/>
 			</xsl:when>
 			<xsl:when test="contains(/character/export/paperinfo/width, 'mm')">
 				<xsl:value-of select="substring-before(/character/export/paperinfo/width, 'mm')"/>
@@ -95,10 +95,10 @@
 	<xsl:variable name="pageMarginTop">
 		<xsl:choose>
 			<xsl:when test="contains(/character/export/paperinfo/margins/top, 'in')">
-				<xsl:value-of select="25.4 * substring-before(/character/export/paperinfo/margins/top, 'in')"/>
+				<xsl:value-of select="25.4 * number(substring-before(/character/export/paperinfo/margins/top, 'in'))"/>
 			</xsl:when>
 			<xsl:when test="contains(/character/export/paperinfo/margins/top, 'cm')">
-				<xsl:value-of select="10 * substring-before(/character/export/paperinfo/margins/top, 'cm')"/>
+				<xsl:value-of select="10 * number(substring-before(/character/export/paperinfo/margins/top, 'cm'))"/>
 			</xsl:when>
 			<xsl:when test="contains(/character/export/paperinfo/margins/top, 'mm')">
 				<xsl:value-of select="substring-before(/character/export/paperinfo/margins/top, 'mm')"/>
@@ -111,10 +111,10 @@
 	<xsl:variable name="pageMarginBottom">
 		<xsl:choose>
 			<xsl:when test="contains(/character/export/paperinfo/margins/bottom, 'in')">
-				<xsl:value-of select="25.4 * substring-before(/character/export/paperinfo/margins/bottom, 'in')"/>
+				<xsl:value-of select="25.4 * number(substring-before(/character/export/paperinfo/margins/bottom, 'in'))"/>
 			</xsl:when>
 			<xsl:when test="contains(/character/export/paperinfo/margins/bottom, 'cm')">
-				<xsl:value-of select="10 * substring-before(/character/export/paperinfo/margins/bottom, 'cm')"/>
+				<xsl:value-of select="10 * number(substring-before(/character/export/paperinfo/margins/bottom, 'cm'))"/>
 			</xsl:when>
 			<xsl:when test="contains(/character/export/paperinfo/margins/bottom, 'mm')">
 				<xsl:value-of select="substring-before(/character/export/paperinfo/margins/bottom, 'mm')"/>
@@ -127,10 +127,10 @@
 	<xsl:variable name="pageMarginLeft">
 		<xsl:choose>
 			<xsl:when test="contains(/character/export/paperinfo/margins/left, 'in')">
-				<xsl:value-of select="25.4 * substring-before(/character/export/paperinfo/margins/left, 'in')"/>
+				<xsl:value-of select="25.4 * number(substring-before(/character/export/paperinfo/margins/left, 'in'))"/>
 			</xsl:when>
 			<xsl:when test="contains(/character/export/paperinfo/margins/left, 'cm')">
-				<xsl:value-of select="10 * substring-before(/character/export/paperinfo/margins/left, 'cm')"/>
+				<xsl:value-of select="10 * number(substring-before(/character/export/paperinfo/margins/left, 'cm'))"/>
 			</xsl:when>
 			<xsl:when test="contains(/character/export/paperinfo/margins/left, 'mm')">
 				<xsl:value-of select="substring-before(/character/export/paperinfo/margins/left, 'mm')"/>
@@ -143,10 +143,10 @@
 	<xsl:variable name="pageMarginRight">
 		<xsl:choose>
 			<xsl:when test="contains(/character/export/paperinfo/margins/right, 'in')">
-				<xsl:value-of select="25.4 * substring-before(/character/export/paperinfo/margins/right, 'in')"/>
+				<xsl:value-of select="25.4 * number(substring-before(/character/export/paperinfo/margins/right, 'in'))"/>
 			</xsl:when>
 			<xsl:when test="contains(/character/export/paperinfo/margins/right, 'cm')">
-				<xsl:value-of select="10 * substring-before(/character/export/paperinfo/margins/right, 'cm')"/>
+				<xsl:value-of select="10 * number(substring-before(/character/export/paperinfo/margins/right, 'cm'))"/>
 			</xsl:when>
 			<xsl:when test="contains(/character/export/paperinfo/margins/right, 'mm')">
 				<xsl:value-of select="substring-before(/character/export/paperinfo/margins/right, 'mm')"/>
