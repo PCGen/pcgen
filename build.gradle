@@ -424,6 +424,8 @@ tasks.register("assembleJpackageImage", Copy) {
     } else {
         into layout.buildDirectory.dir("jpackage/PcGen")
     }
+    // jpackageImage wipes the output dir on rebuild; always re-copy
+    outputs.upToDateWhen { false }
 }
 
 if (Os.isFamily(Os.FAMILY_MAC)) {
