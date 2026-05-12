@@ -272,11 +272,11 @@ tasks.register("sourcesJar", Jar) {
 }
 
 tasks.register("assembleArtifacts", Copy) {
-    dependsOn build, runtimeZip, sourcesJar
+    dependsOn build, jlinkZip, sourcesJar
 
     if (Os.isFamily(Os.FAMILY_MAC) || Os.isFamily(Os.FAMILY_UNIX))
     {
-        dependsOn jpackage
+        dependsOn fullJpackage
     }
 
     description = "Create the release artifacts and get them into the release folder."
