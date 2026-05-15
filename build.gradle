@@ -34,7 +34,6 @@ plugins {
     id 'de.undercouch.download' version '5.7.0'         // Shows download percentage
     id 'com.github.ben-manes.versions' version '0.54.0' // Checks versions for plugins and dependencies
     id 'com.dorongold.task-tree' version '4.0.1'        // Prints the task dependency tree
-    id 'org.openjfx.javafxplugin' version '0.1.0'       // JavaFX support
     id 'org.beryx.jlink' version '4.0.0'               // Creates custom runtimes with jlink
     id 'jacoco'                                         // Code coverage
 }
@@ -84,14 +83,6 @@ java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(javaVersion)
     }
-}
-
-/**
- * Set the version and the modules we want from JavaFX (not everything)
- */
-javafx {
-    version = latestJavaVersion
-    modules = [ 'javafx.controls', 'javafx.swing', 'javafx.fxml', 'javafx.graphics', 'javafx.web' ]
 }
 
 application {
@@ -312,7 +303,6 @@ jar {
  */
 jlink {
     options = ['--strip-debug', '--no-header-files', '--no-man-pages']
-    addExtraDependencies("javafx")
     forceMerge('PCGen-base', 'PCGen-Formula', 'jep', 'fop', 'Saxon-HE',
                'commons-lang3', 'commons-io', 'commons-collections4', 'spring',
                'freemarker', 'jdom2', 'argparse4j', 'xmlunit', 'controlsfx',
@@ -403,6 +393,10 @@ jlink {
 // Package up other files with the main program after jpackage creates the image
 tasks.named("jpackageImage") {
     dependsOn tasks.named("jlink")
+}
+
+tasks.named("jlink") {
+    dependsOn "downloadJavaFXMods"
 }
 
 tasks.register("assembleJpackageImage", Copy) {
