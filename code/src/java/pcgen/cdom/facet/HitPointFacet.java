@@ -17,7 +17,7 @@
  */
 package pcgen.cdom.facet;
 
-import pcgen.base.util.RandomUtil;
+import pcgen.util.RandomUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.HitDie;

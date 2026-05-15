@@ -178,6 +178,7 @@ Conventions/gotchas observed
 - Java version and JavaFX module handling are intertwined across build.gradle and distribution tasks — changing one often requires adjusting tasks (run, test, JavaCompile, runtime/jpackage) and CI.
 - The distribution relies on file layout in data/, outputsheets/, system/, preview/ — deletions or renames will break runtime validation in Main.validateEnvironment().
 - GracefulExit should be used for controlled termination (tests hook the exit function).
+- Module compilation: PCGen-base and PCGen-Formula jars are placed on `--module-path` while all other dependencies are merged into the pcgen module via `--patch-module`. This means **no source file in the pcgen module may share a package with classes in PCGen-base or PCGen-Formula jars** (Java forbids split packages across modules). Currently conflicting packages (`pcgen.base.util`, `pcgen.base.format`) have been relocated to `pcgen.util` and `pcgen.format` respectively. If adding new classes whose package exists in either jar, place them in a non-overlapping package.
 
 ## Maintainer/Issue Tracking Context
 

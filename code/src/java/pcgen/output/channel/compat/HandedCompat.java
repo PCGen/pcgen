@@ -1,6 +1,6 @@
 package pcgen.output.channel.compat;
 
-import pcgen.base.format.HandedManager;
+import pcgen.format.HandedManager;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Handed;

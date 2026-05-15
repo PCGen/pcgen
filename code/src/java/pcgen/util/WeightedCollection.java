@@ -16,7 +16,7 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.base.util;
+package pcgen.util;
 
 import java.util.AbstractCollection;
 import java.util.Collection;
@@ -25,6 +25,8 @@ import java.util.Iterator;
 import java.util.Objects;
 import java.util.TreeSet;
 import java.util.function.Predicate;
+
+import pcgen.base.util.ListSet;
 
 import org.jetbrains.annotations.NotNull;
 

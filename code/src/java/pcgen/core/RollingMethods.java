@@ -23,7 +23,7 @@ import java.util.Stack;
 import java.util.Vector;
 import java.util.stream.IntStream;
 
-import pcgen.base.util.RandomUtil;
+import pcgen.util.RandomUtil;
 import pcgen.util.Logging;
 
 import org.nfunk.jep.JEP;

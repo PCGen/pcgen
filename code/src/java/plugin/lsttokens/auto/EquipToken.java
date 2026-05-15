@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.base.util.HashMapToList;
-import pcgen.base.util.WeightedCollection;
+import pcgen.util.WeightedCollection;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseDriver;

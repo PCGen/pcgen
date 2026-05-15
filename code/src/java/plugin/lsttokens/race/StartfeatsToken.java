@@ -19,7 +19,7 @@ package plugin.lsttokens.race;
 
 import java.util.Collection;
 
-import pcgen.base.util.WeightedCollection;
+import pcgen.util.WeightedCollection;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Race;
 import pcgen.core.bonus.Bonus;

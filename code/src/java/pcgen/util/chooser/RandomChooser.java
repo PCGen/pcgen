@@ -17,7 +17,7 @@
  */
 package pcgen.util.chooser;
 
-import pcgen.base.util.RandomUtil;
+import pcgen.util.RandomUtil;
 import pcgen.facade.core.ChooserFacade;
 import pcgen.facade.core.InfoFacade;
 import pcgen.facade.util.ListFacade;
