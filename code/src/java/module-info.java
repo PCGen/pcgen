@@ -20,6 +20,9 @@ module pcgen {
     requires javafx.swing;
     requires javafx.web;
 
+    requires PCGen.base;
+    requires PCGen.Formula;
+
     requires static org.jetbrains.annotations;
     requires static com.github.spotbugs.annotations;
 
