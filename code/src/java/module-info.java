@@ -22,6 +22,23 @@ module pcgen {
     requires PCGen.base;
     requires PCGen.Formula;
 
+    requires org.apache.commons.lang3;
+    requires org.apache.commons.io;
+    requires org.apache.commons.collections4;
+    requires freemarker;
+    requires org.jdom2;
+    requires net.sourceforge.argparse4j;
+    requires org.controlsfx.controls;
+    requires org.xmlunit;
+    requires org.apache.xmlgraphics.fop.core;
+    requires org.apache.xmlgraphics.fop.events;
+    requires org.apache.xmlgraphics.commons;
+    requires spring.web;
+    requires spring.beans;
+    requires spring.core;
+    requires Saxon.HE;
+    requires jep;
+
     requires static org.jetbrains.annotations;
     requires static com.github.spotbugs.annotations;
 
