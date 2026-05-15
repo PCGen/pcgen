@@ -241,7 +241,7 @@ dependencies {
         exclude group: 'xalan', module: 'xalan'
         exclude group: 'xalan', module: 'serializer'
     }
-    implementation 'net.sf.saxon:Saxon-HE:12.7'
+    implementation 'net.sf.saxon:Saxon-HE:12.9'
     implementation 'org.apache.commons:commons-collections4:4.5.0'
     implementation 'org.scijava:jep:2.4.2'
     implementation 'org.freemarker:freemarker:2.3.34'
@@ -852,6 +852,7 @@ allprojects {
                 '--add-exports', 'javafx.graphics/com.sun.javafx.util=ALL-UNNAMED',
                 '--add-exports', 'javafx.base/com.sun.javafx.logging=ALL-UNNAMED',
                 '--add-opens', 'javafx.graphics/com.sun.glass.ui=ALL-UNNAMED',
+                '--enable-native-access=javafx.graphics',
         ]
     }
 
