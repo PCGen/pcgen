@@ -339,7 +339,6 @@ jlink {
         requires 'jdk.xml.dom'
         requires 'jdk.unsupported.desktop'
         requires 'jdk.jfr'
-        requires 'jdk.jsobject'
 
         // Exclude service providers that reference optional/missing dependencies
         excludeProvides(servicePattern: 'reactor\\.blockhound\\..*')
@@ -864,13 +863,20 @@ allprojects {
         def modsLibPath = layout.projectDirectory.dir("mods/lib").asFile.absolutePath
         def patchJars = configurations.runtimeClasspath.files.findAll {
             !it.name.startsWith('javafx-') && !it.name.contains('annotations')
+                && !it.name.contains('PCGen-base') && !it.name.contains('PCGen-Formula')
         }.collect { it.absolutePath }.join(File.pathSeparator)
+        def modulePathJars = (configurations.runtimeClasspath.files.findAll {
+            it.name.contains('PCGen-base') || it.name.contains('PCGen-Formula')
+        } + configurations.compileClasspath.files.findAll {
+            it.name.contains('annotations')
+        }).collect { it.absolutePath }.join(File.pathSeparator)
 
         doFirst {
             if (name.toLowerCase().contains("test")) {
                 options.compilerArgs << "--module-path" << modsLibPath
                 options.compilerArgs << "--add-modules" << "javafx.controls,javafx.web,javafx.swing,javafx.fxml,javafx.graphics"
             } else if (name == "compileJava" && patchJars) {
+                options.compilerArgs << "--module-path" << "${modsLibPath}${File.pathSeparator}${modulePathJars}"
                 options.compilerArgs << "--patch-module" << "pcgen=${patchJars}"
             }
             println "Args for for $name are $options.allCompilerArgs"

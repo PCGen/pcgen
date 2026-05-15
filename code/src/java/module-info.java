@@ -12,7 +12,6 @@ module pcgen {
     requires jdk.httpserver;
     requires jdk.unsupported;
     requires jdk.xml.dom;
-    requires jdk.jsobject;
 
     requires javafx.controls;
     requires javafx.fxml;
