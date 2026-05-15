@@ -68,9 +68,14 @@ module pcgen {
     opens pcgen.rules.context;
     opens pcgen.gui2.converter;
     opens pcgen.gui3;
+    opens pcgen.gui3.application;
+    opens pcgen.gui3.behavior;
+    opens pcgen.gui3.component;
+    opens pcgen.gui3.core;
     opens pcgen.gui3.dialog;
     opens pcgen.gui3.preferences;
     opens pcgen.gui3.preloader;
+    opens pcgen.gui3.utilty;
     opens pcgen.io;
     opens pcgen.util;
 }
