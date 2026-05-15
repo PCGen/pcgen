@@ -127,10 +127,10 @@ public abstract class AbstractToken
 	}
 
 	/**
-	 * Checks a string to see if any characters are invalid for inclusion in 
+	 * Checks a string to see if any characters are invalid for inclusion in
 	 * XML strings.
-	 * @param value     The string to check.
-	 * @return  A parse result of success if the string uses only valid characters.
+	 * @param c     The character to check.
+	 * @return  {@code true} if the character is valid in XML.
 	 */
 	// XML 1.0 §2.2: valid chars are #x9 | #xA | #xD | [#x20-#xD7FF] | [#xE000-#xFFFD]
 	private static boolean isValidXMLChar(char c)
