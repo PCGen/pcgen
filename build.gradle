@@ -174,8 +174,8 @@ sourceSets {
         resources {
             srcDirs = ['code/src/testResources']
         }
-        compileClasspath += sourceSets.test.compileClasspath
-        runtimeClasspath += sourceSets.test.runtimeClasspath
+        compileClasspath += sourceSets.test.output + sourceSets.test.compileClasspath
+        runtimeClasspath += sourceSets.test.output + sourceSets.test.runtimeClasspath
     }
     // Running Slow Tests
     slowtest {
@@ -185,8 +185,8 @@ sourceSets {
         resources {
             srcDirs = ['code/src/testResources']
         }
-        compileClasspath += sourceSets.test.compileClasspath
-        runtimeClasspath += sourceSets.test.runtimeClasspath
+        compileClasspath += sourceSets.test.output + sourceSets.test.compileClasspath
+        runtimeClasspath += sourceSets.test.output + sourceSets.test.runtimeClasspath
     }
 }
 

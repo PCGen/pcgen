@@ -56,6 +56,11 @@ module pcgen {
     opens pcgen.core.bonus;
     opens pcgen.core.prereq;
     opens pcgen.cdom.facet;
+    opens pcgen.cdom.facet.analysis;
+    opens pcgen.cdom.facet.fact;
+    opens pcgen.cdom.facet.input;
+    opens pcgen.cdom.facet.model;
+    opens pcgen.cdom.formula.scope;
     opens pcgen.cdom.reference;
     opens pcgen.cdom.enumeration;
     opens pcgen.persistence.lst;
