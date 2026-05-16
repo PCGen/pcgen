@@ -50,6 +50,8 @@ module pcgen {
     exports pcgen.system;
     exports pcgen.util;
 
+    opens pcgen.cdom.base to pcgen.base;
+
     opens pcgen.system;
     opens pcgen.pluginmgr;
     opens pcgen.core.bonus;
