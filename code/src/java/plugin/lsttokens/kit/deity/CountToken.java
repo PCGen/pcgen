@@ -18,7 +18,7 @@
 
 package plugin.lsttokens.kit.deity;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.core.kit.KitDeity;
 import pcgen.rules.context.LoadContext;

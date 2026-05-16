@@ -20,8 +20,8 @@ package plugin.modifier.number;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
-import pcgen.base.calculation.BasicCalculation;
-import pcgen.base.calculation.FormulaModifier;
+import pcgen.cdom.calculation.BasicCalculation;
+import pcgen.cdom.calculation.FormulaModifier;
 import pcgen.base.format.NumberManager;
 import pcgen.base.util.FormatManager;
 

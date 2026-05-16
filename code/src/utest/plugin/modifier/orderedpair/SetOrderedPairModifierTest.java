@@ -20,7 +20,7 @@ package plugin.modifier.orderedpair;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
-import pcgen.base.calculation.FormulaModifier;
+import pcgen.cdom.calculation.FormulaModifier;
 import pcgen.base.format.OrderedPairManager;
 import pcgen.base.math.OrderedPair;
 import pcgen.base.util.FormatManager;

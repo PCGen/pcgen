@@ -23,8 +23,8 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Supplier;
 
-import pcgen.base.calculation.FormulaModifier;
-import pcgen.base.calculation.IgnoreVariables;
+import pcgen.cdom.calculation.FormulaModifier;
+import pcgen.cdom.calculation.IgnoreVariables;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.base.FormulaManager;

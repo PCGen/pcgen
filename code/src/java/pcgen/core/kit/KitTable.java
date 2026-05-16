@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
 

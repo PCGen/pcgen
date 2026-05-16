@@ -35,7 +35,7 @@ import java.util.Optional;
 import java.util.Set;
 
 import org.jetbrains.annotations.NotNull;
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.DoubleKeyMapToList;

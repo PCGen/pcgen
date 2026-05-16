@@ -20,10 +20,10 @@ package pcgen.cdom.formula.testsupport;
 import java.lang.reflect.Array;
 
 import pcgen.TestConstants;
-import pcgen.base.calculation.CalculationModifier;
-import pcgen.base.calculation.FormulaCalculation;
-import pcgen.base.calculation.FormulaModifier;
-import pcgen.base.calculation.NEPCalculation;
+import pcgen.cdom.calculation.CalculationModifier;
+import pcgen.cdom.calculation.FormulaCalculation;
+import pcgen.cdom.calculation.FormulaModifier;
+import pcgen.cdom.calculation.NEPCalculation;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;

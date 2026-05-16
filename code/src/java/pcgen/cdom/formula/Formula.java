@@ -15,14 +15,16 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.base.formula;
+package pcgen.cdom.formula;
 
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 
 /**
- * 
- * A Formula is a mathematical formula which requires a context to resolve.
+ * A legacy formula interface for PCGen's JEP-based formula resolution. Resolves formulas
+ * against a PlayerCharacter context. This is distinct from the generic formula parser
+ * system in module pcgen.formula ({@code pcgen.base.formula.parse}), which provides a
+ * context-free expression parser with visitor-based evaluation.
  */
 public interface Formula
 {

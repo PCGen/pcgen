@@ -17,7 +17,7 @@
  */
 package pcgen.rules.persistence.token;
 
-import pcgen.base.calculation.FormulaModifier;
+import pcgen.cdom.calculation.FormulaModifier;
 import pcgen.base.util.FormatManager;
 
 /**

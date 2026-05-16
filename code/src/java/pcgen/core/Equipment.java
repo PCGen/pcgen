@@ -40,7 +40,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.FixedStringList;
 import pcgen.cdom.base.CDOMObject;

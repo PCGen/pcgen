@@ -22,7 +22,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.util.CControl;
 import pcgen.core.Deity;

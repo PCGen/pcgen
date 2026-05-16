@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.TreeMap;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 
 /**
  * SpellProgressionInfo contains information about Spell Progression in support

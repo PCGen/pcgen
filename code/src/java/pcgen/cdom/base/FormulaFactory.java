@@ -20,7 +20,7 @@ package pcgen.cdom.base;
 import java.util.Objects;
 import java.util.Optional;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;

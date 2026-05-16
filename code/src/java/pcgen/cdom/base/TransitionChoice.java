@@ -19,7 +19,7 @@ package pcgen.cdom.base;
 
 import java.util.Collection;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 import pcgen.core.PlayerCharacter;
 
 /**

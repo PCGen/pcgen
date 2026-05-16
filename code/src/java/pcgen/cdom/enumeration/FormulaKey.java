@@ -22,7 +22,7 @@ import java.util.Collections;
 import java.util.Objects;
 
 import pcgen.base.enumeration.TypeSafeConstant;
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.formula.FixedSizeFormula;

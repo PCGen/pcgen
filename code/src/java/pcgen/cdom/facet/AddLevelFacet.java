@@ -19,7 +19,7 @@ package pcgen.cdom.facet;
 import java.util.List;
 import java.util.ListIterator;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.CharID;

@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-import pcgen.base.calculation.FormulaModifier;
+import pcgen.cdom.calculation.FormulaModifier;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.lang.StringUtil;

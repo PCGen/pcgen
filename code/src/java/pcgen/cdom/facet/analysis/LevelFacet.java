@@ -22,7 +22,7 @@ import java.util.EventObject;
 
 import javax.swing.event.EventListenerList;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.facet.FormulaResolvingFacet;

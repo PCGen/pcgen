@@ -24,7 +24,7 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.enumeration.KitApply;
 import pcgen.cdom.enumeration.ListKey;

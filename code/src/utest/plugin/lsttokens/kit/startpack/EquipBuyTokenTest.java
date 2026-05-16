@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import java.net.URISyntaxException;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Kit;

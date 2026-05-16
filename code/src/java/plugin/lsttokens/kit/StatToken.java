@@ -20,7 +20,7 @@ package plugin.lsttokens.kit;
 
 import java.util.StringTokenizer;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.ListKey;

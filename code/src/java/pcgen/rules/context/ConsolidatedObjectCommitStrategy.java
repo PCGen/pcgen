@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.regex.Pattern;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 import pcgen.base.util.Indirect;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ConcretePrereqObject;

@@ -17,7 +17,7 @@
  */
 package plugin.lsttokens.pcclass.level;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.text.ParsingSeparator;
 import pcgen.cdom.base.Constants;

@@ -21,7 +21,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.function.Consumer;
 
-import pcgen.base.calculation.FormulaModifier;
+import pcgen.cdom.calculation.FormulaModifier;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.base.solver.Modifier;

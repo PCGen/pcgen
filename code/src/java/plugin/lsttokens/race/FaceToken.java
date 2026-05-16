@@ -17,7 +17,7 @@
  */
 package plugin.lsttokens.race;
 
-import pcgen.base.calculation.FormulaModifier;
+import pcgen.cdom.calculation.FormulaModifier;
 import pcgen.base.math.OrderedPair;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.LimitedVarContainer;

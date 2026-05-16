@@ -19,7 +19,7 @@ package plugin.primitive.race;
 
 import java.util.Collection;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Converter;
 import pcgen.cdom.base.PrimitiveFilter;

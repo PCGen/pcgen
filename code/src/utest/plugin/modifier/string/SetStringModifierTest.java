@@ -20,7 +20,7 @@ package plugin.modifier.string;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
-import pcgen.base.calculation.FormulaModifier;
+import pcgen.cdom.calculation.FormulaModifier;
 import pcgen.base.format.StringManager;
 import pcgen.base.util.FormatManager;
 import pcgen.rules.persistence.token.ModifierFactory;

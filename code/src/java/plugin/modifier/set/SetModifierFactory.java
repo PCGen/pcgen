@@ -17,8 +17,8 @@
  */
 package plugin.modifier.set;
 
-import pcgen.base.calculation.AbstractPCGenModifier;
-import pcgen.base.calculation.FormulaModifier;
+import pcgen.cdom.calculation.AbstractPCGenModifier;
+import pcgen.cdom.calculation.FormulaModifier;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaSemantics;

@@ -32,7 +32,7 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.solver.SolverManager;

@@ -17,7 +17,7 @@
  */
 package pcgen.cdom.facet;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 import pcgen.cdom.enumeration.CharID;
 
 /**

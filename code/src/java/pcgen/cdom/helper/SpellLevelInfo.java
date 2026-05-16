@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Converter;
 import pcgen.cdom.base.PrimitiveCollection;

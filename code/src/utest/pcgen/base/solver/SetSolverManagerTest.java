@@ -24,10 +24,10 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-import pcgen.base.calculation.BasicCalculation;
-import pcgen.base.calculation.CalculationModifier;
-import pcgen.base.calculation.FormulaModifier;
-import pcgen.base.calculation.NEPCalculation;
+import pcgen.cdom.calculation.BasicCalculation;
+import pcgen.cdom.calculation.CalculationModifier;
+import pcgen.cdom.calculation.FormulaModifier;
+import pcgen.cdom.calculation.NEPCalculation;
 import pcgen.base.format.ArrayFormatManager;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.DependencyManager;

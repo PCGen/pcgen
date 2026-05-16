@@ -17,7 +17,7 @@
  */
 package pcgen.util;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 
 /**
  * A NamedFormula is a String-Formula pair (similar to a Map.Entry). This is

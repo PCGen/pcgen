@@ -19,8 +19,8 @@ module pcgen {
     requires javafx.swing;
     requires javafx.web;
 
-    requires PCGen.base;
-    requires PCGen.Formula;
+    requires pcgen.base;
+    requires pcgen.formula;
 
     requires org.apache.commons.lang3;
     requires org.apache.commons.io;

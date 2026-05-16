@@ -19,7 +19,7 @@ package pcgen.cdom.content;
 
 import java.util.Objects;
 
-import pcgen.base.calculation.FormulaModifier;
+import pcgen.cdom.calculation.FormulaModifier;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.cdom.formula.scope.PCGenScope;
 

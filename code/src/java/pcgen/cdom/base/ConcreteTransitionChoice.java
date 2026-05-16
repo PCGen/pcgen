@@ -23,7 +23,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.chooser.CDOMChooserFacadeImpl;

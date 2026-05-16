@@ -19,7 +19,7 @@ package pcgen.cdom.helper;
 
 import java.util.Objects;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 import pcgen.cdom.list.CompanionList;
 import pcgen.cdom.reference.CDOMSingleRef;
 

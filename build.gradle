@@ -237,17 +237,8 @@ dependencies {
     implementation 'net.sourceforge.argparse4j:argparse4j:0.9.0'
     implementation 'org.xmlunit:xmlunit-core:2.11.0'
     implementation 'org.controlsfx:controlsfx:11.2.3'
-    implementation 'net.sourceforge.pcgen:PCGen-base:1.0.170'
-    // The latest Base, but pcgen core would need refactoring to support it.
-    //implementation group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.237'
-    // Use this if you're working from your local PCGen Base
-    //implementation files("../pcgen-base/PCGen-base/build/libs/PCgen-base-1.0.jar")
-
-    implementation 'net.sourceforge.pcgen:PCGen-Formula:1.0.200'
-    // The latest Formula, but pcgen core would need refactoring to support it.
-    //implementation group: 'net.sourceforge.pcgen', name: 'PCGen-Formula', version:'1.0.266'
-    // Use if you're working from your local PCGen Formula
-    //implementation files("../pcgen-formula/PCGen-formula/build/libs/PCgen-formula-1.0.jar")
+    implementation project(':PCGen-base')
+    implementation project(':PCGen-Formula')
 
     compileOnly 'org.jetbrains:annotations:26.1.0'
     compileOnly 'com.yuvimasory:orange-extensions:1.3.0'
@@ -303,7 +294,7 @@ jar {
  */
 jlink {
     options = ['--strip-debug', '--no-header-files', '--no-man-pages']
-    forceMerge('PCGen-base', 'PCGen-Formula', 'jep', 'fop', 'Saxon-HE',
+    forceMerge('jep', 'fop', 'Saxon-HE',
                'commons-lang3', 'commons-io', 'spring',
                'freemarker', 'jdom2', 'argparse4j', 'xmlunit', 'controlsfx',
                'annotations', 'spotbugs', 'xmlresolver')
@@ -826,36 +817,60 @@ allprojects {
         ]
     }
 
-    tasks.withType(JavaCompile).configureEach {
-        dependsOn extractJavaFXLocal
-        options.fork = true
-        options.release = project.ext.javaVersion
-
-        def modsLibPath = layout.projectDirectory.dir("mods/lib").asFile.absolutePath
-        def depJars = configurations.runtimeClasspath.files.findAll {
-            !it.name.startsWith('javafx-')
-        }.collect { it.absolutePath }.join(File.pathSeparator)
-        def compileOnlyJars = configurations.compileClasspath.files.findAll {
-            it.name.contains('annotations') || it.name.contains('spotbugs')
-        }.collect { it.absolutePath }.join(File.pathSeparator)
-
-        doFirst {
-            if (name.toLowerCase().contains("test")) {
-                options.compilerArgs << "--module-path" << modsLibPath
-                options.compilerArgs << "--add-modules" << "javafx.controls,javafx.web,javafx.swing,javafx.fxml,javafx.graphics"
-            } else if (name == "compileJava") {
-                def modulePath = [modsLibPath, depJars, compileOnlyJars].findAll { it }.join(File.pathSeparator)
-                options.compilerArgs << "--module-path" << modulePath
-            }
-            println "Args for for $name are $options.allCompilerArgs"
-        }
-    }
     // https://youtrack.jetbrains.com/issue/KT-46165
     tasks.withType(Jar).configureEach {
         duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     }
     tasks.withType(JavaExec).configureEach {
         maxHeapSize = "2048m"
+    }
+}
+
+tasks.withType(Test).configureEach {
+    jvmArgs += [
+            '-Djava.awt.headless=true',
+            '-Dtestfx.robot=glass',
+            '-Dtestfx.headless=true',
+            '-Dprism.order=sw',
+            '-Dprism.verbose=true',
+            '-Djavafx.macosx.embedded=true',
+            '-Djava.security.manager=disallow',
+
+            "--module-path", layout.projectDirectory.dir("mods/lib"),
+            "--add-modules", "javafx.controls,javafx.web,javafx.swing,javafx.fxml,javafx.graphics",
+
+            // Needed to fix issue with testfx test crashing due to issue with modularity of whole program. Slightly related issue. https://github.com/TestFX/TestFX/issues/638
+            '--add-exports', 'javafx.graphics/com.sun.javafx.application=ALL-UNNAMED',
+            // Next two needed to support monocle testing
+            '--add-exports', 'javafx.graphics/com.sun.javafx.util=ALL-UNNAMED',
+            '--add-exports', 'javafx.base/com.sun.javafx.logging=ALL-UNNAMED',
+            '--add-opens', 'javafx.graphics/com.sun.glass.ui=ALL-UNNAMED',
+            '--enable-native-access=javafx.graphics',
+    ]
+}
+
+tasks.withType(JavaCompile).configureEach {
+    dependsOn extractJavaFXLocal
+    options.fork = true
+    options.release = project.ext.javaVersion
+
+    def modsLibPath = layout.projectDirectory.dir("mods/lib").asFile.absolutePath
+    def depJars = configurations.runtimeClasspath.files.findAll {
+        !it.name.startsWith('javafx-')
+    }.collect { it.absolutePath }.join(File.pathSeparator)
+    def compileOnlyJars = configurations.compileClasspath.files.findAll {
+        it.name.contains('annotations') || it.name.contains('spotbugs')
+    }.collect { it.absolutePath }.join(File.pathSeparator)
+
+    doFirst {
+        if (name.toLowerCase().contains("test")) {
+            options.compilerArgs << "--module-path" << modsLibPath
+            options.compilerArgs << "--add-modules" << "javafx.controls,javafx.web,javafx.swing,javafx.fxml,javafx.graphics"
+        } else if (name == "compileJava") {
+            def modulePath = [modsLibPath, depJars, compileOnlyJars].findAll { it }.join(File.pathSeparator)
+            options.compilerArgs << "--module-path" << modulePath
+        }
+        println "Args for for $name are $options.allCompilerArgs"
     }
 }
 

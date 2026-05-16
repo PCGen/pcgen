@@ -24,7 +24,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseInformation;

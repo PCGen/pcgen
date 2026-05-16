@@ -17,8 +17,8 @@ package pcgen.cdom.content;
 
 import java.util.Objects;
 
-import pcgen.base.calculation.AbstractNEPCalculation;
-import pcgen.base.calculation.BasicCalculation;
+import pcgen.cdom.calculation.AbstractNEPCalculation;
+import pcgen.cdom.calculation.BasicCalculation;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaSemantics;
