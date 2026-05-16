@@ -40,7 +40,7 @@ public class EquipmentScope implements PCGenScope
 	@Override
 	public String getName()
 	{
-		return "EQUIPMENT";
+		return "PC.EQUIPMENT";
 	}
 
 	@Override

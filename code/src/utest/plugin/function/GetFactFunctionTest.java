@@ -25,7 +25,6 @@ import pcgen.base.format.StringManager;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formatmanager.SimpleFormatManagerLibrary;
 import pcgen.base.formula.base.FormulaSemantics;
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
@@ -39,6 +38,8 @@ import pcgen.cdom.content.fact.FactDefinition;
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.formula.ManagerKey;
 import pcgen.cdom.formula.scope.GlobalPCScope;
+import pcgen.cdom.formula.scope.GlobalPCVarScoped;
+import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.core.Skill;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.util.enumeration.Visibility;
@@ -81,7 +82,7 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 	@Test
 	public void testInvalidWrongArgType()
 	{
-		LegalScope skillScope = context.getVariableContext().getScope("PC.SKILL");
+		PCGenScope skillScope = context.getVariableContext().getScope("PC.SKILL");
 		getVariableLibrary().assertLegalVariableID("LocalVar", skillScope, numberManager);
 		String s = "getFact(\"SKILL\",\"SkillKey\",LocalVar)";
 		SimpleNode simpleNode = doParse(s);
@@ -159,7 +160,7 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 	public void testDynamic()
 	{
 		VariableLibrary vl = getVariableLibrary();
-		LegalScope globalScope =
+		PCGenScope globalScope =
 				context.getVariableContext().getScope(GlobalPCScope.GLOBAL_SCOPE_NAME);
 		vl.assertLegalVariableID("SkillVar", globalScope,
 			context.getManufacturer("SKILL"));
@@ -183,8 +184,8 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 		skill.setName("SkillKey");
 		Skill skillalt = new Skill();
 		skillalt.setName("SkillAlt");
-		ScopeInstance globalInst = getFormulaManager().getScopeInstanceFactory()
-			.getGlobalInstance(GlobalPCScope.GLOBAL_SCOPE_NAME);
+		ScopeInstance globalInst = getScopeInstanceFactory().get(
+			GlobalPCScope.GLOBAL_SCOPE_NAME, new GlobalPCVarScoped(GlobalPCScope.GLOBAL_SCOPE_NAME));
 		VariableID varIDq = vl.getVariableID(globalInst, "SkillVar");
 		getVariableStore().put(varIDq, skill);
 		context.getReferenceContext().importObject(skill);

@@ -40,7 +40,7 @@ public class SizeScope implements PCGenScope
 	@Override
 	public String getName()
 	{
-		return "SIZE";
+		return "PC.SIZE";
 	}
 
 	@Override

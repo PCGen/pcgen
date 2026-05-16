@@ -40,7 +40,7 @@ public class StatScope implements PCGenScope
 	@Override
 	public String getName()
 	{
-		return "STAT";
+		return "PC.STAT";
 	}
 
 	@Override

@@ -40,7 +40,7 @@ public class SaveScope implements PCGenScope
 	@Override
 	public String getName()
 	{
-		return "SAVE";
+		return "PC.SAVE";
 	}
 
 	@Override

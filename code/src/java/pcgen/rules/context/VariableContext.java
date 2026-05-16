@@ -260,6 +260,16 @@ public class VariableContext implements VariableChannelFactory,
 		myFunctionLibrary.addFunction(function);
 	}
 
+	public WriteableFunctionLibrary getFunctionLibrary()
+	{
+		return myFunctionLibrary;
+	}
+
+	public OperatorLibrary getOperatorLibrary()
+	{
+		return operatorLibrary;
+	}
+
 	/**
 	 * Returns the PCGenScope for the given name.
 	 *

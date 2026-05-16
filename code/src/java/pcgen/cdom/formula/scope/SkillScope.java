@@ -40,7 +40,7 @@ public class SkillScope implements PCGenScope
 	@Override
 	public String getName()
 	{
-		return "SKILL";
+		return "PC.SKILL";
 	}
 
 	@Override

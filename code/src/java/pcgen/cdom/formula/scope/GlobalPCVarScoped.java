@@ -54,4 +54,17 @@ public class GlobalPCVarScoped implements VarScoped
 	{
 		return "PC Global Scope (" + name + ")";
 	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+		return (obj instanceof GlobalPCVarScoped other)
+			&& name.equals(other.name);
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return name.hashCode();
+	}
 }

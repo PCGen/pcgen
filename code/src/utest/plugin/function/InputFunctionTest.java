@@ -20,7 +20,6 @@ package plugin.function;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import pcgen.base.formula.base.ScopeInstance;
-import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.ReconstructionVisitor;
 import pcgen.cdom.enumeration.CharID;
@@ -54,7 +53,7 @@ public class InputFunctionTest extends AbstractFormulaTestCase
 		super.setUp();
 		getFunctionLibrary().addFunction(new InputFunction());
 		id = CharID.getID(context.getDataSetID());
-		scopeFacet.set(id, getFormulaManager().getScopeInstanceFactory());
+		scopeFacet.set(id, getScopeInstanceFactory());
 		variableStoreFacet.set(id, getVariableStore());
 		solverManagerFacet.set(id,
 			context.getVariableContext().generateSolverManager(getVariableStore()));
@@ -98,11 +97,9 @@ public class InputFunctionTest extends AbstractFormulaTestCase
 	@Test
 	public void testGlobalChannelStrength()
 	{
-		ScopeInstanceFactory instFactory = scopeFacet.get(id);
-		ScopeInstance globalInstance =
-				instFactory.getGlobalInstance(GlobalPCScope.GLOBAL_SCOPE_NAME);
+		ScopeInstance globalInstance = scopeFacet.getGlobalScope(id);
 		context.getVariableContext().assertLegalVariableID(ChannelUtilities.createVarName("STR"),
-			globalInstance.getLegalScope(), numberManager);
+			getGlobalScope(), numberManager);
 		VariableChannel<Number> strChannel = (VariableChannel<Number>) context
 			.getVariableContext().getGlobalChannel(id, "STR");
 		String formula = "input(\"STR\")";

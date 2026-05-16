@@ -40,7 +40,7 @@ public class RaceScope implements PCGenScope
 	@Override
 	public String getName()
 	{
-		return "RACE";
+		return "PC.RACE";
 	}
 
 	@Override

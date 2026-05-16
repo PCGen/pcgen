@@ -22,12 +22,9 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.fail;
 import static plugin.function.testsupport.TestUtilities.doParse;
 
-import java.util.Optional;
-
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formatmanager.SimpleFormatManagerLibrary;
 import pcgen.base.formula.base.FormulaSemantics;
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VariableID;
@@ -39,6 +36,8 @@ import pcgen.base.formula.visitor.ReconstructionVisitor;
 import pcgen.base.formula.visitor.SemanticsVisitor;
 import pcgen.cdom.formula.ManagerKey;
 import pcgen.cdom.formula.scope.GlobalPCScope;
+import pcgen.cdom.formula.scope.GlobalPCVarScoped;
+import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.core.Skill;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.VariableContext;
@@ -118,7 +117,7 @@ public class GetOtherFunctionTest extends AbstractFormulaTestCase
 	public void testBasic()
 	{
 		VariableLibrary vl = getVariableLibrary();
-		LegalScope skillScope = context.getVariableContext().getScope("PC.SKILL");
+		PCGenScope skillScope = context.getVariableContext().getScope("PC.SKILL");
 		vl.assertLegalVariableID("LocalVar", skillScope, numberManager);
 
 		String formula =
@@ -130,8 +129,8 @@ public class GetOtherFunctionTest extends AbstractFormulaTestCase
 		isStatic(formula, node, false);
 		Skill skill = new Skill();
 		skill.setName("SkillKey");
-		ScopeInstance scopeInst =
-				getFormulaManager().getScopeInstanceFactory().get("PC.SKILL", Optional.of(skill));
+		ScopeInstanceFactory scopeInstanceFactory = getScopeInstanceFactory();
+		ScopeInstance scopeInst = scopeInstanceFactory.get("PC.SKILL", skill);
 		VariableID varID = vl.getVariableID(scopeInst, "LocalVar");
 		getVariableStore().put(varID, 2);
 		context.getReferenceContext().importObject(skill);
@@ -146,8 +145,8 @@ public class GetOtherFunctionTest extends AbstractFormulaTestCase
 	{
 		VariableLibrary vl = getVariableLibrary();
 		VariableContext variableContext = context.getVariableContext();
-		LegalScope skillScope = variableContext.getScope("PC.SKILL");
-		LegalScope globalScope = variableContext.getScope(GlobalPCScope.GLOBAL_SCOPE_NAME);
+		PCGenScope skillScope = variableContext.getScope("PC.SKILL");
+		PCGenScope globalScope = variableContext.getScope(GlobalPCScope.GLOBAL_SCOPE_NAME);
 		vl.assertLegalVariableID("LocalVar", skillScope, numberManager);
 		vl.assertLegalVariableID("SkillVar", globalScope, context.getManufacturer("SKILL"));
 
@@ -162,16 +161,15 @@ public class GetOtherFunctionTest extends AbstractFormulaTestCase
 		skill.setName("SkillKey");
 		Skill skillalt = new Skill();
 		skillalt.setName("SkillAlt");
-		ScopeInstanceFactory scopeInstanceFactory =
-				getFormulaManager().getScopeInstanceFactory();
-		ScopeInstance scopeInste = scopeInstanceFactory.get("PC.SKILL", Optional.of(skill));
+		ScopeInstanceFactory scopeInstanceFactory = getScopeInstanceFactory();
+		ScopeInstance scopeInste = scopeInstanceFactory.get("PC.SKILL", skill);
 		VariableID varIDe = vl.getVariableID(scopeInste, "LocalVar");
 		getVariableStore().put(varIDe, 2);
-		ScopeInstance scopeInsta = scopeInstanceFactory.get("PC.SKILL", Optional.of(skillalt));
+		ScopeInstance scopeInsta = scopeInstanceFactory.get("PC.SKILL", skillalt);
 		VariableID varIDa = vl.getVariableID(scopeInsta, "LocalVar");
 		getVariableStore().put(varIDa, 3);
-		ScopeInstance globalInst =
-				scopeInstanceFactory.getGlobalInstance(GlobalPCScope.GLOBAL_SCOPE_NAME);
+		ScopeInstance globalInst = scopeInstanceFactory.get(GlobalPCScope.GLOBAL_SCOPE_NAME,
+			new GlobalPCVarScoped(GlobalPCScope.GLOBAL_SCOPE_NAME));
 		VariableID varIDq = vl.getVariableID(globalInst, "SkillVar");
 		getVariableStore().put(varIDq, skill);
 		context.getReferenceContext().importObject(skill);

@@ -152,9 +152,19 @@ public class SimpleSolverManager implements SolverManager
 	@Override
 	public <T> boolean processSolver(VariableID<T> varID)
 	{
-		T newValue = getBuiltSolver(varID)
-			.map(s -> s.process(managerFactory.generateEvaluationManager()))
-			.orElse(getDefault(varID.getFormatManager()));
+		Optional<Solver<T>> solver = getBuiltSolver(varID);
+		if (solver.isEmpty())
+		{
+			T existing = resultStore.get(varID);
+			if (existing != null)
+			{
+				return false;
+			}
+			T newValue = getDefault(varID.getFormatManager());
+			resultStore.put(varID, newValue);
+			return true;
+		}
+		T newValue = solver.get().process(managerFactory.generateEvaluationManager());
 		Object oldValue = resultStore.put(varID, newValue);
 		return !newValue.equals(oldValue);
 	}
