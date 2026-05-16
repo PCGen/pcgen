@@ -17,22 +17,20 @@ package pcgen.cdom.formula.scope;
 
 import java.util.Optional;
 
-import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.ImplementedScope;
 import pcgen.base.util.FormatManager;
 import pcgen.rules.context.LoadContext;
 
 /**
- * A PCGenScope is an expanded LegalScope for use in PCGen that can also provide the
+ * A PCGenScope is an expanded ImplementedScope for use in PCGen that can also provide the
  * FormatManager related to the Scope.
  */
-public interface PCGenScope extends LegalScope
+public interface PCGenScope extends ImplementedScope
 {
-	@Override
-	public Optional<PCGenScope> getParentScope();
 
 	/**
 	 * Returns the FormatManager used to process objects that are within this PCGenScope.
-	 * 
+	 *
 	 * @param context
 	 *            The LoadContext used to resolve the actual FormatManager
 	 * @return The FormatManager used to process objects that are within this PCGenScope

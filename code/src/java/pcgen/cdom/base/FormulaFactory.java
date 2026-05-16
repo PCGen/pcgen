@@ -23,8 +23,8 @@ import java.util.Optional;
 import pcgen.cdom.formula.Formula;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
-import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
+import pcgen.base.formula.base.ImplementedScope;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.exception.SemanticsException;
 import pcgen.base.formula.inst.ComplexNEPFormula;
@@ -281,7 +281,7 @@ public final class FormulaFactory
 		}
 
 		@Override
-		public void getDependencies(DependencyManager fdm)
+		public void captureDependencies(DependencyManager fdm)
 		{
 			//None
 		}
@@ -344,22 +344,20 @@ public final class FormulaFactory
 
 	/**
 	 * Returns a "valid" NEPFormula for the given expression.
-	 * 
+	 *
 	 * If the given expression does not represent a valid formula, then this
 	 * will throw an IllegalArgumentException.
-	 * 
+	 *
 	 * If the given expression does not return an object of the type in the
 	 * given FormatManager, then this will throw an IllegalArgumentException.
-	 * 
+	 *
 	 * @param expression
 	 *            The String representation of the formula to be converted to a
 	 *            NEPFormula
 	 * @param managerFactory
 	 *            The ManagerFactory to be used for building the FormulaSemantics
-	 * @param formulaManager
-	 *            The FormulaManager to be used for validating the NEPFormula
 	 * @param varScope
-	 *            The PCGenScope in which the NEPFormula is established and
+	 *            The scope in which the NEPFormula is established and
 	 *            checked
 	 * @param formatManager
 	 *            The FormatManager in which the NEPFormula is established and
@@ -367,10 +365,10 @@ public final class FormulaFactory
 	 * @return a "valid" NEPFormula for the given expression
 	 */
 	public static <T> NEPFormula<T> getValidFormula(String expression, ManagerFactory managerFactory,
-		FormulaManager formulaManager, PCGenScope varScope, FormatManager<T> formatManager)
+		ImplementedScope varScope, FormatManager<T> formatManager)
 	{
 		NEPFormula<T> formula = getNEPFormulaFor(formatManager, expression);
-		FormulaSemantics semantics = managerFactory.generateFormulaSemantics(formulaManager, varScope);
+		FormulaSemantics semantics = managerFactory.generateFormulaSemantics(varScope);
 		semantics = semantics.getWith(FormulaSemantics.INPUT_FORMAT, Optional.of(formatManager));
 		try
 		{

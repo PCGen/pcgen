@@ -15,6 +15,7 @@
  */
 package pcgen.base.formula.inst;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -70,4 +71,13 @@ public class ImplementedScopeLibrary implements ScopeImplementer,
 			|| scope2.drawsFrom().contains(scope1);
 	}
 
+	/**
+	 * Returns a Collection of all ImplementedScope objects in this library.
+	 *
+	 * @return A Collection of all ImplementedScope objects
+	 */
+	public Collection<ImplementedScope> getScopes()
+	{
+		return scopeCache.values();
+	}
 }

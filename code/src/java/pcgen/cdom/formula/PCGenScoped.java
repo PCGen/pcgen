@@ -18,6 +18,7 @@
 package pcgen.cdom.formula;
 
 import java.util.List;
+import java.util.Optional;
 
 import pcgen.base.formula.base.VarScoped;
 import pcgen.cdom.base.VarContainer;
@@ -29,9 +30,16 @@ import pcgen.cdom.base.VarContainer;
 public interface PCGenScoped extends VarContainer, VarScoped
 {
 	/**
+	 * Returns the name of the local scope for this object, if it has one.
+	 *
+	 * @return The name of the local scope, or empty if this object is in the global scope
+	 */
+	public Optional<String> getLocalScopeName();
+
+	/**
 	 * Returns the local child of the given child type and child name. Returns null if no
 	 * such type or no child of that type with the given name exists.
-	 * 
+	 *
 	 * @param childType
 	 *            The child type for which the child should be returned
 	 * @param childName
@@ -42,10 +50,10 @@ public interface PCGenScoped extends VarContainer, VarScoped
 
 	/**
 	 * Returns the List of child types that this PCGenScoped contains.
-	 * 
+	 *
 	 * Contract for implementations of this method: Will not return null (return an empty
 	 * list instead).
-	 * 
+	 *
 	 * @return The List of child types that this PCGenScoped contains
 	 */
 	public List<String> getChildTypes();
@@ -53,7 +61,7 @@ public interface PCGenScoped extends VarContainer, VarScoped
 	/**
 	 * Returns the List of children of the given child type. Returns null if this
 	 * PCGenScoped has no children of the given type.
-	 * 
+	 *
 	 * @param childType
 	 *            The child type for which the list of children should be returned
 	 * @return The List of children of the given child type

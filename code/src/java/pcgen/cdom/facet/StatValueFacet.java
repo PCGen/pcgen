@@ -206,7 +206,7 @@ public class StatValueFacet extends AbstractScopeFacet<CharID, PCStat, Number>
 		String varName = ChannelUtilities.createVarName(channelName);
 		ScopeInstanceFactory instFactory = SCOPE_FACET.get(id);
 		Optional<String> localScopeName = stat.getLocalScopeName();
-		ScopeInstance scopeInst = instFactory.get(localScopeName.get(), Optional.of(stat));
+		ScopeInstance scopeInst = instFactory.get(localScopeName.get(), stat);
 		try
 		{
             return (VariableID<Number>) loadContextFacet.get(id.getDatasetID()).get()

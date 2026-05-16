@@ -100,7 +100,7 @@ public final class ChannelUtilities
 	{
 		VariableID<Object> varID = getChannelVariableID(id, channelName);
 		RESULT_FACET.get(id).put(varID, value);
-		SOLVER_MANAGER_FACET.get(id).solveChildren(varID);
+		SOLVER_MANAGER_FACET.get(id).processSolver(varID);
 	}
 
 	/**

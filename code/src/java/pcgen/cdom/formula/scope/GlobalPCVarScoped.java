@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2024 (C) PCGen Developers
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -17,45 +17,41 @@
  */
 package pcgen.cdom.formula.scope;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
-
 import pcgen.base.formula.base.ImplementedScope;
-import pcgen.base.util.FormatManager;
-import pcgen.rules.context.LoadContext;
+import pcgen.base.formula.base.VarScoped;
 
 /**
- * This is the global variable scope
+ * A VarScoped sentinel representing the global PC scope for a character.
  */
-public class GlobalPCScope implements PCGenScope
+public class GlobalPCVarScoped implements VarScoped
 {
-	/**
-	 * The name of the Global Scope for PCGen characters, publicly available for reuse...
-	 */
-	public static final String GLOBAL_SCOPE_NAME = "PC";
+	private final String name;
 
-	@Override
-	public String getName()
+	public GlobalPCVarScoped(String name)
 	{
-		return GLOBAL_SCOPE_NAME;
+		this.name = name;
 	}
 
 	@Override
-	public boolean isGlobal()
+	public String getKeyName()
 	{
-		return true;
+		return name;
 	}
 
 	@Override
-	public List<ImplementedScope> drawsFrom()
+	public VarScoped getProviderFor(ImplementedScope implScope)
 	{
-		return Collections.emptyList();
+		if (implScope.isGlobal())
+		{
+			return this;
+		}
+		throw new IllegalArgumentException(
+			"GlobalPCVarScoped cannot provide for non-global scope: " + implScope.getName());
 	}
 
 	@Override
-	public Optional<FormatManager<?>> getFormatManager(LoadContext context)
+	public String toString()
 	{
-		return Optional.empty();
+		return "PC Global Scope (" + name + ")";
 	}
 }

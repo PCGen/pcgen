@@ -17,7 +17,7 @@
  */
 package pcgen.cdom.format.table;
 
-import java.util.Objects;
+import java.util.Optional;
 import java.util.regex.Pattern;
 
 import pcgen.base.formatmanager.FormatManagerFactory;
@@ -56,9 +56,11 @@ public class ColumnFormatFactory implements FormatManagerFactory
 	}
 
 	@Override
-	public FormatManager<TableColumn> build(String subFormatName, FormatManagerLibrary library)
+	public FormatManager<TableColumn> build(Optional<String> parentFormat,
+		Optional<String> subFormat, FormatManagerLibrary library)
 	{
-		Objects.requireNonNull(subFormatName, "Column Format cannot be built from no instructions");
+		String subFormatName = subFormat.orElseThrow(
+			() -> new IllegalArgumentException("Column Format cannot be built from no instructions"));
 		if (SUB_PATTERN.matcher(subFormatName).find())
 		{
 			/*
@@ -68,7 +70,7 @@ public class ColumnFormatFactory implements FormatManagerFactory
 			throw new IllegalArgumentException(
 				"Column Subformat not supported: " + subFormatName + " may not contain COLUMN inside COLUMN");
 		}
-		FormatManager<?> formatManager = library.getFormatManager(subFormatName);
+		FormatManager<?> formatManager = library.getFormatManager(parentFormat, subFormatName);
 		return proc(formatManager);
 	}
 

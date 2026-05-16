@@ -35,7 +35,7 @@ import java.util.logging.LogRecord;
 import java.util.stream.Stream;
 
 import pcgen.base.formatmanager.FormatUtilities;
-import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.ImplementedScope;
 import pcgen.base.util.AbstractMapToList;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.HashMapToList;
@@ -675,7 +675,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 
     private static void defineVariable(VariableContext varContext, FormatManager<?> formatManager, String varName)
     {
-        LegalScope varScope = varContext.getScope(GlobalPCScope.GLOBAL_SCOPE_NAME);
+        ImplementedScope varScope = varContext.getScope(GlobalPCScope.GLOBAL_SCOPE_NAME);
         varContext.assertLegalVariableID(varName, varScope, formatManager);
     }
 

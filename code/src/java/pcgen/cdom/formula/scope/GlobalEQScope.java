@@ -17,8 +17,11 @@
  */
 package pcgen.cdom.formula.scope;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
+import pcgen.base.formula.base.ImplementedScope;
 import pcgen.base.util.FormatManager;
 import pcgen.rules.context.LoadContext;
 
@@ -44,9 +47,15 @@ public class GlobalEQScope implements PCGenScope
 	}
 
 	@Override
-	public Optional<PCGenScope> getParentScope()
+	public boolean isGlobal()
 	{
-		return Optional.empty();
+		return true;
+	}
+
+	@Override
+	public List<ImplementedScope> drawsFrom()
+	{
+		return Collections.emptyList();
 	}
 
 	@Override

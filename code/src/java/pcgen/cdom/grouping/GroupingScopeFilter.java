@@ -19,7 +19,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.ImplementedScope;
 import pcgen.cdom.formula.PCGenScoped;
 import pcgen.cdom.formula.scope.PCGenScope;
 
@@ -67,7 +67,7 @@ public class GroupingScopeFilter<T> implements GroupingCollection<T>
 	 */
 	public GroupingScopeFilter(PCGenScope scope, GroupingCollection<T> grouping)
 	{
-		this.scopeName = LegalScope.getFullName(scope);
+		this.scopeName = scope.getName();
 		this.underlying = Objects.requireNonNull(grouping);
 	}
 

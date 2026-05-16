@@ -20,6 +20,8 @@ import java.util.Objects;
 import pcgen.cdom.calculation.FormulaModifier;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
+import pcgen.base.formula.base.FormulaSemantics;
+import pcgen.base.formula.exception.SemanticsException;
 import pcgen.base.solver.Modifier;
 import pcgen.base.util.FormatManager;
 
@@ -55,9 +57,15 @@ public class ModifierDecoration<T> implements Modifier<T>
 	}
 
 	@Override
-	public void getDependencies(DependencyManager fdm)
+	public void captureDependencies(DependencyManager fdm)
 	{
 		modifier.getDependencies(fdm);
+	}
+
+	@Override
+	public void isValid(FormulaSemantics semantics) throws SemanticsException
+	{
+		modifier.isValid(semantics);
 	}
 
 	@Override

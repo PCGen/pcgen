@@ -1,14 +1,14 @@
 /*
  * Copyright 2018 (C) Tom Parker <thpr@users.sourceforge.net>
- * 
+ *
  * This library is free software; you can redistribute it and/or modify it under the terms
  * of the GNU Lesser General Public License as published by the Free Software Foundation;
  * either version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful, but WITHOUT ANY
  * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
  * PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License along with
  * this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place,
  * Suite 330, Boston, MA 02111-1307 USA
@@ -20,8 +20,9 @@ import java.util.Objects;
 import pcgen.cdom.calculation.FormulaModifier;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
-import pcgen.base.formula.base.FormulaManager;
+import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.FunctionLibrary;
+import pcgen.base.formula.exception.SemanticsException;
 import pcgen.base.solver.Modifier;
 import pcgen.base.util.FormatManager;
 
@@ -29,7 +30,7 @@ import pcgen.base.util.FormatManager;
  * A DefinedWrappingModifier wraps a FormulaModifier and projects it to the formula system
  * as a Modifier, while also inserting any new formula system functions supported by the
  * given java.util.function.Function.
- * 
+ *
  * @param <T>
  *            The format that this DefinedWrappingModifier acts upon
  */
@@ -59,7 +60,7 @@ public class DefinedWrappingModifier<T> implements Modifier<T>
 	/**
 	 * Constructs a new DefinedWrappingModifier for the given FormulaModifier and
 	 * Function.
-	 * 
+	 *
 	 * @param modifier
 	 *            The underlying FormulaModifier
 	 * @param definedName
@@ -82,22 +83,25 @@ public class DefinedWrappingModifier<T> implements Modifier<T>
 	@Override
 	public T process(EvaluationManager manager)
 	{
-		FormulaManager formulaManager = decorateFormulaManager(manager.get(EvaluationManager.FMANAGER));
-		return modifier.process(manager.getWith(EvaluationManager.FMANAGER, formulaManager));
+		FunctionLibrary functionLib = manager.get(EvaluationManager.FUNCTION);
+		functionLib = new DefinedWrappingLibrary(functionLib, definedName, definedValue, formatManager);
+		return modifier.process(manager.getWith(EvaluationManager.FUNCTION, functionLib));
 	}
 
 	@Override
-	public void getDependencies(DependencyManager fdm)
+	public void captureDependencies(DependencyManager fdm)
 	{
-		FormulaManager formulaManager = decorateFormulaManager(fdm.get(DependencyManager.FMANAGER));
-		modifier.getDependencies(fdm.getWith(DependencyManager.FMANAGER, formulaManager));
+		FunctionLibrary functionLib = fdm.get(DependencyManager.FUNCTION);
+		functionLib = new DefinedWrappingLibrary(functionLib, definedName, definedValue, formatManager);
+		modifier.getDependencies(fdm.getWith(DependencyManager.FUNCTION, functionLib));
 	}
 
-	private FormulaManager decorateFormulaManager(FormulaManager formulaManager)
+	@Override
+	public void isValid(FormulaSemantics semantics) throws SemanticsException
 	{
-		FunctionLibrary functionManager = formulaManager.get(FormulaManager.FUNCTION);
-		functionManager = new DefinedWrappingLibrary(functionManager, definedName, definedValue, formatManager);
-		return formulaManager.getWith(FormulaManager.FUNCTION, functionManager);
+		FunctionLibrary functionLib = semantics.get(FormulaSemantics.FUNCTION);
+		functionLib = new DefinedWrappingLibrary(functionLib, definedName, definedValue, formatManager);
+		modifier.isValid(semantics.getWith(FormulaSemantics.FUNCTION, functionLib));
 	}
 
 	@Override

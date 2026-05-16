@@ -16,17 +16,17 @@
 package pcgen.cdom.calculation;
 
 import pcgen.base.formula.base.DependencyManager;
-import pcgen.base.formula.base.VariableStrategy;
+import pcgen.base.formula.base.DependencyStrategy;
 
 /**
- * IgnoreVariables is a VariableStrategy for a DependencyManager indicating that variables
+ * IgnoreVariables is a DependencyStrategy for a DependencyManager indicating that variables
  * are to be ignored
  */
-public class IgnoreVariables implements VariableStrategy
+public class IgnoreVariables implements DependencyStrategy
 {
 
 	@Override
-	public void addVariable(DependencyManager mgr, String varName)
+	public void addVariable(DependencyManager depManager, String varName)
 	{
 		//ignore
 	}

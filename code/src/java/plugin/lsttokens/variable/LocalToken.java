@@ -17,7 +17,7 @@
  */
 package plugin.lsttokens.variable;
 
-import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.ImplementedScope;
 import pcgen.base.formula.exception.LegalVariableException;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.Constants;
@@ -137,7 +137,7 @@ public class LocalToken extends AbstractNonEmptyToken<DatasetVariable> implement
 			return null;
 		}
 		StringBuilder sb = new StringBuilder();
-		sb.append(LegalScope.getFullName(scope));
+		sb.append(scope.getName());
 		sb.append(Constants.PIPE);
 		String identifier = format.getIdentifierType();
 		if (!"NUMBER".equals(identifier))

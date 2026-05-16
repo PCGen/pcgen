@@ -1,23 +1,25 @@
 /*
  * Copyright 2018 (C) Tom Parker <thpr@users.sourceforge.net>
- * 
+ *
  * This library is free software; you can redistribute it and/or modify it under the terms
  * of the GNU Lesser General Public License as published by the Free Software Foundation;
  * either version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful, but WITHOUT ANY
  * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
  * PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License along with
  * this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place,
  * Suite 330, Boston, MA 02111-1307 USA
  */
 package pcgen.cdom.formula.scope;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+import pcgen.base.formula.base.ImplementedScope;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.helper.SpringHelper;
 import pcgen.cdom.inst.Dynamic;
@@ -32,7 +34,8 @@ public class DynamicScope implements PCGenScope
 	/**
 	 * The parent PCGenScope for all DynamicScope objects is the GlobalPCScope.
 	 */
-	private static final Optional<PCGenScope> PARENT_SCOPE = Optional.of(SpringHelper.getBean(GlobalPCScope.class));
+	private static final List<ImplementedScope> DRAWS_FROM =
+			List.of(SpringHelper.getBean(GlobalPCScope.class));
 
 	/**
 	 * The DynamicCategory indicating the objects contained by this DynamicScope.
@@ -47,7 +50,7 @@ public class DynamicScope implements PCGenScope
 	/**
 	 * Constructs a new DynamicScope for the given DynamicCategory and containing the
 	 * objects identified in the given FormatManager.
-	 * 
+	 *
 	 * @param category
 	 *            The DynamicCategory indicating the objects contained by this
 	 *            DynamicScope
@@ -67,9 +70,15 @@ public class DynamicScope implements PCGenScope
 	}
 
 	@Override
-	public Optional<PCGenScope> getParentScope()
+	public boolean isGlobal()
 	{
-		return PARENT_SCOPE;
+		return false;
+	}
+
+	@Override
+	public List<ImplementedScope> drawsFrom()
+	{
+		return DRAWS_FROM;
 	}
 
 	@Override

@@ -25,6 +25,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -486,7 +487,7 @@ public abstract class AbstractReferenceContext
 
 	public FormatManager<?> getFormatManager(String clName)
 	{
-		return fmtLibrary.getFormatManager(clName);
+		return fmtLibrary.getFormatManager(Optional.empty(), clName);
 	}
 
 	void importCDOMToFormat(Class<? extends Loadable> cl)

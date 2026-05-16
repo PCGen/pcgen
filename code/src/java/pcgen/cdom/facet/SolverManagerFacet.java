@@ -52,7 +52,8 @@ public class SolverManagerFacet extends AbstractItemFacet<CharID, SolverManager>
 		ScopeInstance scope = scopeFacet.get(id, vm.getFullLegalScopeName(), thisValue);
 		VariableID<T> varID = (VariableID<T>) loadContextFacet.get(id.getDatasetID()).get().getVariableContext()
 			.getVariableID(scope, vm.getVarName());
-		return get(id).addModifierAndSolve(varID, modifier, source);
+		get(id).addModifier(varID, modifier, source);
+		return true;
 	}
 
 	/**

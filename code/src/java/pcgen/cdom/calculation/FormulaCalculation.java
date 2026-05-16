@@ -85,7 +85,7 @@ public final class FormulaCalculation<T> extends AbstractNEPCalculation<T>
 	@Override
 	public void getDependencies(DependencyManager fdm)
 	{
-		formula.getDependencies(fdm);
+		formula.captureDependencies(fdm);
 	}
 
 	@Override

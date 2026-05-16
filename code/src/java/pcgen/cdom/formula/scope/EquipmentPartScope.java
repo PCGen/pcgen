@@ -17,8 +17,11 @@
  */
 package pcgen.cdom.formula.scope;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
+import pcgen.base.formula.base.ImplementedScope;
 import pcgen.base.util.FormatManager;
 import pcgen.rules.context.LoadContext;
 
@@ -35,9 +38,9 @@ public class EquipmentPartScope implements PCGenScope
 	public static final String PC_EQUIPMENT_PART = "PC.EQUIPMENT.PART";
 
 	/**
-	 * The parent of this scope (once loaded)
+	 * The scopes this scope draws from (once loaded)
 	 */
-	private Optional<PCGenScope> parent;
+	private List<ImplementedScope> drawsFrom = Collections.emptyList();
 
 	@Override
 	public String getName()
@@ -46,20 +49,26 @@ public class EquipmentPartScope implements PCGenScope
 	}
 
 	@Override
-	public Optional<PCGenScope> getParentScope()
+	public boolean isGlobal()
 	{
-		return parent;
+		return false;
+	}
+
+	@Override
+	public List<ImplementedScope> drawsFrom()
+	{
+		return drawsFrom;
 	}
 
 	/**
 	 * Sets the parent PCGenScope for this EquipmentPartScope.
-	 * 
+	 *
 	 * @param parent
 	 *            The parent PCGenScope for this EquipmentPartScope
 	 */
 	public void setParent(PCGenScope parent)
 	{
-		this.parent = Optional.of(parent);
+		this.drawsFrom = List.of(parent);
 	}
 
 	@Override

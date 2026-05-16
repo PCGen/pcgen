@@ -25,8 +25,6 @@ import java.util.Optional;
 import java.util.Set;
 
 import pcgen.cdom.calculation.FormulaModifier;
-import pcgen.base.formula.base.FormulaManager;
-import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.text.ParsingSeparator;
 import pcgen.base.util.CaseInsensitiveMap;
@@ -35,7 +33,6 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.VarContainer;
 import pcgen.cdom.base.VarHolder;
 import pcgen.cdom.content.VarModifier;
-import pcgen.cdom.formula.local.DefinedWrappingLibrary;
 import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
@@ -63,7 +60,7 @@ public class ModifyLst extends AbstractNonEmptyToken<VarHolder>
 		{
 			PCGenScope scope = context.getActiveScope();
 			VarModifier<?> varModifier = parseModifyInfo(context, value, scope,
-				generateFormulaManager(context, scope), getTokenName(), 0);
+				getTokenName(), 0);
 			obj.addModifier(varModifier);
 		}
 		catch (ModifyException e)
@@ -76,7 +73,7 @@ public class ModifyLst extends AbstractNonEmptyToken<VarHolder>
 	/**
 	 * Parses the 3 arguments plus associations that are part of a token doing a
 	 * modification.
-	 * 
+	 *
 	 * @param context
 	 *            The LoadContext for processing
 	 * @param value
@@ -92,14 +89,9 @@ public class ModifyLst extends AbstractNonEmptyToken<VarHolder>
 	 *             if the parsing failed. The message contains information about the error
 	 */
 	public static VarModifier<?> parseModifyInfo(LoadContext context,
-		String value, PCGenScope scope, FormulaManager formulaManager,
+		String value, PCGenScope scope,
 		String tokenName, int argsConsumed) throws ModifyException
 	{
-		/*
-		 * TODO CODE-3299 Need to check the object type of the VarHolder to make sure it
-		 * is legal. Note it's a proxy, so a @ReadOnly method needs to be used to support
-		 * the analysis.
-		 */
 		ParsingSeparator sep = new ParsingSeparator(value, '|');
 		sep.addGroupingPair('[', ']');
 		sep.addGroupingPair('(', ')');
@@ -130,10 +122,16 @@ public class ModifyLst extends AbstractNonEmptyToken<VarHolder>
 		FormulaModifier<?> modifier;
 		try
 		{
-			FormatManager<?> format = context.getVariableContext().getVariableFormat(scope, varName);
+			Optional<FormatManager<?>> format = context.getVariableContext().getVariableFormat(scope, varName);
+			if (format.isEmpty())
+			{
+				throw new ModifyException(
+					tokenName + " found no format for var name: " + varName
+					+ "(scope: " + scope.getName() + ")");
+			}
 			modifier =
 					context.getVariableContext().getModifier(modIdentification,
-						modInstructions, formulaManager, scope, format);
+						modInstructions, scope, format.get());
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -164,23 +162,6 @@ public class ModifyLst extends AbstractNonEmptyToken<VarHolder>
 			modifier.addAssociation(assoc);
 		}
 		return new VarModifier<>(varName, scope, modifier);
-	}
-
-	private final FormulaManager generateFormulaManager(LoadContext context, PCGenScope scope)
-	{
-		FormulaManager formulaManager =
-				context.getVariableContext().getFormulaManager();
-		Optional<FormatManager<?>> formatManager = scope.getFormatManager(context);
-		if (formatManager.isEmpty())
-		{
-			//Okay, we won't add this()
-			return formulaManager;
-		}
-		//Note: Passing new Object() as DefinedValue is a dummy
-		FunctionLibrary functionLibrary = new DefinedWrappingLibrary(
-			formulaManager.get(FormulaManager.FUNCTION), "this", new Object(),
-			formatManager.get());
-		return formulaManager.getWith(FormulaManager.FUNCTION, functionLibrary);
 	}
 
 	@Override

@@ -19,23 +19,16 @@ package plugin.lsttokens;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.StringJoiner;
 
-import pcgen.base.formula.base.FormulaManager;
-import pcgen.base.formula.base.FunctionLibrary;
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.text.ParsingSeparator;
-import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.VarContainer;
 import pcgen.cdom.base.VarHolder;
 import pcgen.cdom.content.RemoteModifier;
 import pcgen.cdom.content.VarModifier;
-import pcgen.cdom.formula.local.DefinedWrappingLibrary;
 import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.cdom.grouping.GroupingCollection;
-import pcgen.rules.context.AbstractObjectContext.DummyCDOMObject;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMInterfaceToken;
@@ -72,7 +65,7 @@ public class ModifyOtherLst extends AbstractNonEmptyToken<VarHolder>
 			return new ParseResult.Fail(
 				getTokenName() + " found illegal variable scope: " + scopeName + " as first argument: " + value);
 		}
-		if (lvs.getParentScope() == null)
+		if (lvs.isGlobal())
 		{
 			return new ParseResult.Fail(
 				getTokenName() + " found illegal variable scope: " + scopeName + " is a global scope");
@@ -81,7 +74,7 @@ public class ModifyOtherLst extends AbstractNonEmptyToken<VarHolder>
 		{
 			return new ParseResult.Fail(getTokenName() + " needed 2nd argument: " + value);
 		}
-		String fullName = LegalScope.getFullName(lvs);
+		String fullName = lvs.getName();
 		LoadContext subContext = context.dropIntoContext(fullName);
 
 		String groupingName = sep.next();
@@ -96,7 +89,7 @@ public class ModifyOtherLst extends AbstractNonEmptyToken<VarHolder>
 		try
 		{
 			VarModifier<?> vm = ModifyLst.parseModifyInfo(subContext, sb.toString(),
-				scope, generateFormulaManager(context, scope), getTokenName(), 2);
+				scope, getTokenName(), 2);
 			obj.addRemoteModifier(new RemoteModifier<>(group, vm));
 		}
 		catch (ModifyException e)
@@ -104,34 +97,6 @@ public class ModifyOtherLst extends AbstractNonEmptyToken<VarHolder>
 			return new ParseResult.Fail(e.getMessage());
 		}
 		return ParseResult.SUCCESS;
-	}
-
-	private final FormulaManager generateFormulaManager(LoadContext context, PCGenScope scope)
-	{
-		FormulaManager formulaManager =
-				context.getVariableContext().getFormulaManager();
-		FunctionLibrary functionManager = formulaManager.get(FormulaManager.FUNCTION);
-		boolean modified = false;
-		Optional<FormatManager<?>> sourceFormatManager = scope.getFormatManager(context);
-		if (sourceFormatManager.isPresent())
-		{
-			functionManager = new DefinedWrappingLibrary(functionManager,
-				"source", new DummyCDOMObject(), sourceFormatManager.get());
-			modified = true;
-		}
-		Optional<FormatManager<?>> targetFormatManager = scope.getFormatManager(context);
-		if (targetFormatManager.isPresent())
-		{
-			functionManager = new DefinedWrappingLibrary(functionManager,
-				"target", new DummyCDOMObject(), targetFormatManager.get());
-			modified = true;
-		}
-		if (!modified)
-		{
-			//Fine then :P
-			return formulaManager;
-		}
-		return formulaManager.getWith(FormulaManager.FUNCTION, functionManager);
 	}
 
 	@Override
@@ -144,7 +109,7 @@ public class ModifyOtherLst extends AbstractNonEmptyToken<VarHolder>
 			VarModifier<?> vm = rm.getVarModifier();
 			StringBuilder sb = new StringBuilder();
 			GroupingCollection<?> og = rm.getGrouping();
-			sb.append(LegalScope.getFullName(vm.getLegalScope()));
+			sb.append(vm.getLegalScope().getName());
 			sb.append(Constants.PIPE);
 			sb.append(og.getInstructions());
 			sb.append(Constants.PIPE);

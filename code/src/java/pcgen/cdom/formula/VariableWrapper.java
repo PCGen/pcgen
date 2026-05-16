@@ -84,7 +84,7 @@ public final class VariableWrapper<T> extends AbstractReferenceFacade<T>
 		T value = varStore.get(varID);
 		if (value == null)
 		{
-			return manager.getDefaultValue(varID.getFormatManager());
+			return manager.getDefault(varID.getFormatManager());
 		}
 		return value;
 	}
