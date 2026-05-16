@@ -106,7 +106,6 @@ public final class VariableChannel<T> extends AbstractReferenceFacade<T>
 		if (!checkForVeto(object))
 		{
 			varStore.put(varID, object);
-			manager.processSolver(varID);
 		}
 	}
 
