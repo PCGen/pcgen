@@ -21,10 +21,10 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import java.net.URISyntaxException;
 
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.VarContainer;
 import pcgen.cdom.base.VarHolder;
+import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
@@ -245,7 +245,7 @@ public class ModifyLstTest extends AbstractGlobalTokenTestCase
 	{
 		super.additionalSetup(context);
 		FormatManager<?> formatManager = context.getReferenceContext().getFormatManager("NUMBER");
-		LegalScope scope = context.getActiveScope();
+		PCGenScope scope = context.getActiveScope();
 		context.getVariableContext().assertLegalVariableID("MyVar", scope, formatManager);
 		context.getVariableContext().assertLegalVariableID("OtherVar", scope, formatManager);
 	}

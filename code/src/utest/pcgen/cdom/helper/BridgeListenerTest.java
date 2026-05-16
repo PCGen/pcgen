@@ -23,7 +23,6 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.Optional;
 
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
@@ -93,7 +92,7 @@ public class BridgeListenerTest
 		BridgeListener bridge = new BridgeListener(id, target, this);
 		GlobalPCScope scope = new GlobalPCScope();
 		ScopeInstance instance =
-				new SimpleScopeInstance(Optional.empty(), scope, owner);
+				new SimpleScopeInstance(scope, owner);
 		TransparentFormatManager<PCTemplate> formatManager =
 				new TransparentFormatManager<PCTemplate>(PCTemplate.class,
 					"PCTEMPLATE");
@@ -126,7 +125,7 @@ public class BridgeListenerTest
 		BridgeListener bridge = new BridgeListener(id, target, this);
 		GlobalPCScope scope = new GlobalPCScope();
 		ScopeInstance instance =
-				new SimpleScopeInstance(Optional.empty(), scope, owner);
+				new SimpleScopeInstance(scope, owner);
 		TransparentFormatManager<PCTemplate[]> formatManager =
 				new TransparentFormatManager<PCTemplate[]>(PCTemplate[].class,
 					"PCTEMPLATE");
