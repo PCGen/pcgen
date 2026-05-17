@@ -46,6 +46,17 @@ public class ScopeFacet extends AbstractItemFacet<CharID, ScopeInstanceFactory>
 	}
 
 	@Override
+	public void copyContents(CharID source, CharID copy)
+	{
+		super.copyContents(source, copy);
+		GlobalPCVarScoped globalVS = globalVarScopedMap.get(source);
+		if (globalVS != null)
+		{
+			globalVarScopedMap.put(copy, globalVS);
+		}
+	}
+
+	@Override
 	public ScopeInstanceFactory remove(CharID id)
 	{
 		globalVarScopedMap.remove(id);
