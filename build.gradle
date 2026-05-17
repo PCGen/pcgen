@@ -783,44 +783,23 @@ tasks.register("inttest", Test) {
     include 'slowtest/pcgen/inttest/**/*Test.class'
 }
 
-tasks.register("sfinttest", Test) {
-    dependsOn jar
-    testClassesDirs = sourceSets.slowtest.output.classesDirs
-    classpath = sourceSets.slowtest.runtimeClasspath
-    forkEvery = 1
-    include 'slowtest/pcgen/inttest/game_starfinder/*Test.class'
-}
-
-tasks.register("pfinttest", Test) {
-    dependsOn jar
-    testClassesDirs = sourceSets.slowtest.output.classesDirs
-    classpath = sourceSets.slowtest.runtimeClasspath
-    forkEvery = 1
-    include 'slowtest/pcgen/inttest/game_pathfinder/*Test.class'
-}
-
-tasks.register("rsrdinttest", Test) {
-    dependsOn jar
-    testClassesDirs = sourceSets.slowtest.output.classesDirs
-    classpath = sourceSets.slowtest.runtimeClasspath
-    forkEvery = 1
-    include 'slowtest/pcgen/inttest/game_35e/*Test.class'
-}
-
-tasks.register("srdinttest", Test) {
-    dependsOn jar
-    testClassesDirs = sourceSets.slowtest.output.classesDirs
-    classpath = sourceSets.slowtest.runtimeClasspath
-    forkEvery = 1
-    include 'slowtest/pcgen/inttest/game_3e/*Test.class'
-}
-
-tasks.register("msrdinttest", Test) {
-    dependsOn jar
-    testClassesDirs = sourceSets.slowtest.output.classesDirs
-    classpath = sourceSets.slowtest.runtimeClasspath
-    forkEvery = 1
-    include 'slowtest/pcgen/inttest/game_modern/*Test.class'
+// Per-game-mode inttest variants. Each runs only the inttest classes for one
+// game directory under code/src/test/pcgen/inttest. CI references these names
+// (e.g. pfinttest) so the task names are stable.
+[
+        sfinttest  : 'game_starfinder',
+        pfinttest  : 'game_pathfinder',
+        rsrdinttest: 'game_35e',
+        srdinttest : 'game_3e',
+        msrdinttest: 'game_modern',
+].each { taskName, gameDir ->
+    tasks.register(taskName, Test) {
+        dependsOn jar
+        testClassesDirs = sourceSets.slowtest.output.classesDirs
+        classpath = sourceSets.slowtest.runtimeClasspath
+        forkEvery = 1
+        include "slowtest/pcgen/inttest/${gameDir}/*Test.class"
+    }
 }
 
 allprojects {
