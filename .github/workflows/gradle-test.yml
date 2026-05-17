@@ -22,29 +22,11 @@ jobs:
         with:
           java-version: '25'
           distribution: 'temurin'
-          cache: gradle
-          cache-dependency-path: |
-            build.gradle
-            code/gradle/autobuild.gradle
-            code/gradle/distribution.gradle
-            code/gradle/release.gradle
-            code/gradle/reporting.gradle
-            code/gradle/plugins.gradle
 
-      # Configure Gradle for optimal use in GitHub Actions, including caching of downloaded dependencies.
+      # setup-gradle@v4 is the canonical Gradle cache for GitHub Actions.
       # See: https://github.com/gradle/actions/blob/main/setup-gradle/README.md
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
-
-      - uses: actions/cache@v4
-        with:
-          path: |
-            ${{ github.workspace }}/build/jre
-            ${{ github.workspace }}/build/libs
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-            ${{ runner.os }}-gradle
 
       - name: Build with Gradle Wrapper
         run: ./gradlew build
