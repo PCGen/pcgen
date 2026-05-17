@@ -53,8 +53,8 @@ jobs:
       - name: Build with Gradle Wrapper
         run: ./gradlew build
 
-      - name: Run tests
-        run: ./gradlew test itest datatest slowtest
+      - name: Run integration, data, and slow tests
+        run: ./gradlew itest datatest slowtest
 
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2
