@@ -717,6 +717,18 @@ tasks.named("test", Test) {
     exclude 'test/pcgen/testsupport/**'
     useJUnitPlatform()
     maxParallelForks = parallelTestForks
+    // TestFX/Monocle setup — only the unit test source set has TestFX-based tests.
+    jvmArgs += [
+            '-Dtestfx.robot=glass',
+            '-Dtestfx.headless=true',
+            '-Dprism.order=sw',
+            // Workaround for TestFX modularity issue. https://github.com/TestFX/TestFX/issues/638
+            '--add-exports', 'javafx.graphics/com.sun.javafx.application=ALL-UNNAMED',
+            // Required for Monocle.
+            '--add-exports', 'javafx.graphics/com.sun.javafx.util=ALL-UNNAMED',
+            '--add-exports', 'javafx.base/com.sun.javafx.logging=ALL-UNNAMED',
+            '--add-opens', 'javafx.graphics/com.sun.glass.ui=ALL-UNNAMED',
+    ]
 }
 
 tasks.register("itest", Test) {
@@ -808,22 +820,12 @@ allprojects {
         }
         jvmArgs += [
                 '-Djava.awt.headless=true',
-                '-Dtestfx.robot=glass',
-                '-Dtestfx.headless=true',
-                '-Dprism.order=sw',
-                '-Dprism.verbose=true',
                 '-Djavafx.macosx.embedded=true',
                 '-Djava.security.manager=disallow',
 
                 "--module-path", layout.projectDirectory.dir("mods/lib"),
                 "--add-modules", "javafx.controls,javafx.web,javafx.swing,javafx.fxml,javafx.graphics",
 
-                // Needed to fix issue with testfx test crashing due to issue with modularity of whole program. Slightly related issue. https://github.com/TestFX/TestFX/issues/638
-                '--add-exports', 'javafx.graphics/com.sun.javafx.application=ALL-UNNAMED',
-                // Next two needed to support monocle testing
-                '--add-exports', 'javafx.graphics/com.sun.javafx.util=ALL-UNNAMED',
-                '--add-exports', 'javafx.base/com.sun.javafx.logging=ALL-UNNAMED',
-                '--add-opens', 'javafx.graphics/com.sun.glass.ui=ALL-UNNAMED',
                 '--enable-native-access=javafx.graphics',
         ]
     }
