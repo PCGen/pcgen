@@ -96,31 +96,12 @@ repositories {
     // Maven Central as a default
     mavenCentral()
 
-    // Use Ant Ivy Plugin to reference our own hosted repos
-    // for PCGen Base and PCGen Formula JARs
-    //ivy {
-        // TODO Enable HTTPS (e.g., add letsencrypt) for that location
-        //url "http://pcgen.sourceforge.net/mvnrepo"
-        //allowInsecureProtocol = true
-        //patternLayout {
-            //artifact "[organisation]/jars/[artifact]-[revision].[ext]"
-        //}
-    //}
     ivy {
         // TODO Enable HTTPS (e.g., add letsencrypt) for that location
         name = 'fileRepo'
         url = 'http://pc-gen.org/librepo/'
         allowInsecureProtocol = true
     }
-    // Use Maven plugin to reference freehep (https://java.freehep.org/) artifact repository
-    // TODO Which libs do we pull from here?
-    /*
-    maven {
-        name = 'free'
-        url = 'https://java.freehep.org/maven2'
-    }
-
-     */
     maven {
         name = 'local'
         url = 'installers'
