@@ -98,11 +98,10 @@ public class GlobalModifyTest extends AbstractContentTokenTest
 		try
 		{
 			List<?> list = sm.diagnose(varID);
-			size = list.size() - 1;
+			size = list.isEmpty() ? 0 : list.size() - 1;
 		}
 		catch (IllegalArgumentException e)
 		{
-			//Really, SolverManager should have isChannel(varID) to avoid diagnose complaining if something doesn't exist
 			size = 0;
 		}
 		return size;

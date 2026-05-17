@@ -49,10 +49,14 @@ public class SolverManagerFacet extends AbstractItemFacet<CharID, SolverManager>
 	public <T> boolean addModifier(CharID id, VarModifier<T> vm, VarScoped thisValue, Modifier<T> modifier,
 		ScopeInstance source)
 	{
-		ScopeInstance scope = scopeFacet.get(id, vm.getFullLegalScopeName(), thisValue);
+		ScopeInstance scope = vm.getLegalScope().isGlobal()
+			? scopeFacet.getGlobalScope(id)
+			: scopeFacet.get(id, vm.getFullLegalScopeName(), thisValue);
 		VariableID<T> varID = (VariableID<T>) loadContextFacet.get(id.getDatasetID()).get().getVariableContext()
 			.getVariableID(scope, vm.getVarName());
-		get(id).addModifier(varID, modifier, source);
+		SolverManager sm = get(id);
+		sm.addModifier(varID, modifier, source);
+		sm.processSolver(varID);
 		return true;
 	}
 
@@ -62,10 +66,14 @@ public class SolverManagerFacet extends AbstractItemFacet<CharID, SolverManager>
 	public <T> void removeModifier(CharID id, VarModifier<T> vm, VarScoped thisValue, Modifier<T> modifier,
 		ScopeInstance source)
 	{
-		ScopeInstance scope = scopeFacet.get(id, vm.getFullLegalScopeName(), thisValue);
+		ScopeInstance scope = vm.getLegalScope().isGlobal()
+			? scopeFacet.getGlobalScope(id)
+			: scopeFacet.get(id, vm.getFullLegalScopeName(), thisValue);
 		VariableID<T> varID = (VariableID<T>) loadContextFacet.get(id.getDatasetID()).get().getVariableContext()
 			.getVariableID(scope, vm.getVarName());
-		get(id).removeModifier(varID, modifier, source);
+		SolverManager sm = get(id);
+		sm.removeModifier(varID, modifier, source);
+		sm.processSolver(varID);
 	}
 
 	public void setScopeFacet(ScopeFacet scopeFacet)
