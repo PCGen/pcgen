@@ -733,9 +733,12 @@ tasks.register("testCoverage", JacocoReport) {
     executionData.from = fileTree(dir: layout.buildDirectory.dir("jacoco")).include("*.exec")
 }
 
+def parallelTestForks = Math.max(1, Runtime.runtime.availableProcessors().intdiv(2) as int)
+
 tasks.named("test", Test) {
     exclude 'test/pcgen/testsupport/**'
     useJUnitPlatform()
+    maxParallelForks = parallelTestForks
 }
 
 tasks.register("itest", Test) {
@@ -744,6 +747,7 @@ tasks.register("itest", Test) {
     testClassesDirs = sourceSets.itest.output.classesDirs
     classpath = sourceSets.itest.runtimeClasspath
     systemProperties['jar.path'] = jar.getArchiveFile().get().getAsFile()
+    maxParallelForks = parallelTestForks
 }
 
 tasks.register("slowtest", Test) {
