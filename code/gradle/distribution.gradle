@@ -75,12 +75,6 @@ ext {
             include 'characters/*.pcg'
         }
     }
-
-    jreImage = copySpec {
-        from('.') {
-            include 'jdks/jdk_windows_x64/**'
-        }
-    }
 }
 
 application {
@@ -116,19 +110,6 @@ tasks.named("installDist") {
     def installLibDir = layout.buildDirectory.dir("install/pcgen/lib")
     doLast {
         installLibDir.get().asFile.listFiles()?.findAll { it.name.startsWith('javafx-') }?.each { it.delete() }
-    }
-}
-
-tasks.register("testZip", Zip) {
-    dependsOn converterJar, copyToLibs, copyToOutput
-    archiveClassifier.set('test')
-    into(zipRootFolder) {
-        with dataDistsImage
-        with docsDistsImage
-        with programDistsImage
-        with libsDistsImage
-        with autobuildSpec
-        with charactersImage
     }
 }
 
