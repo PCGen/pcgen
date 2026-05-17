@@ -148,9 +148,20 @@ jobs:
             ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
             ${{ runner.os }}-gradle
 
-      - name: Build the image
-        if: success()
-        run: ./gradlew clean build copyToOutput test compileSlowtest datatest pfinttest allReports buildDist prepareRelease pcgenRelease
+      - name: Compile and run unit tests
+        run: ./gradlew clean build
+
+      - name: Run data and integration tests
+        run: ./gradlew compileSlowtest datatest pfinttest
+
+      - name: Run static analysis reports
+        run: ./gradlew allReports
+
+      - name: Build distribution zips
+        run: ./gradlew buildDist
+
+      - name: Build release artifacts
+        run: ./gradlew pcgenRelease
 
       - name: Upload zip based release assets for all platforms
         uses: actions/upload-artifact@v4
