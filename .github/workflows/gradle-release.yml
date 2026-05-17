@@ -145,43 +145,16 @@ jobs:
       - name: Build release artifacts
         run: ./gradlew pcgenRelease
 
-      - name: Upload zip based release assets for all platforms
+      - name: Upload release artifacts as workflow artifacts
         uses: actions/upload-artifact@v4
-        if: matrix.os == 'macos-latest'
         with:
-          name: ${{ matrix.os }}-zip
-          path: ${{ github.workspace }}/build/release/image-*.zip
+          name: ${{ matrix.release_suffix }}-release
+          path: ${{ github.workspace }}/build/release/*
+          if-no-files-found: error
 
-      - name: Upload DMG release asset for macos
-        uses: actions/upload-artifact@v4
-        if: matrix.os == 'macos-latest'
+      - name: Attach release artifacts to GitHub Release
+        uses: softprops/action-gh-release@v2
         with:
-          name: ${{ matrix.os }}-dmg
-          path: ${{ github.workspace }}/build/release/*.dmg
-
-      - name: Upload PKG release asset for macos
-        uses: actions/upload-artifact@v4
-        if: matrix.os == 'macos-latest'
-        with:
-          name: ${{ matrix.os }}-pkg
-          path: ${{ github.workspace }}/build/release/*.pkg
-
-#      - name: Upload release assets for ubuntu
-#        uses: actions/upload-artifact@v4
-#        if: matrix.os == 'ubuntu-latest'
-#        with:
-#          name: ${{ matrix.os }}
-#          path: ${{ github.workspace }}/build/jpackage/*.deb
-#
-#      - name: Upload release assets for windows
-#        uses: actions/upload-artifact@v4
-#        if: matrix.os == 'windows-latest'
-#        with:
-#          name: ${{ matrix.os }}
-#          path: ${{ github.workspace }}/build/jpackage/*.msi
-#
-#      - name: Release - ${{ matrix.os }}
-#        uses: softprops/action-gh-release@v2
-#        with:
-#          tag_name: ${{ needs.create_release.outputs.tag-name }}
-#          files: ${{ github.workspace }}/build/release/pcgen-*.*
+          tag_name: ${{ inputs.tag_name || github.ref_name }}
+          files: ${{ github.workspace }}/build/release/*
+          fail_on_unmatched_files: true
