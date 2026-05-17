@@ -364,11 +364,10 @@ tasks.register("pcgenRelease") {
     // Installer is placed in outputDir
 }
 
-// Update the PCGen version to indicate a release, then commit the new version
+// Update the PCGen version to indicate a release. Commit the change manually.
 tasks.register("updateVersionRelease") {
     doLast {
         unSnapshotVersion()
-        commitFile(file("gradle.properties"), "Update version for release ${project.version}")
     }
 }
 
@@ -377,10 +376,9 @@ tasks.register("pcgenReleaseOfficial") {
     description = "Release a new official version of PCGen."
 }
 
-// Update the PCGen version for development of the next release, then commit the new version
+// Update the PCGen version for development of the next release. Commit the change manually.
 tasks.register("updateVersionToNext") {
     doLast {
         updateVersion()
-        commitFile(file("gradle.properties"), "Update version for dev work ${project.version}")
     }
 }
