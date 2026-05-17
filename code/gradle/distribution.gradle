@@ -40,12 +40,6 @@ ext {
         }
     }
 
-    programDistsImage = copySpec {
-        from(layout.buildDirectory.dir("launch4j")) {
-            include 'pcgen.exe'
-        }
-    }
-
     programScriptImage = copySpec {
         from('.') {
             include 'pcgen_low_mem.bat'
@@ -87,7 +81,6 @@ application {
     applicationDistribution.with(autobuildSpec)
     applicationDistribution.with(charactersImage)
     applicationDistribution.with(programScriptImage)
-    applicationDistribution.with(programDistsImage)
 }
 
 tasks.named("run") {
@@ -134,7 +127,6 @@ tasks.register("programZip", Zip) {
     dependsOn converterJar
     archiveClassifier.set('program')
     into(zipRootFolder) {
-        with programDistsImage
         with programScriptImage
         with autobuildSpec
     }
