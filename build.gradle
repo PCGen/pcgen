@@ -127,13 +127,21 @@ sourceSets {
             srcDirs = ['code/src/resources']
         }
     }
-    // Running regular tests
-    test {
+    // Shared test utilities — compiled once, consumed by test/itest/slowtest.
+    testcommon {
         java {
-            srcDirs = ['code/src/utest', 'code/src/testcommon']
+            srcDirs = ['code/src/testcommon']
         }
         compileClasspath += sourceSets.main.output
         runtimeClasspath += sourceSets.main.output
+    }
+    // Running regular tests
+    test {
+        java {
+            srcDirs = ['code/src/utest']
+        }
+        compileClasspath += sourceSets.main.output + sourceSets.testcommon.output
+        runtimeClasspath += sourceSets.main.output + sourceSets.testcommon.output
         resources {
             srcDirs = ['code/src/testResources']
         }
@@ -141,7 +149,7 @@ sourceSets {
     // Integration Tests
     itest {
         java {
-            srcDirs = ['code/src/itest', 'code/src/testcommon']
+            srcDirs = ['code/src/itest']
         }
         resources {
             srcDirs = ['code/src/testResources']
@@ -152,7 +160,7 @@ sourceSets {
     // Running Slow Tests
     slowtest {
         java {
-            srcDirs = ['code/src/test', 'code/src/testcommon']
+            srcDirs = ['code/src/test']
         }
         resources {
             srcDirs = ['code/src/testResources']
@@ -160,6 +168,13 @@ sourceSets {
         compileClasspath += sourceSets.test.output + sourceSets.test.compileClasspath
         runtimeClasspath += sourceSets.test.output + sourceSets.test.runtimeClasspath
     }
+}
+
+// Make the testcommon source set use the same dependency configurations as test.
+configurations {
+    testcommonImplementation.extendsFrom testImplementation
+    testcommonRuntimeOnly.extendsFrom testRuntimeOnly
+    testcommonCompileOnly.extendsFrom testCompileOnly
 }
 
 /* Copy 'master' outputsheets into different genre folders */
