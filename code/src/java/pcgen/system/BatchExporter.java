@@ -355,6 +355,12 @@ public class BatchExporter
 				FopTask task = FopTask.newFopTask(inputStream,
 						isTransformTemplate ? templateFile : null, fileStream);
 				task.run();
+				if (StringUtils.isNotBlank(task.getErrorMessages()))
+				{
+					Logging.errorPrint("BatchExporter.exportPartyToPDF failed: " //$NON-NLS-1$
+						+ task.getErrorMessages());
+					return false;
+				}
 			}
 		}
 		catch (final IOException | ExportException e)
