@@ -24,7 +24,6 @@ module pcgen {
 
     requires org.apache.commons.lang3;
     requires org.apache.commons.io;
-    requires org.apache.commons.collections4;
     requires freemarker;
     requires org.jdom2;
     requires net.sourceforge.argparse4j;
