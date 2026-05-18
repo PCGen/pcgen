@@ -49,7 +49,6 @@ import pcgen.persistence.SourceFileLoader;
 import pcgen.util.Logging;
 import pcgen.util.fop.FopTask;
 
-import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.output.TeeOutputStream;
 import org.apache.commons.lang3.StringUtils;
 
@@ -207,14 +206,14 @@ public class BatchExporter
 	public static boolean exportCharacterToPDF(CharacterFacade character, File outFile, File templateFile)
 	{
 
-		String templateExtension = FilenameUtils.getExtension(templateFile.getName());
+		String templateExtension = getFileExtension(templateFile.getName());
 
 		boolean isTransformTemplate =
 				"xslt".equalsIgnoreCase(templateExtension) || "xsl".equalsIgnoreCase(templateExtension);
 
 		boolean useTempFile =
 				PCGenSettings.OPTIONS_CONTEXT.initBoolean(PCGenSettings.OPTION_GENERATE_TEMP_FILE_WITH_PDF, false);
-		String outFileName = FilenameUtils.removeExtension(outFile.getAbsolutePath());
+		String outFileName = removeFileExtension(outFile.getAbsolutePath());
 		File tempFile = new File(outFileName + (isTransformTemplate ? ".xml" : ".fo"));
 		try (OutputStream fileStream = new BufferedOutputStream(new FileOutputStream(outFile));
 		     ByteArrayOutputStream byteOutputStream = new ByteArrayOutputStream();
@@ -329,7 +328,7 @@ public class BatchExporter
 
 		boolean useTempFile =
 				PCGenSettings.OPTIONS_CONTEXT.initBoolean(PCGenSettings.OPTION_GENERATE_TEMP_FILE_WITH_PDF, false);
-		String outFileName = FilenameUtils.removeExtension(outFile.getAbsolutePath());
+		String outFileName = removeFileExtension(outFile.getAbsolutePath());
 		File tempFile = new File(outFileName + (isTransformTemplate ? ".xml" : ".fo"));
 		try (BufferedOutputStream fileStream = new BufferedOutputStream(new FileOutputStream(outFile));
 				ByteArrayOutputStream byteOutputStream = new ByteArrayOutputStream();
@@ -508,6 +507,37 @@ public class BatchExporter
 			template = new File(ConfigurationSettings.getOutputSheetsDir(), "base.xml.ftl");
 		}
 		return template;
+	}
+
+	/**
+	 * Returns the extension of the given file name (text after the last dot in the
+	 * final path segment), or an empty string if there is no extension.
+	 */
+	private static String getFileExtension(String filename)
+	{
+		int slash = Math.max(filename.lastIndexOf('/'), filename.lastIndexOf('\\'));
+		int dot = filename.lastIndexOf('.');
+		if (dot <= slash)
+		{
+			return "";
+		}
+		return filename.substring(dot + 1);
+	}
+
+	/**
+	 * Returns the given path with its extension removed (the last dot in the final
+	 * path segment and everything after it). If the path has no extension, the path
+	 * is returned unchanged.
+	 */
+	private static String removeFileExtension(String path)
+	{
+		int slash = Math.max(path.lastIndexOf('/'), path.lastIndexOf('\\'));
+		int dot = path.lastIndexOf('.');
+		if (dot <= slash)
+		{
+			return path;
+		}
+		return path.substring(0, dot);
 	}
 
 	/**

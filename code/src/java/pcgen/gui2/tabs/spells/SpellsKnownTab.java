@@ -31,7 +31,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
-import org.apache.commons.io.FilenameUtils;
 import pcgen.core.PCClass;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.SpellFacade;
@@ -154,7 +153,8 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 			hbox.add(spellSheetButton);
 			hbox.add(Box.createHorizontalStrut(3));
 
-			String text = FilenameUtils.getName(PCGenSettings.getSelectedSpellSheet());
+			String spellSheetPath = PCGenSettings.getSelectedSpellSheet();
+			String text = spellSheetPath == null ? null : new File(spellSheetPath).getName();
 			spellSheetField.setEditable(false);
 			spellSheetField.setText(text);
 			spellSheetField.setToolTipText(text);
