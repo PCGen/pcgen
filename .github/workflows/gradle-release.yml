@@ -130,6 +130,23 @@ jobs:
           cache-read-only: false
           cache-overwrite-existing: true
 
+      # Cache cross-platform JDK and JavaFX jmod archives downloaded by
+      # downloadJdk_* / downloadJavaFXMods_* tasks. These are pinned by
+      # javaVersion (gradle.properties) and the URL templates (build.gradle),
+      # so keying on those file hashes invalidates correctly when we bump
+      # the JDK or JavaFX version. We cache only the archives (.tar.gz / .zip)
+      # and let Gradle re-extract them each run via its own up-to-date checks.
+      - name: Cache downloaded JDK and JavaFX archives
+        uses: actions/cache@v4
+        with:
+          path: |
+            jdks/jdk_*.tar.gz
+            jdks/jdk_*.zip
+            jdks/jfx_jmods_*.zip
+          key: jdks-${{ hashFiles('gradle.properties', 'build.gradle') }}
+          restore-keys: |
+            jdks-
+
       - name: Compile and run unit tests
         run: ./gradlew clean build
 
