@@ -43,7 +43,7 @@ class PCGIOHandlerWriteTest
 	 * of character file paths.
 	 */
 	@Test
-	public void testWriteProducesVersionAndFilesLines(@TempDir Path tmp) throws IOException
+	void testWriteProducesVersionAndFilesLines(@TempDir Path tmp) throws IOException
 	{
 		File party = tmp.resolve("test.pcp").toFile();
 		File charA = tmp.resolve("a.pcg").toFile();
@@ -66,7 +66,7 @@ class PCGIOHandlerWriteTest
 	 * file ends with the platform line separator.
 	 */
 	@Test
-	public void testWriteEndsWithLineSeparator(@TempDir Path tmp) throws IOException
+	void testWriteEndsWithLineSeparator(@TempDir Path tmp) throws IOException
 	{
 		File party = tmp.resolve("test.pcp").toFile();
 		File charA = tmp.resolve("a.pcg").toFile();
@@ -84,7 +84,7 @@ class PCGIOHandlerWriteTest
 	 * file is encoded in UTF-8 by round-tripping a non-ASCII filename.
 	 */
 	@Test
-	public void testWriteIsUtf8Encoded(@TempDir Path tmp) throws IOException
+	void testWriteIsUtf8Encoded(@TempDir Path tmp) throws IOException
 	{
 		File party = tmp.resolve("test.pcp").toFile();
 		File charA = tmp.resolve("é.pcg").toFile();
