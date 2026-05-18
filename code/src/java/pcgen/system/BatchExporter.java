@@ -30,6 +30,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.nio.file.Path;
 
 import pcgen.cdom.base.Constants;
@@ -49,7 +50,6 @@ import pcgen.persistence.SourceFileLoader;
 import pcgen.util.Logging;
 import pcgen.util.fop.FopTask;
 
-import org.apache.commons.io.output.TeeOutputStream;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -216,31 +216,33 @@ public class BatchExporter
 		String outFileName = removeFileExtension(outFile.getAbsolutePath());
 		File tempFile = new File(outFileName + (isTransformTemplate ? ".xml" : ".fo"));
 		try (OutputStream fileStream = new BufferedOutputStream(new FileOutputStream(outFile));
-		     ByteArrayOutputStream byteOutputStream = new ByteArrayOutputStream();
-		     OutputStream exportOutput = useTempFile
-					//Output to both the byte stream and to the temp file.
-					? new TeeOutputStream(byteOutputStream, new FileOutputStream(tempFile)) : byteOutputStream)
+		     ByteArrayOutputStream byteOutputStream = new ByteArrayOutputStream())
 		{
-			FopTask task;
 			if (isTransformTemplate)
 			{
-				exportCharacter(character, exportOutput);
-				InputStream inputStream = new ByteArrayInputStream(byteOutputStream.toByteArray());
-				task = FopTask.newFopTask(inputStream, templateFile, fileStream);
+				exportCharacter(character, byteOutputStream);
 			}
 			else
 			{
-				exportCharacter(character, templateFile, exportOutput);
-				InputStream inputStream = new ByteArrayInputStream(byteOutputStream.toByteArray());
-				task = FopTask.newFopTask(inputStream, null, fileStream);
+				exportCharacter(character, templateFile, byteOutputStream);
 			}
-			character.setDefaultOutputSheet(true, templateFile);
-			task.run();
-			if (StringUtils.isNotBlank(task.getErrorMessages()))
+			byte[] exported = byteOutputStream.toByteArray();
+			if (useTempFile)
 			{
-				Logging.errorPrint("BatchExporter.exportCharacterToPDF failed: " //$NON-NLS-1$
-					+ task.getErrorMessages());
-				return false;
+				Files.write(tempFile.toPath(), exported);
+			}
+			try (InputStream inputStream = new ByteArrayInputStream(exported))
+			{
+				FopTask task = FopTask.newFopTask(inputStream,
+						isTransformTemplate ? templateFile : null, fileStream);
+				character.setDefaultOutputSheet(true, templateFile);
+				task.run();
+				if (StringUtils.isNotBlank(task.getErrorMessages()))
+				{
+					Logging.errorPrint("BatchExporter.exportCharacterToPDF failed: " //$NON-NLS-1$
+						+ task.getErrorMessages());
+					return false;
+				}
 			}
 		}
 		catch (final IOException | ExportException e)
@@ -331,27 +333,29 @@ public class BatchExporter
 		String outFileName = removeFileExtension(outFile.getAbsolutePath());
 		File tempFile = new File(outFileName + (isTransformTemplate ? ".xml" : ".fo"));
 		try (BufferedOutputStream fileStream = new BufferedOutputStream(new FileOutputStream(outFile));
-				ByteArrayOutputStream byteOutputStream = new ByteArrayOutputStream();
-				OutputStream exportOutput = useTempFile
-					//Output to both the byte stream and to the temp file.
-					? new TeeOutputStream(byteOutputStream, new FileOutputStream(tempFile)) : byteOutputStream)
+				ByteArrayOutputStream byteOutputStream = new ByteArrayOutputStream())
 		{
-			FopTask task;
 			if (isTransformTemplate)
 			{
-				exportParty(party, exportOutput);
-				ByteArrayInputStream inputStream = new ByteArrayInputStream(byteOutputStream.toByteArray());
-				task = FopTask.newFopTask(inputStream, templateFile, fileStream);
+				exportParty(party, byteOutputStream);
 			}
 			else
 			{
 				SettingsHandler.setSelectedPartyPDFOutputSheet(templateFile.getAbsolutePath());
 
-				exportParty(party, templateFile, exportOutput);
-				ByteArrayInputStream inputStream = new ByteArrayInputStream(byteOutputStream.toByteArray());
-				task = FopTask.newFopTask(inputStream, null, fileStream);
+				exportParty(party, templateFile, byteOutputStream);
 			}
-			task.run();
+			byte[] exported = byteOutputStream.toByteArray();
+			if (useTempFile)
+			{
+				Files.write(tempFile.toPath(), exported);
+			}
+			try (InputStream inputStream = new ByteArrayInputStream(exported))
+			{
+				FopTask task = FopTask.newFopTask(inputStream,
+						isTransformTemplate ? templateFile : null, fileStream);
+				task.run();
+			}
 		}
 		catch (final IOException | ExportException e)
 		{
@@ -542,9 +546,9 @@ public class BatchExporter
 
 	/**
 	 * Create a default character sheet output file name based on the export
-	 * template type and the character file name. The output file will be 
+	 * template type and the character file name. The output file will be
 	 * in the same folder as the character file.
-	 * 
+	 *
 	 * @param characterFilename The path to the character PCG file.
 	 * @return The default output file name.
 	 */
@@ -556,4 +560,5 @@ public class BatchExporter
 		String outputName = charname.substring(0, charname.lastIndexOf('.')) + '.' + extension;
 		return new File(charFile.getParent(), outputName).getAbsolutePath();
 	}
+
 }
