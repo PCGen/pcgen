@@ -459,9 +459,13 @@ public class BatchExporter
 		}
 		for (File tf : tempFiles)
 		{
-			if (!tf.delete())
+			try
 			{
-				Logging.errorPrint("Could not delete temporary file " + tf.getAbsolutePath());
+				Files.delete(tf.toPath());
+			}
+			catch (IOException ex)
+			{
+				Logging.errorPrint("Could not delete temporary file " + tf.getAbsolutePath(), ex);
 			}
 		}
 	}
