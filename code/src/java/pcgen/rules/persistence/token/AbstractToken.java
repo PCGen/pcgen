@@ -26,7 +26,6 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
-import org.apache.xml.utils.XMLChar;
 
 public abstract class AbstractToken
 {
@@ -128,16 +127,24 @@ public abstract class AbstractToken
 	}
 
 	/**
-	 * Checks a string to see if any characters are invalid for inclusion in 
+	 * Checks a string to see if any characters are invalid for inclusion in
 	 * XML strings.
-	 * @param value     The string to check.
-	 * @return  A parse result of success if the string uses only valid characters.
+	 * @param c     The character to check.
+	 * @return  {@code true} if the character is valid in XML.
 	 */
+	// XML 1.0 §2.2: valid chars are #x9 | #xA | #xD | [#x20-#xD7FF] | [#xE000-#xFFFD]
+	private static boolean isValidXMLChar(char c)
+	{
+		return c == 0x9 || c == 0xA || c == 0xD
+			|| (c >= 0x20 && c <= 0xD7FF)
+			|| (c >= 0xE000 && c <= 0xFFFD);
+	}
+
 	protected ParseResult checkForInvalidXMLChars(String value)
 	{
 		for (char character : value.toCharArray())
 		{
-			if (!XMLChar.isValid(character))
+			if (!isValidXMLChar(character))
 			{
 				return new ParseResult.Fail(
 					"Invalid XML character 0x" + Integer.toString(character, 16) + " in " + value);

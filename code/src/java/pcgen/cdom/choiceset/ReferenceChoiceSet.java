@@ -24,7 +24,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-import pcgen.base.util.WeightedCollection;
+import pcgen.util.WeightedCollection;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrimitiveChoiceSet;

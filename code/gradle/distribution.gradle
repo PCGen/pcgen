@@ -78,7 +78,7 @@ ext {
 
     jreImage = copySpec {
         from('.') {
-            include 'jre/windows/**'
+            include 'jdks/jdk_windows_x64/**'
         }
     }
 }
@@ -113,12 +113,9 @@ tasks.named("run") {
 }
 
 tasks.named("installDist") {
-    doLast{
-        delete {
-            delete fileTree(layout.buildDirectory.dir("install/pcgen/lib")) {
-                include 'javafx-*'
-            }
-        }
+    def installLibDir = layout.buildDirectory.dir("install/pcgen/lib")
+    doLast {
+        installLibDir.get().asFile.listFiles()?.findAll { it.name.startsWith('javafx-') }?.each { it.delete() }
     }
 }
 
@@ -172,6 +169,6 @@ tasks.register("libsZip", Zip) {
 }
 
 tasks.register("buildDist") {
-    dependsOn dataZip, docsZip, programZip, libsZip, runtimeZip
+    dependsOn dataZip, docsZip, programZip, libsZip, jlinkZip
     description = "Build the five zip files (docs, data, program, libs and full) which comprise the autobuild distribution."
 }

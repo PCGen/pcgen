@@ -13,6 +13,10 @@ checkstyle {
     sourceSets = []
 }
 
+tasks.withType(Checkstyle).configureEach {
+    exclude '**/module-info.java'
+}
+
 pmd {
     // turn off the default rules
     ruleSets = []

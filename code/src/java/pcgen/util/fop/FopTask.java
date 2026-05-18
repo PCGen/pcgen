@@ -64,7 +64,8 @@ public final class FopTask implements Runnable
 	private static final FopFactory FOP_FACTORY = createFopFactory();
 	private static FOUserAgent userAgent;
 
-	private static final TransformerFactory TRANS_FACTORY = TransformerFactory.newInstance();
+	private static final TransformerFactory TRANS_FACTORY =
+		TransformerFactory.newInstance("net.sf.saxon.TransformerFactoryImpl", null);
 
 	private static FopFactory createFopFactory()
 	{

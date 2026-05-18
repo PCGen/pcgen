@@ -4,7 +4,7 @@
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:fo="http://www.w3.org/1999/XSL/Format"
 	xmlns:str="http://xsltsl.sourceforge.net/string.html"
-	xmlns:xalan="http://xml.apache.org/xalan"
+	xmlns:exsl="http://exslt.org/common"
 	>
 
 	<xsl:import href="../../../xsltsl-1.1/stdlib.xsl"/>
@@ -814,7 +814,7 @@
 				<fo:table-row>
 					<fo:table-cell>
 						<fo:block>
-							<xsl:variable name="foo" select="xalan:nodeset($spam)"/>
+							<xsl:variable name="foo" select="exsl:node-set($spam)"/>
 							<xsl:apply-templates select="$foo" mode="equipment_tree">
 								<xsl:with-param name="total_width" select="94"/>
 							</xsl:apply-templates>

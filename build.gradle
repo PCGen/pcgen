@@ -13,10 +13,11 @@
 
 import groovy.json.JsonSlurper
 
-import org.apache.commons.lang3.StringUtils
 import org.apache.tools.ant.filters.FixCrLfFilter
 import org.apache.tools.ant.taskdefs.condition.Os
 import org.gradle.plugins.ide.idea.model.ProjectLibrary
+
+import de.undercouch.gradle.tasks.download.Download
 
 /**
  * Plugins without versions are ones that are bundled with Gradle at the version
@@ -33,8 +34,7 @@ plugins {
     id 'de.undercouch.download' version '5.7.0'         // Shows download percentage
     id 'com.github.ben-manes.versions' version '0.54.0' // Checks versions for plugins and dependencies
     id 'com.dorongold.task-tree' version '4.0.1'        // Prints the task dependency tree
-    id 'org.openjfx.javafxplugin' version '0.1.0'       // JavaFX support
-    id 'org.beryx.runtime' version '2.0.1'              // Creates custom runtimes
+    id 'org.beryx.jlink' version '4.0.0'               // Creates custom runtimes with jlink
     id 'jacoco'                                         // Code coverage
 }
 
@@ -48,9 +48,6 @@ group = 'net.sourceforge.pcgen'
 // Description of this project
 description = """PCGen"""
 
-// Default task if you just run ./gradlew
-defaultTasks 'build'
-
 // Define properties for the build (directories)
 ext {
     // Where code gets compiled to
@@ -59,8 +56,8 @@ ext {
     // Folder where exe / jar files are placed.
     outputDir = layout.projectDirectory.dir("output")
 
-    // Folder where the JREs are downloaded for building releases
-    jresDir = layout.projectDirectory.dir("jre")
+    // Folder where the JDKs are downloaded for building releases
+    jdksDir = layout.projectDirectory.dir("jdks")
 
     // Folder where the JavaFX mods are downloaded for building releases
     modsDir = layout.projectDirectory.dir("mods")
@@ -86,14 +83,6 @@ java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(javaVersion)
     }
-}
-
-/**
- * Set the version and the modules we want from JavaFX (not everything)
- */
-javafx {
-    version = latestJavaVersion
-    modules = [ 'javafx.controls', 'javafx.swing', 'javafx.fxml', 'javafx.graphics', 'javafx.web' ]
 }
 
 application {
@@ -176,8 +165,8 @@ sourceSets {
         resources {
             srcDirs = ['code/src/testResources']
         }
-        compileClasspath += sourceSets.test.compileClasspath
-        runtimeClasspath += sourceSets.test.runtimeClasspath
+        compileClasspath += sourceSets.test.output + sourceSets.test.compileClasspath
+        runtimeClasspath += sourceSets.test.output + sourceSets.test.runtimeClasspath
     }
     // Running Slow Tests
     slowtest {
@@ -187,8 +176,8 @@ sourceSets {
         resources {
             srcDirs = ['code/src/testResources']
         }
-        compileClasspath += sourceSets.test.compileClasspath
-        runtimeClasspath += sourceSets.test.runtimeClasspath
+        compileClasspath += sourceSets.test.output + sourceSets.test.compileClasspath
+        runtimeClasspath += sourceSets.test.output + sourceSets.test.runtimeClasspath
     }
 }
 
@@ -233,22 +222,23 @@ tasks.register("cleanMasterSheets", Delete) {
  */
 dependencies {
 
+    implementation fileTree(dir: 'mods/lib', include: ['javafx.*.jar'])
+
     implementation 'commons-io:commons-io:2.22.0'
     implementation 'org.springframework:spring-web:7.0.7'
     implementation 'org.springframework:spring-beans:7.0.7'
     implementation 'org.springframework:spring-core:7.0.7'
     implementation 'org.apache.commons:commons-lang3:3.20.0'
-    implementation 'xalan:serializer:2.7.3'
     implementation('org.apache.xmlgraphics:fop:2.11') {
         exclude group: 'xml-apis', module: 'xml-apis'
+        exclude group: 'xalan', module: 'xalan'
+        exclude group: 'xalan', module: 'serializer'
     }
+    implementation 'net.sf.saxon:Saxon-HE:12.9'
     implementation 'org.apache.commons:commons-collections4:4.5.0'
     implementation 'org.scijava:jep:2.4.2'
     implementation 'org.freemarker:freemarker:2.3.34'
     implementation 'org.jdom:jdom2:2.0.6.1'
-    implementation('xalan:xalan:2.7.3') {
-        exclude group: 'xml-apis', module: 'xml-apis'
-    }
     implementation 'net.sourceforge.argparse4j:argparse4j:0.9.0'
     implementation 'org.xmlunit:xmlunit-core:2.11.0'
     implementation 'org.controlsfx:controlsfx:11.2.3'
@@ -307,53 +297,74 @@ jar {
                 'Class-Path': classpath
     }
 
-    from {
-        configurations.runtimeClasspath.collect {
-            it.directory ? it : zipTree(it)
-        }
-    }
+    exclude 'META-INF/*.SF', 'META-INF/*.DSA', 'META-INF/*.RSA', 'META-INF/*.EC'
 }
 
 /**
- * Create a Java runtime built from Java modules
+ * Create a Java runtime built from Java modules using jlink
  */
-runtime {
-    options = []
-    modules = [
-            'jdk.httpserver',
-            'java.management',
-            'java.rmi',
-            'java.desktop',
-            'java.xml',
-            'java.sql',
-            'jdk.unsupported',
-            'java.prefs',
-            'java.logging',
-            'java.naming',
-            'jdk.xml.dom',
-            'jdk.unsupported.desktop',
-            'java.scripting',
-            'jdk.jfr',
-            'jdk.jsobject',
-            'javafx.controls',
-            'javafx.web',
-            'javafx.swing',
-            'javafx.fxml',
-            'javafx.graphics'
+jlink {
+    options = ['--strip-debug', '--no-header-files', '--no-man-pages']
+    forceMerge('PCGen-base', 'PCGen-Formula', 'jep', 'fop', 'Saxon-HE',
+               'commons-lang3', 'commons-io', 'commons-collections4', 'spring',
+               'freemarker', 'jdom2', 'argparse4j', 'xmlunit', 'controlsfx',
+               'annotations', 'spotbugs', 'xmlresolver')
+
+    mergedModule {
+        additive = true
+        requires 'java.desktop'
+        requires 'java.logging'
+        requires 'java.naming'
+        requires 'java.prefs'
+        requires 'java.scripting'
+        requires 'java.sql'
+        requires 'java.xml'
+        requires 'java.management'
+        requires 'java.rmi'
+        requires 'jdk.httpserver'
+        requires 'jdk.unsupported'
+        requires 'jdk.xml.dom'
+        requires 'jdk.unsupported.desktop'
+        requires 'jdk.jfr'
+
+        // Exclude service providers that reference optional/missing dependencies
+        excludeProvides(servicePattern: 'reactor\\.blockhound\\..*')
+        excludeProvides(servicePattern: 'jakarta\\.servlet\\..*')
+        excludeProvides(servicePattern: 'io\\.micrometer\\..*')
+        // FOP service files list factory classes that don't directly implement the service interface
+        excludeProvides(service: 'org.apache.fop.render.intermediate.IFDocumentHandler')
+        excludeProvides(service: 'org.apache.fop.render.Renderer')
+        excludeProvides(service: 'org.apache.fop.fo.FOEventHandler')
+    }
+
+    // Cross-platform images: only register platforms whose JDK javac can run on this host.
+    // CI sets PCGEN_ALL_PLATFORMS=true to build all targets (using platform-specific runners).
+    def hostArch = System.getProperty("os.arch")
+    def allPlatforms = System.getenv("PCGEN_ALL_PLATFORMS") == "true"
+
+    def platformDefs = [
+        'linux-x64'     : jdksDir.dir("jdk_linux_x64").asFile.absolutePath,
+        'linux-aarch64' : jdksDir.dir("jdk_linux_aarch64").asFile.absolutePath,
+        'windows-x64'   : jdksDir.dir("jdk_windows_x64").asFile.absolutePath,
+        'mac-x64'       : jdksDir.dir("jdk_mac_x64/Contents/Home").asFile.absolutePath,
+        'mac-aarch64'   : jdksDir.dir("jdk_mac_aarch64/Contents/Home").asFile.absolutePath,
     ]
 
-    // We support Mac/Win/Linux x86-64, Mac/Linux aarch64
-    targetPlatform('linux-x64',     layout.projectDirectory.dir("jre/linux/jre_x64").asFile.absolutePath)
-    targetPlatform('linux-aarch64', layout.projectDirectory.dir("jre/linux/jre_aarch64").asFile.absolutePath)
-    targetPlatform('windows-x64',   layout.projectDirectory.dir("jre/windows/jre_x64").asFile.absolutePath)
-    targetPlatform('mac-x64',       layout.projectDirectory.dir("jre/mac/jre_x64/Contents/Home").asFile.absolutePath)
-    targetPlatform('mac-aarch64',   layout.projectDirectory.dir("jre/mac/jre_aarch64/Contents/Home").asFile.absolutePath)
+    if (allPlatforms) {
+        platformDefs.each { name, jdk -> targetPlatform(name, jdk) }
+    } else if (Os.isFamily(Os.FAMILY_MAC)) {
+        def macPlatform = (hostArch == "aarch64") ? 'mac-aarch64' : 'mac-x64'
+        targetPlatform(macPlatform, platformDefs[macPlatform])
+    } else if (Os.isFamily(Os.FAMILY_UNIX)) {
+        def linuxPlatform = (hostArch == "aarch64") ? 'linux-aarch64' : 'linux-x64'
+        targetPlatform(linuxPlatform, platformDefs[linuxPlatform])
+    } else if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+        targetPlatform('windows-x64', platformDefs['windows-x64'])
+    }
 
     // Use the jpackage tool that comes with Java to build native installers
     jpackage {
         def licenseFile = layout.projectDirectory.file("code/LICENSE")
-        installerOptions = ["--app-version", "${version.replaceAll('-SNAPSHOT', '')}", "--license-file", licenseFile.asFile.absolutePath]
-
         def hostArchitecture = System.getProperty("os.arch")
         def osFamily =
                 Os.isFamily(Os.FAMILY_MAC) ? "mac" :
@@ -362,53 +373,79 @@ runtime {
         def targetPlatform = ["x86_64" : "x64",
                               "amd64" : "x64",
                               "aarch64" : "aarch64"]
-        // formats a string such as "mac    -aarch64", or "linux-x64"
         targetPlatformName = "${osFamily}-${targetPlatform.get(hostArchitecture, "NOT SUPPORTED")}"
 
+        def appVersionStr = version.replaceAll('-SNAPSHOT', '').replaceAll(/[^0-9.].*/, '').replaceAll(/\.$/, '')
+        appVersion = appVersionStr
+        def opts = ["--license-file", licenseFile.asFile.absolutePath]
+
         if (osFamily == "mac") {
-            installerOptions += ["--mac-package-identifier", "PcGen", "--mac-package-name", "PcGen"]
+            opts += ["--mac-package-identifier", "PcGen", "--mac-package-name", "PcGen"]
             resourceDir = layout.projectDirectory.dir("installers/mac-installer").asFile
         }
-        // This may seem weird but there's no LINUX family detection in the OS lib
         else if (osFamily == "linux") {
-            installerOptions += ['--linux-shortcut']
+            opts += ['--linux-shortcut']
         }
+
+        installerOptions = opts
         imageName = "PcGen"
     }
 }
 
-// Package up other files with the main program
+// Package up other files with the main program after jpackage creates the image
 tasks.named("jpackageImage") {
-    dependsOn tasks.named("runtime")
-    doLast {
-        copy {
-            includeEmptyDirs = false
-            from layout.buildDirectory.dir("install/pcgen")
-            exclude "**/*.exe"
-            exclude "**/*.bat"
-            exclude "pcgen"
-            exclude "**/lib/**"
-            if (Os.isFamily(Os.FAMILY_MAC)) {
-                into layout.buildDirectory.dir("jpackage/PcGen.app/Contents/app")
-            } else {
-                into layout.buildDirectory.dir("jpackage/PcGen")
-            }
-        }
+    dependsOn tasks.named("jlink")
+}
 
-        // Mac OS X specific config for jpackage
-        if (Os.isFamily(Os.FAMILY_MAC)) {
-            copy {
-                from layout.projectDirectory.dir("installers/mac-installer")
-                include "MacDirLauncher"
-                filePermissions {
-                    unix(0755)
-                }
-                into layout.buildDirectory.dir("jpackage/PcGen.app/Contents/MacOS")
-            }
-            ant.replace(file: layout.buildDirectory.file("jpackage/PcGen.app/Contents/Info.plist").get(),
-                    token: "<key>CFBundleExecutable</key>\n  <string>PcGen</string>",
-                    value: "<key>CFBundleExecutable</key>\n  <string>MacDirLauncher</string>")
+tasks.named("jlink") {
+    dependsOn "downloadJavaFXMods"
+}
+
+tasks.register("assembleJpackageImage", Copy) {
+    dependsOn tasks.named("jpackageImage"), tasks.named("installDist")
+    includeEmptyDirs = false
+    from layout.buildDirectory.dir("install/pcgen")
+    exclude "**/*.exe"
+    exclude "**/*.bat"
+    exclude "pcgen"
+    exclude "**/lib/**"
+    if (Os.isFamily(Os.FAMILY_MAC)) {
+        into layout.buildDirectory.dir("jpackage/PcGen.app/Contents/app")
+    } else {
+        into layout.buildDirectory.dir("jpackage/PcGen")
+    }
+    // jpackageImage wipes the output dir on rebuild; always re-copy
+    outputs.upToDateWhen { false }
+}
+
+if (Os.isFamily(Os.FAMILY_MAC)) {
+    tasks.register("patchMacJpackage", Copy) {
+        dependsOn tasks.named("assembleJpackageImage")
+        from layout.projectDirectory.dir("installers/mac-installer")
+        include "MacDirLauncher"
+        filePermissions {
+            unix(0755)
         }
+        into layout.buildDirectory.dir("jpackage/PcGen.app/Contents/MacOS")
+        def plistFile = layout.buildDirectory.file("jpackage/PcGen.app/Contents/Info.plist")
+        doLast {
+            def plist = plistFile.get().asFile
+            def content = plist.text
+            content = content.replace(
+                "<key>CFBundleExecutable</key>\n  <string>PcGen</string>",
+                "<key>CFBundleExecutable</key>\n  <string>MacDirLauncher</string>")
+            plist.text = content
+        }
+    }
+
+    tasks.register("fullJpackage") {
+        dependsOn tasks.named("patchMacJpackage")
+        description = "Build the native application bundle with jpackage"
+    }
+} else {
+    tasks.register("fullJpackage") {
+        dependsOn tasks.named("assembleJpackageImage")
+        description = "Build the native application bundle with jpackage"
     }
 }
 
@@ -416,8 +453,10 @@ tasks.named("jpackageImage") {
 tasks.register("converterJar", Jar) {
     dependsOn jar
     manifest {
-        attributes 'Implementation-Title': 'PCGen Data Converter', 'Implementation-Version': archiveVersion,
-                'Main-Class': 'pcgen.gui2.converter.PCGenDataConvert', 'Class-Path': 'pcgen.jar' + classpath
+        attributes 'Implementation-Title': 'PCGen Data Converter',
+                   'Implementation-Version': archiveVersion,
+                   'Main-Class': 'pcgen.gui2.converter.PCGenDataConvert',
+                   'Class-Path': 'pcgen.jar' + classpath
     }
 
     archiveClassifier.set('batch-convert')
@@ -485,13 +524,11 @@ tasks.register("cleanOutput", Delete) {
     delete outputDir
 }
 
-// TODO - Hook this into a clean phase properly
-tasks.register("cleanJre", Delete) {
-    description = "Clean up things copied to the jre folder by the build"
-    delete jresDir
+tasks.register("cleanJdks", Delete) {
+    description = "Clean up things copied to the jdks folder by the build"
+    delete jdksDir
 }
 
-// TODO - Hook this into a clean phase properly
 tasks.register("cleanMods", Delete) {
     description="Clean up things copied to the mods folder by the build"
     delete modsDir
@@ -518,166 +555,99 @@ tasks.named("build") {
     mustRunAfter clean
 }
 
-tasks.register("downloadJRE") {
-    notCompatibleWithConfigurationCache("Gradle download extension not compatible")
+ext {
+    platforms = [
+        [os: 'linux',   arch: 'x64',     ext: 'tar.gz'],
+        [os: 'linux',   arch: 'aarch64', ext: 'tar.gz'],
+        [os: 'mac',     arch: 'x64',     ext: 'tar.gz'],
+        [os: 'mac',     arch: 'aarch64', ext: 'tar.gz'],
+        [os: 'windows', arch: 'x64',     ext: 'zip'],
+    ]
+}
 
-    def major = project.ext.javaVersion
-    def architectures = ['x64', 'aarch64']
-    def osList = ['windows', 'mac', 'linux']
-    def baseJreDir = project.ext.jresDir
-
-    doLast {
-        println("Downloading JDKs for use in creating the runtime bundles.")
-
-        osList.each {
-            def os = "${it}"
-            def extension = (os == "windows" ? "zip" : "tar.gz")
-
-            architectures.each {
-                def arch = "${it}"
-                // TODO We don't currently support Windows aarch64, but once Eclipse Adoptium does we should remove this line
-                if (arch == "aarch64" && os == "windows") return
-
-                def url = "https://api.adoptium.net/v3/binary/latest/${major}/ga/${os}/${arch}/jdk/hotspot/normal/eclipse"
-                def jreDownloadDest = baseJreDir.file("${os}/jre_${arch}.${extension}")
-                def jreDir = baseJreDir.dir("${os}/jre_${arch}").asFile
-                def jreRelease = (os == "mac"
-                        ? baseJreDir.dir("${os}/jre_${arch}/Contents/Home/release").asFile
-                        : baseJreDir.dir("${os}/jre_${arch}/release").asFile)
-                def outputDir = baseJreDir.dir("${os}/jre_${arch}")
-                def shouldDownloadJDK = true
-
-                try {
-                    if (jreRelease.exists()) {
-                        def props = new Properties()
-                        jreRelease.withInputStream { props.load(it) }
-                        def javaVersion = StringUtils.strip((String)props.get("JAVA_VERSION"), "\"")
-                        shouldDownloadJDK = !javaVersion.startsWith(major.toString())
-                        println "JDK ${major} ${arch.padLeft(7)} for ${os.padLeft(7)} found with version ${javaVersion} at ${jreDir}, ${shouldDownloadJDK ? "starting" : "skipping"} downloading"
-                    }
-                } catch (e) {
-                    throw new GradleException("There was an error in :downloadJRE", e)
-                }
-
-                if (!shouldDownloadJDK) {
-                    return
-                } else if (jreDir.exists()) {
-                    println "Delete the previously downloaded JDK at ${jreDir} as outdated. JavaFX modules will be deleted from jdkDir/jmods."
-                    delete(jreDir)
-                }
-
-                println("Downloading Java ${major} ${arch} for ${os} from ${url}")
-                download.run {
-                    src url
-                    dest jreDownloadDest.asFile.absolutePath
-                    overwrite false
-                }
-
-                baseJreDir.dir("${os}")
-                        .asFileTree
-                        .matching { include "*.${extension}" }
-                        .each { simLib ->
-                            def archFile = baseJreDir.file("${os}/${simLib.name}")
-
-                            copy {
-                                println "* Unpack $simLib.name to ${outputDir}"
-
-                                if (extension == "zip") {
-                                    from zipTree(archFile)
-                                } else {
-                                    from tarTree(archFile)
-                                }
-                                into outputDir
-                                eachFile { FileCopyDetails fcd ->
-                                    def relPath = fcd.relativePath
-                                    def segments = relPath.segments
-                                    fcd.relativePath = new RelativePath(!fcd.isDirectory(), segments[1..-1] as String[])
-                                }
-                            }
-
-                            delete(archFile)
-                        }
-
-                file("${projectDir}/jre/${os}/jre_${arch}").list().each { f ->
-                    if (f.startsWith("jdk")) {
-                        file("${projectDir}/jre/${os}/jre_${arch}/" + f).deleteDir()
-                    }
-                }
-            }
-        }
+platforms.each { p ->
+    tasks.register("downloadJdk_${p.os}_${p.arch}", Download) {
+        description = "Downloads JDK for ${p.os} ${p.arch}"
+        src "https://api.adoptium.net/v3/binary/latest/${javaVersion}/ga/${p.os}/${p.arch}/jdk/hotspot/normal/eclipse"
+        dest jdksDir.file("jdk_${p.os}_${p.arch}.${p.ext}")
+        onlyIfModified true
+        overwrite false
+        useETag true
+        tempAndMove true
     }
 }
 
-tasks.register("downloadJavaFXModules") {
-    notCompatibleWithConfigurationCache("Gradle download extension not compatible")
+tasks.register("downloadJDKs") {
+    description = "Downloads JDKs for all supported platforms"
+    dependsOn platforms.collect { "downloadJdk_${it.os}_${it.arch}" }
+}
 
-    mustRunAfter downloadJRE
+platforms.each { p ->
+    tasks.register("extractJdk_${p.os}_${p.arch}", Copy) {
+        description = "Extracts JDK archive for ${p.os} ${p.arch}"
+        dependsOn "downloadJdk_${p.os}_${p.arch}"
 
-    // We support Windows/Mac/Linux - x64, and Mac/Linux - aarch64
-    def jfxVersion = project.ext.latestJavaVersion
+        def archiveFile = jdksDir.file("jdk_${p.os}_${p.arch}.${p.ext}")
+        def outDir = jdksDir.dir("jdk_${p.os}_${p.arch}")
 
-    def architectures = ['x64', 'aarch64']
-    def osList = ["windows", "mac", "linux"]
-    def baseJreDir = project.ext.jresDir
-    def projectDirPath = projectDir.absolutePath
+        from(p.ext == 'zip' ? zipTree(archiveFile) : tarTree(archiveFile))
+        into outDir
 
-    inputs.property("jfxVersion", jfxVersion)
-
-
-    doLast {
-        println("Downloading JavaFX modules (.mods) for use in the runtime bundles.")
-        // Downloads javafx .mods for custom runtime image. All platforms downloaded
-        osList.each { os ->
-            // Build the os part of the filename string. Gluon renamed the mac package to osx
-            def osPackage = (os == "mac") ? "osx" : os
-
-            architectures.each { arch ->
-                // build the architecture part of the download filename string
-                def archAppend
-                if (arch == "x64") {
-                    archAppend = "-x64"
-                } else if (arch == "aarch64" && os != "windows") {
-                    archAppend = "-aarch64"
-                } else {
-                    return
-                }
-
-                // URLs look like this: https://download2.gluonhq.com/openjfx/25.0.1/openjfx-25.0.1_osx-aarch64_bin-jmods.zip
-                def url = "https://download2.gluonhq.com/openjfx/${jfxVersion}/openjfx-${jfxVersion}_${osPackage}${archAppend}_bin-jmods.zip"
-                def jmodsZip = baseJreDir.file("${os}/jmods${arch}.zip")
-
-                // If we don't already have the jmods, download them and unzip them to the correct place.
-                if (!jmodsZip.asFile.exists()) {
-                    println("Downloading JavaFX mods ${jfxVersion} ${arch} for ${os} from ${url} to ${projectDirPath}/jre/${os}/")
-
-                    download.run {
-                        src url
-                        dest jmodsZip
-                        overwrite false
-                    }
-
-                    copy {
-                        def zipFile = jmodsZip
-                        def outputDir = (os == "mac")
-                                ? "${projectDirPath}/jre/${os}/jre_${arch}/Contents/Home/jmods"
-                                : "${projectDirPath}/jre/${os}/jre_${arch}/jmods"
-
-                        println "Unzipping ${zipFile} to ${outputDir}"
-                        from zipTree(zipFile)
-                        into outputDir
-                        eachFile { fcd ->
-                            def relPath = fcd.relativePath
-                            def segments = relPath.segments
-                            fcd.relativePath = new RelativePath(!fcd.isDirectory(), (segments[1..-1]) as String[])
-                        }
-                        includeEmptyDirs = false
-                    }
-                } else {
-                    println("* ${jmodsZip} already exists")
-                }
+        eachFile { FileCopyDetails fcd ->
+            def segments = fcd.relativePath.segments
+            if (segments.length > 1) {
+                fcd.relativePath = new RelativePath(!fcd.isDirectory(), segments[1..-1] as String[])
             }
         }
+        includeEmptyDirs = false
+
+        onlyIf { !outDir.asFile.directory }
     }
+}
+
+tasks.register("extractJDKs") {
+    description = "Extracts all downloaded JDK archives"
+    dependsOn platforms.collect { "extractJdk_${it.os}_${it.arch}" }
+}
+
+platforms.each { p ->
+    def osPackage = (p.os == 'mac') ? 'osx' : p.os
+    def archSuffix = (p.arch == 'x64') ? '-x64' : '-aarch64'
+    def fileName = "openjfx-${latestJavaVersion}_${osPackage}${archSuffix}_bin-jmods.zip"
+
+    tasks.register("downloadJfxMods_${p.os}_${p.arch}", Download) {
+        description = "Downloads JavaFX jmods for ${p.os} ${p.arch}"
+        dependsOn "extractJdk_${p.os}_${p.arch}"
+        src "https://download2.gluonhq.com/openjfx/${latestJavaVersion}/${fileName}"
+        dest jdksDir.file("jfx_jmods_${p.os}_${p.arch}.zip")
+        overwrite false
+        useETag true
+        tempAndMove true
+    }
+
+    tasks.register("extractJfxMods_${p.os}_${p.arch}", Copy) {
+        description = "Extracts JavaFX jmods into JDK for ${p.os} ${p.arch}"
+        dependsOn "downloadJfxMods_${p.os}_${p.arch}"
+
+        def jmodsTarget = (p.os == 'mac')
+                ? jdksDir.dir("jdk_${p.os}_${p.arch}/Contents/Home/jmods")
+                : jdksDir.dir("jdk_${p.os}_${p.arch}/jmods")
+
+        from zipTree(jdksDir.file("jfx_jmods_${p.os}_${p.arch}.zip"))
+        into jmodsTarget
+        eachFile { fcd ->
+            def segments = fcd.relativePath.segments
+            fcd.relativePath = new RelativePath(!fcd.isDirectory(), segments[1..-1] as String[])
+        }
+        includeEmptyDirs = false
+
+        onlyIf { !jmodsTarget.asFile.directory || jmodsTarget.asFile.list()?.length == 0 }
+    }
+}
+
+tasks.register("downloadJavaFXMods") {
+    description = "Downloads and extracts JavaFX jmods into each platform JDK"
+    dependsOn platforms.collect { "extractJfxMods_${it.os}_${it.arch}" }
 }
 
 tasks.register("downloadJavaFXLocal", Download) {
@@ -739,8 +709,9 @@ tasks.named("compileJava") {
     dependsOn copyMasterSheets
 }
 
-tasks.named("jre") {
-    dependsOn downloadJRE, downloadJavaFXModules
+tasks.register("jre") {
+    description = "Prepares all platform JDKs with JavaFX modules for runtime image creation"
+    dependsOn downloadJavaFXMods
 }
 
 tasks.register("testCoverage", JacocoReport) {
@@ -871,6 +842,7 @@ allprojects {
                 '--add-exports', 'javafx.graphics/com.sun.javafx.util=ALL-UNNAMED',
                 '--add-exports', 'javafx.base/com.sun.javafx.logging=ALL-UNNAMED',
                 '--add-opens', 'javafx.graphics/com.sun.glass.ui=ALL-UNNAMED',
+                '--enable-native-access=javafx.graphics',
         ]
     }
 
@@ -879,11 +851,21 @@ allprojects {
         options.fork = true
         options.release = project.ext.javaVersion
 
+        def modsLibPath = layout.projectDirectory.dir("mods/lib").asFile.absolutePath
+        def depJars = configurations.runtimeClasspath.files.findAll {
+            !it.name.startsWith('javafx-')
+        }.collect { it.absolutePath }.join(File.pathSeparator)
+        def compileOnlyJars = configurations.compileClasspath.files.findAll {
+            it.name.contains('annotations') || it.name.contains('spotbugs')
+        }.collect { it.absolutePath }.join(File.pathSeparator)
+
         doFirst {
             if (name.toLowerCase().contains("test")) {
-                options.compilerArgs << "--module-path" << layout.projectDirectory.dir("mods/lib").asFile.absolutePath
-                //options.compilerArgs << "--add-modules" << "javafx.controls,javafx.web,javafx.swing,javafx.fxml" // Not sure why no javafx.graphics here
+                options.compilerArgs << "--module-path" << modsLibPath
                 options.compilerArgs << "--add-modules" << "javafx.controls,javafx.web,javafx.swing,javafx.fxml,javafx.graphics"
+            } else if (name == "compileJava") {
+                def modulePath = [modsLibPath, depJars, compileOnlyJars].findAll { it }.join(File.pathSeparator)
+                options.compilerArgs << "--module-path" << modulePath
             }
             println "Args for for $name are $options.allCompilerArgs"
         }
@@ -976,5 +958,5 @@ tasks.register("allTasks") {
 // you will also need to clean out output/ bin/
 // This task is in the end, because other scripts contribute to the building process
 tasks.named("clean") {
-    dependsOn cleanPlugins, cleanOutput, cleanJre, cleanMods, cleanMasterSheets
+    dependsOn cleanPlugins, cleanOutput, cleanJdks, cleanMods, cleanMasterSheets
 }

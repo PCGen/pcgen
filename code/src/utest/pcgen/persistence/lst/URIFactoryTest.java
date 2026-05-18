@@ -20,7 +20,7 @@ class URIFactoryTest
 		String offset = "data/file.txt";
 		URIFactory uriFactory = new URIFactory(rootURI, offset);
 
-		URI expected = new File(System.getProperty("user.dir"), "data/file.txt").toURI();
+		URI expected = new URI("file:" + System.getProperty("user.dir") + "/data/file.txt");
 		URI result = uriFactory.getURI();
 
 		assertEquals(expected, result);

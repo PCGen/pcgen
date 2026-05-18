@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.Random;
 import java.util.stream.IntStream;
 
-import pcgen.base.util.RandomUtil;
+import pcgen.util.RandomUtil;
 
 import org.junit.jupiter.api.Test;
 

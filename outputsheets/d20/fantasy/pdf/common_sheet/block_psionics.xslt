@@ -4,7 +4,7 @@
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:fo="http://www.w3.org/1999/XSL/Format"
 	xmlns:str="http://xsltsl.sourceforge.net/string.html"
-	xmlns:xalan="http://xml.apache.org/xalan"
+	xmlns:exsl="http://exslt.org/common"
 	xmlns:Psionics="my:Psionics"
 	xmlns:myAttribs="my:Attribs"
 	exclude-result-prefixes="myAttribs Psionics"

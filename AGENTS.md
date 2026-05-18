@@ -8,7 +8,7 @@ This document captures the concrete commands, structure, conventions, and gotcha
 - Build tool: Gradle (via wrapper)
 - Java toolchain: Java 25 (Temurin)
 - UI: JavaFX; headless testing uses TestFX/Monocle
-- Packaging: jlink/jpackage with custom runtimes and native installers
+- Packaging: jlink (org.beryx.jlink 4.0.0) / jpackage with custom runtimes and native installers
 
 Key entry point: `pcgen.system.Main` (code/src/java/pcgen/system/Main.java)
 
@@ -39,7 +39,7 @@ Always use the wrapper (./gradlew). Java 25 is required; Gradle will fetch depen
   - ./gradlew tasks
 - Build (default)
   - ./gradlew build
-- Run unit tests (JUnit 5; headless JavaFX)
+- Run unit tests (JUnit 6; headless JavaFX)
   - ./gradlew test
 - Integration tests (defined source set)
   - ./gradlew itest
@@ -60,12 +60,13 @@ Always use the wrapper (./gradlew). Java 25 is required; Gradle will fetch depen
 - Run the app (ensures JavaFX modules for host platform)
   - ./gradlew run
 - Create native app image/installer via jpackage
-  - ./gradlew jpackage
+  - ./gradlew fullJpackage
 - Clean outputs and auxiliary folders (extended)
-  - ./gradlew clean (also triggers cleanPlugins, cleanOutput, cleanJre, cleanMods, cleanMasterSheets)
+  - ./gradlew clean (also triggers cleanPlugins, cleanOutput, cleanJdks, cleanMods, cleanMasterSheets)
 
 Notes
-- Some tasks trigger downloads of JDKs/JavaFX for all platforms (downloadJRE, downloadJavaFXModules) or host SDK (downloadJavaFXLocal/extractJavaFXLocal). CI caches build/jre and build/libs.
+- Some tasks trigger downloads of JDKs/JavaFX for all platforms (downloadJDKs, extractJDKs, downloadJavaFXMods) or host SDK (downloadJavaFXLocal/extractJavaFXLocal). CI caches build/jre and build/libs.
+- The `jre` task prepares all platform JDKs with JavaFX modules for runtime image creation.
 - Runtime bundles expect assets in data/, system/, outputsheets/, preview/, vendordata/, homebrewdata/.
 
 ## Running From Source
@@ -90,7 +91,7 @@ Batch export path exists in Main.startupWithoutGUI(). Tests demonstrate usage in
 
 ## Testing Approach
 
-- JUnit 5 with Jupiter, xmlunit for XML comparisons, TestFX for JavaFX UI components.
+- JUnit 6 with Jupiter, xmlunit for XML comparisons, TestFX for JavaFX UI components.
 - Source sets:
   - test: code/src/utest + testcommon
   - itest: code/src/itest + testcommon
@@ -103,9 +104,9 @@ Batch export path exists in Main.startupWithoutGUI(). Tests demonstrate usage in
 
 ## Code Quality and Style
 
-- Checkstyle config: code/standards/checkstyle.xml (enforced via reporting.gradle; toolVersion 12.1.2). Newline at EOF; 201 char line length; prohibits `System.exit` (use pcgen.util.GracefulExit.exit).
-- PMD: ruleset at code/standards/ruleset.xml (referenced from reporting.gradle).
-- SpotBugs: plugin 6.4.7; toolVersion 4.9.8; exclude filter code/standards/spotbugs_ignore.xml; ignoreFailures true; extra findsecbugs plugin.
+- Checkstyle config: code/standards/checkstyle.xml (enforced via reporting.gradle; toolVersion 13.2.0). Newline at EOF; 201 char line length; prohibits `System.exit` (use pcgen.util.GracefulExit.exit).
+- PMD: ruleset at code/standards/ruleset.xml (referenced from reporting.gradle); toolVersion 7.21.0; dependencies pmd-java 7.24.0 and pmd-ant 7.24.0.
+- SpotBugs: plugin 6.5.4; toolVersion 4.9.8; exclude filter code/standards/spotbugs_ignore.xml; ignoreFailures true; extra findsecbugs plugin.
 - Aggregate quality task: ./gradlew allReports
 
 Conventions/gotchas observed
@@ -177,6 +178,7 @@ Conventions/gotchas observed
 - Java version and JavaFX module handling are intertwined across build.gradle and distribution tasks — changing one often requires adjusting tasks (run, test, JavaCompile, runtime/jpackage) and CI.
 - The distribution relies on file layout in data/, outputsheets/, system/, preview/ — deletions or renames will break runtime validation in Main.validateEnvironment().
 - GracefulExit should be used for controlled termination (tests hook the exit function).
+- Module compilation: PCGen-base and PCGen-Formula jars are placed on `--module-path` while all other dependencies are merged into the pcgen module via `--patch-module`. This means **no source file in the pcgen module may share a package with classes in PCGen-base or PCGen-Formula jars** (Java forbids split packages across modules). Currently conflicting packages (`pcgen.base.util`, `pcgen.base.format`) have been relocated to `pcgen.util` and `pcgen.format` respectively. If adding new classes whose package exists in either jar, place them in a non-overlapping package.
 
 ## Maintainer/Issue Tracking Context
 

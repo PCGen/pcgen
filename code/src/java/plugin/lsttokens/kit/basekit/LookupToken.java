@@ -24,7 +24,7 @@ import java.util.List;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.text.ParsingSeparator;
-import pcgen.base.util.NamedFormula;
+import pcgen.util.NamedFormula;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.core.kit.KitGear;
 import pcgen.rules.context.LoadContext;

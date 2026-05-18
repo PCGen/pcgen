@@ -21,7 +21,7 @@ import java.util.Collection;
 import java.util.StringTokenizer;
 import java.util.function.Function;
 
-import pcgen.base.util.WeightedCollection;
+import pcgen.util.WeightedCollection;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Ungranted;
