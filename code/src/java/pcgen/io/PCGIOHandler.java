@@ -34,6 +34,7 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -60,7 +61,6 @@ import pcgen.system.PCGenSettings;
 import pcgen.util.FileHelper;
 import pcgen.util.Logging;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.Nullable;
 
@@ -520,7 +520,8 @@ public final class PCGIOHandler extends IOHandler
         String filesLine = StringUtils.join(files, ',');
         try
         {
-            FileUtils.writeLines(partyFile, "UTF-8", Arrays.asList(versionLine, filesLine));
+            String eol = System.lineSeparator();
+            Files.writeString(partyFile.toPath(), versionLine + eol + filesLine + eol, StandardCharsets.UTF_8);
         } catch (IOException ex)
         {
             Logging.errorPrint("Could not save the party file: " + partyFile.getAbsolutePath(), ex);
