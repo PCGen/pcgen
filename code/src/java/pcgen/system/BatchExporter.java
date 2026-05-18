@@ -439,7 +439,7 @@ public class BatchExporter
 	}
 
 	/**
-	 * Remove any temporary xml files produced while outputting characters. 
+	 * Remove any temporary xml files produced while outputting characters.
 	 */
     static void removeTemporaryFiles()
 	{
@@ -450,23 +450,20 @@ public class BatchExporter
 			return;
 		}
 
-		final String aDirectory = SettingsHandler.getTempPath() + File.separator;
-		new File(aDirectory).list((aFile, aString) -> {
-			try
+		File tempDir = SettingsHandler.getTempPath();
+		File[] tempFiles = tempDir.listFiles(
+				(dir, name) -> name.startsWith(Constants.TEMPORARY_FILE_NAME));
+		if (tempFiles == null)
+		{
+			return;
+		}
+		for (File tf : tempFiles)
+		{
+			if (!tf.delete())
 			{
-				if (aString.startsWith(Constants.TEMPORARY_FILE_NAME))
-				{
-					final File tf = new File(aFile, aString);
-					tf.delete();
-				}
+				Logging.errorPrint("Could not delete temporary file " + tf.getAbsolutePath());
 			}
-			catch (final Exception e)
-			{
-				Logging.errorPrint("removeTemporaryFiles", e);
-			}
-
-			return false;
-		});
+		}
 	}
 
 	/**
