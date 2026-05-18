@@ -512,7 +512,7 @@ public class BatchExporter
 	{
 		Path path = Path.of(ConfigurationSettings.getSystemsDir(), "gameModes",
 				character.getDataSet().getGameMode().getName(), "base.xml.ftl");
-		File template = new File(path.toUri());
+		File template = path.toFile();
 		if (!template.exists())
 		{
 			template = new File(ConfigurationSettings.getOutputSheetsDir(), "base.xml.ftl");
