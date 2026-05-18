@@ -564,7 +564,7 @@ public class BatchExporter
 		File charFile = new File(characterFilename);
 		String charname = charFile.getName();
 		String extension = ExportUtilities.getOutputExtension(exportTemplateFilename, isPdf);
-		String outputName = charname.substring(0, charname.lastIndexOf('.')) + '.' + extension;
+		String outputName = removeFileExtension(charname) + '.' + extension;
 		return new File(charFile.getParent(), outputName).getAbsolutePath();
 	}
 
