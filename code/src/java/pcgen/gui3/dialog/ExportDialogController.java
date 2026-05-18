@@ -27,7 +27,9 @@ import java.net.URI;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.Spliterators;
 import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 import javax.swing.JCheckBox;
 
@@ -58,7 +60,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ProgressBar;
 import javafx.stage.FileChooser;
-import org.apache.commons.collections4.IteratorUtils;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -345,8 +346,10 @@ public class ExportDialogController
 	void initialize()
 	{
 		PartyFacade characters = CharacterManager.getCharacters();
-		ObservableList<CharacterFacade> observableList =
-				FXCollections.observableList(IteratorUtils.toList(characters.iterator()));
+		List<CharacterFacade> characterList = StreamSupport
+				.stream(Spliterators.spliteratorUnknownSize(characters.iterator(), 0), false)
+				.toList();
+		ObservableList<CharacterFacade> observableList = FXCollections.observableList(characterList);
 		selectCharacterBox.setItems(observableList);
 		// todo: maybe select "current" character pcgenFrame.getSelectedCharacterRef() ???
 		selectCharacterBox.getSelectionModel().select(0);
