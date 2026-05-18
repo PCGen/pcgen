@@ -32,6 +32,7 @@ import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.stream.Stream;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
@@ -443,30 +444,43 @@ public class BatchExporter
 	 */
     static void removeTemporaryFiles()
 	{
-		final boolean cleanUp = UIPropertyContext.getInstance().initBoolean(UIPropertyContext.CLEANUP_TEMP_FILES, true);
-
+		boolean cleanUp = UIPropertyContext.getInstance().initBoolean(UIPropertyContext.CLEANUP_TEMP_FILES, true);
 		if (!cleanUp)
 		{
 			return;
 		}
 
-		File tempDir = SettingsHandler.getTempPath();
-		File[] tempFiles = tempDir.listFiles(
-				(dir, name) -> name.startsWith(Constants.TEMPORARY_FILE_NAME));
-		if (tempFiles == null)
+		Path tempDir = SettingsHandler.getTempPath().toPath();
+		if (!Files.isDirectory(tempDir))
 		{
 			return;
 		}
-		for (File tf : tempFiles)
+
+		try (Stream<Path> entries = Files.list(tempDir))
 		{
-			try
-			{
-				Files.delete(tf.toPath());
-			}
-			catch (IOException ex)
-			{
-				Logging.errorPrint("Could not delete temporary file " + tf.getAbsolutePath(), ex);
-			}
+			entries.filter(BatchExporter::isTemporaryExportFile)
+			       .forEach(BatchExporter::deleteQuietly);
+		}
+		catch (IOException ex)
+		{
+			Logging.errorPrint("Could not list temporary directory " + tempDir, ex);
+		}
+	}
+
+	private static boolean isTemporaryExportFile(Path path)
+	{
+		return path.getFileName().toString().startsWith(Constants.TEMPORARY_FILE_NAME);
+	}
+
+	private static void deleteQuietly(Path path)
+	{
+		try
+		{
+			Files.delete(path);
+		}
+		catch (IOException ex)
+		{
+			Logging.errorPrint("Could not delete temporary file " + path, ex);
 		}
 	}
 
