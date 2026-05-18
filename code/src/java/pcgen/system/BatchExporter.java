@@ -383,7 +383,7 @@ public class BatchExporter
 	 */
 	public static boolean exportPartyToNonPDF(PartyFacade party, File outFile, File templateFile)
 	{
-		try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile), "UTF-8")))
+		try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile), StandardCharsets.UTF_8)))
 		{
 			party.export(ExportHandler.createExportHandler(templateFile), bw);
 			return true;
@@ -406,7 +406,7 @@ public class BatchExporter
 	 */
 	private static void exportParty(PartyFacade party, OutputStream outputStream) throws IOException, ExportException
 	{
-		try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8")))
+		try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(outputStream, StandardCharsets.UTF_8)))
 		{
 			for (final CharacterFacade character : party)
 			{
@@ -429,7 +429,7 @@ public class BatchExporter
 	private static void exportParty(PartyFacade party, File templateFile, OutputStream outputStream)
 		throws IOException, ExportException
 	{
-		try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8")))
+		try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(outputStream, StandardCharsets.UTF_8)))
 		{
 			for (final CharacterFacade character : party)
 			{
@@ -498,7 +498,7 @@ public class BatchExporter
 	private static void exportCharacter(CharacterFacade character, File templateFile, OutputStream outputStream)
 		throws IOException, ExportException
 	{
-		try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8")))
+		try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(outputStream, StandardCharsets.UTF_8)))
 		{
 			character.export(ExportHandler.createExportHandler(templateFile), bw);
 		}
