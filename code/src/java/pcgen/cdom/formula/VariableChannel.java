@@ -27,8 +27,6 @@ import pcgen.base.solver.SolverManager;
 import pcgen.facade.util.AbstractReferenceFacade;
 import pcgen.facade.util.VetoableReferenceFacade;
 
-import org.apache.commons.collections4.CollectionUtils;
-
 /**
  * A VariableChannel provides a common mechanism for reading and writing to a
  * variable from a system external to the PCGen core.
@@ -115,11 +113,9 @@ public final class VariableChannel<T> extends AbstractReferenceFacade<T>
 	private boolean checkForVeto(T proposedValue)
 	{
 		T oldValue = varStore.get(varID);
-		return CollectionUtils.emptyIfNull(vetoList)
-			.stream()
-			.filter(f -> f.apply(oldValue, proposedValue))
-			.findAny()
-			.isPresent();
+		return vetoList != null
+			&& vetoList.stream()
+				.anyMatch(f -> f.apply(oldValue, proposedValue));
 	}
 
 	/**

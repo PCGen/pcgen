@@ -26,7 +26,6 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Vision;
 
-import org.apache.commons.collections4.CollectionUtils;
 import org.jetbrains.annotations.NotNull;
 
 public final class VisionDisplay
@@ -42,7 +41,11 @@ public final class VisionDisplay
 		{
 			return "";
 		}
-		Collection<CDOMReference<Vision>> mods = CollectionUtils.emptyIfNull(cdo.getListMods(Vision.VISIONLIST));
+		Collection<CDOMReference<Vision>> mods = cdo.getListMods(Vision.VISIONLIST);
+		if (mods == null)
+		{
+			return "";
+		}
 
 		StringJoiner visionString = new StringJoiner(";");
 		mods.stream().flatMap(ref -> ref.getContainedObjects().stream()).map(v -> v.toString(aPC))
