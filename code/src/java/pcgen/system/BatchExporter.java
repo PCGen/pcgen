@@ -278,7 +278,7 @@ public class BatchExporter
 		{
 			Logging.errorPrint("Unable to create output file " + outFile.getAbsolutePath(), e);
 			return false;
-		} catch (final ExportException e)
+		} catch (final ExportException _)
 		{
 			// Error will already be reported to the log
 			return false;
