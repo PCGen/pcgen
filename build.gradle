@@ -326,39 +326,38 @@ jlink {
         excludeProvides(service: 'org.apache.fop.fo.FOEventHandler')
     }
 
-    // Cross-platform images: only register platforms whose JDK javac can run on this host.
-    // CI sets PCGEN_ALL_PLATFORMS=true to build all targets (using platform-specific runners).
-    def hostArch = System.getProperty("os.arch")
-    def allPlatforms = System.getenv("PCGEN_ALL_PLATFORMS") == "true"
-
-    def platformDefs = [
-        'linux-x64'     : jdksDir.dir("jdk_linux_x64").asFile.absolutePath,
-        'linux-aarch64' : jdksDir.dir("jdk_linux_aarch64").asFile.absolutePath,
-        'windows-x64'   : jdksDir.dir("jdk_windows_x64").asFile.absolutePath,
-        'mac-x64'       : jdksDir.dir("jdk_mac_x64/Contents/Home").asFile.absolutePath,
-        'mac-aarch64'   : jdksDir.dir("jdk_mac_aarch64/Contents/Home").asFile.absolutePath,
+    // jpackage shells out to native OS tooling and the jlink mergedModule step
+    // invokes the target JDK's native javac, so cross-platform images cannot
+    // be built from a single host. Register only the host platform; CI builds
+    // each installer on its own per-OS runner.
+    def hostArch = (System.getProperty("os.arch") == "aarch64") ? "aarch64" : "x64"
+    def supportedHostOs = [
+            (Os.FAMILY_MAC)    : "mac",
+            (Os.FAMILY_UNIX)   : "linux",
+            (Os.FAMILY_WINDOWS): "windows",
     ]
-
-    if (allPlatforms) {
-        platformDefs.each { name, jdk -> targetPlatform(name, jdk) }
-    } else if (Os.isFamily(Os.FAMILY_MAC)) {
-        def macPlatform = (hostArch == "aarch64") ? 'mac-aarch64' : 'mac-x64'
-        targetPlatform(macPlatform, platformDefs[macPlatform])
-    } else if (Os.isFamily(Os.FAMILY_UNIX)) {
-        def linuxPlatform = (hostArch == "aarch64") ? 'linux-aarch64' : 'linux-x64'
-        targetPlatform(linuxPlatform, platformDefs[linuxPlatform])
-    } else if (Os.isFamily(Os.FAMILY_WINDOWS)) {
-        targetPlatform('windows-x64', platformDefs['windows-x64'])
+    def hostOs = supportedHostOs.find { Os.isFamily(it.key) }?.value
+    if (hostOs == null) {
+        throw new GradleException("Unsupported host OS: '${System.getProperty("os.name")}'. Supported families: ${supportedHostOs.values().join(", ")}")
     }
+    def hostJdkPath = (hostOs == "mac")
+            ? jdksDir.dir("jdk_${hostOs}_${hostArch}/Contents/Home").asFile.absolutePath
+            : jdksDir.dir("jdk_${hostOs}_${hostArch}").asFile.absolutePath
+    targetPlatform("${hostOs}-${hostArch}", hostJdkPath)
 
     // Use the jpackage tool that comes with Java to build native installers
     jpackage {
         def licenseFile = layout.projectDirectory.file("code/LICENSE")
         def hostArchitecture = System.getProperty("os.arch")
-        def osFamily =
-                Os.isFamily(Os.FAMILY_MAC) ? "mac" :
-                Os.isFamily(Os.FAMILY_UNIX) ? "linux" :
-                Os.isFamily(Os.FAMILY_WINDOWS) ? "windows" : "unknown"
+        def supportedOsFamily = [
+                (Os.FAMILY_MAC)    : "mac",
+                (Os.FAMILY_UNIX)   : "linux",
+                (Os.FAMILY_WINDOWS): "windows",
+        ]
+        def osFamily = supportedOsFamily.find { Os.isFamily(it.key) }?.value
+        if (osFamily == null) {
+            throw new GradleException("Unsupported host OS: '${System.getProperty("os.name")}'. Supported families: ${supportedOsFamily.values().join(", ")}")
+        }
         def targetPlatform = ["x86_64" : "x64",
                               "amd64" : "x64",
                               "aarch64" : "aarch64"]
@@ -387,7 +386,17 @@ tasks.named("jpackageImage") {
 }
 
 tasks.named("jlink") {
-    dependsOn "downloadJavaFXMods"
+    def supportedHostOs = [
+            (Os.FAMILY_MAC)    : "mac",
+            (Os.FAMILY_UNIX)   : "linux",
+            (Os.FAMILY_WINDOWS): "windows",
+    ]
+    def hostOs = supportedHostOs.find { Os.isFamily(it.key) }?.value
+    if (hostOs == null) {
+        throw new GradleException("Unsupported host OS: '${System.getProperty("os.name")}'. Supported families: ${supportedHostOs.values().join(", ")}")
+    }
+    def hostArch = (System.getProperty("os.arch") == "aarch64") ? "aarch64" : "x64"
+    dependsOn "extractJfxMods_${hostOs}_${hostArch}"
 }
 
 tasks.register("assembleJpackageImage", Copy) {
@@ -566,11 +575,6 @@ platforms.each { p ->
     }
 }
 
-tasks.register("downloadJDKs") {
-    description = "Downloads JDKs for all supported platforms"
-    dependsOn platforms.collect { "downloadJdk_${it.os}_${it.arch}" }
-}
-
 platforms.each { p ->
     tasks.register("extractJdk_${p.os}_${p.arch}", Copy) {
         description = "Extracts JDK archive for ${p.os} ${p.arch}"
@@ -592,11 +596,6 @@ platforms.each { p ->
 
         onlyIf { !outDir.asFile.directory }
     }
-}
-
-tasks.register("extractJDKs") {
-    description = "Extracts all downloaded JDK archives"
-    dependsOn platforms.collect { "extractJdk_${it.os}_${it.arch}" }
 }
 
 platforms.each { p ->
@@ -632,11 +631,6 @@ platforms.each { p ->
 
         onlyIf { !jmodsTarget.asFile.directory || jmodsTarget.asFile.list()?.length == 0 }
     }
-}
-
-tasks.register("downloadJavaFXMods") {
-    description = "Downloads and extracts JavaFX jmods into each platform JDK"
-    dependsOn platforms.collect { "extractJfxMods_${it.os}_${it.arch}" }
 }
 
 tasks.register("downloadJavaFXLocal", Download) {
@@ -696,11 +690,6 @@ tasks.register("extractJavaFXLocal", Copy) {
 
 tasks.named("compileJava") {
     dependsOn copyMasterSheets
-}
-
-tasks.register("jre") {
-    description = "Prepares all platform JDKs with JavaFX modules for runtime image creation"
-    dependsOn downloadJavaFXMods
 }
 
 tasks.register("testCoverage", JacocoReport) {
