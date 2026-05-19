@@ -206,6 +206,19 @@ This mirrors what GitHub Actions runs to verify a PR; if it fails locally your C
 ### Generate IntelliJ IDEA Project
     ./gradlew idea
 
+### Build Native Application Bundle (jpackage)
+Produces a self-contained native app with a bundled JVM for the current platform.
+**Always use `fullJpackage`** — not `jpackageImage` directly. `jpackageImage` only builds
+the JVM runtime; `fullJpackage` also copies the required `data`, `plugins`, `preview`, and
+`outputsheets` folders into the bundle.
+
+    ./gradlew fullJpackage
+
+The output is placed in `build/jpackage/`.
+
+> **macOS note:** If the build fails with `Unable to delete directory 'build/jpackage'` due
+> to a `.DS_Store` file, run `rm -f build/jpackage/.DS_Store` and retry.
+
 ## Troubleshooting
 ####
 If you have an error stating `Task :run FAILED Error: --module-path requires module path specification` in Intellij,
