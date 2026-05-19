@@ -18,7 +18,6 @@ package pcgen.cdom.grouping;
 import java.util.Arrays;
 import java.util.Stack;
 
-import pcgen.base.formula.base.ImplementedScope;
 import pcgen.cdom.formula.scope.PCGenScope;
 
 /**

@@ -19,7 +19,6 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-import pcgen.base.formula.base.ImplementedScope;
 import pcgen.cdom.formula.PCGenScoped;
 import pcgen.cdom.formula.scope.PCGenScope;
 

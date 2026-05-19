@@ -30,7 +30,6 @@ import pcgen.base.formula.exception.SemanticsException;
 import pcgen.base.formula.inst.ComplexNEPFormula;
 import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.util.FormatManager;
-import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 

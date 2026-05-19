@@ -17,7 +17,6 @@
  */
 package pcgen.cdom.formula;
 
-import java.util.Optional;
 
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.ScopeInstanceFactory;

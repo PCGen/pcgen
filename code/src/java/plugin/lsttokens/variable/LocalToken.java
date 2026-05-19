@@ -17,7 +17,6 @@
  */
 package plugin.lsttokens.variable;
 
-import pcgen.base.formula.base.ImplementedScope;
 import pcgen.base.formula.exception.LegalVariableException;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.Constants;

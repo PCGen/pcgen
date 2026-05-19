@@ -294,6 +294,7 @@ jar {
  */
 jlink {
     options = ['--strip-debug', '--no-header-files', '--no-man-pages']
+    addExtraDependencies('javafx')
     forceMerge('jep', 'fop', 'Saxon-HE',
                'commons-lang3', 'commons-io', 'spring',
                'freemarker', 'jdom2', 'argparse4j', 'xmlunit', 'controlsfx',
@@ -471,6 +472,10 @@ tasks.register("copyToLibs", Copy) {
 // Fix implicit dependency issues with distribution tasks
 distZip.dependsOn copyToLibs
 distTar.dependsOn copyToLibs
+// jlink's prepareMergedJarsDir reads from build/libs, which copyToLibs populates.
+tasks.named("prepareMergedJarsDir").configure {
+    dependsOn copyToLibs
+}
 
 tasks.register("copyToOutput", Copy) {
     dependsOn copyToLibs, converterJar, jar
@@ -805,16 +810,6 @@ allprojects {
             exceptionFormat = 'full'
             events 'failed', 'skipped'
         }
-        jvmArgs += [
-                '-Djava.awt.headless=true',
-                '-Djavafx.macosx.embedded=true',
-                '-Djava.security.manager=disallow',
-
-                "--module-path", layout.projectDirectory.dir("mods/lib"),
-                "--add-modules", "javafx.controls,javafx.web,javafx.swing,javafx.fxml,javafx.graphics",
-
-                '--enable-native-access=javafx.graphics',
-        ]
     }
 
     // https://youtrack.jetbrains.com/issue/KT-46165
@@ -826,6 +821,8 @@ allprojects {
     }
 }
 
+// Root-project tests need JavaFX on the module path. Subproject tests
+// (PCGen-base, PCGen-Formula) don't, and don't have a mods/lib dir.
 tasks.withType(Test).configureEach {
     jvmArgs += [
             '-Djava.awt.headless=true',

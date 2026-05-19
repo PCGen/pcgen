@@ -66,7 +66,6 @@ import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.cdom.helper.ReferenceDependency;
 import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.token.ModifierFactory;
-import pcgen.util.Logging;
 
 /**
  * A VariableContext is responsible for managing variable items during the load of data
