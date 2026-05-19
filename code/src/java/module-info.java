@@ -28,7 +28,6 @@ module pcgen {
     requires org.jdom2;
     requires net.sourceforge.argparse4j;
     requires org.controlsfx.controls;
-    requires org.xmlunit;
     requires org.apache.xmlgraphics.fop.core;
     requires org.apache.xmlgraphics.fop.events;
     requires org.apache.xmlgraphics.commons;
