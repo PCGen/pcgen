@@ -155,11 +155,11 @@ public final class VariableUtilities
 	 * @return The VariableID for the variable with the given name on the local object
 	 *         represented by the given ScopeInstance
 	 */
-	public static VariableID<?> getLocalVariableID(CharID id,
+	public static <T> VariableID<T> getLocalVariableID(CharID id,
 		ScopeInstance scopeInst, String name)
 	{
 		LoadContext loadContext = LOAD_CONTEXT_FACET.get(id.getDatasetID()).get();
-		return loadContext.getVariableContext().getVariableID(scopeInst, name);
+		return (VariableID<T>) loadContext.getVariableContext().getVariableID(scopeInst, name);
 	}
 
 	/**
@@ -175,12 +175,17 @@ public final class VariableUtilities
 	 *            The name of the variable for which the VariableID should be returned
 	 * @return The VariableID for the variable with the given name on the given object
 	 */
-	public static VariableID<?> getLocalVariableID(CharID id, VarScoped owner,
+	public static <T> VariableID<T> getLocalVariableID(CharID id, VarScoped owner,
 		String name)
 	{
 		ScopeInstanceFactory instFactory = SCOPE_FACET.get(id);
 		PCGenScoped pcGenOwner = (PCGenScoped) owner;
-		ScopeInstance scopeInst = instFactory.get(pcGenOwner.getLocalScopeName().get(), owner);
+		String localScopeName = pcGenOwner.getLocalScopeName().orElseThrow(
+			() -> new IllegalArgumentException(
+				"Cannot resolve local variable '" + name + "' on "
+					+ owner.getClass().getSimpleName() + " '" + owner
+					+ "': object has no local scope name"));
+		ScopeInstance scopeInst = instFactory.get(localScopeName, owner);
 		return VariableUtilities.getLocalVariableID(id, scopeInst, name);
 	}
 }
