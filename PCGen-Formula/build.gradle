@@ -12,11 +12,12 @@ java {
     modularity.inferModulePath = true
 }
 
+def generatedJjtreeDir = layout.buildDirectory.dir('generated/sources/jjtree').get().asFile
 def generatedJavaccDir = layout.buildDirectory.dir('generated/sources/javacc').get().asFile
 
 sourceSets {
     main {
-        java { srcDirs = ['code/src/java', generatedJavaccDir] }
+        java { srcDirs = ['code/src/java', generatedJjtreeDir, generatedJavaccDir] }
     }
     test {
         java { srcDirs = ['code/src/test'] }
@@ -45,28 +46,32 @@ dependencies {
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
-// The hand-maintained AST classes, visitors, Node, SimpleNode, and Operator are checked
-// into code/src/java. Only the pure-boilerplate JavaCC outputs (FormulaParser,
-// FormulaParserConstants, FormulaParserTokenManager, ParseException, Token, TokenMgrError,
-// SimpleCharStream) are generated at build time from formula.jjt.
-def jjtreeOutDir = layout.buildDirectory.dir('generated/jjtree').get().asFile
-
+// SimpleNode.java and Operator.java in code/src/java are hand-maintained; everything
+// else in pcgen/base/formula/parse is generated at build time. JJTree produces the AST
+// classes, the visitor interfaces, and an annotated .jj grammar; JavaCC then turns the
+// .jj into the parser and token classes.
 tasks.register('jjtree', JavaExec) {
     def src = file('code/src/jjtree/pcgen/base/formula/parse/formula.jjt')
+    def outDir = new File(generatedJjtreeDir, 'pcgen/base/formula/parse')
     inputs.file(src)
-    outputs.dir(jjtreeOutDir)
+    outputs.dir(generatedJjtreeDir)
     classpath = configurations.javacc
     mainClass = 'jjtree'
-    args "-OUTPUT_DIRECTORY=${jjtreeOutDir}", src.absolutePath
+    args "-OUTPUT_DIRECTORY=${outDir}", src.absolutePath
     doFirst {
-        jjtreeOutDir.deleteDir()
-        jjtreeOutDir.mkdirs()
+        generatedJjtreeDir.deleteDir()
+        outDir.mkdirs()
+    }
+    doLast {
+        // SimpleNode is hand-maintained in code/src/java; drop JJTree's stub so the
+        // two don't collide on the source path.
+        new File(outDir, 'SimpleNode.java').delete()
     }
 }
 
 tasks.register('javacc', JavaExec) {
     dependsOn 'jjtree'
-    def jjFile = new File(jjtreeOutDir, 'formula.jj')
+    def jjFile = new File(generatedJjtreeDir, 'pcgen/base/formula/parse/formula.jj')
     def outDir = new File(generatedJavaccDir, 'pcgen/base/formula/parse')
     inputs.file(jjFile)
     outputs.dir(generatedJavaccDir)
