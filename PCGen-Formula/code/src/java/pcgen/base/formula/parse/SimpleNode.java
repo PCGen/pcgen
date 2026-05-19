@@ -20,6 +20,29 @@
 
 package pcgen.base.formula.parse;
 
+/**
+ * SimpleNode is the base AST node class for the formula parser. JJTree would
+ * normally generate this class itself from formula.jjt, but the PCGen formula
+ * domain needs every node to carry an Operator (for arithmetic/relational/
+ * logical nodes) and a text token (for variables, function names, numeric
+ * literals, etc.). The fields and accessors for those — setOperator/getOperator,
+ * setToken/getText, and the getId override — are added below the standard
+ * JJTree boilerplate.
+ *
+ * Because these PCGen-specific accessors are called on receivers typed as
+ * SimpleNode from roughly fifty call sites across the formula visitors,
+ * library functions, the grammar actions in formula.jjt, and the main pcgen
+ * tree (UserFunction, InputFunction), they must live on a class literally
+ * named SimpleNode. JJTree's own SimpleNode generation is suppressed by the
+ * `jjtree` Gradle task, which deletes the generated stub before compileJava.
+ *
+ * The cleaner alternative would be to set NODE_CLASS=PCGenBaseNode in
+ * formula.jjt, move the PCGen-specific extensions into a new PCGenBaseNode
+ * class, let JJTree regenerate SimpleNode from scratch, and rename every
+ * external reference. That is the idiomatic JJTree pattern for this kind of
+ * customization, but it would touch around fifty call sites for no functional
+ * benefit, so the current shape is preserved.
+ */
 public class SimpleNode implements Node
 {
 	private Node parent;
