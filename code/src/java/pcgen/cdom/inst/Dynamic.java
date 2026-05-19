@@ -20,6 +20,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+import pcgen.base.formula.base.ImplementedScope;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.cdom.base.Categorized;
 import pcgen.cdom.base.Category;
@@ -123,12 +124,25 @@ public class Dynamic
 	}
 
 	@Override
+	public VarScoped getProviderFor(ImplementedScope implScope)
+	{
+		if (implScope.isGlobal())
+		{
+			return this;
+		}
+		String scopeName = implScope.getName();
+		if (category != null && category.getKeyName().equals(scopeName))
+		{
+			return this;
+		}
+		return this;
+	}
+
 	public Optional<String> getLocalScopeName()
 	{
 		return Optional.of("PC." + category.getKeyName());
 	}
 
-	@Override
 	public Optional<VarScoped> getVariableParent()
 	{
 		return Optional.empty();

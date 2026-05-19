@@ -20,4 +20,4 @@
  * Formula. This is usually one "step" in a calculation (where a step can be
  * much more than just addition or subtraction, it can be a full equation).
  */
-package pcgen.base.calculation;
+package pcgen.cdom.calculation;

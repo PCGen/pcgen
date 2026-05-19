@@ -1,14 +1,14 @@
 /*
  * Copyright 2018 (C) Tom Parker <thpr@users.sourceforge.net>
- * 
+ *
  * This library is free software; you can redistribute it and/or modify it under the terms
  * of the GNU Lesser General Public License as published by the Free Software Foundation;
  * either version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful, but WITHOUT ANY
  * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
  * PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License along with
  * this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place,
  * Suite 330, Boston, MA 02111-1307 USA
@@ -17,12 +17,13 @@ package pcgen.cdom.formula.local;
 
 import java.util.Objects;
 
-import pcgen.base.calculation.FormulaModifier;
+import pcgen.cdom.calculation.FormulaModifier;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
-import pcgen.base.formula.base.FormulaManager;
+import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.formula.base.VarScoped;
+import pcgen.base.formula.exception.SemanticsException;
 import pcgen.base.solver.Modifier;
 import pcgen.base.util.FormatManager;
 
@@ -30,7 +31,7 @@ import pcgen.base.util.FormatManager;
  * A RemoteWrappingModifier wraps a FormulaModifier and projects it to the formula system
  * as a Modifier, while also inserting any new formula system functions supported by the
  * given java.util.function.Function.
- * 
+ *
  * @param <T>
  *            The format that this RemoteWrappingModifier acts upon
  */
@@ -65,7 +66,7 @@ public class RemoteWrappingModifier<T> implements Modifier<T>
 
 	/**
 	 * Constructs a new RemoteWrappingModifier for the given FormulaModifier and Function.
-	 * 
+	 *
 	 * @param modifier
 	 *            The underlying FormulaModifier
 	 * @param sourceValue
@@ -92,23 +93,28 @@ public class RemoteWrappingModifier<T> implements Modifier<T>
 	@Override
 	public T process(EvaluationManager manager)
 	{
-		FormulaManager formulaManager = decorateFormulaManager(manager.get(EvaluationManager.FMANAGER));
-		return modifier.process(manager.getWith(EvaluationManager.FMANAGER, formulaManager));
+		FunctionLibrary functionLib = manager.get(EvaluationManager.FUNCTION);
+		functionLib = new RemoteWrappingLibrary(functionLib, sourceValue, sourceFormatManager, targetValue,
+			targetFormatManager);
+		return modifier.process(manager.getWith(EvaluationManager.FUNCTION, functionLib));
 	}
 
 	@Override
-	public void getDependencies(DependencyManager fdm)
+	public void captureDependencies(DependencyManager fdm)
 	{
-		FormulaManager formulaManager = decorateFormulaManager(fdm.get(DependencyManager.FMANAGER));
-		modifier.getDependencies(fdm.getWith(DependencyManager.FMANAGER, formulaManager));
+		FunctionLibrary functionLib = fdm.get(DependencyManager.FUNCTION);
+		functionLib = new RemoteWrappingLibrary(functionLib, sourceValue, sourceFormatManager, targetValue,
+			targetFormatManager);
+		modifier.getDependencies(fdm.getWith(DependencyManager.FUNCTION, functionLib));
 	}
 
-	private FormulaManager decorateFormulaManager(FormulaManager formulaManager)
+	@Override
+	public void isValid(FormulaSemantics semantics) throws SemanticsException
 	{
-		FunctionLibrary functionManager = formulaManager.get(FormulaManager.FUNCTION);
-		functionManager = new RemoteWrappingLibrary(functionManager, sourceValue, sourceFormatManager, targetValue,
+		FunctionLibrary functionLib = semantics.get(FormulaSemantics.FUNCTION);
+		functionLib = new RemoteWrappingLibrary(functionLib, sourceValue, sourceFormatManager, targetValue,
 			targetFormatManager);
-		return formulaManager.getWith(FormulaManager.FUNCTION, functionManager);
+		modifier.isValid(semantics.getWith(FormulaSemantics.FUNCTION, functionLib));
 	}
 
 	@Override

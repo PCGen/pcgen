@@ -19,7 +19,7 @@ package pcgen.cdom.facet;
 
 import java.util.Optional;
 
-import pcgen.base.calculation.FormulaModifier;
+import pcgen.cdom.calculation.FormulaModifier;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.base.solver.Modifier;
@@ -73,7 +73,7 @@ public class ModifierFacet implements DataFacetChangeListener<CharID, PCGenScope
 	private <T> Modifier<T> getModifier(CharID id, ScopeInstance source, FormulaModifier<T> modifier,
 		VarScoped thisValue)
 	{
-		PCGenScope legalScope = (PCGenScope) source.getLegalScope();
+		PCGenScope legalScope = (PCGenScope) source.getImplementedScope();
 		LoadContext context = loadContextFacet.get(id.getDatasetID()).get();
 		Modifier<T> returnValue;
 		Optional<FormatManager<?>> formatManager = legalScope.getFormatManager(context);

@@ -18,7 +18,6 @@ package pcgen.cdom.grouping;
 import java.util.Arrays;
 import java.util.Stack;
 
-import pcgen.base.formula.base.LegalScope;
 import pcgen.cdom.formula.scope.PCGenScope;
 
 /**
@@ -67,7 +66,7 @@ public class GroupingInfoFactory
 	 */
 	public GroupingInfo<?> process(PCGenScope scope, String instructions) throws GroupingStateException
 	{
-		String fullScopeName = LegalScope.getFullName(scope);
+		String fullScopeName = scope.getName();
 		this.scopeName = fullScopeName.split("\\.");
 		depth = 0;
 		expected.clear();

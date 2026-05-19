@@ -21,7 +21,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Locale;
 import java.util.StringTokenizer;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 import pcgen.base.text.ParsingSeparator;
 import pcgen.cdom.base.Constants;
 import pcgen.core.bonus.BonusObj.StackType;

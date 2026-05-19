@@ -17,9 +17,9 @@
  */
 package plugin.modifier.dynamic;
 
-import pcgen.base.calculation.CalculationModifier;
-import pcgen.base.calculation.FormulaModifier;
-import pcgen.base.calculation.NEPCalculation;
+import pcgen.cdom.calculation.CalculationModifier;
+import pcgen.cdom.calculation.FormulaModifier;
+import pcgen.cdom.calculation.NEPCalculation;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
 import pcgen.cdom.content.IndirectCalculation;

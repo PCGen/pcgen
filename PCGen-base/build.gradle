@@ -1,35 +1,24 @@
-/*
- * PCGen base build using the Gradle tool. This file specifies the core build tasks
- * and refers to other files in the code/gradle directory for additional tasks
- * for specific output.
- *
- * Developer build: gradle
- * Incremental dev build: gradle build 
- * Full build: gradle all 
- */
-
 plugins {
-    id 'java'
-    id 'eclipse'
-    id "jacoco"
-    id 'ivy-publish'
-    id 'checkstyle'
-    id 'pmd'
-    id "com.github.spotbugs" version '4.7.5'
-    id 'com.github.ben-manes.versions' version '0.39.0'
+    id 'java-library'
 }
 
 group = 'net.sourceforge.pcgen'
-description = """PCGen base library"""
+description = 'PCGen base library - stable value-semantic utilities'
 
-defaultTasks 'clean', 'build'
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+    modularity.inferModulePath = true
+}
 
-sourceCompatibility = "1.11"
-targetCompatibility = "1.11"
-
-ext {
-    majorVersion = 1
-    minorVersion = 0
+sourceSets {
+    main {
+        java { srcDirs = ['code/src/java'] }
+    }
+    test {
+        java { srcDirs = ['code/src/test'] }
+    }
 }
 
 repositories {
@@ -37,112 +26,13 @@ repositories {
 }
 
 dependencies {
-    testImplementation group: 'org.junit.platform', name: 'junit-platform-runner', version: '1.8.0'
-    testImplementation group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.8.0'
-    testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-api', version: '5.8.0'
-    testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-params', version: '5.8.0'
-    testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.8.0'
+    testImplementation platform('org.junit:junit-bom:5.11.4')
+    testImplementation 'org.junit.jupiter:junit-jupiter-api'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
-sourceSets {
-    main {
-        java {
-            srcDirs 'code/src/java'
-        }
-    }
-    test {
-        java {
-            srcDirs 'code/src/test'
-        }
-    }
+tasks.named('test') {
+    useJUnitPlatform()
 }
-
-def testSources = ['**/testsupport/**', '**/Abstract**TestCase', '**/*Test']
-
-test {
-	useJUnitPlatform()
-	reports {
-        junitXml.enabled = true
-        html.enabled = false
-    }
-    systemProperties 'property': 'value'
-}
-
-jacocoTestReport {
-    afterEvaluate { 
-        getSourceDirectories().setFrom(files(classDirectories.files.collect {fileTree(dir: it, exclude: testSources)}))
-    }
-    reports {
-        html {
-            enabled true
-        }
-    }
-}
-
-// Calculate the version number - runs in the parse phase
-allprojects {
-    ext.buildTimestamp = new Date().format('yyyy-MM-dd HH:mm:ss Z')
-    if (System.env.BUILD_NUMBER) {
-        project.version = "$majorVersion.$minorVersion.$System.env.BUILD_NUMBER"
-    }
-    else {
-        project.version = "$majorVersion.$minorVersion"
-    }
-}
-
-task echoVer() doLast {
-    println "${project.name} Version: ${project.version} (${buildTimestamp})"
-}
-
-jar {
-    manifest {
-        attributes 'Implementation-Title': 'PCGenBaseLibrary', 'Implementation-Version': project.version, 
-            'Built-On': buildTimestamp 
-    }
-}
-
-task sourceJar(type: Jar) {
-    from sourceSets.main.java
-    classifier "sources"
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-
-// Rules for how we publish our artifacts in ivy compliant format
-publishing {
-    repositories {
-        ivy {
-            name "fileRepo"
-            url '/var/www/librepo'
-        }
-    }
-    publications {
-        ivy(IvyPublication) {
-            from components.java
-            configurations {
-                sources {}
-                javadoc {}
-            }
-            artifact(sourceJar) {
-                type "sources"
-                conf "sources"
-            }
-            artifact(javadocJar) {
-                type "javadoc"
-                conf "javadoc"
-            }
-            descriptor.withXml {
-                asNode().info[0].appendNode('description', description)
-            }
-        }
-    }
-}
-
-wrapper {
-    distributionType = Wrapper.DistributionType.ALL
-}
-
-apply from: 'gradle/reporting.gradle'

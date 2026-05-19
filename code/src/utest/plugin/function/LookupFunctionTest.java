@@ -22,6 +22,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formatmanager.SimpleFormatManagerLibrary;
@@ -154,7 +155,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		VariableLibrary vl = getVariableLibrary();
 		WriteableVariableStore vs = getVariableStore();
 		ColumnFormatFactory cfac = new ColumnFormatFactory(finder);
-		FormatManager<?> columnMgr = cfac.build("STRING", formatLibrary);
+		FormatManager<?> columnMgr = cfac.build(Optional.empty(), Optional.of("STRING"), formatLibrary);
 		vl.assertLegalVariableID("ResultColumn", getGlobalScope(), columnMgr);
 
 		VariableID columnID =
@@ -182,14 +183,14 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		WriteableVariableStore vs = getVariableStore();
 
 		TableFormatFactory fac = new TableFormatFactory(tablefinder);
-		FormatManager<?> tableMgr = fac.build("STRING", formatLibrary);
+		FormatManager<?> tableMgr = fac.build(Optional.empty(), Optional.of("STRING"), formatLibrary);
 		vl.assertLegalVariableID("TableA", getGlobalScope(), tableMgr);
 
 		VariableID tableID = vl.getVariableID(getGlobalScopeInst(), "TableA");
 		vs.put(tableID, tableMgr.convert("A"));
 
 		ColumnFormatFactory cfac = new ColumnFormatFactory(finder);
-		FormatManager<?> columnMgr = cfac.build("STRING", formatLibrary);
+		FormatManager<?> columnMgr = cfac.build(Optional.empty(), Optional.of("STRING"), formatLibrary);
 		vl.assertLegalVariableID("ResultColumn", getGlobalScope(), columnMgr);
 
 		VariableID columnID =
@@ -213,7 +214,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		WriteableVariableStore vs = getVariableStore();
 
 		TableFormatFactory fac = new TableFormatFactory(tablefinder);
-		FormatManager<?> tableMgr = fac.build("STRING", formatLibrary);
+		FormatManager<?> tableMgr = fac.build(Optional.empty(), Optional.of("STRING"), formatLibrary);
 		vl.assertLegalVariableID("TableA", getGlobalScope(), tableMgr);
 
 		VariableID tableID = vl.getVariableID(getGlobalScopeInst(), "TableA");
@@ -236,7 +237,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		WriteableVariableStore vs = getVariableStore();
 
 		ColumnFormatFactory cfac = new ColumnFormatFactory(finder);
-		FormatManager<?> columnMgr = cfac.build("STRING", formatLibrary);
+		FormatManager<?> columnMgr = cfac.build(Optional.empty(), Optional.of("STRING"), formatLibrary);
 		vl.assertLegalVariableID("ResultColumn", getGlobalScope(), columnMgr);
 
 		VariableID columnID =
@@ -264,14 +265,14 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		WriteableVariableStore vs = getVariableStore();
 
 		TableFormatFactory fac = new TableFormatFactory(tablefinder);
-		FormatManager<?> tableMgr = fac.build("STRING", formatLibrary);
+		FormatManager<?> tableMgr = fac.build(Optional.empty(), Optional.of("STRING"), formatLibrary);
 		vl.assertLegalVariableID("TableA", getGlobalScope(), tableMgr);
 
 		VariableID tableID = vl.getVariableID(getGlobalScopeInst(), "TableA");
 		vs.put(tableID, tableMgr.convert("A"));
 
 		ColumnFormatFactory cfac = new ColumnFormatFactory(finder);
-		FormatManager<?> columnMgr = cfac.build("STRING", formatLibrary);
+		FormatManager<?> columnMgr = cfac.build(Optional.empty(), Optional.of("STRING"), formatLibrary);
 		vl.assertLegalVariableID("ResultColumn", getGlobalScope(), columnMgr);
 
 		VariableID columnID =
@@ -299,7 +300,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		WriteableVariableStore vs = getVariableStore();
 
 		TableFormatFactory fac = new TableFormatFactory(tablefinder);
-		FormatManager<?> tableMgr = fac.build("STRING", formatLibrary);
+		FormatManager<?> tableMgr = fac.build(Optional.empty(), Optional.of("STRING"), formatLibrary);
 		vl.assertLegalVariableID("TableA", getGlobalScope(), tableMgr);
 
 		VariableID tableID = vl.getVariableID(getGlobalScopeInst(), "TableA");
@@ -326,11 +327,11 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		WriteableVariableStore vs = getVariableStore();
 
 		TableFormatFactory fac = new TableFormatFactory(tablefinder);
-		FormatManager<?> tableMgr = fac.build("STRING", formatLibrary);
+		FormatManager<?> tableMgr = fac.build(Optional.empty(), Optional.of("STRING"), formatLibrary);
 		vl.assertLegalVariableID("TableA", getGlobalScope(), tableMgr);
 
 		ColumnFormatFactory cfac = new ColumnFormatFactory(finder);
-		FormatManager<?> columnMgr = cfac.build("NUMBER", formatLibrary);
+		FormatManager<?> columnMgr = cfac.build(Optional.empty(), Optional.of("NUMBER"), formatLibrary);
 		vl.assertLegalVariableID("ResultColumn", getGlobalScope(), columnMgr);
 
 		VariableID tableID = vl.getVariableID(getGlobalScopeInst(), "TableA");
@@ -365,7 +366,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		WriteableVariableStore vs = getVariableStore();
 
 		ColumnFormatFactory cfac = new ColumnFormatFactory(finder);
-		FormatManager<?> columnMgr = cfac.build("NUMBER", formatLibrary);
+		FormatManager<?> columnMgr = cfac.build(Optional.empty(), Optional.of("NUMBER"), formatLibrary);
 		vl.assertLegalVariableID("ResultColumn", getGlobalScope(), columnMgr);
 
 		VariableID columnID =
@@ -402,7 +403,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		WriteableVariableStore vs = getVariableStore();
 
 		ColumnFormatFactory cfac = new ColumnFormatFactory(finder);
-		FormatManager<?> columnMgr = cfac.build("NUMBER", formatLibrary);
+		FormatManager<?> columnMgr = cfac.build(Optional.empty(), Optional.of("NUMBER"), formatLibrary);
 		vl.assertLegalVariableID("ResultColumn", getGlobalScope(), columnMgr);
 
 		VariableID columnID =
@@ -439,7 +440,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		WriteableVariableStore vs = getVariableStore();
 
 		ColumnFormatFactory cfac = new ColumnFormatFactory(finder);
-		FormatManager<?> columnMgr = cfac.build("NUMBER", formatLibrary);
+		FormatManager<?> columnMgr = cfac.build(Optional.empty(), Optional.of("NUMBER"), formatLibrary);
 		vl.assertLegalVariableID("ResultColumn", getGlobalScope(), columnMgr);
 
 		VariableID columnID =
@@ -476,7 +477,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		WriteableVariableStore vs = getVariableStore();
 
 		ColumnFormatFactory cfac = new ColumnFormatFactory(finder);
-		FormatManager<?> columnMgr = cfac.build("NUMBER", formatLibrary);
+		FormatManager<?> columnMgr = cfac.build(Optional.empty(), Optional.of("NUMBER"), formatLibrary);
 		vl.assertLegalVariableID("ResultColumn", getGlobalScope(), columnMgr);
 
 		VariableID columnID =
@@ -512,7 +513,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		finder.map.put("Value", buildColumn("Value", numberManager));
 
 		ColumnFormatFactory cfac = new ColumnFormatFactory(finder);
-		FormatManager<?> columnMgr = cfac.build("NUMBER", formatLibrary);
+		FormatManager<?> columnMgr = cfac.build(Optional.empty(), Optional.of("NUMBER"), formatLibrary);
 		VariableLibrary vl = getVariableLibrary();
 		vl.assertLegalVariableID("ResultColumn", getGlobalScope(), columnMgr);
 
@@ -543,7 +544,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		WriteableVariableStore vs = getVariableStore();
 
 		ColumnFormatFactory cfac = new ColumnFormatFactory(finder);
-		FormatManager<?> columnMgr = cfac.build("NUMBER", formatLibrary);
+		FormatManager<?> columnMgr = cfac.build(Optional.empty(), Optional.of("NUMBER"), formatLibrary);
 		vl.assertLegalVariableID("ResultColumn", getGlobalScope(), columnMgr);
 
 		VariableID columnID =
@@ -583,11 +584,11 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		WriteableVariableStore vs = getVariableStore();
 
 		TableFormatFactory fac = new TableFormatFactory(tablefinder);
-		FormatManager<?> tableMgr = fac.build("STRING", formatLibrary);
+		FormatManager<?> tableMgr = fac.build(Optional.empty(), Optional.of("STRING"), formatLibrary);
 		vl.assertLegalVariableID("TableA", getGlobalScope(), tableMgr);
 
 		ColumnFormatFactory cfac = new ColumnFormatFactory(finder);
-		FormatManager<?> columnMgr = cfac.build("NUMBER", formatLibrary);
+		FormatManager<?> columnMgr = cfac.build(Optional.empty(), Optional.of("NUMBER"), formatLibrary);
 		vl.assertLegalVariableID("ResultColumn", getGlobalScope(), columnMgr);
 
 		VariableID tableID = vl.getVariableID(getGlobalScopeInst(), "TableA");
@@ -628,11 +629,11 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		WriteableVariableStore vs = getVariableStore();
 
 		TableFormatFactory fac = new TableFormatFactory(tablefinder);
-		FormatManager<?> tableMgr = fac.build("STRING", formatLibrary);
+		FormatManager<?> tableMgr = fac.build(Optional.empty(), Optional.of("STRING"), formatLibrary);
 		vl.assertLegalVariableID("TableA", getGlobalScope(), tableMgr);
 
 		ColumnFormatFactory cfac = new ColumnFormatFactory(finder);
-		FormatManager<?> columnMgr = cfac.build("NUMBER", formatLibrary);
+		FormatManager<?> columnMgr = cfac.build(Optional.empty(), Optional.of("NUMBER"), formatLibrary);
 		vl.assertLegalVariableID("ResultColumn", getGlobalScope(), columnMgr);
 
 		VariableID tableID = vl.getVariableID(getGlobalScopeInst(), "TableA");
@@ -684,7 +685,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		WriteableVariableStore vs = getVariableStore();
 
 		ColumnFormatFactory cfac = new ColumnFormatFactory(finder);
-		FormatManager<?> columnMgr = cfac.build("NUMBER", formatLibrary);
+		FormatManager<?> columnMgr = cfac.build(Optional.empty(), Optional.of("NUMBER"), formatLibrary);
 		vl.assertLegalVariableID("ResultColumn", getGlobalScope(), columnMgr);
 
 		VariableID columnID =

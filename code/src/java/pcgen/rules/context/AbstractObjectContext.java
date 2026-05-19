@@ -23,7 +23,7 @@ import java.util.IdentityHashMap;
 import java.util.Objects;
 import java.util.Set;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.base.util.HashMapToList;

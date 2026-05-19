@@ -19,7 +19,7 @@ package pcgen.cdom.facet.analysis;
 import java.math.BigDecimal;
 import java.util.regex.Pattern;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.BonusCheckingFacet;

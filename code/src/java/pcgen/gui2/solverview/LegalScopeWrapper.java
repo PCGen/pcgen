@@ -17,10 +17,10 @@
  */
 package pcgen.gui2.solverview;
 
-import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.ImplementedScope;
 
 /**
- * An LegalScopeWrapper wraps a LegalScope in order to display an informative
+ * An LegalScopeWrapper wraps a ImplementedScope in order to display an informative
  * String from the toString() method. This allows the LegalScopeWrapper to be
  * directly used in the UI without worrying about the actual toString() behavior
  * of any given LegalScope.
@@ -30,31 +30,31 @@ class LegalScopeWrapper
 	/**
 	 * The underlying LegalScope.
 	 */
-	private final LegalScope legalScope;
+	private final ImplementedScope legalScope;
 
 	/**
 	 * Constructs a new LegalScopeWrapper with the given LegalScope
 	 * 
 	 * @param legalScope
-	 *            The LegalScope that this LegalScopeWrapper will represent
+	 *            The ImplementedScope that this LegalScopeWrapper will represent
 	 */
-	LegalScopeWrapper(LegalScope legalScope)
+	LegalScopeWrapper(ImplementedScope legalScope)
 	{
 		this.legalScope = legalScope;
 	}
 
 	/**
-	 * Returns the LegalScope underlying this LegalScopeWrapper.
+	 * Returns the ImplementedScope underlying this LegalScopeWrapper.
 	 * 
-	 * @return the LegalScope underlying this LegalScopeWrapper
+	 * @return the ImplementedScope underlying this LegalScopeWrapper
 	 */
-	public LegalScope getLegalScope()
+	public ImplementedScope getLegalScope()
 	{
 		return legalScope;
 	}
 
 	/**
-	 * Returns an informative String identifying the LegalScope underlying this
+	 * Returns an informative String identifying the ImplementedScope underlying this
 	 * LegalScopeWrapper
 	 */
 	@Override

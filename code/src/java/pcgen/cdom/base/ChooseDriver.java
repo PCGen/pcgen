@@ -19,7 +19,7 @@ package pcgen.cdom.base;
 
 import java.util.List;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 
 public interface ChooseDriver
 {

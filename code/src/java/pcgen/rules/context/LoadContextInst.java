@@ -23,10 +23,10 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 import java.util.logging.Logger;
 import java.util.logging.Level;
 
+import pcgen.base.formula.base.ImplementedScope;
 import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.proxy.DeferredMethodController;
 import pcgen.base.text.ParsingSeparator;
@@ -116,7 +116,7 @@ abstract class LoadContextInst implements LoadContext
 		ref = rc;
 		list = lc;
 		obj = oc;
-		var = new VariableContext(new PCGenManagerFactory(this));
+		var = new VariableContext(this);
 	}
 
 	@Override
@@ -549,13 +549,16 @@ abstract class LoadContextInst implements LoadContext
 
 	private LoadContext dropIntoContext(PCGenScope lvs)
 	{
-		Optional<PCGenScope> parent = lvs.getParentScope();
-		if (!parent.isPresent())
+		if (lvs.isGlobal())
 		{
-			//is Global
 			return this;
 		}
-		LoadContext parentLC = dropIntoContext(parent.get());
+		List<ImplementedScope> parents = lvs.drawsFrom();
+		if (parents.isEmpty())
+		{
+			return this;
+		}
+		LoadContext parentLC = dropIntoContext((PCGenScope) parents.get(0));
 		return new DerivedLoadContext(parentLC, lvs);
 	}
 
@@ -829,12 +832,13 @@ abstract class LoadContextInst implements LoadContext
 			{
 				return this;
 			}
-			else if (!toScope.getParentScope().isPresent())
+			else if (toScope.isGlobal())
 			{
 				//No parent is global
 				return parent;
 			}
-			else if (toScope.getParentScope().get().equals(derivedScope))
+			else if (!toScope.drawsFrom().isEmpty()
+				&& toScope.drawsFrom().get(0).equals(derivedScope))
 			{
 				//Direct drop from this
 				return new DerivedLoadContext(this, toScope);

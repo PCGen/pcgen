@@ -24,7 +24,7 @@ import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.base.FormulaSemantics;
-import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.ImplementedScope;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.exception.SemanticsFailureException;
 import pcgen.base.formula.parse.ASTQuotString;
@@ -37,6 +37,7 @@ import pcgen.base.formula.visitor.SemanticsVisitor;
 import pcgen.base.formula.visitor.StaticVisitor;
 import pcgen.base.util.FormatManager;
 import pcgen.output.channel.ChannelUtilities;
+
 
 /**
  * InputFunction is a function designed to allow pulling information from a channel (as
@@ -74,14 +75,14 @@ public class InputFunction implements FormulaFunction
 		}
 		String inputName = ((SimpleNode) inputNode).getText();
 		String varName = ChannelUtilities.createVarName(inputName);
-		VariableLibrary varLib = semantics.get(FormulaSemantics.FMANAGER).getFactory();
-		LegalScope scope = semantics.get(FormulaSemantics.SCOPE);
-		FormatManager<?> formatManager = varLib.getVariableFormat(scope, varName);
-		if (formatManager == null)
+		VariableLibrary varLib = semantics.get(FormulaSemantics.VARLIB);
+		ImplementedScope scope = semantics.get(FormulaSemantics.SCOPE);
+		Optional<FormatManager<?>> formatManager = varLib.getVariableFormat(scope, varName);
+		if (formatManager.isEmpty())
 		{
 			throw new SemanticsFailureException("Input Channel: " + varName + " was not found");
 		}
-		return formatManager;
+		return formatManager.get();
 	}
 
 	@Override
@@ -103,6 +104,6 @@ public class InputFunction implements FormulaFunction
 	{
 		ASTQuotString inputName = (ASTQuotString) args[0];
 		String varName = inputName.getText();
-		return visitor.visitVariable(ChannelUtilities.createVarName(varName), fdm);
+		return Optional.of(visitor.visitVariable(ChannelUtilities.createVarName(varName), fdm));
 	}
 }

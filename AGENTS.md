@@ -65,8 +65,7 @@ Always use the wrapper (./gradlew). Java 25 is required; Gradle will fetch depen
   - ./gradlew clean (also triggers cleanPlugins, cleanOutput, cleanJdks, cleanMods, cleanMasterSheets)
 
 Notes
-- Some tasks trigger downloads of JDKs/JavaFX for all platforms (downloadJDKs, extractJDKs, downloadJavaFXMods) or host SDK (downloadJavaFXLocal/extractJavaFXLocal). CI caches build/jre and build/libs.
-- The `jre` task prepares all platform JDKs with JavaFX modules for runtime image creation.
+- jlink/jpackage build only the host platform. The download/extract tasks (downloadJdk, extractJdk, downloadJfxMods, extractJfxMods) target the host OS/arch automatically; the host SDK helper for local dev is downloadJavaFXLocal/extractJavaFXLocal. CI caches build/jre and build/libs.
 - Runtime bundles expect assets in data/, system/, outputsheets/, preview/, vendordata/, homebrewdata/.
 
 ## Running From Source

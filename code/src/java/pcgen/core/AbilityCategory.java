@@ -29,7 +29,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 import pcgen.cdom.base.BasicClassIdentity;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ChooseInformation;

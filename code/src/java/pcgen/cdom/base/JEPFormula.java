@@ -17,7 +17,7 @@
  */
 package pcgen.cdom.base;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 

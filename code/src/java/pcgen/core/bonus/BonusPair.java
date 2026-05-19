@@ -18,7 +18,7 @@
  */
 package pcgen.core.bonus;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.core.PlayerCharacter;

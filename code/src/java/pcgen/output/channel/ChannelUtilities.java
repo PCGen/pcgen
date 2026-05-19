@@ -22,7 +22,6 @@ import java.util.Objects;
 import pcgen.base.formula.base.VariableID;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.FacetLibrary;
-import pcgen.cdom.facet.SolverManagerFacet;
 import pcgen.cdom.facet.VariableStoreFacet;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.formula.VariableListener;
@@ -42,11 +41,6 @@ public final class ChannelUtilities
 	 * The VariableStoreFacet
 	 */
 	private static final VariableStoreFacet RESULT_FACET = FacetLibrary.getFacet(VariableStoreFacet.class);
-	
-	/**
-	 * The SolverManagerFacet
-	 */
-	private static final SolverManagerFacet SOLVER_MANAGER_FACET = FacetLibrary.getFacet(SolverManagerFacet.class);
 
 	private ChannelUtilities()
 	{
@@ -100,7 +94,6 @@ public final class ChannelUtilities
 	{
 		VariableID<Object> varID = getChannelVariableID(id, channelName);
 		RESULT_FACET.get(id).put(varID, value);
-		SOLVER_MANAGER_FACET.get(id).solveChildren(varID);
 	}
 
 	/**

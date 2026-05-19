@@ -22,13 +22,14 @@ import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.DynamicDependency;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaFunction;
-import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
-import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.ScopeImplementer;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.TrainingStrategy;
+import pcgen.base.formula.base.VarIDResolver;
 import pcgen.base.formula.base.VarScoped;
+import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.exception.SemanticsFailureException;
 import pcgen.base.formula.parse.ASTQuotString;
 import pcgen.base.formula.parse.Node;
@@ -83,8 +84,8 @@ public class GetOtherFunction implements FormulaFunction
 					+ " Static String (first arg cannot be evaluated)");
 		}
 		String legalScopeName = qs.getText();
-		FormulaManager formulaManager = semantics.get(FormulaSemantics.FMANAGER);
-		PCGenScope legalScope = (PCGenScope) formulaManager.getScopeInstanceFactory().getScope(legalScopeName);
+		ScopeImplementer scopeImplementer = semantics.get(FormulaSemantics.SCOPELIB);
+		PCGenScope legalScope = (PCGenScope) scopeImplementer.getImplementedScope(legalScopeName);
 		if (legalScope == null)
 		{
 			throw new SemanticsFailureException(
@@ -125,16 +126,13 @@ public class GetOtherFunction implements FormulaFunction
 	public Object evaluate(EvaluateVisitor visitor, Node[] args, EvaluationManager manager)
 	{
 		String legalScopeName = ((ASTQuotString) args[0]).getText();
-		FormulaManager formulaManager = manager.get(EvaluationManager.FMANAGER);
-		PCGenScope legalScope = (PCGenScope) formulaManager.getScopeInstanceFactory().getScope(legalScopeName);
+		ScopeImplementer scopeImplementer = manager.get(EvaluationManager.SCOPELIB);
+		PCGenScope legalScope = (PCGenScope) scopeImplementer.getImplementedScope(legalScopeName);
 		LoadContext context = manager.get(ManagerKey.CONTEXT);
 		VarScoped vs = (VarScoped) args[1].jjtAccept(visitor,
 			manager.getWith(EvaluationManager.ASSERTED, legalScope.getFormatManager(context)));
-		FormulaManager fm = manager.get(EvaluationManager.FMANAGER);
-		ScopeInstanceFactory siFactory = fm.getScopeInstanceFactory();
-		Optional<String> localScopeName = vs.getLocalScopeName();
-		//TODO This may be a bug?  What if it doesn't have a localScopeName?
-		ScopeInstance scopeInst = siFactory.get(localScopeName.get(), Optional.of(vs));
+		ScopeInstanceFactory siFactory = manager.get(EvaluationManager.SIFACTORY);
+		ScopeInstance scopeInst = siFactory.get(legalScopeName, vs);
 		//Rest of Equation
 		return args[2].jjtAccept(visitor, manager.getWith(EvaluationManager.INSTANCE, scopeInst));
 	}
@@ -144,17 +142,21 @@ public class GetOtherFunction implements FormulaFunction
 	{
 		String legalScopeName = ((ASTQuotString) args[0]).getText();
 		TrainingStrategy ts = new TrainingStrategy();
-		FormulaManager formulaManager = fdm.get(DependencyManager.FMANAGER);
-		ScopeInstanceFactory scopeInstanceFactory = formulaManager.getScopeInstanceFactory();
-		PCGenScope legalScope = (PCGenScope) scopeInstanceFactory.getScope(legalScopeName);
+		ScopeImplementer scopeImplementer = fdm.get(DependencyManager.SCOPELIB);
+		PCGenScope legalScope = (PCGenScope) scopeImplementer.getImplementedScope(legalScopeName);
 		LoadContext context = fdm.get(ManagerKey.CONTEXT);
 		args[1].jjtAccept(visitor, fdm.getWith(DependencyManager.VARSTRATEGY, Optional.of(ts))
 			.getWith(DependencyManager.ASSERTED, legalScope.getFormatManager(context)));
-		DynamicDependency dd = new DynamicDependency(ts.getControlVar(), LegalScope.getFullName(legalScope));
-		fdm.get(DependencyManager.DYNAMIC).addDependency(dd);
+		ScopeInstanceFactory siFactory = fdm.get(DependencyManager.SIFACTORY);
+		VariableLibrary varLib = fdm.get(DependencyManager.VARLIB);
+		VarIDResolver varResolver = (scopeName, sourceObject, varName) ->
+			varLib.getVariableID(siFactory.get(scopeName, sourceObject), varName);
+		DynamicDependency dd = new DynamicDependency(varResolver, ts.getControlVar(), legalScope.getName());
 		DependencyManager dynamic = fdm.getWith(DependencyManager.VARSTRATEGY, Optional.of(dd));
 		dynamic = dynamic.getWith(DependencyManager.SCOPE, Optional.of(legalScope));
 		//Rest of Equation
-		return (Optional<FormatManager<?>>) args[2].jjtAccept(visitor, dynamic);
+		FormatManager<?> returnFormat = (FormatManager<?>) args[2].jjtAccept(visitor, dynamic);
+		fdm.get(DependencyManager.DYNAMIC).addDependency(dd);
+		return Optional.of(returnFormat);
 	}
 }

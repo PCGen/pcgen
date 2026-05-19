@@ -19,8 +19,8 @@ module pcgen {
     requires javafx.swing;
     requires javafx.web;
 
-    requires PCGen.base;
-    requires PCGen.Formula;
+    requires pcgen.base;
+    requires pcgen.formula;
 
     requires org.apache.commons.lang3;
     requires org.apache.commons.io;
@@ -28,7 +28,6 @@ module pcgen {
     requires org.jdom2;
     requires net.sourceforge.argparse4j;
     requires org.controlsfx.controls;
-    requires org.xmlunit;
     requires org.apache.xmlgraphics.fop.core;
     requires org.apache.xmlgraphics.fop.events;
     requires org.apache.xmlgraphics.commons;
@@ -49,6 +48,8 @@ module pcgen {
     exports pcgen.pluginmgr;
     exports pcgen.system;
     exports pcgen.util;
+
+    opens pcgen.cdom.base to pcgen.base;
 
     opens pcgen.system;
     opens pcgen.pluginmgr;

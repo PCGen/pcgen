@@ -1,14 +1,14 @@
 /*
  * Copyright 2014 (C) Tom Parker <thpr@users.sourceforge.net>
- * 
+ *
  * This library is free software; you can redistribute it and/or modify it under the terms
  * of the GNU Lesser General Public License as published by the Free Software Foundation;
  * either version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful, but WITHOUT ANY
  * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
  * PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public License along with
  * this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place,
  * Suite 330, Boston, MA 02111-1307 USA
@@ -21,39 +21,24 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
 
-import pcgen.base.calculation.BasicCalculation;
-import pcgen.base.calculation.CalculationModifier;
-import pcgen.base.calculation.FormulaModifier;
-import pcgen.base.calculation.NEPCalculation;
+import pcgen.cdom.calculation.BasicCalculation;
+import pcgen.cdom.calculation.CalculationModifier;
+import pcgen.cdom.calculation.FormulaModifier;
+import pcgen.cdom.calculation.NEPCalculation;
 import pcgen.base.format.ArrayFormatManager;
 import pcgen.base.formatmanager.FormatUtilities;
-import pcgen.base.formula.base.DependencyManager;
-import pcgen.base.formula.base.EvaluationManager;
-import pcgen.base.formula.base.FormulaManager;
-import pcgen.base.formula.base.FormulaSemantics;
-import pcgen.base.formula.base.LegalScope;
-import pcgen.base.formula.base.ManagerFactory;
-import pcgen.base.formula.base.OperatorLibrary;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VariableID;
-import pcgen.base.formula.base.WriteableFunctionLibrary;
-import pcgen.base.formula.inst.ScopeManagerInst;
-import pcgen.base.formula.inst.SimpleFormulaManager;
-import pcgen.base.formula.inst.SimpleFunctionLibrary;
-import pcgen.base.formula.inst.SimpleOperatorLibrary;
-import pcgen.base.formula.inst.SimpleScopeInstanceFactory;
-import pcgen.base.formula.inst.VariableManager;
+import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.solver.testsupport.TrackingVariableCache;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.content.ProcessCalculation;
-import pcgen.cdom.formula.ManagerKey;
 import pcgen.cdom.formula.local.ModifierDecoration;
 import pcgen.cdom.formula.scope.EquipmentScope;
 import pcgen.cdom.formula.scope.GlobalPCScope;
+import pcgen.cdom.formula.scope.GlobalPCVarScoped;
 import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.cdom.formula.scope.SkillScope;
 import pcgen.core.Skill;
@@ -61,9 +46,11 @@ import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
+import pcgen.rules.context.VariableContext;
 import pcgen.rules.persistence.token.ModifierFactory;
 
 import plugin.function.GetOtherFunction;
+import util.FormatSupport;
 
 import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.BeforeEach;
@@ -72,65 +59,55 @@ import org.junit.jupiter.api.Test;
 class SetSolverManagerTest
 {
 
-	private final PCGenScope globalScope = new GlobalPCScope();
 	private TrackingVariableCache vc;
-	private ScopeManagerInst vsLib;
-	private VariableManager sl;
-	private FormulaManager fm;
-	private DynamicSolverManager manager;
+	private SolverManager manager;
 	private FormatManager<Skill> skillManager;
 	private ArrayFormatManager<String> arrayManager;
 	private ScopeInstanceFactory siFactory;
 	private RuntimeLoadContext context;
-	private MyManagerFactory managerFactory;
+	private VariableLibrary sl;
 
 	@BeforeEach
 	void setUp() throws Exception
 	{
-		SupplierValueStore mvs = new SupplierValueStore();
-		WriteableFunctionLibrary fl = new SimpleFunctionLibrary();
-		fl.addFunction(new GetOtherFunction());
-		OperatorLibrary ol = new SimpleOperatorLibrary();
-		vc = new TrackingVariableCache();
-		vsLib = new ScopeManagerInst();
-		vsLib.registerScope(globalScope);
-		EquipmentScope equipScope = new EquipmentScope();
-		equipScope.setParent(globalScope);
-		vsLib.registerScope(equipScope);
-		SkillScope skillScope = new SkillScope();
-		skillScope.setParent(globalScope);
-		vsLib.registerScope(skillScope);
-		sl = new VariableManager(vsLib, mvs);
-		arrayManager = new ArrayFormatManager<>(FormatUtilities.STRING_MANAGER, '\n', ',');
 		context = new RuntimeLoadContext(
 			RuntimeReferenceContext.createRuntimeReferenceContext(),
 			new ConsolidatedListCommitStrategy());
+		FormatSupport.addBasicDefaults(context);
+		VariableContext variableContext = context.getVariableContext();
+		variableContext.addFunction(new GetOtherFunction());
+
+		PCGenScope globalScope = new GlobalPCScope();
+		variableContext.registerScope(globalScope);
+		EquipmentScope equipScope = new EquipmentScope();
+		equipScope.setParent(globalScope);
+		variableContext.registerScope(equipScope);
+		SkillScope skillScope = new SkillScope();
+		skillScope.setParent(globalScope);
+		variableContext.registerScope(skillScope);
+
+		arrayManager = new ArrayFormatManager<>(FormatUtilities.STRING_MANAGER, '\n', ',');
+		variableContext.addDefault(arrayManager, () -> new String[0]);
 		skillManager = context.getReferenceContext().getManufacturer(Skill.class);
-		managerFactory = new MyManagerFactory(context);
-		siFactory = new SimpleScopeInstanceFactory(vsLib);
-		fm = new SimpleFormulaManager(ol, sl, siFactory, vc, mvs);
-		fm = fm.getWith(FormulaManager.FUNCTION, fl);
-		SolverFactory solverFactory = new SimpleSolverFactory(mvs);
-		solverFactory.addSolverFormat(arrayManager, () -> new String[0]);
-		
 		Skill defaultSkill = new Skill();
-		solverFactory.addSolverFormat(skillManager, () -> defaultSkill);
+		variableContext.addDefault(skillManager, () -> defaultSkill);
 
-		manager = new DynamicSolverManager(fm, managerFactory, solverFactory, vc);
-		solverFactory.addSolverFormat(FormatUtilities.NUMBER_MANAGER, () -> 0);
-		solverFactory.addSolverFormat(FormatUtilities.STRING_MANAGER, () -> "");
+		sl = variableContext;
+		vc = new TrackingVariableCache();
+		siFactory = variableContext.getScopeInstanceFactory();
+		manager = variableContext.generateSolverManager(vc);
 	}
-
-	//TODO Tear Down
 
 	@Test
 	public void testProcessDependentSet()
 	{
+		PCGenScope globalScope = context.getVariableContext().getScope(GlobalPCScope.GLOBAL_SCOPE_NAME);
 		sl.assertLegalVariableID("Regions", globalScope, arrayManager);
-		ScopeInstance scopeInst = siFactory.getGlobalInstance(globalScope.getName());
+		ScopeInstance scopeInst = siFactory.get(GlobalPCScope.GLOBAL_SCOPE_NAME,
+			new GlobalPCVarScoped(GlobalPCScope.GLOBAL_SCOPE_NAME));
 		VariableID<String[]> regions =
 				(VariableID<String[]>) sl.getVariableID(scopeInst, "Regions");
-		manager.createChannel(regions);
+		manager.processSolver(regions);
 		Object[] array = vc.get(regions);
 		List<Object> list;
 		assertEquals(0, array.length);
@@ -142,6 +119,7 @@ class SetSolverManagerTest
 		FormulaModifier mod = am1.getModifier("France,England", arrayManager);
 		mod.addAssociation("PRIORITY=2000");
 		manager.addModifier(regions, new ModifierDecoration<>(mod), scopeInst);
+		manager.processSolver(regions);
 		array = vc.get(regions);
 		MatcherAssert.assertThat(2, is(array.length));
 		list = Arrays.asList(array);
@@ -155,6 +133,7 @@ class SetSolverManagerTest
 		mod = am2.getModifier("Greece,England", arrayManager);
 		mod.addAssociation("PRIORITY=3000");
 		manager.addModifier(regions, new ModifierDecoration<>(mod), scopeInst);
+		manager.processSolver(regions);
 		array = vc.get(regions);
 		MatcherAssert.assertThat(3, is(array.length));
 		list = Arrays.asList(array);
@@ -169,7 +148,9 @@ class SetSolverManagerTest
 	@Test
 	public void testProcessDynamicSet()
 	{
-		LegalScope skillScope = vsLib.getScope("PC.SKILL");
+		VariableContext variableContext = context.getVariableContext();
+		PCGenScope globalScope = variableContext.getScope(GlobalPCScope.GLOBAL_SCOPE_NAME);
+		PCGenScope skillScope = variableContext.getScope("PC.SKILL");
 		sl.assertLegalVariableID("LocalVar", skillScope, FormatUtilities.NUMBER_MANAGER);
 		sl.assertLegalVariableID("ResultVar", globalScope, FormatUtilities.NUMBER_MANAGER);
 		sl.assertLegalVariableID("SkillVar", globalScope, skillManager);
@@ -179,21 +160,21 @@ class SetSolverManagerTest
 		Skill skillalt = new Skill();
 		skillalt.setName("SkillAlt");
 
-		ScopeInstance scopeInste = siFactory.get("PC.SKILL", Optional.of(skill));
+		ScopeInstance scopeInste = siFactory.get("PC.SKILL", skill);
 		VariableID varIDe = sl.getVariableID(scopeInste, "LocalVar");
-		manager.createChannel(varIDe);
+		manager.processSolver(varIDe);
 		vc.put(varIDe, 2);
-		ScopeInstance scopeInsta = siFactory.get("PC.SKILL", Optional.of(skillalt));
+		ScopeInstance scopeInsta = siFactory.get("PC.SKILL", skillalt);
 		VariableID varIDa = sl.getVariableID(scopeInsta, "LocalVar");
-		manager.createChannel(varIDa);
+		manager.processSolver(varIDa);
 		vc.put(varIDa, 3);
-		ScopeInstance globalInst =
-				siFactory.getGlobalInstance(GlobalPCScope.GLOBAL_SCOPE_NAME);
+		ScopeInstance globalInst = siFactory.get(GlobalPCScope.GLOBAL_SCOPE_NAME,
+			new GlobalPCVarScoped(GlobalPCScope.GLOBAL_SCOPE_NAME));
 		VariableID varIDq = sl.getVariableID(globalInst, "SkillVar");
-		manager.createChannel(varIDq);
+		manager.processSolver(varIDq);
 		VariableID varIDr = sl.getVariableID(globalInst, "ResultVar");
-		manager.createChannel(varIDr);
-		
+		manager.processSolver(varIDr);
+
 		ModifierFactory am1 = new plugin.modifier.number.SetModifierFactory();
 		ModifierFactory amString = new plugin.modifier.string.SetModifierFactory();
 		FormulaModifier mod2 =
@@ -210,7 +191,7 @@ class SetSolverManagerTest
 		context.getReferenceContext().importObject(skillalt);
 		FormulaModifier modf = am1.getModifier(formula, FormatUtilities.NUMBER_MANAGER);
 		modf.addAssociation("PRIORITY=2000");
-		
+
 		NEPCalculation calc1 = new ProcessCalculation<>(skill,
 				new BasicSet(), skillManager);
 		CalculationModifier mods1 = new CalculationModifier<>(calc1, skillManager);
@@ -221,18 +202,26 @@ class SetSolverManagerTest
 
 		manager.addModifier(varIDe, new ModifierDecoration<>(mod2), scopeInste);
 		manager.addModifier(varIDa, new ModifierDecoration<>(mod3), scopeInsta);
+		manager.processSolver(varIDe);
+		manager.processSolver(varIDa);
 		assertEquals(2, vc.get(varIDe));
 		assertEquals(3, vc.get(varIDa));
 		assertEquals(0, vc.get(varIDr));
 
 		manager.addModifier(varIDq, new ModifierDecoration<>(mods1), globalInst);
 		manager.addModifier(varIDr, new ModifierDecoration<>(modf), globalInst);
+		manager.processSolver(varIDq);
+		manager.processSolver(varIDr);
 		assertEquals(2, vc.get(varIDr));
 
 		manager.addModifier(varIDq, new ModifierDecoration<>(mods2), globalInst);
+		manager.processSolver(varIDq);
+		manager.processSolver(varIDr);
 		assertEquals(3, vc.get(varIDr));
 
 		manager.addModifier(varIDa, new ModifierDecoration<>(mod4), scopeInsta);
+		manager.processSolver(varIDa);
+		manager.processSolver(varIDr);
 		assertEquals(4, vc.get(varIDr));
 	}
 
@@ -254,45 +243,6 @@ class SetSolverManagerTest
 		public Object process(Object previousValue, Object argument)
 		{
 			return argument;
-		}
-	}
-	
-	/**
-	 * A custom ManagerFactory to inject the LoadContext.
-	 */
-	private static class MyManagerFactory implements ManagerFactory
-	{
-		private final LoadContext context;
-
-		private MyManagerFactory(LoadContext context)
-		{
-			this.context = Objects.requireNonNull(context);
-		}
-
-		@Override
-		public DependencyManager generateDependencyManager(FormulaManager formulaManager,
-			ScopeInstance scopeInst)
-		{
-			DependencyManager dm = ManagerFactory.super.generateDependencyManager(
-				formulaManager, scopeInst);
-			return dm.getWith(ManagerKey.CONTEXT, context);
-		}
-
-		@Override
-		public FormulaSemantics generateFormulaSemantics(FormulaManager manager,
-			LegalScope legalScope)
-		{
-			FormulaSemantics fs =
-					ManagerFactory.super.generateFormulaSemantics(manager, legalScope);
-			return fs.getWith(ManagerKey.CONTEXT, context);
-		}
-
-		@Override
-		public EvaluationManager generateEvaluationManager(FormulaManager formulaManager)
-		{
-			EvaluationManager em =
-					ManagerFactory.super.generateEvaluationManager(formulaManager);
-			return em.getWith(ManagerKey.CONTEXT, context);
 		}
 	}
 }

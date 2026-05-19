@@ -19,7 +19,7 @@ package pcgen.cdom.facet.model;
 
 import java.util.List;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ItemFacet;
 import pcgen.cdom.enumeration.CharID;

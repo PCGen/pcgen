@@ -17,7 +17,7 @@
  */
 package plugin.lsttokens.race;
 
-import pcgen.base.calculation.FormulaModifier;
+import pcgen.cdom.calculation.FormulaModifier;
 import pcgen.base.math.OrderedPair;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.LimitedVarContainer;
@@ -72,8 +72,7 @@ public class FaceToken extends AbstractNonEmptyToken<LimitedVarHolder>
 		{
 			modifier =
 					context.getVariableContext().getModifier(MOD_IDENTIFICATION,
-						value, context.getVariableContext().getFormulaManager(),
-						scope, formatManager);
+						value, scope, formatManager);
 		}
 		catch (IllegalArgumentException iae)
 		{
@@ -112,7 +111,7 @@ public class FaceToken extends AbstractNonEmptyToken<LimitedVarHolder>
 			{
 				FormulaModifier<?> modifier = vm.getModifier();
 				if (CControl.FACE.getDefaultValue().equals(vm.getVarName())
-					&& (!vm.getLegalScope().getParentScope().isPresent())
+					&& (vm.getLegalScope().isGlobal())
 					&& (modifier.getIdentification().equals(MOD_IDENTIFICATION)))
 				{
 					face = modifier.getInstructions();

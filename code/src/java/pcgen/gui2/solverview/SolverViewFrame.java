@@ -38,7 +38,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.table.AbstractTableModel;
 
-import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.ImplementedScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.base.VariableID;
@@ -65,7 +65,7 @@ public final class SolverViewFrame extends JFrame
 	private final LoadContextFacet loadContextFacet = FacetLibrary.getFacet(LoadContextFacet.class);
 
 	private final JComboBox<LegalScopeWrapper> scopeChooser;
-	private LegalScope selectedScope;
+	private ImplementedScope selectedScope;
 
 	private final JTextField varName;
 	private String varNameText = "                               ";
@@ -111,7 +111,7 @@ public final class SolverViewFrame extends JFrame
 	private void update()
 	{
 		updateObjects();
-		if ((activeObject == null) && (selectedScope.getParentScope().isPresent()))
+		if ((activeObject == null) && (!selectedScope.isGlobal()))
 		{
 			//scopeFacet will error if we continue...
 			tableModel.setSteps(Collections.emptyList());
@@ -124,10 +124,10 @@ public final class SolverViewFrame extends JFrame
 		}
 		else
 		{
-			scope = scopeFacet.get(activeIdentifier, LegalScope.getFullName(selectedScope), activeObject);
+			scope = scopeFacet.get(activeIdentifier, selectedScope.getName(), activeObject);
 		}
 		if (loadContextFacet.get(activeIdentifier.getDatasetID()).get().getVariableContext()
-			.isLegalVariableID(scope.getLegalScope(), varNameText))
+			.isLegalVariableID(scope.getImplementedScope(), varNameText))
 		{
 			displayInfo(scope);
 		}
@@ -220,7 +220,7 @@ public final class SolverViewFrame extends JFrame
 			Object item = identifierChooser.getSelectedItem();
 			activeIdentifier = ((PCRef) item).id;
 			LoadContext loadContext = loadContextFacet.get(activeIdentifier.getDatasetID()).get();
-			for (LegalScope lvs : loadContext.getVariableContext().getScopes())
+			for (ImplementedScope lvs : loadContext.getVariableContext().getScopes())
 			{
 				scopeChooser.addItem(new LegalScopeWrapper(lvs));
 			}
@@ -235,8 +235,8 @@ public final class SolverViewFrame extends JFrame
 		{
 			Collection<PCGenScoped> objects = varScopedFacet.getSet(activeIdentifier);
 			objectChooser.removeAllItems();
-			String scopeName = LegalScope.getFullName(selectedScope);
-			for (VarScoped cdo : objects)
+			String scopeName = selectedScope.getName();
+			for (PCGenScoped cdo : objects)
 			{
 				Optional<String> localScopeName = cdo.getLocalScopeName();
 				if (localScopeName.isPresent() && scopeName.equals(localScopeName.get()))

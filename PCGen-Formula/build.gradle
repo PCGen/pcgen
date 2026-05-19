@@ -1,186 +1,93 @@
-/*
- * PCGen formula component build using the Gradle tool. This file specifies the
- * core build tasks and refers to other files in the code/gradle directory for
- * additional tasks for specific output.
- *
- * Developer build: gradle
- * Incremental dev build: gradle build 
- * Full build: gradle all 
- */
-
 plugins {
-    id "ca.coglinc2.javacc" version "3.0.0"
-    id 'java'
-    id 'eclipse'
-    id 'jacoco'
-    id 'ivy-publish'
-    id 'checkstyle'
-    id 'pmd'
-    id 'com.github.ben-manes.versions' version '0.39.0'
-    id 'com.github.spotbugs' version '4.7.5'
+    id 'java-library'
 }
 
 group = 'net.sourceforge.pcgen'
-description = """PCGen formula library"""
+description = 'PCGen formula library - generic expression parser and solver system'
 
-defaultTasks 'clean', 'build'
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+    modularity.inferModulePath = true
+}
 
-sourceCompatibility = 1.11
-targetCompatibility = 1.11
+def generatedJjtreeDir = layout.buildDirectory.dir('generated/sources/jjtree').get().asFile
+def generatedJavaccDir = layout.buildDirectory.dir('generated/sources/javacc').get().asFile
 
-ext {
-    majorVersion = 1
-    minorVersion = 0
+sourceSets {
+    main {
+        java { srcDirs = ['code/src/java', generatedJjtreeDir, generatedJavaccDir] }
+    }
+    test {
+        java { srcDirs = ['code/src/test'] }
+    }
 }
 
 repositories {
     mavenCentral()
-    ivy {
-        name "Pcgen Repo"
-        url 'http://pc-gen.org/librepo'
-	allowInsecureProtocol true
-    }
+}
+
+configurations {
+    javacc
 }
 
 dependencies {
-    // Use this if you want to reference your own local pcgen base, alter the 
-    // relative path to what you need.
-    //compile files("../../pcgen-base/PCGen-base/build/libs/PCgen-base-1.0.jar")
+    api project(':PCGen-base')
 
-    implementation group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.220'
-    testImplementation group: 'org.junit.platform', name: 'junit-platform-runner', version: '1.8.0'
-    testImplementation group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.7.2'
-    testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-api', version: '5.8.0'
-    testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-params', version: '5.8.0'
-    testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.8.0'
+    javacc 'net.java.dev.javacc:javacc:7.0.13'
+
+    testImplementation platform('org.junit:junit-bom:5.11.4')
+    testImplementation 'org.junit.jupiter:junit-jupiter-api'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params'
+    testImplementation 'junit:junit:4.13.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    testRuntimeOnly 'org.junit.vintage:junit-vintage-engine'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
-sourceSets {
-    main {
-        java {
-            srcDirs 'code/src/java'
-        }
+// SimpleNode.java and Operator.java in code/src/java are hand-maintained; everything
+// else in pcgen/base/formula/parse is generated at build time. JJTree produces the AST
+// classes, the visitor interfaces, and an annotated .jj grammar; JavaCC then turns the
+// .jj into the parser and token classes.
+tasks.register('jjtree', JavaExec) {
+    def src = file('code/src/jjtree/pcgen/base/formula/parse/formula.jjt')
+    def outDir = new File(generatedJjtreeDir, 'pcgen/base/formula/parse')
+    inputs.file(src)
+    outputs.dir(generatedJjtreeDir)
+    classpath = configurations.javacc
+    mainClass = 'jjtree'
+    args "-OUTPUT_DIRECTORY=${outDir}", src.absolutePath
+    doFirst {
+        generatedJjtreeDir.deleteDir()
+        outDir.mkdirs()
     }
-    javacc {
-        java {
-            srcDirs 'code/src/javacc'
-        }
-    }
-    test {
-        java {
-            srcDirs 'code/src/test'
-        }
-    }
-}
-
-test {
-	useJUnitPlatform()
-	reports {
-        junitXml.enabled = true
-        html.enabled = false
-    }
-    systemProperties 'property': 'value'
-}
-
-jacocoTestReport {
-    reports {
-        xml {
-            enabled true // coveralls plugin depends on xml format report
-        }
-
-        html {
-            enabled true
-        }
-    }
-
-    afterEvaluate {
-        getClassDirectories().from(files(classDirectories.files.collect {
-            fileTree(dir: it, exclude: ['**/testsupport/**', '**/Abstract**TestCase', '**/**Test', 'pcgen/base/formula/parse/FormulaParser**', 'pcgen/base/formula/parse/AST**', 'pcgen/base/formula/parse/JJT**', 'pcgen/base/formula/parse/Node**', 'pcgen/base/formula/parse/ParseException**', 'pcgen/base/formula/parse/SimpleCharStream**', 'pcgen/base/formula/parse/Token**'])
-        }))
+    doLast {
+        // SimpleNode is hand-maintained in code/src/java; drop JJTree's stub so the
+        // two don't collide on the source path.
+        new File(outDir, 'SimpleNode.java').delete()
     }
 }
 
-compileJjtree {
-    inputDirectory = file('code/src/jjtree')
-    // We consciously choose to put the output in the main repo tree so that 
-    // SimpleNode only exists once...
-    outputDirectory = file('code/src/javacc/')
-    include '**/*.java'
-}
-
-compileJavacc {
-    inputDirectory = file('code/src/javacc/')
-    outputDirectory = file('code/src/java/')
-}
-
-// Calculate the version number - runs in the parse phase
-allprojects {
-    ext.buildTimestamp = new Date().format('yyyy-MM-dd HH:mm:ss Z')
-    if (System.env.BUILD_NUMBER) {
-        project.version = "$majorVersion.$minorVersion.$System.env.BUILD_NUMBER"
-    }
-    else {
-        project.version = "$majorVersion.$minorVersion"
+tasks.register('javacc', JavaExec) {
+    dependsOn 'jjtree'
+    def jjFile = new File(generatedJjtreeDir, 'pcgen/base/formula/parse/formula.jj')
+    def outDir = new File(generatedJavaccDir, 'pcgen/base/formula/parse')
+    inputs.file(jjFile)
+    outputs.dir(generatedJavaccDir)
+    classpath = configurations.javacc
+    mainClass = 'javacc'
+    args "-OUTPUT_DIRECTORY=${outDir}", jjFile.absolutePath
+    doFirst {
+        generatedJavaccDir.deleteDir()
+        outDir.mkdirs()
     }
 }
 
-task echoVer() doLast {
-    println "${project.name} Version: ${project.version} (${buildTimestamp})"
+tasks.named('compileJava') {
+    dependsOn 'javacc'
 }
 
-jar {
-    manifest {
-        attributes 'Implementation-Title': 'PCGenFormulaLibrary', 'Implementation-Version': project.version, 
-            'Built-On': buildTimestamp 
-    }
+tasks.named('test') {
+    useJUnitPlatform()
 }
-
-task sourceJar(type: Jar) {
-    from sourceSets.main.java
-    classifier "sources"
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-
-// Rules for how we publish our artifacts in ivy compliant format
-publishing {
-    repositories {
-        ivy {
-            name "fileRepo"
-            url '/var/www/librepo'
-        }
-    }
-    publications {
-        ivy(IvyPublication) {
-            from components.java
-            configurations {
-                sources {}
-                javadoc {}
-            }
-            artifact(sourceJar) {
-                type "sources"
-                conf "sources"
-            }
-            artifact(javadocJar) {
-                type "javadoc"
-                conf "javadoc"
-            }
-            descriptor.withXml {
-                asNode().info[0].appendNode('description', description)
-            }
-        }
-    }
-}
-
-//We end up with an unneeded task with SpotBugs and JavaCC that causes a failure
-//see: https://github.com/spotbugs/spotbugs-gradle-plugin/issues/70
-tasks.whenTaskAdded {task ->
-    if(task.name.contains("spotbugsJavacc")) {
-        task.enabled = false
-    }
-}
-
-apply from: 'gradle/reporting.gradle'

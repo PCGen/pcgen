@@ -17,7 +17,7 @@
  */
 package pcgen.cdom.facet.analysis;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.FormulaResolvingFacet;

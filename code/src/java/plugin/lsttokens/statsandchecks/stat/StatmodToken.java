@@ -17,7 +17,7 @@
  */
 package plugin.lsttokens.statsandchecks.stat;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.PCStat;

@@ -20,7 +20,7 @@ package pcgen.rules.context;
 import java.net.URI;
 import java.util.Set;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 import pcgen.base.util.Indirect;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ConcretePrereqObject;

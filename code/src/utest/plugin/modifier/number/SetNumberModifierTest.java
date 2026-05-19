@@ -20,17 +20,20 @@ package plugin.modifier.number;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
-import pcgen.base.calculation.FormulaModifier;
+import pcgen.cdom.calculation.FormulaModifier;
 import pcgen.base.format.NumberManager;
 import pcgen.base.formula.base.EvaluationManager;
-import pcgen.base.formula.base.FormulaManager;
-import pcgen.base.formula.inst.ScopeManagerInst;
-import pcgen.base.solver.FormulaSetupFactory;
+import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.formula.scope.GlobalPCScope;
 import pcgen.cdom.formula.scope.PCGenScope;
+import pcgen.rules.context.ConsolidatedListCommitStrategy;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.context.RuntimeLoadContext;
+import pcgen.rules.context.RuntimeReferenceContext;
 
 import plugin.modifier.testsupport.EvalManagerUtilities;
+import util.FormatSupport;
 
 import org.junit.jupiter.api.Test;
 
@@ -211,18 +214,18 @@ public class SetNumberModifierTest
 	@Test
 	public void testGetFormulaModifier()
 	{
-		FormulaSetupFactory formulaSetupFactory = new FormulaSetupFactory();
-		ScopeManagerInst legalScopeManager = new ScopeManagerInst();
-		formulaSetupFactory.setLegalScopeManagerSupplier(() -> legalScopeManager);
-		FormulaManager formulaManager = formulaSetupFactory.generate();
-		legalScopeManager.registerScope(varScope);
+		LoadContext context = new RuntimeLoadContext(
+			RuntimeReferenceContext.createRuntimeReferenceContext(),
+			new ConsolidatedListCommitStrategy());
+		FormatSupport.addBasicDefaults(context);
+		ManagerFactory managerFactory = context.getVariableContext().getManagerFactory();
 		SetModifierFactory factory = new SetModifierFactory();
 		FormulaModifier<Number> modifier = factory.getModifier("6+5", numManager);
 		modifier.addAssociation("PRIORITY=35");
 		assertEquals((35L<<32)+factory.getInherentPriority(), modifier.getPriority());
 		assertEquals(numManager, modifier.getVariableFormat());
-		EvaluationManager evalManager = EvalManagerUtilities.getInputEM(4.3);
-		assertEquals(11, modifier.process(
-			evalManager.getWith(EvaluationManager.FMANAGER, formulaManager)));
+		EvaluationManager evalManager = managerFactory.generateEvaluationManager()
+			.getWith(EvaluationManager.INPUT, 4.3);
+		assertEquals(11, modifier.process(evalManager));
 	}
 }

@@ -19,7 +19,6 @@ package pcgen.cdom.formula;
 
 import java.util.Objects;
 
-import pcgen.base.formula.Formula;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Equipment;

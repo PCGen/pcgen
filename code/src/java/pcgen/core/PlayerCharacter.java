@@ -32,8 +32,7 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
-import pcgen.base.formula.Formula;
-import pcgen.base.formula.base.FormulaManager;
+import pcgen.cdom.formula.Formula;
 import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.solver.SolverManager;
 import pcgen.base.util.HashMapToList;
@@ -608,9 +607,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	private void doFormulaSetup(LoadContext context)
 	{
 		VariableContext variableContext = context.getVariableContext();
-		FormulaManager formulaManager = variableContext.getPCFormulaManager();
 		MonitorableVariableStore varStore = new MonitorableVariableStore();
-		scopeFacet.set(id, formulaManager.getScopeInstanceFactory());
+		scopeFacet.set(id, variableContext.getScopeInstanceFactory());
 		variableStoreFacet.set(id, varStore);
 		solverManagerFacet.set(id, variableContext.generateSolverManager(varStore));
 		ChannelUtilities.watchChannel(this, CControl.AGEINPUT, ageSetFacet);

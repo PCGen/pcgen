@@ -20,13 +20,15 @@ package pcgen.cdom.formula.testsupport;
 import java.lang.reflect.Array;
 
 import pcgen.TestConstants;
-import pcgen.base.calculation.CalculationModifier;
-import pcgen.base.calculation.FormulaCalculation;
-import pcgen.base.calculation.FormulaModifier;
-import pcgen.base.calculation.NEPCalculation;
+import pcgen.cdom.calculation.CalculationModifier;
+import pcgen.cdom.calculation.FormulaCalculation;
+import pcgen.cdom.calculation.FormulaModifier;
+import pcgen.cdom.calculation.NEPCalculation;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
+import pcgen.base.formula.base.FormulaSemantics;
+import pcgen.base.formula.exception.SemanticsException;
 import pcgen.base.formula.inst.ComplexNEPFormula;
 import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.lang.NumberUtilities;
@@ -53,7 +55,12 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 	}
 
 	@Override
-	public void getDependencies(DependencyManager fdm)
+	public void captureDependencies(DependencyManager fdm)
+	{
+	}
+
+	@Override
+	public void isValid(FormulaSemantics semantics) throws SemanticsException
 	{
 	}
 
@@ -217,9 +224,9 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 			}
 
 			@Override
-			public void getDependencies(DependencyManager fdm)
+			public void captureDependencies(DependencyManager fdm)
 			{
-				value.getDependencies(fdm);
+				value.captureDependencies(fdm);
 			}
 
 			@Override

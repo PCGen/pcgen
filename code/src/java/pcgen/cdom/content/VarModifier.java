@@ -19,8 +19,7 @@ package pcgen.cdom.content;
 
 import java.util.Objects;
 
-import pcgen.base.calculation.FormulaModifier;
-import pcgen.base.formula.base.LegalScope;
+import pcgen.cdom.calculation.FormulaModifier;
 import pcgen.cdom.formula.scope.PCGenScope;
 
 /**
@@ -140,7 +139,7 @@ public class VarModifier<T>
 	 */
 	public String getFullLegalScopeName()
 	{
-		return LegalScope.getFullName(getLegalScope());
+		return getLegalScope().getName();
 	}
 	
 	@Override

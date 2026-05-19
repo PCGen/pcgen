@@ -17,7 +17,7 @@
  */
 package plugin.lsttokens.gamemode.abilitycategory;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.core.AbilityCategory;
 import pcgen.rules.context.LoadContext;

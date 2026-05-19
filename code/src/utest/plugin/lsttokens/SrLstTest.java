@@ -17,7 +17,7 @@
  */
 package plugin.lsttokens;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.content.SpellResistance;
 import pcgen.cdom.enumeration.FormulaKey;

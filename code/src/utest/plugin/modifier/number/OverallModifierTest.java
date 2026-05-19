@@ -20,7 +20,7 @@ package plugin.modifier.number;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import pcgen.base.calculation.CalculationInfo;
+import pcgen.cdom.calculation.CalculationInfo;
 
 import org.junit.jupiter.api.Test;
 

@@ -20,7 +20,7 @@ package pcgen.cdom.content;
 import java.util.List;
 import java.util.Objects;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ChooseDriver;

@@ -20,7 +20,7 @@ package pcgen.core.kit;
 import java.math.BigDecimal;
 import java.util.List;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 import pcgen.cdom.util.CControl;
 import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;

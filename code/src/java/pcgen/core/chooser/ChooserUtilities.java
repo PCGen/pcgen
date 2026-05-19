@@ -21,7 +21,7 @@ package pcgen.core.chooser;
 import java.util.ArrayList;
 import java.util.List;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.content.CNAbility;

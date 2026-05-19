@@ -18,7 +18,7 @@
 
 package plugin.lsttokens.kit.clazz;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.core.kit.KitClass;
 import pcgen.rules.context.LoadContext;

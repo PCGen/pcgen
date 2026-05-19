@@ -17,6 +17,8 @@ package util;
 
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
+import pcgen.base.formula.base.FormulaSemantics;
+import pcgen.base.formula.exception.SemanticsException;
 import pcgen.base.solver.Modifier;
 import pcgen.base.util.FormatManager;
 
@@ -39,7 +41,12 @@ public class SimpleSetModifier<T> implements Modifier<T>
 	}
 
 	@Override
-	public void getDependencies(DependencyManager fdm)
+	public void captureDependencies(DependencyManager fdm)
+	{
+	}
+
+	@Override
+	public void isValid(FormulaSemantics semantics) throws SemanticsException
 	{
 	}
 

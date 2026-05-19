@@ -17,7 +17,7 @@
  */
 package pcgen.cdom.format.table;
 
-import java.util.Objects;
+import java.util.Optional;
 import java.util.regex.Pattern;
 
 import pcgen.base.formatmanager.FormatManagerFactory;
@@ -56,9 +56,11 @@ public class TableFormatFactory implements FormatManagerFactory
 	}
 
 	@Override
-	public FormatManager<DataTable> build(String subFormatName, FormatManagerLibrary library)
+	public FormatManager<DataTable> build(Optional<String> parentFormat,
+		Optional<String> subFormat, FormatManagerLibrary library)
 	{
-		Objects.requireNonNull(subFormatName, "Table Format cannot be built from no instructions");
+		String subFormatName = subFormat.orElseThrow(
+			() -> new IllegalArgumentException("Table Format cannot be built from no instructions"));
 		if (SUB_PATTERN.matcher(subFormatName).find())
 		{
 			/*
@@ -69,7 +71,7 @@ public class TableFormatFactory implements FormatManagerFactory
 			throw new IllegalArgumentException(
 				"Multidimensional Table format not supported: " + subFormatName + " may not contain brackets");
 		}
-		return new TableFormatManager(tableFormat, library.getFormatManager(subFormatName));
+		return new TableFormatManager(tableFormat, library.getFormatManager(parentFormat, subFormatName));
 	}
 
 	@Override

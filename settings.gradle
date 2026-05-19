@@ -1,1 +1,2 @@
 rootProject.name = 'pcgen'
+include 'PCGen-base', 'PCGen-Formula'

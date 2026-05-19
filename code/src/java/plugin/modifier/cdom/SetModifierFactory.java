@@ -17,10 +17,10 @@
  */
 package plugin.modifier.cdom;
 
-import pcgen.base.calculation.CalculationModifier;
-import pcgen.base.calculation.FormulaCalculation;
-import pcgen.base.calculation.FormulaModifier;
-import pcgen.base.calculation.NEPCalculation;
+import pcgen.cdom.calculation.CalculationModifier;
+import pcgen.cdom.calculation.FormulaCalculation;
+import pcgen.cdom.calculation.FormulaModifier;
+import pcgen.cdom.calculation.NEPCalculation;
 import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.CDOMObject;

@@ -23,7 +23,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.ScopeInstance;
-import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.inst.ComplexNEPFormula;
 import pcgen.base.formula.inst.FormulaUtilities;
@@ -59,8 +58,7 @@ public class VariableChannelTest extends AbstractFormulaTestCase
 
 		manager = context.getVariableContext().generateSolverManager(getVariableStore());
 		globalScope = context.getVariableContext().getScope(GlobalPCScope.GLOBAL_SCOPE_NAME);
-		ScopeInstanceFactory sif = getFormulaManager().getScopeInstanceFactory();
-		globalInstance = sif.getGlobalInstance(globalScope.getName());
+		globalInstance = getGlobalScopeInst();
 	}
 	
 	@AfterEach
@@ -103,8 +101,11 @@ public class VariableChannelTest extends AbstractFormulaTestCase
 	@Test
 	void testGetSet()
 	{
-		VariableID<Number> varID = new VariableID<>(globalInstance,
-				FormatUtilities.NUMBER_MANAGER, "MyNumber");
+		getVariableLibrary().assertLegalVariableID("MyNumber", globalScope,
+			FormatUtilities.NUMBER_MANAGER);
+		@SuppressWarnings("unchecked")
+		VariableID<Number> varID =
+				(VariableID<Number>) getVariableLibrary().getVariableID(globalInstance, "MyNumber");
 		VariableChannel<Number> channel =
 				VariableChannel.construct(manager, getVariableStore(), varID);
 		assertEquals(0, channel.get());
@@ -117,8 +118,11 @@ public class VariableChannelTest extends AbstractFormulaTestCase
 	@Test
 	void testGetSetEvents()
 	{
-		VariableID<Number> varID = new VariableID<>(globalInstance,
-				FormatUtilities.NUMBER_MANAGER, "MyNumber");
+		getVariableLibrary().assertLegalVariableID("MyNumber", globalScope,
+			FormatUtilities.NUMBER_MANAGER);
+		@SuppressWarnings("unchecked")
+		VariableID<Number> varID =
+				(VariableID<Number>) getVariableLibrary().getVariableID(globalInstance, "MyNumber");
 		VariableChannel<Number> channel =
 				VariableChannel.construct(manager, getVariableStore(), varID);
 		TestingReferenceListener<Number> listener =
@@ -186,15 +190,18 @@ public class VariableChannelTest extends AbstractFormulaTestCase
 		@SuppressWarnings("unchecked")
 		VariableID<Number> limbs =
 				(VariableID<Number>) getVariableLibrary().getVariableID(globalInstance, "Limbs");
-		manager.addModifier(limbs, formulaMod, globalInstance);
-
 		@SuppressWarnings("unchecked")
 		VariableID<Number> arms =
 				(VariableID<Number>) getVariableLibrary().getVariableID(globalInstance, "Arms");
-
 		@SuppressWarnings("unchecked")
 		VariableID<Number> legs =
 				(VariableID<Number>) getVariableLibrary().getVariableID(globalInstance, "Legs");
+
+		manager.processSolver(legs);
+		manager.processSolver(arms);
+		manager.addModifier(limbs, formulaMod, globalInstance);
+		manager.processSolver(limbs);
+
 		VariableChannel<Number> armsChannel =
 				VariableChannel.construct(manager, getVariableStore(), arms);
 		VariableChannel<Number> legsChannel =
@@ -205,6 +212,7 @@ public class VariableChannelTest extends AbstractFormulaTestCase
 		legsChannel.set(4);
 		assertEquals(4, getVariableStore().get(legs));
 		assertEquals(4, legsChannel.get());
+		manager.processSolver(limbs);
 		assertEquals(4, getVariableStore().get(limbs));
 
 		assertEquals(0, armsChannel.get());
@@ -212,10 +220,12 @@ public class VariableChannelTest extends AbstractFormulaTestCase
 		armsChannel.set(3);
 		assertEquals(3, getVariableStore().get(arms));
 		assertEquals(3, armsChannel.get());
+		manager.processSolver(limbs);
 		assertEquals(7, getVariableStore().get(limbs));
 		armsChannel.set(6);
 		assertEquals(6, getVariableStore().get(arms));
 		assertEquals(6, armsChannel.get());
+		manager.processSolver(limbs);
 		assertEquals(10, getVariableStore().get(limbs));
 	}
 

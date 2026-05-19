@@ -160,8 +160,10 @@ jobs:
           cache-read-only: false
           cache-overwrite-existing: true
 
-      # Cache cross-platform JDK and JavaFX jmod archives downloaded by
-      # downloadJdk_* / downloadJavaFXMods_* tasks. These are pinned by
+      # Cache the host-platform JDK and JavaFX jmod archives downloaded by
+      # the downloadJdk / downloadJfxMods tasks. Filenames are stamped with
+      # ${hostOs}_${hostArch}, so each runner OS gets its own cache bucket
+      # via the runner-keyed actions/cache key. These are pinned by
       # javaVersion (gradle.properties) and the URL templates (build.gradle),
       # so keying on those file hashes invalidates correctly when we bump
       # the JDK or JavaFX version. We cache only the archives (.tar.gz / .zip)

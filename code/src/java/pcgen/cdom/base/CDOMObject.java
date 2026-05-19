@@ -35,7 +35,8 @@ import java.util.Optional;
 import java.util.Set;
 
 import org.jetbrains.annotations.NotNull;
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
+import pcgen.base.formula.base.ImplementedScope;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.DoubleKeyMapToList;
@@ -1232,18 +1233,36 @@ public abstract class CDOMObject extends ConcretePrereqObject
 		return this;
 	}
 
-	@Override
 	public Optional<String> getLocalScopeName()
 	{
 		//I don't have one
 		return Optional.empty();
 	}
 
-	@Override
 	public Optional<VarScoped> getVariableParent()
 	{
 		//Fall back to Global
 		return Optional.empty();
+	}
+
+	@Override
+	public VarScoped getProviderFor(ImplementedScope implScope)
+	{
+		if (implScope.isGlobal())
+		{
+			return this;
+		}
+		Optional<String> localName = getLocalScopeName();
+		if (localName.isPresent() && localName.get().equals(implScope.getName()))
+		{
+			return this;
+		}
+		Optional<VarScoped> parent = getVariableParent();
+		if (parent.isPresent())
+		{
+			return parent.get().getProviderFor(implScope);
+		}
+		return this;
 	}
 
 	@Override

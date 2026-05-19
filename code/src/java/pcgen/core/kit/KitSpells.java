@@ -23,7 +23,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
-import pcgen.base.formula.Formula;
+import pcgen.cdom.formula.Formula;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.content.KnownSpellIdentifier;

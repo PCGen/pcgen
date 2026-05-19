@@ -30,7 +30,7 @@ It supports numerous game systems, most notably:
 1. Install Java.
    - JDK 11 is recommended and has long term support, later versions should also work. 10 and below are not supported.
    - To check if you have Java installed, see [Install Java](#install-java)
-   - If you don't have it already, you can get it from [AdoptOpenJDK](https://adoptopenjdk.net/installation.html?variant=openjdk11&jvmVariant=hotspot).
+   - If you don't have it already, you can get it from [Eclipse Temurin](https://adoptium.net/temurin/releases/?version=11).
    
 2. Download and extract the full zip file from https://github.com/PCGen/pcgen/releases/latest.
 
@@ -113,7 +113,7 @@ Check the installed version with:
 
 For 6.08 development you will want Java with a minimum version of 11.
 For 6.09 development you will want Java with a minimum version of 25.
-You can install the latest version from [AdoptOpenJDK](https://adoptopenjdk.net) regardless of your OS, please see instructions there.
+You can install the latest version from [Eclipse Temurin](https://adoptium.net) regardless of your OS, please see instructions there.
 
 ### Install Git
 Check the installed version with:
@@ -150,7 +150,7 @@ Run the following command:
 This sets up the project for upstream rebasing to keep you level with changes.
 You can rebase the master with the latest changes with the following. It can be done from GUI as well.
 
-    git checkout master && git fetch upstream && git rebase master
+    git fetch upstream && git checkout master && git rebase upstream/master
 
 ### Get an IDE
 This step is optional. You are free to program in what you prefer, these are several popular IDEs for Java.
@@ -205,6 +205,19 @@ This mirrors what GitHub Actions runs to verify a PR; if it fails locally your C
 
 ### Generate IntelliJ IDEA Project
     ./gradlew idea
+
+### Build Native Application Bundle (jpackage)
+Produces a self-contained native app with a bundled JVM for the current platform.
+**Always use `fullJpackage`** — not `jpackageImage` directly. `jpackageImage` only builds
+the JVM runtime; `fullJpackage` also copies the required `data`, `plugins`, `preview`, and
+`outputsheets` folders into the bundle.
+
+    ./gradlew fullJpackage
+
+The output is placed in `build/jpackage/`.
+
+> **macOS note:** If the build fails with `Unable to delete directory 'build/jpackage'` due
+> to a `.DS_Store` file, run `rm -f build/jpackage/.DS_Store` and retry.
 
 ## Troubleshooting
 ####

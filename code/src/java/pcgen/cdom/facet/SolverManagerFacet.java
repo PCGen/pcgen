@@ -28,6 +28,7 @@ import pcgen.base.solver.SolverManager;
 import pcgen.cdom.content.VarModifier;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
+import pcgen.rules.context.VariableContext;
 
 /**
  * This stores the SolverManager for each PlayerCharacter.
@@ -49,10 +50,13 @@ public class SolverManagerFacet extends AbstractItemFacet<CharID, SolverManager>
 	public <T> boolean addModifier(CharID id, VarModifier<T> vm, VarScoped thisValue, Modifier<T> modifier,
 		ScopeInstance source)
 	{
-		ScopeInstance scope = scopeFacet.get(id, vm.getFullLegalScopeName(), thisValue);
-		VariableID<T> varID = (VariableID<T>) loadContextFacet.get(id.getDatasetID()).get().getVariableContext()
-			.getVariableID(scope, vm.getVarName());
-		return get(id).addModifierAndSolve(varID, modifier, source);
+		VariableContext varContext = loadContextFacet.get(id.getDatasetID()).get().getVariableContext();
+		ScopeInstance scope = resolveScope(id, vm, thisValue, varContext);
+		VariableID<T> varID = (VariableID<T>) varContext.getVariableID(scope, vm.getVarName());
+		SolverManager sm = get(id);
+		sm.addModifier(varID, modifier, source);
+		sm.processSolver(varID);
+		return true;
 	}
 
 	/**
@@ -61,10 +65,23 @@ public class SolverManagerFacet extends AbstractItemFacet<CharID, SolverManager>
 	public <T> void removeModifier(CharID id, VarModifier<T> vm, VarScoped thisValue, Modifier<T> modifier,
 		ScopeInstance source)
 	{
-		ScopeInstance scope = scopeFacet.get(id, vm.getFullLegalScopeName(), thisValue);
-		VariableID<T> varID = (VariableID<T>) loadContextFacet.get(id.getDatasetID()).get().getVariableContext()
-			.getVariableID(scope, vm.getVarName());
-		get(id).removeModifier(varID, modifier, source);
+		VariableContext varContext = loadContextFacet.get(id.getDatasetID()).get().getVariableContext();
+		ScopeInstance scope = resolveScope(id, vm, thisValue, varContext);
+		VariableID<T> varID = (VariableID<T>) varContext.getVariableID(scope, vm.getVarName());
+		SolverManager sm = get(id);
+		sm.removeModifier(varID, modifier, source);
+		sm.processSolver(varID);
+	}
+
+	private <T> ScopeInstance resolveScope(CharID id, VarModifier<T> vm, VarScoped thisValue,
+		VariableContext varContext)
+	{
+		if (vm.getLegalScope().isGlobal()
+			|| varContext.isLegalVariableID(scopeFacet.getGlobalScope(id).getImplementedScope(), vm.getVarName()))
+		{
+			return scopeFacet.getGlobalScope(id);
+		}
+		return scopeFacet.get(id, vm.getFullLegalScopeName(), thisValue);
 	}
 
 	public void setScopeFacet(ScopeFacet scopeFacet)
