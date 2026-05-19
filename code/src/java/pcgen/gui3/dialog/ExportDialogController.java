@@ -27,7 +27,6 @@ import java.net.URI;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import javax.swing.JCheckBox;
 
@@ -58,7 +57,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ProgressBar;
 import javafx.stage.FileChooser;
-import org.apache.commons.collections4.IteratorUtils;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -67,6 +65,8 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class ExportDialogController
 {
+	private static final String EXPORT_DIALOG_CONTEXT = "ExportDialog";
+
 	@FXML
 	private ComboBox<CharacterFacade> selectCharacterBox;
 	@FXML
@@ -144,7 +144,7 @@ public class ExportDialogController
 		}
 		else
 		{
-			PropertyContext context = UIPropertyContext.createContext("ExportDialog");
+			PropertyContext context = UIPropertyContext.createContext(EXPORT_DIALOG_CONTEXT);
 			context.setProperty(HTML_EXPORT_DIR_PROP, outFile.getParent());
 			SettingsHandler.setSelectedPartyHTMLOutputSheet(templateAsFile.getAbsolutePath());
 			BatchExporter.exportPartyToNonPDF(party, outFile, templateAsFile);
@@ -283,14 +283,7 @@ public class ExportDialogController
 		                    final Boolean newValue)
 		{
 			templateSelect.getSelectionModel().clearSelection();
-			if (newValue == true)
-			{
-				selectCharacterBox.setDisable(true);
-			}
-			else
-			{
-				selectCharacterBox.setDisable(false);
-			}
+			selectCharacterBox.setDisable(newValue);
 			refreshFiles(exportSheetType.getSelectionModel().getSelectedItem(), entireParty.isSelected());
 		}
 	}
@@ -302,20 +295,14 @@ public class ExportDialogController
 		                    final URI oldValue,
 		                    final URI newValue)
 		{
-			if (newValue != null)
-			{
-				doExport.setDisable(false);
-			} else
-			{
-				doExport.setDisable(true);
-			}
+			doExport.setDisable(newValue == null);
 		}
 	}
 
 	private void refreshFiles(ExportUtilities.SheetFilter sheetFilter, boolean exportParty)
 	{
 		URI[] validFiles = ExportUtilities.getValidFiles(allTemplates, sheetFilter, exportParty);
-		List<URI> validFilesAsList = Arrays.stream(validFiles).collect(Collectors.toList());
+		List<URI> validFilesAsList = Arrays.stream(validFiles).toList();
 		ObservableList<URI> observableTemplates = FXCollections.observableList(validFilesAsList);
 		templateSelect.itemsProperty().setValue(observableTemplates);
 	}
@@ -327,7 +314,7 @@ public class ExportDialogController
 		                    final ExportUtilities.SheetFilter oldValue,
 		                    final ExportUtilities.SheetFilter newValue)
 		{
-			PropertyContext context = UIPropertyContext.createContext("ExportDialog");
+			PropertyContext context = UIPropertyContext.createContext(EXPORT_DIALOG_CONTEXT);
 			context.setProperty(UIPropertyContext.DEFAULT_OS_TYPE,
 				exportSheetType.getSelectionModel().getSelectedItem().toString());
 			refreshFiles(newValue, entireParty.isSelected());
@@ -345,19 +332,19 @@ public class ExportDialogController
 	void initialize()
 	{
 		PartyFacade characters = CharacterManager.getCharacters();
-		ObservableList<CharacterFacade> observableList =
-				FXCollections.observableList(IteratorUtils.toList(characters.iterator()));
+		ObservableList<CharacterFacade> observableList = FXCollections.observableArrayList();
+		characters.forEach(observableList::add);
 		selectCharacterBox.setItems(observableList);
 		// todo: maybe select "current" character pcgenFrame.getSelectedCharacterRef() ???
 		selectCharacterBox.getSelectionModel().select(0);
 		entireParty.selectedProperty().addListener(new PartyCheckboxChangeListener());
 		templateSelect.getSelectionModel().selectedItemProperty().addListener(new TemplateSelectionListener());
 		List<ExportUtilities.SheetFilter> sheetFilterValues = Arrays.stream(
-				ExportUtilities.SheetFilter.values()).collect(Collectors.toList());
+				ExportUtilities.SheetFilter.values()).toList();
 		exportSheetType.setItems(FXCollections.observableList(sheetFilterValues));
 		exportSheetType.getSelectionModel().selectedItemProperty().addListener(new ExportSheetTypeSelectionListener());
 		exportSheetType.getSelectionModel().select(0);
-		PropertyContext context = UIPropertyContext.createContext("ExportDialog");
+		PropertyContext context = UIPropertyContext.createContext(EXPORT_DIALOG_CONTEXT);
 		String defaultOSType = context.getProperty(UIPropertyContext.DEFAULT_OS_TYPE);
 		if (defaultOSType != null)
 		{

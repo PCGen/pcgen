@@ -231,7 +231,6 @@ dependencies {
         exclude group: 'xalan', module: 'serializer'
     }
     implementation 'net.sf.saxon:Saxon-HE:12.9'
-    implementation 'org.apache.commons:commons-collections4:4.5.0'
     implementation 'org.scijava:jep:2.4.2'
     implementation 'org.freemarker:freemarker:2.3.34'
     implementation 'org.jdom:jdom2:2.0.6.1'
@@ -305,7 +304,7 @@ jar {
 jlink {
     options = ['--strip-debug', '--no-header-files', '--no-man-pages']
     forceMerge('PCGen-base', 'PCGen-Formula', 'jep', 'fop', 'Saxon-HE',
-               'commons-lang3', 'commons-io', 'commons-collections4', 'spring',
+               'commons-lang3', 'commons-io', 'spring',
                'freemarker', 'jdom2', 'argparse4j', 'xmlunit', 'controlsfx',
                'annotations', 'spotbugs', 'xmlresolver')
 

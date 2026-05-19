@@ -15,12 +15,12 @@
  */
 package pcgen.facade.util;
 
-import java.util.function.BiFunction;
+import java.util.function.BiPredicate;
 
 /**
  * A VetoableReferenceFacade is a WriteableReferenceFacade that allows functions to veto
  * changes to the underlying value
- * 
+ *
  * @param <T>
  *            The format of object stored in this VetoableReferenceFacade
  */
@@ -28,12 +28,12 @@ public interface VetoableReferenceFacade<T> extends WriteableReferenceFacade<T>
 {
 
 	/**
-	 * Adds a BiFunction to determine if a change should be vetoed. Returning TRUE results
+	 * Adds a BiPredicate to determine if a change should be vetoed. Returning TRUE results
 	 * in an item being vetoed.
-	 * 
+	 *
 	 * @param function
 	 *            The function to be added to determine if a change will be vetoed
 	 */
-	void addVetoToChannel(BiFunction<T, T, Boolean> function);
+	void addVetoToChannel(BiPredicate<T, T> function);
 
 }
