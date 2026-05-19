@@ -20,6 +20,7 @@ options {
   STATIC=false;
   VISITOR=true;
   MULTI=true;
+  UNICODE_INPUT=true;
 }
 
 PARSER_BEGIN( FormulaParser )
