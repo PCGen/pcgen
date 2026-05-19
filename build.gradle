@@ -472,10 +472,6 @@ tasks.named("prepareMergedJarsDir").configure {
 tasks.register("copyToOutput", Copy) {
     dependsOn copyToLibs, converterJar, jar
 
-    doFirst {
-        println("IN copyToOutput")
-    }
-
     from layout.buildDirectory.file("libs/pcgen-${version}.jar"),
         layout.buildDirectory.file("libs/pcgen-${version}-batch-convert.jar"),
         layout.projectDirectory.file("code/pcgen.bat")
@@ -516,24 +512,9 @@ tasks.register("cleanMods", Delete) {
     delete modsDir
 }
 
-// Alias tasks
-tasks.register("buildonly") {
-    doFirst {
-        println("IN buildonly")
-    }
-    dependsOn copyToOutput
-}
-
-tasks.register("quickbuild") {
-    dependsOn copyToOutput, test
-}
-
 tasks.named("build") {
-    // TODO reverts the commit f00f99c, because we don't have to generate all artifacts during the build
-    // dependsOn copyToOutput
-
-    // Ensures that clean is never run after build and when clean is called it is
-    // run before build so it doesn't delete the new build folder.
+    // Ensures clean runs before build (not after) when both are invoked,
+    // so it doesn't delete the freshly-built artifacts.
     mustRunAfter clean
 }
 
