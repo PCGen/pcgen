@@ -193,9 +193,12 @@ substitute `./gradlew` for `gradle` on the command line.
 
 ### Run Full Test Suite
 Do this primarily __before__ pull requests.
-This is almost exactly the command Travis runs to verify, if it fails locally you will fail the build, and your PR will not be merged.
+This mirrors what GitHub Actions runs to verify a PR; if it fails locally your CI build will also fail and your PR will not be merged.
 
-    ./gradlew clean build copyToOutput test compileSlowtest datatest pfinttest allReports buildDist
+    ./gradlew build
+    ./gradlew itest datatest slowtest
+
+`build` already runs the unit `test` task via the standard Java lifecycle, so it is not repeated. The second command runs the integration, data, and slow test suites.
 
 ### Clean All Build Files
     ./gradlew clean

@@ -40,12 +40,6 @@ ext {
         }
     }
 
-    programDistsImage = copySpec {
-        from(layout.buildDirectory.dir("launch4j")) {
-            include 'pcgen.exe'
-        }
-    }
-
     programScriptImage = copySpec {
         from('.') {
             include 'pcgen_low_mem.bat'
@@ -75,12 +69,6 @@ ext {
             include 'characters/*.pcg'
         }
     }
-
-    jreImage = copySpec {
-        from('.') {
-            include 'jdks/jdk_windows_x64/**'
-        }
-    }
 }
 
 application {
@@ -93,7 +81,6 @@ application {
     applicationDistribution.with(autobuildSpec)
     applicationDistribution.with(charactersImage)
     applicationDistribution.with(programScriptImage)
-    applicationDistribution.with(programDistsImage)
 }
 
 tasks.named("run") {
@@ -119,19 +106,6 @@ tasks.named("installDist") {
     }
 }
 
-tasks.register("testZip", Zip) {
-    dependsOn converterJar, copyToLibs, copyToOutput
-    archiveClassifier.set('test')
-    into(zipRootFolder) {
-        with dataDistsImage
-        with docsDistsImage
-        with programDistsImage
-        with libsDistsImage
-        with autobuildSpec
-        with charactersImage
-    }
-}
-
 tasks.register("dataZip", Zip) {
     dependsOn copyMasterSheets
     archiveClassifier.set('data')
@@ -153,7 +127,6 @@ tasks.register("programZip", Zip) {
     dependsOn converterJar
     archiveClassifier.set('program')
     into(zipRootFolder) {
-        with programDistsImage
         with programScriptImage
         with autobuildSpec
     }

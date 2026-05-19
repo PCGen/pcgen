@@ -1,4 +1,4 @@
-name: Create Release with Manual Tag
+name: Create Release on Tag Push
 
 on:
   push:
@@ -120,16 +120,8 @@ jobs:
         with:
           java-version: '25'
           distribution: 'temurin'
-          cache: gradle
-          cache-dependency-path: |
-            build.gradle
-            code/gradle/autobuild.gradle
-            code/gradle/distribution.gradle
-            code/gradle/release.gradle
-            code/gradle/reporting.gradle
-            code/gradle/plugins.gradle
 
-      # Configure Gradle for optimal use in GitHub Actions, including caching of downloaded dependencies.
+      # setup-gradle@v4 is the canonical Gradle cache for GitHub Actions.
       # See: https://github.com/gradle/actions/blob/main/setup-gradle/README.md
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
@@ -138,57 +130,48 @@ jobs:
           cache-read-only: false
           cache-overwrite-existing: true
 
-      - uses: actions/cache@v4
+      # Cache cross-platform JDK and JavaFX jmod archives downloaded by
+      # downloadJdk_* / downloadJavaFXMods_* tasks. These are pinned by
+      # javaVersion (gradle.properties) and the URL templates (build.gradle),
+      # so keying on those file hashes invalidates correctly when we bump
+      # the JDK or JavaFX version. We cache only the archives (.tar.gz / .zip)
+      # and let Gradle re-extract them each run via its own up-to-date checks.
+      - name: Cache downloaded JDK and JavaFX archives
+        uses: actions/cache@v4
         with:
           path: |
-            ${{ github.workspace }}/build/jre
-            ${{ github.workspace }}/build/libs
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+            jdks/jdk_*.tar.gz
+            jdks/jdk_*.zip
+            jdks/jfx_jmods_*.zip
+          key: jdks-${{ hashFiles('gradle.properties', 'build.gradle') }}
           restore-keys: |
-            ${{ matrix.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-            ${{ matrix.os }}-gradle
+            jdks-
 
-      - name: Build the image
-        if: success()
-        run: ./gradlew clean build copyToOutput test compileSlowtest datatest pfinttest allReports buildDist prepareRelease pcgenRelease
+      - name: Compile and run unit tests
+        run: ./gradlew clean build
 
-      - name: Upload zip based release assets for all platforms
+      - name: Run data and integration tests
+        run: ./gradlew compileSlowtest datatest pfinttest
+
+      - name: Run static analysis reports
+        run: ./gradlew allReports
+
+      - name: Build distribution zips
+        run: ./gradlew buildDist
+
+      - name: Build release artifacts
+        run: ./gradlew pcgenRelease
+
+      - name: Upload release artifacts as workflow artifacts
         uses: actions/upload-artifact@v4
-        if: matrix.os == 'macos-latest'
         with:
-          name: ${{ matrix.os }}-zip
-          path: ${{ github.workspace }}/build/release/image-*.zip
+          name: ${{ matrix.release_suffix }}-release
+          path: ${{ github.workspace }}/build/release/*
+          if-no-files-found: error
 
-      - name: Upload DMG release asset for macos
-        uses: actions/upload-artifact@v4
-        if: matrix.os == 'macos-latest'
+      - name: Attach release artifacts to GitHub Release
+        uses: softprops/action-gh-release@v2
         with:
-          name: ${{ matrix.os }}-dmg
-          path: ${{ github.workspace }}/build/release/*.dmg
-
-      - name: Upload PKG release asset for macos
-        uses: actions/upload-artifact@v4
-        if: matrix.os == 'macos-latest'
-        with:
-          name: ${{ matrix.os }}-pkg
-          path: ${{ github.workspace }}/build/release/*.pkg
-
-#      - name: Upload release assets for ubuntu
-#        uses: actions/upload-artifact@v4
-#        if: matrix.os == 'ubuntu-latest'
-#        with:
-#          name: ${{ matrix.os }}
-#          path: ${{ github.workspace }}/build/jpackage/*.deb
-#
-#      - name: Upload release assets for windows
-#        uses: actions/upload-artifact@v4
-#        if: matrix.os == 'windows-latest'
-#        with:
-#          name: ${{ matrix.os }}
-#          path: ${{ github.workspace }}/build/jpackage/*.msi
-#
-#      - name: Release - ${{ matrix.os }}
-#        uses: softprops/action-gh-release@v2
-#        with:
-#          tag_name: ${{ needs.create_release.outputs.tag-name }}
-#          files: ${{ github.workspace }}/build/release/pcgen-*.*
+          tag_name: ${{ inputs.tag_name || github.ref_name }}
+          files: ${{ github.workspace }}/build/release/*
+          fail_on_unmatched_files: true

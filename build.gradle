@@ -96,31 +96,12 @@ repositories {
     // Maven Central as a default
     mavenCentral()
 
-    // Use Ant Ivy Plugin to reference our own hosted repos
-    // for PCGen Base and PCGen Formula JARs
-    //ivy {
-        // TODO Enable HTTPS (e.g., add letsencrypt) for that location
-        //url "http://pcgen.sourceforge.net/mvnrepo"
-        //allowInsecureProtocol = true
-        //patternLayout {
-            //artifact "[organisation]/jars/[artifact]-[revision].[ext]"
-        //}
-    //}
     ivy {
         // TODO Enable HTTPS (e.g., add letsencrypt) for that location
         name = 'fileRepo'
         url = 'http://pc-gen.org/librepo/'
         allowInsecureProtocol = true
     }
-    // Use Maven plugin to reference freehep (https://java.freehep.org/) artifact repository
-    // TODO Which libs do we pull from here?
-    /*
-    maven {
-        name = 'free'
-        url = 'https://java.freehep.org/maven2'
-    }
-
-     */
     maven {
         name = 'local'
         url = 'installers'
@@ -146,13 +127,21 @@ sourceSets {
             srcDirs = ['code/src/resources']
         }
     }
-    // Running regular tests
-    test {
+    // Shared test utilities — compiled once, consumed by test/itest/slowtest.
+    testcommon {
         java {
-            srcDirs = ['code/src/utest', 'code/src/testcommon']
+            srcDirs = ['code/src/testcommon']
         }
         compileClasspath += sourceSets.main.output
         runtimeClasspath += sourceSets.main.output
+    }
+    // Running regular tests
+    test {
+        java {
+            srcDirs = ['code/src/utest']
+        }
+        compileClasspath += sourceSets.main.output + sourceSets.testcommon.output
+        runtimeClasspath += sourceSets.main.output + sourceSets.testcommon.output
         resources {
             srcDirs = ['code/src/testResources']
         }
@@ -160,7 +149,7 @@ sourceSets {
     // Integration Tests
     itest {
         java {
-            srcDirs = ['code/src/itest', 'code/src/testcommon']
+            srcDirs = ['code/src/itest']
         }
         resources {
             srcDirs = ['code/src/testResources']
@@ -171,7 +160,7 @@ sourceSets {
     // Running Slow Tests
     slowtest {
         java {
-            srcDirs = ['code/src/test', 'code/src/testcommon']
+            srcDirs = ['code/src/test']
         }
         resources {
             srcDirs = ['code/src/testResources']
@@ -179,6 +168,13 @@ sourceSets {
         compileClasspath += sourceSets.test.output + sourceSets.test.compileClasspath
         runtimeClasspath += sourceSets.test.output + sourceSets.test.runtimeClasspath
     }
+}
+
+// Make the testcommon source set use the same dependency configurations as test.
+configurations {
+    testcommonImplementation.extendsFrom testImplementation
+    testcommonRuntimeOnly.extendsFrom testRuntimeOnly
+    testcommonCompileOnly.extendsFrom testCompileOnly
 }
 
 /* Copy 'master' outputsheets into different genre folders */
@@ -258,11 +254,14 @@ dependencies {
     compileOnly 'com.yuvimasory:orange-extensions:1.3.0'
     compileOnly 'com.github.spotbugs:spotbugs-annotations:4.9.8'
 
-    testImplementation 'org.junit.platform:junit-platform-runner:1.14.4'
-    testImplementation 'org.junit.platform:junit-platform-launcher:6.0.3'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:6.0.3'
-    testImplementation 'org.junit.jupiter:junit-jupiter-params:6.0.3'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:6.0.3'
+    testImplementation platform('org.junit:junit-bom:6.0.3')
+    testImplementation 'org.junit.platform:junit-platform-launcher'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    // JUnit 4 is still used by ~870 legacy tests; pulled in via vintage engine + junit jar.
+    testImplementation 'junit:junit:4.13.2'
+    testRuntimeOnly 'org.junit.vintage:junit-vintage-engine'
     testImplementation 'org.hamcrest:hamcrest:3.0'
     testImplementation 'org.testfx:testfx-junit5:4.0.18'
 
@@ -449,7 +448,9 @@ if (Os.isFamily(Os.FAMILY_MAC)) {
     }
 }
 
-// Create the Data Convertor JAR
+// Create the Data Convertor JAR.
+// This is a thin jar containing only a manifest that points at pcgen.jar
+// (and the rest of the runtime classpath) via Class-Path.
 tasks.register("converterJar", Jar) {
     dependsOn jar
     manifest {
@@ -460,12 +461,6 @@ tasks.register("converterJar", Jar) {
     }
 
     archiveClassifier.set('batch-convert')
-    from {
-        configurations.runtimeClasspath.collect { it.directory ? it : zipTree(it) }
-    }
-
-    from sourceSets.main.output
-    include 'none'
 }
 
 tasks.named("assemble") {
@@ -733,9 +728,25 @@ tasks.register("testCoverage", JacocoReport) {
     executionData.from = fileTree(dir: layout.buildDirectory.dir("jacoco")).include("*.exec")
 }
 
+// https://docs.gradle.org/current/userguide/performance.html#a_run_tests_in_parallel
+def parallelTestForks = Runtime.runtime.availableProcessors().intdiv(2) ?: 1
+
 tasks.named("test", Test) {
     exclude 'test/pcgen/testsupport/**'
     useJUnitPlatform()
+    maxParallelForks = parallelTestForks
+    // TestFX/Monocle setup — only the unit test source set has TestFX-based tests.
+    jvmArgs += [
+            '-Dtestfx.robot=glass',
+            '-Dtestfx.headless=true',
+            '-Dprism.order=sw',
+            // Workaround for TestFX modularity issue. https://github.com/TestFX/TestFX/issues/638
+            '--add-exports', 'javafx.graphics/com.sun.javafx.application=ALL-UNNAMED',
+            // Required for Monocle.
+            '--add-exports', 'javafx.graphics/com.sun.javafx.util=ALL-UNNAMED',
+            '--add-exports', 'javafx.base/com.sun.javafx.logging=ALL-UNNAMED',
+            '--add-opens', 'javafx.graphics/com.sun.glass.ui=ALL-UNNAMED',
+    ]
 }
 
 tasks.register("itest", Test) {
@@ -744,6 +755,7 @@ tasks.register("itest", Test) {
     testClassesDirs = sourceSets.itest.output.classesDirs
     classpath = sourceSets.itest.runtimeClasspath
     systemProperties['jar.path'] = jar.getArchiveFile().get().getAsFile()
+    maxParallelForks = parallelTestForks
 }
 
 tasks.register("slowtest", Test) {
@@ -771,44 +783,23 @@ tasks.register("inttest", Test) {
     include 'slowtest/pcgen/inttest/**/*Test.class'
 }
 
-tasks.register("sfinttest", Test) {
-    dependsOn jar
-    testClassesDirs = sourceSets.slowtest.output.classesDirs
-    classpath = sourceSets.slowtest.runtimeClasspath
-    forkEvery = 1
-    include 'slowtest/pcgen/inttest/game_starfinder/*Test.class'
-}
-
-tasks.register("pfinttest", Test) {
-    dependsOn jar
-    testClassesDirs = sourceSets.slowtest.output.classesDirs
-    classpath = sourceSets.slowtest.runtimeClasspath
-    forkEvery = 1
-    include 'slowtest/pcgen/inttest/game_pathfinder/*Test.class'
-}
-
-tasks.register("rsrdinttest", Test) {
-    dependsOn jar
-    testClassesDirs = sourceSets.slowtest.output.classesDirs
-    classpath = sourceSets.slowtest.runtimeClasspath
-    forkEvery = 1
-    include 'slowtest/pcgen/inttest/game_35e/*Test.class'
-}
-
-tasks.register("srdinttest", Test) {
-    dependsOn jar
-    testClassesDirs = sourceSets.slowtest.output.classesDirs
-    classpath = sourceSets.slowtest.runtimeClasspath
-    forkEvery = 1
-    include 'slowtest/pcgen/inttest/game_3e/*Test.class'
-}
-
-tasks.register("msrdinttest", Test) {
-    dependsOn jar
-    testClassesDirs = sourceSets.slowtest.output.classesDirs
-    classpath = sourceSets.slowtest.runtimeClasspath
-    forkEvery = 1
-    include 'slowtest/pcgen/inttest/game_modern/*Test.class'
+// Per-game-mode inttest variants. Each runs only the inttest classes for one
+// game directory under code/src/test/pcgen/inttest. CI references these names
+// (e.g. pfinttest) so the task names are stable.
+[
+        sfinttest  : 'game_starfinder',
+        pfinttest  : 'game_pathfinder',
+        rsrdinttest: 'game_35e',
+        srdinttest : 'game_3e',
+        msrdinttest: 'game_modern',
+].each { taskName, gameDir ->
+    tasks.register(taskName, Test) {
+        dependsOn jar
+        testClassesDirs = sourceSets.slowtest.output.classesDirs
+        classpath = sourceSets.slowtest.runtimeClasspath
+        forkEvery = 1
+        include "slowtest/pcgen/inttest/${gameDir}/*Test.class"
+    }
 }
 
 allprojects {
@@ -826,22 +817,12 @@ allprojects {
         }
         jvmArgs += [
                 '-Djava.awt.headless=true',
-                '-Dtestfx.robot=glass',
-                '-Dtestfx.headless=true',
-                '-Dprism.order=sw',
-                '-Dprism.verbose=true',
                 '-Djavafx.macosx.embedded=true',
                 '-Djava.security.manager=disallow',
 
                 "--module-path", layout.projectDirectory.dir("mods/lib"),
                 "--add-modules", "javafx.controls,javafx.web,javafx.swing,javafx.fxml,javafx.graphics",
 
-                // Needed to fix issue with testfx test crashing due to issue with modularity of whole program. Slightly related issue. https://github.com/TestFX/TestFX/issues/638
-                '--add-exports', 'javafx.graphics/com.sun.javafx.application=ALL-UNNAMED',
-                // Next two needed to support monocle testing
-                '--add-exports', 'javafx.graphics/com.sun.javafx.util=ALL-UNNAMED',
-                '--add-exports', 'javafx.base/com.sun.javafx.logging=ALL-UNNAMED',
-                '--add-opens', 'javafx.graphics/com.sun.glass.ui=ALL-UNNAMED',
                 '--enable-native-access=javafx.graphics',
         ]
     }
