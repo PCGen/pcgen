@@ -66,7 +66,7 @@ public class DynamicScope implements PCGenScope
 	@Override
 	public String getName()
 	{
-		return category.getName();
+		return GlobalPCScope.GLOBAL_SCOPE_NAME + "." + category.getName();
 	}
 
 	@Override
