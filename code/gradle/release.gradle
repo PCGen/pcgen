@@ -32,7 +32,7 @@ ext {
 }
 
 tasks.register("sourcesJar", Jar) {
-    dependsOn classes, copyToOutput, distTar, distZip, startScripts
+    dependsOn classes, copyToOutput, startScripts
     duplicatesStrategy = DuplicatesStrategy.INCLUDE
     description = "build source jar file"
     archiveClassifier.set('sources')
