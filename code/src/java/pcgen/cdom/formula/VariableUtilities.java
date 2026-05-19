@@ -179,7 +179,8 @@ public final class VariableUtilities
 		String name)
 	{
 		ScopeInstanceFactory instFactory = SCOPE_FACET.get(id);
-		ScopeInstance scopeInst = SCOPE_FACET.get(id, owner);
+		PCGenScoped pcGenOwner = (PCGenScoped) owner;
+		ScopeInstance scopeInst = instFactory.get(pcGenOwner.getLocalScopeName().get(), owner);
 		return VariableUtilities.getLocalVariableID(id, scopeInst, name);
 	}
 }
