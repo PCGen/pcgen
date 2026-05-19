@@ -12,9 +12,11 @@ java {
     modularity.inferModulePath = true
 }
 
+def generatedJavaccDir = layout.buildDirectory.dir('generated/sources/javacc').get().asFile
+
 sourceSets {
     main {
-        java { srcDirs = ['code/src/java'] }
+        java { srcDirs = ['code/src/java', generatedJavaccDir] }
     }
     test {
         java { srcDirs = ['code/src/test'] }
@@ -25,8 +27,14 @@ repositories {
     mavenCentral()
 }
 
+configurations {
+    javacc
+}
+
 dependencies {
     api project(':PCGen-base')
+
+    javacc 'net.java.dev.javacc:javacc:7.0.13'
 
     testImplementation platform('org.junit:junit-bom:5.11.4')
     testImplementation 'org.junit.jupiter:junit-jupiter-api'
@@ -35,6 +43,44 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
     testRuntimeOnly 'org.junit.vintage:junit-vintage-engine'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+// The hand-maintained AST classes, visitors, Node, SimpleNode, and Operator are checked
+// into code/src/java. Only the pure-boilerplate JavaCC outputs (FormulaParser,
+// FormulaParserConstants, FormulaParserTokenManager, ParseException, Token, TokenMgrError,
+// SimpleCharStream) are generated at build time from formula.jjt.
+def jjtreeOutDir = layout.buildDirectory.dir('generated/jjtree').get().asFile
+
+tasks.register('jjtree', JavaExec) {
+    def src = file('code/src/jjtree/pcgen/base/formula/parse/formula.jjt')
+    inputs.file(src)
+    outputs.dir(jjtreeOutDir)
+    classpath = configurations.javacc
+    mainClass = 'jjtree'
+    args "-OUTPUT_DIRECTORY=${jjtreeOutDir}", src.absolutePath
+    doFirst {
+        jjtreeOutDir.deleteDir()
+        jjtreeOutDir.mkdirs()
+    }
+}
+
+tasks.register('javacc', JavaExec) {
+    dependsOn 'jjtree'
+    def jjFile = new File(jjtreeOutDir, 'formula.jj')
+    def outDir = new File(generatedJavaccDir, 'pcgen/base/formula/parse')
+    inputs.file(jjFile)
+    outputs.dir(generatedJavaccDir)
+    classpath = configurations.javacc
+    mainClass = 'javacc'
+    args "-OUTPUT_DIRECTORY=${outDir}", jjFile.absolutePath
+    doFirst {
+        generatedJavaccDir.deleteDir()
+        outDir.mkdirs()
+    }
+}
+
+tasks.named('compileJava') {
+    dependsOn 'javacc'
 }
 
 tasks.named('test') {
