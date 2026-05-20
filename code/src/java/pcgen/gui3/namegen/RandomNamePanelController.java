@@ -1,0 +1,300 @@
+/*
+ * Copyright 2026 Vest <Vest@users.noreply.github.com>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ */
+package pcgen.gui3.namegen;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+import java.util.Objects;
+
+import pcgen.core.SettingsHandler;
+import pcgen.core.namegen.GeneratedName;
+import pcgen.core.namegen.NameGenerator;
+import pcgen.core.namegen.RuleSet;
+import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
+
+import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.Toggle;
+import javafx.scene.control.ToggleGroup;
+import javafx.stage.Stage;
+
+/**
+ * JavaFX controller behind the random-name dialog. Drives two cascading
+ * combo boxes (Category → Title) and a gender radio group with sticky
+ * fallback, then asks the headless {@link NameGenerator} for names.
+ */
+public final class RandomNamePanelController
+{
+	@FXML
+	private ComboBox<String> categoryCombo;
+	@FXML
+	private ComboBox<String> titleCombo;
+	@FXML
+	private ToggleGroup genderGroup;
+	@FXML
+	private RadioButton genderFemale;
+	@FXML
+	private RadioButton genderMale;
+	@FXML
+	private RadioButton genderOther;
+	@FXML
+	private Label generatedNameLabel;
+	@FXML
+	private Label meaningLabel;
+	@FXML
+	private Label pronunciationLabel;
+
+	private NameGenerator nameGenerator;
+	private String chosenName = "";
+	private String chosenGender = "";
+	private boolean cancelled = true;
+	private String preferredGender;
+
+	@FXML
+	void initialize()
+	{
+		try
+		{
+			nameGenerator = new NameGenerator(new File(getDataDir()));
+		}
+		catch (IOException e)
+		{
+			Logging.errorPrint("failed to load random-name data", e);
+			generatedNameLabel.setText(LanguageBundle.getString("in_rndNmDefault"));
+			return;
+		}
+
+		categoryCombo.setItems(FXCollections.observableArrayList(nameGenerator.getCategories()));
+		categoryCombo.valueProperty().addListener((obs, old, val) -> onCategoryChanged(val));
+		titleCombo.valueProperty().addListener((obs, old, val) -> onTitleChanged(val));
+		genderGroup.selectedToggleProperty().addListener((obs, old, val) -> onGenderChanged(val));
+
+		if (!categoryCombo.getItems().isEmpty())
+		{
+			categoryCombo.getSelectionModel().selectFirst();
+		}
+	}
+
+	/**
+	 * Called by {@link RandomNameDialog} before showing, to pre-select a
+	 * gender if the character already has one. Must be invoked on the FX
+	 * thread, after the FXML has loaded.
+	 */
+	public void setInitialGender(String gender)
+	{
+		preferredGender = gender;
+		if (gender != null && !gender.isEmpty() && titleCombo.getValue() != null)
+		{
+			selectGender(gender);
+		}
+	}
+
+	private void onCategoryChanged(String category)
+	{
+		if (category == null)
+		{
+			titleCombo.setItems(FXCollections.emptyObservableList());
+			return;
+		}
+		List<String> titles = nameGenerator.getTitlesFor(category);
+		titleCombo.setItems(FXCollections.observableArrayList(titles));
+		if (!titles.isEmpty())
+		{
+			titleCombo.getSelectionModel().selectFirst();
+		}
+	}
+
+	private void onTitleChanged(String title)
+	{
+		String category = categoryCombo.getValue();
+		if (category == null || title == null)
+		{
+			disableAllGenders();
+			return;
+		}
+		List<String> available = nameGenerator.getGendersFor(category, title);
+		genderFemale.setDisable(!available.contains("Female"));
+		genderMale.setDisable(!available.contains("Male"));
+		genderOther.setDisable(!available.contains("Other"));
+
+		String previous = currentGender();
+		String target = chooseStickyGender(available, previous);
+		selectGender(target);
+	}
+
+	private void onGenderChanged(Toggle selected)
+	{
+		// Cleared selection happens transiently while we swap toggles —
+		// don't react until a button is actually selected.
+		if (selected == null)
+		{
+			return;
+		}
+		clearOutput();
+	}
+
+	@FXML
+	void onGenerate(ActionEvent event)
+	{
+		RuleSet catalog = currentCatalog();
+		if (catalog == null)
+		{
+			return;
+		}
+		try
+		{
+			GeneratedName result = nameGenerator.generate(catalog);
+			generatedNameLabel.setText(result.name());
+			meaningLabel.setText(LanguageBundle.getString("in_rndNameMeaning") + " " + result.meaning());
+			pronunciationLabel.setText(LanguageBundle.getString("in_rndNmPronounciation") + " " + result.pronunciation());
+		}
+		catch (Exception e)
+		{
+			Logging.errorPrint("failed to generate random name", e);
+		}
+	}
+
+	@FXML
+	void onOk(ActionEvent event)
+	{
+		String text = generatedNameLabel.getText();
+		String defaultLabel = LanguageBundle.getString("in_rndNmDefault");
+		// If the user clicks OK without ever generating, treat as cancel.
+		if (text == null || text.isEmpty() || text.equals(defaultLabel))
+		{
+			cancelled = true;
+		}
+		else
+		{
+			cancelled = false;
+			chosenName = text;
+			chosenGender = currentGender();
+		}
+		closeStage(event);
+	}
+
+	@FXML
+	void onCancel(ActionEvent event)
+	{
+		cancelled = true;
+		closeStage(event);
+	}
+
+	public String getChosenName()
+	{
+		return cancelled ? "" : chosenName;
+	}
+
+	public String getGender()
+	{
+		return cancelled ? "" : chosenGender;
+	}
+
+	private RuleSet currentCatalog()
+	{
+		String category = categoryCombo.getValue();
+		String title = titleCombo.getValue();
+		String gender = currentGender();
+		if (category == null || title == null || gender.isEmpty())
+		{
+			return null;
+		}
+		return nameGenerator.getCatalog(category, title, gender);
+	}
+
+	private String currentGender()
+	{
+		Toggle selected = genderGroup.getSelectedToggle();
+		if (selected instanceof RadioButton rb)
+		{
+			return rb.getText();
+		}
+		return "";
+	}
+
+	private String chooseStickyGender(List<String> available, String previous)
+	{
+		if (available.isEmpty())
+		{
+			return "";
+		}
+		boolean previousStillValid = previous != null && available.contains(previous);
+		if (previousStillValid)
+		{
+			return previous;
+		}
+		boolean preferredStillValid = preferredGender != null && available.contains(preferredGender);
+		if (preferredStillValid)
+		{
+			return preferredGender;
+		}
+		return available.get(0);
+	}
+
+	private void selectGender(String gender)
+	{
+		RadioButton target = switch (gender)
+		{
+			case "Female" -> genderFemale;
+			case "Male" -> genderMale;
+			case "Other" -> genderOther;
+			default -> null;
+		};
+		if (target != null && !target.isDisable())
+		{
+			target.setSelected(true);
+		}
+		else
+		{
+			genderGroup.selectToggle(null);
+		}
+	}
+
+	private void disableAllGenders()
+	{
+		genderFemale.setDisable(true);
+		genderMale.setDisable(true);
+		genderOther.setDisable(true);
+		genderGroup.selectToggle(null);
+	}
+
+	private void clearOutput()
+	{
+		generatedNameLabel.setText(LanguageBundle.getString("in_rndNmDefault"));
+		meaningLabel.setText(LanguageBundle.getString("in_rndNameMeaning"));
+		pronunciationLabel.setText(LanguageBundle.getString("in_rndNmPronounciation"));
+	}
+
+	private void closeStage(ActionEvent event)
+	{
+		Object source = event.getSource();
+		if (source instanceof javafx.scene.Node node && node.getScene() != null
+				&& node.getScene().getWindow() instanceof Stage stage)
+		{
+			stage.close();
+		}
+	}
+
+	private static String getDataDir()
+	{
+		return Objects.requireNonNull(SettingsHandler.getGmgenPluginDir()).toString()
+				+ File.separator + "Random Names";
+	}
+}

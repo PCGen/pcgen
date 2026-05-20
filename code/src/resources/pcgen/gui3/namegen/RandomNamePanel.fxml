@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Scene?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<!--
+  * Copyright 2026 Vest <Vest@users.noreply.github.com>
+  *
+  * This library is free software; you can redistribute it and/or
+  * modify it under the terms of the GNU Lesser General Public
+  * License as published by the Free Software Foundation; either
+  * version 2.1 of the License, or (at your option) any later version.
+  *
+  * This library is distributed in the hope that it will be useful,
+  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+  * Lesser General Public License for more details.
+  -->
+
+<Scene xmlns="http://javafx.com/javafx"
+       xmlns:fx="http://javafx.com/fxml"
+       fx:controller="pcgen.gui3.namegen.RandomNamePanelController">
+    <VBox spacing="8.0">
+        <padding>
+            <Insets top="10.0" right="12.0" bottom="10.0" left="12.0"/>
+        </padding>
+
+        <Label text="%in_rndNameCategory" labelFor="$categoryCombo"/>
+        <ComboBox fx:id="categoryCombo" maxWidth="Infinity"/>
+
+        <Label text="%in_rndNameCatalog" labelFor="$titleCombo"/>
+        <ComboBox fx:id="titleCombo" maxWidth="Infinity"/>
+
+        <Label text="%in_rndNameSex"/>
+        <HBox fx:id="genderBox" spacing="12.0">
+            <fx:define>
+                <ToggleGroup fx:id="genderGroup"/>
+            </fx:define>
+            <RadioButton fx:id="genderFemale" text="Female" toggleGroup="$genderGroup"/>
+            <RadioButton fx:id="genderMale" text="Male" toggleGroup="$genderGroup"/>
+            <RadioButton fx:id="genderOther" text="Other" toggleGroup="$genderGroup"/>
+        </HBox>
+
+        <Label fx:id="generatedNameLabel" text="%in_rndNmDefault">
+            <font>
+                <Font size="20.0"/>
+            </font>
+        </Label>
+        <Label fx:id="meaningLabel" text="%in_rndNameMeaning"/>
+        <Label fx:id="pronunciationLabel" text="%in_rndNmPronounciation"/>
+
+        <ButtonBar>
+            <buttons>
+                <Button fx:id="generateButton" text="%in_rndNameGenerate" onAction="#onGenerate"/>
+                <Button fx:id="okButton" text="%in_ok" onAction="#onOk" defaultButton="true"/>
+                <Button fx:id="cancelButton" text="%in_cancel" onAction="#onCancel" cancelButton="true"/>
+            </buttons>
+        </ButtonBar>
+    </VBox>
+</Scene>
