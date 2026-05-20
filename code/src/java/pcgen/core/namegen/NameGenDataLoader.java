@@ -46,8 +46,8 @@ import pcgen.util.Logging;
  * {@code pcgen.gui2.namegen.NameGenPanel}; pulling it here decouples the
  * data model from any UI toolkit.
  *
- * <p>Uses the JDK-bundled {@code javax.xml.parsers} API rather than a
- * third-party XML library so the project doesn't need to ship JDOM2.
+ * <p>Uses the JDK-bundled {@code javax.xml.parsers} API so the project
+ * doesn't need a third-party XML library.
  */
 public final class NameGenDataLoader
 {
@@ -222,12 +222,12 @@ public final class NameGenDataLoader
 	}
 
 	/**
-	 * Returns the concatenation of direct child text nodes only —
-	 * matches JDOM2's {@code Element.getText()} semantics, which
-	 * excludes text inside descendant elements. Needed because the
+	 * Returns the concatenation of direct child text nodes only,
+	 * excluding text inside descendant elements. Needed because the
 	 * data files use mixed content like
 	 * {@code <VALUE>Donn<SUBVALUE>...</SUBVALUE></VALUE>} where the
-	 * value is just {@code "Donn"}.
+	 * value is just {@code "Donn"} — {@code Element.getTextContent()}
+	 * would return {@code "Donn"} concatenated with the subvalue's text.
 	 */
 	private static String directText(Element parent)
 	{

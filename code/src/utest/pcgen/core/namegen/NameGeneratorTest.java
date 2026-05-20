@@ -132,8 +132,9 @@ public class NameGeneratorTest
 	{
 		// In gaelic.xml, <VALUE>Donn<SUBVALUE type="meaning">brown,
 		// brown-haired</SUBVALUE></VALUE>: the value text must be just
-		// "Donn", not "Donnbrown, brown-haired". Regression guard for
-		// JDOM2 → javax.xml.parsers (Element.getText vs getTextContent).
+		// "Donn", not "Donnbrown, brown-haired" — the DOM's
+		// getTextContent concatenates descendant text, but the data
+		// model stores the value separately from its subvalues.
 		DataElement el = generator.getData().allVars()
 				.getDataElement("gaelic-male-descriptive-byname");
 		assertTrue(el instanceof DDList, "expected a DDList");

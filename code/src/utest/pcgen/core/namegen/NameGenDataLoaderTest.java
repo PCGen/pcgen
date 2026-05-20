@@ -28,8 +28,7 @@ import org.junit.jupiter.api.io.TempDir;
 
 /**
  * Smoke tests for {@link NameGenDataLoader} against the bundled
- * {@code plugins/Random Names} dataset. Pinned ahead of the JDOM2 →
- * javax.xml.parsers swap so the rewrite has a regression net.
+ * {@code plugins/Random Names} dataset.
  */
 public class NameGenDataLoaderTest
 {
