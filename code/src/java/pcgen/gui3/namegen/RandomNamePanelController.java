@@ -21,6 +21,7 @@ import java.util.Objects;
 import pcgen.core.SettingsHandler;
 import pcgen.core.namegen.GeneratedName;
 import pcgen.core.namegen.NameGenerator;
+import pcgen.core.namegen.Rule;
 import pcgen.core.namegen.RuleSet;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
@@ -28,6 +29,7 @@ import pcgen.util.Logging;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
@@ -60,6 +62,10 @@ public final class RandomNamePanelController
 	private Label meaningLabel;
 	@FXML
 	private Label pronunciationLabel;
+	@FXML
+	private CheckBox randomStructureCheck;
+	@FXML
+	private ComboBox<Rule> structureCombo;
 
 	private NameGenerator nameGenerator;
 	private String chosenName = "";
@@ -85,6 +91,8 @@ public final class RandomNamePanelController
 		categoryCombo.valueProperty().addListener((obs, old, val) -> onCategoryChanged(val));
 		titleCombo.valueProperty().addListener((obs, old, val) -> onTitleChanged(val));
 		genderGroup.selectedToggleProperty().addListener((obs, old, val) -> onGenderChanged(val));
+		randomStructureCheck.selectedProperty().addListener((obs, old, val) -> onRandomStructureChanged(val));
+		structureCombo.setDisable(true);
 
 		if (!categoryCombo.getItems().isEmpty())
 		{
@@ -147,7 +155,28 @@ public final class RandomNamePanelController
 		{
 			return;
 		}
+		refreshStructureCombo();
 		clearOutput();
+	}
+
+	private void onRandomStructureChanged(boolean random)
+	{
+		structureCombo.setDisable(random);
+	}
+
+	private void refreshStructureCombo()
+	{
+		RuleSet catalog = currentCatalog();
+		if (catalog == null)
+		{
+			structureCombo.setItems(FXCollections.emptyObservableList());
+			return;
+		}
+		structureCombo.setItems(FXCollections.observableArrayList(nameGenerator.getRulesFor(catalog)));
+		if (!structureCombo.getItems().isEmpty())
+		{
+			structureCombo.getSelectionModel().selectFirst();
+		}
 	}
 
 	@FXML
@@ -160,7 +189,9 @@ public final class RandomNamePanelController
 		}
 		try
 		{
-			GeneratedName result = nameGenerator.generate(catalog);
+			GeneratedName result = useForcedRule()
+					? nameGenerator.generateWithRule(structureCombo.getValue())
+					: nameGenerator.generate(catalog);
 			generatedNameLabel.setText(result.name());
 			meaningLabel.setText(LanguageBundle.getString("in_rndNameMeaning") + " " + result.meaning());
 			pronunciationLabel.setText(LanguageBundle.getString("in_rndNmPronounciation") + " " + result.pronunciation());
@@ -169,6 +200,11 @@ public final class RandomNamePanelController
 		{
 			Logging.errorPrint("failed to generate random name", e);
 		}
+	}
+
+	private boolean useForcedRule()
+	{
+		return !randomStructureCheck.isSelected() && structureCombo.getValue() != null;
 	}
 
 	@FXML

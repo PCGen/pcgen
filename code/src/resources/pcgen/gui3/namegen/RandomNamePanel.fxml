@@ -4,9 +4,11 @@
 <?import javafx.scene.Scene?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -57,6 +59,17 @@
         </Label>
         <Label fx:id="meaningLabel" text="%in_rndNameMeaning"/>
         <Label fx:id="pronunciationLabel" text="%in_rndNmPronounciation"/>
+
+        <TitledPane fx:id="advancedPane" text="%in_rndNameAdjust" expanded="false" animated="false">
+            <VBox spacing="6.0">
+                <padding>
+                    <Insets top="6.0" right="6.0" bottom="6.0" left="6.0"/>
+                </padding>
+                <CheckBox fx:id="randomStructureCheck" text="%in_randomButton" selected="true"/>
+                <Label labelFor="$structureCombo" text="%in_rndNameStructure"/>
+                <ComboBox fx:id="structureCombo" maxWidth="Infinity"/>
+            </VBox>
+        </TitledPane>
 
         <ButtonBar>
             <buttons>

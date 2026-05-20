@@ -65,6 +65,8 @@ class RandomNamePanelTest
 		FxAssert.verifyThat("#genderFemale", NodeMatchers.isVisible());
 		FxAssert.verifyThat("#genderMale", NodeMatchers.isVisible());
 		FxAssert.verifyThat("#genderOther", NodeMatchers.isVisible());
+		FxAssert.verifyThat("#advancedPane", NodeMatchers.isVisible());
+		FxAssert.verifyThat("#randomStructureCheck", NodeMatchers.isVisible());
 		FxAssert.verifyThat("#generateButton", NodeMatchers.isVisible());
 		FxAssert.verifyThat("#okButton", NodeMatchers.isVisible());
 		FxAssert.verifyThat("#cancelButton", NodeMatchers.isVisible());
