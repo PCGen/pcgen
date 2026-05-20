@@ -10,10 +10,6 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 package pcgen.gui2.namegen;
 
@@ -24,17 +20,10 @@ import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.ActionEvent;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.net.URL;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.ListIterator;
-import java.util.Map;
-import java.util.Set;
 import java.util.Vector;
 
 import javax.swing.BoxLayout;
@@ -49,36 +38,24 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 
-import pcgen.core.namegen.CRRule;
 import pcgen.core.namegen.DataElement;
 import pcgen.core.namegen.DataElementComperator;
-import pcgen.core.namegen.DataValue;
-import pcgen.core.namegen.HyphenRule;
+import pcgen.core.namegen.GeneratedName;
+import pcgen.core.namegen.NameGenerator;
 import pcgen.core.namegen.Rule;
 import pcgen.core.namegen.RuleSet;
-import pcgen.core.namegen.SpaceRule;
-import pcgen.core.namegen.VariableHashMap;
-import pcgen.core.namegen.WeightedDataValue;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.util.FontManipulation;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
-import org.jdom2.DataConversionException;
-import org.jdom2.DocType;
-import org.jdom2.Document;
-import org.jdom2.Element;
-import org.jdom2.input.SAXBuilder;
-import org.xml.sax.EntityResolver;
-import org.xml.sax.InputSource;
-
 /**
- * Main panel of the random name generator.
+ * Main panel of the random name generator. Swing rendering only; all data
+ * loading and rule evaluation is delegated to {@link NameGenerator}.
  */
 @SuppressWarnings({"UseOfObsoleteCollectionType", "PMD.UseArrayListInsteadOfVector"})
 public class NameGenPanel extends JPanel
 {
-	private final Map<String, List<RuleSet>> categories = new HashMap<>();
 	private JButton generateButton;
 	private JButton jButton1;
 	private JCheckBox chkStructure;
@@ -115,9 +92,9 @@ public class NameGenPanel extends JPanel
 	private JSeparator jSeparator3;
 	private JSeparator jSeparator4;
 	private JTextField name;
-	private final VariableHashMap allVars = new VariableHashMap();
 
-	private Rule lastRule = null;
+	private NameGenerator nameGen;
+	private Rule lastRule;
 
 	/** Creates new form NameGenPanel */
 	public NameGenPanel()
@@ -127,13 +104,22 @@ public class NameGenPanel extends JPanel
 
 	/**
 	 * Constructs a NameGenPanel given a dataPath
-	 * 
+	 *
 	 * @param dataPath The path to the random name data files.
 	 */
 	public NameGenPanel(File dataPath)
 	{
 		initComponents();
-		loadData(dataPath);
+		try
+		{
+			nameGen = new NameGenerator(dataPath);
+			loadDropdowns();
+		}
+		catch (IOException e)
+		{
+			Logging.errorPrint(e.getMessage(), e);
+			JOptionPane.showMessageDialog(this, "Failed to load name data: " + e.getMessage());
+		}
 	}
 
 	/**
@@ -144,96 +130,31 @@ public class NameGenPanel extends JPanel
 	{
 		try
 		{
-			Rule rule;
-
+			RuleSet rs = (RuleSet) cbCatalog.getSelectedItem();
+			if (rs == null)
+			{
+				return null;
+			}
+			GeneratedName result;
 			if (chkStructure.isSelected())
 			{
-				RuleSet rs = (RuleSet) cbCatalog.getSelectedItem();
-				rule = rs.getRule();
+				result = nameGen.generate(rs);
 			}
 			else
 			{
-				rule = (Rule) cbStructure.getSelectedItem();
+				Rule rule = (Rule) cbStructure.getSelectedItem();
+				result = nameGen.generateWithRule(rule);
 			}
-
-			List<DataValue> aName = rule.getData();
-			setNameText(aName);
-			setMeaningText(aName);
-			setPronounciationText(aName);
-
-			return rule;
+			name.setText(result.name());
+			meaning.setText(result.meaning());
+			pronounciation.setText(result.pronunciation());
+			return result.rule();
 		}
 		catch (Exception e)
 		{
 			Logging.errorPrint(e.getMessage(), e);
-
 			return null;
 		}
-	}
-
-	private void setMeaningText(String meaning)
-	{
-		this.meaning.setText(meaning);
-	}
-
-	private void setMeaningText(Iterable<DataValue> data)
-	{
-		StringBuilder meaningBuffer = new StringBuilder();
-
-		for (DataValue val : data)
-		{
-			String aMeaning = val.getSubValue("meaning"); //$NON-NLS-1$ // XML attribute no translation
-
-			if (aMeaning == null)
-			{
-				aMeaning = val.getValue();
-			}
-
-			meaningBuffer.append(aMeaning);
-		}
-
-		setMeaningText(meaningBuffer.toString());
-	}
-
-	private void setNameText(String name)
-	{
-		this.name.setText(name);
-	}
-
-	private void setNameText(Iterable<DataValue> data)
-	{
-		StringBuilder nameBuffer = new StringBuilder();
-
-		for (DataValue val : data)
-		{
-			nameBuffer.append(val.getValue());
-		}
-
-		setNameText(nameBuffer.toString());
-	}
-
-	private void setPronounciationText(String pronounciation)
-	{
-		this.pronounciation.setText(pronounciation);
-	}
-
-	private void setPronounciationText(Iterable<DataValue> data)
-	{
-		StringBuilder proBuffer = new StringBuilder();
-
-		for (DataValue val : data)
-		{
-			String aPronounciation = val.getSubValue("pronounciation");
-
-			if (aPronounciation == null)
-			{
-				aPronounciation = val.getValue();
-			}
-
-			proBuffer.append(aPronounciation);
-		}
-
-		setPronounciationText(proBuffer.toString());
 	}
 
 	private void NameButtonActionPerformed(ActionEvent evt)
@@ -261,11 +182,22 @@ public class NameGenPanel extends JPanel
 				this.lastRule = rule;
 			}
 
-			List<DataValue> aName = rule.getLastData();
+			List<pcgen.core.namegen.DataValue> aName = rule.getLastData();
 
-			setNameText(aName);
-			setMeaningText(aName);
-			setPronounciationText(aName);
+			StringBuilder n = new StringBuilder();
+			StringBuilder m = new StringBuilder();
+			StringBuilder p = new StringBuilder();
+			for (pcgen.core.namegen.DataValue v : aName)
+			{
+				n.append(v.getValue());
+				String mm = v.getSubValue("meaning");
+				m.append(mm == null ? v.getValue() : mm);
+				String pp = v.getSubValue("pronounciation");
+				p.append(pp == null ? v.getValue() : pp);
+			}
+			name.setText(n.toString());
+			meaning.setText(m.toString());
+			pronounciation.setText(p.toString());
 		}
 		catch (Exception e)
 		{
@@ -274,45 +206,35 @@ public class NameGenPanel extends JPanel
 	}
 
 	private void cbCatalogActionPerformed(ActionEvent evt)
-	{ //GEN-FIRST:event_cbCatalogActionPerformed
+	{
 		loadStructureDD();
 		this.clearButtons();
 	}
 
-	//GEN-LAST:event_cbCatalogActionPerformed
-
 	private void cbStructureActionPerformed(ActionEvent evt)
-	{ //GEN-FIRST:event_cbStructureActionPerformed
+	{
 		this.clearButtons();
 	}
 
-	//GEN-LAST:event_cbStructureActionPerformed
-
 	private void cbCategoryActionPerformed(ActionEvent evt)
-	{ //GEN-FIRST:event_cbCategoryActionPerformed
+	{
 		this.loadGenderDD();
 		loadCatalogDD();
 		loadStructureDD();
 		this.clearButtons();
 	}
 
-	//GEN-LAST:event_cbCategoryActionPerformed
-
 	private void cbGenderActionPerformed(ActionEvent evt)
-	{ //GEN-FIRST:event_cbGenderActionPerformed
+	{
 		loadCatalogDD();
 		loadStructureDD();
 		this.clearButtons();
 	}
 
-	//GEN-LAST:event_cbGenderActionPerformed
-
 	private void chkStructureActionPerformed(ActionEvent evt)
-	{ //GEN-FIRST:event_chkStructureActionPerformed
+	{
 		loadStructureDD();
 	}
-
-	//GEN-LAST:event_chkStructureActionPerformed
 
 	private void clearButtons()
 	{
@@ -328,7 +250,7 @@ public class NameGenPanel extends JPanel
 		{
 			try
 			{
-				DataElement ele = allVars.getDataElement(key);
+				DataElement ele = nameGen.getData().allVars().getDataElement(key);
 
 				if (ele.getTitle() != null)
 				{
@@ -347,8 +269,7 @@ public class NameGenPanel extends JPanel
 	}
 
 	private void generateButtonActionPerformed(ActionEvent evt)
-	{ //GEN-FIRST:event_generateButtonActionPerformed
-
+	{
 		try
 		{
 			this.lastRule = generate();
@@ -359,8 +280,6 @@ public class NameGenPanel extends JPanel
 			Logging.errorPrint(e.getMessage(), e);
 		}
 	}
-
-	//GEN-LAST:event_generateButtonActionPerformed
 
 	/**
 	 * This method is called from within the constructor to
@@ -558,16 +477,12 @@ public class NameGenPanel extends JPanel
 		add(topPanel, BorderLayout.NORTH);
 	}
 
-	//GEN-END:initComponents
-
 	private void jButton1ActionPerformed(ActionEvent evt)
-	{ //GEN-FIRST:event_jButton1ActionPerformed
+	{
 		Clipboard cb = getToolkit().getSystemClipboard();
 		StringSelection ss = new StringSelection(name.getText());
 		cb.setContents(ss, ss);
 	}
-
-	//GEN-LAST:event_jButton1ActionPerformed
 
 	private void loadCatalogDD()
 	{
@@ -583,8 +498,8 @@ public class NameGenPanel extends JPanel
 				catalogKey = oldRS.getTitle();
 			}
 
-			List<RuleSet> cats = categories.get(catKey);
-			List<RuleSet> genders = categories.get("Sex: " + genderKey);
+			List<RuleSet> cats = nameGen.getData().categories().getOrDefault(catKey, List.of());
+			List<RuleSet> genders = nameGen.getData().categories().getOrDefault("Sex: " + genderKey, List.of());
 			List<RuleSet> join = new ArrayList<>(cats);
 			join.retainAll(genders);
 			join.sort(new DataElementComperator());
@@ -621,282 +536,47 @@ public class NameGenPanel extends JPanel
 		}
 	}
 
-	//	Get a list of all the gender categories in the category map
-	private Vector<String> getGenderCategoryNames()
-	{
-		Vector<String> genders = new Vector<>();
-		Set<String> keySet = categories.keySet();
-
-		//	Loop through the keys in the categories
-		for (final String key : keySet)
-		{
-			//	if the key starts with "Sex" then save it
-			if (key.startsWith("Sex:"))
-			{
-				genders.add(key.substring(5));
-			}
-		}
-
-		//	Return all the found gender types
-		return genders;
-	}
-
 	//	Load the gender drop dowd
 	private void loadGenderDD()
 	{
-		List<String> genders = getGenderCategoryNames();
-		Vector<String> selectable = new Vector<>();
 		String gender = (String) cbGender.getSelectedItem();
-
-		//	Get the selected category name
 		String category = (String) cbCategory.getSelectedItem();
 
-		//	Get the set of rules for selected category
-		List<RuleSet> categoryRules = categories.get(category);
-
-		//	we need to determine if the selected category is supported by the 
-		//	available genders
-		//	loop through the available genders
-		for (String genderString : genders)
+		// Build "available genders for this category" by scanning Sex: keys
+		List<String> selectable = new ArrayList<>();
+		List<RuleSet> categoryRules = nameGen.getData().categories().getOrDefault(category, List.of());
+		for (var entry : nameGen.getData().categories().entrySet())
 		{
-			//	Get the list of rules for the current gender
-			List<RuleSet> genderRules = categories.get("Sex: " + genderString);
-
-			//	now loop through all the rules from the selected category
+			if (!entry.getKey().startsWith("Sex:"))
+			{
+				continue;
+			}
+			List<RuleSet> genderRules = entry.getValue();
 			for (RuleSet categoryRule : categoryRules)
 			{
-				//	if the category rule is in the list of gender rules
-				//	add the current gender to the selectable gender list
-				//	we can stop processing the list once we find a match
 				if (genderRules.contains(categoryRule))
 				{
-					selectable.add(genderString);
+					selectable.add(entry.getKey().substring(5).trim());
 					break;
 				}
 			}
 		}
-
-		//	Sort the genders
 		Collections.sort(selectable);
 
-		//	Create a new model for the combobox and set it
-		cbGender.setModel(new DefaultComboBoxModel<>(selectable));
+		cbGender.setModel(new DefaultComboBoxModel<>(new Vector<>(selectable)));
 		if (gender != null && selectable.contains(gender))
 		{
 			cbGender.setSelectedItem(gender);
 		}
 	}
 
-	private void loadCategory(Element category, RuleSet rs)
-	{
-		List<RuleSet> cat = categories.get(category.getAttributeValue("title"));
-		List<RuleSet> thiscat;
-
-		if (cat == null)
-		{
-			thiscat = new ArrayList<>();
-			categories.put(category.getAttributeValue("title"), thiscat);
-		}
-		else
-		{
-			thiscat = cat;
-		}
-
-		thiscat.add(rs);
-	}
-
-	private void loadData(File path)
-	{
-		if (path.isDirectory())
-		{
-			File[] dataFiles = path.listFiles(new XMLFilter());
-			SAXBuilder builder = new SAXBuilder();
-			GeneratorDtdResolver resolver = new GeneratorDtdResolver(path);
-			builder.setEntityResolver(resolver);
-
-			for (File dataFile : dataFiles)
-			{
-				try
-				{
-					URL url = dataFile.toURI().toURL();
-					Document nameSet = builder.build(url);
-					DocType dt = nameSet.getDocType();
-
-					if (dt.getElementName().equals("GENERATOR"))
-					{
-						loadFromDocument(nameSet);
-					}
-				}
-				catch (Exception e)
-				{
-					Logging.errorPrint(e.getMessage(), e);
-					JOptionPane.showMessageDialog(this, "XML Error with file " + dataFile.getName());
-				}
-			}
-
-			loadDropdowns();
-		}
-		else
-		{
-			JOptionPane.showMessageDialog(this, "No data files in directory " + path.getPath());
-		}
-	}
-
-	//	Get a list of category names from the categories map
-	private Vector<String> getCategoryNames()
-	{
-		Vector<String> cats = new Vector<>();
-		Set<String> keySet = categories.keySet();
-
-		for (final String key : keySet)
-		{
-			//	Ignore any category that starts with this
-			if (key.startsWith("Sex:"))
-			{
-				continue;
-			}
-
-			cats.add(key);
-		}
-
-		//	Sor the selected categories before returning it
-		Collections.sort(cats);
-
-		return cats;
-	}
-
 	private void loadDropdowns()
 	{
-		//	This method now just loads the category dropdown from the list of 
-		//	category names
-		Vector<String> cats = this.getCategoryNames();
+		Vector<String> cats = new Vector<>(nameGen.getCategories());
 		cbCategory.setModel(new DefaultComboBoxModel<>(cats));
 
 		this.loadGenderDD();
 		this.loadCatalogDD();
-	}
-
-	private void loadFromDocument(Document nameSet) throws DataConversionException
-	{
-		Element generator = nameSet.getRootElement();
-		java.util.List<?> rulesets = generator.getChildren("RULESET");
-		java.util.List<?> lists = generator.getChildren("LIST");
-
-		for (final Object o : lists)
-		{
-			Element list = (Element) o;
-			loadList(list);
-		}
-
-		for (final Object ruleset : rulesets)
-		{
-			Element ruleSet = (Element) ruleset;
-			RuleSet rs = loadRuleSet(ruleSet);
-			allVars.addDataElement(rs);
-		}
-	}
-
-	private String loadList(Element list) throws DataConversionException
-	{
-		pcgen.core.namegen.DDList dataList = new pcgen.core.namegen.DDList(allVars,
-			list.getAttributeValue("title"), list.getAttributeValue("id"));
-		java.util.List<?> elements = list.getChildren();
-
-		for (final Object element : elements)
-		{
-			Element child = (Element) element;
-			String elementName = child.getName();
-
-			if (elementName.equals("VALUE"))
-			{
-				WeightedDataValue dv =
-						new WeightedDataValue(child.getText(), child.getAttribute("weight").getIntValue());
-				List<?> subElements = child.getChildren("SUBVALUE");
-
-				for (final Object subElement1 : subElements)
-				{
-					Element subElement = (Element) subElement1;
-					dv.addSubValue(subElement.getAttributeValue("type"), subElement.getText());
-				}
-
-				dataList.add(dv);
-			}
-		}
-
-		allVars.addDataElement(dataList);
-
-		return dataList.getId();
-	}
-
-	private String loadRule(Element rule, String id) throws DataConversionException
-	{
-		Rule dataRule = new Rule(allVars, id, id, rule.getAttribute("weight").getIntValue());
-		java.util.List<?> elements = rule.getChildren();
-
-		for (final Object element : elements)
-		{
-			Element child = (Element) element;
-			String elementName = child.getName();
-
-			switch (elementName)
-			{
-				case "GETLIST" -> {
-					String listId = child.getAttributeValue("idref");
-					dataRule.add(listId);
-				}
-				case "SPACE" -> {
-					SpaceRule sp = new SpaceRule();
-					allVars.addDataElement(sp);
-					dataRule.add(sp.getId());
-				}
-				case "HYPHEN" -> {
-					HyphenRule hy = new HyphenRule();
-					allVars.addDataElement(hy);
-					dataRule.add(hy.getId());
-				}
-				case "CR" -> {
-					CRRule cr = new CRRule();
-					allVars.addDataElement(cr);
-					dataRule.add(cr.getId());
-				}
-				case "GETRULE" -> {
-					String ruleId = child.getAttributeValue("idref");
-					dataRule.add(ruleId);
-				}
-			}
-		}
-
-		allVars.addDataElement(dataRule);
-
-		return dataRule.getId();
-	}
-
-	private RuleSet loadRuleSet(Element ruleSet) throws DataConversionException
-	{
-		RuleSet rs = new RuleSet(allVars, ruleSet.getAttributeValue("title"), ruleSet.getAttributeValue("id"),
-			ruleSet.getAttributeValue("usage"));
-		java.util.List<?> elements = ruleSet.getChildren();
-		ListIterator<?> elementsIterator = elements.listIterator();
-		int num = 0;
-
-		while (elementsIterator.hasNext())
-		{
-			Element child = (Element) elementsIterator.next();
-			String elementName = child.getName();
-
-			if (elementName.equals("CATEGORY"))
-			{
-				loadCategory(child, rs);
-			}
-			else if (elementName.equals("RULE"))
-			{
-				rs.add(loadRule(child, rs.getId() + num));
-			}
-
-			num++;
-		}
-
-		return rs;
 	}
 
 	private void loadStructureDD()
@@ -908,20 +588,16 @@ public class NameGenPanel extends JPanel
 		}
 		else
 		{
-			Vector<DataElement> struct = new Vector<>();
-
-			for (String key : ((RuleSet) cbCatalog.getSelectedItem()))
+			RuleSet selected = (RuleSet) cbCatalog.getSelectedItem();
+			if (selected == null)
 			{
-				try
-				{
-					struct.add(allVars.getDataElement(key));
-				}
-				catch (Exception e)
-				{
-					Logging.errorPrint(e.getMessage(), e);
-				}
+				return;
 			}
-
+			Vector<DataElement> struct = new Vector<>();
+			for (Rule r : nameGen.getRulesFor(selected))
+			{
+				struct.add(r);
+			}
 			DefaultComboBoxModel<DataElement> structModel = new DefaultComboBoxModel<>(struct);
 			cbStructure.setModel(structModel);
 			cbStructure.setEnabled(true);
@@ -952,54 +628,6 @@ public class NameGenPanel extends JPanel
 		if (gender != null && cbGender != null)
 		{
 			cbGender.setSelectedItem(gender);
-		}
-	}
-
-	/**
-	 * The Class {@code GeneratorDtdResolver} is an EntityResolver implementation
-	 * for use with a SAX parser. It forces the generator.dtd to be read from a 
-	 * known location.
-	 */
-	public static class GeneratorDtdResolver implements EntityResolver
-	{
-
-		private final File parent;
-
-		/**
-		 * Create a new instance of GeneratorDtdResolver to read the 
-		 * generator.dtd from a specific directory.
-		 * @param parent The parent directory holding generator.dtd
-		 */
-		GeneratorDtdResolver(File parent)
-		{
-			this.parent = parent;
-
-		}
-
-		@Override
-		public InputSource resolveEntity(String publicId, String systemId)
-		{
-			if (systemId.endsWith("generator.dtd"))
-			{
-				// return a special input source
-				InputStream dtdIn;
-				try
-				{
-					dtdIn = new FileInputStream(new File(parent, "generator.dtd"));
-				}
-				catch (FileNotFoundException e)
-				{
-					Logging.errorPrint("GeneratorDtdResolver.resolveEntity failed", e);
-					return null;
-
-				}
-				return new InputSource(dtdIn);
-			}
-			else
-			{
-				// use the default behaviour
-				return null;
-			}
 		}
 	}
 }
