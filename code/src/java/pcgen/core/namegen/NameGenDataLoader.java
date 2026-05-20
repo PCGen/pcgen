@@ -42,9 +42,7 @@ import pcgen.util.Logging;
 
 /**
  * Loads random-name XML files from a directory into a {@link NameGenData}
- * snapshot. The legacy loading code lived inline in
- * {@code pcgen.gui2.namegen.NameGenPanel}; pulling it here decouples the
- * data model from any UI toolkit.
+ * snapshot, keeping the data model independent of any UI toolkit.
  *
  * <p>Uses the JDK-bundled {@code javax.xml.parsers} API so the project
  * doesn't need a third-party XML library.
