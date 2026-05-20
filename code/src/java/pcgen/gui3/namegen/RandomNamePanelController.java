@@ -231,21 +231,7 @@ public final class RandomNamePanelController
 
 	private String chooseStickyGender(List<String> available, String previous)
 	{
-		if (available.isEmpty())
-		{
-			return "";
-		}
-		boolean previousStillValid = previous != null && available.contains(previous);
-		if (previousStillValid)
-		{
-			return previous;
-		}
-		boolean preferredStillValid = preferredGender != null && available.contains(preferredGender);
-		if (preferredStillValid)
-		{
-			return preferredGender;
-		}
-		return available.get(0);
+		return GenderSelection.chooseSticky(available, previous, preferredGender);
 	}
 
 	private void selectGender(String gender)
