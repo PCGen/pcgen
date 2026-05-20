@@ -15,7 +15,6 @@ import groovy.json.JsonSlurper
 
 import org.apache.tools.ant.filters.FixCrLfFilter
 import org.apache.tools.ant.taskdefs.condition.Os
-import org.gradle.plugins.ide.idea.model.ProjectLibrary
 
 import de.undercouch.gradle.tasks.download.Download
 
@@ -30,7 +29,6 @@ plugins {
     id 'com.github.spotbugs' version '6.5.4'            // Spotbugs for Java
     id 'maven-publish'                                  // Publishing to Maven Central
     id 'pmd'                                            // PMD for Java, configured further below
-    id 'idea'                                           // For IntelliJ IDEA users
     id 'de.undercouch.download' version '5.7.0'         // Shows download percentage
     id 'com.github.ben-manes.versions' version '0.54.0' // Checks versions for plugins and dependencies
     id 'com.dorongold.task-tree' version '4.0.1'        // Prints the task dependency tree
@@ -115,8 +113,6 @@ repositories {
 }
 
 // Define the source sets for each task/module
-// TODO even though we have the idea plugin, IntelliJ doesn't reference
-// these source sets whether you run that task or not.
 sourceSets {
     // The main build
     main {
@@ -831,32 +827,6 @@ tasks.named("dependencyUpdates") {
                     selection.reject('older than current')
                 }
             }
-        }
-    }
-}
-
-// Support for creating IntelliJ IDEA files.
-idea {
-    project {
-        def javafxLib = layout.projectDirectory.dir("mods/lib")
-                .asFileTree.matching { include "*.jar" }
-                .files
-
-        def projectLibrary = new ProjectLibrary()
-        projectLibrary.name = "lib"
-        projectLibrary.classes += javafxLib
-
-        projectLibraries += [ projectLibrary ]
-    }
-
-    module {
-        testSources.from(project.sourceSets.itest.java.srcDirs,
-                project.sourceSets.slowtest.java.srcDirs)
-
-        iml.withXml {
-            def module = asNode()
-            def component = module.find {it.@name == 'NewModuleRootManager'}
-            def orderEntry = component.appendNode('orderEntry', [ type: 'library', scope: 'RUNTIME', name:'lib', level:'project'])
         }
     }
 }
