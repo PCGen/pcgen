@@ -22,6 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -126,4 +127,21 @@ public class NameGeneratorTest
 		}
 	}
 
+	@Test
+	public void mixedContentValueExcludesSubvalueText() throws Exception
+	{
+		// In gaelic.xml, <VALUE>Donn<SUBVALUE type="meaning">brown,
+		// brown-haired</SUBVALUE></VALUE>: the value text must be just
+		// "Donn", not "Donnbrown, brown-haired". Regression guard for
+		// JDOM2 → javax.xml.parsers (Element.getText vs getTextContent).
+		DataElement el = generator.getData().allVars()
+				.getDataElement("gaelic-male-descriptive-byname");
+		assertTrue(el instanceof DDList, "expected a DDList");
+		DDList list = (DDList) el;
+		Optional<WeightedDataValue> donn = list.stream()
+				.filter(v -> "Donn".equals(v.getValue()))
+				.findFirst();
+		assertTrue(donn.isPresent(), "expected to find 'Donn' value in list");
+		assertEquals("brown, brown-haired", donn.get().getSubValue("meaning"));
+	}
 }

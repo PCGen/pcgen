@@ -19,21 +19,24 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.ListIterator;
 import java.util.Map;
+import java.util.stream.IntStream;
 
-import org.jdom2.DataConversionException;
-import org.jdom2.DocType;
-import org.jdom2.Document;
-import org.jdom2.Element;
-import org.jdom2.JDOMException;
-import org.jdom2.input.SAXBuilder;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.DocumentType;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.xml.sax.EntityResolver;
 import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 
 import pcgen.util.Logging;
 
@@ -43,8 +46,8 @@ import pcgen.util.Logging;
  * {@code pcgen.gui2.namegen.NameGenPanel}; pulling it here decouples the
  * data model from any UI toolkit.
  *
- * <p>This class still uses JDOM2; a follow-up commit replaces it with the
- * built-in {@code javax.xml.parsers} API.
+ * <p>Uses the JDK-bundled {@code javax.xml.parsers} API rather than a
+ * third-party XML library so the project doesn't need to ship JDOM2.
  */
 public final class NameGenDataLoader
 {
@@ -58,7 +61,8 @@ public final class NameGenDataLoader
 	 * @param dataDir directory containing {@code generator.dtd} and the XML
 	 *                files to parse
 	 * @return populated {@link NameGenData}
-	 * @throws IOException if {@code dataDir} is not a directory
+	 * @throws IOException if {@code dataDir} is not a directory or any file
+	 *                     fails to parse
 	 */
 	public static NameGenData load(File dataDir) throws IOException
 	{
@@ -73,22 +77,21 @@ public final class NameGenDataLoader
 		}
 		VariableHashMap allVars = new VariableHashMap();
 		Map<String, List<RuleSet>> categories = new HashMap<>();
-		SAXBuilder builder = new SAXBuilder();
+		DocumentBuilder builder = newDocumentBuilder();
 		builder.setEntityResolver(new GeneratorDtdResolver(dataDir));
 
 		for (File dataFile : dataFiles)
 		{
 			try
 			{
-				URL url = dataFile.toURI().toURL();
-				Document nameSet = builder.build(url);
-				DocType dt = nameSet.getDocType();
-				if (dt != null && "GENERATOR".equals(dt.getElementName()))
+				Document nameSet = builder.parse(dataFile);
+				DocumentType dt = nameSet.getDoctype();
+				if (dt != null && "GENERATOR".equals(dt.getName()))
 				{
 					loadFromDocument(nameSet, allVars, categories);
 				}
 			}
-			catch (JDOMException | IOException e)
+			catch (SAXException | NumberFormatException e)
 			{
 				Logging.errorPrint("Failed to parse " + dataFile.getName(), e);
 				throw new IOException("XML error in file " + dataFile.getName(), e);
@@ -97,50 +100,54 @@ public final class NameGenDataLoader
 		return new NameGenData(allVars, categories);
 	}
 
-	private static void loadFromDocument(Document nameSet, VariableHashMap allVars,
-			Map<String, List<RuleSet>> categories) throws DataConversionException
+	private static DocumentBuilder newDocumentBuilder() throws IOException
 	{
-		Element generator = nameSet.getRootElement();
-		List<?> rulesets = generator.getChildren("RULESET");
-		List<?> lists = generator.getChildren("LIST");
-
-		for (final Object o : lists)
+		try
 		{
-			loadList((Element) o, allVars);
+			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+			return factory.newDocumentBuilder();
 		}
-		for (final Object ruleset : rulesets)
+		catch (ParserConfigurationException e)
 		{
-			RuleSet rs = loadRuleSet((Element) ruleset, allVars, categories);
-			allVars.addDataElement(rs);
+			throw new IOException("Cannot create XML parser", e);
 		}
 	}
 
-	private static String loadList(Element list, VariableHashMap allVars) throws DataConversionException
+	private static void loadFromDocument(Document nameSet, VariableHashMap allVars,
+			Map<String, List<RuleSet>> categories)
+	{
+		Element generator = nameSet.getDocumentElement();
+		childElements(generator, "LIST").forEach(list -> loadList(list, allVars));
+		childElements(generator, "RULESET").forEach(ruleset -> {
+			RuleSet rs = loadRuleSet(ruleset, allVars, categories);
+			allVars.addDataElement(rs);
+		});
+	}
+
+	private static String loadList(Element list, VariableHashMap allVars)
 	{
 		DDList dataList = new DDList(allVars,
-				list.getAttributeValue("title"), list.getAttributeValue("id"));
-		for (Element child : list.getChildren("VALUE"))
+				list.getAttribute("title"), list.getAttribute("id"));
+		for (Element child : childElements(list, "VALUE"))
 		{
-			WeightedDataValue dv = new WeightedDataValue(child.getText(),
-					child.getAttribute("weight").getIntValue());
-			child.getChildren("SUBVALUE").forEach(sub ->
-					dv.addSubValue(sub.getAttributeValue("type"), sub.getText()));
+			WeightedDataValue dv = new WeightedDataValue(directText(child),
+					Integer.parseInt(child.getAttribute("weight")));
+			childElements(child, "SUBVALUE").forEach(sub ->
+					dv.addSubValue(sub.getAttribute("type"), directText(sub)));
 			dataList.add(dv);
 		}
 		allVars.addDataElement(dataList);
 		return dataList.getId();
 	}
 
-	private static String loadRule(Element rule, String id, VariableHashMap allVars) throws DataConversionException
+	private static String loadRule(Element rule, String id, VariableHashMap allVars)
 	{
-		Rule dataRule = new Rule(allVars, id, id, rule.getAttribute("weight").getIntValue());
-		List<?> elements = rule.getChildren();
-		for (final Object element : elements)
+		Rule dataRule = new Rule(allVars, id, id, Integer.parseInt(rule.getAttribute("weight")));
+		for (Element child : childElements(rule))
 		{
-			Element child = (Element) element;
-			switch (child.getName())
+			switch (child.getTagName())
 			{
-				case "GETLIST" -> dataRule.add(child.getAttributeValue("idref"));
+				case "GETLIST" -> dataRule.add(child.getAttribute("idref"));
 				case "SPACE" -> {
 					SpaceRule sp = new SpaceRule();
 					allVars.addDataElement(sp);
@@ -156,7 +163,7 @@ public final class NameGenDataLoader
 					allVars.addDataElement(cr);
 					dataRule.add(cr.getId());
 				}
-				case "GETRULE" -> dataRule.add(child.getAttributeValue("idref"));
+				case "GETRULE" -> dataRule.add(child.getAttribute("idref"));
 				default -> { /* ignore */ }
 			}
 		}
@@ -165,17 +172,17 @@ public final class NameGenDataLoader
 	}
 
 	private static RuleSet loadRuleSet(Element ruleSet, VariableHashMap allVars,
-			Map<String, List<RuleSet>> categories) throws DataConversionException
+			Map<String, List<RuleSet>> categories)
 	{
-		RuleSet rs = new RuleSet(allVars, ruleSet.getAttributeValue("title"),
-				ruleSet.getAttributeValue("id"), ruleSet.getAttributeValue("usage"));
-		List<?> elements = ruleSet.getChildren();
-		ListIterator<?> it = elements.listIterator();
+		RuleSet rs = new RuleSet(allVars, ruleSet.getAttribute("title"),
+				ruleSet.getAttribute("id"), ruleSet.getAttribute("usage"));
+		List<Element> children = childElements(ruleSet);
+		// Index counter is preserved across all child element types — it's
+		// part of the generated rule id and must match the legacy numbering.
 		int num = 0;
-		while (it.hasNext())
+		for (Element child : children)
 		{
-			Element child = (Element) it.next();
-			String elementName = child.getName();
+			String elementName = child.getTagName();
 			if ("CATEGORY".equals(elementName))
 			{
 				loadCategory(child, rs, categories);
@@ -191,8 +198,47 @@ public final class NameGenDataLoader
 
 	private static void loadCategory(Element category, RuleSet rs, Map<String, List<RuleSet>> categories)
 	{
-		String key = category.getAttributeValue("title");
+		String key = category.getAttribute("title");
 		categories.computeIfAbsent(key, k -> new ArrayList<>()).add(rs);
+	}
+
+	private static List<Element> childElements(Element parent)
+	{
+		NodeList nodes = parent.getChildNodes();
+		List<Element> out = new ArrayList<>(nodes.getLength());
+		IntStream.range(0, nodes.getLength())
+				.mapToObj(nodes::item)
+				.filter(n -> n.getNodeType() == Node.ELEMENT_NODE)
+				.map(Element.class::cast)
+				.forEach(out::add);
+		return out;
+	}
+
+	private static List<Element> childElements(Element parent, String tagName)
+	{
+		return childElements(parent).stream()
+				.filter(e -> tagName.equals(e.getTagName()))
+				.toList();
+	}
+
+	/**
+	 * Returns the concatenation of direct child text nodes only —
+	 * matches JDOM2's {@code Element.getText()} semantics, which
+	 * excludes text inside descendant elements. Needed because the
+	 * data files use mixed content like
+	 * {@code <VALUE>Donn<SUBVALUE>...</SUBVALUE></VALUE>} where the
+	 * value is just {@code "Donn"}.
+	 */
+	private static String directText(Element parent)
+	{
+		NodeList nodes = parent.getChildNodes();
+		StringBuilder sb = new StringBuilder();
+		IntStream.range(0, nodes.getLength())
+				.mapToObj(nodes::item)
+				.filter(n -> n.getNodeType() == Node.TEXT_NODE
+						|| n.getNodeType() == Node.CDATA_SECTION_NODE)
+				.forEach(n -> sb.append(n.getNodeValue()));
+		return sb.toString();
 	}
 
 	/**
