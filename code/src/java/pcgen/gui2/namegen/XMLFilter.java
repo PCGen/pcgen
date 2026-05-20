@@ -15,29 +15,23 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.gui2.doomsdaybook;
+package pcgen.gui2.namegen;
 
-import pcgen.core.namegen.DataElement;
+import java.io.File;
 
-class NameButton extends javax.swing.JButton
+public class XMLFilter implements java.io.FilenameFilter
 {
-	private final DataElement element;
-
-	/** Creates a new instance of NameButton 
-	 * @param element
-	 */
-	NameButton(DataElement element)
-	{
-		this.element = element;
-		super.setText(element.getTitle());
-	}
 
 	/**
-	 * Get the data element for the name button
-	 * @return the data element for the name button
+	 * Returns true if file matches *.xml
+	 * 
+	 * @param file 
+	 * @param str 
+	 * @return true if filter matches *.xml
 	 */
-	DataElement getDataElement()
+	@Override
+	public boolean accept(File file, String str)
 	{
-		return element;
+		return str.matches(".*\\.xml$");
 	}
 }

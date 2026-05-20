@@ -25,7 +25,7 @@ import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
 import pcgen.core.SettingsHandler;
-import pcgen.gui2.doomsdaybook.NameGenPanel;
+import pcgen.gui2.namegen.NameGenPanel;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui3.GuiUtility;
 import pcgen.gui3.component.OKCloseButtonBar;
