@@ -15,17 +15,17 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.core.doomsdaybook;
+package pcgen.core.namegen;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CRRule implements DataElement
+public class SpaceRule implements DataElement
 {
 	private final List<DataValue> retList = new ArrayList<>();
 
 	/** Creates a new instance of SpaceRule */
-	public CRRule()
+	public SpaceRule()
 	{
 		retList.add(new DataValue(" "));
 	}
@@ -39,7 +39,7 @@ public class CRRule implements DataElement
 	@Override
 	public String getId()
 	{
-		return "\n";
+		return " ";
 	}
 
 	@Override
@@ -59,5 +59,4 @@ public class CRRule implements DataElement
 	{
 		return 1;
 	}
-
 }

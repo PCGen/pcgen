@@ -15,61 +15,59 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.core.doomsdaybook;
+package pcgen.core.namegen;
 
-/**
- * DataSubValue 
- */
-class DataSubValue
+public class DataValue
 {
-	private DataSubValue next;
-	private final String key;
+	private DataSubValue subvalue;
 	private final String value;
 
 	/**
 	 * Constructor
-	 * @param key
 	 * @param value
 	 */
-	DataSubValue(String key, String value)
+	public DataValue(String value)
 	{
-		this.key = key;
 		this.value = value;
 	}
 
 	/**
-	 * Get the value
-	 * @param searchKey
-	 * @return value
+	 * Get SubValue
+	 * @param key
+	 * @return SubValue
 	 */
-	public String get(String searchKey)
+	public String getSubValue(String key)
 	{
-		if (key.equals(searchKey))
+		if (subvalue != null)
 		{
-			return value;
+			return subvalue.get(key);
 		}
-
-		if (next == null)
-		{
-			return null;
-		}
-
-		return next.get(searchKey);
+		return null;
 	}
 
 	/**
-	 * Put the value
-	 * @param sub
+	 * Get value
+	 * @return value
 	 */
-	public void put(DataSubValue sub)
+	public String getValue()
 	{
-		if (next == null)
+		return value;
+	}
+
+	/**
+	 * Add sub value
+	 * @param key
+	 * @param subValue
+	 */
+	public void addSubValue(String key, String subValue)
+	{
+		if (subvalue != null)
 		{
-			next = sub;
+			subvalue.put(new DataSubValue(key, subValue));
 		}
 		else
 		{
-			next.put(sub);
+			subvalue = new DataSubValue(key, subValue);
 		}
 	}
 }

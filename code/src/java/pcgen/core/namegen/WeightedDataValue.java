@@ -15,48 +15,34 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.core.doomsdaybook;
+package pcgen.core.namegen;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class SpaceRule implements DataElement
+/**
+ * {@code WeightedDataValue}.
+ * 
+ */
+public class WeightedDataValue extends DataValue
 {
-	private final List<DataValue> retList = new ArrayList<>();
+	private final int weight;
 
-	/** Creates a new instance of SpaceRule */
-	public SpaceRule()
+	/**
+	 * Constructor
+	 * 
+	 * @param value
+	 * @param weight
+	 */
+	public WeightedDataValue(String value, int weight)
 	{
-		retList.add(new DataValue(" "));
+		super(value);
+		this.weight = weight;
 	}
 
-	@Override
-	public List<DataValue> getData()
-	{
-		return retList;
-	}
-
-	@Override
-	public String getId()
-	{
-		return " ";
-	}
-
-	@Override
-	public List<DataValue> getLastData()
-	{
-		return retList;
-	}
-
-	@Override
-	public String getTitle()
-	{
-		return null;
-	}
-
-	@Override
+	/**
+	 * Get weight.
+	 * @return weight
+	 */
 	public int getWeight()
 	{
-		return 1;
+		return weight;
 	}
 }

@@ -49,16 +49,16 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 
-import pcgen.core.doomsdaybook.CRRule;
-import pcgen.core.doomsdaybook.DataElement;
-import pcgen.core.doomsdaybook.DataElementComperator;
-import pcgen.core.doomsdaybook.DataValue;
-import pcgen.core.doomsdaybook.HyphenRule;
-import pcgen.core.doomsdaybook.Rule;
-import pcgen.core.doomsdaybook.RuleSet;
-import pcgen.core.doomsdaybook.SpaceRule;
-import pcgen.core.doomsdaybook.VariableHashMap;
-import pcgen.core.doomsdaybook.WeightedDataValue;
+import pcgen.core.namegen.CRRule;
+import pcgen.core.namegen.DataElement;
+import pcgen.core.namegen.DataElementComperator;
+import pcgen.core.namegen.DataValue;
+import pcgen.core.namegen.HyphenRule;
+import pcgen.core.namegen.Rule;
+import pcgen.core.namegen.RuleSet;
+import pcgen.core.namegen.SpaceRule;
+import pcgen.core.namegen.VariableHashMap;
+import pcgen.core.namegen.WeightedDataValue;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.util.FontManipulation;
 import pcgen.system.LanguageBundle;
@@ -798,7 +798,7 @@ public class NameGenPanel extends JPanel
 
 	private String loadList(Element list) throws DataConversionException
 	{
-		pcgen.core.doomsdaybook.DDList dataList = new pcgen.core.doomsdaybook.DDList(allVars,
+		pcgen.core.namegen.DDList dataList = new pcgen.core.namegen.DDList(allVars,
 			list.getAttributeValue("title"), list.getAttributeValue("id"));
 		java.util.List<?> elements = list.getChildren();
 

@@ -15,44 +15,61 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.core.doomsdaybook;
+package pcgen.core.namegen;
 
-import java.util.List;
-
-public interface DataElement
+/**
+ * DataSubValue 
+ */
+class DataSubValue
 {
-	
-	/**
-	 * Get Data.
-	 *
-	 * @return ArrayList
-	 * @throws Exception the exception
-	 */
-	public List<DataValue> getData() throws Exception;
+	private DataSubValue next;
+	private final String key;
+	private final String value;
 
 	/**
-	 * Get id
-	 * @return id
+	 * Constructor
+	 * @param key
+	 * @param value
 	 */
-	public String getId();
+	DataSubValue(String key, String value)
+	{
+		this.key = key;
+		this.value = value;
+	}
 
 	/**
-	 * Get last data.
-	 *
-	 * @return last data
-	 * @throws Exception the exception
+	 * Get the value
+	 * @param searchKey
+	 * @return value
 	 */
-	public List<DataValue> getLastData() throws Exception;
+	public String get(String searchKey)
+	{
+		if (key.equals(searchKey))
+		{
+			return value;
+		}
+
+		if (next == null)
+		{
+			return null;
+		}
+
+		return next.get(searchKey);
+	}
 
 	/**
-	 * Get title
-	 * @return title
+	 * Put the value
+	 * @param sub
 	 */
-	public String getTitle();
-
-	/**
-	 * Get weight
-	 * @return weight
-	 */
-	public int getWeight();
+	public void put(DataSubValue sub)
+	{
+		if (next == null)
+		{
+			next = sub;
+		}
+		else
+		{
+			next.put(sub);
+		}
+	}
 }

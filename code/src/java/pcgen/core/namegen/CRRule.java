@@ -15,19 +15,49 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.core.doomsdaybook;
+package pcgen.core.namegen;
 
-import java.io.Serializable;
-import java.util.Comparator;
+import java.util.ArrayList;
+import java.util.List;
 
-/**
- * DataElementComperator
- */
-public class DataElementComperator implements Comparator<DataElement>, Serializable
+public class CRRule implements DataElement
 {
-	@Override
-	public int compare(DataElement o1, DataElement o2)
+	private final List<DataValue> retList = new ArrayList<>();
+
+	/** Creates a new instance of SpaceRule */
+	public CRRule()
 	{
-		return o1.getTitle().compareTo(o2.getTitle());
+		retList.add(new DataValue(" "));
 	}
+
+	@Override
+	public List<DataValue> getData()
+	{
+		return retList;
+	}
+
+	@Override
+	public String getId()
+	{
+		return "\n";
+	}
+
+	@Override
+	public List<DataValue> getLastData()
+	{
+		return retList;
+	}
+
+	@Override
+	public String getTitle()
+	{
+		return null;
+	}
+
+	@Override
+	public int getWeight()
+	{
+		return 1;
+	}
+
 }

@@ -15,48 +15,44 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.core.doomsdaybook;
+package pcgen.core.namegen;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class HyphenRule implements DataElement
+public interface DataElement
 {
-	private final List<DataValue> retList = new ArrayList<>();
+	
+	/**
+	 * Get Data.
+	 *
+	 * @return ArrayList
+	 * @throws Exception the exception
+	 */
+	public List<DataValue> getData() throws Exception;
 
-	/** Creates a new instance of SpaceRule */
-	public HyphenRule()
-	{
-		retList.add(new DataValue("-"));
-	}
+	/**
+	 * Get id
+	 * @return id
+	 */
+	public String getId();
 
-	@Override
-	public List<DataValue> getData()
-	{
-		return retList;
-	}
+	/**
+	 * Get last data.
+	 *
+	 * @return last data
+	 * @throws Exception the exception
+	 */
+	public List<DataValue> getLastData() throws Exception;
 
-	@Override
-	public String getId()
-	{
-		return "-";
-	}
+	/**
+	 * Get title
+	 * @return title
+	 */
+	public String getTitle();
 
-	@Override
-	public List<DataValue> getLastData()
-	{
-		return retList;
-	}
-
-	@Override
-	public String getTitle()
-	{
-		return null;
-	}
-
-	@Override
-	public int getWeight()
-	{
-		return 1;
-	}
+	/**
+	 * Get weight
+	 * @return weight
+	 */
+	public int getWeight();
 }

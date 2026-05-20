@@ -15,34 +15,48 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.core.doomsdaybook;
+package pcgen.core.namegen;
 
-/**
- * {@code WeightedDataValue}.
- * 
- */
-public class WeightedDataValue extends DataValue
+import java.util.ArrayList;
+import java.util.List;
+
+public class HyphenRule implements DataElement
 {
-	private final int weight;
+	private final List<DataValue> retList = new ArrayList<>();
 
-	/**
-	 * Constructor
-	 * 
-	 * @param value
-	 * @param weight
-	 */
-	public WeightedDataValue(String value, int weight)
+	/** Creates a new instance of SpaceRule */
+	public HyphenRule()
 	{
-		super(value);
-		this.weight = weight;
+		retList.add(new DataValue("-"));
 	}
 
-	/**
-	 * Get weight.
-	 * @return weight
-	 */
+	@Override
+	public List<DataValue> getData()
+	{
+		return retList;
+	}
+
+	@Override
+	public String getId()
+	{
+		return "-";
+	}
+
+	@Override
+	public List<DataValue> getLastData()
+	{
+		return retList;
+	}
+
+	@Override
+	public String getTitle()
+	{
+		return null;
+	}
+
+	@Override
 	public int getWeight()
 	{
-		return weight;
+		return 1;
 	}
 }

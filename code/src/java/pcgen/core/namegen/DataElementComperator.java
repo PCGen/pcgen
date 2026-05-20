@@ -15,59 +15,19 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.core.doomsdaybook;
+package pcgen.core.namegen;
 
-public class DataValue
+import java.io.Serializable;
+import java.util.Comparator;
+
+/**
+ * DataElementComperator
+ */
+public class DataElementComperator implements Comparator<DataElement>, Serializable
 {
-	private DataSubValue subvalue;
-	private final String value;
-
-	/**
-	 * Constructor
-	 * @param value
-	 */
-	public DataValue(String value)
+	@Override
+	public int compare(DataElement o1, DataElement o2)
 	{
-		this.value = value;
-	}
-
-	/**
-	 * Get SubValue
-	 * @param key
-	 * @return SubValue
-	 */
-	public String getSubValue(String key)
-	{
-		if (subvalue != null)
-		{
-			return subvalue.get(key);
-		}
-		return null;
-	}
-
-	/**
-	 * Get value
-	 * @return value
-	 */
-	public String getValue()
-	{
-		return value;
-	}
-
-	/**
-	 * Add sub value
-	 * @param key
-	 * @param subValue
-	 */
-	public void addSubValue(String key, String subValue)
-	{
-		if (subvalue != null)
-		{
-			subvalue.put(new DataSubValue(key, subValue));
-		}
-		else
-		{
-			subvalue = new DataSubValue(key, subValue);
-		}
+		return o1.getTitle().compareTo(o2.getTitle());
 	}
 }
