@@ -13,25 +13,39 @@
  */
 package pcgen.gui3.namegen;
 
-import pcgen.gui3.JFXPanelFromResource;
+import java.io.IOException;
+import java.net.URL;
+import java.util.Objects;
+import java.util.concurrent.CompletableFuture;
+
+import pcgen.gui3.GuiAssertions;
 import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
 
 import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 /**
  * Modal random-name dialog. Presented to Swing callers as a synchronous
- * call: construct, {@link #showAndBlock(String)}, then read back
+ * call: construct, {@link #showAndBlock()}, then read back
  * {@link #getChosenName()} / {@link #getGender()}.
+ *
+ * <p>Loads the FXML directly into a JavaFX {@link Stage}; we don't need
+ * a {@code JFXPanel} because the dialog isn't embedded in Swing.
  */
 public final class RandomNameDialog
 {
-	private final JFXPanelFromResource<RandomNamePanelController> panel;
+	private static final String FXML_RESOURCE = "RandomNamePanel.fxml";
+
 	private final String initialGender;
+	private RandomNamePanelController controller;
 
 	public RandomNameDialog(String initialGender)
 	{
 		this.initialGender = initialGender;
-		this.panel = new JFXPanelFromResource<>(RandomNamePanelController.class, "RandomNamePanel.fxml");
 	}
 
 	/**
@@ -40,28 +54,49 @@ public final class RandomNameDialog
 	 */
 	public void showAndBlock()
 	{
-		if (initialGender != null && !initialGender.isEmpty())
-		{
-			Platform.runLater(() -> {
-				RandomNamePanelController controller = panel.getControllerFromJavaFXThread();
-				if (controller != null)
+		GuiAssertions.assertIsNotJavaFXThread();
+		CompletableFuture<Void> closed = new CompletableFuture<>();
+		Platform.runLater(() -> {
+			try
+			{
+				FXMLLoader loader = new FXMLLoader();
+				URL location = RandomNameDialog.class.getResource(FXML_RESOURCE);
+				Objects.requireNonNull(location, FXML_RESOURCE);
+				loader.setLocation(location);
+				loader.setResources(LanguageBundle.getBundle());
+				Scene scene = loader.load();
+				controller = loader.getController();
+				if (initialGender != null && !initialGender.isEmpty() && controller != null)
 				{
 					controller.setInitialGender(initialGender);
 				}
-			});
-		}
-		panel.showAndBlock(LanguageBundle.getString("in_rndNameTitle"));
+
+				Stage stage = new Stage();
+				stage.setTitle(LanguageBundle.getString("in_rndNameTitle"));
+				stage.setScene(scene);
+				stage.initModality(Modality.APPLICATION_MODAL);
+				stage.sizeToScene();
+				stage.showAndWait();
+			}
+			catch (IOException e)
+			{
+				Logging.errorPrint("failed to load random-name dialog FXML", e);
+			}
+			finally
+			{
+				closed.complete(null);
+			}
+		});
+		closed.join();
 	}
 
 	public String getChosenName()
 	{
-		RandomNamePanelController controller = panel.getController();
 		return controller == null ? "" : controller.getChosenName();
 	}
 
 	public String getGender()
 	{
-		RandomNamePanelController controller = panel.getController();
 		return controller == null ? "" : controller.getGender();
 	}
 }
