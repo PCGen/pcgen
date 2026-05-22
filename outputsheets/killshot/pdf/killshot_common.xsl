@@ -421,7 +421,8 @@
 				</fo:table-row>
 			</fo:table-header>
 			<fo:table-footer>
-				<fo:table-row xsl:use-attribute-sets="equipment.title">
+				<fo:table-row>
+					<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'equipment.title'"/></xsl:call-template>
 					<fo:table-cell padding-top="1pt" number-columns-spanned="2" >
 						<fo:block font-size="7pt">TOTAL WEIGHT CARRIED/VALUE</fo:block>
 					</fo:table-cell>

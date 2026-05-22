@@ -23,7 +23,6 @@ module pcgen {
     requires pcgen.formula;
 
     requires org.apache.commons.lang3;
-    requires org.apache.commons.io;
     requires freemarker;
     requires org.jdom2;
     requires net.sourceforge.argparse4j;

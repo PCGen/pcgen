@@ -34,13 +34,18 @@ import java.awt.print.PrinterJob;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
-import java.io.FilenameFilter;
+import java.io.IOException;
 import java.io.PipedInputStream;
 import java.io.PipedOutputStream;
 import java.net.URI;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.text.NumberFormat;
-import java.util.Collection;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -69,15 +74,9 @@ import pcgen.system.ConfigurationSettings;
 import pcgen.util.Logging;
 import pcgen.util.fop.FopTask;
 
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.filefilter.FileFilterUtils;
-import org.apache.commons.io.filefilter.IOFileFilter;
-import org.apache.commons.io.filefilter.SuffixFileFilter;
-import org.apache.commons.io.filefilter.TrueFileFilter;
 import org.apache.fop.apps.FOUserAgent;
 import org.apache.fop.render.awt.AWTRenderer;
 import org.apache.fop.render.awt.viewer.PreviewPanel;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * Dialog to allow the preview of character export.
@@ -421,28 +420,30 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
         return new DefaultComboBoxModel<>(pageNumbers);
     }
 
-    private class SheetLoader extends SwingWorker<Object[], Object> implements FilenameFilter
+    private class SheetLoader extends SwingWorker<Object[], Object>
     {
-
-        @Override
-        public boolean accept(@NotNull File dir, @NotNull String name)
-        {
-            return dir.getName().equalsIgnoreCase("pdf");
-        }
 
         @Override
         protected Object[] doInBackground()
         {
-            IOFileFilter pdfFilter = FileFilterUtils.asFileFilter(this);
-            IOFileFilter suffixFilter = FileFilterUtils.notFileFilter(new SuffixFileFilter(".fo"));
-            IOFileFilter sheetFilter = FileFilterUtils.prefixFileFilter(Constants.CHARACTER_TEMPLATE_PREFIX);
-            IOFileFilter fileFilter = FileFilterUtils.and(pdfFilter, suffixFilter, sheetFilter);
+            Predicate<File> filter = f -> f.getParentFile().getName().equalsIgnoreCase("pdf")
+                    && !f.getName().endsWith(".fo")
+                    && f.getName().startsWith(Constants.CHARACTER_TEMPLATE_PREFIX);
 
-            IOFileFilter dirFilter = TrueFileFilter.INSTANCE;
             File dir = new File(ConfigurationSettings.getOutputSheetsDir());
-            Collection<File> files = FileUtils.listFiles(dir, fileFilter, dirFilter);
-            URI osPath = new File(ConfigurationSettings.getOutputSheetsDir()).toURI();
-            return files.stream().map(v -> osPath.relativize(v.toURI())).toArray();
+            URI osPath = dir.toURI();
+            try (Stream<Path> walk = Files.walk(dir.toPath()))
+            {
+                List<File> files = walk.filter(Files::isRegularFile)
+                                       .map(Path::toFile)
+                                       .filter(filter)
+                                       .collect(Collectors.toList());
+                return files.stream().map(v -> osPath.relativize(v.toURI())).toArray();
+            } catch (IOException ex)
+            {
+                Logging.errorPrint("could not walk output sheets directory " + dir, ex);
+                return new Object[0];
+            }
         }
 
         @Override

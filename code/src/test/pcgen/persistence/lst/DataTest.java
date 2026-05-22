@@ -21,6 +21,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -29,8 +31,10 @@ import java.util.EnumMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
@@ -47,7 +51,6 @@ import pcgen.system.PropertyContextFactory;
 import pcgen.util.Logging;
 import pcgen.util.TestHelper;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.SystemUtils;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -101,9 +104,7 @@ class DataTest
 		List<String> longPaths = new ArrayList<>();
 
 		File dataFolder = new File(dataPath);
-		Collection<File> listFiles =
-				FileUtils.listFiles(dataFolder, new String[]{"pcc", "lst"},
-					true);
+		Collection<File> listFiles = listFilesByExtension(dataFolder, "pcc", "lst");
 		for (File file : listFiles)
 		{
 			String path = file.getAbsolutePath();
@@ -193,8 +194,7 @@ class DataTest
 	void orphanFilesTest() throws IOException
 	{
 		File dataFolder = new File(ConfigurationSettings.getPccFilesDir());
-		Collection<File> listFiles =
-				FileUtils.listFiles(dataFolder, new String[]{"lst"}, true);
+		Collection<File> listFiles = listFilesByExtension(dataFolder, "lst");
 		Collection<String> fileNames = new ArrayList<>(listFiles.size());
 		for (File file : listFiles)
 		{
@@ -223,6 +223,34 @@ class DataTest
 		// TODO Revert back to the below
 		assertEquals("", report, "Some data files are orphaned.");
 		//assertEquals("pathfinder_2e/core_rulebook/c_skills_situation.lst", report, "Some data files are orphaned.");
+	}
+
+	/**
+	 * Recursively lists regular files under {@code root} whose extension matches
+	 * one of the given values (case-sensitive, dot excluded). Mirrors the
+	 * semantics of the previously used {@code FileUtils.listFiles(File,
+	 * String[], boolean)}.
+	 */
+	private static Collection<File> listFilesByExtension(File root, String... extensions)
+	{
+		Set<String> exts = Set.of(extensions);
+		try (Stream<Path> walk = Files.walk(root.toPath()))
+		{
+			return walk.filter(Files::isRegularFile)
+			           .map(Path::toFile)
+			           .filter(f -> exts.contains(extensionOf(f.getName())))
+			           .collect(Collectors.toList());
+		}
+		catch (IOException e)
+		{
+			throw new IllegalStateException("Failed to walk " + root, e);
+		}
+	}
+
+	private static String extensionOf(String filename)
+	{
+		int dot = filename.lastIndexOf('.');
+		return dot < 0 ? "" : filename.substring(dot + 1);
 	}
 
 	private static List<CampaignSourceEntry> getLstFilesForCampaign(CDOMObject campaign)
