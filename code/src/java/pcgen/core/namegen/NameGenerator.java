@@ -170,16 +170,23 @@ public final class NameGenerator
 		StringBuilder name = new StringBuilder();
 		StringBuilder meaning = new StringBuilder();
 		StringBuilder pron = new StringBuilder();
-		parts.forEach(v -> {
+		boolean anyMeaning = false;
+		boolean anyPron = false;
+		for (DataValue v : parts)
+		{
 			name.append(v.getValue());
 
 			String m = v.getSubValue("meaning");
 			meaning.append(m == null ? v.getValue() : m);
+			anyMeaning |= m != null;
 
 			String p = v.getSubValue("pronounciation");
 			pron.append(p == null ? v.getValue() : p);
-		});
-		return new GeneratedName(name.toString(), meaning.toString(), pron.toString(),
+			anyPron |= p != null;
+		}
+		return new GeneratedName(name.toString(),
+				anyMeaning ? meaning.toString() : "",
+				anyPron ? pron.toString() : "",
 				rule, List.copyOf(parts));
 	}
 }
