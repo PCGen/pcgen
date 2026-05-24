@@ -33,9 +33,9 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
-import javafx.stage.Stage;
 
 /**
  * JavaFX controller behind the random-name dialog. Drives two cascading
@@ -57,7 +57,7 @@ public final class RandomNamePanelController
 	@FXML
 	private RadioButton genderOther;
 	@FXML
-	private Label generatedNameLabel;
+	private TextField generatedNameLabel;
 	@FXML
 	private Label meaningLabel;
 	@FXML
@@ -72,6 +72,7 @@ public final class RandomNamePanelController
 	private String chosenGender = "";
 	private boolean cancelled = true;
 	private String preferredGender;
+	private Runnable closeAction;
 
 	@FXML
 	void initialize()
@@ -93,6 +94,8 @@ public final class RandomNamePanelController
 		genderGroup.selectedToggleProperty().addListener((obs, old, val) -> onGenderChanged(val));
 		randomStructureCheck.selectedProperty().addListener((obs, old, val) -> onRandomStructureChanged(val));
 		structureCombo.setDisable(true);
+		setOptionalLabel(meaningLabel, "in_rndNameMeaning", "", "");
+		setOptionalLabel(pronunciationLabel, "in_rndNmPronounciation", "", "");
 
 		if (!categoryCombo.getItems().isEmpty())
 		{
@@ -112,6 +115,15 @@ public final class RandomNamePanelController
 		{
 			selectGender(gender);
 		}
+	}
+
+	/**
+	 * Hook supplied by {@link RandomNameDialog} so OK/Cancel can dispose
+	 * the hosting Swing dialog without the controller knowing about it.
+	 */
+	public void setCloseAction(Runnable closeAction)
+	{
+		this.closeAction = closeAction;
 	}
 
 	private void onCategoryChanged(String category)
@@ -193,12 +205,15 @@ public final class RandomNamePanelController
 					? nameGenerator.generateWithRule(structureCombo.getValue())
 					: nameGenerator.generate(catalog);
 			generatedNameLabel.setText(result.name());
-			meaningLabel.setText(LanguageBundle.getString("in_rndNameMeaning") + " " + result.meaning());
-			pronunciationLabel.setText(LanguageBundle.getString("in_rndNmPronounciation") + " " + result.pronunciation());
+			setOptionalLabel(meaningLabel, "in_rndNameMeaning", result.meaning(), result.name());
+			setOptionalLabel(pronunciationLabel, "in_rndNmPronounciation", result.pronunciation(), result.name());
 		}
 		catch (Exception e)
 		{
 			Logging.errorPrint("failed to generate random name", e);
+			generatedNameLabel.setText(LanguageBundle.getString("in_rndNmDefault"));
+			setOptionalLabel(meaningLabel, "in_rndNameMeaning", "", "");
+			setOptionalLabel(pronunciationLabel, "in_rndNmPronounciation", "", "");
 		}
 	}
 
@@ -223,14 +238,14 @@ public final class RandomNamePanelController
 			chosenName = text;
 			chosenGender = currentGender();
 		}
-		closeStage(event);
+		fireClose();
 	}
 
 	@FXML
 	void onCancel(ActionEvent event)
 	{
 		cancelled = true;
-		closeStage(event);
+		fireClose();
 	}
 
 	public String getChosenName()
@@ -300,17 +315,22 @@ public final class RandomNamePanelController
 	private void clearOutput()
 	{
 		generatedNameLabel.setText(LanguageBundle.getString("in_rndNmDefault"));
-		meaningLabel.setText(LanguageBundle.getString("in_rndNameMeaning"));
-		pronunciationLabel.setText(LanguageBundle.getString("in_rndNmPronounciation"));
+		setOptionalLabel(meaningLabel, "in_rndNameMeaning", "", "");
+		setOptionalLabel(pronunciationLabel, "in_rndNmPronounciation", "", "");
 	}
 
-	private void closeStage(ActionEvent event)
+	private static void setOptionalLabel(Label label, String prefixKey, String value, String generatedName)
 	{
-		Object source = event.getSource();
-		if (source instanceof javafx.scene.Node node && node.getScene() != null
-				&& node.getScene().getWindow() instanceof Stage stage)
+		boolean hasValue = value != null && !value.isEmpty() && !value.equals(generatedName);
+		String shown = hasValue ? value : "-";
+		label.setText(LanguageBundle.getString(prefixKey) + " " + shown);
+	}
+
+	private void fireClose()
+	{
+		if (closeAction != null)
 		{
-			stage.close();
+			closeAction.run();
 		}
 	}
 

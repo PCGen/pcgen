@@ -1181,10 +1181,12 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
+			java.awt.Window owner = (e.getSource() instanceof java.awt.Component c)
+					? javax.swing.SwingUtilities.getWindowAncestor(c) : null;
 			String gender =
 					character.getGenderRef().get()
 					!= null ? character.getGenderRef().get().toString() : ""; //$NON-NLS-1$
-			RandomNameDialog dialog = new RandomNameDialog(gender);
+			RandomNameDialog dialog = new RandomNameDialog(owner, gender);
 			dialog.showAndBlock();
 			String chosenName = dialog.getChosenName();
 			if (chosenName != null && !chosenName.isEmpty()
