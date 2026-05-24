@@ -20,9 +20,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.stream.IntStream;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -46,6 +47,11 @@ import pcgen.util.Logging;
  *
  * <p>Uses the JDK-bundled {@code javax.xml.parsers} API so the project
  * doesn't need a third-party XML library.
+ *
+ * <p>Loading is two-pass: first parse every file and gather raw
+ * {@code <LIST>}/{@code <RULESET>} elements with their ids, then resolve
+ * cross-references and build the immutable model. The two passes let
+ * rulesets refer to each other freely without forward-declaration issues.
  */
 public final class NameGenDataLoader
 {
@@ -73,10 +79,14 @@ public final class NameGenDataLoader
 		{
 			throw new IOException("Cannot list files in: " + dataDir);
 		}
-		VariableHashMap allVars = new VariableHashMap();
-		Map<String, List<RuleSet>> categories = new HashMap<>();
+
 		DocumentBuilder builder = newDocumentBuilder();
 		builder.setEntityResolver(new GeneratorDtdResolver(dataDir));
+
+		// Pass 1: parse each file, harvest raw LIST and RULESET elements.
+		Map<String, Element> rawLists = new LinkedHashMap<>();
+		Map<String, RawRuleSet> rawRuleSets = new LinkedHashMap<>();
+		Map<String, List<String>> rawCategories = new LinkedHashMap<>();
 
 		for (File dataFile : dataFiles)
 		{
@@ -84,9 +94,19 @@ public final class NameGenDataLoader
 			{
 				Document nameSet = builder.parse(dataFile);
 				DocumentType dt = nameSet.getDoctype();
-				if (dt != null && "GENERATOR".equals(dt.getName()))
+				if (dt == null || !"GENERATOR".equals(dt.getName()))
 				{
-					loadFromDocument(nameSet, allVars, categories);
+					continue;
+				}
+				Element generator = nameSet.getDocumentElement();
+				for (Element list : childElements(generator, "LIST"))
+				{
+					rawLists.put(list.getAttribute("id"), list);
+				}
+				for (Element ruleSet : childElements(generator, "RULESET"))
+				{
+					String id = ruleSet.getAttribute("id");
+					rawRuleSets.put(id, new RawRuleSet(ruleSet, id));
 				}
 			}
 			catch (SAXException | NumberFormatException e)
@@ -95,7 +115,39 @@ public final class NameGenDataLoader
 				throw new IOException("XML error in file " + dataFile.getName(), e);
 			}
 		}
-		return new NameGenData(allVars, categories);
+
+		// Pass 2a: build NameList records (no cross-refs).
+		Map<String, NameList> lists = new LinkedHashMap<>();
+		for (Map.Entry<String, Element> entry : rawLists.entrySet())
+		{
+			lists.put(entry.getKey(), buildList(entry.getValue()));
+		}
+
+		// Pass 2b: build RuleSet records. RuleSetRef parts share a single
+		// map instance that gets populated as we go, so a ruleset can
+		// reference any other ruleset regardless of file order.
+		Map<String, RuleSet> rulesets = new LinkedHashMap<>();
+		List<NameGenData.UnresolvedReference> unresolved = new ArrayList<>();
+		for (RawRuleSet raw : rawRuleSets.values())
+		{
+			RuleSet rs = buildRuleSet(raw, lists, rulesets, rawRuleSets, unresolved);
+			rulesets.put(raw.id, rs);
+			collectCategories(raw.element, raw.id, rawCategories);
+		}
+
+		// Pass 3: resolve category ids to RuleSet records. Categories
+		// declared on rulesets that ultimately failed to build are skipped.
+		Map<String, List<RuleSet>> categories = new LinkedHashMap<>();
+		for (Map.Entry<String, List<String>> entry : rawCategories.entrySet())
+		{
+			List<RuleSet> resolved = entry.getValue().stream()
+					.map(rulesets::get)
+					.filter(Objects::nonNull)
+					.toList();
+			categories.put(entry.getKey(), resolved);
+		}
+
+		return new NameGenData(lists, rulesets, categories, unresolved);
 	}
 
 	private static DocumentBuilder newDocumentBuilder() throws IOException
@@ -119,93 +171,103 @@ public final class NameGenDataLoader
 		}
 	}
 
-	private static void loadFromDocument(Document nameSet, VariableHashMap allVars,
-			Map<String, List<RuleSet>> categories)
+	private static NameList buildList(Element list)
 	{
-		Element generator = nameSet.getDocumentElement();
-		childElements(generator, "LIST").forEach(list -> loadList(list, allVars));
-		childElements(generator, "RULESET").forEach(ruleset -> {
-			RuleSet rs = loadRuleSet(ruleset, allVars, categories);
-			allVars.addDataElement(rs);
-		});
-	}
-
-	private static String loadList(Element list, VariableHashMap allVars)
-	{
-		DDList dataList = new DDList(allVars,
-				list.getAttribute("title"), list.getAttribute("id"));
+		String id = list.getAttribute("id");
+		String title = list.getAttribute("title");
+		List<WeightedDataValue> values = new ArrayList<>();
 		for (Element child : childElements(list, "VALUE"))
 		{
-			WeightedDataValue dv = new WeightedDataValue(directText(child),
-					parseWeight(child));
+			WeightedDataValue dv = new WeightedDataValue(directText(child), parseWeight(child));
 			childElements(child, "SUBVALUE").forEach(sub ->
 					dv.addSubValue(sub.getAttribute("type"), directText(sub)));
-			dataList.add(dv);
+			values.add(dv);
 		}
-		allVars.addDataElement(dataList);
-		return dataList.getId();
+		return new NameList(id, title, values);
 	}
 
-	private static String loadRule(Element rule, String id, VariableHashMap allVars)
+	private static RuleSet buildRuleSet(RawRuleSet raw,
+			Map<String, NameList> lists,
+			Map<String, RuleSet> rulesets,
+			Map<String, RawRuleSet> rawRuleSets,
+			List<NameGenData.UnresolvedReference> unresolved)
 	{
-		Rule dataRule = new Rule(allVars, id, id, parseWeight(rule));
+		List<Rule> rules = childElements(raw.element, "RULE").stream()
+				.map(rule -> buildRule(rule, lists, rulesets, rawRuleSets, unresolved))
+				.toList();
+		return new RuleSet(raw.id,
+				raw.element.getAttribute("title"),
+				raw.element.getAttribute("usage"),
+				rules);
+	}
+
+	private static Rule buildRule(Element rule,
+			Map<String, NameList> lists,
+			Map<String, RuleSet> rulesets,
+			Map<String, RawRuleSet> rawRuleSets,
+			List<NameGenData.UnresolvedReference> unresolved)
+	{
+		List<RulePart> parts = new ArrayList<>();
+		StringBuilder label = new StringBuilder();
 		for (Element child : childElements(rule))
 		{
-			switch (child.getTagName())
+			RulePart part = switch (child.getTagName())
 			{
-				case "GETLIST" -> dataRule.add(child.getAttribute("idref"));
-				case "SPACE" -> {
-					SpaceRule sp = new SpaceRule();
-					allVars.addDataElement(sp);
-					dataRule.add(sp.getId());
-				}
-				case "HYPHEN" -> {
-					HyphenRule hy = new HyphenRule();
-					allVars.addDataElement(hy);
-					dataRule.add(hy.getId());
-				}
-				case "CR" -> {
-					CRRule cr = new CRRule();
-					allVars.addDataElement(cr);
-					dataRule.add(cr.getId());
-				}
-				case "GETRULE" -> dataRule.add(child.getAttribute("idref"));
-				default -> { /* ignore */ }
+				case "GETLIST" -> resolveListRef(child.getAttribute("idref"), lists, unresolved);
+				case "GETRULE" -> resolveRuleSetRef(child.getAttribute("idref"), rulesets, rawRuleSets, unresolved);
+				case "SPACE" -> RulePart.Literal.SPACE;
+				case "HYPHEN" -> RulePart.Literal.HYPHEN;
+				case "CR" -> RulePart.Literal.CR;
+				default -> null;
+			};
+			if (part != null)
+			{
+				parts.add(part);
+				label.append(part.label());
 			}
 		}
-		allVars.addDataElement(dataRule);
-		return dataRule.getId();
+		return new Rule(parseWeight(rule), label.toString(), parts);
 	}
 
-	private static RuleSet loadRuleSet(Element ruleSet, VariableHashMap allVars,
-			Map<String, List<RuleSet>> categories)
+	private static RulePart resolveListRef(String idref,
+			Map<String, NameList> lists,
+			List<NameGenData.UnresolvedReference> unresolved)
 	{
-		RuleSet rs = new RuleSet(allVars, ruleSet.getAttribute("title"),
-				ruleSet.getAttribute("id"), ruleSet.getAttribute("usage"));
-		List<Element> children = childElements(ruleSet);
-		// Index counter is preserved across all child element types — it's
-		// part of the generated rule id and must match the legacy numbering.
-		int num = 0;
-		for (Element child : children)
+		NameList target = lists.get(idref);
+		if (target == null)
 		{
-			String elementName = child.getTagName();
-			if ("CATEGORY".equals(elementName))
-			{
-				loadCategory(child, rs, categories);
-			}
-			else if ("RULE".equals(elementName))
-			{
-				rs.add(loadRule(child, rs.getId() + num, allVars));
-			}
-			num++;
+			unresolved.add(new NameGenData.UnresolvedReference(
+					NameGenData.UnresolvedReference.Kind.GETLIST, idref));
+			return null;
 		}
-		return rs;
+		return new RulePart.ListRef(target);
 	}
 
-	private static void loadCategory(Element category, RuleSet rs, Map<String, List<RuleSet>> categories)
+	private static RulePart resolveRuleSetRef(String idref,
+			Map<String, RuleSet> rulesets,
+			Map<String, RawRuleSet> rawRuleSets,
+			List<NameGenData.UnresolvedReference> unresolved)
 	{
-		String key = category.getAttribute("title");
-		categories.computeIfAbsent(key, k -> new ArrayList<>()).add(rs);
+		RawRuleSet raw = rawRuleSets.get(idref);
+		if (raw == null)
+		{
+			unresolved.add(new NameGenData.UnresolvedReference(
+					NameGenData.UnresolvedReference.Kind.GETRULE, idref));
+			return null;
+		}
+		// Title comes from the raw element so forward references work
+		// before the target ruleset has been built.
+		String title = raw.element.getAttribute("title");
+		return new RulePart.RuleSetRef(idref, title, rulesets);
+	}
+
+	private static void collectCategories(Element ruleSet, String id,
+			Map<String, List<String>> rawCategories)
+	{
+		for (Element category : childElements(ruleSet, "CATEGORY"))
+		{
+			rawCategories.computeIfAbsent(category.getAttribute("title"), k -> new ArrayList<>()).add(id);
+		}
 	}
 
 	private static List<Element> childElements(Element parent)
@@ -264,6 +326,9 @@ public final class NameGenDataLoader
 				.forEach(n -> sb.append(n.getNodeValue()));
 		return sb.toString();
 	}
+
+	/** Parsed DOM element + id, captured in pass 1 for use in pass 2. */
+	private record RawRuleSet(Element element, String id) { }
 
 	/**
 	 * Resolves {@code generator.dtd} from a known directory rather than the

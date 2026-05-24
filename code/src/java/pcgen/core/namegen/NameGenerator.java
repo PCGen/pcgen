@@ -15,7 +15,6 @@ package pcgen.core.namegen;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
@@ -66,8 +65,8 @@ public final class NameGenerator
 	public List<String> getTitlesFor(String category)
 	{
 		return data.categories().getOrDefault(category, List.of()).stream()
-				.filter(rs -> FINAL_USAGE.equals(rs.getUsage()))
-				.map(RuleSet::getTitle)
+				.filter(rs -> FINAL_USAGE.equals(rs.usage()))
+				.map(RuleSet::title)
 				.distinct()
 				.sorted()
 				.toList();
@@ -81,8 +80,8 @@ public final class NameGenerator
 	public List<String> getGendersFor(String category, String title)
 	{
 		Set<String> raw = data.categories().getOrDefault(category, List.of()).stream()
-				.filter(rs -> FINAL_USAGE.equals(rs.getUsage()))
-				.filter(rs -> rs.getTitle().equals(title))
+				.filter(rs -> FINAL_USAGE.equals(rs.usage()))
+				.filter(rs -> rs.title().equals(title))
 				.flatMap(rs -> data.categories().entrySet().stream()
 						.filter(e -> e.getKey().startsWith(SEX_PREFIX) && e.getValue().contains(rs))
 						.map(e -> e.getKey().substring(SEX_PREFIX.length()).trim()))
@@ -104,8 +103,8 @@ public final class NameGenerator
 	{
 		List<RuleSet> genderRules = data.categories().getOrDefault(SEX_PREFIX + " " + gender, List.of());
 		return data.categories().getOrDefault(category, List.of()).stream()
-				.filter(rs -> FINAL_USAGE.equals(rs.getUsage()))
-				.filter(rs -> rs.getTitle().equals(title))
+				.filter(rs -> FINAL_USAGE.equals(rs.usage()))
+				.filter(rs -> rs.title().equals(title))
 				.filter(genderRules::contains)
 				.findFirst()
 				.orElse(null);
@@ -115,19 +114,19 @@ public final class NameGenerator
 	 * Pick a {@link Rule} from {@code catalog} by weighted random and
 	 * generate a name from it.
 	 */
-	public GeneratedName generate(RuleSet catalog) throws Exception
+	public GeneratedName generate(RuleSet catalog)
 	{
-		Rule rule = catalog.getRule();
-		List<DataValue> parts = rule.getData();
+		Rule rule = catalog.pick();
+		List<DataValue> parts = rule.generate();
 		return assemble(rule, parts);
 	}
 
 	/**
 	 * Generate a name forcing a specific {@link Rule} (Structure override).
 	 */
-	public GeneratedName generateWithRule(Rule forcedRule) throws Exception
+	public GeneratedName generateWithRule(Rule forcedRule)
 	{
-		List<DataValue> parts = forcedRule.getData();
+		List<DataValue> parts = forcedRule.generate();
 		return assemble(forcedRule, parts);
 	}
 
@@ -137,28 +136,11 @@ public final class NameGenerator
 	 */
 	public List<Rule> getRulesFor(RuleSet catalog)
 	{
-		List<Rule> out = new ArrayList<>();
-		for (String key : catalog)
-		{
-			try
-			{
-				DataElement el = data.allVars().getDataElement(key);
-				if (el instanceof Rule r)
-				{
-					out.add(r);
-				}
-			}
-			catch (Exception ignored)
-			{
-				// missing references are skipped — the legacy panel did the same
-			}
-		}
-		return out;
+		return catalog.rules();
 	}
 
 	/**
-	 * Exposes the loaded data, primarily for tests and the legacy panel
-	 * during the transition.
+	 * Exposes the loaded data, primarily for tests.
 	 */
 	public NameGenData getData()
 	{

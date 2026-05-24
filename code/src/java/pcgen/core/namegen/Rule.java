@@ -1,5 +1,6 @@
 /*
  * Copyright 2003 (C) Devon Jones
+ * Copyright 2026 Vest <Vest@users.noreply.github.com>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -10,117 +11,43 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 package pcgen.core.namegen;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import pcgen.util.Logging;
-
-public class Rule extends ArrayList<String> implements DataElement
+/**
+ * One alternative within a {@link RuleSet}: a sequence of {@link RulePart}s
+ * that together produce a name. References inside the parts are linked at
+ * load time, so generation is a flat traversal — no map lookups, no
+ * runtime casts.
+ */
+public record Rule(int weight, String displayLabel, List<RulePart> parts)
 {
-	private final List<DataValue> retList = new ArrayList<>();
-	private String id;
-	private String title;
-	private final VariableHashMap allVars;
-	private int weight;
-
-	public Rule(VariableHashMap allVars, String title, String id, int weight)
+	public Rule
 	{
-		this.allVars = allVars;
-		this.title = title;
-		this.id = id;
-		this.weight = weight;
+		parts = List.copyOf(parts);
 	}
 
-	@Override
-	public List<DataValue> getData() throws Exception
+	/** Expand the rule into the value sequence consumed by the assembler. */
+	public List<DataValue> generate()
 	{
-		retList.clear();
-
-		for (String key : this)
+		List<DataValue> out = new ArrayList<>();
+		for (RulePart part : parts)
 		{
-			DataElement ele = allVars.getDataElement(key);
-			retList.addAll(ele.getData());
+			out.addAll(part.generate());
 		}
-
-		return retList;
+		return out;
 	}
 
-	public void setId(String id)
-	{
-		this.id = id;
-	}
-
-	@Override
-	public String getId()
-	{
-		return id;
-	}
-
-	@Override
-	public List<DataValue> getLastData() throws Exception
-	{
-		retList.clear();
-
-		for (String key : this)
-		{
-			DataElement ele = allVars.getDataElement(key);
-			retList.addAll(ele.getLastData());
-		}
-
-		return retList;
-	}
-
-	public void setTitle(String title)
-	{
-		this.title = title;
-	}
-
-	@Override
-	public String getTitle()
-	{
-		return title;
-	}
-
-	public void setWeight(int weight)
-	{
-		this.weight = weight;
-	}
-
-	@Override
-	public int getWeight()
-	{
-		return weight;
-	}
-
+	/**
+	 * Used by the Advanced "Structure" combo box, which renders rule
+	 * alternatives like {@code "[Given] [Surname] "}.
+	 */
 	@Override
 	public String toString()
 	{
-		StringBuilder sb = new StringBuilder();
-
-		for (String key : this)
-		{
-			try
-			{
-				DataElement ele = allVars.getDataElement(key);
-
-				if (ele.getTitle() != null)
-				{
-					sb.append("[").append(ele.getTitle()).append("] ");
-				}
-			}
-			catch (Exception e)
-			{
-				Logging.errorPrint(e.getMessage(), e);
-			}
-		}
-
-		return sb.toString();
+		return displayLabel;
 	}
 }

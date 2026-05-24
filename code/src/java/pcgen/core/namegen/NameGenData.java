@@ -18,11 +18,31 @@ import java.util.Map;
 
 /**
  * Immutable container for the data loaded from a directory of random-name
- * XML files. {@link #allVars} holds every {@link DataElement} keyed by id
- * (lists, rules, rulesets, separators); {@link #categories} is the
- * category-name -> ruleset list index used to drive UI pickers.
+ * XML files. References between rules, rulesets, and lists are resolved
+ * at load time, so generation reads only from these maps.
+ *
+ * <p>{@link #unresolvedReferences()} lists every {@code GETLIST}/{@code GETRULE}
+ * whose target id was not present after the load completed. The loader
+ * skips such parts (matching the legacy engine's silent behaviour); the
+ * list lets callers and tests detect data-file bugs.
  */
-public record NameGenData(VariableHashMap allVars,
-		Map<String, List<RuleSet>> categories)
+public record NameGenData(
+		Map<String, NameList> lists,
+		Map<String, RuleSet> rulesets,
+		Map<String, List<RuleSet>> categories,
+		List<UnresolvedReference> unresolvedReferences)
 {
+	public NameGenData
+	{
+		lists = Map.copyOf(lists);
+		rulesets = Map.copyOf(rulesets);
+		categories = Map.copyOf(categories);
+		unresolvedReferences = List.copyOf(unresolvedReferences);
+	}
+
+	/** A {@code GETLIST}/{@code GETRULE} whose target id wasn't found. */
+	public record UnresolvedReference(Kind kind, String targetId)
+	{
+		public enum Kind { GETLIST, GETRULE }
+	}
 }

@@ -13,6 +13,7 @@
  */
 package pcgen.core.namegen;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -22,6 +23,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.stream.Collectors;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
@@ -40,7 +42,7 @@ public class NameGenDataLoaderTest
 	{
 		NameGenData data = NameGenDataLoader.load(DATA_DIR);
 		assertNotNull(data);
-		assertNotNull(data.allVars());
+		assertNotNull(data.lists());
 		assertFalse(data.categories().isEmpty(), "no categories were loaded");
 	}
 
@@ -128,12 +130,57 @@ public class NameGenDataLoaderTest
 			NameGenData data = NameGenDataLoader.load(tempDir.toFile());
 			// If the loader didn't throw, the parsed data must not contain
 			// the secret marker — otherwise XXE expanded successfully.
-			boolean leaked = data.allVars().toString().contains(marker);
+			boolean leaked = data.lists().values().stream()
+					.flatMap(l -> l.values().stream())
+					.anyMatch(v -> v.getValue().contains(marker));
 			assertFalse(leaked, "external entity was expanded into the parsed data");
 		}
 		catch (IOException ignored)
 		{
 			// Refusing the document is also an acceptable outcome.
 		}
+	}
+
+	@Test
+	public void bundledDatasetHasNoUnresolvedReferences() throws IOException
+	{
+		// Each entry in unresolvedReferences() is a GETLIST/GETRULE in
+		// the data files pointing at a target id that doesn't exist —
+		// the legacy engine silently swallowed these at generation time;
+		// the new loader collects them so the data can be fixed.
+		// If this fails, the assertion message lists every broken ref.
+		NameGenData data = NameGenDataLoader.load(DATA_DIR);
+		String summary = data.unresolvedReferences().stream()
+				.map(u -> u.kind() + " " + u.targetId())
+				.distinct()
+				.sorted()
+				.collect(Collectors.joining("\n  "));
+		assertTrue(data.unresolvedReferences().isEmpty(),
+				"bundled dataset has unresolved references:\n  " + summary);
+	}
+
+	@Test
+	public void unresolvedReferencesAreCollected(@TempDir Path tempDir) throws IOException
+	{
+		// Verify the collection mechanism itself: a GETLIST pointing at a
+		// non-existent list and a GETRULE pointing at a non-existent
+		// ruleset should both surface in unresolvedReferences().
+		Files.copy(new File(DATA_DIR, "generator.dtd").toPath(),
+				tempDir.resolve("generator.dtd"));
+		Files.writeString(tempDir.resolve("dangling.xml"),
+				"<?xml version=\"1.0\"?><!DOCTYPE GENERATOR SYSTEM \"generator.dtd\">"
+						+ "<GENERATOR>"
+						+ "<RULESET title=\"R\" id=\"R\" usage=\"final\">"
+						+ "<RULE><GETLIST idref=\"missing-list\"/><GETRULE idref=\"missing-ruleset\"/></RULE>"
+						+ "</RULESET>"
+						+ "</GENERATOR>");
+		NameGenData data = NameGenDataLoader.load(tempDir.toFile());
+		assertEquals(2, data.unresolvedReferences().size());
+		assertTrue(data.unresolvedReferences().stream()
+				.anyMatch(u -> u.kind() == NameGenData.UnresolvedReference.Kind.GETLIST
+						&& "missing-list".equals(u.targetId())));
+		assertTrue(data.unresolvedReferences().stream()
+				.anyMatch(u -> u.kind() == NameGenData.UnresolvedReference.Kind.GETRULE
+						&& "missing-ruleset".equals(u.targetId())));
 	}
 }

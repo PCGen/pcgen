@@ -88,8 +88,8 @@ public class NameGeneratorTest
 	{
 		RuleSet rs = generator.getCatalog("Fantasy: Elven", "Middle Earth Elf", "Male");
 		assertNotNull(rs, "Fantasy: Elven / Middle Earth Elf / Male should resolve");
-		assertEquals("final", rs.getUsage());
-		assertEquals("Middle Earth Elf", rs.getTitle());
+		assertEquals("final", rs.usage());
+		assertEquals("Middle Earth Elf", rs.title());
 	}
 
 	@Test
@@ -135,11 +135,9 @@ public class NameGeneratorTest
 		// "Donn", not "Donnbrown, brown-haired" — the DOM's
 		// getTextContent concatenates descendant text, but the data
 		// model stores the value separately from its subvalues.
-		DataElement el = generator.getData().allVars()
-				.getDataElement("gaelic-male-descriptive-byname");
-		assertTrue(el instanceof DDList, "expected a DDList");
-		DDList list = (DDList) el;
-		Optional<WeightedDataValue> donn = list.stream()
+		NameList list = generator.getData().lists().get("gaelic-male-descriptive-byname");
+		assertNotNull(list, "expected to find list 'gaelic-male-descriptive-byname'");
+		Optional<WeightedDataValue> donn = list.values().stream()
 				.filter(v -> "Donn".equals(v.getValue()))
 				.findFirst();
 		assertTrue(donn.isPresent(), "expected to find 'Donn' value in list");

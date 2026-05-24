@@ -1,5 +1,4 @@
 /*
- * Copyright 2003 (C) Devon Jones
  * Copyright 2026 Vest <Vest@users.noreply.github.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -18,43 +17,35 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * Immutable bag of {@link Rule} alternatives keyed by display title.
- * The {@code usage} field carries the legacy {@code "final"} marker that
- * tells the facade which rulesets the user picks directly versus the
- * shared building-block rulesets ({@code "private"}).
+ * Immutable named bag of weighted values, picked from at name-generation
+ * time. Replaces the legacy {@code DDList}.
  */
-public record RuleSet(String id, String title, String usage, List<Rule> rules)
+public record NameList(String id, String title, List<WeightedDataValue> values)
 {
-	public RuleSet
+	public NameList
 	{
-		rules = List.copyOf(rules);
-	}
-
-	/** Title is what the combo boxes show for a ruleset. */
-	@Override
-	public String toString()
-	{
-		return title;
+		values = List.copyOf(values);
 	}
 
 	/**
-	 * Pick one rule by weighted random. Zero-weight entries are skipped.
+	 * Pick one value by weighted random. Zero-weight entries are skipped
+	 * so authors can disable an entry without removing it.
 	 *
-	 * @return the chosen rule, or {@code null} if no rule has positive
-	 *         weight
+	 * @return the chosen value, or {@code null} if the list has no
+	 *         positive-weight entries
 	 */
-	public Rule pick()
+	public WeightedDataValue pick()
 	{
-		int total = rules.stream().mapToInt(Rule::weight).filter(w -> w > 0).sum();
+		int total = values.stream().mapToInt(WeightedDataValue::getWeight).filter(w -> w > 0).sum();
 		if (total <= 0)
 		{
 			return null;
 		}
 		int roll = ThreadLocalRandom.current().nextInt(total) + 1;
 		int running = 0;
-		for (Rule r : rules)
+		for (WeightedDataValue v : values)
 		{
-			int w = r.weight();
+			int w = v.getWeight();
 			if (w <= 0)
 			{
 				continue;
@@ -62,9 +53,9 @@ public record RuleSet(String id, String title, String usage, List<Rule> rules)
 			running += w;
 			if (roll <= running)
 			{
-				return r;
+				return v;
 			}
 		}
-		return rules.get(rules.size() - 1);
+		return values.get(values.size() - 1);
 	}
 }
