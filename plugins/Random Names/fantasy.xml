@@ -92,22 +92,22 @@
 			<GETLIST idref="fantasy-misc-village-names" title="Misc Location Name"/>
 		</RULE>
 		<RULE weight="150">
-			<GETLIST idref="russian-historical-village-rule" title="Historical Russian Location"/>
+			<GETRULE idref="russian-historical-village-rule" title="Historical Russian Location"/>
 		</RULE>
 		<RULE weight="150">
-			<GETLIST idref="english-historical-village-rule" title="Historical English Location"/>
+			<GETRULE idref="english-historical-village-rule" title="Historical English Location"/>
 		</RULE>
 		<RULE weight="150">
-			<GETLIST idref="italian-historical-village-rule" title="Historical Italian Location"/>
+			<GETRULE idref="italian-historical-village-rule" title="Historical Italian Location"/>
 		</RULE>
 		<RULE weight="150">
-			<GETLIST idref="roman-historical-village-rule" title="Historical Roman Location"/>
+			<GETRULE idref="roman-historical-village-rule" title="Historical Roman Location"/>
 		</RULE>
 		<RULE weight="100">
-			<GETLIST idref="french-historical-village-rule" title="Historical French Location"/>
+			<GETRULE idref="french-historical-village-rule" title="Historical French Location"/>
 		</RULE>
 		<RULE weight="150">
-			<GETLIST idref="arabic-historical-location-rule" title="Historical Arabic Location"/>
+			<GETRULE idref="arabic-historical-location-rule" title="Historical Arabic Location"/>
 		</RULE>
 	</RULESET>
 	<RULESET id="fantasy-general-elf-male" title="Consolidated Elven" usage="final">
@@ -118,10 +118,10 @@
 			<GETRULE idref="fantasy_craft-elf" title="Fantasy Craft" />
 		</RULE>
 		<RULE weight="3">
-			<GETLIST idref="tamriel-atmer-male-full-rule" title="Atmer (High Elf)" />
+			<GETRULE idref="tamriel-atmer-male-full-rule" title="Atmer (High Elf)" />
 		</RULE>
 		<RULE weight="3">
-			<GETLIST idref="tamriel-bosmer-male-full-rule" title="Bosmer (Wood Elf)" />
+			<GETRULE idref="tamriel-bosmer-male-full-rule" title="Bosmer (Wood Elf)" />
 		</RULE>
 		<RULE weight="3">
 			<GETRULE idref="tamriel-dunmer-male-rule" title="Dunmer (Dark Elf)" />
@@ -142,7 +142,7 @@
 			<GETRULE idref="mar-elf-male-rule" title="Mar Elf" />
 		</RULE>
 		<RULE weight="1">
-			<GETRULE idref="mar-standard-rule" title="Mar Standard" />
+			<GETRULE idref="mar-standard-male-rule" title="Mar Standard" />
 		</RULE>
 		<RULE weight="5">
 			<GETRULE idref="middle-earth-fantasy-elven-male-rule" title="Middle-Earth" />
@@ -159,10 +159,10 @@
 			<GETRULE idref="fantasy_craft-elf" title="Fantasy Craft" />
 		</RULE>
 		<RULE weight="3">
-			<GETLIST idref="tamriel-atmer-female-full-rule" title="Atmer (High Elf)" />
+			<GETRULE idref="tamriel-atmer-female-full-rule" title="Atmer (High Elf)" />
 		</RULE>
 		<RULE weight="3">
-			<GETLIST idref="tamriel-bosmer-female-full-rule" title="Bosmer (Wood Elf)" />
+			<GETRULE idref="tamriel-bosmer-female-full-rule" title="Bosmer (Wood Elf)" />
 		</RULE>
 		<RULE weight="3" >
 			<GETRULE idref="tamriel-dunmer-female-rule" title="Dunmer (Dark Elf)" />
@@ -174,7 +174,7 @@
 			<GETRULE idref="mar-elf-female-rule" title="Mar Elf" />
 		</RULE>
 		<RULE weight="1">
-			<GETRULE idref="mar-standard-rule" title="Mar Standard" />
+			<GETRULE idref="mar-standard-female-rule" title="Mar Standard" />
 		</RULE>
 		<RULE weight="1"> <!-- Short list of possible names, so bring these up less often-->
 			<GETRULE idref="cg-fantasy-half-elf-female-rule" title="Half-Elf"/>
@@ -203,8 +203,8 @@
 			<GETRULE idref="mar-dwarf-male-rule" title="Mar Dwarf" />
 		</RULE>
 		<RULE weight="1">
-			<GETRULE idref="mar-standard-rule" title="Mar Standard" />
-		</RULE>		
+			<GETRULE idref="mar-standard-male-rule" title="Mar Standard" />
+		</RULE>
 	</RULESET>
 	<RULESET id="fantasy-general-dwarf-female" title="Consolidated Dwarven" usage="final"> 
 		<CATEGORY title="All"/>
@@ -221,10 +221,10 @@
 		</RULE>
 		<RULE weight="5">
 			<GETRULE idref="mar-dwarf-female-rule" title="Mar Dwarf" />
-		</RULE>	
+		</RULE>
 		<RULE weight="1">
-			<GETRULE idref="mar-standard-rule" title="Mar Standard" />
-		</RULE>	
+			<GETRULE idref="mar-standard-female-rule" title="Mar Standard" />
+		</RULE>
 	</RULESET>
 	
 	<RULESET id="fantasy-general-halfling-male" title="Consolidated Halfling" usage="final">
@@ -238,7 +238,7 @@
 			<GETRULE idref="middle-earth-fantasy-halfling-male-rule" title="Hobbit" />
 		</RULE>
 		<RULE weight="1">
-			<GETRULE idref="mar-standard-rule" title="Mar Standard" />
+			<GETRULE idref="mar-standard-male-rule" title="Mar Standard" />
 		</RULE>
 	</RULESET>
 	<RULESET id="fantasy-general-halfling-female" title="Consolidated Halfling" usage="final">
@@ -252,7 +252,7 @@
 			<GETRULE idref="middle-earth-fantasy-halfling-female-rule" title="Hobbit" />
 		</RULE>
 		<RULE weight="1">
-			<GETRULE idref="mar-standard-rule" title="Mar Standard" />
+			<GETRULE idref="mar-standard-female-rule" title="Mar Standard" />
 		</RULE>
 	</RULESET>
 

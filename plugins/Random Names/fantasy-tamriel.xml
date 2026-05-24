@@ -50,11 +50,11 @@
     </RULESET>
     <RULESET id="tamriel-atmer-surname-rule" title="Atmer Surname" usage="public">
         <RULE weight="3">
-            <GETLIST idref="tamriel-atmer-family" title="Family" />
+            <GETRULE idref="tamriel-atmer-family" title="Family" />
             <SPACE />
             <GETLIST idref="tamriel-atmer-family-supplimental" title="intrix" />
             <SPACE />
-            <GETLIST idref="tamriel-atmer-family" title="Family" />
+            <GETRULE idref="tamriel-atmer-family" title="Family" />
         </RULE>
         <RULE weight="3">
             <GETRULE idref="tamriel-atmer-family" title="Family" />
@@ -65,7 +65,7 @@
             <HYPHEN />
             <GETRULE idref="tamriel-atmer-family" title="Family" />
             <SPACE />
-            <GETLIST idref="tamriel-atmer-family" title="Family" />
+            <GETRULE idref="tamriel-atmer-family" title="Family" />
         </RULE>
         <RULE weight="3">
             <GETRULE idref="tamriel-atmer-family" title="Family" />
@@ -78,7 +78,7 @@
             <SPACE />
             <GETLIST idref="tamriel-atmer-family-supplimental" title="intrix2" />
             <SPACE />
-            <GETLIST idref="tamriel-atmer-family" title="Family" />
+            <GETRULE idref="tamriel-atmer-family" title="Family" />
         </RULE>
         <RULE weight="2">
             <GETRULE idref="tamriel-atmer-family" title="Family" />
@@ -155,19 +155,19 @@
             <GETLIST idref="tamrelic-adverb-b" title="Adverb" />
         </RULE>
         <RULE weight="2">
-            <GETLIST idref="tamrelilic-noun-a" title="Noun" />
+            <GETLIST idref="tamrelic-noun-a" title="Noun" />
             <HYPHEN />
             <GETLIST idref="tamrelic-adverb-b" title="Adj" />
         </RULE>
         <RULE weight="2">
-            <GETLIST idref="tamrelilic-noun-a" title="Noun A" />
+            <GETLIST idref="tamrelic-noun-a" title="Noun A" />
             <HYPHEN />
             <GETLIST idref="tamrelic-nn-articles" title="Article" />
             <HYPHEN />
             <GETLIST idref="tamrelic-noun-b" title="Noun B" />
         </RULE>
         <RULE weight="1">
-            <GETLIST idref="tamrelilic-noun-a" title="Noun A" />
+            <GETLIST idref="tamrelic-noun-a" title="Noun A" />
             <HYPHEN />
             <GETLIST idref="tamrelic-noun-b" title="Noun B" />
         </RULE>
@@ -194,19 +194,19 @@
             <GETLIST idref="tamrelic-adverb-b" title="Adverb" />
         </RULE>
         <RULE weight="2">
-            <GETLIST idref="tamrelilic-noun-a" title="Noun" />
+            <GETLIST idref="tamrelic-noun-a" title="Noun" />
             <HYPHEN />
             <GETLIST idref="tamrelic-adverb-b" title="Adj" />
         </RULE>
         <RULE weight="1">
-            <GETLIST idref="tamrelilic-noun-a" title="Noun A" />
+            <GETLIST idref="tamrelic-noun-a" title="Noun A" />
             <HYPHEN />
             <GETLIST idref="tamrelic-nn-articles" title="Article" />
             <HYPHEN />
             <GETLIST idref="tamrelic-noun-b" title="Noun B" />
         </RULE>
         <RULE weight="1">
-            <GETLIST idref="tamrelilic-noun-a" title="Noun A" />
+            <GETLIST idref="tamrelic-noun-a" title="Noun A" />
             <HYPHEN />
             <GETLIST idref="tamrelic-noun-b" title="Noun B" />
         </RULE>
@@ -370,7 +370,7 @@
         </RULE>
         <RULE>
             <GETLIST idref="tamriel-dunmer-surname-prefix" title="Prefix" />
-            <GETLIST idref="tamriel-dunmer-surname-Suffix" title="Suffix" />
+            <GETLIST idref="tamriel-dunmer-surname-suffix" title="Suffix" />
         </RULE>
     </RULESET>
 
@@ -406,11 +406,11 @@
         <CATEGORY title="Sex: Male" />
         <RULE weight="12">
             <GETLIST idref="tamriel-kajiit-male-prefix" title="Honorific" />
-            <GETRULE idref="tamriel-kajiit-male-core" title="Core" />
+            <GETLIST idref="tamriel-kajiit-male-core" title="Core" />
         </RULE>
         <RULE weight="1">
             <GETLIST idref="tamriel-kajiit-male-prefix" title="Honorific A" />
-            <GETRULE idref="tamriel-kajiit-male-core" title="Core" />
+            <GETLIST idref="tamriel-kajiit-male-core" title="Core" />
             <GETLIST idref="tamriel-kajiit-male-suffix" title="Honorific B" />
         </RULE>
         <RULE weight="3">
@@ -419,12 +419,12 @@
             <GETLIST idref="tamrelic-noun-b" title="Noun" />
         </RULE>
         <RULE weight="2">
-            <GETLIST idref="tamrelilic-noun-a" title="Noun" />
+            <GETLIST idref="tamrelic-noun-a" title="Noun" />
             <HYPHEN />
             <GETLIST idref="tamrelic-adverb-b" title="Adj" />
         </RULE>
         <RULE weight="12">
-            <GETRULE idref="tamriel-kajiit-male-core" title="Core" />
+            <GETLIST idref="tamriel-kajiit-male-core" title="Core" />
             <GETLIST idref="tamriel-kajiit-male-suffix" title="Honorific B" />
         </RULE>
     </RULESET>
@@ -435,11 +435,11 @@
         <CATEGORY title="Sex: Female" />
         <RULE weight="12">
             <GETLIST idref="tamriel-kajiit-female-prefix" title="Honorific" />
-            <GETRULE idref="tamriel-kajiit-female-core" title="Core" />
+            <GETLIST idref="tamriel-kajiit-female-core" title="Core" />
         </RULE>
         <RULE weight="1">
             <GETLIST idref="tamriel-kajiit-female-prefix" title="Honorific A" />
-            <GETRULE idref="tamriel-kajiit-female-core" title="Core" />
+            <GETLIST idref="tamriel-kajiit-female-core" title="Core" />
             <GETLIST idref="tamriel-kajiit-female-suffix" title="Honorific B" />
         </RULE>
         <RULE weight="12">

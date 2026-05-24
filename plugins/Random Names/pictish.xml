@@ -10,7 +10,7 @@
 		<RULE weight="1">
 			<GETLIST idref="pictish-male-given" title="Given"/>
 			<SPACE/>
-			<GETRULE idref="pictish-byname" title="Byname"/>
+			<GETLIST idref="pictish-byname" title="Byname"/>
 		</RULE>
 		<RULE weight="3">
 			<GETLIST idref="pictish-male-given" title="Given"/>
@@ -28,7 +28,7 @@
 		<RULE weight="1">
 			<GETLIST idref="pictish-medieval-male-given" title="Given"/>
 			<SPACE/>
-			<GETRULE idref="pictish-byname" title="Byname"/>
+			<GETLIST idref="pictish-byname" title="Byname"/>
 		</RULE>
 		<RULE weight="3">
 			<GETLIST idref="pictish-medieval-male-given" title="Given"/>
@@ -50,7 +50,7 @@
 		<RULE weight="1">
 			<GETLIST idref="pictish-male-given" title="Given"/>
 			<SPACE/>
-			<GETRULE idref="pictish-byname" title="Byname"/>
+			<GETLIST idref="pictish-byname" title="Byname"/>
 		</RULE>
 		<RULE weight="3">
 			<GETLIST idref="pictish-male-given" title="Given"/>
@@ -72,7 +72,7 @@
 		<RULE weight="1">
 			<GETLIST idref="pictish-medieval-male-given" title="Given"/>
 			<SPACE/>
-			<GETRULE idref="pictish-byname" title="Byname"/>
+			<GETLIST idref="pictish-byname" title="Byname"/>
 		</RULE>
 		<RULE weight="3">
 			<GETLIST idref="pictish-medieval-male-given" title="Given"/>
@@ -94,7 +94,7 @@
 		<RULE weight="1">
 			<GETLIST idref="pictish-female-given" title="Given"/>
 			<SPACE/>
-			<GETRULE idref="pictish-byname" title="Byname"/>
+			<GETLIST idref="pictish-byname" title="Byname"/>
 		</RULE>
 		<RULE weight="3">
 			<GETLIST idref="pictish-female-given" title="Given"/>
@@ -119,7 +119,7 @@
 		<RULE weight="1">
 			<GETLIST idref="pictish-female-given" title="Given"/>
 			<SPACE/>
-			<GETRULE idref="pictish-byname" title="Byname"/>
+			<GETLIST idref="pictish-byname" title="Byname"/>
 		</RULE>
 		<RULE weight="3">
 			<GETLIST idref="pictish-female-given" title="Given"/>
