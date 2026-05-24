@@ -29,6 +29,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import freemarker.template.Configuration;
@@ -43,8 +44,6 @@ import freemarker.template.DefaultObjectWrapperBuilder;
 import freemarker.template.ObjectWrapper;
 import freemarker.template.Version;
 import javafx.stage.FileChooser;
-import org.apache.commons.io.filefilter.FileFilterUtils;
-import org.apache.commons.io.filefilter.IOFileFilter;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.SystemUtils;
 
@@ -140,10 +139,8 @@ public final class ExportUtilities
 
 	public static URI[] getValidFiles(Collection<File> myAllTemplates, SheetFilter sheetFilter, boolean doPartyExport)
 	{
-		IOFileFilter prefixFilter;
 		String outputSheetsDir;
 		String outputSheetDirectory = SettingsHandler.getGameAsProperty().get().getOutputSheetDirectory();
-		IOFileFilter ioFilter = FileFilterUtils.asFileFilter(sheetFilter);
 		if (outputSheetDirectory == null)
 		{
 			outputSheetsDir = ConfigurationSettings.getOutputSheetsDir() + '/' + sheetFilter.getPath();
@@ -154,17 +151,14 @@ public final class ExportUtilities
 					+ sheetFilter.getPath();
 		}
 
-		if (doPartyExport)
-		{
-			prefixFilter = FileFilterUtils.prefixFileFilter(Constants.PARTY_TEMPLATE_PREFIX);
-		} else
-		{
-			prefixFilter = FileFilterUtils.prefixFileFilter(Constants.CHARACTER_TEMPLATE_PREFIX);
-		}
-		IOFileFilter filter = FileFilterUtils.and(prefixFilter, ioFilter);
+		String prefix = doPartyExport ? Constants.PARTY_TEMPLATE_PREFIX : Constants.CHARACTER_TEMPLATE_PREFIX;
+		Predicate<File> filter = f -> f.getName().startsWith(prefix)
+				&& sheetFilter.accept(f.getParentFile(), f.getName());
 
-		List<File> files = FileFilterUtils.filterList(filter, myAllTemplates);
-		Collections.sort(files);
+		List<File> files = myAllTemplates.stream()
+		                                 .filter(filter)
+		                                 .sorted()
+		                                 .collect(Collectors.toList());
 		URI osPath = new File(outputSheetsDir).toURI();
 		URI[] uriList = new URI[files.size()];
 		Arrays.setAll(uriList, i -> osPath.relativize(files.get(i).toURI()));
