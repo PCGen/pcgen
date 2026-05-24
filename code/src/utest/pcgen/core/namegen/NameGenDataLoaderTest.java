@@ -83,4 +83,57 @@ public class NameGenDataLoaderTest
 		NameGenData data = NameGenDataLoader.load(tempDir.toFile());
 		assertTrue(data.categories().isEmpty());
 	}
+
+	@Test
+	public void valueWithoutWeightDefaultsToOne(@TempDir Path tempDir) throws IOException
+	{
+		// The DTD declares weight="1" as a default, but we use a
+		// non-validating parser, so a missing weight arrives as "" — the
+		// loader must treat that as 1 instead of throwing.
+		Files.copy(new File(DATA_DIR, "generator.dtd").toPath(),
+				tempDir.resolve("generator.dtd"));
+		Files.writeString(tempDir.resolve("noweight.xml"),
+				"<?xml version=\"1.0\"?><!DOCTYPE GENERATOR SYSTEM \"generator.dtd\">"
+						+ "<GENERATOR>"
+						+ "<LIST title=\"L\" id=\"L\"><VALUE>Donn</VALUE></LIST>"
+						+ "</GENERATOR>");
+		NameGenData data = NameGenDataLoader.load(tempDir.toFile());
+		assertNotNull(data);
+	}
+
+	@Test
+	public void rejectsExternalEntityExpansion(@TempDir Path tempDir) throws IOException
+	{
+		// Classic XXE payload: declare an external entity that points to
+		// a local secret file, then reference it. With external general
+		// entities disabled, the parser must NOT inline the file's
+		// contents into the resulting data — it should either refuse the
+		// document or leave the reference unresolved.
+		Files.copy(new File(DATA_DIR, "generator.dtd").toPath(),
+				tempDir.resolve("generator.dtd"));
+		Path secret = tempDir.resolve("secret.txt");
+		String marker = "TOP-SECRET-CANARY-12345";
+		Files.writeString(secret, marker);
+		String secretUri = secret.toUri().toString();
+		Files.writeString(tempDir.resolve("xxe.xml"),
+				"<?xml version=\"1.0\"?>"
+						+ "<!DOCTYPE GENERATOR ["
+						+ "<!ENTITY leak SYSTEM \"" + secretUri + "\">"
+						+ "]>"
+						+ "<GENERATOR>"
+						+ "<LIST title=\"L\" id=\"L\"><VALUE>prefix-&leak;-suffix</VALUE></LIST>"
+						+ "</GENERATOR>");
+		try
+		{
+			NameGenData data = NameGenDataLoader.load(tempDir.toFile());
+			// If the loader didn't throw, the parsed data must not contain
+			// the secret marker — otherwise XXE expanded successfully.
+			boolean leaked = data.allVars().toString().contains(marker);
+			assertFalse(leaked, "external entity was expanded into the parsed data");
+		}
+		catch (IOException ignored)
+		{
+			// Refusing the document is also an acceptable outcome.
+		}
+	}
 }

@@ -103,6 +103,14 @@ public final class NameGenDataLoader
 		try
 		{
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+			// XXE hardening: data files are local but the parser shouldn't
+			// fetch external entities or evaluate parameter entities. We
+			// keep external-DTD loading on so generator.dtd still resolves
+			// through the EntityResolver.
+			factory.setFeature("http://xml.org/sax/features/external-general-entities", false);
+			factory.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
+			factory.setXIncludeAware(false);
+			factory.setExpandEntityReferences(false);
 			return factory.newDocumentBuilder();
 		}
 		catch (ParserConfigurationException e)
@@ -129,7 +137,7 @@ public final class NameGenDataLoader
 		for (Element child : childElements(list, "VALUE"))
 		{
 			WeightedDataValue dv = new WeightedDataValue(directText(child),
-					Integer.parseInt(child.getAttribute("weight")));
+					parseWeight(child));
 			childElements(child, "SUBVALUE").forEach(sub ->
 					dv.addSubValue(sub.getAttribute("type"), directText(sub)));
 			dataList.add(dv);
@@ -140,7 +148,7 @@ public final class NameGenDataLoader
 
 	private static String loadRule(Element rule, String id, VariableHashMap allVars)
 	{
-		Rule dataRule = new Rule(allVars, id, id, Integer.parseInt(rule.getAttribute("weight")));
+		Rule dataRule = new Rule(allVars, id, id, parseWeight(rule));
 		for (Element child : childElements(rule))
 		{
 			switch (child.getTagName())
@@ -208,6 +216,22 @@ public final class NameGenDataLoader
 				.filter(n -> n.getNodeType() == Node.ELEMENT_NODE)
 				.map(Element.class::cast)
 				.toList();
+	}
+
+	/**
+	 * Reads the {@code weight} attribute and defaults to 1 when absent or
+	 * blank, matching the DTD's {@code weight CDATA "1"} default. The
+	 * project uses a non-validating parser, so DTD-defaulted attributes
+	 * arrive here as {@code ""} rather than {@code "1"}.
+	 */
+	private static int parseWeight(Element element)
+	{
+		String raw = element.getAttribute("weight");
+		if (raw.isBlank())
+		{
+			return 1;
+		}
+		return Integer.parseInt(raw.trim());
 	}
 
 	private static List<Element> childElements(Element parent, String tagName)
