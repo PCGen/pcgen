@@ -203,18 +203,20 @@ public final class NameGenDataLoader
 	private static List<Element> childElements(Element parent)
 	{
 		NodeList nodes = parent.getChildNodes();
-		List<Element> out = new ArrayList<>(nodes.getLength());
-		IntStream.range(0, nodes.getLength())
+		return IntStream.range(0, nodes.getLength())
 				.mapToObj(nodes::item)
 				.filter(n -> n.getNodeType() == Node.ELEMENT_NODE)
 				.map(Element.class::cast)
-				.forEach(out::add);
-		return out;
+				.toList();
 	}
 
 	private static List<Element> childElements(Element parent, String tagName)
 	{
-		return childElements(parent).stream()
+		NodeList nodes = parent.getChildNodes();
+		return IntStream.range(0, nodes.getLength())
+				.mapToObj(nodes::item)
+				.filter(n -> n.getNodeType() == Node.ELEMENT_NODE)
+				.map(Element.class::cast)
 				.filter(e -> tagName.equals(e.getTagName()))
 				.toList();
 	}
