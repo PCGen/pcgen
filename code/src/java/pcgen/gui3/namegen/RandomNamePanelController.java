@@ -157,6 +157,10 @@ public final class RandomNamePanelController
 		String previous = currentGender();
 		String target = chooseStickyGender(available, previous);
 		selectGender(target);
+		// If the sticky gender is unchanged, the toggle listener won't fire,
+		// so refresh the structure combo here too — the catalog is keyed on
+		// (category, title, gender) and title just changed.
+		refreshStructureCombo();
 	}
 
 	private void onGenderChanged(Toggle selected)
