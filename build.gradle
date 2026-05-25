@@ -34,7 +34,7 @@ plugins {
     id 'de.undercouch.download' version '5.7.0'         // Shows download percentage
     id 'com.github.ben-manes.versions' version '0.54.0' // Checks versions for plugins and dependencies
     id 'com.dorongold.task-tree' version '4.0.1'        // Prints the task dependency tree
-    id 'org.beryx.jlink' version '4.0.0'               // Creates custom runtimes with jlink
+    id 'org.beryx.jlink' version '4.0.1'               // Creates custom runtimes with jlink
     id 'jacoco'                                         // Code coverage
 }
 
