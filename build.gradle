@@ -100,10 +100,6 @@ repositories {
         url = 'http://pc-gen.org/librepo/'
         allowInsecureProtocol = true
     }
-    maven {
-        name = 'local'
-        url = 'installers'
-    }
     // Use Maven plugin to reference JBoss artifact repository
     // TODO Which libs do we pull from here?
     maven {
