@@ -21,9 +21,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 import java.util.stream.IntStream;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -83,36 +85,22 @@ public final class NameGenDataLoader
 		DocumentBuilder builder = newDocumentBuilder();
 		builder.setEntityResolver(new GeneratorDtdResolver(dataDir));
 
-		// Pass 1: parse each file, harvest raw LIST and RULESET elements.
 		Map<String, Element> rawLists = new LinkedHashMap<>();
 		Map<String, RawRuleSet> rawRuleSets = new LinkedHashMap<>();
 		Map<String, List<String>> rawCategories = new LinkedHashMap<>();
 
+		// Pass 1: parse each file, harvest raw LIST and RULESET elements.
 		for (File dataFile : dataFiles)
 		{
-			try
+			RawFile rf = parseOne(dataFile, builder);
+			for (Element list : rf.lists)
 			{
-				Document nameSet = builder.parse(dataFile);
-				DocumentType dt = nameSet.getDoctype();
-				if (dt == null || !"GENERATOR".equals(dt.getName()))
-				{
-					continue;
-				}
-				Element generator = nameSet.getDocumentElement();
-				for (Element list : childElements(generator, "LIST"))
-				{
-					rawLists.put(list.getAttribute("id"), list);
-				}
-				for (Element ruleSet : childElements(generator, "RULESET"))
-				{
-					String id = ruleSet.getAttribute("id");
-					rawRuleSets.put(id, new RawRuleSet(ruleSet, id));
-				}
+				rawLists.put(list.getAttribute("id"), list);
 			}
-			catch (SAXException | NumberFormatException e)
+			for (Element ruleSet : rf.ruleSets)
 			{
-				Logging.errorPrint("Failed to parse " + dataFile.getName(), e);
-				throw new IOException("XML error in file " + dataFile.getName(), e);
+				String id = ruleSet.getAttribute("id");
+				rawRuleSets.put(id, new RawRuleSet(ruleSet, id));
 			}
 		}
 
@@ -148,6 +136,182 @@ public final class NameGenDataLoader
 		}
 
 		return new NameGenData(lists, rulesets, categories, unresolved);
+	}
+
+	private static RawFile parseOne(File dataFile, DocumentBuilder builder) throws IOException
+	{
+		try
+		{
+			Document nameSet = builder.parse(dataFile);
+			DocumentType dt = nameSet.getDoctype();
+			if (dt == null || !"GENERATOR".equals(dt.getName()))
+			{
+				return RawFile.EMPTY;
+			}
+			Element generator = nameSet.getDocumentElement();
+			return new RawFile(
+					childElements(generator, "LIST"),
+					childElements(generator, "RULESET"));
+		}
+		catch (SAXException | NumberFormatException e)
+		{
+			Logging.errorPrint("Failed to parse " + dataFile.getName(), e);
+			throw new IOException("XML error in file " + dataFile.getName(), e);
+		}
+	}
+
+	/**
+	 * Lazy-loader phase 1. Parses a single file's DOM, registers every
+	 * {@code <LIST>} from this file into the live {@code lists} map, and
+	 * returns the raw ruleset elements together with the idrefs the file
+	 * reaches into. The lazy caller demand-parses the owners of any
+	 * not-yet-loaded ids before invoking
+	 * {@link #buildRuleSetsForLazy(LazyFilePrepared, Map, Map, List)}.
+	 */
+	static LazyFilePrepared prepareFileForLazy(File dataFile, File dataDir,
+			Map<String, NameList> lists) throws IOException
+	{
+		DocumentBuilder builder = newDocumentBuilder();
+		builder.setEntityResolver(new GeneratorDtdResolver(dataDir));
+		RawFile raw = parseOne(dataFile, builder);
+
+		for (Element listEl : raw.lists)
+		{
+			NameList nl = buildList(listEl);
+			lists.put(nl.id(), nl);
+		}
+
+		Map<String, RawRuleSet> localRawRuleSets = new LinkedHashMap<>(raw.ruleSets.size());
+		for (Element rsEl : raw.ruleSets)
+		{
+			String id = rsEl.getAttribute("id");
+			localRawRuleSets.put(id, new RawRuleSet(rsEl, id));
+		}
+
+		Set<String> referencedListIds = new LinkedHashSet<>();
+		Set<String> referencedRuleSetIds = new LinkedHashSet<>();
+		for (Element rsEl : raw.ruleSets)
+		{
+			for (Element ruleEl : childElements(rsEl, "RULE"))
+			{
+				for (Element child : childElements(ruleEl))
+				{
+					switch (child.getTagName())
+					{
+						case "GETLIST" -> referencedListIds.add(child.getAttribute("idref"));
+						case "GETRULE" -> referencedRuleSetIds.add(child.getAttribute("idref"));
+						default ->
+						{
+							// nothing
+						}
+					}
+				}
+			}
+		}
+
+		return new LazyFilePrepared(localRawRuleSets, referencedListIds, referencedRuleSetIds);
+	}
+
+	/**
+	 * Lazy-loader phase 2. Builds and registers {@link RuleSet} records for
+	 * a file whose phase-1 result was returned by {@link
+	 * #prepareFileForLazy(File, File, Map)}.
+	 *
+	 * <p>{@code crossFileRuleSetTitle} is consulted whenever a {@code GETRULE}
+	 * points at an id not declared in the current file. Returning {@code null}
+	 * from the resolver records an unresolved reference; returning a title
+	 * string produces a {@link RulePart.RuleSetRef} that will resolve through
+	 * the shared {@code rulesets} map at generation time.
+	 */
+	static void buildRuleSetsForLazy(LazyFilePrepared prepared,
+			Map<String, NameList> lists,
+			Map<String, RuleSet> rulesets,
+			List<NameGenData.UnresolvedReference> unresolved,
+			java.util.function.Function<String, String> crossFileRuleSetTitle)
+	{
+		for (RawRuleSet rrs : prepared.localRawRuleSets().values())
+		{
+			RuleSet rs = buildRuleSetLazy(rrs, lists, rulesets,
+					prepared.localRawRuleSets(), unresolved, crossFileRuleSetTitle);
+			rulesets.put(rrs.id, rs);
+		}
+	}
+
+	private static RuleSet buildRuleSetLazy(RawRuleSet raw,
+			Map<String, NameList> lists,
+			Map<String, RuleSet> rulesets,
+			Map<String, RawRuleSet> localRawRuleSets,
+			List<NameGenData.UnresolvedReference> unresolved,
+			java.util.function.Function<String, String> crossFileRuleSetTitle)
+	{
+		List<Rule> rules = childElements(raw.element, "RULE").stream()
+				.map(rule -> buildRuleLazy(rule, lists, rulesets,
+						localRawRuleSets, unresolved, crossFileRuleSetTitle))
+				.toList();
+		return new RuleSet(raw.id,
+				raw.element.getAttribute("title"),
+				raw.element.getAttribute("usage"),
+				rules);
+	}
+
+	private static Rule buildRuleLazy(Element rule,
+			Map<String, NameList> lists,
+			Map<String, RuleSet> rulesets,
+			Map<String, RawRuleSet> localRawRuleSets,
+			List<NameGenData.UnresolvedReference> unresolved,
+			java.util.function.Function<String, String> crossFileRuleSetTitle)
+	{
+		List<RulePart> parts = new ArrayList<>();
+		StringBuilder label = new StringBuilder();
+		for (Element child : childElements(rule))
+		{
+			RulePart part = switch (child.getTagName())
+			{
+				case "GETLIST" -> resolveListRef(child.getAttribute("idref"), lists, unresolved);
+				case "GETRULE" -> resolveRuleSetRefLazy(child.getAttribute("idref"),
+						rulesets, localRawRuleSets, unresolved, crossFileRuleSetTitle);
+				case "SPACE" -> RulePart.Literal.SPACE;
+				case "HYPHEN" -> RulePart.Literal.HYPHEN;
+				case "CR" -> RulePart.Literal.CR;
+				default -> null;
+			};
+			if (part != null)
+			{
+				parts.add(part);
+				label.append(part.label());
+			}
+		}
+		return new Rule(parseWeight(rule), label.toString(), parts);
+	}
+
+	private static RulePart resolveRuleSetRefLazy(String idref,
+			Map<String, RuleSet> rulesets,
+			Map<String, RawRuleSet> localRawRuleSets,
+			List<NameGenData.UnresolvedReference> unresolved,
+			java.util.function.Function<String, String> crossFileRuleSetTitle)
+	{
+		// Same-file target: title from the local raw element so it works
+		// even when the target hasn't been built yet.
+		RawRuleSet local = localRawRuleSets.get(idref);
+		if (local != null)
+		{
+			return new RulePart.RuleSetRef(idref, local.element.getAttribute("title"), rulesets);
+		}
+		String title = crossFileRuleSetTitle.apply(idref);
+		if (title == null)
+		{
+			unresolved.add(new NameGenData.UnresolvedReference(
+					NameGenData.UnresolvedReference.Kind.GETRULE, idref));
+			return null;
+		}
+		return new RulePart.RuleSetRef(idref, title, rulesets);
+	}
+
+	/** Phase-1 output for {@link #prepareFileForLazy(File, File, Map)}. */
+	record LazyFilePrepared(Map<String, RawRuleSet> localRawRuleSets,
+			Set<String> referencedListIds,
+			Set<String> referencedRuleSetIds)
+	{
 	}
 
 	private static DocumentBuilder newDocumentBuilder() throws IOException
@@ -328,7 +492,13 @@ public final class NameGenDataLoader
 	}
 
 	/** Parsed DOM element + id, captured in pass 1 for use in pass 2. */
-	private record RawRuleSet(Element element, String id) { }
+	record RawRuleSet(Element element, String id) { }
+
+	/** Per-file pass-1 result: the LIST and RULESET elements harvested. */
+	private record RawFile(List<Element> lists, List<Element> ruleSets)
+	{
+		static final RawFile EMPTY = new RawFile(List.of(), List.of());
+	}
 
 	/**
 	 * Resolves {@code generator.dtd} from a known directory rather than the

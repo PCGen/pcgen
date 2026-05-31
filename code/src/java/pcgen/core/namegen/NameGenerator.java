@@ -5,25 +5,25 @@
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
  */
 package pcgen.core.namegen;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * UI-toolkit-independent facade for the random-name engine. Loads XML data
- * once at construction and exposes operations a UI (Swing, JavaFX, CLI)
- * needs to drive a category/title/gender picker and produce names.
+ * UI-toolkit-independent facade for the random-name engine. Backed by the
+ * lazy {@link NameGenLazyData} loader: at construction time only a cheap
+ * StAX index pre-scan runs; XML rule bodies are parsed when the user
+ * actually selects a category/title/gender combination.
  *
  * <p>Categories on disk are keyed by display name; gender categories use
  * the {@code "Sex: Female"} / {@code "Sex: Male"} / {@code "Sex: Other"}
@@ -37,11 +37,11 @@ public final class NameGenerator
 	private static final String ALL_CATEGORY = "All";
 	private static final String FINAL_USAGE = "final";
 
-	private final NameGenData data;
+	private final NameGenLazyData backing;
 
 	public NameGenerator(File dataDir) throws IOException
 	{
-		this.data = NameGenDataLoader.load(dataDir);
+		this.backing = NameGenLazyData.open(dataDir);
 	}
 
 	/**
@@ -50,7 +50,7 @@ public final class NameGenerator
 	 */
 	public List<String> getCategories()
 	{
-		return data.categories().keySet().stream()
+		return backing.categoryTitles().stream()
 				.filter(key -> !key.startsWith(SEX_PREFIX))
 				.filter(key -> !ALL_CATEGORY.equals(key))
 				.sorted()
@@ -61,12 +61,14 @@ public final class NameGenerator
 	 * Sorted titles available within {@code category} (final-usage rulesets
 	 * only). A title appearing under multiple categories will be returned
 	 * for each of them.
+	 *
+	 * <p>Reads index metadata only — no XML body parsed.
 	 */
 	public List<String> getTitlesFor(String category)
 	{
-		return data.categories().getOrDefault(category, List.of()).stream()
-				.filter(rs -> FINAL_USAGE.equals(rs.usage()))
-				.map(RuleSet::title)
+		return backing.rulesetMetaFor(category).stream()
+				.filter(meta -> FINAL_USAGE.equals(meta.usage()))
+				.map(NameGenIndex.RuleSetMeta::title)
 				.distinct()
 				.sorted()
 				.toList();
@@ -76,18 +78,17 @@ public final class NameGenerator
 	 * Genders available for a given (category, title). Returned in the
 	 * {@code [Female, Male, Other]} canonical order; entries missing from
 	 * the data are simply absent.
+	 *
+	 * <p>Reads index metadata only — no XML body parsed.
 	 */
 	public List<String> getGendersFor(String category, String title)
 	{
-		Set<String> raw = data.categories().getOrDefault(category, List.of()).stream()
-				.filter(rs -> FINAL_USAGE.equals(rs.usage()))
-				.filter(rs -> rs.title().equals(title))
-				.flatMap(rs -> data.categories().entrySet().stream()
-						.filter(e -> e.getKey().startsWith(SEX_PREFIX) && e.getValue().contains(rs))
-						.map(e -> e.getKey().substring(SEX_PREFIX.length()).trim()))
-				.collect(java.util.stream.Collectors.toSet());
+		Set<String> raw = backing.rulesetMetaFor(category).stream()
+				.filter(meta -> FINAL_USAGE.equals(meta.usage()))
+				.filter(meta -> meta.title().equals(title))
+				.flatMap(meta -> backing.gendersForRuleset(meta.id()).stream())
+				.collect(Collectors.toSet());
 
-		// canonical order first, then any non-canonical genders (defensive)
 		Set<String> ordered = new LinkedHashSet<>();
 		Stream.of("Female", "Male", "Other").filter(raw::contains).forEach(ordered::add);
 		ordered.addAll(raw);
@@ -96,17 +97,19 @@ public final class NameGenerator
 
 	/**
 	 * Resolve a (category, title, gender) triple to a final-usage ruleset.
+	 * Triggers parsing of the file containing the matched ruleset (and any
+	 * files it transitively references via {@code GETLIST}/{@code GETRULE}).
 	 *
 	 * @return matching {@link RuleSet}, or {@code null} if no entry matches
 	 */
 	public RuleSet getCatalog(String category, String title, String gender)
 	{
-		List<RuleSet> genderRules = data.categories().getOrDefault(SEX_PREFIX + " " + gender, List.of());
-		return data.categories().getOrDefault(category, List.of()).stream()
-				.filter(rs -> FINAL_USAGE.equals(rs.usage()))
-				.filter(rs -> rs.title().equals(title))
-				.filter(genderRules::contains)
+		return backing.rulesetMetaFor(category).stream()
+				.filter(meta -> FINAL_USAGE.equals(meta.usage()))
+				.filter(meta -> meta.title().equals(title))
+				.filter(meta -> backing.isInGenderBucket(meta.id(), gender))
 				.findFirst()
+				.map(meta -> backing.ruleSet(meta.id()))
 				.orElse(null);
 	}
 
@@ -140,11 +143,37 @@ public final class NameGenerator
 	}
 
 	/**
-	 * Exposes the loaded data, primarily for tests.
+	 * Exposes a snapshot of all loaded data. Forces every XML file to be
+	 * parsed (equivalent to the legacy eager load). Primarily for tests
+	 * that want to inspect the full corpus.
 	 */
 	public NameGenData getData()
 	{
-		return data;
+		// Parse every ruleset declared anywhere — that pulls in every
+		// referenced list/ruleset transitively, which between them touch
+		// every file.
+		for (String id : backing.rulesetMeta().keySet())
+		{
+			backing.ruleSet(id);
+		}
+		Map<String, RuleSet> rulesets = new LinkedHashMap<>(backing.liveRulesets());
+
+		Map<String, List<RuleSet>> categories = new LinkedHashMap<>();
+		for (Map.Entry<String, List<String>> e : backing.rulesetIdsByCategory().entrySet())
+		{
+			List<RuleSet> resolved = new ArrayList<>(e.getValue().size());
+			for (String id : e.getValue())
+			{
+				RuleSet rs = rulesets.get(id);
+				if (rs != null)
+				{
+					resolved.add(rs);
+				}
+			}
+			categories.put(e.getKey(), resolved);
+		}
+		return new NameGenData(backing.liveLists(), rulesets, categories,
+				backing.unresolvedReferences());
 	}
 
 	private static GeneratedName assemble(Rule rule, List<DataValue> parts)
