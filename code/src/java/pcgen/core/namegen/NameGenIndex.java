@@ -161,6 +161,12 @@ public final class NameGenIndex
 		}
 	}
 
+	/**
+	 * Drives the StAX state machine over one document. The body of every
+	 * {@code <LIST>} is skipped via a depth counter on {@link ScanState}
+	 * rather than parsed; only attribute headers on {@code <RULESET>},
+	 * {@code <CATEGORY>}, and {@code <LIST>} matter to the index.
+	 */
 	private static void scanStream(XMLStreamReader reader, File file,
 			Map<String, RuleSetMeta> rulesetsById,
 			Map<String, File> listIdToFile,

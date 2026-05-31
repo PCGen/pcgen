@@ -179,6 +179,15 @@ public final class NameGenLazyData
 		return meta == null ? null : meta.title();
 	}
 
+	/**
+	 * Idempotently parse {@code file} and every file it transitively pulls
+	 * in via {@code GETLIST}/{@code GETRULE}. The {@code parsedFiles} guard
+	 * keeps us from reparsing; {@code inProgressFiles} short-circuits
+	 * cycles between mutually-referencing files. {@link RulePart.RuleSetRef}
+	 * resolves through a shared map at generation time, so a cycle just
+	 * means one ruleset's reference temporarily points at an unbuilt
+	 * target — populated correctly once the outer call's phase 2 returns.
+	 */
 	private void ensureFileParsed(File file)
 	{
 		if (parsedFiles.contains(file) || inProgressFiles.contains(file))
