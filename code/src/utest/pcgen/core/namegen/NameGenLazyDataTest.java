@@ -52,13 +52,13 @@ public class NameGenLazyDataTest
 		// Reading category lists from the index should not have parsed
 		// anything yet — the lazy backend exposes its parse set via the
 		// internals; we observe through getCatalog instead.
-		String category = categories.get(0);
+		String category = categories.getFirst();
 		List<String> titles = generator.getTitlesFor(category);
 		assertFalse(titles.isEmpty());
 
-		String title = titles.get(0);
+		String title = titles.getFirst();
 		List<String> genders = generator.getGendersFor(category, title);
-		String gender = genders.isEmpty() ? "Male" : genders.get(0);
+		String gender = genders.isEmpty() ? "Male" : genders.getFirst();
 
 		RuleSet catalog = generator.getCatalog(category, title, gender);
 		assertNotNull(catalog, "expected a catalog for " + category + "/" + title + "/" + gender);

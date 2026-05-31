@@ -72,14 +72,6 @@ public final class NameGenLazyData
 	}
 
 	/**
-	 * Whether {@code category} is known to the index. Cheap.
-	 */
-	public boolean hasCategory(String category)
-	{
-		return index.rulesetIdsByCategory().containsKey(category);
-	}
-
-	/**
 	 * Ruleset metadata for every ruleset declared under {@code category}.
 	 * Reads index only — no parse triggered. Returns an empty list if the
 	 * category is unknown.

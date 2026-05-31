@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import java.util.function.UnaryOperator;
 import java.util.stream.IntStream;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -57,6 +58,11 @@ import pcgen.util.Logging;
  */
 public final class NameGenDataLoader
 {
+	private static final String ATTR_TITLE = "title";
+	private static final String ATTR_IDREF = "idref";
+	private static final String TAG_GETLIST = "GETLIST";
+	private static final String TAG_GETRULE = "GETRULE";
+
 	private NameGenDataLoader()
 	{
 	}
@@ -166,7 +172,7 @@ public final class NameGenDataLoader
 	 * returns the raw ruleset elements together with the idrefs the file
 	 * reaches into. The lazy caller demand-parses the owners of any
 	 * not-yet-loaded ids before invoking
-	 * {@link #buildRuleSetsForLazy(LazyFilePrepared, Map, Map, List)}.
+	 * {@link #buildRuleSetsForLazy(LazyFilePrepared, Map, Map, List, UnaryOperator)}.
 	 */
 	static LazyFilePrepared prepareFileForLazy(File dataFile, File dataDir,
 			Map<String, NameList> lists) throws IOException
@@ -181,7 +187,7 @@ public final class NameGenDataLoader
 			lists.put(nl.id(), nl);
 		}
 
-		Map<String, RawRuleSet> localRawRuleSets = new LinkedHashMap<>(raw.ruleSets.size());
+		Map<String, RawRuleSet> localRawRuleSets = LinkedHashMap.newLinkedHashMap(raw.ruleSets.size());
 		for (Element rsEl : raw.ruleSets)
 		{
 			String id = rsEl.getAttribute("id");
@@ -198,8 +204,8 @@ public final class NameGenDataLoader
 				{
 					switch (child.getTagName())
 					{
-						case "GETLIST" -> referencedListIds.add(child.getAttribute("idref"));
-						case "GETRULE" -> referencedRuleSetIds.add(child.getAttribute("idref"));
+						case TAG_GETLIST -> referencedListIds.add(child.getAttribute(ATTR_IDREF));
+						case TAG_GETRULE -> referencedRuleSetIds.add(child.getAttribute(ATTR_IDREF));
 						default ->
 						{
 							// nothing
@@ -227,7 +233,7 @@ public final class NameGenDataLoader
 			Map<String, NameList> lists,
 			Map<String, RuleSet> rulesets,
 			List<NameGenData.UnresolvedReference> unresolved,
-			java.util.function.Function<String, String> crossFileRuleSetTitle)
+			UnaryOperator<String> crossFileRuleSetTitle)
 	{
 		for (RawRuleSet rrs : prepared.localRawRuleSets().values())
 		{
@@ -242,14 +248,14 @@ public final class NameGenDataLoader
 			Map<String, RuleSet> rulesets,
 			Map<String, RawRuleSet> localRawRuleSets,
 			List<NameGenData.UnresolvedReference> unresolved,
-			java.util.function.Function<String, String> crossFileRuleSetTitle)
+			UnaryOperator<String> crossFileRuleSetTitle)
 	{
 		List<Rule> rules = childElements(raw.element, "RULE").stream()
 				.map(rule -> buildRuleLazy(rule, lists, rulesets,
 						localRawRuleSets, unresolved, crossFileRuleSetTitle))
 				.toList();
 		return new RuleSet(raw.id,
-				raw.element.getAttribute("title"),
+				raw.element.getAttribute(ATTR_TITLE),
 				raw.element.getAttribute("usage"),
 				rules);
 	}
@@ -259,7 +265,7 @@ public final class NameGenDataLoader
 			Map<String, RuleSet> rulesets,
 			Map<String, RawRuleSet> localRawRuleSets,
 			List<NameGenData.UnresolvedReference> unresolved,
-			java.util.function.Function<String, String> crossFileRuleSetTitle)
+			UnaryOperator<String> crossFileRuleSetTitle)
 	{
 		List<RulePart> parts = new ArrayList<>();
 		StringBuilder label = new StringBuilder();
@@ -267,8 +273,8 @@ public final class NameGenDataLoader
 		{
 			RulePart part = switch (child.getTagName())
 			{
-				case "GETLIST" -> resolveListRef(child.getAttribute("idref"), lists, unresolved);
-				case "GETRULE" -> resolveRuleSetRefLazy(child.getAttribute("idref"),
+				case TAG_GETLIST -> resolveListRef(child.getAttribute(ATTR_IDREF), lists, unresolved);
+				case TAG_GETRULE -> resolveRuleSetRefLazy(child.getAttribute(ATTR_IDREF),
 						rulesets, localRawRuleSets, unresolved, crossFileRuleSetTitle);
 				case "SPACE" -> RulePart.Literal.SPACE;
 				case "HYPHEN" -> RulePart.Literal.HYPHEN;
@@ -288,14 +294,14 @@ public final class NameGenDataLoader
 			Map<String, RuleSet> rulesets,
 			Map<String, RawRuleSet> localRawRuleSets,
 			List<NameGenData.UnresolvedReference> unresolved,
-			java.util.function.Function<String, String> crossFileRuleSetTitle)
+			UnaryOperator<String> crossFileRuleSetTitle)
 	{
 		// Same-file target: title from the local raw element so it works
 		// even when the target hasn't been built yet.
 		RawRuleSet local = localRawRuleSets.get(idref);
 		if (local != null)
 		{
-			return new RulePart.RuleSetRef(idref, local.element.getAttribute("title"), rulesets);
+			return new RulePart.RuleSetRef(idref, local.element.getAttribute(ATTR_TITLE), rulesets);
 		}
 		String title = crossFileRuleSetTitle.apply(idref);
 		if (title == null)
@@ -319,9 +325,8 @@ public final class NameGenDataLoader
 		try
 		{
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-			// XXE hardening: data files are local but the parser shouldn't
-			// fetch external entities or evaluate parameter entities. We
-			// keep external-DTD loading on so generator.dtd still resolves
+			// XXE hardening: data files are local but the parser shouldn't fetch external entities or evaluate
+			// parameter entities. We keep external-DTD loading on so generator.dtd still resolves
 			// through the EntityResolver.
 			factory.setFeature("http://xml.org/sax/features/external-general-entities", false);
 			factory.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
@@ -338,7 +343,7 @@ public final class NameGenDataLoader
 	private static NameList buildList(Element list)
 	{
 		String id = list.getAttribute("id");
-		String title = list.getAttribute("title");
+		String title = list.getAttribute(ATTR_TITLE);
 		List<WeightedDataValue> values = new ArrayList<>();
 		for (Element child : childElements(list, "VALUE"))
 		{
@@ -360,7 +365,7 @@ public final class NameGenDataLoader
 				.map(rule -> buildRule(rule, lists, rulesets, rawRuleSets, unresolved))
 				.toList();
 		return new RuleSet(raw.id,
-				raw.element.getAttribute("title"),
+				raw.element.getAttribute(ATTR_TITLE),
 				raw.element.getAttribute("usage"),
 				rules);
 	}
@@ -377,8 +382,8 @@ public final class NameGenDataLoader
 		{
 			RulePart part = switch (child.getTagName())
 			{
-				case "GETLIST" -> resolveListRef(child.getAttribute("idref"), lists, unresolved);
-				case "GETRULE" -> resolveRuleSetRef(child.getAttribute("idref"), rulesets, rawRuleSets, unresolved);
+				case TAG_GETLIST -> resolveListRef(child.getAttribute(ATTR_IDREF), lists, unresolved);
+				case TAG_GETRULE -> resolveRuleSetRef(child.getAttribute(ATTR_IDREF), rulesets, rawRuleSets, unresolved);
 				case "SPACE" -> RulePart.Literal.SPACE;
 				case "HYPHEN" -> RulePart.Literal.HYPHEN;
 				case "CR" -> RulePart.Literal.CR;
@@ -421,7 +426,7 @@ public final class NameGenDataLoader
 		}
 		// Title comes from the raw element so forward references work
 		// before the target ruleset has been built.
-		String title = raw.element.getAttribute("title");
+		String title = raw.element.getAttribute(ATTR_TITLE);
 		return new RulePart.RuleSetRef(idref, title, rulesets);
 	}
 
@@ -430,7 +435,7 @@ public final class NameGenDataLoader
 	{
 		for (Element category : childElements(ruleSet, "CATEGORY"))
 		{
-			rawCategories.computeIfAbsent(category.getAttribute("title"), k -> new ArrayList<>()).add(id);
+			rawCategories.computeIfAbsent(category.getAttribute(ATTR_TITLE), k -> new ArrayList<>()).add(id);
 		}
 	}
 

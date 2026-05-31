@@ -120,6 +120,10 @@ public final class NameGenerator
 	public GeneratedName generate(RuleSet catalog)
 	{
 		Rule rule = catalog.pick();
+		if (rule == null)
+		{
+			return new GeneratedName("", "", "", null, List.of());
+		}
 		List<DataValue> parts = rule.generate();
 		return assemble(rule, parts);
 	}
