@@ -27,6 +27,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.function.UnaryOperator;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -111,11 +112,13 @@ public final class NameGenDataLoader
 		}
 
 		// Pass 2a: build NameList records (no cross-refs).
-		Map<String, NameList> lists = new LinkedHashMap<>();
-		for (Map.Entry<String, Element> entry : rawLists.entrySet())
-		{
-			lists.put(entry.getKey(), buildList(entry.getValue()));
-		}
+		Map<String, NameList> lists = rawLists.values().stream()
+				.map(NameGenDataLoader::buildList)
+				.collect(Collectors.toMap(
+						NameList::id,
+						nl -> nl,
+						(a, b) -> b,
+						LinkedHashMap::new));
 
 		// Pass 2b: build RuleSet records. RuleSetRef parts share a single
 		// map instance that gets populated as we go, so a ruleset can
@@ -131,15 +134,15 @@ public final class NameGenDataLoader
 
 		// Pass 3: resolve category ids to RuleSet records. Categories
 		// declared on rulesets that ultimately failed to build are skipped.
-		Map<String, List<RuleSet>> categories = new LinkedHashMap<>();
-		for (Map.Entry<String, List<String>> entry : rawCategories.entrySet())
-		{
-			List<RuleSet> resolved = entry.getValue().stream()
-					.map(rulesets::get)
-					.filter(Objects::nonNull)
-					.toList();
-			categories.put(entry.getKey(), resolved);
-		}
+		Map<String, List<RuleSet>> categories = rawCategories.entrySet().stream()
+				.collect(Collectors.toMap(
+						Map.Entry::getKey,
+						e -> e.getValue().stream()
+								.map(rulesets::get)
+								.filter(Objects::nonNull)
+								.toList(),
+						(a, b) -> b,
+						LinkedHashMap::new));
 
 		return new NameGenData(lists, rulesets, categories, unresolved);
 	}
