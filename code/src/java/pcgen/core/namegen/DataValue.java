@@ -1,5 +1,6 @@
 /*
  * Copyright 2003 (C) Devon Jones
+ * Copyright 2026 Vest <Vest@users.noreply.github.com>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -10,64 +11,38 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 package pcgen.core.namegen;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 public class DataValue
 {
-	private DataSubValue subvalue;
 	private final String value;
+	private Map<String, String> subValues;
 
-	/**
-	 * Constructor
-	 * @param value
-	 */
 	public DataValue(String value)
 	{
 		this.value = value;
 	}
 
-	/**
-	 * Get SubValue
-	 * @param key
-	 * @return SubValue
-	 */
 	public String getSubValue(String key)
 	{
-		if (subvalue != null)
-		{
-			return subvalue.get(key);
-		}
-		return null;
+		return subValues == null ? null : subValues.get(key);
 	}
 
-	/**
-	 * Get value
-	 * @return value
-	 */
 	public String getValue()
 	{
 		return value;
 	}
 
-	/**
-	 * Add sub value
-	 * @param key
-	 * @param subValue
-	 */
 	public void addSubValue(String key, String subValue)
 	{
-		if (subvalue != null)
+		if (subValues == null)
 		{
-			subvalue.put(new DataSubValue(key, subValue));
+			subValues = new LinkedHashMap<>(2);
 		}
-		else
-		{
-			subvalue = new DataSubValue(key, subValue);
-		}
+		subValues.putIfAbsent(key, subValue);
 	}
 }

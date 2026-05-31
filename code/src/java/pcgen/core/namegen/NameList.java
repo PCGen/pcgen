@@ -13,18 +13,60 @@
  */
 package pcgen.core.namegen;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Immutable named bag of weighted values, picked from at name-generation
  * time. Replaces the legacy {@code DDList}.
+ *
+ * <p>Cumulative weights are precomputed at construction so {@link #pick()}
+ * is O(log n) per call — important because long lists (city names,
+ * surnames) are picked from inside generation loops.
  */
-public record NameList(String id, String title, List<WeightedDataValue> values)
+public final class NameList
 {
-	public NameList
+	private final String id;
+	private final String title;
+	private final List<WeightedDataValue> values;
+	private final WeightedDataValue[] positiveEntries;
+	private final int[] cumulativeWeights;
+	private final int totalWeight;
+
+	public NameList(String id, String title, List<WeightedDataValue> values)
 	{
-		values = List.copyOf(values);
+		this.id = id;
+		this.title = title;
+		this.values = List.copyOf(values);
+		WeightedDataValue[] positives = this.values.stream()
+				.filter(v -> v.getWeight() > 0)
+				.toArray(WeightedDataValue[]::new);
+		int[] cumulative = new int[positives.length];
+		int running = 0;
+		for (int i = 0; i < positives.length; i++)
+		{
+			running += positives[i].getWeight();
+			cumulative[i] = running;
+		}
+		this.positiveEntries = positives;
+		this.cumulativeWeights = cumulative;
+		this.totalWeight = running;
+	}
+
+	public String id()
+	{
+		return id;
+	}
+
+	public String title()
+	{
+		return title;
+	}
+
+	public List<WeightedDataValue> values()
+	{
+		return values;
 	}
 
 	/**
@@ -36,26 +78,16 @@ public record NameList(String id, String title, List<WeightedDataValue> values)
 	 */
 	public WeightedDataValue pick()
 	{
-		int total = values.stream().mapToInt(WeightedDataValue::getWeight).filter(w -> w > 0).sum();
-		if (total <= 0)
+		if (totalWeight <= 0)
 		{
 			return null;
 		}
-		int roll = ThreadLocalRandom.current().nextInt(total) + 1;
-		int running = 0;
-		for (WeightedDataValue v : values)
+		int roll = ThreadLocalRandom.current().nextInt(totalWeight) + 1;
+		int idx = Arrays.binarySearch(cumulativeWeights, roll);
+		if (idx < 0)
 		{
-			int w = v.getWeight();
-			if (w <= 0)
-			{
-				continue;
-			}
-			running += w;
-			if (roll <= running)
-			{
-				return v;
-			}
+			idx = -idx - 1;
 		}
-		return values.get(values.size() - 1);
+		return positiveEntries[idx];
 	}
 }
