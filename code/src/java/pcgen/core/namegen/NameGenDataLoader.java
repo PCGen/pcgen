@@ -15,10 +15,8 @@
 package pcgen.core.namegen;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -90,7 +88,7 @@ public final class NameGenDataLoader
 		}
 
 		DocumentBuilder builder = newDocumentBuilder();
-		builder.setEntityResolver(new GeneratorDtdResolver(dataDir));
+		builder.setEntityResolver(dtdResolver(dataDir));
 
 		Map<String, Element> rawLists = new LinkedHashMap<>();
 		Map<String, RawRuleSet> rawRuleSets = new LinkedHashMap<>();
@@ -161,8 +159,7 @@ public final class NameGenDataLoader
 			return new RawFile(
 					childElements(generator, "LIST"),
 					childElements(generator, "RULESET"));
-		}
-		catch (SAXException | NumberFormatException e)
+		} catch (SAXException | NumberFormatException e)
 		{
 			Logging.errorPrint("Failed to parse " + dataFile.getName(), e);
 			throw new IOException("XML error in file " + dataFile.getName(), e);
@@ -178,10 +175,10 @@ public final class NameGenDataLoader
 	 * {@link #buildRuleSetsForLazy(LazyFilePrepared, Map, Map, List, UnaryOperator)}.
 	 */
 	static LazyFilePrepared prepareFileForLazy(File dataFile, File dataDir,
-			Map<String, NameList> lists) throws IOException
+	                                           Map<String, NameList> lists) throws IOException
 	{
 		DocumentBuilder builder = newDocumentBuilder();
-		builder.setEntityResolver(new GeneratorDtdResolver(dataDir));
+		builder.setEntityResolver(dtdResolver(dataDir));
 		RawFile raw = parseOne(dataFile, builder);
 
 		for (Element listEl : raw.lists)
@@ -190,12 +187,12 @@ public final class NameGenDataLoader
 			lists.put(nl.id(), nl);
 		}
 
-		Map<String, RawRuleSet> localRawRuleSets = LinkedHashMap.newLinkedHashMap(raw.ruleSets.size());
-		for (Element rsEl : raw.ruleSets)
-		{
-			String id = rsEl.getAttribute("id");
-			localRawRuleSets.put(id, new RawRuleSet(rsEl, id));
-		}
+		Map<String, RawRuleSet> localRawRuleSets = raw.ruleSets.stream()
+				.collect(Collectors.toMap(
+						rsEl -> rsEl.getAttribute("id"),
+						rsEl -> new RawRuleSet(rsEl, rsEl.getAttribute("id")),
+						(a, b) -> b,
+						LinkedHashMap::new));
 
 		Set<String> referencedListIds = new LinkedHashSet<>();
 		Set<String> referencedRuleSetIds = new LinkedHashSet<>();
@@ -233,10 +230,10 @@ public final class NameGenDataLoader
 	 * the shared {@code rulesets} map at generation time.
 	 */
 	static void buildRuleSetsForLazy(LazyFilePrepared prepared,
-			Map<String, NameList> lists,
-			Map<String, RuleSet> rulesets,
-			List<NameGenData.UnresolvedReference> unresolved,
-			UnaryOperator<String> crossFileRuleSetTitle)
+	                                 Map<String, NameList> lists,
+	                                 Map<String, RuleSet> rulesets,
+	                                 List<NameGenData.UnresolvedReference> unresolved,
+	                                 UnaryOperator<String> crossFileRuleSetTitle)
 	{
 		for (RawRuleSet rrs : prepared.localRawRuleSets().values())
 		{
@@ -247,11 +244,11 @@ public final class NameGenDataLoader
 	}
 
 	private static RuleSet buildRuleSetLazy(RawRuleSet raw,
-			Map<String, NameList> lists,
-			Map<String, RuleSet> rulesets,
-			Map<String, RawRuleSet> localRawRuleSets,
-			List<NameGenData.UnresolvedReference> unresolved,
-			UnaryOperator<String> crossFileRuleSetTitle)
+	                                        Map<String, NameList> lists,
+	                                        Map<String, RuleSet> rulesets,
+	                                        Map<String, RawRuleSet> localRawRuleSets,
+	                                        List<NameGenData.UnresolvedReference> unresolved,
+	                                        UnaryOperator<String> crossFileRuleSetTitle)
 	{
 		List<Rule> rules = childElements(raw.element, "RULE").stream()
 				.map(rule -> buildRuleLazy(rule, lists, rulesets,
@@ -264,11 +261,11 @@ public final class NameGenDataLoader
 	}
 
 	private static Rule buildRuleLazy(Element rule,
-			Map<String, NameList> lists,
-			Map<String, RuleSet> rulesets,
-			Map<String, RawRuleSet> localRawRuleSets,
-			List<NameGenData.UnresolvedReference> unresolved,
-			UnaryOperator<String> crossFileRuleSetTitle)
+	                                  Map<String, NameList> lists,
+	                                  Map<String, RuleSet> rulesets,
+	                                  Map<String, RawRuleSet> localRawRuleSets,
+	                                  List<NameGenData.UnresolvedReference> unresolved,
+	                                  UnaryOperator<String> crossFileRuleSetTitle)
 	{
 		List<RulePart> parts = new ArrayList<>();
 		StringBuilder label = new StringBuilder();
@@ -294,10 +291,10 @@ public final class NameGenDataLoader
 	}
 
 	private static RulePart resolveRuleSetRefLazy(String idref,
-			Map<String, RuleSet> rulesets,
-			Map<String, RawRuleSet> localRawRuleSets,
-			List<NameGenData.UnresolvedReference> unresolved,
-			UnaryOperator<String> crossFileRuleSetTitle)
+	                                              Map<String, RuleSet> rulesets,
+	                                              Map<String, RawRuleSet> localRawRuleSets,
+	                                              List<NameGenData.UnresolvedReference> unresolved,
+	                                              UnaryOperator<String> crossFileRuleSetTitle)
 	{
 		// Same-file target: title from the local raw element so it works
 		// even when the target hasn't been built yet.
@@ -316,10 +313,12 @@ public final class NameGenDataLoader
 		return new RulePart.RuleSetRef(idref, title, rulesets);
 	}
 
-	/** Phase-1 output for {@link #prepareFileForLazy(File, File, Map)}. */
+	/**
+	 * Phase-1 output for {@link #prepareFileForLazy(File, File, Map)}.
+	 */
 	record LazyFilePrepared(Map<String, RawRuleSet> localRawRuleSets,
-			Set<String> referencedListIds,
-			Set<String> referencedRuleSetIds)
+	                        Set<String> referencedListIds,
+	                        Set<String> referencedRuleSetIds)
 	{
 	}
 
@@ -336,8 +335,7 @@ public final class NameGenDataLoader
 			factory.setXIncludeAware(false);
 			factory.setExpandEntityReferences(false);
 			return factory.newDocumentBuilder();
-		}
-		catch (ParserConfigurationException e)
+		} catch (ParserConfigurationException e)
 		{
 			throw new IOException("Cannot create XML parser", e);
 		}
@@ -359,10 +357,10 @@ public final class NameGenDataLoader
 	}
 
 	private static RuleSet buildRuleSet(RawRuleSet raw,
-			Map<String, NameList> lists,
-			Map<String, RuleSet> rulesets,
-			Map<String, RawRuleSet> rawRuleSets,
-			List<NameGenData.UnresolvedReference> unresolved)
+	                                    Map<String, NameList> lists,
+	                                    Map<String, RuleSet> rulesets,
+	                                    Map<String, RawRuleSet> rawRuleSets,
+	                                    List<NameGenData.UnresolvedReference> unresolved)
 	{
 		List<Rule> rules = childElements(raw.element, "RULE").stream()
 				.map(rule -> buildRule(rule, lists, rulesets, rawRuleSets, unresolved))
@@ -374,10 +372,10 @@ public final class NameGenDataLoader
 	}
 
 	private static Rule buildRule(Element rule,
-			Map<String, NameList> lists,
-			Map<String, RuleSet> rulesets,
-			Map<String, RawRuleSet> rawRuleSets,
-			List<NameGenData.UnresolvedReference> unresolved)
+	                              Map<String, NameList> lists,
+	                              Map<String, RuleSet> rulesets,
+	                              Map<String, RawRuleSet> rawRuleSets,
+	                              List<NameGenData.UnresolvedReference> unresolved)
 	{
 		List<RulePart> parts = new ArrayList<>();
 		StringBuilder label = new StringBuilder();
@@ -386,7 +384,8 @@ public final class NameGenDataLoader
 			RulePart part = switch (child.getTagName())
 			{
 				case TAG_GETLIST -> resolveListRef(child.getAttribute(ATTR_IDREF), lists, unresolved);
-				case TAG_GETRULE -> resolveRuleSetRef(child.getAttribute(ATTR_IDREF), rulesets, rawRuleSets, unresolved);
+				case TAG_GETRULE ->
+						resolveRuleSetRef(child.getAttribute(ATTR_IDREF), rulesets, rawRuleSets, unresolved);
 				case "SPACE" -> RulePart.Literal.SPACE;
 				case "HYPHEN" -> RulePart.Literal.HYPHEN;
 				case "CR" -> RulePart.Literal.CR;
@@ -402,8 +401,8 @@ public final class NameGenDataLoader
 	}
 
 	private static RulePart resolveListRef(String idref,
-			Map<String, NameList> lists,
-			List<NameGenData.UnresolvedReference> unresolved)
+	                                       Map<String, NameList> lists,
+	                                       List<NameGenData.UnresolvedReference> unresolved)
 	{
 		NameList target = lists.get(idref);
 		if (target == null)
@@ -416,9 +415,9 @@ public final class NameGenDataLoader
 	}
 
 	private static RulePart resolveRuleSetRef(String idref,
-			Map<String, RuleSet> rulesets,
-			Map<String, RawRuleSet> rawRuleSets,
-			List<NameGenData.UnresolvedReference> unresolved)
+	                                          Map<String, RuleSet> rulesets,
+	                                          Map<String, RawRuleSet> rawRuleSets,
+	                                          List<NameGenData.UnresolvedReference> unresolved)
 	{
 		RawRuleSet raw = rawRuleSets.get(idref);
 		if (raw == null)
@@ -434,7 +433,7 @@ public final class NameGenDataLoader
 	}
 
 	private static void collectCategories(Element ruleSet, String id,
-			Map<String, List<String>> rawCategories)
+	                                      Map<String, List<String>> rawCategories)
 	{
 		for (Element category : childElements(ruleSet, "CATEGORY"))
 		{
@@ -499,46 +498,43 @@ public final class NameGenDataLoader
 		return sb.toString();
 	}
 
-	/** Parsed DOM element + id, captured in pass 1 for use in pass 2. */
-	record RawRuleSet(Element element, String id) { }
+	/**
+	 * Parsed DOM element + id, captured in pass 1 for use in pass 2.
+	 */
+	record RawRuleSet(Element element, String id)
+	{
+	}
 
-	/** Per-file pass-1 result: the LIST and RULESET elements harvested. */
+	/**
+	 * Per-file pass-1 result: the LIST and RULESET elements harvested.
+	 */
 	private record RawFile(List<Element> lists, List<Element> ruleSets)
 	{
 		static final RawFile EMPTY = new RawFile(List.of(), List.of());
 	}
 
 	/**
-	 * Resolves {@code generator.dtd} from a known directory rather than the
-	 * network. Carried over verbatim from the old Swing panel.
+	 * Returns an {@link EntityResolver} that resolves {@code generator.dtd}
+	 * from the given directory rather than the network. Other system ids are
+	 * delegated to the parser's default resolution.
 	 */
-	static final class GeneratorDtdResolver implements EntityResolver
+	private static EntityResolver dtdResolver(File parent)
 	{
-		private final File parent;
-
-		GeneratorDtdResolver(File parent)
+		return (publicId, systemId) ->
 		{
-			this.parent = parent;
-		}
-
-		@Override
-		public InputSource resolveEntity(String publicId, String systemId)
-		{
-			if (systemId.endsWith("generator.dtd"))
+			if (systemId == null || !systemId.endsWith("generator.dtd"))
 			{
-				InputStream dtdIn;
-				try
-				{
-					dtdIn = new FileInputStream(new File(parent, "generator.dtd"));
-				}
-				catch (FileNotFoundException e)
-				{
-					Logging.errorPrint("GeneratorDtdResolver.resolveEntity failed", e);
-					return null;
-				}
-				return new InputSource(dtdIn);
+				return null;
 			}
-			return null;
-		}
+			File dtd = new File(parent, "generator.dtd");
+			try
+			{
+				return new InputSource(Files.newInputStream(dtd.toPath()));
+			} catch (IOException e)
+			{
+				Logging.errorPrint("Cannot open " + dtd, e);
+				return null;
+			}
+		};
 	}
 }
