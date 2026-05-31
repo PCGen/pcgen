@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<!--
+  * Copyright 2026 Vest <Vest@users.noreply.github.com>
+  *
+  * This library is free software; you can redistribute it and/or
+  * modify it under the terms of the GNU Lesser General Public
+  * License as published by the Free Software Foundation; either
+  * version 2.1 of the License, or (at your option) any later version.
+  *
+  * This library is distributed in the hope that it will be useful,
+  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+  * Lesser General Public License for more details.
+  -->
+
+<Scene xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pcgen.gui3.namegen.RandomNamePanelController">
+    <VBox prefWidth="529.0" spacing="8.0">
+        <padding>
+            <Insets bottom="10.0" left="12.0" right="12.0" top="10.0" />
+        </padding>
+
+        <Label text="%in_rndNameCategory" />
+        <ComboBox fx:id="categoryCombo" maxWidth="Infinity" />
+
+        <Label text="%in_rndNameCatalog" />
+        <ComboBox fx:id="titleCombo" maxWidth="Infinity" />
+
+        <Label text="%in_rndNameSex" />
+        <HBox fx:id="genderBox" spacing="12.0">
+            <fx:define>
+                <ToggleGroup fx:id="genderGroup" />
+            </fx:define>
+            <RadioButton fx:id="genderFemale" text="Female" toggleGroup="$genderGroup" />
+            <RadioButton fx:id="genderMale" text="Male" toggleGroup="$genderGroup" />
+            <RadioButton fx:id="genderOther" text="Other" toggleGroup="$genderGroup" />
+        </HBox>
+
+        <TextField fx:id="generatedNameLabel" text="%in_rndNmDefault" editable="false"
+                   style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-font-size: 20px; -fx-padding: 0;" />
+        <Label fx:id="meaningLabel" text="" />
+        <Label fx:id="pronunciationLabel" text="" />
+
+        <TitledPane fx:id="advancedPane" animated="false" collapsible="false" text="%in_rndNameAdjust">
+            <VBox spacing="6.0">
+                <padding>
+                    <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                </padding>
+                <CheckBox fx:id="randomStructureCheck" selected="true" text="%in_randomButton" />
+                <Label text="%in_rndNameStructure" />
+                <ComboBox fx:id="structureCombo" maxWidth="Infinity" />
+            </VBox>
+        </TitledPane>
+
+        <ButtonBar>
+            <buttons>
+                <Button fx:id="generateButton" onAction="#onGenerate" text="%in_rndNameGenerate" />
+                <Button fx:id="okButton" defaultButton="true" onAction="#onOk" text="%in_ok" />
+                <Button fx:id="cancelButton" cancelButton="true" onAction="#onCancel" text="%in_cancel" />
+            </buttons>
+        </ButtonBar>
+    </VBox>
+</Scene>

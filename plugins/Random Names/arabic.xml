@@ -19,12 +19,12 @@
 			<SPACE/>
 			<GETLIST idref="arabic-male-kunya" title="Prefix"/>
 			<SPACE />
-			<GETLIST idref="arabic-male-given-rule" title="Patrynomic"/>
+			<GETRULE idref="arabic-male-given-rule" title="Patrynomic"/>
 		</RULE>
 		<RULE weight="1">
 			<GETRULE idref="arabic-male-given-rule" title="Given"/>
 			<SPACE/>
-			<GETLIST idref="arabic-male-locative-rule" title="Locative Byname"/>
+			<GETRULE idref="arabic-male-locative-rule" title="Locative Byname"/>
 		</RULE>
 	</RULESET>
 	<RULESET id="arabic-historical-female-rule" title="Arabic" usage="final">
@@ -51,7 +51,7 @@
 		<RULE weight="2">
 			<GETLIST idref="arabic-female-given" title="Given"/>
 			<SPACE/>
-			<GETLIST idref="arabic-male-locative-rule" title="Locative Byname"/>
+			<GETRULE idref="arabic-male-locative-rule" title="Locative Byname"/>
 			<GETLIST idref="arabic-female-locative-suffix" title="Suffix"/>
 		</RULE>
 		<RULE weight="2">
@@ -59,7 +59,7 @@
 			<SPACE/>
 			<GETLIST idref="arabic-female-kunya" title="Prefix"/>
 			<SPACE /> 
-			<GETLIST idref="arabic-male-given-rule" title="Patrynomic"/>
+			<GETRULE idref="arabic-male-given-rule" title="Patrynomic"/>
 		</RULE>
 	</RULESET>
 	<RULESET id="arabic-male-locative-rule" title="Locative Byname" usage="public">
@@ -76,12 +76,12 @@
 		<CATEGORY title="All"/>
 		<CATEGORY title="Sex: Other"/>
 		<RULE weight="24">
-			<GETLIST idref="arabic-historical-location-name-rule" title="Location"/>
+			<GETRULE idref="arabic-historical-location-name-rule" title="Location"/>
 		</RULE>
 		<RULE weight="8">
 			<GETLIST idref="arabic-location-prefix" title="Prefix"/>
 			<SPACE/>
-			<GETLIST idref="arabic-historical-location-name-rule" title="Location"/>
+			<GETRULE idref="arabic-historical-location-name-rule" title="Location"/>
 		</RULE>
 		<RULE weight="1">
 			<GETLIST idref="arabic-location-prefix" title="Prefix"/>
@@ -117,11 +117,11 @@
 			<GETLIST idref="arabic-male-cognomen" title="Cognomen"/>			
 		</RULE>
 		<RULE weight="1">
-			<GETRULE idref="arabic-male-given" title="Given"/>
+			<GETLIST idref="arabic-male-given" title="Given"/>
 			<SPACE/>
 			<GETLIST idref="arabic-male-kunya" title="Prefix"/>
 			<SPACE />
-			<GETLIST idref="arabic-male-given-rule" title="Patrynomic"/>
+			<GETRULE idref="arabic-male-given-rule" title="Patrynomic"/>
 			<SPACE />
 		</RULE>
 	</RULESET>

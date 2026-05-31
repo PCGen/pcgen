@@ -15,59 +15,34 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.core.doomsdaybook;
+package pcgen.core.namegen;
 
-public class DataValue
+/**
+ * {@code WeightedDataValue}.
+ * 
+ */
+public class WeightedDataValue extends DataValue
 {
-	private DataSubValue subvalue;
-	private final String value;
+	private final int weight;
 
 	/**
 	 * Constructor
+	 * 
 	 * @param value
+	 * @param weight
 	 */
-	public DataValue(String value)
+	public WeightedDataValue(String value, int weight)
 	{
-		this.value = value;
+		super(value);
+		this.weight = weight;
 	}
 
 	/**
-	 * Get SubValue
-	 * @param key
-	 * @return SubValue
+	 * Get weight.
+	 * @return weight
 	 */
-	public String getSubValue(String key)
+	public int getWeight()
 	{
-		if (subvalue != null)
-		{
-			return subvalue.get(key);
-		}
-		return null;
-	}
-
-	/**
-	 * Get value
-	 * @return value
-	 */
-	public String getValue()
-	{
-		return value;
-	}
-
-	/**
-	 * Add sub value
-	 * @param key
-	 * @param subValue
-	 */
-	public void addSubValue(String key, String subValue)
-	{
-		if (subvalue != null)
-		{
-			subvalue.put(new DataSubValue(key, subValue));
-		}
-		else
-		{
-			subvalue = new DataSubValue(key, subValue);
-		}
+		return weight;
 	}
 }

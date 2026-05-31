@@ -6,21 +6,21 @@
 		<CATEGORY title="All"/>
 		<CATEGORY title="Sex: Male"/>
 		<RULE weight="10">
-			<GETLIST idref="gothic-male-given-rule" title="Given"/>
+			<GETRULE idref="gothic-male-given-rule" title="Given"/>
 		</RULE>
 		<RULE weight="2">
-			<GETLIST idref="gothic-male-given-rule" title="Given"/>
+			<GETRULE idref="gothic-male-given-rule" title="Given"/>
 			<SPACE/>
-			<GETLIST idref="gothic-male-given-rule" title="Father"/>
+			<GETRULE idref="gothic-male-given-rule" title="Father"/>
 			<SPACE/>
 			<GETLIST idref="gothic-son" title="Son"/>
 		</RULE>
 		<RULE weight="3">
-			<GETLIST idref="gothic-male-given-rule" title="Given"/>
+			<GETRULE idref="gothic-male-given-rule" title="Given"/>
 			<SPACE/>
 			<GETLIST idref="gothic-cognomento" title="Cognomento"/>
 			<SPACE/>
-			<GETLIST idref="gothic-male-given-rule" title="Father"/>
+			<GETRULE idref="gothic-male-given-rule" title="Father"/>
 		</RULE>
 	</RULESET>
 	<RULESET id="gothic-male-given-rule" title="Given" usage="public">
@@ -37,14 +37,14 @@
 		<CATEGORY title="All"/>
 		<CATEGORY title="Sex: Female"/>
 		<RULE weight="10">
-			<GETLIST idref="gothic-female-given-rule" title="Given"/>
+			<GETRULE idref="gothic-female-given-rule" title="Given"/>
 		</RULE>
 		<RULE weight="3">
-			<GETLIST idref="gothic-female-given-rule" title="Given"/>
+			<GETRULE idref="gothic-female-given-rule" title="Given"/>
 			<SPACE/>
 			<GETLIST idref="gothic-cognomento" title="Cognomento"/>
 			<SPACE/>
-			<GETLIST idref="gothic-male-given-rule" title="Father"/>
+			<GETRULE idref="gothic-male-given-rule" title="Father"/>
 		</RULE>
 	</RULESET>
 	<RULESET id="gothic-female-given-rule" title="Given" usage="public">

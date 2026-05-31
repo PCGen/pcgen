@@ -32,7 +32,7 @@
 			<SPACE />
 			<GETLIST idref="of" title="of" />
 			<SPACE />
-			<GETLIST idref="lovecraft-name-rule" title="Name" />
+			<GETRULE idref="lovecraft-name-rule" title="Name" />
 		</RULE>
 		<RULE weight="2">
 			<GETRULE idref="lovecraft-name-rule" title="Name1" />
@@ -98,7 +98,7 @@
 			<SPACE />
 			<GETLIST idref="of" title="of" />
 			<SPACE />
-			<GETLIST idref="lovecraft-name-rule" title="Subject" />
+			<GETRULE idref="lovecraft-name-rule" title="Subject" />
 		</RULE>
 	</RULESET>
 	<RULESET id="lovecraft-name-rule" title="Unspeakable Name" usage="private">

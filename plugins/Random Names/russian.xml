@@ -52,13 +52,6 @@
 			<SPACE/>
 			<GETRULE idref="russian-historical-male-patrynomic-rule" title="Patrynomic"/>
 			<SPACE/>
-			<GETRULE idref="russian-historical-male-patrynomic-rule_alt" title="Patrynomic"/>
-		</RULE>
-		<RULE weight="1">
-			<GETLIST idref="russian-male-christian" title="Christian Name"/>
-			<SPACE/>
-			<GETLIST idref="russian-male-old-russian" title="Old Russian Name"/>
-			<SPACE/>
 			<GETRULE idref="russian-historical-male-patrynomic-rule" title="Patrynomic"/>
 		</RULE>
 		<RULE weight="1">
@@ -67,8 +60,15 @@
 			<GETLIST idref="russian-male-old-russian" title="Old Russian Name"/>
 			<SPACE/>
 			<GETRULE idref="russian-historical-male-patrynomic-rule" title="Patrynomic"/>
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="russian-male-christian" title="Christian Name"/>
 			<SPACE/>
-			<GETRULE idref="russian-historical-male-patrynomic-rule_alt" title="Patrynomic"/>
+			<GETLIST idref="russian-male-old-russian" title="Old Russian Name"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-male-patrynomic-rule" title="Patrynomic"/>
+			<SPACE/>
+			<GETRULE idref="russian-historical-male-patrynomic-rule" title="Patrynomic"/>
 		</RULE>
 		<RULE weight="2">
 			<GETLIST idref="russian-male-christian" title="Christian Name"/>
@@ -84,7 +84,7 @@
 			<SPACE/>
 			<GETRULE idref="russian-historical-male-patrynomic-rule" title="Patrynomic"/>
 			<SPACE/>
-			<GETRULE idref="russian-historical-male-patrynomic-rule_alt" title="Patrynomic"/>
+			<GETRULE idref="russian-historical-male-patrynomic-rule" title="Patrynomic"/>
 			<SPACE/>
 			<GETRULE idref="russian-historical-male-surname-rule" title="Surname"/>
 		</RULE>

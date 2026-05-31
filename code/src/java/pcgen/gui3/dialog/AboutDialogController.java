@@ -131,7 +131,6 @@ public class AboutDialogController
 				));
 
 		String s = LanguageBundle.getString("in_abt_lib_apache"); //$NON-NLS-1$
-		s += LanguageBundle.getString("in_abt_lib_jdom"); //$NON-NLS-1$
 		librariesArea.setText(s);
 
 		String releaseDateStr = PCGenPropBundle.getReleaseDate();

@@ -9,12 +9,12 @@
 		<RULE weight="2">
 			<GETLIST idref="french-male-given" title="Given"/>
 			<SPACE/>
-			<GETLIST idref="french-historical-surname-rule" title="Surname"/>
+			<GETRULE idref="french-historical-surname-rule" title="Surname"/>
 		</RULE>
 		<RULE weight="1">
 			<GETLIST idref="french-male-given" title="Given"/>
 			<SPACE/>
-			<GETLIST idref="french-historical-locative-byname-rule" title="Locative Byname"/>
+			<GETRULE idref="french-historical-locative-byname-rule" title="Locative Byname"/>
 		</RULE>
 	</RULESET>
 	<RULESET id="french-historical-female-rule" title="French" usage="final">
@@ -25,12 +25,12 @@
 		<RULE weight="2">
 			<GETLIST idref="french-female-given" title="Given"/>
 			<SPACE/>
-			<GETLIST idref="french-historical-surname-rule" title="Surname"/>
+			<GETRULE idref="french-historical-surname-rule" title="Surname"/>
 		</RULE>
 		<RULE weight="1">
 			<GETLIST idref="french-female-given" title="Given"/>
 			<SPACE/>
-			<GETLIST idref="french-historical-locative-byname-rule" title="Locative Byname"/>
+			<GETRULE idref="french-historical-locative-byname-rule" title="Locative Byname"/>
 		</RULE>
 	</RULESET>
 	<RULESET id="french-historical-village-rule" title="French Location" usage="final">

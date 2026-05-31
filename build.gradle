@@ -15,7 +15,6 @@ import groovy.json.JsonSlurper
 
 import org.apache.tools.ant.filters.FixCrLfFilter
 import org.apache.tools.ant.taskdefs.condition.Os
-import org.gradle.plugins.ide.idea.model.ProjectLibrary
 
 import de.undercouch.gradle.tasks.download.Download
 
@@ -30,7 +29,6 @@ plugins {
     id 'com.github.spotbugs' version '6.5.5'            // Spotbugs for Java
     id 'maven-publish'                                  // Publishing to Maven Central
     id 'pmd'                                            // PMD for Java, configured further below
-    id 'idea'                                           // For IntelliJ IDEA users
     id 'de.undercouch.download' version '5.7.0'         // Shows download percentage
     id 'com.github.ben-manes.versions' version '0.54.0' // Checks versions for plugins and dependencies
     id 'com.dorongold.task-tree' version '4.0.1'        // Prints the task dependency tree
@@ -102,10 +100,6 @@ repositories {
         url = 'http://pc-gen.org/librepo/'
         allowInsecureProtocol = true
     }
-    maven {
-        name = 'local'
-        url = 'installers'
-    }
     // Use Maven plugin to reference JBoss artifact repository
     // TODO Which libs do we pull from here?
     maven {
@@ -115,8 +109,6 @@ repositories {
 }
 
 // Define the source sets for each task/module
-// TODO even though we have the idea plugin, IntelliJ doesn't reference
-// these source sets whether you run that task or not.
 sourceSets {
     // The main build
     main {
@@ -232,7 +224,6 @@ dependencies {
     implementation 'net.sf.saxon:Saxon-HE:12.9'
     implementation 'org.scijava:jep:2.4.2'
     implementation 'org.freemarker:freemarker:2.3.34'
-    implementation 'org.jdom:jdom2:2.0.6.1'
     implementation 'net.sourceforge.argparse4j:argparse4j:0.9.0'
     implementation 'org.controlsfx:controlsfx:11.2.3'
     implementation project(':PCGen-base')
@@ -313,7 +304,7 @@ jlink {
     addExtraDependencies('javafx')
     forceMerge('jep', 'fop', 'Saxon-HE',
                'commons-lang3', 'spring',
-               'freemarker', 'jdom2', 'argparse4j', 'xmlunit', 'controlsfx',
+               'freemarker', 'argparse4j', 'xmlunit', 'controlsfx',
                'annotations', 'spotbugs', 'xmlresolver')
 
     mergedModule {
@@ -697,18 +688,20 @@ tasks.register("slowtest", Test) {
 
 tasks.register("datatest", Test) {
     dependsOn jar
+    useJUnitPlatform()
     testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
-    include 'main/pcgen/persistence/lst/DataTest.class'
-    include 'main/pcgen/persistence/lst/DataLoadTest.class'
+    include 'pcgen/persistence/lst/DataTest.class'
+    include 'pcgen/persistence/lst/DataLoadTest.class'
 }
 
 tasks.register("inttest", Test) {
     dependsOn jar
+    useJUnitPlatform()
     testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
-    include 'slowtest/pcgen/inttest/**/*Test.class'
+    include 'pcgen/inttest/**/*Test.class'
 }
 
 // Per-game-mode inttest variants. Each runs only the inttest classes for one
@@ -723,10 +716,10 @@ tasks.register("inttest", Test) {
 ].each { taskName, gameDir ->
     tasks.register(taskName, Test) {
         dependsOn jar
+        useJUnitPlatform()
         testClassesDirs = sourceSets.slowtest.output.classesDirs
         classpath = sourceSets.slowtest.runtimeClasspath
-        forkEvery = 1
-        include "slowtest/pcgen/inttest/${gameDir}/*Test.class"
+        include "pcgen/inttest/${gameDir}/*Test.class"
     }
 }
 
@@ -831,32 +824,6 @@ tasks.named("dependencyUpdates") {
                     selection.reject('older than current')
                 }
             }
-        }
-    }
-}
-
-// Support for creating IntelliJ IDEA files.
-idea {
-    project {
-        def javafxLib = layout.projectDirectory.dir("mods/lib")
-                .asFileTree.matching { include "*.jar" }
-                .files
-
-        def projectLibrary = new ProjectLibrary()
-        projectLibrary.name = "lib"
-        projectLibrary.classes += javafxLib
-
-        projectLibraries += [ projectLibrary ]
-    }
-
-    module {
-        testSources.from(project.sourceSets.itest.java.srcDirs,
-                project.sourceSets.slowtest.java.srcDirs)
-
-        iml.withXml {
-            def module = asNode()
-            def component = module.find {it.@name == 'NewModuleRootManager'}
-            def orderEntry = component.appendNode('orderEntry', [ type: 'library', scope: 'RUNTIME', name:'lib', level:'project'])
         }
     }
 }

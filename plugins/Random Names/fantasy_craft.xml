@@ -269,21 +269,21 @@
 		<CATEGORY title="Fantasy Craft"/>
 		<CATEGORY title="Sex: Male"/>
 		<RULE weight="6">
-			<GETLIST idref="fantasy_craft-human-male-first" title="Human Given"/>
+			<GETRULE idref="fantasy_craft-human-male-first" title="Human Given"/>
 			<SPACE/>
 			<GETLIST idref="fantasy_craft-positive" title="Positive"/>
 			<HYPHEN />			
 			<GETLIST idref="fantasy_craft-critters" title="Critters"/>
 		</RULE>
 		<RULE weight="6">
-			<GETLIST idref="fantasy_craft-human-male-first" title="Human Given"/>
+			<GETRULE idref="fantasy_craft-human-male-first" title="Human Given"/>
 			<SPACE/>
 			<GETLIST idref="fantasy_craft-critters" title="Critters"/>
 			<HYPHEN />			
 			<GETLIST idref="fantasy_craft-anatomy" title="Anatomy"/>
 		</RULE>
 		<RULE weight="4">
-			<GETLIST idref="fantasy_craft-human-male-first" title="Human Given"/>
+			<GETRULE idref="fantasy_craft-human-male-first" title="Human Given"/>
 			<SPACE/>
 			<GETLIST idref="fantasy_craft-elvish-prefix" title="Elf Prefix"/>
 			<GETLIST idref="fantasy_craft-elvish-suffix" title="Elf Suffix"/>
@@ -302,21 +302,21 @@
 		<CATEGORY title="Fantasy Craft"/>
 		<CATEGORY title="Sex: Female"/>
 		<RULE weight="6">
-			<GETLIST idref="fantasy_craft-human-female-first" title="Human Given"/>
+			<GETRULE idref="fantasy_craft-human-female-first" title="Human Given"/>
 			<SPACE/>
 			<GETLIST idref="fantasy_craft-positive" title="Positive"/>
 			<HYPHEN />			
 			<GETLIST idref="fantasy_craft-critters" title="Critters"/>
 		</RULE>
 		<RULE weight="6">
-			<GETLIST idref="fantasy_craft-human-female-first" title="Human Given"/>
+			<GETRULE idref="fantasy_craft-human-female-first" title="Human Given"/>
 			<SPACE/>
 			<GETLIST idref="fantasy_craft-critters" title="Critters"/>
 			<HYPHEN />			
 			<GETLIST idref="fantasy_craft-anatomy" title="Anatomy"/>
 		</RULE>
 		<RULE weight="4">
-			<GETLIST idref="fantasy_craft-human-female-first" title="Human Given"/>
+			<GETRULE idref="fantasy_craft-human-female-first" title="Human Given"/>
 			<SPACE/>
 			<GETLIST idref="fantasy_craft-elvish-prefix" title="Elf Prefix"/>
 			<GETLIST idref="fantasy_craft-elvish-suffix" title="Elf Suffix"/>
@@ -553,7 +553,7 @@
 			<GETLIST idref="fantasy_craft-actions" title="Actions"/>
 		</RULE>
 		<RULE weight="5">
-			<GETLIST idref="fantasy_craft-folkish-either" title="Folk Given"/>
+			<GETRULE idref="fantasy_craft-folkish-either" title="Folk Given"/>
 			<GETLIST idref="fantasy_craft-possessive" title="'s"/>
 			<SPACE/>
 			<GETLIST idref="fantasy_craft-negative" title="Negative"/>

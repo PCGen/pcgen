@@ -83,7 +83,7 @@ import pcgen.facade.util.event.ReferenceListener;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.dialog.CharacterHPDialog;
 import pcgen.gui2.dialog.KitSelectionDialog;
-import pcgen.gui2.dialog.RandomNameDialog;
+import pcgen.gui3.namegen.RandomNameDialog;
 import pcgen.gui2.dialog.SinglePrefDialog;
 import pcgen.gui2.prefs.CharacterStatsPanel;
 import pcgen.gui2.tabs.models.CharacterComboBoxModel;
@@ -647,7 +647,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		models.put(ComboBoxModelHandler.class, new ComboBoxModelHandler(character));
 
 		models.put(RandomNameAction.class,
-                new RandomNameAction(character, (JFrame) SwingUtilities.getWindowAncestor(this)));
+                new RandomNameAction(character));
 		models.put(ClassLevelTableModel.class, new ClassLevelTableModel(character, classLevelTable, classComboBox));
 
 		models.put(GenerateRollsAction.class, new GenerateRollsAction(character));
@@ -1172,22 +1172,22 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 	{
 
 		private final CharacterFacade character;
-		private final JFrame frame;
 
-		RandomNameAction(CharacterFacade character, JFrame frame)
+		RandomNameAction(CharacterFacade character)
 		{
 			this.character = character;
-			this.frame = frame;
 		}
 
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
+			java.awt.Window owner = (e.getSource() instanceof java.awt.Component c)
+					? javax.swing.SwingUtilities.getWindowAncestor(c) : null;
 			String gender =
 					character.getGenderRef().get()
 					!= null ? character.getGenderRef().get().toString() : ""; //$NON-NLS-1$
-			RandomNameDialog dialog = new RandomNameDialog(frame, gender);
-			dialog.setVisible(true);
+			RandomNameDialog dialog = new RandomNameDialog(owner, gender);
+			dialog.showAndBlock();
 			String chosenName = dialog.getChosenName();
 			if (chosenName != null && !chosenName.isEmpty()
 				&& !chosenName.equals(LanguageBundle.getString("in_rndNmDefault"))) //$NON-NLS-1$

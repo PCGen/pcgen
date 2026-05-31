@@ -19,7 +19,7 @@
 			<SPACE/>
 			<GETLIST idref="gaelic-mac" title="Mac"/>
 			<SPACE/>
-			<GETLIST idref="irish-gaelic-genetive-rule" title="Genetive"/>
+			<GETRULE idref="irish-gaelic-genetive-rule" title="Genetive"/>
 		</RULE>
 		<RULE weight="2">
 			<GETLIST idref="irish-gaelic-male-given" title="Given"/>
@@ -28,16 +28,16 @@
 			<SPACE/>
 			<GETLIST idref="gaelic-mac" title="Mac"/>
 			<SPACE/>
-			<GETLIST idref="irish-gaelic-genetive-rule" title="Genetive"/>
+			<GETRULE idref="irish-gaelic-genetive-rule" title="Genetive"/>
 		</RULE>
 		<RULE weight="2">
 			<GETLIST idref="irish-gaelic-male-given" title="Given"/>
 			<SPACE/>
 			<GETLIST idref="gaelic-mac" title="Mac"/>
 			<SPACE/>
-			<GETLIST idref="irish-gaelic-genetive-rule" title="Genetive"/>
+			<GETRULE idref="irish-gaelic-genetive-rule" title="Genetive"/>
 			<SPACE/>
-			<GETLIST idref="gaelic-mhic-ui-rule" title="Mhic"/>
+			<GETRULE idref="gaelic-mhic-ui-rule" title="Mhic"/>
 			<SPACE/>
 			<GETLIST idref="irish-gaelic-genetive-lenited-no-c" title="Lenited Genetive"/>
 		</RULE>
@@ -48,9 +48,9 @@
 			<SPACE/>
 			<GETLIST idref="gaelic-mac" title="Mac"/>
 			<SPACE/>
-			<GETLIST idref="irish-gaelic-genetive-rule" title="Genetive"/>
+			<GETRULE idref="irish-gaelic-genetive-rule" title="Genetive"/>
 			<SPACE/>
-			<GETLIST idref="gaelic-mhic-ui-rule" title="Mhic"/>
+			<GETRULE idref="gaelic-mhic-ui-rule" title="Mhic"/>
 			<SPACE/>
 			<GETLIST idref="irish-gaelic-genetive-lenited-no-c" title="Lenited Genetive"/>
 		</RULE>
@@ -167,7 +167,7 @@
 			<SPACE/>
 			<GETLIST idref="gaelic-mac" title="Mac"/>
 			<SPACE/>
-			<GETLIST idref="scottish-gaelic-genetive-rule" title="Genetive"/>
+			<GETRULE idref="scottish-gaelic-genetive-rule" title="Genetive"/>
 		</RULE>
 		<RULE weight="2">
 			<GETLIST idref="scottish-gaelic-male-given" title="Given"/>
@@ -176,16 +176,16 @@
 			<SPACE/>
 			<GETLIST idref="gaelic-mac" title="Mac"/>
 			<SPACE/>
-			<GETLIST idref="scottish-gaelic-genetive-rule" title="Genetive"/>
+			<GETRULE idref="scottish-gaelic-genetive-rule" title="Genetive"/>
 		</RULE>
 		<RULE weight="2">
 			<GETLIST idref="scottish-gaelic-male-given" title="Given"/>
 			<SPACE/>
 			<GETLIST idref="gaelic-mac" title="Mac"/>
 			<SPACE/>
-			<GETLIST idref="scottish-gaelic-genetive-rule" title="Genetive"/>
+			<GETRULE idref="scottish-gaelic-genetive-rule" title="Genetive"/>
 			<SPACE/>
-			<GETLIST idref="gaelic-mhic-ui-rule" title="Mhic"/>
+			<GETRULE idref="gaelic-mhic-ui-rule" title="Mhic"/>
 			<SPACE/>
 			<GETLIST idref="scottish-gaelic-genetive-lenited-no-c" title="Lenited Genetive"/>
 		</RULE>
@@ -196,9 +196,9 @@
 			<SPACE/>
 			<GETLIST idref="gaelic-mac" title="Mac"/>
 			<SPACE/>
-			<GETLIST idref="scottish-gaelic-genetive-rule" title="Genetive"/>
+			<GETRULE idref="scottish-gaelic-genetive-rule" title="Genetive"/>
 			<SPACE/>
-			<GETLIST idref="gaelic-mhic-ui-rule" title="Mhic"/>
+			<GETRULE idref="gaelic-mhic-ui-rule" title="Mhic"/>
 			<SPACE/>
 			<GETLIST idref="scottish-gaelic-genetive-lenited-no-c" title="Lenited Genetive"/>
 		</RULE>

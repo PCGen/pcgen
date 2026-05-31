@@ -106,7 +106,6 @@ public final class JFXPanelFromResource<T> extends JFXPanel implements Controlla
 			stage.setScene(getScene());
 			stage.sizeToScene();
 			stage.showAndWait();
-			Logging.errorPrint("passed wait");
 			lock.completeAsync(() -> 0);
 
 		});

@@ -18,7 +18,6 @@
  */
 package pcgen.system;
 
-import java.awt.Component;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
@@ -41,8 +40,8 @@ import pcgen.facade.core.UIDelegate;
 import pcgen.gui2.PCGenUIManager;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.converter.TokenConverter;
-import pcgen.gui2.dialog.RandomNameDialog;
 import pcgen.gui3.JFXPanelFromResource;
+import pcgen.gui3.namegen.RandomNameDialog;
 import pcgen.gui3.dialog.OptionsPathDialogController;
 import pcgen.gui3.preloader.PCGenPreloader;
 import pcgen.io.ExportHandler;
@@ -127,8 +126,8 @@ public final class Main
 
 		if (commandLineArguments.isStartNameGenerator())
 		{
-			Component dialog = new RandomNameDialog(null, null);
-			dialog.setVisible(true);
+			RandomNameDialog dialog = new RandomNameDialog(null);
+			dialog.showAndBlock();
 			GracefulExit.exit(0);
 		}
 

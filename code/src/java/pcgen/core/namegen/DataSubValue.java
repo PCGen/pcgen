@@ -15,29 +15,61 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.gui2.doomsdaybook;
+package pcgen.core.namegen;
 
-import pcgen.core.doomsdaybook.DataElement;
-
-class NameButton extends javax.swing.JButton
+/**
+ * DataSubValue 
+ */
+class DataSubValue
 {
-	private final DataElement element;
+	private DataSubValue next;
+	private final String key;
+	private final String value;
 
-	/** Creates a new instance of NameButton 
-	 * @param element
+	/**
+	 * Constructor
+	 * @param key
+	 * @param value
 	 */
-	NameButton(DataElement element)
+	DataSubValue(String key, String value)
 	{
-		this.element = element;
-		super.setText(element.getTitle());
+		this.key = key;
+		this.value = value;
 	}
 
 	/**
-	 * Get the data element for the name button
-	 * @return the data element for the name button
+	 * Get the value
+	 * @param searchKey
+	 * @return value
 	 */
-	DataElement getDataElement()
+	public String get(String searchKey)
 	{
-		return element;
+		if (key.equals(searchKey))
+		{
+			return value;
+		}
+
+		if (next == null)
+		{
+			return null;
+		}
+
+		return next.get(searchKey);
+	}
+
+	/**
+	 * Put the value
+	 * @param sub
+	 */
+	public void put(DataSubValue sub)
+	{
+		if (next == null)
+		{
+			next = sub;
+		}
+		else
+		{
+			next.put(sub);
+		}
 	}
 }

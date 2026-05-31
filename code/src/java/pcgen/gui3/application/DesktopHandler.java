@@ -20,6 +20,7 @@ package pcgen.gui3.application;
 
 import java.awt.Desktop;
 import java.awt.Desktop.Action;
+import java.awt.EventQueue;
 import java.awt.desktop.AboutEvent;
 import java.awt.desktop.PreferencesEvent;
 import java.awt.desktop.QuitEvent;
@@ -93,7 +94,13 @@ public final class DesktopHandler
 		@Override
 		public void handleQuitRequestWith(final QuitEvent quitEvent, final QuitResponse quitResponse)
 		{
-			PCGenUIManager.closePCGen();
+			// Cancel the system quit so macOS stops intercepting mouse events — without this, the save dialog appears,
+			// but its buttons are frozen because the OS is waiting for a quit response and routing clicks through the
+			// quit machinery. We drive the quit ourselves via closePCGen.
+			quitResponse.cancelQuit();
+
+			// Defer closePCGen to a fresh EDT turn so handleQuitRequestWith returns first.
+			EventQueue.invokeLater(PCGenUIManager::closePCGen);
 		}
 	}
 }
