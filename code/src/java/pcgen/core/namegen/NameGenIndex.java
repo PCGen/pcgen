@@ -39,6 +39,13 @@ import pcgen.util.Logging;
  */
 public final class NameGenIndex
 {
+	private static final String TAG_RULESET = "RULESET";
+	private static final String TAG_CATEGORY = "CATEGORY";
+	private static final String TAG_LIST = "LIST";
+	private static final String ATTR_ID = "id";
+	private static final String ATTR_TITLE = "title";
+	private static final String ATTR_USAGE = "usage";
+
 	private final Map<String, RuleSetMeta> rulesetsById;
 	private final Map<String, File> listIdToFile;
 	private final Map<String, List<String>> rulesetIdsByCategory;
@@ -157,88 +164,135 @@ public final class NameGenIndex
 			Map<String, File> listIdToFile,
 			Map<String, List<String>> rulesetIdsByCategory) throws XMLStreamException
 	{
-		// State: when we enter a <RULESET>, capture its attrs and begin
-		// collecting <CATEGORY> children. When we leave, emit a meta record.
-		// <LIST> is recorded by id only; we skip its body entirely.
-		String currentRulesetId = null;
-		String currentRulesetTitle = null;
-		String currentRulesetUsage = null;
-		List<String> currentCategories = null;
-		int listDepth = 0;
-
+		ScanState state = new ScanState(file, rulesetsById, listIdToFile, rulesetIdsByCategory);
 		while (reader.hasNext())
 		{
 			int event = reader.next();
 			if (event == XMLStreamConstants.START_ELEMENT)
 			{
-				String localName = reader.getLocalName();
-				if (listDepth > 0)
-				{
-					// We're inside a <LIST>; ignore everything until close.
-					listDepth++;
-					continue;
-				}
-				switch (localName)
-				{
-					case "RULESET" ->
-					{
-						currentRulesetId = reader.getAttributeValue(null, "id");
-						currentRulesetTitle = nullToEmpty(reader.getAttributeValue(null, "title"));
-						currentRulesetUsage = nullToEmpty(reader.getAttributeValue(null, "usage"));
-						currentCategories = new ArrayList<>();
-					}
-					case "CATEGORY" ->
-					{
-						if (currentCategories != null)
-						{
-							String title = reader.getAttributeValue(null, "title");
-							if (title != null)
-							{
-								currentCategories.add(title);
-							}
-						}
-					}
-					case "LIST" ->
-					{
-						String id = reader.getAttributeValue(null, "id");
-						if (id != null)
-						{
-							listIdToFile.put(id, file);
-						}
-						listDepth = 1;
-					}
-					default ->
-					{
-						// We don't care about RULE/GETLIST/etc. for the index.
-					}
-				}
+				state.handleStart(reader);
 			}
 			else if (event == XMLStreamConstants.END_ELEMENT)
 			{
-				String localName = reader.getLocalName();
-				if (listDepth > 0)
+				state.handleEnd(reader.getLocalName());
+			}
+		}
+	}
+
+	/**
+	 * Streaming-scan accumulator. Holds the in-flight {@code <RULESET>}'s
+	 * attributes and a depth counter for skipping {@code <LIST>} bodies, and
+	 * commits a {@link RuleSetMeta} record on each {@code </RULESET>}.
+	 */
+	private static final class ScanState
+	{
+		private final File file;
+		private final Map<String, RuleSetMeta> rulesetsById;
+		private final Map<String, File> listIdToFile;
+		private final Map<String, List<String>> rulesetIdsByCategory;
+
+		private String currentRulesetId;
+		private String currentRulesetTitle;
+		private String currentRulesetUsage;
+		private List<String> currentCategories;
+		private int listDepth;
+
+		ScanState(File file,
+				Map<String, RuleSetMeta> rulesetsById,
+				Map<String, File> listIdToFile,
+				Map<String, List<String>> rulesetIdsByCategory)
+		{
+			this.file = file;
+			this.rulesetsById = rulesetsById;
+			this.listIdToFile = listIdToFile;
+			this.rulesetIdsByCategory = rulesetIdsByCategory;
+		}
+
+		void handleStart(XMLStreamReader reader)
+		{
+			if (listDepth > 0)
+			{
+				// Inside a <LIST>; ignore everything until close.
+				listDepth++;
+				return;
+			}
+			switch (reader.getLocalName())
+			{
+				case TAG_RULESET -> beginRuleSet(reader);
+				case TAG_CATEGORY -> addCategory(reader);
+				case TAG_LIST -> beginList(reader);
+				default ->
 				{
-					listDepth--;
-					continue;
-				}
-				if ("RULESET".equals(localName) && currentRulesetId != null)
-				{
-					RuleSetMeta meta = new RuleSetMeta(file, currentRulesetId,
-							currentRulesetTitle, currentRulesetUsage,
-							currentCategories);
-					rulesetsById.put(currentRulesetId, meta);
-					for (String cat : currentCategories)
-					{
-						rulesetIdsByCategory
-								.computeIfAbsent(cat, k -> new ArrayList<>())
-								.add(currentRulesetId);
-					}
-					currentRulesetId = null;
-					currentRulesetTitle = null;
-					currentRulesetUsage = null;
-					currentCategories = null;
+					// We don't care about RULE/GETLIST/etc. for the index.
 				}
 			}
+		}
+
+		void handleEnd(String localName)
+		{
+			if (listDepth > 0)
+			{
+				listDepth--;
+				return;
+			}
+			if (TAG_RULESET.equals(localName) && currentRulesetId != null)
+			{
+				commitRuleSet();
+			}
+		}
+
+		private void beginRuleSet(XMLStreamReader reader)
+		{
+			currentRulesetId = reader.getAttributeValue(null, ATTR_ID);
+			currentRulesetTitle = nullToEmpty(reader.getAttributeValue(null, ATTR_TITLE));
+			currentRulesetUsage = nullToEmpty(reader.getAttributeValue(null, ATTR_USAGE));
+			currentCategories = new ArrayList<>();
+		}
+
+		private void addCategory(XMLStreamReader reader)
+		{
+			if (currentCategories == null)
+			{
+				return;
+			}
+			String title = reader.getAttributeValue(null, ATTR_TITLE);
+			if (title != null)
+			{
+				currentCategories.add(title);
+			}
+		}
+
+		private void beginList(XMLStreamReader reader)
+		{
+			String id = reader.getAttributeValue(null, ATTR_ID);
+			if (id != null)
+			{
+				listIdToFile.put(id, file);
+			}
+			listDepth = 1;
+		}
+
+		private void commitRuleSet()
+		{
+			RuleSetMeta meta = new RuleSetMeta(file, currentRulesetId,
+					currentRulesetTitle, currentRulesetUsage,
+					currentCategories);
+			rulesetsById.put(currentRulesetId, meta);
+			for (String cat : currentCategories)
+			{
+				rulesetIdsByCategory
+						.computeIfAbsent(cat, k -> new ArrayList<>())
+						.add(currentRulesetId);
+			}
+			currentRulesetId = null;
+			currentRulesetTitle = null;
+			currentRulesetUsage = null;
+			currentCategories = null;
+		}
+
+		private static String nullToEmpty(String s)
+		{
+			return s == null ? "" : s;
 		}
 	}
 
@@ -254,14 +308,9 @@ public final class NameGenIndex
 		return factory;
 	}
 
-	private static String nullToEmpty(String s)
-	{
-		return s == null ? "" : s;
-	}
-
 	private static Map<String, List<String>> unmodifiableDeep(Map<String, List<String>> src)
 	{
-		Map<String, List<String>> out = new LinkedHashMap<>(src.size());
+		Map<String, List<String>> out = LinkedHashMap.newLinkedHashMap(src.size());
 		for (Map.Entry<String, List<String>> e : src.entrySet())
 		{
 			out.put(e.getKey(), List.copyOf(e.getValue()));
