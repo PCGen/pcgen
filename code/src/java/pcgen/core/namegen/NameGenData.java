@@ -43,6 +43,9 @@ public record NameGenData(
 	/** A {@code GETLIST}/{@code GETRULE} whose target id wasn't found. */
 	public record UnresolvedReference(Kind kind, String targetId)
 	{
-		public enum Kind { GETLIST, GETRULE }
+		public enum Kind
+		{
+			GETLIST, GETRULE
+		}
 	}
 }
