@@ -24,6 +24,8 @@ import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
+import org.apache.commons.lang3.StringUtils;
+
 import pcgen.util.Logging;
 
 /**
@@ -244,8 +246,8 @@ public final class NameGenIndex
 		private void beginRuleSet(XMLStreamReader reader)
 		{
 			currentRulesetId = reader.getAttributeValue(null, ATTR_ID);
-			currentRulesetTitle = nullToEmpty(reader.getAttributeValue(null, ATTR_TITLE));
-			currentRulesetUsage = nullToEmpty(reader.getAttributeValue(null, ATTR_USAGE));
+			currentRulesetTitle = StringUtils.defaultString(reader.getAttributeValue(null, ATTR_TITLE));
+			currentRulesetUsage = StringUtils.defaultString(reader.getAttributeValue(null, ATTR_USAGE));
 			currentCategories = new ArrayList<>();
 		}
 
@@ -288,11 +290,6 @@ public final class NameGenIndex
 			currentRulesetTitle = null;
 			currentRulesetUsage = null;
 			currentCategories = null;
-		}
-
-		private static String nullToEmpty(String s)
-		{
-			return s == null ? "" : s;
 		}
 	}
 
