@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -78,17 +79,10 @@ public final class NameGenLazyData
 	 */
 	public List<NameGenIndex.RuleSetMeta> rulesetMetaFor(String category)
 	{
-		List<String> ids = index.rulesetIdsByCategory().getOrDefault(category, List.of());
-		List<NameGenIndex.RuleSetMeta> out = new ArrayList<>(ids.size());
-		for (String id : ids)
-		{
-			NameGenIndex.RuleSetMeta meta = index.rulesetsById().get(id);
-			if (meta != null)
-			{
-				out.add(meta);
-			}
-		}
-		return out;
+		return index.rulesetIdsByCategory().getOrDefault(category, List.of()).stream()
+				.map(index.rulesetsById()::get)
+				.filter(Objects::nonNull)
+				.toList();
 	}
 
 	/**
@@ -108,16 +102,11 @@ public final class NameGenLazyData
 	 */
 	public List<String> gendersForRuleset(String rulesetId)
 	{
-		List<String> out = new ArrayList<>(3);
-		for (Map.Entry<String, List<String>> e : index.rulesetIdsByCategory().entrySet())
-		{
-			String key = e.getKey();
-			if (key.startsWith("Sex:") && e.getValue().contains(rulesetId))
-			{
-				out.add(key.substring("Sex:".length()).trim());
-			}
-		}
-		return out;
+		return index.rulesetIdsByCategory().entrySet().stream()
+				.filter(e -> e.getKey().startsWith("Sex:"))
+				.filter(e -> e.getValue().contains(rulesetId))
+				.map(e -> e.getKey().substring("Sex:".length()).trim())
+				.toList();
 	}
 
 	/**
@@ -137,37 +126,49 @@ public final class NameGenLazyData
 		return rulesets.get(rulesetId);
 	}
 
-	/** Live ruleset map — every entry is fully materialised. */
+	/**
+	 * Live ruleset map — every entry is fully materialised.
+	 */
 	Map<String, RuleSet> liveRulesets()
 	{
 		return rulesets;
 	}
 
-	/** Live name-list map — entries appear as their owning files are parsed. */
+	/**
+	 * Live name-list map — entries appear as their owning files are parsed.
+	 */
 	Map<String, NameList> liveLists()
 	{
 		return lists;
 	}
 
-	/** All ruleset metadata known to the index. */
+	/**
+	 * All ruleset metadata known to the index.
+	 */
 	Map<String, NameGenIndex.RuleSetMeta> rulesetMeta()
 	{
 		return index.rulesetsById();
 	}
 
-	/** Index's category map (raw): category title -> ruleset ids. */
+	/**
+	 * Index's category map (raw): category title -> ruleset ids.
+	 */
 	Map<String, List<String>> rulesetIdsByCategory()
 	{
 		return index.rulesetIdsByCategory();
 	}
 
-	/** Live unresolved-references list, mutated as files get parsed. */
+	/**
+	 * Live unresolved-references list, mutated as files get parsed.
+	 */
 	public List<NameGenData.UnresolvedReference> unresolvedReferences()
 	{
 		return Collections.unmodifiableList(unresolved);
 	}
 
-	/** Files parsed so far. Useful for benchmarks/tests. */
+	/**
+	 * Files parsed so far. Useful for benchmarks/tests.
+	 */
 	public Set<File> parsedFiles()
 	{
 		return Collections.unmodifiableSet(parsedFiles);
@@ -208,8 +209,7 @@ public final class NameGenLazyData
 			try
 			{
 				prepared = NameGenDataLoader.prepareFileForLazy(file, dataDir, lists);
-			}
-			catch (IOException e)
+			} catch (IOException e)
 			{
 				throw new UncheckedIOException(e);
 			}
@@ -249,8 +249,7 @@ public final class NameGenLazyData
 			// dependency has been registered.
 			NameGenDataLoader.buildRuleSetsForLazy(prepared, lists, rulesets, unresolved,
 					this::crossFileRuleSetTitle);
-		}
-		finally
+		} finally
 		{
 			inProgressFiles.remove(file);
 		}

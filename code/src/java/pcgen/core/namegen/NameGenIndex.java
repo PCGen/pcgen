@@ -17,6 +17,7 @@ import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import javax.xml.XMLConstants;
 import javax.xml.stream.XMLInputFactory;
@@ -313,11 +314,11 @@ public final class NameGenIndex
 
 	private static Map<String, List<String>> unmodifiableDeep(Map<String, List<String>> src)
 	{
-		Map<String, List<String>> out = LinkedHashMap.newLinkedHashMap(src.size());
-		for (Map.Entry<String, List<String>> e : src.entrySet())
-		{
-			out.put(e.getKey(), List.copyOf(e.getValue()));
-		}
-		return Map.copyOf(out);
+		return src.entrySet().stream()
+				.collect(Collectors.toMap(
+						Map.Entry::getKey,
+						e -> List.copyOf(e.getValue()),
+						(a, b) -> b,
+						LinkedHashMap::new));
 	}
 }

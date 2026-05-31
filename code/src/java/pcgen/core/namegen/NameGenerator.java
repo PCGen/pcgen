@@ -10,11 +10,11 @@ package pcgen.core.namegen;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -162,20 +162,15 @@ public final class NameGenerator
 		}
 		Map<String, RuleSet> rulesets = new LinkedHashMap<>(backing.liveRulesets());
 
-		Map<String, List<RuleSet>> categories = new LinkedHashMap<>();
-		for (Map.Entry<String, List<String>> e : backing.rulesetIdsByCategory().entrySet())
-		{
-			List<RuleSet> resolved = new ArrayList<>(e.getValue().size());
-			for (String id : e.getValue())
-			{
-				RuleSet rs = rulesets.get(id);
-				if (rs != null)
-				{
-					resolved.add(rs);
-				}
-			}
-			categories.put(e.getKey(), resolved);
-		}
+		Map<String, List<RuleSet>> categories = backing.rulesetIdsByCategory().entrySet().stream()
+				.collect(Collectors.toMap(
+						Map.Entry::getKey,
+						e -> e.getValue().stream()
+								.map(rulesets::get)
+								.filter(Objects::nonNull)
+								.toList(),
+						(a, b) -> b,
+						LinkedHashMap::new));
 		return new NameGenData(backing.liveLists(), rulesets, categories,
 				backing.unresolvedReferences());
 	}
