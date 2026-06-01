@@ -343,9 +343,15 @@ jlink {
         if (hostOs == "mac") {
             opts += ["--mac-package-identifier", "PcGen", "--mac-package-name", "PcGen"]
             resourceDir = layout.projectDirectory.dir("installers/mac-installer").asFile
+            installerType = "dmg"
         }
         else if (hostOs == "linux") {
             opts += ['--linux-shortcut']
+            installerType = "deb"
+        }
+        else if (hostOs == "windows") {
+            opts += ['--win-shortcut', '--win-menu']
+            installerType = "exe"
         }
 
         installerOptions = opts
@@ -399,13 +405,21 @@ if (Os.isFamily(Os.FAMILY_MAC)) {
         }
     }
 
+    // jpackage packages the image at build/jpackage/PcGen.app — make sure the
+    // data folders and the patched plist+launcher are in place before it runs.
+    tasks.named("jpackage") { dependsOn tasks.named("patchMacJpackage") }
+
     tasks.register("fullJpackage") {
-        dependsOn tasks.named("patchMacJpackage")
+        dependsOn tasks.named("jpackage")
         description = "Build the native application bundle with jpackage"
     }
 } else {
+    // Same idea for Linux/Windows: jpackage reads build/jpackage/PcGen, which
+    // assembleJpackageImage populates with /data, /plugins, /preview, /outputsheets.
+    tasks.named("jpackage") { dependsOn tasks.named("assembleJpackageImage") }
+
     tasks.register("fullJpackage") {
-        dependsOn tasks.named("assembleJpackageImage")
+        dependsOn tasks.named("jpackage")
         description = "Build the native application bundle with jpackage"
     }
 }
