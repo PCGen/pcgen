@@ -113,6 +113,7 @@ jobs:
     name: Build Release
     needs: create_release
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-latest, ubuntu-24.04-arm, macos-latest, windows-latest]
         include:
@@ -179,20 +180,8 @@ jobs:
           restore-keys: |
             jdks-
 
-      - name: Compile and run unit tests
-        run: ./gradlew clean build
-
-      - name: Run data and integration tests
-        run: ./gradlew compileSlowtest datatest pfinttest
-
-      - name: Run static analysis reports
-        run: ./gradlew allReports
-
-      - name: Build distribution zips
-        run: ./gradlew buildDist
-
-      - name: Build release artifacts
-        run: ./gradlew pcgenRelease
+      - name: Build, test, and assemble release artifacts
+        run: ./gradlew build compileSlowtest datatest pfinttest pcgenRelease
 
       - name: Upload release artifacts as workflow artifacts
         uses: actions/upload-artifact@v4
