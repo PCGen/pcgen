@@ -22,8 +22,6 @@
 apply from: "code/gradle/releaseUtils.groovy"
 apply plugin: 'java'
 
-import org.apache.tools.ant.taskdefs.condition.Os
-
 ext {
     // Work out the path to the release notes for our current version.
     plainVerNum = version.replaceAll('-SNAPSHOT', '')
@@ -40,12 +38,7 @@ tasks.register("sourcesJar", Jar) {
 }
 
 tasks.register("assembleArtifacts", Copy) {
-    dependsOn build, jlinkZip, sourcesJar
-
-    if (Os.isFamily(Os.FAMILY_MAC) || Os.isFamily(Os.FAMILY_UNIX))
-    {
-        dependsOn fullJpackage
-    }
+    dependsOn build, jlinkZip, sourcesJar, fullJpackage
 
     description = "Create the release artifacts and get them into the release folder."
     into releaseDir
