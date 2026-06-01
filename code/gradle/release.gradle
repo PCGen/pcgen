@@ -38,7 +38,7 @@ tasks.register("sourcesJar", Jar) {
 }
 
 tasks.register("assembleArtifacts", Copy) {
-    dependsOn build, jlinkZip, sourcesJar, fullJpackage
+    dependsOn build, jlinkZip, sourcesJar, fullJpackage, portableZip
 
     description = "Create the release artifacts and get them into the release folder."
     into releaseDir

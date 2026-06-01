@@ -424,6 +424,18 @@ if (Os.isFamily(Os.FAMILY_MAC)) {
     }
 }
 
+// Portable zip: same self-contained app the installer ships, but as an
+// unzip-and-run archive. Source folder is whatever fullJpackage produces.
+tasks.register("portableZip", Zip) {
+    dependsOn tasks.named("fullJpackage")
+    def appDir = (hostOs == "mac") ? "PcGen.app" : "PcGen"
+    from(layout.buildDirectory.dir("jpackage/${appDir}")) {
+        into appDir
+    }
+    archiveFileName = "pcgen-${version}-${hostOs}-${hostArch}-portable.zip"
+    destinationDirectory = layout.buildDirectory.dir("jpackage")
+}
+
 // Create the Data Convertor JAR.
 // This is a thin jar containing only a manifest that points at pcgen.jar
 // (and the rest of the runtime classpath) via Class-Path.
