@@ -246,8 +246,8 @@ dependencies {
     // 21.0.2 is the latest version. As of Nov 2025, we have moved to OpenJFX 25 so this may cause issues
     testImplementation 'org.testfx:openjfx-monocle:21.0.2'
 
-    testImplementation 'org.xmlunit:xmlunit-matchers:2.11.0'
-    testImplementation 'org.xmlunit:xmlunit-core:2.11.0'
+    testImplementation 'org.xmlunit:xmlunit-matchers:2.12.0'
+    testImplementation 'org.xmlunit:xmlunit-core:2.12.0'
 
     spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.14.0'
 
