@@ -53,7 +53,11 @@ tasks.register("assembleArtifacts", Copy) {
         include "image*.zip"
     }
     from(layout.buildDirectory.dir("jpackage")){
+        // Match installer files emitted by jpackage. Hyphenated forms cover
+        // .dmg/.exe/.rpm/portable.zip; the underscore form is needed for
+        // Debian's pcgen_<version>_<arch>.deb naming.
         include 'pcgen-*.*'
+        include 'pcgen_*.deb'
     }
 }
 
