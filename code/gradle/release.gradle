@@ -38,19 +38,13 @@ tasks.register("sourcesJar", Jar) {
 }
 
 tasks.register("assembleArtifacts", Copy) {
-    dependsOn build, jlinkZip, sourcesJar, fullJpackage, portableZip
+    dependsOn build, sourcesJar, fullJpackage, portableZip
 
     description = "Create the release artifacts and get them into the release folder."
     into releaseDir
 
     from(layout.buildDirectory.dir("libs")){
         include 'pcgen*-sources.jar'
-    }
-    from(layout.buildDirectory){
-        include 'image*.zip'
-    }
-    delete fileTree(layout.buildDirectory).matching {
-        include "image*.zip"
     }
     from(layout.buildDirectory.dir("jpackage")){
         // Match installer files emitted by jpackage. Hyphenated forms cover
@@ -61,61 +55,6 @@ tasks.register("assembleArtifacts", Copy) {
     }
 }
 
-// Produce SHA-256 checksums for each release artifact
-tasks.register("checksum") {
-    notCompatibleWithConfigurationCache("File manipulation involved in checksum")
-
-    dependsOn assembleArtifacts
-    doLast {
-        def zipChecksumsFile = layout.buildDirectory
-                .file("release/SHA256-digests-zip-${version}.txt")
-                .get()
-                .asFile
-        project.delete(zipChecksumsFile)
-        file(releaseDir).listFiles().each {File file ->
-            ant.checksum(file: file, property: "cs_$file.name", algorithm: "sha-256")
-            def cs = ant.properties["cs_$file.name"]
-            if (file.name.endsWith("zip")) {
-                zipChecksumsFile << "SHA-256 digest for $file.name:\r\n$cs\r\n\r\n"
-            }
-            else if (file.name.endsWith(".exe")){
-                def exeChecksumsFile = layout.buildDirectory
-                        .file("release/SHA256-digests-exe-${version}.txt")
-                        .get()
-                        .asFile
-                exeChecksumsFile << "SHA-256 digest for $file.name:\r\n$cs\r\n\r\n"
-            }
-            else if (file.name.endsWith(".pkg")|| file.name.endsWith(".dmg")){
-                def macChecksumsFile = layout.buildDirectory
-                        .file("release/SHA256-digests-mac-${version}.txt")
-                        .get()
-                        .asFile
-                macChecksumsFile << "SHA-256 digest for $file.name:\r\n$cs\r\n\r\n"
-            }
-            else if (file.name.endsWith(".deb")|| file.name.endsWith(".rpm")){
-                def linuxChecksumsFile = layout.buildDirectory
-                        .file("release/SHA256-digests-linux-${version}.txt")
-                        .get()
-                        .asFile
-                linuxChecksumsFile << "SHA-256 digest for $file.name:\r\n$cs\r\n\r\n"
-            }
-            else if (file.name.endsWith(".jar")){
-                def jarChecksumsFile = layout.buildDirectory
-                        .file("release/SHA256-digests-jar-${version}.txt")
-                        .get()
-                        .asFile
-                jarChecksumsFile << "SHA-256 digest for $file.name:\r\n$cs\r\n\r\n"
-            }
-            else if (file.name.endsWith(".txt")) {
-                // does nothing
-            }
-            else {
-                throw new GradleException("Checksums should account for all file.")
-            }
-        }
-    }
-}
-
 tasks.register("prepareRelease") {
     dependsOn build
     description = """Prepare PCGen for release. This will update and commit the version, \
@@ -123,7 +62,7 @@ do a build including the unit tests and generate the data list for the installer
 }
 
 tasks.register("pcgenRelease") {
-    dependsOn prepareRelease, assembleArtifacts, checksum
+    dependsOn prepareRelease, assembleArtifacts
     description = "Release a new version of PCGen. This will build PCGen and produce the release artifacts."
     // Installer is placed in outputDir
 }
