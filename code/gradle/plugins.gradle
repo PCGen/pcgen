@@ -26,10 +26,7 @@ def createJarTask = {taskName, archiveName, description, includePattern ->
             attributes(
                     "Implementation-Title": "PCGen ${taskName.replace('jar', '').toLowerCase()} plugins",
                     "Implementation-Version": project.version,
-                    "Class-Path": "lib/pcgen.jar",
-                    "Built-Date": new Date(),
-                    "Built-JDK": "${System.getProperty('java.vm.version')} (${System.getProperty('java.vendor')})",
-                    "Created-By": "Gradle ${project.gradle.gradleVersion}"
+                    "Class-Path": "lib/pcgen.jar"
             )
         }
 
