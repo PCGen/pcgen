@@ -29,7 +29,6 @@ module pcgen {
     requires org.apache.xmlgraphics.fop.core;
     requires org.apache.xmlgraphics.fop.events;
     requires org.apache.xmlgraphics.commons;
-    requires spring.web;
     requires spring.beans;
     requires spring.core;
     requires Saxon.HE;

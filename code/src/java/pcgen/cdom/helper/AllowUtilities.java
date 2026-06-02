@@ -26,8 +26,6 @@ import pcgen.cdom.enumeration.MapKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 
-import org.springframework.web.util.HtmlUtils;
-
 /**
  * InfoUtilities is a set of utilities related to the ALLOW token.
  */
@@ -79,7 +77,7 @@ public final class AllowUtilities
 				Object[] infoVars = InfoUtilities.getInfoVars(pc.getCharID(), cdo, cis);
 				tempBuffer.setLength(0);
 				info.format(infoVars, tempBuffer, null);
-				sb.append(HtmlUtils.htmlEscape(tempBuffer.toString()));
+				sb.append(htmlEscape(tempBuffer.toString()));
 				if (!passes)
 				{
 					sb.append("</i>");
@@ -88,6 +86,44 @@ public final class AllowUtilities
 			}
 		}
 		return sb.toString();
+	}
+
+	/**
+	 * Escapes the minimal set of characters required to inject untrusted text into HTML
+	 * <em>element content</em> (i.e. between tags, never inside attribute values).
+	 *
+	 * <p>Only {@code &} and {@code <} are escaped, because those are the only two
+	 * characters that can change the structure of an HTML document when they appear in
+	 * element content: {@code &} starts an entity reference and {@code <} starts a tag.
+	 * The other "classic" HTML metacharacters are intentionally left untouched:
+	 * <ul>
+	 *   <li>{@code >} is structurally meaningful only as the closing delimiter of a tag
+	 *       that was already opened by an unescaped {@code <}; in plain text it is just
+	 *       a greater-than sign and browsers render it as such.</li>
+	 *   <li>{@code "} and {@code '} only matter inside attribute values. The output of
+	 *       this method is concatenated into element content (see
+	 *       {@link #getAllowInfo(PlayerCharacter, CDOMObject)}), never an attribute, so
+	 *       escaping them would just clutter the rendered text with {@code &quot;} /
+	 *       {@code &#39;} entities.</li>
+	 * </ul>
+	 *
+	 * <p><strong>Do not</strong> reuse this helper for HTML attribute values, JavaScript,
+	 * CSS, or URL contexts — it is deliberately incomplete for those.
+	 */
+	static String htmlEscape(String input)
+	{
+		StringBuilder out = new StringBuilder(input.length());
+		for (int i = 0; i < input.length(); i++)
+		{
+			char c = input.charAt(i);
+			switch (c)
+			{
+				case '&' -> out.append("&amp;");
+				case '<' -> out.append("&lt;");
+				default -> out.append(c);
+			}
+		}
+		return out.toString();
 	}
 
 }
