@@ -573,7 +573,7 @@ public final class DataInstaller extends JFrame
      * @return the corrected file name.
      * @throws IOException if the entry resolves outside its base directory
      */
-    private static String correctFileName(File destDir, String fileName) throws IOException
+    static String correctFileName(File destDir, String fileName) throws IOException
     {
         if (fileName.toLowerCase().startsWith(DATA_FOLDER))
         {
