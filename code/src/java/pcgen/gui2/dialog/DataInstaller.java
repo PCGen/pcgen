@@ -29,6 +29,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Path;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -488,7 +489,19 @@ public final class DataInstaller extends JFrame
         Collection<String> existingFilesCorr = new ArrayList<>();
         for (String filename : files)
         {
-            String correctedFilename = correctFileName(destDir, filename);
+            String correctedFilename;
+            try
+            {
+                correctedFilename = correctFileName(destDir, filename);
+            }
+            catch (IOException e)
+            {
+                Logging.errorPrint("Refusing to install entry that escapes the data directory: " + filename, e);
+                ShowMessageDelegate.showMessageDialog(
+                        LanguageBundle.getFormattedString("in_diWriteFail", filename),
+                        TITLE, MessageType.ERROR);
+                return false;
+            }
             if (new File(correctedFilename).exists())
             {
                 existingFiles.add(filename);
@@ -550,20 +563,50 @@ public final class DataInstaller extends JFrame
      * Correct the file name to account for the selected data directory and
      * preference based folder locations such as output sheets.
      *
+     * <p>Resolved paths are validated against their base directory so a
+     * malicious archive entry containing {@code ..} segments cannot escape
+     * the install location ("Zip Slip"). Throws an {@link IOException} if
+     * the resolved entry would land outside its expected base.
+     *
      * @param destDir  the destination data directory
      * @param fileName the file name to be corrected.
      * @return the corrected file name.
+     * @throws IOException if the entry resolves outside its base directory
      */
-    private static String correctFileName(File destDir, String fileName)
+    private static String correctFileName(File destDir, String fileName) throws IOException
     {
         if (fileName.toLowerCase().startsWith(DATA_FOLDER))
         {
-            fileName = destDir.getAbsolutePath() + fileName.substring(4);
-        } else if (fileName.toLowerCase().startsWith(OUTPUTSHEETS_FOLDER))
+            String suffix = fileName.substring(4);
+            return resolveWithinBase(destDir, suffix).getAbsolutePath();
+        }
+        else if (fileName.toLowerCase().startsWith(OUTPUTSHEETS_FOLDER))
         {
-            fileName = new File(ConfigurationSettings.getOutputSheetsDir()).getAbsolutePath() + fileName.substring(12);
+            String suffix = fileName.substring(12);
+            File outputSheetsDir = new File(ConfigurationSettings.getOutputSheetsDir());
+            return resolveWithinBase(outputSheetsDir, suffix).getAbsolutePath();
         }
         return fileName;
+    }
+
+    /**
+     * Resolves {@code suffix} against {@code baseDir} and verifies the
+     * resulting path is contained within {@code baseDir}. Both sides are
+     * canonicalised (symlinks resolved, {@code .} and {@code ..} segments
+     * collapsed) before comparison so a hostile entry name like
+     * {@code ../../etc/passwd} cannot escape.
+     */
+    private static File resolveWithinBase(File baseDir, String suffix) throws IOException
+    {
+        File baseCanonical = baseDir.getCanonicalFile();
+        File resolved = new File(baseCanonical, suffix).getCanonicalFile();
+        Path basePath = baseCanonical.toPath();
+        if (!resolved.toPath().startsWith(basePath))
+        {
+            throw new IOException("Refusing to install entry that escapes "
+                    + baseCanonical + ": " + suffix);
+        }
+        return resolved;
     }
 
     /**
@@ -578,7 +621,19 @@ public final class DataInstaller extends JFrame
     {
         for (String dirname : directories)
         {
-            String corrDirname = correctFileName(destDir, dirname);
+            String corrDirname;
+            try
+            {
+                corrDirname = correctFileName(destDir, dirname);
+            }
+            catch (IOException e)
+            {
+                Logging.errorPrint("Refusing to create directory from data set: " + dirname, e);
+                ShowMessageDelegate.showMessageDialog(
+                        LanguageBundle.getFormattedString("in_diDirNotCreated", dirname), TITLE,
+                        MessageType.ERROR);
+                return false;
+            }
             File dir = new File(corrDirname);
             if (!dir.exists())
             {
