@@ -58,7 +58,6 @@ import pcgen.persistence.lst.GenericLoader;
 import pcgen.persistence.lst.LstObjectFileLoader;
 import pcgen.persistence.lst.PCClassLoader;
 import pcgen.rules.context.LoadContext;
-import pcgen.system.Main;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 import java.io.BufferedWriter;
@@ -84,11 +83,6 @@ import java.util.logging.Level;
 public final class TestHelper
 {
 	private static final Logger LOG = Logger.getLogger(TestHelper.class.getName());
-
-	static
-	{
-		Main.createLoadPluginTask().run();
-	}
 
 	private static final LstObjectFileLoader<Equipment> eqLoader = new GenericLoader<>(Equipment.class);
 
@@ -166,11 +160,16 @@ public final class TestHelper
 	 * is retained because many test classes invoke it explicitly to document
 	 * their dependency on plugins being loaded.
 	 */
+	/**
+	 * @deprecated Plugins are now loaded automatically once per JVM by the
+	 * {@code PCGenTestEnvironment} JUnit 5 extension (auto-discovered via
+	 * {@code META-INF/services}). Existing call sites can simply delete the
+	 * call; this stub is kept only to avoid touching every test in one
+	 * patch.
+	 */
+	@Deprecated
 	public static void loadPlugins()
 	{
-		// Intentionally empty. Calling this method is enough — the call
-		// references TestHelper, which triggers the class's static
-		// initializer (where the actual plugin load happens).
 	}
 
 	/**
