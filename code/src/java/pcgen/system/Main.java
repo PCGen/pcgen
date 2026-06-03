@@ -323,7 +323,7 @@ public final class Main
 	 * before campaigns reference them. {@link #loadProperties} must already
 	 * have run; that's why it's the caller's responsibility, not ours.
 	 */
-	static void runBootstrapTasks(PCGenTaskListener... listeners)
+	public static void runBootstrapTasks(PCGenTaskListener... listeners)
 	{
 		PCGenTaskExecutor executor = new PCGenTaskExecutor();
 		executor.addPCGenTask(createLoadPluginTask());
