@@ -188,12 +188,7 @@ public final class Main
 		new JFXPanel();
 
 		PCGenPreloader splash = new PCGenPreloader();
-		PCGenTaskExecutor executor = new PCGenTaskExecutor();
-		executor.addPCGenTask(createLoadPluginTask());
-		executor.addPCGenTask(new GameModeFileLoader());
-		executor.addPCGenTask(new CampaignFileLoader());
-		executor.addPCGenTaskListener(splash);
-		executor.run();
+		runBootstrapTasks(splash);
 		splash.getController().setProgress(LanguageBundle.getString("in_taskInitUi"), 1.0d);
 		FacadeFactory.initialize();
 		PCGenUIManager.initializeGUI();
@@ -321,16 +316,32 @@ public final class Main
 		return loader;
 	}
 
+	/**
+	 * Run the canonical post-properties bootstrap sequence: load plugins,
+	 * then game modes, then campaigns. Order matters — plugins register
+	 * tokens that GameModeFileLoader relies on, and game modes must exist
+	 * before campaigns reference them. {@link #loadProperties} must already
+	 * have run; that's why it's the caller's responsibility, not ours.
+	 */
+	static void runBootstrapTasks(PCGenTaskListener... listeners)
+	{
+		PCGenTaskExecutor executor = new PCGenTaskExecutor();
+		executor.addPCGenTask(createLoadPluginTask());
+		executor.addPCGenTask(new GameModeFileLoader());
+		executor.addPCGenTask(new CampaignFileLoader());
+		for (PCGenTaskListener listener : listeners)
+		{
+			executor.addPCGenTaskListener(listener);
+		}
+		executor.run();
+	}
+
 	private static boolean startupWithoutGUI()
 	{
 		loadProperties(false);
 		validateEnvironment(false);
 
-		PCGenTaskExecutor executor = new PCGenTaskExecutor();
-		executor.addPCGenTask(createLoadPluginTask());
-		executor.addPCGenTask(new GameModeFileLoader());
-		executor.addPCGenTask(new CampaignFileLoader());
-		executor.run();
+		runBootstrapTasks();
 
 		UIDelegate uiDelegate = new ConsoleUIDelegate();
 
