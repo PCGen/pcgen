@@ -151,7 +151,7 @@ jobs:
             jdks-
 
       - name: Build, test, and assemble release artifacts
-        run: ./gradlew build compileSlowtest datatest pfinttest pcgenRelease
+        run: ./gradlew build compileSlowtest datatest pfinttest pcgenRelease --stacktrace
 
       - name: Upload release artifacts as workflow artifacts
         uses: actions/upload-artifact@v4
