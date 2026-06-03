@@ -55,7 +55,6 @@ import pcgen.core.spell.Spell;
 import pcgen.io.ExportHandler;
 import pcgen.persistence.CampaignFileLoader;
 import pcgen.persistence.GameModeFileLoader;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.AbilityLoader;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.GenericLoader;
@@ -68,13 +67,10 @@ import pcgen.system.PCGenTask;
 import pcgen.system.PropertyContextFactory;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.StringWriter;
 import java.lang.reflect.Field;
@@ -159,7 +155,7 @@ public final class TestHelper
 	 * @param cls The class the try is for.
 	 * @return The CampaignSourceEntry.
 	 */
-	public static CampaignSourceEntry createSource(Class cls)
+	public static CampaignSourceEntry createSource(Class<?> cls)
 	{
 		final CampaignSourceEntry source;
 		try
@@ -206,7 +202,7 @@ public final class TestHelper
 						return f;
 					}
 				}
-				if (!"Object".equals(clazz.getName()))
+				if (clazz != Object.class)
 				{
 					clazz = clazz.getSuperclass();
 				} else
@@ -455,7 +451,8 @@ public final class TestHelper
 	/**
 	 * Checks to see if this PC has the weapon proficiency key aKey
 	 *
-	 * @param aKey
+	 * @param pc the PlayerCharacter to check
+	 * @param aKey the WeaponProf key to look up
 	 * @return boolean
 	 */
 	public static boolean hasWeaponProfKeyed(PlayerCharacter pc,
@@ -479,13 +476,11 @@ public final class TestHelper
 		// Read in config.ini and override the pcc location if it exists
 		try (var lines = Files.lines(Path.of("config.ini")))
 		{
-			var pccFilesPath = lines
+			return lines
 					.filter(line -> line.startsWith("pccFilesPath="))
 					.map(line -> line.substring(13))
 					.findFirst()
 					.orElse(pccLoc);
-
-			return pccFilesPath;
 		} catch (IOException e)
 		{
 			// Ignore, see method comment
@@ -511,7 +506,7 @@ public final class TestHelper
 			bw.write("settingsPath=" + configFolder + "\r\n");
 			if (pccLoc != null)
 			{
-				LOG.info("Using PCC Location of '" + pccLoc + "'.");
+				LOG.log(Level.INFO, "Using PCC Location of ''{0}''.", pccLoc);
 				bw.write("pccFilesPath=" + pccLoc + "\r\n");
 			}
 			bw.write("customPath=testsuite\\\\customdata\r\n");
@@ -522,7 +517,7 @@ public final class TestHelper
 	{
 		String configFolder = "testsuite";
 		String pccLoc = TestHelper.findDataFolder();
-		LOG.info("Got data folder of " + pccLoc);
+		LOG.log(Level.INFO, "Got data folder of {0}", pccLoc);
 		try
 		{
 			TestHelper.createDummySettingsFile(testConfigFile, configFolder,
@@ -562,7 +557,7 @@ public final class TestHelper
 	}
 
 	public static PCClass parsePCClassText(String classPCCText,
-										   CampaignSourceEntry source) throws PersistenceLayerException
+										   CampaignSourceEntry source)
 	{
 		PCClassLoader pcClassLoader = new PCClassLoader();
 		PCClass reconstClass = null;
@@ -572,7 +567,7 @@ public final class TestHelper
 			String line = tok.nextToken();
 			if (!StringUtils.isBlank(line))
 			{
-				LOG.info("Processing line:'" + line + "'.");
+				LOG.log(Level.INFO, "Processing line:''{0}''.", line);
 				reconstClass =
 						pcClassLoader.parseLine(Globals.getContext(),
 								reconstClass, line, source);
