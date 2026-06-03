@@ -31,16 +31,18 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.InstallableCampaign;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.util.TestHelper;
+import pcgen.test.PCGenTestEnvironment;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
  * A collection of tests to validate the functioning of the InstallLoader class.
  */
+@ExtendWith(PCGenTestEnvironment.class)
 public final class InstallLoaderTest
 {
 	private static final String PUBNAMESHORT = "PCGen";
@@ -84,7 +86,6 @@ public final class InstallLoaderTest
 	@BeforeEach
 	public void setUp() throws Exception
 	{
-		TestHelper.loadPlugins();
 	}
 
 	@AfterEach

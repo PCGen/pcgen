@@ -24,9 +24,10 @@ import static org.junit.jupiter.api.Assertions.fail;
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.util.TestHelper;
+import pcgen.test.PCGenTestEnvironment;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.Test;
 import plugin.pretokens.parser.PreMultParser;
 
@@ -34,13 +35,13 @@ import plugin.pretokens.parser.PreMultParser;
 	 * [PREARMORPROF:1,TYPE.Medium],[PREFEAT:1,Armor Proficiency (Medium)]
  */
 @SuppressWarnings("nls")
+@ExtendWith(PCGenTestEnvironment.class)
 class PreMultParserTest extends EnUsLocaleDependentTestCase
 {
 
 	@BeforeEach
 	void setUp()
 	{
-		TestHelper.loadPlugins();
 	}
 
 	@Test

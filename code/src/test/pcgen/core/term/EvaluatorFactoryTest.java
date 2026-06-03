@@ -22,9 +22,11 @@ import pcgen.core.PCStat;
 import pcgen.core.SettingsHandler;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.util.TestHelper;
+import pcgen.test.PCGenTestEnvironment;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 /**
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
@@ -44,6 +46,7 @@ import org.junit.jupiter.api.Test;
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 
+@ExtendWith(PCGenTestEnvironment.class)
 class EvaluatorFactoryTest
 {
 
@@ -11485,8 +11488,6 @@ class EvaluatorFactoryTest
 	{
 		SettingsHandler.readOptionsProperties();
 		SettingsHandler.getOptionsFromProperties(null);
-
-		TestHelper.loadPlugins();
 		EvaluatorFactoryTest.initGameModes();
 	}
 

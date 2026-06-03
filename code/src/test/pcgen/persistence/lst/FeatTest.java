@@ -14,17 +14,19 @@ import pcgen.core.Campaign;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.util.TestHelper;
+import pcgen.test.PCGenTestEnvironment;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
  * JUnit testcases for {@code pcgen.core.Feat}.
  */
+@ExtendWith(PCGenTestEnvironment.class)
 public class FeatTest
 {
 	/**
@@ -33,7 +35,6 @@ public class FeatTest
 	@BeforeEach
 	public void setUp() throws Exception
 	{
-		TestHelper.loadPlugins();
 		Globals.getContext().getReferenceContext().importObject(BuildUtilities.getFeatCat());
 	}
 

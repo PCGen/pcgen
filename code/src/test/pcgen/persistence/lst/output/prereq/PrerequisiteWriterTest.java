@@ -38,8 +38,10 @@ import pcgen.persistence.GameModeFileLoader;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
+import pcgen.test.PCGenTestEnvironment;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.Test;
 import util.Alignment;
 
@@ -47,6 +49,7 @@ import util.Alignment;
  * Tests PrerequisiteWriter code
  * TODO: convert to ParamertizedTest
  */
+@ExtendWith(PCGenTestEnvironment.class)
 class PrerequisiteWriterTest
 {
 	private static final FormatManager<String> STR_MGR = new StringManager();
@@ -416,7 +419,6 @@ class PrerequisiteWriterTest
     @BeforeEach
     void setUp() throws Exception
 	{
-		TestHelper.loadPlugins();
 		Globals.setUseGUI(false);
 		Globals.emptyLists();
 		GameMode gamemode = new GameMode("3.5");

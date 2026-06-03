@@ -30,14 +30,16 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.core.system.MigrationRule;
 import pcgen.core.system.MigrationRule.ObjectType;
-import pcgen.util.TestHelper;
+import pcgen.test.PCGenTestEnvironment;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.Test;
 
 /**
  * MigrationLoaderTest checks the function of the MigrationLoader class.
  */
+@ExtendWith(PCGenTestEnvironment.class)
 public class MigrationLoaderTest
 {
 	MigrationLoader migrationLoader = new MigrationLoader();
@@ -47,7 +49,6 @@ public class MigrationLoaderTest
 	public void setUp() throws Exception
 	{
 		sourceURI = new URI("http://www.pcgen.org");
-		TestHelper.loadPlugins();
 	}
 	
 	@Test

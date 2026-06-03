@@ -29,17 +29,19 @@ import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.rules.context.LoadContext;
-import pcgen.util.TestHelper;
+import pcgen.test.PCGenTestEnvironment;
 
 import plugin.lsttokens.testsupport.TokenRegistration;
 
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
  * Equipment Modifer Test 
  */
+@ExtendWith(PCGenTestEnvironment.class)
 class EquipmentModifierTest
 {
 	/**
@@ -48,7 +50,6 @@ class EquipmentModifierTest
 	@BeforeEach
 	void setUp()
 	{
-		TestHelper.loadPlugins();
 	}
 
 	@AfterAll
