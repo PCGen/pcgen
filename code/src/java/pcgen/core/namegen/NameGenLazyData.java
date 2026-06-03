@@ -102,10 +102,14 @@ public final class NameGenLazyData
 	 */
 	public List<String> gendersForRuleset(String rulesetId)
 	{
-		return index.rulesetIdsByCategory().entrySet().stream()
-				.filter(e -> e.getKey().startsWith("Sex:"))
-				.filter(e -> e.getValue().contains(rulesetId))
-				.map(e -> e.getKey().substring("Sex:".length()).trim())
+		NameGenIndex.RuleSetMeta meta = index.rulesetsById().get(rulesetId);
+		if (meta == null)
+		{
+			return List.of();
+		}
+		return meta.categoryTitles().stream()
+				.filter(cat -> cat.startsWith("Sex:"))
+				.map(cat -> cat.substring("Sex:".length()).trim())
 				.toList();
 	}
 

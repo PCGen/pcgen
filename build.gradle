@@ -309,20 +309,12 @@ jlink {
 
     mergedModule {
         additive = true
-        requires 'java.desktop'
-        requires 'java.logging'
+        // List only modules NOT auto-derived by jlink — duplicates fail compilation (jlink plugin >= 4.0.1).
         requires 'java.naming'
-        requires 'java.prefs'
         requires 'java.scripting'
-        requires 'java.sql'
-        requires 'java.xml'
         requires 'java.management'
-        requires 'java.rmi'
         requires 'jdk.httpserver'
-        requires 'jdk.unsupported'
-        requires 'jdk.xml.dom'
         requires 'jdk.unsupported.desktop'
-        requires 'jdk.jfr'
 
         // Exclude service providers that reference optional/missing dependencies
         excludeProvides(servicePattern: 'reactor\\.blockhound\\..*')
@@ -351,9 +343,15 @@ jlink {
         if (hostOs == "mac") {
             opts += ["--mac-package-identifier", "PcGen", "--mac-package-name", "PcGen"]
             resourceDir = layout.projectDirectory.dir("installers/mac-installer").asFile
+            installerType = "dmg"
         }
         else if (hostOs == "linux") {
             opts += ['--linux-shortcut']
+            installerType = "deb"
+        }
+        else if (hostOs == "windows") {
+            opts += ['--win-shortcut', '--win-menu']
+            installerType = "exe"
         }
 
         installerOptions = opts
@@ -407,15 +405,35 @@ if (Os.isFamily(Os.FAMILY_MAC)) {
         }
     }
 
+    // jpackage packages the image at build/jpackage/PcGen.app — make sure the
+    // data folders and the patched plist+launcher are in place before it runs.
+    tasks.named("jpackage") { dependsOn tasks.named("patchMacJpackage") }
+
     tasks.register("fullJpackage") {
-        dependsOn tasks.named("patchMacJpackage")
+        dependsOn tasks.named("jpackage")
         description = "Build the native application bundle with jpackage"
     }
 } else {
+    // Same idea for Linux/Windows: jpackage reads build/jpackage/PcGen, which
+    // assembleJpackageImage populates with /data, /plugins, /preview, /outputsheets.
+    tasks.named("jpackage") { dependsOn tasks.named("assembleJpackageImage") }
+
     tasks.register("fullJpackage") {
-        dependsOn tasks.named("assembleJpackageImage")
+        dependsOn tasks.named("jpackage")
         description = "Build the native application bundle with jpackage"
     }
+}
+
+// Portable zip: same self-contained app the installer ships, but as an
+// unzip-and-run archive. Source folder is whatever fullJpackage produces.
+tasks.register("portableZip", Zip) {
+    dependsOn tasks.named("fullJpackage")
+    def appDir = (hostOs == "mac") ? "PcGen.app" : "PcGen"
+    from(layout.buildDirectory.dir("jpackage/${appDir}")) {
+        into appDir
+    }
+    archiveFileName = "pcgen-${version}-${hostOs}-${hostArch}-portable.zip"
+    destinationDirectory = layout.buildDirectory.dir("jpackage")
 }
 
 // Create the Data Convertor JAR.

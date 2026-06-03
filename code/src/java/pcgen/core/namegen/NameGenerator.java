@@ -156,10 +156,7 @@ public final class NameGenerator
 		// Parse every ruleset declared anywhere — that pulls in every
 		// referenced list/ruleset transitively, which between them touch
 		// every file.
-		for (String id : backing.rulesetMeta().keySet())
-		{
-			backing.ruleSet(id);
-		}
+		backing.rulesetMeta().keySet().forEach(backing::ruleSet);
 		Map<String, RuleSet> rulesets = new LinkedHashMap<>(backing.liveRulesets());
 
 		Map<String, List<RuleSet>> categories = backing.rulesetIdsByCategory().entrySet().stream()
@@ -178,25 +175,42 @@ public final class NameGenerator
 	private static GeneratedName assemble(Rule rule, List<DataValue> parts)
 	{
 		StringBuilder name = new StringBuilder();
-		StringBuilder meaning = new StringBuilder();
-		StringBuilder pron = new StringBuilder();
-		boolean anyMeaning = false;
-		boolean anyPron = false;
+		StringBuilder meaning = null;
+		StringBuilder pron = null;
 		for (DataValue v : parts)
 		{
-			name.append(v.getValue());
+			String value = v.getValue();
+			name.append(value);
 
 			String m = v.getSubValue("meaning");
-			meaning.append(m == null ? v.getValue() : m);
-			anyMeaning |= m != null;
+			if (meaning != null)
+			{
+				meaning.append(m == null ? value : m);
+			}
+			else if (m != null)
+			{
+				// First non-null meaning: seed the builder with the name so far,
+				// minus this part, then append the override.
+				meaning = new StringBuilder(name.length() - value.length() + m.length())
+						.append(name, 0, name.length() - value.length())
+						.append(m);
+			}
 
 			String p = v.getSubValue("pronounciation");
-			pron.append(p == null ? v.getValue() : p);
-			anyPron |= p != null;
+			if (pron != null)
+			{
+				pron.append(p == null ? value : p);
+			}
+			else if (p != null)
+			{
+				pron = new StringBuilder(name.length() - value.length() + p.length())
+						.append(name, 0, name.length() - value.length())
+						.append(p);
+			}
 		}
 		return new GeneratedName(name.toString(),
-				anyMeaning ? meaning.toString() : "",
-				anyPron ? pron.toString() : "",
+				meaning == null ? "" : meaning.toString(),
+				pron == null ? "" : pron.toString(),
 				rule, List.copyOf(parts));
 	}
 }

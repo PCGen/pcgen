@@ -441,6 +441,11 @@ public final class NameGenDataLoader
 		}
 	}
 
+	/**
+	 * Direct {@link Element} children of {@code parent}, in document order.
+	 * Skips text and comment nodes so callers don't have to filter the
+	 * mixed content the data files contain.
+	 */
 	private static List<Element> childElements(Element parent)
 	{
 		NodeList nodes = parent.getChildNodes();
@@ -467,6 +472,10 @@ public final class NameGenDataLoader
 		return Integer.parseInt(raw.trim());
 	}
 
+	/**
+	 * Direct {@link Element} children of {@code parent} whose tag name
+	 * equals {@code tagName}, in document order.
+	 */
 	private static List<Element> childElements(Element parent, String tagName)
 	{
 		NodeList nodes = parent.getChildNodes();

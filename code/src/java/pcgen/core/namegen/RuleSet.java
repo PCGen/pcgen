@@ -14,6 +14,7 @@
  */
 package pcgen.core.namegen;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -22,12 +23,59 @@ import java.util.concurrent.ThreadLocalRandom;
  * The {@code usage} field carries the legacy {@code "final"} marker that
  * tells the facade which rulesets the user picks directly versus the
  * shared building-block rulesets ({@code "private"}).
+ *
+ * <p>Cumulative weights are precomputed at construction so {@link #pick()}
+ * is O(log n) per call.
  */
-public record RuleSet(String id, String title, String usage, List<Rule> rules)
+public final class RuleSet
 {
-	public RuleSet
+	private final String id;
+	private final String title;
+	private final String usage;
+	private final List<Rule> rules;
+	private final Rule[] positiveRules;
+	private final int[] cumulativeWeights;
+	private final int totalWeight;
+
+	public RuleSet(String id, String title, String usage, List<Rule> rules)
 	{
-		rules = List.copyOf(rules);
+		this.id = id;
+		this.title = title;
+		this.usage = usage;
+		this.rules = List.copyOf(rules);
+		Rule[] positives = this.rules.stream()
+				.filter(r -> r.weight() > 0)
+				.toArray(Rule[]::new);
+		int[] cumulative = new int[positives.length];
+		int running = 0;
+		for (int i = 0; i < positives.length; i++)
+		{
+			running += positives[i].weight();
+			cumulative[i] = running;
+		}
+		this.positiveRules = positives;
+		this.cumulativeWeights = cumulative;
+		this.totalWeight = running;
+	}
+
+	public String id()
+	{
+		return id;
+	}
+
+	public String title()
+	{
+		return title;
+	}
+
+	public String usage()
+	{
+		return usage;
+	}
+
+	public List<Rule> rules()
+	{
+		return rules;
 	}
 
 	/** Title is what the combo boxes show for a ruleset. */
@@ -45,26 +93,16 @@ public record RuleSet(String id, String title, String usage, List<Rule> rules)
 	 */
 	public Rule pick()
 	{
-		int total = rules.stream().mapToInt(Rule::weight).filter(w -> w > 0).sum();
-		if (total <= 0)
+		if (totalWeight <= 0)
 		{
 			return null;
 		}
-		int roll = ThreadLocalRandom.current().nextInt(total) + 1;
-		int running = 0;
-		for (Rule r : rules)
+		int roll = ThreadLocalRandom.current().nextInt(totalWeight) + 1;
+		int idx = Arrays.binarySearch(cumulativeWeights, roll);
+		if (idx < 0)
 		{
-			int w = r.weight();
-			if (w <= 0)
-			{
-				continue;
-			}
-			running += w;
-			if (roll <= running)
-			{
-				return r;
-			}
+			idx = -idx - 1;
 		}
-		return rules.get(rules.size() - 1);
+		return positiveRules[idx];
 	}
 }
