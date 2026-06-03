@@ -15,9 +15,8 @@ import pcgen.system.Main;
 
 /**
  * JUnit 5 extension that loads PCGen plugins exactly once per JVM, before
- * any test class that opts in runs. Replaces the lazy
- * {@code TestHelper.loadPlugins()} pattern: opted-in test classes no
- * longer need to remember to call it from their setup hooks.
+ * any test class that opts in runs. Replaces the boilerplate of every
+ * test having to remember to load plugins from its setup hook.
  *
  * <p>This is opt-in (NOT auto-discovered). Plugin loading populates the
  * global {@code PluginFunctionLibrary}, which any newly constructed

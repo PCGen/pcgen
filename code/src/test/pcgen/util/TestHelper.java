@@ -156,23 +156,6 @@ public final class TestHelper
 	}
 
 	/**
-	 * No-op: plugin loading runs once via the static initializer. The method
-	 * is retained because many test classes invoke it explicitly to document
-	 * their dependency on plugins being loaded.
-	 */
-	/**
-	 * @deprecated Plugins are now loaded automatically once per JVM by the
-	 * {@code PCGenTestEnvironment} JUnit 5 extension (auto-discovered via
-	 * {@code META-INF/services}). Existing call sites can simply delete the
-	 * call; this stub is kept only to avoid touching every test in one
-	 * patch.
-	 */
-	@Deprecated
-	public static void loadPlugins()
-	{
-	}
-
-	/**
 	 * Get the field related to a name
 	 * @param aClass The class to search for the field
 	 * @param fieldName the field to search for
