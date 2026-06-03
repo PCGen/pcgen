@@ -32,7 +32,6 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.StringTokenizer;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.lang.UnreachableError;
@@ -48,9 +47,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
-import pcgen.persistence.lst.PCClassLoader;
 import pcgen.util.TestHelper;
 
 import org.junit.jupiter.api.AfterEach;
@@ -178,15 +175,7 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 		}
 		String classPCCText = "CLASS:Cleric	HD:8		TYPE:Base.PC	ABB:Clr\n"
 				+ "CLASS:Cleric	STARTSKILLPTS:2	CSKILL:KEY_Knowledge (Dungeoneering)";
-		PCClass po;
-		try
-		{
-			po = parsePCClassText(classPCCText, source);
-		}
-		catch (PersistenceLayerException e)
-		{
-			throw new UnreachableError(e);
-		}
+		PCClass po = TestHelper.parsePCClassText(classPCCText, source);
 		getCharacter().incrementClassLevel(1, po, false);
 
 		PCTemplate pct = new PCTemplate();
@@ -224,24 +213,5 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 		assertTrue(choiceStrings.contains("Listen"));
 		assertTrue(choiceStrings.contains("Knowledge (Arcana)"));
 	}
-
-	private static PCClass parsePCClassText(String classPCCText,
-											CampaignSourceEntry source) throws PersistenceLayerException
-		{
-			PCClassLoader pcClassLoader = new PCClassLoader();
-			PCClass reconstClass = null;
-			StringTokenizer tok = new StringTokenizer(classPCCText, "\n");
-			while (tok.hasMoreTokens())
-			{
-				String line = tok.nextToken();
-				if (!line.trim().isEmpty())
-				{
-					System.out.println("Processing line:'" + line + "'.");
-					reconstClass =
-							pcClassLoader.parseLine(Globals.getContext(), reconstClass, line, source);
-				}
-			}
-			return reconstClass;
-		}
 
 }
