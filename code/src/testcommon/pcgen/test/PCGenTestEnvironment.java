@@ -47,7 +47,7 @@ public final class PCGenTestEnvironment implements BeforeAllCallback
 	public void beforeAll(ExtensionContext context)
 	{
 		// getRoot() ensures one entry across the whole JVM, not one per test class.
-		context.getRoot().getStore(NAMESPACE).getOrComputeIfAbsent(LOADED_KEY, k -> {
+		context.getRoot().getStore(NAMESPACE).computeIfAbsent(LOADED_KEY, k -> {
 			Main.createLoadPluginTask().run();
 			return Boolean.TRUE;
 		});

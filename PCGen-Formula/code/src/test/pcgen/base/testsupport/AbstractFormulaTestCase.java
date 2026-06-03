@@ -18,6 +18,7 @@
 package pcgen.base.testsupport;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.util.Arrays;
 import java.util.List;
@@ -27,7 +28,6 @@ import java.util.Optional;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
-import junit.framework.TestCase;
 import pcgen.base.formatmanager.FormatManagerLibrary;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formatmanager.OptionalFormatFactory;
@@ -130,7 +130,7 @@ public abstract class AbstractFormulaTestCase
 		boolean isStat = ((Boolean) staticVisitor.visit(node, null)).booleanValue();
 		if (isStat != b)
 		{
-			TestCase.fail("Expected Static (" + b + ") Formula: " + formula);
+			fail("Expected Static (" + b + ") Formula: " + formula);
 		}
 	}
 
@@ -186,7 +186,7 @@ public abstract class AbstractFormulaTestCase
 		{
 			result = Arrays.asList((Object[]) result);
 		}
-		TestCase.fail(
+		fail(
 			"Expected " + valueSimpleName + " (" + valueOf + ") for Formula: "
 				+ formula + ", was " + result + " (" + resultSimpleName + ")");
 	}
