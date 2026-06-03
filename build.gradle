@@ -66,14 +66,17 @@ ext {
     // Java version. It will affect JavaFX version too.
     javaVersion = 25
 
-    // The Eclipse Adoptium API will return the latest patch release for the majorJava version set
+    // The Eclipse Adoptium API returns the latest patch release for the majorJava version set.
+    // The closure is memoized so the network call fires at most once per Gradle invocation,
+    // and only when a JavaFX/JDK download task actually consumes the value (the use sites
+    // sit inside lazy tasks.register bodies).
     latestJavaVersion = { majorJavaVersion ->
         def uri = new URI("https://api.adoptium.net/v3/assets/feature_releases/${majorJavaVersion}/ga?architecture=x64&page=0&page_size=1&project=jdk&sort_order=DESC&vendor=eclipse")
         def parsedJson = new JsonSlurper().parse(uri.toURL())
 
-        return parsedJson.first()
+        parsedJson.first()
                 .version_data.with { [major, minor, security].join('.') }
-    }(javaVersion)
+    }.memoize()
 }
 
 // Configure Java, in particular the version to test/compile/run with
@@ -560,8 +563,8 @@ tasks.register("extractJdk", Copy) {
 tasks.register("downloadJfxMods", Download) {
     description = "Downloads JavaFX jmods for the host platform"
     dependsOn "extractJdk"
-    def fileName = "openjfx-${latestJavaVersion}_${hostJfxOsPackage}${hostJfxArchSuffix}_bin-jmods.zip"
-    src "https://download2.gluonhq.com/openjfx/${latestJavaVersion}/${fileName}"
+    def fileName = "openjfx-${latestJavaVersion(javaVersion)}_${hostJfxOsPackage}${hostJfxArchSuffix}_bin-jmods.zip"
+    src "https://download2.gluonhq.com/openjfx/${latestJavaVersion(javaVersion)}/${fileName}"
     dest jdksDir.file("jfx_jmods_${hostOs}_${hostArch}.zip")
     overwrite false
     useETag true
@@ -615,9 +618,9 @@ tasks.register("downloadJavaFXLocal", Download) {
         println("Downloading JavaFX SDK for use in local testing for ${currentOS} ${hostArchitecture}.")
     }
 
-    def fileName = "openjfx-${project.ext.latestJavaVersion}_${currentOS}${archAppend}_bin-sdk.zip"
+    def fileName = "openjfx-${project.ext.latestJavaVersion(project.ext.javaVersion)}_${currentOS}${archAppend}_bin-sdk.zip"
 
-    src "https://download2.gluonhq.com/openjfx/${project.ext.latestJavaVersion}/${fileName}"
+    src "https://download2.gluonhq.com/openjfx/${project.ext.latestJavaVersion(project.ext.javaVersion)}/${fileName}"
     dest layout.projectDirectory.file("mods/${fileName}")
     overwrite false
     useETag true
