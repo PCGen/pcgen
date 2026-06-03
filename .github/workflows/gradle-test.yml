@@ -29,10 +29,10 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
 
       - name: Build with Gradle Wrapper
-        run: ./gradlew build
+        run: ./gradlew build --stacktrace --info
 
       - name: Run integration, data, and slow tests
-        run: ./gradlew itest datatest slowtest
+        run: ./gradlew itest datatest slowtest --stacktrace --info
 
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2
