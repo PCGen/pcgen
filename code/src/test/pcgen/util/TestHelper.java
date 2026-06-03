@@ -95,7 +95,11 @@ public final class TestHelper
 {
 	private static final Logger LOG = Logger.getLogger(TestHelper.class.getName());
 
-	private static boolean loaded = false;
+	static
+	{
+		Main.createLoadPluginTask().run();
+	}
+
 	private static final LstObjectFileLoader<Equipment> eqLoader = new GenericLoader<>(Equipment.class);
 	private static final LstObjectFileLoader<Ability> abLoader = new AbilityLoader();
 	private static CampaignSourceEntry source;
@@ -138,7 +142,6 @@ public final class TestHelper
 	 */
 	public static boolean makeEquipment(final String input)
 	{
-		loadPlugins();
 		try
 		{
 			final CampaignSourceEntry source = createSource(TestHelper.class);
@@ -171,15 +174,15 @@ public final class TestHelper
 	}
 
 	/**
-	 * Load the plugins
+	 * No-op: plugin loading runs once via the static initializer. The method
+	 * is retained because many test classes invoke it explicitly to document
+	 * their dependency on plugins being loaded.
 	 */
 	public static void loadPlugins()
 	{
-		if (!loaded)
-		{
-			pcgen.system.Main.createLoadPluginTask().run();
-			loaded = true;
-		}
+		// Intentionally empty. Calling this method is enough — the call
+		// references TestHelper, which triggers the class's static
+		// initializer (where the actual plugin load happens).
 	}
 
 	/**
@@ -292,8 +295,6 @@ public final class TestHelper
 	 */
 	public static boolean makeAbilityFromString(final String input)
 	{
-		loadPlugins();
-
 		try
 		{
 			if (source == null)
