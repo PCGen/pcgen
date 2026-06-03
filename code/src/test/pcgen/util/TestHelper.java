@@ -21,7 +21,6 @@
 package pcgen.util;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.SystemUtils;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
@@ -53,18 +52,13 @@ import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.spell.Spell;
 import pcgen.io.ExportHandler;
-import pcgen.persistence.CampaignFileLoader;
 import pcgen.persistence.GameModeFileLoader;
-import pcgen.persistence.lst.AbilityLoader;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.GenericLoader;
 import pcgen.persistence.lst.LstObjectFileLoader;
 import pcgen.persistence.lst.PCClassLoader;
 import pcgen.rules.context.LoadContext;
-import pcgen.system.ConfigurationSettings;
 import pcgen.system.Main;
-import pcgen.system.PCGenTask;
-import pcgen.system.PropertyContextFactory;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 import java.io.BufferedWriter;
@@ -97,8 +91,6 @@ public final class TestHelper
 	}
 
 	private static final LstObjectFileLoader<Equipment> eqLoader = new GenericLoader<>(Equipment.class);
-	private static final LstObjectFileLoader<Ability> abLoader = new AbilityLoader();
-	private static CampaignSourceEntry source;
 
 	private TestHelper()
 	{
@@ -283,53 +275,6 @@ public final class TestHelper
 		return anAbility;
 	}
 
-	/**
-	 * Make an ability
-	 *
-	 * @param input the Ability source string to parse and create the ability from
-	 * @return true if OK
-	 */
-	public static boolean makeAbilityFromString(final String input)
-	{
-		try
-		{
-			if (source == null)
-			{
-				try
-				{
-					source = new CampaignSourceEntry(new Campaign(),
-							new URI("file:/" + TestHelper.class.getName() + ".java"));
-				} catch (URISyntaxException e)
-				{
-					throw new UnreachableError(e);
-				}
-			}
-
-			abLoader.parseLine(Globals.getContext(), null, input, source);
-			return true;
-		} catch (Exception e)
-		{
-			Logging.errorPrint(e.getLocalizedMessage());
-		}
-		return false;
-	}
-
-
-	/**
-	 * Set the important info about a WeaponProf
-	 * @param name The weaponprof name
-	 * @param type The type info ("." separated)
-	 * @return The weapon prof (which has also been added to global storage
-	 */
-	public static WeaponProf makeWeaponProf(final String name, final String type)
-	{
-		final WeaponProf aWpnProf = new WeaponProf();
-		aWpnProf.setName(name);
-		aWpnProf.put(StringKey.KEY_NAME, ("KEY_" + name));
-		addType(aWpnProf, type);
-		Globals.getContext().getReferenceContext().importObject(aWpnProf);
-		return aWpnProf;
-	}
 
 	/**
 	 * Set the important info about a Race
@@ -511,33 +456,6 @@ public final class TestHelper
 			}
 			bw.write("customPath=testsuite\\\\customdata\r\n");
 		}
-	}
-
-	public static void loadGameModes(String testConfigFile)
-	{
-		String configFolder = "testsuite";
-		String pccLoc = TestHelper.findDataFolder();
-		LOG.log(Level.INFO, "Got data folder of {0}", pccLoc);
-		try
-		{
-			TestHelper.createDummySettingsFile(testConfigFile, configFolder,
-					pccLoc);
-		} catch (IOException e)
-		{
-			Logging.errorPrint("DataTest.loadGameModes failed", e);
-		}
-
-		PropertyContextFactory configFactory =
-				new PropertyContextFactory(SystemUtils.USER_DIR);
-		configFactory.registerAndLoadPropertyContext(ConfigurationSettings
-				.getInstance(testConfigFile));
-		Main.loadProperties(false);
-		PCGenTask loadPluginTask = Main.createLoadPluginTask();
-		loadPluginTask.run();
-		GameModeFileLoader gameModeFileLoader = new GameModeFileLoader();
-		gameModeFileLoader.run();
-		CampaignFileLoader campaignFileLoader = new CampaignFileLoader();
-		campaignFileLoader.run();
 	}
 
 	public static ChronicleEntry buildChronicleEntry(boolean visible, String campaign, String date,
