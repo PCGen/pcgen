@@ -17,9 +17,9 @@
  */
 package pcgen.core.prereq;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
@@ -479,32 +479,32 @@ public class PreClassTest extends AbstractCharacterTestCase
 
 		final PlayerCharacter character = getCharacter();
 
-		assertTrue("Should pass with no levels", PrereqHandler.passes(prereq,
-			character, null));
-		assertTrue("Should pass with no levels of either", PrereqHandler
-			.passes(dualPrereq, character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Should pass with no levels");
+		assertTrue(PrereqHandler
+			.passes(dualPrereq, character, null), "Should pass with no levels of either");
 
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("Monk");
 		character.incrementClassLevel(1, pcClass);
-		assertTrue("Should pass with 1 level", PrereqHandler.passes(prereq,
-			character, null));
-		assertTrue("Should pass with 1 level of one", PrereqHandler.passes(
-			dualPrereq, character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Should pass with 1 level");
+		assertTrue(PrereqHandler.passes(
+			dualPrereq, character, null), "Should pass with 1 level of one");
 
 		final PCClass ftrClass = new PCClass();
 		ftrClass.setName("Fighter");
 		character.incrementClassLevel(1, ftrClass);
-		assertTrue("Should pass with 1 level of each", PrereqHandler.passes(
-			dualPrereq, character, null));
+		assertTrue(PrereqHandler.passes(
+			dualPrereq, character, null), "Should pass with 1 level of each");
 
 		character.incrementClassLevel(1, pcClass);
-		assertFalse("Should not pass with 2 levels", PrereqHandler.passes(
-			prereq, character, null));
-		assertFalse("Should not pass with 2 levels of one", PrereqHandler
-			.passes(dualPrereq, character, null));
-		assertTrue("Should pass with 2 levels of one", PrereqHandler.passes(
-			singlePrereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Should not pass with 2 levels");
+		assertFalse(PrereqHandler
+			.passes(dualPrereq, character, null), "Should not pass with 2 levels of one");
+		assertTrue(PrereqHandler.passes(
+			singlePrereq, character, null), "Should pass with 2 levels of one");
 	}
 
 	/**

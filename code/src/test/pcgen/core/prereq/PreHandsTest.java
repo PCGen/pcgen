@@ -17,8 +17,8 @@
  */
 package pcgen.core.prereq;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -54,17 +54,17 @@ public class PreHandsTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREHANDSLT:2");
 
-		assertFalse("Character has more than 1 hand", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Character has more than 1 hand");
 
 		prereq = factory.parse("PREHANDSEQ:2");
 
-		assertTrue("Character has 2 hands", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Character has 2 hands");
 
 		prereq = factory.parse("PREHANDSGT:2");
 
-		assertFalse("Character does not have more than 2 hands", PrereqHandler
-			.passes(prereq, character, null));
+		assertFalse(PrereqHandler
+			.passes(prereq, character, null), "Character does not have more than 2 hands");
 	}
 }

@@ -17,10 +17,10 @@
  */
 package pcgen.gui2.facade;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -60,19 +60,19 @@ public class CharacterAbilitiesTest extends AbstractCharacterTestCase
 		CharacterAbilities ca = new CharacterAbilities(pc, uiDelegate, dataset, todoManager);
 		ca.rebuildAbilityLists();
 		ListFacade<AbilityCategory> categories = ca.getActiveAbilityCategories();
-		assertNotNull("Categories should not be null", categories);
-		assertTrue("Feat should be active", categories.containsElement(BuildUtilities.getFeatCat()));
+		assertNotNull(categories, "Categories should not be null");
+		assertTrue(categories.containsElement(BuildUtilities.getFeatCat()), "Feat should be active");
 		ListFacade<AbilityFacade> abilities = ca.getAbilities(BuildUtilities.getFeatCat());
-		assertNotNull("Feat list should not be null", abilities);
-		assertTrue("Feat list should be empty", abilities.isEmpty());
+		assertNotNull(abilities, "Feat list should not be null");
+		assertTrue(abilities.isEmpty(), "Feat list should be empty");
 		
 		// Add an entry - note rebuild is implicit
 		Ability fencing = TestHelper.makeAbility("fencing", BuildUtilities.getFeatCat(), "sport");
 		addAbility(BuildUtilities.getFeatCat(), fencing);
 		abilities = ca.getAbilities(BuildUtilities.getFeatCat());
-		assertEquals("Feat list should have one entry", 1, abilities.getSize());
+		assertEquals(1, abilities.getSize(), "Feat list should have one entry");
 		Ability abilityFromList = (Ability) abilities.getElementAt(0);
-		assertEquals("Should have found fencing", fencing, abilityFromList);
+		assertEquals(fencing, abilityFromList, "Should have found fencing");
 	}
 
 	/**
@@ -85,11 +85,11 @@ public class CharacterAbilitiesTest extends AbstractCharacterTestCase
 		CharacterAbilities ca = new CharacterAbilities(pc, uiDelegate, dataset, todoManager);
 		ca.rebuildAbilityLists();
 		ListFacade<AbilityCategory> categories = ca.getActiveAbilityCategories();
-		assertNotNull("Categories should not be null", categories);
-		assertTrue("Feat should be active", categories.containsElement(BuildUtilities.getFeatCat()));
+		assertNotNull(categories, "Categories should not be null");
+		assertTrue(categories.containsElement(BuildUtilities.getFeatCat()), "Feat should be active");
 		ListFacade<AbilityFacade> abilities = ca.getAbilities(BuildUtilities.getFeatCat());
-		assertNotNull("Feat list should not be null", abilities);
-		assertTrue("Feat list should be empty", abilities.isEmpty());
+		assertNotNull(abilities, "Feat list should not be null");
+		assertTrue(abilities.isEmpty(), "Feat list should be empty");
 		
 		// Add an entry - note rebuild is implicit
 		Ability reading = TestHelper.makeAbility("reading", BuildUtilities.getFeatCat(), "interest");
@@ -100,18 +100,18 @@ public class CharacterAbilitiesTest extends AbstractCharacterTestCase
 		Globals.getContext().commit();
 		applyAbility(pc, BuildUtilities.getFeatCat(), reading, "Books");
 		abilities = ca.getAbilities(BuildUtilities.getFeatCat());
-		assertFalse("Feat list should not be empty", abilities.isEmpty());
+		assertFalse(abilities.isEmpty(), "Feat list should not be empty");
 		Ability abilityFromList = (Ability) abilities.getElementAt(0);
-		assertEquals("Should have found reading", reading, abilityFromList);
-		assertEquals("Feat list should have one entry", 1, abilities.getSize());
+		assertEquals(reading, abilityFromList, "Should have found reading");
+		assertEquals(1, abilities.getSize(), "Feat list should have one entry");
 
 		// Now add the choice
 		finalizeTest(abilityFromList, "Magazines", pc, BuildUtilities.getFeatCat());
 		ca.rebuildAbilityLists();
 		abilities = ca.getAbilities(BuildUtilities.getFeatCat());
-		assertEquals("Feat list should have one entry", 1, abilities.getSize());
+		assertEquals(1, abilities.getSize(), "Feat list should have one entry");
 		abilityFromList = (Ability) abilities.getElementAt(0);
-		assertEquals("Should have found reading", reading, abilityFromList);
+		assertEquals(reading, abilityFromList, "Should have found reading");
 		
 	}
 	@BeforeEach

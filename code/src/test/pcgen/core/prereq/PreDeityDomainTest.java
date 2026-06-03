@@ -17,8 +17,8 @@
  */
 package pcgen.core.prereq;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.SimpleAssociatedObject;
@@ -60,20 +60,20 @@ public class PreDeityDomainTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREDEITYDOMAIN:1,Good");
 
-		assertFalse("Character has no deity selected", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Character has no deity selected");
 
 		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
 		ChannelUtilities.setControlledChannel(character.getCharID(),
 			CControl.DEITYINPUT, deity);
 
-		assertTrue("Character's deity has Good domain", PrereqHandler.passes(
-			prereq, character, null));
+		assertTrue(PrereqHandler.passes(
+			prereq, character, null), "Character's deity has Good domain");
 
 		prereq = factory.parse("PREDEITYDOMAIN:1,Law");
 
-		assertFalse("Character's deity doesn't have Law domain", PrereqHandler
-			.passes(prereq, character, null));
+		assertFalse(PrereqHandler
+			.passes(prereq, character, null), "Character's deity doesn't have Law domain");
 
 	}
 
@@ -87,25 +87,24 @@ public class PreDeityDomainTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREDEITYDOMAIN:1,Good,Law");
 
-		assertFalse("Character has no deity selected", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Character has no deity selected");
 
 		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
 		ChannelUtilities.setControlledChannel(character.getCharID(),
 			CControl.DEITYINPUT, deity);
 
-		assertTrue("Character's deity has Good domain", PrereqHandler.passes(
-			prereq, character, null));
+		assertTrue(PrereqHandler.passes(
+			prereq, character, null), "Character's deity has Good domain");
 
 		prereq = factory.parse("PREDEITYDOMAIN:2,Good,Law");
 
-		assertFalse("Character's deity doesn't have Law domain", PrereqHandler
-			.passes(prereq, character, null));
+		assertFalse(PrereqHandler
+			.passes(prereq, character, null), "Character's deity doesn't have Law domain");
 
 		prereq = factory.parse("PREDEITYDOMAIN:2,Good,Animal");
 
-		assertTrue("Character's deity has Good and animal domains",
-			PrereqHandler.passes(prereq, character, null));
+		assertTrue(PrereqHandler.passes(prereq, character, null), "Character's deity has Good and animal domains");
 	}
 
 	@BeforeEach

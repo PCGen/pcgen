@@ -17,8 +17,8 @@
  */
 package pcgen.core.prereq;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.Gender;
@@ -50,17 +50,17 @@ public class PreGenderTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREGENDER:M");
 
-		assertTrue("Character is Male", PrereqHandler.passes(prereq, character,
-			null));
+		assertTrue(PrereqHandler.passes(prereq, character,
+			null), "Character is Male");
 
 		prereq = factory.parse("PREGENDER:m");
 
-		assertFalse("Case is significant", PrereqHandler.passes(prereq,
-			character, null));
+		assertFalse(PrereqHandler.passes(prereq,
+			character, null), "Case is significant");
 
 		prereq = factory.parse("PREGENDER:Moose");
 
-		assertFalse("Requires a full match", PrereqHandler.passes(prereq,
-			character, null));
+		assertFalse(PrereqHandler.passes(prereq,
+			character, null), "Requires a full match");
 	}
 }

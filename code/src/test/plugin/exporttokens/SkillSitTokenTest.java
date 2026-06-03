@@ -17,7 +17,7 @@
  */
 package plugin.exporttokens;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
@@ -176,69 +176,68 @@ public class SkillSitTokenTest extends AbstractCharacterTestCase
 		SkillSitToken token = new SkillSitToken();
 
 		// First test each sub token
-		assertEquals("SkillToken", "Balance", token.getToken("SKILLSIT.0",
-			character, null));
-		assertEquals("SkillToken", "DEX", token.getToken("SKILLSIT.0.ABILITY",
-			character, null));
-		assertEquals("SkillToken", "9", token.getToken("SKILLSIT.0.TOTAL",
-				character, null));
-		assertEquals("SkillToken", "3", token.getToken("SKILLSIT.0.ABMOD",
-			character, null));
-		assertEquals("SkillToken", "4.0", token.getToken("SKILLSIT.0.RANK",
-			character, null));
-		assertEquals("SkillToken", "2", token.getToken("SKILLSIT.0.MISC",
-			character, null));
-		assertEquals("SkillToken", "N", token.getToken("SKILLSIT.0.EXCLUSIVE",
-			character, null));
-		assertEquals("SkillToken", "Y", token.getToken("SKILLSIT.0.UNTRAINED",
-			character, null));
-		assertEquals("SkillToken", "9", token.getToken(
-			"SKILLSIT.0.EXCLUSIVE_TOTAL", character, null));
-		assertEquals("SkillToken", "9", token.getToken("SKILLSIT.0.TRAINED_TOTAL",
-			character, null));
-		assertEquals("SkillToken", "+2[TUMBLE|Balance] +3[STAT]", token.getToken(
-			"SKILLSIT.0.EXPLAIN", character, null));
+		assertEquals("Balance", token.getToken("SKILLSIT.0",
+			character, null), "SkillToken");
+		assertEquals("DEX", token.getToken("SKILLSIT.0.ABILITY",
+			character, null), "SkillToken");
+		assertEquals("9", token.getToken("SKILLSIT.0.TOTAL",
+				character, null), "SkillToken");
+		assertEquals("3", token.getToken("SKILLSIT.0.ABMOD",
+			character, null), "SkillToken");
+		assertEquals("4.0", token.getToken("SKILLSIT.0.RANK",
+			character, null), "SkillToken");
+		assertEquals("2", token.getToken("SKILLSIT.0.MISC",
+			character, null), "SkillToken");
+		assertEquals("N", token.getToken("SKILLSIT.0.EXCLUSIVE",
+			character, null), "SkillToken");
+		assertEquals("Y", token.getToken("SKILLSIT.0.UNTRAINED",
+			character, null), "SkillToken");
+		assertEquals("9", token.getToken(
+			"SKILLSIT.0.EXCLUSIVE_TOTAL", character, null), "SkillToken");
+		assertEquals("9", token.getToken("SKILLSIT.0.TRAINED_TOTAL",
+			character, null), "SkillToken");
+		assertEquals("+2[TUMBLE|Balance] +3[STAT]", token.getToken(
+			"SKILLSIT.0.EXPLAIN", character, null), "SkillToken");
 
 		// Test the indexed retrieval
-		assertEquals("SkillToken", "Balance (On a Ball)", token.getToken("SKILLSIT.1",
-			character, null));
-		assertEquals("SkillToken", "DEX", token.getToken("SKILLSIT.1.ABILITY",
-			character, null));
-		assertEquals("SkillToken", "11", token.getToken("SKILLSIT.1.TOTAL",
-				character, null));
-		assertEquals("SkillToken", "3", token.getToken("SKILLSIT.1.ABMOD",
-			character, null));
-		assertEquals("SkillToken", "4.0", token.getToken("SKILLSIT.1.RANK",
-			character, null));
-		assertEquals("SkillToken", "4", token.getToken("SKILLSIT.1.MISC",
-			character, null));
-		assertEquals("SkillToken", "N", token.getToken("SKILLSIT.1.EXCLUSIVE",
-			character, null));
-		assertEquals("SkillToken", "Y", token.getToken("SKILLSIT.1.UNTRAINED",
-			character, null));
-		assertEquals("SkillToken", "11", token.getToken(
-			"SKILLSIT.1.EXCLUSIVE_TOTAL", character, null));
-		assertEquals("SkillToken", "11", token.getToken("SKILLSIT.1.TRAINED_TOTAL",
-			character, null));
-		assertEquals("SkillToken", "+2[TUMBLE|Balance] +3[STAT] situational: +2[KNOWLEDGE (RELIGION)]", token.getToken(
-			"SKILLSIT.1.EXPLAIN", character, null));
+		assertEquals("Balance (On a Ball)", token.getToken("SKILLSIT.1",
+			character, null), "SkillToken");
+		assertEquals("DEX", token.getToken("SKILLSIT.1.ABILITY",
+			character, null), "SkillToken");
+		assertEquals("11", token.getToken("SKILLSIT.1.TOTAL",
+				character, null), "SkillToken");
+		assertEquals("3", token.getToken("SKILLSIT.1.ABMOD",
+			character, null), "SkillToken");
+		assertEquals("4.0", token.getToken("SKILLSIT.1.RANK",
+			character, null), "SkillToken");
+		assertEquals("4", token.getToken("SKILLSIT.1.MISC",
+			character, null), "SkillToken");
+		assertEquals("N", token.getToken("SKILLSIT.1.EXCLUSIVE",
+			character, null), "SkillToken");
+		assertEquals("Y", token.getToken("SKILLSIT.1.UNTRAINED",
+			character, null), "SkillToken");
+		assertEquals("11", token.getToken(
+			"SKILLSIT.1.EXCLUSIVE_TOTAL", character, null), "SkillToken");
+		assertEquals("11", token.getToken("SKILLSIT.1.TRAINED_TOTAL",
+			character, null), "SkillToken");
+		assertEquals("+2[TUMBLE|Balance] +3[STAT] situational: +2[KNOWLEDGE (RELIGION)]", token.getToken(
+			"SKILLSIT.1.EXPLAIN", character, null), "SkillToken");
 
 		
-		assertEquals("SkillToken", "KNOWLEDGE (ARCANA)", token.getToken("SKILLSIT.2",
-			character, null));
-		assertEquals("SkillToken", "KNOWLEDGE (RELIGION)", token.getToken("SKILLSIT.3",
-			character, null));
-		assertEquals("SkillToken", "Tumble", token.getToken("SKILLSIT.4",
-			character, null));
+		assertEquals("KNOWLEDGE (ARCANA)", token.getToken("SKILLSIT.2",
+			character, null), "SkillToken");
+		assertEquals("KNOWLEDGE (RELIGION)", token.getToken("SKILLSIT.3",
+			character, null), "SkillToken");
+		assertEquals("Tumble", token.getToken("SKILLSIT.4",
+			character, null), "SkillToken");
 		//Alphabetical!
-		assertEquals("SkillToken", "Tumble (On Hot Concrete)", token.getToken("SKILLSIT.5",
-			character, null));
+		assertEquals("Tumble (On Hot Concrete)", token.getToken("SKILLSIT.5",
+			character, null), "SkillToken");
 
 		// Test the named retrieval
-		assertEquals("SkillToken", "Tumble", token.getToken("SKILLSIT.TUMBLE",
-			character, null));
-		assertEquals("SkillToken", "Tumble (On Hot Concrete)",
-			token.getToken("SKILLSIT.TUMBLE=On Hot Concrete", character, null));
+		assertEquals("Tumble", token.getToken("SKILLSIT.TUMBLE",
+			character, null), "SkillToken");
+		assertEquals("Tumble (On Hot Concrete)", token.getToken("SKILLSIT.TUMBLE=On Hot Concrete", character, null), "SkillToken");
 	}
 
 	@Override

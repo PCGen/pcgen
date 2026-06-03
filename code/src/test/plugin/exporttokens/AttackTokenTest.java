@@ -17,7 +17,7 @@
  */
 package plugin.exporttokens;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
@@ -80,12 +80,11 @@ public class AttackTokenTest extends AbstractCharacterTestCase
 	@Test
 	public void testBase()
 	{
-		assertEquals("Total melee attack no bonus", "+2", new AttackToken()
-			.getToken("ATTACK.MELEE.TOTAL", getCharacter(), null));
+		assertEquals("+2", new AttackToken()
+			.getToken("ATTACK.MELEE.TOTAL", getCharacter(), null), "Total melee attack no bonus");
 
-		assertEquals("Total melee attack no bonus short", "+2",
-			new AttackToken().getToken("ATTACK.MELEE.TOTAL.SHORT",
-				getCharacter(), null));
+		assertEquals("+2", new AttackToken().getToken("ATTACK.MELEE.TOTAL.SHORT",
+				getCharacter(), null), "Total melee attack no bonus short");
 	}
 
 	/**
@@ -97,12 +96,11 @@ public class AttackTokenTest extends AbstractCharacterTestCase
 		getCharacter().incrementClassLevel(1, myClass, true);
 		getCharacter().calcActiveBonuses();
 
-		assertEquals("Total melee attack no bonus", "+8/+3", new AttackToken()
-			.getToken("ATTACK.MELEE.TOTAL", getCharacter(), null));
+		assertEquals("+8/+3", new AttackToken()
+			.getToken("ATTACK.MELEE.TOTAL", getCharacter(), null), "Total melee attack no bonus");
 
-		assertEquals("Total melee attack no bonus short", "+8",
-			new AttackToken().getToken("ATTACK.MELEE.TOTAL.SHORT",
-				getCharacter(), null));
+		assertEquals("+8", new AttackToken().getToken("ATTACK.MELEE.TOTAL.SHORT",
+				getCharacter(), null), "Total melee attack no bonus short");
 	}
 
 }

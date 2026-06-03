@@ -17,8 +17,8 @@
  */
 package pcgen.core.prereq;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
@@ -57,16 +57,16 @@ public class PreDRTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREDR:1,+1=10");
 
-		assertFalse("Character has no DR", PrereqHandler.passes(prereq,
-			character, null));
+		assertFalse(PrereqHandler.passes(prereq,
+			character, null), "Character has no DR");
 
 		race.addToListFor(ListKey.DAMAGE_REDUCTION, drPlus1);
 		//This weirdness is because we are altering the race after application (no-no at runtime)
 		character.setRace(null);
 		character.setRace(race);
 
-		assertFalse("Character DR not 10", PrereqHandler.passes(prereq,
-			character, null));
+		assertFalse(PrereqHandler.passes(prereq,
+			character, null), "Character DR not 10");
 
 		DamageReduction drPlus1_10 = new DamageReduction(FormulaFactory.getFormulaFor(10), "+1");
 		race.addToListFor(ListKey.DAMAGE_REDUCTION, drPlus1_10);
@@ -74,8 +74,8 @@ public class PreDRTest extends AbstractCharacterTestCase
 		character.setRace(null);
 		character.setRace(race);
 
-		assertTrue("Character has DR 10/+1", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Character has DR 10/+1");
 	}
 
 	/**
@@ -94,16 +94,16 @@ public class PreDRTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREDR:1,+1=10,+2=5");
 
-		assertFalse("Character has no DR", PrereqHandler.passes(prereq,
-			character, null));
+		assertFalse(PrereqHandler.passes(prereq,
+			character, null), "Character has no DR");
 
 		race.addToListFor(ListKey.DAMAGE_REDUCTION, drPlus1);
 		//This weirdness is because we are altering the race after application (no-no at runtime)
 		character.setRace(null);
 		character.setRace(race);
 
-		assertFalse("Character DR not 10", PrereqHandler.passes(prereq,
-			character, null));
+		assertFalse(PrereqHandler.passes(prereq,
+			character, null), "Character DR not 10");
 
 		DamageReduction drPlus2_5 = new DamageReduction(FormulaFactory.getFormulaFor(5), "+2");
 		race.addToListFor(ListKey.DAMAGE_REDUCTION, drPlus2_5);
@@ -111,8 +111,8 @@ public class PreDRTest extends AbstractCharacterTestCase
 		character.setRace(null);
 		character.setRace(race);
 
-		assertTrue("Character has DR 5/+2", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Character has DR 5/+2");
 	}
 
 	@Test
@@ -126,14 +126,14 @@ public class PreDRTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREDR:2,+1=10,+2=5");
 
-		assertFalse("Character has no DR", PrereqHandler.passes(prereq,
-			character, null));
+		assertFalse(PrereqHandler.passes(prereq,
+			character, null), "Character has no DR");
 
 		race.addToListFor(ListKey.DAMAGE_REDUCTION, drPlus1);
 		character.setRace(race);
 
-		assertFalse("Character DR not 10", PrereqHandler.passes(prereq,
-			character, null));
+		assertFalse(PrereqHandler.passes(prereq,
+			character, null), "Character DR not 10");
 
 		DamageReduction drPlus2_5 = new DamageReduction(FormulaFactory.getFormulaFor(5), "+2");
 		race.addToListFor(ListKey.DAMAGE_REDUCTION, drPlus2_5);
@@ -141,8 +141,8 @@ public class PreDRTest extends AbstractCharacterTestCase
 		character.setRace(null);
 		character.setRace(race);
 
-		assertFalse("Character has DR 5/+2", PrereqHandler.passes(prereq,
-			character, null));
+		assertFalse(PrereqHandler.passes(prereq,
+			character, null), "Character has DR 5/+2");
 
 		DamageReduction drPlus1_10 = new DamageReduction(FormulaFactory.getFormulaFor(10), "+1");
 		race.addToListFor(ListKey.DAMAGE_REDUCTION, drPlus1_10);
@@ -150,8 +150,8 @@ public class PreDRTest extends AbstractCharacterTestCase
 		character.setRace(null);
 		character.setRace(race);
 
-		assertTrue("Character has DR 10/+1 and 5/+2", PrereqHandler.passes(
-			prereq, character, null));
+		assertTrue(PrereqHandler.passes(
+			prereq, character, null), "Character has DR 10/+1 and 5/+2");
 	}
 
 	@BeforeEach

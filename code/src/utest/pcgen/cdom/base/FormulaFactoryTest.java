@@ -1,6 +1,6 @@
 package pcgen.cdom.base;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import pcgen.base.format.ArrayFormatManager;
 import pcgen.base.formatmanager.FormatUtilities;

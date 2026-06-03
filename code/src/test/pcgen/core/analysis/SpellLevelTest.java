@@ -18,7 +18,7 @@
 
 package pcgen.core.analysis;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -95,17 +95,17 @@ public class SpellLevelTest extends AbstractCharacterTestCase
 		PlayerCharacter aPC = getCharacter();
 
 		Collection<Integer> levels = listManagerFacet.getScopes2(aPC.getCharID(), pcc.get(ObjectKey.CLASS_SPELLLIST));
-		assertEquals("Initial number of spell levels incorrect", 0, levels.size());
+		assertEquals(0, levels.size(), "Initial number of spell levels incorrect");
 		
 		addAbility(BuildUtilities.getFeatCat(), ab1);
 
 		// Now for the tests
 		levels = listManagerFacet.getScopes2(aPC.getCharID(), pcc.get(ObjectKey.CLASS_SPELLLIST));
-		assertEquals("Incorrect number of spell levels returned", 1, levels.size());
-		assertEquals("Incorrect spell level returned", Integer.valueOf(3), levels.iterator().next());
+		assertEquals(1, levels.size(), "Incorrect number of spell levels returned");
+		assertEquals(Integer.valueOf(3), levels.iterator().next(), "Incorrect spell level returned");
 		Collection<Spell> result = listManagerFacet.getSet(aPC.getCharID(), pcc.get(ObjectKey.CLASS_SPELLLIST), 3);
-		assertEquals("Incorrect number of spells returned", 1, result.size());
-		assertEquals("Incorrect spell returned", spell, result.iterator().next());
+		assertEquals(1, result.size(), "Incorrect number of spells returned");
+		assertEquals(spell, result.iterator().next(), "Incorrect spell returned");
 		
 	}
 

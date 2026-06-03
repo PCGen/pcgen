@@ -17,8 +17,8 @@
  */
 package pcgen.core.prereq;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.PlayerCharacter;
@@ -46,13 +46,13 @@ class PreStatTest extends AbstractCharacterTestCase
 		prereq.setOperand("1");
 
 		character.setStat(str, -1);
-		assertFalse("prestat:1,str=1 for str of -1", PrereqHandler.passes(prereq, character, null));
+		assertFalse(PrereqHandler.passes(prereq, character, null), "prestat:1,str=1 for str of -1");
 		character.setStat(str, 0);
-		assertFalse("prestat:1,str=1 for str of 0", PrereqHandler.passes(prereq, character, null));
+		assertFalse(PrereqHandler.passes(prereq, character, null), "prestat:1,str=1 for str of 0");
 		character.setStat(str, 1);
-		assertTrue("prestat:1,str=1 for str of 1", PrereqHandler.passes(prereq, character, null));
+		assertTrue(PrereqHandler.passes(prereq, character, null), "prestat:1,str=1 for str of 1");
 		character.setStat(str, 2);
-		assertTrue("prestat:1,str=1 for str of 2", PrereqHandler.passes(prereq, character, null));
+		assertTrue(PrereqHandler.passes(prereq, character, null), "prestat:1,str=1 for str of 2");
 	}
 
 	/**
@@ -70,13 +70,13 @@ class PreStatTest extends AbstractCharacterTestCase
 		prereq.setOperand("0");
 
 		character.setStat(str, -1);
-		assertFalse("prestat:1,str=1 for str of -1", PrereqHandler.passes(prereq, character, null));
+		assertFalse(PrereqHandler.passes(prereq, character, null), "prestat:1,str=1 for str of -1");
 		character.setStat(str, 0);
-		assertTrue("prestat:1,str=0 for str of 0", PrereqHandler.passes(prereq, character, null));
+		assertTrue(PrereqHandler.passes(prereq, character, null), "prestat:1,str=0 for str of 0");
 		character.setStat(str, 1);
-		assertTrue("prestat:1,str=0 for str of 1", PrereqHandler.passes(prereq, character, null));
+		assertTrue(PrereqHandler.passes(prereq, character, null), "prestat:1,str=0 for str of 1");
 		character.setStat(str, 2);
-		assertTrue("prestat:1,str=0 for str of 2", PrereqHandler.passes(prereq, character, null));
+		assertTrue(PrereqHandler.passes(prereq, character, null), "prestat:1,str=0 for str of 2");
 	}
 
 	/**
@@ -94,13 +94,13 @@ class PreStatTest extends AbstractCharacterTestCase
 		prereq.setOperand("-1");
 
 		character.setStat(str, -2);
-		assertFalse("prestat:1,str=-1 for str of -2", PrereqHandler.passes(prereq, character, null));
+		assertFalse(PrereqHandler.passes(prereq, character, null), "prestat:1,str=-1 for str of -2");
 		character.setStat(str, 0);
-		assertTrue("prestat:1,str=-1 for str of 0", PrereqHandler.passes(prereq, character, null));
+		assertTrue(PrereqHandler.passes(prereq, character, null), "prestat:1,str=-1 for str of 0");
 		character.setStat(str, 1);
-		assertTrue("prestat:1,str=-1 for str of 1", PrereqHandler.passes(prereq, character, null));
+		assertTrue(PrereqHandler.passes(prereq, character, null), "prestat:1,str=-1 for str of 1");
 		character.setStat(str, -1);
-		assertTrue("prestat:1,str=-1 for str of -1", PrereqHandler.passes(prereq, character, null));
+		assertTrue(PrereqHandler.passes(prereq, character, null), "prestat:1,str=-1 for str of -1");
 	}
 
 }

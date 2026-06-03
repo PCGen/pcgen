@@ -17,7 +17,7 @@
  */
 package plugin.exporttokens;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static pcgen.util.TestHelper.evaluateToken;
 
 import java.io.IOException;
@@ -69,25 +69,16 @@ public class CampaignHistoryTokenTest  extends AbstractCharacterTestCase
 	{
 		FileAccess.setCurrentOutputFilter("xml");
 		PlayerCharacter character = getCharacter();
-		assertEquals("Field Campaign", visibleEntry.getCampaign(),
-			evaluateToken("CAMPAIGNHISTORY.0.CAMPAIGN", character));
-		assertEquals("Field ADVENTURE", visibleEntry.getAdventure(),
-			evaluateToken("CAMPAIGNHISTORY.0.ADVENture", character));
-		assertEquals("Field PARTY", visibleEntry.getParty(),
-			evaluateToken("CAMPAIGNHISTORY.0.PARTY", character));
-		assertEquals("Field DATE", visibleEntry.getDate(),
-			evaluateToken("CAMPAIGNHISTORY.0.DATE", character));
-		assertEquals("Field XP", visibleEntry.getXpField(),
-			Integer.parseInt(evaluateToken("CAMPAIGNHISTORY.0.XP", character)));
-		assertEquals("Field GM", visibleEntry.getGmField(),
-			evaluateToken("CAMPAIGNHISTORY.0.GM", character));
-		assertEquals("Field Text", visibleEntry.getChronicle(),
-			evaluateToken("CAMPAIGNHISTORY.0.TEXT", character));
-		assertEquals("Default field", visibleEntry.getChronicle(),
-			evaluateToken("CAMPAIGNHISTORY.0", character));
+		assertEquals(visibleEntry.getCampaign(), evaluateToken("CAMPAIGNHISTORY.0.CAMPAIGN", character), "Field Campaign");
+		assertEquals(visibleEntry.getAdventure(), evaluateToken("CAMPAIGNHISTORY.0.ADVENture", character), "Field ADVENTURE");
+		assertEquals(visibleEntry.getParty(), evaluateToken("CAMPAIGNHISTORY.0.PARTY", character), "Field PARTY");
+		assertEquals(visibleEntry.getDate(), evaluateToken("CAMPAIGNHISTORY.0.DATE", character), "Field DATE");
+		assertEquals(visibleEntry.getXpField(), Integer.parseInt(evaluateToken("CAMPAIGNHISTORY.0.XP", character)), "Field XP");
+		assertEquals(visibleEntry.getGmField(), evaluateToken("CAMPAIGNHISTORY.0.GM", character), "Field GM");
+		assertEquals(visibleEntry.getChronicle(), evaluateToken("CAMPAIGNHISTORY.0.TEXT", character), "Field Text");
+		assertEquals(visibleEntry.getChronicle(), evaluateToken("CAMPAIGNHISTORY.0", character), "Default field");
 
-		assertEquals("Invalid field", "",
-			evaluateToken("CAMPAIGNHISTORY.0.LALALA", character));
+		assertEquals("", evaluateToken("CAMPAIGNHISTORY.0.LALALA", character), "Invalid field");
 	}
 
 
@@ -96,27 +87,18 @@ public class CampaignHistoryTokenTest  extends AbstractCharacterTestCase
 	{
 		FileAccess.setCurrentOutputFilter("xml");
 		PlayerCharacter character = getCharacter();
-		assertEquals("Default visibility", visibleEntry.getAdventure(),
-			evaluateToken("CAMPAIGNHISTORY.0.ADVENTURE", character));
-		assertEquals("Default visibility", "",
-			evaluateToken("CAMPAIGNHISTORY.1.ADVENTURE", character));
+		assertEquals(visibleEntry.getAdventure(), evaluateToken("CAMPAIGNHISTORY.0.ADVENTURE", character), "Default visibility");
+		assertEquals("", evaluateToken("CAMPAIGNHISTORY.1.ADVENTURE", character), "Default visibility");
 
-		assertEquals("Hidden visibility", hiddenEntry.getAdventure(),
-			evaluateToken("CAMPAIGNHISTORY.HIDDEN.0.ADVENTURE", character));
-		assertEquals("Hidden visibility", "",
-			evaluateToken("CAMPAIGNHISTORY.HIDDEN.1.ADVENTURE", character));
+		assertEquals(hiddenEntry.getAdventure(), evaluateToken("CAMPAIGNHISTORY.HIDDEN.0.ADVENTURE", character), "Hidden visibility");
+		assertEquals("", evaluateToken("CAMPAIGNHISTORY.HIDDEN.1.ADVENTURE", character), "Hidden visibility");
 
-		assertEquals("All visibility", visibleEntry.getAdventure(),
-			evaluateToken("CAMPAIGNHISTORY.ALL.0.ADVENTURE", character));
-		assertEquals("All visibility", hiddenEntry.getAdventure(),
-			evaluateToken("CAMPAIGNHISTORY.ALL.1.ADVENTURE", character));
+		assertEquals(visibleEntry.getAdventure(), evaluateToken("CAMPAIGNHISTORY.ALL.0.ADVENTURE", character), "All visibility");
+		assertEquals(hiddenEntry.getAdventure(), evaluateToken("CAMPAIGNHISTORY.ALL.1.ADVENTURE", character), "All visibility");
 
-		assertEquals("Visible visibility", visibleEntry.getAdventure(),
-			evaluateToken("CAMPAIGNHISTORY.VISIBLE.0.ADVENTURE", character));
-		assertEquals("Visible visibility", "",
-			evaluateToken("CAMPAIGNHISTORY.VISIBLE.1.ADVENTURE", character));
+		assertEquals(visibleEntry.getAdventure(), evaluateToken("CAMPAIGNHISTORY.VISIBLE.0.ADVENTURE", character), "Visible visibility");
+		assertEquals("", evaluateToken("CAMPAIGNHISTORY.VISIBLE.1.ADVENTURE", character), "Visible visibility");
 
-		assertEquals("Invalid visibility", "",
-			evaluateToken("CAMPAIGNHISTORY.LALALA.0.ADVENTURE", character));
+		assertEquals("", evaluateToken("CAMPAIGNHISTORY.LALALA.0.ADVENTURE", character), "Invalid visibility");
 	}
 }

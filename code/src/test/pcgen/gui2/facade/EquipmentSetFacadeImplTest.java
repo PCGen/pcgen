@@ -1,11 +1,11 @@
 package pcgen.gui2.facade;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -69,10 +69,9 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 				new EquipmentSetFacadeImpl(uiDelegate, getCharacter(), es,
 					dataset, equipmentList, todoManager, null);
 		ListFacade<EquipNode> nodeList = esfi.getNodes();
-		assertFalse("Expected a non empty node set", nodeList.isEmpty());
-		assertEquals("Incorrect name of base node", Constants.EQUIP_LOCATION_EQUIPPED,
-			nodeList.getElementAt(0).toString());
-		assertEquals("Incorrect nunber of nodes found", NUM_BASE_NODES, nodeList.getSize());
+		assertFalse(nodeList.isEmpty(), "Expected a non empty node set");
+		assertEquals(Constants.EQUIP_LOCATION_EQUIPPED, nodeList.getElementAt(0).toString(), "Incorrect name of base node");
+		assertEquals(NUM_BASE_NODES, nodeList.getSize(), "Incorrect nunber of nodes found");
 	}
 	
 	/**
@@ -100,32 +99,32 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 				new EquipmentSetFacadeImpl(uiDelegate, pc, es, dataset,
 					equipmentList, todoManager, null);
 		ListFacade<EquipNode> nodeList = esfi.getNodes();
-		assertFalse("Expected a non empty path set", nodeList.isEmpty());
+		assertFalse(nodeList.isEmpty(), "Expected a non empty path set");
 		EquipNode node = nodeList.getElementAt(0);
-		assertEquals("Incorrect body struct name", Constants.EQUIP_LOCATION_EQUIPPED, node.toString());
-		assertEquals("Incorrect body struct type", EquipNode.NodeType.BODY_SLOT, node.getNodeType());
-		assertEquals("Incorrect sort key", "00", node.getSortKey());
-		assertNull("Incorrect parent", node.getParent());
+		assertEquals(Constants.EQUIP_LOCATION_EQUIPPED, node.toString(), "Incorrect body struct name");
+		assertEquals(EquipNode.NodeType.BODY_SLOT, node.getNodeType(), "Incorrect body struct type");
+		assertEquals("00", node.getSortKey(), "Incorrect sort key");
+		assertNull(node.getParent(), "Incorrect parent");
 		node = nodeList.getElementAt(adjustedBaseNodes);
-		assertEquals("Incorrect container name", item.getName(), node.toString());
-		assertEquals("Incorrect container type", EquipNode.NodeType.EQUIPMENT, node.getNodeType());
-		assertEquals("Incorrect sort key", "00|"+item.getName(), node.getSortKey());
-		assertEquals("Incorrect parent", nodeList.getElementAt(0), node.getParent());
+		assertEquals(item.getName(), node.toString(), "Incorrect container name");
+		assertEquals(EquipNode.NodeType.EQUIPMENT, node.getNodeType(), "Incorrect container type");
+		assertEquals("00|"+item.getName(), node.getSortKey(), "Incorrect sort key");
+		assertEquals(nodeList.getElementAt(0), node.getParent(), "Incorrect parent");
 		node = nodeList.getElementAt(adjustedBaseNodes+2);
-		assertEquals("Incorrect item name", item2.getName(), node.toString());
-		assertEquals("Incorrect item type", EquipNode.NodeType.EQUIPMENT, node.getNodeType());
-		assertEquals("Incorrect sort key", "00|"+item.getName()+"|"+item2.getName(), node.getSortKey());
-		assertEquals("Incorrect parent", nodeList.getElementAt(adjustedBaseNodes), node.getParent());
+		assertEquals(item2.getName(), node.toString(), "Incorrect item name");
+		assertEquals(EquipNode.NodeType.EQUIPMENT, node.getNodeType(), "Incorrect item type");
+		assertEquals("00|"+item.getName()+"|"+item2.getName(), node.getSortKey(), "Incorrect sort key");
+		assertEquals(nodeList.getElementAt(adjustedBaseNodes), node.getParent(), "Incorrect parent");
 		node = nodeList.getElementAt(adjustedBaseNodes+1);
-		assertEquals("Incorrect item name", item3.getName(), node.toString());
-		assertEquals("Incorrect item type", EquipNode.NodeType.EQUIPMENT, node.getNodeType());
-		assertEquals("Incorrect sort key", "01|"+item3.getName(), node.getSortKey());
-		assertEquals("Incorrect parent", LOC_HANDS, node.getParent().toString());
+		assertEquals(item3.getName(), node.toString(), "Incorrect item name");
+		assertEquals(EquipNode.NodeType.EQUIPMENT, node.getNodeType(), "Incorrect item type");
+		assertEquals("01|"+item3.getName(), node.getSortKey(), "Incorrect sort key");
+		assertEquals(LOC_HANDS, node.getParent().toString(), "Incorrect parent");
 		node = nodeList.getElementAt(adjustedBaseNodes+2);
 		EquipNode parent = node.getParent();
-		assertEquals("Root incorrect", Constants.EQUIP_LOCATION_EQUIPPED, parent.getParent().toString());
-		assertEquals("Leaf incorrect", item.getName(), parent.toString());
-		assertEquals("Incorrect number of paths found", adjustedBaseNodes+3, nodeList.getSize());
+		assertEquals(Constants.EQUIP_LOCATION_EQUIPPED, parent.getParent().toString(), "Root incorrect");
+		assertEquals(item.getName(), parent.toString(), "Leaf incorrect");
+		assertEquals(adjustedBaseNodes+3, nodeList.getSize(), "Incorrect number of paths found");
 	}
 	
 	/**
@@ -153,16 +152,16 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		}
 
 		EquipNode testNode = nodeMap.get("Morningstar");
-		assertNotNull("Morningstar should be present", testNode);
-		assertEquals("Morningstar type", EquipNode.NodeType.EQUIPMENT, testNode.getNodeType());
-		assertEquals("Morningstar location", LOC_PRIMARY, esfi.getLocation(testNode));
+		assertNotNull(testNode, "Morningstar should be present");
+		assertEquals(EquipNode.NodeType.EQUIPMENT, testNode.getNodeType(), "Morningstar type");
+		assertEquals(LOC_PRIMARY, esfi.getLocation(testNode), "Morningstar location");
 
 		// Test for removed slots
 		String[] removedSlots = {"Primary Hand", "Double Weapon", "Both Hands"};
 		for (String slotName : removedSlots)
 		{
 			testNode = nodeMap.get(slotName);
-			assertNull(slotName + " should not be present", testNode);
+			assertNull(testNode, slotName + " should not be present");
 		}
 
 		// Test for still present slots
@@ -170,7 +169,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		for (String slotName : retainedSlots)
 		{
 			testNode = nodeMap.get(slotName);
-			assertNotNull(slotName + " should be present", testNode);
+			assertNotNull(testNode, slotName + " should be present");
 		}
 		
 	}
@@ -190,42 +189,41 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		EquipNode root = esfi.getNodes().getElementAt(0);
 		Equipment item = new Equipment();
 		item.setName("Dart");
-		assertEquals("Initial num carried", 0, item.getCarried(), 0.01);
-		assertEquals("Initial num equipped", 0, item.getNumberEquipped());
-		assertEquals("Initial node list size", NUM_BASE_NODES, esfi.getNodes().getSize());
+		assertEquals(0, item.getCarried(), 0.01, "Initial num carried");
+		assertEquals(0, item.getNumberEquipped(), "Initial num equipped");
+		assertEquals(NUM_BASE_NODES, esfi.getNodes().getSize(), "Initial node list size");
 
 		Equipment addedEquip = (Equipment) esfi.addEquipment(root, item, 2);
-		assertEquals("First add num carried", 2, addedEquip.getCarried(), 0.01);
-		assertEquals("First add num equipped", 2, addedEquip.getNumberEquipped());
-		assertEquals("Should be no sideeffects to num carried", 0, item.getCarried(), 0.01);
-		assertEquals("Should be no sideeffects to equipped", 0, item.getNumberEquipped());
-		assertEquals("First add node list size", NUM_BASE_NODES+1, esfi.getNodes().getSize());
-		assertEquals("generated equip set id", "0.1.01",
-			esfi.getNodes().getElementAt(NUM_BASE_NODES).getIdPath());
+		assertEquals(2, addedEquip.getCarried(), 0.01, "First add num carried");
+		assertEquals(2, addedEquip.getNumberEquipped(), "First add num equipped");
+		assertEquals(0, item.getCarried(), 0.01, "Should be no sideeffects to num carried");
+		assertEquals(0, item.getNumberEquipped(), "Should be no sideeffects to equipped");
+		assertEquals(NUM_BASE_NODES+1, esfi.getNodes().getSize(), "First add node list size");
+		assertEquals("0.1.01", esfi.getNodes().getElementAt(NUM_BASE_NODES).getIdPath(), "generated equip set id");
 
 		Equipment secondEquip = (Equipment) esfi.addEquipment(root, item, 1);
-		assertEquals("Second add num carried", 3, secondEquip.getCarried(), 0.01);
-		assertEquals("Second add num equipped", 3, secondEquip.getNumberEquipped());
-		assertEquals("Should be no sideeffects to num carried", 0, item.getCarried(), 0.01);
-		assertEquals("Should be no sideeffects to equipped", 0, item.getNumberEquipped());
-		assertSame("Same equipment item should have been used", addedEquip, secondEquip);
-		assertEquals("First add node list size", NUM_BASE_NODES+1, esfi.getNodes().getSize());
+		assertEquals(3, secondEquip.getCarried(), 0.01, "Second add num carried");
+		assertEquals(3, secondEquip.getNumberEquipped(), "Second add num equipped");
+		assertEquals(0, item.getCarried(), 0.01, "Should be no sideeffects to num carried");
+		assertEquals(0, item.getNumberEquipped(), "Should be no sideeffects to equipped");
+		assertSame(addedEquip, secondEquip, "Same equipment item should have been used");
+		assertEquals(NUM_BASE_NODES+1, esfi.getNodes().getSize(), "First add node list size");
 
 		EquipNode target =  esfi.getNodes().getElementAt(NUM_BASE_NODES);
 		Equipment removedEquip = (Equipment) esfi.removeEquipment(target, 2);
-		assertEquals("First add num carried", 1, removedEquip.getCarried(), 0.01);
-		assertEquals("First add num equipped", 1, removedEquip.getNumberEquipped());
-		assertSame("Same equipment item should have been used", addedEquip, removedEquip);
-		assertEquals("Should be no sideeffects to num carried", 0, item.getCarried(), 0.01);
-		assertEquals("Should be no sideeffects to equipped", 0, item.getNumberEquipped());
-		assertEquals("First add node list size", NUM_BASE_NODES+1, esfi.getNodes().getSize());
+		assertEquals(1, removedEquip.getCarried(), 0.01, "First add num carried");
+		assertEquals(1, removedEquip.getNumberEquipped(), "First add num equipped");
+		assertSame(addedEquip, removedEquip, "Same equipment item should have been used");
+		assertEquals(0, item.getCarried(), 0.01, "Should be no sideeffects to num carried");
+		assertEquals(0, item.getNumberEquipped(), "Should be no sideeffects to equipped");
+		assertEquals(NUM_BASE_NODES+1, esfi.getNodes().getSize(), "First add node list size");
 
 		esfi.removeEquipment(target, 1);
-		assertEquals("First add num carried", 0, addedEquip.getCarried(), 0.01);
-		assertEquals("First add num equipped", 0, addedEquip.getNumberEquipped());
-		assertEquals("Should be no sideeffects to num carried", 0, item.getCarried(), 0.01);
-		assertEquals("Should be no sideeffects to equipped", 0, item.getNumberEquipped());
-		assertEquals("First add node list size", NUM_BASE_NODES, esfi.getNodes().getSize());
+		assertEquals(0, addedEquip.getCarried(), 0.01, "First add num carried");
+		assertEquals(0, addedEquip.getNumberEquipped(), "First add num equipped");
+		assertEquals(0, item.getCarried(), 0.01, "Should be no sideeffects to num carried");
+		assertEquals(0, item.getNumberEquipped(), "Should be no sideeffects to equipped");
+		assertEquals(NUM_BASE_NODES, esfi.getNodes().getSize(), "First add node list size");
 	}
 
 	/**
@@ -246,40 +244,40 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		}
 
 		EquipNode testNode = nodeMap.get("Primary Hand");
-		assertNotNull("Primary Hand should be present", testNode);
-		assertEquals("Primary Hand type", EquipNode.NodeType.PHANTOM_SLOT, testNode.getNodeType());
-		assertEquals("Primary Hand count", 1, esfi.getQuantity(testNode));
+		assertNotNull(testNode, "Primary Hand should be present");
+		assertEquals(EquipNode.NodeType.PHANTOM_SLOT, testNode.getNodeType(), "Primary Hand type");
+		assertEquals(1, esfi.getQuantity(testNode), "Primary Hand count");
 
 		testNode = nodeMap.get("Secondary Hand");
-		assertNotNull("Secondary Hand should be present", testNode);
-		assertEquals("Secondary Hand type", EquipNode.NodeType.PHANTOM_SLOT, testNode.getNodeType());
-		assertEquals("Secondary Hand count", 1, esfi.getQuantity(testNode));
+		assertNotNull(testNode, "Secondary Hand should be present");
+		assertEquals(EquipNode.NodeType.PHANTOM_SLOT, testNode.getNodeType(), "Secondary Hand type");
+		assertEquals(1, esfi.getQuantity(testNode), "Secondary Hand count");
 
 		testNode = nodeMap.get(Constants.EQUIP_LOCATION_SECONDARY + " 1");
-		assertNull(Constants.EQUIP_LOCATION_SECONDARY + " 1 should not be present", testNode);
+		assertNull(testNode, Constants.EQUIP_LOCATION_SECONDARY + " 1 should not be present");
 
 		testNode = nodeMap.get(Constants.EQUIP_LOCATION_SECONDARY + " 2");
-		assertNull(Constants.EQUIP_LOCATION_SECONDARY + " 2 should not be present", testNode);
+		assertNull(testNode, Constants.EQUIP_LOCATION_SECONDARY + " 2 should not be present");
 
 		testNode = nodeMap.get("Double Weapon");
-		assertNotNull("Double Weapon should be present", testNode);
-		assertEquals("Double Weapon type", EquipNode.NodeType.PHANTOM_SLOT, testNode.getNodeType());
-		assertEquals("Double Weapon count", 1, esfi.getQuantity(testNode));
+		assertNotNull(testNode, "Double Weapon should be present");
+		assertEquals(EquipNode.NodeType.PHANTOM_SLOT, testNode.getNodeType(), "Double Weapon type");
+		assertEquals(1, esfi.getQuantity(testNode), "Double Weapon count");
 
 		testNode = nodeMap.get("Both Hands");
-		assertNotNull("Both Hands should be present", testNode);
-		assertEquals("Both Hands type", EquipNode.NodeType.PHANTOM_SLOT, testNode.getNodeType());
-		assertEquals("Both Hands count", 1, esfi.getQuantity(testNode));
+		assertNotNull(testNode, "Both Hands should be present");
+		assertEquals(EquipNode.NodeType.PHANTOM_SLOT, testNode.getNodeType(), "Both Hands type");
+		assertEquals(1, esfi.getQuantity(testNode), "Both Hands count");
 
 		testNode = nodeMap.get("Unarmed");
-		assertNotNull("Unarmed should be present", testNode);
-		assertEquals("Unarmed type", EquipNode.NodeType.PHANTOM_SLOT, testNode.getNodeType());
-		assertEquals("Unarmed count", 1, esfi.getQuantity(testNode));
+		assertNotNull(testNode, "Unarmed should be present");
+		assertEquals(EquipNode.NodeType.PHANTOM_SLOT, testNode.getNodeType(), "Unarmed type");
+		assertEquals(1, esfi.getQuantity(testNode), "Unarmed count");
 
 		testNode = nodeMap.get("Ring");
-		assertNotNull("Ring should be present", testNode);
-		assertEquals("Ring type", EquipNode.NodeType.PHANTOM_SLOT, testNode.getNodeType());
-		assertEquals("Ring count", 2, esfi.getQuantity(testNode));
+		assertNotNull(testNode, "Ring should be present");
+		assertEquals(EquipNode.NodeType.PHANTOM_SLOT, testNode.getNodeType(), "Ring type");
+		assertEquals(2, esfi.getQuantity(testNode), "Ring count");
 	}
 
 	public void testBonusSlot()
@@ -297,15 +295,15 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		}
 
 		EquipNode testNode = nodeMap.get("Ring");
-		assertNotNull("Ring should be present", testNode);
-		assertEquals("Ring type", EquipNode.NodeType.PHANTOM_SLOT, testNode.getNodeType());
-		assertEquals("Ring count", 2, esfi.getQuantity(testNode));
+		assertNotNull(testNode, "Ring should be present");
+		assertEquals(EquipNode.NodeType.PHANTOM_SLOT, testNode.getNodeType(), "Ring type");
+		assertEquals(2, esfi.getQuantity(testNode), "Ring count");
 		
 		PCTemplate template = TestHelper.makeTemplate("RingBonus");
 		Globals.getContext().unconditionallyProcess(template, "BONUS",
 				"SLOTS|Ring|1");
 		pc.addTemplate(template);
-		assertEquals("Ring count", 3, esfi.getQuantity(testNode));
+		assertEquals(3, esfi.getQuantity(testNode), "Ring count");
 	}
 	
 	/**
@@ -319,27 +317,27 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 				new EquipmentSetFacadeImpl(uiDelegate, getCharacter(), es,
 					dataset, equipmentList, todoManager, null);
 
-		assertNull("Null equipment should give null location", esfi.getNaturalWeaponLoc(null));
+		assertNull(esfi.getNaturalWeaponLoc(null), "Null equipment should give null location");
 		
 		Equipment eq = new Equipment();
 		eq.addType(Type.MELEE);
 		eq.addType(Type.WEAPON);
 		EquipNode requiredLoc = esfi.getNaturalWeaponLoc(eq);
-		assertNull("Melee weapon should not have required location.", requiredLoc);
+		assertNull(requiredLoc, "Melee weapon should not have required location.");
 		
 		eq.addType(Type.NATURAL);
 		eq.put(IntegerKey.SLOTS, 0);
 		eq.setName("Sting");
 		requiredLoc = esfi.getNaturalWeaponLoc(eq);
-		assertNotNull("Natural weapon should have required location.", requiredLoc);
-		assertEquals("Incorrect name for secondary natural weapon", "Natural-Secondary", requiredLoc.toString());
-		assertEquals("Natural weapon should replace hands.", "HANDS", requiredLoc.getBodyStructure().toString());
+		assertNotNull(requiredLoc, "Natural weapon should have required location.");
+		assertEquals("Natural-Secondary", requiredLoc.toString(), "Incorrect name for secondary natural weapon");
+		assertEquals("HANDS", requiredLoc.getBodyStructure().toString(), "Natural weapon should replace hands.");
 
 		eq.setModifiedName("Natural/Primary");
 		requiredLoc = esfi.getNaturalWeaponLoc(eq);
-		assertNotNull("Natural weapon should have required location.", requiredLoc);
-		assertEquals("Incorrect name for primary natural weapon", "Natural-Primary", requiredLoc.toString());
-		assertEquals("Natural weapon should replace hands.", "HANDS", requiredLoc.getBodyStructure().toString());
+		assertNotNull(requiredLoc, "Natural weapon should have required location.");
+		assertEquals("Natural-Primary", requiredLoc.toString(), "Incorrect name for primary natural weapon");
+		assertEquals("HANDS", requiredLoc.getBodyStructure().toString(), "Natural weapon should replace hands.");
 	}
 	
 	
@@ -351,22 +349,22 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	{
 		EquipmentSetFacadeImpl esfi = prepareEquipmentSet();
 		ListFacade<EquipNode> nodeList = esfi.getNodes();
-		assertFalse("Expected a non empty path set", nodeList.isEmpty());
+		assertFalse(nodeList.isEmpty(), "Expected a non empty path set");
 		EquipNode quarterstaffNode = getEquipNodeByName(nodeList, QUARTERSTAFF);
-		//assertEquals("Incorrect item name", item3.getName(), quarterstaffNode.toString());
-		assertEquals("Incorrect item type", EquipNode.NodeType.EQUIPMENT, quarterstaffNode.getNodeType());
-		assertEquals("Incorrect parent", Constants.EQUIP_LOCATION_EQUIPPED, quarterstaffNode.getParent().toString());
-		assertEquals("Incorrect path", "0.1.02", quarterstaffNode.getIdPath());
+		//assertEquals(item3.getName(), quarterstaffNode.toString(), "Incorrect item name");
+		assertEquals(EquipNode.NodeType.EQUIPMENT, quarterstaffNode.getNodeType(), "Incorrect item type");
+		assertEquals(Constants.EQUIP_LOCATION_EQUIPPED, quarterstaffNode.getParent().toString(), "Incorrect parent");
+		assertEquals("0.1.02", quarterstaffNode.getIdPath(), "Incorrect path");
 		
 		EquipNode bookNode = getEquipNodeByName(nodeList, BOOK);
-		assertEquals("Incorrect path", "0.1.01.01", bookNode.getIdPath());
+		assertEquals("0.1.01.01", bookNode.getIdPath(), "Incorrect path");
 		EquipNode satchelNode = getEquipNodeByName(nodeList, SATCHEL);
-		assertEquals("Incorrect path", "0.1.01", satchelNode.getIdPath());
+		assertEquals("0.1.01", satchelNode.getIdPath(), "Incorrect path");
 		
-		assertTrue("Move up failed unexpectedly", esfi.moveEquipment(quarterstaffNode, -1));
-		assertEquals("Incorrect quarterstaff path", "0.1.01", quarterstaffNode.getIdPath());
-		assertEquals("Incorrect satchel path", "0.1.02", satchelNode.getIdPath());
-		assertEquals("Incorrect book path", "0.1.02.01", bookNode.getIdPath());
+		assertTrue(esfi.moveEquipment(quarterstaffNode, -1), "Move up failed unexpectedly");
+		assertEquals("0.1.01", quarterstaffNode.getIdPath(), "Incorrect quarterstaff path");
+		assertEquals("0.1.02", satchelNode.getIdPath(), "Incorrect satchel path");
+		assertEquals("0.1.02.01", bookNode.getIdPath(), "Incorrect book path");
 	}
 	
 	/**
@@ -377,41 +375,31 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	{
 		EquipmentSetFacadeImpl esfi = prepareEquipmentSet();
 		ListFacade<EquipNode> nodeList = esfi.getNodes();
-		assertFalse("Expected a non empty path set", nodeList.isEmpty());
+		assertFalse(nodeList.isEmpty(), "Expected a non empty path set");
 		EquipNode quarterstaffNode = getEquipNodeByName(nodeList, QUARTERSTAFF);
-		//assertEquals("Incorrect item name", item3.getName(), quarterstaffNode.toString());
-		assertEquals("Incorrect item type", EquipNode.NodeType.EQUIPMENT, quarterstaffNode.getNodeType());
-		assertEquals("Incorrect parent", Constants.EQUIP_LOCATION_EQUIPPED, quarterstaffNode.getParent().toString());
-		assertEquals("Incorrect path", "0.1.02", quarterstaffNode.getIdPath());
+		//assertEquals(item3.getName(), quarterstaffNode.toString(), "Incorrect item name");
+		assertEquals(EquipNode.NodeType.EQUIPMENT, quarterstaffNode.getNodeType(), "Incorrect item type");
+		assertEquals(Constants.EQUIP_LOCATION_EQUIPPED, quarterstaffNode.getParent().toString(), "Incorrect parent");
+		assertEquals("0.1.02", quarterstaffNode.getIdPath(), "Incorrect path");
 		
 		EquipNode bookNode = getEquipNodeByName(nodeList, BOOK);
-		assertEquals("Incorrect path", "0.1.01.01", bookNode.getIdPath());
+		assertEquals("0.1.01.01", bookNode.getIdPath(), "Incorrect path");
 		EquipNode satchelNode = getEquipNodeByName(nodeList, SATCHEL);
-		assertEquals("Incorrect path", "0.1.01", satchelNode.getIdPath());
+		assertEquals("0.1.01", satchelNode.getIdPath(), "Incorrect path");
 		EquipNode bedrollNode = getEquipNodeByName(nodeList, BEDROLL);
-		assertEquals("Incorrect path", "0.1.03", bedrollNode.getIdPath());
+		assertEquals("0.1.03", bedrollNode.getIdPath(), "Incorrect path");
 		
-		assertTrue("Move down failed unexpectedly",
-			esfi.moveEquipment(satchelNode, 1));
-		assertEquals("Incorrect quarterstaff path after move down.", "0.1.02",
-			quarterstaffNode.getIdPath());
-		assertEquals("Incorrect satchel path after move down.", "0.1.03",
-			satchelNode.getIdPath());
-		assertEquals("Incorrect book path after move down.", "0.1.03.01",
-			bookNode.getIdPath());
-		assertEquals("Incorrect bedroll path after move down.", "0.1.04",
-			bedrollNode.getIdPath());
+		assertTrue(esfi.moveEquipment(satchelNode, 1), "Move down failed unexpectedly");
+		assertEquals("0.1.02", quarterstaffNode.getIdPath(), "Incorrect quarterstaff path after move down.");
+		assertEquals("0.1.03", satchelNode.getIdPath(), "Incorrect satchel path after move down.");
+		assertEquals("0.1.03.01", bookNode.getIdPath(), "Incorrect book path after move down.");
+		assertEquals("0.1.04", bedrollNode.getIdPath(), "Incorrect bedroll path after move down.");
 		
-		assertTrue("Move to bottom failed unexpectedly",
-			esfi.moveEquipment(satchelNode, 1));
-		assertEquals("Incorrect quarterstaff path after move to bottom.", "0.1.02",
-			quarterstaffNode.getIdPath());
-		assertEquals("Incorrect satchel path after move to bottom.", "0.1.05",
-			satchelNode.getIdPath());
-		assertEquals("Incorrect book path after move to bottom.", "0.1.05.01",
-			bookNode.getIdPath());
-		assertEquals("Incorrect bedroll path after move to bottom.", "0.1.04",
-			bedrollNode.getIdPath());
+		assertTrue(esfi.moveEquipment(satchelNode, 1), "Move to bottom failed unexpectedly");
+		assertEquals("0.1.02", quarterstaffNode.getIdPath(), "Incorrect quarterstaff path after move to bottom.");
+		assertEquals("0.1.05", satchelNode.getIdPath(), "Incorrect satchel path after move to bottom.");
+		assertEquals("0.1.05.01", bookNode.getIdPath(), "Incorrect book path after move to bottom.");
+		assertEquals("0.1.04", bedrollNode.getIdPath(), "Incorrect bedroll path after move to bottom.");
 	}
 	
 

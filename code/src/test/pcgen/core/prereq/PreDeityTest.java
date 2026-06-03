@@ -17,8 +17,8 @@
  */
 package pcgen.core.prereq;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.format.StringManager;
@@ -60,25 +60,25 @@ public class PreDeityTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREDEITY:1,Y");
 
-		assertFalse("Character has no deity selected", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Character has no deity selected");
 
 		prereq = factory.parse("PREDEITY:1,N");
 
-		assertTrue("Character has no deity selected", PrereqHandler.passes(
-			prereq, character, null));
+		assertTrue(PrereqHandler.passes(
+			prereq, character, null), "Character has no deity selected");
 
 		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
 		ChannelUtilities.setControlledChannel(character.getCharID(),
 			CControl.DEITYINPUT, deity);
 
-		assertFalse("Character has deity selected", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Character has deity selected");
 
 		prereq = factory.parse("PREDEITY:1,Y");
 
-		assertTrue("Character has deity selected", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Character has deity selected");
 
 	}
 
@@ -97,35 +97,35 @@ public class PreDeityTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREDEITY:1,YES");
 
-		assertFalse("Character has no deity selected", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Character has no deity selected");
 
 		prereq = factory.parse("PREDEITY:1,NO");
 
-		assertTrue("Character has no deity selected", PrereqHandler.passes(
-			prereq, character, null));
+		assertTrue(PrereqHandler.passes(
+			prereq, character, null), "Character has no deity selected");
 
 		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
 		ChannelUtilities.setControlledChannel(character.getCharID(),
 			CControl.DEITYINPUT, deity);
 
-		assertFalse("Character has deity selected", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Character has deity selected");
 
 		prereq = factory.parse("PREDEITY:1,YES");
 
-		assertTrue("Character has deity selected", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Character has deity selected");
 
 		prereq = factory.parse("PREDEITY:1,yes");
 
-		assertTrue("Character has deity selected", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Character has deity selected");
 
 		prereq = factory.parse("PREDEITY:1,Yesmeth");
 
-		assertFalse("Character does not have Yesmeth as deity", PrereqHandler
-			.passes(prereq, character, null));
+		assertFalse(PrereqHandler
+			.passes(prereq, character, null), "Character does not have Yesmeth as deity");
 	}
 
 	/**
@@ -143,20 +143,20 @@ public class PreDeityTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREDEITY:1,Test Deity");
 
-		assertFalse("Character has no deity selected", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Character has no deity selected");
 
 		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
 		ChannelUtilities.setControlledChannel(character.getCharID(),
 			CControl.DEITYINPUT, deity);
 
-		assertTrue("Character has Test Deity selected", PrereqHandler.passes(
-			prereq, character, null));
+		assertTrue(PrereqHandler.passes(
+			prereq, character, null), "Character has Test Deity selected");
 
 		prereq = factory.parse("PREDEITY:1,Test Deity,Zeus,Odin");
 
-		assertTrue("Character has Test Deity selected", PrereqHandler.passes(
-			prereq, character, null));
+		assertTrue(PrereqHandler.passes(
+			prereq, character, null), "Character has Test Deity selected");
 	}
 
 	/**
@@ -174,35 +174,35 @@ public class PreDeityTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREDEITY:1,YES");
 
-		assertFalse("Character has no deity selected", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Character has no deity selected");
 
 		prereq = factory.parse("PREDEITY:1,NO");
 
-		assertTrue("Character has no deity selected", PrereqHandler.passes(
-			prereq, character, null));
+		assertTrue(PrereqHandler.passes(
+			prereq, character, null), "Character has no deity selected");
 
 		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
 		ChannelUtilities.setControlledChannel(character.getCharID(),
 			CControl.DEITYINPUT, deity);
 
-		assertFalse("Character has deity selected", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Character has deity selected");
 
 		prereq = factory.parse("PREDEITY:1,YES");
 
-		assertTrue("Character has deity selected", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Character has deity selected");
 
 		prereq = factory.parse("PREDEITY:1,yes");
 
-		assertTrue("Character has deity selected", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Character has deity selected");
 
 		prereq = factory.parse("PREDEITY:1,Yesmeth");
 
-		assertFalse("Character does not have Yesmeth as deity", PrereqHandler
-			.passes(prereq, character, null));
+		assertFalse(PrereqHandler
+			.passes(prereq, character, null), "Character does not have Yesmeth as deity");
 	}
 
 	/**
@@ -219,19 +219,19 @@ public class PreDeityTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREDEITY:1,PANTHEON.Celtic");
 
-		assertFalse("Character has no deity selected", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Character has no deity selected");
 
 		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
 		ChannelUtilities.setControlledChannel(character.getCharID(),
 			CControl.DEITYINPUT, deity);
-		assertTrue("Character has Celtic deity selected", PrereqHandler.passes(
-			prereq, character, null));
+		assertTrue(PrereqHandler.passes(
+			prereq, character, null), "Character has Celtic deity selected");
 
 		prereq = factory.parse("PREDEITY:1,Zeus,PANTHEON.Celtic,Odin");
 
-		assertTrue("Character has Celtic deity selected", PrereqHandler.passes(
-			prereq, character, null));
+		assertTrue(PrereqHandler.passes(
+			prereq, character, null), "Character has Celtic deity selected");
 	}
 
 	@BeforeEach

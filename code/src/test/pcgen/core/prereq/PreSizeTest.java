@@ -23,9 +23,9 @@
  */
 package pcgen.core.prereq;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Equipment;
@@ -70,15 +70,9 @@ public class PreSizeTest extends AbstractCharacterTestCase
 		final PlayerCharacter character = getCharacter();
 		Globals.getContext().getReferenceContext().resolveReferences(null);
 
-		assertEquals("Item one is expected size",
-			3,
-			eq1.sizeInt());
-		assertEquals("Item two is expected size",
-			4,
-			eq2.sizeInt());
-		assertEquals("Item three is expected size",
-			5,
-			eq3.sizeInt());
+		assertEquals(3, eq1.sizeInt(), "Item one is expected size");
+		assertEquals(4, eq2.sizeInt(), "Item two is expected size");
+		assertEquals(5, eq3.sizeInt(), "Item three is expected size");
 
 		Prerequisite prereq;
 
@@ -86,14 +80,14 @@ public class PreSizeTest extends AbstractCharacterTestCase
 
 		prereq = factory.parse("PRESIZEEQ:L");
 
-		assertFalse("Item one is not Large", PrereqHandler.passes(prereq, eq1, character));
-		assertFalse("Item two is not Large", PrereqHandler.passes(prereq, eq2, character));
-		assertTrue("Item three Large", PrereqHandler.passes(prereq, eq3, character));
+		assertFalse(PrereqHandler.passes(prereq, eq1, character), "Item one is not Large");
+		assertFalse(PrereqHandler.passes(prereq, eq2, character), "Item two is not Large");
+		assertTrue(PrereqHandler.passes(prereq, eq3, character), "Item three Large");
 
 		prereq = factory.parse("PRESIZEGT:S");
 
-		assertFalse("Item one is not larger than Small", PrereqHandler.passes(prereq, eq1, character));
-		assertTrue("Item two is larger than Small", PrereqHandler.passes(prereq, eq2, character));
-		assertTrue("Item three larger than Small", PrereqHandler.passes(prereq, eq3, character));
+		assertFalse(PrereqHandler.passes(prereq, eq1, character), "Item one is not larger than Small");
+		assertTrue(PrereqHandler.passes(prereq, eq2, character), "Item two is larger than Small");
+		assertTrue(PrereqHandler.passes(prereq, eq3, character), "Item three larger than Small");
 	}
 }

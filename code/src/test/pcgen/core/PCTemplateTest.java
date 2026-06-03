@@ -17,9 +17,9 @@
  */
 package pcgen.core;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -114,10 +114,10 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		// Add the template to the character
 		PlayerCharacter pc = getCharacter();
 		pc.addTemplate(template);
-		assertTrue("Character should have ability1.", hasAbility(pc, cat,
-			Nature.AUTOMATIC, ab1));
-		assertTrue("Character should have ability2.", hasAbility(pc, cat,
-			Nature.AUTOMATIC, ab2));
+		assertTrue(hasAbility(pc, cat,
+			Nature.AUTOMATIC, ab1), "Character should have ability1.");
+		assertTrue(hasAbility(pc, cat,
+			Nature.AUTOMATIC, ab2), "Character should have ability2.");
 	}
 
 	/**
@@ -180,10 +180,10 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		pc.addTemplate(template);
 		// Need to do this to populate the ability list
 		//pc.getAutomaticAbilityList(BuildUtilities.getFeatCat());
-		assertTrue("Character should have ability1.", hasAbility(pc, BuildUtilities.getFeatCat(),
-			Nature.AUTOMATIC, ab1));
-		assertTrue("Character should have ability2.", hasAbility(pc, BuildUtilities.getFeatCat(),
-			Nature.AUTOMATIC, ab2));
+		assertTrue(hasAbility(pc, BuildUtilities.getFeatCat(),
+			Nature.AUTOMATIC, ab1), "Character should have ability1.");
+		assertTrue(hasAbility(pc, BuildUtilities.getFeatCat(),
+			Nature.AUTOMATIC, ab2), "Character should have ability2.");
 	}
 
 	/**
@@ -256,21 +256,21 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		// Add the template to the character
 		PlayerCharacter pc = getCharacter();
 		pc.addTemplate(template);
-		assertFalse("Character should not have ability1.", hasAbility(pc, cat,
-			Nature.AUTOMATIC, ab1));
-		assertTrue("Character should have ability2.", hasAbility(pc, cat,
-			Nature.AUTOMATIC, ab2));
+		assertFalse(hasAbility(pc, cat,
+			Nature.AUTOMATIC, ab1), "Character should not have ability1.");
+		assertTrue(hasAbility(pc, cat,
+			Nature.AUTOMATIC, ab2), "Character should have ability2.");
 		
 		// Level the character up, testing for when the level tag kicks in
 		pc.incrementClassLevel(1, testClass);
 		pc.calcActiveBonuses();
-		assertFalse("Character should not have ability1.", hasAbility(pc, cat,
-			Nature.AUTOMATIC, ab1));
+		assertFalse(hasAbility(pc, cat,
+			Nature.AUTOMATIC, ab1), "Character should not have ability1.");
 
 		pc.incrementClassLevel(1, testClass);
 		pc.calcActiveBonuses();
-		assertTrue("Character should have ability1.", hasAbility(pc, cat,
-			Nature.AUTOMATIC, ab1));
+		assertTrue(hasAbility(pc, cat,
+			Nature.AUTOMATIC, ab1), "Character should have ability1.");
 		
 	}
 
@@ -341,21 +341,21 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		// Add the template to the character
 		PlayerCharacter pc = getCharacter();
 		pc.addTemplate(template);
-		assertFalse("Character should not have ability1.", hasAbility(pc, BuildUtilities.getFeatCat(),
-			Nature.AUTOMATIC, ab1));
-		assertTrue("Character should have ability2.", hasAbility(pc, BuildUtilities.getFeatCat(),
-			Nature.AUTOMATIC, ab2));
+		assertFalse(hasAbility(pc, BuildUtilities.getFeatCat(),
+			Nature.AUTOMATIC, ab1), "Character should not have ability1.");
+		assertTrue(hasAbility(pc, BuildUtilities.getFeatCat(),
+			Nature.AUTOMATIC, ab2), "Character should have ability2.");
 		
 		// Level the character up, testing for when the level tag kicks in
 		pc.incrementClassLevel(1, testClass);
 		pc.calcActiveBonuses();
-		assertFalse("Character should not have ability1.", hasAbility(pc, BuildUtilities.getFeatCat(),
-			Nature.AUTOMATIC, ab1));
+		assertFalse(hasAbility(pc, BuildUtilities.getFeatCat(),
+			Nature.AUTOMATIC, ab1), "Character should not have ability1.");
 
 		pc.incrementClassLevel(1, testClass);
 		pc.calcActiveBonuses();
-		assertTrue("Character should have ability1.", hasAbility(pc, BuildUtilities.getFeatCat(),
-			Nature.AUTOMATIC, ab1));
+		assertTrue(hasAbility(pc, BuildUtilities.getFeatCat(),
+			Nature.AUTOMATIC, ab1), "Character should have ability1.");
 		
 	}
 

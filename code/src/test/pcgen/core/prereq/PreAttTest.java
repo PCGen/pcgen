@@ -17,8 +17,8 @@
  */
 package pcgen.core.prereq;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
@@ -64,20 +64,20 @@ public class PreAttTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREATT:6");
 
-		assertTrue("Character's BAB should be 6", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Character's BAB should be 6");
 
 		prereq = factory.parse("PREATT:7");
 
-		assertFalse("Character's BAB should be less than 7", PrereqHandler
-			.passes(prereq, character, null));
+		assertFalse(PrereqHandler
+			.passes(prereq, character, null), "Character's BAB should be less than 7");
 
 		final BonusObj toHitBonus = Bonus.newBonus(context, "COMBAT|TOHIT|1");
 		myClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, toHitBonus);
 		character.calcActiveBonuses();
 
-		assertFalse("Character's BAB should be less than 7", PrereqHandler
-			.passes(prereq, character, null));
+		assertFalse(PrereqHandler
+			.passes(prereq, character, null), "Character's BAB should be less than 7");
 	}
 
 	@BeforeEach

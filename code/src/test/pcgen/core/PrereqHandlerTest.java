@@ -1,6 +1,6 @@
 package pcgen.core;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.StringKey;
@@ -40,16 +40,16 @@ public class PrereqHandlerTest extends AbstractCharacterTestCase
 		pc.setRace(human);
 
 		AlignmentCompat.setCurrentAlignment(pc.getCharID(), le);
-		assertFalse("Non-negate returns false", PrereqHandler.passes(
-				prereq, pc, null));
-		assertFalse("Negate returns false", PrereqHandler.passes(
-				prereqNeg, pc, null));
+		assertFalse(PrereqHandler.passes(
+				prereq, pc, null), "Non-negate returns false");
+		assertFalse(PrereqHandler.passes(
+				prereqNeg, pc, null), "Negate returns false");
 
 		AlignmentCompat.setCurrentAlignment(pc.getCharID(), tn);
-		assertTrue("Non-negate returns true", PrereqHandler.passes(
-				prereq, pc, null));
-		assertTrue("Negate returns true", PrereqHandler.passes(
-				prereqNeg, pc, null));
+		assertTrue(PrereqHandler.passes(
+				prereq, pc, null), "Non-negate returns true");
+		assertTrue(PrereqHandler.passes(
+				prereqNeg, pc, null), "Negate returns true");
 	}
 
 	/**
@@ -68,15 +68,15 @@ public class PrereqHandlerTest extends AbstractCharacterTestCase
 		human.setName("Human");
 		pc.setRace(human);
 
-		assertTrue("No feat should return true", PrereqHandler.passes(prereq,
-			pc, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			pc, null), "No feat should return true");
 
 		final Ability ud = new Ability();
 		ud.setName("Uncanny Dodge");
 		ud.setCDOMCategory(BuildUtilities.getFeatCat());
 		ud.put(StringKey.KEY_NAME, "Uncanny Dodge");
 		addAbility(BuildUtilities.getFeatCat(), ud);
-		assertFalse("Feat should return false", PrereqHandler.passes(prereq,
-			pc, null));
+		assertFalse(PrereqHandler.passes(prereq,
+			pc, null), "Feat should return false");
 	}
 }

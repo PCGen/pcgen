@@ -17,7 +17,7 @@
  */
 package pcgen.io;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
 
@@ -78,7 +78,7 @@ public class PCGVer2ParserCharacterTest extends AbstractCharacterTestCase
 		
 		PersistentTransitionChoice<?> tc = rakshasha.getListFor(ListKey.ADD).get(0);
 		List<Object> assocList = pc.getAssocList(tc, AssociationListKey.ADD);
-		assertEquals("Number of associations for ADD " + assocList, 1, assocList.size());
+		assertEquals(1, assocList.size(), "Number of associations for ADD " + assocList);
 	}
 
 	@Override

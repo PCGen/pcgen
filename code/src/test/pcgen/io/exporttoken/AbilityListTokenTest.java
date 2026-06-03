@@ -19,7 +19,7 @@ package pcgen.io.exporttoken;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.closeTo;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
 
@@ -85,20 +85,11 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 		ExportHandler eh = ExportHandler.createExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
-		assertEquals(
-			"ABILITYLIST.FEAT",
-			tok.getToken("ABILITYLIST.FEAT", character, eh), "Perform (Dance), Perform (Oratory), Silent Step"
-		);
+		assertEquals(tok.getToken("ABILITYLIST.FEAT", character, eh), "Perform (Dance), Perform (Oratory), Silent Step", "ABILITYLIST.FEAT");
 
-		assertEquals(
-			"ABILITYLIST.FEAT.TYPE=Fighter",
-			tok.getToken("ABILITYLIST.FEAT.TYPE=Fighter", character, eh), "Perform (Dance), Perform (Oratory)"
-		);
+		assertEquals(tok.getToken("ABILITYLIST.FEAT.TYPE=Fighter", character, eh), "Perform (Dance), Perform (Oratory)", "ABILITYLIST.FEAT.TYPE=Fighter");
 
-		assertEquals(
-			"ABILITYLIST.FEAT.!TYPE=Fighter",
-			tok.getToken("ABILITYLIST.FEAT.!TYPE=Fighter", character, eh), "Silent Step"
-		);
+		assertEquals(tok.getToken("ABILITYLIST.FEAT.!TYPE=Fighter", character, eh), "Silent Step", "ABILITYLIST.FEAT.!TYPE=Fighter");
 	}
 
 	/**
@@ -111,10 +102,7 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 		ExportHandler eh = ExportHandler.createExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
-		assertEquals(
-			"ABILITYLIST.BARDIC",
-			tok.getToken("ABILITYLIST.BARDIC", character, eh), "Perform (Dance)"
-		);
+		assertEquals(tok.getToken("ABILITYLIST.BARDIC", character, eh), "Perform (Dance)", "ABILITYLIST.BARDIC");
 	}
 
 	/**
@@ -186,15 +174,13 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 				"|FOR,%feat,0,count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=VISIBLE\")-1,1,0|";
 
 		List<String> result = ExportHandler.getParameters(testStr);
-		assertEquals("Complex split len", 6, result.size());
-		assertEquals("Complex split combined token 0", "|FOR", result.get(0));
-		assertEquals("Complex split combined token 1", "%feat", result.get(1));
-		assertEquals("Complex split combined token 2", "0", result.get(2));
-		assertEquals("Complex split combined token 3",
-			"count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=VISIBLE\")-1",
-			result.get(3));
-		assertEquals("Complex split combined token 4", "1", result.get(4));
-		assertEquals("Complex split combined token 5", "0|", result.get(5));
+		assertEquals(6, result.size(), "Complex split len");
+		assertEquals("|FOR", result.get(0), "Complex split combined token 0");
+		assertEquals("%feat", result.get(1), "Complex split combined token 1");
+		assertEquals("0", result.get(2), "Complex split combined token 2");
+		assertEquals("count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=VISIBLE\")-1", result.get(3), "Complex split combined token 3");
+		assertEquals("1", result.get(4), "Complex split combined token 4");
+		assertEquals("0|", result.get(5), "Complex split combined token 5");
 	}
 
 	@Test
@@ -204,6 +190,6 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 				"|FOR,%equip1,0,(COUNT[EQUIPMENT.MERGELOC.Not.Coin.NOT.Gem]-1)/2,1,0|";
 
 		List<String> result = ExportHandler.getParameters(testStr);
-		assertEquals("Complex split len", 6, result.size());
+		assertEquals(6, result.size(), "Complex split len");
 	}
 }

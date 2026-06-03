@@ -18,8 +18,8 @@
 
 package pcgen.core.prereq;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
@@ -58,13 +58,13 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 		Prerequisite prereq =
 				parser.parse("ability", "1,CATEGORY.BARDIC,ANY",
 					false, false);
-		assertFalse("Test any match with no abilities.", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Test any match with no abilities.");
 
 		addAbility(TestHelper.getAbilityCategory(ab2), ab2);
 
-		assertTrue("Test any match with an ability.", PrereqHandler.passes(
-			prereq, character, null));
+		assertTrue(PrereqHandler.passes(
+			prereq, character, null), "Test any match with an ability.");
 		
 	}
 
@@ -86,20 +86,20 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 		Prerequisite prereq2 =
 			parser.parse("ability", "1,CATEGORY.BARDIC,ANY",
 				false, false);
-		assertFalse("Test bardic match with no abilities.", PrereqHandler.passes(
-				prereq2, character, null));
+		assertFalse(PrereqHandler.passes(
+				prereq2, character, null), "Test bardic match with no abilities.");
 		Prerequisite prereq3 =
 			parser.parse("ability", "1,CATEGORY.FEAT,ANY",
 				false, false);
-		assertFalse("Test feat match with no abilities.", PrereqHandler.passes(
-			prereq3, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq3, character, null), "Test feat match with no abilities.");
 
 		addAbility(TestHelper.getAbilityCategory(ab2), ab2);
 
-		assertTrue("Test bardic match with an ability.", PrereqHandler.passes(
-			prereq2, character, null));
-		assertFalse("Test feat match with an ability.", PrereqHandler.passes(
-			prereq3, character, null));
+		assertTrue(PrereqHandler.passes(
+			prereq2, character, null), "Test bardic match with an ability.");
+		assertFalse(PrereqHandler.passes(
+			prereq3, character, null), "Test feat match with an ability.");
 		
 	}
 
@@ -121,27 +121,27 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 		Prerequisite prereq =
 				parser.parse("ability", "1,CATEGORY.BARDIC,KEY_Dancer",
 					false, false);
-		assertFalse("Test any match with no abilities.", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Test any match with no abilities.");
 		Prerequisite prereq2 =
 			parser.parse("ability", "1,CATEGORY.BARDIC,KEY_Alertness",
 				false, false);
-		assertFalse("Test bardic match with no abilities.", PrereqHandler.passes(
-				prereq2, character, null));
+		assertFalse(PrereqHandler.passes(
+				prereq2, character, null), "Test bardic match with no abilities.");
 		Prerequisite prereq3 =
 			parser.parse("ability", "1,CATEGORY.FEAT,KEY_Dancer",
 				false, false);
-		assertFalse("Test feat match with no abilities.", PrereqHandler.passes(
-			prereq3, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq3, character, null), "Test feat match with no abilities.");
 
 		addAbility(TestHelper.getAbilityCategory(ab2), ab2);
 
-		assertTrue("Test any match with an ability.", PrereqHandler.passes(
-			prereq, character, null));
-		assertFalse("Test bardic match with an ability.", PrereqHandler.passes(
-			prereq2, character, null));
-		assertFalse("Test feat match with an ability.", PrereqHandler.passes(
-			prereq3, character, null));
+		assertTrue(PrereqHandler.passes(
+			prereq, character, null), "Test any match with an ability.");
+		assertFalse(PrereqHandler.passes(
+			prereq2, character, null), "Test bardic match with an ability.");
+		assertFalse(PrereqHandler.passes(
+			prereq3, character, null), "Test feat match with an ability.");
 		
 	}
 
@@ -162,26 +162,26 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 		Prerequisite prereq =
 				parser.parse("ability", "1,CATEGORY.BARDIC,TYPE.General", false,
 					false);
-		assertFalse("Test general type match with no abilities.", PrereqHandler
-			.passes(prereq, character, null));
+		assertFalse(PrereqHandler
+			.passes(prereq, character, null), "Test general type match with no abilities.");
 		Prerequisite prereq2 =
 				parser.parse("ability", "1,CATEGORY.BARDIC,TYPE.Bardic", false,
 					false);
-		assertFalse("Test bardic type match with no abilities.", PrereqHandler
-			.passes(prereq2, character, null));
+		assertFalse(PrereqHandler
+			.passes(prereq2, character, null), "Test bardic type match with no abilities.");
 		Prerequisite prereq3 =
 				parser.parse("ability", "1,CATEGORY.BARDIC,TYPE.Fighter", false, false);
-		assertFalse("Test fighter type match with no abilities.", PrereqHandler
-			.passes(prereq3, character, null));
+		assertFalse(PrereqHandler
+			.passes(prereq3, character, null), "Test fighter type match with no abilities.");
 
 		addAbility(TestHelper.getAbilityCategory(ab2), ab2);
 
-		assertTrue("Test general type  match with an ability.", PrereqHandler
-			.passes(prereq, character, null));
-		assertTrue("Test bardic type match with an ability.", PrereqHandler
-			.passes(prereq2, character, null));
-		assertFalse("Test fighter type match with an ability.", PrereqHandler
-			.passes(prereq3, character, null));
+		assertTrue(PrereqHandler
+			.passes(prereq, character, null), "Test general type  match with an ability.");
+		assertTrue(PrereqHandler
+			.passes(prereq2, character, null), "Test bardic type match with an ability.");
+		assertFalse(PrereqHandler
+			.passes(prereq3, character, null), "Test fighter type match with an ability.");
 	}
 
 	/**
@@ -208,27 +208,27 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 		Prerequisite prereq =
 				parser.parse("ability", "1,CATEGORY.BARDIC,KEY_Dancer",
 					false, false);
-		assertFalse("Test any match with no abilities.", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Test any match with no abilities.");
 		Prerequisite prereq2 =
 			parser.parse("ability", "1,CATEGORY.BARDIC,KEY_Alertness",
 				false, false);
-		assertFalse("Test bardic match with no abilities.", PrereqHandler.passes(
-				prereq2, character, null));
+		assertFalse(PrereqHandler.passes(
+				prereq2, character, null), "Test bardic match with no abilities.");
 		Prerequisite prereq3 =
 			parser.parse("ability", "1,CATEGORY.FEAT,KEY_Dancer",
 				false, false);
-		assertFalse("Test feat match with no abilities.", PrereqHandler.passes(
-			prereq3, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq3, character, null), "Test feat match with no abilities.");
 
 		addAbility(TestHelper.getAbilityCategory(ab2), ab2);
 
-		assertTrue("Test any match with an ability.", PrereqHandler.passes(
-			prereq, character, null));
-		assertFalse("Servesas non existant ability should not cause match.", PrereqHandler.passes(
-			prereq2, character, null));
-		assertTrue("Servesas should cause match.", PrereqHandler.passes(
-			prereq3, character, null));
+		assertTrue(PrereqHandler.passes(
+			prereq, character, null), "Test any match with an ability.");
+		assertFalse(PrereqHandler.passes(
+			prereq2, character, null), "Servesas non existant ability should not cause match.");
+		assertTrue(PrereqHandler.passes(
+			prereq3, character, null), "Servesas should cause match.");
 		
 	}
 
@@ -251,26 +251,26 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 		Prerequisite prereq =
 				parser.parse("ability", "1,CATEGORY.BARDIC,TYPE.General", false,
 					false);
-		assertFalse("Test general type match with no abilities.", PrereqHandler
-			.passes(prereq, character, null));
+		assertFalse(PrereqHandler
+			.passes(prereq, character, null), "Test general type match with no abilities.");
 		Prerequisite prereq2 =
 				parser.parse("ability", "1,CATEGORY.BARDIC,TYPE.Bardic", false,
 					false);
-		assertFalse("Test bardic type match with no abilities.", PrereqHandler
-			.passes(prereq2, character, null));
+		assertFalse(PrereqHandler
+			.passes(prereq2, character, null), "Test bardic type match with no abilities.");
 		Prerequisite prereq3 =
 				parser.parse("ability", "1,CATEGORY.BARDIC,TYPE.Fighter", false, false);
-		assertFalse("Test fighter type match with no abilities.", PrereqHandler
-			.passes(prereq3, character, null));
+		assertFalse(PrereqHandler
+			.passes(prereq3, character, null), "Test fighter type match with no abilities.");
 
 		addAbility(TestHelper.getAbilityCategory(ab2), ab2);
 
-		assertTrue("Test general type  match with an ability.", PrereqHandler
-			.passes(prereq, character, null));
-		assertTrue("Test bardic type match with an ability.", PrereqHandler
-			.passes(prereq2, character, null));
-		assertTrue("Test fighter type match with SERVESAS ability.", PrereqHandler
-			.passes(prereq3, character, null));
+		assertTrue(PrereqHandler
+			.passes(prereq, character, null), "Test general type  match with an ability.");
+		assertTrue(PrereqHandler
+			.passes(prereq2, character, null), "Test bardic type match with an ability.");
+		assertTrue(PrereqHandler
+			.passes(prereq3, character, null), "Test fighter type match with SERVESAS ability.");
 	}
 
 	/**
@@ -293,20 +293,20 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 		Prerequisite prereq2 =
 			parser.parse("ability", "1,CATEGORY.BARDIC,ANY",
 				false, false);
-		assertFalse("Test bardic match with no abilities.", PrereqHandler.passes(
-				prereq2, character, null));
+		assertFalse(PrereqHandler.passes(
+				prereq2, character, null), "Test bardic match with no abilities.");
 		Prerequisite prereq3 =
 			parser.parse("ability", "1,CATEGORY.FEAT,ANY",
 				false, false);
-		assertFalse("Test feat match with no abilities.", PrereqHandler.passes(
-			prereq3, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq3, character, null), "Test feat match with no abilities.");
 
 		addAbility(TestHelper.getAbilityCategory(ab2), ab2);
 
-		assertTrue("Test bardic match with an ability.", PrereqHandler.passes(
-			prereq2, character, null));
-		assertTrue("Test feat match with an ability.", PrereqHandler.passes(
-			prereq3, character, null));
+		assertTrue(PrereqHandler.passes(
+			prereq2, character, null), "Test bardic match with an ability.");
+		assertTrue(PrereqHandler.passes(
+			prereq3, character, null), "Test feat match with an ability.");
 		
 	}
 	

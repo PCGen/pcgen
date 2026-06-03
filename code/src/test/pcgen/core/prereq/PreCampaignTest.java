@@ -17,8 +17,8 @@
  */
 package pcgen.core.prereq;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -89,22 +89,19 @@ public class PreCampaignTest extends AbstractCharacterTestCase
 		
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		Prerequisite preCamp1 = factory.parse("PRECAMPAIGN:1,Camp1");
-		assertFalse("Nonpresent campaign should not be found",
-			PrereqHandler.passes(preCamp1, null, sourceCamp));
+		assertFalse(PrereqHandler.passes(preCamp1, null, sourceCamp), "Nonpresent campaign should not be found");
 
 		uris = new ArrayList<>();
 		uris.add(camp1.getSourceURI());
 		pmgr.setChosenCampaignSourcefiles(uris);
 
-		assertTrue("Present campaign should be found",
-			PrereqHandler.passes(preCamp1, null, sourceCamp));
+		assertTrue(PrereqHandler.passes(preCamp1, null, sourceCamp), "Present campaign should be found");
 
 		uris.add(camp2KeyParent.getSourceURI());
 		pmgr.setChosenCampaignSourcefiles(uris);
 
 		Prerequisite preCamp3 = factory.parse("PRECAMPAIGN:1,Camp3");
-		assertFalse("Present but nested campaign should not be found",
-			PrereqHandler.passes(preCamp3, null, sourceCamp));
+		assertFalse(PrereqHandler.passes(preCamp3, null, sourceCamp), "Present but nested campaign should not be found");
 	}
 	
 	/**
@@ -123,20 +120,17 @@ public class PreCampaignTest extends AbstractCharacterTestCase
 		
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		Prerequisite preCamp1 = factory.parse("PRECAMPAIGN:1,BOOKTYPE=Wild");
-		assertFalse("No typed campaign should be found",
-			PrereqHandler.passes(preCamp1, null, sourceCamp));
+		assertFalse(PrereqHandler.passes(preCamp1, null, sourceCamp), "No typed campaign should be found");
 
 		uris.add(camp6TypeParent.getSourceURI());
 		pmgr.setChosenCampaignSourcefiles(uris);
 
-		assertFalse("Nested typed campaign should not be found",
-			PrereqHandler.passes(preCamp1, null, sourceCamp));
+		assertFalse(PrereqHandler.passes(preCamp1, null, sourceCamp), "Nested typed campaign should not be found");
 
 		uris.add(camp4Wild.getSourceURI());
 		pmgr.setChosenCampaignSourcefiles(uris);
 
-		assertTrue("Typed campaign should be found",
-			PrereqHandler.passes(preCamp1, null, sourceCamp));
+		assertTrue(PrereqHandler.passes(preCamp1, null, sourceCamp), "Typed campaign should be found");
 	}
 	
 	/**
@@ -155,14 +149,12 @@ public class PreCampaignTest extends AbstractCharacterTestCase
 		
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		Prerequisite preCampaign = factory.parse("PRECAMPAIGN:1,INCLUDES=Camp3");
-		assertFalse("Nonpresent campaign should not be found",
-			PrereqHandler.passes(preCampaign, null, sourceCamp));
+		assertFalse(PrereqHandler.passes(preCampaign, null, sourceCamp), "Nonpresent campaign should not be found");
 
 		uris.add(camp2KeyParent.getSourceURI());
 		pmgr.setChosenCampaignSourcefiles(uris);
 
-		assertTrue("Present but nested campaign should be found",
-			PrereqHandler.passes(preCampaign, null, sourceCamp));
+		assertTrue(PrereqHandler.passes(preCampaign, null, sourceCamp), "Present but nested campaign should be found");
 		
 	}
 	
@@ -182,14 +174,12 @@ public class PreCampaignTest extends AbstractCharacterTestCase
 		
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		Prerequisite preCamp1 = factory.parse("PRECAMPAIGN:1,INCLUDESBOOKTYPE=Wild");
-		assertFalse("No typed campaign should be found",
-			PrereqHandler.passes(preCamp1, null, sourceCamp));
+		assertFalse(PrereqHandler.passes(preCamp1, null, sourceCamp), "No typed campaign should be found");
 
 		uris.add(camp6TypeParent.getSourceURI());
 		pmgr.setChosenCampaignSourcefiles(uris);
 
-		assertTrue("Nested typed campaign should be found",
-			PrereqHandler.passes(preCamp1, null, sourceCamp));
+		assertTrue(PrereqHandler.passes(preCamp1, null, sourceCamp), "Nested typed campaign should be found");
 		
 	}
 

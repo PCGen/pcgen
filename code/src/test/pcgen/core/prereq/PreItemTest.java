@@ -17,8 +17,8 @@
  */
 package pcgen.core.prereq;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.Type;
@@ -59,13 +59,13 @@ public class PreItemTest extends AbstractCharacterTestCase
 
 		longsword.setName("Longsword (Masterwork)");
 
-		assertFalse("Should be an exact match only", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Should be an exact match only");
 
 		prereq.setKey("LONGSWORD%");
 
-		assertTrue("Should be allow wildcard match", PrereqHandler.passes(
-			prereq, character, null));
+		assertTrue(PrereqHandler.passes(
+			prereq, character, null), "Should be allow wildcard match");
 	}
 
 	/**
@@ -89,24 +89,24 @@ public class PreItemTest extends AbstractCharacterTestCase
 		prereq.setOperand("1");
 		prereq.setOperator(PrerequisiteOperator.EQ);
 
-		assertFalse("Equipment has no type", PrereqHandler.passes(prereq,
-			character, null));
+		assertFalse(PrereqHandler.passes(prereq,
+			character, null), "Equipment has no type");
 
 		longsword.addType(Type.WEAPON);
 
-		assertTrue("Equipment is weapon", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Equipment is weapon");
 
 		prereq.setKey("TYPE.Armor");
 
-		assertFalse("Equipment is not armor", PrereqHandler.passes(prereq,
-			character, null));
+		assertFalse(PrereqHandler.passes(prereq,
+			character, null), "Equipment is not armor");
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREITEM:2,TYPE=Armor,Longsword%");
 
-		assertFalse("Doesn't have armor", PrereqHandler.passes(prereq,
-			character, null));
+		assertFalse(PrereqHandler.passes(prereq,
+			character, null), "Doesn't have armor");
 
 		final Equipment leather = new Equipment();
 		leather.setName("Leather");
@@ -114,8 +114,8 @@ public class PreItemTest extends AbstractCharacterTestCase
 
 		character.addEquipment(leather);
 
-		assertTrue("Armor and sword present", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Armor and sword present");
 	}
 
 }
