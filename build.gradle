@@ -212,9 +212,9 @@ dependencies {
 
     implementation fileTree(dir: 'mods/lib', include: ['javafx.*.jar'])
 
-    implementation 'org.springframework:spring-web:7.0.7'
-    implementation 'org.springframework:spring-beans:7.0.7'
-    implementation 'org.springframework:spring-core:7.0.7'
+    implementation platform('org.springframework:spring-framework-bom:7.0.7')
+    implementation 'org.springframework:spring-beans'
+    implementation 'org.springframework:spring-core'
     implementation 'org.apache.commons:commons-lang3:3.20.0'
     implementation('org.apache.xmlgraphics:fop:2.11') {
         exclude group: 'xml-apis', module: 'xml-apis'
