@@ -52,48 +52,48 @@ public final class SkillModifier
 		{
 			PCStat stat = statref.get();
 			bonus = aPC.getStatModFor(stat);
-			bonus += aPC.getTotalBonusTo("SKILL", "STAT." + stat.getKeyName());
+			bonus += (int) aPC.getTotalBonusTo("SKILL", "STAT." + stat.getKeyName());
 		}
-		bonus += aPC.getTotalBonusTo("SKILL", keyName);
+		bonus += (int) aPC.getTotalBonusTo("SKILL", keyName);
 
 		// loop through all current skill types checking for boni
 		for (Type singleType : sk.getTrueTypeList(false))
 		{
-			bonus += aPC.getTotalBonusTo("SKILL", "TYPE." + singleType);
+			bonus += (int) aPC.getTotalBonusTo("SKILL", "TYPE." + singleType);
 		}
 
 		// now check for any lists of skills, etc
-		bonus += aPC.getTotalBonusTo("SKILL", "LIST");
+		bonus += (int) aPC.getTotalBonusTo("SKILL", "LIST");
 
 		// now check for ALL
-		bonus += aPC.getTotalBonusTo("SKILL", "ALL");
+		bonus += (int) aPC.getTotalBonusTo("SKILL", "ALL");
 
 		// these next two if-blocks try to get BONUS:[C]CSKILL|TYPE=xxx|y to
 		// function
 		if (aPC.isClassSkill(sk))
 		{
-			bonus += aPC.getTotalBonusTo("CSKILL", keyName);
+			bonus += (int) aPC.getTotalBonusTo("CSKILL", keyName);
 
 			// loop through all current skill types checking for boni
 			for (Type singleType : sk.getTrueTypeList(false))
 			{
-				bonus += aPC.getTotalBonusTo("CSKILL", "TYPE." + singleType);
+				bonus += (int) aPC.getTotalBonusTo("CSKILL", "TYPE." + singleType);
 			}
 
-			bonus += aPC.getTotalBonusTo("CSKILL", "LIST");
+			bonus += (int) aPC.getTotalBonusTo("CSKILL", "LIST");
 		}
 
 		if (!aPC.isClassSkill(sk) && !sk.getSafe(ObjectKey.EXCLUSIVE))
 		{
-			bonus += aPC.getTotalBonusTo("CCSKILL", keyName);
+			bonus += (int) aPC.getTotalBonusTo("CCSKILL", keyName);
 
 			// loop through all current skill types checking for boni
 			for (Type singleType : sk.getTrueTypeList(false))
 			{
-				bonus += aPC.getTotalBonusTo("CCSKILL", "TYPE." + singleType);
+				bonus += (int) aPC.getTotalBonusTo("CCSKILL", "TYPE." + singleType);
 			}
 
-			bonus += aPC.getTotalBonusTo("CCSKILL", "LIST");
+			bonus += (int) aPC.getTotalBonusTo("CCSKILL", "LIST");
 		}
 
 		// the above two if-blocks try to get
@@ -129,7 +129,7 @@ public final class SkillModifier
 				SkillInfoUtilities.getKeyStatList(pc, sk, typeList);
                 for (Type type : typeList)
                 {
-                    statMod += pc.getTotalBonusTo("SKILL", "TYPE." + type);
+                    statMod += (int) pc.getTotalBonusTo("SKILL", "TYPE." + type);
                 }
 			}
 			return statMod;
