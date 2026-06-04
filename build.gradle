@@ -17,6 +17,7 @@ import org.apache.tools.ant.filters.FixCrLfFilter
 import org.apache.tools.ant.taskdefs.condition.Os
 
 import de.undercouch.gradle.tasks.download.Download
+import org.beryx.jlink.data.JdepsUsage
 
 /**
  * Plugins without versions are ones that are bundled with Gradle at the version
@@ -307,9 +308,14 @@ jlink {
                'freemarker', 'argparse4j', 'xmlunit', 'controlsfx',
                'annotations', 'spotbugs', 'xmlresolver')
 
+    // Resolve packages → modules with the JDK's jdeps; the plugin's default
+    // resolver silently misses JDK modules on some distros (e.g. Temurin 25).
+    useJdeps.set(JdepsUsage.exclusively)
+
     mergedModule {
         additive = true
-        // List only modules NOT auto-derived by jlink — duplicates fail compilation (jlink plugin >= 4.0.1).
+        // jdeps already derives the JDK modules our merged jars reference;
+        // list only modules it cannot derive (loaded reflectively / via SPI).
         requires 'java.naming'
         requires 'java.scripting'
         requires 'java.management'
