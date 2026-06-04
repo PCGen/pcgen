@@ -540,6 +540,7 @@ tasks.register("downloadJdk", Download) {
     overwrite false
     useETag true
     tempAndMove true
+    mustRunAfter clean
 }
 
 tasks.register("extractJdk", Copy) {
@@ -572,6 +573,7 @@ tasks.register("downloadJfxMods", Download) {
     overwrite false
     useETag true
     tempAndMove true
+    mustRunAfter clean
 }
 
 tasks.register("extractJfxMods", Copy) {
@@ -628,6 +630,7 @@ tasks.register("downloadJavaFXLocal", Download) {
     overwrite false
     useETag true
     tempAndMove true
+    mustRunAfter clean
 }
 
 tasks.register("extractJavaFXLocal", Copy) {
