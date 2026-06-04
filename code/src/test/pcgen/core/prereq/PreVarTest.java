@@ -4,11 +4,11 @@
  */
 package pcgen.core.prereq;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -57,16 +57,16 @@ public class PreVarTest extends AbstractCharacterTestCase
 				"1,count(\"ABILITIES\",\"CATEGORY=BARDIC\",\"NAME=Dancer\")",
 				false, false);
 
-		assertFalse("Test matches with no abilities.", PrereqHandler.passes(
-				prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+				prereq, character, null), "Test matches with no abilities.");
 
 		Ability ab2 = TestHelper.makeAbility("Dancer", "BARDIC",
 				"General.Bardic");
 		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		addAbility(TestHelper.getAbilityCategory(ab2), ab2);
 
-		assertTrue("Test fails with ability present.", PrereqHandler.passes(
-				prereq, character, null));
+		assertTrue(PrereqHandler.passes(
+				prereq, character, null), "Test fails with ability present.");
 	}
 
 	@Test
@@ -80,18 +80,18 @@ public class PreVarTest extends AbstractCharacterTestCase
 		PreVariableParser parser = new PreVariableParser();
 		Prerequisite prereq = parser.parse("VAR", "abs(STR),1,abs(DEX),3",
 				false, false);
-		assertFalse("Test matches with no stats passing", PrereqHandler.passes(
-				prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+				prereq, character, null), "Test matches with no stats passing");
 
 		setPCStat(character, str, 12);
 		character.calcActiveBonuses();
-		assertFalse("Test matches with no stats passing", PrereqHandler.passes(
-				prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+				prereq, character, null), "Test matches with no stats passing");
 
 		setPCStat(character, dex, 16);
 		character.calcActiveBonuses();
-		assertTrue("Test should match now both stats pass", PrereqHandler
-				.passes(prereq, character, null));
+		assertTrue(PrereqHandler
+				.passes(prereq, character, null), "Test should match now both stats pass");
 
 	}
 
@@ -106,18 +106,18 @@ public class PreVarTest extends AbstractCharacterTestCase
 		PreVariableParser parser = new PreVariableParser();
 		Prerequisite prereq = parser.parse("VAR", "abs(STR),1,abs(DEX),3",
 				true, false);
-		assertTrue("Test matches with no stats passing", PrereqHandler.passes(
-				prereq, character, null));
+		assertTrue(PrereqHandler.passes(
+				prereq, character, null), "Test matches with no stats passing");
 
 		setPCStat(character, str, 12);
 		character.calcActiveBonuses();
-		assertTrue("Test matches with no stats passing", PrereqHandler.passes(
-				prereq, character, null));
+		assertTrue(PrereqHandler.passes(
+				prereq, character, null), "Test matches with no stats passing");
 
 		setPCStat(character, dex, 16);
 		character.calcActiveBonuses();
-		assertFalse("Test should match now both stats pass", PrereqHandler
-				.passes(prereq, character, null));
+		assertFalse(PrereqHandler
+				.passes(prereq, character, null), "Test should match now both stats pass");
 
 	}
 

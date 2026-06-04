@@ -15,7 +15,7 @@
  */
 package tokencontent;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
@@ -69,7 +69,7 @@ public class GlobalModifyTest extends AbstractContentTokenTest
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages(TestURI.getURI());
-			assertEquals("Test Setup Failed", ParseResult.SUCCESS, result);
+			assertEquals(ParseResult.SUCCESS, result, "Test Setup Failed");
 		}
 		finishLoad();
 	}

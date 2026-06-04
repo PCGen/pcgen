@@ -17,8 +17,8 @@
  */
 package pcgen.gui2.facade;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.PlayerCharacter;
@@ -52,12 +52,11 @@ public class CharacterFacadeImplTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = new PlayerCharacter();
 		CharacterFacadeImpl charFacade =
 				new CharacterFacadeImpl(pc, uiDelegate, dataset);
-		assertNotNull("Unable to create CharacterFacadeImpl", charFacade);
+		assertNotNull(charFacade, "Unable to create CharacterFacadeImpl");
 		EquipSet defaultEquipSet =
 				pc.getEquipSetByIdPath(EquipSet.DEFAULT_SET_PATH);
-		assertNotNull("Unable to find default equip set", defaultEquipSet);
-		assertEquals("Incorrect id of the default equip set",
-			EquipSet.DEFAULT_SET_PATH, defaultEquipSet.getIdPath());
+		assertNotNull(defaultEquipSet, "Unable to find default equip set");
+		assertEquals(EquipSet.DEFAULT_SET_PATH, defaultEquipSet.getIdPath(), "Incorrect id of the default equip set");
 	}
 
 	@BeforeEach

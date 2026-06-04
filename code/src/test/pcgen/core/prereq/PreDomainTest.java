@@ -17,8 +17,8 @@
  */
 package pcgen.core.prereq;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.SimpleAssociatedObject;
@@ -64,21 +64,21 @@ public class PreDomainTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREDOMAIN:1,Good");
 
-		assertFalse("Character has no deity selected", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Character has no deity selected");
 
 		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
 		ChannelUtilities.setControlledChannel(character.getCharID(),
 			CControl.DEITYINPUT, deity);
 
-		assertFalse("Character's deity has Good domain", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Character's deity has Good domain");
 
 		character.addDomain(Globals.getContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(Domain.class, "Good"));
 
-		assertTrue("Character has Good domain", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Character has Good domain");
 	}
 
 	/**
@@ -97,34 +97,33 @@ public class PreDomainTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREDOMAIN:1,Good,Law");
 
-		assertFalse("Character has no deity selected", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Character has no deity selected");
 
 		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
 		ChannelUtilities.setControlledChannel(character.getCharID(),
 			CControl.DEITYINPUT, deity);
 
-		assertFalse("Character's deity has Good domain", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Character's deity has Good domain");
 
 		character.addDomain(Globals.getContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(Domain.class, "Good"));
 
-		assertTrue("Character has Good domain", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Character has Good domain");
 
 		prereq = factory.parse("PREDOMAIN:2,Good,Law");
 
-		assertFalse("Character doesn't have Law domain", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Character doesn't have Law domain");
 
 		prereq = factory.parse("PREDOMAIN:2,Good,Animal");
 
 		character.addDomain(Globals.getContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(Domain.class, "Animal"));
 
-		assertTrue("Character's deity has Good and animal domains",
-			PrereqHandler.passes(prereq, character, null));
+		assertTrue(PrereqHandler.passes(prereq, character, null), "Character's deity has Good and animal domains");
 	}
 	
 	/**
@@ -143,25 +142,25 @@ public class PreDomainTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREDOMAIN:1,ANY");
 
-		assertFalse("Character has no domains", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Character has no domains");
 
 		character.addDomain(Globals.getContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(Domain.class, "Good"));
 
-		assertTrue("Character has one domain", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Character has one domain");
 		
 		prereq = factory.parse("PREDOMAIN:2,ANY");
 
-		assertFalse("Character has only one domain", PrereqHandler.passes(
-				prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+				prereq, character, null), "Character has only one domain");
 		
 		character.addDomain(Globals.getContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(Domain.class, "Animal"));
 		
-		assertTrue("Character has two domains", PrereqHandler.passes(
-				prereq, character, null));
+		assertTrue(PrereqHandler.passes(
+				prereq, character, null), "Character has two domains");
 		
 	}
 

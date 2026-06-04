@@ -17,8 +17,8 @@
  */
 package pcgen.core.prereq;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.EquipmentLocation;
@@ -73,13 +73,13 @@ public class PreEquipSecondaryTest extends AbstractCharacterTestCase
 
 		longsword.setName("Longsword (Masterwork)");
 
-		assertFalse("Should be an exact match only", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Should be an exact match only");
 
 		prereq.setKey("LONGSWORD%");
 
-		assertTrue("Should allow wildcard match", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Should allow wildcard match");
 	}
 
 	/**
@@ -104,18 +104,18 @@ public class PreEquipSecondaryTest extends AbstractCharacterTestCase
 		prereq.setOperand("1");
 		prereq.setOperator(PrerequisiteOperator.EQ);
 
-		assertFalse("Equipment has no type", PrereqHandler.passes(prereq,
-			character, null));
+		assertFalse(PrereqHandler.passes(prereq,
+			character, null), "Equipment has no type");
 
 		longsword.addType(Type.WEAPON);
 
-		assertTrue("Equipment is weapon", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Equipment is weapon");
 
 		prereq.setKey("TYPE.Armor");
 
-		assertFalse("Equipment is not armor", PrereqHandler.passes(prereq,
-			character, null));
+		assertFalse(PrereqHandler.passes(prereq,
+			character, null), "Equipment is not armor");
 	}
 
 	/**
@@ -153,14 +153,14 @@ public class PreEquipSecondaryTest extends AbstractCharacterTestCase
 		longsword.put(ObjectKey.SIZE, smallRef);
 		longsword.put(ObjectKey.BASESIZE, smallRef);
 
-		assertTrue("Weapon is S therefore Light", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Weapon is S therefore Light");
 
 		longsword.put(ObjectKey.SIZE, mediumRef);
 		longsword.put(ObjectKey.BASESIZE, mediumRef);
 
-		assertFalse("Weapon is M therefore OneHanded", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Weapon is M therefore OneHanded");
 
 		// Test 3.5 style
 		longsword.put(ObjectKey.SIZE, mediumRef);
@@ -168,14 +168,14 @@ public class PreEquipSecondaryTest extends AbstractCharacterTestCase
 		longsword.put(ObjectKey.WIELD, context.getReferenceContext().silentlyGetConstructedCDOMObject(
 				WieldCategory.class, "OneHanded"));
 
-		assertFalse("Weapon is OneHanded", PrereqHandler.passes(prereq,
-			character, null));
+		assertFalse(PrereqHandler.passes(prereq,
+			character, null), "Weapon is OneHanded");
 
 		longsword.put(ObjectKey.WIELD, context.getReferenceContext().silentlyGetConstructedCDOMObject(
 				WieldCategory.class, "Light"));
 
-		assertTrue("Weapon is Light", PrereqHandler.passes(prereq, character,
-			null));
+		assertTrue(PrereqHandler.passes(prereq, character,
+			null), "Weapon is Light");
 
 	}
 
@@ -203,19 +203,16 @@ public class PreEquipSecondaryTest extends AbstractCharacterTestCase
 		final Prerequisite prereqDaggerNotSec =
 				PreParserFactory.getInstance().parse(
 					"!PREEQUIPSECONDARY:1,Dagger");
-		assertTrue("Dagger not equipped",
-			PrereqHandler.passes(prereqDaggerNotSec, character, null));
+		assertTrue(PrereqHandler.passes(prereqDaggerNotSec, character, null), "Dagger not equipped");
 
 		character.addEquipment(dagger);
 		dagger.setIsEquipped(true, character);
 		dagger.setLocation(EquipmentLocation.EQUIPPED_PRIMARY);
-		assertTrue("Dagger not equipped",
-			PrereqHandler.passes(prereqDaggerNotSec, character, null));
+		assertTrue(PrereqHandler.passes(prereqDaggerNotSec, character, null), "Dagger not equipped");
 
 		final Prerequisite prereqLongswordNotSec =
 				PreParserFactory.getInstance().parse(
 					"!PREEQUIPSECONDARY:1,Longsword");
-		assertFalse("Longsword equipped",
-			PrereqHandler.passes(prereqLongswordNotSec, character, null));
+		assertFalse(PrereqHandler.passes(prereqLongswordNotSec, character, null), "Longsword equipped");
 	}
 }

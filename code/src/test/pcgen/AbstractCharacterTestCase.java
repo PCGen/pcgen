@@ -46,6 +46,8 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.extension.ExtendWith;
+import pcgen.test.PCGenTestEnvironment;
 import util.FormatSupport;
 import util.GameModeSupport;
 
@@ -54,6 +56,7 @@ import util.GameModeSupport;
  * Object.
  */
 @SuppressWarnings("nls")
+@ExtendWith(PCGenTestEnvironment.class)
 public abstract class AbstractCharacterTestCase
 {
 	private PlayerCharacter character = null;
@@ -111,7 +114,6 @@ public abstract class AbstractCharacterTestCase
 		GameModeFileLoader.addDefaultTabInfo(gamemode);
 		SystemCollections.addToGameModeList(gamemode);
 		SettingsHandler.setGame("3.5");
-		TestHelper.loadPlugins();
 
 		Globals.setUseGUI(false);
 		Globals.emptyLists();

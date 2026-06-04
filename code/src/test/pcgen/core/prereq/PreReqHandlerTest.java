@@ -26,13 +26,15 @@ import java.util.Locale;
 import pcgen.LocaleDependentTestCase;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
-import pcgen.util.TestHelper;
+import pcgen.test.PCGenTestEnvironment;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+@ExtendWith(PCGenTestEnvironment.class)
 public class PreReqHandlerTest
 {
 
@@ -42,7 +44,6 @@ public class PreReqHandlerTest
 	@BeforeEach
 	void setUp() throws Exception
 	{
-		TestHelper.loadPlugins();
 	}
 
 	@AfterEach

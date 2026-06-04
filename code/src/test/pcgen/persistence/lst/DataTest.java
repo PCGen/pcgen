@@ -40,13 +40,10 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
-import pcgen.persistence.CampaignFileLoader;
-import pcgen.persistence.GameModeFileLoader;
 import pcgen.persistence.lst.utils.VariableReport;
 import pcgen.persistence.lst.utils.VariableReport.ReportFormat;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.Main;
-import pcgen.system.PCGenTask;
 import pcgen.system.PropertyContextFactory;
 import pcgen.util.Logging;
 import pcgen.util.TestHelper;
@@ -286,11 +283,6 @@ class DataTest
 		PropertyContextFactory configFactory = new PropertyContextFactory(SystemUtils.USER_DIR);
 		configFactory.registerAndLoadPropertyContext(ConfigurationSettings.getInstance(TEST_CONFIG_FILE));
 		Main.loadProperties(false);
-		PCGenTask loadPluginTask = Main.createLoadPluginTask();
-		loadPluginTask.run();
-		PCGenTask gameModeFileLoader = new GameModeFileLoader();
-		gameModeFileLoader.run();
-		PCGenTask campaignFileLoader = new CampaignFileLoader();
-		campaignFileLoader.run();
+		Main.runBootstrapTasks();
 	}
 }

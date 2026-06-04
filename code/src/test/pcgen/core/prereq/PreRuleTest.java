@@ -17,8 +17,8 @@
  */
 package pcgen.core.prereq;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.GameMode;
@@ -66,18 +66,18 @@ public class PreRuleTest extends AbstractCharacterTestCase
 	 */
 	private void ruleDisabled() throws PersistenceLayerException
 	{
-		assertFalse("Our rule should start as false", Globals
-			.checkRule("PRERULE"));
+		assertFalse(Globals
+			.checkRule("PRERULE"), "Our rule should start as false");
 
 		PreRuleParser parser = new PreRuleParser();
 		Prerequisite prereq = parser.parse("RULE", "1,PRERULE", false, false);
 
 		boolean passes = PrereqHandler.passes(prereq, getCharacter(), null);
-		assertFalse("PreRule should fail when rule is disabled.", passes);
+		assertFalse(passes, "PreRule should fail when rule is disabled.");
 
 		prereq = parser.parse("RULE", "1,PRERULE", true, false);
 		passes = PrereqHandler.passes(prereq, getCharacter(), null);
-		assertTrue("!PreRule should pass when rule is disabled.", passes);
+		assertTrue(passes, "!PreRule should pass when rule is disabled.");
 	}
 
 	/**
@@ -91,17 +91,17 @@ public class PreRuleTest extends AbstractCharacterTestCase
 				.silentlyGetConstructedCDOMObject(RuleCheck.class, "PRERULE");
 		preRule.setDefault(true);
 		
-		assertTrue("Our rule should now be true", Globals
-			.checkRule("PRERULE"));
+		assertTrue(Globals
+			.checkRule("PRERULE"), "Our rule should now be true");
 
 		PreRuleParser parser = new PreRuleParser();
 		Prerequisite prereq = parser.parse("RULE", "1,PRERULE", false, false);
 
 		boolean passes = PrereqHandler.passes(prereq, getCharacter(), null);
-		assertTrue("PreRule should pass when rule is enabled.", passes);
+		assertTrue(passes, "PreRule should pass when rule is enabled.");
 
 		prereq = parser.parse("RULE", "1,PRERULE", true, false);
 		passes = PrereqHandler.passes(prereq, getCharacter(), null);
-		assertFalse("!PreRule should fail when rule is enabled.", passes);
+		assertFalse(passes, "!PreRule should fail when rule is enabled.");
 	}
 }

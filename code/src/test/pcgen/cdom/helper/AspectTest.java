@@ -17,7 +17,7 @@
  */
 package pcgen.cdom.helper;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Collections;
 import java.util.List;
@@ -221,15 +221,13 @@ public class AspectTest extends AbstractCharacterTestCase
 		assertEquals("2 test ", aspect.getAspectText(pc, Collections.singletonList(cna)));
 
 		aspect.addVariable("%LIST");
-		assertEquals("Replacement of %LIST failed",
-			"2 test Associated 1 and Associated 2", aspect
-				.getAspectText(pc, Collections.singletonList(cna)));
+		assertEquals("2 test Associated 1 and Associated 2", aspect
+				.getAspectText(pc, Collections.singletonList(cna)), "Replacement of %LIST failed");
 
 		finalizeTest(dummy, "Associated 3", pc, BuildUtilities.getFeatCat());
 		aspect.addVariable("%LIST");
-		assertEquals("Replacement of %LIST failed",
-			"2 test Associated 1, Associated 2, Associated 3", aspect
-				.getAspectText(pc, Collections.singletonList(cna)));
+		assertEquals("2 test Associated 1, Associated 2, Associated 3", aspect
+				.getAspectText(pc, Collections.singletonList(cna)), "Replacement of %LIST failed");
 	}
 	
 

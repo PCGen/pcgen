@@ -17,10 +17,10 @@
  */
 package pcgen.gui2.facade;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.BasicClassIdentity;
@@ -104,16 +104,16 @@ public class CompanionSupportFacadeImplTest extends AbstractCharacterTestCase
 		companion.setName("Companion1");
 		CharacterFacadeImpl compFacade = new CharacterFacadeImpl(companion, uiDelegate, dataSetFacade);
 
-		assertNull("No companion type should be set yet.", compFacade.getCompanionType());
-		assertTrue("Master should have no companions", master.getFollowerList().isEmpty());
+		assertNull(compFacade.getCompanionType(), "No companion type should be set yet.");
+		assertTrue(master.getFollowerList().isEmpty(), "Master should have no companions");
 		
 		masterCsfi.addCompanion(compFacade, "Familiar");
 		Follower follower = master.getFollowerList().iterator().next();
-		assertEquals("Companion should be the first follower", companion.getName(), follower.getName());
-		assertEquals("Master should have one companion", 1, master.getFollowerList().size());
+		assertEquals(companion.getName(), follower.getName(), "Companion should be the first follower");
+		assertEquals(1, master.getFollowerList().size(), "Master should have one companion");
 		
-		assertNotNull("Companion should have a master now", companion.getDisplay().getMaster());
-		assertEquals("Companion's master", master.getName(), companion.getDisplay().getMaster().getName());
+		assertNotNull(companion.getDisplay().getMaster(), "Companion should have a master now");
+		assertEquals(master.getName(), companion.getDisplay().getMaster().getName(), "Companion's master");
 	}
 
 	@Override

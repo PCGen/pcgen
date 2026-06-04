@@ -17,8 +17,8 @@
  */
 package pcgen.core.prereq;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
@@ -78,33 +78,33 @@ public class PreHDTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREHD:MIN=4");
 
-		assertFalse("Character doesn't have 4 HD", PrereqHandler.passes(prereq,
-			character, null));
+		assertFalse(PrereqHandler.passes(prereq,
+			character, null), "Character doesn't have 4 HD");
 
 		prereq = factory.parse("PREHD:MIN=3");
 
-		assertTrue("Character has 3 HD", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Character has 3 HD");
 
 		prereq = factory.parse("PREHD:MIN=1,MAX=3");
 
-		assertTrue("Character has 3 HD", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Character has 3 HD");
 
 		prereq = factory.parse("PREHD:MIN=3,MAX=6");
 
-		assertTrue("Character has 3 HD", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Character has 3 HD");
 
 		prereq = factory.parse("PREHD:MIN=4,MAX=7");
 
-		assertFalse("Character doesn't have 4 HD", PrereqHandler.passes(prereq,
-			character, null));
+		assertFalse(PrereqHandler.passes(prereq,
+			character, null), "Character doesn't have 4 HD");
 
 		prereq = factory.parse("PREHD:MIN=1,MAX=2");
 
-		assertFalse("Character doesn't have 2 or less HD", PrereqHandler
-			.passes(prereq, character, null));
+		assertFalse(PrereqHandler
+			.passes(prereq, character, null), "Character doesn't have 2 or less HD");
 	}
 
 	/**
@@ -136,32 +136,32 @@ public class PreHDTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREHD:MIN=4");
 
-		assertFalse("Character doesn't have 4 HD", PrereqHandler.passes(prereq,
-			character, null));
+		assertFalse(PrereqHandler.passes(prereq,
+			character, null), "Character doesn't have 4 HD");
 
 		prereq = factory.parse("PREHD:MIN=3");
 
-		assertTrue("Character has 3 HD", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Character has 3 HD");
 
 		prereq = factory.parse("PREHD:MIN=1,MAX=3");
 
-		assertTrue("Character has 3 HD", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Character has 3 HD");
 
 		prereq = factory.parse("PREHD:MIN=3,MAX=6");
 
-		assertTrue("Character has 3 HD", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Character has 3 HD");
 
 		prereq = factory.parse("PREHD:MIN=4,MAX=7");
 
-		assertFalse("Character doesn't have 4 HD", PrereqHandler.passes(prereq,
-			character, null));
+		assertFalse(PrereqHandler.passes(prereq,
+			character, null), "Character doesn't have 4 HD");
 
 		prereq = factory.parse("PREHD:MIN=1,MAX=2");
 
-		assertFalse("Character doesn't have 2 or less HD", PrereqHandler
-			.passes(prereq, character, null));
+		assertFalse(PrereqHandler
+			.passes(prereq, character, null), "Character doesn't have 2 or less HD");
 	}
 }

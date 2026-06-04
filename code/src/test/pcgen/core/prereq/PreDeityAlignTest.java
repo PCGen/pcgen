@@ -17,9 +17,9 @@
  */
 package pcgen.core.prereq;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -55,33 +55,28 @@ public class PreDeityAlignTest extends AbstractCharacterTestCase
 		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
 		ChannelUtilities.setControlledChannel(character.getCharID(),
 			CControl.DEITYINPUT, deity);
-		assertEquals("Deity should have been set for character.", deity,
-			ChannelUtilities.readControlledChannel(
-				character.getCharID(), CControl.DEITYINPUT));
+		assertEquals(deity, ChannelUtilities.readControlledChannel(
+				character.getCharID(), CControl.DEITYINPUT), "Deity should have been set for character.");
 
 		Prerequisite prereq = new Prerequisite();
 		prereq.setKind("deityAlign");
 		prereq.setOperand("NG");
 		prereq.setOperator(PrerequisiteOperator.EQ);
 
-		assertTrue("Abbrev NG should match deity's alignment of NG",
-			PrereqHandler.passes(prereq, character, null));
+		assertTrue(PrereqHandler.passes(prereq, character, null), "Abbrev NG should match deity's alignment of NG");
 
 		prereq = new Prerequisite();
 		prereq.setKind("deityAlign");
 		prereq.setOperand("LG");
 		prereq.setOperator(PrerequisiteOperator.EQ);
 
-		assertFalse("Abbrev LG should not match deity's alignment of NG",
-			PrereqHandler.passes(prereq, character, null));
+		assertFalse(PrereqHandler.passes(prereq, character, null), "Abbrev LG should not match deity's alignment of NG");
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREDEITYALIGN:NG");
-		assertTrue("Abbrev NG should match deity's alignment of NG",
-			PrereqHandler.passes(prereq, character, null));
+		assertTrue(PrereqHandler.passes(prereq, character, null), "Abbrev NG should match deity's alignment of NG");
 		prereq = factory.parse("PREDEITYALIGN:LG");
-		assertFalse("Abbrev LG should not match deity's alignment of NG",
-			PrereqHandler.passes(prereq, character, null));
+		assertFalse(PrereqHandler.passes(prereq, character, null), "Abbrev LG should not match deity's alignment of NG");
 	}
 
 	@BeforeEach

@@ -17,9 +17,9 @@
  */
 package pcgen.core.prereq;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Kit;
@@ -54,7 +54,7 @@ class PreKitTest extends AbstractCharacterTestCase
 		prereq.setOperand("1");
 
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue("Expected kit to be present", passes);
+		assertTrue(passes, "Expected kit to be present");
 	}
 
 	/**
@@ -73,7 +73,7 @@ class PreKitTest extends AbstractCharacterTestCase
 		prereq.setOperand("1");
 
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue("Expected kit not to be present", passes);
+		assertTrue(passes, "Expected kit not to be present");
 	}
 
 	/**
@@ -96,7 +96,7 @@ class PreKitTest extends AbstractCharacterTestCase
 		prereq.setOperand("1");
 
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue("Expected kit not to be present", passes);
+		assertTrue(passes, "Expected kit not to be present");
 	}
 
 	/**
@@ -119,7 +119,7 @@ class PreKitTest extends AbstractCharacterTestCase
 		prereq.setOperand("1");
 
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse("Expected kit to be present", passes);
+		assertFalse(passes, "Expected kit to be present");
 	}
 
 	/**
@@ -142,7 +142,7 @@ class PreKitTest extends AbstractCharacterTestCase
 		prereq.setOperand("1");
 
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue("Expected wildcard to match", passes);
+		assertTrue(passes, "Expected wildcard to match");
 	}
 
 	/**

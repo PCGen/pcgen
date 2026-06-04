@@ -39,8 +39,6 @@ import pcgen.core.SystemCollections;
 import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.facade.core.UIDelegate;
 import pcgen.gui2.facade.MockUIDelegate;
-import pcgen.persistence.CampaignFileLoader;
-import pcgen.persistence.GameModeFileLoader;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.FacadeFactory;
@@ -162,12 +160,7 @@ public class DataLoadTest implements PCGenTaskListener
 		configFactory.registerAndLoadPropertyContext(ConfigurationSettings
 			.getInstance(TEST_CONFIG_FILE));
 		Main.loadProperties(false);
-		PCGenTask loadPluginTask = Main.createLoadPluginTask();
-		loadPluginTask.run();
-		PCGenTask gameModeFileLoader = new GameModeFileLoader();
-		gameModeFileLoader.run();
-		PCGenTask campaignFileLoader = new CampaignFileLoader();
-		campaignFileLoader.run();
+		Main.runBootstrapTasks();
 	}
 
 	private static List<SourceSelectionFacade> getBasicSources()

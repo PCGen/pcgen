@@ -27,7 +27,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Collection;
 import java.util.List;
-import java.util.StringTokenizer;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.format.StringManager;
@@ -63,6 +62,7 @@ import pcgen.persistence.lst.FeatLoader;
 import pcgen.persistence.lst.PCClassLoader;
 import pcgen.persistence.lst.SimpleLoader;
 import pcgen.rules.context.LoadContext;
+import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.pretokens.parser.PreVariableParser;
 
@@ -425,7 +425,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		}
 		PCClass reconstClass;
 		System.out.println("Got text: " + classPCCText);
-		reconstClass = parsePCClassText(classPCCText, source);
+		reconstClass = TestHelper.parsePCClassText(classPCCText, source);
 		assertEquals(
 				classPCCText, reconstClass.getPCCText(),
 				"getPCCText should be the same after being encoded and reloaded");
@@ -445,7 +445,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		assertNotNull(classPCCText, "PCC Text for race should not be null");
 
 		System.out.println("Got text: " + classPCCText);
-		reconstClass = parsePCClassText(classPCCText, source);
+		reconstClass = TestHelper.parsePCClassText(classPCCText, source);
 		assertEquals(
 				classPCCText, reconstClass.getPCCText(),
 				"getPCCText should be the same after being encoded and reloaded");
@@ -867,7 +867,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 			"CLASS:Cleric	HD:8		TYPE:PC	TYPE:Base.PC	FACT:Abb|Clr	ABILITY:TestCat|AUTOMATIC|Ability1\n"
 				+ "CLASS:Cleric	STARTSKILLPTS:2\n"
 				+ "2	ABILITY:TestCat|AUTOMATIC|Ability2";
-		PCClass pcclass = parsePCClassText(classPCCText, source);
+		PCClass pcclass = TestHelper.parsePCClassText(classPCCText, source);
 		CDOMSingleRef<AbilityCategory> acRef =
 				context.getReferenceContext().getCDOMReference(
 					AbilityCategory.class, "TestCat");
@@ -985,33 +985,6 @@ public class PCClassTest extends AbstractCharacterTestCase
 		pc.incrementClassLevel(1, humanoidClass);
 		bonusList = pc.getClassKeyed(humanoidClass.getKeyName()).getRawBonusList(pc);
 		assertEquals(3, bonusList.size(), "No new bonus due to the LEVELSPERFEAT");
-	}
-
-	/**
-	 * Parse a class definition and return the populated PCClass object.
-	 *
-	 * @param classPCCText The textual definition of the class.
-	 * @param source The source that the class is from.
-	 * @return The populated class.
-	 * @throws PersistenceLayerException
-	 */
-	private static PCClass parsePCClassText(String classPCCText,
-	                                        CampaignSourceEntry source) throws PersistenceLayerException
-	{
-		PCClassLoader pcClassLoader = new PCClassLoader();
-		PCClass reconstClass = null;
-		StringTokenizer tok = new StringTokenizer(classPCCText, "\n");
-		while (tok.hasMoreTokens())
-		{
-			String line = tok.nextToken();
-			if (!line.trim().isEmpty())
-			{
-				System.out.println("Processing line: '" + line + "'.");
-				reconstClass =
-						pcClassLoader.parseLine(Globals.getContext(), reconstClass, line, source);
-			}
-		}
-		return reconstClass;
 	}
 
 	@BeforeEach

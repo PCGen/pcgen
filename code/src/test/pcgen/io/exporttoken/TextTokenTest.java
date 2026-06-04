@@ -17,7 +17,7 @@
  */
 package pcgen.io.exporttoken;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.PCStringKey;
@@ -57,27 +57,21 @@ public class TextTokenTest extends AbstractCharacterTestCase
 		ExportHandler eh = ExportHandler.createExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
-		assertEquals("TEXT.LOWER.NAME",
-			"the vitamins are in my fresh brussels sprouts", tok.getToken(
-				"TEXT.LOWER.NAME", character, eh));
-		assertEquals("TEXT.UPPER.NAME",
-			"THE VITAMINS ARE IN MY FRESH BRUSSELS SPROUTS", tok.getToken(
-				"TEXT.UPPER.NAME", character, eh));
-		assertEquals("TEXT.SENTENCE.NAME",
-			"The vitamins are in my fresh brussels sprouts", tok.getToken(
-				"TEXT.SENTENCE.NAME", character, eh));
-		assertEquals("TEXT.SENTENCE.NAME",
-			"The vitamins are in my fresh brussels sprouts", tok.getToken(
-				"TEXT.SENTENCE.NAME", character, eh));
+		assertEquals("the vitamins are in my fresh brussels sprouts", tok.getToken(
+				"TEXT.LOWER.NAME", character, eh), "TEXT.LOWER.NAME");
+		assertEquals("THE VITAMINS ARE IN MY FRESH BRUSSELS SPROUTS", tok.getToken(
+				"TEXT.UPPER.NAME", character, eh), "TEXT.UPPER.NAME");
+		assertEquals("The vitamins are in my fresh brussels sprouts", tok.getToken(
+				"TEXT.SENTENCE.NAME", character, eh), "TEXT.SENTENCE.NAME");
+		assertEquals("The vitamins are in my fresh brussels sprouts", tok.getToken(
+				"TEXT.SENTENCE.NAME", character, eh), "TEXT.SENTENCE.NAME");
 		character.setPCAttribute(PCStringKey.NAME, "The Vitamins are in my Fresh Brussels Sprouts");
-		assertEquals("TEXT.SENTENCE.INTERESTS",
-			"One potatoe. Two potatoe. More", tok.getToken(
-				"TEXT.SENTENCE.INTERESTS", character, eh));
-		assertEquals("TEXT.TITLE.NAME",
-			"The Vitamins Are In My Fresh Brussels Sprouts", tok.getToken(
-				"TEXT.TITLE.NAME", getCharacter(), eh));
-		assertEquals("TEXT.TITLE.NAME", "One Potatoe. Two Potatoe. More", tok
-			.getToken("TEXT.TITLE.INTERESTS", character, eh));
+		assertEquals("One potatoe. Two potatoe. More", tok.getToken(
+				"TEXT.SENTENCE.INTERESTS", character, eh), "TEXT.SENTENCE.INTERESTS");
+		assertEquals("The Vitamins Are In My Fresh Brussels Sprouts", tok.getToken(
+				"TEXT.TITLE.NAME", getCharacter(), eh), "TEXT.TITLE.NAME");
+		assertEquals("One Potatoe. Two Potatoe. More", tok
+			.getToken("TEXT.TITLE.INTERESTS", character, eh), "TEXT.TITLE.NAME");
 	}
 
 	/**
@@ -91,44 +85,44 @@ public class TextTokenTest extends AbstractCharacterTestCase
 		PlayerCharacter character = getCharacter();
 
 		ChannelUtilities.setControlledChannel(character.getCharID(), CControl.AGEINPUT, 1);
-		assertEquals("Suffix 1", "st", tok.getToken("TEXT.NUMSUFFIX.AGE",
-			getCharacter(), eh));
+		assertEquals("st", tok.getToken("TEXT.NUMSUFFIX.AGE",
+			getCharacter(), eh), "Suffix 1");
 		ChannelUtilities.setControlledChannel(character.getCharID(), CControl.AGEINPUT, 2);
-		assertEquals("Suffix 2", "nd", tok.getToken("TEXT.NUMSUFFIX.AGE",
-			getCharacter(), eh));
+		assertEquals("nd", tok.getToken("TEXT.NUMSUFFIX.AGE",
+			getCharacter(), eh), "Suffix 2");
 		ChannelUtilities.setControlledChannel(character.getCharID(), CControl.AGEINPUT, 3);
-		assertEquals("Suffix 3", "rd", tok.getToken("TEXT.NUMSUFFIX.AGE",
-			getCharacter(), eh));
+		assertEquals("rd", tok.getToken("TEXT.NUMSUFFIX.AGE",
+			getCharacter(), eh), "Suffix 3");
 		ChannelUtilities.setControlledChannel(character.getCharID(), CControl.AGEINPUT, 4);
-		assertEquals("Suffix 4", "th", tok.getToken("TEXT.NUMSUFFIX.AGE",
-			getCharacter(), eh));
+		assertEquals("th", tok.getToken("TEXT.NUMSUFFIX.AGE",
+			getCharacter(), eh), "Suffix 4");
 		ChannelUtilities.setControlledChannel(character.getCharID(), CControl.AGEINPUT, 11);
-		assertEquals("Suffix 11", "th", tok.getToken("TEXT.NUMSUFFIX.AGE",
-			getCharacter(), eh));
+		assertEquals("th", tok.getToken("TEXT.NUMSUFFIX.AGE",
+			getCharacter(), eh), "Suffix 11");
 		ChannelUtilities.setControlledChannel(character.getCharID(), CControl.AGEINPUT, 12);
-		assertEquals("Suffix 12", "th", tok.getToken("TEXT.NUMSUFFIX.AGE",
-			getCharacter(), eh));
+		assertEquals("th", tok.getToken("TEXT.NUMSUFFIX.AGE",
+			getCharacter(), eh), "Suffix 12");
 		ChannelUtilities.setControlledChannel(character.getCharID(), CControl.AGEINPUT, 13);
-		assertEquals("Suffix 13", "th", tok.getToken("TEXT.NUMSUFFIX.AGE",
-			getCharacter(), eh));
+		assertEquals("th", tok.getToken("TEXT.NUMSUFFIX.AGE",
+			getCharacter(), eh), "Suffix 13");
 		ChannelUtilities.setControlledChannel(character.getCharID(), CControl.AGEINPUT, 14);
-		assertEquals("Suffix 14", "th", tok.getToken("TEXT.NUMSUFFIX.AGE",
-			getCharacter(), eh));
+		assertEquals("th", tok.getToken("TEXT.NUMSUFFIX.AGE",
+			getCharacter(), eh), "Suffix 14");
 		ChannelUtilities.setControlledChannel(character.getCharID(), CControl.AGEINPUT, 21);
-		assertEquals("Suffix 21", "st", tok.getToken("TEXT.NUMSUFFIX.AGE",
-			getCharacter(), eh));
+		assertEquals("st", tok.getToken("TEXT.NUMSUFFIX.AGE",
+			getCharacter(), eh), "Suffix 21");
 		ChannelUtilities.setControlledChannel(character.getCharID(), CControl.AGEINPUT, 22);
-		assertEquals("Suffix 22", "nd", tok.getToken("TEXT.NUMSUFFIX.AGE",
-			getCharacter(), eh));
+		assertEquals("nd", tok.getToken("TEXT.NUMSUFFIX.AGE",
+			getCharacter(), eh), "Suffix 22");
 		ChannelUtilities.setControlledChannel(character.getCharID(), CControl.AGEINPUT, 23);
-		assertEquals("Suffix 23", "rd", tok.getToken("TEXT.NUMSUFFIX.AGE",
-			getCharacter(), eh));
+		assertEquals("rd", tok.getToken("TEXT.NUMSUFFIX.AGE",
+			getCharacter(), eh), "Suffix 23");
 		ChannelUtilities.setControlledChannel(character.getCharID(), CControl.AGEINPUT, 24);
-		assertEquals("Suffix 24", "th", tok.getToken("TEXT.NUMSUFFIX.AGE",
-			getCharacter(), eh));
+		assertEquals("th", tok.getToken("TEXT.NUMSUFFIX.AGE",
+			getCharacter(), eh), "Suffix 24");
 		ChannelUtilities.setControlledChannel(character.getCharID(), CControl.AGEINPUT, 133);
-		assertEquals("Suffix 133", "rd", tok.getToken("TEXT.NUMSUFFIX.AGE",
-			getCharacter(), eh));
+		assertEquals("rd", tok.getToken("TEXT.NUMSUFFIX.AGE",
+			getCharacter(), eh), "Suffix 133");
 	}
 
 	/**
@@ -140,20 +134,20 @@ public class TextTokenTest extends AbstractCharacterTestCase
 		TextToken tok = new TextToken();
 		ExportHandler eh = ExportHandler.createExportHandler(null);
 
-		assertEquals("Suffix 1", "st", tok.getToken("TEXT.NUMSUFFIX.1",
-			getCharacter(), eh));
-		assertEquals("Suffix 2", "nd", tok.getToken("TEXT.NUMSUFFIX.2",
-			getCharacter(), eh));
-		assertEquals("Suffix 3", "rd", tok.getToken("TEXT.NUMSUFFIX.3",
-			getCharacter(), eh));
-		assertEquals("Suffix 4", "th", tok.getToken("TEXT.NUMSUFFIX.4",
-			getCharacter(), eh));
-		assertEquals("Suffix 12", "th", tok.getToken("TEXT.NUMSUFFIX.12",
-			getCharacter(), eh));
-		assertEquals("Suffix 133", "rd", tok.getToken("TEXT.NUMSUFFIX.133",
-			getCharacter(), eh));
-		assertEquals("Suffix 133", "rd", tok.getToken("TEXT.NUMSUFFIX.133.0",
-			getCharacter(), eh));
+		assertEquals("st", tok.getToken("TEXT.NUMSUFFIX.1",
+			getCharacter(), eh), "Suffix 1");
+		assertEquals("nd", tok.getToken("TEXT.NUMSUFFIX.2",
+			getCharacter(), eh), "Suffix 2");
+		assertEquals("rd", tok.getToken("TEXT.NUMSUFFIX.3",
+			getCharacter(), eh), "Suffix 3");
+		assertEquals("th", tok.getToken("TEXT.NUMSUFFIX.4",
+			getCharacter(), eh), "Suffix 4");
+		assertEquals("th", tok.getToken("TEXT.NUMSUFFIX.12",
+			getCharacter(), eh), "Suffix 12");
+		assertEquals("rd", tok.getToken("TEXT.NUMSUFFIX.133",
+			getCharacter(), eh), "Suffix 133");
+		assertEquals("rd", tok.getToken("TEXT.NUMSUFFIX.133.0",
+			getCharacter(), eh), "Suffix 133");
 	}
 
 }

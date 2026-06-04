@@ -17,8 +17,8 @@
  */
 package pcgen.core.prereq;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
@@ -154,8 +154,8 @@ public class PreRaceTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.EQ);
 
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue("Expected prereq " + prereq + " to pass for race " + fake
-			+ " with SERVESAS", passes);
+		assertTrue(passes, "Expected prereq " + prereq + " to pass for race " + fake
+			+ " with SERVESAS");
 	}
 
 	@Test
@@ -175,7 +175,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.EQ);
 
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(prereq + " should pass", passes);
+		assertTrue(passes, prereq + " should pass");
 	}
 
 	@Test
@@ -195,11 +195,11 @@ public class PreRaceTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.LT);
 
 		boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(prereq + " should pass", passes);
+		assertTrue(passes, prereq + " should pass");
 		
 		prereq.setKey("RACETYPE=Humanoid");
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(prereq + " should not pass", passes);
+		assertFalse(passes, prereq + " should not pass");
 	}
 	
 	/**
@@ -256,9 +256,9 @@ public class PreRaceTest extends AbstractCharacterTestCase
 
 		prereq.setKey("RACESUBTYPE=SpikyHair");
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse("Prereq " + prereq
+		assertFalse(passes, "Prereq " + prereq
 			+ " should not be passed by character without a "
-			+ "race or servesas link.", passes);
+			+ "race or servesas link.");
 		
 	}
 	
@@ -297,13 +297,13 @@ public class PreRaceTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.EQ);
 
 		boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue("Prereq " + prereq + " should pass due to SERVESAS", passes);
+		assertTrue(passes, "Prereq " + prereq + " should pass due to SERVESAS");
 
 		prereq.setKey("RACETYPE=Smaller");
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse("Prereq " + prereq
+		assertFalse(passes, "Prereq " + prereq
 			+ " should not be passed by character without a "
-			+ "race or servesas link.", passes);
+			+ "race or servesas link.");
 	}
 	
 	/**
@@ -339,13 +339,13 @@ public class PreRaceTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.EQ);
 
 		boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue("Prereq " + prereq + " should pass due to SERVESAS", passes);
+		assertTrue(passes, "Prereq " + prereq + " should pass due to SERVESAS");
 
 		prereq.setKey("TYPE=Smaller");
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse("Prereq " + prereq
+		assertFalse(passes, "Prereq " + prereq
 			+ " should not be passed by character without a "
-			+ "race or servesas link.", passes);
+			+ "race or servesas link.");
 	}
 
 	/**
@@ -379,18 +379,18 @@ public class PreRaceTest extends AbstractCharacterTestCase
 		prereq.setKey("human%");
 		prereq.setOperator(PrerequisiteOperator.EQ);
 		boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue("PRERACE:1,human% should have been passed", passes);
+		assertTrue(passes, "PRERACE:1,human% should have been passed");
 
 		prereq.setKey("NotHuman%");
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue("PRERACE:1,NotHuman% should have been passed", passes);
+		assertTrue(passes, "PRERACE:1,NotHuman% should have been passed");
 
 		prereq.setKey("Elf%");
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse("PRERACE:1,Elf% should not have been passed", passes);
+		assertFalse(passes, "PRERACE:1,Elf% should not have been passed");
 
 		prereq.setKey("Gno%");
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse("PRERACE:1,Gno% should not have been passed", passes);
+		assertFalse(passes, "PRERACE:1,Gno% should not have been passed");
 	}
 }

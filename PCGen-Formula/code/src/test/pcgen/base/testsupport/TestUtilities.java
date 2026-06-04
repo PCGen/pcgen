@@ -25,7 +25,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import junit.framework.TestCase;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.base.format.ArrayFormatManager;
 import pcgen.base.format.BooleanManager;
 import pcgen.base.format.NumberManager;
@@ -84,8 +85,7 @@ public final class TestUtilities
 		}
 		catch (ParseException e)
 		{
-			TestCase
-				.fail("Encountered Unexpected Exception: " + e.getMessage());
+			fail("Encountered Unexpected Exception: " + e.getMessage());
 			return null;
 		}
 	}

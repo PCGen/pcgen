@@ -17,7 +17,7 @@
  */
 package pcgen.core;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
 
@@ -110,9 +110,9 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 		pc.addDomain(sunDomain);
 		
 		List<? extends CDOMList<Spell>> spellLists = pc.getSpellLists(sunDomain);
-		assertEquals("Incorrect number of spell lists for domain", 1, spellLists.size());
+		assertEquals(1, spellLists.size(), "Incorrect number of spell lists for domain");
 		int level = SpellLevel.getFirstLevelForKey(domainSpell, spellLists, pc);
-		assertEquals("Incorrect spell level in domain list", 1, level);
+		assertEquals(1, level, "Incorrect spell level in domain list");
 	}
 
 	/**
@@ -126,9 +126,9 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 		pc.incrementClassLevel(1, divineClass);
 		
 		List<? extends CDOMList<Spell>> spellLists = pc.getSpellLists(pc.getClassKeyed(divineClass.getKeyName()));
-		assertEquals("Incorrect number of spell lists in class list", 1, spellLists.size());
+		assertEquals(1, spellLists.size(), "Incorrect number of spell lists in class list");
 		int level = SpellLevel.getFirstLevelForKey(classSpell, spellLists, pc);
-		assertEquals("Incorrect spell level in class list", 1, level);
+		assertEquals(1, level, "Incorrect spell level in class list");
 	}
 
 	@Override

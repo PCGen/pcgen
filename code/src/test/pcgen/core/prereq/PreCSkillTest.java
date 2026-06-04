@@ -17,8 +17,8 @@
  */
 package pcgen.core.prereq;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
@@ -67,49 +67,49 @@ public class PreCSkillTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PRECSKILL:1,Spot,Listen");
 
-		assertFalse("Character has no class skills", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Character has no class skills");
 
 		character.addLocalCost(myClass, spot, SkillCost.CLASS, myClass);
 		character.setDirty(true); //Need to throw out the cache
 
-		assertTrue("Character has spot class skills", PrereqHandler.passes(
-			prereq, character, null));
+		assertTrue(PrereqHandler.passes(
+			prereq, character, null), "Character has spot class skills");
 
 		character.addLocalCost(myClass, spy1, SkillCost.CLASS, myClass);
 		character.setDirty(true); //Need to throw out the cache
 
-		assertTrue("Character has spot class skills", PrereqHandler.passes(
-			prereq, character, null));
+		assertTrue(PrereqHandler.passes(
+			prereq, character, null), "Character has spot class skills");
 
 		prereq = factory.parse("PRECSKILL:2,TYPE.Spy");
 
-		assertFalse("Character has only one Spy Skill", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Character has only one Spy Skill");
 
 		character.addLocalCost(myClass, spy2, SkillCost.CLASS, myClass);
 		character.setDirty(true); //Need to throw out the cache
 
-		assertTrue("Character has 2 Spy class skills", PrereqHandler.passes(
-			prereq, character, null));
+		assertTrue(PrereqHandler.passes(
+			prereq, character, null), "Character has 2 Spy class skills");
 
 		prereq = factory.parse("PRECSKILL:3,Spot,TYPE.Spy");
 
-		assertTrue("Character has 2 Spy and Spot class skills", PrereqHandler
-			.passes(prereq, character, null));
+		assertTrue(PrereqHandler
+			.passes(prereq, character, null), "Character has 2 Spy and Spot class skills");
 
 		prereq = factory.parse("PRECSKILL:3,Listen,TYPE.Spy");
 
-		assertFalse("Character has only 2 Spy Skills", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Character has only 2 Spy Skills");
 
 		character.addLocalCost(myClass, spy3, SkillCost.CLASS, myClass);
 		character.setDirty(true); //Need to throw out the cache
 
 		prereq = factory.parse("PRECSKILL:3,Listen,TYPE.Spy");
 
-		assertTrue("Character has 3 Spy Skills", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Character has 3 Spy Skills");
 	}
 
 	@Test
@@ -147,32 +147,32 @@ public class PreCSkillTest extends AbstractCharacterTestCase
 		character.addLocalCost(myClass, fee, SkillCost.CLASS, myClass);
 		character.addLocalCost(myClass, foo, SkillCost.CLASS, myClass);
 		prereq = factory.parse("PRECSKILL:1,Bar");		
-		assertTrue("Character has 1 Listen Skill", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Character has 1 Listen Skill");
 		
 		
 		prereq = factory.parse("PRECSKILL:2,Bar,Fee");		
-		assertTrue("Character has a Bar Skill and a Fee Skill", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Character has a Bar Skill and a Fee Skill");
 		
 		prereq = factory.parse("PRECSKILL:2,Baz,Fee");		
-		assertFalse("Character does not have both Baz and Fee Skills", PrereqHandler.passes(prereq,
-			character, null));
+		assertFalse(PrereqHandler.passes(prereq,
+			character, null), "Character does not have both Baz and Fee Skills");
 		
 		
 		
 		prereq = factory.parse("PRECSKILL:1,TYPE=Bar");		
-		assertTrue("Character has 1 Bar Type Skill", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Character has 1 Bar Type Skill");
 		
 		
 		prereq = factory.parse("PRECSKILL:2,TYPE=Bar");		
-		assertTrue("Character has 2 Bar Type Skills", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Character has 2 Bar Type Skills");
 		
 		prereq = factory.parse("PRECSKILL:3,TYPE=Bar");		
-		assertFalse("Character has less than 3 Bar Type Skills", PrereqHandler.passes(prereq,
-			character, null));
+		assertFalse(PrereqHandler.passes(prereq,
+			character, null), "Character has less than 3 Bar Type Skills");
 		
 		
 	}

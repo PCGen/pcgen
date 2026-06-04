@@ -18,7 +18,7 @@
 package pcgen.core;
 
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
@@ -55,7 +55,7 @@ public class BonusManagerTest extends AbstractCharacterTestCase
 		for (int i = 0; i < 10; i++)
 		{
 			pc.calcActiveBonuses();
-			assertEquals("Incorrect bonus total", 3.0, pc.getTotalBonusTo("COMBAT", "AC"), 0.0001);
+			assertEquals(3.0, pc.getTotalBonusTo("COMBAT", "AC"), 0.0001, "Incorrect bonus total");
 		}
 	}
 
@@ -80,7 +80,7 @@ public class BonusManagerTest extends AbstractCharacterTestCase
 		for (int i = 0; i < 10; i++)
 		{
 			pc.calcActiveBonuses();
-			assertEquals("Incorrect bonus total", 3.0, pc.getTotalBonusTo("COMBAT", "AC"), 0.0001);
+			assertEquals(3.0, pc.getTotalBonusTo("COMBAT", "AC"), 0.0001, "Incorrect bonus total");
 		}
 	}
 
@@ -108,7 +108,7 @@ public class BonusManagerTest extends AbstractCharacterTestCase
 		for (int i = 0; i < 10; i++)
 		{
 			pc.calcActiveBonuses();
-			assertEquals("Incorrect bonus total", 3.0, pc.getTotalBonusTo("COMBAT", "AC"), 0.0001);
+			assertEquals(3.0, pc.getTotalBonusTo("COMBAT", "AC"), 0.0001, "Incorrect bonus total");
 		}
 	}
 

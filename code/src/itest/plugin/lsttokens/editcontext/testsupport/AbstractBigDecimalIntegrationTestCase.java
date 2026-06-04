@@ -17,7 +17,7 @@
  */
 package plugin.lsttokens.editcontext.testsupport;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.persistence.PersistenceLayerException;

@@ -41,12 +41,14 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
-import pcgen.util.TestHelper;
+import pcgen.test.PCGenTestEnvironment;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.Test;
 
+@ExtendWith(PCGenTestEnvironment.class)
 class PObjectLoaderTest
 {
 	/**
@@ -55,7 +57,6 @@ class PObjectLoaderTest
 	@BeforeEach
 	public void setUp() throws Exception
 	{
-		TestHelper.loadPlugins();
 	}
 
 	@Test

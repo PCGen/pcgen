@@ -16,8 +16,8 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 package pcgen.core.prereq;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
@@ -59,38 +59,38 @@ public class PreLangTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PRELANG:1,KEY_Elven");
 
-		assertTrue("Character should have elven", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Character should have elven");
 
 		prereq = factory.parse("PRELANG:1,KEY_Elven,KEY_Dwarven");
 
-		assertTrue("Character should have elven", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Character should have elven");
 
 		prereq = factory.parse("PRELANG:2,KEY_Elven,KEY_Dwarven");
 
-		assertFalse("Character doesn't have Dwarven", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Character doesn't have Dwarven");
 
 		character.addAutoLanguage(dwarven, dwarven);
 
-		assertTrue("Character has Elven and Dwarven", PrereqHandler.passes(
-			prereq, character, null));
+		assertTrue(PrereqHandler.passes(
+			prereq, character, null), "Character has Elven and Dwarven");
 
 		prereq = factory.parse("PRELANG:3,ANY");
 
-		assertFalse("Character doesn't have 3 langs", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Character doesn't have 3 langs");
 
 		character.addAutoLanguage(halfling, halfling);
 
-		assertTrue("Character has Elven, Dwarven, and Halfling", PrereqHandler
-			.passes(prereq, character, null));
+		assertTrue(PrereqHandler
+			.passes(prereq, character, null), "Character has Elven, Dwarven, and Halfling");
 
 		prereq = factory.parse("PRELANG:3,Elven");
 
-		assertFalse("PRE test should look at keys", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "PRE test should look at keys");
 	}
 
 	@BeforeEach

@@ -16,8 +16,8 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 package pcgen.gui2.facade;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
@@ -61,13 +61,11 @@ public class Gui2InfoFactoryTest extends AbstractCharacterTestCase
 		Globals.getContext().commit();
 		finalizeTest(choiceAbility, "Perception", pc,
 			BuildUtilities.getFeatCat());
-		assertEquals("Incorrect single choice", "Perception",
-			ca.getChoices(choiceAbility));
+		assertEquals("Perception", ca.getChoices(choiceAbility), "Incorrect single choice");
 
 		finalizeTest(choiceAbility, "Acrobatics", pc,
 			BuildUtilities.getFeatCat());
-		assertEquals("Incorrect multiple choice", "Acrobatics, Perception",
-			ca.getChoices(choiceAbility));
+		assertEquals("Acrobatics, Perception", ca.getChoices(choiceAbility), "Incorrect multiple choice");
 	}
 	
 	/**
@@ -90,10 +88,8 @@ public class Gui2InfoFactoryTest extends AbstractCharacterTestCase
 
 		TempBonusFacadeImpl tbf = new TempBonusFacadeImpl(tbAbility);
 
-		assertEquals("Unexpected temp bonus result",
-			"<html><b><font size=+1>Combat expertise</font></b> (Ability)<br>"
-				+ "<b>Desc:</b>&nbsp;CE Desc<br><b>Source:</b>&nbsp;</html>",
-			infoFactory.getHTMLInfo(tbf));
+		assertEquals("<html><b><font size=+1>Combat expertise</font></b> (Ability)<br>"
+				+ "<b>Desc:</b>&nbsp;CE Desc<br><b>Source:</b>&nbsp;</html>", infoFactory.getHTMLInfo(tbf), "Unexpected temp bonus result");
 	}	
 
 	@BeforeEach

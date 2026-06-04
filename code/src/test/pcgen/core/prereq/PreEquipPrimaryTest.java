@@ -17,8 +17,8 @@
  */
 package pcgen.core.prereq;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.EquipmentLocation;
@@ -71,13 +71,13 @@ public class PreEquipPrimaryTest extends AbstractCharacterTestCase
 
 		dagger.setName("Dagger (Masterwork)");
 
-		assertFalse("Should be an exact match only", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Should be an exact match only");
 
 		prereq.setKey("DAGGER%");
 
-		assertTrue("Should allow wildcard match", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Should allow wildcard match");
 	}
 
 	/**
@@ -102,18 +102,18 @@ public class PreEquipPrimaryTest extends AbstractCharacterTestCase
 		prereq.setOperand("1");
 		prereq.setOperator(PrerequisiteOperator.EQ);
 
-		assertFalse("Equipment has no type", PrereqHandler.passes(prereq,
-			character, null));
+		assertFalse(PrereqHandler.passes(prereq,
+			character, null), "Equipment has no type");
 
 		longsword.addType(Type.getConstant("SLASHING"));
 
-		assertTrue("Equipment is slashing", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Equipment is slashing");
 
 		prereq.setKey("TYPE.Armor");
 
-		assertFalse("Equipment is not armor", PrereqHandler.passes(prereq,
-			character, null));
+		assertFalse(PrereqHandler.passes(prereq,
+			character, null), "Equipment is not armor");
 	}
 
 	/**
@@ -151,14 +151,14 @@ public class PreEquipPrimaryTest extends AbstractCharacterTestCase
 		longsword.put(ObjectKey.SIZE, mediumRef);
 		longsword.put(ObjectKey.BASESIZE, mediumRef);
 
-		assertTrue("Weapon is M therefore OneHanded", PrereqHandler.passes(
-			prereq, character, null));
+		assertTrue(PrereqHandler.passes(
+			prereq, character, null), "Weapon is M therefore OneHanded");
 
 		longsword.put(ObjectKey.SIZE, largeRef);
 		longsword.put(ObjectKey.BASESIZE, largeRef);
 
-		assertFalse("Weapon is L therefore TwoHanded", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Weapon is L therefore TwoHanded");
 
 		// Test 3.5 style
 		longsword.put(ObjectKey.SIZE, mediumRef);
@@ -166,14 +166,14 @@ public class PreEquipPrimaryTest extends AbstractCharacterTestCase
 		longsword.put(ObjectKey.WIELD, context.getReferenceContext().silentlyGetConstructedCDOMObject(
 				WieldCategory.class, "TwoHanded"));
 
-		assertFalse("Weapon is TwoHanded", PrereqHandler.passes(prereq,
-			character, null));
+		assertFalse(PrereqHandler.passes(prereq,
+			character, null), "Weapon is TwoHanded");
 
 		longsword.put(ObjectKey.WIELD, context.getReferenceContext().silentlyGetConstructedCDOMObject(
 				WieldCategory.class, "OneHanded"));
 
-		assertTrue("Weapon is OneHanded", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Weapon is OneHanded");
 
 	}
 }

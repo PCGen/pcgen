@@ -17,8 +17,8 @@
  */
 package pcgen.core.prereq;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -55,24 +55,24 @@ class PreLegsTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PRELEGSLT:2");
 
-		assertFalse("Character has more than 1 leg", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Character has more than 1 leg");
 
 		prereq = factory.parse("PRELEGSEQ:2");
 
-		assertTrue("Character has 2 legs", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Character has 2 legs");
 
 		prereq = factory.parse("PRELEGSGT:2");
 
-		assertFalse("Character does not have more than 2 legs", PrereqHandler
-			.passes(prereq, character, null));
+		assertFalse(PrereqHandler
+			.passes(prereq, character, null), "Character does not have more than 2 legs");
 
 		PCTemplate tmpl = new PCTemplate();
 		tmpl.put(IntegerKey.LEGS, 3);
 
 		character.addTemplate(tmpl);
-		assertTrue("Character does have more than 2 legs", PrereqHandler
-			.passes(prereq, character, null));
+		assertTrue(PrereqHandler
+			.passes(prereq, character, null), "Character does have more than 2 legs");
 	}
 }

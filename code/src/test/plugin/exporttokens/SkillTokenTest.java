@@ -17,7 +17,7 @@
  */
 package plugin.exporttokens;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
@@ -168,36 +168,36 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		SkillToken token = new SkillToken();
 
 		// First test each sub token
-		assertEquals("SkillToken", "Balance", token.getToken("SKILL.0",
-			character, null));
-		assertEquals("SkillToken", "DEX", token.getToken("SKILL.0.ABILITY",
-			character, null));
-		assertEquals("SkillToken", "9", token.getToken("SKILL.0.TOTAL",
-				character, null));
-		assertEquals("SkillToken", "3", token.getToken("SKILL.0.ABMOD",
-			character, null));
-		assertEquals("SkillToken", "4.0", token.getToken("SKILL.0.RANK",
-			character, null));
-		assertEquals("SkillToken", "2", token.getToken("SKILL.0.MISC",
-			character, null));
-		assertEquals("SkillToken", "N", token.getToken("SKILL.0.EXCLUSIVE",
-			character, null));
-		assertEquals("SkillToken", "Y", token.getToken("SKILL.0.UNTRAINED",
-			character, null));
-		assertEquals("SkillToken", "9", token.getToken(
-			"SKILL.0.EXCLUSIVE_TOTAL", character, null));
-		assertEquals("SkillToken", "9", token.getToken("SKILL.0.TRAINED_TOTAL",
-			character, null));
-		assertEquals("SkillToken", "+2[TUMBLE|Balance] +3[STAT]", token.getToken(
-			"SKILL.0.EXPLAIN", character, null));
+		assertEquals("Balance", token.getToken("SKILL.0",
+			character, null), "SkillToken");
+		assertEquals("DEX", token.getToken("SKILL.0.ABILITY",
+			character, null), "SkillToken");
+		assertEquals("9", token.getToken("SKILL.0.TOTAL",
+				character, null), "SkillToken");
+		assertEquals("3", token.getToken("SKILL.0.ABMOD",
+			character, null), "SkillToken");
+		assertEquals("4.0", token.getToken("SKILL.0.RANK",
+			character, null), "SkillToken");
+		assertEquals("2", token.getToken("SKILL.0.MISC",
+			character, null), "SkillToken");
+		assertEquals("N", token.getToken("SKILL.0.EXCLUSIVE",
+			character, null), "SkillToken");
+		assertEquals("Y", token.getToken("SKILL.0.UNTRAINED",
+			character, null), "SkillToken");
+		assertEquals("9", token.getToken(
+			"SKILL.0.EXCLUSIVE_TOTAL", character, null), "SkillToken");
+		assertEquals("9", token.getToken("SKILL.0.TRAINED_TOTAL",
+			character, null), "SkillToken");
+		assertEquals("+2[TUMBLE|Balance] +3[STAT]", token.getToken(
+			"SKILL.0.EXPLAIN", character, null), "SkillToken");
 
 		// Test the indexed retrieval
-		assertEquals("SkillToken", "Tumble", token.getToken("SKILL.3",
-			character, null));
+		assertEquals("Tumble", token.getToken("SKILL.3",
+			character, null), "SkillToken");
 
 		// Test the named retrieval
-		assertEquals("SkillToken", "Tumble", token.getToken("SKILL.TUMBLE",
-			character, null));
+		assertEquals("Tumble", token.getToken("SKILL.TUMBLE",
+			character, null), "SkillToken");
 	}
 
 	/**
@@ -211,8 +211,8 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		SkillToken token = new SkillLevelToken();
 
 		// First test each sub token
-		assertEquals("SKILLLEVEL.1.TOTAL", "6", token.getToken(
-			"SKILLLEVEL.1.TOTAL", character, null));
+		assertEquals("6", token.getToken(
+			"SKILLLEVEL.1.TOTAL", character, null), "SKILLLEVEL.1.TOTAL");
 	}
 
 	/**
@@ -226,10 +226,10 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		SkillToken token = new SkillSubsetToken();
 
 		// First test each sub token
-		assertEquals("SkillSubsetToken", "KNOWLEDGE (RELIGION)", token
-			.getToken("SKILLSUBSET.1.KNOWLEDGE.NAME", character, null));
-		assertEquals("SkillSubsetToken", "8.0", token.getToken(
-			"SKILLSUBSET.0.KNOWLEDGE.RANK", character, null));
+		assertEquals("KNOWLEDGE (RELIGION)", token
+			.getToken("SKILLSUBSET.1.KNOWLEDGE.NAME", character, null), "SkillSubsetToken");
+		assertEquals("8.0", token.getToken(
+			"SKILLSUBSET.0.KNOWLEDGE.RANK", character, null), "SkillSubsetToken");
 	}
 
 	/**
@@ -243,10 +243,10 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		SkillToken token = new SkillTypeToken();
 
 		// First test each sub token
-		assertEquals("SkillTypeToken", "Balance", token.getToken(
-			"SKILLTYPE.0.DEX.NAME", character, null));
-		assertEquals("SkillTypeToken", "10", token.getToken(
-			"SKILLTYPE.1.DEX.TOTAL", character, null));
+		assertEquals("Balance", token.getToken(
+			"SKILLTYPE.0.DEX.NAME", character, null), "SkillTypeToken");
+		assertEquals("10", token.getToken(
+			"SKILLTYPE.1.DEX.TOTAL", character, null), "SkillTypeToken");
 	}
 
 	@Override

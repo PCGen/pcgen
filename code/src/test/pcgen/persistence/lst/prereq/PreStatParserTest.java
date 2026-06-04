@@ -23,20 +23,21 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.util.TestHelper;
+import pcgen.test.PCGenTestEnvironment;
 import plugin.pretokens.parser.PreStatParser;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.Test;
 
 
+@ExtendWith(PCGenTestEnvironment.class)
 class PreStatParserTest extends EnUsLocaleDependentTestCase
 {
 
 	@BeforeEach
 	void setUp()
 	{
-		TestHelper.loadPlugins();
 	}
 
 	

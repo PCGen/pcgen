@@ -16,9 +16,9 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 package pcgen.core;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -76,13 +76,13 @@ public class PObjectTest extends AbstractCharacterTestCase
 
 		//		race.setDR("5/Good");
 		race.addToListFor(ListKey.DAMAGE_REDUCTION, new DamageReduction(FormulaFactory.getFormulaFor(5), "Good"));
-		assertEquals("Basic DR set.", "5/Good", race.getListFor(ListKey.DAMAGE_REDUCTION).get(0)
-			.toString());
+		assertEquals("5/Good", race.getListFor(ListKey.DAMAGE_REDUCTION).get(0)
+			.toString(), "Basic DR set.");
 
 		race.removeListFor(ListKey.DAMAGE_REDUCTION);
 		//		race.setDR("0/-");
 		race.addToListFor(ListKey.DAMAGE_REDUCTION, new DamageReduction(FormulaFactory.getFormulaFor(0), "-"));
-		assertEquals("Basic DR set.", "0/-", race.getListFor(ListKey.DAMAGE_REDUCTION).get(0).toString());
+		assertEquals("0/-", race.getListFor(ListKey.DAMAGE_REDUCTION).get(0).toString(), "Basic DR set.");
 
 		//		template.setDR("0/-");
 		template.addToListFor(ListKey.DAMAGE_REDUCTION, new DamageReduction(FormulaFactory.getFormulaFor(0), "-"));
@@ -96,7 +96,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 		pc.setRace(race);
 		pc.addTemplate(template);
 		pc.calcActiveBonuses();
-		assertEquals("Basic DR set.", "1/-", pc.getDisplay().calcDR());
+		assertEquals("1/-", pc.getDisplay().calcDR(), "Basic DR set.");
 	}
 
 	/**
@@ -117,7 +117,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 		race.setName("TestRace");
 		race.put(ObjectKey.CHALLENGE_RATING, new ChallengeRating(FormulaFactory.getFormulaFor(5)));
 		String racePCCText = race.getPCCText();
-		assertNotNull("PCC Text for race should not be null", racePCCText);
+		assertNotNull(racePCCText, "PCC Text for race should not be null");
 
 		GenericLoader<Race> raceLoader = new GenericLoader<>(Race.class);
 		CampaignSourceEntry source;
@@ -132,29 +132,23 @@ public class PObjectTest extends AbstractCharacterTestCase
 		}
 		raceLoader.parseLine(context, null, racePCCText, source);
 		Race reconstRace = context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "TestRace");
-		assertEquals(
-			"getPCCText should be the same after being encoded and reloaded",
-			racePCCText, reconstRace.getPCCText());
-		assertEquals("Racial CR was not restored after saving and reloading.",
-				race.get(ObjectKey.CHALLENGE_RATING), reconstRace
-						.get(ObjectKey.CHALLENGE_RATING));
+		assertEquals(racePCCText, reconstRace.getPCCText(), "getPCCText should be the same after being encoded and reloaded");
+		assertEquals(race.get(ObjectKey.CHALLENGE_RATING), reconstRace
+						.get(ObjectKey.CHALLENGE_RATING), "Racial CR was not restored after saving and reloading.");
 
 		FactKey.getConstant("Abb", new StringManager());
 		PCClass aClass = new PCClass();
 		aClass.setName("TestClass");
 		String classPCCText = aClass.getPCCText();
-		assertNotNull("PCC Text for race should not be null", racePCCText);
+		assertNotNull(racePCCText, "PCC Text for race should not be null");
 
 		PCClassLoader classLoader = new PCClassLoader();
 		PCClass reconstClass =
 				classLoader.parseLine(context, null, classPCCText,
 					source);
-		assertEquals(
-			"getPCCText should be the same after being encoded and reloaded",
-			classPCCText, reconstClass.getPCCText());
-		assertEquals(
-			"Class abbrev was not restored after saving and reloading.", aClass
-				.getAbbrev(), reconstClass.getAbbrev());
+		assertEquals(classPCCText, reconstClass.getPCCText(), "getPCCText should be the same after being encoded and reloaded");
+		assertEquals(aClass
+				.getAbbrev(), reconstClass.getAbbrev(), "Class abbrev was not restored after saving and reloading.");
 
 	}
 
@@ -180,20 +174,20 @@ public class PObjectTest extends AbstractCharacterTestCase
 		BonusAddition.applyBonus("SPELLKNOWN|CLASS=TestPsion;LEVEL=1|1", "TestPsion 1",
 			aPC, pObj);
 		aPC.calcActiveBonuses();
-		assertEquals("Should get 1 bonus known spells", 1, (int) aPC
-			.getTotalBonusTo("SPELLKNOWN", "CLASS.TestPsion;LEVEL.1"));
+		assertEquals(1, (int) aPC
+			.getTotalBonusTo("SPELLKNOWN", "CLASS.TestPsion;LEVEL.1"), "Should get 1 bonus known spells");
 		AbstractCharacterTestCase.applyAbility(aPC, BuildUtilities.getFeatCat(), pObj, "TestPsion 1");
 		BonusAddition.applyBonus("SPELLKNOWN|CLASS=TestPsion;LEVEL=1|1", "TestPsion 1",
 			aPC, pObj);
 		aPC.calcActiveBonuses();
-		assertEquals("Should get 4 bonus known spells", (2 * 2), (int) aPC
-			.getTotalBonusTo("SPELLKNOWN", "CLASS.TestPsion;LEVEL.1"));
+		assertEquals((2 * 2), (int) aPC
+			.getTotalBonusTo("SPELLKNOWN", "CLASS.TestPsion;LEVEL.1"), "Should get 4 bonus known spells");
 		AbstractCharacterTestCase.applyAbility(aPC, BuildUtilities.getFeatCat(), pObj, "TestPsion 1");
 		BonusAddition.applyBonus("SPELLKNOWN|CLASS=TestPsion;LEVEL=1|1", "TestPsion 1",
 			aPC, pObj);
 		aPC.calcActiveBonuses();
-		assertEquals("Should get 9 bonus known spells", (3 * 3), (int) aPC
-			.getTotalBonusTo("SPELLKNOWN", "CLASS.TestPsion;LEVEL.1"));
+		assertEquals((3 * 3), (int) aPC
+			.getTotalBonusTo("SPELLKNOWN", "CLASS.TestPsion;LEVEL.1"), "Should get 9 bonus known spells");
 	}
 
 	/**
@@ -229,12 +223,12 @@ public class PObjectTest extends AbstractCharacterTestCase
 		int baseHP = aPC.hitPoints();
 		AbstractCharacterTestCase.applyAbility(aPC, BuildUtilities.getFeatCat(), pObj, "");
 		aPC.calcActiveBonuses();
-		assertEquals("Should have added 3 HPs", baseHP + 3, aPC.hitPoints());
+		assertEquals(baseHP + 3, aPC.hitPoints(), "Should have added 3 HPs");
 
 		AbstractCharacterTestCase.applyAbility(aPC, BuildUtilities.getFeatCat(), pObj, "");
 		aPC.calcActiveBonuses();
-		assertEquals("2 instances should have added 6 HPs", baseHP + 6, aPC
-			.hitPoints());
+		assertEquals(baseHP + 6, aPC
+			.hitPoints(), "2 instances should have added 6 HPs");
 
 	}
 
@@ -269,12 +263,12 @@ public class PObjectTest extends AbstractCharacterTestCase
 		int baseHP = aPC.hitPoints();
 		AbstractCharacterTestCase.applyAbility(aPC, BuildUtilities.getFeatCat(), pObj, "");
 		aPC.calcActiveBonuses();
-		assertEquals("Should have added 3 HPs", baseHP + 3, aPC.hitPoints());
+		assertEquals(baseHP + 3, aPC.hitPoints(), "Should have added 3 HPs");
 
 		AbstractCharacterTestCase.applyAbility(aPC, BuildUtilities.getFeatCat(), pObj, "");
 		aPC.calcActiveBonuses();
-		assertEquals("2 instances should have added 6 HPs", baseHP + 6, aPC
-			.hitPoints());
+		assertEquals(baseHP + 6, aPC
+			.hitPoints(), "2 instances should have added 6 HPs");
 
 	}
 
@@ -289,26 +283,23 @@ public class PObjectTest extends AbstractCharacterTestCase
 		pobj.addToListFor(ListKey.DESCRIPTION, desc1);
 
 		PlayerCharacter pc = getCharacter();
-		assertEquals("Description should match", "Description 1.", pc
-			.getDescription(pobj));
+		assertEquals("Description 1.", pc
+			.getDescription(pobj), "Description should match");
 
 		final Description desc2 = new Description("Description 2.");
 		pobj.addToListFor(ListKey.DESCRIPTION, desc2);
 
-		assertEquals("Description should match", "Description 1. Description 2.",
-			pc.getDescription(pobj));
+		assertEquals("Description 1. Description 2.", pc.getDescription(pobj), "Description should match");
 
 		final Description desc3 = new Description("Description %1.");
 		desc3.addVariable("\"3\"");
 		pobj.addToListFor(ListKey.DESCRIPTION, desc3);
 
-		assertEquals("Description should match",
-			"Description 1. Description 2. Description 3.", pc
-				.getDescription(pobj));
+		assertEquals("Description 1. Description 2. Description 3.", pc
+				.getDescription(pobj), "Description should match");
 
 		pobj.removeFromListFor(ListKey.DESCRIPTION, desc2);
-		assertEquals("Description should match", "Description 1. Description 3.",
-			pc.getDescription(pobj));
+		assertEquals("Description 1. Description 3.", pc.getDescription(pobj), "Description should match");
 	}
 
 	/**
@@ -372,10 +363,10 @@ public class PObjectTest extends AbstractCharacterTestCase
 		// Add the template to the character
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(race);
-		assertTrue("Character should have ability1.", hasAbility(pc, cat,
-			Nature.AUTOMATIC, ab1));
-		assertTrue("Character should have ability2.", hasAbility(pc, cat,
-			Nature.AUTOMATIC, ab2));
+		assertTrue(hasAbility(pc, cat,
+			Nature.AUTOMATIC, ab1), "Character should have ability1.");
+		assertTrue(hasAbility(pc, cat,
+			Nature.AUTOMATIC, ab2), "Character should have ability2.");
 	}
 
 }

@@ -17,8 +17,8 @@
  */
 package pcgen.core.prereq;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.PCStringKey;
@@ -50,17 +50,17 @@ class PreBirthplaceTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREBIRTHPLACE:Klamath");
 
-		assertTrue("Character is from Klamath", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Character is from Klamath");
 
 		prereq = factory.parse("PREBIRTHPLACE:KLAMATH");
 
-		assertTrue("Case is not significant", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Case is not significant");
 
 		prereq = factory.parse("PREBIRTHPLACE:Klam");
 
-		assertFalse("Requires a full match", PrereqHandler.passes(prereq,
-			character, null));
+		assertFalse(PrereqHandler.passes(prereq,
+			character, null), "Requires a full match");
 	}
 }

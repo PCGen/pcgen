@@ -240,9 +240,6 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api'
     testImplementation 'org.junit.jupiter:junit-jupiter-params'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
-    // JUnit 4 is still used by ~870 legacy tests; pulled in via vintage engine + junit jar.
-    testImplementation 'junit:junit:4.13.2'
-    testRuntimeOnly 'org.junit.vintage:junit-vintage-engine'
     testImplementation 'org.hamcrest:hamcrest:3.0'
     testImplementation 'org.testfx:testfx-junit5:4.0.18'
 
@@ -681,7 +678,10 @@ tasks.named("test", Test) {
             '-Dtestfx.headless=true',
             '-Dprism.order=sw',
             // Workaround for TestFX modularity issue. https://github.com/TestFX/TestFX/issues/638
-            '--add-exports', 'javafx.graphics/com.sun.javafx.application=ALL-UNNAMED',
+            // --add-opens (not --add-exports) is required: TestFX's @AfterEach cleanup
+            // does setAccessible(true) on a private field of ParametersImpl, which is
+            // deep reflection — exports alone aren't enough.
+            '--add-opens', 'javafx.graphics/com.sun.javafx.application=ALL-UNNAMED',
             // Required for Monocle.
             '--add-exports', 'javafx.graphics/com.sun.javafx.util=ALL-UNNAMED',
             '--add-exports', 'javafx.base/com.sun.javafx.logging=ALL-UNNAMED',

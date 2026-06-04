@@ -18,8 +18,8 @@
 package pcgen.core.prereq;
 
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
@@ -69,20 +69,20 @@ public class PreHPTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREHP:4");
 
-		assertTrue("Character should have 4 hp", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Character should have 4 hp");
 
 		prereq = factory.parse("PREHP:5");
 
-		assertFalse("Character should have less than 5 hp", PrereqHandler
-			.passes(prereq, character, null));
+		assertFalse(PrereqHandler
+			.passes(prereq, character, null), "Character should have less than 5 hp");
 
 		final BonusObj hpBonus = Bonus.newBonus(context, "HP|CURRENTMAX|1");
 		myClass.addToListFor(ListKey.BONUS, hpBonus);
 		character.calcActiveBonuses();
 
-		assertTrue("Character should have 5 hp", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Character should have 5 hp");
 	}
 
 	@BeforeEach
