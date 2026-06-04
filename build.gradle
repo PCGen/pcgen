@@ -310,17 +310,38 @@ jlink {
 
     // Resolve packages → modules with the JDK's jdeps; the plugin's default
     // resolver silently misses JDK modules on some distros (e.g. Temurin 25).
+    //
+    // Caveat: jdeps reads modules from `$javaHome/jmods`. JEP 493 JDKs
+    // (Temurin 25 on macOS aarch64, etc.) ship without those jmods, so jdeps
+    // sees only the JavaFX jmods we drop into that directory and silently
+    // omits JDK requires (java.logging, java.desktop, …) from the merged
+    // module-info. We compensate by listing every JDK module the merged
+    // jars need below.
     useJdeps.set(JdepsUsage.exclusively)
 
     mergedModule {
         additive = true
-        // jdeps already derives the JDK modules our merged jars reference;
-        // list only modules it cannot derive (loaded reflectively / via SPI).
-        requires 'java.naming'
-        requires 'java.scripting'
+        // Listed manually because jdeps cannot see them on JEP 493 JDKs that
+        // omit the JDK jmods (see comment above). On JDKs that DO ship jmods
+        // jdeps would derive the same set, but the plugin appends our list
+        // verbatim — which would produce duplicate-requires errors. The build
+        // pulls Temurin (no JDK jmods) via `:extractJdk`, so duplicates are
+        // not produced in practice.
+        requires 'java.compiler'
+        requires 'java.desktop'
+        requires 'java.logging'
         requires 'java.management'
+        requires 'java.naming'
+        requires 'java.prefs'
+        requires 'java.rmi'
+        requires 'java.scripting'
+        requires 'java.sql'
+        requires 'java.xml'
         requires 'jdk.httpserver'
+        requires 'jdk.jfr'
+        requires 'jdk.unsupported'
         requires 'jdk.unsupported.desktop'
+        requires 'jdk.xml.dom'
 
         // Exclude service providers that reference optional/missing dependencies
         excludeProvides(servicePattern: 'reactor\\.blockhound\\..*')
