@@ -31,7 +31,6 @@ plugins {
     id 'maven-publish'                                  // Publishing to Maven Central
     id 'pmd'                                            // PMD for Java, configured further below
     id 'de.undercouch.download' version '5.7.0'         // Shows download percentage
-    id 'com.github.ben-manes.versions' version '0.54.0' // Checks versions for plugins and dependencies
     id 'com.dorongold.task-tree' version '4.0.1'        // Prints the task dependency tree
     id 'org.beryx.jlink' version '4.0.2'               // Creates custom runtimes with jlink
     id 'jacoco'                                         // Code coverage
@@ -837,37 +836,6 @@ tasks.withType(JavaCompile).configureEach {
             options.compilerArgs << "--module-path" << modulePath
         }
         println "Args for for $name are $options.allCompilerArgs"
-    }
-}
-
-tasks.named("dependencyUpdates") {
-    revision = 'release'
-
-    resolutionStrategy {
-        componentSelection { rules ->
-            rules.all { ComponentSelection selection ->
-                if (['atlassian'].any { qualifier ->
-                    selection.candidate.version ==~ /(?i).*[.-]${qualifier}[.\d-]*/
-                }) {
-                    selection.reject('unofficial release')
-                }
-                boolean rejected = ['alpha', 'beta', 'rc', 'cr', 'm', 'preview', 'b', 'ea'].any { qualifier ->
-                    selection.candidate.version ==~ /(?i).*[.-]$qualifier[.\d-+]*/
-                }
-                if (rejected) {
-                    selection.reject('Release candidate')
-                }
-                if (selection.candidate.version == '2.0.2' && selection.candidate.name == 'xml-apis') {
-                    selection.reject('older than current')
-                }
-                if (selection.candidate.version == '2.24' && selection.candidate.name == 'jep') {
-                    selection.reject('older than current')
-                }
-                if (selection.candidate.version == '1.8.0_20' && selection.candidate.name == 'openjfx-monocle') {
-                    selection.reject('older than current')
-                }
-            }
-        }
     }
 }
 
