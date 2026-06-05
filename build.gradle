@@ -368,6 +368,21 @@ jlink {
 // Package up other files with the main program after jpackage creates the image
 tasks.named("jpackageImage") {
     dependsOn tasks.named("jlink")
+
+    // Finder lazily writes .DS_Store into directories it has previewed; if one
+    // appears under build/jpackage between the plugin listing the dir and
+    // recursively deleting it, the rmtree fails with "New files were found".
+    // Sweep them out first.
+    def jpackageDir = layout.buildDirectory.dir("jpackage")
+    doFirst {
+        def root = jpackageDir.get().asFile.toPath()
+        if (java.nio.file.Files.exists(root)) {
+            java.nio.file.Files.walk(root).withCloseable { stream ->
+                stream.filter { it.fileName.toString() == ".DS_Store" }
+                      .forEach { java.nio.file.Files.deleteIfExists(it) }
+            }
+        }
+    }
 }
 
 tasks.named("jlink") {
