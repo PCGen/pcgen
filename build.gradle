@@ -94,19 +94,6 @@ application {
 repositories {
     // Maven Central as a default
     mavenCentral()
-
-    ivy {
-        // TODO Enable HTTPS (e.g., add letsencrypt) for that location
-        name = 'fileRepo'
-        url = 'http://pc-gen.org/librepo/'
-        allowInsecureProtocol = true
-    }
-    // Use Maven plugin to reference JBoss artifact repository
-    // TODO Which libs do we pull from here?
-    maven {
-        name = 'jboss'
-        url = 'https://repository.jboss.org/nexus/content/repositories/thirdparty-releases/'
-    }
 }
 
 // Define the source sets for each task/module
