@@ -196,7 +196,6 @@ tasks.register("cleanMasterSheets", Delete) {
  * https://docs.gradle.org/current/userguide/dependency_downgrade_and_exclude.html
  */
 dependencies {
-
     implementation fileTree(dir: 'mods/lib', include: ['javafx.*.jar'])
 
     implementation platform('org.springframework:spring-framework-bom:7.0.7')
