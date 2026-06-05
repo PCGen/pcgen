@@ -19,7 +19,7 @@ def createJarTask = {taskName, archiveName, description, includePattern ->
     tasks.register(taskName, Jar) {
         this.description = description
         group = PLUGINS_GROUP
-        dependsOn tasks.named("compileJava")
+        dependsOn tasks.named("classes")
 
         archiveFileName = archiveName
         manifest {
