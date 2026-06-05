@@ -30,13 +30,13 @@ pmd {
 
 // TODO fix the outstanding bugs and then remove the ignoreFailures
 spotbugs {
-    def classLoader = plugins["com.github.spotbugs"].class.classLoader
-    def SpotBugsConfidence = classLoader.findLoadedClass("com.github.spotbugs.snom.Confidence")
+    def Confidence = Class.forName("com.github.spotbugs.snom.Confidence",
+            true, plugins["com.github.spotbugs"].class.classLoader)
 
     toolVersion = '4.9.8'
     excludeFilter = file("$rootProject.projectDir/code/standards/spotbugs_ignore.xml")
     omitVisitors = ['Naming', 'CrossSiteScripting', 'DontUseEnum', 'DoInsideDoPrivileged']
-    reportLevel = SpotBugsConfidence.LOW
+    reportLevel = Confidence.LOW
     ignoreFailures = true
 }
 
