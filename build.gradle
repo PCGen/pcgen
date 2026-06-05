@@ -88,11 +88,7 @@ application {
     mainClass.set('pcgen.system.Main')
 }
 
-/*
- * Which binary repositories this build uses.
- */
 repositories {
-    // Maven Central as a default
     mavenCentral()
 }
 
