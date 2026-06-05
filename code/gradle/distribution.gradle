@@ -48,12 +48,6 @@ ext {
         }
         from('code') {
             include 'LICENSE'
-
-            eachFile { file ->
-                if(file.getName().endsWith(".sh")) {
-                    file.setMode(0755)
-                }
-            }
         }
     }
 
@@ -102,7 +96,15 @@ tasks.named("run") {
 tasks.named("installDist") {
     def installLibDir = layout.buildDirectory.dir("install/pcgen/lib")
     doLast {
-        installLibDir.get().asFile.listFiles()?.findAll { it.name.startsWith('javafx-') }?.each { it.delete() }
+        def libDir = installLibDir.get().asFile
+        def javafxLibs = libDir.listFiles({ File f ->
+            f.name.startsWith("javafx-") || f.name.startsWith("javafx.")
+        } as java.io.FileFilter)
+        javafxLibs?.each { f ->
+            if (!f.delete()) {
+                throw new GradleException("Failed to delete ${f}")
+            }
+        }
     }
 }
 
