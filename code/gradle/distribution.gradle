@@ -48,12 +48,6 @@ ext {
         }
         from('code') {
             include 'LICENSE'
-
-            eachFile { file ->
-                if(file.getName().endsWith(".sh")) {
-                    file.setMode(0755)
-                }
-            }
         }
     }
 
