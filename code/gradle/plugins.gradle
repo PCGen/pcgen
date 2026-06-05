@@ -1,9 +1,6 @@
 
 def PLUGINS_GROUP = "PCGen plugins"
 
-def manifestFile = "code/manifest"
-
-def srcJavaDir = "code/src/java"
 def buildClassesDir = "build/classes/java/main"
 
 def pluginsDir = "${projectDir}/plugins"
@@ -15,7 +12,7 @@ tasks.register("cleanPlugins", Delete) {
     delete fileTree(dir: pluginsDir, include: "*.jar")
 }
 
-def createJarTask = {taskName, archiveName, description, includePattern ->
+def createJarTask = {String taskName, String archiveName, String description, String includePattern ->
     tasks.register(taskName, Jar) {
         this.description = description
         group = PLUGINS_GROUP

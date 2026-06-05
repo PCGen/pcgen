@@ -31,7 +31,6 @@ plugins {
     id 'maven-publish'                                  // Publishing to Maven Central
     id 'pmd'                                            // PMD for Java, configured further below
     id 'de.undercouch.download' version '5.7.0'         // Shows download percentage
-    id 'com.github.ben-manes.versions' version '0.54.0' // Checks versions for plugins and dependencies
     id 'com.dorongold.task-tree' version '4.0.1'        // Prints the task dependency tree
     id 'org.beryx.jlink' version '4.0.2'               // Creates custom runtimes with jlink
     id 'jacoco'                                         // Code coverage
@@ -49,9 +48,6 @@ description = """PCGen"""
 
 // Define properties for the build (directories)
 ext {
-    // Where code gets compiled to
-    binDir = "code/bin"
-
     // Folder where exe / jar files are placed.
     outputDir = layout.projectDirectory.dir("output")
 
@@ -68,16 +64,19 @@ ext {
     javaVersion = 25
 
     // The Eclipse Adoptium API returns the latest patch release for the majorJava version set.
-    // The closure is memoized so the network call fires at most once per Gradle invocation,
-    // and only when a JavaFX/JDK download task actually consumes the value (the use sites
-    // sit inside lazy tasks.register bodies).
+    // Cached so the network call fires at most once per Gradle invocation, and only when a
+    // JavaFX/JDK download task actually consumes the value (the use sites sit inside lazy
+    // tasks.register bodies).
+    def latestJavaVersionCache = [:]
     latestJavaVersion = { majorJavaVersion ->
-        def uri = new URI("https://api.adoptium.net/v3/assets/feature_releases/${majorJavaVersion}/ga?architecture=x64&page=0&page_size=1&project=jdk&sort_order=DESC&vendor=eclipse")
-        def parsedJson = new JsonSlurper().parse(uri.toURL())
+        latestJavaVersionCache.computeIfAbsent(majorJavaVersion) { v ->
+            def uri = new URI("https://api.adoptium.net/v3/assets/feature_releases/${v}/ga?architecture=x64&page=0&page_size=1&project=jdk&sort_order=DESC&vendor=eclipse")
+            def parsedJson = new JsonSlurper().parse(uri.toURL())
 
-        parsedJson.first()
-                .version_data.with { [major, minor, security].join('.') }
-    }.memoize()
+            parsedJson.first()
+                    .version_data.with { [major, minor, security].join('.') }
+        }
+    }
 }
 
 // Configure Java, in particular the version to test/compile/run with
@@ -91,25 +90,8 @@ application {
     mainClass.set('pcgen.system.Main')
 }
 
-/*
- * Which binary repositories this build uses.
- */
 repositories {
-    // Maven Central as a default
     mavenCentral()
-
-    ivy {
-        // TODO Enable HTTPS (e.g., add letsencrypt) for that location
-        name = 'fileRepo'
-        url = 'http://pc-gen.org/librepo/'
-        allowInsecureProtocol = true
-    }
-    // Use Maven plugin to reference JBoss artifact repository
-    // TODO Which libs do we pull from here?
-    maven {
-        name = 'jboss'
-        url = 'https://repository.jboss.org/nexus/content/repositories/thirdparty-releases/'
-    }
 }
 
 // Define the source sets for each task/module
@@ -213,7 +195,6 @@ tasks.register("cleanMasterSheets", Delete) {
  * https://docs.gradle.org/current/userguide/dependency_downgrade_and_exclude.html
  */
 dependencies {
-
     implementation fileTree(dir: 'mods/lib', include: ['javafx.*.jar'])
 
     implementation platform('org.springframework:spring-framework-bom:7.0.7')
@@ -256,11 +237,6 @@ dependencies {
     pmd 'net.sourceforge.pmd:pmd-ant:7.25.0' // workaround: https://github.com/pmd/pmd/issues/4554
 }
 
-ext {
-    classpath = ""
-    configurations.runtimeClasspath.each { lib -> classpath += " libs/${lib.name} "}
-}
-
 jar {
     // Pick up some configuration to JAR up the plugins
     it.dependsOn "jarAllPlugins"
@@ -273,7 +249,7 @@ jar {
         attributes 'Implementation-Title': 'PCGen',
                 'Implementation-Version': archiveVersion,
                 'Main-Class': 'pcgen.system.Main',
-                'Class-Path': classpath
+                'Class-Path': configurations.runtimeClasspath.collect { " libs/${it.name} " }.join('')
     }
 
     exclude 'META-INF/*.SF', 'META-INF/*.DSA', 'META-INF/*.RSA', 'META-INF/*.EC'
@@ -310,17 +286,38 @@ jlink {
 
     // Resolve packages → modules with the JDK's jdeps; the plugin's default
     // resolver silently misses JDK modules on some distros (e.g. Temurin 25).
+    //
+    // Caveat: jdeps reads modules from `$javaHome/jmods`. JEP 493 JDKs
+    // (Temurin 25 on macOS aarch64, etc.) ship without those jmods, so jdeps
+    // sees only the JavaFX jmods we drop into that directory and silently
+    // omits JDK requires (java.logging, java.desktop, …) from the merged
+    // module-info. We compensate by listing every JDK module the merged
+    // jars need below.
     useJdeps.set(JdepsUsage.exclusively)
 
     mergedModule {
         additive = true
-        // jdeps already derives the JDK modules our merged jars reference;
-        // list only modules it cannot derive (loaded reflectively / via SPI).
-        requires 'java.naming'
-        requires 'java.scripting'
+        // Listed manually because jdeps cannot see them on JEP 493 JDKs that
+        // omit the JDK jmods (see comment above). On JDKs that DO ship jmods
+        // jdeps would derive the same set, but the plugin appends our list
+        // verbatim — which would produce duplicate-requires errors. The build
+        // pulls Temurin (no JDK jmods) via `:extractJdk`, so duplicates are
+        // not produced in practice.
+        requires 'java.compiler'
+        requires 'java.desktop'
+        requires 'java.logging'
         requires 'java.management'
+        requires 'java.naming'
+        requires 'java.prefs'
+        requires 'java.rmi'
+        requires 'java.scripting'
+        requires 'java.sql'
+        requires 'java.xml'
         requires 'jdk.httpserver'
+        requires 'jdk.jfr'
+        requires 'jdk.unsupported'
         requires 'jdk.unsupported.desktop'
+        requires 'jdk.xml.dom'
 
         // Exclude service providers that reference optional/missing dependencies
         excludeProvides(servicePattern: 'reactor\\.blockhound\\..*')
@@ -336,6 +333,13 @@ jlink {
             ? jdksDir.dir("jdk_${hostOs}_${hostArch}/Contents/Home").asFile.absolutePath
             : jdksDir.dir("jdk_${hostOs}_${hostArch}").asFile.absolutePath
     targetPlatform("${hostOs}-${hostArch}", hostJdkPath)
+
+    // Pin the JDK used by jdeps/javac in :createMergedModule and friends to the
+    // downloaded Temurin so the build behaves identically regardless of which
+    // JDK Gradle's toolchain auto-discovers locally (SapMachine, Zulu, etc.).
+    // This only affects jlink/jpackage tasks; compileJava/test/run still use
+    // whatever the toolchain resolves.
+    javaHome.set(file(hostJdkPath))
 
     // Use the jpackage tool that comes with Java to build native installers
     jpackage {
@@ -372,6 +376,14 @@ tasks.named("jpackageImage") {
 
 tasks.named("jlink") {
     dependsOn "extractJfxMods"
+}
+
+// jlink.javaHome points at the extracted Temurin, so every plugin task that
+// invokes its tools (jdeps/javac/jlink/jpackage) must wait for :extractJdk.
+['prepareMergedJarsDir', 'createMergedModule', 'createDelegatingModules',
+ 'prepareModulesDir', 'jlink', 'jpackageImage', 'jpackage',
+ 'suggestMergedModuleInfo'].each { taskName ->
+    tasks.named(taskName) { dependsOn "extractJdk" }
 }
 
 tasks.register("assembleJpackageImage", Copy) {
@@ -451,7 +463,7 @@ tasks.register("converterJar", Jar) {
         attributes 'Implementation-Title': 'PCGen Data Converter',
                    'Implementation-Version': archiveVersion,
                    'Main-Class': 'pcgen.gui2.converter.PCGenDataConvert',
-                   'Class-Path': 'pcgen.jar' + classpath
+                   'Class-Path': 'pcgen.jar' + configurations.runtimeClasspath.collect { " libs/${it.name} " }.join('')
     }
 
     archiveClassifier.set('batch-convert')
@@ -540,6 +552,7 @@ tasks.register("downloadJdk", Download) {
     overwrite false
     useETag true
     tempAndMove true
+    mustRunAfter clean
 }
 
 tasks.register("extractJdk", Copy) {
@@ -555,7 +568,7 @@ tasks.register("extractJdk", Copy) {
     eachFile { FileCopyDetails fcd ->
         def segments = fcd.relativePath.segments
         if (segments.length > 1) {
-            fcd.relativePath = new RelativePath(!fcd.isDirectory(), segments[1..-1] as String[])
+            fcd.relativePath = new RelativePath(!fcd.isDirectory(), Arrays.copyOfRange(segments, 1, segments.length) as String[])
         }
     }
     includeEmptyDirs = false
@@ -572,6 +585,7 @@ tasks.register("downloadJfxMods", Download) {
     overwrite false
     useETag true
     tempAndMove true
+    mustRunAfter clean
 }
 
 tasks.register("extractJfxMods", Copy) {
@@ -584,9 +598,9 @@ tasks.register("extractJfxMods", Copy) {
 
     from zipTree(jdksDir.file("jfx_jmods_${hostOs}_${hostArch}.zip"))
     into jmodsTarget
-    eachFile { fcd ->
+    eachFile { FileCopyDetails fcd ->
         def segments = fcd.relativePath.segments
-        fcd.relativePath = new RelativePath(!fcd.isDirectory(), segments[1..-1] as String[])
+        fcd.relativePath = new RelativePath(!fcd.isDirectory(), Arrays.copyOfRange(segments, 1, segments.length) as String[])
     }
     includeEmptyDirs = false
 
@@ -628,6 +642,7 @@ tasks.register("downloadJavaFXLocal", Download) {
     overwrite false
     useETag true
     tempAndMove true
+    mustRunAfter clean
 }
 
 tasks.register("extractJavaFXLocal", Copy) {
@@ -640,10 +655,10 @@ tasks.register("extractJavaFXLocal", Copy) {
 
     from zipTree(downloadJavaFXLocal.dest)
     into layout.projectDirectory.dir("mods")
-    eachFile { fcd ->
+    eachFile { FileCopyDetails fcd ->
         def relPath = fcd.relativePath
         def segments = relPath.segments
-        fcd.relativePath = new RelativePath(!fcd.isDirectory(), (segments[1..-1]) as String[])
+        fcd.relativePath = new RelativePath(!fcd.isDirectory(), Arrays.copyOfRange(segments, 1, segments.length) as String[])
     }
     includeEmptyDirs = false
 }
@@ -824,37 +839,6 @@ tasks.withType(JavaCompile).configureEach {
     }
 }
 
-tasks.named("dependencyUpdates") {
-    revision = 'release'
-
-    resolutionStrategy {
-        componentSelection { rules ->
-            rules.all { ComponentSelection selection ->
-                if (['atlassian'].any { qualifier ->
-                    selection.candidate.version ==~ /(?i).*[.-]${qualifier}[.\d-]*/
-                }) {
-                    selection.reject('unofficial release')
-                }
-                boolean rejected = ['alpha', 'beta', 'rc', 'cr', 'm', 'preview', 'b', 'ea'].any { qualifier ->
-                    selection.candidate.version ==~ /(?i).*[.-]$qualifier[.\d-+]*/
-                }
-                if (rejected) {
-                    selection.reject('Release candidate')
-                }
-                if (selection.candidate.version == '2.0.2' && selection.candidate.name == 'xml-apis') {
-                    selection.reject('older than current')
-                }
-                if (selection.candidate.version == '2.24' && selection.candidate.name == 'jep') {
-                    selection.reject('older than current')
-                }
-                if (selection.candidate.version == '1.8.0_20' && selection.candidate.name == 'openjfx-monocle') {
-                    selection.reject('older than current')
-                }
-            }
-        }
-    }
-}
-
 // Use the gradle wrapper
 tasks.named("wrapper") {
     distributionType = Wrapper.DistributionType.ALL
@@ -872,9 +856,6 @@ tasks.register("allTasks") {
     description = "Runs tasks build, slowtest, javadoc and allReports"
 }
 
-// TODO This clean is not as nuclear as it perhaps should be.
-// For jlink and friends to work when you get odd Zip errors
-// you will also need to clean out output/ bin/
 // This task is in the end, because other scripts contribute to the building process
 tasks.named("clean") {
     dependsOn cleanPlugins, cleanOutput, cleanJdks, cleanMods, cleanMasterSheets
