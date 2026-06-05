@@ -355,6 +355,13 @@ jlink {
             : jdksDir.dir("jdk_${hostOs}_${hostArch}").asFile.absolutePath
     targetPlatform("${hostOs}-${hostArch}", hostJdkPath)
 
+    // Pin the JDK used by jdeps/javac in :createMergedModule and friends to the
+    // downloaded Temurin so the build behaves identically regardless of which
+    // JDK Gradle's toolchain auto-discovers locally (SapMachine, Zulu, etc.).
+    // This only affects jlink/jpackage tasks; compileJava/test/run still use
+    // whatever the toolchain resolves.
+    javaHome.set(file(hostJdkPath))
+
     // Use the jpackage tool that comes with Java to build native installers
     jpackage {
         def licenseFile = layout.projectDirectory.file("code/LICENSE")
@@ -390,6 +397,14 @@ tasks.named("jpackageImage") {
 
 tasks.named("jlink") {
     dependsOn "extractJfxMods"
+}
+
+// jlink.javaHome points at the extracted Temurin, so every plugin task that
+// invokes its tools (jdeps/javac/jlink/jpackage) must wait for :extractJdk.
+['prepareMergedJarsDir', 'createMergedModule', 'createDelegatingModules',
+ 'prepareModulesDir', 'jlink', 'jpackageImage', 'jpackage',
+ 'suggestMergedModuleInfo'].each { taskName ->
+    tasks.named(taskName) { dependsOn "extractJdk" }
 }
 
 tasks.register("assembleJpackageImage", Copy) {
