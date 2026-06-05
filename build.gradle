@@ -49,9 +49,6 @@ description = """PCGen"""
 
 // Define properties for the build (directories)
 ext {
-    // Where code gets compiled to
-    binDir = "code/bin"
-
     // Folder where exe / jar files are placed.
     outputDir = layout.projectDirectory.dir("output")
 
@@ -896,9 +893,6 @@ tasks.register("allTasks") {
     description = "Runs tasks build, slowtest, javadoc and allReports"
 }
 
-// TODO This clean is not as nuclear as it perhaps should be.
-// For jlink and friends to work when you get odd Zip errors
-// you will also need to clean out output/ bin/
 // This task is in the end, because other scripts contribute to the building process
 tasks.named("clean") {
     dependsOn cleanPlugins, cleanOutput, cleanJdks, cleanMods, cleanMasterSheets
