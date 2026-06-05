@@ -598,7 +598,7 @@ tasks.register("extractJfxMods", Copy) {
 
     from zipTree(jdksDir.file("jfx_jmods_${hostOs}_${hostArch}.zip"))
     into jmodsTarget
-    eachFile { fcd ->
+    eachFile { FileCopyDetails fcd ->
         def segments = fcd.relativePath.segments
         fcd.relativePath = new RelativePath(!fcd.isDirectory(), Arrays.copyOfRange(segments, 1, segments.length) as String[])
     }
@@ -655,7 +655,7 @@ tasks.register("extractJavaFXLocal", Copy) {
 
     from zipTree(downloadJavaFXLocal.dest)
     into layout.projectDirectory.dir("mods")
-    eachFile { fcd ->
+    eachFile { FileCopyDetails fcd ->
         def relPath = fcd.relativePath
         def segments = relPath.segments
         fcd.relativePath = new RelativePath(!fcd.isDirectory(), Arrays.copyOfRange(segments, 1, segments.length) as String[])
