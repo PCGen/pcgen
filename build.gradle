@@ -238,11 +238,6 @@ dependencies {
     pmd 'net.sourceforge.pmd:pmd-ant:7.25.0' // workaround: https://github.com/pmd/pmd/issues/4554
 }
 
-ext {
-    classpath = ""
-    configurations.runtimeClasspath.each { lib -> classpath += " libs/${lib.name} "}
-}
-
 jar {
     // Pick up some configuration to JAR up the plugins
     it.dependsOn "jarAllPlugins"
@@ -255,7 +250,7 @@ jar {
         attributes 'Implementation-Title': 'PCGen',
                 'Implementation-Version': archiveVersion,
                 'Main-Class': 'pcgen.system.Main',
-                'Class-Path': classpath
+                'Class-Path': configurations.runtimeClasspath.collect { " libs/${it.name} " }.join('')
     }
 
     exclude 'META-INF/*.SF', 'META-INF/*.DSA', 'META-INF/*.RSA', 'META-INF/*.EC'
@@ -469,7 +464,7 @@ tasks.register("converterJar", Jar) {
         attributes 'Implementation-Title': 'PCGen Data Converter',
                    'Implementation-Version': archiveVersion,
                    'Main-Class': 'pcgen.gui2.converter.PCGenDataConvert',
-                   'Class-Path': 'pcgen.jar' + classpath
+                   'Class-Path': 'pcgen.jar' + configurations.runtimeClasspath.collect { " libs/${it.name} " }.join('')
     }
 
     archiveClassifier.set('batch-convert')
