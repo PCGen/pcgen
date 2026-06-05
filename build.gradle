@@ -808,6 +808,7 @@ tasks.withType(JavaCompile).configureEach {
             def modulePath = [modsLibPath, depJars, compileOnlyJars].findAll { it }.join(File.pathSeparator)
             options.compilerArgs << "--module-path" << modulePath
         }
+        println "Args for $name are $options.allCompilerArgs"
     }
 }
 
