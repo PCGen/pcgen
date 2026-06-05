@@ -3,7 +3,7 @@
  * and refers to other files in the code/gradle directory for additional tasks
  * for specific output.
  *
- * Developer build: gradle
+ * Show available tasks: gradle tasks
  * Incremental dev build: gradle build
  * Full build: gradle allTasks
  * Build and run all tests: gradle clean build slowtest
@@ -476,10 +476,6 @@ tasks.named("assemble") {
 tasks.register("copyToLibs", Copy) {
     dependsOn startScripts, installDist
 
-    doFirst {
-        println("IN copyToLibs")
-    }
-
     into layout.buildDirectory.dir("libs")
     from configurations.runtimeClasspath
 }
@@ -631,10 +627,6 @@ tasks.register("downloadJavaFXLocal", Download) {
         throw new GradleException("Unsupported arch detected: '${hostArchitecture}'. Supported architectures are: x86_64, amd64 and aarch64")
     }
 
-    doFirst {
-        println("Downloading JavaFX SDK for use in local testing for ${currentOS} ${hostArchitecture}.")
-    }
-
     def fileName = "openjfx-${project.ext.latestJavaVersion(project.ext.javaVersion)}_${currentOS}${archAppend}_bin-sdk.zip"
 
     src "https://download2.gluonhq.com/openjfx/${project.ext.latestJavaVersion(project.ext.javaVersion)}/${fileName}"
@@ -648,10 +640,6 @@ tasks.register("downloadJavaFXLocal", Download) {
 tasks.register("extractJavaFXLocal", Copy) {
     description = "Extracts the JavaFX modules for the current platform to the 'mods' directory for local testing"
     dependsOn downloadJavaFXLocal
-
-    doFirst {
-        println "Extracting JavaFX SDK for use in local testing."
-    }
 
     from zipTree(downloadJavaFXLocal.dest)
     into layout.projectDirectory.dir("mods")
@@ -835,7 +823,7 @@ tasks.withType(JavaCompile).configureEach {
             def modulePath = [modsLibPath, depJars, compileOnlyJars].findAll { it }.join(File.pathSeparator)
             options.compilerArgs << "--module-path" << modulePath
         }
-        println "Args for for $name are $options.allCompilerArgs"
+        println "Args for $name are $options.allCompilerArgs"
     }
 }
 
