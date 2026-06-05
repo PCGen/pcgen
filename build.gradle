@@ -65,16 +65,19 @@ ext {
     javaVersion = 25
 
     // The Eclipse Adoptium API returns the latest patch release for the majorJava version set.
-    // The closure is memoized so the network call fires at most once per Gradle invocation,
-    // and only when a JavaFX/JDK download task actually consumes the value (the use sites
-    // sit inside lazy tasks.register bodies).
+    // Cached so the network call fires at most once per Gradle invocation, and only when a
+    // JavaFX/JDK download task actually consumes the value (the use sites sit inside lazy
+    // tasks.register bodies).
+    def latestJavaVersionCache = [:]
     latestJavaVersion = { majorJavaVersion ->
-        def uri = new URI("https://api.adoptium.net/v3/assets/feature_releases/${majorJavaVersion}/ga?architecture=x64&page=0&page_size=1&project=jdk&sort_order=DESC&vendor=eclipse")
-        def parsedJson = new JsonSlurper().parse(uri.toURL())
+        latestJavaVersionCache.computeIfAbsent(majorJavaVersion) { v ->
+            def uri = new URI("https://api.adoptium.net/v3/assets/feature_releases/${v}/ga?architecture=x64&page=0&page_size=1&project=jdk&sort_order=DESC&vendor=eclipse")
+            def parsedJson = new JsonSlurper().parse(uri.toURL())
 
-        parsedJson.first()
-                .version_data.with { [major, minor, security].join('.') }
-    }.memoize()
+            parsedJson.first()
+                    .version_data.with { [major, minor, security].join('.') }
+        }
+    }
 }
 
 // Configure Java, in particular the version to test/compile/run with
