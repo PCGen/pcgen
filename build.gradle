@@ -568,7 +568,7 @@ tasks.register("extractJdk", Copy) {
     eachFile { FileCopyDetails fcd ->
         def segments = fcd.relativePath.segments
         if (segments.length > 1) {
-            fcd.relativePath = new RelativePath(!fcd.isDirectory(), Arrays.copyOfRange(segments, 1, segments.length))
+            fcd.relativePath = new RelativePath(!fcd.isDirectory(), Arrays.copyOfRange(segments, 1, segments.length) as String[])
         }
     }
     includeEmptyDirs = false
@@ -600,7 +600,7 @@ tasks.register("extractJfxMods", Copy) {
     into jmodsTarget
     eachFile { fcd ->
         def segments = fcd.relativePath.segments
-        fcd.relativePath = new RelativePath(!fcd.isDirectory(), Arrays.copyOfRange(segments, 1, segments.length))
+        fcd.relativePath = new RelativePath(!fcd.isDirectory(), Arrays.copyOfRange(segments, 1, segments.length) as String[])
     }
     includeEmptyDirs = false
 
@@ -658,7 +658,7 @@ tasks.register("extractJavaFXLocal", Copy) {
     eachFile { fcd ->
         def relPath = fcd.relativePath
         def segments = relPath.segments
-        fcd.relativePath = new RelativePath(!fcd.isDirectory(), Arrays.copyOfRange(segments, 1, segments.length))
+        fcd.relativePath = new RelativePath(!fcd.isDirectory(), Arrays.copyOfRange(segments, 1, segments.length) as String[])
     }
     includeEmptyDirs = false
 }
