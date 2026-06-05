@@ -1,9 +1,6 @@
 
 def PLUGINS_GROUP = "PCGen plugins"
 
-def manifestFile = "code/manifest"
-
-def srcJavaDir = "code/src/java"
 def buildClassesDir = "build/classes/java/main"
 
 def pluginsDir = "${projectDir}/plugins"
