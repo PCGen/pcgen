@@ -20,7 +20,6 @@
  */
 
 apply from: "code/gradle/releaseUtils.groovy"
-apply plugin: 'java'
 
 ext {
     // Work out the path to the release notes for our current version.
