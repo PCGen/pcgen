@@ -39,9 +39,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
- * {@code PluginBuildTest} verifies that the pluginbuild.xml file has all
- * required data. As a result this unit test is a bit different in structure to
- * a normal test.
+ * {@code PluginBuildTest} verifies that every plugin source file under
+ * {@code code/src/java/plugin/<category>/} is packaged into the matching
+ * {@code <category>plugins.jar} produced by {@code code/gradle/plugins.gradle}.
+ * As a result this unit test is a bit different in structure to a normal test.
  */
 class PluginBuildTest
 {
