@@ -21,73 +21,69 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 class RollInfoTest
 {
-	@Test
-	void simpleRollRoundTrips()
+	/**
+	 * Round-trip cases covering each notation element alone, combinations
+	 * exercising the {@code toString()} emit-block order, the implicit
+	 * times=1 (no leading number), and the keep-list shape normalisations
+	 * that collapse to {@code /n} or {@code \n}.
+	 */
+	@ParameterizedTest(name = "{0}")
+	@ValueSource(strings = {
+			// Singletons
+			"3d6",
+			"1d20+5",
+			"1d20-2",
+			"4d6/3",
+			"4d6\\1",
+			"4d6|1,3",
+			"3d6m2",
+			"3d6M5",
+			"1d8t2",
+			"1d8T6",
+			// Combinations exercising toString() emit-block order
+			"4d6/3+2",
+			"2d20\\1+3",
+			"1d8m2+1",
+			"1d8M7-1",
+			"1d20+5t2",
+			"1d20+5T18",
+			"1d20-3t1",
+			"1d8m2M7+1t2T6",
+			// keepList contiguous runs render as /n or \n
+			"4d6/2",
+			"4d6\\2",
+	})
+	void roundTrips(String roll)
 	{
-		assertEquals("3d6", new RollInfo("3d6").toString());
+		assertEquals(roll, new RollInfo(roll).toString());
+	}
+
+	@ParameterizedTest(name = "{0} -> {1}")
+	@CsvSource({
+			"d8,            1d8",        // implicit times=1
+			"'4d6|1,2,3,4', 4d6",        // all kept -> no spec
+			"'4d6|1,2',     4d6\\2",     // contiguous-bottom -> backslash form
+			"'4d6|3,4',     4d6/2",      // contiguous-top -> slash form
+			"'4d6|1,4',     '4d6|1,4'",  // discontinuous -> stays explicit
+	})
+	void normalisesToCanonicalForm(String input, String canonical)
+	{
+		assertEquals(canonical, new RollInfo(input).toString());
 	}
 
 	@Test
-	void singleDieDefaultsTimesToOne()
+	void implicitSidesOneAcceptedByParser()
 	{
-		assertEquals("1d8", new RollInfo("d8").toString());
-	}
-
-	@Test
-	void positiveModifierRoundTrips()
-	{
-		assertEquals("1d20+5", new RollInfo("1d20+5").toString());
-	}
-
-	@Test
-	void negativeModifierRoundTrips()
-	{
-		assertEquals("1d20-2", new RollInfo("1d20-2").toString());
-	}
-
-	@Test
-	void keepTopRoundTrips()
-	{
-		assertEquals("4d6/3", new RollInfo("4d6/3").toString());
-	}
-
-	@Test
-	void keepBottomRoundTrips()
-	{
-		assertEquals("4d6\\1", new RollInfo("4d6\\1").toString());
-	}
-
-	@Test
-	void explicitKeepListRoundTrips()
-	{
-		assertEquals("4d6|1,3", new RollInfo("4d6|1,3").toString());
-	}
-
-	@Test
-	void rerollBelowRoundTrips()
-	{
-		assertEquals("3d6m2", new RollInfo("3d6m2").toString());
-	}
-
-	@Test
-	void rerollAboveRoundTrips()
-	{
-		assertEquals("3d6M5", new RollInfo("3d6M5").toString());
-	}
-
-	@Test
-	void totalFloorRoundTrips()
-	{
-		assertEquals("1d8t2", new RollInfo("1d8t2").toString());
-	}
-
-	@Test
-	void totalCeilingRoundTrips()
-	{
-		assertEquals("1d8T6", new RollInfo("1d8T6").toString());
+		// "4" with no 'd' is documented as legal: times=4, sides=1.
+		RollInfo info = new RollInfo("4");
+		assertEquals(4, info.getTimes());
+		assertEquals(1, info.getSides());
 	}
 
 	@Test
@@ -138,43 +134,18 @@ class RollInfoTest
 		assertEquals("8d6", copy.toString());
 	}
 
-	/**
-	 * Regression: parser used to call {@code nextToken(" ")} in the modifier
-	 * and total-clamp branches, which ignored the {@code t}/{@code T}
-	 * delimiters and greedily consumed them into the integer. So a roll like
-	 * {@code 1d20+5t2} threw {@link NumberFormatException} on {@code "5t2"}.
-	 */
-	@Test
-	void modifierFollowedByTotalClampRoundTrips()
+	@ParameterizedTest(name = "rejects: {0}")
+	@ValueSource(strings = {
+			"",          // empty
+			"garbage",   // no digits / no d
+			"1d0",       // sides < 1
+			"3d6/4",     // keepTop > times
+			"3d6\\4",    // keepBottom > times
+			"1d-6",      // negative sides
+	})
+	void rejectsBadInput(String roll)
 	{
-		assertEquals("1d20+5t2", new RollInfo("1d20+5t2").toString());
-		assertEquals("1d20+5T18", new RollInfo("1d20+5T18").toString());
-		assertEquals("1d20-3t1", new RollInfo("1d20-3t1").toString());
-		assertEquals("1d8m2M7+1t2T6", new RollInfo("1d8m2M7+1t2T6").toString());
-	}
-
-	@Test
-	void emptyStringThrows()
-	{
-		assertThrows(IllegalArgumentException.class, () -> new RollInfo(""));
-	}
-
-	@Test
-	void garbageThrows()
-	{
-		assertThrows(IllegalArgumentException.class, () -> new RollInfo("garbage"));
-	}
-
-	@Test
-	void zeroSidesThrows()
-	{
-		assertThrows(IllegalArgumentException.class, () -> new RollInfo("1d0"));
-	}
-
-	@Test
-	void keepTopExceedingTimesThrows()
-	{
-		assertThrows(IllegalArgumentException.class, () -> new RollInfo("3d6/4"));
+		assertThrows(IllegalArgumentException.class, () -> new RollInfo(roll));
 	}
 
 	@Test
@@ -188,5 +159,27 @@ class RollInfoTest
 	{
 		String err = RollInfo.validateRollString("garbage");
 		assertEquals(false, err.isEmpty(), "expected non-empty error message");
+	}
+
+	/**
+	 * {@link RollInfo#validateRollString} and the {@code RollInfo(String)}
+	 * constructor must agree: validate-empty iff the constructor accepts.
+	 */
+	@ParameterizedTest(name = "{0}")
+	@ValueSource(strings = {"3d6", "1d20+5", "4d6/3", "garbage", "1d0", ""})
+	void validateAgreesWithConstructor(String roll)
+	{
+		boolean validatorOk = RollInfo.validateRollString(roll).isEmpty();
+		boolean constructorOk;
+		try
+		{
+			new RollInfo(roll);
+			constructorOk = true;
+		}
+		catch (IllegalArgumentException e)
+		{
+			constructorOk = false;
+		}
+		assertEquals(validatorOk, constructorOk);
 	}
 }
