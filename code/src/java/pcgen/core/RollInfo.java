@@ -14,12 +14,12 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.core;
 
 import java.util.StringTokenizer;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import pcgen.util.Logging;
 
@@ -44,10 +44,10 @@ public final class RollInfo
 	}
 
 	/** What shape dice to roll. */
-	protected int sides = 0;
+	private int sides = 0;
 
 	/** Number of dice to roll. */
-	protected int times = 0;
+	private int times = 0;
 
 	/** Which specific rolls to keep after rolls have been sorted
 	 * in ascending order.  {@code null} means to keep all
@@ -71,6 +71,11 @@ public final class RollInfo
 
 	/** Total result never less than this. */
 	private int totalFloor = Integer.MIN_VALUE;
+
+	private static final String PARSE_ERROR_PREFIX = "Bad roll parsing in '";
+
+	/** Token delimiters valid after the {@code sides} number — keep / reroll / modifier / total clamps. */
+	private static final String POST_SIDES_DELIMS = "mM+-tT";
 
 	/**
 	 * Check that the rollString is valid.
@@ -111,7 +116,7 @@ public final class RollInfo
 
 					if (!"d".equals(tok))
 					{
-						return "Bad roll parsing in '" + rollString + "': missing 'd'";
+						return PARSE_ERROR_PREFIX + rollString + "': missing 'd'";
 					}
 				}
 				else
@@ -122,12 +127,12 @@ public final class RollInfo
 				}
 			}
 
-			String parseChars = "/\\|mM+-tT";
+			String parseChars = "/\\|" + POST_SIDES_DELIMS;
 			rollInfo.sides = Integer.parseInt(st.nextToken(parseChars));
 
 			if (rollInfo.sides < 1)
 			{
-				return "Bad roll parsing in '" + rollString + "': sides < 1: " + rollInfo.sides;
+				return PARSE_ERROR_PREFIX + rollString + "': sides < 1: " + rollInfo.sides;
 			}
 
 			while (st.hasMoreTokens())
@@ -137,7 +142,7 @@ public final class RollInfo
 				switch (tok.charAt(0))
 				{
 					case '/' -> {
-						parseChars = "mM+-tT";
+						parseChars = POST_SIDES_DELIMS;
 						final int keepTop = Integer.parseInt(st.nextToken(parseChars));
 						if (keepTop > rollInfo.times)
 						{
@@ -153,7 +158,7 @@ public final class RollInfo
 						}
 					}
 					case '\\' -> {
-						parseChars = "mM+-tT";
+						parseChars = POST_SIDES_DELIMS;
 						final int keepBottom = Integer.parseInt(st.nextToken(parseChars));
 						if (keepBottom > rollInfo.times)
 						{
@@ -170,7 +175,7 @@ public final class RollInfo
 						}
 					}
 					case '|' -> {
-						parseChars = "mM+-tT";
+						parseChars = POST_SIDES_DELIMS;
 						tok = st.nextToken(parseChars);
 						rollInfo.keepList = new boolean[rollInfo.times];
 						final StringTokenizer keepSt = new StringTokenizer(tok, ",");
@@ -189,29 +194,29 @@ public final class RollInfo
 					}
 					case '+' -> {
 						parseChars = "tT";
-						rollInfo.modifier = Integer.parseInt(st.nextToken(" "));
+						rollInfo.modifier = Integer.parseInt(st.nextToken(parseChars));
 					}
 					case '-' -> {
 						parseChars = "tT";
-						rollInfo.modifier = -Integer.parseInt(st.nextToken(" "));
+						rollInfo.modifier = -Integer.parseInt(st.nextToken(parseChars));
 					}
 					case 't' -> {
 						parseChars = "T";
-						rollInfo.totalFloor = Integer.parseInt(st.nextToken(" "));
+						rollInfo.totalFloor = Integer.parseInt(st.nextToken(parseChars));
 					}
 					case 'T' -> {
 						parseChars = "t";
-						rollInfo.totalCeiling = Integer.parseInt(st.nextToken(" "));
+						rollInfo.totalCeiling = Integer.parseInt(st.nextToken(parseChars));
 					}
 					default -> {
 						Logging.errorPrint("Bizarre dice parser error in '" + rollString + "': not a valid delimiter");
-						return "Bad roll parsing in '" + rollString + "': invalid delimiter '" + tok.charAt(0) + "'.";
+						return PARSE_ERROR_PREFIX + rollString + "': invalid delimiter '" + tok.charAt(0) + "'.";
 					}
 				}
 			}
 		}
 
-		catch (NumberFormatException ex)
+		catch (NumberFormatException | java.util.NoSuchElementException ex)
 		{
 			if (Logging.isDebugMode())
 			{
@@ -223,7 +228,7 @@ public final class RollInfo
 	}
 
 	/**
-	 * Private constructor for use only when validating a roll string. 
+	 * Private constructor for use only when validating a roll string.
 	 */
 	private RollInfo()
 	{
@@ -241,20 +246,25 @@ public final class RollInfo
 	 * <li>Optional literal '/' followed by positive integer,
 	 * <var>keepTop</var>, or literal '\' followed by positive
 	 * integer, <var>keepBottom</var>, or literal '|' followed by
-	 * comma-separated list of postitive integers,
+	 * comma-separated list of positive integers,
 	 * <var>keepList</var> (1-indexed after dice have been
 	 * sorted).</li>
 	 *
-	 * <li>Optional literal 'm' (minimum) followed by positive
-	 * integer, <var>rerollAbove</var>, or literal 'M' (maximum)
-	 * followed by postive integer, <var>rerollBelow</var>.</li>
+	 * <li>Optional literal 'm' (minimum acceptable roll)
+	 * followed by integer, <var>rerollBelow</var> — any die
+	 * strictly below this is rerolled. Optional literal 'M'
+	 * (maximum acceptable roll) followed by integer,
+	 * <var>rerollAbove</var> — any die strictly above this is
+	 * rerolled.</li>
 	 *
 	 * <li>Optional literal '+' or '-' followed by positive
 	 * integer, <var>modifier</var>.</li>
 	 *
-	 * <li>Optional literal 't' followed by positive integer,
-	 * <var>totalFloor</var>, or literal 'T' followed by a
-	 * positive *integer, <var>totalCeiling</var>.</li>
+	 * <li>Optional literal 't' followed by integer,
+	 * <var>totalFloor</var> (total clamped to be no less than
+	 * this), or literal 'T' followed by integer,
+	 * <var>totalCeiling</var> (total clamped to be no more than
+	 * this).</li>
 	 *
 	 * </ol> Unlike previous versions of this method, it is
 	 * <strong>case-sensitive</strong> with respect to the
@@ -270,8 +280,35 @@ public final class RollInfo
 		String errMsg = RollInfo.parseRollInfo(this, rollString);
 		if (!StringUtils.isBlank(errMsg))
 		{
-			Logging.errorPrint(errMsg);
+			throw new IllegalArgumentException(errMsg);
 		}
+	}
+
+	/**
+	 * Copy constructor that also scales the dice count.
+	 *
+	 * Used by callers that need to multiply the number of dice (e.g. treating
+	 * {@code 4d6} as four steps of the {@code 1d6} chain) without mutating the
+	 * shared source {@code RollInfo}.
+	 *
+	 * @param other the {@code RollInfo} to copy
+	 * @param timesMultiplier multiplier applied to {@code other.times}
+	 */
+	public RollInfo(RollInfo other, int timesMultiplier)
+	{
+		this.sides = other.sides;
+		this.times = other.times * timesMultiplier;
+		this.modifier = other.modifier;
+		this.rerollAbove = other.rerollAbove;
+		this.rerollBelow = other.rerollBelow;
+		this.totalCeiling = other.totalCeiling;
+		this.totalFloor = other.totalFloor;
+		// keep-list semantics under multiplier > 1 are undefined: keepList indexes
+		// dice positions in the original roll, and there's no canonical way to
+		// extend that across replicated groups. Clone only when times is unchanged.
+		this.keepList = (other.keepList == null || timesMultiplier != 1)
+				? null
+				: other.keepList.clone();
 	}
 
 	@Override
@@ -286,110 +323,9 @@ public final class RollInfo
 
 		buf.append('d').append(sides);
 
-		while (keepList != null) // let break work
+		if (keepList != null && !appendKeepList(buf))
 		{
-			int p;
-			int i;
-
-			for (i = 0; i < times; ++i)
-			{
-				if (keepList[i])
-				{
-					break;
-				}
-			}
-
-			if (i == times) // all false
-			{
-				Logging.errorPrint("Bad rolls: nothing to keep!");
-
-				return "";
-			}
-
-			// Note the ordering: by testing for bottom
-			// first, we can also test if all the dice are
-			// all to be kept, and drop the
-			// top/bottom/list specification completely.
-			// First test for bottom
-			for (i = 0; i < times; ++i)
-			{
-				if (!keepList[i])
-				{
-					break;
-				}
-			}
-
-			if (i == times)
-			{
-				break; // all true
-			}
-
-			p = i;
-
-			for (; i < times; ++i)
-			{
-				if (keepList[i])
-				{
-					break;
-				}
-			}
-
-			if ((p > 0) && (i == times))
-			{
-				buf.append('\\').append(p);
-
-				break;
-			}
-
-			// Second test for top
-			for (i = 0; i < times; ++i)
-			{
-				if (keepList[i])
-				{
-					break;
-				}
-			}
-
-			p = i;
-
-			for (; i < times; ++i)
-			{
-				if (!keepList[i])
-				{
-					break;
-				}
-			}
-
-			if ((p > 0) && (i == times))
-			{
-				buf.append('/').append((times - p));
-
-				break;
-			}
-
-			// Finally, we have a list
-			buf.append('|');
-
-			boolean first = true;
-
-			for (i = 0; i < times; ++i)
-			{
-				if (!keepList[i])
-				{
-					continue;
-				}
-
-				if (first)
-				{
-					first = false;
-				}
-				else
-				{
-					buf.append(',');
-				}
-
-				buf.append(i + 1);
-			}
+			return "";
 		}
 
 		if (rerollBelow != Integer.MIN_VALUE)
@@ -424,4 +360,80 @@ public final class RollInfo
 		return buf.toString();
 	}
 
+	/**
+	 * Append the keep-list specification ({@code /n}, {@code \n}, or {@code |a,b,c}) to {@code buf}.
+	 * Caller must have checked that {@code keepList} is non-null.
+	 *
+	 * @return {@code false} if the keep-list is malformed (no dice kept) — in which case the caller
+	 *         should abort {@code toString()} entirely; {@code true} otherwise.
+	 */
+	private boolean appendKeepList(StringBuilder buf)
+	{
+		if (countKept() == 0)
+		{
+			Logging.errorPrint("Bad rolls: nothing to keep!");
+			return false;
+		}
+		if (countKept() == times)
+		{
+			return true; // all dice kept — drop the specification entirely
+		}
+
+		int bottomRun = leadingKeptRun();
+		if (bottomRun > 0 && bottomRun == countKept())
+		{
+			buf.append('\\').append(bottomRun);
+			return true;
+		}
+
+		int topRun = trailingKeptRun();
+		if (topRun > 0 && topRun == countKept())
+		{
+			buf.append('/').append(topRun);
+			return true;
+		}
+
+		String explicit = IntStream.range(0, times)
+				.filter(i -> keepList[i])
+				.mapToObj(i -> Integer.toString(i + 1))
+				.collect(Collectors.joining(","));
+		buf.append('|').append(explicit);
+		return true;
+	}
+
+	/** Number of dice marked kept in {@link #keepList}. */
+	private int countKept()
+	{
+		int kept = 0;
+		for (int i = 0; i < times; ++i)
+		{
+			if (keepList[i])
+			{
+				++kept;
+			}
+		}
+		return kept;
+	}
+
+	/** Length of the contiguous run of kept dice starting at index 0 (0 if the first die is dropped). */
+	private int leadingKeptRun()
+	{
+		int i = 0;
+		while (i < times && keepList[i])
+		{
+			++i;
+		}
+		return i;
+	}
+
+	/** Length of the contiguous run of kept dice ending at index {@code times - 1}. */
+	private int trailingKeptRun()
+	{
+		int i = times;
+		while (i > 0 && keepList[i - 1])
+		{
+			--i;
+		}
+		return times - i;
+	}
 }

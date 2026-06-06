@@ -416,5 +416,15 @@ class GlobalsTest
 				Globals.adjustDamage("1d6", -1),
 				"reduction of damage due to smaller size"
 		);
+		assertEquals(
+				"4d4",
+				Globals.adjustDamage("4d6", -1),
+				"NdM scales via 1dM step lookup"
+		);
+		assertEquals(
+				"garbage",
+				Globals.adjustDamage("garbage", -1),
+				"unparseable damage falls through unchanged"
+		);
 	}
 }

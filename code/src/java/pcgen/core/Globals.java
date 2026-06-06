@@ -435,13 +435,23 @@ public final class Globals
 		int multiplier = 0;
 		if (bd == null)
 		{
-			//Need to test for higher dice
-			final RollInfo aRollInfo = new RollInfo(aDamage);
-			final String baseDice = "1d" + Integer.toString(aRollInfo.sides);
+			// No exact BaseDice match — try interpreting aDamage as NdM and look
+			// up a 1dM step. If aDamage isn't parseable as a roll at all, we have
+			// nothing to scale; return it unchanged.
+			final RollInfo aRollInfo;
+			try
+			{
+				aRollInfo = new RollInfo(aDamage);
+			}
+			catch (IllegalArgumentException e)
+			{
+				return aDamage;
+			}
+			final String baseDice = "1d" + aRollInfo.getSides();
 			bd = ref.silentlyGetConstructedCDOMObject(BaseDice.class, baseDice);
 			if (bd != null)
 			{
-				multiplier = aRollInfo.times;
+				multiplier = aRollInfo.getTimes();
 			}
 		}
 		else
@@ -451,7 +461,14 @@ public final class Globals
 		RollInfo bi;
 		if (bd == null)
 		{
-			bi = new RollInfo(aDamage);
+			try
+			{
+				bi = new RollInfo(aDamage);
+			}
+			catch (IllegalArgumentException e)
+			{
+				return aDamage;
+			}
 		}
 		else
 		{
@@ -484,10 +501,7 @@ public final class Globals
 		}
 		if (multiplier > 1)
 		{
-			// Ugh, have to do this for "cloning" to avoid polluting the master
-			// RollInfo
-			bi = new RollInfo(bi.toString());
-			bi.times *= multiplier;
+			bi = new RollInfo(bi, multiplier);
 		}
 		return bi.toString();
 	}
