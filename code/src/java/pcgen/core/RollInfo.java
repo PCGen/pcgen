@@ -74,6 +74,11 @@ public final class RollInfo
 	/** Total result never less than this. */
 	private int totalFloor = Integer.MIN_VALUE;
 
+	private static final String PARSE_ERROR_PREFIX = "Bad roll parsing in '";
+
+	/** Token delimiters valid after the {@code sides} number — keep / reroll / modifier / total clamps. */
+	private static final String POST_SIDES_DELIMS = "mM+-tT";
+
 	/**
 	 * Check that the rollString is valid.
 	 * @param rollString The string to be checked
@@ -113,7 +118,7 @@ public final class RollInfo
 
 					if (!"d".equals(tok))
 					{
-						return "Bad roll parsing in '" + rollString + "': missing 'd'";
+						return PARSE_ERROR_PREFIX + rollString + "': missing 'd'";
 					}
 				}
 				else
@@ -124,12 +129,12 @@ public final class RollInfo
 				}
 			}
 
-			String parseChars = "/\\|mM+-tT";
+			String parseChars = "/\\|" + POST_SIDES_DELIMS;
 			rollInfo.sides = Integer.parseInt(st.nextToken(parseChars));
 
 			if (rollInfo.sides < 1)
 			{
-				return "Bad roll parsing in '" + rollString + "': sides < 1: " + rollInfo.sides;
+				return PARSE_ERROR_PREFIX + rollString + "': sides < 1: " + rollInfo.sides;
 			}
 
 			while (st.hasMoreTokens())
@@ -139,7 +144,7 @@ public final class RollInfo
 				switch (tok.charAt(0))
 				{
 					case '/' -> {
-						parseChars = "mM+-tT";
+						parseChars = POST_SIDES_DELIMS;
 						final int keepTop = Integer.parseInt(st.nextToken(parseChars));
 						if (keepTop > rollInfo.times)
 						{
@@ -155,7 +160,7 @@ public final class RollInfo
 						}
 					}
 					case '\\' -> {
-						parseChars = "mM+-tT";
+						parseChars = POST_SIDES_DELIMS;
 						final int keepBottom = Integer.parseInt(st.nextToken(parseChars));
 						if (keepBottom > rollInfo.times)
 						{
@@ -172,7 +177,7 @@ public final class RollInfo
 						}
 					}
 					case '|' -> {
-						parseChars = "mM+-tT";
+						parseChars = POST_SIDES_DELIMS;
 						tok = st.nextToken(parseChars);
 						rollInfo.keepList = new boolean[rollInfo.times];
 						final StringTokenizer keepSt = new StringTokenizer(tok, ",");
@@ -207,7 +212,7 @@ public final class RollInfo
 					}
 					default -> {
 						Logging.errorPrint("Bizarre dice parser error in '" + rollString + "': not a valid delimiter");
-						return "Bad roll parsing in '" + rollString + "': invalid delimiter '" + tok.charAt(0) + "'.";
+						return PARSE_ERROR_PREFIX + rollString + "': invalid delimiter '" + tok.charAt(0) + "'.";
 					}
 				}
 			}
