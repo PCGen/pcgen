@@ -20,6 +20,8 @@
 package pcgen.core;
 
 import java.util.StringTokenizer;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import pcgen.util.Logging;
 
@@ -308,12 +310,9 @@ public final class RollInfo
 
 		buf.append('d').append(sides);
 
-		if (keepList != null)
+		if (keepList != null && !appendKeepList(buf))
 		{
-			if (!appendKeepList(buf))
-			{
-				return "";
-			}
+			return "";
 		}
 
 		if (rerollBelow != Integer.MIN_VALUE)
@@ -357,91 +356,72 @@ public final class RollInfo
 	 */
 	private boolean appendKeepList(StringBuilder buf)
 	{
-		int i;
-		for (i = 0; i < times; ++i)
-		{
-			if (keepList[i])
-			{
-				break;
-			}
-		}
-		if (i == times) // all false
+		if (countKept() == 0)
 		{
 			Logging.errorPrint("Bad rolls: nothing to keep!");
 			return false;
 		}
-
-		// Note the ordering: by testing for bottom first, we can also test if
-		// all the dice are kept and drop the top/bottom/list specification
-		// completely.
-		for (i = 0; i < times; ++i)
+		if (countKept() == times)
 		{
-			if (!keepList[i])
-			{
-				break;
-			}
-		}
-		if (i == times)
-		{
-			return true; // all true — no specification needed
+			return true; // all dice kept — drop the specification entirely
 		}
 
-		int p = i;
-		for (; i < times; ++i)
+		int bottomRun = leadingKeptRun();
+		if (bottomRun > 0 && bottomRun == countKept())
 		{
-			if (keepList[i])
-			{
-				break;
-			}
-		}
-		if ((p > 0) && (i == times))
-		{
-			buf.append('\\').append(p);
+			buf.append('\\').append(bottomRun);
 			return true;
 		}
 
-		// Test for top
-		for (i = 0; i < times; ++i)
+		int topRun = trailingKeptRun();
+		if (topRun > 0 && topRun == countKept())
 		{
-			if (keepList[i])
-			{
-				break;
-			}
-		}
-		p = i;
-		for (; i < times; ++i)
-		{
-			if (!keepList[i])
-			{
-				break;
-			}
-		}
-		if ((p > 0) && (i == times))
-		{
-			buf.append('/').append(times - p);
+			buf.append('/').append(topRun);
 			return true;
 		}
 
-		// Otherwise emit an explicit list
-		buf.append('|');
-		boolean first = true;
-		for (i = 0; i < times; ++i)
-		{
-			if (!keepList[i])
-			{
-				continue;
-			}
-			if (first)
-			{
-				first = false;
-			}
-			else
-			{
-				buf.append(',');
-			}
-			buf.append(i + 1);
-		}
+		String explicit = IntStream.range(0, times)
+				.filter(i -> keepList[i])
+				.mapToObj(i -> Integer.toString(i + 1))
+				.collect(Collectors.joining(","));
+		buf.append('|').append(explicit);
 		return true;
+	}
+
+	/** Number of dice marked kept in {@link #keepList}. */
+	private int countKept()
+	{
+		int kept = 0;
+		for (int i = 0; i < times; ++i)
+		{
+			if (keepList[i])
+			{
+				++kept;
+			}
+		}
+		return kept;
+	}
+
+	/** Length of the contiguous run of kept dice starting at index 0 (0 if the first die is dropped). */
+	private int leadingKeptRun()
+	{
+		int i = 0;
+		while (i < times && keepList[i])
+		{
+			++i;
+		}
+		return i;
+	}
+
+	/** Length of the contiguous run of kept dice ending at index {@code times - 1}. */
+	private int trailingKeptRun()
+	{
+		int i = times;
+		while (i > 0 && keepList[i - 1])
+		{
+			--i;
+		}
+		return times - i;
 	}
 
 }
