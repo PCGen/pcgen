@@ -66,6 +66,16 @@ import org.jetbrains.annotations.Nullable;
 public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevelFacade>
 		implements CharacterLevelsFacade, DataFacetChangeListener<CharID, Skill>, BonusChangeListener
 {
+	/**
+	 * After {@link #closeCharacter()}, {@code theCharacter} is set to this
+	 * placeholder rather than {@code null} so UI events that fire mid-teardown
+	 * (e.g. row re-sort triggered by DelegatingDataSet.detachDelegates) can
+	 * read empty-but-valid state instead of NPE-ing or producing SEVERE log
+	 * noise from downstream null-guards. Mirrors the same pattern in
+	 * {@link CharacterFacadeImpl}.
+	 */
+	private static final PlayerCharacter CLOSED_PC = new PlayerCharacter();
+
 	private PlayerCharacter theCharacter;
 	private CharacterDisplay charDisplay;
 
@@ -110,7 +120,7 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 		{
 			bcf.removeBonusChangeListener(this, "SKILLRANK", skillFacade.getKeyName().toUpperCase());
 		}
-		theCharacter = null;
+		theCharacter = CLOSED_PC;
 		charDisplay = null;
 		charID = null;
 	}
