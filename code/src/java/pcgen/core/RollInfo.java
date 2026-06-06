@@ -246,20 +246,25 @@ public final class RollInfo
 	 * <li>Optional literal '/' followed by positive integer,
 	 * <var>keepTop</var>, or literal '\' followed by positive
 	 * integer, <var>keepBottom</var>, or literal '|' followed by
-	 * comma-separated list of postitive integers,
+	 * comma-separated list of positive integers,
 	 * <var>keepList</var> (1-indexed after dice have been
 	 * sorted).</li>
 	 *
-	 * <li>Optional literal 'm' (minimum) followed by positive
-	 * integer, <var>rerollAbove</var>, or literal 'M' (maximum)
-	 * followed by postive integer, <var>rerollBelow</var>.</li>
+	 * <li>Optional literal 'm' (minimum acceptable roll)
+	 * followed by integer, <var>rerollBelow</var> — any die
+	 * strictly below this is rerolled. Optional literal 'M'
+	 * (maximum acceptable roll) followed by integer,
+	 * <var>rerollAbove</var> — any die strictly above this is
+	 * rerolled.</li>
 	 *
 	 * <li>Optional literal '+' or '-' followed by positive
 	 * integer, <var>modifier</var>.</li>
 	 *
-	 * <li>Optional literal 't' followed by positive integer,
-	 * <var>totalFloor</var>, or literal 'T' followed by a
-	 * positive *integer, <var>totalCeiling</var>.</li>
+	 * <li>Optional literal 't' followed by integer,
+	 * <var>totalFloor</var> (total clamped to be no less than
+	 * this), or literal 'T' followed by integer,
+	 * <var>totalCeiling</var> (total clamped to be no more than
+	 * this).</li>
 	 *
 	 * </ol> Unlike previous versions of this method, it is
 	 * <strong>case-sensitive</strong> with respect to the
