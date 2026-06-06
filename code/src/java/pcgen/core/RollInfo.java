@@ -274,6 +274,28 @@ public final class RollInfo
 		}
 	}
 
+	/**
+	 * Copy constructor that also scales the dice count.
+	 *
+	 * Used by callers that need to multiply the number of dice (e.g. treating
+	 * {@code 4d6} as four steps of the {@code 1d6} chain) without mutating the
+	 * shared source {@code RollInfo}.
+	 *
+	 * @param other the {@code RollInfo} to copy
+	 * @param timesMultiplier multiplier applied to {@code other.times}
+	 */
+	public RollInfo(RollInfo other, int timesMultiplier)
+	{
+		this.sides = other.sides;
+		this.times = other.times * timesMultiplier;
+		this.modifier = other.modifier;
+		this.rerollAbove = other.rerollAbove;
+		this.rerollBelow = other.rerollBelow;
+		this.totalCeiling = other.totalCeiling;
+		this.totalFloor = other.totalFloor;
+		this.keepList = (other.keepList == null) ? null : other.keepList.clone();
+	}
+
 	@Override
 	public String toString()
 	{

@@ -484,10 +484,7 @@ public final class Globals
 		}
 		if (multiplier > 1)
 		{
-			// Ugh, have to do this for "cloning" to avoid polluting the master
-			// RollInfo
-			bi = new RollInfo(bi.toString());
-			bi.times *= multiplier;
+			bi = new RollInfo(bi, multiplier);
 		}
 		return bi.toString();
 	}
