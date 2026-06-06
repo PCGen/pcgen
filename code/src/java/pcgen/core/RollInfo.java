@@ -14,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.core;
 
@@ -196,19 +194,19 @@ public final class RollInfo
 					}
 					case '+' -> {
 						parseChars = "tT";
-						rollInfo.modifier = Integer.parseInt(st.nextToken(" "));
+						rollInfo.modifier = Integer.parseInt(st.nextToken(parseChars));
 					}
 					case '-' -> {
 						parseChars = "tT";
-						rollInfo.modifier = -Integer.parseInt(st.nextToken(" "));
+						rollInfo.modifier = -Integer.parseInt(st.nextToken(parseChars));
 					}
 					case 't' -> {
 						parseChars = "T";
-						rollInfo.totalFloor = Integer.parseInt(st.nextToken(" "));
+						rollInfo.totalFloor = Integer.parseInt(st.nextToken(parseChars));
 					}
 					case 'T' -> {
 						parseChars = "t";
-						rollInfo.totalCeiling = Integer.parseInt(st.nextToken(" "));
+						rollInfo.totalCeiling = Integer.parseInt(st.nextToken(parseChars));
 					}
 					default -> {
 						Logging.errorPrint("Bizarre dice parser error in '" + rollString + "': not a valid delimiter");
@@ -230,7 +228,7 @@ public final class RollInfo
 	}
 
 	/**
-	 * Private constructor for use only when validating a roll string. 
+	 * Private constructor for use only when validating a roll string.
 	 */
 	private RollInfo()
 	{
@@ -300,7 +298,12 @@ public final class RollInfo
 		this.rerollBelow = other.rerollBelow;
 		this.totalCeiling = other.totalCeiling;
 		this.totalFloor = other.totalFloor;
-		this.keepList = (other.keepList == null) ? null : other.keepList.clone();
+		// keep-list semantics under multiplier > 1 are undefined: keepList indexes
+		// dice positions in the original roll, and there's no canonical way to
+		// extend that across replicated groups. Clone only when times is unchanged.
+		this.keepList = (other.keepList == null || timesMultiplier != 1)
+				? null
+				: other.keepList.clone();
 	}
 
 	@Override
@@ -428,5 +431,4 @@ public final class RollInfo
 		}
 		return times - i;
 	}
-
 }

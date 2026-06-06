@@ -124,6 +124,35 @@ class RollInfoTest
 		assertEquals("4d6/3", copy.toString());
 	}
 
+	/**
+	 * Regression: the copy constructor used to clone {@code keepList} as-is
+	 * even when {@code timesMultiplier > 1}, leaving an undersized array that
+	 * caused {@link RollInfo#toString()} to read past the end. Scaling drops
+	 * the keep-list because there is no canonical way to extend it.
+	 */
+	@Test
+	void copyConstructorWithKeepListAndMultiplierDropsKeepList()
+	{
+		RollInfo source = new RollInfo("4d6/3");
+		RollInfo copy = new RollInfo(source, 2);
+		assertEquals("8d6", copy.toString());
+	}
+
+	/**
+	 * Regression: parser used to call {@code nextToken(" ")} in the modifier
+	 * and total-clamp branches, which ignored the {@code t}/{@code T}
+	 * delimiters and greedily consumed them into the integer. So a roll like
+	 * {@code 1d20+5t2} threw {@link NumberFormatException} on {@code "5t2"}.
+	 */
+	@Test
+	void modifierFollowedByTotalClampRoundTrips()
+	{
+		assertEquals("1d20+5t2", new RollInfo("1d20+5t2").toString());
+		assertEquals("1d20+5T18", new RollInfo("1d20+5T18").toString());
+		assertEquals("1d20-3t1", new RollInfo("1d20-3t1").toString());
+		assertEquals("1d8m2M7+1t2T6", new RollInfo("1d8m2M7+1t2T6").toString());
+	}
+
 	@Test
 	void emptyStringThrows()
 	{
