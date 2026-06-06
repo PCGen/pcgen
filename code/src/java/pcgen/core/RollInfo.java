@@ -211,7 +211,7 @@ public final class RollInfo
 			}
 		}
 
-		catch (NumberFormatException ex)
+		catch (NumberFormatException | java.util.NoSuchElementException ex)
 		{
 			if (Logging.isDebugMode())
 			{
