@@ -697,19 +697,18 @@ tasks.named("test", Test) {
     useJUnitPlatform()
     maxParallelForks = parallelTestForks
     // TestFX/Monocle setup — only the unit test source set has TestFX-based tests.
+    // Other JavaFX/Monocle args (testfx.*, prism.order, --add-exports for
+    // com.sun.javafx.util / com.sun.javafx.logging, --add-opens for
+    // com.sun.glass.ui) are applied to every Test by the
+    // tasks.withType(Test).configureEach block below; only the
+    // com.sun.javafx.application open is unique here, since withType
+    // has --add-exports (not --add-opens) for that package.
     jvmArgs += [
-            '-Dtestfx.robot=glass',
-            '-Dtestfx.headless=true',
-            '-Dprism.order=sw',
             // Workaround for TestFX modularity issue. https://github.com/TestFX/TestFX/issues/638
             // --add-opens (not --add-exports) is required: TestFX's @AfterEach cleanup
             // does setAccessible(true) on a private field of ParametersImpl, which is
             // deep reflection — exports alone aren't enough.
             '--add-opens', 'javafx.graphics/com.sun.javafx.application=ALL-UNNAMED',
-            // Required for Monocle.
-            '--add-exports', 'javafx.graphics/com.sun.javafx.util=ALL-UNNAMED',
-            '--add-exports', 'javafx.base/com.sun.javafx.logging=ALL-UNNAMED',
-            '--add-opens', 'javafx.graphics/com.sun.glass.ui=ALL-UNNAMED',
     ]
 }
 
