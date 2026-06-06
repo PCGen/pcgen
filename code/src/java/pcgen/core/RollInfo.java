@@ -286,109 +286,11 @@ public final class RollInfo
 
 		buf.append('d').append(sides);
 
-		while (keepList != null) // let break work
+		if (keepList != null)
 		{
-			int p;
-			int i;
-
-			for (i = 0; i < times; ++i)
+			if (!appendKeepList(buf))
 			{
-				if (keepList[i])
-				{
-					break;
-				}
-			}
-
-			if (i == times) // all false
-			{
-				Logging.errorPrint("Bad rolls: nothing to keep!");
-
 				return "";
-			}
-
-			// Note the ordering: by testing for bottom
-			// first, we can also test if all the dice are
-			// all to be kept, and drop the
-			// top/bottom/list specification completely.
-			// First test for bottom
-			for (i = 0; i < times; ++i)
-			{
-				if (!keepList[i])
-				{
-					break;
-				}
-			}
-
-			if (i == times)
-			{
-				break; // all true
-			}
-
-			p = i;
-
-			for (; i < times; ++i)
-			{
-				if (keepList[i])
-				{
-					break;
-				}
-			}
-
-			if ((p > 0) && (i == times))
-			{
-				buf.append('\\').append(p);
-
-				break;
-			}
-
-			// Second test for top
-			for (i = 0; i < times; ++i)
-			{
-				if (keepList[i])
-				{
-					break;
-				}
-			}
-
-			p = i;
-
-			for (; i < times; ++i)
-			{
-				if (!keepList[i])
-				{
-					break;
-				}
-			}
-
-			if ((p > 0) && (i == times))
-			{
-				buf.append('/').append((times - p));
-
-				break;
-			}
-
-			// Finally, we have a list
-			buf.append('|');
-
-			boolean first = true;
-
-			for (i = 0; i < times; ++i)
-			{
-				if (!keepList[i])
-				{
-					continue;
-				}
-
-				if (first)
-				{
-					first = false;
-				}
-				else
-				{
-					buf.append(',');
-				}
-
-				buf.append(i + 1);
 			}
 		}
 
@@ -422,6 +324,102 @@ public final class RollInfo
 		}
 
 		return buf.toString();
+	}
+
+	/**
+	 * Append the keep-list specification ({@code /n}, {@code \n}, or {@code |a,b,c}) to {@code buf}.
+	 * Caller must have checked that {@code keepList} is non-null.
+	 *
+	 * @return {@code false} if the keep-list is malformed (no dice kept) — in which case the caller
+	 *         should abort {@code toString()} entirely; {@code true} otherwise.
+	 */
+	private boolean appendKeepList(StringBuilder buf)
+	{
+		int i;
+		for (i = 0; i < times; ++i)
+		{
+			if (keepList[i])
+			{
+				break;
+			}
+		}
+		if (i == times) // all false
+		{
+			Logging.errorPrint("Bad rolls: nothing to keep!");
+			return false;
+		}
+
+		// Note the ordering: by testing for bottom first, we can also test if
+		// all the dice are kept and drop the top/bottom/list specification
+		// completely.
+		for (i = 0; i < times; ++i)
+		{
+			if (!keepList[i])
+			{
+				break;
+			}
+		}
+		if (i == times)
+		{
+			return true; // all true — no specification needed
+		}
+
+		int p = i;
+		for (; i < times; ++i)
+		{
+			if (keepList[i])
+			{
+				break;
+			}
+		}
+		if ((p > 0) && (i == times))
+		{
+			buf.append('\\').append(p);
+			return true;
+		}
+
+		// Test for top
+		for (i = 0; i < times; ++i)
+		{
+			if (keepList[i])
+			{
+				break;
+			}
+		}
+		p = i;
+		for (; i < times; ++i)
+		{
+			if (!keepList[i])
+			{
+				break;
+			}
+		}
+		if ((p > 0) && (i == times))
+		{
+			buf.append('/').append(times - p);
+			return true;
+		}
+
+		// Otherwise emit an explicit list
+		buf.append('|');
+		boolean first = true;
+		for (i = 0; i < times; ++i)
+		{
+			if (!keepList[i])
+			{
+				continue;
+			}
+			if (first)
+			{
+				first = false;
+			}
+			else
+			{
+				buf.append(',');
+			}
+			buf.append(i + 1);
+		}
+		return true;
 	}
 
 }
