@@ -40,7 +40,7 @@ import pcgen.facade.core.UIDelegate;
 import pcgen.gui2.PCGenUIManager;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.converter.TokenConverter;
-import pcgen.gui3.JFXPanelFromResource;
+import pcgen.gui3.PanelFromResource;
 import pcgen.gui3.namegen.RandomNameDialog;
 import pcgen.gui3.dialog.OptionsPathDialogController;
 import pcgen.gui3.preloader.PCGenPreloader;
@@ -258,7 +258,7 @@ public final class Main
 				Logging.errorPrint("No settingsDir specified via -s in batch mode and no default exists.");
 				GracefulExit.exit(1);
 			}
-			var panel = new JFXPanelFromResource<>(
+			var panel = new PanelFromResource<>(
 					OptionsPathDialogController.class,
 					"OptionsPathDialog.fxml"
 			);

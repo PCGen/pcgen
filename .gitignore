@@ -119,3 +119,5 @@ jdks/
 mods/
 code/manifest-tests
 .DS_Store
+
+.superset/

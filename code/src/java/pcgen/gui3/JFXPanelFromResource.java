@@ -21,7 +21,6 @@ package pcgen.gui3;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
-import java.util.concurrent.CompletableFuture;
 
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
@@ -30,10 +29,17 @@ import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.stage.Stage;
 
 /**
- * Displays HTML content as a "panel".
+ * Embeds an FXML-defined JavaFX scene inside a Swing {@link JFXPanel}.
+ *
+ * <p>This class is only suitable for the JFX-in-Swing embedding use case (i.e.
+ * the panel will be added to a Swing container). To open the FXML resource
+ * as a top-level JavaFX {@link javafx.stage.Stage} dialog, use
+ * {@link PanelFromResource} instead — re-parenting an embedded scene onto a
+ * standalone {@code Stage} corrupts the scene's quantum peer and triggers an
+ * NPE in {@code com.sun.javafx.tk.quantum.GlassScene#updateSceneState} on
+ * macOS HiDPI displays.
  *
  * @param <T> The class of the controller
  */
@@ -83,32 +89,5 @@ public final class JFXPanelFromResource<T> extends JFXPanel implements Controlla
 	{
 		GuiAssertions.assertIsJavaFXThread();
 		return fxmlLoader.getController();
-	}
-
-	public void showAsStage(String title)
-	{
-		Platform.runLater(() -> {
-			Stage stage = new Stage();
-			stage.setTitle(title);
-			stage.setScene(getScene());
-			stage.sizeToScene();
-			stage.show();
-		});
-	}
-
-	public void showAndBlock(String title)
-	{
-		GuiAssertions.assertIsNotJavaFXThread();
-		CompletableFuture<Integer> lock = new CompletableFuture<>();
-		Platform.runLater(() -> {
-			Stage stage = new Stage();
-			stage.setTitle(title);
-			stage.setScene(getScene());
-			stage.sizeToScene();
-			stage.showAndWait();
-			lock.completeAsync(() -> 0);
-
-		});
-		lock.join();
 	}
 }
