@@ -44,10 +44,10 @@ public final class RollInfo
 	}
 
 	/** What shape dice to roll. */
-	protected int sides = 0;
+	private int sides = 0;
 
 	/** Number of dice to roll. */
-	protected int times = 0;
+	private int times = 0;
 
 	/** Which specific rolls to keep after rolls have been sorted
 	 * in ascending order.  {@code null} means to keep all
