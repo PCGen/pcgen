@@ -223,26 +223,6 @@ Conventions/gotchas observed:
 - Release tag must match `gradle.properties` version exactly (CI validates this).
 - Never re-attach a `Scene` loaded into a `JFXPanel` onto a standalone `Stage`. The embedded scene peer stays bound to the JFXPanel's host and the orphaned `EmbeddedScene` will eventually fire `setPixelScaleFactors` against a null `sceneState`, throwing an NPE in `GlassScene#updateSceneState` on macOS HiDPI displays. Use `PanelFromResource` for top-level dialogs and reserve `JFXPanelFromResource` for Swing embedding only.
 
-## Key Dependencies (current versions)
-
-| Dependency | Version | Notes |
-|-----------|---------|-------|
-| JUnit BOM | 6.0.3 | Jupiter + Vintage (JUnit 4 compat) |
-| Spring (web/beans/core) | 7.0.7 | |
-| commons-io | 2.22.0 | |
-| commons-lang3 | 3.20.0 | |
-| Apache FOP | 2.11 | XML graphics; excludes xml-apis, xalan |
-| Saxon-HE | 12.9 | XSLT/XPath |
-| Freemarker | 2.3.34 | Template engine for outputsheets |
-| argparse4j | 0.9.0 | CLI argument parsing |
-| controlsfx | 11.2.3 | JavaFX controls |
-| PCGen-base | 1.0.170 | Base module (Maven Central) |
-| PCGen-Formula | 1.0.200 | Formula module (Maven Central) |
-| TestFX | 4.0.18 | JavaFX testing |
-| Monocle | 21.0.2 | Headless JavaFX glass robot |
-| Hamcrest | 3.0 | Test matchers |
-| xmlunit | 2.11.0 | XML comparison in tests |
-
 ## Maintainer/Issue Tracking Context
 
 - Primary docs: README.md (development setup, essential Gradle tasks)
