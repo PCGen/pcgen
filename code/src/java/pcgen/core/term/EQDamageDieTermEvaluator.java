@@ -40,7 +40,14 @@ public class EQDamageDieTermEvaluator extends BaseEQTermEvaluator implements Ter
 	@Override
 	public String evaluate(Equipment eq, boolean primary, PlayerCharacter pc)
 	{
-		return Float.toString(new RollInfo(eq.getDamage(pc)).getSides());
+		try
+		{
+			return Float.toString(new RollInfo(eq.getDamage(pc)).getSides());
+		}
+		catch (IllegalArgumentException e)
+		{
+			return "0";
+		}
 	}
 
 	@Override

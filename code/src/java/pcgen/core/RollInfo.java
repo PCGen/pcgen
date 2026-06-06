@@ -270,7 +270,7 @@ public final class RollInfo
 		String errMsg = RollInfo.parseRollInfo(this, rollString);
 		if (!StringUtils.isBlank(errMsg))
 		{
-			Logging.errorPrint(errMsg);
+			throw new IllegalArgumentException(errMsg);
 		}
 	}
 
