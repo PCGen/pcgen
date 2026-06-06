@@ -23,6 +23,7 @@ package pcgen.core.term;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.RollInfo;
+import pcgen.util.Logging;
 
 public class EQDamageDiceTermEvaluator extends BaseEQTermEvaluator implements TermEvaluator
 {
@@ -40,12 +41,15 @@ public class EQDamageDiceTermEvaluator extends BaseEQTermEvaluator implements Te
 	@Override
 	public String evaluate(Equipment eq, boolean primary, PlayerCharacter pc)
 	{
+		String damage = eq.getDamage(pc);
 		try
 		{
-			return Float.toString(new RollInfo(eq.getDamage(pc)).getTimes());
+			return Float.toString(new RollInfo(damage).getTimes());
 		}
 		catch (IllegalArgumentException e)
 		{
+			Logging.errorPrint("EQ DMGDICE: unparseable damage '" + damage
+					+ "' on " + eq.getKeyName(), e);
 			return "0";
 		}
 	}
