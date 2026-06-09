@@ -259,19 +259,8 @@ public class LanguageTableModel extends AbstractTableModel implements ListListen
 		{
 			if (ADD_ID.equals(e.getActionCommand()))
 			{
-				// Race / Gender / AgeCat / Hand / Deity ComboBoxes use
-				// DeferredCharacterComboBoxModel: setSelectedItem stages a value
-				// and the actual commitSelectedItem (which calls e.g.
-				// CharacterFacade.setRace) only runs on focusLost. If the user
-				// picks Race=Dwarf and clicks "Add Bonus Language" before the
-				// ComboBox has lost focus, opening the chooser would otherwise
-				// see the not-yet-committed character state and the
-				// available-language list would come up empty (#6517).
-				//
-				// Resolve the chooser BEFORE flushing the pending commit:
-				// committing setRace mutates the languages list (auto-granted
-				// languages get added) which can cancel the cell editor and
-				// shift the row layout, leaving table.getEditingRow() stale.
+				// Resolve the chooser BEFORE the flush: committing may mutate
+				// the languages list and invalidate getEditingRow() (#6517).
 				LanguageChooserFacade chooser = choosers.getElementAt(
 					table.getEditingRow() - languages.getSize());
 				flushPendingDeferredComboBoxCommit();
@@ -289,8 +278,7 @@ public class LanguageTableModel extends AbstractTableModel implements ListListen
 			cancelCellEditing();
 		}
 
-		/** If the focused component is a JComboBox with a DeferredCharacterComboBoxModel,
-		 * commit it now so the chooser opens against current character state. */
+		/** Commit any pending DeferredCharacterComboBoxModel value on the focused combo. */
 		private void flushPendingDeferredComboBoxCommit()
 		{
 			Component focused = KeyboardFocusManager
@@ -316,7 +304,6 @@ public class LanguageTableModel extends AbstractTableModel implements ListListen
 		private static final String ADD_ID = "Add";
 		private static final String REMOVE_ID = "Remove";
 		private CardLayout cardLayout = new CardLayout();
-		//private JPanel cellPanel = new JPanel();
 		private JLabel cellLabel = new JLabel();
 		private JButton addButton = Utilities.createSignButton(Sign.Plus);
 		private JButton removeButton = Utilities.createSignButton(Sign.Minus);
@@ -349,8 +336,8 @@ public class LanguageTableModel extends AbstractTableModel implements ListListen
 			TableCellUtilities.setToRowBackground(this, jTable, row);
 			if (row < languages.getSize())
 			{
-				boolean automatic = value instanceof Language && character.isAutomatic((Language) value);
-				boolean removable = value instanceof Language && character.isRemovable((Language) value);
+				boolean automatic = value instanceof Language language && character.isAutomatic(language);
+				boolean removable = value instanceof Language language && character.isRemovable(language);
 				if (automatic)
 				{
 					cellLabel.setForeground(ColorUtilty.colorToAWTColor(UIPropertyContext.getAutomaticColor()));
