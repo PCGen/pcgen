@@ -38,6 +38,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.ListSelectionModel;
+import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 
 import pcgen.core.Language;
@@ -189,14 +190,23 @@ public final class LanguageChooserDialog extends JDialog implements ReferenceLis
 
 	private void doOK(final javafx.event.ActionEvent actionEvent)
 	{
-		chooser.commit();
-		dispose();
+		// Hop to the EDT: this handler runs on the JavaFX Application Thread
+		// (the buttons live in an embedded JFXPanel), but commit() mutates
+		// Swing-side models and dispose() must run on the EDT. Calling them
+		// from the FX thread leaves the modal JDialog stuck open (#6517).
+		SwingUtilities.invokeLater(() -> {
+			chooser.commit();
+			dispose();
+		});
 	}
 
 	private void doRollback(final javafx.event.ActionEvent actionEvent)
 	{
-		chooser.rollback();
-		dispose();
+		// See doOK — same FX-thread/EDT hop is required.
+		SwingUtilities.invokeLater(() -> {
+			chooser.rollback();
+			dispose();
+		});
 	}
 
 
