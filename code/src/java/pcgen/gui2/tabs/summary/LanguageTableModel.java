@@ -21,6 +21,7 @@ package pcgen.gui2.tabs.summary;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.awt.Frame;
+import java.awt.KeyboardFocusManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -29,6 +30,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.AbstractCellEditor;
 import javax.swing.Box;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -46,6 +48,7 @@ import pcgen.facade.util.event.ListListener;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.dialog.LanguageChooserDialog;
 import pcgen.gui2.tabs.Utilities;
+import pcgen.gui2.tabs.models.DeferredCharacterComboBoxModel;
 import pcgen.gui2.util.SignIcon.Sign;
 import pcgen.gui2.util.table.TableCellUtilities;
 import pcgen.gui3.utilty.ColorUtilty;
@@ -256,8 +259,24 @@ public class LanguageTableModel extends AbstractTableModel implements ListListen
 		{
 			if (ADD_ID.equals(e.getActionCommand()))
 			{
+				// Race / Gender / AgeCat / Hand / Deity ComboBoxes use
+				// DeferredCharacterComboBoxModel: setSelectedItem stages a value
+				// and the actual commitSelectedItem (which calls e.g.
+				// CharacterFacade.setRace) only runs on focusLost. If the user
+				// picks Race=Dwarf and clicks "Add Bonus Language" before the
+				// ComboBox has lost focus, opening the chooser would otherwise
+				// see the not-yet-committed character state and the
+				// available-language list would come up empty (#6517).
+				//
+				// Resolve the chooser BEFORE flushing the pending commit:
+				// committing setRace mutates the languages list (auto-granted
+				// languages get added) which can cancel the cell editor and
+				// shift the row layout, leaving table.getEditingRow() stale.
+				LanguageChooserFacade chooser = choosers.getElementAt(
+					table.getEditingRow() - languages.getSize());
+				flushPendingDeferredComboBoxCommit();
+
 				Frame frame = JOptionPane.getFrameForComponent(table);
-				LanguageChooserFacade chooser = choosers.getElementAt(table.getEditingRow() - languages.getSize());
 				LanguageChooserDialog dialog = new LanguageChooserDialog(frame, chooser);
 				dialog.setLocationRelativeTo(frame);
 				dialog.setVisible(true);
@@ -268,6 +287,19 @@ public class LanguageTableModel extends AbstractTableModel implements ListListen
 				character.removeLanguage(lang);
 			}
 			cancelCellEditing();
+		}
+
+		/** If the focused component is a JComboBox with a DeferredCharacterComboBoxModel,
+		 * commit it now so the chooser opens against current character state. */
+		private void flushPendingDeferredComboBoxCommit()
+		{
+			Component focused = KeyboardFocusManager
+				.getCurrentKeyboardFocusManager().getFocusOwner();
+			if (focused instanceof JComboBox<?> combo
+				&& combo.getModel() instanceof DeferredCharacterComboBoxModel<?> model)
+			{
+				model.commitSelectedItem(model.getSelectedItem());
+			}
 		}
 
 		@Override
