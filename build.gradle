@@ -27,7 +27,7 @@ plugins {
     id 'application'                                    // Creating application bundles
     id 'build-dashboard'                                // Produces a build report
     id 'checkstyle'                                     // Checkstyle for Java, configured further below
-    id 'com.github.spotbugs' version '6.5.5'            // Spotbugs for Java
+    id 'com.github.spotbugs' version '6.5.6'            // Spotbugs for Java
     id 'maven-publish'                                  // Publishing to Maven Central
     id 'pmd'                                            // PMD for Java, configured further below
     id 'de.undercouch.download' version '5.7.0'         // Shows download percentage
