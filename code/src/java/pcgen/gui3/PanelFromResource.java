@@ -91,6 +91,7 @@ public class PanelFromResource<T> implements Controllable<T>
 		}
 		else
 		{
+			ensureToolkitInitialized();
 			Platform.runLater(() -> showAsStageOnFxThread(title));
 		}
 	}
@@ -128,6 +129,7 @@ public class PanelFromResource<T> implements Controllable<T>
 	public void showAndBlock(String title)
 	{
 		GuiAssertions.assertIsNotJavaFXThread();
+		ensureToolkitInitialized();
 		CompletableFuture<Integer> lock = new CompletableFuture<>();
 		Platform.runLater(() -> {
 			try
@@ -150,5 +152,70 @@ public class PanelFromResource<T> implements Controllable<T>
 			}
 		});
 		lock.join();
+	}
+
+	/**
+	 * Ensures the JavaFX toolkit has been initialized before this class
+	 * schedules any work on the FX application thread.
+	 *
+	 * <p><strong>Why this exists.</strong> Historically the OptionsPathDialog
+	 * (and a handful of other early dialogs) were opened via
+	 * {@link JFXPanelFromResource}, which extends
+	 * {@link javafx.embed.swing.JFXPanel}. Constructing a {@code JFXPanel} is
+	 * one of the three documented ways to bootstrap the JavaFX runtime — it
+	 * implicitly initialises the toolkit (and sets implicit-exit to
+	 * {@code false}) as a side effect, so callers never had to think about
+	 * lifecycle.
+	 *
+	 * <p>When {@code PanelFromResource} was introduced — to avoid the macOS
+	 * HiDPI {@code com.sun.javafx.tk.quantum.GlassScene#updateSceneState} NPE
+	 * caused by re-parenting a {@code JFXPanel}'s embedded {@link Scene} onto
+	 * a top-level {@link Stage} — it intentionally stopped extending
+	 * {@code JFXPanel}. That deliberate change removed the implicit toolkit
+	 * bootstrap, which in turn exposed a latent ordering bug in
+	 * {@link pcgen.system.Main#startupWithGUI()}: {@code loadProperties(true)}
+	 * runs <em>before</em> {@code new JFXPanel()} on that path. On a fresh
+	 * install with no {@code settings.files.path} and no {@code -s} CLI
+	 * argument, {@code loadProperties} needs to show the OptionsPathDialog,
+	 * and the first call into {@link Platform#runLater(Runnable)} would throw
+	 * {@code IllegalStateException: Toolkit not initialized}. The JVM would
+	 * log SEVERE and exit before the dialog could be displayed, so the
+	 * application could never start fresh.
+	 *
+	 * <p>This helper makes {@code PanelFromResource} self-sufficient: if the
+	 * toolkit has not yet been started we start it; if it already has, the
+	 * {@link IllegalStateException} from {@link Platform#startup(Runnable)} is
+	 * swallowed — that exception is the documented signal that initialisation
+	 * has already happened (e.g. from a prior {@code PanelFromResource} use,
+	 * a {@code JFXPanel} construction, or an explicit {@code Platform.startup}
+	 * elsewhere). {@link Platform#setImplicitExit(boolean)} is then forced to
+	 * {@code false} so that closing this dialog does not tear down the toolkit
+	 * before the rest of the GUI gets a chance to bring up its own Stages —
+	 * matching the previous {@code JFXPanel} behaviour and preventing a
+	 * regression where dismissing an early dialog would shut JavaFX down.
+	 *
+	 * <p>{@link Platform#startup(Runnable)} is internally guarded by an atomic
+	 * flag in {@code com.sun.javafx.application.PlatformImpl}, so concurrent
+	 * callers race safely: exactly one wins and starts the toolkit, the rest
+	 * see {@code IllegalStateException} and fall through. No additional
+	 * synchronisation is required here.
+	 */
+	private static void ensureToolkitInitialized()
+	{
+		try
+		{
+			Platform.startup(() -> {
+				// The toolkit is considered initialised the moment this Runnable
+				// is queued onto the FX application thread; we have no work to
+				// perform here ourselves.
+			});
+		}
+		catch (IllegalStateException alreadyStarted)
+		{
+			LOG.log(Level.FINEST,
+					"JavaFX toolkit was already initialised before PanelFromResource bootstrap; continuing.",
+					alreadyStarted);
+		}
+		Platform.setImplicitExit(false);
 	}
 }
