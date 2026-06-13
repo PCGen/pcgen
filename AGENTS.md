@@ -43,25 +43,24 @@ Key entry point: `pcgen.system.Main` (code/src/java/pcgen/system/Main.java)
 
 Always use the wrapper (`./gradlew`). Java 25 (Temurin) is required; Gradle will fetch dependencies and JavaFX modules as part of tasks.
 
-| Task | Description |
-|------|-------------|
-| `./gradlew build` | Compile + unit tests (includes `test` task) |
-| `./gradlew test` | Unit tests only (JUnit 6 Jupiter + JUnit 4 vintage; headless JavaFX) |
-| `./gradlew itest` | Integration tests |
-| `./gradlew slowtest` | Slow/long-running tests (depends on itest) |
-| `./gradlew datatest` | Data loading/validation tests |
-| `./gradlew pfinttest` | Pathfinder integration tests |
-| `./gradlew inttest` | All character integration tests |
-| `./gradlew sfinttest rsrdinttest srdinttest msrdinttest` | Per-game-mode integration test variants |
-| `./gradlew testCoverage` | Jacoco coverage report (build/reports/jacoco/testCoverage/html) |
-| `./gradlew allReports` | Checkstyle + PMD + SpotBugs reports |
-| `./gradlew buildDist` | Assemble distribution zips (data/docs/program/libs + runtime) |
-| `./gradlew qbuild` | Quick dev binary to output/ |
-| `./gradlew run` | Run the app (JavaFX modules configured automatically) |
-| `./gradlew fullJpackage` | Create native app image/installer via jpackage |
-| `./gradlew clean` | Clean all (also triggers cleanPlugins, cleanOutput, cleanJdks, cleanMods, cleanMasterSheets) |
-| `./gradlew tasks` | List all available tasks |
-| `./gradlew dependencyUpdates` | Check for newer dependency versions |
+| Task                                                     | Description                                                                                  |
+|----------------------------------------------------------|----------------------------------------------------------------------------------------------|
+| `./gradlew build`                                        | Compile + unit tests (includes `test` task)                                                  |
+| `./gradlew test`                                         | Unit tests only (JUnit 6 Jupiter + JUnit 4 vintage; headless JavaFX)                         |
+| `./gradlew itest`                                        | Integration tests                                                                            |
+| `./gradlew slowtest`                                     | Slow/long-running tests (depends on itest)                                                   |
+| `./gradlew datatest`                                     | Data loading/validation tests                                                                |
+| `./gradlew pfinttest`                                    | Pathfinder integration tests                                                                 |
+| `./gradlew inttest`                                      | All character integration tests                                                              |
+| `./gradlew sfinttest rsrdinttest srdinttest msrdinttest` | Per-game-mode integration test variants                                                      |
+| `./gradlew testCoverage`                                 | Jacoco coverage report (build/reports/jacoco/testCoverage/html)                              |
+| `./gradlew allReports`                                   | Checkstyle + PMD + SpotBugs reports                                                          |
+| `./gradlew buildDist`                                    | Assemble distribution zips (data/docs/program/libs + runtime)                                |
+| `./gradlew qbuild`                                       | Quick dev binary to output/                                                                  |
+| `./gradlew run`                                          | Run the app (JavaFX modules configured automatically)                                        |
+| `./gradlew fullJpackage`                                 | Create native app image/installer via jpackage                                               |
+| `./gradlew clean`                                        | Clean all (also triggers cleanPlugins, cleanOutput, cleanJdks, cleanMods, cleanMasterSheets) |
+| `./gradlew tasks`                                        | List all available tasks                                                                     |
 
 Notes
 - jlink/jpackage build only the host platform. The download/extract tasks (downloadJdk, extractJdk, downloadJfxMods, extractJfxMods) target the host OS/arch automatically; the host SDK helper for local dev is downloadJavaFXLocal/extractJavaFXLocal. CI caches build/jre and build/libs.
@@ -173,27 +172,27 @@ Conventions/gotchas observed:
 
 ## Useful Paths
 
-| Purpose | Path |
-|---------|------|
-| Main entry point | code/src/java/pcgen/system/Main.java |
-| CLI parsing | code/src/java/pcgen/system/CommandLineArguments.java |
-| CLI tests | code/src/utest/pcgen/system/CommandLineArgumentsTest.java |
-| GracefulExit | code/src/java/pcgen/util/GracefulExit.java |
-| FTL export test base | code/src/test/pcgen/inttest/PcgenFtlTestCase.java |
-| Standalone Stage dialogs (FXML) | code/src/java/pcgen/gui3/PanelFromResource.java |
-| Swing-embedded FXML panels | code/src/java/pcgen/gui3/JFXPanelFromResource.java |
-| Thread assertions for UI code | code/src/java/pcgen/gui3/GuiAssertions.java |
-| Build config | build.gradle |
-| Version | gradle.properties |
-| Checkstyle rules | code/standards/checkstyle.xml |
-| PMD ruleset | code/standards/ruleset.xml |
-| SpotBugs exclusions | code/standards/spotbugs_ignore.xml |
-| Release logic | code/gradle/release.gradle, code/gradle/releaseUtils.groovy |
-| Distribution logic | code/gradle/distribution.gradle |
-| Plugin jar building | code/gradle/plugins.gradle |
-| Reporting (quality) | code/gradle/reporting.gradle |
-| CI test workflow | .github/workflows/gradle-test.yml |
-| CI release workflow | .github/workflows/gradle-release.yml |
+| Purpose                         | Path                                                        |
+|---------------------------------|-------------------------------------------------------------|
+| Main entry point                | code/src/java/pcgen/system/Main.java                        |
+| CLI parsing                     | code/src/java/pcgen/system/CommandLineArguments.java        |
+| CLI tests                       | code/src/utest/pcgen/system/CommandLineArgumentsTest.java   |
+| GracefulExit                    | code/src/java/pcgen/util/GracefulExit.java                  |
+| FTL export test base            | code/src/test/pcgen/inttest/PcgenFtlTestCase.java           |
+| Standalone Stage dialogs (FXML) | code/src/java/pcgen/gui3/PanelFromResource.java             |
+| Swing-embedded FXML panels      | code/src/java/pcgen/gui3/JFXPanelFromResource.java          |
+| Thread assertions for UI code   | code/src/java/pcgen/gui3/GuiAssertions.java                 |
+| Build config                    | build.gradle                                                |
+| Version                         | gradle.properties                                           |
+| Checkstyle rules                | code/standards/checkstyle.xml                               |
+| PMD ruleset                     | code/standards/ruleset.xml                                  |
+| SpotBugs exclusions             | code/standards/spotbugs_ignore.xml                          |
+| Release logic                   | code/gradle/release.gradle, code/gradle/releaseUtils.groovy |
+| Distribution logic              | code/gradle/distribution.gradle                             |
+| Plugin jar building             | code/gradle/plugins.gradle                                  |
+| Reporting (quality)             | code/gradle/reporting.gradle                                |
+| CI test workflow                | .github/workflows/gradle-test.yml                           |
+| CI release workflow             | .github/workflows/gradle-release.yml                        |
 
 ## Local Run Examples
 

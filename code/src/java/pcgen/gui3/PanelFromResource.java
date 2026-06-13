@@ -116,7 +116,7 @@ public class PanelFromResource<T> implements Controllable<T>
 	}
 
 	/**
-	 * Displays the loaded FXML resource as a modal JavaFX stage, blocking the
+	 * Displays the loaded FXML resource as a JavaFX stage, blocking the
 	 * calling thread until the user closes the dialog.
 	 *
 	 * <p>Must <strong>not</strong> be called from the JavaFX application thread;
@@ -144,7 +144,7 @@ public class PanelFromResource<T> implements Controllable<T>
 			} catch (IOException e)
 			{
 				LOG.log(Level.SEVERE,
-						MessageFormat.format("Failed to load stream fxml from location {0})", fxmlLoader.getLocation()),
+						MessageFormat.format("Failed to load stream fxml from location {0}", fxmlLoader.getLocation()),
 						e);
 			} finally
 			{
@@ -175,7 +175,7 @@ public class PanelFromResource<T> implements Controllable<T>
 	 * bootstrap, which in turn exposed a latent ordering bug in
 	 * {@link pcgen.system.Main#startupWithGUI()}: {@code loadProperties(true)}
 	 * runs <em>before</em> {@code new JFXPanel()} on that path. On a fresh
-	 * install with no {@code settings.files.path} and no {@code -s} CLI
+	 * installation with no {@code settings.files.path} and no {@code -s} CLI
 	 * argument, {@code loadProperties} needs to show the OptionsPathDialog,
 	 * and the first call into {@link Platform#runLater(Runnable)} would throw
 	 * {@code IllegalStateException: Toolkit not initialized}. The JVM would
