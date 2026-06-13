@@ -40,7 +40,7 @@ import pcgen.gui2.tools.DesktopBrowserLauncher;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.PCGenAction;
 import pcgen.gui3.GuiAssertions;
-import pcgen.gui3.JFXPanelFromResource;
+import pcgen.gui3.PanelFromResource;
 import pcgen.gui3.dialog.CalculatorDialogController;
 import pcgen.gui3.dialog.DebugDialog;
 import pcgen.gui3.dialog.ExportDialogController;
@@ -258,8 +258,6 @@ public final class PCGenActionMap extends ActionMap
 	private static final class CalculatorAction extends PCGenAction
 	{
 
-		private JFXPanelFromResource<CalculatorDialogController> dialog;
-
 		private CalculatorAction()
 		{
 			super("mnuToolsCalculator", CALCULATOR_COMMAND, "F11");
@@ -268,10 +266,7 @@ public final class PCGenActionMap extends ActionMap
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			if (dialog == null)
-			{
-				dialog = new JFXPanelFromResource<>(CalculatorDialogController.class, "CalculatorDialog.fxml");
-			}
+			var dialog = new PanelFromResource<>(CalculatorDialogController.class, "CalculatorDialog.fxml");
 			dialog.showAsStage(LanguageBundle.getString("mnuToolsCalculator"));
 		}
 	}
@@ -656,9 +651,9 @@ public final class PCGenActionMap extends ActionMap
 		public void actionPerformed(ActionEvent e)
 		{
 			GuiAssertions.assertIsNotJavaFXThread();
-			JFXPanelFromResource
-					jfxPanelFromResource = new JFXPanelFromResource(ExportDialogController.class, "ExportDialog.fxml");
-			jfxPanelFromResource.showAsStage("Export a PC or Party");
+			PanelFromResource<ExportDialogController> panel =
+					new PanelFromResource<>(ExportDialogController.class, "ExportDialog.fxml");
+			panel.showAsStage("Export a PC or Party");
 		}
 
 	}

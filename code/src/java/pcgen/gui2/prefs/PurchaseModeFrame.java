@@ -58,7 +58,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui3.GuiUtility;
-import pcgen.gui3.JFXPanelFromResource;
+import pcgen.gui3.PanelFromResource;
 import pcgen.gui3.component.OKCloseButtonBar;
 import pcgen.gui3.dialog.NewPurchaseMethodDialogController;
 import pcgen.rules.context.AbstractReferenceContext;
@@ -102,7 +102,7 @@ public final class PurchaseModeFrame extends JDialog
 	//
 	private void addMethodButtonActionPerformed()
 	{
-		var npmd = new JFXPanelFromResource<>(
+		var npmd = new PanelFromResource<>(
 				NewPurchaseMethodDialogController.class,
 				"NewPurchaseMethodDialog.fxml"
 		);
