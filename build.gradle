@@ -197,7 +197,7 @@ tasks.register("cleanMasterSheets", Delete) {
 dependencies {
     implementation fileTree(dir: 'mods/lib', include: ['javafx.*.jar'])
 
-    implementation platform('org.springframework:spring-framework-bom:7.0.7')
+    implementation platform('org.springframework:spring-framework-bom:7.0.8')
     implementation 'org.springframework:spring-beans'
     implementation 'org.springframework:spring-core'
     implementation 'org.apache.commons:commons-lang3:3.20.0'
