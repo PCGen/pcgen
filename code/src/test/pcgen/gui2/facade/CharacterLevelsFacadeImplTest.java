@@ -20,10 +20,17 @@ package pcgen.gui2.facade;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Handler;
+import java.util.logging.Level;
+import java.util.logging.LogRecord;
+import java.util.logging.Logger;
 
 import pcgen.AbstractJunit5CharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -39,6 +46,7 @@ import pcgen.core.Skill;
 import pcgen.core.XPTable;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.facade.core.CharacterLevelFacade;
+import pcgen.facade.core.CharacterLevelsFacade.SkillBreakdown;
 import pcgen.facade.core.DataSetFacade;
 import pcgen.facade.core.UIDelegate;
 import pcgen.persistence.lst.CampaignSourceEntry;
@@ -470,6 +478,84 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit5CharacterTestCa
 			charLvlsFI.findNextLevelForSkill(spellcraftSkill,
 				charLvlsFI.getElementAt(16), 0.0f), "Any level for removing rank of spellcraft"
 		);
+	}
+
+	/**
+	 * Reproduces bug #7338: on macOS Cmd-Q shutdown, an exception is logged because
+	 * {@link CharacterLevelsFacadeImpl#getSkillBreakdown} is reached <em>after</em>
+	 * {@link CharacterLevelsFacadeImpl#closeCharacter} has nulled out the underlying
+	 * PlayerCharacter.
+	 *
+	 * The shutdown order in CharacterFacadeImpl#closeCharacter is:
+	 *   1. charLevelsFacade.closeCharacter()  // nulls theCharacter here
+	 *   2. dataSet.detachDelegates()          // fires list-change events, refilter,
+	 *                                         //   re-sort, comparator pulls skill data
+	 *
+	 * The comparator path lands in {@link CharacterLevelsFacadeImpl#getSkillBreakdown},
+	 * which calls {@code SkillRankControl.getTotalRank(theCharacter, skill)} with a
+	 * null character. That is null-guarded and returns 0, but it logs a SEVERE entry
+	 * with a stack trace. The bug is the noisy log on every shutdown.
+	 *
+	 * This test calls getSkillBreakdown after closeCharacter and asserts that no
+	 * SEVERE log record is produced.
+	 */
+	@Test
+	public void testGetSkillBreakdownAfterCloseCharacterDoesNotLogError()
+	{
+		setGameSkillRankData(false);
+
+		PlayerCharacter pc = getCharacter();
+		pc.incrementClassLevel(1, fighterClass);
+
+		CharacterLevelsFacadeImpl charLvlsFI =
+				new CharacterLevelsFacadeImpl(pc, delegate,
+					todoManager, dataSetFacade, null);
+		CharacterLevelFacade level = charLvlsFI.getElementAt(0);
+		assertNotNull(level, "Test setup: level 0 should exist");
+
+		List<LogRecord> severeRecords = new ArrayList<>();
+		Handler captor = new Handler()
+		{
+			@Override
+			public void publish(LogRecord record)
+			{
+				if (record.getLevel().intValue() >= Level.SEVERE.intValue())
+				{
+					severeRecords.add(record);
+				}
+			}
+
+			@Override
+			public void flush()
+			{
+			}
+
+			@Override
+			public void close()
+			{
+			}
+		};
+		Logger rootLogger = Logger.getLogger("");
+		rootLogger.addHandler(captor);
+		try
+		{
+			charLvlsFI.closeCharacter();
+
+			// Mirrors the post-close UI path: TreeViewTableModel re-sorts, the row
+			// comparator calls SkillTreeViewModel.getData -> getSkillBreakdown.
+			SkillBreakdown sb =
+					charLvlsFI.getSkillBreakdown(level, climbSkill);
+			assertNotNull(sb, "SkillBreakdown should not be null after close");
+		}
+		finally
+		{
+			rootLogger.removeHandler(captor);
+		}
+
+		assertTrue(severeRecords.isEmpty(),
+				"getSkillBreakdown after closeCharacter must not log SEVERE records, "
+						+ "but produced: " + severeRecords.stream()
+						.map(LogRecord::getMessage).toList());
 	}
 
 	private static void setGameSkillRankData(boolean crossClassCostTwo)
