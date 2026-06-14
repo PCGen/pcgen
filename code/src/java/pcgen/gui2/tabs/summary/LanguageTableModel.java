@@ -21,6 +21,7 @@ package pcgen.gui2.tabs.summary;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.awt.Frame;
+import java.awt.KeyboardFocusManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -29,6 +30,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.AbstractCellEditor;
 import javax.swing.Box;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -46,6 +48,7 @@ import pcgen.facade.util.event.ListListener;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.dialog.LanguageChooserDialog;
 import pcgen.gui2.tabs.Utilities;
+import pcgen.gui2.tabs.models.DeferredCharacterComboBoxModel;
 import pcgen.gui2.util.SignIcon.Sign;
 import pcgen.gui2.util.table.TableCellUtilities;
 import pcgen.gui3.utilty.ColorUtilty;
@@ -256,8 +259,13 @@ public class LanguageTableModel extends AbstractTableModel implements ListListen
 		{
 			if (ADD_ID.equals(e.getActionCommand()))
 			{
+				// Resolve the chooser BEFORE the flush: committing may mutate
+				// the languages list and invalidate getEditingRow() (#6517).
+				LanguageChooserFacade chooser = choosers.getElementAt(
+					table.getEditingRow() - languages.getSize());
+				flushPendingDeferredComboBoxCommit();
+
 				Frame frame = JOptionPane.getFrameForComponent(table);
-				LanguageChooserFacade chooser = choosers.getElementAt(table.getEditingRow() - languages.getSize());
 				LanguageChooserDialog dialog = new LanguageChooserDialog(frame, chooser);
 				dialog.setLocationRelativeTo(frame);
 				dialog.setVisible(true);
@@ -268,6 +276,18 @@ public class LanguageTableModel extends AbstractTableModel implements ListListen
 				character.removeLanguage(lang);
 			}
 			cancelCellEditing();
+		}
+
+		/** Commit any pending DeferredCharacterComboBoxModel value on the focused combo. */
+		private void flushPendingDeferredComboBoxCommit()
+		{
+			Component focused = KeyboardFocusManager
+				.getCurrentKeyboardFocusManager().getFocusOwner();
+			if (focused instanceof JComboBox<?> combo
+				&& combo.getModel() instanceof DeferredCharacterComboBoxModel<?> model)
+			{
+				model.commitSelectedItem(model.getSelectedItem());
+			}
 		}
 
 		@Override
@@ -284,7 +304,6 @@ public class LanguageTableModel extends AbstractTableModel implements ListListen
 		private static final String ADD_ID = "Add";
 		private static final String REMOVE_ID = "Remove";
 		private CardLayout cardLayout = new CardLayout();
-		//private JPanel cellPanel = new JPanel();
 		private JLabel cellLabel = new JLabel();
 		private JButton addButton = Utilities.createSignButton(Sign.Plus);
 		private JButton removeButton = Utilities.createSignButton(Sign.Minus);
@@ -317,8 +336,8 @@ public class LanguageTableModel extends AbstractTableModel implements ListListen
 			TableCellUtilities.setToRowBackground(this, jTable, row);
 			if (row < languages.getSize())
 			{
-				boolean automatic = value instanceof Language && character.isAutomatic((Language) value);
-				boolean removable = value instanceof Language && character.isRemovable((Language) value);
+				boolean automatic = value instanceof Language language && character.isAutomatic(language);
+				boolean removable = value instanceof Language language && character.isRemovable(language);
 				if (automatic)
 				{
 					cellLabel.setForeground(ColorUtilty.colorToAWTColor(UIPropertyContext.getAutomaticColor()));

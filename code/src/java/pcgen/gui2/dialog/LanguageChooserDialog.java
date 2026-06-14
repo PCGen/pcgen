@@ -1,20 +1,20 @@
 /*
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- * 
+ *
  */
 package pcgen.gui2.dialog;
 
@@ -30,7 +30,6 @@ import java.awt.event.WindowEvent;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -38,6 +37,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.ListSelectionModel;
+import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 
 import pcgen.core.Language;
@@ -115,7 +115,6 @@ public final class LanguageChooserDialog extends JDialog implements ReferenceLis
 
 		JSplitPane split = new JSplitPane();
 		JPanel leftPane = new JPanel(new BorderLayout());
-		//leftPane.add(new JLabel("Available Languages"), BorderLayout.NORTH);
 		availTable.setAutoCreateRowSorter(true);
 		availTable.setTreeViewModel(treeViewModel);
 		availTable.getRowSorter().toggleSortOrder(0);
@@ -172,8 +171,8 @@ public final class LanguageChooserDialog extends JDialog implements ReferenceLis
 		if (!data.isEmpty())
 		{
 			data.stream()
-			    .filter(object -> object instanceof Language)
-			    .map(object -> (Language) object)
+			    .filter(Language.class::isInstance)
+			    .map(Language.class::cast)
 			    .forEach(chooser::addSelected);
 		}
 	}
@@ -189,14 +188,19 @@ public final class LanguageChooserDialog extends JDialog implements ReferenceLis
 
 	private void doOK(final javafx.event.ActionEvent actionEvent)
 	{
-		chooser.commit();
-		dispose();
+		// FX thread → EDT: commit() and dispose() must run on the EDT (#6517).
+		SwingUtilities.invokeLater(() -> {
+			chooser.commit();
+			dispose();
+		});
 	}
 
 	private void doRollback(final javafx.event.ActionEvent actionEvent)
 	{
-		chooser.rollback();
-		dispose();
+		SwingUtilities.invokeLater(() -> {
+			chooser.rollback();
+			dispose();
+		});
 	}
 
 
@@ -255,6 +259,7 @@ public final class LanguageChooserDialog extends JDialog implements ReferenceLis
 		@Override
 		public void setData(Object value, Language element, int column)
 		{
+			// no-op: this view is read-only
 		}
 
 		@Override
@@ -266,7 +271,7 @@ public final class LanguageChooserDialog extends JDialog implements ReferenceLis
 		@Override
 		public String getPrefsKey()
 		{
-			return LanguageBundle.getString("in_sumLangAvailable"); //$NON-NLS-1$;
+			return LanguageBundle.getString("in_sumLangAvailable"); //$NON-NLS-1$
 		}
 
 	}
@@ -299,7 +304,7 @@ public final class LanguageChooserDialog extends JDialog implements ReferenceLis
 						                      .stream()
 						                      .map(pcgen.cdom.enumeration.Type::toString)
 						                      .map(type -> new TreeViewPath<>(pobj, type))
-						                      .collect(Collectors.toUnmodifiableList());
+						                      .toList();
 						default -> throw new InternalError();
 					};
 		}
