@@ -1,14 +1,45 @@
-name: Create Release with Manual Tag
+name: Manual Release
+
+# Manual full release workflow. The operator triggers this workflow with
+# a release version (e.g. 6.09.08, or 6.09.08.RC1 for a release
+# candidate). The workflow then:
+#
+#   1. prepare_release:
+#      - Validates the version string and verifies the tag is free.
+#      - Commits the version bump to gradle.properties on the dispatched
+#        branch.
+#      - Tags the release commit v<release_version> and creates a GitHub
+#        Release at that tag (optionally marked as a pre-release).
+#
+#   2. build_release (matrix across the four supported platforms):
+#      - Checks out the release tag and runs the full build + tests +
+#        pcgenRelease, uploading native installers and portable zips to
+#        the GitHub Release.
+#
+#   3. bump_to_next_dev (only if every platform built successfully):
+#      - Bumps the version on the dispatched branch to the next dev cycle
+#        via `./gradlew updateVersionToNext` (which appends -SNAPSHOT),
+#        and commits the change so the source tree is ready for further
+#        development.
+#
+# Note on the bump rule: updateVersionToNext (see
+# code/gradle/releaseUtils.groovy::updateVersion) increments the trailing
+# numeric token of the version. For 6.09.08 this yields 6.09.09-SNAPSHOT.
+# For 6.09.08.RC1 it yields 6.09.08.RC2-SNAPSHOT. Operators promoting a
+# final release should therefore pass the final version (e.g. 6.09.08),
+# not the RC tag.
 
 on:
   workflow_dispatch:
     inputs:
-      tag_name:
-        description: 'Tag name for the release (e.g., v6.09.08 for production, v6.09.08-SNAPSHOT for nightly, v6.09.08.RC1 for release candidate). The tag will be created on the selected branch.'
+      release_version:
+        description: >
+          Release version, without the leading "v" or any -SNAPSHOT suffix.
+          Examples: 6.09.08 (final), 6.09.08.RC1 (release candidate).
         required: true
         type: string
       prerelease:
-        description: 'Mark as a pre-release (use for nightly builds and RCs)'
+        description: 'Mark the GitHub Release as a pre-release (use for RCs).'
         required: false
         type: boolean
         default: false
@@ -16,17 +47,46 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  # Never run two manual releases at once on the same branch, and never
+  # cancel one in flight: a half-completed release leaves the source
+  # branch and tags in an inconsistent state.
+  group: manual-release-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
-  create_release:
-    name: Create Release
+  prepare_release:
+    name: Prepare release
     runs-on: ubuntu-latest
+    outputs:
+      tag_name: ${{ steps.tag.outputs.tag_name }}
+      release_sha: ${{ steps.tag.outputs.release_sha }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Create and push tag
+      - name: Validate release version
         env:
-          TAG_NAME: ${{ inputs.tag_name }}
+          RELEASE_VERSION: ${{ inputs.release_version }}
         run: |
+          set -euo pipefail
+          if ! [[ "${RELEASE_VERSION}" =~ ^[0-9]+\.[0-9]+\.[0-9]+(\.[A-Za-z0-9]+)?$ ]]; then
+            echo "::error::release_version '${RELEASE_VERSION}' is not a valid release version."
+            echo ""
+            echo "Expected format: MAJOR.MINOR.PATCH or MAJOR.MINOR.PATCH.QUALIFIER"
+            echo "Examples: 6.09.08, 6.09.08.RC1"
+            echo "Do NOT include a leading 'v' or a -SNAPSHOT suffix."
+            exit 1
+          fi
+          echo "Release version '${RELEASE_VERSION}' is valid."
+
+      - name: Verify tag does not already exist
+        env:
+          RELEASE_VERSION: ${{ inputs.release_version }}
+        run: |
+          set -euo pipefail
+          TAG_NAME="v${RELEASE_VERSION}"
           if git ls-remote --exit-code --tags origin "refs/tags/${TAG_NAME}" > /dev/null 2>&1; then
             echo "::error::Tag '${TAG_NAME}' already exists on the remote."
             echo ""
@@ -34,7 +94,7 @@ jobs:
             echo " HOW TO FIX"
             echo "========================================="
             echo ""
-            echo "If you want to re-release this tag, delete it first:"
+            echo "If you want to re-release this version, delete the tag first:"
             echo "  git tag -d ${TAG_NAME}"
             echo "  git push origin :refs/tags/${TAG_NAME}"
             echo ""
@@ -42,76 +102,65 @@ jobs:
             echo "========================================="
             exit 1
           fi
+          echo "Tag '${TAG_NAME}' is available."
+
+      - name: Configure git identity
+        run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git tag "${TAG_NAME}"
-          git push origin "${TAG_NAME}"
-          echo "✅ Tag '${TAG_NAME}' created and pushed from $(git rev-parse --short HEAD) on branch ${GITHUB_REF_NAME}."
 
-      - name: Update gradle.properties with release version
+      - name: Commit release version to gradle.properties
         env:
-          TAG_NAME: ${{ inputs.tag_name }}
+          RELEASE_VERSION: ${{ inputs.release_version }}
         run: |
-          VERSION="${TAG_NAME#v}"
-          echo "Updating gradle.properties version to ${VERSION}"
-          sed -i "s/^version=.*/version=${VERSION}/" gradle.properties
-          echo "Updated gradle.properties:"
+          set -euo pipefail
+          echo "Updating gradle.properties version to ${RELEASE_VERSION}"
+          sed -i.bak "s/^version=.*/version=${RELEASE_VERSION}/" gradle.properties
+          rm -f gradle.properties.bak
           grep '^version=' gradle.properties
 
-      - name: Validate tag matches gradle.properties version
-        env:
-          TAG_NAME: ${{ inputs.tag_name }}
-        run: |
-          GRADLE_VERSION=$(grep '^version=' gradle.properties | head -1 | cut -d'=' -f2 | tr -d '[:space:]')
-          EXPECTED_TAG="v${GRADLE_VERSION}"
-
-          echo "Tag name:                ${TAG_NAME}"
-          echo "gradle.properties version: ${GRADLE_VERSION}"
-          echo "Expected tag:            ${EXPECTED_TAG}"
-          echo ""
-
-          if [ "${TAG_NAME}" != "${EXPECTED_TAG}" ]; then
-            echo "::error::Tag '${TAG_NAME}' does not match gradle.properties version '${GRADLE_VERSION}'."
-            echo ""
-            echo "========================================="
-            echo " HOW TO FIX"
-            echo "========================================="
-            echo ""
-            echo "Option 1: Update gradle.properties to match the tag"
-            echo "  - Edit gradle.properties and set: version=${TAG_NAME#v}"
-            echo "  - Commit, push, then re-tag:"
-            echo "    git tag -d ${TAG_NAME}"
-            echo "    git push origin :refs/tags/${TAG_NAME}"
-            echo "    git tag ${TAG_NAME}"
-            echo "    git push origin ${TAG_NAME}"
-            echo ""
-            echo "Option 2: Create the correct tag for the current version"
-            echo "  - git tag ${EXPECTED_TAG}"
-            echo "  - git push origin ${EXPECTED_TAG}"
-            echo "  - Then trigger this workflow with tag: ${EXPECTED_TAG}"
-            echo ""
-            echo "Option 3: Manual dispatch with the correct tag"
-            echo "  - Go to Actions > 'Create Release with Manual Tag' > Run workflow"
-            echo "  - Enter tag_name: ${EXPECTED_TAG}"
-            echo "========================================="
-            exit 1
+          git add gradle.properties
+          # No-op safe: if nothing changed (re-run after partial failure)
+          # we still want the commit step to be idempotent.
+          if git diff --cached --quiet; then
+            echo "gradle.properties already at ${RELEASE_VERSION}, skipping commit."
+          else
+            git commit -m "Release v${RELEASE_VERSION}"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
 
-          echo "✅ Tag matches gradle.properties version."
+      - name: Tag release commit and create GitHub Release
+        id: tag
+        env:
+          RELEASE_VERSION: ${{ inputs.release_version }}
+        run: |
+          set -euo pipefail
+          TAG_NAME="v${RELEASE_VERSION}"
+          RELEASE_SHA=$(git rev-parse HEAD)
 
-      - name: Create Release
-        id: create_release
+          git tag -a "${TAG_NAME}" -m "Release ${TAG_NAME}"
+          git push origin "${TAG_NAME}"
+
+          {
+            echo "tag_name=${TAG_NAME}"
+            echo "release_sha=${RELEASE_SHA}"
+          } >> "${GITHUB_OUTPUT}"
+
+          echo "Tagged ${RELEASE_SHA} as ${TAG_NAME}."
+
+      - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ inputs.tag_name }}
-          name: ${{ inputs.tag_name }}
+          tag_name: ${{ steps.tag.outputs.tag_name }}
+          name: ${{ steps.tag.outputs.tag_name }}
+          target_commitish: ${{ steps.tag.outputs.release_sha }}
           draft: false
-          prerelease: ${{ inputs.prerelease || false }}
+          prerelease: ${{ inputs.prerelease }}
           generate_release_notes: false
 
   build_release:
-    name: Build Release
-    needs: create_release
+    name: Build release (${{ matrix.release_suffix }})
+    needs: prepare_release
     strategy:
       fail-fast: false
       matrix:
@@ -130,21 +179,23 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          ref: ${{ needs.prepare_release.outputs.tag_name }}
 
-      - name: Checkout tag
-        run: git checkout "refs/tags/${{ inputs.tag_name }}"
-
-      - name: Update gradle.properties with release version
+      - name: Update PCGenProp.properties with release version and date
         shell: bash
+        env:
+          RELEASE_VERSION: ${{ inputs.release_version }}
         run: |
-          TAG_NAME="${{ inputs.tag_name }}"
-          VERSION="${TAG_NAME#v}"
-          echo "Updating gradle.properties version to ${VERSION}"
-          sed -i.bak "s/^version=.*/version=${VERSION}/" gradle.properties
-          rm -f gradle.properties.bak
-          echo "Updated gradle.properties:"
-          grep '^version=' gradle.properties
+          set -euo pipefail
+          PROPS_FILE="code/src/resources/pcgen/system/prop/PCGenProp.properties"
+          RELEASE_DATE=$(date -u +%Y-%m-%d)
+
+          echo "Setting VersionNumber=${RELEASE_VERSION} and ReleaseDate=${RELEASE_DATE} in ${PROPS_FILE}"
+          sed -i.bak "s/^VersionNumber=.*/VersionNumber=${RELEASE_VERSION}/" "${PROPS_FILE}"
+          sed -i.bak "s/^ReleaseDate=.*/ReleaseDate=${RELEASE_DATE}/" "${PROPS_FILE}"
+          rm -f "${PROPS_FILE}.bak"
+
+          grep -E '^(VersionNumber|ReleaseDate)=' "${PROPS_FILE}"
 
       - name: Set up JDK 25
         uses: actions/setup-java@v4
@@ -193,6 +244,72 @@ jobs:
       - name: Attach release artifacts to GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ inputs.tag_name }}
+          tag_name: ${{ needs.prepare_release.outputs.tag_name }}
           files: ${{ github.workspace }}/build/release/*
           fail_on_unmatched_files: true
+
+  bump_to_next_dev:
+    name: Bump version to next dev cycle
+    needs: [prepare_release, build_release]
+    if: success()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.ref_name }}
+
+      - name: Set up JDK 25
+        uses: actions/setup-java@v4
+        with:
+          java-version: '25'
+          distribution: 'temurin'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          cache-disabled: false
+          cache-read-only: true
+
+      - name: Configure git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Bump version via Gradle and commit
+        run: |
+          set -euo pipefail
+
+          OLD_VERSION=$(grep '^version=' gradle.properties | head -1 | cut -d'=' -f2 | tr -d '[:space:]')
+          echo "Current version: ${OLD_VERSION}"
+
+          # Delegates to releaseUtils.groovy::updateVersion: increments the
+          # trailing numeric segment (zero-padded to 2 digits) and appends
+          # -SNAPSHOT. The Groovy helper writes the new value into
+          # gradle.properties directly.
+          ./gradlew --no-daemon --no-configuration-cache updateVersionToNext
+
+          NEW_VERSION=$(grep '^version=' gradle.properties | head -1 | cut -d'=' -f2 | tr -d '[:space:]')
+          echo "New version:     ${NEW_VERSION}"
+
+          if [ "${OLD_VERSION}" = "${NEW_VERSION}" ]; then
+            echo "::error::updateVersionToNext did not change the version (${OLD_VERSION})."
+            exit 1
+          fi
+
+          git add gradle.properties
+          if git diff --cached --quiet; then
+            echo "::error::No changes staged after updateVersionToNext."
+            exit 1
+          fi
+
+          git commit -m "Bump version to v${NEW_VERSION} for next dev cycle"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+
+          {
+            echo "## Next dev cycle"
+            echo ""
+            echo "- Previous version: \`${OLD_VERSION}\`"
+            echo "- New dev version:  \`${NEW_VERSION}\`"
+            echo "- Branch:           \`${GITHUB_REF_NAME}\`"
+          } >> "${GITHUB_STEP_SUMMARY}"
