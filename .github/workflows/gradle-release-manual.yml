@@ -25,7 +25,7 @@ name: Manual Release
 # Note on the bump rule: updateVersionToNext (see
 # code/gradle/releaseUtils.groovy::updateVersion) increments the trailing
 # numeric token of the version. For 6.09.08 this yields 6.09.09-SNAPSHOT.
-# For 6.09.08.RC1 it yields 6.09.08.RC2-SNAPSHOT. Operators promoting a
+# For 6.09.08.RC1 it yields 6.09.08.RC02-SNAPSHOT. Operators promoting a
 # final release should therefore pass the final version (e.g. 6.09.08),
 # not the RC tag.
 
