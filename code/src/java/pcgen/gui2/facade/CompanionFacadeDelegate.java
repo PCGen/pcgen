@@ -99,7 +99,7 @@ public class CompanionFacadeDelegate implements CompanionFacade
 
 		private ReferenceFacade<T> delegate;
 
-		public void setDelegate(ReferenceFacade<T> newDelegate)
+		void setDelegate(ReferenceFacade<T> newDelegate)
 		{
 			if (delegate != null)
 			{

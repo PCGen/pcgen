@@ -584,7 +584,7 @@ public class DataSet implements DataSetFacade
 			return map.get(key);
 		}
 
-		public void put(AbilityCategory key, ListFacade<AbilityFacade> value)
+		void put(AbilityCategory key, ListFacade<AbilityFacade> value)
 		{
 			map.put(key, value);
 		}

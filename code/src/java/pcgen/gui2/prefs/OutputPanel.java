@@ -426,7 +426,7 @@ public final class OutputPanel extends PCGenPrefsPanel
 					}
 				};
 
-		public String getValue()
+		String getValue()
 		{
 			return switch (this)
 					{
@@ -437,7 +437,7 @@ public final class OutputPanel extends PCGenPrefsPanel
 					};
 		}
 
-		public static ExportChoices getChoice(String value)
+		static ExportChoices getChoice(String value)
 		{
 			Boolean choice = BooleanUtils.toBooleanObject(value);
 			if (choice == null)

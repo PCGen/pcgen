@@ -250,7 +250,7 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 			}
 		}
 
-		public void install()
+		void install()
 		{
 			GuiAssertions.assertIsNotJavaFXThread();
 			sheetBox.setOnAction(this::onSelectedCharSheet);
@@ -280,17 +280,17 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 
 		private final CharacterFacade character;
 
-		public CSheetHandler(CharacterFacade character)
+		CSheetHandler(CharacterFacade character)
 		{
 			this.character = character;
 		}
 
-		public void install()
+		void install()
 		{
 			csheet.setCharacter(character);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 		}
 
@@ -365,7 +365,7 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 
 		};
 
-		public TempBonusTableModel(CharacterFacade character)
+		TempBonusTableModel(CharacterFacade character)
 		{
 			super(character);
 			setDelegate(character.getTempBonuses());
@@ -441,7 +441,7 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 		 */
 		private static final long serialVersionUID = 5028006226606996671L;
 
-		public EquipSetTableModel(CharacterFacade character)
+		EquipSetTableModel(CharacterFacade character)
 		{
 			super(character);
 			character.getEquipmentSetRef().addReferenceListener(this);

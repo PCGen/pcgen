@@ -347,7 +347,7 @@ public abstract class JepCountType
 	{
 		String type;
 
-		public TypeFilter(String typ)
+		TypeFilter(String typ)
 		{
 			type = typ;
 		}
@@ -364,7 +364,7 @@ public abstract class JepCountType
 	{
 		String type;
 
-		public TypeExclusionFilter(String typ)
+		TypeExclusionFilter(String typ)
 		{
 			type = typ;
 		}
@@ -390,7 +390,7 @@ public abstract class JepCountType
 	{
 		Nature nature;
 
-		public NatureFilter(Nature n)
+		NatureFilter(Nature n)
 		{
 			nature = n;
 		}

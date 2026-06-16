@@ -73,21 +73,21 @@ public class SpellsInfoTab extends JTabbedPane implements CharacterInfoTab, Todo
 		private final ModelMap preparedTabMap;
 		private final ModelMap booksTabMap;
 
-		public ModelHandler(CharacterFacade character)
+		ModelHandler(CharacterFacade character)
 		{
 			this.knownTabMap = knownTab.createModels(character);
 			this.preparedTabMap = preparedTab.createModels(character);
 			this.booksTabMap = booksTab.createModels(character);
 		}
 
-		public void restoreModels()
+		void restoreModels()
 		{
 			knownTab.restoreModels(knownTabMap);
 			preparedTab.restoreModels(preparedTabMap);
 			booksTab.restoreModels(booksTabMap);
 		}
 
-		public void storeModels()
+		void storeModels()
 		{
 			knownTab.storeModels(knownTabMap);
 			preparedTab.storeModels(preparedTabMap);

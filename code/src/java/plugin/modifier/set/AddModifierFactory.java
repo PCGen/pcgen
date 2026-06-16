@@ -222,7 +222,7 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 		 * 
 		 * @return The FormatManager for this AddArrayModifier
 		 */
-		public FormatManager<T[]> getFormatManager()
+		FormatManager<T[]> getFormatManager()
 		{
 			return fmtManager;
 		}

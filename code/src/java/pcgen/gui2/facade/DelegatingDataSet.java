@@ -135,7 +135,7 @@ public class DelegatingDataSet implements DataSetFacade
 
 		private final MapFacade<AbilityCategory, ListFacade<AbilityFacade>> abilitiesDelegate;
 
-		public DelegatingAbilitiesMap(MapFacade<AbilityCategory, ListFacade<AbilityFacade>> abilitiesDelegate)
+		DelegatingAbilitiesMap(MapFacade<AbilityCategory, ListFacade<AbilityFacade>> abilitiesDelegate)
 		{
 			this.abilitiesDelegate = abilitiesDelegate;
 			this.abilitiesMap = new HashMap<>();
@@ -143,7 +143,7 @@ public class DelegatingDataSet implements DataSetFacade
 			abilitiesDelegate.addMapListener(this);
 		}
 
-		public void detach()
+		void detach()
 		{
 			abilitiesDelegate.removeMapListener(this);
 			for (DelegatingListFacade<AbilityFacade> list : abilitiesMap.values())

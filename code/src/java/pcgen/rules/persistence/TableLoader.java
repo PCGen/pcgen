@@ -218,7 +218,7 @@ public class TableLoader extends LstLineFileLoader
 		 *            The underlying Table to which the column names should be
 		 *            assigned
 		 */
-		public ImportColumnNames(DataTable table)
+		ImportColumnNames(DataTable table)
 		{
 			t = table;
 		}
@@ -289,7 +289,7 @@ public class TableLoader extends LstLineFileLoader
 		 *            assigned
 		 * @param columnNames
 		 */
-		public ImportColumnFormats(DataTable table, List<String> columnNames)
+		ImportColumnFormats(DataTable table, List<String> columnNames)
 		{
 			t = table;
 			this.columnNames = columnNames;
@@ -380,7 +380,7 @@ public class TableLoader extends LstLineFileLoader
 		 * @param table
 		 *            The underlying Table to which the data will be loaded
 		 */
-		public ImportData(DataTable table)
+		ImportData(DataTable table)
 		{
 			t = table;
 		}

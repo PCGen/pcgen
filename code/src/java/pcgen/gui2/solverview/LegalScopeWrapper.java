@@ -48,7 +48,7 @@ class LegalScopeWrapper
 	 * 
 	 * @return the ImplementedScope underlying this LegalScopeWrapper
 	 */
-	public ImplementedScope getLegalScope()
+	ImplementedScope getLegalScope()
 	{
 		return legalScope;
 	}

@@ -152,7 +152,7 @@ public final class TokenConverter
 		private TokenProcessorPlugin nextToken = null;
 		private boolean needNewToken = true;
 
-		public ConverterIterator(Class<?> cl, String key)
+		ConverterIterator(Class<?> cl, String key)
 		{
 			rootClass = cl;
 			tokenKey = key;

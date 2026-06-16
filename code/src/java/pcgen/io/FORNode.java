@@ -57,7 +57,7 @@ final class FORNode
 	 * Add a child
 	 * @param child
 	 */
-	public void addChild(Object child)
+	void addChild(Object child)
 	{
 		children.add(child);
 	}
@@ -66,7 +66,7 @@ final class FORNode
 	 * Return the children of this node
 	 * @return the children of this node
 	 */
-	public List<?> children()
+	List<?> children()
 	{
 		return children;
 	}
@@ -75,7 +75,7 @@ final class FORNode
 	 * Return TRUE if exists
 	 * @return TRUE if exists
 	 */
-	public boolean exists()
+	boolean exists()
 	{
 		return exists;
 	}
@@ -84,7 +84,7 @@ final class FORNode
 	 * Return max
 	 * @return max
 	 */
-	public String max()
+	String max()
 	{
 		return max;
 	}
@@ -93,7 +93,7 @@ final class FORNode
 	 * Return min
 	 * @return min
 	 */
-	public String min()
+	String min()
 	{
 		return min;
 	}
@@ -102,7 +102,7 @@ final class FORNode
 	 * Return step
 	 * @return step
 	 */
-	public String step()
+	String step()
 	{
 		return step;
 	}
@@ -111,7 +111,7 @@ final class FORNode
 	 * Return var
 	 * @return var
 	 */
-	public String var()
+	String var()
 	{
 		return var;
 	}

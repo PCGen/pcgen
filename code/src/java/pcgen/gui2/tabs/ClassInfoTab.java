@@ -263,7 +263,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		private final CharacterFacade character;
 		private PCClass selectedClass = null;
 
-		public AddClassAction(CharacterFacade character)
+		AddClassAction(CharacterFacade character)
 		{
 			super(LanguageBundle.getString("in_cl_addlevels"));
 			this.character = character;
@@ -277,7 +277,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			addCharacterLevels(character, selectedClass);
 		}
 
-		public void install()
+		void install()
 		{
 			addButton.setAction(this);
 			availableTable.addActionListener(this);
@@ -285,7 +285,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			classTable.getSelectionModel().addListSelectionListener(this);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			availableTable.removeActionListener(this);
 			availableTable.getSelectionModel().removeListSelectionListener(this);
@@ -313,7 +313,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		private final CharacterFacade character;
 
-		public RemoveClassAction(CharacterFacade character)
+		RemoveClassAction(CharacterFacade character)
 		{
 			super(LanguageBundle.getString("in_cl_removelevels"));
 			this.character = character;
@@ -328,7 +328,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			character.removeCharacterLevels(1);
 		}
 
-		public void install()
+		void install()
 		{
 			removeButton.setAction(this);
 		}
@@ -373,12 +373,12 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		private CharacterFacade character = null;
 
-		public void setCharacter(CharacterFacade character)
+		void setCharacter(CharacterFacade character)
 		{
 			this.character = character;
 		}
 
-		public TransHandler createHandler(CharacterFacade character)
+		TransHandler createHandler(CharacterFacade character)
 		{
 			return new TransHandler(character);
 		}
@@ -388,17 +388,17 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 			private final CharacterFacade character;
 
-			public TransHandler(CharacterFacade character)
+			TransHandler(CharacterFacade character)
 			{
 				this.character = character;
 			}
 
-			public void install()
+			void install()
 			{
 				setCharacter(character);
 			}
 
-			public void uninstall()
+			void uninstall()
 			{
 				setCharacter(null);
 			}
@@ -487,12 +487,12 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		private final CharacterFacade character;
 
-		public QualifiedFilterHandler(CharacterFacade character)
+		QualifiedFilterHandler(CharacterFacade character)
 		{
 			this.character = character;
 		}
 
-		public void install()
+		void install()
 		{
 			qFilterButton.setFilter(this);
 		}
@@ -519,7 +519,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				new DefaultListFacade<>(Arrays.asList(ClassTreeView.values()));
 		private final CharacterFacade character;
 
-		public ClassTreeViewModel(CharacterFacade character)
+		ClassTreeViewModel(CharacterFacade character)
 		{
 			this.character = character;
 		}
@@ -651,7 +651,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		};
 		private final CharacterLevelsFacade model;
 
-		public ClassTableModel(CharacterFacade character)
+		ClassTableModel(CharacterFacade character)
 		{
 			this.model = character.getCharacterLevelsFacade();
 			model.addListListener(this);
@@ -741,20 +741,20 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		private final CharacterFacade character;
 		private String text;
 
-		public InfoHandler(CharacterFacade character)
+		InfoHandler(CharacterFacade character)
 		{
 			this.character = character;
 			this.text = ""; //$NON-NLS-1$
 		}
 
-		public void install()
+		void install()
 		{
 			classTable.getSelectionModel().addListSelectionListener(this);
 			availableTable.getSelectionModel().addListSelectionListener(this);
 			infoPane.setText(text);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			classTable.getSelectionModel().removeListSelectionListener(this);
 			availableTable.getSelectionModel().removeListSelectionListener(this);

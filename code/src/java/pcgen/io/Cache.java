@@ -49,7 +49,7 @@ final class Cache
 	 * @param key
 	 * @return True if the map contains the key
 	 */
-	public boolean containsKey(final String key)
+	boolean containsKey(final String key)
 	{
 		return map.containsKey(key);
 	}
@@ -59,7 +59,7 @@ final class Cache
 	 * @param key
 	 * @return List
 	 */
-	public List<String> get(String key)
+	List<String> get(String key)
 	{
 		return map.get(key);
 	}
@@ -69,7 +69,7 @@ final class Cache
 	 * @param key
 	 * @param value
 	 */
-	public void put(String key, String value)
+	void put(String key, String value)
 	{
 		if (map.containsKey(key))
 		{

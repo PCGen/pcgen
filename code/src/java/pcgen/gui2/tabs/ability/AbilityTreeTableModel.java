@@ -131,7 +131,7 @@ public class AbilityTreeTableModel extends AbstractTreeTableModel implements Sor
 
 		private final ListFacade<AbilityCategory> cats;
 
-		public RootTreeTableNode(ListFacade<AbilityCategory> cats)
+		RootTreeTableNode(ListFacade<AbilityCategory> cats)
 		{
 			super(Collections.singletonList(new Object()));
 			this.cats = new SortedListFacade<>(Comparators.toStringIgnoreCaseComparator(), cats);
@@ -179,7 +179,7 @@ public class AbilityTreeTableModel extends AbstractTreeTableModel implements Sor
 
 		private final ListFacade<AbilityFacade> abilities;
 
-		public CategoryTreeTableNode(AbilityCategory category)
+		CategoryTreeTableNode(AbilityCategory category)
 		{
 			setUserObject(category);
 			setValues(Collections.singletonList(category));

@@ -21,32 +21,32 @@ import java.util.List;
 
 class ChooseController<T>
 {
-	public int getPool()
+	int getPool()
 	{
 		return 1;
 	}
 
-	public boolean isMultYes()
+	boolean isMultYes()
 	{
 		return false;
 	}
 
-	public boolean isStackYes()
+	boolean isStackYes()
 	{
 		return false;
 	}
 
-	public double getCost()
+	double getCost()
 	{
 		return 1.0;
 	}
 
-	public int getTotalChoices()
+	int getTotalChoices()
 	{
 		return 1;
 	}
 
-	public void adjustPool(List<? extends T> selected)
+	void adjustPool(List<? extends T> selected)
 	{
 		// Ignore
 	}

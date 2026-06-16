@@ -43,7 +43,7 @@ class IIFNode
 	 * Add a 'true' child to the tree
 	 * @param child
 	 */
-	public void addTrueChild(Object child)
+	void addTrueChild(Object child)
 	{
 		trueChildren.add(child);
 	}
@@ -52,7 +52,7 @@ class IIFNode
 	 * List the nodes that are truly children
 	 * @return the nodes that are truly children
 	 */
-	public final List<?> trueChildren()
+	final List<?> trueChildren()
 	{
 		return Collections.unmodifiableList(trueChildren);
 	}
@@ -61,7 +61,7 @@ class IIFNode
 	 * Add a false child
 	 * @param child
 	 */
-	public void addFalseChild(final Object child)
+	void addFalseChild(final Object child)
 	{
 		falseChildren.add(child);
 	}
@@ -70,7 +70,7 @@ class IIFNode
 	 * Returns an expression for the node
 	 * @return an expression for the node
 	 */
-	public final String expr()
+	final String expr()
 	{
 		return expr;
 	}
@@ -79,7 +79,7 @@ class IIFNode
 	 * List the false children
 	 * @return the false children
 	 */
-	public final List<?> falseChildren()
+	final List<?> falseChildren()
 	{
 		return Collections.unmodifiableList(falseChildren);
 	}

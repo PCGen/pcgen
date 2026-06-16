@@ -441,7 +441,7 @@ public class FlippingSplitPane extends JSplitPane
 		 */
 		private boolean locked = false;
 
-		public LockAction()
+		LockAction()
 		{
 			configureProps();
 		}
@@ -465,7 +465,7 @@ public class FlippingSplitPane extends JSplitPane
 			setLocked(!locked);
 		}
 
-		public boolean isLocked()
+		boolean isLocked()
 		{
 			return locked;
 		}
@@ -479,7 +479,7 @@ public class FlippingSplitPane extends JSplitPane
 		 *
 		 * @see #isLocked
 		 */
-		public void setLocked(boolean locked)
+		void setLocked(boolean locked)
 		{
 			if (this.locked == locked)
 			{

@@ -182,20 +182,20 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		private final CharacterFacade character;
 		private String text;
 
-		public InfoHandler(CharacterFacade character)
+		InfoHandler(CharacterFacade character)
 		{
 			this.character = character;
 			this.text = ""; //$NON-NLS-1$
 		}
 
-		public void install()
+		void install()
 		{
 			availableTable.getSelectionModel().addListSelectionListener(this);
 			selectedTable.getSelectionModel().addListSelectionListener(this);
 			infoPane.setText(text);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			availableTable.getSelectionModel().removeListSelectionListener(this);
 			selectedTable.getSelectionModel().removeListSelectionListener(this);
@@ -238,7 +238,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 		private final CharacterFacade character;
 
-		public AddAction(CharacterFacade character)
+		AddAction(CharacterFacade character)
 		{
 			super(LanguageBundle.getString("in_irAddTemplate")); //$NON-NLS-1$
 			this.character = character;
@@ -259,13 +259,13 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 			}
 		}
 
-		public void install()
+		void install()
 		{
 			availableTable.addActionListener(this);
 			addButton.setAction(this);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			availableTable.removeActionListener(this);
 		}
@@ -277,7 +277,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 		private final CharacterFacade character;
 
-		public RemoveAction(CharacterFacade character)
+		RemoveAction(CharacterFacade character)
 		{
 			super(LanguageBundle.getString("in_irRemoveTemplate")); //$NON-NLS-1$
 			this.character = character;
@@ -298,13 +298,13 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 			}
 		}
 
-		public void install()
+		void install()
 		{
 			selectedTable.addActionListener(this);
 			removeButton.setAction(this);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			selectedTable.removeActionListener(this);
 		}
@@ -325,12 +325,12 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		};
 		private final CharacterFacade character;
 
-		public QualifiedFilterHandler(CharacterFacade character)
+		QualifiedFilterHandler(CharacterFacade character)
 		{
 			this.character = character;
 		}
 
-		public void install()
+		void install()
 		{
 			qFilterButton.setFilter(qFilter);
 		}
@@ -345,7 +345,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		private final TemplateTreeViewModel availTreeView;
 		private final TemplateTreeViewModel selTreeView;
 
-		public TreeViewModelHandler(CharacterFacade character)
+		TreeViewModelHandler(CharacterFacade character)
 		{
 			availDataView = new TemplateDataView(character, true);
 			selDataView = new TemplateDataView(character, false);
@@ -353,13 +353,13 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 			selTreeView = new TemplateTreeViewModel(character, false, selDataView);
 		}
 
-		public void install()
+		void install()
 		{
 			availableTable.setTreeViewModel(availTreeView);
 			selectedTable.setTreeViewModel(selTreeView);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 		}
 	}
@@ -371,7 +371,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		private final InfoFactory infoFactory;
 		private final boolean isAvailModel;
 
-		public TemplateDataView(CharacterFacade character, boolean isAvailModel)
+		TemplateDataView(CharacterFacade character, boolean isAvailModel)
 		{
 			this.infoFactory = character.getInfoFactory();
 			this.isAvailModel = isAvailModel;
@@ -432,7 +432,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		private final TemplateDataView dataView;
 		private final FilteredListFacade<CharacterFacade, PCTemplate> templates;
 
-		public TemplateTreeViewModel(CharacterFacade character, boolean isAvailModel, TemplateDataView dataView)
+		TemplateTreeViewModel(CharacterFacade character, boolean isAvailModel, TemplateDataView dataView)
 		{
 			this.character = character;
 			this.isAvailModel = isAvailModel;

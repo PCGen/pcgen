@@ -97,7 +97,7 @@ public class GroupGroupingToken<T extends Loadable> implements GroupingDefinitio
 		 *            The GroupingInfo used to determine the format and GROUP: of objects
 		 *            contained by this GroupGrouping
 		 */
-		public GroupGrouping(GroupingInfo<T> info)
+		GroupGrouping(GroupingInfo<T> info)
 		{
 			this.groupingInfo = Objects.requireNonNull(info);
 			String value = info.getValue();
@@ -107,7 +107,7 @@ public class GroupGroupingToken<T extends Loadable> implements GroupingDefinitio
 			}
 		}
 
-		public void setChild(GroupingCollection<?> childCollection)
+		void setChild(GroupingCollection<?> childCollection)
 		{
 			childGrouping = childCollection;
 		}

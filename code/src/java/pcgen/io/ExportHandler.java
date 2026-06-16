@@ -3311,7 +3311,7 @@ public abstract class ExportHandler
 		 * Return true if we have more tokens
 		 * @return true if we have
 		 */
-		public boolean hasMoreTokens()
+		boolean hasMoreTokens()
 		{
 			return (!_forThisString.isEmpty());
 		}
@@ -3320,7 +3320,7 @@ public abstract class ExportHandler
 		 * Return the next token
 		 * @return next token
 		 */
-		public String nextToken()
+		String nextToken()
 		{
 			String aString;
 
@@ -3405,17 +3405,17 @@ public abstract class ExportHandler
 			}
 		}
 
-		public Integer min()
+		Integer min()
 		{
 			return cMin;
 		}
 
-		public Integer max()
+		Integer max()
 		{
 			return cMax;
 		}
 
-		public Integer step()
+		Integer step()
 		{
 			return cStep;
 		}

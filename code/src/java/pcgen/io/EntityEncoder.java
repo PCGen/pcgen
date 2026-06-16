@@ -196,7 +196,7 @@ final class EntityMap
 	 * @param key
 	 * @return value
 	 */
-	public String get(String key)
+	String get(String key)
 	{
 		final String value = map.get(key);
 
@@ -209,7 +209,7 @@ final class EntityMap
 	 * @param key
 	 * @param value
 	 */
-	public void put(String key, String value)
+	void put(String key, String value)
 	{
 		map.put(key, value);
 		map.put(value, key);

@@ -398,7 +398,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 		private final CharacterFacade character;
 
-		public AddSetAction(CharacterFacade character)
+		AddSetAction(CharacterFacade character)
 		{
 			super(LanguageBundle.getString("in_new")); //$NON-NLS-1$
 			this.character = character;
@@ -423,7 +423,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 		private final CharacterFacade character;
 
-		public RemoveSetAction(CharacterFacade character)
+		RemoveSetAction(CharacterFacade character)
 		{
 			super(LanguageBundle.getString("in_remove")); //$NON-NLS-1$
 			this.character = character;
@@ -442,7 +442,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 		private final CharacterFacade character;
 
-		public EquipSetBoxModel(CharacterFacade character)
+		EquipSetBoxModel(CharacterFacade character)
 		{
 			this.character = character;
 			setListFacade(character.getEquipmentSets());
@@ -460,7 +460,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	private class ExpandAllAction extends AbstractAction
 	{
 
-		public ExpandAllAction()
+		ExpandAllAction()
 		{
 			super("+"); //$NON-NLS-1$
 			putValue(SHORT_DESCRIPTION, LanguageBundle.getString("in_expandAllTip")); //$NON-NLS-1$
@@ -481,7 +481,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	private class CollapseAllAction extends AbstractAction
 	{
 
-		public CollapseAllAction()
+		CollapseAllAction()
 		{
 			super("-"); //$NON-NLS-1$
 			putValue(SHORT_DESCRIPTION, LanguageBundle.getString("in_collapseAllTip")); //$NON-NLS-1$
@@ -504,7 +504,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 		private final CharacterFacade character;
 
-		public UnequipAllAction(CharacterFacade character)
+		UnequipAllAction(CharacterFacade character)
 		{
 			super(LanguageBundle.getString("in_equipUnequipAll")); //$NON-NLS-1$
 			this.character = character;
@@ -535,14 +535,14 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		private final ReferenceFacade<String> loadRef;
 		private final ReferenceFacade<String> limitRef;
 
-		public LabelsUpdater(CharacterFacade character)
+		LabelsUpdater(CharacterFacade character)
 		{
 			weightRef = character.getCarriedWeightRef();
 			loadRef = character.getLoadRef();
 			limitRef = character.getWeightLimitRef();
 		}
 
-		public void install()
+		void install()
 		{
 			weightLabel.setText(weightRef.get());
 			setLoadLabel(Load.getLoadType(loadRef.get()));
@@ -553,7 +553,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			limitRef.addReferenceListener(this);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			weightRef.removeReferenceListener(this);
 			loadRef.removeReferenceListener(this);
@@ -586,20 +586,20 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		private final CharacterFacade character;
 		private String text;
 
-		public EquipInfoHandler(CharacterFacade character)
+		EquipInfoHandler(CharacterFacade character)
 		{
 			this.character = character;
 			this.text = ""; //$NON-NLS-1$
 		}
 
-		public void install()
+		void install()
 		{
 			equipmentTable.getSelectionModel().addListSelectionListener(this);
 			equipmentSetTable.getSelectionModel().addListSelectionListener(this);
 			infoPane.setText(text);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			equipmentTable.getSelectionModel().removeListSelectionListener(this);
 			equipmentSetTable.getSelectionModel().removeListSelectionListener(this);
@@ -649,12 +649,12 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 		private final CharacterFacade character;
 
-		public EquipmentRenderer(CharacterFacade character)
+		EquipmentRenderer(CharacterFacade character)
 		{
 			this.character = character;
 		}
 
-		public void install()
+		void install()
 		{
 			equipmentTable.setDefaultRenderer(Object.class, this);
 		}
@@ -683,7 +683,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		private static final DataFlavor[] FLAVORS = {EQUIP_NODE_ARRAY_FLAVOR, EQUIPMENT_ARRAY_FLAVOR};
 		private final EquipNode[] nodeArray;
 
-		public EquipNodeSelection(EquipNode[] nodeArray)
+		EquipNodeSelection(EquipNode[] nodeArray)
 		{
 			this.nodeArray = nodeArray;
 		}
@@ -726,12 +726,12 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 		private final CharacterFacade character;
 
-		public EquipmentTransferHandler(CharacterFacade character)
+		EquipmentTransferHandler(CharacterFacade character)
 		{
 			this.character = character;
 		}
 
-		public void install()
+		void install()
 		{
 			equipmentTable.setDragEnabled(true);
 			equipmentTable.setDropMode(DropMode.ON);
@@ -820,12 +820,12 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 		private final CharacterFacade character;
 
-		public EquipmentSetTransferHandler(CharacterFacade character)
+		EquipmentSetTransferHandler(CharacterFacade character)
 		{
 			this.character = character;
 		}
 
-		public void install()
+		void install()
 		{
 			equipmentSetTable.setTransferHandler(this);
 			equipmentSetTable.setDragEnabled(true);
@@ -1016,12 +1016,12 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			popupMenu.show(e.getComponent(), e.getX(), e.getY());
 		}
 
-		public void install()
+		void install()
 		{
 			equipmentSetTable.addMouseListener(this);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			equipmentSetTable.removeMouseListener(this);
 		}

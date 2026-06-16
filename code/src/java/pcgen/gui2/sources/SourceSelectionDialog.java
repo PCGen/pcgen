@@ -358,7 +358,7 @@ public class SourceSelectionDialog extends JDialog implements ActionListener, Ch
 		private final InfoPane infoPane;
 		private final InfoPaneLinkAction linkAction;
 
-		public QuickSourceSelectionPanel()
+		QuickSourceSelectionPanel()
 		{
 			sourceList = new JList<>();
 			infoPane = new InfoPane(LanguageBundle.getString("in_src_info")); //$NON-NLS-1$
@@ -438,7 +438,7 @@ public class SourceSelectionDialog extends JDialog implements ActionListener, Ch
 			sourceList.addListSelectionListener(this);
 		}
 
-		public SourceSelectionFacade getSourceSelection()
+		SourceSelectionFacade getSourceSelection()
 		{
 			return (SourceSelectionFacade) sourceList.getSelectedValue();
 		}
@@ -472,7 +472,7 @@ public class SourceSelectionDialog extends JDialog implements ActionListener, Ch
 		 * responding to a user action. 
 		 * @param selection The sources selected.
 		 */
-		public void makeSourceSelected(SourceSelectionFacade selection)
+		void makeSourceSelected(SourceSelectionFacade selection)
 		{
 			advancedPanel.setSourceSelection(selection);
 			deleteButton.setEnabled(selection.isModifiable());

@@ -5347,7 +5347,7 @@ final class PCGVer2Parser implements PCGParser
 		 * list for the element.
 		 * @return A {@code List} of children
 		 */
-		public List<PCGElement> getChildren()
+		List<PCGElement> getChildren()
 		{
 			if (children == null)
 			{
@@ -5825,7 +5825,7 @@ final class PCGVer2Parser implements PCGParser
 	 * This method should NOT be called outside of file i/o routines!
 	 * @param aSource the source to be set
 	 **/
-	public ClassSource getDomainSource(String aSource)
+	ClassSource getDomainSource(String aSource)
 	{
 		final StringTokenizer aTok = new StringTokenizer(aSource, "|", false);
 
@@ -5865,7 +5865,7 @@ final class PCGVer2Parser implements PCGParser
 		}
 	}
 
-	public PCAlignment getNoAlignment()
+	PCAlignment getNoAlignment()
 	{
 		return Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCAlignment.class,
 			Constants.NONE);

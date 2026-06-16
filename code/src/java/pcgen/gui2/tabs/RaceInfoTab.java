@@ -201,14 +201,14 @@ public final class RaceInfoTab extends FlippingSplitPane implements CharacterInf
 			this.text = ""; //$NON-NLS-1$
 		}
 
-		public void install()
+		void install()
 		{
 			raceTable.getSelectionModel().addListSelectionListener(this);
 			selectedTable.getSelectionModel().addListSelectionListener(this);
 			infoPane.setText(text);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			raceTable.getSelectionModel().removeListSelectionListener(this);
 			selectedTable.getSelectionModel().removeListSelectionListener(this);
@@ -273,13 +273,13 @@ public final class RaceInfoTab extends FlippingSplitPane implements CharacterInf
 			}
 		}
 
-		public void install()
+		void install()
 		{
 			raceTable.addActionListener(this);
 			selectRaceButton.setAction(this);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			raceTable.removeActionListener(this);
 		}
@@ -304,13 +304,13 @@ public final class RaceInfoTab extends FlippingSplitPane implements CharacterInf
 			character.setRace(null);
 		}
 
-		public void install()
+		void install()
 		{
 			selectedTable.addActionListener(this);
 			removeButton.setAction(this);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			selectedTable.removeActionListener(this);
 		}
@@ -331,7 +331,7 @@ public final class RaceInfoTab extends FlippingSplitPane implements CharacterInf
 			this.infoFactory = character.getInfoFactory();
 		}
 
-		public void install()
+		void install()
 		{
 			noRacialHdFilterButton.setFilter(this);
 		}
@@ -358,7 +358,7 @@ public final class RaceInfoTab extends FlippingSplitPane implements CharacterInf
 			this.character = character;
 		}
 
-		public void install()
+		void install()
 		{
 			qFilterButton.setFilter(this);
 		}
@@ -387,7 +387,7 @@ public final class RaceInfoTab extends FlippingSplitPane implements CharacterInf
 			selectedModel = new RaceTreeViewModel(character, false, selectedView);
 		}
 
-		public void install()
+		void install()
 		{
 			raceTable.setTreeViewModel(availableModel);
 			selectedTable.setTreeViewModel(selectedModel);

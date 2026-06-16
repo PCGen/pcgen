@@ -358,7 +358,7 @@ public final class SolverViewFrame extends JFrame
 			return false;
 		}
 
-		public void setSteps(List<ProcessStep<T>> steps)
+		void setSteps(List<ProcessStep<T>> steps)
 		{
 			this.steps = steps;
 			fireTableDataChanged();
@@ -367,8 +367,8 @@ public final class SolverViewFrame extends JFrame
 
 	private static final class PCRef
 	{
-		public String name;
-		public CharID id;
+		String name;
+		CharID id;
 
 		private PCRef(String pcname, CharID id)
 		{

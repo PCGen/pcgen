@@ -169,7 +169,7 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 		private final List<ChroniclePane> chronicles;
 		private final DescriptionFacade descFacade;
 
-		public ChronicleHandler(CharacterFacade character)
+		ChronicleHandler(CharacterFacade character)
 		{
 			descFacade = character.getDescriptionFacade();
 			chronicles = new ArrayList<>();
@@ -192,7 +192,7 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 		 * Installs this ChronicleHandler by attaching itself to the buttons and changes
 		 * the components of the chroniclesPane to the ones contained in this handler.
 		 */
-		public void install()
+		void install()
 		{
 			addButton.addActionListener(this);
 			allButton.addActionListener(this);
@@ -212,7 +212,7 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 		/**
 		 * Uninstalls this ChronicleHandler by removing its listeners from the buttons.
 		 */
-		public void uninstall()
+		void uninstall()
 		{
 			addButton.removeActionListener(this);
 			allButton.removeActionListener(this);
@@ -256,7 +256,7 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 		/**
 		 * Deletes a chronicle from this character and updates the display
 		 */
-		public void deleteChroniclePane(ChroniclePane pane, ChronicleEntry entry)
+		void deleteChroniclePane(ChroniclePane pane, ChronicleEntry entry)
 		{
 			descFacade.removeChronicleEntry(entry);
 			chroniclesPane.remove(pane);
@@ -300,14 +300,14 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 		 * only for components that want to know the size of a ChroniclePane without fully
 		 * initializing it.
 		 */
-		public ChroniclePane()
+		ChroniclePane()
 		{
 			super(new GridBagLayout());
 			setBorder(BorderFactory.createEmptyBorder(2, 0, 5, 5));
 			initComponents();
 		}
 
-		public ChroniclePane(ChronicleHandler handler, final ChronicleEntry entry)
+		ChroniclePane(ChronicleHandler handler, final ChronicleEntry entry)
 		{
 			this();
 			this.handler = handler;
@@ -330,7 +330,7 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 			deleteButton.addActionListener(this);
 		}
 
-		public void setSelected(boolean select)
+		void setSelected(boolean select)
 		{
 			checkBox.setSelected(select);
 			entry.setOutputEntry(select);
@@ -507,7 +507,7 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 
 		private final ChroniclePane dummyPane = new ChroniclePane();
 
-		public ChroniclesPane()
+		ChroniclesPane()
 		{
 			setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		}

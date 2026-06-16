@@ -39,7 +39,7 @@ class SpellNodeDataView implements DataView<SuperNode>
 	private final String prefsKey;
 	private final InfoFactory infoFactory;
 
-	public SpellNodeDataView(boolean initiallyVisible, String prefsKey, InfoFactory infoFactory)
+	SpellNodeDataView(boolean initiallyVisible, String prefsKey, InfoFactory infoFactory)
 	{
 		super();
 		this.prefsKey = prefsKey;

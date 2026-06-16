@@ -139,7 +139,7 @@ public final class BiographyInfoPane extends JPanel implements CharacterInfoTab
 
 		private final List<BioItem> bioItems = new ArrayList<>();
 
-		public ItemHandler(CharacterFacade character)
+		ItemHandler(CharacterFacade character)
 		{
 			bioItems.add(new NameItem(character));
 			bioItems.add(new PlayerNameItem(character));
@@ -180,7 +180,7 @@ public final class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			bioItems.add(new BiographyFieldBioItem(BiographyField.CATCH_PHRASE, PCStringKey.CATCHPHRASE, character));
 		}
 
-		public void install()
+		void install()
 		{
 			itemsPanel.removeAll();
 
@@ -194,7 +194,7 @@ public final class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			detailsScroll.invalidate();
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			bioItems.forEach(BioItem::uninstall);
 		}
@@ -203,7 +203,7 @@ public final class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	private static class NameItem extends BioItem
 	{
 
-		public NameItem(final CharacterFacade character)
+		NameItem(final CharacterFacade character)
 		{
 			super("in_nameLabel", BiographyField.NAME, character); //$NON-NLS-1$
 			setTextFieldHandler(new TextFieldHandler(new JTextField(30), character.getNameRef())
@@ -223,7 +223,7 @@ public final class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	private static class PlayerNameItem extends BioItem
 	{
 
-		public PlayerNameItem(final CharacterFacade character)
+		PlayerNameItem(final CharacterFacade character)
 		{
 			super("in_player", BiographyField.PLAYERNAME, character); //$NON-NLS-1$
 			setTextFieldHandler(new TextFieldHandler(new JTextField(), character.getPlayersNameRef())
@@ -245,7 +245,7 @@ public final class BiographyInfoPane extends JPanel implements CharacterInfoTab
 
 		private final CharacterComboBoxModel<Gender> genderModel;
 
-		public GenderItem(final CharacterFacade character)
+		GenderItem(final CharacterFacade character)
 		{
 			super("in_gender", BiographyField.GENDER, character); //$NON-NLS-1$
 			genderModel = new CharacterComboBoxModel<>()
@@ -277,7 +277,7 @@ public final class BiographyInfoPane extends JPanel implements CharacterInfoTab
 
 		private final CharacterComboBoxModel<Handed> handsModel;
 
-		public HandedItem(final CharacterFacade character)
+		HandedItem(final CharacterFacade character)
 		{
 			super("in_handString", BiographyField.HANDED, character); //$NON-NLS-1$
 			handsModel = new CharacterComboBoxModel<>()
@@ -307,7 +307,7 @@ public final class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	private static class AlignmentItem extends BioItem
 	{
 
-		public AlignmentItem(final CharacterFacade character)
+		AlignmentItem(final CharacterFacade character)
 		{
 			super("in_alignString", BiographyField.ALIGNMENT, character); //$NON-NLS-1$
 			CharacterComboBoxModel<PCAlignment> alignmentModel = new CharacterComboBoxModel<>()
@@ -330,7 +330,7 @@ public final class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	private static class DeityItem extends BioItem
 	{
 
-		public DeityItem(final CharacterFacade character)
+		DeityItem(final CharacterFacade character)
 		{
 			super("in_deity", BiographyField.DEITY, character); //$NON-NLS-1$
 			CharacterComboBoxModel<Deity> deityModel = new CharacterComboBoxModel<>()
@@ -353,7 +353,7 @@ public final class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	private static class AgeItem extends BioItem
 	{
 
-		public AgeItem(final CharacterFacade character)
+		AgeItem(final CharacterFacade character)
 		{
 			super("in_age", BiographyField.AGE, character); //$NON-NLS-1$
 			CharacterComboBoxModel<String> ageModel = new CharacterComboBoxModel<>()
@@ -386,7 +386,7 @@ public final class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	private static class SkinColorItem extends BioItem
 	{
 
-		public SkinColorItem(final CharacterFacade character)
+		SkinColorItem(final CharacterFacade character)
 		{
 			super("in_appSkintoneColor", BiographyField.SKIN_TONE, character); //$NON-NLS-1$
 			setTextFieldHandler(new TextFieldHandler(new JTextField(), character.getSkinColorRef())
@@ -406,7 +406,7 @@ public final class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	private static class HairColorItem extends BioItem
 	{
 
-		public HairColorItem(final CharacterFacade character)
+		HairColorItem(final CharacterFacade character)
 		{
 			super("in_appHairColor", BiographyField.HAIR_COLOR, character); //$NON-NLS-1$
 			setTextFieldHandler(new TextFieldHandler(new JTextField(), character.getHairColorRef())
@@ -426,7 +426,7 @@ public final class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	private static class EyeColorItem extends BioItem
 	{
 
-		public EyeColorItem(final CharacterFacade character)
+		EyeColorItem(final CharacterFacade character)
 		{
 			super("in_appEyeColor", BiographyField.EYE_COLOR, character); //$NON-NLS-1$
 			setTextFieldHandler(new TextFieldHandler(new JTextField(), character.getEyeColorRef())
@@ -448,7 +448,7 @@ public final class BiographyInfoPane extends JPanel implements CharacterInfoTab
 
 		private WriteableReferenceFacade<Number> heightRef;
 
-		public HeightItem(final CharacterFacade character)
+		HeightItem(final CharacterFacade character)
 		{
 			super("in_height", BiographyField.HEIGHT, character); //$NON-NLS-1$
 			setTrailingLabel(character.getDataSet().getGameMode().getHeightUnit());
@@ -466,7 +466,7 @@ public final class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	private static class WeightItem extends BioItem
 	{
 
-		public WeightItem(final CharacterFacade character)
+		WeightItem(final CharacterFacade character)
 		{
 			super("in_weight", BiographyField.WEIGHT, character); //$NON-NLS-1$
 			setTrailingLabel(character.getDataSet().getGameMode().getWeightUnit());
@@ -487,7 +487,7 @@ public final class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	private static class RegionItem extends BioItem
 	{
 
-		public RegionItem(final CharacterFacade character)
+		RegionItem(final CharacterFacade character)
 		{
 			super("in_region", BiographyField.REGION, character); //$NON-NLS-1$
 			final JTextField regionField = new JTextField();
@@ -514,7 +514,7 @@ public final class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	private static class BiographyFieldBioItem extends BioItem
 	{
 
-		public BiographyFieldBioItem(BiographyField field, PCStringKey attribute, CharacterFacade character)
+		BiographyFieldBioItem(BiographyField field, PCStringKey attribute, CharacterFacade character)
 		{
 			super(field.getIl8nKey(), field, character);
 			setTextFieldHandler(
