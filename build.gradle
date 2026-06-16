@@ -749,7 +749,7 @@ tasks.register("inttest", Test) {
 }
 
 // Per-game-mode inttest variants. Each runs only the inttest classes for one
-// game directory under code/src/test/pcgen/inttest. CI references these names
+// game directory under code/src/slowtest/pcgen/inttest. CI references these names
 // (e.g. pfinttest) so the task names are stable.
 [
         sfinttest  : 'game_starfinder',
