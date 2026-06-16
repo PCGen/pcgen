@@ -21,8 +21,8 @@ Key entry point: `pcgen.system.Main` (code/src/java/pcgen/system/Main.java)
 
 - code/
   - src/java … main Java sources (pcgen.* packages)
-  - src/utest … unit tests (fast, run by `test` task)
-  - src/test … slow tests (run by `slowtest` task)
+  - src/test … unit tests (fast, run by `test` task)
+  - src/slowtest … slow tests (run by `slowtest` task)
   - src/itest … integration tests (run by `itest` task)
   - src/testcommon … shared test utilities (compiled once, consumed by test/itest/slowtest)
   - src/testResources … shared test resources
@@ -72,7 +72,7 @@ Notes
 - Entry point: application plugin sets main class to `pcgen.system.Main`.
 - `./gradlew run` sets module-path and add-modules for JavaFX automatically.
 
-Command-line flags (see code/src/java/pcgen/system/CommandLineArguments.java; tests in code/src/utest/pcgen/system/CommandLineArgumentsTest.java):
+Command-line flags (see code/src/java/pcgen/system/CommandLineArguments.java; tests in code/src/test/pcgen/system/CommandLineArgumentsTest.java):
 - --verbose | -v (counted, interpreted as boolean)
 - --version | -V
 - --name-generator
@@ -92,9 +92,9 @@ Batch export path exists in Main.startupWithoutGUI(). Tests demonstrate usage in
 - JUnit 6 (BOM 6.0.3) with Jupiter, JUnit 4 legacy tests via vintage engine (~870 tests still use JUnit 4).
 - xmlunit 2.11.0 for XML comparisons, TestFX 4.0.18 + Monocle 21.0.2 for JavaFX UI components.
 - Source sets:
-  - test: code/src/utest + testcommon (fast unit tests)
+  - test: code/src/test + testcommon (fast unit tests)
   - itest: code/src/itest + testcommon (integration tests)
-  - slowtest: code/src/test + testcommon (slow/character integration tests)
+  - slowtest: code/src/slowtest + testcommon (slow/character integration tests)
 - CI runs: `build` → `itest datatest slowtest` → `testCoverage` (coverage report posted to PR).
 - Headless settings applied to all Test tasks:
   - `-Djava.awt.headless=true`, `-Djavafx.macosx.embedded=true`
@@ -171,9 +171,9 @@ Conventions/gotchas observed:
 
 - Place production code under code/src/java/pcgen/... matching existing packages.
 - Ensure tests accompany new behavior:
-  - Fast unit tests → code/src/utest
+  - Fast unit tests → code/src/test
   - Integration tests → code/src/itest
-  - Slow/long-running → code/src/test
+  - Slow/long-running → code/src/slowtest
 - Run: `./gradlew test itest slowtest` locally; fix failing tests before PRs.
 - Follow style checks; do not use `System.exit` directly — use `pcgen.util.GracefulExit.exit`.
 - Run `./gradlew allReports` to check Checkstyle/PMD/SpotBugs before submitting.
@@ -187,9 +187,9 @@ Conventions/gotchas observed:
 |---------------------------------|-------------------------------------------------------------|
 | Main entry point                | code/src/java/pcgen/system/Main.java                        |
 | CLI parsing                     | code/src/java/pcgen/system/CommandLineArguments.java        |
-| CLI tests                       | code/src/utest/pcgen/system/CommandLineArgumentsTest.java   |
+| CLI tests                       | code/src/test/pcgen/system/CommandLineArgumentsTest.java    |
 | GracefulExit                    | code/src/java/pcgen/util/GracefulExit.java                  |
-| FTL export test base            | code/src/test/pcgen/inttest/PcgenFtlTestCase.java           |
+| FTL export test base            | code/src/slowtest/pcgen/inttest/PcgenFtlTestCase.java       |
 | Standalone Stage dialogs (FXML) | code/src/java/pcgen/gui3/PanelFromResource.java             |
 | Swing-embedded FXML panels      | code/src/java/pcgen/gui3/JFXPanelFromResource.java          |
 | Thread assertions for UI code   | code/src/java/pcgen/gui3/GuiAssertions.java                 |
