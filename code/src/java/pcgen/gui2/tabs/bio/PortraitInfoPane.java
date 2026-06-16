@@ -206,7 +206,7 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 		private boolean movingRect = false;
 		private Point cropOffset = null;
 
-		public PortraitHandler(CharacterFacade character)
+		PortraitHandler(CharacterFacade character)
 		{
 			this.character = character;
 			cropRect = character.getThumbnailCropRef().get();
@@ -216,7 +216,7 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 			}
 		}
 
-		public void install()
+		void install()
 		{
 			setPortrait(character.getPortraitRef().get());
 			portraitPane.setCropRectangle(cropRect);
@@ -230,7 +230,7 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 			zoomSlider.addChangeListener(this);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			character.getPortraitRef().removeReferenceListener(this);
 			character.getThumbnailCropRef().removeReferenceListener(this);

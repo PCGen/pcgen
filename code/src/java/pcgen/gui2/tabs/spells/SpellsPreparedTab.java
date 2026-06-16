@@ -282,7 +282,7 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 
 		private CharacterFacade character;
 
-		public AddMMSpellAction(CharacterFacade character)
+		AddMMSpellAction(CharacterFacade character)
 		{
 			this.character = character;
 			String label = character.getDataSet().getGameMode().getAddWithMetamagicMessage();
@@ -315,7 +315,7 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 
 		private CharacterFacade character;
 
-		public AddSpellAction(CharacterFacade character)
+		AddSpellAction(CharacterFacade character)
 		{
 			this.character = character;
 			putValue(SMALL_ICON, Icons.Forward16.getImageIcon());
@@ -335,13 +335,13 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 			}
 		}
 
-		public void install()
+		void install()
 		{
 			availableTable.addActionListener(this);
 			addSpellButton.setAction(this);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			availableTable.removeActionListener(this);
 		}
@@ -353,7 +353,7 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 
 		private CharacterFacade character;
 
-		public RemoveSpellAction(CharacterFacade character)
+		RemoveSpellAction(CharacterFacade character)
 		{
 			this.character = character;
 			putValue(SMALL_ICON, Icons.Back16.getImageIcon());
@@ -372,13 +372,13 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 			}
 		}
 
-		public void install()
+		void install()
 		{
 			selectedTable.addActionListener(this);
 			removeSpellButton.setAction(this);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			selectedTable.removeActionListener(this);
 		}
@@ -390,7 +390,7 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 
 		private CharacterFacade character;
 
-		public UseHigherSlotsAction(CharacterFacade character)
+		UseHigherSlotsAction(CharacterFacade character)
 		{
 			super(LanguageBundle.getString("InfoPreparedSpells.canUseHigherSlots"));
 			this.character = character;
@@ -402,7 +402,7 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 			character.getSpellSupport().setUseHigherPreppedSlots(slotsBox.isSelected());
 		}
 
-		public void install()
+		void install()
 		{
 			slotsBox.setAction(this);
 			slotsBox.setSelected(character.getSpellSupport().isUseHigherPreppedSlots());
@@ -415,7 +415,7 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 
 		private CharacterFacade character;
 
-		public AddSpellListAction(CharacterFacade character)
+		AddSpellListAction(CharacterFacade character)
 		{
 			super(LanguageBundle.getString("InfoSpells.add"));
 			this.character = character;
@@ -434,7 +434,7 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 
 		private CharacterFacade character;
 
-		public RemoveSpellListAction(CharacterFacade character)
+		RemoveSpellListAction(CharacterFacade character)
 		{
 			super(LanguageBundle.getString("InfoSpells.delete"));
 			this.character = character;
@@ -455,7 +455,7 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 		private SpellTreeViewModel selectedModel;
 		private CharacterFacade character;
 
-		public TreeViewModelHandler(CharacterFacade character)
+		TreeViewModelHandler(CharacterFacade character)
 		{
 			this.character = character;
 			availableModel = new SpellTreeViewModel(character.getSpellSupport().getKnownSpellNodes(), false,
@@ -464,14 +464,14 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 				"SpellsPrepSel", character.getInfoFactory());
 		}
 
-		public void install()
+		void install()
 		{
 			spellRenderer.setCharacter(character);
 			availableTable.setTreeViewModel(availableModel);
 			selectedTable.setTreeViewModel(selectedModel);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			spellRenderer.setCharacter(null);
 		}
@@ -483,12 +483,12 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 
 		private final CharacterFacade character;
 
-		public SpellFilterHandler(CharacterFacade character)
+		SpellFilterHandler(CharacterFacade character)
 		{
 			this.character = character;
 		}
 
-		public void install()
+		void install()
 		{
 			qFilterButton.setFilter(this);
 		}

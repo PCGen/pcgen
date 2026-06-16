@@ -190,7 +190,7 @@ public final class CharacterTabs extends SharedTabPane
 		private final ReferenceFacade<String> tabNameRef;
 		private final ReferenceFacade<String> nameRef;
 
-		public TabLabel(CharacterFacade character)
+		TabLabel(CharacterFacade character)
 		{
 			super(new FlowLayout(FlowLayout.CENTER, 5, 2));
 			this.character = character;
@@ -241,7 +241,7 @@ public final class CharacterTabs extends SharedTabPane
 			setOpaque(false);
 		}
 
-		public void removeListeners()
+		void removeListeners()
 		{
 			tabNameRef.removeReferenceListener(this);
 			nameRef.removeReferenceListener(this);

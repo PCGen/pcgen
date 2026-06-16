@@ -113,7 +113,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 	 */
 	private final UIContext uiContext;
 	
-	public AdvancedSourceSelectionPanel(PCGenFrame frame, UIContext uiContext)
+	AdvancedSourceSelectionPanel(PCGenFrame frame, UIContext uiContext)
 	{
 		this.uiContext = Objects.requireNonNull(uiContext);
 		this.frame = frame;
@@ -268,17 +268,17 @@ class AdvancedSourceSelectionPanel extends JPanel
 		}
 	}
 
-	public GameMode getSelectedGameMode()
+	GameMode getSelectedGameMode()
 	{
 		return gameMode;
 	}
 
-	public List<Campaign> getSelectedCampaigns()
+	List<Campaign> getSelectedCampaigns()
 	{
 		return selectedCampaigns.getContents();
 	}
 
-	public void setSourceSelection(SourceSelectionFacade sources)
+	void setSourceSelection(SourceSelectionFacade sources)
 	{
 		if (sources == null || sources.getGameMode() == null)
 		{
@@ -398,7 +398,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 	private class AddAction extends AbstractAction
 	{
 
-		public AddAction()
+		AddAction()
 		{
 			super(LanguageBundle.getString("in_addSelected")); //$NON-NLS-1$
 			putValue(SMALL_ICON, Icons.Forward16.getImageIcon());
@@ -442,7 +442,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 	private class RemoveAction extends AbstractAction
 	{
 
-		public RemoveAction()
+		RemoveAction()
 		{
 			super(LanguageBundle.getString("in_removeSelected")); //$NON-NLS-1$
 			putValue(SMALL_ICON, Icons.Back16.getImageIcon());
@@ -470,7 +470,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 	private class UnloadAllAction extends AbstractAction
 	{
 
-		public UnloadAllAction()
+		UnloadAllAction()
 		{
 			super(LanguageBundle.getString("in_src_unloadAll")); //$NON-NLS-1$
 		}
@@ -495,7 +495,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 		private final List<DefaultDataViewColumn> columns;
 		private final boolean isAvailModel;
 
-		public SourceTreeViewModel()
+		SourceTreeViewModel()
 		{
 			this.model = new DefaultListFacade<>();
 			this.isAvailModel = true;
@@ -504,7 +504,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 				new DefaultDataViewColumn("in_src_loaded", String.class, false));
 		}
 
-		public SourceTreeViewModel(DefaultListFacade<Campaign> model)
+		SourceTreeViewModel(DefaultListFacade<Campaign> model)
 		{
 			this.model = model;
 			this.isAvailModel = false;
@@ -562,7 +562,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 			return columns;
 		}
 
-		public void setGameModel(GameMode gameMode)
+		void setGameModel(GameMode gameMode)
 		{
 			if (baseModel != null)
 			{
@@ -673,7 +673,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 		 * Create a new renderer for the campaign names for a game mode. The 
 		 * names will be coloured to show if they are qualified or not.
 		 */
-		public CampaignRenderer()
+		CampaignRenderer()
 		{
 			setTextNonSelectionColor(ColorUtilty.colorToAWTColor(UIPropertyContext.getQualifiedColor()));
 		}

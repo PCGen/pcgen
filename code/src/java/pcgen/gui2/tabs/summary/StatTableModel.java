@@ -215,7 +215,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 	private static class FixedHeaderCellRenderer extends JLabel implements TableCellRenderer
 	{
 
-		public FixedHeaderCellRenderer(String text)
+		FixedHeaderCellRenderer(String text)
 		{
 			setText(text);
 			setBorder(BorderFactory.createEmptyBorder(2, 5, 2, 10));
@@ -240,7 +240,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 
 		private DecimalFormat formatter = PrettyIntegerFormat.getFormat();
 
-		public ModRenderer()
+		ModRenderer()
 		{
 			setHorizontalAlignment(SwingConstants.RIGHT);
 			setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 7));
@@ -286,7 +286,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 		/**
 		 * Create a new ValueRenderer instance.
 		 */
-		public ValueRenderer()
+		ValueRenderer()
 		{
 			setHorizontalAlignment(SwingConstants.RIGHT);
 			setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 7));

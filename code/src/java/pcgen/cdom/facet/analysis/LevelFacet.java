@@ -200,8 +200,8 @@ public class LevelFacet extends AbstractStorageFacet<CharID> implements ClassLev
 	 */
 	private static class LevelCacheInfo
 	{
-		public int monsterLevels;
-		public int nonMonsterLevels;
+		int monsterLevels;
+		int nonMonsterLevels;
 
 		@Override
 		public int hashCode()

@@ -549,12 +549,12 @@ public abstract class AbstractItemConvertingFacet<S, D> extends AbstractDataFace
 		/**
 		 * The set of objects from which the converted object has been received
 		 */
-		public Set<Object> set = Collections.newSetFromMap(new IdentityHashMap<>());
+		Set<Object> set = Collections.newSetFromMap(new IdentityHashMap<>());
 
 		/**
 		 * The converted ("destination") object
 		 */
-		public D dest;
+		D dest;
 
 		@Override
 		public int hashCode()

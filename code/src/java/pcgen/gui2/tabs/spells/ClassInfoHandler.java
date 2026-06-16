@@ -37,7 +37,7 @@ class ClassInfoHandler implements ListSelectionListener
 	private final InfoPane classPane;
 	private String text;
 
-	public ClassInfoHandler(CharacterFacade character, JTreeViewTable<?> table1, JTreeViewTable<?> table2,
+	ClassInfoHandler(CharacterFacade character, JTreeViewTable<?> table1, JTreeViewTable<?> table2,
 		InfoPane classPane)
 	{
 		this.character = character;
@@ -47,14 +47,14 @@ class ClassInfoHandler implements ListSelectionListener
 		this.text = ""; //$NON-NLS-1$
 	}
 
-	public void install()
+	void install()
 	{
 		availableTable.getSelectionModel().addListSelectionListener(this);
 		selectedTable.getSelectionModel().addListSelectionListener(this);
 		classPane.setText(text);
 	}
 
-	public void uninstall()
+	void uninstall()
 	{
 		availableTable.getSelectionModel().removeListSelectionListener(this);
 		selectedTable.getSelectionModel().removeListSelectionListener(this);

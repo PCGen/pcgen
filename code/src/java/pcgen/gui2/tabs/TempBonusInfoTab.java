@@ -223,20 +223,20 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 		private final CharacterFacade character;
 		private String text;
 
-		public InfoHandler(CharacterFacade character)
+		InfoHandler(CharacterFacade character)
 		{
 			this.character = character;
 			this.text = ""; //$NON-NLS-1$
 		}
 
-		public void install()
+		void install()
 		{
 			availableTable.getSelectionModel().addListSelectionListener(this);
 			selectedTable.getSelectionModel().addListSelectionListener(this);
 			infoPane.setText(text);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			availableTable.getSelectionModel().removeListSelectionListener(this);
 			selectedTable.getSelectionModel().removeListSelectionListener(this);
@@ -284,7 +284,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 
 		private final CharacterFacade character;
 
-		public AddAction(CharacterFacade character)
+		AddAction(CharacterFacade character)
 		{
 			super(LanguageBundle.getString("in_itmInitCompAppBonTitle")); //$NON-NLS-1$
 			this.character = character;
@@ -305,13 +305,13 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 			}
 		}
 
-		public void install()
+		void install()
 		{
 			availableTable.addActionListener(this);
 			addButton.setAction(this);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			availableTable.removeActionListener(this);
 		}
@@ -328,7 +328,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 
 		private final CharacterFacade character;
 
-		public RemoveAction(CharacterFacade character)
+		RemoveAction(CharacterFacade character)
 		{
 			super(LanguageBundle.getString("in_itmInitCompRemoveButTitle")); //$NON-NLS-1$
 			this.character = character;
@@ -349,13 +349,13 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 			}
 		}
 
-		public void install()
+		void install()
 		{
 			selectedTable.addActionListener(this);
 			removeButton.setAction(this);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			selectedTable.removeActionListener(this);
 		}
@@ -368,13 +368,13 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 		private final TempBonusTreeViewModel availableModel;
 		private final TempBonusTreeViewModel selectedModel;
 
-		public TreeViewModelHandler(CharacterFacade character)
+		TreeViewModelHandler(CharacterFacade character)
 		{
 			availableModel = new TempBonusTreeViewModel(character, true);
 			selectedModel = new TempBonusTreeViewModel(character, false);
 		}
 
-		public void install()
+		void install()
 		{
 			availableModel.install();
 			availableTable.setTreeViewModel(availableModel);
@@ -395,7 +395,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 		private final boolean isAvailModel;
 		private final FilteredListFacade<CharacterFacade, TempBonusFacade> tempBonuses;
 
-		public TempBonusTreeViewModel(CharacterFacade character, boolean isAvailModel)
+		TempBonusTreeViewModel(CharacterFacade character, boolean isAvailModel)
 		{
 			this.character = character;
 			this.infoFactory = character.getInfoFactory();
@@ -422,7 +422,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 			}
 		}
 
-		public void install()
+		void install()
 		{
 			for (TempBonusTreeView tbTreeView : TempBonusTreeView.values())
 			{
@@ -542,7 +542,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 		/**
 		 * @param factory The InfoFactory for the character ebing displayed.
 		 */
-		public void setInfoFactory(InfoFactory factory)
+		void setInfoFactory(InfoFactory factory)
 		{
 			this.infoFactory = factory;
 		}

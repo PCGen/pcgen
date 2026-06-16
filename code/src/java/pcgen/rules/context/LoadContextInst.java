@@ -108,7 +108,7 @@ abstract class LoadContextInst implements LoadContext
 		FacetInitialization.initialize();
 	}
 
-	public LoadContextInst(AbstractReferenceContext rc, AbstractListContext lc, AbstractObjectContext oc)
+	LoadContextInst(AbstractReferenceContext rc, AbstractListContext lc, AbstractObjectContext oc)
 	{
 		Objects.requireNonNull(rc, "ReferenceContext cannot be null");
 		Objects.requireNonNull(lc, "ListContext cannot be null");
@@ -175,7 +175,7 @@ abstract class LoadContextInst implements LoadContext
 	/*
 	 * Get the type of context we're running in (either Editor or Runtime)
 	 */
-	public abstract String getContextType();
+	abstract String getContextType();
 
 	@Override
 	public AbstractObjectContext getObjectContext()
@@ -603,7 +603,7 @@ abstract class LoadContextInst implements LoadContext
 		/**
 		 * Constructs a new LoadContext derived from the given LoadContext
 		 */
-		public DerivedLoadContext(LoadContext parent, PCGenScope scope)
+		DerivedLoadContext(LoadContext parent, PCGenScope scope)
 		{
 			this.derivedScope = scope;
 			this.parent = parent;

@@ -466,7 +466,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		 * 
 		 * @return The object this item wraps
 		 */
-		public T getElement()
+		T getElement()
 		{
 			return theElement;
 		}
@@ -476,7 +476,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		 * 
 		 * @return The weight of this item
 		 */
-		public int getWeight()
+		int getWeight()
 		{
 			return theWeight;
 		}

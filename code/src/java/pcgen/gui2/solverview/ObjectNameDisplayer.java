@@ -51,7 +51,7 @@ class ObjectNameDisplayer
 	 * 
 	 * @return the VarScoped underlying this ObjectNameDisplayer
 	 */
-	public VarScoped getObject()
+	VarScoped getObject()
 	{
 		return obj;
 	}

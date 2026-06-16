@@ -128,7 +128,7 @@ public class NoteInfoPane extends JPanel implements CharacterInfoTab
 
 		private final DescriptionFacade descFacade;
 
-		public NoteHandler(CharacterFacade character)
+		NoteHandler(CharacterFacade character)
 		{
 			descFacade = character.getDescriptionFacade();
 			noteField.setText(note.getValue());

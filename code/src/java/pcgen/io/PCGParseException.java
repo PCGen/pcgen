@@ -49,7 +49,7 @@ final class PCGParseException extends Exception
 	/**
 	 * @return error line
 	 */
-	public String getLine()
+	String getLine()
 	{
 		return errorLine;
 	}
@@ -66,7 +66,7 @@ final class PCGParseException extends Exception
 	/**
 	 * @return error method
 	 */
-	public String getMethod()
+	String getMethod()
 	{
 		return errorMethod;
 	}

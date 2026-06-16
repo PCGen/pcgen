@@ -94,7 +94,7 @@ public class KeyGroupingToken<T extends Loadable & PCGenScoped> implements Group
 		 *            The GroupingInfo used to determine the format and KEY of objects
 		 *            contained by this KeyGrouping
 		 */
-		public KeyGrouping(GroupingInfo<T> info)
+		KeyGrouping(GroupingInfo<T> info)
 		{
 			String value = info.getValue();
 			if ((value == null) || value.isEmpty())
@@ -104,7 +104,7 @@ public class KeyGroupingToken<T extends Loadable & PCGenScoped> implements Group
 			this.groupingInfo = Objects.requireNonNull(info);
 		}
 
-		public void setChild(GroupingCollection<?> childCollection)
+		void setChild(GroupingCollection<?> childCollection)
 		{
 			childGrouping = childCollection;
 		}

@@ -99,7 +99,7 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 		private String selectedTitle;
 		private final ListFacade<AbilityCategory> activeCategories;
 
-		public AbilityTabsModel(CharacterFacade character)
+		AbilityTabsModel(CharacterFacade character)
 		{
 			this.character = character;
 			this.activeCategories = character.getActiveAbilityCategories();
@@ -231,7 +231,7 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 			//TODO: do something
 		}
 
-		public void install()
+		void install()
 		{
 			activeCategories.addListListener(this);
 			for (TabInfo tabInfo : tabs)
@@ -244,7 +244,7 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 			isInstalled = true;
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			abilityTab.storeState(typeMap.get(selectedTitle).tabData);
 			removeChangeListener(this);
@@ -277,7 +277,7 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 		@SuppressWarnings({"UseOfObsoleteCollectionType", "PMD.ReplaceHashtableWithMap", "serial"})
 		private final class TabInfo
 		{
-			public final String title;
+			final String title;
 			private final Hashtable<Object, Object> tabData;
 			private final DefaultListFacade<AbilityCategory> categoryList;
 			private final DefaultListFacade<AbilityCategory> fullCategoryList;

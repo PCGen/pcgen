@@ -44,7 +44,7 @@ final class LegacySettings extends PropertyContext
 	/**
 	 * @return The singleton LegacySettings instance.
 	 */
-	public static LegacySettings getInstance()
+	static LegacySettings getInstance()
 	{
 		return INSTANCE;
 	}

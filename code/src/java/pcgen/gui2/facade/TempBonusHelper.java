@@ -410,7 +410,7 @@ public final class TempBonusHelper
 	{
 		private final CharacterDisplay charDisplay;
 
-		public CharacterInfoFacade(CharacterDisplay charDisplay)
+		CharacterInfoFacade(CharacterDisplay charDisplay)
 		{
 			this.charDisplay = charDisplay;
 

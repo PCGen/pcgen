@@ -1498,7 +1498,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		private final SourceFileLoader loader;
 		private final SwingWorker<List<LogRecord>, List<LogRecord>> worker;
 
-		public SourceLoadWorker(SourceSelectionFacade sources, UIDelegate delegate)
+		SourceLoadWorker(SourceSelectionFacade sources, UIDelegate delegate)
 		{
 			this.sources = sources;
 			loader = new SourceFileLoader(delegate, sources.getCampaigns(), sources.getGameMode().get().getName());

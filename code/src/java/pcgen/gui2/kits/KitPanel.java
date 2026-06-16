@@ -164,12 +164,12 @@ public class KitPanel extends FlippingSplitPane
 		};
 		private final CharacterFacade character;
 
-		public KitFilterHandler(CharacterFacade character)
+		KitFilterHandler(CharacterFacade character)
 		{
 			this.character = character;
 		}
 
-		public void install()
+		void install()
 		{
 			qFilterButton.setFilter(qFilter);
 		}
@@ -181,7 +181,7 @@ public class KitPanel extends FlippingSplitPane
 
 		private final CharacterFacade character;
 
-		public InfoHandler(CharacterFacade character)
+		InfoHandler(CharacterFacade character)
 		{
 			this.character = character;
 		}
@@ -222,7 +222,7 @@ public class KitPanel extends FlippingSplitPane
 
 		private final CharacterFacade character;
 
-		public AddAction(CharacterFacade character)
+		AddAction(CharacterFacade character)
 		{
 			super(LanguageBundle.getString("in_kitApply")); //$NON-NLS-1$
 			this.character = character;
@@ -256,7 +256,7 @@ public class KitPanel extends FlippingSplitPane
 		private final boolean isAvailModel;
 		private final FilteredListFacade<CharacterFacade, Kit> kits;
 
-		public KitTreeViewModel(CharacterFacade character, boolean isAvailModel)
+		KitTreeViewModel(CharacterFacade character, boolean isAvailModel)
 		{
 			this.character = character;
 			this.isAvailModel = isAvailModel;

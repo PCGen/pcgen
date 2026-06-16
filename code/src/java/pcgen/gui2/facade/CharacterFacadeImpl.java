@@ -3660,7 +3660,7 @@ public class CharacterFacadeImpl
 		 * Create a new reference based on the supplied rectangle.
 		 * @param rect
 		 */
-		public RectangleReference(Rectangle rect)
+		RectangleReference(Rectangle rect)
 		{
 			super(rect == null ? null : (Rectangle) rect.clone());
 		}

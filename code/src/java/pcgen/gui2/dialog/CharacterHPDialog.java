@@ -176,7 +176,7 @@ public final class CharacterHPDialog extends JDialog implements ActionListener
 	private class HPTableModel extends AbstractTableModel implements HitPointListener
 	{
 
-		public HPTableModel()
+		HPTableModel()
 		{
 			levels.addHitPointListener(this);
 		}
@@ -266,7 +266,7 @@ public final class CharacterHPDialog extends JDialog implements ActionListener
 
 		private final JButton button = new JButton();
 
-		public Renderer()
+		Renderer()
 		{
 			button.setMargin(new Insets(0, 0, 0, 0));
 			button.setText("Reroll");
@@ -287,7 +287,7 @@ public final class CharacterHPDialog extends JDialog implements ActionListener
 		private final JButton button = new JButton();
 		private int editingRow;
 
-		public Editor()
+		Editor()
 		{
 			button.setMargin(new Insets(0, 0, 0, 0));
 			button.setText("Reroll");
