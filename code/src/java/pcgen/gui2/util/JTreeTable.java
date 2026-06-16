@@ -139,6 +139,10 @@ public class JTreeTable extends JTableEx
 	@Override
 	public int getEditingRow()
 	{
+		if (editingColumn < 0)
+		{
+			return editingRow;
+		}
 		return (getColumnClass(editingColumn) == TreeTableNode.class) ? (-1) : editingRow;
 	}
 
