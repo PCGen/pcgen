@@ -25,7 +25,6 @@ module pcgen {
     requires org.apache.commons.lang3;
     requires freemarker;
     requires net.sourceforge.argparse4j;
-    requires org.controlsfx.controls;
     requires org.apache.xmlgraphics.fop.core;
     requires org.apache.xmlgraphics.fop.events;
     requires org.apache.xmlgraphics.commons;
