@@ -55,6 +55,7 @@ import pcgen.util.ListMap;
 
 import javafx.embed.swing.JFXPanel;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.ContextMenu;
@@ -62,7 +63,6 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioMenuItem;
 import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.control.ToggleGroup;
-import org.controlsfx.control.action.Action;
 
 /**
  * JTreeViewTable is a subclass of JTreeTable that uses a TreeViewModel instead
@@ -122,7 +122,7 @@ public class JTreeViewTable<T> extends JTreeTable
 		CheckMenuItem item = new CheckMenuItem();
 		boolean visible = dynamicColumnModel.isVisible(column);
 			item.setSelected(visible);
-		Action menuAction = new MenuAction(column, visible);
+		MenuAction menuAction = new MenuAction(column, visible);
 		item.setText(menuAction.getText());
 		item.setOnAction(menuAction);
 		return item;
@@ -479,7 +479,22 @@ public class JTreeViewTable<T> extends JTreeTable
 
 	}
 
-	private final class MenuAction extends Action
+	private abstract static class NamedAction implements EventHandler<ActionEvent>
+	{
+		private final String text;
+
+		NamedAction(String text)
+		{
+			this.text = text;
+		}
+
+		String getText()
+		{
+			return text;
+		}
+	}
+
+	private final class MenuAction extends NamedAction
 	{
 
 		private boolean visible;
@@ -488,19 +503,19 @@ public class JTreeViewTable<T> extends JTreeTable
 		private MenuAction(TableColumn column, boolean visible)
 		{
 			super(column.getHeaderValue().toString());
-			super.setEventHandler(this::actionPerformed);
 			this.visible = visible;
 			this.column = column;
 		}
 
-		public void actionPerformed(ActionEvent e)
+		@Override
+		public void handle(ActionEvent e)
 		{
 			dynamicColumnModel.setVisible(column, visible = !visible);
 		}
 
 	}
 
-	private final class ChangeViewAction extends Action
+	private final class ChangeViewAction extends NamedAction
 	{
 
 		private final TreeView<? super T> view;
@@ -508,11 +523,11 @@ public class JTreeViewTable<T> extends JTreeTable
 		ChangeViewAction(TreeView<? super T> view)
 		{
 			super(view.getViewName());
-			super.setEventHandler(this::actionPerformed);
 			this.view = view;
 		}
 
-		public void actionPerformed(ActionEvent e)
+		@Override
+		public void handle(ActionEvent e)
 		{
 			setTreeView(view);
 		}

@@ -34,11 +34,11 @@ import pcgen.gui3.GuiUtility;
 
 import javafx.embed.swing.JFXPanel;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
-import org.controlsfx.control.action.Action;
 
 public class JDynamicTable extends JTableEx
 {
@@ -172,7 +172,7 @@ public class JDynamicTable extends JTableEx
 		}
 	}
 
-	private final class MenuAction extends Action
+	private final class MenuAction implements EventHandler<ActionEvent>
 	{
 
 		private boolean visible;
@@ -180,13 +180,12 @@ public class JDynamicTable extends JTableEx
 
 		private MenuAction(TableColumn column, boolean visible)
 		{
-			super(column.getHeaderValue().toString());
-			super.setEventHandler(this::actionPerformed);
 			this.visible = visible;
 			this.column = column;
 		}
 
-		public void actionPerformed(ActionEvent e)
+		@Override
+		public void handle(ActionEvent e)
 		{
 			visible = !visible;
 			dynamicColumnModel.setVisible(column, visible);

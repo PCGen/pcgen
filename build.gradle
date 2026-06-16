@@ -215,7 +215,6 @@ dependencies {
     implementation 'org.scijava:jep:2.4.2'
     implementation 'org.freemarker:freemarker:2.3.34'
     implementation 'net.sourceforge.argparse4j:argparse4j:0.9.0'
-    implementation 'org.controlsfx:controlsfx:11.2.3'
     implementation project(':PCGen-base')
     implementation project(':PCGen-Formula')
 
@@ -286,7 +285,7 @@ jlink {
     addExtraDependencies('javafx')
     forceMerge('jep', 'fop', 'Saxon-HE',
                'commons-lang3', 'spring',
-               'freemarker', 'argparse4j', 'xmlunit', 'controlsfx',
+               'freemarker', 'argparse4j', 'xmlunit',
                'annotations', 'spotbugs', 'xmlresolver')
 
     // Resolve packages → modules with the JDK's jdeps; the plugin's default
