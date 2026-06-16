@@ -14,7 +14,6 @@ import pcgen.core.PCAlignment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.output.channel.ChannelUtilities;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
@@ -22,7 +21,7 @@ import pcgen.util.Logging;
 /**
  * Prerequisite test that the character has a deity with the correct alignment.
  */
-public class PreDeityAlignTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreDeityAlignTester extends AbstractPrerequisiteTest
 {
 
 	@Override

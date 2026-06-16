@@ -30,12 +30,11 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.core.spell.Spell;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
-public class PreSpellTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreSpellTester extends AbstractPrerequisiteTest
 {
 
     @Override

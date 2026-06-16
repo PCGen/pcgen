@@ -24,13 +24,12 @@ import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
-import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
 /**
  * Prerequisite tester, tests for the presence of a kit.
  */
-public class PreKitTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreKitTester extends AbstractDisplayPrereqTest
 {
 
 	private static final Class<Kit> KIT_CLASS = Kit.class;

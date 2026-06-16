@@ -23,14 +23,13 @@ import pcgen.core.Vision;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.util.enumeration.VisionType;
 
 /**
  *
  * Checks a characters vision..
  */
-public class PreVisionTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreVisionTester extends AbstractDisplayPrereqTest
 {
 
 	@Override

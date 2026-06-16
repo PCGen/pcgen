@@ -22,10 +22,9 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
-public class PreLevelMaxTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreLevelMaxTester extends AbstractDisplayPrereqTest
 {
 
 	@Override

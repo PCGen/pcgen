@@ -22,14 +22,13 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
 /**
  * This is used to check the characters spellcasting ability.
  */
-public class PreSpellTypeTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreSpellTypeTester extends AbstractPrerequisiteTest
 {
 
 	@Override

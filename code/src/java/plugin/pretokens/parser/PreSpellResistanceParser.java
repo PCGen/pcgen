@@ -21,12 +21,11 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteIntegerParser;
-import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
 /**
  * A prerequisite parser class that handles the parsing of pre spell resistance tokens.
  */
-public class PreSpellResistanceParser extends AbstractPrerequisiteIntegerParser implements PrerequisiteParserInterface
+public class PreSpellResistanceParser extends AbstractPrerequisiteIntegerParser
 {
 	/**
 	 * Get the type of prerequisite handled by this token.

@@ -30,10 +30,9 @@ import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
-import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.output.channel.ChannelUtilities;
 
-public class PreHasDeityTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreHasDeityTester extends AbstractDisplayPrereqTest
 {
 
 	@Override

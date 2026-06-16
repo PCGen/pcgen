@@ -24,14 +24,13 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.core.spell.Spell;
 import pcgen.system.LanguageBundle;
 
 /**
  * Prerequisite tester, tests for the presence of a school of spellcasting.
  */
-public class PreSpellSchoolTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreSpellSchoolTester extends AbstractPrerequisiteTest
 {
 
     @Override

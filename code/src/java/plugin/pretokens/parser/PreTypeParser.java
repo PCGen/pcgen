@@ -10,12 +10,11 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteParser;
-import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
 /**
  * A prerequisite parser class that handles the parsing of pre type tokens.
  */
-public class PreTypeParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
+public class PreTypeParser extends AbstractPrerequisiteParser
 {
 	/**
 	 * Get the type of prerequisite handled by this token.

@@ -18,12 +18,11 @@
 package plugin.pretokens.parser;
 
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
-import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
 /**
  * A prerequisite parser class that handles the parsing of pre special ability tokens.
  */
-public class PreSpecialAbilityParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
+public class PreSpecialAbilityParser extends AbstractPrerequisiteListParser
 {
 	/**
 	 * Get the type of prerequisite handled by this token.

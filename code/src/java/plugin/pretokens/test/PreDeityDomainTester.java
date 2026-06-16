@@ -26,11 +26,10 @@ import pcgen.core.Globals;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.output.channel.ChannelUtilities;
 import pcgen.system.LanguageBundle;
 
-public class PreDeityDomainTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreDeityDomainTester extends AbstractDisplayPrereqTest
 {
 
 	@Override

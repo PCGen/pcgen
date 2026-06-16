@@ -26,14 +26,13 @@ import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteOperator;
-import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.output.publish.OutputDB;
 import pcgen.system.LanguageBundle;
 
 /**
  * The Class {@code PreFactTester} is responsible for testing FACT values on an object.
  */
-public class PreFactTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreFactTester extends AbstractPrerequisiteTest
 {
 
 	@Override

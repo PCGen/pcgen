@@ -23,13 +23,12 @@ import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteParser;
-import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import pcgen.util.Logging;
 
 /**
  * A prerequisite parser class that handles the parsing of pre stat tokens.
  */
-public class PreStatParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
+public class PreStatParser extends AbstractPrerequisiteParser
 {
 
 	/**

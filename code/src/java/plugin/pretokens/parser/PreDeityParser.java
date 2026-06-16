@@ -21,14 +21,13 @@ package plugin.pretokens.parser;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
-import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
 /**
  * {@code PreDeityParser} parses PREDEITY prerequisites. It handles both
  * new (PREDEITY:1,Odin) and old (PREDEITY:Odin) format syntax along with the
  * hasdeity syntax (PREDEITY:Y or PREDEITY:No). 
  */
-public class PreDeityParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
+public class PreDeityParser extends AbstractPrerequisiteListParser
 {
 	/**
 	 * Get the type of prerequisite handled by this token.

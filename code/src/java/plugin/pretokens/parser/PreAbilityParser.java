@@ -23,14 +23,13 @@ import java.util.List;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
-import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
 /**
  * A prerequisite parser class that handles the parsing of pre ability tokens.
  */
-public class PreAbilityParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
+public class PreAbilityParser extends AbstractPrerequisiteListParser
 {
 	private static final String CATEGORY = "CATEGORY.";
 	private static final String CATEGORY_EQUALS = "CATEGORY=";

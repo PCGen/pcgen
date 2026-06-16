@@ -23,10 +23,9 @@ import pcgen.core.PCClass;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
-public class PreSpellCastTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreSpellCastTester extends AbstractDisplayPrereqTest
 {
 
     @Override

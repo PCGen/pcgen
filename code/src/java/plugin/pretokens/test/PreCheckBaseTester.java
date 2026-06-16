@@ -23,9 +23,8 @@ import pcgen.core.PCCheck;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.core.prereq.PrerequisiteTest;
 
-public class PreCheckBaseTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreCheckBaseTester extends AbstractPrerequisiteTest
 {
 
 	/**

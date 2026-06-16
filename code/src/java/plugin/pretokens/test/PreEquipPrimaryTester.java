@@ -24,9 +24,8 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.PreEquippedTester;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
-import pcgen.core.prereq.PrerequisiteTest;
 
-public class PreEquipPrimaryTester extends PreEquippedTester implements PrerequisiteTest
+public class PreEquipPrimaryTester extends PreEquippedTester
 {
 
 	@Override

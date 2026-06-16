@@ -23,11 +23,10 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.core.spell.Spell;
 import pcgen.system.LanguageBundle;
 
-public class PreSpellDescriptorTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreSpellDescriptorTester extends AbstractPrerequisiteTest
 {
 
     @Override

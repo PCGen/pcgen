@@ -19,12 +19,11 @@
 package plugin.pretokens.parser;
 
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
-import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
 /**
  * A prerequisite parser class that handles the parsing of pre deity domain tokens.
  */
-public class PreDeityDomainParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
+public class PreDeityDomainParser extends AbstractPrerequisiteListParser
 {
 	/**
 	 * Get the type of prerequisite handled by this token.

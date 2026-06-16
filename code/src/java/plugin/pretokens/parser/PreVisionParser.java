@@ -20,13 +20,12 @@ package plugin.pretokens.parser;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
-import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import pcgen.util.Logging;
 
 /**
  * A prerequisite parser class that handles the parsing of pre vision tokens.
  */
-public class PreVisionParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
+public class PreVisionParser extends AbstractPrerequisiteListParser
 {
 	/**
 	 * Get the type of prerequisite handled by this token.

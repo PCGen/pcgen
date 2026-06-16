@@ -29,10 +29,9 @@ import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
-import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
-public class PreEquipTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreEquipTester extends AbstractPrerequisiteTest
 {
 
 	@Override
