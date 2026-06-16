@@ -727,6 +727,10 @@ tasks.register("slowtest", Test) {
     classpath = sourceSets.slowtest.runtimeClasspath
     systemProperties['jar.path'] = jar.getArchiveFile().get().getAsFile()
     forkEvery = 1
+    // pcgen.system.Main.main(...) has JVM-wide static state (Globals,
+    // SystemCollections, plugin registry); concurrent forks race on shared
+    // output/temp directories and produce flaky export failures.
+    maxParallelForks = 1
 }
 
 tasks.register("datatest", Test) {
@@ -744,6 +748,7 @@ tasks.register("inttest", Test) {
     testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
+    maxParallelForks = 1
     include 'pcgen/inttest/**/*Test.class'
 }
 
