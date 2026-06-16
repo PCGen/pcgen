@@ -23,7 +23,8 @@ apply from: "code/gradle/releaseUtils.groovy"
 
 ext {
     // Work out the path to the release notes for our current version.
-    plainVerNum = version.replaceAll('-SNAPSHOT', '')
+    // plainVerNum is defined in the root build.gradle so jpackage's appVersion
+    // and the release-notes filename derive from the same base.
     shortVerNum = plainVerNum.replaceAll(/\./, '')
     releaseNotes = "${projectDir}/installers/release-notes/pcgen-release-notes-${shortVerNum}.html"
 }
