@@ -150,7 +150,7 @@ public class SkillTreeViewModel
 					case 3 -> levels.getSkillCost(level, obj) == SkillCost.CLASS
 							? LanguageBundle.getString("in_yes") //$NON-NLS-1$
 							: LanguageBundle.getString("in_no"); //$NON-NLS-1$
-					case 4 -> levels.getSkillCost(level, obj).getCost();
+					case 4 -> levels.getSkillCost(level, obj) == null ? null : levels.getSkillCost(level, obj).getCost();
 					case 5 -> character.getInfoFactory().getDescription(obj);
 					case 6 -> obj.getSource();
 					default -> null;
