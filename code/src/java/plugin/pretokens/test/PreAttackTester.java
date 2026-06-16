@@ -23,13 +23,12 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
-import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
 /**
  * Prerequisite test the type of a piece of armour.
  */
-public class PreAttackTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreAttackTester extends AbstractPrerequisiteTest
 {
 
 	@Override

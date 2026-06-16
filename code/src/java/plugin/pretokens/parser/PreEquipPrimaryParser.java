@@ -18,12 +18,11 @@
 package plugin.pretokens.parser;
 
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
-import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
 /**
  * A prerequisite parser class that handles the parsing of pre equip primary tokens.
  */
-public class PreEquipPrimaryParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
+public class PreEquipPrimaryParser extends AbstractPrerequisiteListParser
 {
 	/**
 	 * Get the type of prerequisite handled by this token.

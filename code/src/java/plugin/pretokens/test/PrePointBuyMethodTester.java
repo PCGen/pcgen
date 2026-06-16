@@ -23,13 +23,12 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
 /**
  * {@code PrePointBuyMethod}.
  */
-public class PrePointBuyMethodTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PrePointBuyMethodTester extends AbstractDisplayPrereqTest
 {
 
 	@Override

@@ -21,13 +21,12 @@ package plugin.pretokens.parser;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteParser;
-import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import pcgen.util.Logging;
 
 /**
  * A prerequisite parser class that handles the parsing of pre attack tokens.
  */
-public class PreAttackParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
+public class PreAttackParser extends AbstractPrerequisiteParser
 {
 	/**
 	 * Get the type of prerequisite handled by this token.

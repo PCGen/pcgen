@@ -23,9 +23,8 @@ import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.core.prereq.PrerequisiteTest;
 
-public class PreCityTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreCityTester extends AbstractDisplayPrereqTest
 {
 
 	@Override

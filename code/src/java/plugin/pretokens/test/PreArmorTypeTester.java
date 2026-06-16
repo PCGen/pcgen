@@ -26,12 +26,11 @@ import pcgen.core.Equipment;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.core.prereq.PrerequisiteTest;
 
 /**
  * Prerequisite test the type of a piece of armour.
  */
-public class PreArmorTypeTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreArmorTypeTester extends AbstractDisplayPrereqTest
 {
 
 	// TODO All the equipment related PRE tag code should be refactored into a

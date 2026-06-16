@@ -23,10 +23,9 @@ import java.util.List;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
-import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import pcgen.util.Logging;
 
-public class PreSkillSitParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
+public class PreSkillSitParser extends AbstractPrerequisiteListParser
 {
 	@Override
 	public String[] kindsHandled()

@@ -20,12 +20,11 @@ package plugin.pretokens.parser;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
-import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
 /**
  * A prerequisite parser class that handles the parsing of pre CAMPAIGN tokens.
  */
-public class PreCampaignParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
+public class PreCampaignParser extends AbstractPrerequisiteListParser
 {
 	/**
 	 * Get the type of prerequisite handled by this token.

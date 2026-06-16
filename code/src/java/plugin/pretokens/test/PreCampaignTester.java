@@ -32,7 +32,6 @@ import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteOperator;
-import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.persistence.PersistenceManager;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
@@ -43,7 +42,7 @@ import pcgen.util.Logging;
  * 
  * 
  */
-public class PreCampaignTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreCampaignTester extends AbstractDisplayPrereqTest
 {
 
 	@Override

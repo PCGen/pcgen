@@ -18,7 +18,6 @@ import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteOperator;
-import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.output.channel.ChannelUtilities;
 import pcgen.system.LanguageBundle;
 
@@ -27,7 +26,7 @@ import pcgen.system.LanguageBundle;
  * To change the template for this generated type comment go to
  * Window - Preferences - Java - Code Generation - Code and Comments
  */
-public class PreDeityTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreDeityTester extends AbstractDisplayPrereqTest
 {
 
 	@Override

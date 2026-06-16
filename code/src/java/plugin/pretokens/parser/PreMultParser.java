@@ -25,10 +25,9 @@ import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteParser;
 import pcgen.persistence.lst.prereq.PreParserFactory;
-import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import pcgen.util.Logging;
 
-public class PreMultParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
+public class PreMultParser extends AbstractPrerequisiteParser
 {
 	@Override
 	public String[] kindsHandled()

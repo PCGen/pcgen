@@ -23,10 +23,9 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
-import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
-public class PreTotalABTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreTotalABTester extends AbstractPrerequisiteTest
 {
 
 	@Override

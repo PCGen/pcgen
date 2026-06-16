@@ -30,14 +30,13 @@ import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteOperator;
-import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
 /**
  * Prerequisite tester, tests for the presence of a type.
  */
-public class PreTypeTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreTypeTester extends AbstractDisplayPrereqTest
 {
 
 	/**

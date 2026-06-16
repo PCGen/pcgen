@@ -23,10 +23,9 @@ import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
-import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
-public class PreLegsTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreLegsTester extends AbstractDisplayPrereqTest
 {
 
 	@Override

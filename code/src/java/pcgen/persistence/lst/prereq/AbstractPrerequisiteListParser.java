@@ -37,7 +37,6 @@ import org.apache.commons.lang3.StringUtils;
  * Abstract PRE parser, provides common parsing for many PRE tokens.
  */
 public abstract class AbstractPrerequisiteListParser extends AbstractPrerequisiteParser
-		implements PrerequisiteParserInterface
 {
 
 	protected void convertKeysToSubKeys(Prerequisite prereq, String kind)

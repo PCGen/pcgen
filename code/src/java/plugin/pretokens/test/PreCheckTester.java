@@ -10,12 +10,11 @@ import pcgen.core.PCCheck;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.core.prereq.PrerequisiteTest;
 
 /**
  * Prerequisite test that the character has a non-zero value for a given check.
  */
-public class PreCheckTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreCheckTester extends AbstractPrerequisiteTest
 {
 
 	/** Constructor. */

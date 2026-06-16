@@ -18,12 +18,11 @@
 package plugin.pretokens.parser;
 
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteSimpleParser;
-import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
 /**
  * A prerequisite parser class that handles the parsing of pre spell booktokens.
  */
-public class PreSpellBookParser extends AbstractPrerequisiteSimpleParser implements PrerequisiteParserInterface
+public class PreSpellBookParser extends AbstractPrerequisiteSimpleParser
 {
 	/**
 	 * Get the type of prerequisite handled by this token.

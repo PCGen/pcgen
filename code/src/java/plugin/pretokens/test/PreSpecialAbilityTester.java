@@ -24,10 +24,9 @@ import pcgen.core.SpecialAbility;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
-import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
-public class PreSpecialAbilityTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreSpecialAbilityTester extends AbstractPrerequisiteTest
 {
 
 	@Override

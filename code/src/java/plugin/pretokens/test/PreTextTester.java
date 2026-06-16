@@ -23,13 +23,12 @@ import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
-import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
 /**
  * Prerequisite tester, test for the presence of text.
  */
-public class PreTextTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreTextTester extends AbstractDisplayPrereqTest
 {
 
 	@Override

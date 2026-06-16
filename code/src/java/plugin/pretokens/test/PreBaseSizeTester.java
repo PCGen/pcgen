@@ -25,10 +25,9 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.rules.context.AbstractReferenceContext;
 
-public class PreBaseSizeTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreBaseSizeTester extends AbstractPrerequisiteTest
 {
 
 	@Override

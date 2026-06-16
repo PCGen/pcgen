@@ -24,13 +24,12 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteParser;
-import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import pcgen.rules.context.LoadContext;
 
 /**
  * A prerequisite parser class that handles the parsing of pre size tokens.
  */
-public class PreSizeParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
+public class PreSizeParser extends AbstractPrerequisiteParser
 {
 	/**
 	 * Get the type of prerequisite handled by this token.

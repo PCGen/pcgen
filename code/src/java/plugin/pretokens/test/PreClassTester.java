@@ -13,7 +13,6 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
@@ -22,7 +21,7 @@ import pcgen.util.Logging;
  * To change the template for this generated type comment go to
  * Window - Preferences - Java - Code Generation - Code and Comments
  */
-public class PreClassTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreClassTester extends AbstractPrerequisiteTest
 {
 
 	@Override

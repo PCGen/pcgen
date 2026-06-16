@@ -23,7 +23,6 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
-import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.system.LanguageBundle;
 
@@ -31,7 +30,7 @@ import pcgen.system.LanguageBundle;
  * {@code PreAbilityParser} tests whether a character passes ability
  * prereqs.
  */
-public class PreAbilityTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreAbilityTester extends AbstractPrerequisiteTest
 {
 
 	@Override

@@ -25,10 +25,9 @@ import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteOperator;
-import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
-public class PreRegionTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreRegionTester extends AbstractDisplayPrereqTest
 {
 
 	@Override

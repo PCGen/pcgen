@@ -32,13 +32,12 @@ import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteOperator;
-import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.output.channel.ChannelUtilities;
 import pcgen.output.channel.compat.AlignmentCompat;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
-public class PreAlignTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreAlignTester extends AbstractPrerequisiteTest
 {
 
 	@Override

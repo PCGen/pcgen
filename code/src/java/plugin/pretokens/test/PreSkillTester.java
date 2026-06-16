@@ -37,10 +37,9 @@ import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
-import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
-public class PreSkillTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreSkillTester extends AbstractPrerequisiteTest
 {
 
 	@SuppressWarnings("unused")

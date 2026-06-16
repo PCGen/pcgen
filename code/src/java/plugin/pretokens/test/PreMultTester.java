@@ -32,7 +32,7 @@ import pcgen.util.Logging;
 
 import org.apache.commons.lang3.StringUtils;
 
-public class PreMultTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreMultTester extends AbstractPrerequisiteTest
 {
 
 	@Override

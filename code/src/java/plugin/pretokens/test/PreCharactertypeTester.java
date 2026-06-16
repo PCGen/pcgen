@@ -23,10 +23,9 @@ import pcgen.cdom.util.CControl;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.output.channel.ChannelUtilities;
 
-public class PreCharactertypeTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreCharactertypeTester extends AbstractDisplayPrereqTest
 {
 
 	@Override

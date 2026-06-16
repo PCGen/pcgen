@@ -21,12 +21,11 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteIntegerParser;
-import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
 /**
  * A prerequisite parser class that handles the parsing of pre level max tokens.
  */
-public class PreLevelMaxParser extends AbstractPrerequisiteIntegerParser implements PrerequisiteParserInterface
+public class PreLevelMaxParser extends AbstractPrerequisiteIntegerParser
 {
 	/**
 	 * Get the type of prerequisite handled by this token.
