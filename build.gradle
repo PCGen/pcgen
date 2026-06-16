@@ -63,6 +63,11 @@ ext {
     // Java version. It will affect JavaFX version too.
     javaVersion = 25
 
+    // Project version with -SNAPSHOT stripped. Shared between jpackage's
+    // appVersion (further sanitised below) and release.gradle's release-notes
+    // path so the two can't drift.
+    plainVerNum = version.replaceAll('-SNAPSHOT', '')
+
     // The Eclipse Adoptium API returns the latest patch release for the majorJava version set.
     // Cached so the network call fires at most once per Gradle invocation, and only when a
     // JavaFX/JDK download task actually consumes the value (the use sites sit inside lazy
@@ -346,7 +351,7 @@ jlink {
         def licenseFile = layout.projectDirectory.file("code/LICENSE")
         targetPlatformName = "${hostOs}-${hostArch}"
 
-        def appVersionStr = version.replaceAll('-SNAPSHOT', '').replaceAll(/[^0-9.].*/, '').replaceAll(/\.$/, '')
+        def appVersionStr = plainVerNum.replaceAll(/[^0-9.].*/, '').replaceAll(/\.$/, '')
         appVersion = appVersionStr
         def opts = ["--license-file", licenseFile.asFile.absolutePath]
 
@@ -555,15 +560,30 @@ tasks.named("build") {
     mustRunAfter clean
 }
 
+tasks.withType(Download).configureEach {
+    overwrite false
+    useETag true
+    tempAndMove true
+    mustRunAfter clean
+}
+
+// Strips the leading path segment (the archive's top-level directory) when
+// extracting a JDK or JavaFX archive, so contents land directly under the
+// `into` target instead of inside an extra wrapper folder.
+def stripLeadingSegment = { FileCopyDetails fcd ->
+    def segments = fcd.relativePath.segments
+    if (segments.length > 1) {
+        fcd.relativePath = new RelativePath(
+                !fcd.isDirectory(),
+                Arrays.copyOfRange(segments, 1, segments.length) as String[])
+    }
+}
+
 tasks.register("downloadJdk", Download) {
     description = "Downloads JDK for the host platform (${hostOs} ${hostArch})"
     src "https://api.adoptium.net/v3/binary/latest/${javaVersion}/ga/${hostOs}/${hostArch}/jdk/hotspot/normal/eclipse"
     dest jdksDir.file("jdk_${hostOs}_${hostArch}.${hostJdkExt}")
     onlyIfModified true
-    overwrite false
-    useETag true
-    tempAndMove true
-    mustRunAfter clean
 }
 
 tasks.register("extractJdk", Copy) {
@@ -576,12 +596,7 @@ tasks.register("extractJdk", Copy) {
     from(hostJdkExt == 'zip' ? zipTree(archiveFile) : tarTree(archiveFile))
     into outDir
 
-    eachFile { FileCopyDetails fcd ->
-        def segments = fcd.relativePath.segments
-        if (segments.length > 1) {
-            fcd.relativePath = new RelativePath(!fcd.isDirectory(), Arrays.copyOfRange(segments, 1, segments.length) as String[])
-        }
-    }
+    eachFile stripLeadingSegment
     includeEmptyDirs = false
 
     onlyIf { !outDir.asFile.directory }
@@ -593,10 +608,6 @@ tasks.register("downloadJfxMods", Download) {
     def fileName = "openjfx-${latestJavaVersion(javaVersion)}_${hostJfxOsPackage}${hostJfxArchSuffix}_bin-jmods.zip"
     src "https://download2.gluonhq.com/openjfx/${latestJavaVersion(javaVersion)}/${fileName}"
     dest jdksDir.file("jfx_jmods_${hostOs}_${hostArch}.zip")
-    overwrite false
-    useETag true
-    tempAndMove true
-    mustRunAfter clean
 }
 
 tasks.register("extractJfxMods", Copy) {
@@ -609,10 +620,7 @@ tasks.register("extractJfxMods", Copy) {
 
     from zipTree(jdksDir.file("jfx_jmods_${hostOs}_${hostArch}.zip"))
     into jmodsTarget
-    eachFile { FileCopyDetails fcd ->
-        def segments = fcd.relativePath.segments
-        fcd.relativePath = new RelativePath(!fcd.isDirectory(), Arrays.copyOfRange(segments, 1, segments.length) as String[])
-    }
+    eachFile stripLeadingSegment
     includeEmptyDirs = false
 
     onlyIf { !jmodsTarget.asFile.directory || jmodsTarget.asFile.list()?.length == 0 }
@@ -646,10 +654,6 @@ tasks.register("downloadJavaFXLocal", Download) {
 
     src "https://download2.gluonhq.com/openjfx/${project.ext.latestJavaVersion(project.ext.javaVersion)}/${fileName}"
     dest layout.projectDirectory.file("mods/${fileName}")
-    overwrite false
-    useETag true
-    tempAndMove true
-    mustRunAfter clean
 }
 
 tasks.register("extractJavaFXLocal", Copy) {
@@ -658,11 +662,7 @@ tasks.register("extractJavaFXLocal", Copy) {
 
     from zipTree(downloadJavaFXLocal.dest)
     into layout.projectDirectory.dir("mods")
-    eachFile { FileCopyDetails fcd ->
-        def relPath = fcd.relativePath
-        def segments = relPath.segments
-        fcd.relativePath = new RelativePath(!fcd.isDirectory(), Arrays.copyOfRange(segments, 1, segments.length) as String[])
-    }
+    eachFile stripLeadingSegment
     includeEmptyDirs = false
 }
 
@@ -690,12 +690,12 @@ tasks.register("testCoverage", JacocoReport) {
 }
 
 // https://docs.gradle.org/current/userguide/performance.html#a_run_tests_in_parallel
-def parallelTestForks = Runtime.runtime.availableProcessors().intdiv(2) ?: 1
+// Test parallelism is set in the `allprojects` block below so it applies
+// uniformly to root and subproject Test tasks.
 
 tasks.named("test", Test) {
     exclude 'test/pcgen/testsupport/**'
     useJUnitPlatform()
-    maxParallelForks = parallelTestForks
     // TestFX/Monocle setup — only the unit test source set has TestFX-based tests.
     // Other JavaFX/Monocle args (testfx.*, prism.order, --add-exports for
     // com.sun.javafx.util / com.sun.javafx.logging, --add-opens for
@@ -718,7 +718,6 @@ tasks.register("itest", Test) {
     testClassesDirs = sourceSets.itest.output.classesDirs
     classpath = sourceSets.itest.runtimeClasspath
     systemProperties['jar.path'] = jar.getArchiveFile().get().getAsFile()
-    maxParallelForks = parallelTestForks
 }
 
 tasks.register("slowtest", Test) {
@@ -774,7 +773,7 @@ allprojects {
 
     tasks.withType(Test).configureEach {
         maxHeapSize = "1024m"
-        maxParallelForks = 1
+        maxParallelForks = Runtime.runtime.availableProcessors().intdiv(2) ?: 1
         enableAssertions = true
         testLogging {
             exceptionFormat = 'full'
