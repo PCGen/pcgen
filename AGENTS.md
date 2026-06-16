@@ -37,7 +37,7 @@ Key entry point: `pcgen.system.Main` (code/src/java/pcgen/system/Main.java)
 - installers/ … installer assets (mac/win/linux), release notes
 - PCGen-base/, PCGen-Formula/ … separate Gradle builds for base/formula modules (consumed as Maven dependencies)
 - Root Gradle files: build.gradle, settings.gradle, gradle.properties, gradlew*
-- CI: `.github/workflows/gradle-test.yml`, `gradle-release.yml`, `gradle-release-manual.yml`, `codeql-analysis.yml`
+- CI: `.github/workflows/gradle-test.yml`, `gradle-nightly.yml`, `gradle-release.yml`, `gradle-release-manual.yml`, `codeql-analysis.yml`
 
 ## Essential Commands
 
@@ -122,16 +122,17 @@ Conventions/gotchas observed:
 ## Build/Release Flow
 
 - For releases, see `code/gradle/release.gradle` and CI workflows:
-  - `.github/workflows/gradle-release.yml` — triggered on tag push `v*.*.*` or manual dispatch with existing tag
-  - `.github/workflows/gradle-release-manual.yml` — manual dispatch that creates a new tag on the selected branch
-- Both release workflows validate that the tag matches `gradle.properties` version.
+  - `.github/workflows/gradle-release.yml` — triggered on tag push `v*.*.*` or manual dispatch with existing tag (validates tag vs `gradle.properties`).
+  - `.github/workflows/gradle-release-manual.yml` — manual dispatch that takes a release version, commits the bump to `gradle.properties` on the dispatched branch, tags + builds across all platforms, then commits the next `-SNAPSHOT` dev version back to the same branch on success.
+  - `.github/workflows/gradle-nightly.yml` — scheduled daily; skips if no commits to `master` in the last 24h; otherwise publishes a pre-release tagged `v<base>-NIGHTLY.<YYYYMMDD>` with all four platform builds and prunes nightlies older than the most recent 7.
 - Release tasks:
   - `prepareRelease` (build; version handling via `releaseUtils.groovy`)
   - `pcgenRelease` (prepareRelease + assembleArtifacts + checksum)
   - `pcgenReleaseOfficial` (pcgenRelease + updateVersionRelease)
+  - `updateVersionToNext` (Groovy helper in `releaseUtils.groovy` that bumps the trailing numeric segment by 1, zero-padded to two digits, and appends `-SNAPSHOT`; used by the manual release workflow's post-build bump step).
 - Artifacts collected into build/release; jpackage produces platform installers under build/jpackage.
 - Release CI builds on: ubuntu-latest (x64), ubuntu-24.04-arm, macos-latest, windows-latest.
-- CI updates `PCGenProp.properties` with version number and release date at build time.
+- CI updates `PCGenProp.properties` with version number and release date at build time (per-platform, in-memory, never committed).
 
 ## Data and Outputsheets
 
@@ -152,9 +153,19 @@ Conventions/gotchas observed:
 - **gradle-release.yml** (tag push `v*.*.*` or workflow_dispatch with existing tag):
   - Validates tag vs gradle.properties version
   - Creates GitHub release, builds on 4 platforms, attaches artifacts
-- **gradle-release-manual.yml** (workflow_dispatch — creates tag then releases):
-  - Creates and pushes a new tag on the current branch
-  - Updates gradle.properties to match, then delegates to same build matrix
+- **gradle-release-manual.yml** (workflow_dispatch — full release pipeline with version management):
+  - Inputs: `release_version` (e.g. `6.09.08`; no `v` prefix, no `-SNAPSHOT`) and `prerelease` boolean.
+  - `prepare_release`: validates the version, ensures the tag is free, commits `version=<release_version>` to `gradle.properties` on the dispatched branch via `github-actions[bot]`, tags the commit, and creates the GitHub Release.
+  - `build_release`: 4-platform matrix mirroring `gradle-release.yml`; checks out the new tag and runs `./gradlew build compileSlowtest datatest pfinttest pcgenRelease`, uploading artifacts to the Release.
+  - `bump_to_next_dev` (only if every matrix job passed): runs `./gradlew --no-daemon --no-configuration-cache updateVersionToNext` and commits the new `-SNAPSHOT` version back to the dispatched branch so the source tree is ready for further development.
+  - Concurrency: `manual-release-${{ github.ref }}`, no cancel-in-progress (avoid partial publish).
+- **gradle-nightly.yml** (schedule `0 2 * * *` + workflow_dispatch):
+  - `check_changes`: counts commits on `master` in the last 24h via `git rev-list --count --since='24 hours ago' HEAD`; on zero commits, the workflow short-circuits and the build/cleanup jobs are skipped.
+  - When changes are present, derives `<base>` from `gradle.properties` (stripping any `-SNAPSHOT`), computes `nightly_version=<base>-NIGHTLY.<YYYYMMDD>` (UTC), and treats the tag `v<nightly_version>` as the release identifier.
+  - `create_release`: creates and pushes the tag, then creates a GitHub pre-release at that tag.
+  - `build_release`: 4-platform matrix; checks out the tag, in-memory patches `gradle.properties` and `PCGenProp.properties` to the nightly version, runs the same full build + tests as the manual release, and attaches artifacts to the pre-release.
+  - `cleanup_old_nightlies`: keeps the most recent 7 nightly pre-releases (`v*-NIGHTLY.*` matching) and deletes older ones together with their git tags via `gh release delete <tag> --yes --cleanup-tag`. Failures are warnings, not workflow-fatal.
+  - Concurrency: group `nightly`, no cancel-in-progress.
 
 ## How to Add/Modify Code
 
@@ -192,7 +203,9 @@ Conventions/gotchas observed:
 | Plugin jar building             | code/gradle/plugins.gradle                                  |
 | Reporting (quality)             | code/gradle/reporting.gradle                                |
 | CI test workflow                | .github/workflows/gradle-test.yml                           |
-| CI release workflow             | .github/workflows/gradle-release.yml                        |
+| CI release workflow (tag)       | .github/workflows/gradle-release.yml                        |
+| CI release workflow (manual)    | .github/workflows/gradle-release-manual.yml                 |
+| CI nightly workflow             | .github/workflows/gradle-nightly.yml                        |
 
 ## Local Run Examples
 

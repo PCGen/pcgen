@@ -1,0 +1,271 @@
+name: Nightly Build
+
+# Runs daily at 02:00 UTC. Skips the build entirely if there have been
+# zero new commits on master in the last 24 hours (so no PRs merged and no
+# direct commits = no nightly release). When changes are present, builds
+# full release artifacts for all four supported platforms and publishes
+# them as a GitHub pre-release tagged v<base>-NIGHTLY.<YYYYMMDD>.
+#
+# The base version comes from gradle.properties with any existing
+# -SNAPSHOT suffix stripped, e.g. 6.09.08-SNAPSHOT -> base 6.09.08 ->
+# nightly version 6.09.08-NIGHTLY.20260615.
+#
+# The workflow keeps the seven most recent nightly pre-releases; older
+# nightly releases and their underlying git tags are deleted automatically
+# at the end of every successful run.
+
+on:
+  schedule:
+    # Daily at 02:00 UTC. Approx 14:00 NZDT / 21:00 ET / 18:00 PT.
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  # Never run two nightly builds in parallel; never cancel one in flight,
+  # so we don't end up with a half-published release.
+  group: nightly
+  cancel-in-progress: false
+
+jobs:
+  check_changes:
+    name: Check for changes
+    runs-on: ubuntu-latest
+    outputs:
+      should_build: ${{ steps.detect.outputs.should_build }}
+      nightly_version: ${{ steps.detect.outputs.nightly_version }}
+      tag_name: ${{ steps.detect.outputs.tag_name }}
+      commit_sha: ${{ steps.detect.outputs.commit_sha }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: master
+
+      - name: Detect changes and compute nightly version
+        id: detect
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          NEW_COMMITS=$(git rev-list --count --since='24 hours ago' HEAD)
+          COMMIT_SHA=$(git rev-parse HEAD)
+          SHORT_SHA=$(git rev-parse --short HEAD)
+
+          echo "Commits in the last 24h on master: ${NEW_COMMITS}"
+          echo "HEAD: ${COMMIT_SHA} (${SHORT_SHA})"
+
+          if [ "${NEW_COMMITS}" -eq 0 ]; then
+            echo "::notice::No new commits on master in the last 24h, skipping nightly build."
+            echo "should_build=false" >> "${GITHUB_OUTPUT}"
+            exit 0
+          fi
+
+          BASE_VERSION=$(grep '^version=' gradle.properties | head -1 | cut -d'=' -f2 | tr -d '[:space:]')
+          BASE_VERSION="${BASE_VERSION%-SNAPSHOT}"
+          BUILD_DATE=$(date -u +%Y%m%d)
+          NIGHTLY_VERSION="${BASE_VERSION}-NIGHTLY.${BUILD_DATE}"
+          TAG_NAME="v${NIGHTLY_VERSION}"
+
+          echo "Base version:    ${BASE_VERSION}"
+          echo "Nightly version: ${NIGHTLY_VERSION}"
+          echo "Tag name:        ${TAG_NAME}"
+
+          if git ls-remote --exit-code --tags origin "refs/tags/${TAG_NAME}" > /dev/null 2>&1; then
+            echo "::warning::Tag '${TAG_NAME}' already exists on the remote, skipping nightly build."
+            echo "should_build=false" >> "${GITHUB_OUTPUT}"
+            exit 0
+          fi
+
+          {
+            echo "should_build=true"
+            echo "nightly_version=${NIGHTLY_VERSION}"
+            echo "tag_name=${TAG_NAME}"
+            echo "commit_sha=${COMMIT_SHA}"
+          } >> "${GITHUB_OUTPUT}"
+
+  create_release:
+    name: Create nightly pre-release
+    needs: check_changes
+    if: needs.check_changes.outputs.should_build == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ needs.check_changes.outputs.commit_sha }}
+
+      - name: Create and push nightly tag
+        env:
+          TAG_NAME: ${{ needs.check_changes.outputs.tag_name }}
+          COMMIT_SHA: ${{ needs.check_changes.outputs.commit_sha }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag -a "${TAG_NAME}" -m "Nightly build of ${COMMIT_SHA}"
+          git push origin "${TAG_NAME}"
+          echo "Tagged ${COMMIT_SHA} as ${TAG_NAME}."
+
+      - name: Create GitHub pre-release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ needs.check_changes.outputs.tag_name }}
+          name: ${{ needs.check_changes.outputs.tag_name }}
+          target_commitish: ${{ needs.check_changes.outputs.commit_sha }}
+          draft: false
+          prerelease: true
+          generate_release_notes: false
+          body: |
+            Automated nightly build of `master` at commit
+            ${{ needs.check_changes.outputs.commit_sha }}.
+
+            > ⚠️ Nightly builds are unstable, automated snapshots intended for
+            > testing only. They are not suitable for production use.
+
+  build_release:
+    name: Build nightly (${{ matrix.release_suffix }})
+    needs: [check_changes, create_release]
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, ubuntu-24.04-arm, macos-latest, windows-latest]
+        include:
+          - os: ubuntu-latest
+            release_suffix: ubuntu
+          - os: ubuntu-24.04-arm
+            release_suffix: ubuntu-arm
+          - os: macos-latest
+            release_suffix: mac
+          - os: windows-latest
+            release_suffix: windows
+          # windows-arm removed - no GitHub-hosted runner available yet
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.check_changes.outputs.tag_name }}
+
+      - name: Patch gradle.properties with nightly version
+        shell: bash
+        env:
+          NIGHTLY_VERSION: ${{ needs.check_changes.outputs.nightly_version }}
+        run: |
+          set -euo pipefail
+          echo "Patching gradle.properties version to ${NIGHTLY_VERSION}"
+          sed -i.bak "s/^version=.*/version=${NIGHTLY_VERSION}/" gradle.properties
+          rm -f gradle.properties.bak
+          grep '^version=' gradle.properties
+
+      - name: Patch PCGenProp.properties with nightly version and build date
+        shell: bash
+        env:
+          NIGHTLY_VERSION: ${{ needs.check_changes.outputs.nightly_version }}
+        run: |
+          set -euo pipefail
+          PROPS_FILE="code/src/resources/pcgen/system/prop/PCGenProp.properties"
+          RELEASE_DATE=$(date -u +%Y-%m-%d)
+
+          echo "Setting VersionNumber=${NIGHTLY_VERSION} and ReleaseDate=${RELEASE_DATE} in ${PROPS_FILE}"
+          sed -i.bak "s/^VersionNumber=.*/VersionNumber=${NIGHTLY_VERSION}/" "${PROPS_FILE}"
+          sed -i.bak "s/^ReleaseDate=.*/ReleaseDate=${RELEASE_DATE}/" "${PROPS_FILE}"
+          rm -f "${PROPS_FILE}.bak"
+
+          grep -E '^(VersionNumber|ReleaseDate)=' "${PROPS_FILE}"
+
+      - name: Set up JDK 25
+        uses: actions/setup-java@v4
+        with:
+          java-version: '25'
+          distribution: 'temurin'
+
+      # setup-gradle@v4 is the canonical Gradle cache for GitHub Actions.
+      # See: https://github.com/gradle/actions/blob/main/setup-gradle/README.md
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          cache-disabled: false
+          cache-read-only: false
+          cache-overwrite-existing: true
+
+      # Cache the host-platform JDK and JavaFX jmod archives downloaded by
+      # the downloadJdk / downloadJfxMods tasks. Filenames are stamped with
+      # ${hostOs}_${hostArch}, so each runner OS gets its own cache bucket
+      # via the runner-keyed actions/cache key. These are pinned by
+      # javaVersion (gradle.properties) and the URL templates (build.gradle),
+      # so keying on those file hashes invalidates correctly when we bump
+      # the JDK or JavaFX version. We cache only the archives (.tar.gz / .zip)
+      # and let Gradle re-extract them each run via its own up-to-date checks.
+      - name: Cache downloaded JDK and JavaFX archives
+        uses: actions/cache@v4
+        with:
+          path: |
+            jdks/jdk_*.tar.gz
+            jdks/jdk_*.zip
+            jdks/jfx_jmods_*.zip
+          key: jdks-${{ hashFiles('gradle.properties', 'build.gradle') }}
+          restore-keys: |
+            jdks-
+
+      - name: Build, test, and assemble nightly release artifacts
+        run: ./gradlew build compileSlowtest datatest pfinttest pcgenRelease --stacktrace
+
+      - name: Upload nightly artifacts as workflow artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.release_suffix }}-nightly
+          path: ${{ github.workspace }}/build/release/*
+          if-no-files-found: error
+
+      - name: Attach nightly artifacts to GitHub pre-release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ needs.check_changes.outputs.tag_name }}
+          files: ${{ github.workspace }}/build/release/*
+          fail_on_unmatched_files: true
+
+  cleanup_old_nightlies:
+    name: Cleanup old nightlies
+    needs: build_release
+    if: needs.build_release.result == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Delete nightly releases older than the most recent 7
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          KEEP: 7
+        run: |
+          set -euo pipefail
+
+          # List all releases (json), filter to nightly pre-releases, sort
+          # by createdAt descending, keep the most recent ${KEEP}, delete
+          # the rest. Failures here must not fail the whole nightly run
+          # (handled by the `|| true` on the delete loop below).
+          mapfile -t TAGS_TO_DELETE < <(
+            gh release list --limit 200 \
+              --json tagName,createdAt,isPrerelease \
+              --jq '[
+                .[]
+                | select(.isPrerelease)
+                | select(.tagName | test("^v.*-NIGHTLY\\."))
+              ] | sort_by(.createdAt) | reverse | .['"${KEEP}"':] | .[].tagName'
+          )
+
+          if [ "${#TAGS_TO_DELETE[@]}" -eq 0 ]; then
+            echo "No old nightly releases to delete (keeping the most recent ${KEEP})."
+            exit 0
+          fi
+
+          echo "Deleting ${#TAGS_TO_DELETE[@]} old nightly release(s):"
+          printf ' - %s\n' "${TAGS_TO_DELETE[@]}"
+
+          for tag in "${TAGS_TO_DELETE[@]}"; do
+            if ! gh release delete "${tag}" --yes --cleanup-tag; then
+              echo "::warning::Failed to delete nightly release ${tag}."
+            fi
+          done
