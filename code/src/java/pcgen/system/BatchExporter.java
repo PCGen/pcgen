@@ -266,11 +266,7 @@ public class BatchExporter
 	 */
 	public static boolean exportCharacterToNonPDF(CharacterFacade character, File outFile, File templateFile)
 	{
-		try (BufferedWriter bw = new BufferedWriter(
-				new OutputStreamWriter(
-						new FileOutputStream(outFile),
-					StandardCharsets.UTF_8)
-		))
+		try (BufferedWriter bw = Files.newBufferedWriter(outFile.toPath(), StandardCharsets.UTF_8))
 		{
 			character.export(ExportHandler.createExportHandler(templateFile), bw);
 			character.setDefaultOutputSheet(false, templateFile);
@@ -384,7 +380,7 @@ public class BatchExporter
 	 */
 	public static boolean exportPartyToNonPDF(PartyFacade party, File outFile, File templateFile)
 	{
-		try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile), StandardCharsets.UTF_8)))
+		try (BufferedWriter bw = Files.newBufferedWriter(outFile.toPath(), StandardCharsets.UTF_8))
 		{
 			party.export(ExportHandler.createExportHandler(templateFile), bw);
 			return true;

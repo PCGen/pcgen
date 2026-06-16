@@ -20,9 +20,9 @@ package pcgen.persistence.lst;
 
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.util.Collection;
 import java.util.List;
 
@@ -55,7 +55,7 @@ public final class CampaignOutput
         final File outFile = new File(
                 ConfigurationSettings.getPccFilesDir() + File.separator + campaign.getSafe(StringKey.DESTINATION));
 
-        try (BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile), "UTF-8")))
+        try (BufferedWriter out = Files.newBufferedWriter(outFile.toPath(), StandardCharsets.UTF_8))
         {
 
             List<String> commentList = campaign.getListFor(ListKey.COMMENT);
