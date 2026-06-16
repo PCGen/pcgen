@@ -157,13 +157,11 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			box.setBorder(new EmptyBorder(0, 0, 5, 0));
 			selPanel.add(box, BorderLayout.SOUTH);
 		}
-		{
-			classTable.setDragEnabled(true);
-			classTable.setTransferHandler(classTransferHandler);
+		classTable.setDragEnabled(true);
+		classTable.setTransferHandler(classTransferHandler);
 
-			availableTable.setDragEnabled(true);
-			availableTable.setTransferHandler(classTransferHandler);
-		}
+		availableTable.setDragEnabled(true);
+		availableTable.setTransferHandler(classTransferHandler);
 		initListeners();
 
 		topPane.setRightComponent(selPanel);

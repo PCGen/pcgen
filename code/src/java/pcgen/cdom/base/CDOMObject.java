@@ -1233,6 +1233,7 @@ public abstract class CDOMObject extends ConcretePrereqObject
 		return this;
 	}
 
+	@Override
 	public Optional<String> getLocalScopeName()
 	{
 		//I don't have one

@@ -229,10 +229,9 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			initMoneyPanel(panel);
 			splitPane.setLeftComponent(panel);
 		}
-		{// Bottom Right Panel
-			infoPane.setTitle(LanguageBundle.getString("in_igEqInfo")); //$NON-NLS-1$
-			splitPane.setRightComponent(infoPane);
-		}
+		// Bottom Right Panel
+		infoPane.setTitle(LanguageBundle.getString("in_igEqInfo")); //$NON-NLS-1$
+		splitPane.setRightComponent(infoPane);
 		splitPane.setResizeWeight(0.25);
 		setResizeWeight(1);
 		setBottomComponent(splitPane);

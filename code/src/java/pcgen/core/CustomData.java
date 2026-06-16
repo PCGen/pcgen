@@ -24,12 +24,12 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.io.StringWriter;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -415,7 +415,7 @@ public final class CustomData
     {
         try
         {
-            return new BufferedWriter(new OutputStreamWriter(new FileOutputStream(path), "UTF-8"));
+            return Files.newBufferedWriter(Path.of(path), StandardCharsets.UTF_8);
         } catch (IOException e)
         {
             Logging.errorPrint("Could not get a writer to write to " + path
