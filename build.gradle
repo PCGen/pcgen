@@ -116,7 +116,7 @@ sourceSets {
     // Running regular tests
     test {
         java {
-            srcDirs = ['code/src/utest']
+            srcDirs = ['code/src/test']
         }
         compileClasspath += sourceSets.main.output + sourceSets.testcommon.output
         runtimeClasspath += sourceSets.main.output + sourceSets.testcommon.output
@@ -138,7 +138,7 @@ sourceSets {
     // Running Slow Tests
     slowtest {
         java {
-            srcDirs = ['code/src/test']
+            srcDirs = ['code/src/slowtest']
         }
         resources {
             srcDirs = ['code/src/testResources']
