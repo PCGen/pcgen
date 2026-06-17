@@ -30,6 +30,6 @@ public class pcGenGUIPfrpgPaladinTest extends PcgenFtlTestCase
 	@Test
 	public void testCode() throws Exception
 	{
-		runTest("pf_Paladin", "Pathfinder_RPG");
+		runTest("pf_Paladin");
 	}
 }

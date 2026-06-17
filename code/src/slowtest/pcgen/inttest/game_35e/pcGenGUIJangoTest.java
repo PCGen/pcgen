@@ -13,6 +13,6 @@ public class pcGenGUIJangoTest extends PcgenFtlTestCase
 	@Test
 	public void testJango() throws Exception
 	{
-		runTest("35e_Jango", "35e");
+		runTest("35e_Jango");
 	}
 }

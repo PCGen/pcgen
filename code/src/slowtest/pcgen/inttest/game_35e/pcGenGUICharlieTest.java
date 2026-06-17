@@ -15,6 +15,6 @@ public class pcGenGUICharlieTest extends PcgenFtlTestCase
 	@Test
 	public void testCode() throws Exception
 	{
-		runTest("35e_Charlie", "35e");
+		runTest("35e_Charlie");
 	}
 }

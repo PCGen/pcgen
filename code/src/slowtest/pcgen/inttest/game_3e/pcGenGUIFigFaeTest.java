@@ -33,6 +33,6 @@ public class pcGenGUIFigFaeTest extends PcgenFtlTestCase
 	@Test
 	public void testFigFae() throws Exception
 	{
-		runTest("3e_FigFae", "3e");
+		runTest("3e_FigFae");
 	}
 }

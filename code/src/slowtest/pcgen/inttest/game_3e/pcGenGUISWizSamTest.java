@@ -34,6 +34,6 @@ public class pcGenGUISWizSamTest extends PcgenFtlTestCase
 	@Test
 	public void testSWizSam() throws IOException
 	{
-		runTest("3e_SWizSam", "3e");
+		runTest("3e_SWizSam");
 	}
 }

@@ -31,6 +31,6 @@ public class pcGenGUIMonKeeTest extends PcgenFtlTestCase
 	@Test
 	public void testMonKee() throws Exception
 	{
-		runTest("3e_MonKee", "3e");
+		runTest("3e_MonKee");
 	}
 }
