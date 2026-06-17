@@ -31,6 +31,6 @@ public class pcGenGUICleElfTest extends PcgenFtlTestCase
 	@Test
 	public void testCleElf() throws Exception
 	{
-		runTest("3e_CleElf", "3e");
+		runTest("3e_CleElf");
 	}
 }

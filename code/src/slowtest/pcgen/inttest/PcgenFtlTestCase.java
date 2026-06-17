@@ -75,12 +75,11 @@ public abstract class PcgenFtlTestCase
 	 * Run the test.
 	 *
 	 * @param character The PC
-	 * @param mode      The game mode
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
-	public void runTest(String character, String mode) throws IOException
+	public void runTest(String character) throws IOException
 	{
-		LOG.info("RUNTEST with the character: " + character + " and the game mode: " + mode);
+		LOG.info("RUNTEST with the character: " + character);
 		String characterFileName = character + ".xml";
 		String characterPCFileName = character + ".pcg";
 		Path inputFolder = Paths.get("code/testsuite/PCGfiles");

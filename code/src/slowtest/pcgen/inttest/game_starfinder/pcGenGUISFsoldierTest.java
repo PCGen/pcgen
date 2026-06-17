@@ -17,6 +17,6 @@ public class pcGenGUISFsoldierTest extends PcgenFtlTestCase
 	@Test
 	public void testCode() throws IOException
 	{
-		runTest("sf_soldier", "Starfinder");
+		runTest("sf_soldier");
 	}
 }

@@ -32,6 +32,6 @@ public class pcGenGUIIlyanaTest extends PcgenFtlTestCase
 	@Test
 	public void testIlyana() throws Exception
 	{
-		runTest("msrd_Ilyana", "Modern");
+		runTest("msrd_Ilyana");
 	}
 }

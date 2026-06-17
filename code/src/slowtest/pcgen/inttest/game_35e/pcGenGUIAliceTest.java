@@ -14,6 +14,6 @@ public class pcGenGUIAliceTest extends PcgenFtlTestCase
 	@Test
 	public void testCode() throws Exception
 	{
-		runTest("35e_Alice", "35e");
+		runTest("35e_Alice");
 	}
 }

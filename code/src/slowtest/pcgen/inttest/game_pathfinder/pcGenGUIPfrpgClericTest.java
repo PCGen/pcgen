@@ -16,6 +16,6 @@ public class pcGenGUIPfrpgClericTest extends PcgenFtlTestCase
 	@Test
 	public void testCode() throws Exception
 	{
-		runTest("pf_Cleric", "Pathfinder_RPG");
+		runTest("pf_Cleric");
 	}
 }

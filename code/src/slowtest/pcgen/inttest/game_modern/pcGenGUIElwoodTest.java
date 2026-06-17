@@ -33,6 +33,6 @@ public class pcGenGUIElwoodTest extends PcgenFtlTestCase
 	@Test
 	public void testElwood() throws Exception
 	{
-		runTest("msrd_Elwood", "Modern");
+		runTest("msrd_Elwood");
 	}
 }

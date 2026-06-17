@@ -30,6 +30,6 @@ public class pcGenGUIPfrpgRogueTest extends PcgenFtlTestCase
 	@Test
 	public void testCode() throws Exception
 	{
-		runTest("pf_Rogue", "Pathfinder_RPG");
+		runTest("pf_Rogue");
 	}
 }

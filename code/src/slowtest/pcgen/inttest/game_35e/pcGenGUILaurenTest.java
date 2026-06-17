@@ -13,6 +13,6 @@ public class pcGenGUILaurenTest extends PcgenFtlTestCase
 	@Test
 	public void testLauren() throws Exception
 	{
-		runTest("35e_Lauren", "35e");
+		runTest("35e_Lauren");
 	}
 }
