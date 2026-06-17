@@ -13,6 +13,8 @@
 
 import groovy.json.JsonSlurper
 
+import java.nio.file.Files
+
 import org.apache.tools.ant.filters.FixCrLfFilter
 import org.apache.tools.ant.taskdefs.condition.Os
 
@@ -384,10 +386,10 @@ tasks.named("jpackageImage") {
     def jpackageDir = layout.buildDirectory.dir("jpackage")
     doFirst {
         def root = jpackageDir.get().asFile.toPath()
-        if (java.nio.file.Files.exists(root)) {
-            java.nio.file.Files.walk(root).withCloseable { stream ->
+        if (Files.exists(root)) {
+            Files.walk(root).withCloseable { stream ->
                 stream.filter { it.fileName.toString() == ".DS_Store" }
-                      .forEach { java.nio.file.Files.deleteIfExists(it) }
+                      .forEach { Files.deleteIfExists(it) }
             }
         }
     }
@@ -463,14 +465,34 @@ if (Os.isFamily(Os.FAMILY_MAC)) {
 
 // Portable zip: same self-contained app the installer ships, but as an
 // unzip-and-run archive. Source folder is whatever fullJpackage produces.
-tasks.register("portableZip", Zip) {
-    dependsOn tasks.named("fullJpackage")
-    def appDir = (hostOs == "mac") ? "PcGen.app" : "PcGen"
-    from(layout.buildDirectory.dir("jpackage/${appDir}")) {
-        into appDir
+//
+// On macOS the bundle is packed with `ditto -c -k --keepParent` rather than
+// Gradle's Zip task: ditto preserves the 0755 exec bits on
+// Contents/MacOS/MacDirLauncher and Contents/MacOS/PcGen, plus symlinks,
+// xattrs, and code signatures. Plain Zip strips POSIX modes, leaving the
+// .app non-launchable after unzip ("application can't be opened").
+if (hostOs == "mac") {
+    tasks.register("portableZip", Exec) {
+        dependsOn tasks.named("fullJpackage")
+        def archive = layout.buildDirectory.file(
+                "jpackage/pcgen-${version}-${hostOs}-${hostArch}-portable.zip")
+        def appBundle = layout.buildDirectory.dir("jpackage/PcGen.app")
+        inputs.dir(appBundle)
+        outputs.file(archive)
+        // ditto -c -k overwrites an existing archive silently; no pre-delete needed.
+        commandLine "ditto", "-c", "-k", "--keepParent",
+                appBundle.get().asFile.absolutePath,
+                archive.get().asFile.absolutePath
     }
-    archiveFileName = "pcgen-${version}-${hostOs}-${hostArch}-portable.zip"
-    destinationDirectory = layout.buildDirectory.dir("jpackage")
+} else {
+    tasks.register("portableZip", Zip) {
+        dependsOn tasks.named("fullJpackage")
+        from(layout.buildDirectory.dir("jpackage/PcGen")) {
+            into "PcGen"
+        }
+        archiveFileName = "pcgen-${version}-${hostOs}-${hostArch}-portable.zip"
+        destinationDirectory = layout.buildDirectory.dir("jpackage")
+    }
 }
 
 // Create the Data Convertor JAR.
