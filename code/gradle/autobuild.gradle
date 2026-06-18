@@ -1,11 +1,11 @@
-import java.time.LocalDateTime
-
 /*
  * PCGen autobuild generation tasks. This file specifies the way in which the
  * autobuild site is generated and the outputs from other tasks that are to be
  * deployed with the site.
  *
  * Usage: ./gradlew deployAutobuild
+ *
+ * Note: buildTimestamp is defined in distribution.gradle (applied first).
  */
 ext {
     if (System.env.BUILD_NUMBER) {
@@ -13,8 +13,6 @@ ext {
     } else {
         destAutobuildDir = layout.buildDirectory.dir("autobuilds").get()
     }
-
-    buildTimestamp = LocalDateTime.now(Clock.systemUTC())
 }
 
 tasks.register("copyDocs", Sync) {
