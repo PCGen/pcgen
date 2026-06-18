@@ -219,6 +219,43 @@ The output is placed in `build/jpackage/`.
 > **macOS note:** If the build fails with `Unable to delete directory 'build/jpackage'` due
 > to a `.DS_Store` file, run `rm -f build/jpackage/.DS_Store` and retry.
 
+## Bumping Java / JavaFX versions
+
+Both versions live in `gradle.properties`:
+
+- `javaVersion` — JDK major (drives the Gradle toolchain).
+- `javafxVersion` — full JavaFX patch triple (e.g. `25.0.3`). The major **must** match `javaVersion`.
+
+### Patch bump (e.g. 25.0.3 → 25.0.4)
+
+JavaFX-only — Gradle's toolchain auto-resolves the latest matching JDK patch.
+
+1. Find the latest JavaFX 25 patch on https://gluonhq.com/products/javafx/ or https://github.com/openjdk/jfx/tags.
+2. Update `javafxVersion` in `gradle.properties`.
+3. Verify: `./gradlew clean downloadJfxMods extractJfxMods downloadJavaFXLocal extractJavaFXLocal test`.
+
+### Major bump (e.g. 25 → 26)
+
+Coordinated change. Both versions move together.
+
+1. Confirm a Temurin GA build of the new JDK exists: https://adoptium.net/temurin/releases/.
+2. Find the latest JavaFX patch with the matching major (links above).
+3. Update `javaVersion` **and** `javafxVersion` in `gradle.properties`.
+4. Re-run the full build incl. `jlink`/`jpackage` to catch module-path drift:
+   `./gradlew clean build slowtest jlink fullJpackage`.
+5. Check whether any JVM flags in `build.gradle` (e.g. `--add-exports`, `--add-opens`,
+   `-Dprism.order=sw`) can be dropped — JavaFX major bumps occasionally make these obsolete.
+
+### Querying the latest JDK patch from the command line
+
+The project used to call this Adoptium endpoint at configuration time; it's kept here as
+a reference for humans and agents:
+
+```
+curl -s 'https://api.adoptium.net/v3/assets/feature_releases/25/ga?architecture=x64&page=0&page_size=1&project=jdk&sort_order=DESC&vendor=eclipse' \
+  | jq -r '.[0].version_data | "\(.major).\(.minor).\(.security)"'
+```
+
 ## Troubleshooting
 ####
 If you have an error stating `Task :run FAILED Error: --module-path requires module path specification` in Intellij,
