@@ -64,7 +64,9 @@ public class FinessableToken extends AbstractNonEmptyToken<WieldCategory> implem
 	@Override
 	public String[] unparse(LoadContext context, WieldCategory wc)
 	{
-		// TODO Auto-generated method stub
+		// Gamemode WieldCategory data is read by WieldCategoryLoader and is
+		// not written back through the CDOM unparse pipeline; this token
+		// family is also superseded by CControl.WIELDCAT + WCSTEPSFORMULA.
 		return null;
 	}
 
