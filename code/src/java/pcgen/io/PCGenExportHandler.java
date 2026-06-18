@@ -3,10 +3,9 @@ package pcgen.io;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.util.StringTokenizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -33,9 +32,7 @@ public class PCGenExportHandler extends ExportHandler
 		// Set an output filter based on the type of template in use.
 		FileAccess.setCurrentOutputFilter(getTemplateFile().getName());
 
-		try (FileInputStream fis = new FileInputStream(getTemplateFile());
-			 InputStreamReader isr = new InputStreamReader(fis, StandardCharsets.UTF_8);
-			 BufferedReader br = new BufferedReader(isr))
+		try (BufferedReader br = Files.newBufferedReader(getTemplateFile().toPath(), StandardCharsets.UTF_8))
 		{
 			// A Buffer to hold the result of the preparation
 			CharSequence template = prepareTemplate(br);
