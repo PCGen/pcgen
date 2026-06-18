@@ -48,10 +48,9 @@ import pcgen.system.PropertyContextFactory;
 import pcgen.util.Logging;
 import pcgen.util.TestHelper;
 
-import org.apache.commons.lang3.SystemUtils;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
 /**
  * The Class {@code DataTest} checks the data files for known issues.
@@ -62,21 +61,21 @@ class DataTest
 	private static final String TEST_CONFIG_FILE = "config.ini.junit";
 
 	/**
+	 * Per-class temp directory holding the dummy {@code config.ini.junit} and the
+	 * {@code settingsPath} folder. Per-class isolation lets parallel forks within
+	 * {@code :datatest} (DataTest + DataLoadTest) run without racing on a shared
+	 * config file in the project root.
+	 */
+	@TempDir
+	static Path tempDir;
+
+	/**
 	 * Initialise the plugins and load the game mode and campaign files.
 	 */
 	@BeforeAll
 	static void onceOnly()
 	{
 		loadGameModes();
-	}
-
-	/**
-	 * Tidy up the config file we created.
-	 */
-	@AfterAll
-	static void afterClass()
-	{
-		new File(TEST_CONFIG_FILE).delete();
 	}
 
 	/**
@@ -269,10 +268,12 @@ class DataTest
 	{
 		String pccLoc = TestHelper.findDataFolder();
 		System.out.println("Got data folder of " + pccLoc);
+		Path settingsDir = tempDir.resolve("testsuite");
+		Path configFile = tempDir.resolve(TEST_CONFIG_FILE);
 		try
 		{
-			String configFolder = "testsuite";
-			TestHelper.createDummySettingsFile(TEST_CONFIG_FILE, configFolder,
+			Files.createDirectories(settingsDir);
+			TestHelper.createDummySettingsFile(configFile.toString(), settingsDir.toString(),
 				pccLoc);
 		}
 		catch (IOException e)
@@ -280,7 +281,7 @@ class DataTest
 			Logging.errorPrint("DataTest.loadGameModes failed", e);
 		}
 
-		PropertyContextFactory configFactory = new PropertyContextFactory(SystemUtils.USER_DIR);
+		PropertyContextFactory configFactory = new PropertyContextFactory(tempDir.toString());
 		configFactory.registerAndLoadPropertyContext(ConfigurationSettings.getInstance(TEST_CONFIG_FILE));
 		Main.loadProperties(false);
 		Main.runBootstrapTasks();

@@ -21,8 +21,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -52,8 +53,7 @@ import pcgen.util.Logging;
 import pcgen.util.TestHelper;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.SystemUtils;
-import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.io.TempDir;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
@@ -65,20 +65,20 @@ public class DataLoadTest implements PCGenTaskListener
 	/** The name of our dummy config file. */
 	private static final String TEST_CONFIG_FILE = "config.ini.junit";
 
+	/**
+	 * Per-class temp directory holding the dummy {@code config.ini.junit} and the
+	 * {@code settingsPath} folder. Per-class isolation lets parallel forks within
+	 * {@code :datatest} (DataTest + DataLoadTest) run without racing on a shared
+	 * config file in the project root.
+	 */
+	@TempDir
+	static Path tempDir;
+
 	private Collection<LogRecord> errors = new ArrayList<>();
 
 
 	/**
-	 * Tidy up the config file we created. 
-	 */
-	@AfterAll
-	static void afterClass()
-	{
-		new File(TEST_CONFIG_FILE).delete();
-	}
-
-	/**
-	 * Build the list of sources to be checked. Also initialises the plugins and 
+	 * Build the list of sources to be checked. Also initializes the plugins and
 	 * loads the game mode and campaign files.
 	 */
 	public static Stream<Object[]> data()
@@ -144,10 +144,12 @@ public class DataLoadTest implements PCGenTaskListener
 	{
 		String pccLoc = TestHelper.findDataFolder();
 		System.out.println("Got data folder of " + pccLoc);
+		Path settingsDir = tempDir.resolve("testsuite");
+		Path configFile = tempDir.resolve(TEST_CONFIG_FILE);
 		try
 		{
-			String configFolder = "testsuite";
-			TestHelper.createDummySettingsFile(TEST_CONFIG_FILE, configFolder,
+			Files.createDirectories(settingsDir);
+			TestHelper.createDummySettingsFile(configFile.toString(), settingsDir.toString(),
 				pccLoc);
 		}
 		catch (IOException e)
@@ -156,7 +158,7 @@ public class DataLoadTest implements PCGenTaskListener
 		}
 
 		PropertyContextFactory configFactory =
-				new PropertyContextFactory(SystemUtils.USER_DIR);
+				new PropertyContextFactory(tempDir.toString());
 		configFactory.registerAndLoadPropertyContext(ConfigurationSettings
 			.getInstance(TEST_CONFIG_FILE));
 		Main.loadProperties(false);
