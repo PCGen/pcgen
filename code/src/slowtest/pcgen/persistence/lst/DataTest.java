@@ -32,7 +32,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.function.Function;
+import java.util.logging.Level;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -48,6 +48,7 @@ import pcgen.system.PropertyContextFactory;
 import pcgen.util.Logging;
 import pcgen.util.TestHelper;
 
+import freemarker.template.TemplateException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
@@ -87,7 +88,7 @@ class DataTest
 	public void pathLengthTest()
 	{
 		String dataPath = ConfigurationSettings.getPccFilesDir();
-		System.out.println("Got datapath of " + new File(dataPath).getAbsolutePath());
+		Logging.log(Level.INFO, "Got datapath of " + new File(dataPath).getAbsolutePath());
 
 		Collection<String> allowedNames =
 				new HashSet<>(Arrays.asList(
@@ -118,7 +119,7 @@ class DataTest
 
 		// Output the list
 		Collections.sort(longPaths);
-		longPaths.forEach(System.out::println);
+		longPaths.forEach(p -> Logging.log(Level.INFO, p));
 
 		// Flag any change for the worse.
 		assertEquals(
@@ -127,9 +128,11 @@ class DataTest
 
 	/**
 	 * Produce the variable report in html and csv formats.
-	 * @throws Exception if the report fails.
+	 *
+	 * @throws IOException        if writing a report file fails.
+	 * @throws TemplateException  if rendering the FreeMarker template fails.
 	 */
-	public void produceVariableReport() throws Exception
+	public void produceVariableReport() throws IOException, TemplateException
 	{
 		Map<ReportFormat, String> reportNameMap =
 				new EnumMap<>(ReportFormat.class);
@@ -138,9 +141,8 @@ class DataTest
 		VariableReport vReport = new VariableReport();
 		vReport.runReport(reportNameMap);
 
-		reportNameMap.entrySet().stream().map(repType -> "Variable report in " + repType.getKey()
-				+ " format output to "
-				+ new File(repType.getValue()).getAbsolutePath()).forEach(System.out::println);
+		reportNameMap.forEach((fmt, name) -> Logging.log(Level.INFO,
+				"Variable report in " + fmt + " format output to " + new File(name).getAbsolutePath()));
 	}
 
 	/**
@@ -215,10 +217,8 @@ class DataTest
 		                         .map(srcRelPath -> srcRelPath + "\r\n")
 		                         .collect(Collectors.joining());
 
-		// Flag any missing files
-		// TODO Revert back to the below
+		// Flag any orphan files
 		assertEquals("", report, "Some data files are orphaned.");
-		//assertEquals("pathfinder_2e/core_rulebook/c_skills_situation.lst", report, "Some data files are orphaned.");
 	}
 
 	/**
@@ -235,7 +235,7 @@ class DataTest
 			return walk.filter(Files::isRegularFile)
 			           .map(Path::toFile)
 			           .filter(f -> exts.contains(extensionOf(f.getName())))
-			           .collect(Collectors.toList());
+			           .toList();
 		}
 		catch (IOException e)
 		{
@@ -254,10 +254,10 @@ class DataTest
 		List<CampaignSourceEntry> cseList =
 				new ArrayList<>();
 		CampaignLoader.OBJECT_FILE_LISTKEY.stream()
-		      .map((Function<ListKey, List>) campaign::getSafeListFor)
+		      .map(campaign::getSafeListFor)
 		      .forEach(cseList::addAll);
 		CampaignLoader.OTHER_FILE_LISTKEY.stream()
-		      .map((Function<ListKey, List>) campaign::getSafeListFor)
+		      .map(campaign::getSafeListFor)
 		      .forEach(cseList::addAll);
 		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_PCC));
 		return cseList;
@@ -267,7 +267,7 @@ class DataTest
 	private static void loadGameModes()
 	{
 		String pccLoc = TestHelper.findDataFolder();
-		System.out.println("Got data folder of " + pccLoc);
+		Logging.log(Level.INFO, "Got data folder of " + pccLoc);
 		Path settingsDir = tempDir.resolve("testsuite");
 		Path configFile = tempDir.resolve(TEST_CONFIG_FILE);
 		try
