@@ -15,8 +15,9 @@ import java.util.logging.Logger;
  * one returns {@code false} (or throws), the exit is cancelled. The underlying
  * {@link ExitFunction} is only invoked when no interceptor vetoes.
  * <p>
- * Thread-safe. Once shutdown has begun, registration calls throw
- * {@link IllegalStateException}.
+ * Thread-safe. While an {@link #exit(int)} call is in progress, registration calls
+ * throw {@link IllegalStateException} so interceptors can't mutate the list they're
+ * iterating.
  */
 public final class GracefulExit
 {
@@ -83,13 +84,14 @@ public final class GracefulExit
 			}
 		} finally
 		{
+			isShuttingDown = false;
 			lock.unlock();
 		}
 	}
 
 	/**
-	 * Registers an interceptor. Must be called before shutdown begins; throws
-	 * {@link IllegalStateException} otherwise. Returns a {@link Registration}
+	 * Registers an interceptor. Must not be called from within {@link #exit(int)};
+	 * throws {@link IllegalStateException} otherwise. Returns a {@link Registration}
 	 * the caller can close to deregister the interceptor.
 	 *
 	 * @param interceptor the interceptor to add
@@ -100,7 +102,7 @@ public final class GracefulExit
 		lock.lock();
 		try
 		{
-			ensureNotShuttingDown("Cannot add an interceptor after shutdown has started");
+			ensureNotShuttingDown("Cannot add an interceptor while exit is in progress");
 			interceptors.add(interceptor);
 		} finally
 		{
@@ -110,15 +112,15 @@ public final class GracefulExit
 	}
 
 	/**
-	 * Clears all registered interceptors. Must be called before shutdown begins;
-	 * throws {@link IllegalStateException} otherwise.
+	 * Clears all registered interceptors. Must not be called from within
+	 * {@link #exit(int)}; throws {@link IllegalStateException} otherwise.
 	 */
 	public static void clearExitInterceptors()
 	{
 		lock.lock();
 		try
 		{
-			ensureNotShuttingDown("Cannot clear interceptors after shutdown has started");
+			ensureNotShuttingDown("Cannot clear interceptors while exit is in progress");
 			interceptors.clear();
 		} finally
 		{
@@ -128,8 +130,8 @@ public final class GracefulExit
 
 	/**
 	 * Replaces the underlying {@link ExitFunction} (default {@link System#exit}).
-	 * Must be called before shutdown begins; throws {@link IllegalStateException}
-	 * otherwise.
+	 * Must not be called from within {@link #exit(int)}; throws
+	 * {@link IllegalStateException} otherwise.
 	 *
 	 * @param exitFunction the exit function to use
 	 */
@@ -138,7 +140,7 @@ public final class GracefulExit
 		lock.lock();
 		try
 		{
-			ensureNotShuttingDown("Cannot register an exit function after shutdown has started");
+			ensureNotShuttingDown("Cannot register an exit function while exit is in progress");
 			GracefulExit.exitFunction = exitFunction;
 		} finally
 		{

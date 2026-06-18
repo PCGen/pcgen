@@ -8,7 +8,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class GracefulExitTest
 {
@@ -151,15 +150,5 @@ class GracefulExitTest
 		});
 		GracefulExit.exit(0);
 		assertEquals(3, count.get(), "All interceptors should have run");
-	}
-
-	@Test
-	void testShutdownGuardPersists()
-	{
-		GracefulExit.exit(0);
-		assertTrue(assertThrows(IllegalStateException.class,
-				() -> GracefulExit.addExitInterceptor(s -> true),
-				"Once shutdown has begun, registration must stay locked")
-				.getMessage().contains("shutdown"));
 	}
 }
