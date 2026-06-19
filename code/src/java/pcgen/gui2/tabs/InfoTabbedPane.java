@@ -334,7 +334,7 @@ public final class InfoTabbedPane extends JTabbedPane implements CharacterSelect
 		private final Queue<CharacterInfoTab> storeQueue;
 		private final Queue<Future<?>> restoreQueue;
 
-		public TabModelService()
+		TabModelService()
 		{
 			super(1, 1, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>(), r -> {
                 Thread thread = new Thread(r);
@@ -374,7 +374,7 @@ public final class InfoTabbedPane extends JTabbedPane implements CharacterSelect
 			storeQueue.add(infoTab);
 		}
 
-		public void restoreModels(Map<CharacterInfoTab, ModelMap> states, int selectedIndex)
+		void restoreModels(Map<CharacterInfoTab, ModelMap> states, int selectedIndex)
 		{
 			CharacterInfoTab firstTab = (CharacterInfoTab) getComponentAt(selectedIndex);
 			restoreTab(firstTab, states.get(firstTab));
@@ -397,7 +397,7 @@ public final class InfoTabbedPane extends JTabbedPane implements CharacterSelect
 			}
 		}
 
-		public void storeModels(Map<CharacterInfoTab, ModelMap> states)
+		void storeModels(Map<CharacterInfoTab, ModelMap> states)
 		{
 			while (!storeQueue.isEmpty())
 			{
@@ -406,7 +406,7 @@ public final class InfoTabbedPane extends JTabbedPane implements CharacterSelect
 			}
 		}
 
-		public void cancelRestoreTasks()
+		void cancelRestoreTasks()
 		{
 			while (!restoreQueue.isEmpty())
 			{
@@ -421,7 +421,7 @@ public final class InfoTabbedPane extends JTabbedPane implements CharacterSelect
 			private final ModelMap models;
 			private boolean executed;
 
-			public RestoreModelsTask(CharacterInfoTab infoTab, ModelMap models)
+			RestoreModelsTask(CharacterInfoTab infoTab, ModelMap models)
 			{
 				this.infoTab = infoTab;
 				this.models = models;
@@ -459,7 +459,7 @@ public final class InfoTabbedPane extends JTabbedPane implements CharacterSelect
 
 		private final Component component;
 
-		public TabActionListener(Component component)
+		TabActionListener(Component component)
 		{
 			this.component = component;
 		}

@@ -252,7 +252,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel implements Sor
 
 		private final int level;
 
-		public TreeViewNode(Vector<TreeViewPath<? super E>> paths)
+		TreeViewNode(Vector<TreeViewPath<? super E>> paths)
 		{
 			this(0, null, paths);
 		}
@@ -323,7 +323,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel implements Sor
 			}
 		}
 
-		public void removeTreeViewPath(TreeViewPath<? super E> path)
+		void removeTreeViewPath(TreeViewPath<? super E> path)
 		{
 			if (!loadedChildren)
 			{
@@ -360,7 +360,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel implements Sor
 			}
 		}
 
-		public void insertTreeViewPath(TreeViewPath<? super E> path)
+		void insertTreeViewPath(TreeViewPath<? super E> path)
 		{
 			//			Logging.errorPrint("adding: "+path);
 			if (!loadedChildren)
@@ -445,7 +445,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel implements Sor
 
 		private Comparator<Row> mostRecentComparator = null;
 
-		public void setComparator(Comparator<Row> comparator)
+		void setComparator(Comparator<Row> comparator)
 		{
 			this.mostRecentComparator = comparator;
 		}

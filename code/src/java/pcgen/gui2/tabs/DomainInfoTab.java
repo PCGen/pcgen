@@ -285,12 +285,12 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		private final CharacterFacade character;
 
-		public DomainRenderer(CharacterFacade character)
+		DomainRenderer(CharacterFacade character)
 		{
 			this.character = character;
 		}
 
-		public void install()
+		void install()
 		{
 			domainTable.setDefaultRenderer(Object.class, this);
 		}
@@ -329,19 +329,19 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		private final CharacterFacade character;
 		private String text;
 
-		public DeityInfoHandler(CharacterFacade character)
+		DeityInfoHandler(CharacterFacade character)
 		{
 			this.character = character;
 			this.text = ""; //$NON-NLS-1$
 		}
 
-		public void install()
+		void install()
 		{
 			deityTable.getSelectionModel().addListSelectionListener(this);
 			deityInfo.setText(text);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			deityTable.getSelectionModel().removeListSelectionListener(this);
 		}
@@ -372,19 +372,19 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		private final CharacterFacade character;
 		private String text;
 
-		public DomainInfoHandler(CharacterFacade character)
+		DomainInfoHandler(CharacterFacade character)
 		{
 			this.character = character;
 			this.text = ""; //$NON-NLS-1$
 		}
 
-		public void install()
+		void install()
 		{
 			domainTable.getSelectionModel().addListSelectionListener(this);
 			domainInfo.setText(text);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			domainTable.getSelectionModel().removeListSelectionListener(this);
 		}
@@ -419,7 +419,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		private final CharacterFacade character;
 
-		public SelectDeityAction(CharacterFacade character)
+		SelectDeityAction(CharacterFacade character)
 		{
 			super(LanguageBundle.getString("in_select")); //$NON-NLS-1$
 			this.character = character;
@@ -439,12 +439,12 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			}
 		}
 
-		public void install()
+		void install()
 		{
 			deityTable.addActionListener(this);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			deityTable.removeActionListener(this);
 		}
@@ -474,12 +474,12 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		};
 		private final CharacterFacade character;
 
-		public QualifiedFilterHandler(CharacterFacade character)
+		QualifiedFilterHandler(CharacterFacade character)
 		{
 			this.character = character;
 		}
 
-		public void install()
+		void install()
 		{
 			qDomainButton.setFilter(domainFilter);
 			qDeityButton.setFilter(deityFilter);
@@ -492,12 +492,12 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		private final DomainTableModel tableModel;
 
-		public DomainTableHandler(CharacterFacade character)
+		DomainTableHandler(CharacterFacade character)
 		{
 			tableModel = new DomainTableModel(character);
 		}
 
-		public void install()
+		void install()
 		{
 			domainFilter.setFilterHandler(this);
 			tableModel.setFilter(domainFilter);
@@ -505,7 +505,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			domainRowHeaderTable.setModel(tableModel);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			tableModel.setFilter(null);
 		}
@@ -535,13 +535,13 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		private final JLabel label;
 		private final ReferenceFacade<Integer> ref;
 
-		public DomainLabelHandler(CharacterFacade character, JLabel label)
+		DomainLabelHandler(CharacterFacade character, JLabel label)
 		{
 			ref = character.getRemainingDomainSelectionsRef();
 			this.label = label;
 		}
 
-		public void install()
+		void install()
 		{
 			if (ref != null)
 			{
@@ -553,7 +553,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			}
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			if (ref != null)
 			{
@@ -575,13 +575,13 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		private final JLabel label;
 		private final ReferenceFacade<Deity> ref;
 
-		public DeityLabelHandler(CharacterFacade character, JLabel label)
+		DeityLabelHandler(CharacterFacade character, JLabel label)
 		{
 			ref = character.getDeityRef();
 			this.label = label;
 		}
 
-		public void install()
+		void install()
 		{
 			label.setFont(FontManipulation.plain(label.getFont()));
 			if (ref == null)
@@ -604,7 +604,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			if (ref != null)
 			{
@@ -650,7 +650,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		};
 
-		public DomainTableModel(CharacterFacade character)
+		DomainTableModel(CharacterFacade character)
 		{
 			super(character);
 			if (character.isFeatureEnabled(CControl.DOMAINFEATURE))
@@ -736,7 +736,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		private final CharacterFacade character;
 		private final InfoFactory infoFactory;
 
-		public DeityTreeViewModel(CharacterFacade character)
+		DeityTreeViewModel(CharacterFacade character)
 		{
 			this.character = character;
 			this.infoFactory = character.getInfoFactory();
@@ -851,7 +851,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		}
 
-		public List<String> getDomainNames(Deity pobj)
+		List<String> getDomainNames(Deity pobj)
 		{
 			List<String> domains = new ArrayList<>();
 			for (CDOMReference<Domain> ref : pobj.getSafeListMods(Deity.DOMAINLIST))

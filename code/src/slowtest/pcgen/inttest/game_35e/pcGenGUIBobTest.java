@@ -14,6 +14,6 @@ public class pcGenGUIBobTest extends PcgenFtlTestCase
 	@Test
 	public void testCode() throws Exception
 	{
-		runTest("35e_Bob", "35e");
+		runTest("35e_Bob");
 	}
 }

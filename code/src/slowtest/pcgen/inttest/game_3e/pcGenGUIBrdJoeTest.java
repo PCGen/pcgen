@@ -31,7 +31,7 @@ public class pcGenGUIBrdJoeTest extends PcgenFtlTestCase
 	@Test
 	public void testBrdJoe() throws Exception
 	{
-		runTest("3e_BrdJoe", "3e");
+		runTest("3e_BrdJoe");
 	}
 
 }

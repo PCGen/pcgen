@@ -46,7 +46,7 @@ public final class PCGenPreferencesModel
 	{
 		private final String title;
 
-		public EmptyPrefPanel(String title, JFXPanel innerPanel)
+		EmptyPrefPanel(String title, JFXPanel innerPanel)
 		{
 			this.title = title;
 			this.add(innerPanel);

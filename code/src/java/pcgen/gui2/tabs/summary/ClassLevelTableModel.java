@@ -261,7 +261,7 @@ public class ClassLevelTableModel extends AbstractTableModel implements ListList
 		private JButton addLevelButton = Utilities.createSignButton(Sign.Plus);
 		private JButton removeLevelButton = Utilities.createSignButton(Sign.Minus);
 
-		public Editor()
+		Editor()
 		{
 			super();
 			cellPanel.setLayout(new BoxLayout(cellPanel, BoxLayout.X_AXIS));

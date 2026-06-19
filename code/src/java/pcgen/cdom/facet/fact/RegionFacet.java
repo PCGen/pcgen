@@ -298,11 +298,11 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 	 */
 	private static class RegionCacheInfo
 	{
-		public Optional<Region> cachedRegion = Optional.empty();
+		Optional<Region> cachedRegion = Optional.empty();
 
-		public Region region;
+		Region region;
 
-		public String subregion;
+		String subregion;
 
 		@Override
 		public String toString()

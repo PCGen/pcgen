@@ -238,19 +238,19 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 		private final HtmlSheetSupport support;
 
-		public SkillSheetHandler(CharacterFacade character)
+		SkillSheetHandler(CharacterFacade character)
 		{
 			String sheet = character.getDataSet().getGameMode().getInfoSheetSkill();
 			support = new HtmlSheetSupport(character, htmlPane, sheet);
 			character.getCharacterLevelsFacade().addSkillBonusListener(this);
 		}
 
-		public void install()
+		void install()
 		{
 			support.install();
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			support.uninstall();
 		}
@@ -270,13 +270,13 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		private final CharacterLevelsFacade levels;
 		private final ListSelectionModel model;
 
-		public LevelSelectionHandler(CharacterFacade character, ListSelectionModel model)
+		LevelSelectionHandler(CharacterFacade character, ListSelectionModel model)
 		{
 			this.levels = character.getCharacterLevelsFacade();
 			this.model = model;
 		}
 
-		public void install()
+		void install()
 		{
 			levels.addSkillPointListener(this);
 			levels.addListListener(this);
@@ -284,7 +284,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			updateSelectedIndex(false);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			levels.removeSkillPointListener(this);
 			levels.removeListListener(this);
@@ -414,14 +414,14 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		private final CharacterFacade character;
 		private boolean installed = false;
 
-		public FilterHandler(CharacterFacade character, ListSelectionModel model)
+		FilterHandler(CharacterFacade character, ListSelectionModel model)
 		{
 			this.character = character;
 			this.model = model;
 			model.addListSelectionListener(this);
 		}
 
-		public void install()
+		void install()
 		{
 			installed = true;
 			cFilterButton.setFilter(cFilter);
@@ -429,7 +429,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			skillTable.setContext(character);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			installed = false;
 		}
@@ -453,7 +453,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		private ListSelectionModel listModel;
 		private CharacterFacade character;
 
-		public SkillRankSpinnerEditor(CharacterFacade character, ListSelectionModel listModel)
+		SkillRankSpinnerEditor(CharacterFacade character, ListSelectionModel listModel)
 		{
 			this(new SkillRankSpinnerModel(character));
 			this.listModel = listModel;
@@ -529,7 +529,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		private CharacterLevelFacade level;
 		private Skill skill;
 
-		public SkillRankSpinnerModel(CharacterFacade character)
+		SkillRankSpinnerModel(CharacterFacade character)
 		{
 			this.character = character;
 		}
@@ -540,7 +540,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			return character.getCharacterLevelsFacade().getSkillRanks(level, skill);
 		}
 
-		public void configureModel(Skill sk, CharacterLevelFacade charLevel)
+		void configureModel(Skill sk, CharacterLevelFacade charLevel)
 		{
 			this.skill = sk;
 			this.level = charLevel;
@@ -556,7 +556,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			}
 		}
 
-		public void setValue(Float value)
+		void setValue(Float value)
 		{
 			if (value == null)
 			{
@@ -647,19 +647,19 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		private final CharacterFacade character;
 		private String text;
 
-		public InfoHandler(CharacterFacade character)
+		InfoHandler(CharacterFacade character)
 		{
 			this.character = character;
 			this.text = ""; //$NON-NLS-1$
 		}
 
-		public void install()
+		void install()
 		{
 			skillTable.getSelectionModel().addListSelectionListener(this);
 			infoPane.setText(text);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			skillTable.getSelectionModel().removeListSelectionListener(this);
 		}
@@ -691,7 +691,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		private final SkillSheetHandler skillSheetHandler;
 		private final ComboBoxModel model;
 
-		public SkillFilterHandler(CharacterFacade character, SkillSheetHandler skillSheetHandler)
+		SkillFilterHandler(CharacterFacade character, SkillSheetHandler skillSheetHandler)
 		{
 			this.character = character;
 			this.skillSheetHandler = skillSheetHandler;
@@ -704,7 +704,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			model.addListDataListener(this);
 		}
 
-		public void install()
+		void install()
 		{
 			skillFilterBox.setModel(model);
 		}

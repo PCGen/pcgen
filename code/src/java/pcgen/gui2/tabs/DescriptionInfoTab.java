@@ -185,7 +185,7 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 		private final List<NoteInfoPane> notePaneList;
 		private final CharacterFacade character;
 
-		public NoteListHandler(CharacterFacade character, DefaultListModel<PageItem> listModel,
+		NoteListHandler(CharacterFacade character, DefaultListModel<PageItem> listModel,
 			List<NoteInfoPane> notePaneList)
 		{
 			this.character = character;
@@ -219,7 +219,7 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 			return notePane;
 		}
 
-		public void install()
+		void install()
 		{
 			notes.addListListener(this);
 
@@ -229,7 +229,7 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 			}
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			notes.removeListListener(this);
 
@@ -325,7 +325,7 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 		 * @param note      The note being represented.
 		 * @param page      The page to display the note.
 		 */
-		public PageItem(CharacterFacade character, NoteItem note, CharacterInfoTab page)
+		PageItem(CharacterFacade character, NoteItem note, CharacterInfoTab page)
 		{
 			this.note = note;
 			this.name = ""; //$NON-NLS-1$
@@ -341,7 +341,7 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 		 * @param name      The name of the page.
 		 * @param page      The pre-defined page..
 		 */
-		public PageItem(CharacterFacade character, String name, CharacterInfoTab page)
+		PageItem(CharacterFacade character, String name, CharacterInfoTab page)
 		{
 			this.note = null;
 			this.name = name;
@@ -356,12 +356,12 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 			return note == null ? name : note.getName();
 		}
 
-		public void storeModels()
+		void storeModels()
 		{
 			page.storeModels(data);
 		}
 
-		public void restoreModels()
+		void restoreModels()
 		{
 			page.restoreModels(data);
 		}
@@ -374,7 +374,7 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 		private final ListSelectionModel selectionModel;
 		private PageItem currentPage;
 
-		public PageHandler(ListSelectionModel selectionModel, PageItem currentPage)
+		PageHandler(ListSelectionModel selectionModel, PageItem currentPage)
 		{
 			this.selectionModel = selectionModel;
 			this.currentPage = currentPage;
@@ -399,7 +399,7 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 			pages.show(pagePanel, currentPage.id);
 		}
 
-		public void install()
+		void install()
 		{
 			selectionModel.addListSelectionListener(this);
 			currentPage.restoreModels();
@@ -407,7 +407,7 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 			pages.show(pagePanel, currentPage.id);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			selectionModel.removeListSelectionListener(this);
 			currentPage.storeModels();
@@ -424,7 +424,7 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 
 		private final CharacterFacade character;
 
-		public AddAction(CharacterFacade character)
+		AddAction(CharacterFacade character)
 		{
 			super(LanguageBundle.getString("in_descAddPage")); //$NON-NLS-1$
 			this.character = character;

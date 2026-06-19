@@ -14,6 +14,6 @@ public class pcGenGUIGordonTest extends PcgenFtlTestCase
 	@Test
 	public void testCode() throws Exception
 	{
-		runTest("35e_Gordon", "35e");
+		runTest("35e_Gordon");
 	}
 }

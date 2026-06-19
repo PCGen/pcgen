@@ -32,7 +32,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.function.Function;
+import java.util.logging.Level;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -48,10 +48,10 @@ import pcgen.system.PropertyContextFactory;
 import pcgen.util.Logging;
 import pcgen.util.TestHelper;
 
-import org.apache.commons.lang3.SystemUtils;
-import org.junit.jupiter.api.AfterAll;
+import freemarker.template.TemplateException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
 /**
  * The Class {@code DataTest} checks the data files for known issues.
@@ -60,6 +60,15 @@ class DataTest
 {
 	/** The name of our dummy config file. */
 	private static final String TEST_CONFIG_FILE = "config.ini.junit";
+
+	/**
+	 * Per-class temp directory holding the dummy {@code config.ini.junit} and the
+	 * {@code settingsPath} folder. Per-class isolation lets parallel forks within
+	 * {@code :datatest} (DataTest + DataLoadTest) run without racing on a shared
+	 * config file in the project root.
+	 */
+	@TempDir
+	static Path tempDir;
 
 	/**
 	 * Initialise the plugins and load the game mode and campaign files.
@@ -71,15 +80,6 @@ class DataTest
 	}
 
 	/**
-	 * Tidy up the config file we created.
-	 */
-	@AfterAll
-	static void afterClass()
-	{
-		new File(TEST_CONFIG_FILE).delete();
-	}
-
-	/**
 	 * Check the data for files with extraordinarily long path names. The files
 	 * as at the time of writing are grandfathered in, but any new data files
 	 * with path names longer than 150 characters will be flagged.
@@ -88,7 +88,7 @@ class DataTest
 	public void pathLengthTest()
 	{
 		String dataPath = ConfigurationSettings.getPccFilesDir();
-		System.out.println("Got datapath of " + new File(dataPath).getAbsolutePath());
+		Logging.log(Level.INFO, "Got datapath of " + new File(dataPath).getAbsolutePath());
 
 		Collection<String> allowedNames =
 				new HashSet<>(Arrays.asList(
@@ -119,7 +119,7 @@ class DataTest
 
 		// Output the list
 		Collections.sort(longPaths);
-		longPaths.forEach(System.out::println);
+		longPaths.forEach(p -> Logging.log(Level.INFO, p));
 
 		// Flag any change for the worse.
 		assertEquals(
@@ -128,9 +128,11 @@ class DataTest
 
 	/**
 	 * Produce the variable report in html and csv formats.
-	 * @throws Exception if the report fails.
+	 *
+	 * @throws IOException        if writing a report file fails.
+	 * @throws TemplateException  if rendering the FreeMarker template fails.
 	 */
-	public void produceVariableReport() throws Exception
+	public void produceVariableReport() throws IOException, TemplateException
 	{
 		Map<ReportFormat, String> reportNameMap =
 				new EnumMap<>(ReportFormat.class);
@@ -139,9 +141,8 @@ class DataTest
 		VariableReport vReport = new VariableReport();
 		vReport.runReport(reportNameMap);
 
-		reportNameMap.entrySet().stream().map(repType -> "Variable report in " + repType.getKey()
-				+ " format output to "
-				+ new File(repType.getValue()).getAbsolutePath()).forEach(System.out::println);
+		reportNameMap.forEach((fmt, name) -> Logging.log(Level.INFO,
+				"Variable report in " + fmt + " format output to " + new File(name).getAbsolutePath()));
 	}
 
 	/**
@@ -216,10 +217,8 @@ class DataTest
 		                         .map(srcRelPath -> srcRelPath + "\r\n")
 		                         .collect(Collectors.joining());
 
-		// Flag any missing files
-		// TODO Revert back to the below
+		// Flag any orphan files
 		assertEquals("", report, "Some data files are orphaned.");
-		//assertEquals("pathfinder_2e/core_rulebook/c_skills_situation.lst", report, "Some data files are orphaned.");
 	}
 
 	/**
@@ -236,7 +235,7 @@ class DataTest
 			return walk.filter(Files::isRegularFile)
 			           .map(Path::toFile)
 			           .filter(f -> exts.contains(extensionOf(f.getName())))
-			           .collect(Collectors.toList());
+			           .toList();
 		}
 		catch (IOException e)
 		{
@@ -255,10 +254,10 @@ class DataTest
 		List<CampaignSourceEntry> cseList =
 				new ArrayList<>();
 		CampaignLoader.OBJECT_FILE_LISTKEY.stream()
-		      .map((Function<ListKey, List>) campaign::getSafeListFor)
+		      .map(campaign::getSafeListFor)
 		      .forEach(cseList::addAll);
 		CampaignLoader.OTHER_FILE_LISTKEY.stream()
-		      .map((Function<ListKey, List>) campaign::getSafeListFor)
+		      .map(campaign::getSafeListFor)
 		      .forEach(cseList::addAll);
 		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_PCC));
 		return cseList;
@@ -268,11 +267,13 @@ class DataTest
 	private static void loadGameModes()
 	{
 		String pccLoc = TestHelper.findDataFolder();
-		System.out.println("Got data folder of " + pccLoc);
+		Logging.log(Level.INFO, "Got data folder of " + pccLoc);
+		Path settingsDir = tempDir.resolve("testsuite");
+		Path configFile = tempDir.resolve(TEST_CONFIG_FILE);
 		try
 		{
-			String configFolder = "testsuite";
-			TestHelper.createDummySettingsFile(TEST_CONFIG_FILE, configFolder,
+			Files.createDirectories(settingsDir);
+			TestHelper.createDummySettingsFile(configFile.toString(), settingsDir.toString(),
 				pccLoc);
 		}
 		catch (IOException e)
@@ -280,7 +281,7 @@ class DataTest
 			Logging.errorPrint("DataTest.loadGameModes failed", e);
 		}
 
-		PropertyContextFactory configFactory = new PropertyContextFactory(SystemUtils.USER_DIR);
+		PropertyContextFactory configFactory = new PropertyContextFactory(tempDir.toString());
 		configFactory.registerAndLoadPropertyContext(ConfigurationSettings.getInstance(TEST_CONFIG_FILE));
 		Main.loadProperties(false);
 		Main.runBootstrapTasks();

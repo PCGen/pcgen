@@ -17,6 +17,6 @@ public class pcGenGUIPfrpgGoldielocksTest extends PcgenFtlTestCase
 	@Test
 	public void testCode() throws IOException
 	{
-		runTest("pf_goldielocks", "Pathfinder_RPG");
+		runTest("pf_goldielocks");
 	}
 }

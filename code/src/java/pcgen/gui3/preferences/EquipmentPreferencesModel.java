@@ -34,8 +34,8 @@ final class EquipmentPreferencesModel
 			this.max = max;
 		}
 
-		public final int min;
-		public final int max;
+		final int min;
+		final int max;
 	}
 
 	private final IntegerProperty maxPotionLevel = new SimpleIntegerProperty();

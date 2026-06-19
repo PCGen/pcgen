@@ -164,7 +164,7 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 	private class FileMenu extends AbstractListMenu<File> implements ActionListener
 	{
 
-		public FileMenu()
+		FileMenu()
 		{
 			super(actionMap.get(PCGenActionMap.FILE_COMMAND));
 			add(new JMenuItem(actionMap.get(PCGenActionMap.NEW_COMMAND)));
@@ -216,7 +216,7 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 	private class PartyMenu extends AbstractListMenu<File> implements ActionListener
 	{
 
-		public PartyMenu()
+		PartyMenu()
 		{
 			super(actionMap.get(PCGenActionMap.PARTY_COMMAND));
 			add(new JMenuItem(actionMap.get(PCGenActionMap.OPEN_PARTY_COMMAND)));
@@ -327,7 +327,7 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 	 */
 	private class LoggingLevelMenu extends AbstractRadioListMenu<LoggingLevelWrapper>
 	{
-		public LoggingLevelMenu()
+		LoggingLevelMenu()
 		{
 			super(actionMap.get(PCGenActionMap.LOGGING_LEVEL_COMMAND));
 			DefaultListFacade<LoggingLevelWrapper> levels = new DefaultListFacade<>();
@@ -367,7 +367,7 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 	{
 		private final Level level;
 
-		public LoggingLevelWrapper(Level level)
+		LoggingLevelWrapper(Level level)
 		{
 			this.level = level;
 		}
@@ -381,7 +381,7 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 		/**
 		 * @return the level
 		 */
-		public Level getLevel()
+		Level getLevel()
 		{
 			return level;
 		}

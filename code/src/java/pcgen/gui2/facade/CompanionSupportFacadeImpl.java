@@ -466,7 +466,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 	{
 		private final Follower follower;
 
-		public DelegateFileListener(Follower followerIn)
+		DelegateFileListener(Follower followerIn)
 		{
 			this.follower = followerIn;
 		}
@@ -486,7 +486,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 	{
 		private final Follower follower;
 
-		public DelegateNameListener(Follower followerIn)
+		DelegateNameListener(Follower followerIn)
 		{
 			this.follower = followerIn;
 		}

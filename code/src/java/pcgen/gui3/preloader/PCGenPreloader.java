@@ -101,7 +101,7 @@ public class PCGenPreloader implements PCGenTaskListener, Controllable<PCGenPrel
 	public void done()
 	{
 		GuiAssertions.assertIsNotJavaFXThread();
-		Platform.runLater(() -> primaryStage.close());
+		Platform.runLater(primaryStage::close);
 	}
 
 	/**

@@ -23,7 +23,7 @@ class EditorObjectContext extends AbstractObjectContext
 {
 	private final TrackingObjectCommitStrategy commit = new TrackingObjectCommitStrategy();
 
-	public void purge(CDOMObject cdo)
+	void purge(CDOMObject cdo)
 	{
 		commit.purge(cdo);
 	}

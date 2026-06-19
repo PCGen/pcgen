@@ -202,7 +202,7 @@ public class LanguageTableModel extends AbstractTableModel implements ListListen
 		private JLabel addLabel = new JLabel();
 		private JLabel cellLabel = new JLabel();
 
-		public Editor()
+		Editor()
 		{
 			cellPanel.setLayout(cardLayout);
 			cellPanel.setOpaque(true);
@@ -309,7 +309,7 @@ public class LanguageTableModel extends AbstractTableModel implements ListListen
 		private JButton removeButton = Utilities.createSignButton(Sign.Minus);
 		private JLabel addLabel = new JLabel();
 
-		public Renderer()
+		Renderer()
 		{
 			setLayout(cardLayout);
 			Box box = Box.createHorizontalBox();

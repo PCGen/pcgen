@@ -174,12 +174,12 @@ public class AgeSetKitFacet extends AbstractStorageFacet<CharID> implements Data
 
 		private HashMapToList<AgeSet, Kit> kitMap = new HashMapToList<>();
 
-		public List<Kit> get(AgeSet ageSet)
+		List<Kit> get(AgeSet ageSet)
 		{
 			return kitMap.getListFor(ageSet);
 		}
 
-		public void put(AgeSet ageSet, Collection<? extends Kit> choice)
+		void put(AgeSet ageSet, Collection<? extends Kit> choice)
 		{
 			kitMap.addAllToListFor(ageSet, choice);
 		}

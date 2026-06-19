@@ -950,17 +950,11 @@ public final class PCGVer2Creator
 
 			int sp = pcl.getSkillPointsGained(thePC);
 
-			//if (sp != 0)
-			{
-				buffer.append('|').append(IOConstants.TAG_SKILLPOINTSGAINED).append(':').append(sp);
-			}
+			buffer.append('|').append(IOConstants.TAG_SKILLPOINTSGAINED).append(':').append(sp);
 
 			sp = pcl.getSkillPointsRemaining();
 
-			//if (sp != 0)
-			{
-				buffer.append('|').append(IOConstants.TAG_SKILLPOINTSREMAINING).append(':').append(sp);
-			}
+			buffer.append('|').append(IOConstants.TAG_SKILLPOINTSREMAINING).append(':').append(sp);
 
 			buffer.append(IOConstants.LINE_SEP);
 		}

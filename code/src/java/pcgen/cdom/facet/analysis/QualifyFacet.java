@@ -158,7 +158,7 @@ public class QualifyFacet extends AbstractStorageFacet<CharID> implements DataFa
 		 * @param source
 		 *            The source for the Qualifier being added to this CacheInfo
 		 */
-		public void add(Qualifier q, CDOMObject source)
+		void add(Qualifier q, CDOMObject source)
 		{
 			hml.addToListFor(q.getQualifiedReference().getPersistentFormat(), q);
 			sourceMap.addToListFor(source, q);
@@ -172,7 +172,7 @@ public class QualifyFacet extends AbstractStorageFacet<CharID> implements DataFa
 		 *            The source CDOMObject for which all Qualifier objects will
 		 *            be removed from this CacheInfo
 		 */
-		public void removeAll(CDOMObject object)
+		void removeAll(CDOMObject object)
 		{
 			List<Qualifier> list = sourceMap.removeListFor(object);
 			if (list != null)
@@ -194,7 +194,7 @@ public class QualifyFacet extends AbstractStorageFacet<CharID> implements DataFa
 		 * @return true if the Player Character has been granted qualification
 		 *         for the given CDOMObject; false otherwise
 		 */
-		public boolean isQualified(Loadable qualTestObject)
+		boolean isQualified(Loadable qualTestObject)
 		{
 			ClassIdentity<? extends Loadable> identity = qualTestObject.getClassIdentity();
 			List<Qualifier> list = hml.getListFor(identity.getPersistentFormat());

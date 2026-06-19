@@ -33,7 +33,7 @@ public class pcGenGUIWizSharTest extends PcgenFtlTestCase
 	@Test
 	public void testWizShar() throws IOException
 	{
-		runTest("3e_WizShar", "3e");
+		runTest("3e_WizShar");
 	}
 
 }

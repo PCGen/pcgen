@@ -287,10 +287,10 @@ public final class KitAbilities extends BaseKit
 
 	private static class AbilitySelection implements Comparable<AbilitySelection>
 	{
-		public final Ability ability;
-		public final String selection;
+		final Ability ability;
+		final String selection;
 
-		public AbilitySelection(Ability a, String sel)
+		AbilitySelection(Ability a, String sel)
 		{
 			ability = a;
 			selection = sel;

@@ -198,7 +198,7 @@ public class CoreViewFrame extends JFrame
 		private DefaultListFacade<CoreViewNodeFacade> coreViewList;
 		private final List<? extends DataViewColumn> dataColumns;
 
-		public CoreViewTreeViewModel(CharacterFacade character)
+		CoreViewTreeViewModel(CharacterFacade character)
 		{
 			this.character = character;
 
@@ -210,7 +210,7 @@ public class CoreViewFrame extends JFrame
 		/**
 		 * @param corePerspective
 		 */
-		public void setPerspective(CorePerspective corePerspective)
+		void setPerspective(CorePerspective corePerspective)
 		{
 			List<CoreViewNodeFacade> coreViewNodes = character.getCoreViewTree(corePerspective);
 			coreViewList = new DefaultListFacade<>(coreViewNodes);

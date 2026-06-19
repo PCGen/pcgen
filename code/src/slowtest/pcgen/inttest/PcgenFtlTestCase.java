@@ -19,6 +19,7 @@ package pcgen.inttest;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.io.TempDir;
 import org.xmlunit.builder.DiffBuilder;
 import org.xmlunit.builder.Input;
 import org.xmlunit.diff.Diff;
@@ -27,9 +28,10 @@ import pcgen.system.Main;
 import pcgen.util.GracefulExit;
 import pcgen.util.TestHelper;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.MessageFormat;
 import java.util.Locale;
 import java.util.logging.Logger;
@@ -48,6 +50,14 @@ public abstract class PcgenFtlTestCase
 
 	private static final String TEST_CONFIG_FILE = "config.ini.junit";
 
+	/**
+	 * JUnit-managed per-test temp directory. Holds {@code config.ini.junit}, the {@code settingsPath}
+	 * directory and the export output. Per-test isolation lets parallel forks run without
+	 * racing on a shared {@code config.ini.junit} in the project root.
+	 */
+	@TempDir
+	Path tempDir;
+
 	@BeforeEach
 	public void setUp()
 	{
@@ -65,45 +75,45 @@ public abstract class PcgenFtlTestCase
 	 * Run the test.
 	 *
 	 * @param character The PC
-	 * @param mode      The game mode
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
-	public static void runTest(String character, String mode) throws IOException
+	public void runTest(String character) throws IOException
 	{
-		LOG.info("RUNTEST with the character: " + character + " and the game mode: " + mode);
-		// Delete the old generated output for this test
+		LOG.info("RUNTEST with the character: " + character);
 		String characterFileName = character + ".xml";
 		String characterPCFileName = character + ".pcg";
-		var inputFolder = new File("code/testsuite/PCGfiles");
-		var outputFolder = new File("code/testsuite/output");
-		var csheetsFolder = new File("code/testsuite/csheets");
-		outputFolder.mkdirs();
+		Path inputFolder = Paths.get("code/testsuite/PCGfiles");
+		Path csheetsFolder = Paths.get("code/testsuite/csheets");
 
-		var inputFile = new File(inputFolder, characterPCFileName);
-		var outputFile = new File(outputFolder, characterFileName);
-		var expectedFile = new File(csheetsFolder, characterFileName);
+		Path settingsDir = Files.createDirectories(tempDir.resolve("testsuite"));
+		Path outputDir = Files.createDirectories(tempDir.resolve("output"));
+		Path configFile = tempDir.resolve(TEST_CONFIG_FILE);
+
+		Path inputFile = inputFolder.resolve(characterPCFileName);
+		Path outputFile = outputDir.resolve(characterFileName);
+		Path expectedFile = csheetsFolder.resolve(characterFileName);
 
 		String pccLoc = TestHelper.findDataFolder();
 
 		/*
 		 * Override the pcc location, game mode and several other properties in the options.ini file
 		 */
-		String configFolder = "testsuite";
-		TestHelper.createDummySettingsFile(TEST_CONFIG_FILE, configFolder, pccLoc);
+		TestHelper.createDummySettingsFile(configFile.toString(), settingsDir.toString(), pccLoc);
 
 		GracefulExit.registerExitFunction((int status) ->
 				assertEquals(0, status,
 						MessageFormat.format("The export of {0} failed with an error: {1}.", character, status)));
 
-		Main.main("--character", inputFile.getCanonicalPath(),
+		Main.main("--character", inputFile.toString(),
 				"--exportsheet", "code/testsuite/base-xml.ftl",
-				"--outputfile", outputFile.getCanonicalPath(),
+				"--outputfile", outputFile.toString(),
+				"--settingsdir", tempDir.toString(),
 				"--configfilename", TEST_CONFIG_FILE);
 
 		// the XML of the expected result
-		var expected = Files.readString(expectedFile.toPath());
+		var expected = Files.readString(expectedFile);
 		// the XML of the actual result
-		var actual = Files.readString(outputFile.toPath());
+		var actual = Files.readString(outputFile);
 
 		LOG.info(() -> MessageFormat.format("Comparing the expected ({0}) and actual ({1}) results",
 				expectedFile, outputFile));

@@ -65,7 +65,7 @@ abstract class BioItem
 		label.setHorizontalAlignment(SwingConstants.RIGHT);
 	}
 
-	public void addComponents(JPanel panel)
+	void addComponents(JPanel panel)
 	{
 		GridBagConstraints gbc = new GridBagConstraints();
 		gbc.anchor = GridBagConstraints.PAGE_START;
@@ -135,7 +135,7 @@ abstract class BioItem
 		this.trailinglabel = Optional.of(new JLabel(text));
 	}
 
-	public void setVisible(boolean visible)
+	void setVisible(boolean visible)
 	{
 		label.setVisible(visible);
 		combobox.ifPresent(box -> box.setVisible(visible));
@@ -146,7 +146,7 @@ abstract class BioItem
 	/**
 	 * Installs this BioItem by attaching itself to the buttons.
 	 */
-	public void install()
+	void install()
 	{
 		textFieldHandler.ifPresent(ManagedField::install);
 	}
@@ -154,7 +154,7 @@ abstract class BioItem
 	/**
 	 * Uninstalls this BioItem by removing its listeners from the buttons.
 	 */
-	public void uninstall()
+	void uninstall()
 	{
 		textFieldHandler.ifPresent(ManagedField::uninstall);
 	}

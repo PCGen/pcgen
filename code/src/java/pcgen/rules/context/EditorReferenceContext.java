@@ -88,7 +88,7 @@ final class EditorReferenceContext extends RuntimeReferenceContext
 		return true;
 	}
 
-	public void purge(CDOMObject cdo)
+	void purge(CDOMObject cdo)
 	{
 		super.forget(cdo);
 	}
@@ -99,7 +99,7 @@ final class EditorReferenceContext extends RuntimeReferenceContext
 	 * 
 	 * @return A new EditorReferenceContext
 	 */
-	public static EditorReferenceContext createEditorReferenceContext()
+	static EditorReferenceContext createEditorReferenceContext()
 	{
 		EditorReferenceContext context = new EditorReferenceContext();
 		context.initialize();

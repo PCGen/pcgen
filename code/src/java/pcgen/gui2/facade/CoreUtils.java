@@ -201,7 +201,7 @@ final class CoreUtils
 		/**
 		 * Create a new instance of CoreUtils.LocationCoreViewNode
 		 */
-		public LocationCoreViewNode(Object object)
+		LocationCoreViewNode(Object object)
 		{
 			this.object = object;
 		}

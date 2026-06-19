@@ -30,6 +30,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import java.util.stream.Collectors;
@@ -49,9 +50,39 @@ class PluginBuildTest
 	private static final String JAVA_EXT = ".java";
 	private static final String CLASS_EXT = ".class";
 
+	private static final Path PLUGIN_SOURCE_ROOT = Paths.get("code/src/java/plugin");
+
 	@BeforeEach
 	void setUp()
 	{
+	}
+
+	/**
+	 * Catches a new {@code code/src/java/plugin/&lt;category&gt;/} directory that was added
+	 * without a matching jar entry being wired into {@code code/gradle/plugins.gradle}
+	 * (and thus a matching test method here). The set below must stay in sync with the
+	 * {@code createJarTask("...", "...plugins.jar", ..., "plugin/&lt;category&gt;/**\/*.class")}
+	 * calls in {@code plugins.gradle}.
+	 */
+	@Test
+	public void everyPluginPackageHasACorrespondingJar() throws IOException
+	{
+		Set<String> packagedCategories = Set.of(
+				"bonustokens", "converter", "exporttokens", "function",
+				"grouping", "jepcommands", "lsttokens", "modifier",
+				"pretokens", "primitive", "qualifier"
+		);
+		try (Stream<Path> stream = Files.list(PLUGIN_SOURCE_ROOT))
+		{
+			Set<String> uncovered = stream
+					.filter(Files::isDirectory)
+					.map(p -> p.getFileName().toString())
+					.filter(n -> !packagedCategories.contains(n))
+					.collect(Collectors.toCollection(TreeSet::new));
+			assertTrue(uncovered.isEmpty(),
+					"New plugin package(s) under " + PLUGIN_SOURCE_ROOT
+							+ " without a jar entry in plugins.gradle: " + uncovered);
+		}
 	}
 
 	/**
@@ -177,6 +208,9 @@ class PluginBuildTest
 
 	private void checkPluginJar(Path jar, Path sourceFolder) throws IOException
 	{
+		String expectedJarPrefix = PLUGIN_SOURCE_ROOT.getParent().relativize(sourceFolder)
+				.toString().replace(File.separatorChar, '/') + '/';
+
 		try (Stream<Path> stream = Files.walk(sourceFolder)) {
 			var javaPlugins = stream
 					.filter(Files::isRegularFile)
@@ -187,9 +221,19 @@ class PluginBuildTest
 					.collect(Collectors.toSet());
 
 			try (JarFile jarFile = new JarFile(jar.toFile())) {
-				var res = jarFile.stream()
+				Set<String> classEntries = jarFile.stream()
 						.map(JarEntry::getRealName)
 						.filter(s -> s.endsWith(CLASS_EXT))
+						.collect(Collectors.toSet());
+
+				Set<String> foreign = classEntries.stream()
+						.filter(s -> s.startsWith("plugin/") && !s.startsWith(expectedJarPrefix))
+						.collect(Collectors.toCollection(TreeSet::new));
+				assertTrue(foreign.isEmpty(),
+						"Jar " + jar + " contains classes outside the expected " + expectedJarPrefix
+								+ " sub-package: " + foreign);
+
+				var res = classEntries.stream()
 						.map(s -> s.substring(s.lastIndexOf('/') + 1)) // trim everything before the last '/'
 						.map(s -> s.substring(0, s.length() - CLASS_EXT.length()))   // trim the class extension
 						.collect(Collectors.toSet());

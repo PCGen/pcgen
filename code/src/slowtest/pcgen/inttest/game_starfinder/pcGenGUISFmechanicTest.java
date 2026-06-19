@@ -17,6 +17,6 @@ public class pcGenGUISFmechanicTest extends PcgenFtlTestCase
 	@Test
 	public void testCode() throws IOException
 	{
-		runTest("sf_mechanic", "Starfinder");
+		runTest("sf_mechanic");
 	}
 }

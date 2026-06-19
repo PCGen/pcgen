@@ -74,7 +74,7 @@ public class SourceSelectionPanel extends ConvertSubPanel
 		/**
 		 * @return the file
 		 */
-		public File getFile()
+		File getFile()
 		{
 			return file;
 		}
@@ -82,7 +82,7 @@ public class SourceSelectionPanel extends ConvertSubPanel
 		/**
 		 * @param file the file to set
 		 */
-		public void setFile(File file)
+		void setFile(File file)
 		{
 			this.file = file;
 		}
@@ -90,7 +90,7 @@ public class SourceSelectionPanel extends ConvertSubPanel
 		/**
 		 * @return the title
 		 */
-		public String getTitle()
+		String getTitle()
 		{
 			return title;
 		}
