@@ -66,6 +66,8 @@ public class AdvancedSourceSelectionController
 		btnFilterClear.setGraphic(new ImageView(pcgen.gui2.tools.Icons.CloseX9.asJavaFX()));
 		cmbGameMode.setCellFactory(new GameModeCellFactory());
 
+		treeAvailable.setColumnResizePolicy(TreeTableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
+
 		// FXML's <TreeTableColumn> declarations are untyped, so the columns
 		// list comes back as TreeTableColumn<SourceTreeNode, ?>. Cast to
 		// String columns at wire-up time so the cell-value factories can
