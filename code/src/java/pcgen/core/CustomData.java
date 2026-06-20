@@ -23,9 +23,9 @@ package pcgen.core;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.StringWriter;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -402,8 +402,7 @@ public final class CustomData
     {
         try
         {
-            //return new BufferedReader(new FileReader(path));
-            return new BufferedReader(new InputStreamReader(new FileInputStream(path), StandardCharsets.UTF_8));
+            return Files.newBufferedReader(Path.of(path), StandardCharsets.UTF_8);
         } catch (IOException e)
         {
             Logging.debugPrint("Could not get a reader to read from " + path, e);

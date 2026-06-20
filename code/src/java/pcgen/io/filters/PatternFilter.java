@@ -19,10 +19,9 @@ package pcgen.io.filters;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -81,7 +80,7 @@ public class PatternFilter implements OutputFilter
         if (filterFile.canRead() && filterFile.isFile())
         {
 
-            try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filterFile), StandardCharsets.UTF_8)))
+            try (BufferedReader br = Files.newBufferedReader(filterFile.toPath(), StandardCharsets.UTF_8))
             {
 
                 outputFilterName = filterName;

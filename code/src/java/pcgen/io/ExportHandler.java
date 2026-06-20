@@ -23,12 +23,11 @@ package pcgen.io;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.Serializable;
 import java.io.StringWriter;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.ParseException;
@@ -2981,10 +2980,7 @@ public abstract class ExportHandler
 		FileAccess.setCurrentOutputFilter(templateFile.getName());
 
 
-		try (BufferedReader br = new BufferedReader(new InputStreamReader(
-				new FileInputStream(templateFile),
-				StandardCharsets.UTF_8
-		)))
+		try (BufferedReader br = Files.newBufferedReader(templateFile.toPath(), StandardCharsets.UTF_8))
 		{
 			boolean betweenPipes = false;
 			StringBuilder textBetweenPipes = new StringBuilder();
