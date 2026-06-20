@@ -16,18 +16,23 @@
 package pcgen.base.formula.inst;
 
 import java.util.HashMap;
-import java.util.Objects;
 import java.util.TreeMap;
 
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.util.DoubleKeyMapToList;
-import pcgen.base.util.EnhancedWeakReference;
 import pcgen.base.util.MapToList;
 import pcgen.base.util.TreeMapToList;
 
 /**
  * A MonitorableVariableStore is a WriteableVariableStore that allows VariableListener
  * objects to listen for changes to the variables within this VariableStore.
+ *
+ * Listeners are held with strong references. The caller is therefore responsible for
+ * the lifecycle of any VariableListener it registers: a listener will continue to
+ * receive events until it is explicitly removed (via removeVariableListener or
+ * removeGeneralListener). This is required for correctness, because a listener that is
+ * relied upon for value propagation must not be silently discarded (for example, by
+ * garbage collection) while this store is still in use.
  */
 public class MonitorableVariableStore extends SimpleVariableStore
 {
@@ -37,13 +42,13 @@ public class MonitorableVariableStore extends SimpleVariableStore
 	 */
 	@SuppressWarnings("PMD.LooseCoupling")
 	private final DoubleKeyMapToList<VariableID<?>, Integer,
-					EnhancedWeakReference<VariableListener<?>>> listenerList =
+					VariableListener<?>> listenerList =
 			new DoubleKeyMapToList<>(HashMap.class, TreeMap.class);
 
 	/**
 	 * The general listeners, identified by priority.
 	 */
-	private final MapToList<Integer, EnhancedWeakReference<VariableListener<?>>> generalListenerList =
+	private final MapToList<Integer, VariableListener<?>> generalListenerList =
 			new TreeMapToList<>();
 
 	/**
@@ -82,8 +87,7 @@ public class MonitorableVariableStore extends SimpleVariableStore
 	public <T> void addVariableListener(int priority, VariableID<T> varID,
 		VariableListener<? super T> listener)
 	{
-		listenerList.addToListFor(varID, priority,
-			new EnhancedWeakReference<>(listener));
+		listenerList.addToListFor(varID, priority, listener);
 	}
 
 	/**
@@ -126,17 +130,7 @@ public class MonitorableVariableStore extends SimpleVariableStore
 	public <T> void removeVariableListener(int priority, VariableID<T> varID,
 		VariableListener<? super T> listener)
 	{
-		if (!listenerList.containsListFor(varID, priority))
-		{
-			return;
-		}
-		listenerList.getListFor(varID, priority).stream()
-			.filter(reference -> reference.consumeIfEmpty(() -> listenerList
-				.removeFromListFor(varID, priority, reference)))
-			.filter(reference -> reference.get().equals(listener))
-			.findFirst()
-			.ifPresent(reference -> listenerList.removeFromListFor(varID,
-				priority, reference));
+		listenerList.removeFromListFor(varID, priority, listener);
 	}
 
 	/**
@@ -162,8 +156,7 @@ public class MonitorableVariableStore extends SimpleVariableStore
 	public void addGeneralListener(int priority,
 		VariableListener<Object> listener)
 	{
-		generalListenerList.addToListFor(priority,
-			new EnhancedWeakReference<>(listener));
+		generalListenerList.addToListFor(priority, listener);
 	}
 
 	/**
@@ -192,18 +185,7 @@ public class MonitorableVariableStore extends SimpleVariableStore
 	public void removeGeneralListener(int priority,
 		VariableListener<Object> listener)
 	{
-		if (!generalListenerList.containsListFor(priority))
-		{
-			return;
-		}
-		generalListenerList.getListFor(priority).stream()
-			.filter(
-				reference -> reference.consumeIfEmpty(() -> generalListenerList
-					.removeFromListFor(priority, reference)))
-			.filter(reference -> reference.get().equals(listener))
-			.findFirst()
-			.ifPresent(reference -> generalListenerList
-				.removeFromListFor(priority, reference));
+		generalListenerList.removeFromListFor(priority, listener);
 	}
 
 	@Override
@@ -230,30 +212,27 @@ public class MonitorableVariableStore extends SimpleVariableStore
 	 * @param value
 	 *            The (current and) new value of the variable after the change
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({"unchecked", "rawtypes"})
 	public <T> void fireVariableChanged(VariableID<T> varID, T old, T value)
 	{
 		//Note: Generics are enforced by addVariableListener
-		@SuppressWarnings("rawtypes")
 		VariableChangeEvent vcEvent =
 				new VariableChangeEvent<>(this, varID, old, value);
 		for (Integer priority : listenerList.getSecondaryKeySet(varID))
 		{
-			listenerList.getListFor(varID, priority).stream()
-				.filter(reference -> reference.consumeIfEmpty(() -> listenerList
-					.removeFromListFor(varID, priority, reference)))
-				.map(reference -> reference.get())
-				.filter(Objects::nonNull) //Defensive corner case - "timing attack" from GC
-				.forEach(listener -> listener.variableChanged(vcEvent));
+			for (VariableListener listener : listenerList.getListFor(varID,
+				priority))
+			{
+				listener.variableChanged(vcEvent);
+			}
 		}
 		for (Integer priority : generalListenerList.getKeySet())
 		{
-			generalListenerList.getListFor(priority).stream()
-				.filter(reference -> reference.consumeIfEmpty(() -> generalListenerList
-					.removeFromListFor(priority, reference)))
-				.map(reference -> reference.get())
-				.filter(Objects::nonNull) //Defensive corner case - "timing attack" from GC
-				.forEach(listener -> listener.variableChanged(vcEvent));
+			for (VariableListener listener : generalListenerList
+				.getListFor(priority))
+			{
+				listener.variableChanged(vcEvent);
+			}
 		}
 	}
 }
