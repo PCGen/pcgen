@@ -36,6 +36,7 @@ import java.util.Observer;
 import java.util.Optional;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.LogRecord;
+import java.util.stream.StreamSupport;
 import javax.swing.Action;
 import javax.swing.ActionMap;
 import javax.swing.InputMap;
@@ -65,12 +66,14 @@ import pcgen.facade.core.ChooserFacade;
 import pcgen.facade.core.CompanionFacade;
 import pcgen.facade.core.DataSetFacade;
 import pcgen.facade.core.EquipmentBuilderFacade;
+import pcgen.facade.core.GameModeDisplayFacade;
 import pcgen.facade.core.PartyFacade;
 import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.facade.core.SpellBuilderFacade;
 import pcgen.facade.core.UIDelegate;
 import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.ListFacades;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.SortedListFacade;
 import pcgen.facade.util.event.ReferenceEvent;
@@ -93,6 +96,7 @@ import pcgen.gui3.component.PCGenToolBar;
 import pcgen.gui3.dialog.AboutDialog;
 import pcgen.gui3.dialog.RememberingChoiceDialog;
 import pcgen.gui3.dialog.TipOfTheDayController;
+import pcgen.gui3.sources.SourceBundle;
 import pcgen.gui3.sources.SourceSelectionDialogPane;
 import pcgen.io.PCGFile;
 import pcgen.persistence.SourceFileLoader;
@@ -111,6 +115,7 @@ import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.RandomChooser;
 
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
 import javafx.embed.swing.JFXPanel;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -1336,19 +1341,46 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	 */
 	public void showSourceSelectionDialog()
 	{
-		Platform.runLater(() -> {
-				// Load campaigns
-				ListFacade<SourceSelectionFacade> sources = new SortedListFacade<>(Comparators.toStringIgnoreCaseCollator(),
-						FacadeFactory.getDisplayedSourceSelections());
-				var gameModes = FacadeFactory.getGameModeDisplays();
+		// Build the gui3-side data once, on the EDT, then drop into the FX thread
+		// for the dialog. Conversion from facades to gui3 records lives here so
+		// the dialog itself never sees the facade types.
+		var bundles = StreamSupport
+				.stream(new SortedListFacade<>(Comparators.toStringIgnoreCaseCollator(),
+						FacadeFactory.getDisplayedSourceSelections()).spliterator(), false)
+				.map(s -> new SourceBundle(
+						s.toString(),
+						s.getGameMode().get(),
+						ListFacades.wrap(s.getCampaigns()),
+						s.isModifiable(),
+						s.getLoadingState()))
+				.toList();
+		var gameModes = StreamSupport
+				.stream(FacadeFactory.getGameModeDisplays().spliterator(), false)
+				.map(GameModeDisplayFacade::getGameMode)
+				.toList();
 
-				var source = new SourceSelectionDialogPane(sources, gameModes);
-				var dialog = new Dialog<>();
+		Platform.runLater(() -> {
+				var pane = new SourceSelectionDialogPane(
+						FXCollections.observableList(bundles),
+						FXCollections.observableList(gameModes));
+				var dialog = new Dialog<ButtonType>();
 				dialog.setTitle("Select Sources");
 				dialog.setResizable(true);
-				dialog.setDialogPane(source);
-				var result = dialog.showAndWait();
-				System.out.println("Finished dialog");
+				dialog.setDialogPane(pane);
+
+				// Double-click on a list/tree row triggers the same path as
+				// pressing the OK button: close with OK_DONE so the result
+				// handler below loads the selected bundle.
+				pane.setOnLoadRequested(() -> dialog.setResult(ButtonType.OK));
+
+				dialog.showAndWait().ifPresent(button -> {
+					if (button.getButtonData() != ButtonBar.ButtonData.OK_DONE)
+					{
+						return;
+					}
+					pane.getSelectedSource().ifPresent(bundle ->
+							SwingUtilities.invokeLater(() -> handleSourceLoadRequest(bundle)));
+				});
 			}
 		);
 
@@ -1359,6 +1391,25 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		}
 		sourceSelectionDialog.setLocationRelativeTo(this);
 		sourceSelectionDialog.setVisible(true);
+	}
+
+	/**
+	 * Loads the campaigns described by {@code bundle} after a prereq check.
+	 * Mirrors the legacy {@code SourceSelectionDialog.fireSourceLoad} path:
+	 * if any source is missing a prereq we tell the user and stay put,
+	 * otherwise we hand off to {@link #loadSourceSelection}.
+	 */
+	private void handleSourceLoadRequest(SourceBundle bundle)
+	{
+		if (!FacadeFactory.passesPrereqs(bundle.campaigns()))
+		{
+			JOptionPane.showMessageDialog(this,
+					"Some sources have unfulfilled prereqs",
+					"Cannot Load Selected Sources",
+					JOptionPane.INFORMATION_MESSAGE);
+			return;
+		}
+		loadSourceSelection(FacadeFactory.createSourceSelection(bundle.gameMode(), bundle.campaigns()));
 	}
 
 	//TODO: This should be in a utility class.

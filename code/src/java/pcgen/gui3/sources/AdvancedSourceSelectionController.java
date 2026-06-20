@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableView;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
 import javafx.util.Callback;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
@@ -24,6 +25,7 @@ import pcgen.gui2.UIPropertyContext;
 import pcgen.system.FacadeFactory;
 import pcgen.system.LanguageBundle;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
@@ -51,6 +53,11 @@ public class AdvancedSourceSelectionController
 	private TreeTableView<Campaign> treeAvailable;
 
 	@FXML
+	private TreeTableView<Campaign> treeSelected;
+
+	private Runnable onLoadRequested = () -> { };
+
+	@FXML
 	protected void initialize()
 	{
 		log.info("Initialize AdvancedSourceSelectionController");
@@ -76,6 +83,13 @@ public class AdvancedSourceSelectionController
 			var treeItem = (RecursiveTreeItem) v.getValue();
 			return new ReadOnlyObjectWrapper(treeItem.getCampaign().map(c -> "Loaded").orElse("Not loaded"));
 		});
+		treeAvailable.setOnMouseClicked(event -> {
+			if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2
+					&& selectedCampaignFromAvailable().isPresent())
+			{
+				onLoadRequested.run();
+			}
+		});
 	}
 
 
@@ -83,6 +97,41 @@ public class AdvancedSourceSelectionController
 	protected void onFilterClearAction(ActionEvent actionEvent)
 	{
 		fldSearch.setText("");
+	}
+
+	/**
+	 * Registers the action to invoke when the user double-clicks an available
+	 * campaign — typically the same action as the dialog's Load button.
+	 */
+	public void setOnLoadRequested(Runnable handler)
+	{
+		this.onLoadRequested = handler == null ? () -> { } : handler;
+	}
+
+	/**
+	 * Builds the {@link SourceBundle} the user has chosen on this tab, if any.
+	 * Until multi-select is wired, this is the single campaign focused in the
+	 * available tree under the current game mode.
+	 */
+	public Optional<SourceBundle> getSelectedSource()
+	{
+		var gameMode = cmbGameMode.getSelectionModel().getSelectedItem();
+		if (gameMode == null)
+		{
+			return Optional.empty();
+		}
+		return selectedCampaignFromAvailable().map(c ->
+				new SourceBundle(c.getDisplayName(), gameMode, List.of(c), false, null));
+	}
+
+	private Optional<Campaign> selectedCampaignFromAvailable()
+	{
+		var item = treeAvailable.getSelectionModel().getSelectedItem();
+		if (item instanceof RecursiveTreeItem rti)
+		{
+			return rti.getCampaign();
+		}
+		return Optional.empty();
 	}
 
 	public void setGameModeSource(ObservableList<GameMode> gameModes)
@@ -95,15 +144,15 @@ public class AdvancedSourceSelectionController
 				gameModes.stream()
 						.filter(g -> sgn.equals(g.getDisplayName()))
 						.findFirst());
-		selectedGame.ifPresent(s -> System.out.println("Found the saved GameMode: " + s));
+		selectedGame.ifPresent(s -> log.fine(() -> "Restored saved GameMode: " + s.getDisplayName()));
 
 		selectedGame.ifPresentOrElse(g -> cmbGameMode.getSelectionModel().select(g),
 				cmbGameMode.getSelectionModel()::selectFirst);
 
 		cmbGameMode.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, selectedGameMode) -> {
-			System.out.println("Selected: " + selectedGameMode.getDisplayName());
+			log.fine(() -> "Selected GameMode: " + selectedGameMode.getDisplayName());
 			var campaigns = FacadeFactory.getSupportedCampaigns(selectedGameMode);
-			System.out.println("Found: " + campaigns.getSize() + " campaigns.");
+			log.fine(() -> "Found " + campaigns.getSize() + " campaigns.");
 
 			var campaignsHierarchy = StreamSupport
 					.stream(campaigns.spliterator(), false)
