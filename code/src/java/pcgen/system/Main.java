@@ -102,8 +102,7 @@ public final class Main
 	 */
 	public static void main(String... args)
 	{
-		Logging.log(Level.INFO, "Starting PCGen v" + PCGenPropBundle.getVersionNumber() //$NON-NLS-1$
-			+ PCGenPropBundle.getAutobuildString());
+		Logging.log(Level.INFO, "Starting PCGen v" + PCGenPropBundle.getVersionNumber()); //$NON-NLS-1$
 
 		Thread.setDefaultUncaughtExceptionHandler(new LoggingUncaughtExceptionHandler());
 		DeadlockDetectorTask deadlockDetectorTask = new DeadlockDetectorTask(new PCGenLoggingDeadlockHandler());

@@ -12,16 +12,6 @@ ext {
 
     buildTimestamp = LocalDateTime.now(Clock.systemUTC())
 
-    autobuildSpec = copySpec{}
-
-    if (System.env.BUILD_NUMBER) {
-        autobuildSpec = copySpec {
-            from('code/gradle/autobuild.template')
-            rename('.+','autobuild.properties')
-            expand(buildnumber: System.env.BUILD_NUMBER, version: version, timestamp: buildTimestamp)
-        }
-    }
-
     dataDistsImage = copySpec {
         from('.') {
             include 'data/**'
@@ -72,7 +62,6 @@ application {
 
     applicationDistribution.with(dataDistsImage)
     applicationDistribution.with(docsDistsImage)
-    applicationDistribution.with(autobuildSpec)
     applicationDistribution.with(charactersImage)
     applicationDistribution.with(programScriptImage)
 }
@@ -113,7 +102,6 @@ tasks.register("dataZip", Zip) {
     archiveClassifier.set('data')
     into(zipRootFolder) {
         with dataDistsImage
-        with autobuildSpec
     }
 }
 
@@ -121,7 +109,6 @@ tasks.register("docsZip", Zip) {
     archiveClassifier.set('docs')
     into(zipRootFolder) {
         with docsDistsImage
-        with autobuildSpec
     }
 }
 
@@ -130,7 +117,6 @@ tasks.register("programZip", Zip) {
     archiveClassifier.set('program')
     into(zipRootFolder) {
         with programScriptImage
-        with autobuildSpec
     }
 }
 
@@ -139,7 +125,6 @@ tasks.register("libsZip", Zip) {
     archiveClassifier.set('libs')
     into(zipRootFolder) {
         with libsDistsImage
-        with autobuildSpec
     }
 }
 

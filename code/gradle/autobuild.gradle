@@ -8,11 +8,7 @@
  * Note: buildTimestamp is defined in distribution.gradle (applied first).
  */
 ext {
-    if (System.env.BUILD_NUMBER) {
-        destAutobuildDir = file('/home/pcgen1/public_html/autobuilds/')
-    } else {
-        destAutobuildDir = layout.buildDirectory.dir("autobuilds").get()
-    }
+    destAutobuildDir = layout.buildDirectory.dir("autobuilds").get()
 }
 
 tasks.register("copyDocs", Sync) {
