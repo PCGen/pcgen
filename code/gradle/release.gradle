@@ -7,27 +7,19 @@
  *
  * Release script
  * 1. gradle prepareRelease slowtest
- *   a.	Update version - remove snapshot
- *   b.	Commit new version
- *   c.	Clean, Build and check
+ *   a. Update version - remove snapshot
+ *   b. Commit new version
+ *   c. Clean, Build and check
  *   d. Run slow tests
  * 2. Manual testing using product of  gradle fullZip
  * 3. gradle pcgenRelease
- *   a.	Build
- *   b.	Assemble distributables
- *   c.	Update version - increment version and add snapshot
- *   d.	Commit new version
+ *   a. Build
+ *   b. Assemble distributables
+ *   c. Update version - increment version and add snapshot
+ *   d. Commit new version
  */
 
 apply from: "code/gradle/releaseUtils.groovy"
-
-ext {
-    // Work out the path to the release notes for our current version.
-    // plainVerNum is defined in the root build.gradle so jpackage's appVersion
-    // and the release-notes filename derive from the same base.
-    shortVerNum = plainVerNum.replaceAll(/\./, '')
-    releaseNotes = "${projectDir}/installers/release-notes/pcgen-release-notes-${shortVerNum}.html"
-}
 
 tasks.register("sourcesJar", Jar) {
     dependsOn classes, copyToOutput, startScripts
@@ -65,18 +57,6 @@ tasks.register("pcgenRelease") {
     dependsOn prepareRelease, assembleArtifacts
     description = "Release a new version of PCGen. This will build PCGen and produce the release artifacts."
     // Installer is placed in outputDir
-}
-
-// Update the PCGen version to indicate a release. Commit the change manually.
-tasks.register("updateVersionRelease") {
-    doLast {
-        unSnapshotVersion()
-    }
-}
-
-tasks.register("pcgenReleaseOfficial") {
-    dependsOn pcgenRelease, updateVersionRelease
-    description = "Release a new official version of PCGen."
 }
 
 // Update the PCGen version for development of the next release. Commit the change manually.

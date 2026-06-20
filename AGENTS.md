@@ -127,7 +127,6 @@ Conventions/gotchas observed:
 - Release tasks:
   - `prepareRelease` (build; version handling via `releaseUtils.groovy`)
   - `pcgenRelease` (prepareRelease + assembleArtifacts + checksum)
-  - `pcgenReleaseOfficial` (pcgenRelease + updateVersionRelease)
   - `updateVersionToNext` (Groovy helper in `releaseUtils.groovy` that bumps the trailing numeric segment by 1, zero-padded to two digits, and appends `-SNAPSHOT`; used by the manual release workflow's post-build bump step).
 - Artifacts collected into build/release; jpackage produces platform installers under build/jpackage.
 - Release CI builds on: ubuntu-latest (x64), ubuntu-24.04-arm, macos-latest, windows-latest.
