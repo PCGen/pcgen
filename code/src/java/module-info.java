@@ -72,6 +72,7 @@ module pcgen {
     opens pcgen.gui3.namegen;
     opens pcgen.gui3.preferences;
     opens pcgen.gui3.preloader;
+    opens pcgen.gui3.sources;
     opens pcgen.gui3.utilty;
     opens pcgen.io;
     opens pcgen.util;
