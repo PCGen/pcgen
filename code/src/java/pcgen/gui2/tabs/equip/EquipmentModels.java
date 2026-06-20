@@ -247,7 +247,7 @@ public class EquipmentModels
 	private class EquipViewHandler extends AbstractAction
 	{
 
-		public void install()
+		void install()
 		{
 			equipViewBox.setAction(this);
 			equipViewBox.setSelectedItem(selectedView);
@@ -285,7 +285,7 @@ public class EquipmentModels
 	private static class EquippedTableModel extends EquipmentTableModel implements ReferenceListener<EquipmentSetFacade>
 	{
 
-		public EquippedTableModel(CharacterFacade character)
+		EquippedTableModel(CharacterFacade character)
 		{
 			super(character);
 			ReferenceFacade<EquipmentSetFacade> ref = character.getEquipmentSetRef();
@@ -306,7 +306,7 @@ public class EquipmentModels
 	private static class EquippedTableRootModel extends EquipmentTableModel implements ReferenceListener<EquipmentSetFacade>
 	{
 
-		public EquippedTableRootModel(CharacterFacade character)
+		EquippedTableRootModel(CharacterFacade character)
 		{
 			super(character);
 			ReferenceFacade<EquipmentSetFacade> ref = character.getEquipmentSetRef();
@@ -329,7 +329,7 @@ public class EquipmentModels
 	private class UnequipAction extends AbstractAction
 	{
 
-		public UnequipAction()
+		UnequipAction()
 		{
 			super(LanguageBundle.getString("in_equipUnequipSel")); //$NON-NLS-1$
 			this.putValue(SMALL_ICON, Icons.Back16.getImageIcon());
@@ -402,12 +402,12 @@ public class EquipmentModels
 			}
 		}
 
-		public void install()
+		void install()
 		{
 			equipmentSetTable.addActionListener(this);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			equipmentSetTable.removeActionListener(this);
 		}
@@ -560,7 +560,7 @@ public class EquipmentModels
 		private JSpinner spinner = new JSpinner();
 		private final EquipmentListFacade equipmentList;
 
-		public SpinnerEditor(EquipmentListFacade equipmentList)
+		SpinnerEditor(EquipmentListFacade equipmentList)
 		{
 			this.equipmentList = equipmentList;
 			spinner.addChangeListener(this);
@@ -617,7 +617,7 @@ public class EquipmentModels
 		private JComboBox comboBox = null;
 		private MapToList<EquipmentFacade, EquipNode> equipMap;
 
-		public ComboEditor(MapToList<EquipmentFacade, EquipNode> equipMap)
+		ComboEditor(MapToList<EquipmentFacade, EquipNode> equipMap)
 		{
 			this.equipMap = equipMap;
 		}
@@ -654,7 +654,7 @@ public class EquipmentModels
 	private class MoveUpAction extends AbstractAction
 	{
 
-		public MoveUpAction()
+		MoveUpAction()
 		{
 			super(LanguageBundle.getString("in_equipMoveUpMenuCommand")); //$NON-NLS-1$
 			this.putValue(SMALL_ICON, Icons.Up16.getImageIcon());
@@ -675,12 +675,12 @@ public class EquipmentModels
 			}
 		}
 
-		public void install()
+		void install()
 		{
 			equipmentSetTable.addActionListener(this);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			equipmentSetTable.removeActionListener(this);
 		}
@@ -690,7 +690,7 @@ public class EquipmentModels
 	private class MoveDownAction extends AbstractAction
 	{
 
-		public MoveDownAction()
+		MoveDownAction()
 		{
 			super(LanguageBundle.getString("in_equipMoveDownMenuCommand")); //$NON-NLS-1$
 			this.putValue(SMALL_ICON, Icons.Down16.getImageIcon());
@@ -711,12 +711,12 @@ public class EquipmentModels
 			}
 		}
 
-		public void install()
+		void install()
 		{
 			equipmentSetTable.addActionListener(this);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			equipmentSetTable.removeActionListener(this);
 		}

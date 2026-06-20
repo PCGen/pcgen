@@ -654,8 +654,8 @@ public final class Logging
 
 	private static final class QueuedMessage
 	{
-		public final Level level;
-		public final String message;
+		final Level level;
+		final String message;
 		private final StackTraceElement[] stackTrace;
 
 		private QueuedMessage(Level lvl, String msg)

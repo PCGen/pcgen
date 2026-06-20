@@ -99,12 +99,12 @@ public class AllGroupingToken<T extends Loadable> implements GroupingDefinition<
 		 *            The GroupingInfo used to determine the format of objects contained
 		 *            by this AllGrouping
 		 */
-		public AllGrouping(GroupingInfo<T> groupingInfo)
+		AllGrouping(GroupingInfo<T> groupingInfo)
 		{
 			this.groupingInfo = Objects.requireNonNull(groupingInfo);
 		}
 
-		public void setChild(GroupingCollection<?> childCollection)
+		void setChild(GroupingCollection<?> childCollection)
 		{
 			childGrouping = childCollection;
 		}

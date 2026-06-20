@@ -10,8 +10,7 @@
  * Run the data tests: gradle datatest
  * Run the character integration tests: gradle inttest
  */
-
-import groovy.json.JsonSlurper
+import java.nio.file.Files
 
 import org.apache.tools.ant.filters.FixCrLfFilter
 import org.apache.tools.ant.taskdefs.condition.Os
@@ -60,28 +59,17 @@ ext {
     // Installers are placed here
     releaseDir = layout.projectDirectory.dir("build/release")
 
-    // Java version. It will affect JavaFX version too.
-    javaVersion = 25
+    // Java major version. Drives the JDK toolchain and the JavaFX major (must match
+    // javafxVersion's major below). See README.md "Bumping Java / JavaFX versions".
+    javaVersion = providers.gradleProperty('javaVersion').get() as Integer
+
+    // Full JavaFX patch version (e.g. 25.0.3). Major must match javaVersion above.
+    javafxVersion = providers.gradleProperty('javafxVersion').get()
 
     // Project version with -SNAPSHOT stripped. Shared between jpackage's
     // appVersion (further sanitised below) and release.gradle's release-notes
     // path so the two can't drift.
     plainVerNum = version.replaceAll('-SNAPSHOT', '')
-
-    // The Eclipse Adoptium API returns the latest patch release for the majorJava version set.
-    // Cached so the network call fires at most once per Gradle invocation, and only when a
-    // JavaFX/JDK download task actually consumes the value (the use sites sit inside lazy
-    // tasks.register bodies).
-    def latestJavaVersionCache = [:]
-    latestJavaVersion = { majorJavaVersion ->
-        latestJavaVersionCache.computeIfAbsent(majorJavaVersion) { v ->
-            def uri = new URI("https://api.adoptium.net/v3/assets/feature_releases/${v}/ga?architecture=x64&page=0&page_size=1&project=jdk&sort_order=DESC&vendor=eclipse")
-            def parsedJson = new JsonSlurper().parse(uri.toURL())
-
-            parsedJson.first()
-                    .version_data.with { [major, minor, security].join('.') }
-        }
-    }
 }
 
 // Configure Java, in particular the version to test/compile/run with
@@ -384,10 +372,10 @@ tasks.named("jpackageImage") {
     def jpackageDir = layout.buildDirectory.dir("jpackage")
     doFirst {
         def root = jpackageDir.get().asFile.toPath()
-        if (java.nio.file.Files.exists(root)) {
-            java.nio.file.Files.walk(root).withCloseable { stream ->
+        if (Files.exists(root)) {
+            Files.walk(root).withCloseable { stream ->
                 stream.filter { it.fileName.toString() == ".DS_Store" }
-                      .forEach { java.nio.file.Files.deleteIfExists(it) }
+                      .forEach { Files.deleteIfExists(it) }
             }
         }
     }
@@ -463,14 +451,34 @@ if (Os.isFamily(Os.FAMILY_MAC)) {
 
 // Portable zip: same self-contained app the installer ships, but as an
 // unzip-and-run archive. Source folder is whatever fullJpackage produces.
-tasks.register("portableZip", Zip) {
-    dependsOn tasks.named("fullJpackage")
-    def appDir = (hostOs == "mac") ? "PcGen.app" : "PcGen"
-    from(layout.buildDirectory.dir("jpackage/${appDir}")) {
-        into appDir
+//
+// On macOS the bundle is packed with `ditto -c -k --keepParent` rather than
+// Gradle's Zip task: ditto preserves the 0755 exec bits on
+// Contents/MacOS/MacDirLauncher and Contents/MacOS/PcGen, plus symlinks,
+// xattrs, and code signatures. Plain Zip strips POSIX modes, leaving the
+// .app non-launchable after unzip ("application can't be opened").
+if (hostOs == "mac") {
+    tasks.register("portableZip", Exec) {
+        dependsOn tasks.named("fullJpackage")
+        def archive = layout.buildDirectory.file(
+                "jpackage/pcgen-${version}-${hostOs}-${hostArch}-portable.zip")
+        def appBundle = layout.buildDirectory.dir("jpackage/PcGen.app")
+        inputs.dir(appBundle)
+        outputs.file(archive)
+        // ditto -c -k overwrites an existing archive silently; no pre-delete needed.
+        commandLine "ditto", "-c", "-k", "--keepParent",
+                appBundle.get().asFile.absolutePath,
+                archive.get().asFile.absolutePath
     }
-    archiveFileName = "pcgen-${version}-${hostOs}-${hostArch}-portable.zip"
-    destinationDirectory = layout.buildDirectory.dir("jpackage")
+} else {
+    tasks.register("portableZip", Zip) {
+        dependsOn tasks.named("fullJpackage")
+        from(layout.buildDirectory.dir("jpackage/PcGen")) {
+            into "PcGen"
+        }
+        archiveFileName = "pcgen-${version}-${hostOs}-${hostArch}-portable.zip"
+        destinationDirectory = layout.buildDirectory.dir("jpackage")
+    }
 }
 
 // Create the Data Convertor JAR.
@@ -604,8 +612,8 @@ tasks.register("extractJdk", Copy) {
 tasks.register("downloadJfxMods", Download) {
     description = "Downloads JavaFX jmods for the host platform"
     dependsOn "extractJdk"
-    def fileName = "openjfx-${latestJavaVersion(javaVersion)}_${hostJfxOsPackage}${hostJfxArchSuffix}_bin-jmods.zip"
-    src "https://download2.gluonhq.com/openjfx/${latestJavaVersion(javaVersion)}/${fileName}"
+    def fileName = "openjfx-${javafxVersion}_${hostJfxOsPackage}${hostJfxArchSuffix}_bin-jmods.zip"
+    src "https://download2.gluonhq.com/openjfx/${javafxVersion}/${fileName}"
     dest jdksDir.file("jfx_jmods_${hostOs}_${hostArch}.zip")
 }
 
@@ -649,9 +657,9 @@ tasks.register("downloadJavaFXLocal", Download) {
         throw new GradleException("Unsupported arch detected: '${hostArchitecture}'. Supported architectures are: x86_64, amd64 and aarch64")
     }
 
-    def fileName = "openjfx-${project.ext.latestJavaVersion(project.ext.javaVersion)}_${currentOS}${archAppend}_bin-sdk.zip"
+    def fileName = "openjfx-${project.ext.javafxVersion}_${currentOS}${archAppend}_bin-sdk.zip"
 
-    src "https://download2.gluonhq.com/openjfx/${project.ext.latestJavaVersion(project.ext.javaVersion)}/${fileName}"
+    src "https://download2.gluonhq.com/openjfx/${project.ext.javafxVersion}/${fileName}"
     dest layout.projectDirectory.file("mods/${fileName}")
 }
 
@@ -726,10 +734,6 @@ tasks.register("slowtest", Test) {
     classpath = sourceSets.slowtest.runtimeClasspath
     systemProperties['jar.path'] = jar.getArchiveFile().get().getAsFile()
     forkEvery = 1
-    // pcgen.system.Main.main(...) has JVM-wide static state (Globals,
-    // SystemCollections, plugin registry); concurrent forks race on shared
-    // output/temp directories and produce flaky export failures.
-    maxParallelForks = 1
 }
 
 tasks.register("datatest", Test) {
@@ -747,7 +751,6 @@ tasks.register("inttest", Test) {
     testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
-    maxParallelForks = 1
     include 'pcgen/inttest/**/*Test.class'
 }
 

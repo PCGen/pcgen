@@ -307,7 +307,7 @@ public final class EquipCustomPanel extends FlippingSplitPane
 		private final CharacterFacade character;
 		private final EquipmentBuilderFacade builder2;
 
-		public EquipInfoHandler(CharacterFacade character, EquipmentBuilderFacade builder)
+		EquipInfoHandler(CharacterFacade character, EquipmentBuilderFacade builder)
 		{
 			this.character = character;
 			builder2 = builder;
@@ -338,7 +338,7 @@ public final class EquipCustomPanel extends FlippingSplitPane
 		private final EquipmentBuilderFacade builder;
 		private EquipmentModifier currObj;
 
-		public EquipModInfoHandler(CharacterFacade character, EquipmentBuilderFacade builder)
+		EquipModInfoHandler(CharacterFacade character, EquipmentBuilderFacade builder)
 		{
 			this.character = character;
 			this.builder = builder;
@@ -379,7 +379,7 @@ public final class EquipCustomPanel extends FlippingSplitPane
 
 	private class AddEqmodAction extends AbstractAction
 	{
-		public AddEqmodAction()
+		AddEqmodAction()
 		{
 			super(LanguageBundle.getString("in_eqCust_AddPrimary")); //$NON-NLS-1$
 			putValue(SMALL_ICON, Icons.Forward16.getImageIcon());
@@ -404,7 +404,7 @@ public final class EquipCustomPanel extends FlippingSplitPane
 
 	private class RemoveEqmodAction extends AbstractAction
 	{
-		public RemoveEqmodAction()
+		RemoveEqmodAction()
 		{
 			super(LanguageBundle.getString("in_eqCust_RemovePrimary")); //$NON-NLS-1$
 			putValue(SMALL_ICON, Icons.Back16.getImageIcon());
@@ -429,7 +429,7 @@ public final class EquipCustomPanel extends FlippingSplitPane
 
 	private class NameAction extends AbstractAction
 	{
-		public NameAction()
+		NameAction()
 		{
 			super(LanguageBundle.getString("in_nameLabel")); //$NON-NLS-1$
 		}
@@ -448,7 +448,7 @@ public final class EquipCustomPanel extends FlippingSplitPane
 
 	private class SPropAction extends AbstractAction
 	{
-		public SPropAction()
+		SPropAction()
 		{
 			super(LanguageBundle.getString("in_eqCust_SProp")); //$NON-NLS-1$
 		}
@@ -467,7 +467,7 @@ public final class EquipCustomPanel extends FlippingSplitPane
 
 	private class CostAction extends AbstractAction
 	{
-		public CostAction()
+		CostAction()
 		{
 			super(LanguageBundle.getString("in_igEqModelColCost")); //$NON-NLS-1$
 		}
@@ -486,7 +486,7 @@ public final class EquipCustomPanel extends FlippingSplitPane
 
 	private class WeightAction extends AbstractAction
 	{
-		public WeightAction()
+		WeightAction()
 		{
 			super(LanguageBundle.getString("in_igEqModelColWeight")); //$NON-NLS-1$
 		}
@@ -505,7 +505,7 @@ public final class EquipCustomPanel extends FlippingSplitPane
 
 	private class DamageAction extends AbstractAction
 	{
-		public DamageAction()
+		DamageAction()
 		{
 			super(LanguageBundle.getString("in_igInfoLabelTextDamage")); //$NON-NLS-1$
 		}
@@ -704,7 +704,7 @@ public final class EquipCustomPanel extends FlippingSplitPane
 
 		private final DefaultReferenceFacade<EquipmentHead> headRef;
 
-		public HeadBoxModel()
+		HeadBoxModel()
 		{
 			setListFacade(validHeads);
 			headRef = new DefaultReferenceFacade<>(currentHead);
@@ -732,7 +732,7 @@ public final class EquipCustomPanel extends FlippingSplitPane
 	private class SizeBoxModel extends CharacterComboBoxModel<SizeAdjustment>
 	{
 
-		public SizeBoxModel()
+		SizeBoxModel()
 		{
 			setListFacade(character.getDataSet().getSizes());
 			setReference(builder.getSizeRef());

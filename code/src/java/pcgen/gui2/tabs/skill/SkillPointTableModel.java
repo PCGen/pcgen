@@ -186,7 +186,7 @@ public class SkillPointTableModel extends AbstractTableModel
 		/**
 		 *  Create a new BoldNumberRenderer instance.
 		 */
-		public BoldNumberRenderer()
+		BoldNumberRenderer()
 		{
 			setHorizontalAlignment(SwingConstants.CENTER);
 		}

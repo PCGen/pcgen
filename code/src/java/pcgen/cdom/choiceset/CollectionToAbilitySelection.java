@@ -308,18 +308,18 @@ public class CollectionToAbilitySelection implements PrimitiveChoiceSet<AbilityS
 		private final Ability ability;
 		private final String choice;
 
-		public AbilityWithChoice(Ability a, String c)
+		AbilityWithChoice(Ability a, String c)
 		{
 			ability = a;
 			choice = c;
 		}
 
-		public Ability getAbility()
+		Ability getAbility()
 		{
 			return ability;
 		}
 
-		public String getChoice()
+		String getChoice()
 		{
 			return choice;
 		}

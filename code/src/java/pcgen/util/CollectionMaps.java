@@ -66,7 +66,7 @@ public final class CollectionMaps
 		private final Class<C> collectionClass;
 
 		@SuppressWarnings("unchecked")
-		public BasicListMap(Class<? extends Map> mapClass, Class<C> collectionClass)
+		BasicListMap(Class<? extends Map> mapClass, Class<C> collectionClass)
 			throws InstantiationException, IllegalAccessException
 		{
 			this.map = mapClass.newInstance();
@@ -184,7 +184,7 @@ public final class CollectionMaps
 		private final Class<C> collectionClass;
 
 		@SuppressWarnings("unchecked")
-		public BasicCollectionMap(Class<? extends Map> mapClass, Class<C> collectionClass)
+		BasicCollectionMap(Class<? extends Map> mapClass, Class<C> collectionClass)
 			throws InstantiationException, IllegalAccessException
 		{
 			this.map = mapClass.newInstance();

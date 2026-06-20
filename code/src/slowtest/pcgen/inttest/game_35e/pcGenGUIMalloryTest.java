@@ -13,6 +13,6 @@ public class pcGenGUIMalloryTest extends PcgenFtlTestCase
 	@Test
 	public void testMallory() throws Exception
 	{
-		runTest("35e_Mallory", "35e");
+		runTest("35e_Mallory");
 	}
 }

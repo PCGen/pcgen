@@ -841,7 +841,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			};
 		}
 
-		public void install()
+		void install()
 		{
 			charNameHandler.install();
 			playerNameHandler.install();
@@ -855,7 +855,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			modTotalHandler.install();
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			charNameHandler.uninstall();
 			playerNameHandler.uninstall();
@@ -1000,7 +1000,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			classModel = new FacadeComboBoxModel<>(dataset.getClasses(), null);
 		}
 
-		public void install()
+		void install()
 		{
 			characterTypeComboBox.setModel(characterTypeModel);
 			genderComboBox.setModel(genderModel);
@@ -1027,7 +1027,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			xpTableComboBox.setModel(xpTableModel);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			raceComboBox.removeFocusListener(raceModel);
 		}
@@ -1043,13 +1043,13 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			this.character = character;
 		}
 
-		public void install()
+		void install()
 		{
 			infoBoxRenderer.setCharacter(character);
 			classBoxRenderer.setCharacter(character);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			infoBoxRenderer.setCharacter(null);
 			classBoxRenderer.setCharacter(null);
@@ -1061,7 +1061,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 		protected CharacterFacade character;
 
-		public void setCharacter(CharacterFacade character)
+		void setCharacter(CharacterFacade character)
 		{
 			this.character = character;
 		}
@@ -1142,14 +1142,14 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			putValue(NAME, LanguageBundle.getString("in_edit")); //$NON-NLS-1$
 		}
 
-		public void install()
+		void install()
 		{
 			hpButton.setAction(this);
 			totalHPLabel.setText(ref.get().toString());
 			ref.addReferenceListener(this);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			ref.removeReferenceListener(this);
 		}
@@ -1221,7 +1221,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		 * Attach the handler to the screen button. e.g. When the character is
 		 * made active.
 		 */
-		public void install()
+		void install()
 		{
 			// Listen to the total levels
 			character.getCharacterLevelsFacade().addListListener(this);
@@ -1234,7 +1234,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		 * Detach the handler from the on screen button. e.g. when the character
 		 * is no longer being displayed.
 		 */
-		public void uninstall()
+		void uninstall()
 		{
 			character.getCharacterLevelsFacade().removeListListener(this);
 			character.getRollMethodRef().removeReferenceListener(this);
@@ -1249,7 +1249,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		/**
 		 * Update the state of the button.
 		 */
-		public void update()
+		void update()
 		{
 			setEnabled(character.isStatRollEnabled());
 		}
@@ -1367,7 +1367,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			}
 		}
 
-		public void install()
+		void install()
 		{
 			CharacterLevelsFacade characterLevelsFacade = character.getCharacterLevelsFacade();
 			int maxLvl = characterLevelsFacade.getSize();
@@ -1503,7 +1503,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		 * Attach the handler to the on-screen field. e.g. When the character is
 		 * made active.
 		 */
-		public void install()
+		void install()
 		{
 			reference.addReferenceListener(this);
 			label.setText(reference.get());
@@ -1513,7 +1513,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		 * Detach the handler from the on-screen field. e.g. when the character
 		 * is no longer being displayed.
 		 */
-		public void uninstall()
+		void uninstall()
 		{
 			reference.removeReferenceListener(this);
 		}
@@ -1554,7 +1554,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		 * Attach the handler to the on-screen field. e.g. When the character is
 		 * made active.
 		 */
-		public void install()
+		void install()
 		{
 			character.getTodoList().addListListener(this);
 			todoPane.addHyperlinkListener(this);
@@ -1566,7 +1566,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		 * Detach the handler from the on-screen field. e.g. when the character
 		 * is no longer being displayed.
 		 */
-		public void uninstall()
+		void uninstall()
 		{
 			todoPane.removeHyperlinkListener(this);
 			character.getTodoList().removeListListener(this);

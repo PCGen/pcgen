@@ -38,7 +38,7 @@ class SpellInfoHandler implements ListSelectionListener
 	private final InfoPane spellsPane;
 	private String currText;
 
-	public SpellInfoHandler(CharacterFacade character, JTreeViewTable<?> table1, JTreeViewTable<?> table2,
+	SpellInfoHandler(CharacterFacade character, JTreeViewTable<?> table1, JTreeViewTable<?> table2,
 		InfoPane spellsPane)
 	{
 		this.spellsPane = spellsPane;
@@ -48,14 +48,14 @@ class SpellInfoHandler implements ListSelectionListener
 		this.currText = ""; //$NON-NLS-1$
 	}
 
-	public void install()
+	void install()
 	{
 		availableTable.getSelectionModel().addListSelectionListener(this);
 		selectedTable.getSelectionModel().addListSelectionListener(this);
 		spellsPane.setText(currText);
 	}
 
-	public void uninstall()
+	void uninstall()
 	{
 		availableTable.getSelectionModel().removeListSelectionListener(this);
 		selectedTable.getSelectionModel().removeListSelectionListener(this);

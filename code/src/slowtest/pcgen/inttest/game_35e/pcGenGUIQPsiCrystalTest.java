@@ -14,6 +14,6 @@ public class pcGenGUIQPsiCrystalTest extends PcgenFtlTestCase
 	@Test
 	public void testQPsiCrystal() throws Exception
 	{
-		runTest("35e_Q-PsiCrystal", "35e");
+		runTest("35e_Q-PsiCrystal");
 	}
 }

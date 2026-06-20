@@ -125,7 +125,7 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 		private boolean entered = false;
 		private boolean open = true;
 
-		public ArrowButton()
+		ArrowButton()
 		{
 			setMinimumSize(new Dimension(6, 6));
 			setPreferredSize(new Dimension(6, 6));
@@ -194,12 +194,12 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 			g.fillPolygon(xs, ys, 3);
 		}
 
-		public void setOpen(boolean open)
+		void setOpen(boolean open)
 		{
 			this.open = open;
 		}
 
-		public boolean isOpen()
+		boolean isOpen()
 		{
 			return open;
 		}
@@ -215,7 +215,7 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 	{
 		private transient Lock instanceLock = new ReentrantLock();
 
-		public FilterLayout()
+		FilterLayout()
 		{
 			super(FlowLayout.LEFT, 5, 2);
 		}

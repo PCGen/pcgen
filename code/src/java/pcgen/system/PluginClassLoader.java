@@ -156,7 +156,7 @@ class PluginClassLoader extends PCGenTask
 		loadPlugins();
 	}
 
-	public void loadPlugins()
+	void loadPlugins()
 	{
 		findJarFiles(pluginDir);
 		setMaximum(jarFiles.size());

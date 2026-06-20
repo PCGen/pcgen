@@ -67,19 +67,19 @@ public class InventoryInfoTab extends JTabbedPane implements CharacterInfoTab, T
 		private final ModelMap equipModelMap;
 		private final ModelMap purchaseModelMap;
 
-		public ModelHandler(CharacterFacade character)
+		ModelHandler(CharacterFacade character)
 		{
 			equipModelMap = equipTab.createModels(character);
 			purchaseModelMap = purchaseTab.createModels(character);
 		}
 
-		public void restoreModels()
+		void restoreModels()
 		{
 			equipTab.restoreModels(equipModelMap);
 			purchaseTab.restoreModels(purchaseModelMap);
 		}
 
-		public void storeModels()
+		void storeModels()
 		{
 			equipTab.storeModels(equipModelMap);
 			purchaseTab.storeModels(purchaseModelMap);

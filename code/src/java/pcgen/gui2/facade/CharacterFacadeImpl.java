@@ -1244,19 +1244,17 @@ public class CharacterFacadeImpl
 		for (PCClass aClass : classList)
 		{
 			AlignmentCompat.setCurrentAlignment(theCharacter.getCharID(), newAlign);
+			if (!theCharacter.isQualified(aClass))
 			{
-				if (!theCharacter.isQualified(aClass))
+				if (aClass.containsKey(ObjectKey.EX_CLASS))
 				{
-					if (aClass.containsKey(ObjectKey.EX_CLASS))
+					if (!unqualified.isEmpty())
 					{
-						if (!unqualified.isEmpty())
-						{
-							unqualified.append(", "); //$NON-NLS-1$
-						}
-
-						unqualified.append(aClass.getKeyName());
-						exclassList.add(aClass);
+						unqualified.append(", "); //$NON-NLS-1$
 					}
+
+					unqualified.append(aClass.getKeyName());
+					exclassList.add(aClass);
 				}
 			}
 		}
@@ -3660,7 +3658,7 @@ public class CharacterFacadeImpl
 		 * Create a new reference based on the supplied rectangle.
 		 * @param rect
 		 */
-		public RectangleReference(Rectangle rect)
+		RectangleReference(Rectangle rect)
 		{
 			super(rect == null ? null : (Rectangle) rect.clone());
 		}

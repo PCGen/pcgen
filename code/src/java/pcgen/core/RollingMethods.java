@@ -385,7 +385,7 @@ public final class RollingMethods
 				this.rolls = rolls;
 			}
 
-			public Integer getRolls()
+			Integer getRolls()
 			{
 				return rolls;
 			}
@@ -438,7 +438,7 @@ public final class RollingMethods
 				this.rolls = rolls;
 			}
 
-			public Integer getRolls()
+			Integer getRolls()
 			{
 				return rolls;
 			}

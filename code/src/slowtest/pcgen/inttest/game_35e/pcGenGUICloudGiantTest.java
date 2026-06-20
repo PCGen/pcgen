@@ -16,7 +16,7 @@ public class pcGenGUICloudGiantTest extends PcgenFtlTestCase
 	@Test
 	public void testCloudGiantHalfDragon() throws IOException
 	{
-		runTest("35e_CloudGiantHalfDragon", "35e");
+		runTest("35e_CloudGiantHalfDragon");
 	}
 
 }

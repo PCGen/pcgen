@@ -6700,7 +6700,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		 *
 		 * @return bonus
 		 */
-		public int getBonus()
+		int getBonus()
 		{
 			return bonus;
 		}
@@ -6710,7 +6710,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		 *
 		 * @return type
 		 */
-		public String getType()
+		String getType()
 		{
 			return type;
 		}
@@ -6720,7 +6720,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		 *
 		 * @param newBonus
 		 */
-		public void setBonus(final int newBonus)
+		void setBonus(final int newBonus)
 		{
 			bonus = newBonus;
 		}

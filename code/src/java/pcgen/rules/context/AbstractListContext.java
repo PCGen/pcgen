@@ -590,10 +590,10 @@ public abstract class AbstractListContext
 
 	private static class OwnerURI
 	{
-		public final CDOMObject owner;
-		public final URI source;
+		final CDOMObject owner;
+		final URI source;
 
-		public OwnerURI(URI sourceURI, CDOMObject cdo)
+		OwnerURI(URI sourceURI, CDOMObject cdo)
 		{
 			source = sourceURI;
 			owner = cdo;

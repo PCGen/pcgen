@@ -203,7 +203,7 @@ public class SetModifierFactory<T> extends AbstractFixedSetModifierFactory<T[]>
 		 * 
 		 * @return The FormatManager for this SetArrayModifier
 		 */
-		public FormatManager<T[]> getFormatManager()
+		FormatManager<T[]> getFormatManager()
 		{
 			return fmtManager;
 		}

@@ -413,7 +413,7 @@ public final class TokenLibrary implements PluginLoader
 		private Class<?> stopClass;
 		private final Iterator<TokenFamily> subIterator;
 
-		public AbstractTokenIterator(Class<C> cl, String key)
+		AbstractTokenIterator(Class<C> cl, String key)
 		{
 			rootClass = cl;
 			subIterator = TOKEN_FAMILIES.iterator();
@@ -478,7 +478,7 @@ public final class TokenLibrary implements PluginLoader
 			extends TokenLibrary.AbstractTokenIterator<C, T>
 	{
 
-		public TokenIterator(Class<C> cl, String key)
+		TokenIterator(Class<C> cl, String key)
 		{
 			super(cl, key);
 		}
@@ -496,7 +496,7 @@ public final class TokenLibrary implements PluginLoader
 
 		private final String subTokenKey;
 
-		public SubTokenIterator(Class<C> cl, String key, String subKey)
+		SubTokenIterator(Class<C> cl, String key, String subKey)
 		{
 			super(cl, key);
 			subTokenKey = subKey;
@@ -514,7 +514,7 @@ public final class TokenLibrary implements PluginLoader
 			extends TokenLibrary.AbstractTokenIterator<C, T>
 	{
 
-		public QualifierTokenIterator(Class<C> cl, String key)
+		QualifierTokenIterator(Class<C> cl, String key)
 		{
 			super(cl, key);
 		}
@@ -551,7 +551,7 @@ public final class TokenLibrary implements PluginLoader
 			extends TokenLibrary.AbstractTokenIterator<C, T>
 	{
 
-		public PrimitiveTokenIterator(Class<C> cl, String key)
+		PrimitiveTokenIterator(Class<C> cl, String key)
 		{
 			super(cl, key);
 		}
@@ -588,7 +588,7 @@ public final class TokenLibrary implements PluginLoader
 			extends TokenLibrary.AbstractTokenIterator<C, T>
 	{
 
-		public ModifierIterator(Class<C> cl, String key)
+		ModifierIterator(Class<C> cl, String key)
 		{
 			super(cl, key);
 		}
@@ -619,7 +619,7 @@ public final class TokenLibrary implements PluginLoader
 	static class PreTokenIterator extends TokenLibrary.AbstractTokenIterator<CDOMObject, PrerequisiteParserInterface>
 	{
 
-		public PreTokenIterator(String key)
+		PreTokenIterator(String key)
 		{
 			super(CDOMOBJECT_CLASS, key);
 		}

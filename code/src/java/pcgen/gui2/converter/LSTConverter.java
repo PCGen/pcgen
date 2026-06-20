@@ -17,14 +17,12 @@
  */
 package pcgen.gui2.converter;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.net.URI;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
@@ -226,9 +224,7 @@ public class LSTConverter extends Observable
 					changeLogWriter.append("\nProcessing ").append(String.valueOf(in)).append("\n");
 					load(uri, loader)
 							.ifPresent((String result) -> {
-								try (Writer out = new BufferedWriter(new OutputStreamWriter(
-										new FileOutputStream(outFile),
-										StandardCharsets.UTF_8)))
+								try (Writer out = Files.newBufferedWriter(outFile.toPath(), StandardCharsets.UTF_8))
 								{
 									out.write(result);
 								} catch (IOException e)

@@ -255,7 +255,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 
 		private final CharacterFacade character;
 
-		public AddSpellAction(CharacterFacade character)
+		AddSpellAction(CharacterFacade character)
 		{
 			this.character = character;
 			putValue(SMALL_ICON, Icons.Forward16.getImageIcon());
@@ -274,13 +274,13 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 			}
 		}
 
-		public void install()
+		void install()
 		{
 			availableTable.addActionListener(this);
 			addButton.setAction(this);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			availableTable.removeActionListener(this);
 		}
@@ -292,7 +292,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 
 		private final CharacterFacade character;
 
-		public RemoveSpellAction(CharacterFacade character)
+		RemoveSpellAction(CharacterFacade character)
 		{
 			this.character = character;
 			putValue(SMALL_ICON, Icons.Back16.getImageIcon());
@@ -311,13 +311,13 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 			}
 		}
 
-		public void install()
+		void install()
 		{
 			selectedTable.addActionListener(this);
 			removeButton.setAction(this);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			selectedTable.removeActionListener(this);
 		}
@@ -329,7 +329,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 
 		private final CharacterFacade character;
 
-		public AutoAddSpellsAction(CharacterFacade character)
+		AutoAddSpellsAction(CharacterFacade character)
 		{
 			super(LanguageBundle.getString("InfoSpells.autoload"));
 			this.character = character;
@@ -341,7 +341,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 			character.getSpellSupport().setAutoSpells(autoKnownBox.isSelected());
 		}
 
-		public void install()
+		void install()
 		{
 			autoKnownBox.setAction(this);
 			autoKnownBox.setSelected(character.getSpellSupport().isAutoSpells());
@@ -354,7 +354,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 
 		private final CharacterFacade character;
 
-		public UseHigherSlotsAction(CharacterFacade character)
+		UseHigherSlotsAction(CharacterFacade character)
 		{
 			super(LanguageBundle.getString("InfoKnownSpells.canUseHigherSlots"));
 			this.character = character;
@@ -366,7 +366,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 			character.getSpellSupport().setUseHigherKnownSlots(slotsBox.isSelected());
 		}
 
-		public void install()
+		void install()
 		{
 			slotsBox.setAction(this);
 			slotsBox.setSelected(character.getSpellSupport().isUseHigherKnownSlots());
@@ -379,7 +379,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 
 		private final CharacterFacade character;
 
-		public PreviewSpellsAction(CharacterFacade character)
+		PreviewSpellsAction(CharacterFacade character)
 		{
 			this.character = character;
 			putValue(SMALL_ICON, Icons.PrintPreview16.getImageIcon());
@@ -398,7 +398,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 
 		private final CharacterFacade character;
 
-		public ExportSpellsAction(CharacterFacade character)
+		ExportSpellsAction(CharacterFacade character)
 		{
 			this.character = character;
 			putValue(SMALL_ICON, Icons.Print16.getImageIcon());
@@ -419,7 +419,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 		private final SpellTreeViewModel selectedModel;
 		private final CharacterFacade character;
 
-		public TreeViewModelHandler(CharacterFacade character)
+		TreeViewModelHandler(CharacterFacade character)
 		{
 			this.character = character;
 			availableModel = new SpellTreeViewModel(character.getSpellSupport().getAvailableSpellNodes(), false,
@@ -428,14 +428,14 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 				"SpellsKnownSel", character.getInfoFactory());
 		}
 
-		public void install()
+		void install()
 		{
 			spellRenderer.setCharacter(character);
 			availableTable.setTreeViewModel(availableModel);
 			selectedTable.setTreeViewModel(selectedModel);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			spellRenderer.setCharacter(null);
 		}
@@ -447,12 +447,12 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 
 		private final CharacterFacade character;
 
-		public SpellFilterHandler(CharacterFacade character)
+		SpellFilterHandler(CharacterFacade character)
 		{
 			this.character = character;
 		}
 
-		public void install()
+		void install()
 		{
 			qFilterButton.setFilter(this);
 		}

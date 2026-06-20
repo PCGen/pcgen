@@ -260,12 +260,12 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		private final JTree tree;
 		private List<TreePath> expandedPaths = Collections.emptyList();
 
-		public TreeExpansionHandler()
+		TreeExpansionHandler()
 		{
 			this.tree = companionsTable.getTree();
 		}
 
-		public void install()
+		void install()
 		{
 			for (TreePath path : expandedPaths)
 			{
@@ -274,7 +274,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			tree.addTreeExpansionListener(this);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			tree.removeTreeExpansionListener(this);
 		}
@@ -308,7 +308,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		private final ListSelectionModel selectionModel;
 		private final PCGenFrame frame;
 
-		public LoadButtonAndSheetHandler()
+		LoadButtonAndSheetHandler()
 		{
 			File sheet = Path.of(
 						ConfigurationSettings.getPreviewDir(),
@@ -319,7 +319,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			this.frame = (PCGenFrame) JOptionPane.getFrameForComponent(CompanionInfoTab.this);
 		}
 
-		public void install()
+		void install()
 		{
 			configureButton();
 			loadButton.setAction(this);
@@ -337,7 +337,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			sheetSupport.install();
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			selectionModel.removeListSelectionListener(this);
 			sheetSupport.uninstall();
@@ -458,7 +458,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		private final JButton button = new JButton();
 		private final DefaultTableCellRenderer background = new DefaultTableCellRenderer();
 
-		public ButtonCellRenderer()
+		ButtonCellRenderer()
 		{
 			button.setMargin(new Insets(0, 0, 0, 0));
 
@@ -526,7 +526,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		private final DefaultTableCellRenderer background = new DefaultTableCellRenderer();
 		private final CharacterFacade character;
 
-		public ButtonCellEditor(CharacterFacade character)
+		ButtonCellEditor(CharacterFacade character)
 		{
 			this.character = character;
 
@@ -609,12 +609,12 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			implements Filter<String, CompanionStubFacade>
 	{
 
-		public FilteredCompanionList()
+		FilteredCompanionList()
 		{
 			setFilter(this);
 		}
 
-		public void setCompanionType(String type)
+		void setCompanionType(String type)
 		{
 			setContext(type);
 		}
@@ -644,7 +644,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		private final DefaultListFacade<CompanionTreeView> treeViews =
 				new DefaultListFacade<>(Arrays.asList(CompanionTreeView.values()));
 
-		public CompanionDialog()
+		CompanionDialog()
 		{
 			super(JOptionPane.getFrameForComponent(CompanionInfoTab.this), true);
 			this.model = new FilteredCompanionList();
@@ -712,13 +712,13 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			}
 		}
 
-		public void setCharacter(CharacterFacade character)
+		void setCharacter(CharacterFacade character)
 		{
 			this.character = character;
 			model.setDelegate(character.getCompanionSupport().getAvailableCompanions());
 		}
 
-		public void setCompanionType(String type)
+		void setCompanionType(String type)
 		{
 			companionType = type;
 			model.setCompanionType(type);
@@ -776,7 +776,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		/**
 		 * @return the newCompanion
 		 */
-		public CharacterFacade getNewCompanion()
+		CharacterFacade getNewCompanion()
 		{
 			return newCompanion;
 		}
@@ -818,7 +818,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		private final CompanionSupportFacade support;
 		private final MapFacade<String, Integer> maxMap;
 
-		public CompanionsModel(CharacterFacade character)
+		CompanionsModel(CharacterFacade character)
 		{
 			this.support = character.getCompanionSupport();
 			this.maxMap = support.getMaxCompanionsMap();
@@ -854,7 +854,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 
 			private final CompanionFacade companion;
 
-			public CompanionNode(CompanionFacade companion)
+			CompanionNode(CompanionFacade companion)
 			{
 				this.companion = companion;
 			}
@@ -882,7 +882,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 
 			private final String type;
 
-			public CompanionTypeNode(String type)
+			CompanionTypeNode(String type)
 			{
 				super(Arrays.asList(type, null));
 				this.type = type;
@@ -997,7 +997,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			private final List<String> types;
 			private final ListFacade<? extends CompanionFacade> companions;
 
-			public RootNode()
+			RootNode()
 			{
 				this.types = new ArrayList<>();
 				this.companions = support.getCompanions();

@@ -37,7 +37,7 @@ class ListChanges<T extends CDOMObject> implements AssociatedChanges<CDOMReferen
 	private final CDOMReference<? extends CDOMList<T>> list;
 	private final boolean clear;
 
-	public ListChanges(String token, CDOMObject added, CDOMObject removed, CDOMReference<? extends CDOMList<T>> listref,
+	ListChanges(String token, CDOMObject added, CDOMObject removed, CDOMReference<? extends CDOMList<T>> listref,
 		boolean globallyCleared)
 	{
 		tokenName = token;
@@ -53,7 +53,7 @@ class ListChanges<T extends CDOMObject> implements AssociatedChanges<CDOMReferen
 		return clear;
 	}
 
-	public boolean isEmpty()
+	boolean isEmpty()
 	{
 		/*
 		 * TODO This lies because it doesn't analyze tokenName
@@ -82,7 +82,7 @@ class ListChanges<T extends CDOMObject> implements AssociatedChanges<CDOMReferen
 		return set;
 	}
 
-	public boolean hasAddedItems()
+	boolean hasAddedItems()
 	{
 		/*
 		 * TODO This lies because it doesn't analyze tokenName
@@ -115,7 +115,7 @@ class ListChanges<T extends CDOMObject> implements AssociatedChanges<CDOMReferen
 		return set;
 	}
 
-	public boolean hasRemovedItems()
+	boolean hasRemovedItems()
 	{
 		/*
 		 * TODO This lies because it doesn't analyze tokenName

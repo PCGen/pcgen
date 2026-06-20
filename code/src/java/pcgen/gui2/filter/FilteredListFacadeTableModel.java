@@ -121,7 +121,7 @@ public abstract class FilteredListFacadeTableModel<E> extends AbstractTableModel
 
 		private final E element;
 
-		public ElementRow(E element)
+		ElementRow(E element)
 		{
 			this.element = element;
 		}
@@ -139,7 +139,7 @@ public abstract class FilteredListFacadeTableModel<E> extends AbstractTableModel
 
 		private final Comparator<Row> comp;
 
-		public RowComparator(Comparator<Row> comparator)
+		RowComparator(Comparator<Row> comparator)
 		{
 			super();
 			this.comp = comparator;

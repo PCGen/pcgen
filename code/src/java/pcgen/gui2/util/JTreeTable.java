@@ -268,7 +268,7 @@ public class JTreeTable extends JTableEx
 		 * not be guaranteed the tree will have finished processing
 		 * the event before us.
 		 **/
-		public void setTreeTableModel(TreeTableModel model)
+		void setTreeTableModel(TreeTableModel model)
 		{
 			if (treeTableModel != null)
 			{
@@ -467,7 +467,7 @@ public class JTreeTable extends JTableEx
 		private int visibleRow;
 		private DefaultTableCellRenderer tableCellRenderer;
 
-		public TreeTableCellRenderer()
+		TreeTableCellRenderer()
 		{
 			this.tableCellRenderer = new DefaultTableCellRenderer()
 			{

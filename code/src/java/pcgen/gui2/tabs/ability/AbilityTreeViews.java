@@ -118,7 +118,7 @@ public final class AbilityTreeViews
 
 		private final DataSetFacade dataset;
 
-		public PreReqTreeView(DataSetFacade dataset)
+		PreReqTreeView(DataSetFacade dataset)
 		{
 			this.dataset = dataset;
 		}

@@ -245,7 +245,7 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 
 		private final SpellSupportFacade spellSupport;
 
-		public SpellBookModel(CharacterFacade character)
+		SpellBookModel(CharacterFacade character)
 		{
 			this.spellSupport = character.getSpellSupport();
 			setListFacade(spellSupport.getSpellbooks());
@@ -264,7 +264,7 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 
 		private final CharacterFacade character;
 
-		public AddSpellAction(CharacterFacade character)
+		AddSpellAction(CharacterFacade character)
 		{
 			this.character = character;
 			putValue(SMALL_ICON, Icons.Forward16.getImageIcon());
@@ -284,13 +284,13 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 			}
 		}
 
-		public void install()
+		void install()
 		{
 			availableTable.addActionListener(this);
 			addButton.setAction(this);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			availableTable.removeActionListener(this);
 		}
@@ -302,7 +302,7 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 
 		private final CharacterFacade character;
 
-		public RemoveSpellAction(CharacterFacade character)
+		RemoveSpellAction(CharacterFacade character)
 		{
 			this.character = character;
 			putValue(SMALL_ICON, Icons.Back16.getImageIcon());
@@ -321,13 +321,13 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 			}
 		}
 
-		public void install()
+		void install()
 		{
 			selectedTable.addActionListener(this);
 			removeButton.setAction(this);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			selectedTable.removeActionListener(this);
 		}
@@ -341,7 +341,7 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 		private final SpellTreeViewModel selectedModel;
 		private final CharacterFacade character;
 
-		public TreeViewModelHandler(CharacterFacade character)
+		TreeViewModelHandler(CharacterFacade character)
 		{
 			this.character = character;
 			availableModel = new SpellTreeViewModel(character.getSpellSupport().getKnownSpellNodes(), false,
@@ -350,14 +350,14 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 				"SpellBooksSel", character.getInfoFactory());
 		}
 
-		public void install()
+		void install()
 		{
 			spellRenderer.setCharacter(character);
 			availableTable.setTreeViewModel(availableModel);
 			selectedTable.setTreeViewModel(selectedModel);
 		}
 
-		public void uninstall()
+		void uninstall()
 		{
 			spellRenderer.setCharacter(null);
 		}
@@ -369,12 +369,12 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 
 		private final CharacterFacade character;
 
-		public SpellFilterHandler(CharacterFacade character)
+		SpellFilterHandler(CharacterFacade character)
 		{
 			this.character = character;
 		}
 
-		public void install()
+		void install()
 		{
 			qFilterButton.setFilter(this);
 		}
