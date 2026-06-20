@@ -55,7 +55,6 @@ Always use the wrapper (`./gradlew`). Java 25 (Temurin) is required; Gradle will
 | `./gradlew sfinttest rsrdinttest srdinttest msrdinttest` | Per-game-mode integration test variants                                                      |
 | `./gradlew testCoverage`                                 | Jacoco coverage report (build/reports/jacoco/testCoverage/html)                              |
 | `./gradlew allReports`                                   | Checkstyle + PMD + SpotBugs reports                                                          |
-| `./gradlew buildDist`                                    | Assemble distribution zips (data/docs/program/libs + runtime)                                |
 | `./gradlew qbuild`                                       | Quick dev binary to output/                                                                  |
 | `./gradlew run`                                          | Run the app (JavaFX modules configured automatically)                                        |
 | `./gradlew fullJpackage`                                 | Create native app image/installer via jpackage                                               |

@@ -507,10 +507,10 @@ tasks.register("copyToLibs", Copy) {
     from configurations.runtimeClasspath
 }
 
-// distZip/distTar are unused: CI publishes the custom buildDist zips
-// (see code/gradle/distribution.gradle) and the jpackage native installers,
-// not the built-in distribution-plugin archives. Disable them so they don't
-// materialize ~150 runtime JARs into build/distributions/ on every build.
+// distZip/distTar would materialize ~150 runtime JARs into
+// build/distributions/ on every build. CI publishes jpackage native
+// installers and the portable zip instead, not the application
+// plugin's archives, so disable them.
 tasks.named("distZip") { enabled = false }
 tasks.named("distTar") { enabled = false }
 // jlink's prepareMergedJarsDir reads from build/libs, which copyToLibs populates.
@@ -854,7 +854,6 @@ tasks.named("wrapper") {
 
 // Bring in the rest of the gradle build config
 apply from: 'code/gradle/distribution.gradle'
-apply from: 'code/gradle/autobuild.gradle'    // depends on distribution.gradle
 apply from: 'code/gradle/reporting.gradle'
 apply from: 'code/gradle/release.gradle'
 apply from: 'code/gradle/plugins.gradle'

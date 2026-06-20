@@ -1,15 +1,13 @@
 import java.time.LocalDateTime
 
 /*
- * PCGen distributable generation tasks. This file specifies the
- * archives included in the PCGen autobuild and PCGen releases. It
- * is called from the main build.gradle file.
+ * PCGen distributable generation tasks. Contributes copy specs that
+ * the application plugin's installDist consumes; jpackage then turns
+ * the install image into native installers (see release.gradle).
  *
- * Usage: ./gradlew builddist
+ * Called from the main build.gradle file.
  */
 ext {
-    zipRootFolder = "pcgen"
-
     buildTimestamp = LocalDateTime.now(Clock.systemUTC())
 
     dataDistsImage = copySpec {
@@ -38,13 +36,6 @@ ext {
         }
         from('code') {
             include 'LICENSE'
-        }
-    }
-
-    libsDistsImage = copySpec {
-        from(layout.buildDirectory.dir("libs")) {
-            into 'libs'
-            exclude 'pcgen-*.jar'
         }
     }
 
@@ -95,40 +86,4 @@ tasks.named("installDist") {
             }
         }
     }
-}
-
-tasks.register("dataZip", Zip) {
-    dependsOn copyMasterSheets
-    archiveClassifier.set('data')
-    into(zipRootFolder) {
-        with dataDistsImage
-    }
-}
-
-tasks.register("docsZip", Zip) {
-    archiveClassifier.set('docs')
-    into(zipRootFolder) {
-        with docsDistsImage
-    }
-}
-
-tasks.register("programZip", Zip) {
-    dependsOn converterJar
-    archiveClassifier.set('program')
-    into(zipRootFolder) {
-        with programScriptImage
-    }
-}
-
-tasks.register("libsZip", Zip) {
-    dependsOn copyToLibs
-    archiveClassifier.set('libs')
-    into(zipRootFolder) {
-        with libsDistsImage
-    }
-}
-
-tasks.register("buildDist") {
-    dependsOn dataZip, docsZip, programZip, libsZip, jlinkZip
-    description = "Build the five zip files (docs, data, program, libs and full) which comprise the autobuild distribution."
 }
