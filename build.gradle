@@ -10,9 +10,6 @@
  * Run the data tests: gradle datatest
  * Run the character integration tests: gradle inttest
  */
-
-import groovy.json.JsonSlurper
-
 import java.nio.file.Files
 
 import org.apache.tools.ant.filters.FixCrLfFilter
@@ -62,28 +59,17 @@ ext {
     // Installers are placed here
     releaseDir = layout.projectDirectory.dir("build/release")
 
-    // Java version. It will affect JavaFX version too.
-    javaVersion = 25
+    // Java major version. Drives the JDK toolchain and the JavaFX major (must match
+    // javafxVersion's major below). See README.md "Bumping Java / JavaFX versions".
+    javaVersion = providers.gradleProperty('javaVersion').get() as Integer
+
+    // Full JavaFX patch version (e.g. 25.0.3). Major must match javaVersion above.
+    javafxVersion = providers.gradleProperty('javafxVersion').get()
 
     // Project version with -SNAPSHOT stripped. Shared between jpackage's
     // appVersion (further sanitised below) and release.gradle's release-notes
     // path so the two can't drift.
     plainVerNum = version.replaceAll('-SNAPSHOT', '')
-
-    // The Eclipse Adoptium API returns the latest patch release for the majorJava version set.
-    // Cached so the network call fires at most once per Gradle invocation, and only when a
-    // JavaFX/JDK download task actually consumes the value (the use sites sit inside lazy
-    // tasks.register bodies).
-    def latestJavaVersionCache = [:]
-    latestJavaVersion = { majorJavaVersion ->
-        latestJavaVersionCache.computeIfAbsent(majorJavaVersion) { v ->
-            def uri = new URI("https://api.adoptium.net/v3/assets/feature_releases/${v}/ga?architecture=x64&page=0&page_size=1&project=jdk&sort_order=DESC&vendor=eclipse")
-            def parsedJson = new JsonSlurper().parse(uri.toURL())
-
-            parsedJson.first()
-                    .version_data.with { [major, minor, security].join('.') }
-        }
-    }
 }
 
 // Configure Java, in particular the version to test/compile/run with
@@ -626,8 +612,8 @@ tasks.register("extractJdk", Copy) {
 tasks.register("downloadJfxMods", Download) {
     description = "Downloads JavaFX jmods for the host platform"
     dependsOn "extractJdk"
-    def fileName = "openjfx-${latestJavaVersion(javaVersion)}_${hostJfxOsPackage}${hostJfxArchSuffix}_bin-jmods.zip"
-    src "https://download2.gluonhq.com/openjfx/${latestJavaVersion(javaVersion)}/${fileName}"
+    def fileName = "openjfx-${javafxVersion}_${hostJfxOsPackage}${hostJfxArchSuffix}_bin-jmods.zip"
+    src "https://download2.gluonhq.com/openjfx/${javafxVersion}/${fileName}"
     dest jdksDir.file("jfx_jmods_${hostOs}_${hostArch}.zip")
 }
 
@@ -671,9 +657,9 @@ tasks.register("downloadJavaFXLocal", Download) {
         throw new GradleException("Unsupported arch detected: '${hostArchitecture}'. Supported architectures are: x86_64, amd64 and aarch64")
     }
 
-    def fileName = "openjfx-${project.ext.latestJavaVersion(project.ext.javaVersion)}_${currentOS}${archAppend}_bin-sdk.zip"
+    def fileName = "openjfx-${project.ext.javafxVersion}_${currentOS}${archAppend}_bin-sdk.zip"
 
-    src "https://download2.gluonhq.com/openjfx/${project.ext.latestJavaVersion(project.ext.javaVersion)}/${fileName}"
+    src "https://download2.gluonhq.com/openjfx/${project.ext.javafxVersion}/${fileName}"
     dest layout.projectDirectory.file("mods/${fileName}")
 }
 
