@@ -1,3 +1,16 @@
+/*
+ * Copyright 2026 (C) Vest <Vest@users.noreply.github.com>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ */
 package pcgen.gui3.sources;
 
 import java.util.Comparator;
@@ -6,22 +19,27 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
 import javafx.beans.property.ReadOnlyObjectWrapper;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.control.TreeTableView;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
+import javafx.scene.web.WebView;
 import javafx.util.Callback;
 
 import pcgen.cdom.enumeration.ListKey;
@@ -46,6 +64,15 @@ public class AdvancedSourceSelectionController
 	private Button btnFilterClear;
 
 	@FXML
+	private Button btnAddSelected;
+
+	@FXML
+	private Button btnRemoveSelected;
+
+	@FXML
+	private Button btnUnloadAll;
+
+	@FXML
 	private TextField fldSearch;
 
 	@FXML
@@ -57,7 +84,13 @@ public class AdvancedSourceSelectionController
 	@FXML
 	private TreeTableView<SourceTreeNode> treeSelected;
 
+	@FXML
+	private WebView infoPane;
+
+	private final ObservableList<Campaign> selectedCampaigns = FXCollections.observableArrayList();
+
 	private Runnable onLoadRequested = () -> { };
+	private Runnable onUnloadAllRequested = () -> { };
 
 	@FXML
 	protected void initialize()
@@ -67,7 +100,38 @@ public class AdvancedSourceSelectionController
 		cmbGameMode.setCellFactory(new GameModeCellFactory());
 
 		treeAvailable.setColumnResizePolicy(TreeTableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
+		treeSelected.setColumnResizePolicy(TreeTableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
+		treeAvailable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+		treeSelected.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
+		bindAvailableColumns();
+		bindSelectedColumns();
+
+		// Either tree drives the bottom info pane: whichever was clicked last
+		// shows its leaf's HTML. The legacy mirrors this — the panel listens to
+		// both selection models with the same handler.
+		treeAvailable.getSelectionModel().selectedItemProperty()
+				.addListener((obs, old, item) -> showInfoFor(item));
+		treeSelected.getSelectionModel().selectedItemProperty()
+				.addListener((obs, old, item) -> showInfoFor(item));
+
+		// Selected list changes drive the right-side tree rebuild. Done as a
+		// listener (rather than a binding) so we keep the same TreeItem
+		// expansion state and column widths across rebuilds.
+		selectedCampaigns.addListener((javafx.collections.ListChangeListener<Campaign>) c ->
+				treeSelected.setRoot(buildTree(selectedCampaigns)));
+
+		treeAvailable.setOnMouseClicked(event -> {
+			if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2
+					&& selectedLeavesIn(treeAvailable).findAny().isPresent())
+			{
+				onLoadRequested.run();
+			}
+		});
+	}
+
+	private void bindAvailableColumns()
+	{
 		// FXML's <TreeTableColumn> declarations are untyped, so the columns
 		// list comes back as TreeTableColumn<SourceTreeNode, ?>. Cast to
 		// String columns at wire-up time so the cell-value factories can
@@ -91,21 +155,79 @@ public class AdvancedSourceSelectionController
 						.map(c -> c.getSafe(ObjectKey.STATUS).toString()).orElse("")));
 		loadedColumn.setCellValueFactory(v ->
 				new ReadOnlyObjectWrapper<>(campaignOf(v.getValue()).isPresent() ? "Loaded" : "Not loaded"));
-
-		treeAvailable.setOnMouseClicked(event -> {
-			if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2
-					&& selectedCampaignFromAvailable().isPresent())
-			{
-				onLoadRequested.run();
-			}
-		});
 	}
 
+	private void bindSelectedColumns()
+	{
+		@SuppressWarnings("unchecked")
+		var selectedNameColumn = (TreeTableColumn<SourceTreeNode, String>) treeSelected.getColumns().get(0);
+		selectedNameColumn.setCellValueFactory(v ->
+				new ReadOnlyObjectWrapper<>(v.getValue().getValue().displayLabel()));
+	}
 
 	@FXML
 	protected void onFilterClearAction(ActionEvent actionEvent)
 	{
 		fldSearch.setText("");
+	}
+
+	/**
+	 * Copies every focused leaf in the available tree into the selected list,
+	 * skipping campaigns that are already selected. If adding a campaign would
+	 * break a prereq chain, we roll the add back and warn — same contract as
+	 * the legacy AdvancedSourceSelectionPanel.AddAction.
+	 */
+	@FXML
+	protected void onAddSelectedAction(ActionEvent event)
+	{
+		selectedLeavesIn(treeAvailable).forEach(c -> {
+			if (selectedCampaigns.contains(c))
+			{
+				return;
+			}
+			selectedCampaigns.add(c);
+			if (!FacadeFactory.passesPrereqs(selectedCampaigns))
+			{
+				selectedCampaigns.remove(c);
+				warnBadCombo(c);
+			}
+		});
+	}
+
+	@FXML
+	protected void onRemoveSelectedAction(ActionEvent event)
+	{
+		selectedLeavesIn(treeSelected).toList().forEach(selectedCampaigns::remove);
+	}
+
+	@FXML
+	protected void onUnloadAllAction(ActionEvent event)
+	{
+		onUnloadAllRequested.run();
+		selectedCampaigns.clear();
+	}
+
+	private void warnBadCombo(Campaign campaign)
+	{
+		var prereqDesc = FacadeFactory.getCampaignInfoFactory()
+				.getRequirementsHTMLString(campaign, selectedCampaigns);
+		var alert = new Alert(Alert.AlertType.INFORMATION);
+		alert.setTitle(LanguageBundle.getString("in_src_badComboTitle"));
+		alert.setHeaderText(null);
+		alert.setContentText(LanguageBundle.getFormattedString("in_src_badComboMsg", prereqDesc));
+		alert.showAndWait();
+	}
+
+	private void showInfoFor(TreeItem<SourceTreeNode> item)
+	{
+		if (item == null)
+		{
+			infoPane.getEngine().loadContent("");
+			return;
+		}
+		campaignOf(item).ifPresentOrElse(
+				c -> infoPane.getEngine().loadContent(FacadeFactory.getCampaignInfoFactory().getHTMLInfo(c)),
+				() -> infoPane.getEngine().loadContent(""));
 	}
 
 	/**
@@ -118,9 +240,20 @@ public class AdvancedSourceSelectionController
 	}
 
 	/**
-	 * Builds the {@link SourceBundle} the user has chosen on this tab, if any.
-	 * Until multi-select is wired, this is the single campaign focused in the
-	 * available tree under the current game mode.
+	 * Registers the action to invoke for Unload All — typically
+	 * {@code PCGenFrame.unloadSources()}. The selected list is cleared
+	 * unconditionally afterwards on this side.
+	 */
+	public void setOnUnloadAllRequested(Runnable handler)
+	{
+		this.onUnloadAllRequested = handler == null ? () -> { } : handler;
+	}
+
+	/**
+	 * Builds the {@link SourceBundle} the user has chosen on this tab.
+	 * Prefers the explicit Selected list when non-empty; falls back to the
+	 * single focused leaf in the available tree so single-click + Load still
+	 * works without an Add round-trip.
 	 */
 	public Optional<SourceBundle> getSelectedSource()
 	{
@@ -129,14 +262,20 @@ public class AdvancedSourceSelectionController
 		{
 			return Optional.empty();
 		}
-		return selectedCampaignFromAvailable().map(c ->
+		if (!selectedCampaigns.isEmpty())
+		{
+			var snapshot = List.copyOf(selectedCampaigns);
+			return Optional.of(new SourceBundle(null, gameMode, snapshot, false, null));
+		}
+		return selectedLeavesIn(treeAvailable).findFirst().map(c ->
 				new SourceBundle(c.getDisplayName(), gameMode, List.of(c), false, null));
 	}
 
-	private Optional<Campaign> selectedCampaignFromAvailable()
+	private static Stream<Campaign> selectedLeavesIn(TreeTableView<SourceTreeNode> tree)
 	{
-		var item = treeAvailable.getSelectionModel().getSelectedItem();
-		return item == null ? Optional.empty() : campaignOf(item);
+		return tree.getSelectionModel().getSelectedItems().stream()
+				.filter(java.util.Objects::nonNull)
+				.flatMap(item -> campaignOf(item).stream());
 	}
 
 	private static Optional<Campaign> campaignOf(TreeItem<SourceTreeNode> item)
@@ -165,7 +304,10 @@ public class AdvancedSourceSelectionController
 					.stream(FacadeFactory.getSupportedCampaigns(selectedGameMode).spliterator(), false)
 					.toList();
 			LOG.fine(() -> "Found " + campaigns.size() + " campaigns.");
-			treeAvailable.setRoot(buildAvailableTree(campaigns));
+			treeAvailable.setRoot(buildTree(campaigns));
+			// Switching game mode invalidates the selected list — campaigns from
+			// a different mode aren't loadable here.
+			selectedCampaigns.clear();
 		});
 	}
 
@@ -174,7 +316,7 @@ public class AdvancedSourceSelectionController
 	 * campaigns. Campaigns without a CAMPAIGN_SETTING attach as direct
 	 * publisher children; those with a setting are grouped under a setting node.
 	 */
-	private static TreeItem<SourceTreeNode> buildAvailableTree(List<Campaign> campaigns)
+	private static TreeItem<SourceTreeNode> buildTree(List<Campaign> campaigns)
 	{
 		var fallbackPublisher = LanguageBundle.getString("in_other");
 

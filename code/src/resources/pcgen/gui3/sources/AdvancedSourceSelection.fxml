@@ -8,17 +8,20 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.control.TreeTableColumn?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.web.WebView?>
 
-<?import javafx.scene.control.TreeTableColumn?>
 <Tab text="Advanced" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pcgen.gui3.sources.AdvancedSourceSelectionController">
     <VBox>
 
-        <SplitPane fx:id="splitPane" dividerPositions="0.7" VBox.vgrow="ALWAYS">
+        <SplitPane fx:id="splitPane" dividerPositions="0.6" VBox.vgrow="ALWAYS">
             <GridPane>
                 <Label text="%in_src_gameLabel" GridPane.columnIndex="0" GridPane.rowIndex="0">
                     <GridPane.margin>
@@ -34,7 +37,7 @@
                 <TextField fx:id="fldSearch" GridPane.columnIndex="3" GridPane.rowIndex="0" />
                 <Button fx:id="btnFilterClear" onAction="#onFilterClearAction" GridPane.columnIndex="4" GridPane.rowIndex="0" />
 
-                <TreeTableView fx:id="treeAvailable" GridPane.columnIndex="0" GridPane.columnSpan="5" GridPane.rowIndex="1"  showRoot="false" >
+                <TreeTableView fx:id="treeAvailable" GridPane.columnIndex="0" GridPane.columnSpan="5" GridPane.rowIndex="1" showRoot="false">
                     <columns>
                         <TreeTableColumn text="%in_src_pubSetName" prefWidth="320"/>
                         <TreeTableColumn text="%in_src_bookType" prefWidth="120"/>
@@ -43,9 +46,19 @@
                     </columns>
                 </TreeTableView>
 
+                <HBox spacing="5.0" GridPane.columnIndex="0" GridPane.columnSpan="5" GridPane.rowIndex="2">
+                    <padding>
+                        <Insets top="5.0" bottom="5.0"/>
+                    </padding>
+                    <Button fx:id="btnUnloadAll" text="%in_src_unloadAll" onAction="#onUnloadAllAction"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="btnAddSelected" text="%in_addSelected" onAction="#onAddSelectedAction"/>
+                </HBox>
+
                 <rowConstraints>
                     <RowConstraints vgrow="NEVER" />
                     <RowConstraints vgrow="ALWAYS"/>
+                    <RowConstraints vgrow="NEVER"/>
                 </rowConstraints>
                 <columnConstraints>
                     <ColumnConstraints hgrow="NEVER" />
@@ -53,15 +66,20 @@
                     <ColumnConstraints hgrow="NEVER" />
                     <ColumnConstraints hgrow="SOMETIMES" />
                     <ColumnConstraints hgrow="NEVER" />
-
                 </columnConstraints>
             </GridPane>
             <VBox SplitPane.resizableWithParent="false">
-                <TreeTableView fx:id="treeSelected" VBox.vgrow="ALWAYS" >
+                <TreeTableView fx:id="treeSelected" VBox.vgrow="ALWAYS" showRoot="false">
                     <columns>
-                        <TreeTableColumn text="%in_nameLabel"/>
+                        <TreeTableColumn text="%in_nameLabel" prefWidth="220"/>
                     </columns>
                 </TreeTableView>
+                <HBox spacing="5.0">
+                    <padding>
+                        <Insets top="5.0" bottom="5.0"/>
+                    </padding>
+                    <Button fx:id="btnRemoveSelected" text="%in_removeSelected" onAction="#onRemoveSelectedAction"/>
+                </HBox>
             </VBox>
         </SplitPane>
         <WebView fx:id="infoPane" prefHeight="200" />

@@ -128,6 +128,15 @@ public class SourceSelectionDialogPane extends DialogPane
 	}
 
 	/**
+	 * Registers the handler invoked when the user presses Unload All on the
+	 * Advanced tab — typically {@code PCGenFrame.unloadSources()}.
+	 */
+	public void setOnUnloadAllRequested(Runnable handler)
+	{
+		advancedTabController.setOnUnloadAllRequested(handler);
+	}
+
+	/**
 	 * The {@link SourceBundle} the user has chosen on the active tab, or
 	 * empty if nothing is selected.
 	 */

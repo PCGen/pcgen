@@ -1373,6 +1373,10 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 				// handler below loads the selected bundle.
 				pane.setOnLoadRequested(() -> dialog.setResult(ButtonType.OK));
 
+				// Unload All has to hop back to the Swing EDT — it touches
+				// CharacterManager and global Globals state.
+				pane.setOnUnloadAllRequested(() -> SwingUtilities.invokeLater(this::unloadSources));
+
 				dialog.showAndWait().ifPresent(button -> {
 					if (button.getButtonData() != ButtonBar.ButtonData.OK_DONE)
 					{
