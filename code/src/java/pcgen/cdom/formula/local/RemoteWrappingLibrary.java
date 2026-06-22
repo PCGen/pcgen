@@ -86,11 +86,11 @@ public class RemoteWrappingLibrary implements FunctionLibrary
 	@Override
 	public FormulaFunction getFunction(String functionName)
 	{
-		if (functionName.equalsIgnoreCase("source"))
+		if (String.CASE_INSENSITIVE_ORDER.compare("source", functionName) == 0)
 		{
 			return new DefinedFunction("source", sourceValue, sourceFormatManager);
 		}
-		if (functionName.equalsIgnoreCase("target"))
+		if (String.CASE_INSENSITIVE_ORDER.compare("target", functionName) == 0)
 		{
 			return new DefinedFunction("target", targetValue, targetFormatManager);
 		}

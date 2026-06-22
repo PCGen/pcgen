@@ -199,7 +199,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID>
 					moveType = moveType.substring(5);
 				}
 
-				if (!moveType.equalsIgnoreCase("ALL"))
+				if (String.CASE_INSENSITIVE_ORDER.compare("ALL", moveType) != 0)
 				{
 					String clean = CoreUtility.capitalizeFirstLetter(moveType);
 					moveRates.putIfAbsent(MovementType.getConstant(clean), 0.0);

@@ -49,7 +49,7 @@ public class MasterFacet extends AbstractItemFacet<CharID, Follower>
 	{
 		for (CompanionMod cMod : companionModFacet.getSet(id))
 		{
-			if (cMod.getType().equalsIgnoreCase(get(id).getType().getKeyName()))
+			if (String.CASE_INSENSITIVE_ORDER.compare(cMod.getType(), get(id).getType().getKeyName()) == 0)
 			{
 				if (cMod.get(StringKey.MASTER_CHECK_FORMULA) != null)
 				{
@@ -76,7 +76,7 @@ public class MasterFacet extends AbstractItemFacet<CharID, Follower>
 	{
 		for (CompanionMod cMod : companionModFacet.getSet(id))
 		{
-			if (cMod.getType().equalsIgnoreCase(get(id).getType().getKeyName()))
+			if (String.CASE_INSENSITIVE_ORDER.compare(cMod.getType(), get(id).getType().getKeyName()) == 0)
 			{
 				if (cMod.get(StringKey.MASTER_HP_FORMULA) != null)
 				{
@@ -108,7 +108,7 @@ public class MasterFacet extends AbstractItemFacet<CharID, Follower>
 			 * TYPE in CompanionMod to be "special" and actually store a
 			 * CompanionList object, not a String
 			 */
-			if (cMod.getType().equalsIgnoreCase(get(id).getType().getKeyName()))
+			if (String.CASE_INSENSITIVE_ORDER.compare(cMod.getType(), get(id).getType().getKeyName()) == 0)
 			{
 				String copyMasterBAB = cMod.get(StringKey.MASTER_BAB_FORMULA);
 				if (copyMasterBAB != null)
@@ -136,7 +136,7 @@ public class MasterFacet extends AbstractItemFacet<CharID, Follower>
 	{
 		for (CompanionMod cMod : companionModFacet.getSet(id))
 		{
-			if (cMod.getType().equalsIgnoreCase(get(id).getType().getKeyName()))
+			if (String.CASE_INSENSITIVE_ORDER.compare(cMod.getType(), get(id).getType().getKeyName()) == 0)
 			{
 				if (cMod.getSafe(ObjectKey.USE_MASTER_SKILL))
 				{

@@ -47,6 +47,8 @@ import pcgen.cdom.inst.Dynamic;
 import pcgen.util.Logging;
 import pcgen.util.StringPClassUtil;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
 /**
  * An AbstractReferenceManufacturer is a concrete, but abstract object capable
  * of creating CDOMReferences of a given "form". That "form" includes a specific
@@ -525,6 +527,8 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable> implemen
 	 *            AbstractReferenceManufacturer should be changed
 	 */
 	@Override
+	@SuppressFBWarnings(value = "IMPROPER_UNICODE",
+		justification = "equalsIgnoreCase is locale-independent; null-tolerant on key arg")
 	public void renameObject(String key, T item)
 	{
 		String oldKey = item.getKeyName();
@@ -658,11 +662,11 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable> implemen
 			throw new IllegalArgumentException("= cannot be a in valid single item (perhaps something like TYPE= "
 				+ "is not supported in this token?): " + key);
 		}
-		if (key.equalsIgnoreCase("ANY"))
+		if (String.CASE_INSENSITIVE_ORDER.compare("ANY", key) == 0)
 		{
 			throw new IllegalArgumentException("Any cannot be a valid single item (not supported in this token?)");
 		}
-		if (key.equalsIgnoreCase("ALL"))
+		if (String.CASE_INSENSITIVE_ORDER.compare("ALL", key) == 0)
 		{
 			throw new IllegalArgumentException("All cannot be a valid single item (not supported in this token?)");
 		}
@@ -671,7 +675,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable> implemen
 			throw new IllegalArgumentException(": cannot exist in a valid single item (did you try to use a "
 				+ "PRE where it is not supported?) " + key);
 		}
-		if (key.equalsIgnoreCase("%LIST"))
+		if (String.CASE_INSENSITIVE_ORDER.compare("%LIST", key) == 0)
 		{
 			throw new IllegalArgumentException("%LIST cannot be a valid single item (not supported in this token?)");
 		}
@@ -827,7 +831,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable> implemen
 			{
 				Logging.errorPrint(activeObj.getClass() + " " + activeObj.getDisplayName() + " has a null KeyName");
 			}
-			else if (!keyName.equalsIgnoreCase(second.toString()))
+			else if (String.CASE_INSENSITIVE_ORDER.compare(keyName, second.toString()) != 0)
 			{
 				Logging.errorPrint(getReferenceDescription() + " Magical Key Change: " + second + " to " + keyName);
 				returnGood = false;

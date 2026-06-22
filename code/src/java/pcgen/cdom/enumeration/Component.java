@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.enumeration;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
 /** An enumeration of &quot;Standard&quot; spell components */
 public enum Component
 {
@@ -62,6 +64,8 @@ public enum Component
 	 * @return A Component object.  If no object matches <tt>OTHER</tt> is 
 	 * returned.
 	 */
+	@SuppressFBWarnings(value = "IMPROPER_UNICODE",
+		justification = "equalsIgnoreCase is locale-independent; null-tolerant on aKey per Javadoc (returns OTHER)")
 	public static Component getComponentFromKey(final String aKey)
 	{
 		for (Component c : Component.values())

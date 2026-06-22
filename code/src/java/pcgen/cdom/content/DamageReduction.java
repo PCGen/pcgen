@@ -103,7 +103,8 @@ public class DamageReduction extends ConcretePrereqObject implements QualifyingO
 		while (tok.hasMoreTokens())
 		{
 			final String val = tok.nextToken();
-			if (!("or".equalsIgnoreCase(val) || "and".equalsIgnoreCase(val)))
+			if (!(String.CASE_INSENSITIVE_ORDER.compare("or", val) == 0
+				|| String.CASE_INSENSITIVE_ORDER.compare("and", val) == 0))
 			{
 				ret.add(val.toLowerCase());
 			}

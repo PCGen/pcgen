@@ -24,6 +24,8 @@ import java.util.Objects;
 
 import pcgen.cdom.content.Processor;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
 /**
  * ChangeArmorType is a Processor that alters Armor Types.
  * 
@@ -95,6 +97,8 @@ public class ChangeArmorType implements Processor<String>
 	 *         armor type
 	 */
 	@Override
+	@SuppressFBWarnings(value = "IMPROPER_UNICODE",
+		justification = "equalsIgnoreCase is locale-independent; sourceType is null-tolerated per class Javadoc")
 	public String applyProcessor(String sourceType, Object context)
 	{
 		return source.equalsIgnoreCase(sourceType) ? result : sourceType;

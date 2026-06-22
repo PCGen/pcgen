@@ -75,7 +75,7 @@ public class DefinedWrappingLibrary implements FunctionLibrary
 	@Override
 	public FormulaFunction getFunction(String functionName)
 	{
-		if (functionName.equalsIgnoreCase(definedName))
+		if (String.CASE_INSENSITIVE_ORDER.compare(functionName, definedName) == 0)
 		{
 			return new DefinedFunction(definedName, definedValue, formatManager);
 		}

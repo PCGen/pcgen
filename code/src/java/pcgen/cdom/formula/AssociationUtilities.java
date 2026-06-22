@@ -38,7 +38,7 @@ public final class AssociationUtilities
 		int equalLoc = assocInstructions.indexOf("=");
 		String assocName = assocInstructions.substring(0, equalLoc);
 		String assocValue = assocInstructions.substring(equalLoc + 1);
-		if ("PRIORITY".equalsIgnoreCase(assocName))
+		if (String.CASE_INSENSITIVE_ORDER.compare("PRIORITY", assocName) == 0)
 		{
 			int priorityNumber;
 			try
