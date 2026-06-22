@@ -18,10 +18,9 @@
 package pcgen.gui3.dialog;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URI;
-import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.nio.charset.StandardCharsets;
 
 import pcgen.gui2.tools.DesktopBrowserLauncher;
 import pcgen.system.LanguageBundle;
@@ -70,24 +69,22 @@ public class AboutDialogController
 
 	private void initLicenseArea()
 	{
-		URL lgpl = getClass().getResource("LICENSE"); //$NON-NLS-1$
-
-		if (lgpl != null)
+		// Read as a classpath stream so this works whether the resource lives on
+		// the filesystem (dev/test) or inside a jar/jlink image (packaged runs).
+		try (InputStream lgpl = getClass().getResourceAsStream("LICENSE")) //$NON-NLS-1$
 		{
-			try
+			if (lgpl == null)
 			{
-				licenseArea.setText(Files.readString(Paths.get(lgpl.getPath())));
+				Logging.errorPrint("lgpl is null");
+				licenseArea.setText(LanguageBundle.getString("in_abt_license_read_err2")); //$NON-NLS-1$
+				return;
 			}
-			catch (IOException ioe)
-			{
-				Logging.errorPrint("lgpl is not null but error occurred", ioe);
-				licenseArea.setText(LanguageBundle.getString("in_abt_license_read_err1")); //$NON-NLS-1$
-			}
+			licenseArea.setText(new String(lgpl.readAllBytes(), StandardCharsets.UTF_8));
 		}
-		else
+		catch (IOException ioe)
 		{
-			Logging.errorPrint("lgpl is null");
-			licenseArea.setText(LanguageBundle.getString("in_abt_license_read_err2")); //$NON-NLS-1$
+			Logging.errorPrint("lgpl is not null but error occurred", ioe);
+			licenseArea.setText(LanguageBundle.getString("in_abt_license_read_err1")); //$NON-NLS-1$
 		}
 	}
 

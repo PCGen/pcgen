@@ -141,6 +141,14 @@ sourceSets {
     }
 }
 
+// Copy LICENSE onto the classpath for the About dialog (Windows symlink fallback).
+tasks.named("processResources") {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    from(rootProject.layout.projectDirectory.file("LICENSE")) {
+        into "pcgen/gui3/dialog"
+    }
+}
+
 // Make the testcommon source set use the same dependency configurations as test.
 configurations {
     testcommonImplementation.extendsFrom testImplementation
@@ -340,7 +348,7 @@ jlink {
 
     // Use the jpackage tool that comes with Java to build native installers
     jpackage {
-        def licenseFile = layout.projectDirectory.file("code/LICENSE")
+        def licenseFile = layout.projectDirectory.file("LICENSE")
         targetPlatformName = "${hostOs}-${hostArch}"
 
         def appVersionStr = plainVerNum.replaceAll(/[^0-9.].*/, '').replaceAll(/\.$/, '')
