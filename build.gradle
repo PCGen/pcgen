@@ -286,8 +286,7 @@ jlink {
     addExtraDependencies('javafx')
     forceMerge('jep', 'fop', 'Saxon-HE',
                'commons-lang3', 'spring',
-               'freemarker', 'argparse4j', 'xmlunit',
-               'annotations', 'spotbugs', 'xmlresolver')
+               'freemarker', 'argparse4j', 'xmlresolver')
 
     // Resolve packages → modules with the JDK's jdeps; the plugin's default
     // resolver silently misses JDK modules on some distros (e.g. Temurin 25).
