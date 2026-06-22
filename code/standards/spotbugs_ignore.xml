@@ -38,6 +38,18 @@
     <Bug pattern="UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR" />
   </Match>
   <Match>
+    <!-- CDOM is intentionally wired by shared reference: Spring-injected
+         facet singletons, identity-based domain references (CNAbility,
+         ClassSource, Selection, …), and lazy CDOMRef resolvers. Defensive
+         copy is wrong here - it would either break identity equality or
+         clone long-lived collaborators. -->
+    <Or>
+      <Package name="~pcgen[.]cdom.*"/>
+      <Package name="~pcgen[.]output.*"/>
+    </Or>
+    <Bug pattern="EI_EXPOSE_REP,EI_EXPOSE_REP2"/>
+  </Match>
+  <Match>
     <Class name="~.*\.*Test"/>
 
     <Not>
