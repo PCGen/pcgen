@@ -19,7 +19,7 @@
 	<xsl:import href="common_sheet/block_class_features.xslt"/>
 	<xsl:import href="common_sheet/block_equipment.xslt"/>
 	<xsl:import href="common_sheet/block_features.xslt"/>
-	<xsl:import href="common_sheet/block_hp_defense.xslt"/>
+	<xsl:import href="common_sheet/block_hp_defense_pf2.xslt"/>
 	<xsl:import href="common_sheet/block_misc.xslt"/>
 	<xsl:import href="common_sheet/block_pc_header_row.xslt"/>
 	<xsl:import href="common_sheet/block_protection.xslt"/>

@@ -333,7 +333,7 @@
 			<fo:table-column column-width="2mm"/>	<!--	12	-->
 			<!-- SPACE -->
 			<fo:table-column>
-				<xsl:attribute name="column-width"><xsl:value-of select="12)" />mm</xsl:attribute>
+				<xsl:attribute name="column-width"><xsl:value-of select="0.08 * (0.71 * $pagePrintableWidth - 69)" />mm</xsl:attribute>
 			</fo:table-column>	<!--	13	-->
 			<!-- TITLE / KAC AC -->
 			<fo:table-column column-width="2mm"/>	<!--	14	-->
