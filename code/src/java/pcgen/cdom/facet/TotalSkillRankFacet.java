@@ -64,7 +64,7 @@ public class TotalSkillRankFacet extends AbstractStorageFacet<CharID>
 		Objects.requireNonNull(rank, "Rank cannot be null");
 		Map<Skill, Double> map = getConstructingInfo(id);
 		Double currentRank = map.get(sk);
-		boolean isNew = (currentRank == null) || (rank.doubleValue() != currentRank.doubleValue());
+		boolean isNew = (currentRank == null) || (Double.compare(rank, currentRank) != 0);
 		if (isNew)
 		{
 			map.put(sk, rank);
