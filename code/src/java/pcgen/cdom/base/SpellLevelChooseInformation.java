@@ -44,7 +44,7 @@ import org.jetbrains.annotations.NotNull;
  * file when saved. Thus, encoding and decoding (to a 'persistent' string)
  * methods are provided.
  */
-public class SpellLevelChooseInformation implements ChooseInformation<SpellLevel>
+public final class SpellLevelChooseInformation implements ChooseInformation<SpellLevel>
 {
 
 	private final List<SpellLevelInfo> info;

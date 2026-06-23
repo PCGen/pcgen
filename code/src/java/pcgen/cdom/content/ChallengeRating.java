@@ -26,7 +26,7 @@ import pcgen.core.SettingsHandler;
  * A ChallengeRating is intended to be a type-safe wrapper for an Formula
  * serving as a challenge rating
  */
-public class ChallengeRating extends ConcretePrereqObject
+public final class ChallengeRating extends ConcretePrereqObject
 {
 
 	/**

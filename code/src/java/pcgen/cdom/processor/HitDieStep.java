@@ -29,7 +29,7 @@ import pcgen.cdom.content.Processor;
  * during construction, the object constructing this HitDieStep is expected to
  * understand if it is setting an upper or lower bound.
  */
-public class HitDieStep implements Processor<HitDie>
+public final class HitDieStep implements Processor<HitDie>
 {
 
 	/**

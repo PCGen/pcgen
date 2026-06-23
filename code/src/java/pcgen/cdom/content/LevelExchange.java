@@ -27,7 +27,7 @@ import pcgen.core.PCClass;
  * A LevelExchange is a storage container identifying the level exchange that
  * can take place when a given class is taken.
  */
-public class LevelExchange extends ConcretePrereqObject
+public final class LevelExchange extends ConcretePrereqObject
 {
 
 	/**

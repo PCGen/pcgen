@@ -31,7 +31,7 @@ import pcgen.cdom.enumeration.GroupingState;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.Logging;
 
-public class CompoundOrPrimitive<T> implements PrimitiveCollection<T>
+public final class CompoundOrPrimitive<T> implements PrimitiveCollection<T>
 {
 
 	private final Class<? super T> refClass;

@@ -55,7 +55,7 @@ import pcgen.output.channel.ChannelUtilities;
  * AbilityRefChoiceSet. The contents of a AbilityRefChoiceSet is fixed, and will
  * not vary by the PlayerCharacter used to resolve the AbilityRefChoiceSet.
  */
-public class AbilityRefChoiceSet implements PrimitiveChoiceSet<CNAbilitySelection>
+public final class AbilityRefChoiceSet implements PrimitiveChoiceSet<CNAbilitySelection>
 {
 
 	/**

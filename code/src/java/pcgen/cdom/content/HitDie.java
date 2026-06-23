@@ -27,7 +27,7 @@ import pcgen.util.Logging;
  * HitDie also provides other methods to support additional features for
  * establish the sequence of HitDie objects.
  */
-public class HitDie extends ConcretePrereqObject implements Comparable<HitDie>
+public final class HitDie extends ConcretePrereqObject implements Comparable<HitDie>
 {
 
 	/**

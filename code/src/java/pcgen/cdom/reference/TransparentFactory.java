@@ -39,7 +39,7 @@ import pcgen.cdom.base.Loadable;
  * @param <T>
  *            The type of object managed by this TransparentFactory
  */
-public class TransparentFactory<T extends Loadable> implements ManufacturableFactory<T>
+public final class TransparentFactory<T extends Loadable> implements ManufacturableFactory<T>
 {
 
 	/**
