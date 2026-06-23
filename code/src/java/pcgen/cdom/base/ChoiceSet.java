@@ -30,6 +30,8 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
 /**
  * A ChoiceSet is a named container of a Collection of objects (stored in a
  * PrimitiveChoiceSet).
@@ -216,6 +218,8 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements SelectableSet<
 		return false;
 	}
 
+	@SuppressFBWarnings(value = "EQ_DOESNT_OVERRIDE_EQUALS",
+		justification = "arcs aliases the parent's pcs field; parent equals already compares it")
 	public static class AbilityChoiceSet extends ChoiceSet<CNAbilitySelection>
 	{
 

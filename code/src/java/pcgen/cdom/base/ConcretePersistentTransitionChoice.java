@@ -24,17 +24,21 @@ import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
 /**
  * This is a transitional class from PCGen 5.15+ to the final CDOM core. It is
  * provided as convenience to hold a set of choices and the number of choices
  * allowed, prior to final implementation of the new choice system.
- * 
+ *
  * This is a TransitionChoice that is designed to be stored in a PlayerCharacter
  * file when saved. Thus, encoding and decoding (to a 'persistent' string)
  * methods are provided.
- * 
+ *
  * @param <T>
  */
+@SuppressFBWarnings(value = "EQ_DOESNT_OVERRIDE_EQUALS",
+	justification = "choiceActor is a mutable encoding strategy, not identity; parent equals over choices+count is sufficient")
 public class ConcretePersistentTransitionChoice<T> extends ConcreteTransitionChoice<T>
 		implements PersistentTransitionChoice<T>
 {
