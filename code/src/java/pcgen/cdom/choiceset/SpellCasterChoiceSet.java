@@ -35,6 +35,8 @@ import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
 /**
  * A SpellCasterChoiceSet contains references to PCClass Objects.
  * 
@@ -233,6 +235,8 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements Primitiv
 	 *         contains.
 	 */
 	@Override
+	@SuppressFBWarnings(value = "IMPROPER_UNICODE",
+		justification = "equalsIgnoreCase is locale-independent; null-tolerant on spelltype from getResolved()")
 	public Set<PCClass> getSet(PlayerCharacter pc)
 	{
 		FactKey<String> fk = FactKey.valueOf("SpellType");

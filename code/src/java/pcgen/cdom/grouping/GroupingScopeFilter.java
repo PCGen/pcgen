@@ -80,7 +80,7 @@ public class GroupingScopeFilter<T> implements GroupingCollection<T>
 	public void process(PCGenScoped target, Consumer<PCGenScoped> consumer)
 	{
 		Optional<String> localScopeName = target.getLocalScopeName();
-		if (localScopeName.isPresent() && localScopeName.get().equalsIgnoreCase(scopeName))
+		if (localScopeName.isPresent() && localScopeName.get().equals(scopeName))
 		{
 			underlying.process(target, consumer);
 		}

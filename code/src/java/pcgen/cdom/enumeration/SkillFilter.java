@@ -19,6 +19,8 @@ package pcgen.cdom.enumeration;
 
 import pcgen.system.LanguageBundle;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
 /**
  * SkillsExport defines which skills are to be displayed on an output sheet.
  * 
@@ -96,6 +98,8 @@ public enum SkillFilter
 		return null;
 	}
 
+	@SuppressFBWarnings(value = "IMPROPER_UNICODE",
+		justification = "equalsIgnoreCase is locale-independent; null-tolerant on value")
 	public static SkillFilter getByToken(String value)
 	{
 		for (SkillFilter filter : values())

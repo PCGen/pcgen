@@ -83,7 +83,7 @@ public class DomainSpellsFacet extends AbstractSourcedListFacet<CharID, CDOMList
 	{
 		for (PCClass aClass : classFacet.getSet(id))
 		{
-			if (aClass.getKeyName().equalsIgnoreCase(classKey))
+			if (String.CASE_INSENSITIVE_ORDER.compare(aClass.getKeyName(), classKey) == 0)
 			{
 				return aClass;
 			}

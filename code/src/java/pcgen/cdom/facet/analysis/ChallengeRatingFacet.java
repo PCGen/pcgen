@@ -39,6 +39,7 @@ import pcgen.core.ClassType;
 import pcgen.core.PCClass;
 import pcgen.core.SettingsHandler;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -310,6 +311,8 @@ public class ChallengeRatingFacet
 	 * @return the Challenge Rating provided solely by the given Class of the
 	 *         Player Character identified by the given CharID
 	 */
+	@SuppressFBWarnings(value = "IMPROPER_UNICODE",
+		justification = "equalsIgnoreCase is locale-independent; literal-on-left tolerates null crf from getCRFormula()")
 	private Integer calcClassCR(CharID id, PCClass cl)
 	{
 		Formula cr = cl.get(FormulaKey.CR);

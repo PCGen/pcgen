@@ -78,7 +78,7 @@ public class FactGrouping<T extends CDOMObject, F> implements GroupingCollection
 		{
 			throw new IllegalArgumentException("FactGrouping must have value following =");
 		}
-		if (!fi.getFactName().equalsIgnoreCase(infoKey))
+		if (String.CASE_INSENSITIVE_ORDER.compare(fi.getFactName(), infoKey) != 0)
 		{
 			throw new IllegalArgumentException(
 				"FactGrouping expected grouping type of " + fi.getFactName() + " but it was " + infoKey);

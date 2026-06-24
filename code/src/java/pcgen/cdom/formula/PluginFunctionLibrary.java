@@ -69,7 +69,7 @@ public final class PluginFunctionLibrary implements PluginLoader
 	{
 		for (FormulaFunction f : list)
 		{
-			if (f.getFunctionName().equalsIgnoreCase(name))
+			if (String.CASE_INSENSITIVE_ORDER.compare(f.getFunctionName(), name) == 0)
 			{
 				return f;
 			}
