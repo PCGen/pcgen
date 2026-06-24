@@ -43,6 +43,20 @@ tasks.register("assembleArtifacts", Copy) {
     description = "Create the release artifacts and get them into the release folder."
     into releaseDir
 
+    // jpackage names native installers with its sanitised numeric appVersion and
+    // no platform suffix (e.g. pcgen-6.09.08.dmg), which drops the full version
+    // qualifier (e.g. -NIGHTLY.<date>) and the OS/arch. Rename them on the way in
+    // so they mirror the portable zip: pcgen-<version>-<hostOs>-<hostArch>.<ext>.
+    // The installer's *internal* version is untouched (still the numeric
+    // appVersion). Locals keep the closure configuration-cache safe.
+    def fullVersion = version.toString()
+    def osToken = hostOs
+    def archToken = hostArch
+    rename { String name ->
+        def matcher = name =~ /\.(dmg|exe|msi|deb|rpm)$/
+        matcher.find() ? "pcgen-${fullVersion}-${osToken}-${archToken}.${matcher.group(1)}" : name
+    }
+
     from(layout.buildDirectory.dir("libs")){
         include 'pcgen*-sources.jar'
     }
