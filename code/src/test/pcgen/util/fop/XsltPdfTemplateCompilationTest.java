@@ -33,10 +33,20 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.fail;
 
 /**
- * Verifies that the stylesheets fixed on this branch no longer trigger
- * XTSE0710 (unknown attribute set) under Saxon-HE. These files are
- * fragments included by master stylesheets, so XTSE0650 (unknown template)
- * is expected and ignored — only undeclared-attribute-set errors are checked.
+ * Pins down XSLT fixes made against Saxon-HE (replacing Xalan).
+ *
+ * Two parameterized checks:
+ * <ul>
+ *   <li>{@link #noUndeclaredAttributeSets} — fragment-level files where only
+ *       XTSE0710 / XTSE0720 (unknown / circular attribute set) are
+ *       interesting; missing-template / missing-import errors are expected
+ *       because the fragment is meant to be included by a master sheet.</li>
+ *   <li>{@link #entryPointCompilesCleanly} — full csheet entry points whose
+ *       import tree is closed; any non-warning static error fails the test.
+ *       Covers the issues fixed alongside this test: starfinder XPST0003,
+ *       pathfinder_2 stale block_hp_defense import, sagaborn missing
+ *       inc_pagedimensions, 4e missing fantasy_master_simple.</li>
+ * </ul>
  */
 class XsltPdfTemplateCompilationTest
 {
@@ -61,10 +71,56 @@ class XsltPdfTemplateCompilationTest
 	@MethodSource("fixedStylesheets")
 	void noUndeclaredAttributeSets(Path xslPath)
 	{
+		List<String> errors = compileCollecting(xslPath,
+			code -> code.equals("XTSE0710") || code.equals("XTSE0720"));
+
+		if (!errors.isEmpty())
+		{
+			fail(String.join("\n", errors));
+		}
+	}
+
+	/**
+	 * Complete sheet trees that should compile with zero static errors.
+	 * Each entry point exercises one of the issues fixed alongside this test.
+	 */
+	static Stream<Path> cleanEntryPoints()
+	{
+		return Stream.of(
+			// starfinder block_hp_defense.xslt — XPST0003 syntax fix (12) → 0.08 * (0.71 * $pagePrintableWidth - 69))
+			Path.of("outputsheets/d20/starfinder/pdf/csheet_fantasy_std_blackandwhite.xslt"),
+			// pathfinder_2 — three masters re-pointed from block_hp_defense.xslt to block_hp_defense_pf2.xslt
+			Path.of("outputsheets/d20/pathfinder_2/pdf/csheet_fantasy_no_header.xslt"),
+			Path.of("outputsheets/d20/pathfinder_2/pdf/csheet_fantasy_spell_list_only.xslt"),
+			Path.of("outputsheets/d20/pathfinder_2/pdf/csheet_fantasy_std_companion_box_first_page.xslt"),
+			// sagaborn — inc_pagedimensions.xslt newly added
+			Path.of("outputsheets/d20/sagaborn/pdf/csheet_fantasy_simple_blackandwhite.xslt"),
+			Path.of("outputsheets/d20/sagaborn/pdf/csheet_fantasy_no_header.xslt"),
+			// 4e — fantasy_master_simple.xslt newly added
+			Path.of("outputsheets/d20/4e/pdf/csheet_fantasy_simple_blackandwhite.xslt")
+		);
+	}
+
+	@ParameterizedTest(name = "{0}")
+	@MethodSource("cleanEntryPoints")
+	void entryPointCompilesCleanly(Path xslPath)
+	{
+		// Match every non-warning static error code.
+		List<String> errors = compileCollecting(xslPath, code -> true);
+
+		if (!errors.isEmpty())
+		{
+			fail(String.join("\n", errors));
+		}
+	}
+
+	private static List<String> compileCollecting(Path xslPath, java.util.function.Predicate<String> codeFilter)
+	{
 		List<String> errors = new ArrayList<>();
 		XsltCompiler compiler = PROCESSOR.newXsltCompiler();
 		compiler.setErrorReporter(error -> {
-			if (!error.isWarning() && isAttributeSetError(error))
+			if (!error.isWarning() && error.getErrorCode() != null
+				&& codeFilter.test(error.getErrorCode().getLocalName()))
 			{
 				errors.add(formatError(error));
 			}
@@ -76,25 +132,9 @@ class XsltPdfTemplateCompilationTest
 		}
 		catch (SaxonApiException _)
 		{
-			// Fragment-level compilation failures (XTSE0650, XTSE0165) are
-			// expected; attribute-set errors are captured via the error reporter above.
+			// Static-error details are captured via the error reporter above.
 		}
-
-		if (!errors.isEmpty())
-		{
-			fail(String.join("\n", errors));
-		}
-	}
-
-	private static boolean isAttributeSetError(XmlProcessingError error)
-	{
-		if (error.getErrorCode() == null)
-		{
-			return false;
-		}
-		String code = error.getErrorCode().getLocalName();
-		// XTSE0710 = unknown attribute set; XTSE0720 = circular attribute set
-		return code.equals("XTSE0710") || code.equals("XTSE0720");
+		return errors;
 	}
 
 	private static String formatError(XmlProcessingError error)
