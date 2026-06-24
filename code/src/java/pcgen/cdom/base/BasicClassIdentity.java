@@ -26,7 +26,7 @@ import java.util.Objects;
  * @param <T>
  *            The Format (Class) of the object represented by this ClassIdentity.
  */
-public class BasicClassIdentity<T> implements ClassIdentity<T>
+public final class BasicClassIdentity<T> implements ClassIdentity<T>
 {
 
 	/**

@@ -34,7 +34,7 @@ import pcgen.core.spell.Spell;
  * A KnownSpellIdentifier is an object that identifies Spell objects that are
  * known at a specific spell level. The Spell objects are stored by reference.
  */
-public class KnownSpellIdentifier extends ConcretePrereqObject
+public final class KnownSpellIdentifier extends ConcretePrereqObject
 {
 
 	/**

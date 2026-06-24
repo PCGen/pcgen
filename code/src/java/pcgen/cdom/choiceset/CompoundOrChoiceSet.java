@@ -41,7 +41,7 @@ import pcgen.util.Logging;
  *            The Class of the underlying objects contained by this
  *            CompoundOrChoiceSet
  */
-public class CompoundOrChoiceSet<T> implements PrimitiveChoiceSet<T>
+public final class CompoundOrChoiceSet<T> implements PrimitiveChoiceSet<T>
 {
 
 	/**

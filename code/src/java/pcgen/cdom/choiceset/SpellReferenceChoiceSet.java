@@ -54,7 +54,7 @@ import pcgen.util.Logging;
  * correct for DomainSpellList references having a "DOMAIN." prefix in order to
  * distinguish them from ClassSpellList references/names
  */
-public class SpellReferenceChoiceSet implements PrimitiveChoiceSet<CDOMListObject<Spell>>
+public final class SpellReferenceChoiceSet implements PrimitiveChoiceSet<CDOMListObject<Spell>>
 {
 	/**
 	 * The underlying Set of CDOMReferences that contain the CDOMListObjects in

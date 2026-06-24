@@ -38,7 +38,7 @@ import pcgen.cdom.enumeration.GroupingState;
  * @param <T>
  *            The class of object underlying this PatternMatchingReference.
  */
-public class PatternMatchingReference<T extends Loadable> extends CDOMReference<T>
+public final class PatternMatchingReference<T extends Loadable> extends CDOMReference<T>
 {
 
 	/**

@@ -37,7 +37,7 @@ import pcgen.rules.context.LoadContext;
  * @param <F>
  *            The Type of the FactSet being checked in this FactSetGroup
  */
-public class FactSetGroup<T extends CDOMObject, F> implements ObjectContainer<T>
+public final class FactSetGroup<T extends CDOMObject, F> implements ObjectContainer<T>
 {
 
 	/**

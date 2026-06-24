@@ -43,7 +43,7 @@ import pcgen.core.PlayerCharacter;
  * @param <T>
  *            The class of object this SimpleChoiceSet contains.
  */
-public class SimpleChoiceSet<T> implements PrimitiveChoiceSet<T>
+public final class SimpleChoiceSet<T> implements PrimitiveChoiceSet<T>
 {
 
 	/**

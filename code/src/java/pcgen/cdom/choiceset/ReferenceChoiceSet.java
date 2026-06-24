@@ -43,7 +43,7 @@ import pcgen.core.PlayerCharacter;
  * @param <T>
  *            The class of object this ReferenceChoiceSet contains.
  */
-public class ReferenceChoiceSet<T> implements PrimitiveChoiceSet<T>
+public final class ReferenceChoiceSet<T> implements PrimitiveChoiceSet<T>
 {
 
 	/**

@@ -33,7 +33,7 @@ import pcgen.cdom.grouping.GroupingInfo;
  * @param <F>
  *            The Type of the Fact being checked in this FactGrouping
  */
-public class FactGrouping<T extends CDOMObject, F> implements GroupingCollection<T>
+public final class FactGrouping<T extends CDOMObject, F> implements GroupingCollection<T>
 {
 
 	/**
