@@ -193,6 +193,10 @@ public abstract class AbstractCategory<T extends Categorized<T>> implements Cate
 	@Override
 	public boolean equals(Object o)
 	{
+		if (o == null)
+		{
+			return false;
+		}
 		if (getClass().equals(o.getClass()))
 		{
 			AbstractCategory<?> other = (AbstractCategory<?>) o;

@@ -339,14 +339,7 @@ public class CollectionToAbilitySelection implements PrimitiveChoiceSet<AbilityS
 			}
 			if (o instanceof AbilityWithChoice other)
 			{
-				if (choice == null)
-				{
-					if (other.choice != null)
-					{
-						return false;
-					}
-				}
-				return ability.equals(other.ability) && ((choice == other.choice) || choice.equals(other.choice));
+				return ability.equals(other.ability) && Objects.equals(choice, other.choice);
 			}
 			return false;
 		}

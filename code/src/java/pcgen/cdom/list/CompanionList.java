@@ -97,6 +97,10 @@ public class CompanionList extends CDOMListObject<Race> implements Category<Comp
 	@Override
 	public boolean equals(Object o)
 	{
+		if (o == null)
+		{
+			return false;
+		}
 		if (getClass().equals(o.getClass()))
 		{
 			CompanionList other = (CompanionList) o;

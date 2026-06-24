@@ -21,11 +21,15 @@ import pcgen.cdom.choiceset.CollectionToAbilitySelection;
 import pcgen.cdom.content.AbilitySelection;
 import pcgen.core.AbilityCategory;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
 /**
  * CategorizedAbilitySelectionChooseInformation
- * 
- * 
+ *
+ *
  */
+@SuppressFBWarnings(value = "EQ_DOESNT_OVERRIDE_EQUALS",
+	justification = "casChoiceSet aliases the parent's pcs field; parent equals already compares it")
 public class CategorizedAbilitySelectionChooseInformation extends BasicChooseInformation<AbilitySelection>
 {
 
