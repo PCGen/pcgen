@@ -50,7 +50,7 @@ public class UserInputToken implements CDOMSecondaryToken<CDOMObject>
 	@Override
 	public ParseResult parseToken(LoadContext context, CDOMObject obj, String value)
 	{
-		UserChooseInformation ci = new UserChooseInformation();
+		String title;
 		if (value != null)
 		{
 			int pipeLoc = value.indexOf('|');
@@ -84,18 +84,18 @@ public class UserInputToken implements CDOMSecondaryToken<CDOMObject>
 				return new ParseResult.Fail("CHOOSE:" + getTokenName() + " in " + obj.getClass() + ' '
 					+ obj.getKeyName() + " had invalid arguments: " + value);
 			}
-			String title = titleString.substring(6);
+			title = titleString.substring(6);
 			if (title.startsWith("\""))
 			{
 				title = title.substring(1, title.length() - 1);
 			}
-			ci.setTitle(title);
 		}
 		else
 		{
-			ci.setTitle(getDefaultTitle());
+			// No args - legal
+			title = getDefaultTitle();
 		}
-		// No args - legal
+		UserChooseInformation ci = new UserChooseInformation(title);
 		context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, ci);
 		return ParseResult.SUCCESS;
 	}

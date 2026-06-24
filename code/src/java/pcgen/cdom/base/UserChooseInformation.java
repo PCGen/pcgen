@@ -20,6 +20,7 @@ package pcgen.cdom.base;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.GroupingState;
@@ -30,15 +31,27 @@ import pcgen.rules.context.LoadContext;
 
 import org.jetbrains.annotations.NotNull;
 
-public class UserChooseInformation implements ChooseInformation<String>, Chooser<String>
+public final class UserChooseInformation implements ChooseInformation<String>, Chooser<String>
 {
 
 	public static final String UCI_NAME = "User Input";
 
+	private static final String DEFAULT_TITLE = "Provide User Input";
+
 	/**
-	 * The title (presented to the user) of this ChoiceSet
+	 * The title (presented to the user) of this ChoiceSet.
 	 */
-	private String title = null;
+	private final String title;
+
+	public UserChooseInformation()
+	{
+		this(DEFAULT_TITLE);
+	}
+
+	public UserChooseInformation(String title)
+	{
+		this.title = Objects.requireNonNullElse(title, DEFAULT_TITLE);
+	}
 
 	@Override
 	public Class<String> getReferenceClass()
@@ -79,7 +92,7 @@ public class UserChooseInformation implements ChooseInformation<String>, Chooser
 	@Override
 	public String getTitle()
 	{
-		return title == null ? "Provide User Input" : title;
+		return title;
 	}
 
 	@Override
@@ -162,11 +175,6 @@ public class UserChooseInformation implements ChooseInformation<String>, Chooser
 	public String encodeChoice(String choice)
 	{
 		return choice;
-	}
-
-	public void setTitle(String chooseTitle)
-	{
-		title = chooseTitle;
 	}
 
 	private static AssociationListKey<String> getListKey()
