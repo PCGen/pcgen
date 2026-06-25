@@ -24,6 +24,8 @@ import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Loadable;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
 /**
  * A TransparentFactory is a ManufacturableFactory that produces Transparent CDOMReference
  * objects. These are CDOMReferences that it will not be reasonable to directly resolve -
@@ -56,6 +58,8 @@ public class TransparentFactory<T extends Loadable> implements ManufacturableFac
 	/**
 	 * Constructs a new TransparentFactory that will process objects of the given Class
 	 */
+	@SuppressFBWarnings(value = "REFLC_REFLECTION_MAY_INCREASE_ACCESSIBILITY_OF_CLASS",
+		justification = "Reflection on refClass is the documented purpose of TransparentFactory: it builds references to CDOM types resolved by name from LST data")
 	public TransparentFactory(String formatRepresentation, Class<T> objClass)
 	{
 		this.formatRepresentation = Objects.requireNonNull(formatRepresentation);
