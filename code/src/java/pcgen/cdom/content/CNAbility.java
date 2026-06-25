@@ -38,7 +38,7 @@ import pcgen.core.Ability;
 /**
  * An CNAbility represents an "unresolved" (categorized) Ability &amp; Nature.
  */
-public class CNAbility extends ConcretePrereqObject
+public final class CNAbility extends ConcretePrereqObject
 		implements QualifyingObject, Comparable<CNAbility>, ChooseDriver, Reducible
 {
 
