@@ -27,7 +27,13 @@ import pcgen.core.PlayerCharacter;
 /**
  * CalcBonusFacet is a Facet that triggers when an object is added in order to
  * trigger the global Bonus value recalculation.
- * 
+ *
+ * Note: only registers on {@code raceFacet} today. The original 2012 design
+ * also listened to {@code TemplateFacet} and {@code DeityFacet}, but those
+ * recalcs were redundant and got moved to explicit callers (commits
+ * d9a5fcaed3 in 2013 for templates, 73c336821d for deities). New template
+ * mutation paths must call {@link PlayerCharacter#calcActiveBonuses()}
+ * themselves; {@link PlayerCharacter#addTemplate} already does.
  */
 public class CalcBonusFacet implements DataFacetChangeListener<CharID, CDOMObject>
 {
