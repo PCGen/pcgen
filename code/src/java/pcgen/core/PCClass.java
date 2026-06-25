@@ -81,7 +81,7 @@ import pcgen.util.enumeration.AttackType;
 import org.apache.commons.lang3.StringUtils;
 
 
-public class PCClass extends PObject implements InfoFacade, Cloneable
+public class PCClass extends PObject implements InfoFacade
 {
 
 	public static final CDOMReference<DomainList> ALLOWED_DOMAINS;

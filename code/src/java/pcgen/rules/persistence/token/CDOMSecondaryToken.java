@@ -19,7 +19,7 @@ package pcgen.rules.persistence.token;
 
 import pcgen.rules.context.LoadContext;
 
-public interface CDOMSecondaryToken<T> extends CDOMToken<T>, CDOMSubToken<T>
+public interface CDOMSecondaryToken<T> extends CDOMSubToken<T>
 {
 	public String[] unparse(LoadContext context, T obj);
 }

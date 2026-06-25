@@ -100,7 +100,7 @@ import org.apache.commons.lang3.StringUtils;
  * Represents Equipment for a PC.
  */
 public final class Equipment extends PObject
-		implements Serializable, Comparable<Object>, VariableContainer, EquipmentFacade, PCGenScoped
+		implements Serializable, VariableContainer, EquipmentFacade
 {
 
 	private static final long serialVersionUID = 1;

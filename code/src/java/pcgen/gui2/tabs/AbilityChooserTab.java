@@ -196,7 +196,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 	}
 
 	private class AvailableAbilityTreeViewModel extends CachedDataView<AbilityFacade>
-			implements TreeViewModel<AbilityFacade>, ListSelectionListener, DataView<AbilityFacade>
+			implements TreeViewModel<AbilityFacade>, ListSelectionListener
 	{
 
 		private final ListFacade<? extends TreeView<AbilityFacade>> treeviews;

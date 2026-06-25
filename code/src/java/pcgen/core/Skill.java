@@ -39,7 +39,7 @@ import pcgen.core.bonus.BonusObj;
  * {@code Skill}.
  * 
  */
-public final class Skill extends PObject implements ChooseDriver, VarScoped
+public final class Skill extends PObject implements ChooseDriver
 {
 	public String getKeyStatAbb()
 	{
