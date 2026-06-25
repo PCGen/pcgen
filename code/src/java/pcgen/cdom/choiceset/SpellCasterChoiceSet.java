@@ -39,12 +39,15 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 /**
  * A SpellCasterChoiceSet contains references to PCClass Objects.
- * 
+ *
  * The contents of a SpellCasterChoiceSet is defined at construction of the
  * SpellCasterChoiceSet. The contents of a SpellCasterChoiceSet is fixed, and
  * will not vary by the PlayerCharacter used to resolve the
  * SpellCasterChoiceSet.
  */
+@SuppressFBWarnings(value = "EQ_DOESNT_OVERRIDE_EQUALS",
+	justification = "Parent ChoiceSet.equals compares setName + pcs; pcs here is the typePCS passed to super, "
+		+ "which captures the relevant identity. Overriding equals here would break symmetry with the parent.")
 public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements PrimitiveChoiceSet<PCClass>
 {
 
@@ -273,49 +276,11 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements Primitiv
 		return returnSet;
 	}
 
-	@Override
-	public int hashCode()
-	{
-		return (types == null ? 0 : types.hashCode() * 29) + (primitives == null ? 0 : primitives.hashCode());
-	}
-
-	@Override
-	public boolean equals(Object obj)
-	{
-		if (obj == this)
-		{
-			return true;
-		}
-		if (obj instanceof SpellCasterChoiceSet other)
-		{
-			if (types == null)
-			{
-				if (other.types != null)
-				{
-					return false;
-				}
-			}
-			else
-			{
-				if (!types.equals(other.types))
-				{
-					return false;
-				}
-			}
-			if (primitives == null)
-			{
-				return other.primitives == null;
-			}
-			return primitives.equals(other.primitives);
-		}
-		return false;
-	}
-
 	/**
 	 * Returns the GroupingState for this SpellCasterChoiceSet. The
 	 * GroupingState indicates how this SpellCasterChoiceSet can be combined
 	 * with other PrimitiveChoiceSets.
-	 * 
+	 *
 	 * @return The GroupingState for this SpellCasterChoiceSet.
 	 */
 	@Override

@@ -69,7 +69,14 @@ public class DescriptionActor implements OutputActor<PObject>
 			return FacetLibrary.getFacet(ObjectWrapperFacet.class).wrap(id, Constants.EMPTY_STRING);
 		}
 		PlayerCharacterTrackingFacet charStore = SpringHelper.getBean(PlayerCharacterTrackingFacet.class);
-		PlayerCharacter aPC = charStore.getPC(id);
+		PlayerCharacter aPC = (charStore == null) ? null : charStore.getPC(id);
+		if (aPC == null)
+		{
+			// SpringHelper.getBean returns null when no bean is registered, and
+			// PlayerCharacterTrackingFacet.getPC documents that null may be returned
+			// in unit-test paths where no PC has been associated with the CharID.
+			return FacetLibrary.getFacet(ObjectWrapperFacet.class).wrap(id, Constants.EMPTY_STRING);
+		}
 		final StringBuilder buf = new StringBuilder(250);
 		boolean needSpace = false;
 		for (final Description desc : theBenefits)
