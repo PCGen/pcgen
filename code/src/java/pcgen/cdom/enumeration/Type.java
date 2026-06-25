@@ -219,14 +219,19 @@ public final class Type implements TypeSafeConstant, Comparable<Type>
 	@Override
 	public int compareTo(Type type)
 	{
-		/*
-		 * Note: Some tools will report a problem here because Type implements
-		 * compareTo, but does not implement custom implementations of hashCode
-		 * or equals(). Because this is intended as a TypeSafeConstant, and Type
-		 * has a private constructor, it is unnecessary to implement a custom
-		 * hashCode or equals.
-		 */
 		return fieldName.compareTo(type.fieldName);
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return o instanceof Type other && fieldName.equals(other.fieldName);
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return fieldName.hashCode();
 	}
 
 	public static void buildMap()
