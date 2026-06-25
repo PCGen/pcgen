@@ -284,12 +284,9 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<CharID, PCTempl
 		CharID id = dfce.getCharID();
 		PlayerCharacter pc = trackingFacet.getPC(id);
 		Collection<PCTemplate> list = getFromSource(id, cdo);
-		if (list != null)
+		for (PCTemplate pct : list)
 		{
-			for (PCTemplate pct : list)
-			{
-				pc.removeTemplate(pct);
-			}
+			pc.removeTemplate(pct);
 		}
 		removeAll(id, cdo);
 

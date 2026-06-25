@@ -22,7 +22,6 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.facet.model.RaceFacet;
-import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PlayerCharacter;
 
 /**
@@ -36,8 +35,6 @@ public class CalcBonusFacet implements DataFacetChangeListener<CharID, CDOMObjec
 			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	private RaceFacet raceFacet;
-
-	private TemplateFacet templateFacet;
 
 	/**
 	 * Globally recalculates Bonus values for a Player Character.
@@ -82,20 +79,14 @@ public class CalcBonusFacet implements DataFacetChangeListener<CharID, CDOMObjec
 		this.raceFacet = raceFacet;
 	}
 
-	public void setTemplateFacet(TemplateFacet templateFacet)
-	{
-		this.templateFacet = templateFacet;
-	}
-
 	/**
 	 * Initializes the connections for CalcBonusFacet to other facets.
-	 * 
+	 *
 	 * This method is automatically called by the Spring framework during
 	 * initialization of the CalcBonusFacet.
 	 */
 	public void init()
 	{
 		raceFacet.addDataFacetChangeListener(5000, this);
-		//templateFacet.addDataFacetChangeListener(5000, this);
 	}
 }
