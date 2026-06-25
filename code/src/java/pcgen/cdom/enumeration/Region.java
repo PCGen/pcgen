@@ -20,6 +20,7 @@ package pcgen.cdom.enumeration;
 import java.lang.reflect.Field;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Locale;
 import java.util.Objects;
 
 import pcgen.base.enumeration.TypeSafeConstant;
@@ -36,22 +37,19 @@ import pcgen.cdom.base.Constants;
 public final class Region implements TypeSafeConstant, Comparable<Region>
 {
 	/**
-	 * This Map contains the mappings from Strings to the Type Safe Constant
-	 */
-	private static CaseInsensitiveMap<Region> typeMap;
-
-	/**
 	 * This is used to provide a unique ordinal to each constant in this class
 	 */
-	private static int ordinalCount;
+	private static int ordinalCount = 0;
 
 	/**
 	 * A "None" region for universal use.
-	 *
-	 * Declared after the mutable counters above so the constructor sees a
-	 * defined `ordinalCount` — silences SpotBugs SI_INSTANCE_BEFORE_FINALS_ASSIGNED.
 	 */
 	public static final Region NONE = new Region(Constants.NONE);
+
+	/**
+	 * This Map contains the mappings from Strings to the Type Safe Constant
+	 */
+	private static CaseInsensitiveMap<Region> typeMap;
 
 	/**
 	 * The name of this Constant
@@ -199,14 +197,20 @@ public final class Region implements TypeSafeConstant, Comparable<Region>
 	@Override
 	public int compareTo(Region region)
 	{
-		/*
-		 * Note: Some tools will report a problem here because Region implements
-		 * compareTo, but does not implement custom implementations of hashCode
-		 * or equals(). Because this is intended as a TypeSafeConstant, and Type
-		 * has a private constructor, it is unnecessary to implement a custom
-		 * hashCode or equals.
-		 */
 		return fieldName.compareToIgnoreCase(region.fieldName);
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return o instanceof Region other
+			&& String.CASE_INSENSITIVE_ORDER.compare(fieldName, other.fieldName) == 0;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return fieldName.toLowerCase(Locale.ROOT).hashCode();
 	}
 
 }
