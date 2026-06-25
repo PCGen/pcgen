@@ -79,6 +79,8 @@ public class ConcretePersistentTransitionChoice<T> extends ConcreteTransitionCho
 	 *             if the given ChoiceActor is not a PersistentChoiceActor
 	 */
 	@Override
+	@SuppressFBWarnings(value = "BC_UNCONFIRMED_CAST",
+		justification = "API contract documents @throws ClassCastException for non-PersistentChoiceActor; the cast is the contract")
 	public void setChoiceActor(ChoiceActor<T> actor)
 	{
 		choiceActor = (PersistentChoiceActor<T>) actor;

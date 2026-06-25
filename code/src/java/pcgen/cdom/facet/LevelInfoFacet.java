@@ -25,6 +25,8 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
 /**
  * LevelInfoFacet stores the PCLevelInfo objects contained in a Player
  * Character. These store information about a specific Level (such as stat
@@ -58,6 +60,8 @@ public class LevelInfoFacet extends AbstractListFacet<CharID, PCLevelInfo>
 	 * @return The object in this LevelInfoFacet for the Player Character
 	 *         represented by the given CharID and location.
 	 */
+	@SuppressFBWarnings(value = "BC_UNCONFIRMED_CAST_OF_RETURN_VALUE",
+		justification = "Facet's own cache; getComponentSet() always returns ArrayList<PCLevelInfo>")
 	public PCLevelInfo get(CharID id, int location)
 	{
 		List<PCLevelInfo> componentSet = (List<PCLevelInfo>) getCachedSet(id);
