@@ -20,7 +20,7 @@ package pcgen.core;
 
 import pcgen.cdom.base.Ungranted;
 
-public final class ArmorProf extends PObject implements Comparable<Object>, Ungranted
+public final class ArmorProf extends PObject implements Ungranted
 {
 	/**
 	 * Compares keyName only

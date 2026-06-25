@@ -24,7 +24,7 @@ import pcgen.cdom.enumeration.StringKey;
  * A PCClassLevel is a CDOMObject that represents items gained in a specific
  * level of a PCClass.
  */
-public final class PCClassLevel extends CDOMObject implements Cloneable
+public final class PCClassLevel extends CDOMObject
 {
 
 	@Override

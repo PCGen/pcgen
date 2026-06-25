@@ -67,7 +67,7 @@ import pcgen.util.enumeration.Visibility;
  * 
  */
 public class AbilityCategory
-		implements Category<Ability>, Loadable, ManufacturableFactory<Ability>
+		implements Category<Ability>, ManufacturableFactory<Ability>
 {
 	private static final ClassIdentity<AbilityCategory> IDENTITY =
 			BasicClassIdentity.getIdentity(AbilityCategory.class);
