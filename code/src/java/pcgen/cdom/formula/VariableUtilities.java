@@ -32,6 +32,8 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.VariableContext;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
 /**
  * VariableUtilities are a class for monitoring events on variables.
  */
@@ -73,7 +75,7 @@ public final class VariableUtilities
 	{
 		ScopeInstance globalInstance = SCOPE_FACET.getGlobalScope(id);
 		VariableContext varContext =
-				LOAD_CONTEXT_FACET.get(id.getDatasetID()).get().getVariableContext();
+				LOAD_CONTEXT_FACET.getLoadContext(id.getDatasetID()).getVariableContext();
         return (VariableID<T>) varContext.getVariableID(globalInstance, variableName);
 	}
 
@@ -158,7 +160,7 @@ public final class VariableUtilities
 	public static <T> VariableID<T> getLocalVariableID(CharID id,
 		ScopeInstance scopeInst, String name)
 	{
-		LoadContext loadContext = LOAD_CONTEXT_FACET.get(id.getDatasetID()).get();
+		LoadContext loadContext = LOAD_CONTEXT_FACET.getLoadContext(id.getDatasetID());
 		return (VariableID<T>) loadContext.getVariableContext().getVariableID(scopeInst, name);
 	}
 
@@ -175,6 +177,8 @@ public final class VariableUtilities
 	 *            The name of the variable for which the VariableID should be returned
 	 * @return The VariableID for the variable with the given name on the given object
 	 */
+	@SuppressFBWarnings(value = "BC_UNCONFIRMED_CAST",
+		justification = "VarScoped instances in pcgen are always PCGenScoped (PCGenScoped extends VarScoped)")
 	public static <T> VariableID<T> getLocalVariableID(CharID id, VarScoped owner,
 		String name)
 	{

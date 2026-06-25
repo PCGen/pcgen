@@ -83,7 +83,7 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment>
 	public int racialSizeInt(CharID id)
 	{
 		String baseSizeControl = ControlUtilities.getControlToken(
-			loadContextFacet.get(id.getDatasetID()).get(), CControl.BASESIZE);
+			loadContextFacet.getLoadContext(id.getDatasetID()), CControl.BASESIZE);
 		if (baseSizeControl != null)
 		{
 			SizeAdjustment baseSize = (SizeAdjustment) resultFacet
@@ -104,7 +104,7 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment>
 	private int calcRacialSizeInt(CharID id)
 	{
 		String baseSizeControl = ControlUtilities.getControlToken(
-			loadContextFacet.get(id.getDatasetID()).get(), CControl.BASESIZE);
+			loadContextFacet.getLoadContext(id.getDatasetID()), CControl.BASESIZE);
 		if (baseSizeControl != null)
 		{
 			SizeAdjustment baseSize = (SizeAdjustment) resultFacet
