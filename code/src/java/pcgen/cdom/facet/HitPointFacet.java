@@ -36,6 +36,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.util.Logging;
 
 /**
  * HitPointFacet stores information about hit points for a Player Character.
@@ -92,7 +93,11 @@ public class HitPointFacet extends AbstractAssociationFacet<CharID, PCClassLevel
 			case Constants.HP_PERCENTAGE -> roll = (min - 1) + (int) ((SettingsHandler.getHPPercent() * ((max - min) + 1)) / 100.0);
 			case Constants.HP_AVERAGE_ROUNDED_UP -> roll = (int) Math.ceil((min + max) / 2.0);
 			case Constants.HP_STANDARD -> roll = Math.abs(RandomUtil.getRandomInt((max - min) + 1)) + min;
-			default -> roll = Math.abs(RandomUtil.getRandomInt((max - min) + 1)) + min;
+			default -> {
+				Logging.errorPrint("Unknown HP roll method "
+					+ SettingsHandler.getHPRollMethod() + "; falling back to HP_STANDARD");
+				roll = Math.abs(RandomUtil.getRandomInt((max - min) + 1)) + min;
+			}
 		}
 
 		return roll;
