@@ -20,6 +20,7 @@ package pcgen.cdom.enumeration;
 import java.lang.reflect.Field;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Locale;
 import java.util.Objects;
 
 import pcgen.base.enumeration.TypeSafeConstant;
@@ -28,13 +29,23 @@ import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.base.Constants;
 
 /**
- * 
  * This Class is a Type Safe Constant. It is designed to hold Regions in a
  * type-safe fashion, so that they can be quickly compared and use less memory
  * when identical Regions exist in two CDOMObjects.
+ *
+ * <p>{@code equals} and {@code hashCode} are case-insensitive on
+ * {@code fieldName} to match {@link #compareTo} (Comparable contract) and to
+ * support use as a {@code HashMap} key — see {@code BioSet}'s
+ * {@code DoubleKeyMap<Optional<Region>, …>} and the {@code .equals()} calls
+ * in {@code RegionFacet.matchesRegion}.</p>
  */
 public final class Region implements TypeSafeConstant, Comparable<Region>
 {
+	/**
+	 * This is used to provide a unique ordinal to each constant in this class
+	 */
+	private static int ordinalCount = 0;
+
 	/**
 	 * A "None" region for universal use.
 	 */
@@ -44,11 +55,6 @@ public final class Region implements TypeSafeConstant, Comparable<Region>
 	 * This Map contains the mappings from Strings to the Type Safe Constant
 	 */
 	private static CaseInsensitiveMap<Region> typeMap;
-
-	/**
-	 * This is used to provide a unique ordinal to each constant in this class
-	 */
-	private static int ordinalCount = 0;
 
 	/**
 	 * The name of this Constant
@@ -202,14 +208,20 @@ public final class Region implements TypeSafeConstant, Comparable<Region>
 	@Override
 	public int compareTo(Region region)
 	{
-		/*
-		 * Note: Some tools will report a problem here because Region implements
-		 * compareTo, but does not implement custom implementations of hashCode
-		 * or equals(). Because this is intended as a TypeSafeConstant, and Type
-		 * has a private constructor, it is unnecessary to implement a custom
-		 * hashCode or equals.
-		 */
 		return fieldName.compareToIgnoreCase(region.fieldName);
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return o instanceof Region other
+			&& String.CASE_INSENSITIVE_ORDER.compare(fieldName, other.fieldName) == 0;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return fieldName.toLowerCase(Locale.ROOT).hashCode();
 	}
 
 }
