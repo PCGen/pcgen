@@ -17,6 +17,8 @@
  */
 package pcgen.base.formula.visitor;
 
+import java.lang.System.Logger;
+import java.lang.System.Logger.Level;
 import java.lang.reflect.Array;
 import java.util.Optional;
 
@@ -47,8 +49,6 @@ import pcgen.base.formula.parse.ASTUnaryNot;
 import pcgen.base.formula.parse.FormulaParserVisitor;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.parse.SimpleNode;
-import pcgen.base.logging.Logging;
-import pcgen.base.logging.Severity;
 import pcgen.base.util.FormatManager;
 
 /**
@@ -73,6 +73,9 @@ import pcgen.base.util.FormatManager;
 @SuppressWarnings({"PMD.TooManyMethods", "PMD.ExcessiveImports"})
 public class EvaluateVisitor implements FormulaParserVisitor
 {
+	private static final Logger LOG =
+			System.getLogger(EvaluateVisitor.class.getName());
+
 	/**
 	 * Visits a SimpleNode. Because this cannot be processed, due to lack of
 	 * knowledge as to the exact type of SimpleNode encountered, the node is
@@ -398,14 +401,14 @@ public class EvaluateVisitor implements FormulaParserVisitor
 		Optional<FormatManager<?>> asserted = manager.get(EvaluationManager.ASSERTED);
 		if (!asserted.isPresent())
 		{
-			Logging.log(Severity.WARNING,
+			LOG.log(Level.WARNING,
 				() -> "Evaluation called on invalid variable: '" + varName
 					+ "', no asserted format available to determine default, "
 					+ "assuming zero (number)");
 			return 0;
 		}
 		Class<?> managedClass = asserted.get().getManagedClass();
-		Logging.log(Severity.WARNING,
+		LOG.log(Level.WARNING,
 			() -> "Evaluation called on invalid variable: '" + varName
 				+ "', assuming default for " + managedClass.getSimpleName());
 		return varLibrary.getDefault(asserted.get());
