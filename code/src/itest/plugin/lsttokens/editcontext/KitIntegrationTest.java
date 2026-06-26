@@ -26,8 +26,6 @@ import plugin.lsttokens.KitLst;
 import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-import org.junit.jupiter.api.Test;
-
 public class KitIntegrationTest extends
 		AbstractListIntegrationTestCase<CDOMObject, Kit>
 {
@@ -75,12 +73,6 @@ public class KitIntegrationTest extends
 	public char getJoinCharacter()
 	{
 		return '|';
-	}
-
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override
