@@ -100,6 +100,7 @@ import pcgen.system.Main;
 import pcgen.system.PCGenPropBundle;
 import pcgen.system.PCGenSettings;
 import pcgen.system.PropertyContext;
+import pcgen.system.PropertyContextFactory;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.RandomChooser;
@@ -823,11 +824,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	boolean showSaveCharacterChooser(CharacterFacade character)
 	{
 		PCGenSettings context = PCGenSettings.getInstance();
-		String parentPath = lastCharacterPath;
-		if (parentPath == null)
-		{
-			parentPath = context.getProperty(PCGenSettings.PCG_SAVE_PATH);
-		}
+		String parentPath = resolveCharacterChooserDir(context);
 
 		FileChooser fileChooser = new FileChooser();
 		fileChooser.setTitle("Save PCGen Character File");
@@ -881,6 +878,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 				}
 
 				lastCharacterPath = file.getParent();
+				rememberCharacterChooserDir(lastCharacterPath);
 				return true;
 			}
 			catch (Exception e)
@@ -926,12 +924,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	public void showOpenCharacterChooser()
 	{
 		GuiAssertions.assertIsNotJavaFXThread();
-		PropertyContext context = PCGenSettings.getInstance();
-		String path = lastCharacterPath;
-		if (path == null)
-		{
-			path = context.getProperty(PCGenSettings.PCG_SAVE_PATH);
-		}
+		PCGenSettings context = PCGenSettings.getInstance();
+		String path = resolveCharacterChooserDir(context);
 
 		FileChooser fileChooser = new FileChooser();
 		fileChooser.setTitle("Open PCGen Character");
@@ -948,8 +942,42 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		if (file != null)
 		{
 			lastCharacterPath = file.getAbsoluteFile().getParent();
+			rememberCharacterChooserDir(lastCharacterPath);
 			loadCharacterFromFile(file);
 		}
+	}
+
+	/**
+	 * Persists the last-used character folder to {@code options.ini} so it
+	 * survives a clean shutdown — and immediately flushes it so it also
+	 * survives an abrupt exit (window close from a desktop manager, crash).
+	 * Note: a forced kill (Ctrl-C, SIGKILL) before this point cannot be
+	 * caught, so the most recent folder may still be lost in that case.
+	 */
+	private static void rememberCharacterChooserDir(String dir)
+	{
+		PCGenSettings.getInstance().setProperty(PCGenSettings.LAST_CHARACTER_PATH, dir);
+		PropertyContextFactory.getDefaultFactory().savePropertyContexts();
+	}
+
+	/**
+	 * Resolve the initial folder for the character Open/Save chooser, in order:
+	 * the in-session {@code lastCharacterPath}; the persisted
+	 * {@link PCGenSettings#LAST_CHARACTER_PATH} from prior runs; the user's
+	 * configured {@link PCGenSettings#PCG_SAVE_PATH} default.
+	 */
+	private String resolveCharacterChooserDir(PropertyContext context)
+	{
+		String path = lastCharacterPath;
+		if (path == null || path.isEmpty())
+		{
+			path = context.getProperty(PCGenSettings.LAST_CHARACTER_PATH);
+		}
+		if (path == null || path.isEmpty())
+		{
+			path = context.getProperty(PCGenSettings.PCG_SAVE_PATH);
+		}
+		return path;
 	}
 
 	void showOpenPartyChooser()
