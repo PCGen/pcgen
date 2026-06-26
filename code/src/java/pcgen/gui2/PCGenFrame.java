@@ -824,7 +824,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	boolean showSaveCharacterChooser(CharacterFacade character)
 	{
 		PCGenSettings context = PCGenSettings.getInstance();
-		String parentPath = resolveCharacterChooserDir(context);
+		String parentPath = resolveCharacterChooserDir(lastCharacterPath, context);
 
 		FileChooser fileChooser = new FileChooser();
 		fileChooser.setTitle("Save PCGen Character File");
@@ -925,7 +925,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	{
 		GuiAssertions.assertIsNotJavaFXThread();
 		PCGenSettings context = PCGenSettings.getInstance();
-		String path = resolveCharacterChooserDir(context);
+		String path = resolveCharacterChooserDir(lastCharacterPath, context);
 
 		FileChooser fileChooser = new FileChooser();
 		fileChooser.setTitle("Open PCGen Character");
@@ -962,13 +962,13 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 
 	/**
 	 * Resolve the initial folder for the character Open/Save chooser, in order:
-	 * the in-session {@code lastCharacterPath}; the persisted
+	 * the in-session {@code lastInSessionPath}; the persisted
 	 * {@link PCGenSettings#LAST_CHARACTER_PATH} from prior runs; the user's
 	 * configured {@link PCGenSettings#PCG_SAVE_PATH} default.
 	 */
-	private String resolveCharacterChooserDir(PropertyContext context)
+	static String resolveCharacterChooserDir(String lastInSessionPath, PropertyContext context)
 	{
-		String path = lastCharacterPath;
+		String path = lastInSessionPath;
 		if (path == null || path.isEmpty())
 		{
 			path = context.getProperty(PCGenSettings.LAST_CHARACTER_PATH);
