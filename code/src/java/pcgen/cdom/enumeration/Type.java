@@ -28,10 +28,15 @@ import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.base.Constants;
 
 /**
- * 
  * This Class is a Type Safe Constant. It is designed to hold Types in a
  * type-safe fashion, so that they can be quickly compared and use less memory
  * when identical Types exist in two CDOMObjects.
+ *
+ * <p>{@code equals} and {@code hashCode} are value-based on {@code fieldName}
+ * (case-sensitive, matching {@link #compareTo}). Type is used as a
+ * {@code HashSet}/{@code HashMap} key across the codebase (DataSet, GameMode,
+ * BodyStructure, spell/skill lists, …); the value-equals contract holds even
+ * when an instance is constructed outside the {@link #getConstant} intern map.</p>
  */
 public final class Type implements TypeSafeConstant, Comparable<Type>
 {
