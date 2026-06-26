@@ -127,7 +127,11 @@ public final class Globals
 		final Campaign campaign = getCampaignKeyedSilently(aKey);
 		if (campaign == null)
 		{
-			Logging.errorPrint("Could not find campaign: " + aKey);
+			Logging.errorPrint("Could not find campaign: " + aKey
+				+ " - no loaded .pcc file declares CAMPAIGN:" + aKey + "."
+				+ " If this is third-party (non-OGL) data, install the .pcc into the"
+				+ " vendor data dir (" + PCGenSettings.getVendorDataDir()
+				+ ") or homebrew data dir (" + PCGenSettings.getHomebrewDataDir() + ").");
 		}
 
 		return campaign;
