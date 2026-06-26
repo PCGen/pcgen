@@ -25,8 +25,6 @@ import plugin.lsttokens.editcontext.testsupport.AbstractStringIntegrationTestCas
 import plugin.lsttokens.template.SubregionToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-import org.junit.jupiter.api.Test;
-
 public class SubregionIntegrationTest
 		extends AbstractStringIntegrationTestCase<PCTemplate>
 {
@@ -50,12 +48,6 @@ public class SubregionIntegrationTest
 	public CDOMPrimaryToken<PCTemplate> getToken()
 	{
 		return token;
-	}
-
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override

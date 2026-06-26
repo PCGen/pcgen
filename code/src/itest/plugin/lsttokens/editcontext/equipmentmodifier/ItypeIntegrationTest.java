@@ -25,8 +25,6 @@ import plugin.lsttokens.editcontext.testsupport.AbstractTypeSafeListIntegrationT
 import plugin.lsttokens.equipmentmodifier.ItypeToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-import org.junit.jupiter.api.Test;
-
 public class ItypeIntegrationTest extends
 		AbstractTypeSafeListIntegrationTestCase<EquipmentModifier>
 {
@@ -62,12 +60,6 @@ public class ItypeIntegrationTest extends
 	protected boolean requiresPreconstruction()
 	{
 		return false;
-	}
-
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override
