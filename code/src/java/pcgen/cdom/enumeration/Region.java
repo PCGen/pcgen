@@ -29,10 +29,15 @@ import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.base.Constants;
 
 /**
- * 
  * This Class is a Type Safe Constant. It is designed to hold Regions in a
  * type-safe fashion, so that they can be quickly compared and use less memory
  * when identical Regions exist in two CDOMObjects.
+ *
+ * <p>{@code equals} and {@code hashCode} are case-insensitive on
+ * {@code fieldName} to match {@link #compareTo} (Comparable contract) and to
+ * support use as a {@code HashMap} key — see {@code BioSet}'s
+ * {@code DoubleKeyMap<Optional<Region>, …>} and the {@code .equals()} calls
+ * in {@code RegionFacet.matchesRegion}.</p>
  */
 public final class Region implements TypeSafeConstant, Comparable<Region>
 {
