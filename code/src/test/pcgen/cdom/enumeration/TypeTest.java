@@ -18,6 +18,8 @@
 package pcgen.cdom.enumeration;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertNotSame;
+import static org.junit.jupiter.api.Assertions.assertSame;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -28,12 +30,15 @@ import org.junit.jupiter.api.Test;
 /**
  * The Class {@code TypeTest} tests that the Type
  * class is functioning correctly.
+ *
+ * Fixture names are namespaced ("TypeTest_*") so they don't collide with
+ * data-load fixtures registered by other tests sharing the JVM.
  */
 class TypeTest
 {
 	/**
 	 * Test whether type can be sorted, by adding it to a hashset.
-	 * Added to check fix on Bug with tracker nr. 2413116 
+	 * Added to check fix on Bug with tracker nr. 2413116
 	 */
 	@Test
 	void testSortable()
@@ -43,6 +48,27 @@ class TypeTest
 			typeset.add(Type.getConstant("testitem 1"));
 			typeset.add(Type.getConstant("testitem 2"));
 		}, "type can't be sorted by adding to hashset") ;
+	}
+
+	/** Two calls with the same name return the same interned instance. */
+	@Test
+	void getConstantInternsByName()
+	{
+		assertSame(Type.getConstant("TypeTest_Alpha"), Type.getConstant("TypeTest_Alpha"));
+	}
+
+	/** The intern map is case-insensitive (CaseInsensitiveMap). */
+	@Test
+	void getConstantInternsCaseInsensitively()
+	{
+		assertSame(Type.getConstant("TypeTest_Beta"), Type.getConstant("typetest_beta"));
+	}
+
+	/** Distinct names produce distinct instances. */
+	@Test
+	void getConstantDistinguishesNames()
+	{
+		assertNotSame(Type.getConstant("TypeTest_Gamma"), Type.getConstant("TypeTest_Delta"));
 	}
 
 }
