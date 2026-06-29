@@ -37,7 +37,7 @@ dependencies {
 
     javacc 'net.java.dev.javacc:javacc:7.0.13'
 
-    testImplementation platform('org.junit:junit-bom:6.1.0')
+    testImplementation platform('org.junit:junit-bom:6.1.1')
     testImplementation 'org.junit.jupiter:junit-jupiter-api'
     testImplementation 'org.junit.jupiter:junit-jupiter-params'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
