@@ -39,7 +39,7 @@ import org.junit.jupiter.api.Test;
  * {@code CountDistinctCommandTest} tests the functioning of the jep
  * countdistinct plugin
  */
-public class CountDistinctCommandTest extends AbstractCharacterTestCase
+class CountDistinctCommandTest extends AbstractCharacterTestCase
 {
 
 	@BeforeEach
@@ -443,7 +443,7 @@ public class CountDistinctCommandTest extends AbstractCharacterTestCase
 	//    }
 
 	@Test
-	public void testCountAbilitiesByName()
+	void testCountAbilitiesByName()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -478,7 +478,7 @@ public class CountDistinctCommandTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testCountAbilitiesByKey()
+	void testCountAbilitiesByKey()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -526,7 +526,7 @@ public class CountDistinctCommandTest extends AbstractCharacterTestCase
 	 * to CountCommand.
 	 */
 	@Test
-	public void testCountClassesFallThrough()
+	void testCountClassesFallThrough()
 	{
 		final PlayerCharacter character = getCharacter();
 		String test = "countdistinct(\"CLASSES\")";

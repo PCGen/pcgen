@@ -24,7 +24,7 @@ import plugin.pretokens.writer.PreVisionWriter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class PreVisionRoundRobin extends AbstractRankedRoundRobin
+class PreVisionRoundRobin extends AbstractRankedRoundRobin
 {
 	@BeforeEach
 	@Override
@@ -54,7 +54,7 @@ public class PreVisionRoundRobin extends AbstractRankedRoundRobin
 	}
 
 	@Test
-	public void testAnyTarget()
+	void testAnyTarget()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":1,Foo=ANY");
 	}

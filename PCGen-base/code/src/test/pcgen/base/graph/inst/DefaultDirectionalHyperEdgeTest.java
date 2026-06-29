@@ -37,7 +37,7 @@ import pcgen.base.graph.base.DirectionalEdge;
 /**
  * Test the DefaultDirectionalHyperEdge class
  */
-public class DefaultDirectionalHyperEdgeTest
+class DefaultDirectionalHyperEdgeTest
 {
 
 	private Integer node1, node2, node3, node4, node5, node6;
@@ -95,7 +95,7 @@ public class DefaultDirectionalHyperEdgeTest
 	}
 
 	@Test
-	public void testDefaultDirectionalHyperEdge()
+	void testDefaultDirectionalHyperEdge()
 	{
 		assertThrows(IllegalArgumentException.class, () -> new DefaultDirectionalHyperEdge<Integer>(null, null));
 		assertThrows(IllegalArgumentException.class, () -> new DefaultDirectionalHyperEdge<>(null, new ArrayList<>()));
@@ -115,7 +115,7 @@ public class DefaultDirectionalHyperEdgeTest
 	}
 
 	@Test
-	public void testGetNodeAt()
+	void testGetNodeAt()
 	{
 		assertEquals(node1, edge1.getNodeAt(0));
 		assertEquals(node2, edge1.getNodeAt(1));
@@ -134,7 +134,7 @@ public class DefaultDirectionalHyperEdgeTest
 	}
 
 	@Test
-	public void testGetAdjacentNodes()
+	void testGetAdjacentNodes()
 	{
 		List<Integer> l = edge5.getAdjacentNodes();
 		assertEquals(5, l.size());
@@ -152,7 +152,7 @@ public class DefaultDirectionalHyperEdgeTest
 	}
 
 	@Test
-	public void testIsAdjacentNode()
+	void testIsAdjacentNode()
 	{
 		assertTrue(edge1.isAdjacentNode(node1));
 		assertTrue(edge1.isAdjacentNode(node2));
@@ -192,7 +192,7 @@ public class DefaultDirectionalHyperEdgeTest
 	}
 
 	@Test
-	public void testGetAdjacentNodeCount()
+	void testGetAdjacentNodeCount()
 	{
 		assertEquals(3, edge1.getAdjacentNodeCount());
 		assertEquals(5, edge2.getAdjacentNodeCount());
@@ -202,7 +202,7 @@ public class DefaultDirectionalHyperEdgeTest
 	}
 
 	@Test
-	public void testGetNodeInterfaceType()
+	void testGetNodeInterfaceType()
 	{
 		assertEquals(DirectionalEdge.SOURCE, edge5.getNodeInterfaceType(node1));
 		assertEquals(DirectionalEdge.SINK, edge5.getNodeInterfaceType(node2));
@@ -215,7 +215,7 @@ public class DefaultDirectionalHyperEdgeTest
 	}
 
 	@Test
-	public void testGetSinkNodes()
+	void testGetSinkNodes()
 	{
 		Collection<Integer> l = edge1.getSinkNodes();
 		assertEquals(2, l.size());
@@ -243,7 +243,7 @@ public class DefaultDirectionalHyperEdgeTest
 	}
 
 	@Test
-	public void testGetSourceNodes()
+	void testGetSourceNodes()
 	{
 		Collection<Integer> l = edge1.getSourceNodes();
 		assertEquals(1, l.size());
@@ -271,7 +271,7 @@ public class DefaultDirectionalHyperEdgeTest
 	}
 
 	@Test
-	public void testCreateReplacementEdge()
+	void testCreateReplacementEdge()
 	{
 		assertThrows(NullPointerException.class, () -> edge1.createReplacementEdge(null, null));
 		assertThrows(NullPointerException.class, () -> edge1.createReplacementEdge(null, new ArrayList<>()));
@@ -287,7 +287,7 @@ public class DefaultDirectionalHyperEdgeTest
 	}
 
 	@Test
-	public void testCreateReplacementEdgeSemantics()
+	void testCreateReplacementEdgeSemantics()
 	{
 		List<Integer> sourceL =
 				new ArrayList<>(
@@ -325,7 +325,7 @@ public class DefaultDirectionalHyperEdgeTest
 	}
 
 	@Test
-	public void testConstructorSemantics()
+	void testConstructorSemantics()
 	{
 		List<Integer> sourceL =
 				new ArrayList<>(

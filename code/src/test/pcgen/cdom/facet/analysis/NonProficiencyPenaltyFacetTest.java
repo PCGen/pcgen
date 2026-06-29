@@ -30,7 +30,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class NonProficiencyPenaltyFacetTest
+class NonProficiencyPenaltyFacetTest
 {
 	/*
 	 * NOTE: This is not literal unit testing - it is leveraging the existing
@@ -44,7 +44,7 @@ public class NonProficiencyPenaltyFacetTest
 	private TemplateFacet tfacet = new TemplateFacet();
 
 	@BeforeEach
-	public void setUp() throws Exception
+	void setUp() throws Exception
 	{
 		facet = new NonProficiencyPenaltyFacet();
 		facet.setTemplateFacet(tfacet);
@@ -54,7 +54,7 @@ public class NonProficiencyPenaltyFacetTest
 	}
 
 	@AfterEach
-	public void tearDown()
+	void tearDown()
 	{
 		id = null;
 		altid = null;
@@ -63,20 +63,20 @@ public class NonProficiencyPenaltyFacetTest
 	}
 
 	@Test
-	public void testGenderUnsetNull()
+	void testGenderUnsetNull()
 	{
 		assertEquals(SettingsHandler.getGameAsProperty().get().getNonProfPenalty(), facet.getPenalty(id));
 	}
 
 	@Test
-	public void testWithNothingInTemplates()
+	void testWithNothingInTemplates()
 	{
 		tfacet.add(id, new PCTemplate(), this);
 		assertEquals(SettingsHandler.getGameAsProperty().get().getNonProfPenalty(), facet.getPenalty(id));
 	}
 
 	@Test
-	public void testAvoidPollution()
+	void testAvoidPollution()
 	{
 		PCTemplate pct = new PCTemplate();
 		pct.put(IntegerKey.NONPP, -2);
@@ -85,7 +85,7 @@ public class NonProficiencyPenaltyFacetTest
 	}
 
 	@Test
-	public void testGenderLocked()
+	void testGenderLocked()
 	{
 		PCTemplate pct = new PCTemplate();
 		pct.put(IntegerKey.NONPP, -3);
@@ -96,7 +96,7 @@ public class NonProficiencyPenaltyFacetTest
 	}
 
 	@Test
-	public void testMultipleGenderSetSecondDominatesGender()
+	void testMultipleGenderSetSecondDominatesGender()
 	{
 		PCTemplate pct = new PCTemplate();
 		pct.setName("PCT");

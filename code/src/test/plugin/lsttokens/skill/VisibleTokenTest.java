@@ -34,7 +34,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
 
-public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Skill>
+class VisibleTokenTest extends AbstractCDOMTokenTestCase<Skill>
 {
 
 	static VisibleToken token = new VisibleToken();
@@ -59,7 +59,7 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testInvalidOutput()
+	void testInvalidOutput()
 	{
 		assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryProf.put(ObjectKey.VISIBILITY, Visibility.QUALIFY);
@@ -68,14 +68,14 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testInvalidInputString()
+	void testInvalidInputString()
 	{
 		internalTestInvalidInputString(null);
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputStringSet()
+	void testInvalidInputStringSet()
 	{
 		assertTrue(parse("EXPORT"));
 		assertEquals(Visibility.OUTPUT_ONLY, primaryProf.get(ObjectKey.VISIBILITY));
@@ -83,7 +83,7 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testInvalidInputStringSetDisplay()
+	void testInvalidInputStringSetDisplay()
 	{
 		assertTrue(parse("DISPLAY"));
 		assertEquals(Visibility.DISPLAY_ONLY, primaryProf.get(ObjectKey.VISIBILITY));
@@ -118,7 +118,7 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testValidInputs()
+	void testValidInputs()
 	{
 		assertTrue(parse("DISPLAY"));
 		assertEquals(Visibility.DISPLAY_ONLY, primaryProf.get(ObjectKey.VISIBILITY));
@@ -135,25 +135,25 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testRoundRobinYes() throws PersistenceLayerException
+	void testRoundRobinYes() throws PersistenceLayerException
 	{
 		runRoundRobin("YES");
 	}
 
 	@Test
-	public void testRoundRobinDisplay() throws PersistenceLayerException
+	void testRoundRobinDisplay() throws PersistenceLayerException
 	{
 		runRoundRobin("DISPLAY");
 	}
 
 	@Test
-	public void testRoundRobinExport() throws PersistenceLayerException
+	void testRoundRobinExport() throws PersistenceLayerException
 	{
 		runRoundRobin("EXPORT");
 	}
 
 	@Test
-	public void testRoundRobinDisplayReadOnly()
+	void testRoundRobinDisplayReadOnly()
 		throws PersistenceLayerException
 	{
 		runRoundRobin("DISPLAY|READONLY");
@@ -172,7 +172,7 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testUnparseNull()
+	void testUnparseNull()
 	{
 		primaryProf.put(getObjectKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
@@ -184,14 +184,14 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testUnparseLegal()
+	void testUnparseLegal()
 	{
 		primaryProf.put(getObjectKey(), Visibility.DEFAULT);
 		expectSingle(getToken().unparse(primaryContext, primaryProf), Visibility.DEFAULT.getLSTFormat());
 	}
 
 	@Test
-	public void testUnparseIllegal()
+	void testUnparseIllegal()
 	{
 		primaryProf.put(getObjectKey(), Visibility.HIDDEN);
 		assertBadUnparse();
@@ -199,7 +199,7 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Skill>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail()
+	void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = getObjectKey();
 		primaryProf.put(objectKey, new Object());

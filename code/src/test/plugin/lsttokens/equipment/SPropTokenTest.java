@@ -29,7 +29,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class SPropTokenTest extends
+class SPropTokenTest extends
 		AbstractTextPropertyTokenTestCase<Equipment>
 {
 	static SpropToken token = new SpropToken();
@@ -54,21 +54,21 @@ public class SPropTokenTest extends
 	}
 
 	@Test
-	public void testInvalidDoubleClear()
+	void testInvalidDoubleClear()
 	{
 		assertFalse(parse(".CLEAR|.CLEAR|Second"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidClearAsVariable()
+	void testInvalidClearAsVariable()
 	{
 		assertFalse(parse("Second|.CLEAR"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidClear()
+	void testValidClear()
 	{
 		assertTrue(parse(Constants.LST_DOT_CLEAR));
 	}

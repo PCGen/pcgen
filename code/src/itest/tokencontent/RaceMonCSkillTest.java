@@ -48,7 +48,7 @@ import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 import util.TestURI;
 
-public class RaceMonCSkillTest extends AbstractTokenModelTest
+class RaceMonCSkillTest extends AbstractTokenModelTest
 {
 
 	private static MoncskillToken token = new MoncskillToken();
@@ -78,7 +78,7 @@ public class RaceMonCSkillTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testDirect()
+	void testDirect()
 	{
 		Race source = create(Race.class, "Source");
 		ParseResult result = token.parseToken(context, source, "MySkill");
@@ -101,7 +101,7 @@ public class RaceMonCSkillTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testList()
+	void testList()
 	{
 		Race source = create(Race.class, "Source");
 		ParseResult result = token.parseToken(context, source, "LIST");

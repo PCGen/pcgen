@@ -47,7 +47,7 @@ class GenderFacetTest
 	private TemplateFacet tfacet = new TemplateFacet();
 
 	@BeforeEach
-	public void setUp() throws Exception
+	void setUp() throws Exception
 	{
 		facet = new GenderFacet();
 		facet.setTemplateFacet(tfacet);
@@ -57,7 +57,7 @@ class GenderFacetTest
 	}
 
 	@AfterEach
-	public void tearDown()
+	void tearDown()
 	{
 		id = null;
 		altid = null;
@@ -66,20 +66,20 @@ class GenderFacetTest
 	}
 
 	@Test
-	public void testGenderUnsetNull()
+	void testGenderUnsetNull()
 	{
 		assertEquals(Gender.getDefaultValue(), facet.getGender(id));
 	}
 
 	@Test
-	public void testWithNothingInTemplates()
+	void testWithNothingInTemplates()
 	{
 		tfacet.add(id, new PCTemplate(), this);
 		assertEquals(Gender.getDefaultValue(), facet.getGender(id));
 	}
 
 	@Test
-	public void testAvoidPollution()
+	void testAvoidPollution()
 	{
 		PCTemplate pct = new PCTemplate();
 		pct.put(ObjectKey.GENDER_LOCK, Gender.Neuter);
@@ -88,7 +88,7 @@ class GenderFacetTest
 	}
 
 	@Test
-	public void testGenderSet()
+	void testGenderSet()
 	{
 		assertTrue(facet.canSetGender(id));
 		facet.set(id, Gender.Female);
@@ -100,7 +100,7 @@ class GenderFacetTest
 	}
 	
 	@Test
-	public void testGenderLocked()
+	void testGenderLocked()
 	{
 		assertTrue(facet.canSetGender(id));
 		PCTemplate pct = new PCTemplate();
@@ -114,7 +114,7 @@ class GenderFacetTest
 	}
 
 	@Test
-	public void testGenderSetLockDominates()
+	void testGenderSetLockDominates()
 	{
 		facet.set(id, Gender.Female);
 		assertEquals(Gender.Female, facet.getGender(id));
@@ -127,7 +127,7 @@ class GenderFacetTest
 	}
 
 	@Test
-	public void testMultipleGenderSetSecondDominatesGender()
+	void testMultipleGenderSetSecondDominatesGender()
 	{
 		PCTemplate pct = new PCTemplate();
 		pct.setName("PCT");

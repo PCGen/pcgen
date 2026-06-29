@@ -29,10 +29,10 @@ import pcgen.base.formula.inst.SimpleScopeInstanceFactory;
 import pcgen.base.testsupport.GlobalVarScoped;
 import pcgen.base.testsupport.NaiveScopeManager;
 
-public class VariableIDTest
+class VariableIDTest
 {
 	@Test
-	public void testDoubleConstructor()
+	void testDoubleConstructor()
 	{
 		NaiveScopeManager scopeManager = new NaiveScopeManager();
 		ScopeInstanceFactory instanceFactory =
@@ -48,7 +48,7 @@ public class VariableIDTest
 	}
 
 	@Test
-	public void testGlobal()
+	void testGlobal()
 	{
 		NaiveScopeManager scopeManager = new NaiveScopeManager();
 		ScopeInstanceFactory instanceFactory =
@@ -62,7 +62,7 @@ public class VariableIDTest
 	}
 
 	@Test
-	public void testEquals()
+	void testEquals()
 	{
 		NaiveScopeManager scopeManager = new NaiveScopeManager();
 		ScopeInstanceFactory instanceFactory =
@@ -84,7 +84,7 @@ public class VariableIDTest
 	}
 
 	@Test
-	public void testHashCode()
+	void testHashCode()
 	{
 		NaiveScopeManager scopeManager = new NaiveScopeManager();
 		ScopeInstanceFactory instanceFactory =

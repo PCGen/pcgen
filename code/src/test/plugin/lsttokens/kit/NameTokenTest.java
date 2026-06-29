@@ -25,7 +25,7 @@ import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
 import org.junit.jupiter.api.Test;
 
-public class NameTokenTest extends AbstractKitTokenTestCase<KitBio>
+class NameTokenTest extends AbstractKitTokenTestCase<KitBio>
 {
 
 	static NameToken token = new NameToken();
@@ -51,7 +51,7 @@ public class NameTokenTest extends AbstractKitTokenTestCase<KitBio>
 	}
 
 	@Test
-	public void testRoundRobinName() throws PersistenceLayerException
+	void testRoundRobinName() throws PersistenceLayerException
 	{
 		runRoundRobin("Table Name");
 	}

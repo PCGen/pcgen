@@ -36,7 +36,7 @@ import plugin.lsttokens.testsupport.AbstractListInputTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
-public class FavoredClassTokenTest extends AbstractListInputTokenTestCase<Race, PCClass>
+class FavoredClassTokenTest extends AbstractListInputTokenTestCase<Race, PCClass>
 {
 
 	static FavclassToken token = new FavclassToken();
@@ -97,20 +97,20 @@ public class FavoredClassTokenTest extends AbstractListInputTokenTestCase<Race, 
 	}
 
 	@Test
-	public void testRoundRobinList() throws PersistenceLayerException
+	void testRoundRobinList() throws PersistenceLayerException
 	{
 		runRoundRobin("%LIST");
 	}
 
 	@Test
-	public void testInvalidInputList()
+	void testInvalidInputList()
 	{
 		assertFalse(parse(Constants.HIGHEST_LEVEL_CLASS + getJoinCharacter() + "%LIST"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputSubClassNoSub()
+	void testInvalidInputSubClassNoSub()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("TestWP1."));
@@ -118,14 +118,14 @@ public class FavoredClassTokenTest extends AbstractListInputTokenTestCase<Race, 
 	}
 
 	@Test
-	public void testInvalidInputSubClassNoClass()
+	void testInvalidInputSubClassNoClass()
 	{
 		assertFalse(parse(".TestWP1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputSubDoubleSeparator()
+	void testInvalidInputSubDoubleSeparator()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("TestWP1..Two"));
@@ -133,7 +133,7 @@ public class FavoredClassTokenTest extends AbstractListInputTokenTestCase<Race, 
 	}
 
 	@Test
-	public void testCategorizationFail()
+	void testCategorizationFail()
 	{
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse("TestWP1.Two"));
@@ -143,7 +143,7 @@ public class FavoredClassTokenTest extends AbstractListInputTokenTestCase<Race, 
 	}
 
 	@Test
-	public void testCategorizationPass()
+	void testCategorizationPass()
 	{
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse("TestWP1.Two"));
@@ -155,7 +155,7 @@ public class FavoredClassTokenTest extends AbstractListInputTokenTestCase<Race, 
 	}
 
 	@Test
-	public void testRoundRobinThreeSub() throws PersistenceLayerException
+	void testRoundRobinThreeSub() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -171,7 +171,7 @@ public class FavoredClassTokenTest extends AbstractListInputTokenTestCase<Race, 
 	}
 
 	@Test
-	public void testInvalidInputAnyItem()
+	void testInvalidInputAnyItem()
 	{
 		if (isAllLegal())
 		{
@@ -182,7 +182,7 @@ public class FavoredClassTokenTest extends AbstractListInputTokenTestCase<Race, 
 	}
 
 	@Test
-	public void testInvalidInputItemAny()
+	void testInvalidInputItemAny()
 	{
 		if (isAllLegal())
 		{
@@ -230,7 +230,7 @@ public class FavoredClassTokenTest extends AbstractListInputTokenTestCase<Race, 
 	}
 
 	@Test
-	public void testOverwriteHighest()
+	void testOverwriteHighest()
 	{
 		parse(Constants.HIGHEST_LEVEL_CLASS);
 		validateUnparsed(primaryContext, primaryProf, Constants.HIGHEST_LEVEL_CLASS);
@@ -240,7 +240,7 @@ public class FavoredClassTokenTest extends AbstractListInputTokenTestCase<Race, 
 	}
 
 	@Test
-	public void testOverwriteWithHighest()
+	void testOverwriteWithHighest()
 	{
 		parse("TestWP1");
 		validateUnparsed(primaryContext, primaryProf, "TestWP1");
@@ -251,7 +251,7 @@ public class FavoredClassTokenTest extends AbstractListInputTokenTestCase<Race, 
 
 
 	@Test
-	public void testUnparseHighest()
+	void testUnparseHighest()
 	{
 		primaryProf.put(ObjectKey.ANY_FAVORED_CLASS, true);
 		expectSingle(getToken().unparse(primaryContext, primaryProf),
@@ -259,14 +259,14 @@ public class FavoredClassTokenTest extends AbstractListInputTokenTestCase<Race, 
 	}
 
 	@Test
-	public void testUnparseHighestUnset()
+	void testUnparseHighestUnset()
 	{
 		primaryProf.put(ObjectKey.ANY_FAVORED_CLASS, false);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseHighestNull()
+	void testUnparseHighestNull()
 	{
 		primaryProf.put(ObjectKey.ANY_FAVORED_CLASS, null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
@@ -274,7 +274,7 @@ public class FavoredClassTokenTest extends AbstractListInputTokenTestCase<Race, 
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFailHighest()
+	void testUnparseGenericsFailHighest()
 	{
 		ObjectKey objectKey = ObjectKey.ANY_FAVORED_CLASS;
 		primaryProf.put(objectKey, new Object());
@@ -290,14 +290,14 @@ public class FavoredClassTokenTest extends AbstractListInputTokenTestCase<Race, 
 	}
 
 	@Test
-	public void testUnparseNull()
+	void testUnparseNull()
 	{
 		primaryProf.removeListFor(ListKey.FAVORED_CLASS);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseSingle()
+	void testUnparseSingle()
 	{
 		PCClass wp1 = construct(primaryContext, "TestWP1");
 		primaryProf.addToListFor(ListKey.FAVORED_CLASS, CDOMDirectSingleRef
@@ -307,7 +307,7 @@ public class FavoredClassTokenTest extends AbstractListInputTokenTestCase<Race, 
 	}
 
 	@Test
-	public void testUnparseNullInList()
+	void testUnparseNullInList()
 	{
 		primaryProf.addToListFor(ListKey.FAVORED_CLASS, null);
 		try
@@ -322,7 +322,7 @@ public class FavoredClassTokenTest extends AbstractListInputTokenTestCase<Race, 
 	}
 
 	@Test
-	public void testUnparseMultiple()
+	void testUnparseMultiple()
 	{
 		PCClass wp1 = construct(primaryContext, getLegalValue());
 		primaryProf.addToListFor(ListKey.FAVORED_CLASS, CDOMDirectSingleRef
@@ -336,7 +336,7 @@ public class FavoredClassTokenTest extends AbstractListInputTokenTestCase<Race, 
 	}
 
 	@Test
-	public void testUnparseMultipleHighest()
+	void testUnparseMultipleHighest()
 	{
 		PCClass wp1 = construct(primaryContext, getLegalValue());
 		primaryProf.addToListFor(ListKey.FAVORED_CLASS, CDOMDirectSingleRef
@@ -372,14 +372,14 @@ public class FavoredClassTokenTest extends AbstractListInputTokenTestCase<Race, 
 	// }
 
 	@Test
-	public void testUnparseNullCA()
+	void testUnparseNullCA()
 	{
 		primaryProf.removeListFor(ListKey.NEW_CHOOSE_ACTOR);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseCA()
+	void testUnparseCA()
 	{
 		primaryProf.addToListFor(ListKey.NEW_CHOOSE_ACTOR, token);
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
@@ -387,7 +387,7 @@ public class FavoredClassTokenTest extends AbstractListInputTokenTestCase<Race, 
 	}
 
 	@Test
-	public void testUnparseNullInCAList()
+	void testUnparseNullInCAList()
 	{
 		primaryProf.addToListFor(ListKey.NEW_CHOOSE_ACTOR, null);
 		try
@@ -402,7 +402,7 @@ public class FavoredClassTokenTest extends AbstractListInputTokenTestCase<Race, 
 	}
 
 	@Test
-	public void testUnparseMultipleAll()
+	void testUnparseMultipleAll()
 	{
 		primaryProf.addToListFor(ListKey.NEW_CHOOSE_ACTOR, token);
 		PCClass wp1 = construct(primaryContext, getLegalValue());

@@ -23,7 +23,7 @@ import plugin.pretokens.writer.PreEquipWriter;
 
 import org.junit.jupiter.api.BeforeEach;
 
-public class PreEquipRoundRobin extends AbstractEquipmentRoundRobin
+class PreEquipRoundRobin extends AbstractEquipmentRoundRobin
 {
 	@BeforeEach
 	@Override

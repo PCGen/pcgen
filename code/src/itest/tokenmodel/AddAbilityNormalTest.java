@@ -46,7 +46,7 @@ import tokenmodel.testsupport.AssocCheck;
 import tokenmodel.testsupport.NoAssociations;
 import util.TestURI;
 
-public class AddAbilityNormalTest extends AbstractAddListTokenTest<Ability>
+class AddAbilityNormalTest extends AbstractAddListTokenTest<Ability>
 {
 
 	private static final AbilityToken ADD_ABILITY_TOKEN = new AbilityToken();
@@ -153,7 +153,7 @@ public class AddAbilityNormalTest extends AbstractAddListTokenTest<Ability>
 
 	//TODO this appears to be a bug - is only applied once?
 	@Test
-	public void testMult()
+	void testMult()
 	{
 		TokenRegistration.register(new NoChoiceToken());
 		TokenRegistration.register(new StackToken());

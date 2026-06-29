@@ -39,7 +39,7 @@ import org.junit.jupiter.api.Test;
  * {@code PreDeityAlignTest} tests that the PREDEITYALIGN tag is
  * working correctly.
  */
-public class PreDeityAlignTest extends AbstractCharacterTestCase
+class PreDeityAlignTest extends AbstractCharacterTestCase
 {
 	private Deity deity;
 
@@ -49,7 +49,7 @@ public class PreDeityAlignTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testAbbrev() throws PersistenceLayerException
+	void testAbbrev() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);

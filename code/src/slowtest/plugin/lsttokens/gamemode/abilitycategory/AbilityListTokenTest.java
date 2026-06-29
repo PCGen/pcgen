@@ -74,7 +74,7 @@ class AbilityListTokenTest
 	 * Test a single entry is parsed correctly
 	 */
 	@Test
-	public void testSingleEntry()
+	void testSingleEntry()
 	{
 		AbilityCategory aCat = context.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "TestCat");
@@ -100,7 +100,7 @@ class AbilityListTokenTest
 	 * Test that multiple entries are parsed correctly.
 	 */
 	@Test
-	public void testMultipleEntries()
+	void testMultipleEntries()
 	{
 		AbilityCategory aCat = context.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "TestCat");
@@ -130,7 +130,7 @@ class AbilityListTokenTest
 	 * Test that entries with associated choices are parsed correctly
 	 */
 	@Test
-	public void testEntriesWithAssoc()
+	void testEntriesWithAssoc()
 	{
 		AbilityCategory aCat = context.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "TestCat");

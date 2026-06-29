@@ -28,7 +28,7 @@ import plugin.pretokens.parser.PreLanguageParser;
 import org.junit.jupiter.api.Test;
 
 @SuppressWarnings("nls")
-public class PreLanguageParserTest extends EnUsLocaleDependentTestCase
+class PreLanguageParserTest extends EnUsLocaleDependentTestCase
 {
 	
 	/**
@@ -37,7 +37,7 @@ public class PreLanguageParserTest extends EnUsLocaleDependentTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void test1LanguageOf2() throws PersistenceLayerException
+	void test1LanguageOf2() throws PersistenceLayerException
 	{
 		PreLanguageParser parser = new PreLanguageParser();
 		Prerequisite prereq =
@@ -59,7 +59,7 @@ public class PreLanguageParserTest extends EnUsLocaleDependentTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testNot1LanguageOf2() throws PersistenceLayerException
+	void testNot1LanguageOf2() throws PersistenceLayerException
 	{
 		PreLanguageParser parser = new PreLanguageParser();
 		Prerequisite prereq =
@@ -81,7 +81,7 @@ public class PreLanguageParserTest extends EnUsLocaleDependentTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void test2LanguageOfAny() throws PersistenceLayerException
+	void test2LanguageOfAny() throws PersistenceLayerException
 	{
 		PreLanguageParser parser = new PreLanguageParser();
 		Prerequisite prereq = parser.parse("LANG", "2,ANY", false, false);
@@ -98,7 +98,7 @@ public class PreLanguageParserTest extends EnUsLocaleDependentTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testNot2LanguageOfAny() throws PersistenceLayerException
+	void testNot2LanguageOfAny() throws PersistenceLayerException
 	{
 		PreLanguageParser parser = new PreLanguageParser();
 		Prerequisite prereq = parser.parse("LANG", "2,ANY", true, false);

@@ -33,7 +33,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class SizeTokenTest extends AbstractKitTokenTestCase<KitGear>
+class SizeTokenTest extends AbstractKitTokenTestCase<KitGear>
 {
 
 	static SizeToken token = new SizeToken();
@@ -74,27 +74,27 @@ public class SizeTokenTest extends AbstractKitTokenTestCase<KitGear>
 	}
 
 	@Test
-	public void testInvalidNotASize()
+	void testInvalidNotASize()
 	{
 		assertTrue(token.parseToken(primaryContext, primaryProf, "W").passed());
 		assertFalse(primaryContext.getReferenceContext().resolveReferences(null));
 	}
 
 	@Test
-	public void testRoundRobinS() throws PersistenceLayerException
+	void testRoundRobinS() throws PersistenceLayerException
 	{
 		runRoundRobin("S");
 	}
 
 	@Test
-	public void testRoundRobinPC() throws PersistenceLayerException
+	void testRoundRobinPC() throws PersistenceLayerException
 	{
 		//Special Case
 		runRoundRobin("PC");
 	}
 
 	@Test
-	public void testRoundRobinM() throws PersistenceLayerException
+	void testRoundRobinM() throws PersistenceLayerException
 	{
 		runRoundRobin("M");
 	}

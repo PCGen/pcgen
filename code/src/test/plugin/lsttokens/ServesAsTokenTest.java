@@ -33,7 +33,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
-public class ServesAsTokenTest extends AbstractGlobalTokenTestCase
+class ServesAsTokenTest extends AbstractGlobalTokenTestCase
 {
 
 	static CDOMPrimaryToken<CDOMObject> token = new ServesAsToken();
@@ -64,70 +64,70 @@ public class ServesAsTokenTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidObject()
+	void testInvalidObject()
 	{
 		assertFalse(token.parseToken(primaryContext, new EquipmentModifier(),
 				"Fireball").passed());
 	}
 
 	@Test
-	public void testInvalidEmpty()
+	void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTypeOnly()
+	void testInvalidTypeOnly()
 	{
 		assertFalse(parse("SKILL"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTypeBarOnly()
+	void testInvalidTypeBarOnly()
 	{
 		assertFalse(parse("SKILL|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyType()
+	void testInvalidEmptyType()
 	{
 		assertFalse(parse("|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBadType()
+	void testInvalidBadType()
 	{
 		assertFalse(parse("CAMPAIGN|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidCatTypeNoEqual()
+	void testInvalidCatTypeNoEqual()
 	{
 		assertFalse(parse("ABILITY|Abil"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNonCatTypeEquals()
+	void testInvalidNonCatTypeEquals()
 	{
 		assertFalse(parse("SKILL=Arcane|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidDoubleEquals()
+	void testInvalidDoubleEquals()
 	{
 		assertFalse(parse("ABILITY=FEAT=Mutation|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidUnbuiltCategory()
+	void testInvalidUnbuiltCategory()
 	{
 		try
 		{
@@ -141,28 +141,28 @@ public class ServesAsTokenTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidSpellbookAndSpellBarOnly()
+	void testInvalidSpellbookAndSpellBarOnly()
 	{
 		assertFalse(parse("SKILL|Fireball|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidSpellBarStarting()
+	void testInvalidSpellBarStarting()
 	{
 		assertFalse(parse("SKILL||Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidWrongType()
+	void testInvalidWrongType()
 	{
 		assertFalse(parse("SPELL|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testRoundRobinJustSkill() throws PersistenceLayerException
+	void testRoundRobinJustSkill() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(Skill.class, "Fireball");
 		secondaryContext.getReferenceContext().constructCDOMObject(Skill.class, "Fireball");
@@ -170,7 +170,7 @@ public class ServesAsTokenTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testRoundRobinJustAbility() throws PersistenceLayerException
+	void testRoundRobinJustAbility() throws PersistenceLayerException
 	{
 		primaryProf = new Ability();
 		secondaryProf = new Ability();
@@ -195,7 +195,7 @@ public class ServesAsTokenTest extends AbstractGlobalTokenTestCase
 	//	}
 
 	@Test
-	public void testRoundRobinTwoSpell() throws PersistenceLayerException
+	void testRoundRobinTwoSpell() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(Skill.class, "Fireball");
 		secondaryContext.getReferenceContext().constructCDOMObject(Skill.class, "Fireball");

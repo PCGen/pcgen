@@ -30,7 +30,7 @@ import org.junit.jupiter.api.Test;
 public final class SourceFileLoaderTest
 {
 	@Test
-	public void testSort()
+	void testSort()
 	{
 		/*
 		 * Lowest Rank wins, in a tie, added first wins

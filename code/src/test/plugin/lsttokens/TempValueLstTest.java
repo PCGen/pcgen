@@ -38,7 +38,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Token parse and unparsing tests for TempValueLst
  */
-public class TempValueLstTest extends AbstractGlobalTokenTestCase
+class TempValueLstTest extends AbstractGlobalTokenTestCase
 {
 
 	static CDOMPrimaryToken<CDOMObject> token = new TempValueLst();
@@ -80,63 +80,63 @@ public class TempValueLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidInputEmpty()
+	void testInvalidInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputSingle()
+	void testInvalidInputSingle()
 	{
 		assertFalse(parse("buffalo"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputTwo()
+	void testInvalidInputTwo()
 	{
 		assertFalse(parse("a|b"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputThree()
+	void testInvalidInputThree()
 	{
 		assertFalse(parse("a|b|c"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOrder()
+	void testInvalidInputOrder()
 	{
 		assertFalse(parse("MAX=7|MIN=1|TITLE=Foo"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOrder2()
+	void testInvalidInputOrder2()
 	{
 		assertFalse(parse("MIN=1|TITLE=Foo|MAX=7"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoTitle()
+	void testInvalidInputNoTitle()
 	{
 		assertFalse(parse("MIN=1|MAX=7|Foo"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputFour()
+	void testInvalidInputFour()
 	{
 		assertFalse(parse("MIN=1|MAX=7|TITLE=Foo|Extra"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		runRoundRobin("MIN=1|MAX=2|TITLE=test");
 	}

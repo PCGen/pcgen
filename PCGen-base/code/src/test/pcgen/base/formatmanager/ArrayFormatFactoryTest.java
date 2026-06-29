@@ -37,7 +37,7 @@ import pcgen.testsupport.TestSupport;
 /**
  * Test the ArrayFormatFactory class
  */
-public class ArrayFormatFactoryTest
+class ArrayFormatFactoryTest
 {
 	private SimpleFormatManagerLibrary library;
 
@@ -56,19 +56,19 @@ public class ArrayFormatFactoryTest
 	}
 
 	@Test
-	public void testFailBadSubFormat()
+	void testFailBadSubFormat()
 	{
 		assertThrows(IllegalArgumentException.class, () -> TestSupport.ARRAY_FACTORY.build(Optional.empty(), Optional.of("NUM"), library));
 	}
 
 	@Test
-	public void testFailNullSubFormat()
+	void testFailNullSubFormat()
 	{
 		assertThrows(IllegalArgumentException.class, () -> TestSupport.ARRAY_FACTORY.build(Optional.empty(), Optional.empty(), library));
 	}
 
 	@Test
-	public void testConvert()
+	void testConvert()
 	{
 		@SuppressWarnings("unchecked")
 		FormatManager<Number[]> manager =
@@ -83,7 +83,7 @@ public class ArrayFormatFactoryTest
 	}
 
 	@Test
-	public void testGetIdentifier()
+	void testGetIdentifier()
 	{
 		FormatManager<?> manager = TestSupport.ARRAY_FACTORY.build(Optional.empty(), Optional.of("NUMBER"), library);
 		assertEquals("ARRAY[NUMBER]", manager.getIdentifierType());
@@ -92,7 +92,7 @@ public class ArrayFormatFactoryTest
 	}
 
 	@Test
-	public void testManagedClass()
+	void testManagedClass()
 	{
 		FormatManager<?> manager = TestSupport.ARRAY_FACTORY.build(Optional.empty(), Optional.of("NUMBER"), library);
 		assertSame(Number[].class, manager.getManagedClass());
@@ -101,7 +101,7 @@ public class ArrayFormatFactoryTest
 	}
 
 	@Test
-	public void testGetComponent()
+	void testGetComponent()
 	{
 		FormatManager<?> manager = TestSupport.ARRAY_FACTORY.build(Optional.empty(), Optional.of("NUMBER"), library);
 		assertEquals(new NumberManager(), manager.getComponentManager().get());
@@ -115,7 +115,7 @@ public class ArrayFormatFactoryTest
 	 * limitation, please remove this test.
 	 */
 	@Test
-	public void testFailInvalidSub()
+	void testFailInvalidSub()
 	{
 		assertFalse(library.hasFormatManager("ARRAY[ARRAY[NUMBER]]"));
 		assertThrows(IllegalArgumentException.class, () -> library.getFormatManager(Optional.empty(), "ARRAY[ARRAY[NUMBER]]"));

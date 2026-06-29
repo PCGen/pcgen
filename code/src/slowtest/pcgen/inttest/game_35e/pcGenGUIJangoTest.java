@@ -8,10 +8,10 @@ import org.junit.jupiter.api.Test;
 /**
  * See PCG file for details. 
  */
-public class pcGenGUIJangoTest extends PcgenFtlTestCase
+class pcGenGUIJangoTest extends PcgenFtlTestCase
 {
 	@Test
-	public void testJango() throws Exception
+	void testJango() throws Exception
 	{
 		runTest("35e_Jango");
 	}

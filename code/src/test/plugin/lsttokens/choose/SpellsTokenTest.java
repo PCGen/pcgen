@@ -52,7 +52,7 @@ import org.junit.jupiter.api.BeforeEach;
  * The Class {@code SpellsTokenTest} verifies the parsing and
  * unparsing of the CHOOSE:SPELLS subtoken.
  */
-public class SpellsTokenTest extends
+class SpellsTokenTest extends
 		AbstractChooseTokenTestCase<CDOMObject, Spell>
 {
 

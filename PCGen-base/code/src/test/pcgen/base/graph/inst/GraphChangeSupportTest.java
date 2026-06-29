@@ -36,7 +36,7 @@ import pcgen.base.graph.base.NodeChangeEvent;
 /**
  * Test the GraphChangeSupport class
  */
-public class GraphChangeSupportTest
+class GraphChangeSupportTest
 {
 
 	private GraphChangeSupport<Object, Edge<Object>> support;
@@ -55,13 +55,13 @@ public class GraphChangeSupportTest
 	}
 
 	@Test
-	public void testGraphChangeSupport()
+	void testGraphChangeSupport()
 	{
 		assertThrows(NullPointerException.class, () -> new GraphChangeSupport<>(null));
 	}
 
 	@Test
-	public void testAddGraphChangeListener()
+	void testAddGraphChangeListener()
 	{
 		try
 		{
@@ -76,7 +76,7 @@ public class GraphChangeSupportTest
 	}
 
 	@Test
-	public void testGraphChangeListeners()
+	void testGraphChangeListeners()
 	{
 		assertEquals(0, support.getGraphChangeListeners().length);
 		GraphChangeListener<Object, Edge<Object>> listener = new TransparentGCL();
@@ -95,13 +95,13 @@ public class GraphChangeSupportTest
 	}
 
 	@Test
-	public void testFireGraphEdgeChangeEvent()
+	void testFireGraphEdgeChangeEvent()
 	{
 		//NEEDTEST
 	}
 
 	@Test
-	public void testFireGraphNodeChangeEvent()
+	void testFireGraphNodeChangeEvent()
 	{
 		TransparentGCL listener = new TransparentGCL();
 		support.addGraphChangeListener(listener);

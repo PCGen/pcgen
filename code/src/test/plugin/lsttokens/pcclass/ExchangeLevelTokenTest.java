@@ -33,7 +33,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
 
-public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
+class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 {
 
 	static ExchangelevelToken token = new ExchangelevelToken();
@@ -63,14 +63,14 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputEmpty()
+	void testInvalidInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoLevels()
+	void testInvalidInputNoLevels()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getTargetClass(), "Paladin");
 		assertFalse(parse("Paladin"));
@@ -78,7 +78,7 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputEmptyMin()
+	void testInvalidInputEmptyMin()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getTargetClass(), "Paladin");
 		assertFalse(parse("Paladin||5|3"));
@@ -86,7 +86,7 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputEmptyMax()
+	void testInvalidInputEmptyMax()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getTargetClass(), "Paladin");
 		assertFalse(parse("Paladin|5||3"));
@@ -94,7 +94,7 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputEmptyRem()
+	void testInvalidInputEmptyRem()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getTargetClass(), "Paladin");
 		assertFalse(parse("Paladin|6|5|"));
@@ -102,7 +102,7 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputNotEnoughPipes()
+	void testInvalidInputNotEnoughPipes()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getTargetClass(), "Paladin");
 		assertFalse(parse("Paladin|6|5"));
@@ -110,7 +110,7 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputTooManyPipes()
+	void testInvalidInputTooManyPipes()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getTargetClass(), "Paladin");
 		assertFalse(parse("Paladin|6|5|4|3"));
@@ -118,14 +118,14 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputEmptyClass()
+	void testInvalidInputEmptyClass()
 	{
 		assertFalse(parse("|4|3|2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOpenStart()
+	void testInvalidInputOpenStart()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getTargetClass(), "Paladin");
 		assertFalse(parse("|Paladin|6|5|4"));
@@ -133,7 +133,7 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputOpenEnd()
+	void testInvalidInputOpenEnd()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getTargetClass(), "Paladin");
 		assertFalse(parse("Paladin|6|5|4|"));
@@ -141,7 +141,7 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputDoublePipeTypeOne()
+	void testInvalidInputDoublePipeTypeOne()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getTargetClass(), "Paladin");
 		assertFalse(parse("Paladin||6|5|4"));
@@ -149,7 +149,7 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputDoublePipeTypeTwo()
+	void testInvalidInputDoublePipeTypeTwo()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getTargetClass(), "Paladin");
 		assertFalse(parse("Paladin|6||5|4"));
@@ -157,77 +157,77 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputDoublePipeTypeThree()
+	void testInvalidInputDoublePipeTypeThree()
 	{
 		assertFalse(parse("Paladin|6|5||4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputRemTooLow()
+	void testInvalidInputRemTooLow()
 	{
 		assertFalse(parse("Paladin|5|2|1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNegativeMax()
+	void testInvalidInputNegativeMax()
 	{
 		assertFalse(parse("Paladin|-5|2|1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputZeroMax()
+	void testInvalidInputZeroMax()
 	{
 		assertFalse(parse("Paladin|0|2|1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNegativeDonate()
+	void testInvalidInputNegativeDonate()
 	{
 		assertFalse(parse("Paladin|5|-2|1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputZeroDonate()
+	void testInvalidInputZeroDonate()
 	{
 		assertFalse(parse("Paladin|5|0|1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNegativeRemaining()
+	void testInvalidInputNegativeRemaining()
 	{
 		assertFalse(parse("Paladin|4|5|-1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputRemainingNaN()
+	void testInvalidInputRemainingNaN()
 	{
 		assertFalse(parse("Paladin|11|10|x"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDonateNaN()
+	void testInvalidInputDonateNaN()
 	{
 		assertFalse(parse("Paladin|11|x|1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputMaxNaN()
+	void testInvalidInputMaxNaN()
 	{
 		assertFalse(parse("Paladin|x|10|1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Paladin");
 		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Paladin");
@@ -235,7 +235,7 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testRoundRobinZeroRem() throws PersistenceLayerException
+	void testRoundRobinZeroRem() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Paladin");
 		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Paladin");
@@ -243,7 +243,7 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testRoundRobinHighMax() throws PersistenceLayerException
+	void testRoundRobinHighMax() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Paladin");
 		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Paladin");
@@ -269,7 +269,7 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseOne()
+	void testUnparseOne()
 	{
 		PCClass fighter = primaryContext.getReferenceContext().constructCDOMObject(PCClass.class,
 				"Fighter");
@@ -281,7 +281,7 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseNull()
+	void testUnparseNull()
 	{
 		primaryProf.put(ObjectKey.EXCHANGE_LEVEL, null);
 		try
@@ -295,7 +295,7 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseNegativeMinLevel()
+	void testUnparseNegativeMinLevel()
 	{
 		try
 		{
@@ -313,7 +313,7 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseNegativeMaxLevel()
+	void testUnparseNegativeMaxLevel()
 	{
 		try
 		{
@@ -331,7 +331,7 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseBadRemainMathLevel()
+	void testUnparseBadRemainMathLevel()
 	{
 		try
 		{
@@ -349,7 +349,7 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseNegRemainingLevel()
+	void testUnparseNegRemainingLevel()
 	{
 		try
 		{
@@ -367,7 +367,7 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseNullClass()
+	void testUnparseNullClass()
 	{
 		try
 		{

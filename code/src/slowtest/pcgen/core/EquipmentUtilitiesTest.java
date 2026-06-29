@@ -61,7 +61,7 @@ class EquipmentUtilitiesTest
 	 * Test method for 'pcgen.core.EquipmentUtilities.appendToName(String, String)'
 	 */
 	@Test
-	public void testAppendToName()
+	void testAppendToName()
 	{
 		final String bare = "Bare Thing";
 		final String decoration = "Mad cow";
@@ -74,7 +74,7 @@ class EquipmentUtilitiesTest
 	}
 
 	@Test
-	public void testFindEquipmentByBaseKey()
+	void testFindEquipmentByBaseKey()
 	{
 		TestHelper.makeSizeAdjustments();
 		Equipment towel = new Equipment();

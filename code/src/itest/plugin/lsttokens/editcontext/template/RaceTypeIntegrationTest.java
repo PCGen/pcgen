@@ -27,7 +27,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class RaceTypeIntegrationTest extends
+class RaceTypeIntegrationTest extends
 		AbstractTypeSafeIntegrationTestCase<PCTemplate>
 {
 
@@ -65,7 +65,7 @@ public class RaceTypeIntegrationTest extends
 	}
 
 	@Test
-	public void dummyTest()
+	void dummyTest()
 	{
 		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}

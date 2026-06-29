@@ -21,10 +21,10 @@ import org.junit.jupiter.api.Test;
 
 import pcgen.base.formatmanager.FormatUtilities;
 
-public class SimpleSolverFactoryTest
+class SimpleSolverFactoryTest
 {
 	@Test
-	public void testAddSolverFormat()
+	void testAddSolverFormat()
 	{
 		SupplierValueStore svs = new SupplierValueStore();
 		svs.addSolverFormat(FormatUtilities.NUMBER_MANAGER, () -> 108);

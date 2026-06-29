@@ -47,7 +47,7 @@ import util.TestURI;
 /**
  * {@code OrCommandTest} tests the functioning of the jep or plugin
  */
-public class ClassLevelCommandTest extends AbstractCharacterTestCase
+class ClassLevelCommandTest extends AbstractCharacterTestCase
 {
 	private Race nymphRace;
 	private PCClass megaCasterClass;
@@ -105,7 +105,7 @@ public class ClassLevelCommandTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testClassLevel()
+	void testClassLevel()
 	{
 		PlayerCharacter pc = this.getCharacter();
 		pc.setRace(nymphRace);
@@ -132,7 +132,7 @@ public class ClassLevelCommandTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testClassLevelAppliedAs()
+	void testClassLevelAppliedAs()
 	{
 		PlayerCharacter pc = this.getCharacter();
 		pc.setRace(nymphRace);

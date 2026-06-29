@@ -29,7 +29,7 @@ import plugin.lsttokens.testsupport.TransparentPlayerCharacter;
 
 import org.junit.jupiter.api.BeforeEach;
 
-public class PCQualifierTokenTest extends
+class PCQualifierTokenTest extends
 		AbstractPCQualifierTokenTestCase<WeaponProf>
 {
 

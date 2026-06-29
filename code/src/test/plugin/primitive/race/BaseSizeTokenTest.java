@@ -34,7 +34,7 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 
 import org.junit.jupiter.api.BeforeEach;
 
-public class BaseSizeTokenTest extends
+class BaseSizeTokenTest extends
 		AbstractPrimitiveTokenTestCase<CDOMObject, Race>
 {
 

@@ -31,7 +31,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
-public class DeityTokenTest extends AbstractListInputTokenTestCase<PCClass, Deity>
+class DeityTokenTest extends AbstractListInputTokenTestCase<PCClass, Deity>
 {
 
 	static DeityToken token = new DeityToken();
@@ -104,14 +104,14 @@ public class DeityTokenTest extends AbstractListInputTokenTestCase<PCClass, Deit
 	}
 
 	@Test
-	public void testUnparseNull()
+	void testUnparseNull()
 	{
 		primaryProf.removeListFor(ListKey.DEITY);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseSingle()
+	void testUnparseSingle()
 	{
 		Deity wp1 = construct(primaryContext, "TestWP1");
 		primaryProf.addToListFor(ListKey.DEITY, CDOMDirectSingleRef.getRef(wp1));
@@ -120,7 +120,7 @@ public class DeityTokenTest extends AbstractListInputTokenTestCase<PCClass, Deit
 	}
 
 	@Test
-	public void testUnparseNullInList()
+	void testUnparseNullInList()
 	{
 		primaryProf.addToListFor(ListKey.DEITY, null);
 		try
@@ -135,7 +135,7 @@ public class DeityTokenTest extends AbstractListInputTokenTestCase<PCClass, Deit
 	}
 
 	@Test
-	public void testUnparseMultiple()
+	void testUnparseMultiple()
 	{
 		Deity wp1 = construct(primaryContext, getLegalValue());
 		primaryProf.addToListFor(ListKey.DEITY, CDOMDirectSingleRef.getRef(wp1));
@@ -148,7 +148,7 @@ public class DeityTokenTest extends AbstractListInputTokenTestCase<PCClass, Deit
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail()
+	void testUnparseGenericsFail()
 	{
 		ListKey objectKey = ListKey.DEITY;
 		primaryProf.addToListFor(objectKey, new Object());

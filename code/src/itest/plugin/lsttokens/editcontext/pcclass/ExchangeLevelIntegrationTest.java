@@ -31,7 +31,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class ExchangeLevelIntegrationTest extends
+class ExchangeLevelIntegrationTest extends
 		AbstractIntegrationTestCase<PCClass>
 {
 
@@ -70,7 +70,7 @@ public class ExchangeLevelIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Paladin");
@@ -84,7 +84,7 @@ public class ExchangeLevelIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoSet() throws PersistenceLayerException
+	void testRoundRobinNoSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Paladin");
@@ -96,7 +96,7 @@ public class ExchangeLevelIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoReset() throws PersistenceLayerException
+	void testRoundRobinNoReset() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Paladin");

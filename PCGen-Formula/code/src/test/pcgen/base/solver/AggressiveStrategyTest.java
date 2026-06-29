@@ -27,17 +27,17 @@ import pcgen.base.formula.base.VariableID;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
 import pcgen.base.testsupport.TestUtilities.Container;
 
-public class AggressiveStrategyTest extends AbstractFormulaTestCase
+class AggressiveStrategyTest extends AbstractFormulaTestCase
 {
 	@Test
-	public void testIllegalConstruction()
+	void testIllegalConstruction()
 	{
 		assertThrows(NullPointerException.class, () -> new AggressiveStrategy(null, var -> true));
 		assertThrows(NullPointerException.class, () -> new AggressiveStrategy((varID, consumer) -> {}, null));
 	}
 
 	@Test
-	public void testAddModifierExternal()
+	void testAddModifierExternal()
 	{
 		VariableID<Number> parent = new VariableID<>(getGlobalScopeInst(),
 				FormatUtilities.NUMBER_MANAGER, "STR");

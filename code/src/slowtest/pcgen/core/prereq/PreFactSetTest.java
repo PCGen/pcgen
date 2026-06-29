@@ -39,7 +39,7 @@ import org.junit.jupiter.api.Test;
  * {@code PreFactSetTest} tests that the PREFACTSET tag is
  * working correctly.
  */
-public class PreFactSetTest extends AbstractCharacterTestCase
+class PreFactSetTest extends AbstractCharacterTestCase
 {
 
 	@BeforeEach
@@ -58,7 +58,7 @@ public class PreFactSetTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testFact() throws PersistenceLayerException
+	void testFact() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		Deity deity = new Deity();

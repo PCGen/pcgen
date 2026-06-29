@@ -35,7 +35,7 @@ import org.junit.jupiter.api.Test;
  * The Class {@code EquipSetMigrationTest} verifies the EquipSetMigration
  * class is functioning correctly.
  */
-public class EquipSetMigrationTest extends AbstractCharacterTestCase
+class EquipSetMigrationTest extends AbstractCharacterTestCase
 {
 	private final int[] preOrderedVer = {6, 0, 1};
 	private final int[] postOrderedVer = {6, 1, 3};
@@ -56,7 +56,7 @@ public class EquipSetMigrationTest extends AbstractCharacterTestCase
 	 * Test method for {@link pcgen.io.migration.EquipSetMigration#migrateEquipSets(pcgen.core.PlayerCharacter, int[])}.
 	 */
 	@Test
-	public void testMigrateEquipSetsNoEquip()
+	void testMigrateEquipSetsNoEquip()
 	{
 		PlayerCharacter pc = getCharacter();
 		EquipSetMigration.migrateEquipSets(pc, preOrderedVer);
@@ -67,7 +67,7 @@ public class EquipSetMigrationTest extends AbstractCharacterTestCase
 	 * Test method for {@link pcgen.io.migration.EquipSetMigration#migrateEquipSets(pcgen.core.PlayerCharacter, int[])}.
 	 */
 	@Test
-	public void testMigrateEquipSetsSimpleEquipSet()
+	void testMigrateEquipSetsSimpleEquipSet()
 	{
 		PlayerCharacter pc = getCharacter();
 		EquipSet eSet = new EquipSet("0.1", "Battle gear");
@@ -102,7 +102,7 @@ public class EquipSetMigrationTest extends AbstractCharacterTestCase
 	 * Test method for {@link pcgen.io.migration.EquipSetMigration#renumberEquipmentSets(pcgen.core.PlayerCharacter)}.
 	 */
 	@Test
-	public void testRenumberEquipmentSetsNestedEquipSet()
+	void testRenumberEquipmentSetsNestedEquipSet()
 	{
 		PlayerCharacter pc = getCharacter();
 		EquipSet eSet = new EquipSet("0.1", "Battle gear");
@@ -138,7 +138,7 @@ public class EquipSetMigrationTest extends AbstractCharacterTestCase
 	 * Test method for {@link pcgen.io.migration.EquipSetMigration#renumberEquipmentSets(pcgen.core.PlayerCharacter)}.
 	 */
 	@Test
-	public void testRenumberEquipmentSetsMultipleEquipSet()
+	void testRenumberEquipmentSetsMultipleEquipSet()
 	{
 		PlayerCharacter pc = getCharacter();
 		EquipSet eSet = new EquipSet("0.1", "Battle gear");
@@ -190,7 +190,7 @@ public class EquipSetMigrationTest extends AbstractCharacterTestCase
 	 * Test method for {@link pcgen.io.migration.EquipSetMigration#migrateEquipSets(pcgen.core.PlayerCharacter, int[])}.
 	 */
 	@Test
-	public void testMigrateEquipSetsNoMigrate()
+	void testMigrateEquipSetsNoMigrate()
 	{
 		PlayerCharacter pc = getCharacter();
 		EquipSet eSet = new EquipSet("0.1", "Battle gear");

@@ -35,7 +35,7 @@ class MessageHandlerManagerTest
 	 * Test method for {@link pcgen.pluginmgr.MessageHandlerManager#addMember(pcgen.pluginmgr.PCGenMessageHandler)}.
 	 */
 	@Test
-	public void testAddMember()
+	void testAddMember()
 	{
 		MessageHandlerManager cor = new MessageHandlerManager();
 		MessageRecorder mr = new MessageRecorder();
@@ -57,7 +57,7 @@ class MessageHandlerManagerTest
 	 * Test method for {@link pcgen.pluginmgr.MessageHandlerManager#removeMember(pcgen.pluginmgr.PCGenMessageHandler)}.
 	 */
 	@Test
-	public void testRemoveMember()
+	void testRemoveMember()
 	{
 		MessageHandlerManager cor = new MessageHandlerManager();
 		MessageRecorder mr = new MessageRecorder();
@@ -80,7 +80,7 @@ class MessageHandlerManagerTest
 	 * Check that the postbox used by MessageHandlerManager send out messages in the right order.
 	 */
 	@Test
-	public void testPostboxMessageDistributionOrder()
+	void testPostboxMessageDistributionOrder()
 	{
 		MessageHandlerManager cor = new MessageHandlerManager();
 		assertNotNull(cor.getPostbox(), "Postbox should be available");
@@ -126,7 +126,7 @@ class MessageHandlerManagerTest
 	 * Check that the postbox used by MessageHandlerManager send out messages in the right order.
 	 */
 	@Test
-	public void testPostboxMessageDistributionConsumption()
+	void testPostboxMessageDistributionConsumption()
 	{
 		MessageHandlerManager cor = new MessageHandlerManager();
 		assertNotNull(cor.getPostbox(), "Postbox should be available");

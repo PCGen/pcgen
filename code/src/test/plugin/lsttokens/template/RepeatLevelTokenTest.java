@@ -38,7 +38,7 @@ import plugin.pretokens.writer.PreLevelWriter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class RepeatLevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
+class RepeatLevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 {
 	static RepeatlevelToken token = new RepeatlevelToken();
 	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
@@ -76,223 +76,223 @@ public class RepeatLevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 
 	@Test
-	public void testInvalidNoSubcommand()
+	void testInvalidNoSubcommand()
 	{
 		assertFalse(parse("1|2|20:5:"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNumberOnly()
+	void testInvalidNumberOnly()
 	{
 		assertFalse(parse("1|2|20"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidOneColon()
+	void testInvalidOneColon()
 	{
 		assertFalse(parse("1|2|20:5"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTwoColon()
+	void testInvalidTwoColon()
 	{
 		assertFalse(parse("1|2|20:5:SAB"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyStartLevel()
+	void testInvalidEmptyStartLevel()
 	{
 		assertFalse(parse("1|2|20::SAB:Stuff"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBadStartLevel()
+	void testInvalidBadStartLevel()
 	{
 		assertFalse(parse("1|2|20:StartLevel:SAB:Stuff"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBadIncrementLevel()
+	void testInvalidBadIncrementLevel()
 	{
 		assertFalse(parse("IncrLevel|2|20:5:SAB:Stuff"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBadSkipLevel()
+	void testInvalidBadSkipLevel()
 	{
 		assertFalse(parse("1|SkipLevel|20:5:SAB:Stuff"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBadMaxLevel()
+	void testInvalidBadMaxLevel()
 	{
 		assertFalse(parse("1|2|MaxLevel:5:SAB:Stuff"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNegativeStartLevel()
+	void testInvalidNegativeStartLevel()
 	{
 		assertFalse(parse("1|2|20:-4:SAB:Stuff"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNegativeIncrementLevel()
+	void testInvalidNegativeIncrementLevel()
 	{
 		assertFalse(parse("-1|2|20:5:SAB:Stuff"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNegativeSkipLevel()
+	void testInvalidNegativeSkipLevel()
 	{
 		assertFalse(parse("1|-2|20:5:SAB:Stuff"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyMaxLevel()
+	void testInvalidEmptyMaxLevel()
 	{
 		assertFalse(parse("1|2|:5:SAB:Stuff"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyCommand()
+	void testInvalidEmptyCommand()
 	{
 		assertFalse(parse("1|2|30:5::Stuff"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNegativeMaxLevel()
+	void testInvalidNegativeMaxLevel()
 	{
 		assertFalse(parse("1|2|-5:5:SAB:Stuff"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTooManyColons()
+	void testInvalidTooManyColons()
 	{
 		assertFalse(parse("1|2|20:4:5:SAB:Stuff"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTooManyBars()
+	void testInvalidTooManyBars()
 	{
 		assertFalse(parse("1|2|20|40:5:SAB:Stuff"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNoMaxLevel()
+	void testInvalidNoMaxLevel()
 	{
 		assertFalse(parse("1|2:5:SAB:Stuff"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNoFirstToken()
+	void testInvalidNoFirstToken()
 	{
 		assertFalse(parse(":5:SAB:Stuff"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNoSkipLevel()
+	void testInvalidNoSkipLevel()
 	{
 		assertFalse(parse("1||20:5:SAB:Stuff"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNoIncrementLevel()
+	void testInvalidNoIncrementLevel()
 	{
 		assertFalse(parse("|3|20:5:SAB:Stuff"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNoSubcommandArgs()
+	void testInvalidNoSubcommandArgs()
 	{
 		assertFalse(parse("1|2|20:5:SAB:"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidStartGreaterThanEnd()
+	void testInvalidStartGreaterThanEnd()
 	{
 		assertFalse(parse("1|2|20:50:SAB:Stuff"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNoIncrement()
+	void testInvalidNoIncrement()
 	{
 		assertFalse(parse("10|2|20:15:SAB:Stuff"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNoSkipUse()
+	void testInvalidNoSkipUse()
 	{
 		assertFalse(parse("5|4|20:5:SAB:Stuff"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBadTemplateToken()
+	void testInvalidBadTemplateToken()
 	{
 		assertFalse(parse("5|0|10:5:CR:x"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testRoundRobinZeroConsecutive()
+	void testRoundRobinZeroConsecutive()
 		throws PersistenceLayerException
 	{
 		runRoundRobin("5|0|10:5:SAB:Sample Spec Abil");
 	}
 
 	@Test
-	public void testRoundRobinNoIncrementBorderCase()
+	void testRoundRobinNoIncrementBorderCase()
 		throws PersistenceLayerException
 	{
 		runRoundRobin("5|1|10:5:SAB:Sample Spec Abil");
 	}
 
 	@Test
-	public void testRoundRobinNoSkipBorderCase()
+	void testRoundRobinNoSkipBorderCase()
 		throws PersistenceLayerException
 	{
 		runRoundRobin("5|3|20:5:SAB:Sample Spec Abil");
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		runRoundRobin("1|2|20:5:SAB:Sample Spec Abil");
 	}
 
 	@Test
-	public void testRoundRobinComplex() throws PersistenceLayerException
+	void testRoundRobinComplex() throws PersistenceLayerException
 	{
 		runRoundRobin("1|2|20:5:SAB:Sample Spec Abil",
 			"2|4|20:5:SAB:Sample Spec Abil");
 	}
 
 	@Test
-	public void testRoundRobinMultipleSame() throws PersistenceLayerException
+	void testRoundRobinMultipleSame() throws PersistenceLayerException
 	{
 		runRoundRobin("1|2|20:5:CR:-1",
 			"1|2|20:5:SAB:Special Ability, Man!");

@@ -33,7 +33,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class KeystatIntegrationTest extends AbstractIntegrationTestCase<Skill>
+class KeystatIntegrationTest extends AbstractIntegrationTestCase<Skill>
 {
 
 	private static KeystatToken token = new KeystatToken();
@@ -73,7 +73,7 @@ public class KeystatIntegrationTest extends AbstractIntegrationTestCase<Skill>
 	}
 
 	@Test
-	public void testRoundRobinOne() throws PersistenceLayerException
+	void testRoundRobinOne() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -83,7 +83,7 @@ public class KeystatIntegrationTest extends AbstractIntegrationTestCase<Skill>
 	}
 
 	@Test
-	public void testRoundRobinNoSet() throws PersistenceLayerException
+	void testRoundRobinNoSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -93,7 +93,7 @@ public class KeystatIntegrationTest extends AbstractIntegrationTestCase<Skill>
 	}
 
 	@Test
-	public void testRoundRobinNoReset() throws PersistenceLayerException
+	void testRoundRobinNoReset() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();

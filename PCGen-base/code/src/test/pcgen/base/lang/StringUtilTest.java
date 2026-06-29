@@ -34,76 +34,76 @@ import pcgen.testsupport.TestSupport;
 /**
  * Test the StringUtil class
  */
-public class StringUtilTest
+class StringUtilTest
 {
 
 	@Test
-	public void testConstructor()
+	void testConstructor()
 	{
 		TestSupport.invokePrivateConstructor(StringUtil.class);
 	}
 
 	@Test
-	public void testAllowNullCollection()
+	void testAllowNullCollection()
 	{
 		assertEquals("", StringUtil.join((Collection<?>) null, ", "));
 	}
 
 	@Test
-	public void testAllowNullArray()
+	void testAllowNullArray()
 	{
 		assertEquals("", StringUtil.join((String[]) null, ", "));
 	}
 
 	@Test
-	public void testAllowEmptyCollection()
+	void testAllowEmptyCollection()
 	{
 		assertEquals("", StringUtil.join(Collections.emptyList(), ", "));
 	}
 
 	@Test
-	public void testAllowEmptyArray()
+	void testAllowEmptyArray()
 	{
 		assertEquals("", StringUtil.join(new String[]{}, ", "));
 	}
 
 	@Test
-	public void testJoinArray()
+	void testJoinArray()
 	{
 		assertEquals("Foo, Bar", StringUtil.join(new String[]{"Foo", "Bar"},
 			", "));
 	}
 
 	@Test
-	public void testJoinDupeArray()
+	void testJoinDupeArray()
 	{
 		assertEquals("Foo, Foo", StringUtil.join(new String[]{"Foo", "Foo"},
 			", "));
 	}
 
 	@Test
-	public void testJoinNonStringList()
+	void testJoinNonStringList()
 	{
 		assertEquals("1, 2", StringUtil.join(
 			Arrays.asList(new Integer[]{1, 2}), ", "));
 	}
 
 	@Test
-	public void testJoinNullArrayContents()
+	void testJoinNullArrayContents()
 	{
 		assertEquals("Foo, null", StringUtil
 			.join(new String[]{"Foo", null}, ", "));
 	}
 
 	@Test
-	public void testJoinNullListContents()
+	void testJoinNullListContents()
 	{
 		assertThrows(NullPointerException.class,
 			() -> StringUtil.join(Arrays.asList(new Integer[]{1, null}), ", "));
 	}
 
 	@Test
-	public void testReplaceAll()
+	void testReplaceAll()
 	{
 		assertEquals("ABC", StringUtil.replaceAll("ABD", "D", "C"));
 		assertEquals("ABCC", StringUtil.replaceAll("ABDD", "D", "C"));
@@ -117,7 +117,7 @@ public class StringUtilTest
 	}
 
 	@Test
-	public void testHasBalancedParens()
+	void testHasBalancedParens()
 	{
 		assertTrue(StringUtil.hasBalancedParens("No Parens!"));
 		assertTrue(StringUtil.hasBalancedParens("I Ignore ["));
@@ -138,7 +138,7 @@ public class StringUtilTest
 	}
 	
 	@Test
-	public void testCaseSensitiveOrder()
+	void testCaseSensitiveOrder()
 	{
 		Comparator<String> cso = StringUtil.CASE_SENSITIVE_ORDER;
 		assertTrue(cso.compare("1", "2") < 0);

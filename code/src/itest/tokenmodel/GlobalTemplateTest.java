@@ -40,7 +40,7 @@ import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractGrantedListTokenTest;
 import util.TestURI;
 
-public class GlobalTemplateTest extends AbstractGrantedListTokenTest<PCTemplate>
+class GlobalTemplateTest extends AbstractGrantedListTokenTest<PCTemplate>
 {
 
 	private static TemplateLst token = new TemplateLst();
@@ -57,7 +57,7 @@ public class GlobalTemplateTest extends AbstractGrantedListTokenTest<PCTemplate>
 	}
 
 	@Test
-	public void testChoose()
+	void testChoose()
 	{
 		Race source = create(Race.class, "Source");
 		PCTemplate granted = create(PCTemplate.class, "Granted");
@@ -77,7 +77,7 @@ public class GlobalTemplateTest extends AbstractGrantedListTokenTest<PCTemplate>
 	}
 
 	@Test
-	public void testList()
+	void testList()
 	{
 		Race source = create(Race.class, "Source");
 		PCTemplate granted = create(PCTemplate.class, "Granted");

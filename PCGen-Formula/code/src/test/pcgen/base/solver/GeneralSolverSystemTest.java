@@ -21,10 +21,10 @@ import org.junit.jupiter.api.Test;
 
 import pcgen.base.testsupport.AbstractFormulaTestCase;
 
-public class GeneralSolverSystemTest extends AbstractFormulaTestCase
+class GeneralSolverSystemTest extends AbstractFormulaTestCase
 {
 	@Test
-	public void testIllegalConstruction()
+	void testIllegalConstruction()
 	{
 		SimpleSolverManager newSolver = new SimpleSolverManager(
 			getVariableLibrary()::isLegalVariableID,

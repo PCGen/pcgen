@@ -28,7 +28,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class ItemIntegrationTest extends
+class ItemIntegrationTest extends
 		AbstractTypeSafeListIntegrationTestCase<Spell>
 {
 
@@ -60,7 +60,7 @@ public class ItemIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinProhibitedSimple()
+	void testRoundRobinProhibitedSimple()
 			throws PersistenceLayerException
 	{
 		verifyCleanStart();
@@ -71,7 +71,7 @@ public class ItemIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinProhibitedSame() throws PersistenceLayerException
+	void testRoundRobinProhibitedSame() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -81,7 +81,7 @@ public class ItemIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinRemoveAdd() throws PersistenceLayerException
+	void testRoundRobinRemoveAdd() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -91,7 +91,7 @@ public class ItemIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinAddRemove() throws PersistenceLayerException
+	void testRoundRobinAddRemove() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -101,7 +101,7 @@ public class ItemIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinProhibitedNoSet()
+	void testRoundRobinProhibitedNoSet()
 			throws PersistenceLayerException
 	{
 		verifyCleanStart();
@@ -112,7 +112,7 @@ public class ItemIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinProhibitedNoReset()
+	void testRoundRobinProhibitedNoReset()
 			throws PersistenceLayerException
 	{
 		verifyCleanStart();

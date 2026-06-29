@@ -33,7 +33,7 @@ import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
-public class ACheckTokenTest extends AbstractCDOMTokenTestCase<Skill>
+class ACheckTokenTest extends AbstractCDOMTokenTestCase<Skill>
 {
 
 	static AcheckToken token = new AcheckToken();
@@ -58,14 +58,14 @@ public class ACheckTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testInvalidInputString()
+	void testInvalidInputString()
 	{
 		internalTestInvalidInputString(null);
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputStringSet()
+	void testInvalidInputStringSet()
 	{
 		assertTrue(parse("YES"));
 		assertTrue(parseSecondary("YES"));
@@ -97,7 +97,7 @@ public class ACheckTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testValidInputs()
+	void testValidInputs()
 	{
 		assertTrue(parse("YES"));
 		assertEquals(SkillArmorCheck.YES, primaryProf
@@ -116,31 +116,31 @@ public class ACheckTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testRoundRobinYes() throws PersistenceLayerException
+	void testRoundRobinYes() throws PersistenceLayerException
 	{
 		runRoundRobin("YES");
 	}
 
 	@Test
-	public void testRoundRobinNo() throws PersistenceLayerException
+	void testRoundRobinNo() throws PersistenceLayerException
 	{
 		runRoundRobin("NONE");
 	}
 
 	@Test
-	public void testRoundRobinProficient() throws PersistenceLayerException
+	void testRoundRobinProficient() throws PersistenceLayerException
 	{
 		runRoundRobin("NONPROF");
 	}
 
 	@Test
-	public void testRoundRobinDouble() throws PersistenceLayerException
+	void testRoundRobinDouble() throws PersistenceLayerException
 	{
 		runRoundRobin("DOUBLE");
 	}
 
 	@Test
-	public void testRoundRobinWeight() throws PersistenceLayerException
+	void testRoundRobinWeight() throws PersistenceLayerException
 	{
 		runRoundRobin("WEIGHT");
 	}
@@ -158,7 +158,7 @@ public class ACheckTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testUnparseNull()
+	void testUnparseNull()
 	{
 		primaryProf.put(getObjectKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
@@ -170,7 +170,7 @@ public class ACheckTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testUnparseLegal()
+	void testUnparseLegal()
 	{
 		primaryProf.put(getObjectKey(), SkillArmorCheck.DOUBLE);
 		expectSingle(getToken().unparse(primaryContext, primaryProf),
@@ -179,7 +179,7 @@ public class ACheckTokenTest extends AbstractCDOMTokenTestCase<Skill>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail()
+	void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = getObjectKey();
 		primaryProf.put(objectKey, new Object());

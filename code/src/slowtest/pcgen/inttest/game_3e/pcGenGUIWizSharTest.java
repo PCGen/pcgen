@@ -28,10 +28,10 @@ import org.junit.jupiter.api.Test;
  * 
  * See the PCG file for details.
  */
-public class pcGenGUIWizSharTest extends PcgenFtlTestCase
+class pcGenGUIWizSharTest extends PcgenFtlTestCase
 {
 	@Test
-	public void testWizShar() throws IOException
+	void testWizShar() throws IOException
 	{
 		runTest("3e_WizShar");
 	}

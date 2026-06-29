@@ -30,7 +30,7 @@ import org.junit.jupiter.api.BeforeEach;
 import tokencontent.testsupport.AbstractContentTokenTest;
 import util.TestURI;
 
-public class GlobalDefineUnlockedStatTest extends AbstractContentTokenTest
+class GlobalDefineUnlockedStatTest extends AbstractContentTokenTest
 {
 
 	private static DefineStatLst token = new DefineStatLst();

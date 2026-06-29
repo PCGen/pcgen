@@ -26,10 +26,10 @@ import org.junit.jupiter.api.Test;
 /**
  * Tests a 3e 4th lvl Gnome Barbarian
  */
-public class pcGenGUIBarJackTest extends PcgenFtlTestCase
+class pcGenGUIBarJackTest extends PcgenFtlTestCase
 {
 	@Test
-	public void testBarJack() throws Exception
+	void testBarJack() throws Exception
 	{
 		runTest("3e_BarJack");
 	}

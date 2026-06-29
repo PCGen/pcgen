@@ -30,7 +30,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
 
-public class EquipTokenTest extends AbstractAutoTokenTestCase<Equipment>
+class EquipTokenTest extends AbstractAutoTokenTestCase<Equipment>
 {
 
 	static EquipToken subtoken = new EquipToken();
@@ -80,7 +80,7 @@ public class EquipTokenTest extends AbstractAutoTokenTestCase<Equipment>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail()
+	void testUnparseGenericsFail()
 	{
 		ListKey listKey = ListKey.EQUIPMENT;
 		primaryProf.addToListFor(listKey, new Object());

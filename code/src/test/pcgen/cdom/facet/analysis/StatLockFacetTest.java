@@ -37,7 +37,7 @@ import pcgen.core.Race;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 
-public class StatLockFacetTest extends
+class StatLockFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, StatLock>
 {
 
@@ -103,7 +103,7 @@ public class StatLockFacetTest extends
 	}
 
 	@Test
-	public void testGetLock()
+	void testGetLock()
 	{
 		Object source1 = new Object();
 		PCStat stat = new PCStat();

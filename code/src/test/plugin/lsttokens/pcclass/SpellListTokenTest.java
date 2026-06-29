@@ -48,7 +48,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
 
-public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
+class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 {
 	static SpelllistToken token = new SpelllistToken();
 	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
@@ -72,28 +72,28 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputString()
+	void testInvalidInputString()
 	{
 		assertFalse(parse("String"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOnlyNumber()
+	void testInvalidInputOnlyNumber()
 	{
 		assertFalse(parse("1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNoObject()
+	void testInvalidNoObject()
 	{
 		assertFalse(parse("1|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidDoublePipe()
+	void testInvalidDoublePipe()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("1||TestWP1"));
@@ -101,14 +101,14 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputNaN()
+	void testInvalidInputNaN()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("NaN|TestWP1"));
 	}
 
 	@Test
-	public void testInvalidInputType()
+	void testInvalidInputType()
 	{
 		try
 		{
@@ -121,21 +121,21 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputUnbuilt()
+	void testInvalidInputUnbuilt()
 	{
 		assertTrue(parse("1|String"));
 		assertConstructionError();
 	}
 
 	@Test
-	public void testInvalidInputUnbuiltDomain()
+	void testInvalidInputUnbuiltDomain()
 	{
 		assertTrue(parse("1|DOMAIN.String"));
 		assertConstructionError();
 	}
 
 	@Test
-	public void testInvalidInputNoCount()
+	void testInvalidInputNoCount()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -144,7 +144,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputJoinedDot()
+	void testInvalidInputJoinedDot()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -153,13 +153,13 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testValidInputAll()
+	void testValidInputAll()
 	{
 		assertTrue(parse("1|ALL"));
 	}
 
 	@Test
-	public void testInvalidListEnd()
+	void testInvalidListEnd()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("1|TestWP1|"));
@@ -167,7 +167,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidListStart()
+	void testInvalidListStart()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("1||TestWP1"));
@@ -175,7 +175,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidZeroCount()
+	void testInvalidZeroCount()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("0|TestWP1"));
@@ -183,7 +183,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidDomainOnly()
+	void testInvalidDomainOnly()
 	{
 		if (parse("0|DOMAIN"))
 		{
@@ -193,14 +193,14 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidDomainDotOnly()
+	void testInvalidDomainDotOnly()
 	{
 		assertFalse(parse("0|DOMAIN."));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidDomainDoubleDot()
+	void testInvalidDomainDoubleDot()
 	{
 		constructDomain(primaryContext, "TestWP1");
 		if (parse("0|DOMAIN.TestWP1."))
@@ -211,7 +211,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidDomainSeparatorClarification()
+	void testInvalidDomainSeparatorClarification()
 	{
 		constructDomain(primaryContext, "TestWP1");
 		constructDomain(primaryContext, "TestWP2");
@@ -224,7 +224,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidNegativeCount()
+	void testInvalidNegativeCount()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -233,7 +233,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidListDoubleJoin()
+	void testInvalidListDoubleJoin()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -242,7 +242,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputCheckMult()
+	void testInvalidInputCheckMult()
 	{
 		// Explicitly do NOT build TestWP2
 		construct(primaryContext, "TestWP1");
@@ -251,7 +251,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputAnyItem()
+	void testInvalidInputAnyItem()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("1|ALL|TestWP1"));
@@ -259,7 +259,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputItemAny()
+	void testInvalidInputItemAny()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("1|TestWP1|ALL"));
@@ -267,7 +267,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInputInvalidAddsAllNoSideEffect()
+	void testInputInvalidAddsAllNoSideEffect()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -282,7 +282,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testRoundRobinOne() throws PersistenceLayerException
+	void testRoundRobinOne() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -290,7 +290,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testRoundRobinAll() throws PersistenceLayerException
+	void testRoundRobinAll() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -298,7 +298,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testRoundRobinOneDomain() throws PersistenceLayerException
+	void testRoundRobinOneDomain() throws PersistenceLayerException
 	{
 		constructDomain(primaryContext, "TestWP1");
 		constructDomain(secondaryContext, "TestWP1");
@@ -306,7 +306,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testRoundRobinThree() throws PersistenceLayerException
+	void testRoundRobinThree() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -372,14 +372,14 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseNull()
+	void testUnparseNull()
 	{
 		primaryProf.put(ObjectKey.CHOOSE_LANGAUTO, null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseSingle()
+	void testUnparseSingle()
 	{
 		ClassSpellList wp1 = construct(primaryContext, "TestWP1");
 		PersistentTransitionChoice<CDOMListObject<Spell>> tc = buildChoice(CDOMDirectSingleRef
@@ -390,7 +390,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseBadCount()
+	void testUnparseBadCount()
 	{
 		ClassSpellList wp1 = construct(primaryContext, "TestWP1");
 		ReferenceChoiceSet<ClassSpellList> rcs = new ReferenceChoiceSet<>(
@@ -421,7 +421,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	// }
 
 	@Test
-	public void testUnparseMultiple()
+	void testUnparseMultiple()
 	{
 		ClassSpellList wp1 = construct(primaryContext, "TestWP1");
 		ClassSpellList wp2 = construct(primaryContext, "TestWP2");
@@ -434,7 +434,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseNullInList()
+	void testUnparseNullInList()
 	{
 		ClassSpellList wp1 = construct(primaryContext, "TestWP1");
 		ReferenceChoiceSet<ClassSpellList> rcs = buildRCS(CDOMDirectSingleRef
@@ -454,7 +454,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail()
+	void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = ObjectKey.SPELLLIST_CHOICE;
 		primaryProf.put(objectKey, new Object());

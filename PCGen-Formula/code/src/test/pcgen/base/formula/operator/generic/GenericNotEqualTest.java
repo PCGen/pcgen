@@ -29,10 +29,10 @@ import org.junit.jupiter.api.Test;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.testsupport.TestUtilities;
 
-public class GenericNotEqualTest
+class GenericNotEqualTest
 {
 	@Test
-	public void testOperator()
+	void testOperator()
 	{
 		GenericNotEqual op = new GenericNotEqual();
 		assertNotNull(op.getOperator());
@@ -40,7 +40,7 @@ public class GenericNotEqualTest
 	}
 
 	@Test
-	public void testAbstractEvaluateNulls()
+	void testAbstractEvaluateNulls()
 	{
 		GenericNotEqual op = new GenericNotEqual();
 		try
@@ -70,7 +70,7 @@ public class GenericNotEqualTest
 	}
 
 	@Test
-	public void testAbstractEvaluateMismatch()
+	void testAbstractEvaluateMismatch()
 	{
 		GenericNotEqual op = new GenericNotEqual();
 		assertTrue(op.abstractEvaluate(FormatUtilities.BOOLEAN_CLASS, TestUtilities.INTEGER_CLASS, null).isEmpty());
@@ -82,7 +82,7 @@ public class GenericNotEqualTest
 	}
 
 	@Test
-	public void testAbstractEvaluateLegal()
+	void testAbstractEvaluateLegal()
 	{
 		GenericNotEqual op = new GenericNotEqual();
 		assertEquals(FormatUtilities.BOOLEAN_CLASS,
@@ -90,7 +90,7 @@ public class GenericNotEqualTest
 	}
 
 	@Test
-	public void testEvaluateFailNull()
+	void testEvaluateFailNull()
 	{
 		GenericNotEqual op = new GenericNotEqual();
 		assertThrows(NullPointerException.class, () -> op.evaluate(null, null));
@@ -99,7 +99,7 @@ public class GenericNotEqualTest
 	}
 
 	@Test
-	public void testEvaluateMismatch()
+	void testEvaluateMismatch()
 	{
 		GenericNotEqual op = new GenericNotEqual();
 		try
@@ -129,7 +129,7 @@ public class GenericNotEqualTest
 	}
 
 	@Test
-	public void testEvaluateLegal()
+	void testEvaluateLegal()
 	{
 		GenericNotEqual op = new GenericNotEqual();
 		assertEquals(Boolean.FALSE, op.evaluate(Boolean.TRUE, Boolean.TRUE));

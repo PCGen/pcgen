@@ -41,7 +41,7 @@ import org.junit.jupiter.api.Test;
  * {@code PreCheckTest} tests that the PRECHECK tag is
  * working correctly.
  */
-public class PreCheckTest extends AbstractCharacterTestCase
+class PreCheckTest extends AbstractCharacterTestCase
 {
 	PCClass myClass = new PCClass();
 
@@ -51,7 +51,7 @@ public class PreCheckTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testBase() throws PersistenceLayerException
+	void testBase() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, myClass, true);
@@ -80,7 +80,7 @@ public class PreCheckTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testBonus() throws Exception
+	void testBonus() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 		LoadContext context = Globals.getContext();

@@ -33,7 +33,7 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class EquipIntegrationTest extends
+class EquipIntegrationTest extends
 		AbstractListIntegrationTestCase<CDOMObject, Equipment>
 {
 
@@ -80,7 +80,7 @@ public class EquipIntegrationTest extends
 	}
 
 	@Test
-	public void dummyTest()
+	void dummyTest()
 	{
 		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}

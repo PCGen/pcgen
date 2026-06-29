@@ -42,7 +42,7 @@ import org.junit.jupiter.api.Test;
  * {@code AbilityListTokenTest} tests the functioning of the ABILITYLIST
  * token processing code. 
  */
-public class AbilityListTokenTest extends AbstractCharacterTestCase
+class AbilityListTokenTest extends AbstractCharacterTestCase
 {
 
 	@BeforeEach
@@ -79,7 +79,7 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 	 * Test the output for positive numbers with fractions.
 	 */
 	@Test
-	public void testTypes()
+	void testTypes()
 	{
 		AbilityListToken tok = new AbilityListToken();
 		ExportHandler eh = ExportHandler.createExportHandler(null);
@@ -96,7 +96,7 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 	 * Test the output for negative numbers with fractions.
 	 */
 	@Test
-	public void testCategory()
+	void testCategory()
 	{
 		AbilityListToken tok = new AbilityListToken();
 		ExportHandler eh = ExportHandler.createExportHandler(null);
@@ -109,7 +109,7 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 	 * Test the JEP count function on abilities.  
 	 */
 	@Test
-	public void testCount()
+	void testCount()
 	{
 		PlayerCharacter character = getCharacter();
 
@@ -168,7 +168,7 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 	 * separated parameters. 
 	 */
 	@Test
-	public void testForNodeSplit()
+	void testForNodeSplit()
 	{
 		String testStr =
 				"|FOR,%feat,0,count(\"ABILITIES\",\"CATEGORY=FEAT\",\"VISIBILITY=VISIBLE\")-1,1,0|";
@@ -184,7 +184,7 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testForNodeSplitNonJEP()
+	void testForNodeSplitNonJEP()
 	{
 		String testStr =
 				"|FOR,%equip1,0,(COUNT[EQUIPMENT.MERGELOC.Not.Coin.NOT.Gem]-1)/2,1,0|";

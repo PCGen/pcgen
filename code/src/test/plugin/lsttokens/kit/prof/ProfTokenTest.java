@@ -29,7 +29,7 @@ import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
 import org.junit.jupiter.api.Test;
 
-public class ProfTokenTest extends AbstractKitTokenTestCase<KitProf>
+class ProfTokenTest extends AbstractKitTokenTestCase<KitProf>
 {
 
 	static ProfToken token = new ProfToken();
@@ -60,14 +60,14 @@ public class ProfTokenTest extends AbstractKitTokenTestCase<KitProf>
 	}
 
 	@Test
-	public void testInvalidInputEmptyCount()
+	void testInvalidInputEmptyCount()
 	{
 		assertTrue(parse("Fireball"));
 		assertConstructionError();
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "Fireball");
 		secondaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "Fireball");
@@ -75,7 +75,7 @@ public class ProfTokenTest extends AbstractKitTokenTestCase<KitProf>
 	}
 
 	@Test
-	public void testRoundRobinTwo() throws PersistenceLayerException
+	void testRoundRobinTwo() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "Fireball");
 		secondaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "Fireball");
@@ -85,19 +85,19 @@ public class ProfTokenTest extends AbstractKitTokenTestCase<KitProf>
 	}
 
 	@Test
-	public void testInvalidListEnd()
+	void testInvalidListEnd()
 	{
 		assertFalse(parse("TestWP1" + getJoinCharacter()));
 	}
 
 	@Test
-	public void testInvalidListStart()
+	void testInvalidListStart()
 	{
 		assertFalse(parse(getJoinCharacter() + "TestWP1"));
 	}
 
 	@Test
-	public void testInvalidListDoubleJoin()
+	void testInvalidListDoubleJoin()
 	{
 		assertFalse(parse("TestWP2" + getJoinCharacter() + getJoinCharacter()
 				+ "TestWP1"));

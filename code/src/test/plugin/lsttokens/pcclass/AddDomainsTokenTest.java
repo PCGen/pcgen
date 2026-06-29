@@ -38,7 +38,7 @@ import plugin.pretokens.writer.PreRaceWriter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class AddDomainsTokenTest extends
+class AddDomainsTokenTest extends
 		AbstractListContextTokenTestCase<PCClass, Domain>
 {
 
@@ -112,7 +112,7 @@ public class AddDomainsTokenTest extends
 	}
 
 	@Test
-	public void testInvalidEmptyPre()
+	void testInvalidEmptyPre()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("TestWP1[]"));
@@ -120,7 +120,7 @@ public class AddDomainsTokenTest extends
 	}
 
 	@Test
-	public void testInvalidEmptyPre2()
+	void testInvalidEmptyPre2()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("TestWP1["));
@@ -128,7 +128,7 @@ public class AddDomainsTokenTest extends
 	}
 
 	@Test
-	public void testInvalidEmptyPre3()
+	void testInvalidEmptyPre3()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("TestWP1]"));
@@ -136,7 +136,7 @@ public class AddDomainsTokenTest extends
 	}
 
 	@Test
-	public void testInvalidMismatchedBracket()
+	void testInvalidMismatchedBracket()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("TestWP1[PRERACE:Dwarf"));
@@ -144,7 +144,7 @@ public class AddDomainsTokenTest extends
 	}
 
 	@Test
-	public void testInvalidTrailingAfterBracket()
+	void testInvalidTrailingAfterBracket()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("TestWP1[PRERACE:Dwarf]Hi"));
@@ -152,7 +152,7 @@ public class AddDomainsTokenTest extends
 	}
 
 	@Test
-	public void testRoundRobinOnePre() throws PersistenceLayerException
+	void testRoundRobinOnePre() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -162,7 +162,7 @@ public class AddDomainsTokenTest extends
 	}
 
 	@Test
-	public void testRoundRobinDupeTwoPrereqs() throws PersistenceLayerException
+	void testRoundRobinDupeTwoPrereqs() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -172,7 +172,7 @@ public class AddDomainsTokenTest extends
 	}
 
 	@Test
-	public void testRoundRobinThreeWithPre() throws PersistenceLayerException
+	void testRoundRobinThreeWithPre() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -185,7 +185,7 @@ public class AddDomainsTokenTest extends
 	}
 
 	@Test
-	public void testInvalidInputBadPrerequisite()
+	void testInvalidInputBadPrerequisite()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");

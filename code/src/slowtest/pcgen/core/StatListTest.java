@@ -38,7 +38,7 @@ import org.junit.jupiter.api.Test;
  * {@code StatListTest} checks the function of the
  * StatList class. 
  */
-public class StatListTest extends AbstractCharacterTestCase
+class StatListTest extends AbstractCharacterTestCase
 {
 	PCTemplate locker;
 	PCTemplate unlocker;
@@ -80,7 +80,7 @@ public class StatListTest extends AbstractCharacterTestCase
 	 * Test method for {@link pcgen.core.PlayerCharacter#getBaseStatFor(PCStat)}.
 	 */
 	@Test
-	public void testGetBaseStatFor()
+	void testGetBaseStatFor()
 	{
 		PlayerCharacter pc = getCharacter();
 		assertEquals(6, pc.getBaseStatFor(str), "Starting STR should be 6");
@@ -105,7 +105,7 @@ public class StatListTest extends AbstractCharacterTestCase
 	 * Test method for {@link pcgen.core.PlayerCharacter#getTotalStatFor(PCStat)}.
 	 */
 	@Test
-	public void testGetTotalStatFor()
+	void testGetTotalStatFor()
 	{
 		PlayerCharacter pc = getCharacter();
 		assertEquals(6, pc.getTotalStatFor(str), "Starting STR should be 6");
@@ -130,7 +130,7 @@ public class StatListTest extends AbstractCharacterTestCase
 	 * Test out the output of stats where a min value is in place. 
 	 */
 	@Test
-	public void testMinValueStat()
+	void testMinValueStat()
 	{
 		PlayerCharacter pc = getCharacter();
 		assertEquals(6, pc.getTotalStatFor(str), "Starting STR should be 6");

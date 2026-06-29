@@ -36,7 +36,7 @@ import pcgen.testsupport.NoZeroArgConstructorMap;
 import pcgen.testsupport.StrangeMap;
 import pcgen.testsupport.TestSupport;
 
-public class TripleKeyMapTest
+class TripleKeyMapTest
 {
 
 	public void populate(TripleKeyMap<Integer, Double, Character, String> tkm, boolean allowNull)
@@ -58,97 +58,97 @@ public class TripleKeyMapTest
 	}
 
 	@Test
-	public void testPutGetPlain()
+	void testPutGetPlain()
 	{
 		runPutGet(new TripleKeyMap<>(), true);
 	}
 
 	@Test
-	public void testPutGetIdentity()
+	void testPutGetIdentity()
 	{
 		runPutGet(getIdentityMap(), false);
 	}
 
 	@Test
-	public void testContainsKeyPlain()
+	void testContainsKeyPlain()
 	{
 		runContainsKey(new TripleKeyMap<>(), true);
 	}
 
 	@Test
-	public void testContainsKeyIdentity()
+	void testContainsKeyIdentity()
 	{
 		runContainsKey(getIdentityMap(), false);
 	}
 
 	@Test
-	public void testRemovePlain()
+	void testRemovePlain()
 	{
 		runRemove(new TripleKeyMap<>(), true);
 	}
 
 	@Test
-	public void testRemoveIdentity()
+	void testRemoveIdentity()
 	{
 		runRemove(getIdentityMap(), false);
 	}
 
 	@Test
-	public void testGetKeySetPlain()
+	void testGetKeySetPlain()
 	{
 		runGetKeySet(new TripleKeyMap<>(), true);
 	}
 
 	@Test
-	public void testGetKeySetIdentity()
+	void testGetKeySetIdentity()
 	{
 		runGetKeySet(getIdentityMap(), false);
 	}
 
 	@Test
-	public void testGetSecondaryKeySetPlain()
+	void testGetSecondaryKeySetPlain()
 	{
 		runGetSecondaryKeySet(new TripleKeyMap<>(), true);
 	}
 
 	@Test
-	public void testGetSecondaryKeySetIdentity()
+	void testGetSecondaryKeySetIdentity()
 	{
 		runGetSecondaryKeySet(getIdentityMap(), false);
 	}
 
 	@Test
-	public void testGetTertiaryKeySetPlain()
+	void testGetTertiaryKeySetPlain()
 	{
 		runGetTertiaryKeySet(new TripleKeyMap<>(), true);
 	}
 
 	@Test
-	public void testGetTertiaryKeySetIdentity()
+	void testGetTertiaryKeySetIdentity()
 	{
 		runGetTertiaryKeySet(getIdentityMap(), false);
 	}
 
 	@Test
-	public void testClearIsEmptyPlain()
+	void testClearIsEmptyPlain()
 	{
 		runClearIsEmpty(new TripleKeyMap<>(), true);
 	}
 
 	@Test
-	public void testClearIsEmptyIdentity()
+	void testClearIsEmptyIdentity()
 	{
 		runClearIsEmpty(getIdentityMap(), false);
 	}
 
 	@Test
-	public void testValuesPlain()
+	void testValuesPlain()
 	{
 		runValues(new TripleKeyMap<>(), true);
 	}
 
 	@Test
-	public void testValuesIdentity()
+	void testValuesIdentity()
 	{
 		runValues(getIdentityMap(), false);
 	}
@@ -400,7 +400,7 @@ public class TripleKeyMapTest
 	// TODO Need a test that respects order/behavior of underlying lists for
 	// class constructor
 	@Test
-	public void testNullInConstructor()
+	void testNullInConstructor()
 	{
 		assertThrows(NullPointerException.class, () -> new TripleKeyMap<>(null, HashMap.class, HashMap.class));
 		assertThrows(NullPointerException.class, () -> new TripleKeyMap<>(HashMap.class, null, HashMap.class));
@@ -408,7 +408,7 @@ public class TripleKeyMapTest
 	}
 
 	@Test
-	public void testBadClassInConstructor()
+	void testBadClassInConstructor()
 	{
 		assertThrows(IllegalArgumentException.class, () -> new TripleKeyMap<>(StrangeMap.class, HashMap.class, HashMap.class));
 		assertThrows(IllegalArgumentException.class, () -> new TripleKeyMap<>(HashMap.class, StrangeMap.class, HashMap.class));
@@ -416,7 +416,7 @@ public class TripleKeyMapTest
 	}
 
 	@Test
-	public void testBadClassInConstructor2()
+	void testBadClassInConstructor2()
 	{
 		assertThrows(IllegalArgumentException.class, () -> new TripleKeyMap<>(NoPublicZeroArgConstructorMap.class, HashMap.class, HashMap.class));
 		assertThrows(IllegalArgumentException.class, () -> new TripleKeyMap<>(HashMap.class, NoPublicZeroArgConstructorMap.class, HashMap.class));
@@ -424,7 +424,7 @@ public class TripleKeyMapTest
 	}
 
 	@Test
-	public void testBadClassInConstructor3()
+	void testBadClassInConstructor3()
 	{
 		assertThrows(IllegalArgumentException.class, () -> new TripleKeyMap<>(NoZeroArgConstructorMap.class, HashMap.class, HashMap.class));
 		assertThrows(IllegalArgumentException.class, () -> new TripleKeyMap<>(HashMap.class, NoZeroArgConstructorMap.class, HashMap.class));
@@ -432,7 +432,7 @@ public class TripleKeyMapTest
 	}
 
 	@Test
-	public void testClone()
+	void testClone()
 	{
 		TripleKeyMap<Integer, Double, Character, String> tkm =
 				new TripleKeyMap<>();

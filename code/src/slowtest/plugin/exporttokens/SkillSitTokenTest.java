@@ -45,7 +45,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class SkillSitTokenTest extends AbstractCharacterTestCase
+class SkillSitTokenTest extends AbstractCharacterTestCase
 {
 	private Skill balance = null;
 	private Skill[] knowledge = null;
@@ -169,7 +169,7 @@ public class SkillSitTokenTest extends AbstractCharacterTestCase
 	 * Test the SKILL token.
 	 */
 	@Test
-	public void testSkillToken()
+	void testSkillToken()
 	{
 		PlayerCharacter character = getCharacter();
 

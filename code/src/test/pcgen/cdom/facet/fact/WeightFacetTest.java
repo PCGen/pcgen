@@ -28,7 +28,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class WeightFacetTest extends AbstractItemFacetTest<Integer>
+class WeightFacetTest extends AbstractItemFacetTest<Integer>
 {
 	private CharID id;
 	private WeightFacet facet = new WeightFacet();
@@ -52,20 +52,20 @@ public class WeightFacetTest extends AbstractItemFacetTest<Integer>
 	}
 
 	@Test
-	public void testWeightUnsetZero()
+	void testWeightUnsetZero()
 	{
 		assertEquals(0, facet.getWeight(id));
 	}
 
 	@Test
-	public void testWeightSetZeroValid()
+	void testWeightSetZeroValid()
 	{
 		facet.set(id, 0);
 		assertEquals(0, facet.getWeight(id));
 	}
 
 	@Test
-	public void testWeightSetNegative()
+	void testWeightSetNegative()
 	{
 		facet.set(id, -250);
 		/*
@@ -74,7 +74,7 @@ public class WeightFacetTest extends AbstractItemFacetTest<Integer>
 	}
 
 	@Test
-	public void testRemoveWeight()
+	void testRemoveWeight()
 	{
 		facet.set(id, 25);
 		assertEquals(25, facet.getWeight(id));

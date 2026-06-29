@@ -29,7 +29,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class DurationTokenTest extends AbstractTypeSafeListTestCase<Spell, String>
+class DurationTokenTest extends AbstractTypeSafeListTestCase<Spell, String>
 {
 
 	static DurationToken token = new DurationToken();
@@ -90,13 +90,13 @@ public class DurationTokenTest extends AbstractTypeSafeListTestCase<Spell, Strin
 	}
 
 	@Test
-	public void testGoodParentheses()
+	void testGoodParentheses()
 	{
 		assertTrue(parse("(first)"));
 	}
 	
 	@Test
-	public void testBadParentheses()
+	void testBadParentheses()
 	{
 		assertFalse(parse("(first"), "Missing end paren should have been flagged.");
 		assertFalse(parse("first)"), "Missing start paren should have been flagged.");

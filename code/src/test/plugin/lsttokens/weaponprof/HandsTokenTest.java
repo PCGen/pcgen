@@ -31,7 +31,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class HandsTokenTest extends AbstractIntegerTokenTestCase<WeaponProf>
+class HandsTokenTest extends AbstractIntegerTokenTestCase<WeaponProf>
 {
 
 	static HandsToken token = new HandsToken();
@@ -74,7 +74,7 @@ public class HandsTokenTest extends AbstractIntegerTokenTestCase<WeaponProf>
 	}
 
 	@Test
-	public void testValidSpecialCase()
+	void testValidSpecialCase()
 	{
 		assertTrue(parse("1IFLARGERTHANWEAPON"));
 		assertEquals(Integer.valueOf(-1), primaryProf.get(IntegerKey.HANDS));
@@ -84,7 +84,7 @@ public class HandsTokenTest extends AbstractIntegerTokenTestCase<WeaponProf>
 	}
 
 	@Test
-	public void testUnparseSpecialCase()
+	void testUnparseSpecialCase()
 	{
 		String[] unparsed = setAndUnparse(-1);
 		assertNotNull(unparsed);
@@ -93,7 +93,7 @@ public class HandsTokenTest extends AbstractIntegerTokenTestCase<WeaponProf>
 	}
 
 	@Test
-	public void testRoundRobinSpecialCase() throws PersistenceLayerException
+	void testRoundRobinSpecialCase() throws PersistenceLayerException
 	{
 		runRoundRobin("1IFLARGERTHANWEAPON");
 	}

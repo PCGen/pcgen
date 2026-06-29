@@ -38,7 +38,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Unit test of the class AbilitySelectionToken.
  */
-public class AbilitySelectionTokenTest
+class AbilitySelectionTokenTest
 {
 
 	private static final AbilitySelectionToken PCA = new AbilitySelectionToken();
@@ -61,7 +61,7 @@ public class AbilitySelectionTokenTest
 	}
 
 	@Test
-	public void testEncodeChoice()
+	void testEncodeChoice()
 	{
 		Ability item = BuildUtilities.buildFeat(context, "ItemName");
 		AbilitySelection as = new AbilitySelection(item, null);
@@ -80,7 +80,7 @@ public class AbilitySelectionTokenTest
 	}
 
 	@Test
-	public void testDecodeChoice()
+	void testDecodeChoice()
 	{
 		assertThrows(IllegalArgumentException.class,
 				() -> PCA.decodeChoice(context, "Category=Special Ability|ItemName"));

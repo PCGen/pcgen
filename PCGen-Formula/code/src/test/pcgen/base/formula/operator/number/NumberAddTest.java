@@ -28,11 +28,11 @@ import org.junit.jupiter.api.Test;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.testsupport.TestUtilities;
 
-public class NumberAddTest
+class NumberAddTest
 {
 
 	@Test
-	public void testOperator()
+	void testOperator()
 	{
 		NumberAdd op = new NumberAdd();
 		assertNotNull(op.getOperator());
@@ -40,7 +40,7 @@ public class NumberAddTest
 	}
 
 	@Test
-	public void testAbstractEvaluateNulls()
+	void testAbstractEvaluateNulls()
 	{
 		NumberAdd op = new NumberAdd();
 		try
@@ -70,7 +70,7 @@ public class NumberAddTest
 	}
 
 	@Test
-	public void testAbstractEvaluateMismatch()
+	void testAbstractEvaluateMismatch()
 	{
 		NumberAdd op = new NumberAdd();
 		assertTrue(op.abstractEvaluate(FormatUtilities.BOOLEAN_CLASS, TestUtilities.INTEGER_CLASS, null).isEmpty());
@@ -78,7 +78,7 @@ public class NumberAddTest
 	}
 
 	@Test
-	public void testAbstractEvaluateLegal()
+	void testAbstractEvaluateLegal()
 	{
 		NumberAdd op = new NumberAdd();
 		assertEquals(FormatUtilities.NUMBER_CLASS,
@@ -97,7 +97,7 @@ public class NumberAddTest
 	}
 
 	@Test
-	public void testEvaluateFailNull()
+	void testEvaluateFailNull()
 	{
 		NumberAdd op = new NumberAdd();
 		assertThrows(NullPointerException.class, () -> op.evaluate(null, null));
@@ -106,7 +106,7 @@ public class NumberAddTest
 	}
 
 	@Test
-	public void testEvaluateMismatch()
+	void testEvaluateMismatch()
 	{
 		NumberAdd op = new NumberAdd();
 		assertThrows(ClassCastException.class, () -> op.evaluate(true, Double.valueOf(4.5)));
@@ -114,7 +114,7 @@ public class NumberAddTest
 	}
 
 	@Test
-	public void testEvaluateLegal()
+	void testEvaluateLegal()
 	{
 		NumberAdd op = new NumberAdd();
 		assertEquals(Double.valueOf(3.3),

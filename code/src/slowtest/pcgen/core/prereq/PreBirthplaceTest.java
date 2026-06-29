@@ -40,7 +40,7 @@ class PreBirthplaceTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testAtt() throws PersistenceLayerException
+	void testAtt() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		character.setPCAttribute(PCStringKey.BIRTHPLACE, "Klamath");

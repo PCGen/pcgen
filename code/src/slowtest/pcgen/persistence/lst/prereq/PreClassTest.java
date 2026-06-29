@@ -34,11 +34,11 @@ import org.junit.jupiter.api.Test;
 
 
 @SuppressWarnings("nls")
-public class PreClassTest extends EnUsLocaleDependentTestCase
+class PreClassTest extends EnUsLocaleDependentTestCase
 {
 
 	@Test
-	public void testNoClassLevels() throws Exception
+	void testNoClassLevels() throws Exception
 	{
 		PreClassParser parser = new PreClassParser();
 		Prerequisite prereq = parser.parse("class", "1,Monk=1", true, false);
@@ -53,7 +53,7 @@ public class PreClassTest extends EnUsLocaleDependentTestCase
 	 * Test that an error is produced if separators are incorrect
 	 */
 	@Test
-	public void testInvalidSeparators()
+	void testInvalidSeparators()
 	{
 		assertThrows(PersistenceLayerException.class, () -> {
 			PreClassParser parser = new PreClassParser();
@@ -65,7 +65,7 @@ public class PreClassTest extends EnUsLocaleDependentTestCase
 	 * Test that an error is produced if separators are incorrect.
 	 */
 	@Test
-	public void testInvalidCharacter()
+	void testInvalidCharacter()
 	{
 		assertThrows(PersistenceLayerException.class, () -> {
 			PreClassParser parser = new PreClassParser();
@@ -77,7 +77,7 @@ public class PreClassTest extends EnUsLocaleDependentTestCase
 	 * Test that an error is produced if separators are incorrect.
 	 */
 	@Test
-	public void testInvalidNegate()
+	void testInvalidNegate()
 	{
 		assertThrows(PersistenceLayerException.class, () -> {
 			PrerequisiteParserInterface parser = new PreClassParser();

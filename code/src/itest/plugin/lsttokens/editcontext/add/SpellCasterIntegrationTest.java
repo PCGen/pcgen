@@ -34,7 +34,7 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class SpellCasterIntegrationTest extends
+class SpellCasterIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>
 {
 
@@ -51,7 +51,7 @@ public class SpellCasterIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinAdd() throws PersistenceLayerException
+	void testRoundRobinAdd() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -61,7 +61,7 @@ public class SpellCasterIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinAddSame() throws PersistenceLayerException
+	void testRoundRobinAddSame() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -71,7 +71,7 @@ public class SpellCasterIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoOriginal() throws PersistenceLayerException
+	void testRoundRobinNoOriginal() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -81,7 +81,7 @@ public class SpellCasterIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoMod() throws PersistenceLayerException
+	void testRoundRobinNoMod() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -91,7 +91,7 @@ public class SpellCasterIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinAddAny() throws PersistenceLayerException
+	void testRoundRobinAddAny() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -101,7 +101,7 @@ public class SpellCasterIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoOriginalAny() throws PersistenceLayerException
+	void testRoundRobinNoOriginalAny() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -111,7 +111,7 @@ public class SpellCasterIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoModAny() throws PersistenceLayerException
+	void testRoundRobinNoModAny() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();

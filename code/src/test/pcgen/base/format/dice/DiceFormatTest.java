@@ -29,42 +29,42 @@ import org.junit.jupiter.api.Test;
 class DiceFormatTest
 {
 	@Test
-	public void testConvertFailNull()
+	void testConvertFailNull()
 	{
 		assertThrows(NullPointerException.class,
 				() -> TestConstants.DICE_MANAGER.convert(null));
 	}
 
 	@Test
-	public void testConvertFailNotNumeric()
+	void testConvertFailNotNumeric()
 	{
 		assertThrows(IllegalArgumentException.class,
 			() -> TestConstants.DICE_MANAGER.convert("SomeString"));
 	}
 
 	@Test
-	public void testUnconvertFailNull()
+	void testUnconvertFailNull()
 	{
 		assertThrows(NullPointerException.class,
 				() -> TestConstants.DICE_MANAGER.unconvert(null));
 	}
 
 	@Test
-	public void testConvertIndirectFailNull()
+	void testConvertIndirectFailNull()
 	{
 		assertThrows(NullPointerException.class,
 				() -> TestConstants.DICE_MANAGER.convertIndirect(null));
 	}
 
 	@Test
-	public void testConvertIndirectFailNotNumeric()
+	void testConvertIndirectFailNotNumeric()
 	{
 		assertThrows(IllegalArgumentException.class,
 				() -> TestConstants.DICE_MANAGER.convertIndirect("SomeString"));
 	}
 
 	@Test
-	public void testConvert()
+	void testConvert()
 	{
 		assertEquals(new Dice(1, new Die(1)), TestConstants.DICE_MANAGER.convert("1"));
 		assertEquals(new Dice(1, new Die(1)), TestConstants.DICE_MANAGER.convert("1d1"));
@@ -73,7 +73,7 @@ class DiceFormatTest
 	}
 
 	@Test
-	public void testUnconvert()
+	void testUnconvert()
 	{
 		assertEquals("1", TestConstants.DICE_MANAGER.unconvert(new Dice(1, new Die(1))));
 		assertEquals("3d6", TestConstants.DICE_MANAGER.unconvert(new Dice(3, new Die(6))));
@@ -81,7 +81,7 @@ class DiceFormatTest
 	}
 
 	@Test
-	public void testConvertIndirect()
+	void testConvertIndirect()
 	{
 		assertEquals(new Dice(1, new Die(1)), TestConstants.DICE_MANAGER.convertIndirect("1").get());
 		assertEquals(new Dice(1, new Die(1)), TestConstants.DICE_MANAGER.convertIndirect("1d1").get());
@@ -90,13 +90,13 @@ class DiceFormatTest
 	}
 
 	@Test
-	public void testGetIdentifier()
+	void testGetIdentifier()
 	{
 		assertEquals("DICE", TestConstants.DICE_MANAGER.getIdentifierType());
 	}
 
 	@Test
-	public void testHashCodeEquals()
+	void testHashCodeEquals()
 	{
 		assertEquals(new DiceFormat().hashCode(), TestConstants.DICE_MANAGER.hashCode());
 		assertNotEquals(new Object(), TestConstants.DICE_MANAGER);
@@ -105,7 +105,7 @@ class DiceFormatTest
 	}
 
 	@Test
-	public void testGetComponent()
+	void testGetComponent()
 	{
 		assertTrue(TestConstants.DICE_MANAGER.getComponentManager().isEmpty());
 	}

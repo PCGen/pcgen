@@ -31,7 +31,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class ProficiencyIntegrationTest extends
+class ProficiencyIntegrationTest extends
 		AbstractIntegrationTestCase<Equipment>
 {
 	private static ProficiencyToken token = new ProficiencyToken();
@@ -56,7 +56,7 @@ public class ProficiencyIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(ArmorProf.class, "TestWP1");
 		secondaryContext.getReferenceContext().constructCDOMObject(ArmorProf.class, "TestWP1");
@@ -70,7 +70,7 @@ public class ProficiencyIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinRemove() throws PersistenceLayerException
+	void testRoundRobinRemove() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(ArmorProf.class, "TestWP1");
 		secondaryContext.getReferenceContext().constructCDOMObject(ArmorProf.class, "TestWP1");
@@ -84,7 +84,7 @@ public class ProficiencyIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoSet() throws PersistenceLayerException
+	void testRoundRobinNoSet() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "TestWP1");
 		secondaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "TestWP1");
@@ -96,7 +96,7 @@ public class ProficiencyIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoReset() throws PersistenceLayerException
+	void testRoundRobinNoReset() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(ArmorProf.class, "TestWP1");
 		secondaryContext.getReferenceContext().constructCDOMObject(ArmorProf.class, "TestWP1");

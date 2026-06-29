@@ -53,7 +53,7 @@ import org.junit.jupiter.api.Test;
  * {@code VAbilityTokenTest} tests the functioning of the VABILITY
  * token processing code. 
  */
-public class VAbilityTokenTest extends AbstractCharacterTestCase
+class VAbilityTokenTest extends AbstractCharacterTestCase
 {
 	private Ability skillFocus;
 
@@ -120,7 +120,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 	 * Tests the aspect subtoken of VABILITY without a specific aspect.
 	 */
 	@Test
-	public void testAspect()
+	void testAspect()
 	{
 		VAbilityToken tok = new VAbilityToken();
 		ExportHandler eh = ExportHandler.createExportHandler(null);
@@ -135,7 +135,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 	 * Tests the ASPECTCOUNT subtoken of VABILITY.
 	 */
 	@Test
-	public void testAspectCount()
+	void testAspectCount()
 	{
 		VAbilityToken tok = new VAbilityToken();
 		ExportHandler eh = ExportHandler.createExportHandler(null);
@@ -149,7 +149,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 	 * Tests the ASPECT subtoken of VABILITY with an aspect specified.
 	 */
 	@Test
-	public void testSingleAspect()
+	void testSingleAspect()
 	{
 		VAbilityToken tok = new VAbilityToken();
 		ExportHandler eh = ExportHandler.createExportHandler(null);
@@ -174,7 +174,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 	 * Tests the ASPECT subtoken of VABILITY with an invalid aspect specified.
 	 */
 	@Test
-	public void testNonExistantSingleAspect()
+	void testNonExistantSingleAspect()
 	{
 		VAbilityToken tok = new VAbilityToken();
 		ExportHandler eh = ExportHandler.createExportHandler(null);
@@ -195,7 +195,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 	 * Tests the HASASPECT subtoken of VABILITY.
 	 */
 	@Test
-	public void testHasAspect()
+	void testHasAspect()
 	{
 		VAbilityToken tok = new VAbilityToken();
 		ExportHandler eh = ExportHandler.createExportHandler(null);
@@ -217,7 +217,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 	 * Tests the name subtoken of VABILITY.
 	 */
 	@Test
-	public void testName()
+	void testName()
 	{
 		VAbilityToken tok = new VAbilityToken();
 		ExportHandler eh = ExportHandler.createExportHandler(null);
@@ -235,7 +235,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 	 * Tests the key subtoken of VABILITY.
 	 */
 	@Test
-	public void testKey()
+	void testKey()
 	{
 		VAbilityToken tok = new VAbilityToken();
 		ExportHandler eh = ExportHandler.createExportHandler(null);
@@ -254,7 +254,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 	 * Tests the associated subtoken of VABILITY.
 	 */
 	@Test
-	public void testAssociated()
+	void testAssociated()
 	{
 		VAbilityToken tok = new VAbilityToken();
 		ExportHandler eh = ExportHandler.createExportHandler(null);
@@ -274,7 +274,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 	 * Tests the ASSOCIATEDCOUNT subtoken of VABILITY.
 	 */
 	@Test
-	public void testAssociatedCount()
+	void testAssociatedCount()
 	{
 		VAbilityToken tok = new VAbilityToken();
 		ExportHandler eh = ExportHandler.createExportHandler(null);

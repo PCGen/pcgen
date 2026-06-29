@@ -37,7 +37,7 @@ import pcgen.base.formula.base.VariableID;
 import pcgen.base.testsupport.GlobalVarScoped;
 import pcgen.base.testsupport.NaiveScopeManager;
 
-public class MonitorableVariableStoreTest
+class MonitorableVariableStoreTest
 {
 
 	private NaiveScopeManager scopeManager;
@@ -64,7 +64,7 @@ public class MonitorableVariableStoreTest
 	}
 
 	@Test
-	public void testAddRemove()
+	void testAddRemove()
 	{
 		MonitorableVariableStore varStore = new MonitorableVariableStore();
 		ScopeInstance globalInst = instanceFactory.get("Global", new GlobalVarScoped("Global"));
@@ -91,7 +91,7 @@ public class MonitorableVariableStoreTest
 	}
 
 	@Test
-	public void testPriority()
+	void testPriority()
 	{
 		MonitorableVariableStore varStore = new MonitorableVariableStore();
 		ScopeInstance globalInst = instanceFactory.get("Global", new GlobalVarScoped("Global"));

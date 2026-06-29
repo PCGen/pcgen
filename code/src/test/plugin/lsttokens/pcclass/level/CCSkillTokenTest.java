@@ -27,7 +27,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class CCSkillTokenTest extends AbstractListInputTokenTestCase<PCClassLevel, Skill>
+class CCSkillTokenTest extends AbstractListInputTokenTestCase<PCClassLevel, Skill>
 {
 
 	@Override
@@ -89,7 +89,7 @@ public class CCSkillTokenTest extends AbstractListInputTokenTestCase<PCClassLeve
 	}
 
 	@Test
-	public void testRoundRobinList()
+	void testRoundRobinList()
 	{
 		boolean result = parse("LIST");
 		if (result)
@@ -103,7 +103,7 @@ public class CCSkillTokenTest extends AbstractListInputTokenTestCase<PCClassLeve
 	}
 
 	@Test
-	public void testRoundRobinPattern() throws PersistenceLayerException
+	void testRoundRobinPattern() throws PersistenceLayerException
 	{
 		construct(primaryContext, "JustASkill");
 		construct(secondaryContext, "JustASkill");

@@ -41,7 +41,7 @@ class GeneralSaveRestoreTest extends AbstractSaveRestoreTest
 {
 
 	@Test
-	public void testTemplateFeat()
+	void testTemplateFeat()
 	{
 		//Represents CODE-2547
 		TokenRegistration.register(new TemplateFeatToken());

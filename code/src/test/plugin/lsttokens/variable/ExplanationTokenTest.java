@@ -31,7 +31,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
 
-public class ExplanationTokenTest extends
+class ExplanationTokenTest extends
 		AbstractTokenTestCase<DatasetVariable>
 {
 
@@ -64,7 +64,7 @@ public class ExplanationTokenTest extends
 	}
 
 	@Test
-	public void testDisplayNameRequired()
+	void testDisplayNameRequired()
 	{
 		DatasetVariable dv = new DatasetVariable();
 		ParseResult pr = token.parseToken(primaryContext, dv, "Try Me!");
@@ -73,7 +73,7 @@ public class ExplanationTokenTest extends
 	}
 
 	@Test
-	public void testRoundRobinOne() throws PersistenceLayerException
+	void testRoundRobinOne() throws PersistenceLayerException
 	{
 		runRoundRobin("This does something, really!");
 	}

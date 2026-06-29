@@ -40,7 +40,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import util.TestURI;
 
-public class FunctionTokenTest
+class FunctionTokenTest
 {
 
 	private static CDOMToken<UserFunction> token = new FunctionToken();
@@ -51,14 +51,14 @@ public class FunctionTokenTest
 
 
 	@BeforeAll
-	public static void classSetUp()
+	static void classSetUp()
 	{
 		testCampaign =
 				new CampaignSourceEntry(new Campaign(), TestURI.getURI());
 	}
 
 	@BeforeEach
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		TokenRegistration.clearTokens();
 		TokenRegistration.register(token);
@@ -66,7 +66,7 @@ public class FunctionTokenTest
 	}
 
 	@AfterEach
-	public void tearDown()
+	void tearDown()
 	{
 		TokenRegistration.clearTokens();
 		context = null;
@@ -74,7 +74,7 @@ public class FunctionTokenTest
 	}
 
 	@AfterAll
-	public static void classTearDown()
+	static void classTearDown()
 	{
 		token = null;
 		testCampaign = null;
@@ -92,13 +92,13 @@ public class FunctionTokenTest
 	}
 
 	@Test
-	public void testInvalidInputNullString()
+	void testInvalidInputNullString()
 	{
 		assertFalse(token.parseToken(context, function, null).passed());
 	}
 
 	@Test
-	public void testInvalidInputEmptyString()
+	void testInvalidInputEmptyString()
 	{
 		try
 		{

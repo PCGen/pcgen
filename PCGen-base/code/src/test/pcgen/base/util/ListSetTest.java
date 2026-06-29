@@ -37,7 +37,7 @@ import org.junit.jupiter.api.Test;
 
 import pcgen.testsupport.TestSupport;
 
-public class ListSetTest
+class ListSetTest
 {
 
 	private ListSet<Integer> ls, ls2, ls3, ls4;
@@ -80,7 +80,7 @@ public class ListSetTest
 
 
 	@Test
-	public void testArchitecture()
+	void testArchitecture()
 	{
 		assertFalse(ls instanceof List, "ListSet must not implement List, "
 			+ "as it does not always return true to add(), "
@@ -88,7 +88,7 @@ public class ListSetTest
 	}
 
 	@Test
-	public void testSize()
+	void testSize()
 	{
 		testSetSize(ls);
 		testSetSize(ls2);
@@ -121,7 +121,7 @@ public class ListSetTest
 	}
 
 	@Test
-	public void testAddRemove()
+	void testAddRemove()
 	{
 		testBasicSet(ls);
 		testBasicSet(ls2);
@@ -270,7 +270,7 @@ public class ListSetTest
 	}
 
 	@Test
-	public void testIterator()
+	void testIterator()
 	{
 		testIterator(ls);
 		testIterator(ls2);
@@ -317,7 +317,7 @@ public class ListSetTest
 	}
 
 	@Test
-	public void testIteratorRemove()
+	void testIteratorRemove()
 	{
 		testIteratorRemove(ls);
 		testIteratorRemove(ls2);
@@ -365,7 +365,7 @@ public class ListSetTest
 	}
 
 	@Test
-	public void testIdentityAddConstructor()
+	void testIdentityAddConstructor()
 	{
 		Collection<Integer> nc = null;
 		assertThrows(NullPointerException.class, () -> new ListSet<>(nc));

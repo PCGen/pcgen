@@ -36,7 +36,7 @@ import pcgen.testsupport.NoZeroArgConstructorMap;
 import pcgen.testsupport.StrangeMap;
 import pcgen.testsupport.TestSupport;
 
-public class DoubleKeyMapTest
+class DoubleKeyMapTest
 {
 
 	public void populate(DoubleKeyMap<Integer, Double, Character> dkm)
@@ -52,35 +52,35 @@ public class DoubleKeyMapTest
 	}
 
 	@Test
-	public void testNullInConstructor()
+	void testNullInConstructor()
 	{
 		assertThrows(NullPointerException.class, () -> new DoubleKeyMap<>(null, HashMap.class));
 		assertThrows(NullPointerException.class, () -> new DoubleKeyMap<>(HashMap.class, null));
 	}
 
 	@Test
-	public void testBadClassInConstructor()
+	void testBadClassInConstructor()
 	{
 		assertThrows(IllegalArgumentException.class, () -> new DoubleKeyMap<>(StrangeMap.class, HashMap.class));
 		assertThrows(IllegalArgumentException.class, () -> new DoubleKeyMap<>(HashMap.class, StrangeMap.class));
 	}
 
 	@Test
-	public void testBadClassInConstructor2()
+	void testBadClassInConstructor2()
 	{
 		assertThrows(IllegalArgumentException.class, () -> new DoubleKeyMap<>(NoPublicZeroArgConstructorMap.class, HashMap.class));
 		assertThrows(IllegalArgumentException.class, () -> new DoubleKeyMap<>(HashMap.class, NoPublicZeroArgConstructorMap.class));
 	}
 
 	@Test
-	public void testBadClassInConstructor3()
+	void testBadClassInConstructor3()
 	{
 		assertThrows(IllegalArgumentException.class, () -> new DoubleKeyMap<>(NoZeroArgConstructorMap.class, HashMap.class));
 		assertThrows(IllegalArgumentException.class, () -> new DoubleKeyMap<>(HashMap.class, NoZeroArgConstructorMap.class));
 	}
 
 	@Test
-	public void testPutGet()
+	void testPutGet()
 	{
 		DoubleKeyMap<Integer, Double, Character> dkm = new DoubleKeyMap<>();
 		assertNull(dkm.get(TestSupport.I1, TestSupport.D0));
@@ -105,7 +105,7 @@ public class DoubleKeyMapTest
 	}
 
 	@Test
-	public void testRemoveAll()
+	void testRemoveAll()
 	{
 		DoubleKeyMap<Integer, Double, Character> dkm = new DoubleKeyMap<>();
 		assertNull(dkm.get(TestSupport.I1, TestSupport.D0));
@@ -128,7 +128,7 @@ public class DoubleKeyMapTest
 	}
 
 	@Test
-	public void testContainsKey()
+	void testContainsKey()
 	{
 		DoubleKeyMap<Integer, Double, Character> dkm = new DoubleKeyMap<>();
 		assertFalse(dkm.containsKey(TestSupport.I4));
@@ -151,7 +151,7 @@ public class DoubleKeyMapTest
 	}
 
 	@Test
-	public void testRemove()
+	void testRemove()
 	{
 		DoubleKeyMap<Integer, Double, Character> dkm = new DoubleKeyMap<>();
 		assertNull(dkm.remove(TestSupport.I1, TestSupport.D1));
@@ -177,7 +177,7 @@ public class DoubleKeyMapTest
 	}
 
 	@Test
-	public void testGetKeySet()
+	void testGetKeySet()
 	{
 		DoubleKeyMap<Integer, Double, Character> dkm = new DoubleKeyMap<>();
 		Set<Integer> s = dkm.getKeySet();
@@ -202,7 +202,7 @@ public class DoubleKeyMapTest
 	}
 
 	@Test
-	public void testGetSecondaryKeySet()
+	void testGetSecondaryKeySet()
 	{
 		DoubleKeyMap<Integer, Double, Character> dkm = new DoubleKeyMap<>();
 		Set<Double> s = dkm.getSecondaryKeySet(TestSupport.I4);
@@ -240,7 +240,7 @@ public class DoubleKeyMapTest
 	}
 
 	@Test
-	public void testClearIsEmpty()
+	void testClearIsEmpty()
 	{
 		DoubleKeyMap<Integer, Double, Character> dkm = new DoubleKeyMap<>();
 		assertTrue(dkm.isEmpty());
@@ -272,7 +272,7 @@ public class DoubleKeyMapTest
 	}
 
 	@Test
-	public void testValues()
+	void testValues()
 	{
 		DoubleKeyMap<Integer, Double, Character> dkm = new DoubleKeyMap<>();
 		Set<Character> s = dkm.values(TestSupport.I4);
@@ -313,7 +313,7 @@ public class DoubleKeyMapTest
 	}
 
 	@Test
-	public void testRemoveValue()
+	void testRemoveValue()
 	{
 		DoubleKeyMap<Integer, Double, Character> dkm = new DoubleKeyMap<>();
 		assertFalse(dkm.removeValue(TestSupport.I1, 'A'));
@@ -342,7 +342,7 @@ public class DoubleKeyMapTest
 	}
 
 	@Test
-	public void testDKMconstructorOneClear()
+	void testDKMconstructorOneClear()
 	{
 		DoubleKeyMap<Integer, Double, Character> dkm = new DoubleKeyMap<>();
 		populate(dkm);
@@ -358,7 +358,7 @@ public class DoubleKeyMapTest
 	}
 
 	@Test
-	public void testDKMconstructorTwoClear()
+	void testDKMconstructorTwoClear()
 	{
 		DoubleKeyMap<Integer, Double, Character> dkm = new DoubleKeyMap<>();
 		populate(dkm);
@@ -374,7 +374,7 @@ public class DoubleKeyMapTest
 	}
 
 	@Test
-	public void testDKMconstructorOneChange()
+	void testDKMconstructorOneChange()
 	{
 		DoubleKeyMap<Integer, Double, Character> dkm = new DoubleKeyMap<>();
 		populate(dkm);
@@ -389,7 +389,7 @@ public class DoubleKeyMapTest
 	}
 
 	@Test
-	public void testDKMconstructorTwoChange()
+	void testDKMconstructorTwoChange()
 	{
 		DoubleKeyMap<Integer, Double, Character> dkm = new DoubleKeyMap<>();
 		populate(dkm);
@@ -404,7 +404,7 @@ public class DoubleKeyMapTest
 	}
 
 	@Test
-	public void testDKMconstructorOneRemoveAll()
+	void testDKMconstructorOneRemoveAll()
 	{
 		DoubleKeyMap<Integer, Double, Character> dkm = new DoubleKeyMap<>();
 		populate(dkm);
@@ -418,7 +418,7 @@ public class DoubleKeyMapTest
 	}
 
 	@Test
-	public void testDKMconstructorTwoRemoveAll()
+	void testDKMconstructorTwoRemoveAll()
 	{
 		DoubleKeyMap<Integer, Double, Character> dkm = new DoubleKeyMap<>();
 		populate(dkm);
@@ -432,7 +432,7 @@ public class DoubleKeyMapTest
 	}
 
 	@Test
-	public void testDKMputAllOneClear()
+	void testDKMputAllOneClear()
 	{
 		DoubleKeyMap<Integer, Double, Character> dkm = new DoubleKeyMap<>();
 		populate(dkm);
@@ -449,7 +449,7 @@ public class DoubleKeyMapTest
 	}
 
 	@Test
-	public void testDKMputAllTwoClear()
+	void testDKMputAllTwoClear()
 	{
 		DoubleKeyMap<Integer, Double, Character> dkm = new DoubleKeyMap<>();
 		populate(dkm);
@@ -466,7 +466,7 @@ public class DoubleKeyMapTest
 	}
 
 	@Test
-	public void testDKMputAllOneChange()
+	void testDKMputAllOneChange()
 	{
 		DoubleKeyMap<Integer, Double, Character> dkm = new DoubleKeyMap<>();
 		populate(dkm);
@@ -482,7 +482,7 @@ public class DoubleKeyMapTest
 	}
 
 	@Test
-	public void testDKMputAllTwoChange()
+	void testDKMputAllTwoChange()
 	{
 		DoubleKeyMap<Integer, Double, Character> dkm = new DoubleKeyMap<>();
 		populate(dkm);
@@ -498,7 +498,7 @@ public class DoubleKeyMapTest
 	}
 
 	@Test
-	public void testDKMputAllOneRemoveAll()
+	void testDKMputAllOneRemoveAll()
 	{
 		DoubleKeyMap<Integer, Double, Character> dkm = new DoubleKeyMap<>();
 		populate(dkm);
@@ -513,7 +513,7 @@ public class DoubleKeyMapTest
 	}
 
 	@Test
-	public void testDKMputAllTwoRemoveAll()
+	void testDKMputAllTwoRemoveAll()
 	{
 		DoubleKeyMap<Integer, Double, Character> dkm = new DoubleKeyMap<>();
 		populate(dkm);
@@ -528,14 +528,14 @@ public class DoubleKeyMapTest
 	}
 
 	@Test
-	public void testPutAllNull()
+	void testPutAllNull()
 	{
 		DoubleKeyMap<Integer, Double, Character> dkm = new DoubleKeyMap<>();
 		assertThrows(NullPointerException.class, () -> dkm.putAll(null));
 	}
 	
 	@Test
-	public void testGetMap()
+	void testGetMap()
 	{
 		DoubleKeyMap<Integer, Double, Character> dkm = new DoubleKeyMap<>();
 		Map<Double, Character> map = dkm.getMapFor(Integer.valueOf(7));
@@ -578,7 +578,7 @@ public class DoubleKeyMapTest
 	}
 
 	@Test
-	public void testClone()
+	void testClone()
 	{
 		DoubleKeyMap<Integer, Double, Character> dkm = new DoubleKeyMap<>();
 		populate(dkm);
@@ -603,7 +603,7 @@ public class DoubleKeyMapTest
 	}
 
 	@Test
-	public void testReadOnlyMap()
+	void testReadOnlyMap()
 	{
 		DoubleKeyMap<Integer, Double, Character> dkm = new DoubleKeyMap<>();
 		populate(dkm);

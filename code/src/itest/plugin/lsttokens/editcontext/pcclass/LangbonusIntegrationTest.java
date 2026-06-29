@@ -31,7 +31,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class LangbonusIntegrationTest extends
+class LangbonusIntegrationTest extends
 		AbstractListIntegrationTestCase<PCClass, Language>
 {
 
@@ -83,7 +83,7 @@ public class LangbonusIntegrationTest extends
 	}
 
 	@Test
-	public void dummyTest()
+	void dummyTest()
 	{
 		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}

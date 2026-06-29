@@ -32,7 +32,7 @@ import pcgen.base.formula.base.VariableID;
 import pcgen.base.testsupport.GlobalVarScoped;
 import pcgen.base.testsupport.NaiveScopeManager;
 
-public class DelegatingVariableStoreTest
+class DelegatingVariableStoreTest
 {
 
 	private NaiveScopeManager scopeManager;
@@ -56,7 +56,7 @@ public class DelegatingVariableStoreTest
 	}
 
 	@Test
-	public void testAddRemove()
+	void testAddRemove()
 	{
 		MonitorableVariableStore backingStore = new MonitorableVariableStore();
 		DelegatingVariableStore varStore = new DelegatingVariableStore(backingStore);

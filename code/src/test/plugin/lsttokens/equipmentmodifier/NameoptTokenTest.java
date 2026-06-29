@@ -34,7 +34,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
 
-public class NameoptTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifier>
+class NameoptTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifier>
 {
 	static NameoptToken token = new NameoptToken();
 	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
@@ -58,7 +58,7 @@ public class NameoptTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 	}
 
 	@Test
-	public void testBadInputNegative()
+	void testBadInputNegative()
 	{
 		try
 		{
@@ -72,58 +72,58 @@ public class NameoptTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 	}
 
 	@Test
-	public void testBadInputEmpty()
+	void testBadInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testBadInputPlainText()
+	void testBadInputPlainText()
 	{
 		assertFalse(parse("TEXT"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testBadInputEmptyText()
+	void testBadInputEmptyText()
 	{
 		assertFalse(parse("TEXT="));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testRoundRobinNormal() throws PersistenceLayerException
+	void testRoundRobinNormal() throws PersistenceLayerException
 	{
 		runRoundRobin("NORMAL");
 	}
 
 	@Test
-	public void testRoundRobinNoList() throws PersistenceLayerException
+	void testRoundRobinNoList() throws PersistenceLayerException
 	{
 		runRoundRobin("NOLIST");
 	}
 
 	@Test
-	public void testRoundRobinNoName() throws PersistenceLayerException
+	void testRoundRobinNoName() throws PersistenceLayerException
 	{
 		runRoundRobin("NONAME");
 	}
 
 	@Test
-	public void testRoundRobinNothing() throws PersistenceLayerException
+	void testRoundRobinNothing() throws PersistenceLayerException
 	{
 		runRoundRobin("NOTHING");
 	}
 
 	@Test
-	public void testRoundRobinSpell() throws PersistenceLayerException
+	void testRoundRobinSpell() throws PersistenceLayerException
 	{
 		runRoundRobin("SPELL");
 	}
 
 	@Test
-	public void testRoundRobinText() throws PersistenceLayerException
+	void testRoundRobinText() throws PersistenceLayerException
 	{
 		runRoundRobin("TEXT=This is the text");
 	}
@@ -148,7 +148,7 @@ public class NameoptTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 
 
 	@Test
-	public void testOverwriteToText()
+	void testOverwriteToText()
 	{
 		parse("SPELL");
 		validateUnparsed(primaryContext, primaryProf, "SPELL");
@@ -158,7 +158,7 @@ public class NameoptTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 	}
 
 	@Test
-	public void testOverwriteFromText()
+	void testOverwriteFromText()
 	{
 		parse("TEXT=This is the text");
 		validateUnparsed(primaryContext, primaryProf, "TEXT=This is the text");
@@ -167,7 +167,7 @@ public class NameoptTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 				.getAnswer("TEXT=This is the text", "NOTHING"));
 	}
 	@Test
-	public void testUnparseNull()
+	void testUnparseNull()
 	{
 		primaryProf.put(getObjectKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
@@ -179,7 +179,7 @@ public class NameoptTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 	}
 
 	@Test
-	public void testUnparseLegal()
+	void testUnparseLegal()
 	{
 		primaryProf.put(getObjectKey(), EqModNameOpt.SPELL);
 		expectSingle(getToken().unparse(primaryContext, primaryProf),
@@ -187,7 +187,7 @@ public class NameoptTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 	}
 
 	@Test
-	public void testUnparseLegalName()
+	void testUnparseLegalName()
 	{
 		primaryProf.put(StringKey.NAME_TEXT, "MyText");
 		primaryProf.put(ObjectKey.NAME_OPT, EqModNameOpt.TEXT);
@@ -197,7 +197,7 @@ public class NameoptTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail()
+	void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = getObjectKey();
 		primaryProf.put(objectKey, new Object());
@@ -213,7 +213,7 @@ public class NameoptTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 	}
 
 	@Test
-	public void testUnparseIncompleteSpell()
+	void testUnparseIncompleteSpell()
 	{
 		primaryProf.put(ObjectKey.NAME_OPT, EqModNameOpt.TEXT);
 		assertBadUnparse();

@@ -38,7 +38,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class AlignTokenTest extends AbstractCDOMTokenTestCase<Deity>
+class AlignTokenTest extends AbstractCDOMTokenTestCase<Deity>
 {
 	static AlignToken token = new AlignToken();
 	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<>();
@@ -84,14 +84,14 @@ public class AlignTokenTest extends AbstractCDOMTokenTestCase<Deity>
 	}
 
 	@Test
-	public void testInvalidEmpty()
+	void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidFormula()
+	void testInvalidFormula()
 	{
 		if (parse("1+3"))
 		{
@@ -104,14 +104,14 @@ public class AlignTokenTest extends AbstractCDOMTokenTestCase<Deity>
 	}
 
 	@Test
-	public void testInvalidInteger()
+	void testInvalidInteger()
 	{
 		assertFalse(parse("4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidString()
+	void testInvalidString()
 	{
 		if (parse("String"))
 		{
@@ -124,13 +124,13 @@ public class AlignTokenTest extends AbstractCDOMTokenTestCase<Deity>
 	}
 
 	@Test
-	public void testRoundRobinLG() throws PersistenceLayerException
+	void testRoundRobinLG() throws PersistenceLayerException
 	{
 		runRoundRobin("LG");
 	}
 
 	@Test
-	public void testRoundRobinLN() throws PersistenceLayerException
+	void testRoundRobinLN() throws PersistenceLayerException
 	{
 		runRoundRobin("LN");
 	}
@@ -154,14 +154,14 @@ public class AlignTokenTest extends AbstractCDOMTokenTestCase<Deity>
 	}
 
 	@Test
-	public void testUnparseNull()
+	void testUnparseNull()
 	{
 		primaryProf.put(ObjectKey.ALIGNMENT, null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseLegal()
+	void testUnparseLegal()
 	{
 		primaryProf.put(ObjectKey.ALIGNMENT, CDOMDirectSingleRef.getRef(lg));
 		expectSingle(getToken().unparse(primaryContext, primaryProf), lg
@@ -170,7 +170,7 @@ public class AlignTokenTest extends AbstractCDOMTokenTestCase<Deity>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail()
+	void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = ObjectKey.ALIGNMENT;
 		primaryProf.put(objectKey, new Object());

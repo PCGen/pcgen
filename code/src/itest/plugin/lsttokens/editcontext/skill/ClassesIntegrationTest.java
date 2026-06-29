@@ -32,14 +32,14 @@ import plugin.pretokens.parser.PreClassParser;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-public class ClassesIntegrationTest extends AbstractIntegrationTestCase<Skill>
+class ClassesIntegrationTest extends AbstractIntegrationTestCase<Skill>
 {
 
 	private static ClassesToken token = new ClassesToken();
 	private static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<>();
 
 	@BeforeAll
-	public static void ltClassSetUp() throws PersistenceLayerException
+	static void ltClassSetUp() throws PersistenceLayerException
 	{
 		TokenRegistration.register(new PreClassParser());
 	}
@@ -63,7 +63,7 @@ public class ClassesIntegrationTest extends AbstractIntegrationTestCase<Skill>
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		primaryContext.getReferenceContext().constructCDOMObject(ClassSkillList.class, "Wizard");
@@ -83,7 +83,7 @@ public class ClassesIntegrationTest extends AbstractIntegrationTestCase<Skill>
 	}
 
 	@Test
-	public void testRoundRobinAddNot() throws PersistenceLayerException
+	void testRoundRobinAddNot() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		primaryContext.getReferenceContext().constructCDOMObject(ClassSkillList.class, "Wizard");
@@ -100,7 +100,7 @@ public class ClassesIntegrationTest extends AbstractIntegrationTestCase<Skill>
 	}
 
 	@Test
-	public void testRoundRobinOverridePre() throws PersistenceLayerException
+	void testRoundRobinOverridePre() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		primaryContext.getReferenceContext().constructCDOMObject(ClassSkillList.class, "Wizard");
@@ -117,7 +117,7 @@ public class ClassesIntegrationTest extends AbstractIntegrationTestCase<Skill>
 	}
 
 	@Test
-	public void testRoundRobinNoSet() throws PersistenceLayerException
+	void testRoundRobinNoSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		primaryContext.getReferenceContext()
@@ -131,7 +131,7 @@ public class ClassesIntegrationTest extends AbstractIntegrationTestCase<Skill>
 	}
 
 	@Test
-	public void testRoundRobinNoReset() throws PersistenceLayerException
+	void testRoundRobinNoReset() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		primaryContext.getReferenceContext().constructCDOMObject(ClassSkillList.class, "Wizard");

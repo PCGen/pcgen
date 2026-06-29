@@ -27,10 +27,10 @@ import org.junit.jupiter.api.Test;
  * Tests a Modern Tough Hero 3/Strong Hero 3.
  * See the PCG file for details
  */
-public class pcGenGUIIlyanaTest extends PcgenFtlTestCase
+class pcGenGUIIlyanaTest extends PcgenFtlTestCase
 {
 	@Test
-	public void testIlyana() throws Exception
+	void testIlyana() throws Exception
 	{
 		runTest("msrd_Ilyana");
 	}

@@ -25,11 +25,11 @@ import org.junit.jupiter.api.Test;
 /**
  * Test the UnreachableError class
  */
-public class UnreachableErrorTest
+class UnreachableErrorTest
 {
 
 	@Test
-	public void testMessageConstructor()
+	void testMessageConstructor()
 	{
 		String expectedResult = "Foobar";
 		UnreachableError unreachableError = new UnreachableError("Foobar");
@@ -38,7 +38,7 @@ public class UnreachableErrorTest
 	}
 
 	@Test
-	public void testCauseConstructor()
+	void testCauseConstructor()
 	{
 		UnreachableError unreachableError =
 				new UnreachableError(new NullPointerException());
@@ -47,7 +47,7 @@ public class UnreachableErrorTest
 	}
 
 	@Test
-	public void testMessageAndCauseConstructor()
+	void testMessageAndCauseConstructor()
 	{
 		String expectedResult = "Foobar";
 		Throwable unreachableError =

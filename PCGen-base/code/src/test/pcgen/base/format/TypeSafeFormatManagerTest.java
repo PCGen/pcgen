@@ -28,12 +28,12 @@ import pcgen.testsupport.TestSafe;
 /**
  * Test the TypeSafeFormatManager class
  */
-public class TypeSafeFormatManagerTest
+class TypeSafeFormatManagerTest
 {
 
 	@SuppressWarnings({"rawtypes", "unchecked", "cast"})
 	@Test
-	public void testFailBadSubFormat()
+	void testFailBadSubFormat()
 	{
 		assertThrows(NullPointerException.class, () -> new TypeSafeFormatManager<>(TestSafe.class, null));
 		assertThrows(IllegalArgumentException.class, () -> new TypeSafeFormatManager<>(TestSafe.class, ""));
@@ -42,7 +42,7 @@ public class TypeSafeFormatManagerTest
 	}
 
 	@Test
-	public void testConvert()
+	void testConvert()
 	{
 		FormatManager<TestSafe> manager = new TypeSafeFormatManager<>(TestSafe.class, "TESTSAFE");
 		assertThrows(NullPointerException.class, () -> manager.convert(null));
@@ -52,14 +52,14 @@ public class TypeSafeFormatManagerTest
 	}
 
 	@Test
-	public void testGetIdentifier()
+	void testGetIdentifier()
 	{
 		FormatManager<TestSafe> manager = new TypeSafeFormatManager<>(TestSafe.class, "TESTSAFE");
 		assertEquals("TESTSAFE", manager.getIdentifierType());
 	}
 
 	@Test
-	public void testHashCodeEquals()
+	void testHashCodeEquals()
 	{
 		FormatManager<TestSafe> manager = new TypeSafeFormatManager<>(TestSafe.class, "TESTSAFE");
 		assertEquals(new TypeSafeFormatManager<>(TestSafe.class, "TESTSAFE").hashCode(), manager.hashCode());
@@ -69,21 +69,21 @@ public class TypeSafeFormatManagerTest
 	}
 
 	@Test
-	public void testGetComponent()
+	void testGetComponent()
 	{
 		FormatManager<TestSafe> manager = new TypeSafeFormatManager<>(TestSafe.class, "TESTSAFE");
 		assertTrue(manager.getComponentManager().isEmpty());
 	}
 
 	@Test
-	public void testIsDirect()
+	void testIsDirect()
 	{
 		FormatManager<TestSafe> manager = new TypeSafeFormatManager<>(TestSafe.class, "TESTSAFE");
 		assertTrue(manager.isDirect());
 	}
 
 	@Test
-	public void testInitializeFrom()
+	void testInitializeFrom()
 	{
 		FormatManager<TestSafe> manager = new TypeSafeFormatManager<>(TestSafe.class, "TESTSAFE");
 		SimpleValueStore valueStore = new SimpleValueStore();

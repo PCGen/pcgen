@@ -38,7 +38,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class SizeTokenTest extends AbstractCDOMTokenTestCase<Race>
+class SizeTokenTest extends AbstractCDOMTokenTestCase<Race>
 {
 
 	static SizeToken token = new SizeToken();
@@ -79,7 +79,7 @@ public class SizeTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testInvalidNotASize()
+	void testInvalidNotASize()
 	{
 		if (token.parseToken(primaryContext, primaryProf, "W").passed())
 		{
@@ -92,13 +92,13 @@ public class SizeTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testRoundRobinS() throws PersistenceLayerException
+	void testRoundRobinS() throws PersistenceLayerException
 	{
 		runRoundRobin("S");
 	}
 
 	@Test
-	public void testRoundRobinM() throws PersistenceLayerException
+	void testRoundRobinM() throws PersistenceLayerException
 	{
 		runRoundRobin("M");
 	}
@@ -122,14 +122,14 @@ public class SizeTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testUnparseNull()
+	void testUnparseNull()
 	{
 		primaryProf.put(FormulaKey.SIZE, null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseLegal()
+	void testUnparseLegal()
 	{
 		FixedSizeFormula fsf = new FixedSizeFormula(CDOMDirectSingleRef.getRef(ps));
 		primaryProf.put(FormulaKey.SIZE, fsf);

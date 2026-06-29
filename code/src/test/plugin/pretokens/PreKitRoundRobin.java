@@ -27,7 +27,7 @@ import org.junit.jupiter.api.BeforeEach;
  * PreKitRoundRobin test the parsing and unparsing of PREKIT tags.
  * 
  */
-public class PreKitRoundRobin extends AbstractBasicRoundRobin
+class PreKitRoundRobin extends AbstractBasicRoundRobin
 {
 	@BeforeEach
 	@Override

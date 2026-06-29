@@ -37,7 +37,7 @@ class TermUtilitiesTest
 	 * Method: checkEqTypeTypesArray(String originalText, String[] types, int first)
 	 */
 	@Test
-	public void testcheckEqTypeTypesArray01()
+	void testcheckEqTypeTypesArray01()
 	{
 		String[] types = {"EQUIPPED"};
 		assertDoesNotThrow(() -> TermUtilities.checkEqTypeTypesArray("COUNT[EQTYPE.EQUIPPED]", types, 0), "EqtypesTypesArray01 Single Type EQUIPPED");
@@ -47,7 +47,7 @@ class TermUtilitiesTest
 	 * Method: checkEqTypeTypesArray(String originalText, String[] types, int first)
 	 */
 	@Test
-	public void testcheckEqTypeTypesArray02()
+	void testcheckEqTypeTypesArray02()
 	{
 		String[] types = {"NOTEQUIPPED"};
 		assertDoesNotThrow(() -> TermUtilities.checkEqTypeTypesArray("COUNT[EQTYPE.NOTEQUIPPED]", types, 0), "EqtypesTypesArray01 Single Type NOTEQUIPPEDZ");
@@ -57,7 +57,7 @@ class TermUtilitiesTest
 	 * Method: checkEqTypeTypesArray(String originalText, String[] types, int first)
 	 */
 	@Test
-	public void testcheckEqTypeTypesArray03()
+	void testcheckEqTypeTypesArray03()
 	{
 		assertThrows(TermEvaulatorException.class, () -> {
 			String[] types = {"EQUIPPED", "FOO"};
@@ -69,7 +69,7 @@ class TermUtilitiesTest
 	 * Method: checkEqTypeTypesArray(String originalText, String[] types, int first)
 	 */
 	@Test
-	public void testcheckEqTypeTypesArray04()
+	void testcheckEqTypeTypesArray04()
 	{
 		String[] types = {"BAR", "NOT", "FOO"};
 		assertDoesNotThrow(() -> TermUtilities.checkEqTypeTypesArray("COUNT[EQTYPE.BAR.NOT.FOO]", types, 0), "EqtypesTypesArray04 Exclude FOO");
@@ -79,7 +79,7 @@ class TermUtilitiesTest
 	 * Method: checkEqTypeTypesArray(String originalText, String[] types, int first)
 	 */
 	@Test
-	public void testcheckEqTypeTypesArray05()
+	void testcheckEqTypeTypesArray05()
 	{
 		assertDoesNotThrow(() ->  {
 			String[] types = {"BAR", "ADD", "FOO"};
@@ -91,7 +91,7 @@ class TermUtilitiesTest
 	 * Method: checkEqTypeTypesArray(String originalText, String[] types, int first)
 	 */
 	@Test
-	public void testcheckEqTypeTypesArray06()
+	void testcheckEqTypeTypesArray06()
 	{
 		assertDoesNotThrow(() -> {
 			String[] types = {"BAR", "IS", "FOO"};
@@ -103,7 +103,7 @@ class TermUtilitiesTest
 	 * Method: checkEqTypeTypesArray(String originalText, String[] types, int first)
 	 */
 	@Test
-	public void testcheckEqTypeTypesArray07()
+	void testcheckEqTypeTypesArray07()
 	{
 		boolean ok;
 		try
@@ -123,7 +123,7 @@ class TermUtilitiesTest
 	 * Method: checkEqTypeTypesArray(String originalText, String[] types, int first)
 	 */
 	@Test
-	public void testcheckEqTypeTypesArray08()
+	void testcheckEqTypeTypesArray08()
 	{
 		boolean ok;
 		try
@@ -143,7 +143,7 @@ class TermUtilitiesTest
 	 * Method: checkEquipmentTypesArray(String originalText, String[] types, int first)
 	 */
 	@Test
-	public void testcheckEquipmentTypesArray01()
+	void testcheckEquipmentTypesArray01()
 	{
 		boolean ok;
 		try
@@ -163,7 +163,7 @@ class TermUtilitiesTest
 	 * Method: checkEquipmentTypesArray(String originalText, String[] types, int first)
 	 */
 	@Test
-	public void testcheckEquipmentTypesArray02()
+	void testcheckEquipmentTypesArray02()
 	{
 		boolean ok;
 		try
@@ -183,7 +183,7 @@ class TermUtilitiesTest
 	 * Method: checkEquipmentTypesArray(String originalText, String[] types, int first)
 	 */
 	@Test
-	public void testcheckEquipmentTypesArray03()
+	void testcheckEquipmentTypesArray03()
 	{
 		boolean ok;
 		try
@@ -203,7 +203,7 @@ class TermUtilitiesTest
 	 * Method: checkEquipmentTypesArray(String originalText, String[] types, int first)
 	 */
 	@Test
-	public void testcheckEquipmentTypesArray04()
+	void testcheckEquipmentTypesArray04()
 	{
 		boolean ok;
 		try
@@ -223,7 +223,7 @@ class TermUtilitiesTest
 	 * Method: checkEquipmentTypesArray(String originalText, String[] types, int first)
 	 */
 	@Test
-	public void testcheckEquipmentTypesArray05()
+	void testcheckEquipmentTypesArray05()
 	{
 		boolean ok;
 		try
@@ -243,7 +243,7 @@ class TermUtilitiesTest
 	 * Method: checkEquipmentTypesArray(String originalText, String[] types, int first)
 	 */
 	@Test
-	public void testcheckEquipmentTypesArray06()
+	void testcheckEquipmentTypesArray06()
 	{
 		boolean ok;
 		try
@@ -263,7 +263,7 @@ class TermUtilitiesTest
 	 * Method: checkEquipmentTypesArray(String originalText, String[] types, int first)
 	 */
 	@Test
-	public void testcheckEquipmentTypesArray07()
+	void testcheckEquipmentTypesArray07()
 	{
 		boolean ok;
 		try
@@ -283,7 +283,7 @@ class TermUtilitiesTest
 	 * Method: checkEquipmentTypesArray(String originalText, String[] types, int first)
 	 */
 	@Test
-	public void testcheckEquipmentTypesArray08()
+	void testcheckEquipmentTypesArray08()
 	{
 		boolean ok;
 		try
@@ -304,7 +304,7 @@ class TermUtilitiesTest
 	 * Method: splitAndConvertIntegers(final String source, int numOfFields)
 	 */
 	@Test
-	public void testSplitAndConvertIntegers01()
+	void testSplitAndConvertIntegers01()
 	{
 		boolean ok;
 		int[] nums = new int[1];
@@ -325,7 +325,7 @@ class TermUtilitiesTest
 	 * Method: splitAndConvertIntegers(final String source, int numOfFields)
 	 */
 	@Test
-	public void testSplitAndConvertIntegers02()
+	void testSplitAndConvertIntegers02()
 	{
 		boolean ok;
 		int[] nums = new int[1];
@@ -347,7 +347,7 @@ class TermUtilitiesTest
 	 * Method: splitAndConvertIntegers(final String source, int numOfFields)
 	 */
 	@Test
-	public void testSplitAndConvertIntegers03()
+	void testSplitAndConvertIntegers03()
 	{
 		boolean ok;
 		int[] nums = new int[1];
@@ -369,7 +369,7 @@ class TermUtilitiesTest
 	 * Method: splitAndConvertIntegers(final String source, int numOfFields)
 	 */
 	@Test
-	public void testSplitAndConvertIntegers04()
+	void testSplitAndConvertIntegers04()
 	{
 		boolean ok;
 		try
@@ -390,7 +390,7 @@ class TermUtilitiesTest
 	 * Method: extractContentsOfBrackets(String expressionString, String src, int fixed)
 	 */
 	@Test
-	public void testExtractContentsOfBrackets01()
+	void testExtractContentsOfBrackets01()
 	{
 		String inside = "";
 
@@ -415,7 +415,7 @@ class TermUtilitiesTest
 	 * Method: extractContentsOfBrackets(String expressionString, String src, int fixed)
 	 */
 	@Test
-	public void testExtractContentsOfBrackets02()
+	void testExtractContentsOfBrackets02()
 	{
 
 		boolean ok;
@@ -438,7 +438,7 @@ class TermUtilitiesTest
 	 * Method: extractContentsOfBrackets(String expressionString, String src, int fixed)
 	 */
 	@Test
-	public void testExtractContentsOfBrackets03()
+	void testExtractContentsOfBrackets03()
 	{
 
 		boolean ok;
@@ -462,7 +462,7 @@ class TermUtilitiesTest
 	 * Method: splitAndConvertIntegers(final String source, int numOfFields)
 	 */
 	@Test
-	public void testConvertToIntegers01()
+	void testConvertToIntegers01()
 	{
 		boolean ok;
 		int[] nums = new int[1];
@@ -484,7 +484,7 @@ class TermUtilitiesTest
 	 * Method: splitAndConvertIntegers(final String source, int numOfFields)
 	 */
 	@Test
-	public void testConvertToIntegers02()
+	void testConvertToIntegers02()
 	{
 		boolean ok;
 		int[] nums = new int[1];
@@ -506,7 +506,7 @@ class TermUtilitiesTest
 	 * Method: splitAndConvertIntegers(final String source, int numOfFields)
 	 */
 	@Test
-	public void testConvertToIntegers03()
+	void testConvertToIntegers03()
 	{
 		boolean ok;
 		int[] nums = new int[1];
@@ -528,7 +528,7 @@ class TermUtilitiesTest
 	 * Method: splitAndConvertIntegers(final String source, int numOfFields)
 	 */
 	@Test
-	public void testConvertToIntegers04()
+	void testConvertToIntegers04()
 	{
 		boolean ok;
 		try
@@ -548,7 +548,7 @@ class TermUtilitiesTest
 	 * Method: splitAndConvertIntegers(final String source, int numOfFields)
 	 */
 	@Test
-	public void testConvertToIntegers05()
+	void testConvertToIntegers05()
 	{
 		boolean ok;
 		try

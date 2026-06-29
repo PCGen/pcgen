@@ -78,19 +78,19 @@ class RequiredTokenTest
 	}
 
 	@Test
-	public void testInvalidInputNullString()
+	void testInvalidInputNullString()
 	{
 		assertFalse(token.parseToken(context, cd, null).passed());
 	}
 
 	@Test
-	public void testInvalidInputEmptyString()
+	void testInvalidInputEmptyString()
 	{
 		assertFalse(token.parseToken(context, cd, "").passed());
 	}
 
 	@Test
-	public void testValidStringYes()
+	void testValidStringYes()
 	{
 		assertNull(cd.getRequired());
 		assertTrue(token.parseToken(context, cd, "YES").passed());
@@ -101,7 +101,7 @@ class RequiredTokenTest
 	}
 
 	@Test
-	public void testValidStringNo()
+	void testValidStringNo()
 	{
 		assertNull(cd.getRequired());
 		assertTrue(token.parseToken(context, cd, "NO").passed());

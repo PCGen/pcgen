@@ -49,7 +49,7 @@ import plugin.pretokens.test.PreMultTester;
  * is working correctly.
  */
 
-public class PreMultTest extends AbstractCharacterTestCase
+class PreMultTest extends AbstractCharacterTestCase
 {
 
 	private Skill knowledge;
@@ -91,7 +91,7 @@ public class PreMultTest extends AbstractCharacterTestCase
 	 * @throws PrerequisiteException the prerequisite exception
 	 */
 	@Test
-	public void testCharWithMultipleSpellClasses() throws PersistenceLayerException, PrerequisiteException
+	void testCharWithMultipleSpellClasses() throws PersistenceLayerException, PrerequisiteException
 	{
 		LoadContext context = Globals.getContext();
 		final PCClass pcClass = context.getReferenceContext().constructCDOMObject(PCClass.class, "MyClass");
@@ -133,7 +133,7 @@ public class PreMultTest extends AbstractCharacterTestCase
 	 * @throws PrerequisiteException the prerequisite exception
 	 */
 	@Test
-	public void testMultiFeats() throws PersistenceLayerException, PrerequisiteException
+	void testMultiFeats() throws PersistenceLayerException, PrerequisiteException
 	{
 		final Ability metamagic1 = new Ability();
 		metamagic1.addToListFor(ListKey.TYPE, Type.getConstant("METAMAGIC"));
@@ -222,7 +222,7 @@ public class PreMultTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testMultiSkills() throws PersistenceLayerException
+	void testMultiSkills() throws PersistenceLayerException
 	{
 		final PreSkillParser producer = new PreSkillParser();
 

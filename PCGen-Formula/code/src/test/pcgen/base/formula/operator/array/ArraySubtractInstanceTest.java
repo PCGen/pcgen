@@ -28,10 +28,10 @@ import org.junit.jupiter.api.Test;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.testsupport.TestUtilities;
 
-public class ArraySubtractInstanceTest
+class ArraySubtractInstanceTest
 {
 	@Test
-	public void testOperator()
+	void testOperator()
 	{
 		ArraySubtractInstance op = new ArraySubtractInstance();
 		assertNotNull(op.getOperator());
@@ -39,7 +39,7 @@ public class ArraySubtractInstanceTest
 	}
 
 	@Test
-	public void testAbstractEvaluateNulls()
+	void testAbstractEvaluateNulls()
 	{
 		ArraySubtractInstance op = new ArraySubtractInstance();
 		try
@@ -77,7 +77,7 @@ public class ArraySubtractInstanceTest
 	}
 
 	@Test
-	public void testAbstractEvaluateMismatch()
+	void testAbstractEvaluateMismatch()
 	{
 		ArraySubtractInstance op = new ArraySubtractInstance();
 		assertTrue(op.abstractEvaluate(TestUtilities.NUMBER_ARRAY_CLASS, TestUtilities.BOOLEAN_ARRAY_CLASS,
@@ -101,7 +101,7 @@ public class ArraySubtractInstanceTest
 	}
 
 	@Test
-	public void testAbstractEvaluateLegal()
+	void testAbstractEvaluateLegal()
 	{
 		ArraySubtractInstance op = new ArraySubtractInstance();
 		assertEquals(TestUtilities.NUMBER_ARRAY_CLASS, op.abstractEvaluate(TestUtilities.NUMBER_ARRAY_CLASS,
@@ -122,7 +122,7 @@ public class ArraySubtractInstanceTest
 	}
 
 	@Test
-	public void testEvaluateFailNull()
+	void testEvaluateFailNull()
 	{
 		ArraySubtractInstance op = new ArraySubtractInstance();
 		assertThrows(NullPointerException.class, () -> op.evaluate(null, null));
@@ -132,7 +132,7 @@ public class ArraySubtractInstanceTest
 	}
 
 	@Test
-	public void testEvaluateLegalArrayObject()
+	void testEvaluateLegalArrayObject()
 	{
 		ArraySubtractInstance op = new ArraySubtractInstance();
 		Number[] iArray = new Number[]{1, 2, 4.5, -6};
@@ -146,7 +146,7 @@ public class ArraySubtractInstanceTest
 	}
 
 	@Test
-	public void testEvaluateLegalArrayArray()
+	void testEvaluateLegalArrayArray()
 	{
 		ArraySubtractInstance op = new ArraySubtractInstance();
 		Number[] iArray = new Number[]{1, 2, 4.5, -6};

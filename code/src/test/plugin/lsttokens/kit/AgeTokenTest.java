@@ -25,7 +25,7 @@ import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
 import org.junit.jupiter.api.Test;
 
-public class AgeTokenTest extends AbstractKitTokenTestCase<KitBio>
+class AgeTokenTest extends AbstractKitTokenTestCase<KitBio>
 {
 
 	static AgeToken token = new AgeToken();
@@ -51,7 +51,7 @@ public class AgeTokenTest extends AbstractKitTokenTestCase<KitBio>
 	}
 
 	@Test
-	public void testRoundRobinAge() throws PersistenceLayerException
+	void testRoundRobinAge() throws PersistenceLayerException
 	{
 		runRoundRobin("46");
 	}

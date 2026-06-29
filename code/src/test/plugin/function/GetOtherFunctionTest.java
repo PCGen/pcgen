@@ -50,7 +50,7 @@ import util.FormatSupport;
 /**
  * Test getOther() function in the new formula system
  */
-public class GetOtherFunctionTest extends AbstractFormulaTestCase
+class GetOtherFunctionTest extends AbstractFormulaTestCase
 {
 
 	@BeforeEach
@@ -68,7 +68,7 @@ public class GetOtherFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidWrongArg()
+	void testInvalidWrongArg()
 	{
 		String formula = "getOther(\"PC.SKILL\")";
 		SimpleNode node = doParse(formula);
@@ -79,7 +79,7 @@ public class GetOtherFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidWrongFormat1()
+	void testInvalidWrongFormat1()
 	{
 		String formula = "getOther(3,\"SkillKey\",3)";
 		SimpleNode node = doParse(formula);
@@ -87,7 +87,7 @@ public class GetOtherFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidWrongFormat2()
+	void testInvalidWrongFormat2()
 	{
 		String formula = "getOther(\"PC.SKILL\",3,3)";
 		SimpleNode node = doParse(formula);
@@ -98,7 +98,7 @@ public class GetOtherFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidWrongFormat3()
+	void testInvalidWrongFormat3()
 	{
 		String formula =
 				"getOther(\"PC.SKILL\", \"SkillKey\",\"Stuff\")";
@@ -114,7 +114,7 @@ public class GetOtherFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testBasic()
+	void testBasic()
 	{
 		VariableLibrary vl = getVariableLibrary();
 		PCGenScope skillScope = context.getVariableContext().getScope("PC.SKILL");
@@ -141,7 +141,7 @@ public class GetOtherFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDynamic()
+	void testDynamic()
 	{
 		VariableLibrary vl = getVariableLibrary();
 		VariableContext variableContext = context.getVariableContext();

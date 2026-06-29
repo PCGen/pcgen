@@ -44,7 +44,7 @@ class DataSetTest
 {
 
 	@Test
-	public final void testGetEquipmentLocationsAll()
+	final void testGetEquipmentLocationsAll()
 	{
 		// if getEquipmentLocations is done first, the defaultonly test fails.
 		getEquipmentLocationsDefaultOnly();
@@ -110,7 +110,7 @@ class DataSetTest
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testGetPrereqAbilities() throws PersistenceLayerException
+	void testGetPrereqAbilities() throws PersistenceLayerException
 	{
 		Ability acrobatics = TestHelper.makeAbility("Acrobatics", BuildUtilities.getFeatCat(), "general");
 		Ability dodge = TestHelper.makeAbility("Dodge", BuildUtilities.getFeatCat(), "general");

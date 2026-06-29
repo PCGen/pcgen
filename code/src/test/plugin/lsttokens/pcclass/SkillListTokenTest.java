@@ -45,7 +45,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
 
-public class SkillListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
+class SkillListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 {
 	static SkilllistToken token = new SkilllistToken();
 	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
@@ -69,21 +69,21 @@ public class SkillListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputString()
+	void testInvalidInputString()
 	{
 		assertFalse(parse("String"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOnlyNumber()
+	void testInvalidInputOnlyNumber()
 	{
 		assertFalse(parse("1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNaN()
+	void testInvalidInputNaN()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("NaN|TestWP1"));
@@ -91,14 +91,14 @@ public class SkillListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidNoObject()
+	void testInvalidNoObject()
 	{
 		assertFalse(parse("1|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNoCount()
+	void testInvalidNoCount()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("|TestWP1"));
@@ -106,7 +106,7 @@ public class SkillListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidDoublePipe()
+	void testInvalidDoublePipe()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("1||TestWP1"));
@@ -114,7 +114,7 @@ public class SkillListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputType()
+	void testInvalidInputType()
 	{
 		try
 		{
@@ -128,14 +128,14 @@ public class SkillListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputUnbuilt()
+	void testInvalidInputUnbuilt()
 	{
 		assertTrue(parse("1|String"));
 		assertConstructionError();
 	}
 
 	@Test
-	public void testInvalidInputNoCount()
+	void testInvalidInputNoCount()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -144,7 +144,7 @@ public class SkillListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputCountNaN()
+	void testInvalidInputCountNaN()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -153,7 +153,7 @@ public class SkillListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputJoinedDot()
+	void testInvalidInputJoinedDot()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -162,7 +162,7 @@ public class SkillListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputAnyItem()
+	void testInvalidInputAnyItem()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("1|ALL|TestWP1"));
@@ -170,7 +170,7 @@ public class SkillListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputItemAny()
+	void testInvalidInputItemAny()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("1|TestWP1|ALL"));
@@ -178,7 +178,7 @@ public class SkillListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInputInvalidAddsAllNoSideEffect()
+	void testInputInvalidAddsAllNoSideEffect()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -193,7 +193,7 @@ public class SkillListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidListEnd()
+	void testInvalidListEnd()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("1|TestWP1|"));
@@ -201,7 +201,7 @@ public class SkillListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidZeroCount()
+	void testInvalidZeroCount()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("0|TestWP1"));
@@ -209,7 +209,7 @@ public class SkillListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidNegativeCount()
+	void testInvalidNegativeCount()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -218,7 +218,7 @@ public class SkillListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidListDoubleJoin()
+	void testInvalidListDoubleJoin()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -227,7 +227,7 @@ public class SkillListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputCheckMult()
+	void testInvalidInputCheckMult()
 	{
 		// Explicitly do NOT build TestWP2
 		construct(primaryContext, "TestWP1");
@@ -236,7 +236,7 @@ public class SkillListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testRoundRobinOne() throws PersistenceLayerException
+	void testRoundRobinOne() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -246,7 +246,7 @@ public class SkillListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testRoundRobinAll() throws PersistenceLayerException
+	void testRoundRobinAll() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -254,7 +254,7 @@ public class SkillListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testRoundRobinThree() throws PersistenceLayerException
+	void testRoundRobinThree() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -314,14 +314,14 @@ public class SkillListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseNull()
+	void testUnparseNull()
 	{
 		primaryProf.put(ObjectKey.CHOOSE_LANGAUTO, null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseSingle()
+	void testUnparseSingle()
 	{
 		ClassSkillList wp1 = construct(primaryContext, "TestWP1");
 		PersistentTransitionChoice<ClassSkillList> tc = buildChoice(CDOMDirectSingleRef
@@ -332,7 +332,7 @@ public class SkillListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseBadCount()
+	void testUnparseBadCount()
 	{
 		ClassSkillList wp1 = construct(primaryContext, "TestWP1");
 		ReferenceChoiceSet<ClassSkillList> rcs = new ReferenceChoiceSet<>(
@@ -363,7 +363,7 @@ public class SkillListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	// }
 
 	@Test
-	public void testUnparseMultiple()
+	void testUnparseMultiple()
 	{
 		ClassSkillList wp1 = construct(primaryContext, "TestWP1");
 		ClassSkillList wp2 = construct(primaryContext, "TestWP2");
@@ -376,7 +376,7 @@ public class SkillListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseNullInList()
+	void testUnparseNullInList()
 	{
 		ClassSkillList wp1 = construct(primaryContext, "TestWP1");
 		ReferenceChoiceSet<ClassSkillList> rcs = buildRCS(CDOMDirectSingleRef
@@ -396,7 +396,7 @@ public class SkillListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail()
+	void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = ObjectKey.SKILLLIST_CHOICE;
 		primaryProf.put(objectKey, new Object());

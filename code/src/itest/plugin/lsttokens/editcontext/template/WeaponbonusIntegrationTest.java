@@ -27,7 +27,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class WeaponbonusIntegrationTest extends
+class WeaponbonusIntegrationTest extends
 		AbstractListIntegrationTestCase<PCTemplate, WeaponProf>
 {
 
@@ -71,7 +71,7 @@ public class WeaponbonusIntegrationTest extends
 	}
 
 	@Test
-	public void dummyTest()
+	void dummyTest()
 	{
 		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}

@@ -32,7 +32,7 @@ import pcgen.core.Race;
 
 import org.junit.jupiter.api.BeforeEach;
 
-public class CharacterSpellResistanceFacetTest extends
+class CharacterSpellResistanceFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, Formula>
 {
 

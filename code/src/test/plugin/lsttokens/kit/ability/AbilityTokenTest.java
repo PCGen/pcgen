@@ -35,7 +35,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class AbilityTokenTest extends AbstractKitTokenTestCase<KitAbilities>
+class AbilityTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 {
 
 	static AbilityToken token = new AbilityToken();
@@ -74,14 +74,14 @@ public class AbilityTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 	}
 
 	@Test
-	public void testInvalidInputEmptyCount()
+	void testInvalidInputEmptyCount()
 	{
 		assertTrue(parse("CATEGORY=FEAT|Fireball"));
 		assertConstructionError();
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		BuildUtilities.buildFeat(primaryContext, "Fireball");
 		BuildUtilities.buildFeat(secondaryContext, "Fireball");
@@ -89,7 +89,7 @@ public class AbilityTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 	}
 
 	@Test
-	public void testRoundRobinType() throws PersistenceLayerException
+	void testRoundRobinType() throws PersistenceLayerException
 	{
 		Ability ab = BuildUtilities.buildFeat(primaryContext, "Fireball");
 		ab.addToListFor(ListKey.TYPE, Type.getConstant("Test"));
@@ -99,7 +99,7 @@ public class AbilityTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 	}
 
 	@Test
-	public void testRoundRobinTwo() throws PersistenceLayerException
+	void testRoundRobinTwo() throws PersistenceLayerException
 	{
 		BuildUtilities.buildFeat(primaryContext, "Fireball");
 		BuildUtilities.buildFeat(secondaryContext, "Fireball");
@@ -109,7 +109,7 @@ public class AbilityTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 	}
 
 	@Test
-	public void testInvalidListEnd()
+	void testInvalidListEnd()
 	{
 		assertFalse(parse("CATEGORY=FEAT|TestWP1" + getJoinCharacter()));
 	}
@@ -120,13 +120,13 @@ public class AbilityTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 	}
 
 	@Test
-	public void testInvalidListStart()
+	void testInvalidListStart()
 	{
 		assertFalse(parse("CATEGORY=FEAT|" + getJoinCharacter() + "TestWP1"));
 	}
 
 	@Test
-	public void testInvalidListDoubleJoin()
+	void testInvalidListDoubleJoin()
 	{
 		assertFalse(parse("CATEGORY=FEAT|TestWP2" + getJoinCharacter() + getJoinCharacter()
 				+ "TestWP1"));

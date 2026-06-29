@@ -43,7 +43,7 @@ import plugin.lsttokens.testsupport.TransparentPlayerCharacter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class SpellcasterQualifierTokenTest extends
+class SpellcasterQualifierTokenTest extends
 		AbstractQualifierTokenTestCase<CDOMObject, WeaponProf>
 {
 
@@ -108,7 +108,7 @@ public class SpellcasterQualifierTokenTest extends
 	}
 
 	@Test
-	public void testGetSet()
+	void testGetSet()
 	{
 		setUpPC();
 		initializeObjects();		
@@ -134,7 +134,7 @@ public class SpellcasterQualifierTokenTest extends
 	}
 
 	@Test
-	public void testGetSetFiltered()
+	void testGetSetFiltered()
 	{
 		setUpPC();
 		initializeObjects();		

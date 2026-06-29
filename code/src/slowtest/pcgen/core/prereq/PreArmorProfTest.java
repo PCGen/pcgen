@@ -48,7 +48,7 @@ import org.junit.jupiter.api.Test;
  * {@code PreArmorProfTest} tests that the PREARMORPROF tag is
  * working correctly.
  */
-public class PreArmorProfTest extends AbstractCharacterTestCase
+class PreArmorProfTest extends AbstractCharacterTestCase
 {
 	/**
 	 * Test with a simple armor proficiency.
@@ -56,7 +56,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 	 * @throws Exception the exception
 	 */
 	@Test
-	public void testOneOption() throws Exception
+	void testOneOption() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -95,7 +95,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 	 * @throws Exception the exception
 	 */
 	@Test
-	public void testMultiple() throws Exception
+	void testMultiple() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -133,7 +133,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 	 * @throws Exception the exception
 	 */
 	@Test
-	public void testType() throws Exception
+	void testType() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -160,7 +160,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 	 * @throws Exception the exception
 	 */
 	@Test
-	public void testInverse() throws Exception
+	void testInverse() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -200,7 +200,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 	 * @throws Exception the exception
 	 */
 	@Test
-	public void testArmorProfAddedWithAutoArmorProf() throws Exception
+	void testArmorProfAddedWithAutoArmorProf() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -239,7 +239,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 	 * @throws Exception the exception
 	 */
 	@Test
-	public void testWithFeatThatGrantsBonus() throws Exception
+	void testWithFeatThatGrantsBonus() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 		

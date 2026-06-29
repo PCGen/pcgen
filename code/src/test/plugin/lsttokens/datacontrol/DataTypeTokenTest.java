@@ -47,7 +47,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import util.TestURI;
 
-public class DataTypeTokenTest
+class DataTypeTokenTest
 {
 
 	private static DataFormatToken token = new DataFormatToken();
@@ -57,14 +57,14 @@ public class DataTypeTokenTest
 	private LoadContext context;
 
 	@BeforeAll
-	public static void classSetUp()
+	static void classSetUp()
 	{
 		testCampaign =
 				new CampaignSourceEntry(new Campaign(), TestURI.getURI());
 	}
 
 	@BeforeEach
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		TokenRegistration.clearTokens();
 		TokenRegistration.register(token);
@@ -72,7 +72,7 @@ public class DataTypeTokenTest
 	}
 
 	@AfterEach
-	public void tearDown()
+	void tearDown()
 	{
 		TokenRegistration.clearTokens();
 		context = null;
@@ -80,7 +80,7 @@ public class DataTypeTokenTest
 	}
 
 	@AfterAll
-	public static void classTearDown()
+	static void classTearDown()
 	{
 		token = null;
 		testCampaign = null;
@@ -98,13 +98,13 @@ public class DataTypeTokenTest
 	}
 
 	@Test
-	public void testInvalidInputNullString()
+	void testInvalidInputNullString()
 	{
 		assertFalse(token.parseToken(context, cd, null).passed());
 	}
 
 	@Test
-	public void testInvalidInputEmptyString()
+	void testInvalidInputEmptyString()
 	{
 		try
 		{
@@ -117,7 +117,7 @@ public class DataTypeTokenTest
 	}
 
 	@Test
-	public void testInvalidInputNotAType()
+	void testInvalidInputNotAType()
 	{
 		try
 		{
@@ -130,7 +130,7 @@ public class DataTypeTokenTest
 	}
 
 	@Test
-	public void testValidStringString()
+	void testValidStringString()
 	{
 		assertNull(cd.getFormatManager());
 		assertTrue(token.parseToken(context, cd, "STRING").passed());
@@ -143,7 +143,7 @@ public class DataTypeTokenTest
 	}
 
 	@Test
-	public void testValidStringNo()
+	void testValidStringNo()
 	{
 		assertNull(cd.getFormatManager());
 		assertTrue(token.parseToken(context, cd, "ORDEREDPAIR").passed());

@@ -32,7 +32,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class PreSpellSubSchoolTest extends AbstractCharacterTestCase
+class PreSpellSubSchoolTest extends AbstractCharacterTestCase
 {
 
 	private PCClass wiz;
@@ -89,7 +89,7 @@ public class PreSpellSubSchoolTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testSimpleSUBSCHOOL() throws Exception
+	void testSimpleSUBSCHOOL() throws Exception
 	{
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("SpellSCHOOLSUB");
@@ -109,7 +109,7 @@ public class PreSpellSubSchoolTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testTwoClassSUBSCHOOL() throws Exception
+	void testTwoClassSUBSCHOOL() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -133,7 +133,7 @@ public class PreSpellSubSchoolTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testNotSimpleSUBSCHOOL() throws Exception
+	void testNotSimpleSUBSCHOOL() throws Exception
 	{
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("SpellSCHOOLSUB");
@@ -153,7 +153,7 @@ public class PreSpellSubSchoolTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testNotTwoClassSUBSCHOOL() throws Exception
+	void testNotTwoClassSUBSCHOOL() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 

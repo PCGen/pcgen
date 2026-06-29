@@ -42,7 +42,7 @@ import org.junit.jupiter.api.Test;
  * working correctly.
  */
 @SuppressWarnings("nls")
-public class PreHDTest extends AbstractCharacterTestCase
+class PreHDTest extends AbstractCharacterTestCase
 {
 	Race race = new Race();
 	Race race1 = new Race();
@@ -113,7 +113,7 @@ public class PreHDTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testClassLevels() throws PersistenceLayerException
+	void testClassLevels() throws PersistenceLayerException
 	{
 		monClass.setName("Humanoid");
 		monClass.put(ObjectKey.IS_MONSTER, true);

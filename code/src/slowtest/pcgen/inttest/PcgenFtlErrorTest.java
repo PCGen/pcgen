@@ -11,10 +11,10 @@ import java.text.MessageFormat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class PcgenFtlErrorTest
+class PcgenFtlErrorTest
 {
 	@BeforeEach
-	public void setUp()
+	void setUp()
 	{
 		GracefulExit.registerExitFunction((int status) -> {
 			assertEquals(1, status,
@@ -24,7 +24,7 @@ public class PcgenFtlErrorTest
 	}
 
 	@AfterEach
-	public void tearDown()
+	void tearDown()
 	{
 		GracefulExit.registerExitFunction(System::exit);
 	}

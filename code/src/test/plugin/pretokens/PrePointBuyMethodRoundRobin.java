@@ -23,7 +23,7 @@ import plugin.pretokens.writer.PrePointBuyMethodWriter;
 
 import org.junit.jupiter.api.BeforeEach;
 
-public class PrePointBuyMethodRoundRobin extends AbstractBasicRoundRobin
+class PrePointBuyMethodRoundRobin extends AbstractBasicRoundRobin
 {
 	@BeforeEach
 	@Override

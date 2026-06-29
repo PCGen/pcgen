@@ -55,12 +55,12 @@ class PObjectLoaderTest
 	 * Sets up the test case by loading the system plugins.
 	 */
 	@BeforeEach
-	public void setUp() throws Exception
+	void setUp() throws Exception
 	{
 	}
 
 	@Test
-	public void testDefine() throws Exception
+	void testDefine() throws Exception
 	{
 		Ability feat = new Ability();
 
@@ -72,7 +72,7 @@ class PObjectLoaderTest
 	}
 
 	@Test
-	public void testBadDefine() throws Exception
+	void testBadDefine() throws Exception
 	{
 		Ability feat = new Ability();
 		assertFalse(
@@ -80,7 +80,7 @@ class PObjectLoaderTest
 	}
 
 	@Test
-	public void testUnlockDefineStat() throws Exception
+	void testUnlockDefineStat() throws Exception
 	{
 		LoadContext context = Globals.getContext();
 		
@@ -102,7 +102,7 @@ class PObjectLoaderTest
 	}
 
 	@Test
-	public void testBadUnlockDefine() throws Exception
+	void testBadUnlockDefine() throws Exception
 	{
 		Ability feat = new Ability();
 		assertFalse(
@@ -111,7 +111,7 @@ class PObjectLoaderTest
 	}
 
 	@Test
-	public void testParsePreClear() throws Exception
+	void testParsePreClear() throws Exception
 	{
 		PObject object = new PObject();
 

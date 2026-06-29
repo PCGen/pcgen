@@ -35,7 +35,7 @@ class DamageReductionTest
 	 * Test the basic DR Handling
 	 */
 	@Test
-	public void testBasicDRHandling()
+	void testBasicDRHandling()
 	{
 		DamageReduction dr1 = new DamageReduction(FormulaFactory
 				.getFormulaFor(5), "magic");

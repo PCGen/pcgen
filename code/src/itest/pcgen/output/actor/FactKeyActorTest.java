@@ -50,7 +50,7 @@ class FactKeyActorTest extends AbstractOutputTestCase
 	}
 
 	@Test
-	public void testFactKeyActor()
+	void testFactKeyActor()
 	{
 		Race d = new Race();
 		d.setName("Bob");
@@ -67,7 +67,7 @@ class FactKeyActorTest extends AbstractOutputTestCase
 	}
 
 	@Test
-	public void testListKeyActorMissingSafe()
+	void testListKeyActorMissingSafe()
 	{
 		NumberManager mgr = new NumberManager();
 		FactKey<Number> fk = FactKey.getConstant("cost", mgr);

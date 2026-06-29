@@ -28,10 +28,10 @@ import org.junit.jupiter.api.Test;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.testsupport.TestUtilities;
 
-public class BooleanNotTest
+class BooleanNotTest
 {
 	@Test
-	public void testOperator()
+	void testOperator()
 	{
 		BooleanNot op = new BooleanNot();
 		assertNotNull(op.getOperator());
@@ -39,7 +39,7 @@ public class BooleanNotTest
 	}
 
 	@Test
-	public void testAbstractEvaluateNulls()
+	void testAbstractEvaluateNulls()
 	{
 		BooleanNot op = new BooleanNot();
 		try
@@ -53,7 +53,7 @@ public class BooleanNotTest
 	}
 
 	@Test
-	public void testAbstractEvaluateMismatch()
+	void testAbstractEvaluateMismatch()
 	{
 		BooleanNot op = new BooleanNot();
 		assertTrue(op.abstractEvaluate(TestUtilities.INTEGER_CLASS).isEmpty());
@@ -61,21 +61,21 @@ public class BooleanNotTest
 	}
 
 	@Test
-	public void testAbstractEvaluateLegal()
+	void testAbstractEvaluateLegal()
 	{
 		BooleanNot op = new BooleanNot();
 		assertEquals(FormatUtilities.BOOLEAN_CLASS, op.abstractEvaluate(FormatUtilities.BOOLEAN_CLASS).get().getManagedClass());
 	}
 
 	@Test
-	public void testEvaluateFailNull()
+	void testEvaluateFailNull()
 	{
 		BooleanNot op = new BooleanNot();
 		assertThrows(NullPointerException.class, () -> op.evaluate(null));
 	}
 
 	@Test
-	public void testEvaluateMismatch()
+	void testEvaluateMismatch()
 	{
 		BooleanNot op = new BooleanNot();
 		assertThrows(ClassCastException.class, () -> op.evaluate(Double.valueOf(4.5)));
@@ -83,7 +83,7 @@ public class BooleanNotTest
 	}
 
 	@Test
-	public void testEvaluateLegal()
+	void testEvaluateLegal()
 	{
 		BooleanNot op = new BooleanNot();
 		assertEquals(Boolean.TRUE, op.evaluate(Boolean.FALSE));

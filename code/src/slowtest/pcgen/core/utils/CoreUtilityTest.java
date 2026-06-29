@@ -34,10 +34,10 @@ import org.junit.jupiter.api.Test;
 /**
  * Tests the CoreUtility class.
  */
-public class CoreUtilityTest
+class CoreUtilityTest
 {
 	@Test
-	public void testIsNetURL() throws URISyntaxException
+	void testIsNetURL() throws URISyntaxException
 	{
 		URI https = URI.create("https://127.0.0.1");
 		URI http = URI.create("http://127.0.0.1");
@@ -53,7 +53,7 @@ public class CoreUtilityTest
 	 * Test unsplit string (join method).
 	 */
 	@Test
-	public void testJoin()
+	void testJoin()
 	{
 		final String sep = "|";
 		final List<String> list = List.of("one", "two", "three", "four");
@@ -63,7 +63,7 @@ public class CoreUtilityTest
 	}
 
 	@Test
-	public void testCompareVersions()
+	void testCompareVersions()
 	{
 		int[] firstVer = {5, 13, 6};
 		int[] secondVer = {5, 13, 6};
@@ -86,7 +86,7 @@ public class CoreUtilityTest
 	}
 
 	@Test
-	public void testCompareVersionsString()
+	void testCompareVersionsString()
 	{
 		String firstVer = "5.13.6";
 
@@ -95,7 +95,7 @@ public class CoreUtilityTest
 	}
 
 	@Test
-	public void testConvertVersionToNumber()
+	void testConvertVersionToNumber()
 	{
 		int[] norc = CoreUtility.convertVersionToNumber("5.13.6");
 		assertArrayEquals(new int[]{5, 13, 6}, norc, "pcgen version");
@@ -104,7 +104,7 @@ public class CoreUtilityTest
 	}
 
 	@Test
-	public void testIsCurrMinorVer()
+	void testIsCurrMinorVer()
 	{
 		String currVerStr = PCGenPropBundle.getVersionNumber();
 		assertTrue(CoreUtility
@@ -130,7 +130,7 @@ public class CoreUtilityTest
 	}
 
 	@Test
-	public void testIsPriorToCurrent()
+	void testIsPriorToCurrent()
 	{
 		String currVerStr = PCGenPropBundle.getVersionNumber();
 		assertTrue(CoreUtility

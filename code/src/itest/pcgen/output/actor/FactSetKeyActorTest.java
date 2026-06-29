@@ -43,7 +43,7 @@ class FactSetKeyActorTest extends AbstractOutputTestCase
 	}
 
 	@Test
-	public void testListKeyActor()
+	void testListKeyActor()
 	{
 		Race d = new Race();
 		d.setName("Bob");
@@ -64,7 +64,7 @@ class FactSetKeyActorTest extends AbstractOutputTestCase
 
 
 	@Test
-	public void testSetJoined()
+	void testSetJoined()
 	{
 		Race d = new Race();
 		d.setName("Bob");

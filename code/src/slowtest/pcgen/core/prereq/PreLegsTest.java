@@ -42,7 +42,7 @@ class PreLegsTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testLegs() throws PersistenceLayerException
+	void testLegs() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		Race race = new Race();

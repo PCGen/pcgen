@@ -32,11 +32,11 @@ import pcgen.base.formula.visitor.ReconstructionVisitor;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
 import pcgen.base.testsupport.TestUtilities;
 
-public class CeilFunctionTest extends AbstractFormulaTestCase
+class CeilFunctionTest extends AbstractFormulaTestCase
 {
 
 	@Test
-	public void testInvalidTooManyArg()
+	void testInvalidTooManyArg()
 	{
 		String formula = "ceil(2, 3)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -44,7 +44,7 @@ public class CeilFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotValidString()
+	void testNotValidString()
 	{
 		String formula = "ceil(\"ab\")";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -52,7 +52,7 @@ public class CeilFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotValidNoVar()
+	void testNotValidNoVar()
 	{
 		String formula = "ceil(ab)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -60,7 +60,7 @@ public class CeilFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testIntegerPositive()
+	void testIntegerPositive()
 	{
 		String formula = "ceil(1)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -73,7 +73,7 @@ public class CeilFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testIntegerPositiveAsString()
+	void testIntegerPositiveAsString()
 	{
 		String formula = "ceil(\"1\")";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -86,7 +86,7 @@ public class CeilFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testIntegerNegative()
+	void testIntegerNegative()
 	{
 		String formula = "ceil(-2)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -99,7 +99,7 @@ public class CeilFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDoublePositive()
+	void testDoublePositive()
 	{
 		String formula = "ceil(6.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -112,7 +112,7 @@ public class CeilFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDoubleNegative()
+	void testDoubleNegative()
 	{
 		String formula = "ceil(-5.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -125,7 +125,7 @@ public class CeilFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDoubleNegativeLeadingSpace()
+	void testDoubleNegativeLeadingSpace()
 	{
 		String formula = "ceil( -5.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -135,7 +135,7 @@ public class CeilFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDoubleNegativeTrailingSpace()
+	void testDoubleNegativeTrailingSpace()
 	{
 		String formula = "ceil(-5.3 )";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -145,7 +145,7 @@ public class CeilFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDoubleNegativeSeparatingSpace()
+	void testDoubleNegativeSeparatingSpace()
 	{
 		String formula = "ceil (-5.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -155,7 +155,7 @@ public class CeilFunctionTest extends AbstractFormulaTestCase
 	}
 	
 	@Test
-	public void testVariable()
+	void testVariable()
 	{
 		setVariable(getVariable("a"), 4.5);
 		String formula = "ceil(a)";

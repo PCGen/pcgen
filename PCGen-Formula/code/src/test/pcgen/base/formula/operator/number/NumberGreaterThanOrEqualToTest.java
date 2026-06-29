@@ -28,10 +28,10 @@ import org.junit.jupiter.api.Test;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.testsupport.TestUtilities;
 
-public class NumberGreaterThanOrEqualToTest
+class NumberGreaterThanOrEqualToTest
 {
 	@Test
-	public void testOperator()
+	void testOperator()
 	{
 		NumberGreaterThanOrEqualTo op = new NumberGreaterThanOrEqualTo();
 		assertNotNull(op.getOperator());
@@ -39,7 +39,7 @@ public class NumberGreaterThanOrEqualToTest
 	}
 
 	@Test
-	public void testAbstractEvaluateNulls()
+	void testAbstractEvaluateNulls()
 	{
 		NumberGreaterThanOrEqualTo op = new NumberGreaterThanOrEqualTo();
 		try
@@ -69,7 +69,7 @@ public class NumberGreaterThanOrEqualToTest
 	}
 
 	@Test
-	public void testAbstractEvaluateMismatch()
+	void testAbstractEvaluateMismatch()
 	{
 		NumberGreaterThanOrEqualTo op = new NumberGreaterThanOrEqualTo();
 		assertTrue(op.abstractEvaluate(FormatUtilities.BOOLEAN_CLASS, TestUtilities.INTEGER_CLASS, null).isEmpty());
@@ -77,7 +77,7 @@ public class NumberGreaterThanOrEqualToTest
 	}
 
 	@Test
-	public void testAbstractEvaluateLegal()
+	void testAbstractEvaluateLegal()
 	{
 		NumberGreaterThanOrEqualTo op = new NumberGreaterThanOrEqualTo();
 		assertEquals(FormatUtilities.BOOLEAN_CLASS,
@@ -96,7 +96,7 @@ public class NumberGreaterThanOrEqualToTest
 	}
 
 	@Test
-	public void testEvaluateFailNull()
+	void testEvaluateFailNull()
 	{
 		NumberGreaterThanOrEqualTo op = new NumberGreaterThanOrEqualTo();
 		assertThrows(NullPointerException.class, () -> op.evaluate(null, null));
@@ -105,7 +105,7 @@ public class NumberGreaterThanOrEqualToTest
 	}
 
 	@Test
-	public void testEvaluateMismatch()
+	void testEvaluateMismatch()
 	{
 		NumberGreaterThanOrEqualTo op = new NumberGreaterThanOrEqualTo();
 		assertThrows(ClassCastException.class, () -> op.evaluate(true, Double.valueOf(4.5)));
@@ -113,7 +113,7 @@ public class NumberGreaterThanOrEqualToTest
 	}
 
 	@Test
-	public void testEvaluateLegal()
+	void testEvaluateLegal()
 	{
 		NumberGreaterThanOrEqualTo op = new NumberGreaterThanOrEqualTo();
 		assertEquals(Boolean.TRUE,

@@ -22,18 +22,18 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
-public class NamedValueTest
+class NamedValueTest
 {
 
 	@Test
-	public void testNullConstructor()
+	void testNullConstructor()
 	{
 		assertThrows(NullPointerException.class, () -> new NamedValue(null, 1.0));
 		assertThrows(NullPointerException.class, () -> new NamedValue(null));
 	}
 
 	@Test
-	public void testBasics()
+	void testBasics()
 	{
 		NamedValue nv = new NamedValue("Foo");
 		assertEquals("Foo", nv.getName());
@@ -47,7 +47,7 @@ public class NamedValueTest
 	}
 
 	@Test
-	public void testToString()
+	void testToString()
 	{
 		NamedValue nv = new NamedValue("Foo", 2.0);
 		assertEquals("Foo:2.0", nv.toString());

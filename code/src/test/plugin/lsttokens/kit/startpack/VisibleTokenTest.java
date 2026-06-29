@@ -34,7 +34,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
 
-public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Kit>
+class VisibleTokenTest extends AbstractCDOMTokenTestCase<Kit>
 {
 
 	static VisibleToken token = new VisibleToken();
@@ -61,7 +61,7 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Kit>
 	}
 
 	@Test
-	public void testInvalidOutput()
+	void testInvalidOutput()
 	{
 		assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryProf.put(ObjectKey.VISIBILITY, Visibility.OUTPUT_ONLY);
@@ -70,13 +70,13 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Kit>
 	}
 
 	@Test
-	public void testInvalidInputString()
+	void testInvalidInputString()
 	{
 		internalTestInvalidInputString(null);
 	}
 
 	@Test
-	public void testInvalidInputStringSet()
+	void testInvalidInputStringSet()
 	{
 		assertTrue(parse("QUALIFY"));
 		assertTrue(parseSecondary("QUALIFY"));
@@ -102,7 +102,7 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Kit>
 	}
 
 	@Test
-	public void testValidInputs()
+	void testValidInputs()
 	{
 		assertTrue(parse("QUALIFY"));
 		assertEquals(Visibility.QUALIFY, primaryProf.get(ObjectKey.VISIBILITY));
@@ -113,19 +113,19 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Kit>
 	}
 
 	@Test
-	public void testRoundRobinQualify() throws PersistenceLayerException
+	void testRoundRobinQualify() throws PersistenceLayerException
 	{
 		runRoundRobin("QUALIFY");
 	}
 
 	@Test
-	public void testRoundRobinYes() throws PersistenceLayerException
+	void testRoundRobinYes() throws PersistenceLayerException
 	{
 		runRoundRobin("YES");
 	}
 
 	@Test
-	public void testRoundRobinNo() throws PersistenceLayerException
+	void testRoundRobinNo() throws PersistenceLayerException
 	{
 		runRoundRobin("NO");
 	}

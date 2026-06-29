@@ -31,7 +31,7 @@ import java.util.NoSuchElementException;
 
 import org.junit.jupiter.api.Test;
 
-public class IdentityListTest
+class IdentityListTest
 {
 
 	private Integer a1 = new Integer(1);
@@ -40,7 +40,7 @@ public class IdentityListTest
 	private Integer b2 = new Integer(2);
 
 	@Test
-	public void testIdentityAdd()
+	void testIdentityAdd()
 	{
 		IdentityList<Integer> ls = new IdentityList<>();
 		assertFalse(ls.contains(a1));
@@ -91,14 +91,14 @@ public class IdentityListTest
 	}
 
 	@Test
-	public void testContainsAll()
+	void testContainsAll()
 	{
 		IdentityList<Integer> ls = new IdentityList<>();
 		assertThrows(NullPointerException.class, () -> ls.containsAll(null));
 	}
 
 	@Test
-	public void testIdentityAddAll()
+	void testIdentityAddAll()
 	{
 		IdentityList<Integer> ls = new IdentityList<>();
 		assertFalse(ls.contains(a1));
@@ -142,7 +142,7 @@ public class IdentityListTest
 	}
 
 	@Test
-	public void testIdentityAddInt()
+	void testIdentityAddInt()
 	{
 		IdentityList<Integer> ls = new IdentityList<>();
 		assertFalse(ls.contains(a1));
@@ -174,7 +174,7 @@ public class IdentityListTest
 	}
 
 	@Test
-	public void testEqualityAdd()
+	void testEqualityAdd()
 	{
 		IdentityList<Integer> ls = new IdentityList<>();
 		assertFalse(ls.contains(a1));
@@ -204,7 +204,7 @@ public class IdentityListTest
 	}
 
 	@Test
-	public void testIdentityRemove()
+	void testIdentityRemove()
 	{
 		IdentityList<Integer> ls = new IdentityList<>();
 		assertTrue(ls.isEmpty());
@@ -222,7 +222,7 @@ public class IdentityListTest
 	}
 
 	@Test
-	public void testIterator()
+	void testIterator()
 	{
 		IdentityList<Integer> ls = new IdentityList<>();
 		Iterator<Integer> it = ls.iterator();
@@ -250,7 +250,7 @@ public class IdentityListTest
 	}
 
 	@Test
-	public void testIteratorRemove()
+	void testIteratorRemove()
 	{
 		IdentityList<Integer> ls = new IdentityList<>();
 		Iterator<Integer> it = ls.iterator();
@@ -281,7 +281,7 @@ public class IdentityListTest
 	}
 
 	@Test
-	public void testIdentityAddConstructor()
+	void testIdentityAddConstructor()
 	{
 		IdentityList<Integer> ls = new IdentityList<>();
 		assertThrows(NullPointerException.class, () -> new IdentityList<>(null));

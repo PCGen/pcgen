@@ -32,7 +32,7 @@ class PCGVer2ParserTest
 {
 
 	@Test
-	public void test_1045596_1() throws PCGParseException
+	void test_1045596_1() throws PCGParseException
 	{
 		PCGVer2Parser parser = new PCGVer2Parser(null);
 
@@ -49,7 +49,7 @@ class PCGVer2ParserTest
 	}
 
 	@Test
-	public void test_1045596_2() throws PCGParseException
+	void test_1045596_2() throws PCGParseException
 	{
 		PCGVer2Parser parser = new PCGVer2Parser(null);
 
@@ -66,7 +66,7 @@ class PCGVer2ParserTest
 	}
 
 	@Test
-	public void test_1045596_3() throws PCGParseException
+	void test_1045596_3() throws PCGParseException
 	{
 		PCGVer2Parser parser = new PCGVer2Parser(null);
 
@@ -83,7 +83,7 @@ class PCGVer2ParserTest
 	}
 
 	@Test
-	public void test_1045596_4() throws PCGParseException
+	void test_1045596_4() throws PCGParseException
 	{
 		PCGVer2Parser parser = new PCGVer2Parser(null);
 
@@ -100,7 +100,7 @@ class PCGVer2ParserTest
 	}
 
 	@Test
-	public void test_1045596_5() throws PCGParseException
+	void test_1045596_5() throws PCGParseException
 	{
 		PCGVer2Parser parser = new PCGVer2Parser(null);
 
@@ -117,7 +117,7 @@ class PCGVer2ParserTest
 	}
 
 	@Test
-	public void test_1045596_6()
+	void test_1045596_6()
 	{
 		PCGVer2Parser parser = new PCGVer2Parser(null);
 		PCGParseException pcgParseException =
@@ -126,7 +126,7 @@ class PCGVer2ParserTest
 	}
 
 	@Test
-	public void test_1045596_7()
+	void test_1045596_7()
 	{
 		PCGVer2Parser parser = new PCGVer2Parser(null);
 		PCGParseException pcgParseException =
@@ -140,7 +140,7 @@ class PCGVer2ParserTest
 	 * @throws PCGParseException the PCG parse exception
 	 */
 	@Test
-	public void test_1045596_8() throws PCGParseException
+	void test_1045596_8() throws PCGParseException
 	{
 		PCGVer2Parser parser = new PCGVer2Parser(null);
 
@@ -163,7 +163,7 @@ class PCGVer2ParserTest
 	 * @throws PCGParseException the PCG parse exception
 	 */
 	@Test
-	public void testCurrVersion() throws PCGParseException
+	void testCurrVersion() throws PCGParseException
 	{
 		PCGVer2Parser parser = new PCGVer2Parser(null);
 
@@ -175,7 +175,7 @@ class PCGVer2ParserTest
 	}
 	
 	@Test
-	public void testCompareVersionTo() throws PCGParseException
+	void testCompareVersionTo() throws PCGParseException
 	{
 		PCGVer2Parser parser = new PCGVer2Parser(null);
 

@@ -31,10 +31,10 @@ import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
 import pcgen.base.testsupport.TestUtilities;
 
-public class LengthFunctionTest extends AbstractFormulaTestCase
+class LengthFunctionTest extends AbstractFormulaTestCase
 {
 	@Test
-	public void testInvalidTooManyArg()
+	void testInvalidTooManyArg()
 	{
 		String formula = "length(2, 3)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -42,7 +42,7 @@ public class LengthFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotValidString()
+	void testNotValidString()
 	{
 		String formula = "length(\"ab\")";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -50,7 +50,7 @@ public class LengthFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotValidNoVar()
+	void testNotValidNoVar()
 	{
 		String formula = "length(ab)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -58,7 +58,7 @@ public class LengthFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testVariable()
+	void testVariable()
 	{
 		VariableLibrary variableLibrary = getVariableLibrary();
 		assertLegalVariable("a", "Global", TestUtilities.NUMBER_ARRAY_MANAGER);

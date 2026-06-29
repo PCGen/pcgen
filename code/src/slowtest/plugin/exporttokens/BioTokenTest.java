@@ -31,7 +31,7 @@ import org.junit.jupiter.api.Test;
 /**
  * {@code BioTokenTest} is ...
  */
-public class BioTokenTest extends AbstractCharacterTestCase
+class BioTokenTest extends AbstractCharacterTestCase
 {
 	@BeforeEach
     @Override
@@ -48,7 +48,7 @@ public class BioTokenTest extends AbstractCharacterTestCase
 	 * @throws Exception  Signals that an I/O exception has occurred.
 	 */
 	@Test
-	public void testBioExport() throws Exception
+	void testBioExport() throws Exception
 	{
 		FileAccess.setCurrentOutputFilter("xml");
 		PlayerCharacter character = getCharacter();

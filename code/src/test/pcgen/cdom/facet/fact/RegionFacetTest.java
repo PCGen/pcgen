@@ -36,7 +36,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class RegionFacetTest
+class RegionFacetTest
 {
 	private static final String TEST_REGION_NAME = "TestRegion";
 	private static final String TEST_SUB_REGION_NAME = "TestSubRegion";
@@ -55,7 +55,7 @@ public class RegionFacetTest
 	private TemplateFacet tfacet = new TemplateFacet();
 
 	@BeforeEach
-	public void setUp() throws Exception
+	void setUp() throws Exception
 	{
 		facet = new RegionFacet();
 		facet.setTemplateFacet(tfacet);
@@ -65,7 +65,7 @@ public class RegionFacetTest
 	}
 
 	@AfterEach
-	public void tearDown()
+	void tearDown()
 	{
 		id = null;
 		altid = null;
@@ -74,7 +74,7 @@ public class RegionFacetTest
 	}
 
 	@Test
-	public void testRegionUnsetNull()
+	void testRegionUnsetNull()
 	{
 		assertEquals(Constants.NONE, facet.getRegionString(id));
 		assertEquals(Optional.empty(), facet.getCharacterRegion(id));
@@ -84,7 +84,7 @@ public class RegionFacetTest
 	}
 
 	@Test
-	public void testWithNothingInTemplates()
+	void testWithNothingInTemplates()
 	{
 		tfacet.add(id, new PCTemplate(), this);
 		assertEquals(Constants.NONE, facet.getRegionString(id));
@@ -107,7 +107,7 @@ public class RegionFacetTest
 	}
 
 	@Test
-	public void testRegionSet()
+	void testRegionSet()
 	{
 		PCTemplate pct = new PCTemplate();
 		pct.put(ObjectKey.REGION, Region.getConstant(TEST_REGION_NAME));
@@ -126,7 +126,7 @@ public class RegionFacetTest
 	}
 
 	@Test
-	public void testMultipleRegionSetSecondDominatesRegion()
+	void testMultipleRegionSetSecondDominatesRegion()
 	{
 		PCTemplate pct = new PCTemplate();
 		pct.setName("PCT");
@@ -155,7 +155,7 @@ public class RegionFacetTest
 	}
 
 	@Test
-	public void testSubRegionSet()
+	void testSubRegionSet()
 	{
 		PCTemplate pct = new PCTemplate();
 		pct.put(StringKey.SUBREGION, TEST_SUB_REGION_NAME);
@@ -177,7 +177,7 @@ public class RegionFacetTest
 	}
 
 	@Test
-	public void testMultipleSubRegionSetSecondDominatesSubRegion()
+	void testMultipleSubRegionSetSecondDominatesSubRegion()
 	{
 		PCTemplate pct = new PCTemplate();
 		pct.setName("PCT");
@@ -205,7 +205,7 @@ public class RegionFacetTest
 	}
 
 	@Test
-	public void testRegionSubRegionSet()
+	void testRegionSubRegionSet()
 	{
 		PCTemplate pct = new PCTemplate();
 		pct.put(ObjectKey.REGION, Region.getConstant(TEST_REGION_NAME));
@@ -225,7 +225,7 @@ public class RegionFacetTest
 	}
 
 	@Test
-	public void testMultipleRegionSubRegionSetSecondDominatesRegionSubRegion()
+	void testMultipleRegionSubRegionSetSecondDominatesRegionSubRegion()
 	{
 		PCTemplate pct = new PCTemplate();
 		pct.setName("PCT");
@@ -259,7 +259,7 @@ public class RegionFacetTest
 	}
 
 	@Test
-	public void testExplicitOverrideTemplates()
+	void testExplicitOverrideTemplates()
 	{
 		PCTemplate pct = new PCTemplate();
 		pct.setName("PCT");
@@ -293,7 +293,7 @@ public class RegionFacetTest
 	}
 
 	@Test
-	public void testMatchesRegion()
+	void testMatchesRegion()
 	{
 		assertTrue(facet.matchesRegion(id, null));
 		PCTemplate pct = new PCTemplate();
@@ -320,7 +320,7 @@ public class RegionFacetTest
 	}
 
 	@Test
-	public void testCopyContents()
+	void testCopyContents()
 	{
 		assertTrue(facet.matchesRegion(id, null));
 		assertTrue(facet.matchesRegion(altid, null));

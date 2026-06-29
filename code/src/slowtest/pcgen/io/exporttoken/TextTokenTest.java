@@ -35,7 +35,7 @@ import org.junit.jupiter.api.Test;
  * {@code TextTokenTest} tests the functioning of the TEXT
  * token processing code. 
  */
-public class TextTokenTest extends AbstractCharacterTestCase
+class TextTokenTest extends AbstractCharacterTestCase
 {
 	@BeforeEach
     @Override
@@ -51,7 +51,7 @@ public class TextTokenTest extends AbstractCharacterTestCase
 	 * Test the output for positive numbers with fractions.
 	 */
 	@Test
-	public void testTextFormatting()
+	void testTextFormatting()
 	{
 		TextToken tok = new TextToken();
 		ExportHandler eh = ExportHandler.createExportHandler(null);
@@ -78,7 +78,7 @@ public class TextTokenTest extends AbstractCharacterTestCase
 	 * Test the output for negative numbers with fractions.
 	 */
 	@Test
-	public void testNumSuffix()
+	void testNumSuffix()
 	{
 		TextToken tok = new TextToken();
 		ExportHandler eh = ExportHandler.createExportHandler(null);
@@ -129,7 +129,7 @@ public class TextTokenTest extends AbstractCharacterTestCase
 	 * Test the output for negative numbers with fractions.
 	 */
 	@Test
-	public void testNumSuffixDirect()
+	void testNumSuffixDirect()
 	{
 		TextToken tok = new TextToken();
 		ExportHandler eh = ExportHandler.createExportHandler(null);

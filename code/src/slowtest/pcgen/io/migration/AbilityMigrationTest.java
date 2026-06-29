@@ -32,13 +32,13 @@ import org.junit.jupiter.api.Test;
 /**
  * AbilityMigrationTest checks the function of AbilityMigration.
  */
-public class AbilityMigrationTest
+class AbilityMigrationTest
 {
 	
 	private String gameMode;
 
 	@BeforeEach
-	public void setUp() throws Exception
+	void setUp() throws Exception
 	{
 		gameMode = SettingsHandler.getGameAsProperty().get().getName();
 		MigrationRule abilityRule = new MigrationRule(ObjectType.ABILITY, "OldCat", "OldKey1");
@@ -63,7 +63,7 @@ public class AbilityMigrationTest
 	}
 
 	@AfterEach
-	public void tearDown() throws Exception
+	void tearDown() throws Exception
 	{
 		SystemCollections.clearMigrationRuleMap();
 		gameMode = null;
@@ -73,7 +73,7 @@ public class AbilityMigrationTest
 	 * Test that rules for max version only are applied correctly.  
 	 */
 	@Test
-	public void testMaxVer()
+	void testMaxVer()
 	{
 		CategorisedKey catKey = AbilityMigration.getNewAbilityKey("OldCat", "OldKey1", new int[]{6, 0, 0}, gameMode);
 		assertEquals("OldCat", catKey.getCategory());
@@ -87,7 +87,7 @@ public class AbilityMigrationTest
 	 * Test that rules for category changes are applied correctly.  
 	 */
 	@Test
-	public void testCatChange()
+	void testCatChange()
 	{
 		CategorisedKey catKey = AbilityMigration.getNewAbilityKey("OldCat", "OldKey2", new int[]{5, 17, 5}, gameMode);
 		assertEquals("EarlyNewCat", catKey.getCategory());
@@ -98,7 +98,7 @@ public class AbilityMigrationTest
 	 * Test that matches are case insensitive.  
 	 */
 	@Test
-	public void testCaseInsensitive()
+	void testCaseInsensitive()
 	{
 		CategorisedKey catKey = AbilityMigration.getNewAbilityKey("OldCAT", "OldKey1", new int[]{6, 0, 0}, gameMode);
 		assertEquals("OldCAT", catKey.getCategory());

@@ -31,7 +31,7 @@ import org.junit.jupiter.api.BeforeEach;
 import tokencontent.testsupport.AbstractContentTokenTest;
 import util.TestURI;
 
-public class GlobalFollowersTest extends AbstractContentTokenTest
+class GlobalFollowersTest extends AbstractContentTokenTest
 {
 
 	private static FollowersLst token = new FollowersLst();

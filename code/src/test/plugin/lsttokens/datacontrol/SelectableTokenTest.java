@@ -44,7 +44,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import util.TestURI;
 
-public class SelectableTokenTest
+class SelectableTokenTest
 {
 
 	private static SelectableToken token = new SelectableToken();
@@ -54,14 +54,14 @@ public class SelectableTokenTest
 
 
 	@BeforeAll
-	public static void classSetUp()
+	static void classSetUp()
 	{
 		testCampaign =
 				new CampaignSourceEntry(new Campaign(), TestURI.getURI());
 	}
 
 	@BeforeEach
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		TokenRegistration.clearTokens();
 		TokenRegistration.register(token);
@@ -69,7 +69,7 @@ public class SelectableTokenTest
 	}
 
 	@AfterEach
-	public void tearDown()
+	void tearDown()
 	{
 		TokenRegistration.clearTokens();
 		context = null;
@@ -77,7 +77,7 @@ public class SelectableTokenTest
 	}
 
 	@AfterAll
-	public static void classTearDown()
+	static void classTearDown()
 	{
 		token = null;
 		testCampaign = null;
@@ -95,19 +95,19 @@ public class SelectableTokenTest
 	}
 
 	@Test
-	public void testInvalidInputNullString()
+	void testInvalidInputNullString()
 	{
 		assertFalse(token.parseToken(context, cd, null).passed());
 	}
 
 	@Test
-	public void testInvalidInputEmptyString()
+	void testInvalidInputEmptyString()
 	{
 		assertFalse(token.parseToken(context, cd, "").passed());
 	}
 
 	@Test
-	public void testValidStringYes()
+	void testValidStringYes()
 	{
 		assertNull(cd.getSelectable());
 		assertTrue(token.parseToken(context, cd, "YES").passed());
@@ -118,7 +118,7 @@ public class SelectableTokenTest
 	}
 
 	@Test
-	public void testValidStringNo()
+	void testValidStringNo()
 	{
 		assertNull(cd.getSelectable());
 		assertTrue(token.parseToken(context, cd, "NO").passed());

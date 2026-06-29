@@ -11,10 +11,10 @@ import org.junit.jupiter.api.Test;
  * See the PCG file for details
  */
 
-public class pcGenGUIPfrpgClericTest extends PcgenFtlTestCase
+class pcGenGUIPfrpgClericTest extends PcgenFtlTestCase
 {
 	@Test
-	public void testCode() throws Exception
+	void testCode() throws Exception
 	{
 		runTest("pf_Cleric");
 	}

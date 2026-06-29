@@ -40,7 +40,7 @@ import org.junit.jupiter.api.Test;
  * {@code PreAttTest} tests that the PREATT tag is
  * working correctly.
  */
-public class PreAttTest extends AbstractCharacterTestCase
+class PreAttTest extends AbstractCharacterTestCase
 {
 	PCClass myClass = new PCClass();
 
@@ -50,7 +50,7 @@ public class PreAttTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testAtt() throws PersistenceLayerException
+	void testAtt() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		LoadContext context = Globals.getContext();

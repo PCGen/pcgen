@@ -38,7 +38,7 @@ import plugin.lsttokens.testsupport.AbstractAutoTokenTestCase;
 
 import org.junit.jupiter.api.Test;
 
-public class ArmorProfTokenTest extends AbstractAutoTokenTestCase<ArmorProf>
+class ArmorProfTokenTest extends AbstractAutoTokenTestCase<ArmorProf>
 {
 
 	static ArmorProfToken subtoken = new ArmorProfToken();
@@ -104,7 +104,7 @@ public class ArmorProfTokenTest extends AbstractAutoTokenTestCase<ArmorProf>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail()
+	void testUnparseGenericsFail()
 	{
 		ListKey listKey = ListKey.AUTO_ARMORPROF;
 		primaryProf.addToListFor(listKey, new Object());

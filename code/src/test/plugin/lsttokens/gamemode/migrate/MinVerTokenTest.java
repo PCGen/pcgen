@@ -48,7 +48,7 @@ class MinVerTokenTest
 	}
 
 	@Test
-	public void testParseValidVer()
+	void testParseValidVer()
 	{
 		assertTrue(
 				token.parse(migrationRule, "6.01.03", gameModeName), "Parse should have been successful");
@@ -56,7 +56,7 @@ class MinVerTokenTest
 	}
 
 	@Test
-	public void testParseValidVerNumbers()
+	void testParseValidVerNumbers()
 	{
 		String[] goodVersions =
 				{"5.17.12", "6.0.0", "6.0.1 RC2", "6.0.1-RC2",
@@ -71,7 +71,7 @@ class MinVerTokenTest
 	}
 
 	@Test
-	public void testParseInvalidVerEmpty()
+	void testParseInvalidVerEmpty()
 	{
 		assertFalse(
 				token.parse(migrationRule, "", gameModeName), "Empty version should not have been accepted");
@@ -79,7 +79,7 @@ class MinVerTokenTest
 	}
 
 	@Test
-	public void testParseInvalidVerFormat()
+	void testParseInvalidVerFormat()
 	{
 		String[] badVersions =
 				{"text", "a.b.c", "6.1", "6_0_1", "6.0.1d",

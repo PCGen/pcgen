@@ -34,7 +34,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class AbilityIntegrationTest extends
+class AbilityIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>
 {
 	private static final CDOMPrimaryToken<CDOMObject> token = new AbilityLst();
@@ -72,7 +72,7 @@ public class AbilityIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		construct(primaryContext, "Abil1");
@@ -86,7 +86,7 @@ public class AbilityIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinRemove() throws PersistenceLayerException
+	void testRoundRobinRemove() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		construct(primaryContext, "Abil1");
@@ -100,7 +100,7 @@ public class AbilityIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinMixed() throws PersistenceLayerException
+	void testRoundRobinMixed() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		construct(primaryContext, "Abil1");
@@ -114,7 +114,7 @@ public class AbilityIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoSet() throws PersistenceLayerException
+	void testRoundRobinNoSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		construct(primaryContext, "Abil1");
@@ -128,7 +128,7 @@ public class AbilityIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoReset() throws PersistenceLayerException
+	void testRoundRobinNoReset() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		construct(primaryContext, "Abil1");
@@ -142,7 +142,7 @@ public class AbilityIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoSetDotClear() throws PersistenceLayerException
+	void testRoundRobinNoSetDotClear() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		construct(primaryContext, "Abil2");
@@ -154,7 +154,7 @@ public class AbilityIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoResetDotClear()
+	void testRoundRobinNoResetDotClear()
 			throws PersistenceLayerException
 	{
 		verifyCleanStart();
@@ -167,7 +167,7 @@ public class AbilityIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinMixedClearDot() throws PersistenceLayerException
+	void testRoundRobinMixedClearDot() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		construct(primaryContext, "Abil2");
@@ -179,7 +179,7 @@ public class AbilityIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinMixedDotClear() throws PersistenceLayerException
+	void testRoundRobinMixedDotClear() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		construct(primaryContext, "Abil2");
@@ -191,7 +191,7 @@ public class AbilityIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoSetClear() throws PersistenceLayerException
+	void testRoundRobinNoSetClear() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -201,7 +201,7 @@ public class AbilityIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoResetClear() throws PersistenceLayerException
+	void testRoundRobinNoResetClear() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -211,7 +211,7 @@ public class AbilityIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinClearOrder() throws PersistenceLayerException
+	void testRoundRobinClearOrder() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		construct(primaryContext, "Abil1");

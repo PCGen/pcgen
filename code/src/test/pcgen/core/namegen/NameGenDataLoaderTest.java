@@ -32,13 +32,13 @@ import org.junit.jupiter.api.io.TempDir;
  * Smoke tests for {@link NameGenDataLoader} against the bundled
  * {@code plugins/Random Names} dataset.
  */
-public class NameGenDataLoaderTest
+class NameGenDataLoaderTest
 {
 	private static final File DATA_DIR =
 			new File(System.getProperty("user.dir"), "plugins/Random Names");
 
 	@Test
-	public void loadsBundledDatasetWithoutThrowing() throws IOException
+	void loadsBundledDatasetWithoutThrowing() throws IOException
 	{
 		NameGenData data = NameGenDataLoader.load(DATA_DIR);
 		assertNotNull(data);
@@ -47,7 +47,7 @@ public class NameGenDataLoaderTest
 	}
 
 	@Test
-	public void categoriesIncludeSexBucketsAndAll() throws IOException
+	void categoriesIncludeSexBucketsAndAll() throws IOException
 	{
 		// Loader-level view: raw categories include the Sex: buckets and
 		// the All pseudo-category. The NameGenerator facade hides them;
@@ -60,7 +60,7 @@ public class NameGenDataLoaderTest
 	}
 
 	@Test
-	public void rejectsNonDirectory() throws IOException
+	void rejectsNonDirectory() throws IOException
 	{
 		File notADir = File.createTempFile("namegen", ".tmp");
 		notADir.deleteOnExit();
@@ -68,7 +68,7 @@ public class NameGenDataLoaderTest
 	}
 
 	@Test
-	public void surfacesParseErrorsAsIoException(@TempDir Path tempDir) throws IOException
+	void surfacesParseErrorsAsIoException(@TempDir Path tempDir) throws IOException
 	{
 		// generator.dtd must exist for the resolver, but the actual XML is broken.
 		Files.copy(new File(DATA_DIR, "generator.dtd").toPath(),
@@ -80,14 +80,14 @@ public class NameGenDataLoaderTest
 	}
 
 	@Test
-	public void emptyDirectoryYieldsEmptyData(@TempDir Path tempDir) throws IOException
+	void emptyDirectoryYieldsEmptyData(@TempDir Path tempDir) throws IOException
 	{
 		NameGenData data = NameGenDataLoader.load(tempDir.toFile());
 		assertTrue(data.categories().isEmpty());
 	}
 
 	@Test
-	public void valueWithoutWeightDefaultsToOne(@TempDir Path tempDir) throws IOException
+	void valueWithoutWeightDefaultsToOne(@TempDir Path tempDir) throws IOException
 	{
 		// The DTD declares weight="1" as a default, but we use a
 		// non-validating parser, so a missing weight arrives as "" — the
@@ -104,7 +104,7 @@ public class NameGenDataLoaderTest
 	}
 
 	@Test
-	public void rejectsExternalEntityExpansion(@TempDir Path tempDir) throws IOException
+	void rejectsExternalEntityExpansion(@TempDir Path tempDir) throws IOException
 	{
 		// Classic XXE payload: declare an external entity that points to
 		// a local secret file, then reference it. With external general
@@ -142,7 +142,7 @@ public class NameGenDataLoaderTest
 	}
 
 	@Test
-	public void bundledDatasetHasNoUnresolvedReferences() throws IOException
+	void bundledDatasetHasNoUnresolvedReferences() throws IOException
 	{
 		// Each entry in unresolvedReferences() is a GETLIST/GETRULE in
 		// the data files pointing at a target id that doesn't exist —
@@ -160,7 +160,7 @@ public class NameGenDataLoaderTest
 	}
 
 	@Test
-	public void unresolvedReferencesAreCollected(@TempDir Path tempDir) throws IOException
+	void unresolvedReferencesAreCollected(@TempDir Path tempDir) throws IOException
 	{
 		// Verify the collection mechanism itself: a GETLIST pointing at a
 		// non-existent list and a GETRULE pointing at a non-existent
