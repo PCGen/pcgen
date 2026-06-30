@@ -11,7 +11,6 @@ module pcgen.base {
     exports pcgen.base.graph.search;
     exports pcgen.base.graph.util;
     exports pcgen.base.lang;
-    exports pcgen.base.logging;
     exports pcgen.base.math;
     exports pcgen.base.proxy;
     exports pcgen.base.spotbugs;
