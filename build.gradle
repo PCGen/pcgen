@@ -277,6 +277,11 @@ def hostArch = supportedHostArch[rawHostArch]
 if (hostArch == null) {
     throw new GradleException("Unsupported host arch: '${rawHostArch}'. Supported: ${supportedHostArch.keySet().join(", ")}")
 }
+// Publish the host tokens so release.gradle (a separately-applied script) can
+// build installer filenames that match the portable zip
+// (pcgen-<version>-<hostOs>-<hostArch>.<ext>).
+project.ext.hostOs = hostOs
+project.ext.hostArch = hostArch
 def hostJdkExt = (hostOs == "windows") ? "zip" : "tar.gz"
 def hostJfxOsPackage = (hostOs == "mac") ? "osx" : hostOs
 def hostJfxArchSuffix = "-${hostArch}"

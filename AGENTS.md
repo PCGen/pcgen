@@ -131,6 +131,7 @@ Conventions/gotchas observed:
   - `pcgenReleaseOfficial` (pcgenRelease + updateVersionRelease)
   - `updateVersionToNext` (Groovy helper in `releaseUtils.groovy` that bumps the trailing numeric segment by 1, zero-padded to two digits, and appends `-SNAPSHOT`; used by the manual release workflow's post-build bump step).
 - Artifacts collected into build/release; jpackage produces platform installers under build/jpackage.
+- **Artifact filename convention**: `assembleArtifacts` (`code/gradle/release.gradle`) renames the native installers it copies into `build/release` to mirror the portable zip — `pcgen-<version>-<hostOs>-<hostArch>.<ext>` (e.g. `pcgen-6.09.08.RC1-NIGHTLY.20260624-mac-aarch64.dmg`, `pcgen-6.09.08-windows-x64.exe`, `pcgen-6.09.08-linux-x64.deb`). This is a **filename-only** change: jpackage's *internal* `appVersion` is still the sanitised numeric version (`build.gradle:353`, e.g. `6.09.08`) because dmg/exe/deb require a strictly numeric version. The rename relies on `project.ext.hostOs`/`project.ext.hostArch` published in `build.gradle` (the local `def`s aren't visible to the separately-applied `release.gradle`). Workflows upload `build/release/*` (wildcard), so no workflow changes are needed when this convention changes.
 - Release CI builds on: ubuntu-latest (x64), ubuntu-24.04-arm, macos-latest, windows-latest.
 - CI updates `PCGenProp.properties` with version number and release date at build time (per-platform, in-memory, never committed).
 
