@@ -32,11 +32,11 @@ import pcgen.base.formula.visitor.ReconstructionVisitor;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
 import pcgen.base.testsupport.TestUtilities;
 
-public class RoundFunctionTest extends AbstractFormulaTestCase
+class RoundFunctionTest extends AbstractFormulaTestCase
 {
 
 	@Test
-	public void testInvalidTooManyArg()
+	void testInvalidTooManyArg()
 	{
 		String formula = "round(2, 3)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -44,7 +44,7 @@ public class RoundFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotValidString()
+	void testNotValidString()
 	{
 		String formula = "round(\"ab\")";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -52,7 +52,7 @@ public class RoundFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotValidNoVar()
+	void testNotValidNoVar()
 	{
 		String formula = "round(ab)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -60,7 +60,7 @@ public class RoundFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testIntegerPositive()
+	void testIntegerPositive()
 	{
 		String formula = "round(1)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -73,7 +73,7 @@ public class RoundFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testIntegerNegative()
+	void testIntegerNegative()
 	{
 		String formula = "round(-2)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -86,7 +86,7 @@ public class RoundFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDoublePositive()
+	void testDoublePositive()
 	{
 		String formula = "round(6.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -99,7 +99,7 @@ public class RoundFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDoublePositivePointFiveUp()
+	void testDoublePositivePointFiveUp()
 	{
 		String formula = "round(6.5)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -112,7 +112,7 @@ public class RoundFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDoubleNegative()
+	void testDoubleNegative()
 	{
 		String formula = "round(-5.8)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -125,7 +125,7 @@ public class RoundFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDoubleNegativePointFiveUp()
+	void testDoubleNegativePointFiveUp()
 	{
 		String formula = "round(-5.5)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -138,7 +138,7 @@ public class RoundFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDoubleNegativePointFiveUpLeadingSpace()
+	void testDoubleNegativePointFiveUpLeadingSpace()
 	{
 		String formula = "round( -5.5)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -148,7 +148,7 @@ public class RoundFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDoubleNegativePointFiveUpTrailingSpace()
+	void testDoubleNegativePointFiveUpTrailingSpace()
 	{
 		String formula = "round(-5.5 )";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -158,7 +158,7 @@ public class RoundFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDoubleNegativePointFiveUpSeparatingSpace()
+	void testDoubleNegativePointFiveUpSeparatingSpace()
 	{
 		String formula = "round (-5.5)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -168,7 +168,7 @@ public class RoundFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testVariable()
+	void testVariable()
 	{
 		setVariable(getVariable("a"), 5.3);
 		String formula = "round(a)";

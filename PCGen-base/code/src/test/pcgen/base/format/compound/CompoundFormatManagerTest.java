@@ -34,11 +34,11 @@ import pcgen.base.util.SimpleValueStore;
 /**
  * Test the CompoundFormatManager class
  */
-public class CompoundFormatManagerTest
+class CompoundFormatManagerTest
 {
 	@Test
 	@SuppressWarnings({"rawtypes", "unchecked"})
-	public void testUnconvertFailObject()
+	void testUnconvertFailObject()
 	{
 		CompoundFormatManager<Number> manager =
 				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');
@@ -48,13 +48,13 @@ public class CompoundFormatManagerTest
 	}
 
 	@Test
-	public void testConstructor()
+	void testConstructor()
 	{
 		assertThrows(NullPointerException.class, () -> new CompoundFormatManager<>(null, '|'));
 	}
 
 	@Test
-	public void testRoundRobinIdentifier()
+	void testRoundRobinIdentifier()
 	{
 		CompoundFormatManager<Number> manager =
 				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');
@@ -68,7 +68,7 @@ public class CompoundFormatManagerTest
 	}
 
 	@Test
-	public void testInvalidConvertSimpleFail()
+	void testInvalidConvertSimpleFail()
 	{
 		CompoundFormatManager<Number> manager =
 				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');
@@ -81,7 +81,7 @@ public class CompoundFormatManagerTest
 	}
 	
 	@Test
-	public void testInvalidConvertBadSeparator()
+	void testInvalidConvertBadSeparator()
 	{
 		CompoundFormatManager<Number> manager =
 				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');
@@ -93,7 +93,7 @@ public class CompoundFormatManagerTest
 	}
 	
 	@Test
-	public void testInvalidConvertBadAssociation()
+	void testInvalidConvertBadAssociation()
 	{
 		CompoundFormatManager<Number> manager =
 				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');
@@ -103,7 +103,7 @@ public class CompoundFormatManagerTest
 	}
 	
 	@Test
-	public void testConvert()
+	void testConvert()
 	{
 		CompoundFormatManager<Number> manager =
 				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');
@@ -137,7 +137,7 @@ public class CompoundFormatManagerTest
 	}
 
 	@Test
-	public void testConvertIndirect()
+	void testConvertIndirect()
 	{
 		CompoundFormatManager<Number> manager =
 				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');
@@ -176,7 +176,7 @@ public class CompoundFormatManagerTest
 	}
 
 	@Test
-	public void testInitializeFrom()
+	void testInitializeFrom()
 	{
 		SimpleValueStore valueStore = new SimpleValueStore();
 		CompoundFormatManager<Number> manager =
@@ -197,7 +197,7 @@ public class CompoundFormatManagerTest
 	}
 
 	@Test
-	public void testEquals()
+	void testEquals()
 	{
 		CompoundFormatManager<Number> manager =
 				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');
@@ -248,7 +248,7 @@ public class CompoundFormatManagerTest
 	}
 
 	@Test
-	public void testHashCode()
+	void testHashCode()
 	{
 		CompoundFormatManager<Number> manager =
 				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');

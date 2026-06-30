@@ -47,13 +47,13 @@ import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 import util.TestURI;
 
-public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
+class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 {
 	private static AutoFeatToken token = new AutoFeatToken();
 	private static AbilityLst abLst = new AbilityLst();
 
 	@Test
-	public void testFromTemplate()
+	void testFromTemplate()
 	{
 		PCTemplate source = create(PCTemplate.class, "Source");
 		Ability granted = createGrantedObject();
@@ -94,7 +94,7 @@ public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testFromAbility()
+	void testFromAbility()
 	{
 		Ability source = BuildUtilities.buildFeat(context, "Source");
 		Ability granted = createGrantedObject();

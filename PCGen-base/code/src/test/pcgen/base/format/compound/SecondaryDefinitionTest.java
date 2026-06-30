@@ -28,11 +28,11 @@ import pcgen.base.formatmanager.SimpleFormatManagerLibrary;
 /**
  * Test the SecondaryDefinitio class
  */
-public class SecondaryDefinitionTest
+class SecondaryDefinitionTest
 {
 
 	@Test
-	public void testValueOf()
+	void testValueOf()
 	{
 		SimpleFormatManagerLibrary library = new SimpleFormatManagerLibrary();
 		library.addFormatManager(FormatUtilities.NUMBER_MANAGER);
@@ -45,7 +45,7 @@ public class SecondaryDefinitionTest
 	}
 
 	@Test
-	public void testValueOfOptional()
+	void testValueOfOptional()
 	{
 		SimpleFormatManagerLibrary library = new SimpleFormatManagerLibrary();
 		library.addFormatManager(FormatUtilities.NUMBER_MANAGER);
@@ -58,7 +58,7 @@ public class SecondaryDefinitionTest
 	}
 
 	@Test
-	public void testValueOfFail()
+	void testValueOfFail()
 	{
 		SimpleFormatManagerLibrary library = new SimpleFormatManagerLibrary();
 		library.addFormatManager(FormatUtilities.NUMBER_MANAGER);

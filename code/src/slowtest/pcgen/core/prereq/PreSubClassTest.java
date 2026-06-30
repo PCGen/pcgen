@@ -67,7 +67,7 @@ class PreSubClassTest extends AbstractCharacterTestCase
 	 * @throws PrerequisiteException the prerequisite exception
 	 */
 	@Test
-	public void testCharWithMultipleClasses() throws PrerequisiteException
+	void testCharWithMultipleClasses() throws PrerequisiteException
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
@@ -99,7 +99,7 @@ class PreSubClassTest extends AbstractCharacterTestCase
 	 * @throws PrerequisiteException the prerequisite exception
 	 */
 	@Test
-	public void testCharWithMultipleSubClasses() throws PrerequisiteException
+	void testCharWithMultipleSubClasses() throws PrerequisiteException
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
@@ -133,7 +133,7 @@ class PreSubClassTest extends AbstractCharacterTestCase
 	 * @throws PrerequisiteException the prerequisite exception
 	 */
 	@Test
-	public void testNamedSubClassFail() throws PrerequisiteException
+	void testNamedSubClassFail() throws PrerequisiteException
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
@@ -159,7 +159,7 @@ class PreSubClassTest extends AbstractCharacterTestCase
 	 * @throws PrerequisiteException the prerequisite exception
 	 */
 	@Test
-	public void testNamedDifSubClassFail() throws PrerequisiteException
+	void testNamedDifSubClassFail() throws PrerequisiteException
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");

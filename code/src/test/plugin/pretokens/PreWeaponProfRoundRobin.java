@@ -24,7 +24,7 @@ import plugin.pretokens.writer.PreWeaponProfWriter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class PreWeaponProfRoundRobin extends AbstractBasicRoundRobin
+class PreWeaponProfRoundRobin extends AbstractBasicRoundRobin
 {
 
 	@BeforeEach
@@ -49,13 +49,13 @@ public class PreWeaponProfRoundRobin extends AbstractBasicRoundRobin
 	}
 
 	@Test
-	public void testDeityWeapon()
+	void testDeityWeapon()
 	{
 		this.runRoundRobin("PRE" + getBaseString() + ":1,DEITYWEAPON");
 	}
 
 	@Test
-	public void testNegateItem()
+	void testNegateItem()
 	{
 		AbstractPreRoundRobin.runSimpleRoundRobin("PRE" + getBaseString() + ":1,Foo,[TYPE=Bar]",
 				"PREMULT:1,[PRE" + getBaseString() + ":1,Foo],[!PRE"

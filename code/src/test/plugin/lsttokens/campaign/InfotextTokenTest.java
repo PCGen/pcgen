@@ -35,7 +35,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
 
-public class InfotextTokenTest extends AbstractCDOMTokenTestCase<Campaign>
+class InfotextTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 {
 
 	static InfotextToken token = new InfotextToken();
@@ -65,7 +65,7 @@ public class InfotextTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testValidInputSimple()
+	void testValidInputSimple()
 	{
 		ListKey<?> listKey = getListKey();
 		if (listKey != null)
@@ -80,7 +80,7 @@ public class InfotextTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testValidInputNonEnglish()
+	void testValidInputNonEnglish()
 	{
 		ListKey<?> listKey = getListKey();
 		if (listKey != null)
@@ -95,7 +95,7 @@ public class InfotextTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testValidInputSpace()
+	void testValidInputSpace()
 	{
 		ListKey<?> listKey = getListKey();
 		if (listKey != null)
@@ -110,7 +110,7 @@ public class InfotextTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testValidInputHyphen()
+	void testValidInputHyphen()
 	{
 		ListKey<?> listKey = getListKey();
 		if (listKey != null)
@@ -125,7 +125,7 @@ public class InfotextTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testValidInputY()
+	void testValidInputY()
 	{
 		ListKey<?> listKey = getListKey();
 		if (listKey != null)
@@ -140,7 +140,7 @@ public class InfotextTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testValidInputList()
+	void testValidInputList()
 	{
 		ListKey<?> listKey = getListKey();
 		if (listKey != null)
@@ -157,7 +157,7 @@ public class InfotextTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testValidInputMultList()
+	void testValidInputMultList()
 	{
 		ListKey<?> listKey = getListKey();
 		if (listKey != null)
@@ -178,7 +178,7 @@ public class InfotextTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testInvalidListEmpty()
+	void testInvalidListEmpty()
 	{
 		assertFalse(parse(""));
 		assertNull(primaryProf.getListFor(getListKey()));
@@ -186,7 +186,7 @@ public class InfotextTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testInvalidEmpty()
+	void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNull(primaryProf.getListFor(getListKey()));
@@ -194,43 +194,43 @@ public class InfotextTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testRoundRobinBase() throws PersistenceLayerException
+	void testRoundRobinBase() throws PersistenceLayerException
 	{
 		runRoundRobin("Rheinhessen");
 	}
 
 	@Test
-	public void testRoundRobinWithSpace() throws PersistenceLayerException
+	void testRoundRobinWithSpace() throws PersistenceLayerException
 	{
 		runRoundRobin("Finger Lakes");
 	}
 
 	@Test
-	public void testRoundRobinNonEnglishAndN() throws PersistenceLayerException
+	void testRoundRobinNonEnglishAndN() throws PersistenceLayerException
 	{
 		runRoundRobin("Niederösterreich");
 	}
 
 	@Test
-	public void testRoundRobinHyphen() throws PersistenceLayerException
+	void testRoundRobinHyphen() throws PersistenceLayerException
 	{
 		runRoundRobin("Languedoc-Roussillon");
 	}
 
 	@Test
-	public void testRoundRobinY() throws PersistenceLayerException
+	void testRoundRobinY() throws PersistenceLayerException
 	{
 		runRoundRobin("Yarra Valley");
 	}
 
 	@Test
-	public void testRoundRobinThree() throws PersistenceLayerException
+	void testRoundRobinThree() throws PersistenceLayerException
 	{
 		runRoundRobin("Languedoc-Roussillon", "Rheinhessen", "Yarra Valley");
 	}
 
 	@Test
-	public void testRoundRobinThreeDupe() throws PersistenceLayerException
+	void testRoundRobinThreeDupe() throws PersistenceLayerException
 	{
 		runRoundRobin("Languedoc-Roussillon", "Rheinhessen", "Rheinhessen");
 	}

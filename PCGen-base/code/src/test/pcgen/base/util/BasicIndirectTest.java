@@ -28,7 +28,7 @@ import pcgen.base.format.NumberManager;
 import pcgen.base.format.StringManager;
 import pcgen.testsupport.TestSupport;
 
-public class BasicIndirectTest
+class BasicIndirectTest
 {
 
 	private BasicIndirect<Number> indirectDouble = new BasicIndirect<>(
@@ -37,7 +37,7 @@ public class BasicIndirectTest
 			new StringManager(), "Hello!");
 
 	@Test
-	public void testConstructor()
+	void testConstructor()
 	{
 		//Using .equals to prove a point if this is changed to legal :)
 		assertThrows(NullPointerException.class, () -> new BasicIndirect<>(new StringManager(), null).equals(indirectDouble));
@@ -47,7 +47,7 @@ public class BasicIndirectTest
 
 	@SuppressWarnings({"unchecked", "rawtypes"})
 	@Test
-	public void testConstructorGenericsViolation()
+	void testConstructorGenericsViolation()
 	{
 		Object o = 4;
 		//Mess with generics
@@ -55,28 +55,28 @@ public class BasicIndirectTest
 	}
 
 	@Test
-	public void testResolvesTo()
+	void testResolvesTo()
 	{
 		assertEquals(4.0, indirectDouble.get());
 		assertEquals("Hello!", indirectString.get());
 	}
 
 	@Test
-	public void testGetUnconverted()
+	void testGetUnconverted()
 	{
 		assertEquals("4.0", indirectDouble.getUnconverted());
 		assertEquals("Hello!", indirectString.getUnconverted());
 	}
 
 	@Test
-	public void testToString()
+	void testToString()
 	{
 		assertEquals("4.0", indirectDouble.toString());
 		assertEquals("Hello!", indirectString.toString());
 	}
 	
 	@Test
-	public void testEquals()
+	void testEquals()
 	{
 		BasicIndirect<Number> indirectInt =
 				new BasicIndirect<>(

@@ -59,7 +59,7 @@ import org.junit.jupiter.api.Test;
  * Tests for Level Ability Class Skills
  */
 @SuppressWarnings("nls")
-public class AddClassSkillsTest extends AbstractCharacterTestCase
+class AddClassSkillsTest extends AbstractCharacterTestCase
 {
 
 	PCClass pcClass;
@@ -103,7 +103,7 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 	 * Test method for 'pcgen.core.levelability.LevelAbilityClassSkills.getChoicesList(String, PlayerCharacter)'
 	 */
 	@Test
-	public void testBasicChoicesList()
+	void testBasicChoicesList()
 	{
 		PCClass po = new PCClass();
 		PlayerCharacter pc = getCharacter();
@@ -132,7 +132,7 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 	 * Test method for 'pcgen.core.levelability.LevelAbilityClassSkills.getChoicesList(String, PlayerCharacter)'
 	 */
 	@Test
-	public void testGetChoicesListWithParens()
+	void testGetChoicesListWithParens()
 	{
 		PCClass po = new PCClass();
 
@@ -161,7 +161,7 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 	 * Test method for 'pcgen.core.levelability.LevelAbilityClassSkills.getChoicesList(String, PlayerCharacter)'
 	 */
 	@Test
-	public void testGetChoicesListWithClassSkill()
+	void testGetChoicesListWithClassSkill()
 	{
 		CampaignSourceEntry source;
 		try

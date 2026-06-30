@@ -41,7 +41,7 @@ import org.junit.jupiter.api.Test;
 import tokencontent.testsupport.AbstractContentTokenTest;
 import util.TestURI;
 
-public class GlobalModifyTest extends AbstractContentTokenTest
+class GlobalModifyTest extends AbstractContentTokenTest
 {
 
 	private static ModifyLst token = new ModifyLst();

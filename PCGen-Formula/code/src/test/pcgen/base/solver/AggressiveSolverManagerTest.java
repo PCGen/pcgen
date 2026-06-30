@@ -31,7 +31,7 @@ import pcgen.base.solver.testsupport.AbstractModifier;
 import pcgen.base.solver.testsupport.AbstractSolverManagerTest;
 import pcgen.base.testsupport.SimpleVarScoped;
 
-public class AggressiveSolverManagerTest extends AbstractSolverManagerTest
+class AggressiveSolverManagerTest extends AbstractSolverManagerTest
 {
 	private GeneralSolverSystem manager;
 
@@ -53,7 +53,7 @@ public class AggressiveSolverManagerTest extends AbstractSolverManagerTest
 	}
 
 	@Test
-	public void testIllegalConstruction()
+	void testIllegalConstruction()
 	{
 		SimpleSolverManager newSolver = new SimpleSolverManager(
 			getVariableLibrary()::isLegalVariableID,
@@ -75,7 +75,7 @@ public class AggressiveSolverManagerTest extends AbstractSolverManagerTest
 	}
 
 	@Test
-	public void testAddModifierExternal()
+	void testAddModifierExternal()
 	{
 		WriteableVariableStore store = getVariableStore();
 		ScopeInstance globalScopeInst = getGlobalScopeInst();

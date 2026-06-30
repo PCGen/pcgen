@@ -29,10 +29,10 @@ import org.junit.jupiter.api.Test;
  * {@code PreItemTest} is ...
  */
 @SuppressWarnings("nls")
-public class PreItemTest extends EnUsLocaleDependentTestCase
+class PreItemTest extends EnUsLocaleDependentTestCase
 {
 	@Test
-	public void testItemPresent() throws Exception
+	void testItemPresent() throws Exception
 	{
 		PreItemParser parser = new PreItemParser();
 		// Test of |PREITEM:1,TYPE.Saddle";
@@ -46,7 +46,7 @@ public class PreItemTest extends EnUsLocaleDependentTestCase
 	}
 
 	@Test
-	public void testItemNotPresent() throws Exception
+	void testItemNotPresent() throws Exception
 	{
 		PreItemParser parser = new PreItemParser();
 		// Test of |!PREITEM:1,TYPE.Saddle";

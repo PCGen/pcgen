@@ -27,11 +27,11 @@ import pcgen.base.graph.inst.SimpleListMapGraph;
 /**
  * Test the EdgeChangeEvent class
  */
-public class EdgeChangeEventTest
+class EdgeChangeEventTest
 {
 
 	@Test
-	public void testEdgeChangeEvent()
+	void testEdgeChangeEvent()
 	{
 		assertThrows(IllegalArgumentException.class,
 			() -> new EdgeChangeEvent<Object, Edge<Object>>(null,

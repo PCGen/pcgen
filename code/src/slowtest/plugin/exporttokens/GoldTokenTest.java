@@ -37,7 +37,7 @@ import org.junit.jupiter.api.Test;
  * Unit test for the {@code GoldToken} class.
  */
 
-public class GoldTokenTest extends AbstractCharacterTestCase
+class GoldTokenTest extends AbstractCharacterTestCase
 {
 
 	private final Token goldToken = new GoldToken();

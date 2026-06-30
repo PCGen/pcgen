@@ -39,7 +39,7 @@ import org.junit.jupiter.api.Test;
  * {@code PreAlignTest} tests that the PREALIGN tag is
  * working correctly.
  */
-public class PreAlignTest extends AbstractCharacterTestCase
+class PreAlignTest extends AbstractCharacterTestCase
 {
 	private Deity deity;
 
@@ -49,7 +49,7 @@ public class PreAlignTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testNegative() throws PersistenceLayerException
+	void testNegative() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
@@ -72,7 +72,7 @@ public class PreAlignTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testAbbrev() throws PersistenceLayerException
+	void testAbbrev() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
@@ -105,7 +105,7 @@ public class PreAlignTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testDeity() throws PersistenceLayerException
+	void testDeity() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
@@ -125,7 +125,7 @@ public class PreAlignTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testMulti() throws Exception
+	void testMulti() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);

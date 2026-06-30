@@ -40,7 +40,7 @@ import plugin.function.testsupport.TransparentFormatManager;
 
 import org.junit.jupiter.api.Test;
 
-public class BridgeListenerTest
+class BridgeListenerTest
 {
 
 	@SuppressWarnings("unused")

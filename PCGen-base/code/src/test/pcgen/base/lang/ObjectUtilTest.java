@@ -27,48 +27,48 @@ import pcgen.testsupport.TestSupport;
 /**
  * Test the ObjectUtil class
  */
-public class ObjectUtilTest
+class ObjectUtilTest
 {
 
 	@Test
-	public void testConstructor()
+	void testConstructor()
 	{
 		TestSupport.invokePrivateConstructor(ObjectUtil.class);
 	}
 
 	@Test
-	public void testNulls()
+	void testNulls()
 	{
 		assertTrue(ObjectUtil.identityEquals(null).test(null));
 	}
 
 	@Test
-	public void testNullObject()
+	void testNullObject()
 	{
 		assertFalse(ObjectUtil.identityEquals(null).test(new Object()));
 	}
 
 	@Test
-	public void testObjectNull()
+	void testObjectNull()
 	{
 		assertFalse(ObjectUtil.identityEquals(new Object()).test(null));
 	}
 
 	@Test
-	public void testDifferent()
+	void testDifferent()
 	{
 		assertFalse(ObjectUtil.identityEquals(new Object()).test(new Object()));
 	}
 
 	@Test
-	public void testSameInstance()
+	void testSameInstance()
 	{
 		Object obj = new Object();
 		assertTrue(ObjectUtil.identityEquals(obj).test(obj));
 	}
 
 	@Test
-	public void testEqualsMethodIsIdentity()
+	void testEqualsMethodIsIdentity()
 	{
 		assertFalse(ObjectUtil.identityEquals(new Integer(1)).test(new Integer(1)));
 	}

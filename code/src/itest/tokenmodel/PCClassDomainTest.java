@@ -32,13 +32,13 @@ import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 import util.TestURI;
 
-public class PCClassDomainTest extends AbstractTokenModelTest
+class PCClassDomainTest extends AbstractTokenModelTest
 {
 
 	private static DomainToken token = new DomainToken();
 
 	@Test
-	public void testSimple()
+	void testSimple()
 	{
 		PCClass source = create(PCClass.class, "Source");
 		Domain granted = create(Domain.class, "Granted");

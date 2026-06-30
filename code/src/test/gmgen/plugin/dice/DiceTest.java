@@ -26,7 +26,7 @@ import org.junit.jupiter.api.Test;
 class DiceTest
 {
 	@Test
-	public void nonRandomDiceAssertions()
+	void nonRandomDiceAssertions()
 	{
 		Die oneDie = new Dice(1, 1);
 		assertThat("one sided die returns 1", oneDie.roll(), is(1));
@@ -35,7 +35,7 @@ class DiceTest
 	}
 
 	@Test
-	public void randomDiceAssertions()
+	void randomDiceAssertions()
 	{
 		Die die = new Dice(1, 10);
 		assertThat("single die returns value as expected", die.roll(),

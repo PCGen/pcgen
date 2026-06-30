@@ -32,7 +32,7 @@ import pcgen.base.graph.base.GraphEdge;
 /**
  * Test the DefaultGraphEdge class
  */
-public class DefaultGraphEdgeTest
+class DefaultGraphEdgeTest
 {
 
 	private Double node1, node2, node3, node4;
@@ -68,7 +68,7 @@ public class DefaultGraphEdgeTest
 	}
 
 	@Test
-	public void testDefaultGraphEdge()
+	void testDefaultGraphEdge()
 	{
 		assertThrows(NullPointerException.class, () -> new DefaultGraphEdge<>(node1, null));
 		assertThrows(NullPointerException.class, () -> new DefaultGraphEdge<>(null, node3));
@@ -76,7 +76,7 @@ public class DefaultGraphEdgeTest
 	}
 
 	@Test
-	public void testGetNodeAt()
+	void testGetNodeAt()
 	{
 		assertEquals(node1, edge1.getNodeAt(0));
 		assertEquals(node2, edge2.getNodeAt(0));
@@ -93,7 +93,7 @@ public class DefaultGraphEdgeTest
 	}
 
 	@Test
-	public void testGetOppositeNode()
+	void testGetOppositeNode()
 	{
 		assertEquals(node1, edge1.getOppositeNode(node2));
 		assertEquals(node2, edge2.getOppositeNode(node1));
@@ -110,7 +110,7 @@ public class DefaultGraphEdgeTest
 	}
 
 	@Test
-	public void testCreateReplacementEdgeNodeNode()
+	void testCreateReplacementEdgeNodeNode()
 	{
 		GraphEdge<Double> ge = edge1.createReplacementEdge(node3, node4);
 		assertTrue(ge instanceof DefaultGraphEdge);
@@ -120,14 +120,14 @@ public class DefaultGraphEdgeTest
 	}
 
 	@Test
-	public void testGetAdjacentNodeCount()
+	void testGetAdjacentNodeCount()
 	{
 		assertEquals(2, edge1.getAdjacentNodeCount());
 		assertEquals(2, edge2.getAdjacentNodeCount());
 	}
 
 	@Test
-	public void testIsAdjacentNode()
+	void testIsAdjacentNode()
 	{
 		assertTrue(edge3.isAdjacentNode(node1));
 		assertFalse(edge3.isAdjacentNode(node2));

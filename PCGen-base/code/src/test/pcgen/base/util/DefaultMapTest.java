@@ -26,7 +26,7 @@ import org.junit.jupiter.api.Test;
 
 import pcgen.testsupport.TestSupport;
 
-public class DefaultMapTest
+class DefaultMapTest
 {
 
 	public void populate(DefaultMap<Object, Double> dm)
@@ -40,7 +40,7 @@ public class DefaultMapTest
 	}
 
 	@Test
-	public void testGetDefault()
+	void testGetDefault()
 	{
 		DefaultMap<Object, Double> dm = new DefaultMap<>();
 		assertNull(dm.getDefaultValue());
@@ -49,7 +49,7 @@ public class DefaultMapTest
 	}
 
 	@Test
-	public void testPutGetExact()
+	void testPutGetExact()
 	{
 		DefaultMap<Object, Double> dm = new DefaultMap<>();
 		populate(dm);
@@ -68,7 +68,7 @@ public class DefaultMapTest
 	}
 
 	@Test
-	public void testContainsKey()
+	void testContainsKey()
 	{
 		DefaultMap<Object, Double> dm = new DefaultMap<>();
 		populate(dm);
@@ -83,7 +83,7 @@ public class DefaultMapTest
 	}
 
 	@Test
-	public void testRemoveRestoreDefault()
+	void testRemoveRestoreDefault()
 	{
 		DefaultMap<Object, Double> dm = new DefaultMap<>();
 		populate(dm);

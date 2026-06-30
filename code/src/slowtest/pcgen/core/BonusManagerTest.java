@@ -32,7 +32,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Test class for BonusManager.
  */
-public class BonusManagerTest extends AbstractCharacterTestCase
+class BonusManagerTest extends AbstractCharacterTestCase
 {
 
 	/**
@@ -40,7 +40,7 @@ public class BonusManagerTest extends AbstractCharacterTestCase
 	 * a positive bonus followed by a negative bonus to a non-stackable value.
 	 */
 	@Test
-	public void testStackingPositiveFirst()
+	void testStackingPositiveFirst()
 	{
 		PCTemplate testObj = TestHelper.makeTemplate("PostiveFirst");
 		LoadContext context = Globals.getContext();
@@ -64,7 +64,7 @@ public class BonusManagerTest extends AbstractCharacterTestCase
 	 * a negative bonus followed by a positive bonus to a non-stackable value.
 	 */
 	@Test
-	public void testStackingNegativeFirst()
+	void testStackingNegativeFirst()
 	{
 		PCTemplate testObj = TestHelper.makeTemplate("PostiveFirst");
 		LoadContext context = Globals.getContext();
@@ -90,7 +90,7 @@ public class BonusManagerTest extends AbstractCharacterTestCase
 	 * non-stackable value.
 	 */
 	@Test
-	public void testStackingPosNegPos()
+	void testStackingPosNegPos()
 	{
 		PCTemplate testObj = TestHelper.makeTemplate("PosNegPos");
 		LoadContext context = Globals.getContext();

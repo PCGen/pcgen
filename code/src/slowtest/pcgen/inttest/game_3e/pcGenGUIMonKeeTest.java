@@ -26,10 +26,10 @@ import org.junit.jupiter.api.Test;
  * 
  * See PCG file for details.
  */
-public class pcGenGUIMonKeeTest extends PcgenFtlTestCase
+class pcGenGUIMonKeeTest extends PcgenFtlTestCase
 {
 	@Test
-	public void testMonKee() throws Exception
+	void testMonKee() throws Exception
 	{
 		runTest("3e_MonKee");
 	}

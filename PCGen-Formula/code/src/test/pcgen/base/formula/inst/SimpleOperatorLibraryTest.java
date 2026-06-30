@@ -33,11 +33,11 @@ import pcgen.base.formula.operator.number.NumberMinus;
 import pcgen.base.formula.parse.Operator;
 import pcgen.base.testsupport.TestUtilities;
 
-public class SimpleOperatorLibraryTest
+class SimpleOperatorLibraryTest
 {
 
 	@Test
-	public void testInvalidNull()
+	void testInvalidNull()
 	{
 		SimpleOperatorLibrary library = new SimpleOperatorLibrary();
 		assertThrows(NullPointerException.class, () -> library.addAction((OperatorAction) null));
@@ -45,7 +45,7 @@ public class SimpleOperatorLibraryTest
 	}
 
 	@Test
-	public void testEmpty()
+	void testEmpty()
 	{
 		SimpleOperatorLibrary library = new SimpleOperatorLibrary();
 		assertTrue(
@@ -56,7 +56,7 @@ public class SimpleOperatorLibraryTest
 	}
 
 	@Test
-	public void testSimpleBinary()
+	void testSimpleBinary()
 	{
 		SimpleOperatorLibrary library = new SimpleOperatorLibrary();
 		library.addAction(new NumberAdd());
@@ -67,7 +67,7 @@ public class SimpleOperatorLibraryTest
 	}
 
 	@Test
-	public void testSimpleUnary()
+	void testSimpleUnary()
 	{
 		SimpleOperatorLibrary library = new SimpleOperatorLibrary();
 		library.addAction(new NumberMinus());
@@ -78,7 +78,7 @@ public class SimpleOperatorLibraryTest
 	}
 
 	@Test
-	public void testMultiple()
+	void testMultiple()
 	{
 		SimpleOperatorLibrary library = new SimpleOperatorLibrary();
 		library.addAction(new GenericEquals());

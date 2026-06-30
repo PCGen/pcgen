@@ -25,7 +25,7 @@ import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
 import org.junit.jupiter.api.Test;
 
-public class GenderTokenTest extends AbstractKitTokenTestCase<KitBio>
+class GenderTokenTest extends AbstractKitTokenTestCase<KitBio>
 {
 
 	static GenderToken token = new GenderToken();
@@ -51,7 +51,7 @@ public class GenderTokenTest extends AbstractKitTokenTestCase<KitBio>
 	}
 
 	@Test
-	public void testRoundRobinName() throws PersistenceLayerException
+	void testRoundRobinName() throws PersistenceLayerException
 	{
 		runRoundRobin("Male");
 	}

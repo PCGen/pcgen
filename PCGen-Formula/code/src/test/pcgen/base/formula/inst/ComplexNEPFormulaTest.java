@@ -37,11 +37,11 @@ import pcgen.base.formula.base.VariableList;
 import pcgen.base.formula.exception.SemanticsException;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
 
-public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
+class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 {
 
 	@Test
-	public void testConstructor()
+	void testConstructor()
 	{
 		assertThrows(NullPointerException.class, () -> new ComplexNEPFormula<>(null, FormatUtilities.NUMBER_MANAGER));
 		assertThrows(NullPointerException.class, () -> new ComplexNEPFormula<>("3+6", null));
@@ -49,7 +49,7 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testToString()
+	void testToString()
 	{
 		assertEquals("3+5", new ComplexNEPFormula<>("3+5", FormatUtilities.NUMBER_MANAGER).toString());
 		assertEquals("3*5", new ComplexNEPFormula<>("3*5", FormatUtilities.NUMBER_MANAGER).toString());
@@ -68,7 +68,7 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testIsValid()
+	void testIsValid()
 	{
 		FormulaSemantics fs = getSemantics();
 		assertThrows(NullPointerException.class, () -> new ComplexNEPFormula<Number>("3+5", FormatUtilities.NUMBER_MANAGER).isValid(null));
@@ -99,7 +99,7 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGetDependenciesNone()
+	void testGetDependenciesNone()
 	{
 		DependencyManager depManager = setupDM();
 		Optional<VariableList> potentialVariables =
@@ -112,7 +112,7 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGetDependenciesNoneToo()
+	void testGetDependenciesNoneToo()
 	{
 		DependencyManager depManager = setupDM();
 		Optional<VariableList> potentialVariables =
@@ -125,7 +125,7 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGetDependenciesNoneLonger()
+	void testGetDependenciesNoneLonger()
 	{
 		DependencyManager depManager = setupDM();
 		Optional<VariableList> potentialVariables =
@@ -138,7 +138,7 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGetDependenciesVars()
+	void testGetDependenciesVars()
 	{
 		assertLegalVariable("a", "Global", FormatUtilities.NUMBER_MANAGER);
 		assertLegalVariable("b", "Global", FormatUtilities.NUMBER_MANAGER);
@@ -158,7 +158,7 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGetDependenciesVarsIfOne()
+	void testGetDependenciesVarsIfOne()
 	{
 		assertLegalVariable("a", "Global", FormatUtilities.NUMBER_MANAGER);
 		assertLegalVariable("b", "Global", FormatUtilities.NUMBER_MANAGER);
@@ -176,7 +176,7 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGetDependenciesVarsIfTwo()
+	void testGetDependenciesVarsIfTwo()
 	{
 		assertLegalVariable("a", "Global", FormatUtilities.NUMBER_MANAGER);
 		assertLegalVariable("b", "Global", FormatUtilities.NUMBER_MANAGER);
@@ -194,7 +194,7 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGetDependenciesVarsIfThree()
+	void testGetDependenciesVarsIfThree()
 	{
 		assertLegalVariable("c", "Global", FormatUtilities.BOOLEAN_MANAGER);
 		assertLegalVariable("d", "Global", FormatUtilities.BOOLEAN_MANAGER);
@@ -214,7 +214,7 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGetDependenciesValue()
+	void testGetDependenciesValue()
 	{
 		DependencyManager depManager = setupDM();
 		Optional<VariableList> potentialVariables =
@@ -273,7 +273,7 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testAssertionNumberDirect() throws SemanticsException
+	void testAssertionNumberDirect() throws SemanticsException
 	{
 		ComplexNEPFormula<Number> five = new ComplexNEPFormula<>("5", FormatUtilities.NUMBER_MANAGER);
 		FormulaSemantics fs = getSemantics();
@@ -281,7 +281,7 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testAssertionNumberAsString() throws SemanticsException
+	void testAssertionNumberAsString() throws SemanticsException
 	{
 		ComplexNEPFormula<String> fourString = new ComplexNEPFormula<>("\"4\"", FormatUtilities.STRING_MANAGER);
 		FormulaSemantics fs = getSemantics();
@@ -294,7 +294,7 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testAssertionNotANumber()
+	void testAssertionNotANumber()
 	{
 		ComplexNEPFormula<Number> notANumber =
 				new ComplexNEPFormula<>("\"4,4\"", FormatUtilities.NUMBER_MANAGER);
@@ -307,7 +307,7 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testAssertionFailMismatch()
+	void testAssertionFailMismatch()
 	{
 		ComplexNEPFormula<String> fiveMismatch = new ComplexNEPFormula<>("5", FormatUtilities.STRING_MANAGER);
 		FormulaSemantics fs = getSemantics();
@@ -316,7 +316,7 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testAssertionNumberAsStringConverted() throws SemanticsException
+	void testAssertionNumberAsStringConverted() throws SemanticsException
 	{
 		ComplexNEPFormula<Number> longWayAround =
 				new ComplexNEPFormula<>("\"4\"", FormatUtilities.NUMBER_MANAGER);
@@ -329,7 +329,7 @@ public class ComplexNEPFormulaTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testEquality() throws SemanticsException
+	void testEquality() throws SemanticsException
 	{
 		ComplexNEPFormula<Number> one =
 				new ComplexNEPFormula<>("4+Arm", FormatUtilities.NUMBER_MANAGER);

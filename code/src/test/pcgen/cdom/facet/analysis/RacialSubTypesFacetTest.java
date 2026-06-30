@@ -37,7 +37,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class RacialSubTypesFacetTest
+class RacialSubTypesFacetTest
 {
 	private static final RaceSubType LAST_RACE_TYPE = RaceSubType
 			.getConstant("TestLastRACESUBTYPE");
@@ -59,7 +59,7 @@ public class RacialSubTypesFacetTest
 	private TemplateFacet tfacet = new TemplateFacet();
 
 	@BeforeEach
-	public void setUp() throws Exception
+	void setUp() throws Exception
 	{
 		facet = new RacialSubTypesFacet();
 		facet.setRaceFacet(rfacet);
@@ -70,7 +70,7 @@ public class RacialSubTypesFacetTest
 	}
 
 	@AfterEach
-	public void tearDown()
+	void tearDown()
 	{
 		id = null;
 		altid = null;
@@ -80,14 +80,14 @@ public class RacialSubTypesFacetTest
 	}
 
 	@Test
-	public void testRaceSubTypesUnsetEmpty()
+	void testRaceSubTypesUnsetEmpty()
 	{
 		assertNotNull(facet.getRacialSubTypes(id));
 		assertTrue(facet.getRacialSubTypes(id).isEmpty());
 	}
 
 	@Test
-	public void testWithNothingInRace()
+	void testWithNothingInRace()
 	{
 		rfacet.set(id, new Race());
 		assertSubTypesEmpty();
@@ -100,7 +100,7 @@ public class RacialSubTypesFacetTest
 	}
 
 	@Test
-	public void testAvoidPollution()
+	void testAvoidPollution()
 	{
 		Race r = new Race();
 		r.addToListFor(ListKey.RACESUBTYPE, TEST_RACE_TYPE);
@@ -110,7 +110,7 @@ public class RacialSubTypesFacetTest
 	}
 
 	@Test
-	public void testGetFromRace()
+	void testGetFromRace()
 	{
 		Race r = new Race();
 		r.addToListFor(ListKey.RACESUBTYPE, TEST_RACE_TYPE);
@@ -121,7 +121,7 @@ public class RacialSubTypesFacetTest
 	}
 
 	@Test
-	public void testGetRemoved()
+	void testGetRemoved()
 	{
 		Race r = new Race();
 		r.addToListFor(ListKey.RACESUBTYPE, TEST_RACE_TYPE);
@@ -136,7 +136,7 @@ public class RacialSubTypesFacetTest
 	}
 
 	@Test
-	public void testGetFromTemplate()
+	void testGetFromTemplate()
 	{
 		rfacet.set(id, new Race());
 		PCTemplate t = new PCTemplate();
@@ -148,7 +148,7 @@ public class RacialSubTypesFacetTest
 	}
 
 	@Test
-	public void testGetFromRaceAndTemplate()
+	void testGetFromRaceAndTemplate()
 	{
 		Race r = new Race();
 		r.addToListFor(ListKey.RACESUBTYPE, TEST_RACE_TYPE);
@@ -163,7 +163,7 @@ public class RacialSubTypesFacetTest
 	}
 
 	@Test
-	public void testGetFromTemplateOverridesRaceandCMod()
+	void testGetFromTemplateOverridesRaceandCMod()
 	{
 		Race r = new Race();
 		r.addToListFor(ListKey.RACESUBTYPE, TEST_RACE_TYPE);
@@ -187,7 +187,7 @@ public class RacialSubTypesFacetTest
 	}
 
 	@Test
-	public void testGetFromTemplateSecondOverrides()
+	void testGetFromTemplateSecondOverrides()
 	{
 		Race r = new Race();
 		r.addToListFor(ListKey.RACESUBTYPE, TEST_RACE_TYPE);
@@ -216,7 +216,7 @@ public class RacialSubTypesFacetTest
 	}
 
 	@Test
-	public void testContains()
+	void testContains()
 	{
 		assertFalse(facet.contains(id, TEST_RACE_TYPE));
 		assertFalse(facet.contains(id, RACE_TYPE_TOO));
@@ -260,7 +260,7 @@ public class RacialSubTypesFacetTest
 	}
 
 	@Test
-	public void testCount()
+	void testCount()
 	{
 		assertEquals(0, facet.getCount(id));
 		Race r = new Race();

@@ -33,7 +33,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
 
-public class LocalTokenTest extends AbstractTokenTestCase<DatasetVariable>
+class LocalTokenTest extends AbstractTokenTestCase<DatasetVariable>
 {
 
 	private static LocalToken token = new LocalToken();
@@ -65,7 +65,7 @@ public class LocalTokenTest extends AbstractTokenTestCase<DatasetVariable>
 	}
 
 	@Test
-	public void testDisplayNameProhibited()
+	void testDisplayNameProhibited()
 	{
 		DatasetVariable dv = new DatasetVariable();
 		dv.setName("FirstName");
@@ -75,116 +75,116 @@ public class LocalTokenTest extends AbstractTokenTestCase<DatasetVariable>
 	}
 
 	@Test
-	public void testInvalidBadName()
+	void testInvalidBadName()
 	{
 		assertFalse(parse("Bad-Name"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidBasic()
+	void testValidBasic()
 	{
 		assertTrue(parse("PC.EQUIPMENT|IsANumberVar"));
 	}
 
 	@Test
-	public void testValidFormatted()
+	void testValidFormatted()
 	{
 		assertTrue(parse("PC.EQUIPMENT|NUMBER=IsANumberVar"));
 	}
 
 	@Test
-	public void testInvalidDoubleEqual()
+	void testInvalidDoubleEqual()
 	{
 		assertFalse(parse("PC.EQUIPMENT|STRING==Pipe"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidDoublePipe()
+	void testInvalidDoublePipe()
 	{
 		assertFalse(parse("PC.EQUIPMENT||STRING=Pipe"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidThreeArgs()
+	void testInvalidThreeArgs()
 	{
 		assertFalse(parse("PC.EQUIPMENT|STRING|Pipe"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidThreeEqualArgs()
+	void testInvalidThreeEqualArgs()
 	{
 		assertFalse(parse("PC.EQUIPMENT|STRING=Pipe=Too"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmpty()
+	void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidOnlyEqual()
+	void testInvalidOnlyEqual()
 	{
 		assertFalse(parse("PC.EQUIPMENT|="));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyFormat()
+	void testInvalidEmptyFormat()
 	{
 		assertFalse(parse("PC.EQUIPMENT|=Value"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyVarName()
+	void testInvalidEmptyVarName()
 	{
 		assertFalse(parse("PC.EQUIPMENT|NUMBER="));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBadFormat()
+	void testInvalidBadFormat()
 	{
 		assertFalse(parse("PC.EQUIPMENT|BADFORMAT=Illegal"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidName()
+	void testInvalidName()
 	{
 		assertFalse(parse("PC.EQUIPMENT|NUMBER=Illegal Name!"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyScope()
+	void testInvalidEmptyScope()
 	{
 		assertFalse(parse("|STRING=Value"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBadScope()
+	void testInvalidBadScope()
 	{
 		assertFalse(parse("BADSCOPE|STRING=Illegal"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testRoundRobinDefault() throws PersistenceLayerException
+	void testRoundRobinDefault() throws PersistenceLayerException
 	{
 		runRoundRobin("PC.EQUIPMENT|IsANumberVar");
 	}
 
 	@Test
-	public void testRoundRobinFormatted() throws PersistenceLayerException
+	void testRoundRobinFormatted() throws PersistenceLayerException
 	{
 		runRoundRobin("PC.EQUIPMENT|STRING=StringVar");
 	}
@@ -202,7 +202,7 @@ public class LocalTokenTest extends AbstractTokenTestCase<DatasetVariable>
 	}
 
 	@Test
-	public void testInvalidDupeVarName()
+	void testInvalidDupeVarName()
 	{
 		DatasetVariable dv = new DatasetVariable();
 		ParseResult pr =

@@ -28,7 +28,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class CRIntegrationTest extends AbstractIntegrationTestCase<Race>
+class CRIntegrationTest extends AbstractIntegrationTestCase<Race>
 {
 
 	private static CrToken token = new CrToken();
@@ -53,7 +53,7 @@ public class CRIntegrationTest extends AbstractIntegrationTestCase<Race>
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -63,7 +63,7 @@ public class CRIntegrationTest extends AbstractIntegrationTestCase<Race>
 	}
 
 	@Test
-	public void testRoundRobinFormula() throws PersistenceLayerException
+	void testRoundRobinFormula() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -73,7 +73,7 @@ public class CRIntegrationTest extends AbstractIntegrationTestCase<Race>
 	}
 
 	@Test
-	public void testRoundRobinNoSet() throws PersistenceLayerException
+	void testRoundRobinNoSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -83,7 +83,7 @@ public class CRIntegrationTest extends AbstractIntegrationTestCase<Race>
 	}
 
 	@Test
-	public void testRoundRobinNoReset() throws PersistenceLayerException
+	void testRoundRobinNoReset() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();

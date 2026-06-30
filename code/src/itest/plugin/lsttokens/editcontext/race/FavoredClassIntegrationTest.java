@@ -28,7 +28,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class FavoredClassIntegrationTest extends
+class FavoredClassIntegrationTest extends
 		AbstractListIntegrationTestCase<Race, PCClass>
 {
 
@@ -72,7 +72,7 @@ public class FavoredClassIntegrationTest extends
 	}
 
 	@Test
-	public void dummyTest()
+	void dummyTest()
 	{
 		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}

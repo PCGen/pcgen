@@ -38,7 +38,7 @@ import org.junit.jupiter.api.Test;
 /**
  * {@code CountCommandTest} tests the functioning of the jep count plugin
  */
-public class CountCommandTest extends AbstractCharacterTestCase
+class CountCommandTest extends AbstractCharacterTestCase
 {
 	@BeforeEach
 	@Override
@@ -429,7 +429,7 @@ public class CountCommandTest extends AbstractCharacterTestCase
 	//        assertThat(s, (double) character.getVariableValue(s,""), closeTo(6.0, 0.1));
 	//    }
 	@Test
-	public void testCountAbilitiesByName()
+	void testCountAbilitiesByName()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -462,7 +462,7 @@ public class CountCommandTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testCountAbilitiesByKey()
+	void testCountAbilitiesByKey()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -508,7 +508,7 @@ public class CountCommandTest extends AbstractCharacterTestCase
 	 * Verify counting CAMPAIGNHISTORY entries.
 	 */
 	@Test
-	public void testCountCampaignHistory()
+	void testCountCampaignHistory()
 	{
 		final PlayerCharacter character = getCharacter();
 		String countDefault = "count(\"CAMPAIGNHISTORY\")";

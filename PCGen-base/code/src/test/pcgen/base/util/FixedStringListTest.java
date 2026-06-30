@@ -27,12 +27,12 @@ import org.junit.jupiter.api.Test;
 
 import pcgen.base.lang.StringUtil;
 
-public class FixedStringListTest
+class FixedStringListTest
 {
 
 	@SuppressWarnings("unused")
 	@Test
-	public void testConstructorNullValuesLegal()
+	void testConstructorNullValuesLegal()
 	{
 		new FixedStringList((String) null);
 		new FixedStringList("Foo", "Bar", null);
@@ -40,7 +40,7 @@ public class FixedStringListTest
 	}
 
 	@Test
-	public void testConstructor()
+	void testConstructor()
 	{
 		String[] s = null;
 		assertThrows(NullPointerException.class, () -> new FixedStringList(s));
@@ -49,7 +49,7 @@ public class FixedStringListTest
 	}
 
 	@Test
-	public void testAddRemove()
+	void testAddRemove()
 	{
 		FixedStringList list = new FixedStringList(Arrays.asList(new String[]{"Foo", "Bar", null, "Baz"}));
 		assertEquals("Foo", list.get(0));
@@ -98,7 +98,7 @@ public class FixedStringListTest
 	}
 	
 	@Test
-	public void testSize()
+	void testSize()
 	{
 		FixedStringList list = new FixedStringList(Arrays.asList(new String[]{"Foo", "Bar", null, "Baz"}));
 		//nulls don't matter
@@ -108,7 +108,7 @@ public class FixedStringListTest
 	}
 
 	@Test
-	public void testArrayIndex()
+	void testArrayIndex()
 	{
 		FixedStringList list = new FixedStringList(Arrays.asList(new String[]{"Foo", "Bar", null, "Baz"}));
 		assertThrows(ArrayIndexOutOfBoundsException.class, () -> list.remove(-1));
@@ -117,7 +117,7 @@ public class FixedStringListTest
 	}
 
 	@Test
-	public void testAddAll()
+	void testAddAll()
 	{
 		FixedStringList list1 = new FixedStringList(4);
 		assertTrue(list1.addAll(1, Arrays.asList(new String[]{"Hi", "There", "People!"})));
@@ -128,7 +128,7 @@ public class FixedStringListTest
 	}
 
 	@Test
-	public void testEquals()
+	void testEquals()
 	{
 		FixedStringList list1u = new FixedStringList(4);
 		assertTrue(list1u.addAll(1, Arrays.asList(new String[]{"Hi", "There", "People!"})));
@@ -150,7 +150,7 @@ public class FixedStringListTest
 	}
 
 	@Test
-	public void testEqualsIgnoreCase()
+	void testEqualsIgnoreCase()
 	{
 		FixedStringList list1u = new FixedStringList(4);
 		assertTrue(list1u.addAll(1, Arrays.asList(new String[]{"Hi", "There", "People!"})));
@@ -182,7 +182,7 @@ public class FixedStringListTest
 	}
 
 	@Test
-	public void testCompare()
+	void testCompare()
 	{
 		FixedStringList list1u = new FixedStringList(4);
 		assertTrue(list1u.addAll(1, Arrays.asList(new String[]{"Hi", "There", "People!"})));

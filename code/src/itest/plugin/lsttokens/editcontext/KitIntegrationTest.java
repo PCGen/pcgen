@@ -28,7 +28,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class KitIntegrationTest extends
+class KitIntegrationTest extends
 		AbstractListIntegrationTestCase<CDOMObject, Kit>
 {
 
@@ -78,7 +78,7 @@ public class KitIntegrationTest extends
 	}
 
 	@Test
-	public void dummyTest()
+	void dummyTest()
 	{
 		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}

@@ -32,11 +32,11 @@ import pcgen.base.formula.visitor.ReconstructionVisitor;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
 import pcgen.base.testsupport.TestUtilities;
 
-public class AbsFunctionTest extends AbstractFormulaTestCase
+class AbsFunctionTest extends AbstractFormulaTestCase
 {
 
 	@Test
-	public void testInvalidTooManyArg()
+	void testInvalidTooManyArg()
 	{
 		String formula = "abs(2, 3)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -44,7 +44,7 @@ public class AbsFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotValidNoVar()
+	void testNotValidNoVar()
 	{
 		String formula = "abs(ab)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -52,7 +52,7 @@ public class AbsFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotValidString()
+	void testNotValidString()
 	{
 		String formula = "abs(\"ab\")";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -60,7 +60,7 @@ public class AbsFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testIntegerPositive()
+	void testIntegerPositive()
 	{
 		String formula = "abs(1)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -70,7 +70,7 @@ public class AbsFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testIntegerNegative()
+	void testIntegerNegative()
 	{
 		String formula = "abs(-2)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -80,7 +80,7 @@ public class AbsFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDoublePositive()
+	void testDoublePositive()
 	{
 		String formula = "abs(6.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -93,7 +93,7 @@ public class AbsFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDoubleNegative()
+	void testDoubleNegative()
 	{
 		String formula = "abs(-5.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -106,7 +106,7 @@ public class AbsFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDoubleNegativeLeadingSpace()
+	void testDoubleNegativeLeadingSpace()
 	{
 		String formula = "abs( -5.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -116,7 +116,7 @@ public class AbsFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDoubleNegativeTrailingSpace()
+	void testDoubleNegativeTrailingSpace()
 	{
 		String formula = "abs(-5.3 )";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -126,7 +126,7 @@ public class AbsFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDoubleNegativeSeparatingSpace()
+	void testDoubleNegativeSeparatingSpace()
 	{
 		String formula = "abs (-5.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -138,7 +138,7 @@ public class AbsFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testVariable()
+	void testVariable()
 	{
 		setVariable(getVariable("a"), -5);
 		String formula = "abs(a)";

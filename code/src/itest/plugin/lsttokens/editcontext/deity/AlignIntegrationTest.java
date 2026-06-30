@@ -34,7 +34,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class AlignIntegrationTest extends AbstractIntegrationTestCase<Deity>
+class AlignIntegrationTest extends AbstractIntegrationTestCase<Deity>
 {
 	private static AlignToken token = new AlignToken();
 	private static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<>();
@@ -85,7 +85,7 @@ public class AlignIntegrationTest extends AbstractIntegrationTestCase<Deity>
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -95,7 +95,7 @@ public class AlignIntegrationTest extends AbstractIntegrationTestCase<Deity>
 	}
 
 	@Test
-	public void testRoundRobinNoSet() throws PersistenceLayerException
+	void testRoundRobinNoSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -105,7 +105,7 @@ public class AlignIntegrationTest extends AbstractIntegrationTestCase<Deity>
 	}
 
 	@Test
-	public void testRoundRobinNoReset() throws PersistenceLayerException
+	void testRoundRobinNoReset() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();

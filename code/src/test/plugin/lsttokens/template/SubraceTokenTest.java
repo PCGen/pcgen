@@ -31,7 +31,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class SubraceTokenTest extends
+class SubraceTokenTest extends
 		AbstractTypeSafeTokenTestCase<PCTemplate, SubRace>
 {
 
@@ -81,13 +81,13 @@ public class SubraceTokenTest extends
 	}
 
 	@Test
-	public void testRoundRobinYes() throws PersistenceLayerException
+	void testRoundRobinYes() throws PersistenceLayerException
 	{
 		runRoundRobin("YES");
 	}
 
 	@Test
-	public void testReplacementYes()
+	void testReplacementYes()
 	{
 		String[] unparsed;
 		getConstant("TestWP1");
@@ -106,7 +106,7 @@ public class SubraceTokenTest extends
 	}
 
 	@Test
-	public void testOverwriteYes()
+	void testOverwriteYes()
 	{
 		parse("YES");
 		validateUnparsed(primaryContext, primaryProf, "YES");
@@ -116,7 +116,7 @@ public class SubraceTokenTest extends
 	}
 
 	@Test
-	public void testOverwriteWithYes()
+	void testOverwriteWithYes()
 	{
 		parse("TestWP1");
 		validateUnparsed(primaryContext, primaryProf, "TestWP1");
@@ -126,14 +126,14 @@ public class SubraceTokenTest extends
 	}
 
 	@Test
-	public void testUnparseYes()
+	void testUnparseYes()
 	{
 		primaryProf.put(ObjectKey.USETEMPLATENAMEFORSUBRACE, true);
 		expectSingle(getToken().unparse(primaryContext, primaryProf), "YES");
 	}
 
 	@Test
-	public void testUnparseIllegal()
+	void testUnparseIllegal()
 	{
 		assertEquals(0, primaryContext.getWriteMessageCount());
 		SubRace o = getConstant(getLegalValue());
@@ -144,7 +144,7 @@ public class SubraceTokenTest extends
 	}
 
 	@Test
-	public void testUnparseLegalWithFalse()
+	void testUnparseLegalWithFalse()
 	{
 		assertEquals(0, primaryContext.getWriteMessageCount());
 		SubRace o = getConstant(getLegalValue());

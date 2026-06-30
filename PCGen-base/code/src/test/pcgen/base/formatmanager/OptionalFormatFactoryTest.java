@@ -31,7 +31,7 @@ import pcgen.base.util.FormatManager;
 /**
  * Test the OptionalFormatFactory class
  */
-public class OptionalFormatFactoryTest
+class OptionalFormatFactoryTest
 {
 
 	private SimpleFormatManagerLibrary library;
@@ -54,19 +54,19 @@ public class OptionalFormatFactoryTest
 	}
 
 	@Test
-	public void testFailBadSubFormat()
+	void testFailBadSubFormat()
 	{
 		assertThrows(IllegalArgumentException.class, () -> factory.build(Optional.empty(), Optional.of("NUM"), library));
 	}
 
 	@Test
-	public void testFailEmptySubFormat()
+	void testFailEmptySubFormat()
 	{
 		assertThrows(IllegalArgumentException.class, () -> factory.build(Optional.empty(), Optional.empty(), library));
 	}
 
 	@Test
-	public void testConvert()
+	void testConvert()
 	{
 		@SuppressWarnings("unchecked")
 		FormatManager<Optional<Number>> manager =
@@ -80,7 +80,7 @@ public class OptionalFormatFactoryTest
 	}
 
 	@Test
-	public void testGetIdentifier()
+	void testGetIdentifier()
 	{
 		FormatManager<?> manager =
 				factory.build(Optional.empty(), Optional.of("NUMBER"), library);
@@ -91,7 +91,7 @@ public class OptionalFormatFactoryTest
 	}
 
 	@Test
-	public void testManagedClass()
+	void testManagedClass()
 	{
 		FormatManager<?> manager =
 				factory.build(Optional.empty(), Optional.of("NUMBER"), library);
@@ -106,7 +106,7 @@ public class OptionalFormatFactoryTest
 	}
 
 	@Test
-	public void testGetComponent()
+	void testGetComponent()
 	{
 		FormatManager<?> manager =
 				factory.build(Optional.empty(), Optional.of("NUMBER"), library);

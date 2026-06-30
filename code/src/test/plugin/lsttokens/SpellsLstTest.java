@@ -41,7 +41,7 @@ import plugin.pretokens.writer.PreRaceWriter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class SpellsLstTest extends AbstractGlobalTokenTestCase
+class SpellsLstTest extends AbstractGlobalTokenTestCase
 {
 
 	static CDOMPrimaryToken<CDOMObject> token = new SpellsLst();
@@ -92,84 +92,84 @@ public class SpellsLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidEmpty()
+	void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidSpellbookOnly()
+	void testInvalidSpellbookOnly()
 	{
 		assertFalse(parse("SpellBook"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidSpellbookBarOnly()
+	void testInvalidSpellbookBarOnly()
 	{
 		assertFalse(parse("SpellBook|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptySpellbook()
+	void testInvalidEmptySpellbook()
 	{
 		assertFalse(parse("|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidSpellbookAndSpellBarOnly()
+	void testInvalidSpellbookAndSpellBarOnly()
 	{
 		assertFalse(parse("SpellBook|Fireball|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidSpellCommaStarting()
+	void testInvalidSpellCommaStarting()
 	{
 		assertFalse(parse("SpellBook|,Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidSpellCommaEnding()
+	void testInvalidSpellCommaEnding()
 	{
 		assertFalse(parse("SpellBook|Fireball,"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidSpellDoubleComma()
+	void testInvalidSpellDoubleComma()
 	{
 		assertFalse(parse("SpellBook|Fireball,,DCFormula"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidSpellDoublePipe()
+	void testInvalidSpellDoublePipe()
 	{
 		assertFalse(parse("SpellBook|Fireball||Lightning Bolt"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidSpellEmbeddedPre()
+	void testInvalidSpellEmbeddedPre()
 	{
 		assertFalse(parse("SpellBook|Fireball|PRERACE:1,Human|Lightning Bolt"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBadTimes()
+	void testInvalidBadTimes()
 	{
 		assertFalse(parse("SpellBook|TIMES=|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidOnlyTimes()
+	void testInvalidOnlyTimes()
 	{
 		try
 		{
@@ -183,14 +183,14 @@ public class SpellsLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidOnlyTimesBar()
+	void testInvalidOnlyTimesBar()
 	{
 		assertFalse(parse("SpellBook|TIMES=3|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidOnlyLevel()
+	void testInvalidOnlyLevel()
 	{
 		try
 		{
@@ -204,14 +204,14 @@ public class SpellsLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidEmptyTimeUnit()
+	void testInvalidEmptyTimeUnit()
 	{
 		assertFalse(parse("SpellBook|TIMEUNIT=|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTwoTimeUnit()
+	void testInvalidTwoTimeUnit()
 	{
 		assertFalse(parse("SpellBook|TIMEUNIT=Hour|TIMEUNIT=Day|Fireball"));
 		assertNoSideEffects();
@@ -226,7 +226,7 @@ public class SpellsLstTest extends AbstractGlobalTokenTestCase
 	//	}
 
 	@Test
-	public void testInvalidTimeUnitNoSpell()
+	void testInvalidTimeUnitNoSpell()
 	{
 		try
 		{
@@ -240,49 +240,49 @@ public class SpellsLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidEmptyTimes()
+	void testInvalidEmptyTimes()
 	{
 		assertFalse(parse("SpellBook|TIMES=|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyCasterLevel()
+	void testInvalidEmptyCasterLevel()
 	{
 		assertFalse(parse("SpellBook|CASTERLEVEL=|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTwoTimes()
+	void testInvalidTwoTimes()
 	{
 		assertFalse(parse("SpellBook|TIMES=3|TIMES=4|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTwoCasterLevel()
+	void testInvalidTwoCasterLevel()
 	{
 		assertFalse(parse("SpellBook|CASTERLEVEL=3|CASTERLEVEL=4|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidOnlyLevelBar()
+	void testInvalidOnlyLevelBar()
 	{
 		assertFalse(parse("SpellBook|CASTERLEVEL=3|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidDoubleBar()
+	void testInvalidDoubleBar()
 	{
 		assertFalse(parse("SpellBook||Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBadCasterLevel()
+	void testInvalidBadCasterLevel()
 	{
 		assertFalse(parse("SpellBook|CASTERLEVEL=|Fireball"));
 		assertNoSideEffects();
@@ -303,7 +303,7 @@ public class SpellsLstTest extends AbstractGlobalTokenTestCase
 	// }
 
 	@Test
-	public void testInvalidOnlyPre()
+	void testInvalidOnlyPre()
 	{
 		try
 		{
@@ -317,70 +317,70 @@ public class SpellsLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testRoundRobinJustSpell() throws PersistenceLayerException
+	void testRoundRobinJustSpell() throws PersistenceLayerException
 	{
 		runRoundRobin("SpellBook|TIMES=1|Fireball");
 	}
 
 	@Test
-	public void testRoundRobinTwoSpell() throws PersistenceLayerException
+	void testRoundRobinTwoSpell() throws PersistenceLayerException
 	{
 		runRoundRobin("SpellBook|TIMES=1|Fireball|Lightning Bolt");
 	}
 
 	@Test
-	public void testRoundRobinTimes() throws PersistenceLayerException
+	void testRoundRobinTimes() throws PersistenceLayerException
 	{
 		runRoundRobin("SpellBook|TIMES=3|Fireball");
 	}
 
 	@Test
-	public void testRoundRobinDC() throws PersistenceLayerException
+	void testRoundRobinDC() throws PersistenceLayerException
 	{
 		runRoundRobin("SpellBook|TIMES=1|Fireball,CL+5");
 	}
 
 	@Test
-	public void testRoundRobinPre() throws PersistenceLayerException
+	void testRoundRobinPre() throws PersistenceLayerException
 	{
 		runRoundRobin("SpellBook|TIMES=1|Fireball|PRERACE:1,Human");
 	}
 
 	@Test
-	public void testRoundRobinTimeUnit() throws PersistenceLayerException
+	void testRoundRobinTimeUnit() throws PersistenceLayerException
 	{
 		runRoundRobin("SpellBook|TIMES=1|TIMEUNIT=Hour|Fireball");
 	}
 
 	@Test
-	public void testRoundRobinComplexFormulaTimes() throws PersistenceLayerException
+	void testRoundRobinComplexFormulaTimes() throws PersistenceLayerException
 	{
 		System.err.println("!");
 		runRoundRobin("SpellBook|TIMES=if(var(\"SIZE==3||SIZE==4\"),5,10)|TIMEUNIT=Hour|Fireball");
 	}
 	
 	@Test
-	public void testRoundRobinCasterLevel() throws PersistenceLayerException
+	void testRoundRobinCasterLevel() throws PersistenceLayerException
 	{
 		runRoundRobin("SpellBook|TIMES=1|CASTERLEVEL=15|Fireball");
 	}
 
 	@Test
-	public void testRoundRobinComplex() throws PersistenceLayerException
+	void testRoundRobinComplex() throws PersistenceLayerException
 	{
 		runRoundRobin(
 "SpellBook|TIMES=2|TIMEUNIT=Week|CASTERLEVEL=15|Fireball,CL+5|Lightning Bolt,25|!PRECLASS:1,Cleric=1|PRERACE:1,Human");
 	}
 
 	@Test
-	public void testRoundRobinTwoBooksJustSpell()
+	void testRoundRobinTwoBooksJustSpell()
 			throws PersistenceLayerException
 	{
 		runRoundRobin("OtherBook|TIMES=1|Lightning Bolt", "SpellBook|TIMES=1|Fireball");
 	}
 
 	@Test
-	public void testRoundRobinTwoTimesJustSpell()
+	void testRoundRobinTwoTimesJustSpell()
 			throws PersistenceLayerException
 	{
 		runRoundRobin("SpellBook|TIMES=2|Fireball",
@@ -388,7 +388,7 @@ public class SpellsLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testRoundRobinTwoLevelJustSpell()
+	void testRoundRobinTwoLevelJustSpell()
 			throws PersistenceLayerException
 	{
 		runRoundRobin("SpellBook|TIMES=1|CASTERLEVEL=12|Fireball",
@@ -396,13 +396,13 @@ public class SpellsLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testValidClear()
+	void testValidClear()
 	{
 		assertTrue(parse(Constants.LST_DOT_CLEAR_ALL));
 	}
 
 	@Test
-	public void testInvalidChainedClear()
+	void testInvalidChainedClear()
 	{
 		assertFalse(parse(Constants.LST_DOT_CLEAR_ALL + "|" + getLegalValue()));
 		assertNoSideEffects();

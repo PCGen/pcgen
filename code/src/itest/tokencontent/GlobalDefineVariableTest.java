@@ -31,7 +31,7 @@ import org.junit.jupiter.api.BeforeEach;
 import tokencontent.testsupport.AbstractContentTokenTest;
 import util.TestURI;
 
-public class GlobalDefineVariableTest extends AbstractContentTokenTest
+class GlobalDefineVariableTest extends AbstractContentTokenTest
 {
 
 	private static DefineLst token = new DefineLst();

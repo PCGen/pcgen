@@ -30,13 +30,13 @@ import plugin.modifier.testsupport.EvalManagerUtilities;
 import org.junit.jupiter.api.Test;
 
 
-public class DivideNumberModifierTest
+class DivideNumberModifierTest
 {
 
 	private final FormatManager<Number> numManager = new NumberManager();
 
 	@Test
-	public void testInvalidConstruction()
+	void testInvalidConstruction()
 	{
 		try
 		{
@@ -51,147 +51,147 @@ public class DivideNumberModifierTest
 	}
 
 	@Test
-	public void testProcessNegative1()
+	void testProcessNegative1()
 	{
 		BasicCalculation<Number> modifier = new DivideModifierFactory();
 		assertEquals(-2, modifier.process(6, -3));
 	}
 
 	@Test
-	public void testProcessNegative2()
+	void testProcessNegative2()
 	{
 		BasicCalculation<Number> modifier = new DivideModifierFactory();
 		assertEquals(-4, modifier.process(8, -2));
 	}
 
 	@Test
-	public void testProcessPositive1()
+	void testProcessPositive1()
 	{
 		BasicCalculation<Number> modifier = new DivideModifierFactory();
 		assertEquals(2, modifier.process(6, 3));
 	}
 
 	@Test
-	public void testProcessPositive2()
+	void testProcessPositive2()
 	{
 		BasicCalculation<Number> modifier = new DivideModifierFactory();
 		assertEquals(4, modifier.process(12, 3));
 	}
 
 	@Test
-	public void testProcessZero1()
+	void testProcessZero1()
 	{
 		BasicCalculation<Number> modifier = new DivideModifierFactory();
 		assertEquals(0, modifier.process(0, 3));
 	}
 
 	@Test
-	public void testProcessZero2()
+	void testProcessZero2()
 	{
 		BasicCalculation<Number> modifier = new DivideModifierFactory();
 		assertEquals(Double.POSITIVE_INFINITY, modifier.process(4, 0));
 	}
 
 	@Test
-	public void testProcessZero3()
+	void testProcessZero3()
 	{
 		BasicCalculation<Number> modifier = new DivideModifierFactory();
 		assertEquals(0, modifier.process(0, -3));
 	}
 
 	@Test
-	public void testProcessZero4()
+	void testProcessZero4()
 	{
 		BasicCalculation<Number> modifier = new DivideModifierFactory();
 		assertEquals(Double.NEGATIVE_INFINITY, modifier.process(-4, 0));
 	}
 
 	@Test
-	public void testProcessMixed1()
+	void testProcessMixed1()
 	{
 		BasicCalculation<Number> modifier = new DivideModifierFactory();
 		assertEquals(5, modifier.process(-35, -7));
 	}
 
 	@Test
-	public void testProcessMixed2()
+	void testProcessMixed2()
 	{
 		BasicCalculation<Number> modifier = new DivideModifierFactory();
 		assertEquals(-4, modifier.process(-12, 3));
 	}
 
 	@Test
-	public void testProcessDoubleNegative1()
+	void testProcessDoubleNegative1()
 	{
 		BasicCalculation<Number> modifier = new DivideModifierFactory();
 		assertEquals(-2.1, modifier.process(3.57, -1.7));
 	}
 
 	@Test
-	public void testProcessDoubleNegative2()
+	void testProcessDoubleNegative2()
 	{
 		BasicCalculation<Number> modifier = new DivideModifierFactory();
 		assertEquals(-2.6, modifier.process(4.16, -1.6));
 	}
 
 	@Test
-	public void testProcessDoublePositive1()
+	void testProcessDoublePositive1()
 	{
 		BasicCalculation<Number> modifier = new DivideModifierFactory();
 		assertEquals(2.6, modifier.process(9.1, 3.5));
 	}
 
 	@Test
-	public void testProcessDoublePositive2()
+	void testProcessDoublePositive2()
 	{
 		BasicCalculation<Number> modifier = new DivideModifierFactory();
 		assertEquals(1.9, modifier.process(5.89, 3.1));
 	}
 
 	@Test
-	public void testProcessDoubleZero1()
+	void testProcessDoubleZero1()
 	{
 		BasicCalculation<Number> modifier = new DivideModifierFactory();
 		assertEquals(0.0, modifier.process(0.0, 3.1));
 	}
 
 	@Test
-	public void testProcessDoubleZero2()
+	void testProcessDoubleZero2()
 	{
 		BasicCalculation<Number> modifier = new DivideModifierFactory();
 		assertEquals(Double.POSITIVE_INFINITY, modifier.process(4.2, 0.0));
 	}
 
 	@Test
-	public void testProcessDoubleZero3()
+	void testProcessDoubleZero3()
 	{
 		BasicCalculation<Number> modifier = new DivideModifierFactory();
 		assertEquals(-0.0, modifier.process(0.0, -3.4));
 	}
 
 	@Test
-	public void testProcessDoubleZero4()
+	void testProcessDoubleZero4()
 	{
 		BasicCalculation<Number> modifier = new DivideModifierFactory();
 		assertEquals(Double.NEGATIVE_INFINITY, modifier.process(-4.3, 0.0));
 	}
 
 	@Test
-	public void testProcessDoubleMixed1()
+	void testProcessDoubleMixed1()
 	{
 		BasicCalculation<Number> modifier = new DivideModifierFactory();
 		assertEquals(5.3, modifier.process(-38.16, -7.2));
 	}
 
 	@Test
-	public void testProcessDoubleMixed2()
+	void testProcessDoubleMixed2()
 	{
 		BasicCalculation<Number> modifier = new DivideModifierFactory();
 		assertEquals(-2.2, modifier.process(-3.08, 1.4));
 	}
 
 	@Test
-	public void testGetModifier()
+	void testGetModifier()
 	{
 		DivideModifierFactory factory = new DivideModifierFactory();
 		FormulaModifier<Number> modifier =

@@ -39,7 +39,7 @@ class StringKeyActorTest extends AbstractOutputTestCase
 	}
 
 	@Test
-	public void testStringKeyActor()
+	void testStringKeyActor()
 	{
 		Race d = new Race();
 		d.setName("Bob");
@@ -52,7 +52,7 @@ class StringKeyActorTest extends AbstractOutputTestCase
 	}
 
 	@Test
-	public void testListKeyActorMissingSafe()
+	void testListKeyActorMissingSafe()
 	{
 		StringKeyActor ska = new StringKeyActor(StringKey.DAMAGE);
 		CDOMObjectWrapper.load(dsid, Race.class, "damage", ska);

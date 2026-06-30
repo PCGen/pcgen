@@ -40,7 +40,7 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class SchoolsTokenTest extends AbstractChooseTokenTestCase
+class SchoolsTokenTest extends AbstractChooseTokenTestCase
 {
 
 	static ChooseLst token = new ChooseLst();
@@ -90,7 +90,7 @@ public class SchoolsTokenTest extends AbstractChooseTokenTestCase
 	}
 
 	@Test
-	public void testRoundRobinAll() throws PersistenceLayerException
+	void testRoundRobinAll() throws PersistenceLayerException
 	{
 		construct(primaryContext, "Abjuration");
 		construct(secondaryContext, "Abjuration");
@@ -98,7 +98,7 @@ public class SchoolsTokenTest extends AbstractChooseTokenTestCase
 	}
 
 	@Test
-	public void testRoundRobinFeat() throws PersistenceLayerException
+	void testRoundRobinFeat() throws PersistenceLayerException
 	{
 		construct(primaryContext, "Abjuration");
 		construct(secondaryContext, "Abjuration");
@@ -108,7 +108,7 @@ public class SchoolsTokenTest extends AbstractChooseTokenTestCase
 	}
 
 	@Test
-	public void testRoundRobinItems() throws PersistenceLayerException
+	void testRoundRobinItems() throws PersistenceLayerException
 	{
 		construct(primaryContext, "Abjuration");
 		construct(primaryContext, "Evocation");
@@ -118,7 +118,7 @@ public class SchoolsTokenTest extends AbstractChooseTokenTestCase
 	}
 
 	@Test
-	public void testRoundRobinSpecificTitle() throws PersistenceLayerException
+	void testRoundRobinSpecificTitle() throws PersistenceLayerException
 	{
 		construct(primaryContext, "Abjuration");
 		construct(primaryContext, "Evocation");
@@ -128,7 +128,7 @@ public class SchoolsTokenTest extends AbstractChooseTokenTestCase
 	}
 
 	@Test
-	public void testInvalidInputNoBrackets()
+	void testInvalidInputNoBrackets()
 	{
 		assertFalse(parse("SCHOOLS|Sorry No [Brackets]"));
 		assertNoSideEffects();

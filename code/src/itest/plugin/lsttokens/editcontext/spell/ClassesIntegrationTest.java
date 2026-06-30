@@ -36,7 +36,7 @@ import plugin.pretokens.writer.PreRaceWriter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class ClassesIntegrationTest extends AbstractIntegrationTestCase<Spell>
+class ClassesIntegrationTest extends AbstractIntegrationTestCase<Spell>
 {
 
 	private static ClassesToken token = new ClassesToken();
@@ -73,7 +73,7 @@ public class ClassesIntegrationTest extends AbstractIntegrationTestCase<Spell>
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Wizard");
@@ -93,7 +93,7 @@ public class ClassesIntegrationTest extends AbstractIntegrationTestCase<Spell>
 	}
 
 	@Test
-	public void testRoundRobinRemovePre() throws PersistenceLayerException
+	void testRoundRobinRemovePre() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Wizard");
@@ -106,7 +106,7 @@ public class ClassesIntegrationTest extends AbstractIntegrationTestCase<Spell>
 	}
 
 	@Test
-	public void testRoundRobinAddPre() throws PersistenceLayerException
+	void testRoundRobinAddPre() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Wizard");
@@ -119,7 +119,7 @@ public class ClassesIntegrationTest extends AbstractIntegrationTestCase<Spell>
 	}
 
 	@Test
-	public void testRoundRobinTestMinus() throws PersistenceLayerException
+	void testRoundRobinTestMinus() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Wizard");
@@ -132,7 +132,7 @@ public class ClassesIntegrationTest extends AbstractIntegrationTestCase<Spell>
 	}
 
 	@Test
-	public void testRoundRobinModMinus() throws PersistenceLayerException
+	void testRoundRobinModMinus() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Wizard");
@@ -145,7 +145,7 @@ public class ClassesIntegrationTest extends AbstractIntegrationTestCase<Spell>
 	}
 
 	@Test
-	public void testRoundRobinNoSet() throws PersistenceLayerException
+	void testRoundRobinNoSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		primaryContext.getReferenceContext()
@@ -159,7 +159,7 @@ public class ClassesIntegrationTest extends AbstractIntegrationTestCase<Spell>
 	}
 
 	@Test
-	public void testRoundRobinNoReset() throws PersistenceLayerException
+	void testRoundRobinNoReset() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Wizard");
@@ -176,7 +176,7 @@ public class ClassesIntegrationTest extends AbstractIntegrationTestCase<Spell>
 	}
 
 	@Test
-	public void testRoundRobinAll() throws PersistenceLayerException
+	void testRoundRobinAll() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -186,7 +186,7 @@ public class ClassesIntegrationTest extends AbstractIntegrationTestCase<Spell>
 	}
 
 	@Test
-	public void testRoundRobinAllClear() throws PersistenceLayerException
+	void testRoundRobinAllClear() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -196,7 +196,7 @@ public class ClassesIntegrationTest extends AbstractIntegrationTestCase<Spell>
 	}
 
 	@Test
-	public void testRoundRobinAllSupplement() throws PersistenceLayerException
+	void testRoundRobinAllSupplement() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		primaryContext.getReferenceContext()
@@ -210,7 +210,7 @@ public class ClassesIntegrationTest extends AbstractIntegrationTestCase<Spell>
 	}
 
 	@Test
-	public void testRoundRobinClearEmtpy() throws PersistenceLayerException
+	void testRoundRobinClearEmtpy() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -220,7 +220,7 @@ public class ClassesIntegrationTest extends AbstractIntegrationTestCase<Spell>
 	}
 
 	@Test
-	public void testRoundRobinEmptyClear() throws PersistenceLayerException
+	void testRoundRobinEmptyClear() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -230,7 +230,7 @@ public class ClassesIntegrationTest extends AbstractIntegrationTestCase<Spell>
 	}
 
 	@Test
-	public void testRoundRobinAllClearMinus() throws PersistenceLayerException
+	void testRoundRobinAllClearMinus() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -240,7 +240,7 @@ public class ClassesIntegrationTest extends AbstractIntegrationTestCase<Spell>
 	}
 
 	@Test
-	public void testRoundRobinAllSupplementMinus() throws PersistenceLayerException
+	void testRoundRobinAllSupplementMinus() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		primaryContext.getReferenceContext()
@@ -254,7 +254,7 @@ public class ClassesIntegrationTest extends AbstractIntegrationTestCase<Spell>
 	}
 
 	@Test
-	public void testRoundRobinAllSupplementMinusMod() throws PersistenceLayerException
+	void testRoundRobinAllSupplementMinusMod() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		primaryContext.getReferenceContext()
@@ -268,7 +268,7 @@ public class ClassesIntegrationTest extends AbstractIntegrationTestCase<Spell>
 	}
 
 	@Test
-	public void testRoundRobinClearEmtpyMinus()
+	void testRoundRobinClearEmtpyMinus()
 			throws PersistenceLayerException
 	{
 		verifyCleanStart();
@@ -283,7 +283,7 @@ public class ClassesIntegrationTest extends AbstractIntegrationTestCase<Spell>
 	}
 
 	@Test
-	public void testRoundRobinEmptyCleaMinus() throws PersistenceLayerException
+	void testRoundRobinEmptyCleaMinus() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		primaryContext.getReferenceContext()

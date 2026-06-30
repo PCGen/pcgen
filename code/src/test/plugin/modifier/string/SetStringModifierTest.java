@@ -29,13 +29,13 @@ import plugin.modifier.testsupport.EvalManagerUtilities;
 
 import org.junit.jupiter.api.Test;
 
-public class SetStringModifierTest
+class SetStringModifierTest
 {
 
 	private FormatManager<String> stringManager = new StringManager();
 
 	@Test
-	public void testInvalidConstruction()
+	void testInvalidConstruction()
 	{
 		try
 		{
@@ -50,7 +50,7 @@ public class SetStringModifierTest
 	}
 
 	@Test
-	public void testGetModifier()
+	void testGetModifier()
 	{
 		ModifierFactory<String> factory = new SetModifierFactory();
 		FormulaModifier<String> modifier =

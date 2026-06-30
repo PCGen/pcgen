@@ -43,7 +43,7 @@ import org.junit.jupiter.api.Test;
  * working correctly.
  */
 @SuppressWarnings("nls")
-public class PreBaseSizeTest extends AbstractCharacterTestCase
+class PreBaseSizeTest extends AbstractCharacterTestCase
 {
 	Race race = new Race();
 	PCTemplate template = new PCTemplate();
@@ -54,7 +54,7 @@ public class PreBaseSizeTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testBaseSize() throws PersistenceLayerException
+	void testBaseSize() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		character.setRace(race);
@@ -104,7 +104,7 @@ public class PreBaseSizeTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testModBaseSize() throws PersistenceLayerException
+	void testModBaseSize() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		character.setRace(race);
@@ -155,7 +155,7 @@ public class PreBaseSizeTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testBaseSizePlusMod() throws PersistenceLayerException
+	void testBaseSizePlusMod() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		LoadContext context = Globals.getContext();

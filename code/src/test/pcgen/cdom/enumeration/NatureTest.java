@@ -25,7 +25,7 @@ import org.junit.jupiter.api.Test;
 class NatureTest
 {
 	@Test
-	public void testGetBest()
+	void testGetBest()
 	{
 		assertNull(Nature.getBestNature(null, null));
 		assertEquals(Nature.AUTOMATIC, Nature.getBestNature(null, Nature.AUTOMATIC));

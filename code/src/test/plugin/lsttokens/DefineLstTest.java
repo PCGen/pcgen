@@ -34,7 +34,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-public class DefineLstTest extends AbstractGlobalTokenTestCase
+class DefineLstTest extends AbstractGlobalTokenTestCase
 {
 
 	static DefineLst token = new DefineLst();
@@ -76,74 +76,74 @@ public class DefineLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidInputEmpty()
+	void testInvalidInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputUnlockArg()
+	void testInvalidInputUnlockArg()
 	{
 		assertFalse(parse("UNLOCK.STR|3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoResult()
+	void testInvalidInputNoResult()
 	{
 		assertFalse(parse("Medium"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptyFormula()
+	void testInvalidInputEmptyFormula()
 	{
 		assertFalse(parse("Medium|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptyVariable()
+	void testInvalidInputEmptyVariable()
 	{
 		assertFalse(parse("|Medium"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoublePipe()
+	void testInvalidInputDoublePipe()
 	{
 		assertFalse(parse("Light||Medium"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputTwoPipe()
+	void testInvalidInputTwoPipe()
 	{
 		assertFalse(parse("Light|Medium|Heavy"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		runRoundRobin("VariableName|Formula");
 	}
 
 	@Test
-	public void testRoundRobinFormula() throws PersistenceLayerException
+	void testRoundRobinFormula() throws PersistenceLayerException
 	{
 		runRoundRobin("VariableName|1+2");
 	}
 
 	@Test
-	public void testRoundRobinJEP() throws PersistenceLayerException
+	void testRoundRobinJEP() throws PersistenceLayerException
 	{
 		runRoundRobin("VariableName|CL(\"Fighter\")");
 	}
 
 	@Test
-	public void testRoundRobinJEPPipe() throws PersistenceLayerException
+	void testRoundRobinJEPPipe() throws PersistenceLayerException
 	{
 		runRoundRobin("VariableName|if(var(\"SIZE==3||SIZE==4\"),5,0)");
 	}

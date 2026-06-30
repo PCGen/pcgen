@@ -31,7 +31,7 @@ import org.junit.jupiter.api.Test;
 
 import pcgen.testsupport.TestSupport;
 
-public class TreeMapToListTest
+class TreeMapToListTest
 {
 
 	public void populate(TreeMapToList<Integer, Character> tml)
@@ -46,28 +46,28 @@ public class TreeMapToListTest
 	}
 
 	@Test
-	public void testConstructorWithNull()
+	void testConstructorWithNull()
 	{
 		TreeMapToList<Integer, Character> tml = new TreeMapToList<>(null);
 		runPutGet(tml);
 	}
 
 	@Test
-	public void testDefaultConstructor()
+	void testDefaultConstructor()
 	{
 		TreeMapToList<Integer, Character> tml = new TreeMapToList<>();
 		runPutGet(tml);
 	}
 
 	@Test
-	public void testPutNull()
+	void testPutNull()
 	{
 		TreeMapToList<Integer, Character> tml = new TreeMapToList<>();
 		assertThrows(NullPointerException.class, () -> tml.addToListFor(null, TestSupport.CONST_F));
 	}
 
 	@Test
-	public void testInitializeListFor()
+	void testInitializeListFor()
 	{
 		TreeMapToList<Integer, Character> tml = new TreeMapToList<>();
 		assertNull(tml.getListFor(TestSupport.I1));
@@ -134,7 +134,7 @@ public class TreeMapToListTest
 	}
 
 	@Test
-	public void testContainsKey()
+	void testContainsKey()
 	{
 		TreeMapToList<Integer, Character> tml = new TreeMapToList<>();
 		assertFalse(tml.containsListFor(TestSupport.I1));
@@ -148,7 +148,7 @@ public class TreeMapToListTest
 	}
 
 	@Test
-	public void testRemoveListFor()
+	void testRemoveListFor()
 	{
 		TreeMapToList<Integer, Character> tml = new TreeMapToList<>();
 		assertNull(tml.removeListFor(TestSupport.I1));
@@ -168,7 +168,7 @@ public class TreeMapToListTest
 	}
 
 	@Test
-	public void testRemoveFromListFor()
+	void testRemoveFromListFor()
 	{
 		TreeMapToList<Integer, Character> tml = new TreeMapToList<>();
 		assertFalse(tml.removeFromListFor(TestSupport.I1, TestSupport.CONST_D));
@@ -208,7 +208,7 @@ public class TreeMapToListTest
 	}
 
 	@Test
-	public void testContainsInList()
+	void testContainsInList()
 	{
 		TreeMapToList<Integer, Character> tml = new TreeMapToList<>();
 		assertFalse(tml.containsInList(TestSupport.I1, TestSupport.CONST_D));
@@ -229,7 +229,7 @@ public class TreeMapToListTest
 	}
 
 	@Test
-	public void testGetKeySet()
+	void testGetKeySet()
 	{
 		TreeMapToList<Integer, Character> tml = new TreeMapToList<>();
 		Set<Integer> s = tml.getKeySet();
@@ -252,7 +252,7 @@ public class TreeMapToListTest
 	}
 
 	@Test
-	public void testClearIsEmpty()
+	void testClearIsEmpty()
 	{
 		TreeMapToList<Integer, Character> tml = new TreeMapToList<>();
 		assertTrue(tml.isEmpty());
@@ -278,7 +278,7 @@ public class TreeMapToListTest
 	}
 
 	@Test
-	public void testEmptyAddAll()
+	void testEmptyAddAll()
 	{
 		TreeMapToList<Integer, Character> tml = new TreeMapToList<>();
 		tml.addAllToListFor(TestSupport.I1, null);
@@ -288,7 +288,7 @@ public class TreeMapToListTest
 	}
 
 	@Test
-	public void testAddAll()
+	void testAddAll()
 	{
 		TreeMapToList<Integer, Character> tml = new TreeMapToList<>();
 		List<Character> l = new ArrayList<>();
@@ -312,7 +312,7 @@ public class TreeMapToListTest
 	}
 
 	@Test
-	public void testInstanceBehavior()
+	void testInstanceBehavior()
 	{
 		TreeMapToList<Integer, Character> tml = new TreeMapToList<>();
 		Character ca = TestSupport.CONST_A;
@@ -342,7 +342,7 @@ public class TreeMapToListTest
 	}
 
 	@Test
-	public void testAddAllLists()
+	void testAddAllLists()
 	{
 		TreeMapToList<Integer, Character> tml = new TreeMapToList<>();
 		HashMapToList<Integer, Character> tml2 = new HashMapToList<>();

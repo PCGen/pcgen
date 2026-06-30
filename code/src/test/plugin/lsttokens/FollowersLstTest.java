@@ -31,7 +31,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
-public class FollowersLstTest extends AbstractGlobalTokenTestCase
+class FollowersLstTest extends AbstractGlobalTokenTestCase
 {
 
 	static CDOMPrimaryToken<CDOMObject> token = new FollowersLst();
@@ -62,63 +62,63 @@ public class FollowersLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidEmpty()
+	void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTypeOnly()
+	void testInvalidTypeOnly()
 	{
 		assertFalse(parse("Follower"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTypeBarOnly()
+	void testInvalidTypeBarOnly()
 	{
 		assertFalse(parse("Follower|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyType()
+	void testInvalidEmptyType()
 	{
 		assertFalse(parse("|4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTwoPipe()
+	void testInvalidTwoPipe()
 	{
 		assertFalse(parse("Follower||4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTwoPipeTypeTwo()
+	void testInvalidTwoPipeTypeTwo()
 	{
 		assertFalse(parse("Follower|Pet|4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBarEnding()
+	void testInvalidBarEnding()
 	{
 		assertFalse(parse("Follower|4|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBarStarting()
+	void testInvalidBarStarting()
 	{
 		assertFalse(parse("|Follower|4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidReversed()
+	void testInvalidReversed()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(CompanionList.class, "Follower");
 		assertTrue(parse("Formula|Follower"));
@@ -126,7 +126,7 @@ public class FollowersLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(CompanionList.class, "Follower");
 		secondaryContext.getReferenceContext().constructCDOMObject(CompanionList.class,
@@ -135,7 +135,7 @@ public class FollowersLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testRoundRobinFormula() throws PersistenceLayerException
+	void testRoundRobinFormula() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(CompanionList.class, "Follower");
 		secondaryContext.getReferenceContext().constructCDOMObject(CompanionList.class,
@@ -144,7 +144,7 @@ public class FollowersLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testRoundRobinComplexFormula() throws PersistenceLayerException
+	void testRoundRobinComplexFormula() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(CompanionList.class, "Follower");
 		secondaryContext.getReferenceContext().constructCDOMObject(CompanionList.class,
@@ -153,7 +153,7 @@ public class FollowersLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testRoundRobinComplex() throws PersistenceLayerException
+	void testRoundRobinComplex() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(CompanionList.class, "Follower");
 		secondaryContext.getReferenceContext().constructCDOMObject(CompanionList.class,

@@ -31,7 +31,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Test the StagingInfoFactory class
  */
-public class StagingInfoFactoryTest
+class StagingInfoFactoryTest
 {
 
 	private StagingInfoFactory getFactory()
@@ -44,7 +44,7 @@ public class StagingInfoFactoryTest
 	}
 
 	@Test
-	public void testInvalidClass()
+	void testInvalidClass()
 	{
 		assertThrows(IllegalArgumentException.class, () -> getFactory().produceStaging(Object.class, SetItemOnly.class, new Object()));
 		assertThrows(IllegalArgumentException.class, () -> getFactory().produceStaging(GetItemOnly.class, Object.class, new GetItemOnly() {}));
@@ -105,7 +105,7 @@ public class StagingInfoFactoryTest
 	}
 
 	@Test
-	public void testStagingSetup()
+	void testStagingSetup()
 	{
 		getFactory().produceStaging(GetItemOnly.class, SetItemOnly.class, new GetItemOnly()
 		{
@@ -129,7 +129,7 @@ public class StagingInfoFactoryTest
 	}
 
 	@Test
-	public void testStagingItem()
+	void testStagingItem()
 	{
 		StagingInfoFactory factory = getFactory();
 		SetItem object = new SetItem()
@@ -162,7 +162,7 @@ public class StagingInfoFactoryTest
 	}
 
 	@Test
-	public void testStagingList()
+	void testStagingList()
 	{
 		StagingInfoFactory factory = getFactory();
 		AddList object = new AddList()
@@ -204,7 +204,7 @@ public class StagingInfoFactoryTest
 	}
 
 	@Test
-	public void testStagingMap()
+	void testStagingMap()
 	{
 		StagingInfoFactory factory = getFactory();
 		PutMap object = new PutMap()
@@ -238,7 +238,7 @@ public class StagingInfoFactoryTest
 	}
 
 	@Test
-	public void testStagingParamMap()
+	void testStagingParamMap()
 	{
 		StagingInfoFactory factory = getFactory();
 		PutParamMap object = new PutParamMap()
@@ -272,7 +272,7 @@ public class StagingInfoFactoryTest
 	}
 
 	@Test
-	public void testStagingItemReadOnly()
+	void testStagingItemReadOnly()
 	{
 		StagingInfoFactory factory = getFactory();
 		Settable object = new Settable()

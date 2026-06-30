@@ -37,7 +37,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
 
-public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
+class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 {
 	static ProficiencyToken token = new ProficiencyToken();
 	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
@@ -61,7 +61,7 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testInvalidInputEmpty()
+	void testInvalidInputEmpty()
 	{
 		assertNull(token.unparse(primaryContext, primaryProf));
 		assertFalse(parse(""));
@@ -72,7 +72,7 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testInvalidInputString()
+	void testInvalidInputString()
 	{
 		assertFalse(parse("String"));
 		assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
@@ -82,7 +82,7 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testInvalidInputJoinedComma()
+	void testInvalidInputJoinedComma()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -94,7 +94,7 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testInvalidInputJoinedPipe()
+	void testInvalidInputJoinedPipe()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -106,7 +106,7 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testInvalidInputJoinedDot()
+	void testInvalidInputJoinedDot()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -118,7 +118,7 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testInvalidInputEmptyWeapon()
+	void testInvalidInputEmptyWeapon()
 	{
 		assertFalse(parse("WEAPON|"));
 		assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
@@ -128,7 +128,7 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testInvalidInputWeaponString()
+	void testInvalidInputWeaponString()
 	{
 		assertTrue(parse("WEAPON|String"));
 		assertConstructionError();
@@ -143,7 +143,7 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	// }
 
 	@Test
-	public void testInvalidInputWeaponJoinedComma()
+	void testInvalidInputWeaponJoinedComma()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -162,7 +162,7 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testInvalidInputWeaponJoinedPipe()
+	void testInvalidInputWeaponJoinedPipe()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -181,7 +181,7 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testInvalidInputWeaponJoinedDot()
+	void testInvalidInputWeaponJoinedDot()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -225,7 +225,7 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	//
 
 	@Test
-	public void testReplacementInputsWeapon()
+	void testReplacementInputsWeapon()
 	{
 		String[] unparsed;
 		construct(primaryContext, "TestWP1");
@@ -249,7 +249,7 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testInvalidInputEmptyArmor()
+	void testInvalidInputEmptyArmor()
 	{
 		assertFalse(parse("ARMOR|"));
 		assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
@@ -259,7 +259,7 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testInvalidInputArmorString()
+	void testInvalidInputArmorString()
 	{
 		assertTrue(parse("ARMOR|String"));
 		assertConstructionError();
@@ -274,7 +274,7 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	// }
 
 	@Test
-	public void testInvalidInputArmorJoinedComma()
+	void testInvalidInputArmorJoinedComma()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -293,7 +293,7 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testInvalidInputArmorJoinedPipe()
+	void testInvalidInputArmorJoinedPipe()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -312,7 +312,7 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testInvalidInputArmorJoinedDot()
+	void testInvalidInputArmorJoinedDot()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -356,7 +356,7 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	//
 
 	@Test
-	public void testReplacementInputsArmor()
+	void testReplacementInputsArmor()
 	{
 		String[] unparsed;
 		construct(primaryContext, "TestWP1");
@@ -380,7 +380,7 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testInvalidInputEmptyShield()
+	void testInvalidInputEmptyShield()
 	{
 		assertFalse(parse("SHIELD|"));
 		assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
@@ -390,7 +390,7 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testInvalidInputShieldString()
+	void testInvalidInputShieldString()
 	{
 		assertTrue(parse("SHIELD|String"));
 		assertConstructionError();
@@ -405,7 +405,7 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	// }
 
 	@Test
-	public void testInvalidInputShieldJoinedComma()
+	void testInvalidInputShieldJoinedComma()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -424,7 +424,7 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testInvalidInputShieldJoinedPipe()
+	void testInvalidInputShieldJoinedPipe()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -443,7 +443,7 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testInvalidInputShieldJoinedDot()
+	void testInvalidInputShieldJoinedDot()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -487,7 +487,7 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	//
 
 	@Test
-	public void testReplacementInputsShield()
+	void testReplacementInputsShield()
 	{
 		String[] unparsed;
 		construct(primaryContext, "TestWP1");

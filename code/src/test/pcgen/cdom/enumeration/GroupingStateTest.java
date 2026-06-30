@@ -25,7 +25,7 @@ import org.junit.jupiter.api.Test;
 class GroupingStateTest
 {
 	@Test
-	public void testAddConsistent()
+	void testAddConsistent()
 	{
 		for (GroupingState gs1 : GroupingState.values())
 		{
@@ -37,7 +37,7 @@ class GroupingStateTest
 	}
 
 	@Test
-	public void testInvalidImmutable()
+	void testInvalidImmutable()
 	{
 		GroupingState invalid = GroupingState.INVALID;
 		for (GroupingState gs2 : GroupingState.values())
@@ -50,7 +50,7 @@ class GroupingStateTest
 	}
 
 	@Test
-	public void testEmptyWeak()
+	void testEmptyWeak()
 	{
 		GroupingState empty = GroupingState.EMPTY;
 		for (GroupingState gs2 : GroupingState.values())

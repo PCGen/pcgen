@@ -43,7 +43,7 @@ import org.junit.jupiter.api.Test;
  * 
  * 
  */
-public class PreCampaignTest extends AbstractCharacterTestCase
+class PreCampaignTest extends AbstractCharacterTestCase
 {
 	private Campaign sourceCamp;
 	private Campaign camp1;
@@ -80,7 +80,7 @@ public class PreCampaignTest extends AbstractCharacterTestCase
 	 * @throws Exception the exception
 	 */
 	@Test
-	public void testKeyMatch() throws Exception
+	void testKeyMatch() throws Exception
 	{
 		// Setup campaigns
 		PersistenceManager pmgr = PersistenceManager.getInstance();
@@ -110,7 +110,7 @@ public class PreCampaignTest extends AbstractCharacterTestCase
 	 * @throws Exception the exception
 	 */
 	@Test
-	public void testTypeMatch() throws Exception
+	void testTypeMatch() throws Exception
 	{
 		// Setup campaigns
 		PersistenceManager pmgr = PersistenceManager.getInstance();
@@ -139,7 +139,7 @@ public class PreCampaignTest extends AbstractCharacterTestCase
 	 * @throws Exception the exception
 	 */
 	@Test
-	public void testNestedKeyMatch() throws Exception
+	void testNestedKeyMatch() throws Exception
 	{
 		// Setup campaigns
 		PersistenceManager pmgr = PersistenceManager.getInstance();
@@ -164,7 +164,7 @@ public class PreCampaignTest extends AbstractCharacterTestCase
 	 * @throws Exception the exception
 	 */
 	@Test
-	public void testNestedTypeMatch() throws Exception
+	void testNestedTypeMatch() throws Exception
 	{
 		// Setup campaigns
 		PersistenceManager pmgr = PersistenceManager.getInstance();

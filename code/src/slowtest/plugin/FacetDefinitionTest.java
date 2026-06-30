@@ -58,7 +58,7 @@ class FacetDefinitionTest
 	 */
 	@Disabled
 	@Test
-	public void testGeneralFacets() throws Exception
+	void testGeneralFacets() throws Exception
 	{
 		File sourceFolder = new File("code/src/java/pcgen/cdom/facet");
 		checkFacetsDefined(sourceFolder);
@@ -69,7 +69,7 @@ class FacetDefinitionTest
 	 * @throws Exception 
 	 */
 	@Test
-	public void testAnalysisFacets() throws Exception
+	void testAnalysisFacets() throws Exception
 	{
 		File sourceFolder = new File("code/src/java/pcgen/cdom/facet/analysis");
 		checkFacetsDefined(sourceFolder);
@@ -80,7 +80,7 @@ class FacetDefinitionTest
 	 * @throws Exception 
 	 */
 	@Test
-	public void testEventFacets() throws Exception
+	void testEventFacets() throws Exception
 	{
 		File sourceFolder = new File("code/src/java/pcgen/cdom/facet/event");
 		checkFacetsDefined(sourceFolder);
@@ -91,7 +91,7 @@ class FacetDefinitionTest
 	 * @throws Exception 
 	 */
 	@Test
-	public void testFactFacets() throws Exception
+	void testFactFacets() throws Exception
 	{
 		File sourceFolder = new File("code/src/java/pcgen/cdom/facet/fact");
 		checkFacetsDefined(sourceFolder);
@@ -102,7 +102,7 @@ class FacetDefinitionTest
 	 * @throws Exception 
 	 */
 	@Test
-	public void testInputFacets() throws Exception
+	void testInputFacets() throws Exception
 	{
 		File sourceFolder = new File("code/src/java/pcgen/cdom/facet/input");
 		checkFacetsDefined(sourceFolder);
@@ -113,7 +113,7 @@ class FacetDefinitionTest
 	 * @throws Exception 
 	 */
 	@Test
-	public void testModelFacets() throws Exception
+	void testModelFacets() throws Exception
 	{
 		File sourceFolder = new File("code/src/java/pcgen/cdom/facet/model");
 		checkFacetsDefined(sourceFolder);

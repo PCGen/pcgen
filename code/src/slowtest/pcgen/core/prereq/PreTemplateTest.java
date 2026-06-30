@@ -36,7 +36,7 @@ class PreTemplateTest extends AbstractCharacterTestCase
 	 * PRETEMPLATE
 	 */
 	@Test
-	public void test990007_1()
+	void test990007_1()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -60,7 +60,7 @@ class PreTemplateTest extends AbstractCharacterTestCase
 	 * passes !PRETEMPLATE
 	 */
 	@Test
-	public void test990007_2()
+	void test990007_2()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -79,7 +79,7 @@ class PreTemplateTest extends AbstractCharacterTestCase
 	 * required template correctly passes !PRETEMPLATE
 	 */
 	@Test
-	public void test990007_3()
+	void test990007_3()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -103,7 +103,7 @@ class PreTemplateTest extends AbstractCharacterTestCase
 	 * !PRETEMPLATE
 	 */
 	@Test
-	public void test990007_4()
+	void test990007_4()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -127,7 +127,7 @@ class PreTemplateTest extends AbstractCharacterTestCase
 	 * a wildcard test
 	 */
 	@Test
-	public void test990007_5()
+	void test990007_5()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -156,7 +156,7 @@ class PreTemplateTest extends AbstractCharacterTestCase
 	 * error message
 	 */
 	@Test
-	public void testBadOperand()
+	void testBadOperand()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -171,7 +171,7 @@ class PreTemplateTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testKindHandled()
+	void testKindHandled()
 	{
 		final PreTemplateTester preTemplate = new PreTemplateTester();
 

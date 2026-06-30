@@ -28,7 +28,7 @@ import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
 import org.junit.jupiter.api.Test;
 
-public class GearTokenTest extends AbstractKitTokenTestCase<KitGear>
+class GearTokenTest extends AbstractKitTokenTestCase<KitGear>
 {
 
 	static GearToken token = new GearToken();
@@ -54,14 +54,14 @@ public class GearTokenTest extends AbstractKitTokenTestCase<KitGear>
 	}
 
 	@Test
-	public void testInvalidInputEmptyCount()
+	void testInvalidInputEmptyCount()
 	{
 		assertTrue(parse("Fireball"));
 		assertConstructionError();
 	}
 
 	@Test
-	public void testInvalidInputOnlyOne()
+	void testInvalidInputOnlyOne()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(Equipment.class, "Fireball");
 		secondaryContext.getReferenceContext().constructCDOMObject(Equipment.class, "Fireball");
@@ -72,7 +72,7 @@ public class GearTokenTest extends AbstractKitTokenTestCase<KitGear>
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(Equipment.class, "Fireball");
 		secondaryContext.getReferenceContext().constructCDOMObject(Equipment.class, "Fireball");

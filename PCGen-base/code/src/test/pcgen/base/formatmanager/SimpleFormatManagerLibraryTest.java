@@ -37,7 +37,7 @@ import pcgen.testsupport.TestSupport;
 /**
  * Test the SimpleFormatManagerLibrary class
  */
-public class SimpleFormatManagerLibraryTest
+class SimpleFormatManagerLibraryTest
 {
 	private SimpleFormatManagerLibrary library;
 
@@ -56,35 +56,35 @@ public class SimpleFormatManagerLibraryTest
 	}
 
 	@Test
-	public void testFailOnlyClose()
+	void testFailOnlyClose()
 	{
 		assertFalse(library.hasFormatManager("NUMBER]"));
 		assertThrows(IllegalArgumentException.class, () -> library.getFormatManager(Optional.empty(), "NUMBER]"));
 	}
 
 	@Test
-	public void testFailInvalidSub()
+	void testFailInvalidSub()
 	{
 		assertFalse(library.hasFormatManager("NUMBER[NUMBER]"));
 		assertThrows(IllegalArgumentException.class, () -> library.getFormatManager(Optional.empty(), "NUMBER[NUMBER]"));
 	}
 
 	@Test
-	public void testBadFormatFail()
+	void testBadFormatFail()
 	{
 		assertFalse(library.hasFormatManager("NIMBLER"));
 		assertThrows(IllegalArgumentException.class, () -> library.getFormatManager(Optional.empty(), "NIMBLER"));
 	}
 
 	@Test
-	public void testGetBad()
+	void testGetBad()
 	{
 		assertFalse(library.hasFormatManager("ARRAY[NUMBER"));
 		assertThrows(IllegalArgumentException.class, () -> library.getFormatManager(Optional.empty(), "ARRAY[NUMBER"));
 	}
 
 	@Test
-	public void testOneOnly()
+	void testOneOnly()
 	{
 		assertThrows(IllegalArgumentException.class, () -> library.addFormatManager(new NumberManager()
 			{
@@ -101,14 +101,14 @@ public class SimpleFormatManagerLibraryTest
 	}
 
 	@Test
-	public void testConvertFailBadSeparator()
+	void testConvertFailBadSeparator()
 	{
 		assertFalse(library.hasFormatManager("ARRAY[NIMBLER]"));
 		assertThrows(IllegalArgumentException.class, () -> library.getFormatManager(Optional.empty(), "ARRAY[NIMBLER]"));
 	}
 
 	@Test
-	public void testConvert()
+	void testConvert()
 	{
 		assertTrue(library.hasFormatManager("NUMBER"));
 		assertTrue(library.hasFormatManager("ARRAY[NUMBER]"));
@@ -126,7 +126,7 @@ public class SimpleFormatManagerLibraryTest
 	}
 
 	@Test
-	public void testUnconvert()
+	void testUnconvert()
 	{
 		@SuppressWarnings("unchecked")
 		FormatManager<Number[]> manager =
@@ -143,7 +143,7 @@ public class SimpleFormatManagerLibraryTest
 	}
 
 	@Test
-	public void testConvertIndirect()
+	void testConvertIndirect()
 	{
 		@SuppressWarnings("unchecked")
 		FormatManager<Number[]> manager =
@@ -173,7 +173,7 @@ public class SimpleFormatManagerLibraryTest
 	}
 
 	@Test
-	public void testGetIdentifier()
+	void testGetIdentifier()
 	{
 		FormatManager<?> manager = library.getFormatManager(Optional.empty(), "ARRAY[NUMBER]");
 		assertEquals("ARRAY[NUMBER]", manager.getIdentifierType());
@@ -184,7 +184,7 @@ public class SimpleFormatManagerLibraryTest
 	}
 
 	@Test
-	public void testManagedClass()
+	void testManagedClass()
 	{
 		FormatManager<?> manager = library.getFormatManager(Optional.empty(), "ARRAY[NUMBER]");
 		assertSame(Number[].class, manager.getManagedClass());
@@ -195,7 +195,7 @@ public class SimpleFormatManagerLibraryTest
 	}
 
 	@Test
-	public void testGetComponent()
+	void testGetComponent()
 	{
 		FormatManager<?> manager = library.getFormatManager(Optional.empty(), "ARRAY[NUMBER]");
 		assertEquals(new NumberManager(), manager.getComponentManager().get());

@@ -29,7 +29,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
 
-public class AllowDupesTokenTest extends AbstractCDOMTokenTestCase<Campaign>
+class AllowDupesTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 {
 
 	static CDOMPrimaryToken<Campaign> token = new AllowDupesToken();
@@ -54,33 +54,33 @@ public class AllowDupesTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testInvalidEmpty()
+	void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidType()
+	void testInvalidType()
 	{
 		assertFalse(parse("SKILL"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testRoundRobinSpell() throws PersistenceLayerException
+	void testRoundRobinSpell() throws PersistenceLayerException
 	{
 		runRoundRobin("SPELL");
 	}
 
 	@Test
-	public void testRoundRobinLanguage() throws PersistenceLayerException
+	void testRoundRobinLanguage() throws PersistenceLayerException
 	{
 		runRoundRobin("LANGUAGE");
 	}
 
 	@Test
-	public void testRoundRobinBoth() throws PersistenceLayerException
+	void testRoundRobinBoth() throws PersistenceLayerException
 	{
 		runRoundRobin("LANGUAGE", "SPELL");
 	}

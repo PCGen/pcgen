@@ -34,7 +34,7 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class AllTokenTest extends
+class AllTokenTest extends
 		AbstractPrimitiveTokenTestCase<CDOMObject, Spell>
 {
 	private static final SpellsToken SUBTOKEN = new SpellsToken();
@@ -92,55 +92,55 @@ public class AllTokenTest extends
 //	}
 
 	@Test
-	public void testPrimitiveIllegalBadArgs()
+	void testPrimitiveIllegalBadArgs()
 	{
 		doPrimitiveIllegalTarget("Foo[Hi]");
 	}
 
 	@Test
-	public void testPrimitiveIllegalBadKnownEquals()
+	void testPrimitiveIllegalBadKnownEquals()
 	{
 		doPrimitiveIllegalTarget("Foo[KNOWN=]");
 	}
 
 	@Test
-	public void testPrimitiveIllegalBadKnownEqualsBad()
+	void testPrimitiveIllegalBadKnownEqualsBad()
 	{
 		doPrimitiveIllegalTarget("Foo[KNOWN=Bad]");
 	}
 
 	@Test
-	public void testPrimitiveIllegalBadLevelMax()
+	void testPrimitiveIllegalBadLevelMax()
 	{
 		doPrimitiveIllegalTarget("Foo[LEVELMAX]");
 	}
 
 	@Test
-	public void testPrimitiveIllegalBadLevelMaxEquals()
+	void testPrimitiveIllegalBadLevelMaxEquals()
 	{
 		doPrimitiveIllegalTarget("Foo[LEVELMAX=]");
 	}
 
 	@Test
-	public void testPrimitiveIllegalBadLevelMaxEqualsBad()
+	void testPrimitiveIllegalBadLevelMaxEqualsBad()
 	{
 		doPrimitiveIllegalTarget("Foo[LEVELMAX=3-]");
 	}
 
 	@Test
-	public void testPrimitiveIllegalBadLevelMin()
+	void testPrimitiveIllegalBadLevelMin()
 	{
 		doPrimitiveIllegalTarget("Foo[LEVELMIN]");
 	}
 
 	@Test
-	public void testPrimitiveIllegalBadLevelMinEquals()
+	void testPrimitiveIllegalBadLevelMinEquals()
 	{
 		doPrimitiveIllegalTarget("Foo[LEVELMIN=]");
 	}
 
 	@Test
-	public void testPrimitiveIllegalBadLevelMinEqualsBad()
+	void testPrimitiveIllegalBadLevelMinEqualsBad()
 	{
 		doPrimitiveIllegalTarget("Foo[LEVELMIN=3+]");
 	}

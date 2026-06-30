@@ -35,7 +35,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-public class SpellCastTest extends AbstractGlobalTokenTestCase
+class SpellCastTest extends AbstractGlobalTokenTestCase
 {
 	static BonusLst token = new BonusLst();
 	static CDOMTokenLoader<PCTemplate> loader =
@@ -74,28 +74,28 @@ public class SpellCastTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidInputOnlyType()
+	void testInvalidInputOnlyType()
 	{
 		assertFalse(parse("SpellCast"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOnlyTypeBar()
+	void testInvalidInputOnlyTypeBar()
 	{
 		assertFalse(parse("SpellCast|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoValue()
+	void testInvalidInputNoValue()
 	{
 		assertFalse(parse("SpellCast|CLASS.Wizard;LEVEL.1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputMissingValue()
+	void testInvalidInputMissingValue()
 	{
 		try
 		{
@@ -109,21 +109,21 @@ public class SpellCastTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidNoTarget()
+	void testInvalidNoTarget()
 	{
 		assertFalse(parse("SpellCast||2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidDoubleFirstPipe()
+	void testInvalidDoubleFirstPipe()
 	{
 		assertFalse(parse("SpellCast||CLASS.Wizard;LEVEL.1|1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidDoubleSecondPipe()
+	void testInvalidDoubleSecondPipe()
 	{
 		try
 		{
@@ -137,7 +137,7 @@ public class SpellCastTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testValidInputs()
+	void testValidInputs()
 	{
 		assertTrue(parse(getLegalValue()));
 		assertCleanConstruction();
@@ -146,21 +146,21 @@ public class SpellCastTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testRoundRobinWizardOneNumber()
+	void testRoundRobinWizardOneNumber()
 		throws PersistenceLayerException
 	{
 		runRoundRobin("SPELLCAST|CLASS.Wizard;LEVEL.1|1");
 	}
 
 	@Test
-	public void testRoundRobinWizardOneFormula()
+	void testRoundRobinWizardOneFormula()
 		throws PersistenceLayerException
 	{
 		runRoundRobin("SPELLCAST|CLASS.Wizard;LEVEL.1|FORMULA");
 	}
 
 	@Test
-	public void testRoundRobinListNumber() throws PersistenceLayerException
+	void testRoundRobinListNumber() throws PersistenceLayerException
 	{
 		runRoundRobin("SPELLCAST|%LIST|1");
 	}

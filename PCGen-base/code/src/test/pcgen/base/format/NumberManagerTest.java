@@ -32,29 +32,29 @@ import pcgen.base.util.SimpleValueStore;
 /**
  * Test the NumberManager class
  */
-public class NumberManagerTest
+class NumberManagerTest
 {
 	@Test
-	public void testConvertFailNull()
+	void testConvertFailNull()
 	{
 		assertThrows(NullPointerException.class, () -> FormatUtilities.NUMBER_MANAGER.convert(null));
 	}
 
 	@Test
-	public void testConvertFailNotNumeric()
+	void testConvertFailNotNumeric()
 	{
 		assertThrows(IllegalArgumentException.class, () -> FormatUtilities.NUMBER_MANAGER.convert("SomeString"));
 	}
 
 	@Test
-	public void testUnconvertFailNull()
+	void testUnconvertFailNull()
 	{
 		assertThrows(NullPointerException.class, () -> FormatUtilities.NUMBER_MANAGER.unconvert(null));
 	}
 
 	@Test
 	@SuppressWarnings({"rawtypes", "unchecked"})
-	public void testUnconvertFailObject()
+	void testUnconvertFailObject()
 	{
 		//Yes generics are being violated in order to do this test
 		FormatManager formatManager = FormatUtilities.NUMBER_MANAGER;
@@ -62,19 +62,19 @@ public class NumberManagerTest
 	}
 
 	@Test
-	public void testConvertIndirectFailNull()
+	void testConvertIndirectFailNull()
 	{
 		assertThrows(NullPointerException.class, () -> FormatUtilities.NUMBER_MANAGER.convertIndirect(null));
 	}
 
 	@Test
-	public void testConvertIndirectFailNotNumeric()
+	void testConvertIndirectFailNotNumeric()
 	{
 		assertThrows(IllegalArgumentException.class, () -> FormatUtilities.NUMBER_MANAGER.convertIndirect("SomeString"));
 	}
 
 	@Test
-	public void testConvert()
+	void testConvert()
 	{
 		assertEquals(Integer.valueOf(1), FormatUtilities.NUMBER_MANAGER.convert("1"));
 		assertEquals(Integer.valueOf(-3), FormatUtilities.NUMBER_MANAGER.convert("-3"));
@@ -82,7 +82,7 @@ public class NumberManagerTest
 	}
 
 	@Test
-	public void testUnconvert()
+	void testUnconvert()
 	{
 		assertEquals("1", FormatUtilities.NUMBER_MANAGER.unconvert(Integer.valueOf(1)));
 		assertEquals("-3", FormatUtilities.NUMBER_MANAGER.unconvert(Integer.valueOf(-3)));
@@ -90,7 +90,7 @@ public class NumberManagerTest
 	}
 
 	@Test
-	public void testConvertIndirect()
+	void testConvertIndirect()
 	{
 		assertEquals(Integer.valueOf(1), FormatUtilities.NUMBER_MANAGER.convertIndirect("1").get());
 		assertEquals(Integer.valueOf(-3), FormatUtilities.NUMBER_MANAGER.convertIndirect("-3").get());
@@ -98,13 +98,13 @@ public class NumberManagerTest
 	}
 
 	@Test
-	public void testGetIdentifier()
+	void testGetIdentifier()
 	{
 		assertEquals("NUMBER", FormatUtilities.NUMBER_MANAGER.getIdentifierType());
 	}
 
 	@Test
-	public void testHashCodeEquals()
+	void testHashCodeEquals()
 	{
 		assertEquals(new NumberManager().hashCode(), FormatUtilities.NUMBER_MANAGER.hashCode());
 		assertFalse(FormatUtilities.NUMBER_MANAGER.equals(new Object()));
@@ -113,19 +113,19 @@ public class NumberManagerTest
 	}
 
 	@Test
-	public void testGetComponent()
+	void testGetComponent()
 	{
 		assertTrue(FormatUtilities.NUMBER_MANAGER.getComponentManager().isEmpty());
 	}
 
 	@Test
-	public void testIsDirect()
+	void testIsDirect()
 	{
 		assertTrue(FormatUtilities.NUMBER_MANAGER.isDirect());
 	}
 
 	@Test
-	public void testGetComparator()
+	void testGetComparator()
 	{
 		Comparator<Number> comparator = new NumberManager().getComparator();
 		assertEquals(0, comparator.compare(Integer.valueOf(1), Integer.valueOf(1)));
@@ -135,7 +135,7 @@ public class NumberManagerTest
 	}
 
 	@Test
-	public void testInitializeFrom()
+	void testInitializeFrom()
 	{
 		SimpleValueStore valueStore = new SimpleValueStore();
 		valueStore.addValueFor(FormatUtilities.NUMBER_MANAGER.getIdentifierType(), 1);

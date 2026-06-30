@@ -84,12 +84,12 @@ public final class InstallLoaderTest
 				"PUBNAMEWEB:" + SOURCEWEB};
 
 	@BeforeEach
-	public void setUp() throws Exception
+	void setUp() throws Exception
 	{
 	}
 
 	@AfterEach
-	public void tearDown()
+	void tearDown()
 	{
 		TokenRegistration.clearTokens();
 	}
@@ -124,7 +124,7 @@ public final class InstallLoaderTest
 	 * @throws ParseException the parse exception
 	 */
 	@Test
-	public void testParseLine() throws PersistenceLayerException, URISyntaxException, ParseException
+	void testParseLine() throws PersistenceLayerException, URISyntaxException, ParseException
 	{
 		InstallableCampaign camp = loadInstallData(INSTALL_DATA);
 

@@ -39,7 +39,7 @@ class TipsTest
 	 * Test method for {@link translation.util.Tips#addTip(Collection, String)}.
 	 */
 	@Test
-	public void testAddTip()
+	void testAddTip()
 	{
 		Set<String> t = new HashSet<>();
 		assertEquals(0, t.size());
@@ -52,7 +52,7 @@ class TipsTest
 	}
 
 	@Test
-	public void isTip() throws Exception
+	void isTip() throws Exception
 	{
 		String emptyLine = "";
 		assertFalse(Tips.isTip(emptyLine));
@@ -64,7 +64,7 @@ class TipsTest
 	}
 
 	@Test
-	public void removeEscapeTest()
+	void removeEscapeTest()
 	{
 		assertEquals("", Tips.removeEscaped(""));
 		assertEquals("a", Tips.removeEscaped("a"));
@@ -74,7 +74,7 @@ class TipsTest
 	}
 
 	@Test
-	public void escapeTest()
+	void escapeTest()
 	{
 		assertEquals("", Tips.escape(""));
 		assertEquals("a", Tips.escape("a"));

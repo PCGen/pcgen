@@ -42,7 +42,7 @@ import plugin.pretokens.parser.PreWeaponProfParser;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class WeaponProfTokenTest extends AbstractAutoTokenTestCase<WeaponProf>
+class WeaponProfTokenTest extends AbstractAutoTokenTestCase<WeaponProf>
 {
 
 	static WeaponProfToken subtoken = new WeaponProfToken();
@@ -76,14 +76,14 @@ public class WeaponProfTokenTest extends AbstractAutoTokenTestCase<WeaponProf>
 	}
 
 	@Test
-	public void testUnparseNull()
+	void testUnparseNull()
 	{
 		primaryProf.removeListFor(ListKey.WEAPONPROF);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseSingleEmpty()
+	void testUnparseSingleEmpty()
 	{
 		WeaponProfProvider wpp = new WeaponProfProvider();
 		primaryProf.addToListFor(ListKey.WEAPONPROF, wpp);
@@ -91,19 +91,19 @@ public class WeaponProfTokenTest extends AbstractAutoTokenTestCase<WeaponProf>
 	}
 
 	@Test
-	public void testRoundRobinDeityWeapons() throws PersistenceLayerException
+	void testRoundRobinDeityWeapons() throws PersistenceLayerException
 	{
 		runRoundRobin(getSubTokenName() + '|' + "DEITYWEAPONS");
 	}
 
 	@Test
-	public void testRoundRobinDeityWeaponsPre() throws PersistenceLayerException
+	void testRoundRobinDeityWeaponsPre() throws PersistenceLayerException
 	{
 		runRoundRobin(getSubTokenName() + '|' + "DEITYWEAPONS|PRERACE:1,Dwarf");
 	}
 
 	@Test
-	public void testUnparseDeityWeaponsAll()
+	void testUnparseDeityWeaponsAll()
 	{
 		loadAllReference();
 		primaryProf.put(ObjectKey.HAS_DEITY_WEAPONPROF,
@@ -112,7 +112,7 @@ public class WeaponProfTokenTest extends AbstractAutoTokenTestCase<WeaponProf>
 	}
 
 	@Test
-	public void testUnparseIndivAll()
+	void testUnparseIndivAll()
 	{
 		WeaponProfProvider wpp = new WeaponProfProvider();
 		wpp.addWeaponProfAll(primaryContext.getReferenceContext()
@@ -125,7 +125,7 @@ public class WeaponProfTokenTest extends AbstractAutoTokenTestCase<WeaponProf>
 	}
 
 	@Test
-	public void testUnparseDeityWeapons()
+	void testUnparseDeityWeapons()
 	{
 		primaryProf.put(ObjectKey.HAS_DEITY_WEAPONPROF,
 				new QualifiedObject<>(Boolean.TRUE));
@@ -134,7 +134,7 @@ public class WeaponProfTokenTest extends AbstractAutoTokenTestCase<WeaponProf>
 	}
 
 	@Test
-	public void testUnparseDeityWeaponsFalse()
+	void testUnparseDeityWeaponsFalse()
 	{
 		primaryProf.put(ObjectKey.HAS_DEITY_WEAPONPROF,
 				new QualifiedObject<>(Boolean.FALSE));
@@ -161,7 +161,7 @@ public class WeaponProfTokenTest extends AbstractAutoTokenTestCase<WeaponProf>
 	}
 
 	@Test
-	public void testUnparseNullInList()
+	void testUnparseNullInList()
 	{
 		WeaponProfProvider wpp = new WeaponProfProvider();
 		wpp.addWeaponProf(null);
@@ -179,7 +179,7 @@ public class WeaponProfTokenTest extends AbstractAutoTokenTestCase<WeaponProf>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail()
+	void testUnparseGenericsFail()
 	{
 		ListKey listKey = ListKey.WEAPONPROF;
 		primaryProf.addToListFor(listKey, new Object());
@@ -195,20 +195,20 @@ public class WeaponProfTokenTest extends AbstractAutoTokenTestCase<WeaponProf>
 	}
 
 	@Test
-	public void testInvalidAllPlusDeityWeaponsIllegal()
+	void testInvalidAllPlusDeityWeaponsIllegal()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "DEITYWEAPONS|ALL"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidPrereqLegal()
+	void testValidPrereqLegal()
 	{
 		assertTrue(parse(getSubTokenName() + '|' + "CROSSBOW|PREWEAPONPROF:1,DAGGER"));
 	}
 
 	@Test
-	public void testInvalidPrereqIllegal()
+	void testInvalidPrereqIllegal()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "CROSSBOW|PREWEAPONPROF:1,TYPE=Piercing"));
 	}

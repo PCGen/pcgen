@@ -29,7 +29,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class AddLevelIntegrationTest extends
+class AddLevelIntegrationTest extends
 		AbstractIntegrationTestCase<PCTemplate>
 {
 
@@ -55,7 +55,7 @@ public class AddLevelIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
@@ -69,7 +69,7 @@ public class AddLevelIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinClassOnly() throws PersistenceLayerException
+	void testRoundRobinClassOnly() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
@@ -83,7 +83,7 @@ public class AddLevelIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinLevelOnly() throws PersistenceLayerException
+	void testRoundRobinLevelOnly() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
@@ -95,7 +95,7 @@ public class AddLevelIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoSet() throws PersistenceLayerException
+	void testRoundRobinNoSet() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
@@ -107,7 +107,7 @@ public class AddLevelIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoReset() throws PersistenceLayerException
+	void testRoundRobinNoReset() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");

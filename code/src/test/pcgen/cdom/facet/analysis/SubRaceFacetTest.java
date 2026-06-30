@@ -31,7 +31,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class SubRaceFacetTest
+class SubRaceFacetTest
 {
 	/*
 	 * NOTE: This is not literal unit testing - it is leveraging the existing
@@ -45,7 +45,7 @@ public class SubRaceFacetTest
 	private TemplateFacet tfacet = new TemplateFacet();
 
 	@BeforeEach
-	public void setUp() throws Exception
+	void setUp() throws Exception
 	{
 		facet = new SubRaceFacet();
 		facet.setTemplateFacet(tfacet);
@@ -55,7 +55,7 @@ public class SubRaceFacetTest
 	}
 
 	@AfterEach
-	public void tearDown()
+	void tearDown()
 	{
 		id = null;
 		altid = null;
@@ -64,20 +64,20 @@ public class SubRaceFacetTest
 	}
 
 	@Test
-	public void testSubRaceUnsetNull()
+	void testSubRaceUnsetNull()
 	{
 		assertNull(facet.getSubRace(id));
 	}
 
 	@Test
-	public void testWithNothingInTemplates()
+	void testWithNothingInTemplates()
 	{
 		tfacet.add(id, new PCTemplate(), this);
 		assertNull(facet.getSubRace(id));
 	}
 
 	@Test
-	public void testAvoidPollution()
+	void testAvoidPollution()
 	{
 		PCTemplate pct = new PCTemplate();
 		pct.setName("TestTemplate");
@@ -88,7 +88,7 @@ public class SubRaceFacetTest
 	}
 
 	@Test
-	public void testUseTemplateNameTrue()
+	void testUseTemplateNameTrue()
 	{
 		PCTemplate pct = new PCTemplate();
 		pct.setName("TestTemplate");
@@ -100,7 +100,7 @@ public class SubRaceFacetTest
 	}
 
 	@Test
-	public void testUseTemplateNameFalse()
+	void testUseTemplateNameFalse()
 	{
 		PCTemplate pct = new PCTemplate();
 		pct.setName("TestTemplate");
@@ -112,7 +112,7 @@ public class SubRaceFacetTest
 	}
 
 	@Test
-	public void testSubRaceSet()
+	void testSubRaceSet()
 	{
 		PCTemplate pct = new PCTemplate();
 		pct.put(ObjectKey.SUBRACE, SubRace.getConstant("TestSubRace"));
@@ -123,7 +123,7 @@ public class SubRaceFacetTest
 	}
 
 	@Test
-	public void testSubRaceSetUseNameTrueSubRaceDominates()
+	void testSubRaceSetUseNameTrueSubRaceDominates()
 	{
 		PCTemplate pct = new PCTemplate();
 		pct.put(ObjectKey.SUBRACE, SubRace.getConstant("TestSubRace"));
@@ -136,7 +136,7 @@ public class SubRaceFacetTest
 	}
 
 	@Test
-	public void testSubRaceSetUseNameFalseSubRaceDominates()
+	void testSubRaceSetUseNameFalseSubRaceDominates()
 	{
 		PCTemplate pct = new PCTemplate();
 		pct.put(ObjectKey.SUBRACE, SubRace.getConstant("TestSubRace"));
@@ -149,7 +149,7 @@ public class SubRaceFacetTest
 	}
 
 	@Test
-	public void testMultipleSubRaceSetSecondDominatesSubRace()
+	void testMultipleSubRaceSetSecondDominatesSubRace()
 	{
 		PCTemplate pct = new PCTemplate();
 		pct.setName("PCT");
@@ -167,7 +167,7 @@ public class SubRaceFacetTest
 	}
 
 	@Test
-	public void testMultipleSubRaceSetSecondDominatesUseTemplateName()
+	void testMultipleSubRaceSetSecondDominatesUseTemplateName()
 	{
 		PCTemplate pct = new PCTemplate();
 		pct.put(ObjectKey.SUBRACE, SubRace.getConstant("TestSubRace"));

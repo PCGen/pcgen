@@ -42,7 +42,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 
-public class DomainsTokenTest extends AbstractCDOMTokenTestCase<Spell>
+class DomainsTokenTest extends AbstractCDOMTokenTestCase<Spell>
 {
 
 	static DomainsToken token = new DomainsToken();
@@ -80,161 +80,161 @@ public class DomainsTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	@Test
-	public void testInvalidInputEmpty()
+	void testInvalidInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputClassOnly()
+	void testInvalidInputClassOnly()
 	{
 		assertFalse(parse("Fire"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputLevelOnly()
+	void testInvalidInputLevelOnly()
 	{
 		assertFalse(parse("3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputChainClassOnly()
+	void testInvalidInputChainClassOnly()
 	{
 		assertFalse(parse("Fire=3|Good"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoubleEquals()
+	void testInvalidInputDoubleEquals()
 	{
 		assertFalse(parse("Fire==4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputBadLevel()
+	void testInvalidInputBadLevel()
 	{
 		assertFalse(parse("Fire=Good"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNegativeLevel()
+	void testInvalidInputNegativeLevel()
 	{
 		assertFalse(parse("Fire=-4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputLeadingBar()
+	void testInvalidInputLeadingBar()
 	{
 		assertFalse(parse("|Fire=4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputTrailingBar()
+	void testInvalidInputTrailingBar()
 	{
 		assertFalse(parse("Fire=4|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoublePipe()
+	void testInvalidInputDoublePipe()
 	{
 		assertFalse(parse("Fire=3||Good=4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoubleComma()
+	void testInvalidInputDoubleComma()
 	{
 		assertFalse(parse("Fire,,Good=4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputLeadingComma()
+	void testInvalidInputLeadingComma()
 	{
 		assertFalse(parse(",Fire=4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputTrailingEquals()
+	void testInvalidInputTrailingEquals()
 	{
 		assertFalse(parse("Fire=4="));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoubleSet()
+	void testInvalidInputDoubleSet()
 	{
 		assertFalse(parse("Fire=4=3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputTrailingComma()
+	void testInvalidInputTrailingComma()
 	{
 		assertFalse(parse("Fire,=4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptyType()
+	void testInvalidInputEmptyType()
 	{
 		assertFalse(parse("TYPE.=4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptyPrerequisite()
+	void testInvalidInputEmptyPrerequisite()
 	{
 		assertFalse(parse("Fire=4[]"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOpenEndedPrerequisite()
+	void testInvalidInputOpenEndedPrerequisite()
 	{
 		assertFalse(parse("Fire=4[PRERACE:1,Human"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNegativePrerequisite()
+	void testInvalidInputNegativePrerequisite()
 	{
 		assertFalse(parse("Fire=-1[PRERACE:1,Human]"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNegativePre()
+	void testInvalidInputNegativePre()
 	{
 		assertFalse(parse("Fire=-1[PRERACE:1,Human]"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputBadPrerequisite()
+	void testInvalidInputBadPrerequisite()
 	{
 		assertFalse(parse("Fire=4[PREFOO:1,Human]"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNotClass()
+	void testInvalidInputNotClass()
 	{
 		assertTrue(parse("Fire=4"));
 		assertConstructionError();
 	}
 
 	@Test
-	public void testInvalidInputNotClassCompound()
+	void testInvalidInputNotClassCompound()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
 		secondaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
@@ -244,14 +244,14 @@ public class DomainsTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	@Test
-	public void testValidInputClearAll()
+	void testValidInputClearAll()
 	{
 		assertTrue(parse(Constants.LST_DOT_CLEAR_ALL));
 		assertCleanConstruction();
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
@@ -260,7 +260,7 @@ public class DomainsTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	@Test
-	public void testRoundRobinPrereq() throws PersistenceLayerException
+	void testRoundRobinPrereq() throws PersistenceLayerException
 	{
 		assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
@@ -269,7 +269,7 @@ public class DomainsTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	@Test
-	public void testRoundRobinComma() throws PersistenceLayerException
+	void testRoundRobinComma() throws PersistenceLayerException
 	{
 		assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
@@ -280,7 +280,7 @@ public class DomainsTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	@Test
-	public void testRoundRobinPipe() throws PersistenceLayerException
+	void testRoundRobinPipe() throws PersistenceLayerException
 	{
 		assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
@@ -291,7 +291,7 @@ public class DomainsTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	@Test
-	public void testRoundRobinCommaPipe() throws PersistenceLayerException
+	void testRoundRobinCommaPipe() throws PersistenceLayerException
 	{
 		assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
@@ -332,7 +332,7 @@ public class DomainsTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	@Test
-	public void testRoundRobinAll() throws PersistenceLayerException
+	void testRoundRobinAll() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
 		secondaryContext.getReferenceContext()
@@ -341,7 +341,7 @@ public class DomainsTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	@Test
-	public void testReplacementInputs()
+	void testReplacementInputs()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
 		secondaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
@@ -376,7 +376,7 @@ public class DomainsTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	@Test
-	public void testClearPrereqInvalid()
+	void testClearPrereqInvalid()
 	{
 		assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");

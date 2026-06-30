@@ -32,23 +32,23 @@ import pcgen.base.util.SimpleValueStore;
 /**
  * Test the StringManager class
  */
-public class StringManagerTest
+class StringManagerTest
 {
 	@Test
-	public void testConvertFailNull()
+	void testConvertFailNull()
 	{
 		assertThrows(NullPointerException.class, () -> FormatUtilities.STRING_MANAGER.convert(null));
 	}
 
 	@Test
-	public void testUnconvertFailNull()
+	void testUnconvertFailNull()
 	{
 		assertThrows(NullPointerException.class, () -> FormatUtilities.STRING_MANAGER.unconvert(null));
 	}
 
 	@Test
 	@SuppressWarnings({"rawtypes", "unchecked"})
-	public void testUnconvertFailObject()
+	void testUnconvertFailObject()
 	{
 		//Yes generics are being violated in order to do this test
 		FormatManager formatManager = FormatUtilities.STRING_MANAGER;
@@ -56,40 +56,40 @@ public class StringManagerTest
 	}
 
 	@Test
-	public void testConvertIndirectFailNull()
+	void testConvertIndirectFailNull()
 	{
 		assertThrows(NullPointerException.class, () -> FormatUtilities.STRING_MANAGER.convertIndirect(null));
 	}
 
 	@Test
-	public void testConvert()
+	void testConvert()
 	{
 		assertEquals("1", FormatUtilities.STRING_MANAGER.convert("1"));
 		assertEquals("abc", FormatUtilities.STRING_MANAGER.convert("abc"));
 	}
 
 	@Test
-	public void testUnconvert()
+	void testUnconvert()
 	{
 		assertEquals("1", FormatUtilities.STRING_MANAGER.unconvert("1"));
 		assertEquals("abc", FormatUtilities.STRING_MANAGER.unconvert("abc"));
 	}
 
 	@Test
-	public void testConvertIndirect()
+	void testConvertIndirect()
 	{
 		assertEquals("1", FormatUtilities.STRING_MANAGER.convertIndirect("1").get());
 		assertEquals("gfd", FormatUtilities.STRING_MANAGER.convertIndirect("gfd").get());
 	}
 
 	@Test
-	public void testGetIdentifier()
+	void testGetIdentifier()
 	{
 		assertEquals("STRING", FormatUtilities.STRING_MANAGER.getIdentifierType());
 	}
 
 	@Test
-	public void testGetComparator()
+	void testGetComparator()
 	{
 		Comparator<String> comparator = new StringManager().getComparator();
 		assertEquals(0, comparator.compare("A", "A"));
@@ -99,7 +99,7 @@ public class StringManagerTest
 	}
 
 	@Test
-	public void testHashCodeEquals()
+	void testHashCodeEquals()
 	{
 		assertEquals(new StringManager().hashCode(), FormatUtilities.STRING_MANAGER.hashCode());
 		assertFalse(FormatUtilities.STRING_MANAGER.equals(new Object()));
@@ -108,19 +108,19 @@ public class StringManagerTest
 	}
 
 	@Test
-	public void testGetComponent()
+	void testGetComponent()
 	{
 		assertTrue(FormatUtilities.STRING_MANAGER.getComponentManager().isEmpty());
 	}
 
 	@Test
-	public void testIsDirect()
+	void testIsDirect()
 	{
 		assertTrue(FormatUtilities.STRING_MANAGER.isDirect());
 	}
 
 	@Test
-	public void testInitializeFrom()
+	void testInitializeFrom()
 	{
 		SimpleValueStore valueStore = new SimpleValueStore();
 		valueStore.addValueFor(FormatUtilities.STRING_MANAGER.getIdentifierType(), "");

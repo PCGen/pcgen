@@ -39,7 +39,7 @@ import plugin.pretokens.writer.PreRaceWriter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class VisionLstTest extends AbstractGlobalTokenTestCase
+class VisionLstTest extends AbstractGlobalTokenTestCase
 {
 
 	PreClassParser preclass = new PreClassParser();
@@ -86,242 +86,242 @@ public class VisionLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidNoOpenParen()
+	void testInvalidNoOpenParen()
 	{
 		assertFalse(parse("Darkvision 25')"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNoCloseParen()
+	void testInvalidNoCloseParen()
 	{
 		assertFalse(parse("Darkvision (25'"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNoParen()
+	void testInvalidNoParen()
 	{
 		assertFalse(parse("Darkvision 25'"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidExtraStuff()
+	void testInvalidExtraStuff()
 	{
 		assertFalse(parse("Darkvision (25')Normal"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidExtraStuffAfterFoot()
+	void testInvalidExtraStuffAfterFoot()
 	{
 		assertFalse(parse("Darkvision (25'm)"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidDecimalFoot()
+	void testInvalidDecimalFoot()
 	{
 		assertFalse(parse("Darkvision (25.5')"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidDistanceNaN()
+	void testInvalidDistanceNaN()
 	{
 		assertFalse(parse("Darkvision (zzzb32')"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void test2InvalidNoOpenParen()
+	void test2InvalidNoOpenParen()
 	{
 		assertFalse(parse("Normal|Darkvision 25')"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void test2InvalidNoCloseParen()
+	void test2InvalidNoCloseParen()
 	{
 		assertFalse(parse("Normal|Darkvision (25'"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void test2InvalidNoParen()
+	void test2InvalidNoParen()
 	{
 		assertFalse(parse("Normal|Darkvision 25'"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void test2InvalidExtraStuff()
+	void test2InvalidExtraStuff()
 	{
 		assertFalse(parse("Normal|Darkvision (25')Normal"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void test2InvalidExtraStuffAfterFoot()
+	void test2InvalidExtraStuffAfterFoot()
 	{
 		assertFalse(parse("Normal|Darkvision (25'm)"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void test2InvalidDecimalFoot()
+	void test2InvalidDecimalFoot()
 	{
 		assertFalse(parse("Normal|Darkvision (25.5')"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void test2InvalidDistanceNaN()
+	void test2InvalidDistanceNaN()
 	{
 		assertFalse(parse("Normal|Darkvision (zzzb32')"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNoComma()
+	void testInvalidNoComma()
 	{
 		assertFalse(parse("Normal,Darkvision"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidOnlyPre()
+	void testInvalidOnlyPre()
 	{
 		assertFalse(parse("PRERACE:1,Dwarf"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTrailingPipe()
+	void testInvalidTrailingPipe()
 	{
 		assertFalse(parse("Darkvision|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidLeadingPipe()
+	void testInvalidLeadingPipe()
 	{
 		assertFalse(parse("|Darkvision"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidDoublePipe()
+	void testInvalidDoublePipe()
 	{
 		assertFalse(parse("Darkvision||PRERACE:1,Dwarf"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidMiddlePre()
+	void testInvalidMiddlePre()
 	{
 		assertFalse(parse("Darkvision|PRERACE:1,Dwarf|Normal (100')"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidClearDotPre()
+	void testInvalidClearDotPre()
 	{
 		assertFalse(parse(".CLEAR.Darkvision|PRERACE:1,Dwarf"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidClearPre()
+	void testInvalidClearPre()
 	{
 		assertFalse(parse(".CLEAR|PRERACE:1,Dwarf"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidDistanceFormula()
+	void testValidDistanceFormula()
 	{
 		assertTrue(parse("Darkvision (zzzb32)"));
 	}
 
 	@Test
-	public void testValidDistanceNoSpaceNumber()
+	void testValidDistanceNoSpaceNumber()
 	{
 		assertTrue(parse("Darkvision(20')"));
 	}
 
 	@Test
-	public void testValidDistanceNoSpaceShortNumber()
+	void testValidDistanceNoSpaceShortNumber()
 	{
 		assertTrue(parse("Darkvision(5')"));
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		runRoundRobin("Darkvision");
 	}
 
 	@Test
-	public void testRoundRobinSimplePre() throws PersistenceLayerException
+	void testRoundRobinSimplePre() throws PersistenceLayerException
 	{
 		runRoundRobin("Darkvision|PRERACE:1,Dwarf");
 	}
 
 	@Test
-	public void testRoundRobinNumber() throws PersistenceLayerException
+	void testRoundRobinNumber() throws PersistenceLayerException
 	{
 		runRoundRobin("Darkvision (30')");
 	}
 
 	@Test
-	public void testRoundRobinShortNumber() throws PersistenceLayerException
+	void testRoundRobinShortNumber() throws PersistenceLayerException
 	{
 		runRoundRobin("Darkvision (5')");
 	}
 
 	@Test
-	public void testRoundRobinFormula() throws PersistenceLayerException
+	void testRoundRobinFormula() throws PersistenceLayerException
 	{
 		runRoundRobin("Darkvision (Formula*5)");
 	}
 
 	@Test
-	public void testRoundRobinMultiple() throws PersistenceLayerException
+	void testRoundRobinMultiple() throws PersistenceLayerException
 	{
 		runRoundRobin("Darkvision|Normal");
 	}
 
 	@Test
-	public void testRoundRobinMultipleNumber() throws PersistenceLayerException
+	void testRoundRobinMultipleNumber() throws PersistenceLayerException
 	{
 		runRoundRobin("Darkvision (10')|Normal");
 	}
 
 	@Test
-	public void testRoundRobinMultipleNumberToo()
+	void testRoundRobinMultipleNumberToo()
 		throws PersistenceLayerException
 	{
 		runRoundRobin("Darkvision (10')|Normal (20')");
 	}
 
 	@Test
-	public void testRoundRobinMultipleNumberSame()
+	void testRoundRobinMultipleNumberSame()
 		throws PersistenceLayerException
 	{
 		runRoundRobin("Darkvision (20')|Normal (20')");
 	}
 
 	@Test
-	public void testRoundRobinMultipleFormula()
+	void testRoundRobinMultipleFormula()
 		throws PersistenceLayerException
 	{
 		runRoundRobin("Darkvision (CL*10)|Normal (Form)");
 	}
 
 	@Test
-	public void testRoundRobinTwoPre() throws PersistenceLayerException
+	void testRoundRobinTwoPre() throws PersistenceLayerException
 	{
 		runRoundRobin("Darkvision (20')|TestWP1|PRECLASS:1,Fighter=3|PRERACE:1,Dwarf");
 	}

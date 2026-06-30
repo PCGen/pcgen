@@ -31,7 +31,7 @@ import org.junit.jupiter.api.Test;
 /**
  * EquipmentMigrationTest checks the function of EquipmentMigration. 
  */
-public class EquipmentMigrationTest
+class EquipmentMigrationTest
 {
 	
 	private String gameMode;
@@ -40,7 +40,7 @@ public class EquipmentMigrationTest
 	 * @throws java.lang.Exception
 	 */
 	@BeforeEach
-	public void setUp() throws Exception
+	void setUp() throws Exception
 	{
 		gameMode = SettingsHandler.getGameAsProperty().get().getName();
 		MigrationRule equipRule = new MigrationRule(ObjectType.EQUIPMENT, "OldKey1");
@@ -64,7 +64,7 @@ public class EquipmentMigrationTest
 	}
 
 	@AfterEach
-	public void tearDown() throws Exception
+	void tearDown() throws Exception
 	{
 		SystemCollections.clearMigrationRuleMap();
 		gameMode = null;
@@ -74,7 +74,7 @@ public class EquipmentMigrationTest
 	 * Test that rules for max version only are applied correctly.  
 	 */
 	@Test
-	public void testMaxVer()
+	void testMaxVer()
 	{
 	assertEquals("NewKey1", EquipmentMigration.getNewEquipmentKey("OldKey1", new int[]{6, 0, 0}, gameMode));
 	assertEquals("OldKey1", EquipmentMigration.getNewEquipmentKey("OldKey1", new int[]{6, 0, 2}, gameMode));
@@ -84,7 +84,7 @@ public class EquipmentMigrationTest
 	 * Check that migration rules for other game modes don't affect each other.  
 	 */
 	@Test
-	public void testNoCrossGameMode()
+	void testNoCrossGameMode()
 	{
 	assertEquals("OldKey3", EquipmentMigration.getNewEquipmentKey("OldKey3", new int[]{6, 0, 0}, gameMode));
 	assertEquals("OldKey3", EquipmentMigration.getNewEquipmentKey("OldKey3", new int[]{5, 17, 0}, gameMode));
@@ -94,7 +94,7 @@ public class EquipmentMigrationTest
 	 * Test that matches are case insensitive.  
 	 */
 	@Test
-	public void testCaseInsensitive()
+	void testCaseInsensitive()
 	{
 	assertEquals("NewKey1", EquipmentMigration.getNewEquipmentKey("OldKEY1", new int[]{6, 0, 0}, gameMode));
 	}

@@ -29,7 +29,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.BeforeEach;
 
-public class ItemCreateIntegrationTest extends
+class ItemCreateIntegrationTest extends
 		AbstractFormulaIntegrationTestCase<PCClass>
 {
 

@@ -42,7 +42,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class SpellListTokenTest extends AbstractCharacterTestCase
+class SpellListTokenTest extends AbstractCharacterTestCase
 {
 	private PCClass arcaneClass = null;
 	private PCClass divineClass = null;
@@ -116,7 +116,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 	 * Test the SPELLLISTBOOK sub-tag of the SPELLLIST token.
 	 */
 	@Test
-	public void testSpellListBookToken()
+	void testSpellListBookToken()
 	{
 		PlayerCharacter character = new PlayerCharacter();
 
@@ -136,7 +136,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 	 * Test the SPELLLISTCAST sub-tag of the SPELLLIST token.
 	 */
 	@Test
-	public void testSpellListCastToken()
+	void testSpellListCastToken()
 	{
 		PlayerCharacter character = new PlayerCharacter();
 
@@ -154,7 +154,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 	 * Test the SPELLLISTCLASS sub-tag of the SPELLLIST token.
 	 */
 	@Test
-	public void testSpellListClassToken()
+	void testSpellListClassToken()
 	{
 		PlayerCharacter character = new PlayerCharacter();
 
@@ -173,7 +173,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 	 * Test the SPELLLISTDCSTAT sub-tag of the SPELLLIST token.
 	 */
 	@Test
-	public void testSpellListDcStatToken()
+	void testSpellListDcStatToken()
 	{
 		PlayerCharacter character = new PlayerCharacter();
 
@@ -192,7 +192,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 	 * Test the SPELLLISTDC sub-tag of the SPELLLIST token.
 	 */
 	@Test
-	public void testSpellListDcToken()
+	void testSpellListDcToken()
 	{
 		PlayerCharacter character = new PlayerCharacter();
 
@@ -215,7 +215,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 	 * Currently does nothing
 	 */
 	@Test
-	public void testSpellListKnownToken()
+	void testSpellListKnownToken()
 	{
 		// TODO Do Nothing?
 	}
@@ -224,7 +224,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 	 * Test the SPELLLISTTYPE sub-tag of the SPELLLIST token.
 	 */
 	@Test
-	public void testSpellListTypeToken()
+	void testSpellListTypeToken()
 	{
 		PlayerCharacter character = new PlayerCharacter();
 

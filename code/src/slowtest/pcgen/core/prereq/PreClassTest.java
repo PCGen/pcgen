@@ -42,13 +42,13 @@ import org.junit.jupiter.api.Test;
  * Test class for PRECLASS token
  *
  */
-public class PreClassTest extends AbstractCharacterTestCase
+class PreClassTest extends AbstractCharacterTestCase
 {
 	/**
 	 * Test to ensure that a character with a named class can be found.
 	 */
 	@Test
-	public void testNamedClass()
+	void testNamedClass()
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
@@ -71,7 +71,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 * Test to ensure that a character with a ServeAs class can be found.
 	 */
 	@Test
-	public void testNamedClassServesAs()
+	void testNamedClassServesAs()
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
@@ -102,7 +102,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 * in the class.
 	 */
 	@Test
-	public void testTooFewLevels()
+	void testTooFewLevels()
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
@@ -128,7 +128,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 * in the class.
 	 */
 	@Test
-	public void testCharWithMultipleClasses()
+	void testCharWithMultipleClasses()
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
@@ -158,7 +158,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 * in the class.
 	 */
 	@Test
-	public void testCharWithMultipleSpellClasses()
+	void testCharWithMultipleSpellClasses()
 	{
 		LoadContext context = Globals.getContext();
 		final PCClass pcClass = context.getReferenceContext().constructCDOMObject(PCClass.class, "MyClass");
@@ -200,7 +200,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testFromParserCharWithMultipleSpellClasses() throws PersistenceLayerException
+	void testFromParserCharWithMultipleSpellClasses() throws PersistenceLayerException
 	{
 		LoadContext context = Globals.getContext();
 		final PCClass pcClass = context.getReferenceContext().constructCDOMObject(PCClass.class, "MyClass");
@@ -243,7 +243,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testFromParserAny() throws PersistenceLayerException
+	void testFromParserAny() throws PersistenceLayerException
 	{
 		LoadContext context = Globals.getContext();
 		final PCClass pcClass = new PCClass();
@@ -279,7 +279,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 * Test to ensure that a character without a named class cannot be found.
 	 */
 	@Test
-	public void testNamedClassFail()
+	void testNamedClassFail()
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
@@ -303,7 +303,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 * Test to ensure that a character without a named class cannot be found.
 	 */
 	@Test
-	public void testNoLevelsPass()
+	void testNoLevelsPass()
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("Monk");
@@ -326,7 +326,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 * Test to ensure that a character without a named class cannot be found.
 	 */
 	@Test
-	public void testNoLevelsFail()
+	void testNoLevelsFail()
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("Monk");
@@ -349,7 +349,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 * Test to ensure that a character with a spellcasting class can be found.
 	 */
 	@Test
-	public void testSpellcaster()
+	void testSpellcaster()
 	{
 		LoadContext context = Globals.getContext();
 		final PCClass pcClass = context.getReferenceContext().constructCDOMObject(PCClass.class, "MyClass");
@@ -380,7 +380,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 * does not match a different spellcasting type.
 	 */
 	@Test
-	public void testSpellcasterTypeFail()
+	void testSpellcasterTypeFail()
 	{
 		final PCClass pcClass = new PCClass();
 		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
@@ -405,7 +405,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 * classes spell type.
 	 */
 	@Test
-	public void testSpellcasterTypePass()
+	void testSpellcasterTypePass()
 	{
 		LoadContext context = Globals.getContext();
 		final PCClass pcClass = context.getReferenceContext().constructCDOMObject(PCClass.class, "MyClass");
@@ -435,7 +435,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 * Test to ensure that a spellcaster type check is case insensitive.
 	 */
 	@Test
-	public void testSpellcasterTypeWrongCasePass()
+	void testSpellcasterTypeWrongCasePass()
 	{
 		LoadContext context = Globals.getContext();
 		final PCClass pcClass = context.getReferenceContext().constructCDOMObject(PCClass.class, "MyClass");
@@ -467,7 +467,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testPreClassLevelMax() throws PersistenceLayerException
+	void testPreClassLevelMax() throws PersistenceLayerException
 	{
 		final PreClassLevelMaxParser parser = new PreClassLevelMaxParser();
 		final Prerequisite prereq =
@@ -513,7 +513,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	 * in the class.
 	 */
 	@Test
-	public void testAnyLevelsOneClass()
+	void testAnyLevelsOneClass()
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
@@ -536,7 +536,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testAnyLevelTwo() throws Exception
+	void testAnyLevelTwo() throws Exception
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
@@ -566,7 +566,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testLevelsTwoClasses() throws Exception
+	void testLevelsTwoClasses() throws Exception
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
@@ -592,7 +592,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testAnyLevelsTwoClasses() throws Exception
+	void testAnyLevelsTwoClasses() throws Exception
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
@@ -615,7 +615,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testAnyTwoLevelsTwoClasses() throws Exception
+	void testAnyTwoLevelsTwoClasses() throws Exception
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
@@ -641,7 +641,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testSpellcasterLevelsTwoClasses() throws Exception
+	void testSpellcasterLevelsTwoClasses() throws Exception
 	{
 		final PCClass pcClass = new PCClass();
 		LoadContext context = Globals.getContext();
@@ -678,7 +678,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testSpellcasterTypeLevelsTwoClasses() throws Exception
+	void testSpellcasterTypeLevelsTwoClasses() throws Exception
 	{
 		final PCClass pcClass = new PCClass();
 		LoadContext context = Globals.getContext();

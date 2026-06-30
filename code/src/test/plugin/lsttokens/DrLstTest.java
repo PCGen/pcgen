@@ -38,7 +38,7 @@ import plugin.pretokens.writer.PreRaceWriter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class DrLstTest extends AbstractGlobalTokenTestCase
+class DrLstTest extends AbstractGlobalTokenTestCase
 {
 
 	static CDOMPrimaryToken<CDOMObject> token = new DrLst();
@@ -85,63 +85,63 @@ public class DrLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidEmpty()
+	void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidReductionOnly()
+	void testInvalidReductionOnly()
 	{
 		assertFalse(parse("10"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidReductionSlashOnly()
+	void testInvalidReductionSlashOnly()
 	{
 		assertFalse(parse("10/"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidReductionTwoSlash()
+	void testInvalidReductionTwoSlash()
 	{
 		assertFalse(parse("10//"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidReductionTrailingSlash()
+	void testInvalidReductionTrailingSlash()
 	{
 		assertFalse(parse("10/+1/"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidPre()
+	void testInvalidPre()
 	{
 		assertFalse(parse("10/+1|PREFOO:1,Weird"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidReductionTwoProductiveSlash()
+	void testInvalidReductionTwoProductiveSlash()
 	{
 		assertFalse(parse("10/+1/5"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyReduction()
+	void testInvalidEmptyReduction()
 	{
 		assertFalse(parse("/+1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBaseOnly()
+	void testInvalidBaseOnly()
 	{
 		assertFalse(parse("10/+1|"));
 		assertNoSideEffects();
@@ -149,7 +149,7 @@ public class DrLstTest extends AbstractGlobalTokenTestCase
 
 
 	@Test
-	public void testInvalidOnlyPre()
+	void testInvalidOnlyPre()
 	{
 		try
 		{
@@ -163,25 +163,25 @@ public class DrLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testRoundRobinJustSpell() throws PersistenceLayerException
+	void testRoundRobinJustSpell() throws PersistenceLayerException
 	{
 		runRoundRobin("10/+1");
 	}
 
 	@Test
-	public void testRoundRobinTwoSpell() throws PersistenceLayerException
+	void testRoundRobinTwoSpell() throws PersistenceLayerException
 	{
 		runRoundRobin("10/+1 and Silver");
 	}
 
 	@Test
-	public void testRoundRobinTimes() throws PersistenceLayerException
+	void testRoundRobinTimes() throws PersistenceLayerException
 	{
 		runRoundRobin("5/+2 or Hard");
 	}
 
 	@Test
-	public void testRoundRobinPre() throws PersistenceLayerException
+	void testRoundRobinPre() throws PersistenceLayerException
 	{
 		runRoundRobin("5/+3|PRERACE:1,Human");
 	}

@@ -31,7 +31,7 @@ class LoadTest
 	private final Load overload = Load.valueOf("OVERLOAD");
 
 	@Test
-	public void testLoadOrder()
+	void testLoadOrder()
 	{
 		assertEquals(0, light.compareTo(light));
 		Assertions.assertTrue(light.compareTo(medium) < 0);

@@ -39,7 +39,7 @@ import util.Alignment;
 class PreAlignParserTest extends EnUsLocaleDependentTestCase
 {
 	@Test
-	public void test1() throws PersistenceLayerException
+	void test1() throws PersistenceLayerException
 	{
 
 		PreAlignParser parser = new PreAlignParser();

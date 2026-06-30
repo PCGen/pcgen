@@ -36,7 +36,7 @@ class DefaultListFacadeTest
 	 * Test method for {@link pcgen.facade.util.DefaultListFacade#updateContents(List)}
 	 */
 	@Test
-	public void testUpdateContents()
+	void testUpdateContents()
 	{
 		TestListener listener = new TestListener();
 		DefaultListFacade<String> theList =
@@ -57,7 +57,7 @@ class DefaultListFacadeTest
 	 * Test method for {@link pcgen.facade.util.DefaultListFacade#updateContents(List)}.
 	 */
 	@Test
-	public void testUpdateContentsDisparate()
+	void testUpdateContentsDisparate()
 	{
 		TestListener listener = new TestListener();
 		DefaultListFacade<String> theList = new DefaultListFacade<>(Arrays.asList("A",
@@ -77,7 +77,7 @@ class DefaultListFacadeTest
 	 * Test method for {@link pcgen.facade.util.DefaultListFacade#updateContents(List)}.
 	 */
 	@Test
-	public void testUpdateContentsFromEmpty()
+	void testUpdateContentsFromEmpty()
 	{
 		TestListener listener = new TestListener();
 		DefaultListFacade<String> theList =
@@ -97,7 +97,7 @@ class DefaultListFacadeTest
 	 * Test method for {@link pcgen.facade.util.DefaultListFacade#updateContents(List)}.
 	 */
 	@Test
-	public void testUpdateContentsToEmpty()
+	void testUpdateContentsToEmpty()
 	{
 		DefaultListFacade<String> theList = new DefaultListFacade<>(Arrays.asList("A",
 			"B", "C", "E"));
@@ -116,7 +116,7 @@ class DefaultListFacadeTest
 	 * Test method for {@link pcgen.facade.util.DefaultListFacade#updateContents(List)}.
 	 */
 	@Test
-	public void testUpdateContentsTooLarge()
+	void testUpdateContentsTooLarge()
 	{
 		TestListener listener = new TestListener();
 		DefaultListFacade<String> theList =
@@ -139,7 +139,7 @@ class DefaultListFacadeTest
 	 * Test method for {@link pcgen.facade.util.DefaultListFacade#updateContents(List)}.
 	 */
 	@Test
-	public void testUpdateContentsTooLargeFrom()
+	void testUpdateContentsTooLargeFrom()
 	{
 		TestListener listener = new TestListener();
 		DefaultListFacade<String> theList =

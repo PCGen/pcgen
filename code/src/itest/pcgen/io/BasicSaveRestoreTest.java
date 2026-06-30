@@ -36,18 +36,18 @@ import plugin.lsttokens.pcclass.HdToken;
 import org.junit.jupiter.api.Test;
 
 
-public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
+class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 {
 
 	@Test
-	public void testBoilerplateOnly()
+	void testBoilerplateOnly()
 	{
 		finishLoad();
 		runRoundRobin(null);
 	}
 
 	@Test
-	public void testDeity()
+	void testDeity()
 	{
 		Deity deity = create(Deity.class, "MyDeity");
 		finishLoad();
@@ -68,7 +68,7 @@ public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 	//	}
 
 	@Test
-	public void testAlignment()
+	void testAlignment()
 	{
 		finishLoad();
 		AlignmentCompat.setCurrentAlignment(pc.getCharID(), le);
@@ -87,7 +87,7 @@ public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 	//	}
 
 	@Test
-	public void testTemplate()
+	void testTemplate()
 	{
 		PCTemplate template = create(PCTemplate.class, "MyTemplate");
 		finishLoad();
@@ -96,7 +96,7 @@ public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 	}
 
 	@Test
-	public void testTemplateAddRemove()
+	void testTemplateAddRemove()
 	{
 		PCTemplate template = create(PCTemplate.class, "MyTemplate");
 		finishLoad();
@@ -107,7 +107,7 @@ public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 	}
 
 	@Test
-	public void testSpellBook()
+	void testSpellBook()
 	{
 		finishLoad();
 		pc.addSpellBook("MyBook");
@@ -115,7 +115,7 @@ public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 	}
 
 	@Test
-	public void testSpellBookAddRemove()
+	void testSpellBookAddRemove()
 	{
 		finishLoad();
 		runWriteRead(false);
@@ -125,7 +125,7 @@ public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 	}
 
 	@Test
-	public void testCharacterType()
+	void testCharacterType()
 	{
 		final GameMode gameMode = SettingsHandler.getGameAsProperty().get();
 		gameMode.setCharacterTypeList(Arrays.asList("Default",
@@ -137,7 +137,7 @@ public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 	}
 
 	@Test
-	public void testNotes()
+	void testNotes()
 	{
 		finishLoad();
 		pc.addNotesItem(new NoteItem(1, -1, "NoteName", "NoteValue"));
@@ -145,7 +145,7 @@ public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 	}
 
 	@Test
-	public void testNotesAddRemove()
+	void testNotesAddRemove()
 	{
 		finishLoad();
 		NoteItem item = new NoteItem(1, -1, "NoteName", "NoteValue");
@@ -155,7 +155,7 @@ public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 	}
 
 	@Test
-	public void testSkill()
+	void testSkill()
 	{
 		create(Skill.class, "MySkill");
 		finishLoad();
@@ -169,7 +169,7 @@ public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 	 */
 
 	@Test
-	public void testStatRank()
+	void testStatRank()
 	{
 		finishLoad();
 		pc.setStat(str, 14);
@@ -182,7 +182,7 @@ public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 	}
 
 	@Test
-	public void testClass()
+	void testClass()
 	{
 		PCClass cl = create(PCClass.class, "MyClass");
 		new HdToken().parseToken(context, cl, "6");

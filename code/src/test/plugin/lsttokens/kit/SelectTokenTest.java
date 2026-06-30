@@ -25,7 +25,7 @@ import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
 import org.junit.jupiter.api.Test;
 
-public class SelectTokenTest extends AbstractKitTokenTestCase<KitSelect>
+class SelectTokenTest extends AbstractKitTokenTestCase<KitSelect>
 {
 
 	static SelectToken token = new SelectToken();
@@ -51,13 +51,13 @@ public class SelectTokenTest extends AbstractKitTokenTestCase<KitSelect>
 	}
 
 	@Test
-	public void testRoundRobinNumber() throws PersistenceLayerException
+	void testRoundRobinNumber() throws PersistenceLayerException
 	{
 		runRoundRobin("3");
 	}
 
 	@Test
-	public void testRoundRobinFormula() throws PersistenceLayerException
+	void testRoundRobinFormula() throws PersistenceLayerException
 	{
 		runRoundRobin("Formula");
 	}

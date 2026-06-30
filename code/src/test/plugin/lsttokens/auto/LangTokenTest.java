@@ -32,7 +32,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
 
-public class LangTokenTest extends AbstractAutoTokenTestCase<Language>
+class LangTokenTest extends AbstractAutoTokenTestCase<Language>
 {
 
 	static LangToken subtoken = new LangToken();
@@ -76,7 +76,7 @@ public class LangTokenTest extends AbstractAutoTokenTestCase<Language>
 
 	@SuppressWarnings({"unchecked", "rawtypes"})
 	@Test
-	public void testUnparseGenericsFail()
+	void testUnparseGenericsFail()
 	{
 		ListKey listKey = ListKey.AUTO_LANGUAGE;
 		primaryProf.addToListFor(listKey, new Object());

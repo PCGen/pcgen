@@ -25,10 +25,10 @@ import org.junit.jupiter.api.Test;
  * Tests loading and exporting a pathfinder rogue.
  * See the PCG file for details
  */
-public class pcGenGUIPfrpgRogueTest extends PcgenFtlTestCase
+class pcGenGUIPfrpgRogueTest extends PcgenFtlTestCase
 {
 	@Test
-	public void testCode() throws Exception
+	void testCode() throws Exception
 	{
 		runTest("pf_Rogue");
 	}

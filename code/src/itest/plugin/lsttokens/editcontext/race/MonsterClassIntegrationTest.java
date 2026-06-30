@@ -28,7 +28,7 @@ import plugin.lsttokens.race.MonsterclassToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
-public class MonsterClassIntegrationTest extends
+class MonsterClassIntegrationTest extends
 		AbstractIntegrationTestCase<Race>
 {
 
@@ -54,7 +54,7 @@ public class MonsterClassIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Wizard");
@@ -68,7 +68,7 @@ public class MonsterClassIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoSet() throws PersistenceLayerException
+	void testRoundRobinNoSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Sorcerer");
@@ -80,7 +80,7 @@ public class MonsterClassIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoReset() throws PersistenceLayerException
+	void testRoundRobinNoReset() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Sorcerer");

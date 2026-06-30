@@ -32,7 +32,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class AlignTokenTest extends AbstractKitTokenTestCase<KitAlignment>
+class AlignTokenTest extends AbstractKitTokenTestCase<KitAlignment>
 {
 
 	static AlignToken token = new AlignToken();
@@ -74,7 +74,7 @@ public class AlignTokenTest extends AbstractKitTokenTestCase<KitAlignment>
 	}
 
 	@Test
-	public void testInvalidInputEmptySpellbook()
+	void testInvalidInputEmptySpellbook()
 	{
 		if (parse("NoAlign"))
 		{
@@ -83,13 +83,13 @@ public class AlignTokenTest extends AbstractKitTokenTestCase<KitAlignment>
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		runRoundRobin("LG");
 	}
 
 	@Test
-	public void testRoundRobinTwo() throws PersistenceLayerException
+	void testRoundRobinTwo() throws PersistenceLayerException
 	{
 		runRoundRobin("LG|LN");
 	}

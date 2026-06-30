@@ -35,7 +35,7 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 
 import org.junit.jupiter.api.BeforeEach;
 
-public class AlignTokenTest extends
+class AlignTokenTest extends
 		AbstractPrimitiveTokenTestCase<CDOMObject, Deity>
 {
 	private static final DeityToken SUBTOKEN = new DeityToken();

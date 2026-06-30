@@ -28,7 +28,7 @@ import plugin.lsttokens.weaponprof.HandsToken;
 
 import org.junit.jupiter.api.Test;
 
-public class HandsIntegrationTest extends
+class HandsIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<WeaponProf>
 {
 
@@ -66,7 +66,7 @@ public class HandsIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinSpecialCaseOne() throws PersistenceLayerException
+	void testRoundRobinSpecialCaseOne() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -76,7 +76,7 @@ public class HandsIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinSpecialCaseTwo() throws PersistenceLayerException
+	void testRoundRobinSpecialCaseTwo() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -86,7 +86,7 @@ public class HandsIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinSpecialNoSet() throws PersistenceLayerException
+	void testRoundRobinSpecialNoSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -96,7 +96,7 @@ public class HandsIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinSpecialNoReset() throws PersistenceLayerException
+	void testRoundRobinSpecialNoReset() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();

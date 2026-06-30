@@ -41,7 +41,7 @@ import plugin.pretokens.writer.PreRaceWriter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class MonSkillTokenTest extends AbstractCDOMTokenTestCase<PCClass>
+class MonSkillTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 {
 
 	static MonskillToken token = new MonskillToken();
@@ -81,7 +81,7 @@ public class MonSkillTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputEmpty()
+	void testInvalidInputEmpty()
 	{
 		try
 		{
@@ -95,50 +95,50 @@ public class MonSkillTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testRoundRobinOnlyPre()
+	void testRoundRobinOnlyPre()
 	{
 		assertFalse(parse("PRERACE:1,Human"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testRoundRobinBase() throws PersistenceLayerException
+	void testRoundRobinBase() throws PersistenceLayerException
 	{
 		runRoundRobin("VARIABLE1");
 	}
 
 	@Test
-	public void testRoundRobinNumber() throws PersistenceLayerException
+	void testRoundRobinNumber() throws PersistenceLayerException
 	{
 		runRoundRobin("3");
 	}
 
 	@Test
-	public void testRoundRobinFormula() throws PersistenceLayerException
+	void testRoundRobinFormula() throws PersistenceLayerException
 	{
 		runRoundRobin("3+CL(\"FIGHTER\")");
 	}
 
 	@Test
-	public void testRoundRobinPre() throws PersistenceLayerException
+	void testRoundRobinPre() throws PersistenceLayerException
 	{
 		runRoundRobin("VARIABLE1|PRERACE:1,HUMAN");
 	}
 
 	@Test
-	public void testRoundRobinDupePre() throws PersistenceLayerException
+	void testRoundRobinDupePre() throws PersistenceLayerException
 	{
 		runRoundRobin("VARIABLE1", "VARIABLE1|PRERACE:1,HUMAN");
 	}
 
 	@Test
-	public void testRoundRobinDiffPre() throws PersistenceLayerException
+	void testRoundRobinDiffPre() throws PersistenceLayerException
 	{
 		runRoundRobin("VARIABLE1|PRERACE:1,DWARF", "VARIABLE1|PRERACE:1,HUMAN");
 	}
 
 	@Test
-	public void testRoundRobinDiffSamePre() throws PersistenceLayerException
+	void testRoundRobinDiffSamePre() throws PersistenceLayerException
 	{
 		runRoundRobin("VARIABLE1|PRERACE:1,HUMAN", "VARIABLE2|PRERACE:1,HUMAN");
 	}
@@ -162,7 +162,7 @@ public class MonSkillTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testOtherBonus()
+	void testOtherBonus()
 	{
 		addBonus(MonNonSkillHD.class);
 		MonnonskillhdToken othertoken = new MonnonskillhdToken();

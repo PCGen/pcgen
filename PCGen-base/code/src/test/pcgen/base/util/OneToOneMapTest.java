@@ -32,7 +32,7 @@ import org.junit.jupiter.api.Test;
 
 import pcgen.testsupport.TestSupport;
 
-public class OneToOneMapTest
+class OneToOneMapTest
 {
 
 	public void populate(OneToOneMap<Integer, Double> otom)
@@ -42,7 +42,7 @@ public class OneToOneMapTest
 	}
 
 	@Test
-	public void testEmptyClear()
+	void testEmptyClear()
 	{
 		OneToOneMap<Integer, Double> otom = new OneToOneMap<>();
 		assertEquals(0, otom.size());
@@ -57,7 +57,7 @@ public class OneToOneMapTest
 	}
 
 	@Test
-	public void testPutGetBad()
+	void testPutGetBad()
 	{
 		OneToOneMap<Integer, Double> otom = new OneToOneMap<>();
 		assertThrows(NullPointerException.class, () -> otom.put(null, Double.valueOf(5.4)));
@@ -66,7 +66,7 @@ public class OneToOneMapTest
 	}
 
 	@Test
-	public void testPutGetExact()
+	void testPutGetExact()
 	{
 		OneToOneMap<Integer, Double> otom = new OneToOneMap<>();
 		populate(otom);
@@ -87,7 +87,7 @@ public class OneToOneMapTest
 	}
 
 	@Test
-	public void testOverwriteKey()
+	void testOverwriteKey()
 	{
 		OneToOneMap<Integer, Double> otom = new OneToOneMap<>();
 		populate(otom);
@@ -100,7 +100,7 @@ public class OneToOneMapTest
 	}
 
 	@Test
-	public void testOverwriteValue()
+	void testOverwriteValue()
 	{
 		OneToOneMap<Integer, Double> otom = new OneToOneMap<>();
 		populate(otom);
@@ -113,7 +113,7 @@ public class OneToOneMapTest
 	}
 
 	@Test
-	public void testOverwriteMix()
+	void testOverwriteMix()
 	{
 		OneToOneMap<Integer, Double> otom = new OneToOneMap<>();
 		populate(otom);
@@ -127,7 +127,7 @@ public class OneToOneMapTest
 	}
 
 	@Test
-	public void testContainsKey()
+	void testContainsKey()
 	{
 		OneToOneMap<Integer, Double> otom = new OneToOneMap<>();
 		populate(otom);
@@ -139,7 +139,7 @@ public class OneToOneMapTest
 	}
 
 	@Test
-	public void testContainsValue()
+	void testContainsValue()
 	{
 		OneToOneMap<Integer, Double> otom = new OneToOneMap<>();
 		populate(otom);
@@ -151,7 +151,7 @@ public class OneToOneMapTest
 	}
 
 	@Test
-	public void testKeySet()
+	void testKeySet()
 	{
 		OneToOneMap<Integer, Double> otom = new OneToOneMap<>();
 		Set<Integer> s = otom.keySet();
@@ -184,7 +184,7 @@ public class OneToOneMapTest
 	}
 
 	@Test
-	public void testValues()
+	void testValues()
 	{
 		OneToOneMap<Integer, Double> otom = new OneToOneMap<>();
 		Collection<Double> s = otom.values();

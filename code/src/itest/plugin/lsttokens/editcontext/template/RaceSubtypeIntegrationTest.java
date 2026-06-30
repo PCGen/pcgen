@@ -29,7 +29,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class RaceSubtypeIntegrationTest extends
+class RaceSubtypeIntegrationTest extends
 		AbstractTypeSafeListIntegrationTestCase<PCTemplate>
 {
 
@@ -85,7 +85,7 @@ public class RaceSubtypeIntegrationTest extends
 	}
 
 	@Test
-	public void testValidRemoveInputSimple() throws PersistenceLayerException
+	void testValidRemoveInputSimple() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -95,7 +95,7 @@ public class RaceSubtypeIntegrationTest extends
 	}
 
 	@Test
-	public void testValidRemoveInputSpace() throws PersistenceLayerException
+	void testValidRemoveInputSpace() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -105,7 +105,7 @@ public class RaceSubtypeIntegrationTest extends
 	}
 
 	@Test
-	public void testValidRemoveInputHyphen() throws PersistenceLayerException
+	void testValidRemoveInputHyphen() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -115,7 +115,7 @@ public class RaceSubtypeIntegrationTest extends
 	}
 
 	@Test
-	public void testValidRemoveInputList() throws PersistenceLayerException
+	void testValidRemoveInputList() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -126,7 +126,7 @@ public class RaceSubtypeIntegrationTest extends
 	}
 
 	@Test
-	public void testValidInputMultRemoveList() throws PersistenceLayerException
+	void testValidInputMultRemoveList() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -138,7 +138,7 @@ public class RaceSubtypeIntegrationTest extends
 	}
 
 	@Test
-	public void testMixRoundRobinThree() throws PersistenceLayerException
+	void testMixRoundRobinThree() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();

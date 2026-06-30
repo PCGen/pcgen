@@ -33,29 +33,29 @@ import pcgen.base.util.SimpleValueStore;
 /**
  * Test the OrderedPairManager class
  */
-public class OrderedPairManagerTest
+class OrderedPairManagerTest
 {
 	@Test
-	public void testConvertFailNull()
+	void testConvertFailNull()
 	{
 		assertThrows(NullPointerException.class, () -> FormatUtilities.ORDEREDPAIR_MANAGER.convert(null));
 	}
 
 	@Test
-	public void testConvertFailNotNumeric()
+	void testConvertFailNotNumeric()
 	{
 		assertThrows(IllegalArgumentException.class, () -> FormatUtilities.ORDEREDPAIR_MANAGER.convert("SomeString"));
 	}
 
 	@Test
-	public void testUnconvertFailNull()
+	void testUnconvertFailNull()
 	{
 		assertThrows(NullPointerException.class, () -> FormatUtilities.ORDEREDPAIR_MANAGER.unconvert(null));
 	}
 
 	@Test
 	@SuppressWarnings({"rawtypes", "unchecked"})
-	public void testUnconvertFailObject()
+	void testUnconvertFailObject()
 	{
 		//Yes generics are being violated in order to do this test
 		FormatManager formatManager = FormatUtilities.ORDEREDPAIR_MANAGER;
@@ -63,19 +63,19 @@ public class OrderedPairManagerTest
 	}
 
 	@Test
-	public void testConvertIndirectFailNull()
+	void testConvertIndirectFailNull()
 	{
 		assertThrows(NullPointerException.class, () -> FormatUtilities.ORDEREDPAIR_MANAGER.convertIndirect(null));
 	}
 
 	@Test
-	public void testConvertIndirectFailNotNumeric()
+	void testConvertIndirectFailNotNumeric()
 	{
 		assertThrows(IllegalArgumentException.class, () -> FormatUtilities.ORDEREDPAIR_MANAGER.convertIndirect("SomeString"));
 	}
 
 	@Test
-	public void testConvert()
+	void testConvert()
 	{
 		assertEquals(new OrderedPair(1, 1), FormatUtilities.ORDEREDPAIR_MANAGER.convert("1,1"));
 		assertEquals(new OrderedPair(-3, 4), FormatUtilities.ORDEREDPAIR_MANAGER.convert("-3,4"));
@@ -83,7 +83,7 @@ public class OrderedPairManagerTest
 	}
 
 	@Test
-	public void testUnconvert()
+	void testUnconvert()
 	{
 		assertEquals("1,2", FormatUtilities.ORDEREDPAIR_MANAGER.unconvert(new OrderedPair(1, 2)));
 		assertEquals("-3,4", FormatUtilities.ORDEREDPAIR_MANAGER.unconvert(new OrderedPair(-3, 4)));
@@ -91,7 +91,7 @@ public class OrderedPairManagerTest
 	}
 
 	@Test
-	public void testConvertIndirect()
+	void testConvertIndirect()
 	{
 		assertEquals(new OrderedPair(1, 1), FormatUtilities.ORDEREDPAIR_MANAGER.convertIndirect("1,1")
 			.get());
@@ -102,13 +102,13 @@ public class OrderedPairManagerTest
 	}
 
 	@Test
-	public void testGetIdentifier()
+	void testGetIdentifier()
 	{
 		assertEquals("ORDEREDPAIR", FormatUtilities.ORDEREDPAIR_MANAGER.getIdentifierType());
 	}
 
 	@Test
-	public void testHashCodeEquals()
+	void testHashCodeEquals()
 	{
 		assertEquals(new OrderedPairManager().hashCode(), FormatUtilities.ORDEREDPAIR_MANAGER.hashCode());
 		assertFalse(FormatUtilities.ORDEREDPAIR_MANAGER.equals(new Object()));
@@ -117,19 +117,19 @@ public class OrderedPairManagerTest
 	}
 
 	@Test
-	public void testGetComponent()
+	void testGetComponent()
 	{
 		assertTrue(FormatUtilities.ORDEREDPAIR_MANAGER.getComponentManager().isEmpty());
 	}
 
 	@Test
-	public void testIsDirect()
+	void testIsDirect()
 	{
 		assertTrue(FormatUtilities.ORDEREDPAIR_MANAGER.isDirect());
 	}
 
 	@Test
-	public void testInitializeFrom()
+	void testInitializeFrom()
 	{
 		SimpleValueStore valueStore = new SimpleValueStore();
 		valueStore.addValueFor(FormatUtilities.ORDEREDPAIR_MANAGER.getIdentifierType(), new OrderedPair(1, 3));

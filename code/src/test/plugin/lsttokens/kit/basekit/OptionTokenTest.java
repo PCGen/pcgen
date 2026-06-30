@@ -28,7 +28,7 @@ import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
 import org.junit.jupiter.api.Test;
 
-public class OptionTokenTest extends AbstractKitTokenTestCase<BaseKit>
+class OptionTokenTest extends AbstractKitTokenTestCase<BaseKit>
 {
 
 	static OptionToken token = new OptionToken();
@@ -54,49 +54,49 @@ public class OptionTokenTest extends AbstractKitTokenTestCase<BaseKit>
 	}
 
 	@Test
-	public void testInvalidInputTrailing()
+	void testInvalidInputTrailing()
 	{
 		assertFalse(parse("Formula,"));
 	}
 
 	@Test
-	public void testInvalidInputStarting()
+	void testInvalidInputStarting()
 	{
 		assertFalse(parse(",Formula"));
 	}
 
 	@Test
-	public void testInvalidInputDouble()
+	void testInvalidInputDouble()
 	{
 		assertFalse(parse("Start,,Formula"));
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		runRoundRobin("MinFormula");
 	}
 
 	@Test
-	public void testRoundRobinTwo() throws PersistenceLayerException
+	void testRoundRobinTwo() throws PersistenceLayerException
 	{
 		runRoundRobin("Exact" + getJoinCharacter() + "AnotherExact");
 	}
 
 	@Test
-	public void testRoundRobinComplexFormula() throws PersistenceLayerException
+	void testRoundRobinComplexFormula() throws PersistenceLayerException
 	{
 		runRoundRobin("if(var(\"SIZE==3||SIZE==4\"),5,10)");
 	}
 
 	@Test
-	public void testRoundRobinComplex() throws PersistenceLayerException
+	void testRoundRobinComplex() throws PersistenceLayerException
 	{
 		runRoundRobin("1,4" + getJoinCharacter() + "56,Formula");
 	}
 
 	@Test
-	public void testInvalidListEnd()
+	void testInvalidListEnd()
 	{
 		assertFalse(parse("TestWP1" + getJoinCharacter()));
 	}
@@ -107,13 +107,13 @@ public class OptionTokenTest extends AbstractKitTokenTestCase<BaseKit>
 	}
 
 	@Test
-	public void testInvalidListStart()
+	void testInvalidListStart()
 	{
 		assertFalse(parse(getJoinCharacter() + "TestWP1"));
 	}
 
 	@Test
-	public void testInvalidListDoubleJoin()
+	void testInvalidListDoubleJoin()
 	{
 		assertFalse(parse("TestWP2" + getJoinCharacter() + getJoinCharacter()
 				+ "TestWP1"));

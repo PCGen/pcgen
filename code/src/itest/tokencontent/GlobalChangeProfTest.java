@@ -34,7 +34,7 @@ import org.junit.jupiter.api.BeforeEach;
 import tokencontent.testsupport.AbstractContentTokenTest;
 import util.TestURI;
 
-public class GlobalChangeProfTest extends AbstractContentTokenTest
+class GlobalChangeProfTest extends AbstractContentTokenTest
 {
 
 	private static ChangeprofLst token = new ChangeprofLst();

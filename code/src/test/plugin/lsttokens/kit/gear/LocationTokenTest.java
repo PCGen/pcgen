@@ -25,7 +25,7 @@ import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
 import org.junit.jupiter.api.Test;
 
-public class LocationTokenTest extends AbstractKitTokenTestCase<KitGear>
+class LocationTokenTest extends AbstractKitTokenTestCase<KitGear>
 {
 
 	static LocationToken token = new LocationToken();
@@ -51,7 +51,7 @@ public class LocationTokenTest extends AbstractKitTokenTestCase<KitGear>
 	}
 
 	@Test
-	public void testRoundRobinName() throws PersistenceLayerException
+	void testRoundRobinName() throws PersistenceLayerException
 	{
 		runRoundRobin("Table Name");
 	}

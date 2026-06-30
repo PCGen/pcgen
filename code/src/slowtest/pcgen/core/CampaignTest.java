@@ -37,20 +37,20 @@ class CampaignTest
 	private Campaign testCamp = new Campaign();
 
 	@BeforeEach
-	public void setUp() throws Exception
+	void setUp() throws Exception
 	{
 		TokenRegistration.register(new UrlToken());
 	}
 
 	@AfterEach
-	public void tearDown()
+	void tearDown()
 	{
 		TokenRegistration.clearTokens();
 		testCamp = null;
 	}
 
 	@Test
-	public void testURL() throws Exception
+	void testURL() throws Exception
 	{
 		final String eCommerceName = "Barcommerce";
 		final String eCommerceURL =

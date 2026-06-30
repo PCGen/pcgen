@@ -18,7 +18,7 @@ import org.junit.jupiter.api.Test;
  * PrereqHandler class.
  */
 @SuppressWarnings("nls")
-public class PrereqHandlerTest extends AbstractCharacterTestCase
+class PrereqHandlerTest extends AbstractCharacterTestCase
 {
 	/**
 	 * Test the passes method. Currently this concentrates on making sure
@@ -27,7 +27,7 @@ public class PrereqHandlerTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testPasses() throws PersistenceLayerException
+	void testPasses() throws PersistenceLayerException
 	{
 		final PreParserFactory factory = PreParserFactory.getInstance();
 
@@ -58,7 +58,7 @@ public class PrereqHandlerTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testFeatPasses() throws PersistenceLayerException
+	void testFeatPasses() throws PersistenceLayerException
 	{
 		final PreParserFactory factory = PreParserFactory.getInstance();
 

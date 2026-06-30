@@ -31,7 +31,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class MaxLevelIntegrationTest extends
+class MaxLevelIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<PCClass>
 {
 
@@ -65,7 +65,7 @@ public class MaxLevelIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinSimpleNo() throws PersistenceLayerException
+	void testRoundRobinSimpleNo() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -75,7 +75,7 @@ public class MaxLevelIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinRemove() throws PersistenceLayerException
+	void testRoundRobinRemove() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -85,7 +85,7 @@ public class MaxLevelIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoLimitSet() throws PersistenceLayerException
+	void testRoundRobinNoLimitSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -95,7 +95,7 @@ public class MaxLevelIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoLimitReset() throws PersistenceLayerException
+	void testRoundRobinNoLimitReset() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();

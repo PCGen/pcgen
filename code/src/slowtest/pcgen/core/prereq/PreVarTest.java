@@ -39,7 +39,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Tests PREVAR token
  */
-public class PreVarTest extends AbstractCharacterTestCase
+class PreVarTest extends AbstractCharacterTestCase
 {
 	/**
 	 * Test var pass.
@@ -47,7 +47,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testVarPass() throws PersistenceLayerException
+	void testVarPass() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -70,7 +70,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testMutiplePositive() throws Exception
+	void testMutiplePositive() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 		setPCStat(character, str, 10);
@@ -96,7 +96,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testMutipleNegative() throws Exception
+	void testMutipleNegative() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 		setPCStat(character, str, 10);
@@ -122,7 +122,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void test2857849a()
+	void test2857849a()
 	{
 		final PCClass warrior = new PCClass();
 		warrior.setName("Warrior");
@@ -150,7 +150,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void test2857849and2862276()
+	void test2857849and2862276()
 	{
 		LoadContext context = Globals.getContext();
 		final PCClass spellcaster = new PCClass();
@@ -178,7 +178,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void test2857848a()
+	void test2857848a()
 	{
 		LoadContext context = Globals.getContext();
 		final PCClass spellcaster = new PCClass();
@@ -213,7 +213,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void test2857848b()
+	void test2857848b()
 	{
 		final PCClass warrior = new PCClass();
 		warrior.setName("Warrior");
@@ -250,7 +250,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void test2857848c()
+	void test2857848c()
 	{
 		final PCClass warrior = new PCClass();
 		warrior.setName("Warrior");
@@ -293,7 +293,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void test2856622()
+	void test2856622()
 	{
 		LoadContext context = Globals.getContext();
 		final PCClass warrior = new PCClass();
@@ -327,7 +327,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void test2856626()
+	void test2856626()
 	{
 		LoadContext context = Globals.getContext();
 		final PCClass warrior = new PCClass();

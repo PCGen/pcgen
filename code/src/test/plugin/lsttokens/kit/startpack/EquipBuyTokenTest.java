@@ -40,7 +40,7 @@ import plugin.pretokens.writer.PreRaceWriter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class EquipBuyTokenTest extends AbstractFormulaTokenTestCase<Kit>
+class EquipBuyTokenTest extends AbstractFormulaTokenTestCase<Kit>
 {
 
 	PreClassParser preclass = new PreClassParser();
@@ -98,7 +98,7 @@ public class EquipBuyTokenTest extends AbstractFormulaTokenTestCase<Kit>
 	}
 
 	@Test
-	public void testInvalidInputOnlyPre()
+	void testInvalidInputOnlyPre()
 	{
 		try
 		{
@@ -112,46 +112,46 @@ public class EquipBuyTokenTest extends AbstractFormulaTokenTestCase<Kit>
 	}
 
 	@Test
-	public void testInvalidInputEmbeddedPre()
+	void testInvalidInputEmbeddedPre()
 	{
 		assertFalse(parse("TestWP1|PRECLASS:1,Fighter=1|TestWP2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoublePipePre()
+	void testInvalidInputDoublePipePre()
 	{
 		assertFalse(parse("TestWP1||PRECLASS:1,Fighter=1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputPostPrePipe()
+	void testInvalidInputPostPrePipe()
 	{
 		assertFalse(parse("TestWP1|PRECLASS:1,Fighter=1|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testRoundRobinPre() throws PersistenceLayerException
+	void testRoundRobinPre() throws PersistenceLayerException
 	{
 		runRoundRobin("TestWP1|PRECLASS:1,Fighter=1");
 	}
 	
 	@Test
-	public void testRoundRobinFormulaComplex() throws PersistenceLayerException
+	void testRoundRobinFormulaComplex() throws PersistenceLayerException
 	{
 		runRoundRobin("if(var(\"SIZE==3||SIZE==4\"),5,10)|PRECLASS:1,Fighter=1");
 	}
 	
 	@Test
-	public void testRoundRobinTwoPre() throws PersistenceLayerException
+	void testRoundRobinTwoPre() throws PersistenceLayerException
 	{
 		runRoundRobin("TestWP1|!PRERACE:1,Human|PRECLASS:1,Fighter=1");
 	}
 
 	@Test
-	public void testRoundRobinNotPre() throws PersistenceLayerException
+	void testRoundRobinNotPre() throws PersistenceLayerException
 	{
 		runRoundRobin("TestWP1|!PRECLASS:1,Fighter=1");
 	}

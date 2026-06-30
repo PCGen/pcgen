@@ -40,7 +40,7 @@ class ListKeyActorTest extends AbstractOutputTestCase
 	}
 
 	@Test
-	public void testListKeyActor()
+	void testListKeyActor()
 	{
 		Race d = new Race();
 		d.setName("Bob");
@@ -56,7 +56,7 @@ class ListKeyActorTest extends AbstractOutputTestCase
 	}
 
 	@Test
-	public void testListKeyActorMissingSafe()
+	void testListKeyActorMissingSafe()
 	{
 		ListKeyActor lka = new ListKeyActor(ListKey.BOOK_TYPE);
 		CDOMObjectWrapper.load(dsid, Race.class, "booktype", lka);

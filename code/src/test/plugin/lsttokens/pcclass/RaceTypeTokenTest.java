@@ -34,7 +34,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
 
-public class RaceTypeTokenTest extends AbstractCDOMTokenTestCase<PCClass>
+class RaceTypeTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 {
 
 	static PreracetypeToken token = new PreracetypeToken();
@@ -59,38 +59,38 @@ public class RaceTypeTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidEmptyInput()
+	void testInvalidEmptyInput()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testRoundRobinBase() throws PersistenceLayerException
+	void testRoundRobinBase() throws PersistenceLayerException
 	{
 		runRoundRobin("Rheinhessen");
 	}
 
 	@Test
-	public void testRoundRobinWithSpace() throws PersistenceLayerException
+	void testRoundRobinWithSpace() throws PersistenceLayerException
 	{
 		runRoundRobin("Finger Lakes");
 	}
 
 	@Test
-	public void testRoundRobinNonEnglishAndN() throws PersistenceLayerException
+	void testRoundRobinNonEnglishAndN() throws PersistenceLayerException
 	{
 		runRoundRobin("Niederösterreich");
 	}
 
 	@Test
-	public void testRoundRobinHyphen() throws PersistenceLayerException
+	void testRoundRobinHyphen() throws PersistenceLayerException
 	{
 		runRoundRobin("Languedoc-Roussillon");
 	}
 
 	@Test
-	public void testRoundRobinY() throws PersistenceLayerException
+	void testRoundRobinY() throws PersistenceLayerException
 	{
 		runRoundRobin("Yarra Valley");
 	}
@@ -114,7 +114,7 @@ public class RaceTypeTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseNull()
+	void testUnparseNull()
 	{
 		primaryProf.put(getObjectKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
@@ -126,7 +126,7 @@ public class RaceTypeTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseLegal()
+	void testUnparseLegal()
 	{
 		Prerequisite p = new Prerequisite();
 		p.setKind("RACETYPE");
@@ -155,7 +155,7 @@ public class RaceTypeTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail()
+	void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = getObjectKey();
 		primaryProf.put(objectKey, new Object());

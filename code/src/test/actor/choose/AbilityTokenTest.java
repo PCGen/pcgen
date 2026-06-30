@@ -34,7 +34,7 @@ import org.junit.jupiter.api.Test;
  * The Class {@code AbilityTokenTest} verifies the AbilityToken
  * class is working correctly.
  */
-public class AbilityTokenTest
+class AbilityTokenTest
 {
 
 	private static final CategorizedChooser<Ability> PCA = new AbilityToken();
@@ -43,7 +43,7 @@ public class AbilityTokenTest
 	private LoadContext context;
 
 	@BeforeEach
-	public void setUp()
+	void setUp()
 	{
 		Globals.emptyLists();
 		context = Globals.getContext();
@@ -51,14 +51,14 @@ public class AbilityTokenTest
 	}
 
 	@AfterEach
-	public void tearDown()
+	void tearDown()
 	{
 		Globals.emptyLists();
 		context = null;
 	}
 
 	@Test
-	public void testEncodeChoice()
+	void testEncodeChoice()
 	{
 		assertEquals(getExpected(), PCA.encodeChoice(BuildUtilities.buildFeat(context, ITEM_NAME)));
 	}
@@ -69,14 +69,14 @@ public class AbilityTokenTest
 	}
 
 	@Test
-	public void testDecodeChoice()
+	void testDecodeChoice()
 	{
 		assertEquals(BuildUtilities.buildFeat(context, ITEM_NAME),
 			PCA.decodeChoice(context, getExpected(), BuildUtilities.getFeatCat()));
 	}
 
 	@Test
-	public void testLegacyDecodeChoice()
+	void testLegacyDecodeChoice()
 	{
 		assertEquals(BuildUtilities.buildFeat(context, ITEM_NAME),
 			PCA.decodeChoice(context, "CATEGORY=FEAT|" + ITEM_NAME,

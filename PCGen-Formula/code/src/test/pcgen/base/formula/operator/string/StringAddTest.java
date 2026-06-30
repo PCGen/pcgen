@@ -27,10 +27,10 @@ import org.junit.jupiter.api.Test;
 
 import pcgen.base.formatmanager.FormatUtilities;
 
-public class StringAddTest
+class StringAddTest
 {
 	@Test
-	public void testOperator()
+	void testOperator()
 	{
 		StringAdd op = new StringAdd();
 		assertNotNull(op.getOperator());
@@ -38,7 +38,7 @@ public class StringAddTest
 	}
 
 	@Test
-	public void testAbstractEvaluateNulls()
+	void testAbstractEvaluateNulls()
 	{
 		StringAdd op = new StringAdd();
 		try
@@ -68,7 +68,7 @@ public class StringAddTest
 	}
 
 	@Test
-	public void testAbstractEvaluateMismatch()
+	void testAbstractEvaluateMismatch()
 	{
 		StringAdd op = new StringAdd();
 		assertTrue(op.abstractEvaluate(FormatUtilities.BOOLEAN_CLASS, FormatUtilities.STRING_CLASS, null).isEmpty());
@@ -76,7 +76,7 @@ public class StringAddTest
 	}
 
 	@Test
-	public void testAbstractEvaluateLegal()
+	void testAbstractEvaluateLegal()
 	{
 		StringAdd op = new StringAdd();
 		assertEquals(FormatUtilities.STRING_CLASS,
@@ -84,7 +84,7 @@ public class StringAddTest
 	}
 
 	@Test
-	public void testEvaluateFailNull()
+	void testEvaluateFailNull()
 	{
 		StringAdd op = new StringAdd();
 		assertThrows(NullPointerException.class, () -> op.evaluate(null, null));
@@ -93,7 +93,7 @@ public class StringAddTest
 	}
 
 	@Test
-	public void testEvaluateMismatch()
+	void testEvaluateMismatch()
 	{
 		StringAdd op = new StringAdd();
 		assertThrows(ClassCastException.class, () -> op.evaluate("ABC", true));
@@ -101,7 +101,7 @@ public class StringAddTest
 	}
 
 	@Test
-	public void testEvaluateLegal()
+	void testEvaluateLegal()
 	{
 		StringAdd op = new StringAdd();
 		assertEquals("ABCDEF", op.evaluate("ABC", "DEF"));

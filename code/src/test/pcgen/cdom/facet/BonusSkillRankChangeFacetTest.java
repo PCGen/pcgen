@@ -41,7 +41,7 @@ import org.junit.jupiter.api.Test;
  * Pins the Double.compare semantics in BonusSkillRankChangeFacet.reset()
  * after the SpotBugs FE_FLOATING_POINT_EQUALITY fix (PR #7628).
  */
-public class BonusSkillRankChangeFacetTest
+class BonusSkillRankChangeFacetTest
 {
 	private static LoadContext context;
 	private static Skill skill;
@@ -97,7 +97,7 @@ public class BonusSkillRankChangeFacetTest
 
 	/** First reset fires once; second reset with same value does not refire. */
 	@Test
-	public void sameValueDoesNotRefire()
+	void sameValueDoesNotRefire()
 	{
 		bonusValues.put("SKILLRANK." + skill.getKeyName(), 3.0d);
 
@@ -111,7 +111,7 @@ public class BonusSkillRankChangeFacetTest
 
 	/** Reset with a changed value fires a new event with old/new values. */
 	@Test
-	public void changedValueFiresAgain()
+	void changedValueFiresAgain()
 	{
 		bonusValues.put("SKILLRANK." + skill.getKeyName(), 3.0d);
 		facet.reset(id);

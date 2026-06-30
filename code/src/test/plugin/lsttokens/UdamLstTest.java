@@ -37,7 +37,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class UdamLstTest extends AbstractGlobalTokenTestCase
+class UdamLstTest extends AbstractGlobalTokenTestCase
 {
 	static UdamLst token = new UdamLst();
 	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
@@ -120,90 +120,90 @@ public class UdamLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidNotEnoughValues()
+	void testInvalidNotEnoughValues()
 	{
 		assertTrue(parse("1,2,3,4,5,6,7,8"));
 		assertFalse(token.process(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testInvalidTooManyValues()
+	void testInvalidTooManyValues()
 	{
 		assertTrue(parse("1,2,3,4,5,6,7,8,9,0"));
 		assertFalse(token.process(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testInvalidEmptyValue1()
+	void testInvalidEmptyValue1()
 	{
 		assertFalse(parse(",2,3,4,5,6,7,8,9"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyValue2()
+	void testInvalidEmptyValue2()
 	{
 		assertFalse(parse("1,,3,4,5,6,7,8,9"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyValue3()
+	void testInvalidEmptyValue3()
 	{
 		assertFalse(parse("1,2,,4,5,6,7,8,9"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyValue4()
+	void testInvalidEmptyValue4()
 	{
 		assertFalse(parse("1,2,3,,5,6,7,8,9"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyValue5()
+	void testInvalidEmptyValue5()
 	{
 		assertFalse(parse("1,2,3,4,,6,7,8,9"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyValue6()
+	void testInvalidEmptyValue6()
 	{
 		assertFalse(parse("1,2,3,4,5,,7,8,9"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyValue7()
+	void testInvalidEmptyValue7()
 	{
 		assertFalse(parse("1,2,3,4,5,6,,8,9"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyValue8()
+	void testInvalidEmptyValue8()
 	{
 		assertFalse(parse("1,2,3,4,5,6,7,,9"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyValue9()
+	void testInvalidEmptyValue9()
 	{
 		assertFalse(parse("1,2,3,4,5,6,7,8,"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		this.runRoundRobin("1,2,3,4,5,6,7,8,9");
 	}
 
 	@Test
-	public void testRoundRobinComplex() throws PersistenceLayerException
+	void testRoundRobinComplex() throws PersistenceLayerException
 	{
 		this.runRoundRobin("1,2,3,4*form,5*form,6,7*form,8,9");
 	}

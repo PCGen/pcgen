@@ -34,7 +34,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class AddIntegrationTest extends AbstractIntegrationTestCase<CDOMObject>
+class AddIntegrationTest extends AbstractIntegrationTestCase<CDOMObject>
 {
 	private static AddLst token = new AddLst();
 	private static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
@@ -58,7 +58,7 @@ public class AddIntegrationTest extends AbstractIntegrationTestCase<CDOMObject>
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -68,7 +68,7 @@ public class AddIntegrationTest extends AbstractIntegrationTestCase<CDOMObject>
 	}
 
 	@Test
-	public void testRoundRobinNoSet() throws PersistenceLayerException
+	void testRoundRobinNoSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -78,7 +78,7 @@ public class AddIntegrationTest extends AbstractIntegrationTestCase<CDOMObject>
 	}
 
 	@Test
-	public void testRoundRobinNoReset() throws PersistenceLayerException
+	void testRoundRobinNoReset() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -88,7 +88,7 @@ public class AddIntegrationTest extends AbstractIntegrationTestCase<CDOMObject>
 	}
 
 	@Test
-	public void testRoundRobinLevelSimple() throws PersistenceLayerException
+	void testRoundRobinLevelSimple() throws PersistenceLayerException
 	{
 		primaryProf = new PCClassLevel();
 		primaryProf.put(IntegerKey.LEVEL, 1);
@@ -102,7 +102,7 @@ public class AddIntegrationTest extends AbstractIntegrationTestCase<CDOMObject>
 	}
 
 	@Test
-	public void testRoundRobinLevelNoSet() throws PersistenceLayerException
+	void testRoundRobinLevelNoSet() throws PersistenceLayerException
 	{
 		primaryProf = new PCClassLevel();
 		primaryProf.put(IntegerKey.LEVEL, 1);
@@ -116,7 +116,7 @@ public class AddIntegrationTest extends AbstractIntegrationTestCase<CDOMObject>
 	}
 
 	@Test
-	public void testRoundRobinLevelNoReset() throws PersistenceLayerException
+	void testRoundRobinLevelNoReset() throws PersistenceLayerException
 	{
 		primaryProf = new PCClassLevel();
 		primaryProf.put(IntegerKey.LEVEL, 1);

@@ -33,7 +33,7 @@ import org.junit.jupiter.api.Test;
 
 
 @SuppressWarnings("nls")
-public class PreParserFactoryTest extends AbstractCharacterTestCase
+class PreParserFactoryTest extends AbstractCharacterTestCase
 {
 	@BeforeEach
 	@Override
@@ -58,7 +58,7 @@ public class PreParserFactoryTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testNotEqual() throws PersistenceLayerException
+	void testNotEqual() throws PersistenceLayerException
 	{
 		PreParserFactory factory = PreParserFactory.getInstance();
 
@@ -76,7 +76,7 @@ public class PreParserFactoryTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testOverrideQualifies() throws PersistenceLayerException
+	void testOverrideQualifies() throws PersistenceLayerException
 	{
 		PreParserFactory factory = PreParserFactory.getInstance();
 
@@ -88,7 +88,7 @@ public class PreParserFactoryTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testSkillTypeKnowledge() throws Exception
+	void testSkillTypeKnowledge() throws Exception
 	{
 		PreParserFactory factory = PreParserFactory.getInstance();
 
@@ -102,7 +102,7 @@ public class PreParserFactoryTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testInvertResult() throws Exception
+	void testInvertResult() throws Exception
 	{
 		PreParserFactory factory = PreParserFactory.getInstance();
 

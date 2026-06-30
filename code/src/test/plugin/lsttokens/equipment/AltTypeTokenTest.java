@@ -34,7 +34,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class AltTypeTokenTest extends AbstractTypeSafeListTestCase<Equipment, Type>
+class AltTypeTokenTest extends AbstractTypeSafeListTestCase<Equipment, Type>
 {
 
 	static AlttypeToken token = new AlttypeToken();
@@ -89,7 +89,7 @@ public class AltTypeTokenTest extends AbstractTypeSafeListTestCase<Equipment, Ty
 	}
 
 	@Test
-	public void testReplacementRemove()
+	void testReplacementRemove()
 	{
 		String[] unparsed;
 		assertTrue(parse("REMOVE.TestWP1"));
@@ -110,7 +110,7 @@ public class AltTypeTokenTest extends AbstractTypeSafeListTestCase<Equipment, Ty
 	}
 
 	@Test
-	public void testReplacementRemoveTwo()
+	void testReplacementRemoveTwo()
 	{
 		String[] unparsed;
 		assertTrue(parse("TestWP1"));
@@ -124,28 +124,28 @@ public class AltTypeTokenTest extends AbstractTypeSafeListTestCase<Equipment, Ty
 	}
 
 	@Test
-	public void testInputInvalidRemoveNoTrailing()
+	void testInputInvalidRemoveNoTrailing()
 	{
 		assertFalse(parse("TestWP1.REMOVE"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInputInvalidAddNoTrailing()
+	void testInputInvalidAddNoTrailing()
 	{
 		assertFalse(parse("TestWP1.ADD"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInputInvalidAddRemove()
+	void testInputInvalidAddRemove()
 	{
 		assertFalse(parse("TestWP1.ADD.REMOVE.TestWP2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInputInvalidRemoveAdd()
+	void testInputInvalidRemoveAdd()
 	{
 		assertFalse(parse("TestWP1.REMOVE.ADD.TestWP2"));
 		assertNoSideEffects();
@@ -161,21 +161,21 @@ public class AltTypeTokenTest extends AbstractTypeSafeListTestCase<Equipment, Ty
 //	}
 
 	@Test
-	public void testInputInvalidEmbeddedClear()
+	void testInputInvalidEmbeddedClear()
 	{
 		assertFalse(parse("Type1.CLEAR"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInputInvalidClearDirect()
+	void testInputInvalidClearDirect()
 	{
 		assertFalse(parse(".CLEARType1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidClearDot()
+	void testValidClearDot()
 	{
 		assertTrue(parse(".CLEAR.TestWP1"));
 		assertNoSideEffects();

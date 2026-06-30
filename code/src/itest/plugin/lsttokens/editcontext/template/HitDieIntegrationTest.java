@@ -29,7 +29,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class HitDieIntegrationTest extends
+class HitDieIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<PCTemplate>
 {
 
@@ -79,7 +79,7 @@ public class HitDieIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinSpecialCaseOne() throws PersistenceLayerException
+	void testRoundRobinSpecialCaseOne() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
@@ -93,7 +93,7 @@ public class HitDieIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinSpecialCaseTwo() throws PersistenceLayerException
+	void testRoundRobinSpecialCaseTwo() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
@@ -107,7 +107,7 @@ public class HitDieIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinSpecialNoSet() throws PersistenceLayerException
+	void testRoundRobinSpecialNoSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
@@ -119,7 +119,7 @@ public class HitDieIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinSpecialNoReset() throws PersistenceLayerException
+	void testRoundRobinSpecialNoReset() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");

@@ -27,7 +27,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class DescTokenTest extends AbstractStringTokenTestCase<Campaign>
+class DescTokenTest extends AbstractStringTokenTestCase<Campaign>
 {
 
 	static DescToken token = new DescToken();
@@ -64,7 +64,7 @@ public class DescTokenTest extends AbstractStringTokenTestCase<Campaign>
 	}
 	
 	@Test
-	public void testNewLine() throws PersistenceLayerException
+	void testNewLine() throws PersistenceLayerException
 	{
 		runRoundRobin("First Line&nl;Second Line.");
 	}

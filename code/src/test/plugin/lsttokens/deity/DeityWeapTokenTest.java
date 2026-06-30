@@ -32,7 +32,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class DeityWeapTokenTest extends AbstractListInputTokenTestCase<Deity, WeaponProf>
+class DeityWeapTokenTest extends AbstractListInputTokenTestCase<Deity, WeaponProf>
 {
 	static DeityweapToken token = new DeityweapToken();
 	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<>();
@@ -110,14 +110,14 @@ public class DeityWeapTokenTest extends AbstractListInputTokenTestCase<Deity, We
 	}
 
 	@Test
-	public void testUnparseNull()
+	void testUnparseNull()
 	{
 		primaryProf.removeListFor(ListKey.DEITYWEAPON);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseSingle()
+	void testUnparseSingle()
 	{
 		WeaponProf wp1 = construct(primaryContext, "TestWP1");
 		primaryProf.addToListFor(ListKey.DEITYWEAPON, CDOMDirectSingleRef
@@ -127,7 +127,7 @@ public class DeityWeapTokenTest extends AbstractListInputTokenTestCase<Deity, We
 	}
 
 	@Test
-	public void testUnparseNullInList()
+	void testUnparseNullInList()
 	{
 		primaryProf.addToListFor(ListKey.DEITYWEAPON, null);
 		try
@@ -142,7 +142,7 @@ public class DeityWeapTokenTest extends AbstractListInputTokenTestCase<Deity, We
 	}
 
 	@Test
-	public void testUnparseMultiple()
+	void testUnparseMultiple()
 	{
 		WeaponProf wp1 = construct(primaryContext, getLegalValue());
 		primaryProf.addToListFor(ListKey.DEITYWEAPON, CDOMDirectSingleRef
@@ -157,7 +157,7 @@ public class DeityWeapTokenTest extends AbstractListInputTokenTestCase<Deity, We
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail()
+	void testUnparseGenericsFail()
 	{
 		ListKey objectKey = ListKey.DEITYWEAPON;
 		primaryProf.addToListFor(objectKey, new Object());

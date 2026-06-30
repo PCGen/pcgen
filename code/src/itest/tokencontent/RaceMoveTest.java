@@ -35,7 +35,7 @@ import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 import util.TestURI;
 
-public class RaceMoveTest extends AbstractTokenModelTest
+class RaceMoveTest extends AbstractTokenModelTest
 {
 
 	private static MoveToken token = new MoveToken();
@@ -50,7 +50,7 @@ public class RaceMoveTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testFromRace()
+	void testFromRace()
 	{
 		Race source = create(Race.class, "Source");
 		processToken(source);

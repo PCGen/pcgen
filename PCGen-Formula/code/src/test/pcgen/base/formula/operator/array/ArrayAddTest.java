@@ -28,10 +28,10 @@ import org.junit.jupiter.api.Test;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.testsupport.TestUtilities;
 
-public class ArrayAddTest
+class ArrayAddTest
 {
 	@Test
-	public void testOperator()
+	void testOperator()
 	{
 		ArrayAdd op = new ArrayAdd();
 		assertNotNull(op.getOperator());
@@ -39,7 +39,7 @@ public class ArrayAddTest
 	}
 
 	@Test
-	public void testAbstractEvaluateNulls()
+	void testAbstractEvaluateNulls()
 	{
 		ArrayAdd op = new ArrayAdd();
 		try
@@ -77,7 +77,7 @@ public class ArrayAddTest
 	}
 
 	@Test
-	public void testAbstractEvaluateMismatch()
+	void testAbstractEvaluateMismatch()
 	{
 		ArrayAdd op = new ArrayAdd();
 		assertTrue(op.abstractEvaluate(TestUtilities.NUMBER_ARRAY_CLASS, TestUtilities.BOOLEAN_ARRAY_CLASS,
@@ -93,7 +93,7 @@ public class ArrayAddTest
 	}
 
 	@Test
-	public void testAbstractEvaluateLegal()
+	void testAbstractEvaluateLegal()
 	{
 		ArrayAdd op = new ArrayAdd();
 		assertEquals(TestUtilities.NUMBER_ARRAY_CLASS, op.abstractEvaluate(TestUtilities.NUMBER_ARRAY_CLASS,
@@ -123,7 +123,7 @@ public class ArrayAddTest
 	}
 
 	@Test
-	public void testEvaluateFailNull()
+	void testEvaluateFailNull()
 	{
 		ArrayAdd op = new ArrayAdd();
 		assertThrows(NullPointerException.class, () -> op.evaluate(null, null));
@@ -156,7 +156,7 @@ public class ArrayAddTest
 //	}
 
 	@Test
-	public void testEvaluateLegalArrayObject()
+	void testEvaluateLegalArrayObject()
 	{
 		ArrayAdd op = new ArrayAdd();
 		Number[] iArray = new Number[]{1, 2};
@@ -170,7 +170,7 @@ public class ArrayAddTest
 	}
 
 	@Test
-	public void testEvaluateLegalArrayArray()
+	void testEvaluateLegalArrayArray()
 	{
 		ArrayAdd op = new ArrayAdd();
 		Number[] iArray = new Number[]{1, 2};
@@ -185,7 +185,7 @@ public class ArrayAddTest
 	}
 
 	@Test
-	public void testEvaluateLegalObjectArray()
+	void testEvaluateLegalObjectArray()
 	{
 		ArrayAdd op = new ArrayAdd();
 		Object result = op.evaluate(1, new Number[]{4.5, -6});
@@ -198,7 +198,7 @@ public class ArrayAddTest
 	}
 
 	@Test
-	public void testEvaluateLegalObjectObject()
+	void testEvaluateLegalObjectObject()
 	{
 		ArrayAdd op = new ArrayAdd();
 		Object result = op.evaluate(1, -6);

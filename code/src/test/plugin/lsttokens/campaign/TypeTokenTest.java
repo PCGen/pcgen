@@ -29,7 +29,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
 
-public class TypeTokenTest extends AbstractCDOMTokenTestCase<Campaign>
+class TypeTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 {
 
 	static TypeToken token = new TypeToken();
@@ -54,61 +54,61 @@ public class TypeTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testInvalidListEmpty()
+	void testInvalidListEmpty()
 	{
 		assertFalse(parse("."));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidListTrailing()
+	void testInvalidListTrailing()
 	{
 		assertFalse(parse("Type."));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidListLeading()
+	void testInvalidListLeading()
 	{
 		assertFalse(parse(".Type"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidListDouble()
+	void testInvalidListDouble()
 	{
 		assertFalse(parse("One..Type"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidListTooMany()
+	void testInvalidListTooMany()
 	{
 		assertFalse(parse("One.Two.Three.Oops"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmpty()
+	void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testRoundRobinBase() throws PersistenceLayerException
+	void testRoundRobinBase() throws PersistenceLayerException
 	{
 		runRoundRobin("Rheinhessen");
 	}
 
 	@Test
-	public void testRoundRobinWithSpaceInternational() throws PersistenceLayerException
+	void testRoundRobinWithSpaceInternational() throws PersistenceLayerException
 	{
 		runRoundRobin("Finger Lakes.Niederösterreich");
 	}
 
 	@Test
-	public void testRoundRobinHyphen() throws PersistenceLayerException
+	void testRoundRobinHyphen() throws PersistenceLayerException
 	{
 		runRoundRobin("Languedoc-Roussillon.Two.Yarra Valley");
 	}

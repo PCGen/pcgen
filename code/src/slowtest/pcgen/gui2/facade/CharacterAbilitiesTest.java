@@ -43,7 +43,7 @@ import org.junit.jupiter.api.Test;
  * The Class {@code CharacterAbilitiesTest} verifies the operation of the
  * CharacterAbilities class.
  */
-public class CharacterAbilitiesTest extends AbstractCharacterTestCase
+class CharacterAbilitiesTest extends AbstractCharacterTestCase
 {
 
 	private MockDataSetFacade dataset;
@@ -54,7 +54,7 @@ public class CharacterAbilitiesTest extends AbstractCharacterTestCase
 	 * Test method for {@link pcgen.gui2.facade.CharacterAbilities#rebuildAbilityLists()}.
 	 */
 	@Test
-	public final void testRebuildAbilityListsNoMult()
+	final void testRebuildAbilityListsNoMult()
 	{
 		PlayerCharacter pc = getCharacter();
 		CharacterAbilities ca = new CharacterAbilities(pc, uiDelegate, dataset, todoManager);
@@ -79,7 +79,7 @@ public class CharacterAbilitiesTest extends AbstractCharacterTestCase
 	 * Test method for {@link pcgen.gui2.facade.CharacterAbilities#rebuildAbilityLists()}.
 	 */
 	@Test
-	public final void testRebuildAbilityListsMult()
+	final void testRebuildAbilityListsMult()
 	{
 		PlayerCharacter pc = getCharacter();
 		CharacterAbilities ca = new CharacterAbilities(pc, uiDelegate, dataset, todoManager);

@@ -33,7 +33,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-public class NaturalAttacksLstTest extends AbstractGlobalTokenTestCase
+class NaturalAttacksLstTest extends AbstractGlobalTokenTestCase
 {
 
 	static CDOMPrimaryToken<CDOMObject> token = new NaturalattacksLst();
@@ -72,112 +72,112 @@ public class NaturalAttacksLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidEmpty()
+	void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNameOnly()
+	void testInvalidNameOnly()
 	{
 		assertFalse(parse("Claw"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNameTypeOnly()
+	void testInvalidNameTypeOnly()
 	{
 		assertFalse(parse("Claw,Nasty"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNameTypeMult()
+	void testInvalidNameTypeMult()
 	{
 		assertFalse(parse("Claw,Nasty,*2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyDamage()
+	void testInvalidEmptyDamage()
 	{
 		assertFalse(parse("Claw,Nasty,*2,"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyName()
+	void testInvalidEmptyName()
 	{
 		assertFalse(parse(",Nasty,*2,1d4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyAttacks()
+	void testInvalidEmptyAttacks()
 	{
 		assertFalse(parse("Claw,Nasty,,1d4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidPipeEnding()
+	void testInvalidPipeEnding()
 	{
 		assertFalse(parse("Claw,Nasty,*1,1d4|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidPipeStarting()
+	void testInvalidPipeStarting()
 	{
 		assertFalse(parse("|Claw,Nasty,*1,1d4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidType1()
+	void testInvalidType1()
 	{
 		assertFalse(parse("Claw,Nasty.,*1,1d4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidType2()
+	void testInvalidType2()
 	{
 		assertFalse(parse("Claw,.Nasty,*1,1d4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidType3()
+	void testInvalidType3()
 	{
 		assertFalse(parse("Claw,Nasty..Natural,*1,1d4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidAttacksNaN()
+	void testInvalidAttacksNaN()
 	{
 		assertFalse(parse("Claw,Nasty.Natural,xx,1d4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidAttacksHandsNaN()
+	void testInvalidAttacksHandsNaN()
 	{
 		assertFalse(parse("Claw,Nasty.Natural,2,1d4,xx"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidReservedName()
+	void testInvalidReservedName()
 	{
 		assertFalse(parse("None,Nasty,*1,1d4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidOnlyPre()
+	void testInvalidOnlyPre()
 	{
 		try
 		{
@@ -191,32 +191,32 @@ public class NaturalAttacksLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testRoundRobinOne() throws PersistenceLayerException
+	void testRoundRobinOne() throws PersistenceLayerException
 	{
 		runRoundRobin("Claw,Weapon.Natural.Melee.Piercing.Slashing,1,1d4");
 	}
 
 	@Test
-	public void testRoundRobinStar() throws PersistenceLayerException
+	void testRoundRobinStar() throws PersistenceLayerException
 	{
 		runRoundRobin("Claw,Weapon.Natural.Melee.Piercing.Slashing,*2,1d4");
 	}
 
 	@Test
-	public void testRoundRobinOneWithSProp() throws PersistenceLayerException
+	void testRoundRobinOneWithSProp() throws PersistenceLayerException
 	{
 		runRoundRobin("Claw,Weapon.Natural.Melee.Piercing.Slashing,1,1d4,SPROP=plus poison");
 	}
 
 	@Test
-	public void testRoundRobinDupe() throws PersistenceLayerException
+	void testRoundRobinDupe() throws PersistenceLayerException
 	{
 		runRoundRobin("Claw,Weapon.Natural.Melee.Piercing.Slashing,*2,1d4|"
 				+ "Claw,Weapon.Natural.Melee.Piercing.Slashing,*2,1d4");
 	}
 
 	@Test
-	public void testRoundRobinTwoWithHands() throws PersistenceLayerException
+	void testRoundRobinTwoWithHands() throws PersistenceLayerException
 	{
 		runRoundRobin("Claw,Weapon.Natural.Melee.Piercing.Slashing,*2,1d4,1|"
 				+ "Bite,Weapon.Natural.Melee.Piercing.Slashing,*2,1d4");

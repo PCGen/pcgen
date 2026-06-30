@@ -32,10 +32,10 @@ import pcgen.base.util.NamedIndirect;
 /**
  * Integration testing between FormatManager objects
  */
-public class FormatManagerIntTest
+class FormatManagerIntTest
 {
 	@Test
-	public void testInvalidConvertSimple()
+	void testInvalidConvertSimple()
 	{
 		CompoundFormatManager<Number> compoundManager =
 				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');
@@ -48,7 +48,7 @@ public class FormatManagerIntTest
 	}
 
 	@Test
-	public void testInvalidConvertSeparatorIssues()
+	void testInvalidConvertSeparatorIssues()
 	{
 		CompoundFormatManager<Number> compoundManager =
 				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');
@@ -65,7 +65,7 @@ public class FormatManagerIntTest
 	}
 
 	@Test
-	public void testInvalidConvertAssociationIssues()
+	void testInvalidConvertAssociationIssues()
 	{
 		CompoundFormatManager<Number> compoundManager =
 				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');
@@ -77,7 +77,7 @@ public class FormatManagerIntTest
 	}
 
 	@Test
-	public void testInvalidConvertIndirectSimple()
+	void testInvalidConvertIndirectSimple()
 	{
 		CompoundFormatManager<Number> compoundManager =
 				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');
@@ -90,7 +90,7 @@ public class FormatManagerIntTest
 	}
 
 	@Test
-	public void testInvalidConvertIndirectSeparator()
+	void testInvalidConvertIndirectSeparator()
 	{
 		CompoundFormatManager<Number> compoundManager =
 				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');
@@ -107,7 +107,7 @@ public class FormatManagerIntTest
 	}
 
 	@Test
-	public void testInvalidConvertIndirectBadAssociations()
+	void testInvalidConvertIndirectBadAssociations()
 	{
 		CompoundFormatManager<Number> compoundManager =
 				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');
@@ -119,7 +119,7 @@ public class FormatManagerIntTest
 	}
 
 	@Test
-	public void testConvertNoArray()
+	void testConvertNoArray()
 	{
 		CompoundFormatManager<Number> compoundManager =
 				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');
@@ -149,7 +149,7 @@ public class FormatManagerIntTest
 	}
 
 	@Test
-	public void testConvertCompoundArray()
+	void testConvertCompoundArray()
 	{
 		CompoundFormatManager<Number> compoundManager =
 				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');
@@ -194,7 +194,7 @@ public class FormatManagerIntTest
 	}
 
 	@Test
-	public void testConvertIndirectNoArray()
+	void testConvertIndirectNoArray()
 	{
 		CompoundFormatManager<Number> compoundManager =
 				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');
@@ -228,7 +228,7 @@ public class FormatManagerIntTest
 	}
 
 	@Test
-	public void testConvertIndirectCompoundArray()
+	void testConvertIndirectCompoundArray()
 	{
 		CompoundFormatManager<Number> compoundManager =
 				new CompoundFormatManager<>(FormatUtilities.NUMBER_MANAGER, '|');

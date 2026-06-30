@@ -44,7 +44,7 @@ import org.junit.jupiter.api.Test;
  * This class tests the handling of ASPECT fields in PCGen
  */
 @SuppressWarnings("nls")
-public class AspectTest extends AbstractCharacterTestCase
+class AspectTest extends AbstractCharacterTestCase
 {
 	private static final String ASPECT_NAME = "UnitTest";
 
@@ -52,7 +52,7 @@ public class AspectTest extends AbstractCharacterTestCase
 	 * Tests outputting an empty Aspect.
 	 */
 	@Test
-	public void testEmptyDesc()
+	void testEmptyDesc()
 	{
 		final Ability dummy =
 				TestHelper.makeAbility("dummy", BuildUtilities.getFeatCat(), "Foo");
@@ -62,7 +62,7 @@ public class AspectTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testNull()
+	void testNull()
 	{
 		final Aspect aspect = new Aspect(ASPECT_NAME, Constants.EMPTY_STRING);
 		assertEquals("", aspect.getAspectText(this.getCharacter(), null));
@@ -72,7 +72,7 @@ public class AspectTest extends AbstractCharacterTestCase
 	 * Tests outputting a simple Aspect.
 	 */
 	@Test
-	public void testSimpleDesc()
+	void testSimpleDesc()
 	{
 		final Ability dummy =
 				TestHelper.makeAbility("dummy", BuildUtilities.getFeatCat(), "Foo");
@@ -86,7 +86,7 @@ public class AspectTest extends AbstractCharacterTestCase
 	 * Tests a simple string replacement.
 	 */
 	@Test
-	public void testSimpleReplacement()
+	void testSimpleReplacement()
 	{
 		final Ability dummy =
 				TestHelper.makeAbility("dummy", BuildUtilities.getFeatCat(), "Foo");
@@ -100,7 +100,7 @@ public class AspectTest extends AbstractCharacterTestCase
 	 * Test name replacement
 	 */
 	@Test
-	public void testSimpleNameReplacement()
+	void testSimpleNameReplacement()
 	{
 		final Ability pobj = new Ability();
 		pobj.setName("PObject");
@@ -116,7 +116,7 @@ public class AspectTest extends AbstractCharacterTestCase
 	 * Tests simple variable replacement
 	 */
 	@Test
-	public void testSimpleVariableReplacement()
+	void testSimpleVariableReplacement()
 	{
 		final Ability dummy =
 				TestHelper.makeAbility("dummy", BuildUtilities.getFeatCat(), "Foo");
@@ -137,7 +137,7 @@ public class AspectTest extends AbstractCharacterTestCase
 	 * Tests simple %LIST replacement.
 	 */
 	@Test
-	public void testSimpleListReplacement()
+	void testSimpleListReplacement()
 	{
 		final Ability pobj =
 				TestHelper.makeAbility("dummy", BuildUtilities.getFeatCat(), "Foo");
@@ -160,7 +160,7 @@ public class AspectTest extends AbstractCharacterTestCase
 	 * Test a replacement with missing variables.
 	 */
 	@Test
-	public void testEmptyReplacement()
+	void testEmptyReplacement()
 	{
 		final Ability pobj =
 				TestHelper.makeAbility("dummy", BuildUtilities.getFeatCat(), "Foo");
@@ -174,7 +174,7 @@ public class AspectTest extends AbstractCharacterTestCase
 	 * Test having extra variables present
 	 */
 	@Test
-	public void testExtraVariables()
+	void testExtraVariables()
 	{
 		final Ability pobj =
 				TestHelper.makeAbility("dummy", BuildUtilities.getFeatCat(), "Foo");
@@ -198,7 +198,7 @@ public class AspectTest extends AbstractCharacterTestCase
 	 * Test complex replacements.
 	 */
 	@Test
-	public void testComplexVariableReplacement()
+	void testComplexVariableReplacement()
 	{
 		final Ability dummy =
 			TestHelper.makeAbility("dummy", BuildUtilities.getFeatCat(), "Foo");

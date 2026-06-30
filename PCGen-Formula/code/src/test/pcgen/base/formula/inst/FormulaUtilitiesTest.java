@@ -21,11 +21,11 @@ import org.junit.jupiter.api.Test;
 
 import pcgen.base.testsupport.TestUtilities;
 
-public class FormulaUtilitiesTest
+class FormulaUtilitiesTest
 {
 
 	@Test
-	public void testDepKey()
+	void testDepKey()
 	{
 		TestUtilities.invokePrivateConstructor(FormulaUtilities.class);
 	}

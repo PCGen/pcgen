@@ -44,7 +44,7 @@ import plugin.lsttokens.testsupport.TransparentPlayerCharacter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class NoRankQualifierTokenTest extends
+class NoRankQualifierTokenTest extends
 		AbstractQualifierTokenTestCase<CDOMObject, Skill>
 {
 
@@ -104,7 +104,7 @@ public class NoRankQualifierTokenTest extends
 	}
 
 	@Test
-	public void testGetSet()
+	void testGetSet()
 	{
 		setUpPC();
 		initializeObjects();
@@ -130,7 +130,7 @@ public class NoRankQualifierTokenTest extends
 	}
 
 	@Test
-	public void testGetSetFiltered()
+	void testGetSetFiltered()
 	{
 		setUpPC();
 		initializeObjects();

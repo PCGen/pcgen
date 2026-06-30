@@ -40,7 +40,7 @@ import org.junit.jupiter.api.Test;
 import tokencontent.testsupport.AbstractContentTokenTest;
 import util.TestURI;
 
-public class GlobalQualifyTest extends AbstractContentTokenTest
+class GlobalQualifyTest extends AbstractContentTokenTest
 {
 
 	private static QualifyToken token = new QualifyToken();

@@ -38,7 +38,7 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class FactSetIntegrationTest extends
+class FactSetIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>
 {
 
@@ -92,13 +92,13 @@ public class FactSetIntegrationTest extends
 	}
 
 	@Test
-	public void dummyTest()
+	void dummyTest()
 	{
 		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Test
-	public void testRoundRobinOne() throws PersistenceLayerException
+	void testRoundRobinOne() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -108,7 +108,7 @@ public class FactSetIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinTwo() throws PersistenceLayerException
+	void testRoundRobinTwo() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -118,7 +118,7 @@ public class FactSetIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinSame() throws PersistenceLayerException
+	void testRoundRobinSame() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -128,7 +128,7 @@ public class FactSetIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoSet() throws PersistenceLayerException
+	void testRoundRobinNoSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -138,7 +138,7 @@ public class FactSetIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoReset() throws PersistenceLayerException
+	void testRoundRobinNoReset() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -148,7 +148,7 @@ public class FactSetIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoOriginalClear()
+	void testRoundRobinNoOriginalClear()
 		throws PersistenceLayerException
 	{
 		verifyCleanStart();
@@ -159,7 +159,7 @@ public class FactSetIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoModClear() throws PersistenceLayerException
+	void testRoundRobinNoModClear() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();

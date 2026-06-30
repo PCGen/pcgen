@@ -30,7 +30,7 @@ import pcgen.base.formula.visitor.ReconstructionVisitor;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
 import pcgen.base.testsupport.TestUtilities;
 
-public class FormulaArithmeticTest extends AbstractFormulaTestCase
+class FormulaArithmeticTest extends AbstractFormulaTestCase
 {
 
 	@BeforeEach
@@ -42,7 +42,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testIntegerPositive()
+	void testIntegerPositive()
 	{
 		String formula = "1";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -56,7 +56,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testIntegerZero()
+	void testIntegerZero()
 	{
 		String formula = "0";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -70,7 +70,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testIntegerNegative()
+	void testIntegerNegative()
 	{
 		String formula = "-5";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -84,7 +84,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDoubleOne()
+	void testDoubleOne()
 	{
 		String formula = "1.0";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -98,7 +98,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDoublePositive()
+	void testDoublePositive()
 	{
 		String formula = "1.1";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -112,7 +112,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDoubleNegative()
+	void testDoubleNegative()
 	{
 		String formula = "-4.5";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -126,7 +126,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDoubleNegativeNoLeading()
+	void testDoubleNegativeNoLeading()
 	{
 		String formula = "-.5";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -140,7 +140,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDoublePositiveNoLeading()
+	void testDoublePositiveNoLeading()
 	{
 		String formula = ".2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -154,7 +154,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testAddIntegerInteger()
+	void testAddIntegerInteger()
 	{
 		String formula = "2+3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -169,7 +169,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testAddIntegerDouble()
+	void testAddIntegerDouble()
 	{
 		String formula = "2+3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -183,7 +183,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testAddDoubleInteger()
+	void testAddDoubleInteger()
 	{
 		String formula = "2.1+3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -197,7 +197,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testAddDoubleDouble()
+	void testAddDoubleDouble()
 	{
 		String formula = "2.1+3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -211,7 +211,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testAddIntegerNegativeInteger()
+	void testAddIntegerNegativeInteger()
 	{
 		String formula = "2+-3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -226,7 +226,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testAddIntegerNegativeDouble()
+	void testAddIntegerNegativeDouble()
 	{
 		String formula = "2+-3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -240,7 +240,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testAddDoubleNegativeInteger()
+	void testAddDoubleNegativeInteger()
 	{
 		String formula = "2.1+-3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -254,7 +254,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testAddDoubleNegativeDouble()
+	void testAddDoubleNegativeDouble()
 	{
 		String formula = "2.1+-3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -268,7 +268,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testAddNegativeIntegerInteger()
+	void testAddNegativeIntegerInteger()
 	{
 		String formula = "-2+3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -283,7 +283,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testAddNegativeIntegerDouble()
+	void testAddNegativeIntegerDouble()
 	{
 		String formula = "-2+3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -297,7 +297,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testAddNegativeDoubleInteger()
+	void testAddNegativeDoubleInteger()
 	{
 		String formula = "-2.1+3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -311,7 +311,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testAddNegativeDoubleDouble()
+	void testAddNegativeDoubleDouble()
 	{
 		String formula = "-2.1+3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -325,7 +325,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testAddMultiple()
+	void testAddMultiple()
 	{
 		String formula = "1+4+7";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -339,7 +339,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testAddMultipleWithDouble1()
+	void testAddMultipleWithDouble1()
 	{
 		String formula = "1+4.1+7";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -353,7 +353,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testAddMultipleWithDouble2()
+	void testAddMultipleWithDouble2()
 	{
 		String formula = "1+4+7.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -367,7 +367,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testAddLevelSetExpectationsOnIntegerMath()
+	void testAddLevelSetExpectationsOnIntegerMath()
 	{
 		String formula = "1.1+-1.1";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -382,7 +382,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testSubtractIntegerInteger()
+	void testSubtractIntegerInteger()
 	{
 		String formula = "2-3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -397,7 +397,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testSubtractIntegerDouble()
+	void testSubtractIntegerDouble()
 	{
 		String formula = "2-3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -411,7 +411,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testSubtractDoubleInteger()
+	void testSubtractDoubleInteger()
 	{
 		String formula = "2.1-3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -425,7 +425,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testSubtractDoubleDouble()
+	void testSubtractDoubleDouble()
 	{
 		String formula = "2.1-3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -439,7 +439,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testSubtractIntegerNegativeInteger()
+	void testSubtractIntegerNegativeInteger()
 	{
 		String formula = "2--3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -454,7 +454,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testSubtractIntegerNegativeDouble()
+	void testSubtractIntegerNegativeDouble()
 	{
 		String formula = "2--3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -468,7 +468,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testSubtractDoubleNegativeInteger()
+	void testSubtractDoubleNegativeInteger()
 	{
 		String formula = "2.1--3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -482,7 +482,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testSubtractDoubleNegativeDouble()
+	void testSubtractDoubleNegativeDouble()
 	{
 		String formula = "2.1--3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -496,7 +496,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testSubtractNegativeIntegerInteger()
+	void testSubtractNegativeIntegerInteger()
 	{
 		String formula = "-2-3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -511,7 +511,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testSubtractNegativeIntegerDouble()
+	void testSubtractNegativeIntegerDouble()
 	{
 		String formula = "-2-3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -525,7 +525,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testSubtractNegativeDoubleInteger()
+	void testSubtractNegativeDoubleInteger()
 	{
 		String formula = "-2.1-3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -539,7 +539,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testSubtractNegativeDoubleDouble()
+	void testSubtractNegativeDoubleDouble()
 	{
 		String formula = "-2.1-3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -553,7 +553,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testSubtractMultiple()
+	void testSubtractMultiple()
 	{
 		String formula = "1-4-7";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -567,7 +567,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testSubtractMultipleWithDouble1()
+	void testSubtractMultipleWithDouble1()
 	{
 		String formula = "1-4.1-7";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -581,7 +581,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testSubtractMultipleWithDouble2()
+	void testSubtractMultipleWithDouble2()
 	{
 		String formula = "1-4-7.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -595,7 +595,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testEqualIntegerInteger()
+	void testEqualIntegerInteger()
 	{
 		String formula = "2==3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -610,7 +610,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testEqualIntegerDouble()
+	void testEqualIntegerDouble()
 	{
 		String formula = "2==3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -624,7 +624,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testEqualDoubleInteger()
+	void testEqualDoubleInteger()
 	{
 		String formula = "2.1==3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -638,7 +638,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testEqualDoubleDouble()
+	void testEqualDoubleDouble()
 	{
 		String formula = "2.1==3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -652,7 +652,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testEqualIntegerNegativeInteger()
+	void testEqualIntegerNegativeInteger()
 	{
 		String formula = "2==-3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -667,7 +667,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testEqualIntegerNegativeDouble()
+	void testEqualIntegerNegativeDouble()
 	{
 		String formula = "2==-3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -681,7 +681,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testEqualDoubleNegativeInteger()
+	void testEqualDoubleNegativeInteger()
 	{
 		String formula = "2.1==-3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -695,7 +695,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testEqualDoubleNegativeDouble()
+	void testEqualDoubleNegativeDouble()
 	{
 		String formula = "2.1==-3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -709,7 +709,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testEqualNegativeIntegerInteger()
+	void testEqualNegativeIntegerInteger()
 	{
 		String formula = "-2==3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -724,7 +724,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testEqualNegativeIntegerDouble()
+	void testEqualNegativeIntegerDouble()
 	{
 		String formula = "-2==3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -738,7 +738,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testEqualNegativeDoubleInteger()
+	void testEqualNegativeDoubleInteger()
 	{
 		String formula = "-2.1==3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -752,7 +752,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testEqualNegativeDoubleDouble()
+	void testEqualNegativeDoubleDouble()
 	{
 		String formula = "-2.1==3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -766,7 +766,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testEqualPositiveInteger()
+	void testEqualPositiveInteger()
 	{
 		String formula = "6==6";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -780,7 +780,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testEqualNegativeInteger()
+	void testEqualNegativeInteger()
 	{
 		String formula = "-3==-3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -794,7 +794,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testEqualPositiveDouble()
+	void testEqualPositiveDouble()
 	{
 		String formula = "3.3==3.3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -808,7 +808,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testEqualNegativeDouble()
+	void testEqualNegativeDouble()
 	{
 		String formula = "-0.3==-0.3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -822,7 +822,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testEqualDoubleFirst()
+	void testEqualDoubleFirst()
 	{
 		String formula = "2.0==2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -836,7 +836,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testEqualDoubleSecond()
+	void testEqualDoubleSecond()
 	{
 		String formula = "3==3.0";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -850,7 +850,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotEqualIntegerInteger()
+	void testNotEqualIntegerInteger()
 	{
 		String formula = "2!=3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -865,7 +865,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotEqualIntegerDouble()
+	void testNotEqualIntegerDouble()
 	{
 		String formula = "2!=3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -879,7 +879,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotEqualDoubleInteger()
+	void testNotEqualDoubleInteger()
 	{
 		String formula = "2.1!=3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -893,7 +893,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotEqualDoubleDouble()
+	void testNotEqualDoubleDouble()
 	{
 		String formula = "2.1!=3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -907,7 +907,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotEqualIntegerNegativeInteger()
+	void testNotEqualIntegerNegativeInteger()
 	{
 		String formula = "2!=-3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -922,7 +922,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotEqualIntegerNegativeDouble()
+	void testNotEqualIntegerNegativeDouble()
 	{
 		String formula = "2!=-3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -936,7 +936,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotEqualDoubleNegativeInteger()
+	void testNotEqualDoubleNegativeInteger()
 	{
 		String formula = "2.1!=-3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -950,7 +950,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotEqualDoubleNegativeDouble()
+	void testNotEqualDoubleNegativeDouble()
 	{
 		String formula = "2.1!=-3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -964,7 +964,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotEqualNegativeIntegerInteger()
+	void testNotEqualNegativeIntegerInteger()
 	{
 		String formula = "-2!=3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -979,7 +979,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotEqualNegativeIntegerDouble()
+	void testNotEqualNegativeIntegerDouble()
 	{
 		String formula = "-2!=3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -993,7 +993,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotEqualNegativeDoubleInteger()
+	void testNotEqualNegativeDoubleInteger()
 	{
 		String formula = "-2.1!=3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1007,7 +1007,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotEqualNegativeDoubleDouble()
+	void testNotEqualNegativeDoubleDouble()
 	{
 		String formula = "-2.1!=3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1021,7 +1021,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotEqualPositiveInteger()
+	void testNotEqualPositiveInteger()
 	{
 		String formula = "6!=6";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1035,7 +1035,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotEqualNegativeInteger()
+	void testNotEqualNegativeInteger()
 	{
 		String formula = "-3!=-3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1049,7 +1049,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotEqualPositiveDouble()
+	void testNotEqualPositiveDouble()
 	{
 		String formula = "3.3!=3.3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1063,7 +1063,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotEqualNegativeDouble()
+	void testNotEqualNegativeDouble()
 	{
 		String formula = "-0.3!=-0.3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1077,7 +1077,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotEqualDoubleFirst()
+	void testNotEqualDoubleFirst()
 	{
 		String formula = "2.0!=2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1091,7 +1091,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotEqualDoubleSecond()
+	void testNotEqualDoubleSecond()
 	{
 		String formula = "3!=3.0";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1105,7 +1105,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testLessThanIntegerInteger()
+	void testLessThanIntegerInteger()
 	{
 		String formula = "2<3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1120,7 +1120,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testLessThanIntegerDouble()
+	void testLessThanIntegerDouble()
 	{
 		String formula = "2<3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1134,7 +1134,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testLessThanDoubleInteger()
+	void testLessThanDoubleInteger()
 	{
 		String formula = "2.1<3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1148,7 +1148,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testLessThanDoubleDouble()
+	void testLessThanDoubleDouble()
 	{
 		String formula = "2.1<3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1162,7 +1162,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testLessThanIntegerNegativeInteger()
+	void testLessThanIntegerNegativeInteger()
 	{
 		String formula = "2<-3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1177,7 +1177,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testLessThanIntegerNegativeDouble()
+	void testLessThanIntegerNegativeDouble()
 	{
 		String formula = "2<-3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1191,7 +1191,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testLessThanDoubleNegativeInteger()
+	void testLessThanDoubleNegativeInteger()
 	{
 		String formula = "2.1<-3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1205,7 +1205,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testLessThanDoubleNegativeDouble()
+	void testLessThanDoubleNegativeDouble()
 	{
 		String formula = "2.1<-3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1219,7 +1219,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testLessThanNegativeIntegerInteger()
+	void testLessThanNegativeIntegerInteger()
 	{
 		String formula = "-2<3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1234,7 +1234,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testLessThanNegativeIntegerDouble()
+	void testLessThanNegativeIntegerDouble()
 	{
 		String formula = "-2<3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1248,7 +1248,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testLessThanNegativeDoubleInteger()
+	void testLessThanNegativeDoubleInteger()
 	{
 		String formula = "-2.1<3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1262,7 +1262,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testLessThanNegativeDoubleDouble()
+	void testLessThanNegativeDoubleDouble()
 	{
 		String formula = "-2.1<3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1276,7 +1276,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testLessThanPositiveInteger()
+	void testLessThanPositiveInteger()
 	{
 		String formula = "6<6";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1290,7 +1290,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testLessThanNegativeInteger()
+	void testLessThanNegativeInteger()
 	{
 		String formula = "-3<-3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1304,7 +1304,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testLessThanPositiveDouble()
+	void testLessThanPositiveDouble()
 	{
 		String formula = "3.3<3.3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1318,7 +1318,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testLessThanNegativeDouble()
+	void testLessThanNegativeDouble()
 	{
 		String formula = "-0.3<-0.3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1332,7 +1332,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testLessThanDoubleFirst()
+	void testLessThanDoubleFirst()
 	{
 		String formula = "2.0<2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1346,7 +1346,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testLessThanDoubleSecond()
+	void testLessThanDoubleSecond()
 	{
 		String formula = "3<3.0";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1360,7 +1360,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGreaterThanIntegerInteger()
+	void testGreaterThanIntegerInteger()
 	{
 		String formula = "2>3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1375,7 +1375,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGreaterThanIntegerDouble()
+	void testGreaterThanIntegerDouble()
 	{
 		String formula = "2>3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1389,7 +1389,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGreaterThanDoubleInteger()
+	void testGreaterThanDoubleInteger()
 	{
 		String formula = "2.1>3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1403,7 +1403,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGreaterThanDoubleDouble()
+	void testGreaterThanDoubleDouble()
 	{
 		String formula = "2.1>3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1417,7 +1417,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGreaterThanIntegerNegativeInteger()
+	void testGreaterThanIntegerNegativeInteger()
 	{
 		String formula = "2>-3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1432,7 +1432,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGreaterThanIntegerNegativeDouble()
+	void testGreaterThanIntegerNegativeDouble()
 	{
 		String formula = "2>-3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1446,7 +1446,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGreaterThanDoubleNegativeInteger()
+	void testGreaterThanDoubleNegativeInteger()
 	{
 		String formula = "2.1>-3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1460,7 +1460,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGreaterThanDoubleNegativeDouble()
+	void testGreaterThanDoubleNegativeDouble()
 	{
 		String formula = "2.1>-3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1474,7 +1474,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGreaterThanNegativeIntegerInteger()
+	void testGreaterThanNegativeIntegerInteger()
 	{
 		String formula = "-2>3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1489,7 +1489,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGreaterThanNegativeIntegerDouble()
+	void testGreaterThanNegativeIntegerDouble()
 	{
 		String formula = "-2>3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1503,7 +1503,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGreaterThanNegativeDoubleInteger()
+	void testGreaterThanNegativeDoubleInteger()
 	{
 		String formula = "-2.1>3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1517,7 +1517,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGreaterThanNegativeDoubleDouble()
+	void testGreaterThanNegativeDoubleDouble()
 	{
 		String formula = "-2.1>3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1531,7 +1531,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGreaterThanPositiveInteger()
+	void testGreaterThanPositiveInteger()
 	{
 		String formula = "6>6";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1545,7 +1545,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGreaterThanNegativeInteger()
+	void testGreaterThanNegativeInteger()
 	{
 		String formula = "-3>-3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1559,7 +1559,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGreaterThanPositiveDouble()
+	void testGreaterThanPositiveDouble()
 	{
 		String formula = "3.3>3.3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1573,7 +1573,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGreaterThanNegativeDouble()
+	void testGreaterThanNegativeDouble()
 	{
 		String formula = "-0.3>-0.3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1587,7 +1587,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGreaterThanDoubleFirst()
+	void testGreaterThanDoubleFirst()
 	{
 		String formula = "2.0>2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1601,7 +1601,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGreaterThanDoubleSecond()
+	void testGreaterThanDoubleSecond()
 	{
 		String formula = "3>3.0";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1615,7 +1615,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testLessThanOrEqualToIntegerInteger()
+	void testLessThanOrEqualToIntegerInteger()
 	{
 		String formula = "2<=3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1630,7 +1630,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testLessThanOrEqualToIntegerDouble()
+	void testLessThanOrEqualToIntegerDouble()
 	{
 		String formula = "2<=3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1644,7 +1644,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testLessThanOrEqualToDoubleInteger()
+	void testLessThanOrEqualToDoubleInteger()
 	{
 		String formula = "2.1<=3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1658,7 +1658,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testLessThanOrEqualToDoubleDouble()
+	void testLessThanOrEqualToDoubleDouble()
 	{
 		String formula = "2.1<=3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1672,7 +1672,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testLessThanOrEqualToIntegerNegativeInteger()
+	void testLessThanOrEqualToIntegerNegativeInteger()
 	{
 		String formula = "2<=-3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1687,7 +1687,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testLessThanOrEqualToIntegerNegativeDouble()
+	void testLessThanOrEqualToIntegerNegativeDouble()
 	{
 		String formula = "2<=-3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1701,7 +1701,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testLessThanOrEqualToDoubleNegativeInteger()
+	void testLessThanOrEqualToDoubleNegativeInteger()
 	{
 		String formula = "2.1<=-3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1715,7 +1715,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testLessThanOrEqualToDoubleNegativeDouble()
+	void testLessThanOrEqualToDoubleNegativeDouble()
 	{
 		String formula = "2.1<=-3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1729,7 +1729,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testLessThanOrEqualToNegativeIntegerInteger()
+	void testLessThanOrEqualToNegativeIntegerInteger()
 	{
 		String formula = "-2<=3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1744,7 +1744,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testLessThanOrEqualToNegativeIntegerDouble()
+	void testLessThanOrEqualToNegativeIntegerDouble()
 	{
 		String formula = "-4<=3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1758,7 +1758,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testLessThanOrEqualToNegativeDoubleInteger()
+	void testLessThanOrEqualToNegativeDoubleInteger()
 	{
 		String formula = "-5.1<=3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1772,7 +1772,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testLessThanOrEqualToNegativeDoubleDouble()
+	void testLessThanOrEqualToNegativeDoubleDouble()
 	{
 		String formula = "-5.1<=3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1786,7 +1786,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testLessThanOrEqualToPositiveInteger()
+	void testLessThanOrEqualToPositiveInteger()
 	{
 		String formula = "6<=6";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1800,7 +1800,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testLessThanOrEqualToNegativeInteger()
+	void testLessThanOrEqualToNegativeInteger()
 	{
 		String formula = "-3<=-3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1814,7 +1814,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testLessThanOrEqualToPositiveDouble()
+	void testLessThanOrEqualToPositiveDouble()
 	{
 		String formula = "3.3<=3.3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1828,7 +1828,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testLessThanOrEqualToNegativeDouble()
+	void testLessThanOrEqualToNegativeDouble()
 	{
 		String formula = "-0.3<=-0.3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1842,7 +1842,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testLessThanOrEqualToDoubleFirst()
+	void testLessThanOrEqualToDoubleFirst()
 	{
 		String formula = "2.0<=2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1856,7 +1856,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testLessThanOrEqualToDoubleSecond()
+	void testLessThanOrEqualToDoubleSecond()
 	{
 		String formula = "3<=3.0";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1870,7 +1870,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGreaterThanOrEqualToIntegerInteger()
+	void testGreaterThanOrEqualToIntegerInteger()
 	{
 		String formula = "2>=3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1885,7 +1885,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGreaterThanOrEqualToIntegerDouble()
+	void testGreaterThanOrEqualToIntegerDouble()
 	{
 		String formula = "2>=3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1899,7 +1899,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGreaterThanOrEqualToDoubleInteger()
+	void testGreaterThanOrEqualToDoubleInteger()
 	{
 		String formula = "2.1>=3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1913,7 +1913,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGreaterThanOrEqualToDoubleDouble()
+	void testGreaterThanOrEqualToDoubleDouble()
 	{
 		String formula = "2.1>=3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1927,7 +1927,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGreaterThanOrEqualToIntegerNegativeInteger()
+	void testGreaterThanOrEqualToIntegerNegativeInteger()
 	{
 		String formula = "2>=-3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1942,7 +1942,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGreaterThanOrEqualToIntegerNegativeDouble()
+	void testGreaterThanOrEqualToIntegerNegativeDouble()
 	{
 		String formula = "2>=-3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1956,7 +1956,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGreaterThanOrEqualToDoubleNegativeInteger()
+	void testGreaterThanOrEqualToDoubleNegativeInteger()
 	{
 		String formula = "2.1>=-3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1970,7 +1970,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGreaterThanOrEqualToDoubleNegativeDouble()
+	void testGreaterThanOrEqualToDoubleNegativeDouble()
 	{
 		String formula = "2.1>=-3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1984,7 +1984,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGreaterThanOrEqualToNegativeIntegerInteger()
+	void testGreaterThanOrEqualToNegativeIntegerInteger()
 	{
 		String formula = "-2>=3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -1999,7 +1999,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGreaterThanOrEqualToNegativeIntegerDouble()
+	void testGreaterThanOrEqualToNegativeIntegerDouble()
 	{
 		String formula = "-2>=3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2013,7 +2013,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGreaterThanOrEqualToNegativeDoubleInteger()
+	void testGreaterThanOrEqualToNegativeDoubleInteger()
 	{
 		String formula = "-2.1>=3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2027,7 +2027,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGreaterThanOrEqualToNegativeDoubleDouble()
+	void testGreaterThanOrEqualToNegativeDoubleDouble()
 	{
 		String formula = "-2.1>=3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2041,7 +2041,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGreaterThanOrEqualToPositiveInteger()
+	void testGreaterThanOrEqualToPositiveInteger()
 	{
 		String formula = "6>=6";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2055,7 +2055,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGreaterThanOrEqualToNegativeInteger()
+	void testGreaterThanOrEqualToNegativeInteger()
 	{
 		String formula = "-3>=-3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2069,7 +2069,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGreaterThanOrEqualToPositiveDouble()
+	void testGreaterThanOrEqualToPositiveDouble()
 	{
 		String formula = "3.3>=3.3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2083,7 +2083,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGreaterThanOrEqualToNegativeDouble()
+	void testGreaterThanOrEqualToNegativeDouble()
 	{
 		String formula = "-0.3>=-0.3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2097,7 +2097,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGreaterThanOrEqualToDoubleFirst()
+	void testGreaterThanOrEqualToDoubleFirst()
 	{
 		String formula = "2.0>=2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2111,7 +2111,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGreaterThanOrEqualToDoubleSecond()
+	void testGreaterThanOrEqualToDoubleSecond()
 	{
 		String formula = "3>=3.0";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2125,7 +2125,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testMultiplyIntegerInteger()
+	void testMultiplyIntegerInteger()
 	{
 		String formula = "2*3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2140,7 +2140,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testMultiplyIntegerDouble()
+	void testMultiplyIntegerDouble()
 	{
 		String formula = "2*3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2154,7 +2154,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testMultiplyDoubleInteger()
+	void testMultiplyDoubleInteger()
 	{
 		String formula = "2.1*3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2168,7 +2168,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testMultiplyDoubleDouble()
+	void testMultiplyDoubleDouble()
 	{
 		String formula = "2.1*3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2182,7 +2182,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testMultiplyIntegerNegativeInteger()
+	void testMultiplyIntegerNegativeInteger()
 	{
 		String formula = "2*-3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2197,7 +2197,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testMultiplyIntegerNegativeDouble()
+	void testMultiplyIntegerNegativeDouble()
 	{
 		String formula = "2*-3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2211,7 +2211,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testMultiplyDoubleNegativeInteger()
+	void testMultiplyDoubleNegativeInteger()
 	{
 		String formula = "2.1*-3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2225,7 +2225,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testMultiplyDoubleNegativeDouble()
+	void testMultiplyDoubleNegativeDouble()
 	{
 		String formula = "2.1*-3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2239,7 +2239,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testMultiplyNegativeIntegerInteger()
+	void testMultiplyNegativeIntegerInteger()
 	{
 		String formula = "-2*3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2254,7 +2254,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testMultiplyNegativeIntegerDouble()
+	void testMultiplyNegativeIntegerDouble()
 	{
 		String formula = "-2*3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2268,7 +2268,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testMultiplyNegativeDoubleInteger()
+	void testMultiplyNegativeDoubleInteger()
 	{
 		String formula = "-2.1*3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2282,7 +2282,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testMultiplyNegativeDoubleDouble()
+	void testMultiplyNegativeDoubleDouble()
 	{
 		String formula = "-2.1*3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2296,7 +2296,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testMultiplyMultiple()
+	void testMultiplyMultiple()
 	{
 		String formula = "1*4*7";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2310,7 +2310,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testMultiplyMultipleWithDouble1()
+	void testMultiplyMultipleWithDouble1()
 	{
 		String formula = "1*4.1*7";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2324,7 +2324,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testMultiplyMultipleWithDouble2()
+	void testMultiplyMultipleWithDouble2()
 	{
 		String formula = "1*4*7.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2338,7 +2338,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testMultiplySetExpectations()
+	void testMultiplySetExpectations()
 	{
 		String formula = "1.3*0";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2353,7 +2353,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDivideIntegerInteger()
+	void testDivideIntegerInteger()
 	{
 		String formula = "2/3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2368,7 +2368,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDivideIntegerDouble()
+	void testDivideIntegerDouble()
 	{
 		String formula = "2/3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2382,7 +2382,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDivideDoubleInteger()
+	void testDivideDoubleInteger()
 	{
 		String formula = "2.1/3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2396,7 +2396,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDivideDoubleDouble()
+	void testDivideDoubleDouble()
 	{
 		String formula = "2.1/3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2410,7 +2410,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDivideIntegerNegativeInteger()
+	void testDivideIntegerNegativeInteger()
 	{
 		String formula = "2/-8";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2425,7 +2425,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDivideIntegerNegativeDouble()
+	void testDivideIntegerNegativeDouble()
 	{
 		String formula = "2/-3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2439,7 +2439,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDivideDoubleNegativeInteger()
+	void testDivideDoubleNegativeInteger()
 	{
 		String formula = "2.1/-3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2453,7 +2453,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDivideDoubleNegativeDouble()
+	void testDivideDoubleNegativeDouble()
 	{
 		String formula = "2.1/-3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2467,7 +2467,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDivideNegativeIntegerInteger()
+	void testDivideNegativeIntegerInteger()
 	{
 		String formula = "-2/3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2482,7 +2482,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDivideNegativeIntegerDouble()
+	void testDivideNegativeIntegerDouble()
 	{
 		String formula = "-2/3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2496,7 +2496,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDivideNegativeDoubleInteger()
+	void testDivideNegativeDoubleInteger()
 	{
 		String formula = "-2.1/3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2510,7 +2510,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDivideNegativeDoubleDouble()
+	void testDivideNegativeDoubleDouble()
 	{
 		String formula = "-2.1/3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2524,7 +2524,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDivideMultiple()
+	void testDivideMultiple()
 	{
 		String formula = "1/4/7";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2538,7 +2538,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDivideMultipleWithDouble1()
+	void testDivideMultipleWithDouble1()
 	{
 		String formula = "1/4.1/7";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2552,7 +2552,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDivideMultipleWithDouble2()
+	void testDivideMultipleWithDouble2()
 	{
 		String formula = "1/4/7.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2566,7 +2566,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDivideSetExpectationsNumerator()
+	void testDivideSetExpectationsNumerator()
 	{
 		String formula = "0/1.3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2581,7 +2581,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDivideSetExpectations()
+	void testDivideSetExpectations()
 	{
 		String formula = "1.3/0";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2595,7 +2595,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testRemainderIntegerInteger()
+	void testRemainderIntegerInteger()
 	{
 		String formula = "2%3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2610,7 +2610,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testRemainderIntegerDouble()
+	void testRemainderIntegerDouble()
 	{
 		String formula = "2%3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2624,7 +2624,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testRemainderDoubleInteger()
+	void testRemainderDoubleInteger()
 	{
 		String formula = "3.1%2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2638,7 +2638,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testRemainderDoubleDouble()
+	void testRemainderDoubleDouble()
 	{
 		String formula = "2.1%3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2652,7 +2652,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testRemainderIntegerNegativeInteger()
+	void testRemainderIntegerNegativeInteger()
 	{
 		String formula = "2%-3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2667,7 +2667,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testRemainderIntegerNegativeDouble()
+	void testRemainderIntegerNegativeDouble()
 	{
 		String formula = "2%-3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2681,7 +2681,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testRemainderDoubleNegativeInteger()
+	void testRemainderDoubleNegativeInteger()
 	{
 		String formula = "2.1%-3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2695,7 +2695,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testRemainderDoubleNegativeDouble()
+	void testRemainderDoubleNegativeDouble()
 	{
 		String formula = "2.1%-3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2709,7 +2709,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testRemainderNegativeIntegerInteger()
+	void testRemainderNegativeIntegerInteger()
 	{
 		String formula = "-2%3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2724,7 +2724,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testRemainderNegativeIntegerDouble()
+	void testRemainderNegativeIntegerDouble()
 	{
 		String formula = "-2%3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2738,7 +2738,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testRemainderNegativeDoubleInteger()
+	void testRemainderNegativeDoubleInteger()
 	{
 		String formula = "-2.1%3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2752,7 +2752,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testRemainderNegativeDoubleDouble()
+	void testRemainderNegativeDoubleDouble()
 	{
 		String formula = "-2.1%3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2766,7 +2766,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testRemainderMultiple()
+	void testRemainderMultiple()
 	{
 		String formula = "19%8%2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2780,7 +2780,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testRemainderMultipleWithDouble1()
+	void testRemainderMultipleWithDouble1()
 	{
 		String formula = "9%4.1%2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2794,7 +2794,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testRemainderMultipleWithDouble2()
+	void testRemainderMultipleWithDouble2()
 	{
 		String formula = "9%6%1.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2808,7 +2808,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testRemainderSetExpectationsNumerator()
+	void testRemainderSetExpectationsNumerator()
 	{
 		String formula = "0%1.3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2823,7 +2823,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testRemainderSetExpectations()
+	void testRemainderSetExpectations()
 	{
 		String formula = "1.3%0";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2837,7 +2837,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testExponentIntegerInteger()
+	void testExponentIntegerInteger()
 	{
 		String formula = "2^3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2853,7 +2853,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testExponentIntegerDouble()
+	void testExponentIntegerDouble()
 	{
 		String formula = "2^3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2867,7 +2867,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testExponentDoubleInteger()
+	void testExponentDoubleInteger()
 	{
 		String formula = "2.1^3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2881,7 +2881,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testExponentDoubleDouble()
+	void testExponentDoubleDouble()
 	{
 		String formula = "2.1^3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2895,7 +2895,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testExponentNegativeIntegerInteger()
+	void testExponentNegativeIntegerInteger()
 	{
 		String formula = "-2^3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2911,7 +2911,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testExponentNegativeIntegerDouble()
+	void testExponentNegativeIntegerDouble()
 	{
 		String formula = "-2^3.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2925,7 +2925,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testExponentNegativeDoubleInteger()
+	void testExponentNegativeDoubleInteger()
 	{
 		String formula = "-2.1^3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2939,7 +2939,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testExponentNegativeDoubleDouble()
+	void testExponentNegativeDoubleDouble()
 	{
 		String formula = "-2.1^3.4";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2953,7 +2953,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testExponentMultiple()
+	void testExponentMultiple()
 	{
 		String formula = "1.03^4^7";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2967,7 +2967,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testExponentMultipleWithDouble1()
+	void testExponentMultipleWithDouble1()
 	{
 		String formula = "1.03^4.1^7";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2981,7 +2981,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testExponentMultipleWithDouble2()
+	void testExponentMultipleWithDouble2()
 	{
 		String formula = "1.03^4^7.2";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -2995,7 +2995,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testExponentSetExpectationsBase()
+	void testExponentSetExpectationsBase()
 	{
 		String formula = "0^1.3";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -3010,7 +3010,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testExponentSetExpectationsPower()
+	void testExponentSetExpectationsPower()
 	{
 		String formula = "1.3^0";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -3025,7 +3025,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testParens()
+	void testParens()
 	{
 		String formula = "3*(1+2)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -3039,7 +3039,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testExtraParens()
+	void testExtraParens()
 	{
 		String formula = "((4/(((3-1)))))";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -3053,7 +3053,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotValidBooleanAdd()
+	void testNotValidBooleanAdd()
 	{
 		String formula = "(4<5)+(5>6)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -3062,7 +3062,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotValidSubA()
+	void testNotValidSubA()
 	{
 		String formula = "((4<5)+(5>6))-1";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -3071,7 +3071,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotValidSubB()
+	void testNotValidSubB()
 	{
 		String formula = "5+((4<5)+(5>6))";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -3080,7 +3080,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotValidNoFunc()
+	void testNotValidNoFunc()
 	{
 		String formula = "5+foo(5)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -3089,7 +3089,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 
 
 	@Test
-	public void testNotValidExponRoot()
+	void testNotValidExponRoot()
 	{
 		String formula = "(4<5)^5";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -3097,7 +3097,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotValidExpon()
+	void testNotValidExpon()
 	{
 		String formula = "5^(9>8)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -3107,7 +3107,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 
 
 	@Test
-	public void testExponNotValidSubA()
+	void testExponNotValidSubA()
 	{
 		String formula = "((4<5)+(5>6))^1";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -3116,7 +3116,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testExponNotValidSubB()
+	void testExponNotValidSubB()
 	{
 		String formula = "5^((4<5)+(5>6))";
 		SimpleNode node = TestUtilities.doParse(formula);

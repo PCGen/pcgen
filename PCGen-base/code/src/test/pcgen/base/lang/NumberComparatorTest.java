@@ -25,10 +25,10 @@ import org.junit.jupiter.api.Test;
 /**
  * Test the NumberUtilities class
  */
-public class NumberComparatorTest
+class NumberComparatorTest
 {
 	@Test
-	public void testCompareFail()
+	void testCompareFail()
 	{
 		NumberComparator comparator = new NumberComparator();
 		assertThrows(NullPointerException.class, () -> comparator.compare(3, null));
@@ -36,7 +36,7 @@ public class NumberComparatorTest
 	}
 
 	@Test
-	public void testCompare()
+	void testCompare()
 	{
 		NumberComparator comparator = new NumberComparator();
 		assertEquals(0, comparator.compare(3, 3));

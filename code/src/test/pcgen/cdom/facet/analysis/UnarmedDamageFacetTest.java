@@ -31,7 +31,7 @@ import pcgen.core.Race;
 
 import org.junit.jupiter.api.BeforeEach;
 
-public class UnarmedDamageFacetTest extends
+class UnarmedDamageFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, List<String>>
 {
 

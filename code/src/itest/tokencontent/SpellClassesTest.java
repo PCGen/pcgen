@@ -42,7 +42,7 @@ import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 import util.TestURI;
 
-public class SpellClassesTest extends AbstractTokenModelTest
+class SpellClassesTest extends AbstractTokenModelTest
 {
 
 	private static ClassesToken token = new ClassesToken();
@@ -63,7 +63,7 @@ public class SpellClassesTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testDirect()
+	void testDirect()
 	{
 		ParseResult result = token.parseToken(context, sp, "Dragon=1");
 		if (result != ParseResult.SUCCESS)

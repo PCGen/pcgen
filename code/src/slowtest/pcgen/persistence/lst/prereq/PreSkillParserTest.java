@@ -14,11 +14,11 @@ import plugin.pretokens.parser.PreSkillParser;
 import org.junit.jupiter.api.Test;
 
 
-public class PreSkillParserTest extends EnUsLocaleDependentTestCase
+class PreSkillParserTest extends EnUsLocaleDependentTestCase
 {
 	
 	@Test
-	public void test1() throws PersistenceLayerException
+	void test1() throws PersistenceLayerException
 	{
 		PreSkillParser producer = new PreSkillParser();
 
@@ -39,7 +39,7 @@ public class PreSkillParserTest extends EnUsLocaleDependentTestCase
 
 
 	@Test
-	public void test2() throws PersistenceLayerException
+	void test2() throws PersistenceLayerException
 	{
 		PreSkillParser producer = new PreSkillParser();
 
@@ -56,7 +56,7 @@ public class PreSkillParserTest extends EnUsLocaleDependentTestCase
 	}
 
 	@Test
-	public void test3() throws Exception
+	void test3() throws Exception
 	{
 		PreSkillParser producer = new PreSkillParser();
 
@@ -72,7 +72,7 @@ public class PreSkillParserTest extends EnUsLocaleDependentTestCase
 	}
 
 	@Test
-	public void testTypeEquals() throws Exception
+	void testTypeEquals() throws Exception
 	{
 		PreSkillParser producer = new PreSkillParser();
 
@@ -88,7 +88,7 @@ public class PreSkillParserTest extends EnUsLocaleDependentTestCase
 	}
 
 	@Test
-	public void testTypeEqualsMult() throws Exception
+	void testTypeEqualsMult() throws Exception
 	{
 		PreSkillParser producer = new PreSkillParser();
 

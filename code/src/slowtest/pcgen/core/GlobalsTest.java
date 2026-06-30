@@ -49,7 +49,7 @@ class GlobalsTest
 	 * Test the Preview Tab
 	 */
 	@Test
-	public void testPreviewTab()
+	void testPreviewTab()
 	{
 		// Expect to be initialised false
 		assertThat("Initialised False", SettingsHandler.isIgnoreMonsterHDCap(), is(false));
@@ -392,7 +392,7 @@ class GlobalsTest
 //	}
 
 	@Test
-	public void testAdjustDamage()
+	void testAdjustDamage()
 	{
 		GameMode gameMode = SettingsHandler.getGameAsProperty().get();
 		assertThat("size list initialised",

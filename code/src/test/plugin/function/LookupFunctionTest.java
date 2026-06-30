@@ -50,7 +50,7 @@ import plugin.function.testsupport.TransparentFormatManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class LookupFunctionTest extends AbstractFormulaTestCase
+class LookupFunctionTest extends AbstractFormulaTestCase
 {
 
 	private SimpleFormatManagerLibrary formatLibrary;
@@ -134,7 +134,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidWrongArg()
+	void testInvalidWrongArg()
 	{
 		String formula = "lookup(2)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -145,7 +145,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidWrongFormat1()
+	void testInvalidWrongFormat1()
 	{
 		TransparentFormatManager<TableColumn> finder =
 				new TransparentFormatManager<>(TableColumn.class, "COLUMN");
@@ -168,7 +168,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidWrongFormat2()
+	void testInvalidWrongFormat2()
 	{
 		TransparentFormatManager<TableColumn> finder =
 				new TransparentFormatManager<>(TableColumn.class, "COLUMN");
@@ -203,7 +203,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidWrongFormat3()
+	void testInvalidWrongFormat3()
 	{
 		TransparentFormatManager<DataTable> tablefinder =
 				new TransparentFormatManager<>(DataTable.class, "TABLE");
@@ -226,7 +226,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidBadSemantics1()
+	void testInvalidBadSemantics1()
 	{
 		TransparentFormatManager<TableColumn> finder =
 				new TransparentFormatManager<>(TableColumn.class, "COLUMN");
@@ -250,7 +250,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidBadSemantics2()
+	void testInvalidBadSemantics2()
 	{
 		TransparentFormatManager<TableColumn> finder =
 				new TransparentFormatManager<>(TableColumn.class, "COLUMN");
@@ -285,7 +285,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidBadSemantics3()
+	void testInvalidBadSemantics3()
 	{
 		TransparentFormatManager<TableColumn> finder =
 				new TransparentFormatManager<>(TableColumn.class, "COLUMN");
@@ -312,7 +312,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testBasic()
+	void testBasic()
 	{
 		TransparentFormatManager<TableColumn> finder =
 				new TransparentFormatManager<>(TableColumn.class, "COLUMN");
@@ -353,7 +353,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 
 
 	@Test
-	public void testInvalidFormatDirect()
+	void testInvalidFormatDirect()
 	{
 		TransparentFormatManager<TableColumn> finder =
 				new TransparentFormatManager<>(TableColumn.class, "COLUMN");
@@ -390,7 +390,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidTableFormatDirect()
+	void testInvalidTableFormatDirect()
 	{
 		TransparentFormatManager<TableColumn> finder =
 				new TransparentFormatManager<>(TableColumn.class, "COLUMN");
@@ -427,7 +427,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidNameDirect()
+	void testInvalidNameDirect()
 	{
 		TransparentFormatManager<TableColumn> finder =
 				new TransparentFormatManager<>(TableColumn.class, "COLUMN");
@@ -464,7 +464,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDirect()
+	void testDirect()
 	{
 		TransparentFormatManager<TableColumn> finder =
 				new TransparentFormatManager<>(TableColumn.class, "COLUMN");
@@ -498,7 +498,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInDirectColumn()
+	void testInDirectColumn()
 	{
 		TransparentFormatManager<TableColumn> finder =
 				new TransparentFormatManager<>(TableColumn.class, "COLUMN");
@@ -531,7 +531,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidExtra()
+	void testInvalidExtra()
 	{
 		TransparentFormatManager<TableColumn> finder =
 				new TransparentFormatManager<>(TableColumn.class, "COLUMN");
@@ -568,7 +568,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNoColumn()
+	void testNoColumn()
 	{
 		TransparentFormatManager<TableColumn> finder =
 				new TransparentFormatManager<>(TableColumn.class, "COLUMN");
@@ -613,7 +613,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNoLookup()
+	void testNoLookup()
 	{
 		TransparentFormatManager<TableColumn> finder =
 				new TransparentFormatManager<>(TableColumn.class, "COLUMN");

@@ -28,10 +28,10 @@ import org.junit.jupiter.api.Test;
  * See the PCG file for details.
  */
 @SuppressWarnings("nls")
-public class pcGenGUIFigFaeTest extends PcgenFtlTestCase
+class pcGenGUIFigFaeTest extends PcgenFtlTestCase
 {
 	@Test
-	public void testFigFae() throws Exception
+	void testFigFae() throws Exception
 	{
 		runTest("3e_FigFae");
 	}

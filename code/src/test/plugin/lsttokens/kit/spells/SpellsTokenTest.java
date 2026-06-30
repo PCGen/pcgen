@@ -32,7 +32,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 
 import org.junit.jupiter.api.Test;
 
-public class SpellsTokenTest extends AbstractKitTokenTestCase<KitSpells>
+class SpellsTokenTest extends AbstractKitTokenTestCase<KitSpells>
 {
 
 	static SpellsToken token = new SpellsToken();
@@ -58,43 +58,43 @@ public class SpellsTokenTest extends AbstractKitTokenTestCase<KitSpells>
 	}
 
 	@Test
-	public void testInvalidInputEmptySpellbook()
+	void testInvalidInputEmptySpellbook()
 	{
 		assertFalse(parse("SPELLBOOK=|CLASS=Wizard|Fireball=2"));
 	}
 
 	@Test
-	public void testInvalidInputEmptyClass()
+	void testInvalidInputEmptyClass()
 	{
 		assertFalse(parse("SPELLBOOK=Personal|CLASS=|Fireball=2"));
 	}
 
 	@Test
-	public void testInvalidInputTwoClass()
+	void testInvalidInputTwoClass()
 	{
 		assertFalse(parse("SPELLBOOK=Personal|CLASS=Wizard|CLASS=Cleric|Fireball=2"));
 	}
 
 	@Test
-	public void testInvalidInputTwoSpellbook()
+	void testInvalidInputTwoSpellbook()
 	{
 		assertFalse(parse("SPELLBOOK=Personal|SPELLBOOK=Other|CLASS=Wizard|Fireball=2"));
 	}
 
 	@Test
-	public void testInvalidInputEmptySpell()
+	void testInvalidInputEmptySpell()
 	{
 		assertFalse(parse("SPELLBOOK=Personal|CLASS=Wizard|=2"));
 	}
 
 	@Test
-	public void testInvalidInputEmptyCount()
+	void testInvalidInputEmptyCount()
 	{
 		assertFalse(parse("SPELLBOOK=Personal|CLASS=Wizard|Fireball="));
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
 		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
@@ -102,25 +102,25 @@ public class SpellsTokenTest extends AbstractKitTokenTestCase<KitSpells>
 	}
 
 	@Test
-	public void testInvalidInputEmptyType()
+	void testInvalidInputEmptyType()
 	{
 		assertFalse(parse("SPELLBOOK=Personal|CLASS=Wizard|TYPE."));
 	}
 
 	@Test
-	public void testInvalidInputTrailingType()
+	void testInvalidInputTrailingType()
 	{
 		assertFalse(parse("SPELLBOOK=Personal|CLASS=Wizard|TYPE.One."));
 	}
 
 	@Test
-	public void testInvalidInputDoubleType()
+	void testInvalidInputDoubleType()
 	{
 		assertFalse(parse("SPELLBOOK=Personal|CLASS=Wizard|TYPE.One..Two"));
 	}
 
 	@Test
-	public void testRoundRobinType() throws PersistenceLayerException
+	void testRoundRobinType() throws PersistenceLayerException
 	{
 		Spell a = primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
 		a.addToListFor(ListKey.TYPE, Type.getConstant("Foo"));
@@ -130,7 +130,7 @@ public class SpellsTokenTest extends AbstractKitTokenTestCase<KitSpells>
 	}
 
 	@Test
-	public void testRoundRobinFeat() throws PersistenceLayerException
+	void testRoundRobinFeat() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
 		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
@@ -142,7 +142,7 @@ public class SpellsTokenTest extends AbstractKitTokenTestCase<KitSpells>
 	}
 
 	@Test
-	public void testRoundRobinCount() throws PersistenceLayerException
+	void testRoundRobinCount() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
 		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
@@ -152,7 +152,7 @@ public class SpellsTokenTest extends AbstractKitTokenTestCase<KitSpells>
 	}
 
 	@Test
-	public void testRoundRobinSpellBookClass() throws PersistenceLayerException
+	void testRoundRobinSpellBookClass() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
 		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");

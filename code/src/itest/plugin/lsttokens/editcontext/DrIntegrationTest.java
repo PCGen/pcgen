@@ -32,7 +32,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class DrIntegrationTest extends AbstractIntegrationTestCase<CDOMObject>
+class DrIntegrationTest extends AbstractIntegrationTestCase<CDOMObject>
 {
 	private static DrLst token = new DrLst();
 	private static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
@@ -56,7 +56,7 @@ public class DrIntegrationTest extends AbstractIntegrationTestCase<CDOMObject>
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -66,7 +66,7 @@ public class DrIntegrationTest extends AbstractIntegrationTestCase<CDOMObject>
 	}
 
 	@Test
-	public void testRoundRobinRemove() throws PersistenceLayerException
+	void testRoundRobinRemove() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -76,7 +76,7 @@ public class DrIntegrationTest extends AbstractIntegrationTestCase<CDOMObject>
 	}
 
 	@Test
-	public void testRoundRobinNoSet() throws PersistenceLayerException
+	void testRoundRobinNoSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -86,7 +86,7 @@ public class DrIntegrationTest extends AbstractIntegrationTestCase<CDOMObject>
 	}
 
 	@Test
-	public void testRoundRobinNoReset() throws PersistenceLayerException
+	void testRoundRobinNoReset() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -96,7 +96,7 @@ public class DrIntegrationTest extends AbstractIntegrationTestCase<CDOMObject>
 	}
 
 	@Test
-	public void testRoundRobinClearBase() throws PersistenceLayerException
+	void testRoundRobinClearBase() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -106,7 +106,7 @@ public class DrIntegrationTest extends AbstractIntegrationTestCase<CDOMObject>
 	}
 
 	@Test
-	public void testRoundRobinClearMod() throws PersistenceLayerException
+	void testRoundRobinClearMod() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -116,7 +116,7 @@ public class DrIntegrationTest extends AbstractIntegrationTestCase<CDOMObject>
 	}
 
 	@Test
-	public void testRoundRobinClearBoth() throws PersistenceLayerException
+	void testRoundRobinClearBoth() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -126,7 +126,7 @@ public class DrIntegrationTest extends AbstractIntegrationTestCase<CDOMObject>
 	}
 
 	@Test
-	public void testRoundRobinNoSetClear() throws PersistenceLayerException
+	void testRoundRobinNoSetClear() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -136,7 +136,7 @@ public class DrIntegrationTest extends AbstractIntegrationTestCase<CDOMObject>
 	}
 
 	@Test
-	public void testRoundRobinNoResetClear() throws PersistenceLayerException
+	void testRoundRobinNoResetClear() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();

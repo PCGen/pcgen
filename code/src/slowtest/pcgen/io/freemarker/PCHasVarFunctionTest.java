@@ -41,7 +41,7 @@ import org.junit.jupiter.api.Test;
  * the PCHasVarFunction class.
  */
 
-public class PCHasVarFunctionTest extends AbstractJunit5CharacterTestCase
+class PCHasVarFunctionTest extends AbstractJunit5CharacterTestCase
 {
 	private Ability fooFeat;
 
@@ -64,7 +64,7 @@ public class PCHasVarFunctionTest extends AbstractJunit5CharacterTestCase
 	 * @throws Exception 
 	 */
 	@Test
-	public void testExec() throws Exception
+	void testExec() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();
 		ExportHandler eh = ExportHandler.createExportHandler(new File(""));

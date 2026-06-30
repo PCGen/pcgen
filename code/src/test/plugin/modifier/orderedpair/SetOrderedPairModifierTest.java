@@ -37,7 +37,7 @@ class SetOrderedPairModifierTest
 	private FormatManager<OrderedPair> opManager = new OrderedPairManager();
 
 	@Test
-	public void testInvalidConstruction()
+	void testInvalidConstruction()
 	{
 		try
 		{
@@ -52,7 +52,7 @@ class SetOrderedPairModifierTest
 	}
 
 	@Test
-	public void testGetModifier()
+	void testGetModifier()
 	{
 		ModifierFactory<OrderedPair> factory = new SetModifierFactory();
 		FormulaModifier<OrderedPair> modifier =

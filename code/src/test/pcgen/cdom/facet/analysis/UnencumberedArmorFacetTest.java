@@ -35,7 +35,7 @@ import pcgen.util.enumeration.Load;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 
-public class UnencumberedArmorFacetTest extends
+class UnencumberedArmorFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, Load>
 {
 
@@ -104,7 +104,7 @@ public class UnencumberedArmorFacetTest extends
 
 
 	@Test
-	public void testMultipleLoad()
+	void testMultipleLoad()
 	{
 		assertEquals(Load.LIGHT, facet.getBestLoad(id));
 		Object source1 = new Object();
@@ -121,7 +121,7 @@ public class UnencumberedArmorFacetTest extends
 	}
 
 	@Test
-	public void testIgnoreLoad()
+	void testIgnoreLoad()
 	{
 		assertTrue(facet.ignoreLoad(id, Load.LIGHT));
 		assertFalse(facet.ignoreLoad(id, Load.MEDIUM));

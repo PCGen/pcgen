@@ -32,7 +32,7 @@ import pcgen.testsupport.MockObjectDatabase;
 /**
  * Test the GenericFormatManager class
  */
-public class GenericFormatManagerTest
+class GenericFormatManagerTest
 {
 	private GenericFormatManager<Object> manager;
 	private MockObjectDatabase database;
@@ -52,37 +52,37 @@ public class GenericFormatManagerTest
 	}
 
 	@Test
-	public void testConvertFailNull()
+	void testConvertFailNull()
 	{
 		assertThrows(NullPointerException.class, () -> manager.convert(null));
 	}
 
 	@Test
-	public void testUnconvertFailNull()
+	void testUnconvertFailNull()
 	{
 		assertThrows(NullPointerException.class, () -> manager.unconvert(null));
 	}
 
 	@Test
-	public void testConvertIndirectFailNull()
+	void testConvertIndirectFailNull()
 	{
 		assertThrows(NullPointerException.class, () -> manager.convertIndirect(null));
 	}
 
 	@Test
-	public void testConvertIndirectFailNotNumeric()
+	void testConvertIndirectFailNotNumeric()
 	{
 		assertThrows(IllegalArgumentException.class, () -> manager.convertIndirect("SomeString"));
 	}
 
 	@Test
-	public void testGetManagedClass()
+	void testGetManagedClass()
 	{
 		assertSame(Object.class, manager.getManagedClass());
 	}
 
 	@Test
-	public void testConvert()
+	void testConvert()
 	{
 		database.map.put(Object.class, "1", 1);
 		database.map.put(Object.class, "-3", -3);
@@ -93,7 +93,7 @@ public class GenericFormatManagerTest
 	}
 
 	@Test
-	public void testUnconvert()
+	void testUnconvert()
 	{
 		assertEquals("1", manager.unconvert(Integer.valueOf(1)));
 		assertEquals("-3", manager.unconvert(Integer.valueOf(-3)));
@@ -101,7 +101,7 @@ public class GenericFormatManagerTest
 	}
 
 	@Test
-	public void testConvertIndirect()
+	void testConvertIndirect()
 	{
 		database.map.put(Object.class, "1", 1);
 		database.map.put(Object.class, "-3", -3);
@@ -112,13 +112,13 @@ public class GenericFormatManagerTest
 	}
 
 	@Test
-	public void testGetIdentifier()
+	void testGetIdentifier()
 	{
 		assertEquals("KEYED", manager.getIdentifierType());
 	}
 
 	@Test
-	public void testHashCodeEquals()
+	void testHashCodeEquals()
 	{
 		assertFalse(manager.equals(new Object()));
 		assertFalse(manager.equals(
@@ -140,14 +140,14 @@ public class GenericFormatManagerTest
 	}
 
 	@Test
-	public void testGetComponent()
+	void testGetComponent()
 	{
 		assertTrue(manager.getComponentManager().isEmpty());
 	}
 
 
 	@Test
-	public void testIsDirect()
+	void testIsDirect()
 	{
 		assertEquals(database.isDirect(), manager.isDirect());
 	}

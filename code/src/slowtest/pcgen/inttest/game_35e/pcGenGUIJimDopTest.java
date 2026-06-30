@@ -10,10 +10,10 @@ import org.junit.jupiter.api.Test;
  * template applied.
  * See PCG file for details. 
  */
-public class pcGenGUIJimDopTest extends PcgenFtlTestCase
+class pcGenGUIJimDopTest extends PcgenFtlTestCase
 {
 	@Test
-	public void testJimDop() throws Exception
+	void testJimDop() throws Exception
 	{
 		runTest("35e_JimDop");
 	}
