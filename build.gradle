@@ -436,7 +436,6 @@ if (Os.isFamily(Os.FAMILY_MAC)) {
             unix(0755)
         }
         into layout.buildDirectory.dir("jpackage/PcGen.app/Contents/MacOS")
-        def appBundleDir = layout.buildDirectory.dir("jpackage/PcGen.app")
         def plistFile = layout.buildDirectory.file("jpackage/PcGen.app/Contents/Info.plist")
         doLast {
             def plist = plistFile.get().asFile
@@ -445,25 +444,27 @@ if (Os.isFamily(Os.FAMILY_MAC)) {
                 "<key>CFBundleExecutable</key>\n  <string>PcGen</string>",
                 "<key>CFBundleExecutable</key>\n  <string>MacDirLauncher</string>")
             plist.text = content
-
-            // jpackage seals the bundle with an ad-hoc signature; rewriting
-            // Info.plist and dropping MacDirLauncher into Contents/MacOS above
-            // invalidates that seal, so `spctl -a` rejects the result as
-            // "directory or signature have been modified". Re-sign ad-hoc so
-            // the bundle is internally consistent. Users still see Gatekeeper
-            // on first launch (no Developer ID), but a single
-            // `xattr -dr com.apple.quarantine PcGen.app` is then enough —
-            // no `codesign --force --deep` round-trip required.
-            exec {
-                commandLine "codesign", "--force", "--deep", "--sign", "-",
-                        appBundleDir.get().asFile.absolutePath
-            }
         }
+    }
+
+    // jpackage seals the bundle with an ad-hoc signature; rewriting
+    // Info.plist and dropping MacDirLauncher into Contents/MacOS above
+    // invalidates that seal, so `spctl -a` rejects the result as
+    // "directory or signature have been modified". Re-sign ad-hoc so
+    // the bundle is internally consistent. Users still see Gatekeeper
+    // on first launch (no Developer ID), but a single
+    // `xattr -dr com.apple.quarantine PcGen.app` is then enough —
+    // no `codesign --force --deep` round-trip required.
+    tasks.register("codesignMacJpackage", Exec) {
+        dependsOn tasks.named("patchMacJpackage")
+        def appBundleDir = layout.buildDirectory.dir("jpackage/PcGen.app")
+        commandLine "codesign", "--force", "--deep", "--sign", "-",
+                appBundleDir.get().asFile.absolutePath
     }
 
     // jpackage packages the image at build/jpackage/PcGen.app — make sure the
     // data folders and the patched plist+launcher are in place before it runs.
-    tasks.named("jpackage") { dependsOn tasks.named("patchMacJpackage") }
+    tasks.named("jpackage") { dependsOn tasks.named("codesignMacJpackage") }
 
     tasks.register("fullJpackage") {
         dependsOn tasks.named("jpackage")
