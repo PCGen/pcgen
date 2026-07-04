@@ -19,6 +19,7 @@ package plugin.lsttokens;
 
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.net.URISyntaxException;
 
@@ -136,6 +137,7 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidTypeEmpty()
 	{
 		assertFalse(parse("Familiar|TYPE="), "Empty TYPE= payload should fail to parse");
+		assertNull(getWriteToken().unparse(primaryContext, primaryProf));
 		assertNoSideEffects();
 	}
 
@@ -143,6 +145,7 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidTypeTrailingDot()
 	{
 		assertFalse(parse("Familiar|TYPE=Foo."), "Trailing dot in TYPE= should fail to parse");
+		assertNull(getWriteToken().unparse(primaryContext, primaryProf));
 		assertNoSideEffects();
 	}
 
@@ -150,6 +153,7 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidTypeLeadingDot()
 	{
 		assertFalse(parse("Familiar|TYPE=.Foo"), "Leading dot in TYPE= should fail to parse");
+		assertNull(getWriteToken().unparse(primaryContext, primaryProf));
 		assertNoSideEffects();
 	}
 
@@ -157,6 +161,7 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidTypeDoubleDot()
 	{
 		assertFalse(parse("Familiar|TYPE=Foo..Bar"), "Empty inner segment in TYPE= should fail to parse");
+		assertNull(getWriteToken().unparse(primaryContext, primaryProf));
 		assertNoSideEffects();
 	}
 
