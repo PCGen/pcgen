@@ -44,6 +44,8 @@ import plugin.pretokens.writer.PreRaceWriter;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 {
@@ -91,140 +93,48 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 		return token;
 	}
 
-	@Test
-	public void testInvalidEmpty()
+	@ParameterizedTest(name = "{0}")
+	@CsvSource(delimiter = '|', quoteCharacter = '"', value = {
+			"testInvalidEmpty                    | ''",
+			"testInvalidListNameOnly             | Familiar",
+			"testInvalidListNameBarOnly          | Familiar|",
+			"testInvalidEmptyListName            | |Lion",
+			"testInvalidTypeRaceBarOnly          | Familiar|Lion|",
+			"testInvalidTypeRaceTypeEmpty        | Familiar|RACETYPE=",
+			"testInvalidNonSensicalAnyType       | Familiar|ANY,TYPE=Foo",
+			"testInvalidRaceCommaStarting        | Familiar|,Lion",
+			"testInvalidRaceCommaEnding          | Familiar|Lion,",
+			"testInvalidRaceDoubleComma          | Familiar|Lion,,Tiger",
+			"testInvalidRacePipe                 | Familiar|Lion|Tiger",
+			"testInvalidSpellEmbeddedPre         | Familiar|Lion|PRERACE:1,Human|Tiger",
+			"testInvalidNonSensicalAnyLast       | Familiar|Tiger,Any",
+			"testInvalidNonSensicalAnyFirst      | Familiar|Any,Lion",
+			"testInvalidEmbeddedFA               | Familiar|FOLLOWERADJUSTMENT:-4|Lion",
+			"testInvalidMultipleFOLLOWERADJUSTMENT| Familiar|Lion|FOLLOWERADJUSTMENT:-2|FOLLOWERADJUSTMENT:-3",
+			"testInvalidOnlyFOLLOWERADJUSTMENTBar | Familiar|FOLLOWERADJUSTMENT:-3|",
+			"testInvalidEmptyTimes                | Familiar||Lion",
+			"testInvalidBadFA                     | Familiar|Lion|FOLLOWERADJUSTMENT:",
+			"testInvalidFANaN                     | Familiar|Lion|FOLLOWERADJUSTMENT:-T",
+			"testInvalidFADecimal                 | Familiar|Lion|FOLLOWERADJUSTMENT:-4.5",
+	})
+	public void testInvalidParse(String label, String value)
 	{
-		assertFalse(parse(""));
+		assertFalse(parse(value), label + ": expected parse to fail for input <" + value + ">");
+		assertNull(getWriteToken().unparse(primaryContext, primaryProf), label + ": no partial state should have been committed");
 		assertNoSideEffects();
 	}
 
-	@Test
-	public void testInvalidListNameOnly()
+	@ParameterizedTest(name = "{1}: {0}")
+	@CsvSource({
+			"'Familiar|TYPE=',         Empty TYPE= payload should fail to parse",
+			"'Familiar|TYPE=Foo.',     Trailing dot in TYPE= should fail to parse",
+			"'Familiar|TYPE=.Foo',     Leading dot in TYPE= should fail to parse",
+			"'Familiar|TYPE=Foo..Bar', Empty inner segment in TYPE= should fail to parse",
+	})
+	public void testInvalidTypeClause(String value, String reason)
 	{
-		assertFalse(parse("Familiar"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidListNameBarOnly()
-	{
-		assertFalse(parse("Familiar|"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidEmptyListName()
-	{
-		assertFalse(parse("|Lion"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidTypeRaceBarOnly()
-	{
-		assertFalse(parse("Familiar|Lion|"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidTypeRaceTypeEmpty()
-	{
-		assertFalse(parse("Familiar|RACETYPE="));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidTypeEmpty()
-	{
-		assertFalse(parse("Familiar|TYPE="), "Empty TYPE= payload should fail to parse");
+		assertFalse(parse(value), reason);
 		assertNull(getWriteToken().unparse(primaryContext, primaryProf));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidTypeTrailingDot()
-	{
-		assertFalse(parse("Familiar|TYPE=Foo."), "Trailing dot in TYPE= should fail to parse");
-		assertNull(getWriteToken().unparse(primaryContext, primaryProf));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidTypeLeadingDot()
-	{
-		assertFalse(parse("Familiar|TYPE=.Foo"), "Leading dot in TYPE= should fail to parse");
-		assertNull(getWriteToken().unparse(primaryContext, primaryProf));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidTypeDoubleDot()
-	{
-		assertFalse(parse("Familiar|TYPE=Foo..Bar"), "Empty inner segment in TYPE= should fail to parse");
-		assertNull(getWriteToken().unparse(primaryContext, primaryProf));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidNonSensicalAnyType()
-	{
-		assertFalse(parse("Familiar|ANY,TYPE=Foo"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidRaceCommaStarting()
-	{
-		assertFalse(parse("Familiar|,Lion"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidRaceCommaEnding()
-	{
-		assertFalse(parse("Familiar|Lion,"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidRaceDoubleComma()
-	{
-		assertFalse(parse("Familiar|Lion,,Tiger"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidRacePipe()
-	{
-		assertFalse(parse("Familiar|Lion|Tiger"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidSpellEmbeddedPre()
-	{
-		assertFalse(parse("Familiar|Lion|PRERACE:1,Human|Tiger"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidNonSensicalAnyLast()
-	{
-		assertFalse(parse("Familiar|Tiger,Any"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidNonSensicalAnyFirst()
-	{
-		assertFalse(parse("Familiar|Any,Lion"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidEmbeddedFA()
-	{
-		assertFalse(parse("Familiar|FOLLOWERADJUSTMENT:-4|Lion"));
 		assertNoSideEffects();
 	}
 
@@ -240,48 +150,6 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 		{
 			assertNoSideEffects();
 		}
-	}
-
-	@Test
-	public void testInvalidMultipleFOLLOWERADJUSTMENT()
-	{
-		assertFalse(parse("Familiar|Lion|FOLLOWERADJUSTMENT:-2|FOLLOWERADJUSTMENT:-3"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidOnlyFOLLOWERADJUSTMENTBar()
-	{
-		assertFalse(parse("Familiar|FOLLOWERADJUSTMENT:-3|"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidEmptyTimes()
-	{
-		assertFalse(parse("Familiar||Lion"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidBadFA()
-	{
-		assertFalse(parse("Familiar|Lion|FOLLOWERADJUSTMENT:"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidFANaN()
-	{
-		assertFalse(parse("Familiar|Lion|FOLLOWERADJUSTMENT:-T"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	public void testInvalidFADecimal()
-	{
-		assertFalse(parse("Familiar|Lion|FOLLOWERADJUSTMENT:-4.5"));
-		assertNoSideEffects();
 	}
 
 	@Test
