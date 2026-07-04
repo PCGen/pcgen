@@ -65,6 +65,10 @@ import pcgen.rules.persistence.token.ParseResult;
  * <b>Variables Used (y)</b>: {@code RACETYPE}=<i>Text</i> (all races
  * with the specified {@code RACETYPE} are available as this type of
  * companion). <br>
+ * <b>Variables Used (y)</b>: {@code TYPE}=<i>Text</i>{@code [.<Text>]}
+ * (all races carrying the specified {@code TYPE(s)} on their
+ * {@code TYPE:} tag are available as this type of companion; dotted
+ * segments are ANDed).<br>
  * <b>Variables Used (y)</b>: {@code ANY} (Any race can be a companion
  * of this type).<br>
  * <b>Variables Used (z)</b>: {@code FOLLOWERADJUSTMENT}=<i>Number</i>
@@ -88,6 +92,11 @@ import pcgen.rules.persistence.token.ParseResult;
  * <p>
  * {@code COMPANIONLIST:Pet|RACETYPE=Animal}<br>
  * Would build a list of all animals to available as a Pet.
+ * <p>
+ * {@code COMPANIONLIST:Pet|TYPE=Animal.Magical}<br>
+ * Would build a list of all races carrying both the {@code Animal} and
+ * {@code Magical} types on their {@code TYPE:} tag and make them
+ * available as a Pet.
  * <p>
  * {@code COMPANIONLIST:Familiar|Quasit|PREFEAT:1,Special Familiar|
  * PREALIGN:CE}<br>
@@ -167,6 +176,24 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject> imp
 				races.add(new ListMatchingReference<>(tokString,
 					context.getReferenceContext().getCDOMAllReference(Race.class), ListKey.RACESUBTYPE,
 					RaceSubType.getConstant(raceSubType)));
+			}
+			else if (tokString.startsWith("TYPE="))
+			{
+				String typeString = tokString.substring(5);
+				if (typeString.isEmpty())
+				{
+					return new ParseResult.Fail(getTokenName() + " Error: TYPE was not specified.");
+				}
+				String[] types = typeString.split("\\.", -1);
+				for (String t : types)
+				{
+					if (t.isEmpty())
+					{
+						return new ParseResult.Fail(
+							getTokenName() + " Error: Empty Type segment in " + tokString);
+					}
+				}
+				races.add(context.getReferenceContext().getCDOMTypeReference(Race.class, types));
 			}
 			else if (looksLikeAPrerequisite(tokString))
 			{

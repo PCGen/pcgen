@@ -24,6 +24,8 @@ import java.net.URISyntaxException;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Loadable;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.list.CompanionList;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
@@ -127,6 +129,41 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidTypeRaceTypeEmpty()
 	{
 		assertFalse(parse("Familiar|RACETYPE="));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidTypeEmpty()
+	{
+		assertFalse(parse("Familiar|TYPE="));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidTypeTrailingDot()
+	{
+		assertFalse(parse("Familiar|TYPE=Foo."));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidTypeLeadingDot()
+	{
+		assertFalse(parse("Familiar|TYPE=.Foo"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidTypeDoubleDot()
+	{
+		assertFalse(parse("Familiar|TYPE=Foo..Bar"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testInvalidNonSensicalAnyType()
+	{
+		assertFalse(parse("Familiar|ANY,TYPE=Foo"));
 		assertNoSideEffects();
 	}
 
@@ -303,6 +340,57 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 		construct(Race.class, "Lion");
 		construct(Race.class, "Tiger");
 		runRoundRobin("Familiar|Lion,RACETYPE=Clawed");
+	}
+
+	@Test
+	public void testRoundRobinType() throws PersistenceLayerException
+	{
+		construct(CompanionList.class, "Familiar");
+		Race primary = primaryContext.getReferenceContext().constructCDOMObject(Race.class, "Lion");
+		primary.addToListFor(ListKey.TYPE, Type.getConstant("Animal"));
+		Race secondary = secondaryContext.getReferenceContext().constructCDOMObject(Race.class, "Lion");
+		secondary.addToListFor(ListKey.TYPE, Type.getConstant("Animal"));
+		runRoundRobin("Familiar|TYPE=Animal");
+	}
+
+	@Test
+	public void testRoundRobinTypeCompound() throws PersistenceLayerException
+	{
+		construct(CompanionList.class, "Familiar");
+		Race primary = primaryContext.getReferenceContext().constructCDOMObject(Race.class, "Lion");
+		primary.addToListFor(ListKey.TYPE, Type.getConstant("Animal"));
+		primary.addToListFor(ListKey.TYPE, Type.getConstant("Magical"));
+		Race secondary = secondaryContext.getReferenceContext().constructCDOMObject(Race.class, "Lion");
+		secondary.addToListFor(ListKey.TYPE, Type.getConstant("Animal"));
+		secondary.addToListFor(ListKey.TYPE, Type.getConstant("Magical"));
+		runRoundRobin("Familiar|TYPE=Animal.Magical");
+	}
+
+	@Test
+	public void testRoundRobinMultipleType() throws PersistenceLayerException
+	{
+		construct(CompanionList.class, "Familiar");
+		Race primaryLion = primaryContext.getReferenceContext().constructCDOMObject(Race.class, "Lion");
+		primaryLion.addToListFor(ListKey.TYPE, Type.getConstant("Animal"));
+		Race primarySpider = primaryContext.getReferenceContext().constructCDOMObject(Race.class, "Spider");
+		primarySpider.addToListFor(ListKey.TYPE, Type.getConstant("Vermin"));
+		Race secondaryLion = secondaryContext.getReferenceContext().constructCDOMObject(Race.class, "Lion");
+		secondaryLion.addToListFor(ListKey.TYPE, Type.getConstant("Animal"));
+		Race secondarySpider = secondaryContext.getReferenceContext().constructCDOMObject(Race.class, "Spider");
+		secondarySpider.addToListFor(ListKey.TYPE, Type.getConstant("Vermin"));
+		runRoundRobin("Familiar|TYPE=Animal,TYPE=Vermin");
+	}
+
+	@Test
+	public void testRoundRobinMixedClauses() throws PersistenceLayerException
+	{
+		construct(CompanionList.class, "Familiar");
+		construct(Race.class, "Cat");
+		Race primary = primaryContext.getReferenceContext().constructCDOMObject(Race.class, "MyCompanionRace");
+		primary.addToListFor(ListKey.TYPE, Type.getConstant("MyCompanion"));
+		Race secondary = secondaryContext.getReferenceContext().constructCDOMObject(Race.class, "MyCompanionRace");
+		secondary.addToListFor(ListKey.TYPE, Type.getConstant("MyCompanion"));
+		runRoundRobin("Familiar|Cat,TYPE=MyCompanion,RACESUBTYPE=Fire,RACETYPE=Animal|FOLLOWERADJUSTMENT:-3");
 	}
 
 	@Test

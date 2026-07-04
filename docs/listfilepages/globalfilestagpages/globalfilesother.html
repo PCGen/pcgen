@@ -1267,6 +1267,13 @@ New 5.11.0
    <strong>
     Variables used (y):
    </strong>
+   TYPE=Text[.Text...] (Companion Race Type, matches races whose TYPE:
+tag carries all listed types; new in 6.09.08)
+  </p>
+  <p class="indent1">
+   <strong>
+    Variables used (y):
+   </strong>
    ANY
   </p>
   <p class="indent1">
@@ -1324,6 +1331,14 @@ available to be a Pet.
   <p class="indent3">
    Would build a list of all creatures with a race
 subtype of 'Fire' and make them available to be a Pet.
+  </p>
+  <p class="indent2">
+   <code>COMPANIONLIST:Pet|TYPE=Animal.Magical</code>
+  </p>
+  <p class="indent3">
+   Would build a list of all races carrying both the
+'Animal' and 'Magical' types on their TYPE: tag and make them
+available to be a Pet.
   </p>
   <p class="indent2">
    <code>COMPANIONLIST:Familiar|Quasit|PREFEAT:1,Special
