@@ -48,7 +48,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-public class CompanionListLstTest extends AbstractGlobalTokenTestCase
+class CompanionListLstTest extends AbstractGlobalTokenTestCase
 {
 
 	static CDOMPrimaryToken<CDOMObject> token = new CompanionListLst();
@@ -140,7 +140,7 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidOnlyFOLLOWERADJUSTMENT()
+	void testInvalidOnlyFOLLOWERADJUSTMENT()
 	{
 		boolean parse = parse("Familiar|FOLLOWERADJUSTMENT:-3");
 		if (parse)
@@ -154,7 +154,7 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidOnlyPre()
+	void testInvalidOnlyPre()
 	{
 		try
 		{
@@ -168,52 +168,37 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 				assertNoSideEffects();
 			}
 		}
-		catch (IllegalArgumentException iae)
+		catch (IllegalArgumentException _)
 		{
 			assertNoSideEffects();
 			// This is ok too
 		}
 	}
 
-	@Test
-	public void testRoundRobinJustRace() throws PersistenceLayerException
+	// Tab-delimited so the pipe-heavy LST inputs need no CSV escaping.
+	@ParameterizedTest(name = "{0}")
+	@CsvSource(delimiter = '\t', value = {
+			"testRoundRobinJustRace         \tLion       \tFamiliar|Lion",
+			"testRoundRobinTwoRace          \tLion,Tiger \tFamiliar|Lion,Tiger",
+			"testRoundRobinAnyRace          \tLion,Tiger \tFamiliar|ANY",
+			"testRoundRobinTwoWithRacetype  \tLion,Tiger \tFamiliar|Lion,RACETYPE=Clawed",
+			"testRoundRobinFA               \tLion       \tFamiliar|Lion|FOLLOWERADJUSTMENT:-4",
+	})
+	void testRoundRobinSimple(String label, String racesCsv, String input) throws PersistenceLayerException
 	{
-		construct(Race.class, "Lion");
 		construct(CompanionList.class, "Familiar");
-		runRoundRobin("Familiar|Lion");
+		for (String r : racesCsv.split(","))
+		{
+			construct(Race.class, r.trim());
+		}
+		runRoundRobin(input);
+		assertNotNull(getWriteToken().unparse(primaryContext, primaryProf), label);
 	}
 
 	private <T extends Loadable> void construct(Class<T> cl, String name)
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(cl, name);
 		secondaryContext.getReferenceContext().constructCDOMObject(cl, name);
-	}
-
-	@Test
-	public void testRoundRobinTwoRace() throws PersistenceLayerException
-	{
-		construct(CompanionList.class, "Familiar");
-		construct(Race.class, "Lion");
-		construct(Race.class, "Tiger");
-		runRoundRobin("Familiar|Lion,Tiger");
-	}
-
-	@Test
-	public void testRoundRobinAnyRace() throws PersistenceLayerException
-	{
-		construct(CompanionList.class, "Familiar");
-		construct(Race.class, "Lion");
-		construct(Race.class, "Tiger");
-		runRoundRobin("Familiar|ANY");
-	}
-
-	@Test
-	public void testRoundRobinTwoWithRacetype() throws PersistenceLayerException
-	{
-		construct(CompanionList.class, "Familiar");
-		construct(Race.class, "Lion");
-		construct(Race.class, "Tiger");
-		runRoundRobin("Familiar|Lion,RACETYPE=Clawed");
 	}
 
 	@Test
@@ -272,15 +257,7 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testRoundRobinFA() throws PersistenceLayerException
-	{
-		construct(CompanionList.class, "Familiar");
-		construct(Race.class, "Lion");
-		runRoundRobin("Familiar|Lion|FOLLOWERADJUSTMENT:-4");
-	}
-
-	@Test
-	public void testRoundRobinThreeFA() throws PersistenceLayerException
+	void testRoundRobinThreeFA() throws PersistenceLayerException
 	{
 		construct(CompanionList.class, "Familiar");
 		construct(Race.class, "Bear");
@@ -289,10 +266,11 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 		runRoundRobin("Familiar|Bear|FOLLOWERADJUSTMENT:-6",
 				"Familiar|Lion|FOLLOWERADJUSTMENT:-4",
 				"Familiar|Tiger|FOLLOWERADJUSTMENT:-5");
+		assertNotNull(getWriteToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testRoundRobinTwoType() throws PersistenceLayerException
+	void testRoundRobinTwoType() throws PersistenceLayerException
 	{
 		construct(CompanionList.class, "Familiar");
 		construct(CompanionList.class, "Companion");
@@ -300,49 +278,54 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 		construct(Race.class, "Tiger");
 		runRoundRobin("Companion|Lion|FOLLOWERADJUSTMENT:-5",
 				"Familiar|Tiger|FOLLOWERADJUSTMENT:-5");
+		assertNotNull(getWriteToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testRoundRobinComplex() throws PersistenceLayerException
+	void testRoundRobinComplex() throws PersistenceLayerException
 	{
 		construct(CompanionList.class, "Familiar");
 		construct(Race.class, "Lion");
 		construct(Race.class, "Tiger");
 		runRoundRobin("Familiar|Lion,Tiger|FOLLOWERADJUSTMENT:-3|!PRECLASS:1,Cleric=1|PRERACE:1,Human");
+		assertNotNull(getWriteToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testRoundRobinTwoPRE() throws PersistenceLayerException
+	void testRoundRobinTwoPRE() throws PersistenceLayerException
 	{
 		construct(CompanionList.class, "Familiar");
 		construct(Race.class, "Lion");
 		construct(Race.class, "Tiger");
 		runRoundRobin("Familiar|Lion|FOLLOWERADJUSTMENT:-5",
 				"Familiar|Tiger|FOLLOWERADJUSTMENT:-5|PRERACE:1,Human");
+		assertNotNull(getWriteToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testRoundRobinDupePre() throws PersistenceLayerException
+	void testRoundRobinDupePre() throws PersistenceLayerException
 	{
 		construct(CompanionList.class, "Familiar");
 		construct(Race.class, "Tiger");
 		runRoundRobin(
 				"Familiar|Tiger|FOLLOWERADJUSTMENT:-5|PRECLASS:1,Cleric=1",
 				"Familiar|Tiger|FOLLOWERADJUSTMENT:-5|PRERACE:1,Human");
+		assertNotNull(getWriteToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testRoundRobinDupePreDiffFA() throws PersistenceLayerException
+	void testRoundRobinDupePreDiffFA() throws PersistenceLayerException
 	{
 		construct(CompanionList.class, "Familiar");
 		construct(Race.class, "Tiger");
 		runRoundRobin(
 				"Familiar|Tiger|FOLLOWERADJUSTMENT:-3|PRECLASS:1,Cleric=1",
 				"Familiar|Tiger|FOLLOWERADJUSTMENT:-5|PRERACE:1,Human");
+		assertNotNull(getWriteToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testRoundRobinReal() throws PersistenceLayerException
+	void testRoundRobinReal() throws PersistenceLayerException
 	{
 		construct(CompanionList.class, "Psicrystal");
 		construct(Race.class, "Psicrystal (Single Minded)");
@@ -365,6 +348,7 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 			+ "Psicrystal (Hero),Psicrystal (Liar),Psicrystal (Meticulous),Psicrystal (Nimble),Psicrystal (Observant),"
 			+ "Psicrystal (Poised),Psicrystal (Resolved),Psicrystal (Sage),Psicrystal (Single Minded),"
 			+ "Psicrystal (Sneaky),Psicrystal (Sympathetic)");
+		assertNotNull(getWriteToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Override
@@ -384,17 +368,4 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	{
 		return ConsolidationRule.SEPARATE;
 	}
-
-//	private void buildCompanionMod(String type)
-//	{
-//		String mod = "isAMod";
-//		ReferenceContext ref1 = primaryContext.ref;
-//		ReferenceContext ref2 = secondaryContext.ref;
-//		CompanionList cl1 = ref1.silentlyGetConstructedCDOMObject(CompanionList.class, type);
-//		CompanionList cl2 = ref2.silentlyGetConstructedCDOMObject(CompanionList.class, type);
-//		CompanionMod cm1 = ref1.constructCDOMObject(CompanionMod.class, mod);
-//		CompanionMod cm2 = ref2.constructCDOMObject(CompanionMod.class, mod);
-//		ref1.reassociateCategory(cl1, cm1);
-//		ref1.reassociateCategory(cl2, cm2);
-//	}
 }
