@@ -19,6 +19,7 @@ package plugin.lsttokens;
 
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.net.URISyntaxException;
@@ -117,7 +118,7 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 			"testInvalidFANaN                     | Familiar|Lion|FOLLOWERADJUSTMENT:-T",
 			"testInvalidFADecimal                 | Familiar|Lion|FOLLOWERADJUSTMENT:-4.5",
 	})
-	public void testInvalidParse(String label, String value)
+	void testInvalidParse(String label, String value)
 	{
 		assertFalse(parse(value), label + ": expected parse to fail for input <" + value + ">");
 		assertNull(getWriteToken().unparse(primaryContext, primaryProf), label + ": no partial state should have been committed");
@@ -131,7 +132,7 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 			"'Familiar|TYPE=.Foo',     Leading dot in TYPE= should fail to parse",
 			"'Familiar|TYPE=Foo..Bar', Empty inner segment in TYPE= should fail to parse",
 	})
-	public void testInvalidTypeClause(String value, String reason)
+	void testInvalidTypeClause(String value, String reason)
 	{
 		assertFalse(parse(value), reason);
 		assertNull(getWriteToken().unparse(primaryContext, primaryProf));
@@ -216,7 +217,7 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testRoundRobinType() throws PersistenceLayerException
+	void testRoundRobinType() throws PersistenceLayerException
 	{
 		construct(CompanionList.class, "Familiar");
 		Race primary = primaryContext.getReferenceContext().constructCDOMObject(Race.class, "Lion");
@@ -224,10 +225,11 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 		Race secondary = secondaryContext.getReferenceContext().constructCDOMObject(Race.class, "Lion");
 		secondary.addToListFor(ListKey.TYPE, Type.getConstant("Animal"));
 		runRoundRobin("Familiar|TYPE=Animal");
+		assertNotNull(getWriteToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testRoundRobinTypeCompound() throws PersistenceLayerException
+	void testRoundRobinTypeCompound() throws PersistenceLayerException
 	{
 		construct(CompanionList.class, "Familiar");
 		Race primary = primaryContext.getReferenceContext().constructCDOMObject(Race.class, "Lion");
@@ -237,10 +239,11 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 		secondary.addToListFor(ListKey.TYPE, Type.getConstant("Animal"));
 		secondary.addToListFor(ListKey.TYPE, Type.getConstant("Magical"));
 		runRoundRobin("Familiar|TYPE=Animal.Magical");
+		assertNotNull(getWriteToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testRoundRobinMultipleType() throws PersistenceLayerException
+	void testRoundRobinMultipleType() throws PersistenceLayerException
 	{
 		construct(CompanionList.class, "Familiar");
 		Race primaryLion = primaryContext.getReferenceContext().constructCDOMObject(Race.class, "Lion");
@@ -252,10 +255,11 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 		Race secondarySpider = secondaryContext.getReferenceContext().constructCDOMObject(Race.class, "Spider");
 		secondarySpider.addToListFor(ListKey.TYPE, Type.getConstant("Vermin"));
 		runRoundRobin("Familiar|TYPE=Animal,TYPE=Vermin");
+		assertNotNull(getWriteToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testRoundRobinMixedClauses() throws PersistenceLayerException
+	void testRoundRobinMixedClauses() throws PersistenceLayerException
 	{
 		construct(CompanionList.class, "Familiar");
 		construct(Race.class, "Cat");
@@ -264,6 +268,7 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 		Race secondary = secondaryContext.getReferenceContext().constructCDOMObject(Race.class, "MyCompanionRace");
 		secondary.addToListFor(ListKey.TYPE, Type.getConstant("MyCompanion"));
 		runRoundRobin("Familiar|Cat,TYPE=MyCompanion,RACESUBTYPE=Fire,RACETYPE=Animal|FOLLOWERADJUSTMENT:-3");
+		assertNotNull(getWriteToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
