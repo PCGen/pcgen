@@ -135,28 +135,28 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testInvalidTypeEmpty()
 	{
-		assertFalse(parse("Familiar|TYPE="));
+		assertFalse(parse("Familiar|TYPE="), "Empty TYPE= payload should fail to parse");
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidTypeTrailingDot()
 	{
-		assertFalse(parse("Familiar|TYPE=Foo."));
+		assertFalse(parse("Familiar|TYPE=Foo."), "Trailing dot in TYPE= should fail to parse");
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidTypeLeadingDot()
 	{
-		assertFalse(parse("Familiar|TYPE=.Foo"));
+		assertFalse(parse("Familiar|TYPE=.Foo"), "Leading dot in TYPE= should fail to parse");
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidTypeDoubleDot()
 	{
-		assertFalse(parse("Familiar|TYPE=Foo..Bar"));
+		assertFalse(parse("Familiar|TYPE=Foo..Bar"), "Empty inner segment in TYPE= should fail to parse");
 		assertNoSideEffects();
 	}
 
