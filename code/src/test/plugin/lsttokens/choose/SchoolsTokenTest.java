@@ -38,6 +38,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 public class SchoolsTokenTest extends AbstractChooseTokenTestCase
@@ -177,15 +178,17 @@ public class SchoolsTokenTest extends AbstractChooseTokenTestCase
 	}
 
 	@Override
+	@Test
+	@Disabled("Must ignore due to 5.16 syntax")
 	public void testInvalidInputOnlySubToken()
 	{
-		// Must ignore due to 5.16 syntax
 	}
 
 	@Override
+	@Test
+	@Disabled("Must ignore due to 5.16 syntax")
 	public void testInvalidInputOnlySubTokenPipe()
 	{
-		// Must ignore due to 5.16 syntax
 	}
 
 	@Override
@@ -195,33 +198,38 @@ public class SchoolsTokenTest extends AbstractChooseTokenTestCase
 	}
 
 	@Override
+	@Test
+	@Disabled("SpellSchool doesn't have a RM")
 	public void testUnparseIllegalAllItem()
 	{
-		//Ignore since SpellSchool doesn't have a RM
 	}
 
 	@Override
+	@Test
+	@Disabled("SpellSchool doesn't have a RM")
 	public void testUnparseIllegalAllType()
 	{
-		//Ignore since SpellSchool doesn't have a RM
 	}
 
 	@Override
+	@Test
+	@Disabled("SpellSchool doesn't have a RM")
 	public void testUnparseIllegalItemAll()
 	{
-		//Ignore since SpellSchool doesn't have a RM
 	}
 
 	@Override
+	@Test
+	@Disabled("SpellSchool doesn't have a RM")
 	public void testUnparseIllegalTypeAll()
 	{
-		//Ignore since SpellSchool doesn't have a RM
 	}
 
 	@Override
+	@Test
+	@Disabled("SpellSchool doesn't have a RM")
 	public void testUnparseLegal()
 	{
-		//Ignore since SpellSchool doesn't have a RM
 	}
 
 	@Override

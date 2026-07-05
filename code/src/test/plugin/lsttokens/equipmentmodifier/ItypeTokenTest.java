@@ -29,6 +29,7 @@ import plugin.lsttokens.testsupport.AbstractTypeSafeListTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 public class ItypeTokenTest extends
@@ -92,13 +93,16 @@ public class ItypeTokenTest extends
 		return true;
 	}
 
-	//TODO 514 behavior, to be changed after 5.16?
 	@Override
+	@Test
+	@Disabled("514 behavior, to be changed after 5.16?")
 	public void testReplacementInputs()
 	{
 	}
 
 	@Override
+	@Test
+	@Disabled("514 behavior, to be changed after 5.16?")
 	public void testReplacementInputsTwo()
 	{
 	}
