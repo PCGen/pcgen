@@ -79,6 +79,36 @@ java {
     }
 }
 
+// Replace Gradle's opaque toolchain error with an actionable message.
+gradle.taskGraph.whenReady { graph ->
+    def needsCompile = graph.allTasks.any { it instanceof JavaCompile }
+    if (!needsCompile) return
+
+    try {
+        javaToolchains.launcherFor(java.toolchain).get()
+    } catch (Exception e) {
+        throw new GradleException("""
+
+            PCGen requires JDK ${javaVersion} to build, but Gradle could not
+            find one on this machine.
+
+            Currently running: Java ${System.getProperty('java.version')}
+                               at ${System.getProperty('java.home')}
+
+            Install JDK ${javaVersion} (or newer) and either:
+              - Set JAVA_HOME to it, or
+              - Run: ./gradlew -Porg.gradle.java.installations.paths=<path-to-jdk-${javaVersion}> <task>
+
+            Verify Gradle can see it:  ./gradlew -q javaToolchains
+
+            Downloads:
+              - Adoptium Temurin: https://adoptium.net/temurin/releases/?version=${javaVersion}
+              - Azul Zulu:        https://www.azul.com/downloads/?version=java-${javaVersion}-lts
+              - SapMachine:       https://sapmachine.io/
+            """.stripIndent(), e)
+    }
+}
+
 application {
     mainClass.set('pcgen.system.Main')
 }
