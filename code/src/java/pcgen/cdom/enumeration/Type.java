@@ -172,13 +172,7 @@ public final class Type implements TypeSafeConstant, Comparable<Type>
 	 */
 	public static Type getConstant(String name)
 	{
-		Type type = TYPE_MAP.get(name);
-		if (type == null)
-		{
-			type = new Type(name);
-			TYPE_MAP.put(name, type);
-		}
-		return type;
+		return TYPE_MAP.computeIfAbsent(name, k -> new Type(name));
 	}
 
 	/**

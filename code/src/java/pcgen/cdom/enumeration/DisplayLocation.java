@@ -101,13 +101,7 @@ public final class DisplayLocation implements TypeSafeConstant, Comparable<Displ
 	 */
 	public static DisplayLocation getConstant(String name)
 	{
-		DisplayLocation type = typeMap.get(name);
-		if (type == null)
-		{
-			type = new DisplayLocation(name);
-			typeMap.put(name, type);
-		}
-		return type;
+		return typeMap.computeIfAbsent(name, k -> new DisplayLocation(name));
 	}
 
 	/**
