@@ -171,8 +171,10 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable> implemen
 	 * @throws IllegalArgumentException
 	 *             if the given Class is null or the given Class does not have a
 	 *             public, zero argument constructor
-	 * 
+	 *
 	 */
+	@SuppressFBWarnings(value = "CT_CONSTRUCTOR_THROW",
+		justification = "Abstract class; ManufacturableFactory is required and Objects.requireNonNull is the lightest defense against an unusable instance")
 	public AbstractReferenceManufacturer(ManufacturableFactory<T> fac)
 	{
 		if (fac == null)
