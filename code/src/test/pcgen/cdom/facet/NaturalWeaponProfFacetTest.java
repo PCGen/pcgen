@@ -30,7 +30,7 @@ import pcgen.core.WeaponProf;
 
 import org.junit.jupiter.api.BeforeEach;
 
-public class NaturalWeaponProfFacetTest extends
+class NaturalWeaponProfFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, WeaponProf>
 {
 

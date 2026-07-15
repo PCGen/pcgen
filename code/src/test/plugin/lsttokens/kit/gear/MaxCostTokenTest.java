@@ -27,7 +27,7 @@ import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
 import org.junit.jupiter.api.Test;
 
-public class MaxCostTokenTest extends AbstractKitTokenTestCase<KitGear>
+class MaxCostTokenTest extends AbstractKitTokenTestCase<KitGear>
 {
 
 	static MaxCostToken token = new MaxCostToken();
@@ -53,31 +53,31 @@ public class MaxCostTokenTest extends AbstractKitTokenTestCase<KitGear>
 	}
 
 	@Test
-	public void testRoundRobinNumber() throws PersistenceLayerException
+	void testRoundRobinNumber() throws PersistenceLayerException
 	{
 		runRoundRobin("3");
 	}
 
 	@Test
-	public void testInvalidInputFormula()
+	void testInvalidInputFormula()
 	{
 		assertFalse(parse("FormulaProhibited"));
 	}
 
 	@Test
-	public void testInvalidInputZero()
+	void testInvalidInputZero()
 	{
 		assertFalse(parse("0"));
 	}
 
 	@Test
-	public void testInvalidInputNegative()
+	void testInvalidInputNegative()
 	{
 		assertFalse(parse("-1"));
 	}
 
 	@Test
-	public void testInvalidInputDecimal()
+	void testInvalidInputDecimal()
 	{
 		assertFalse(parse("1.5"));
 	}

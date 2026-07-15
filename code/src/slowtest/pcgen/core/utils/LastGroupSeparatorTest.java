@@ -8,11 +8,11 @@ import pcgen.core.utils.LastGroupSeparator.GroupingMismatchException;
 
 import org.junit.jupiter.api.Test;
 
-public class LastGroupSeparatorTest
+class LastGroupSeparatorTest
 {
 
 	@Test
-	public void testNullConstructor()
+	void testNullConstructor()
 	{
 		try
 		{
@@ -26,7 +26,7 @@ public class LastGroupSeparatorTest
 	}
 	
 	@Test
-	public void testCantDoThatYet()
+	void testCantDoThatYet()
 	{
 		LastGroupSeparator cs = new LastGroupSeparator("Test");
 		try
@@ -41,7 +41,7 @@ public class LastGroupSeparatorTest
 	}
 
 	@Test
-	public void testSimple()
+	void testSimple()
 	{
 		LastGroupSeparator cs = new LastGroupSeparator("Test");
 		assertNull(cs.process());
@@ -49,7 +49,7 @@ public class LastGroupSeparatorTest
 	}
 
 	@Test
-	public void testParenMismatch()
+	void testParenMismatch()
 	{
 		LastGroupSeparator cs = new LastGroupSeparator("Test(Open");
 		try
@@ -65,7 +65,7 @@ public class LastGroupSeparatorTest
 	}
 
 	@Test
-	public void testSecondParenMismatch()
+	void testSecondParenMismatch()
 	{
 		LastGroupSeparator cs = new LastGroupSeparator("Foo(Test(Open)");
 		try
@@ -81,7 +81,7 @@ public class LastGroupSeparatorTest
 	}
 
 	@Test
-	public void testSecondMismatchParenClose()
+	void testSecondMismatchParenClose()
 	{
 		LastGroupSeparator cs = new LastGroupSeparator("Test)Open");
 		try
@@ -97,7 +97,7 @@ public class LastGroupSeparatorTest
 	}
 
 	@Test
-	public void testParenCloseBeforeOpen()
+	void testParenCloseBeforeOpen()
 	{
 		LastGroupSeparator cs = new LastGroupSeparator("Test)Open(");
 		try
@@ -113,7 +113,7 @@ public class LastGroupSeparatorTest
 	}
 
 	@Test
-	public void testNormalParen()
+	void testNormalParen()
 	{
 		LastGroupSeparator cs = new LastGroupSeparator(
 				"Foo(Bar),Test(Goo,Free)");
@@ -122,7 +122,7 @@ public class LastGroupSeparatorTest
 	}
 
 	@Test
-	public void testComplexMismatchParenOne()
+	void testComplexMismatchParenOne()
 	{
 		LastGroupSeparator cs = new LastGroupSeparator(
 				"Foo(BarWhee)),Test(Goo,Free)");
@@ -139,7 +139,7 @@ public class LastGroupSeparatorTest
 	}
 
 	@Test
-	public void testComplexMismatchParenTwo()
+	void testComplexMismatchParenTwo()
 	{
 		LastGroupSeparator cs = new LastGroupSeparator(
 				"Foo(Bar(Whee),Test(Goo,Free)");
@@ -156,7 +156,7 @@ public class LastGroupSeparatorTest
 	}
 
 	@Test
-	public void testComplexOne()
+	void testComplexOne()
 	{
 		LastGroupSeparator cs = new LastGroupSeparator(
 				"Foo(Bar(Wheel),Har),Test(Goo,Free)");
@@ -165,7 +165,7 @@ public class LastGroupSeparatorTest
 	}
 
 	@Test
-	public void testEmptyParenSimple()
+	void testEmptyParenSimple()
 	{
 		LastGroupSeparator cs = new LastGroupSeparator("Test()");
 		assertEquals("", cs.process());
@@ -173,7 +173,7 @@ public class LastGroupSeparatorTest
 	}
 
 	@Test
-	public void testEmptyParenComplex()
+	void testEmptyParenComplex()
 	{
 		LastGroupSeparator cs = new LastGroupSeparator(
 				"Foo(Bar(Wheel),Har),Test()");
@@ -182,7 +182,7 @@ public class LastGroupSeparatorTest
 	}
 
 	@Test
-	public void testComplexTwo()
+	void testComplexTwo()
 	{
 		LastGroupSeparator cs = new LastGroupSeparator(
 				"Test(Goo,Free) (Bar(Wheel,Deal))");
@@ -191,7 +191,7 @@ public class LastGroupSeparatorTest
 	}
 
 	@Test
-	public void testNotEndParen()
+	void testNotEndParen()
 	{
 		LastGroupSeparator cs = new LastGroupSeparator(
 				"Test(Goo,Free) (Bar(Wheel,Deal)) Greatness");

@@ -31,7 +31,7 @@ class NamedFormulaTest
 
 	@SuppressWarnings("unused")
 	@Test
-	public void testNullConstructor()
+	void testNullConstructor()
 	{
 		try
 		{
@@ -44,7 +44,7 @@ class NamedFormulaTest
 	}
 
 	@Test
-	public void testBasics()
+	void testBasics()
 	{
 		NamedFormula nf1 =
 				new NamedFormula("Foo", FormulaFactory.getFormulaFor("2"));
@@ -53,7 +53,7 @@ class NamedFormulaTest
 	}
 
 	@Test
-	public void testToString()
+	void testToString()
 	{
 		NamedFormula nf1 =
 				new NamedFormula("Foo", FormulaFactory.getFormulaFor("2"));

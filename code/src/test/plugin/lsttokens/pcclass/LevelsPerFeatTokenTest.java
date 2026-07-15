@@ -33,7 +33,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
 
-public class LevelsPerFeatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
+class LevelsPerFeatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 {
 	static LevelsperfeatToken token = new LevelsperfeatToken();
 	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
@@ -62,110 +62,110 @@ public class LevelsPerFeatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidEmpty()
+	void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidFormula()
+	void testInvalidFormula()
 	{
 		assertFalse(parse("1+3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNonLevelType()
+	void testInvalidNonLevelType()
 	{
 		assertFalse(parse("4|Foo=bar"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidMissingLevelType1()
+	void testInvalidMissingLevelType1()
 	{
 		assertFalse(parse("4|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidMissingLevelType()
+	void testInvalidMissingLevelType()
 	{
 		assertFalse(parse("4|Foo"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidMissingLevelType2()
+	void testInvalidMissingLevelType2()
 	{
 		assertFalse(parse("4|LEVELTYPE"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidMissingLevelType3()
+	void testInvalidMissingLevelType3()
 	{
 		assertFalse(parse("4|LEVELTYPE="));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidMissingFormula()
+	void testInvalidMissingFormula()
 	{
 		assertFalse(parse("|LEVELTYPE=Foo"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTooManyPipes()
+	void testInvalidTooManyPipes()
 	{
 		assertFalse(parse("4|LEVELTYPE=Foo|LEVELTYPE=Bar"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTooManyMiddlePipes()
+	void testInvalidTooManyMiddlePipes()
 	{
 		assertFalse(parse("4||LEVELTYPE=Foo"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidMissingLevelType4()
+	void testInvalidMissingLevelType4()
 	{
 		assertFalse(parse("4|=Foo"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidString()
+	void testInvalidString()
 	{
 		assertFalse(parse("String"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNegative()
+	void testInvalidNegative()
 	{
 		assertFalse(parse("-1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testRoundRobinInteger() throws PersistenceLayerException
+	void testRoundRobinInteger() throws PersistenceLayerException
 	{
 		runRoundRobin("4");
 	}
 
 	@Test
-	public void testRoundRobinZero() throws PersistenceLayerException
+	void testRoundRobinZero() throws PersistenceLayerException
 	{
 		runRoundRobin("0");
 	}
 
 	@Test
-	public void testRoundRobinWithLevelType() throws PersistenceLayerException
+	void testRoundRobinWithLevelType() throws PersistenceLayerException
 	{
 		runRoundRobin("3|LEVELTYPE=Foo");
 	}
@@ -189,19 +189,19 @@ public class LevelsPerFeatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseOne()
+	void testUnparseOne()
 	{
 		expectSingle(setAndUnparse(1), Integer.toString(1));
 	}
 
 	@Test
-	public void testUnparseZero()
+	void testUnparseZero()
 	{
 		expectSingle(setAndUnparse(0), Integer.toString(0));
 	}
 
 	@Test
-	public void testUnparseNegative()
+	void testUnparseNegative()
 	{
 		primaryProf.put(getIntegerKey(), -3);
 		assertBadUnparse();
@@ -213,7 +213,7 @@ public class LevelsPerFeatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseNull()
+	void testUnparseNull()
 	{
 		primaryProf.put(getIntegerKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
@@ -226,7 +226,7 @@ public class LevelsPerFeatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 	
 	@Test
-	public void testUnparseOneTyped()
+	void testUnparseOneTyped()
 	{
 		primaryProf.put(getIntegerKey(), 1);
 		primaryProf.put(StringKey.LEVEL_TYPE, "Foo");
@@ -234,7 +234,7 @@ public class LevelsPerFeatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseInvalidOnlyType()
+	void testUnparseInvalidOnlyType()
 	{
 		primaryProf.put(StringKey.LEVEL_TYPE, "Foo");
 		assertBadUnparse();

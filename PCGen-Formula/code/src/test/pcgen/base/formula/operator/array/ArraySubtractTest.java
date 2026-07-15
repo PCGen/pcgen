@@ -28,10 +28,10 @@ import org.junit.jupiter.api.Test;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.testsupport.TestUtilities;
 
-public class ArraySubtractTest
+class ArraySubtractTest
 {
 	@Test
-	public void testOperator()
+	void testOperator()
 	{
 		ArraySubtract op = new ArraySubtract();
 		assertNotNull(op.getOperator());
@@ -39,7 +39,7 @@ public class ArraySubtractTest
 	}
 
 	@Test
-	public void testAbstractEvaluateNulls()
+	void testAbstractEvaluateNulls()
 	{
 		ArraySubtract op = new ArraySubtract();
 		try
@@ -77,7 +77,7 @@ public class ArraySubtractTest
 	}
 
 	@Test
-	public void testAbstractEvaluateMismatch()
+	void testAbstractEvaluateMismatch()
 	{
 		ArraySubtract op = new ArraySubtract();
 		assertTrue(op.abstractEvaluate(TestUtilities.NUMBER_ARRAY_CLASS, TestUtilities.BOOLEAN_ARRAY_CLASS,
@@ -101,7 +101,7 @@ public class ArraySubtractTest
 	}
 
 	@Test
-	public void testAbstractEvaluateLegal()
+	void testAbstractEvaluateLegal()
 	{
 		ArraySubtract op = new ArraySubtract();
 		assertEquals(TestUtilities.NUMBER_ARRAY_CLASS, op.abstractEvaluate(TestUtilities.NUMBER_ARRAY_CLASS,
@@ -122,7 +122,7 @@ public class ArraySubtractTest
 	}
 
 	@Test
-	public void testEvaluateFailNull()
+	void testEvaluateFailNull()
 	{
 		ArraySubtract op = new ArraySubtract();
 		assertThrows(NullPointerException.class, () -> op.evaluate(null, null));
@@ -132,7 +132,7 @@ public class ArraySubtractTest
 	}
 
 	@Test
-	public void testEvaluateLegalArrayObject()
+	void testEvaluateLegalArrayObject()
 	{
 		ArraySubtract op = new ArraySubtract();
 		Number[] iArray = new Number[]{1, 2, 4.5, -6};
@@ -146,7 +146,7 @@ public class ArraySubtractTest
 	}
 
 	@Test
-	public void testEvaluateLegalArrayArray()
+	void testEvaluateLegalArrayArray()
 	{
 		ArraySubtract op = new ArraySubtract();
 		Number[] iArray = new Number[]{1, 2, 4.5, -6};

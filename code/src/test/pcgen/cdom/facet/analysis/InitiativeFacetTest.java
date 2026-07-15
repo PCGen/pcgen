@@ -33,7 +33,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class InitiativeFacetTest
+class InitiativeFacetTest
 {
 	/*
 	 * NOTE: This is not literal unit testing - it is leveraging the existing
@@ -48,7 +48,7 @@ public class InitiativeFacetTest
 	private Map<CharID, Double> bonusInfo;
 
 	@BeforeEach
-	public void setUp() throws Exception
+	void setUp() throws Exception
 	{
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
@@ -59,7 +59,7 @@ public class InitiativeFacetTest
 	}
 
 	@AfterEach
-	public void tearDown()
+	void tearDown()
 	{
 		id = null;
 		altid = null;
@@ -68,13 +68,13 @@ public class InitiativeFacetTest
 	}
 
 	@Test
-	public void testReachUnset()
+	void testReachUnset()
 	{
 		assertEquals(2, facet.getInitiative(id));
 	}
 
 	@Test
-	public void testGetWithBonus()
+	void testGetWithBonus()
 	{
 		assertEquals(2, facet.getInitiative(id));
 		bonusInfo.put(altid, 4.0);

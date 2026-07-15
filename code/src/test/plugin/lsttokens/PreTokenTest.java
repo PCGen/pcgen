@@ -30,7 +30,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
-public class PreTokenTest extends AbstractGlobalTokenTestCase
+class PreTokenTest extends AbstractGlobalTokenTestCase
 {
 
 	static CDOMPrimaryToken<ConcretePrereqObject> token = new PreLst();
@@ -61,21 +61,21 @@ public class PreTokenTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidEmpty()
+	void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidOther()
+	void testInvalidOther()
 	{
 		assertFalse(parse("SPELL"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidTypeBarOnly()
+	void testValidTypeBarOnly()
 	{
 		assertTrue(parse(Constants.LST_DOT_CLEAR));
 	}

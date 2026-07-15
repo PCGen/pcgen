@@ -45,7 +45,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class ClassFacetTest
+class ClassFacetTest
 {
 	private CharID id;
 	private CharID altid;
@@ -93,7 +93,7 @@ public class ClassFacetTest
 	}
 
 	@BeforeEach
-	public void setUp() throws Exception
+	void setUp() throws Exception
 	{
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
@@ -103,7 +103,7 @@ public class ClassFacetTest
 	}
 
 	@AfterEach
-	public void tearDown()
+	void tearDown()
 	{
 		id = null;
 		altid = null;
@@ -119,35 +119,35 @@ public class ClassFacetTest
 	}
 
 	@Test
-	public void testPCClassUnsetZeroCount()
+	void testPCClassUnsetZeroCount()
 	{
 		assertEquals(0, facet.getCount(id));
 		assertNull(facet.removeAllClasses(id));
 	}
 
 	@Test
-	public void testPCClassUnsetZeroLevel()
+	void testPCClassUnsetZeroLevel()
 	{
 		assertEquals(0, facet.getLevel(id, new PCClass()));
 		assertNull(facet.removeAllClasses(id));
 	}
 
 	@Test
-	public void testPCClassNullZeroLevel()
+	void testPCClassNullZeroLevel()
 	{
 		assertEquals(0, facet.getLevel(id, null));
 		assertNull(facet.removeAllClasses(id));
 	}
 
 	@Test
-	public void testPCClassUnsetEmpty()
+	void testPCClassUnsetEmpty()
 	{
 		assertTrue(facet.isEmpty(id));
 		assertNull(facet.removeAllClasses(id));
 	}
 
 	@Test
-	public void testPCClassUnsetEmptySet()
+	void testPCClassUnsetEmptySet()
 	{
 		assertNotNull(facet.getSet(id));
 		assertTrue(facet.getSet(id).isEmpty());
@@ -155,7 +155,7 @@ public class ClassFacetTest
 	}
 
 	@Test
-	public void testPCClassAddNull()
+	void testPCClassAddNull()
 	{
 		try
 		{
@@ -174,7 +174,7 @@ public class ClassFacetTest
 	}
 
 	@Test
-	public void testPCClassAddSingleGet()
+	void testPCClassAddSingleGet()
 	{
 		PCClass t1 = new PCClass();
 		facet.addClass(id, t1);
@@ -202,7 +202,7 @@ public class ClassFacetTest
 	}
 
 	@Test
-	public void testPCClassAddSingleTwiceGet()
+	void testPCClassAddSingleTwiceGet()
 	{
 		PCClass t1 = new PCClass();
 		facet.addClass(id, t1);
@@ -242,7 +242,7 @@ public class ClassFacetTest
 	}
 
 	@Test
-	public void testPCClassSetEvent()
+	void testPCClassSetEvent()
 	{
 		PCClass t1 = new PCClass();
 		facet.addClass(id, t1);
@@ -287,7 +287,7 @@ public class ClassFacetTest
 	}
 
 	@Test
-	public void testPCClassAddMultGet()
+	void testPCClassAddMultGet()
 	{
 		PCClass t1 = new PCClass();
 		t1.setName("MyClass");
@@ -330,7 +330,7 @@ public class ClassFacetTest
 	}
 
 	@Test
-	public void testPCClassContains()
+	void testPCClassContains()
 	{
 		PCClass t1 = new PCClass();
 		assertFalse(facet.contains(id, t1));
@@ -341,7 +341,7 @@ public class ClassFacetTest
 	}
 
 	@Test
-	public void testPCClassRemoveUseless()
+	void testPCClassRemoveUseless()
 	{
 		try
 		{
@@ -360,7 +360,7 @@ public class ClassFacetTest
 	}
 
 	@Test
-	public void testPCClassAddSingleRemove()
+	void testPCClassAddSingleRemove()
 	{
 		PCClass t1 = new PCClass();
 		facet.addClass(id, t1);
@@ -391,7 +391,7 @@ public class ClassFacetTest
 	}
 
 	@Test
-	public void testPCClassAddUselessRemove()
+	void testPCClassAddUselessRemove()
 	{
 		PCClass t1 = new PCClass();
 		t1.setName("MyClass");
@@ -425,7 +425,7 @@ public class ClassFacetTest
 	}
 
 	@Test
-	public void testPCClassAddSingleTwiceRemoveClass()
+	void testPCClassAddSingleTwiceRemoveClass()
 	{
 		PCClass t1 = new PCClass();
 		facet.addClass(id, t1);
@@ -470,7 +470,7 @@ public class ClassFacetTest
 	}
 
 	@Test
-	public void testPCClassAddMultRemove()
+	void testPCClassAddMultRemove()
 	{
 		PCClass t1 = new PCClass();
 		t1.setName("MyClass");
@@ -496,7 +496,7 @@ public class ClassFacetTest
 	}
 
 	@Test
-	public void testPCClassRemoveAllSymmetry()
+	void testPCClassRemoveAllSymmetry()
 	{
 		PCClass t1 = new PCClass();
 		assertNull(facet.removeAllClasses(id));
@@ -506,7 +506,7 @@ public class ClassFacetTest
 	}
 
 	@Test
-	public void testPCClassRemoveAll()
+	void testPCClassRemoveAll()
 	{
 		assertNull(facet.removeAllClasses(id));
 		PCClass t1 = new PCClass();
@@ -531,7 +531,7 @@ public class ClassFacetTest
 	}
 
 	@Test
-	public void testGetSetIndependence()
+	void testGetSetIndependence()
 	{
 		PCClass t1 = new PCClass();
 		PCClass t2 = new PCClass();
@@ -628,7 +628,7 @@ public class ClassFacetTest
 	}
 
 	@Test
-	public void testPCClassSetLevelNegative()
+	void testPCClassSetLevelNegative()
 	{
 		PCClass t1 = new PCClass();
 		facet.addClass(id, t1);
@@ -651,7 +651,7 @@ public class ClassFacetTest
 	}
 
 	@Test
-	public void testPCClassSetLevelNullClass()
+	void testPCClassSetLevelNullClass()
 	{
 		PCClass t1 = new PCClass();
 		facet.addClass(id, t1);
@@ -674,7 +674,7 @@ public class ClassFacetTest
 	}
 
 	@Test
-	public void testPCClassSetLevelUncontainedClass()
+	void testPCClassSetLevelUncontainedClass()
 	{
 		PCClass t1 = new PCClass();
 		t1.setName("MyClass");
@@ -700,7 +700,7 @@ public class ClassFacetTest
 	}
 
 	@Test
-	public void testSetClassLevelNull()
+	void testSetClassLevelNull()
 	{
 		PCClass cl = new PCClass();
 		facet.addClass(id, cl);
@@ -721,7 +721,7 @@ public class ClassFacetTest
 	}
 
 	@Test
-	public void testSetClassLevelNullLevel()
+	void testSetClassLevelNullLevel()
 	{
 		PCClass cl = new PCClass();
 		facet.addClass(id, cl);
@@ -742,7 +742,7 @@ public class ClassFacetTest
 	}
 
 	@Test
-	public void testSetClassLevelNotAdded()
+	void testSetClassLevelNotAdded()
 	{
 		try
 		{
@@ -758,7 +758,7 @@ public class ClassFacetTest
 	}
 
 	@Test
-	public void testSetClassLevelBadLevel()
+	void testSetClassLevelBadLevel()
 	{
 		PCClass cl = new PCClass();
 		facet.addClass(id, cl);
@@ -781,7 +781,7 @@ public class ClassFacetTest
 	}
 
 	@Test
-	public void testSetClassLevelOtherAdded()
+	void testSetClassLevelOtherAdded()
 	{
 		PCClass cl = new PCClass();
 		cl.setName("MyClass");
@@ -805,7 +805,7 @@ public class ClassFacetTest
 	}
 
 	@Test
-	public void testSetClassLevel()
+	void testSetClassLevel()
 	{
 		PCClass t1 = new PCClass();
 		facet.addClass(id, t1);
@@ -829,7 +829,7 @@ public class ClassFacetTest
 	}
 
 	@Test
-	public void testSetClassLevelNoClass()
+	void testSetClassLevelNoClass()
 	{
 		PCClass t1 = new PCClass();
 		t1.setName("MyClass");
@@ -862,7 +862,7 @@ public class ClassFacetTest
 	}
 
 	@Test
-	public void testSetClassLevelUseless()
+	void testSetClassLevelUseless()
 	{
 		PCClass t1 = new PCClass();
 		facet.addClass(id, t1);
@@ -899,7 +899,7 @@ public class ClassFacetTest
 	}
 
 	@Test
-	public void testGetClassLevelUnset()
+	void testGetClassLevelUnset()
 	{
 		PCClass cl = new PCClass();
 		assertNull(facet.getClassLevel(id, cl, 1));
@@ -907,7 +907,7 @@ public class ClassFacetTest
 	}
 
 	@Test
-	public void testGetClassLevelOtherSet()
+	void testGetClassLevelOtherSet()
 	{
 		PCClass cl = new PCClass();
 		cl.setName("MyClass");
@@ -923,7 +923,7 @@ public class ClassFacetTest
 	}
 
 	@Test
-	public void testGetClassLevelNullClass()
+	void testGetClassLevelNullClass()
 	{
 		PCClass cl = new PCClass();
 		facet.addClass(id, cl);
@@ -939,7 +939,7 @@ public class ClassFacetTest
 	}
 
 	@Test
-	public void testGetClassLevelNegativeLevel()
+	void testGetClassLevelNegativeLevel()
 	{
 		PCClass cl = new PCClass();
 		facet.addClass(id, cl);
@@ -955,7 +955,7 @@ public class ClassFacetTest
 	}
 
 	@Test
-	public void testGetClassLevelDefaultAdded()
+	void testGetClassLevelDefaultAdded()
 	{
 		PCClass cl = new PCClass();
 		facet.addClass(id, cl);
@@ -964,7 +964,7 @@ public class ClassFacetTest
 	}
 
 	@Test
-	public void testGetClassLevelAdded()
+	void testGetClassLevelAdded()
 	{
 		PCClass cl = new PCClass();
 		PCClassLevel ocl = cl.getOriginalClassLevel(2);
@@ -976,7 +976,7 @@ public class ClassFacetTest
 	}
 
 	@Test
-	public void testCopyContents()
+	void testCopyContents()
 	{
 		PCClass cl = new PCClass();
 		PCClassLevel ocl = cl.getOriginalClassLevel(2);
@@ -998,7 +998,7 @@ public class ClassFacetTest
 	}
 
 	@Test
-	public void testPCClassReplaceUseless()
+	void testPCClassReplaceUseless()
 	{
 		PCClass t1 = new PCClass();
 		PCClass t2 = new PCClass();
@@ -1007,7 +1007,7 @@ public class ClassFacetTest
 	}
 
 	@Test
-	public void testPCClassReplace()
+	void testPCClassReplace()
 	{
 		PCClass t1 = new PCClass();
 		t1.setName("Base");
@@ -1038,7 +1038,7 @@ public class ClassFacetTest
 	}
 
 	@Test
-	public void testPCClassReplaceWithExtra()
+	void testPCClassReplaceWithExtra()
 	{
 		PCClass t1 = new PCClass();
 		t1.setName("Base");

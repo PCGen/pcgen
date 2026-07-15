@@ -28,11 +28,11 @@ import pcgen.base.testsupport.AbstractFormulaTestCase;
 import pcgen.base.testsupport.TestUtilities;
 import pcgen.base.util.FormatManager;
 
-public class IsPresentFunctionTest extends AbstractFormulaTestCase
+class IsPresentFunctionTest extends AbstractFormulaTestCase
 {
 
 	@Test
-	public void testInvalidTooManyArg()
+	void testInvalidTooManyArg()
 	{
 		FormatManager<Optional<Number>> formatManager = getOptionalFormatManager();
 		setVariable(getOptionalVariable("a"), Optional.of(3));
@@ -43,7 +43,7 @@ public class IsPresentFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotValidString()
+	void testNotValidString()
 	{
 		FormatManager<Optional<Number>> formatManager = getOptionalFormatManager();
 		String formula = "isPresent(\"ab\")";
@@ -52,7 +52,7 @@ public class IsPresentFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotValidNoVar()
+	void testNotValidNoVar()
 	{
 		FormatManager<Optional<Number>> formatManager = getOptionalFormatManager();
 		String formula = "isPresent(ab)";
@@ -61,7 +61,7 @@ public class IsPresentFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testVariable()
+	void testVariable()
 	{
 		FormatManager<Optional<Number>> formatManager = getOptionalFormatManager();
 		setVariable(getOptionalVariable("a"), Optional.of(3));
@@ -77,7 +77,7 @@ public class IsPresentFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNullVariable()
+	void testNullVariable()
 	{
 		FormatManager<Optional<Number>> formatManager = getOptionalFormatManager();
 		setVariable(getOptionalVariable("a"), Optional.empty());

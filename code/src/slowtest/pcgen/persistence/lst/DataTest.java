@@ -85,7 +85,7 @@ class DataTest
 	 * with path names longer than 150 characters will be flagged.
 	 */
 	@Test
-	public void pathLengthTest()
+	void pathLengthTest()
 	{
 		String dataPath = ConfigurationSettings.getPccFilesDir();
 		Logging.log(Level.INFO, "Got datapath of " + new File(dataPath).getAbsolutePath());
@@ -150,7 +150,7 @@ class DataTest
 	 * @throws IOException If the data path cannot be found.
 	 */
 	@Test
-	public void missingFilesTest() throws IOException
+	void missingFilesTest() throws IOException
 	{
 		File dataFolder = new File(ConfigurationSettings.getPccFilesDir());
 		int dataPathLen = dataFolder.getCanonicalPath().length();

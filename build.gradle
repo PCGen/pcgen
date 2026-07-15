@@ -217,7 +217,7 @@ dependencies {
     compileOnly 'org.jetbrains:annotations:26.1.0'
     compileOnly 'com.github.spotbugs:spotbugs-annotations:4.10.2'
 
-    testImplementation platform('org.junit:junit-bom:6.1.0')
+    testImplementation platform('org.junit:junit-bom:6.1.1')
     testImplementation 'org.junit.platform:junit-platform-launcher'
     testImplementation 'org.junit.jupiter:junit-jupiter-api'
     testImplementation 'org.junit.jupiter:junit-jupiter-params'
@@ -233,8 +233,8 @@ dependencies {
 
     spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.14.0'
 
-    pmd 'net.sourceforge.pmd:pmd-java:7.25.0'
-    pmd 'net.sourceforge.pmd:pmd-ant:7.25.0' // workaround: https://github.com/pmd/pmd/issues/4554
+    pmd 'net.sourceforge.pmd:pmd-java:7.26.0'
+    pmd 'net.sourceforge.pmd:pmd-ant:7.26.0' // workaround: https://github.com/pmd/pmd/issues/4554
 }
 
 jar {
@@ -277,6 +277,11 @@ def hostArch = supportedHostArch[rawHostArch]
 if (hostArch == null) {
     throw new GradleException("Unsupported host arch: '${rawHostArch}'. Supported: ${supportedHostArch.keySet().join(", ")}")
 }
+// Publish the host tokens so release.gradle (a separately-applied script) can
+// build installer filenames that match the portable zip
+// (pcgen-<version>-<hostOs>-<hostArch>.<ext>).
+project.ext.hostOs = hostOs
+project.ext.hostArch = hostArch
 def hostJdkExt = (hostOs == "windows") ? "zip" : "tar.gz"
 def hostJfxOsPackage = (hostOs == "mac") ? "osx" : hostOs
 def hostJfxArchSuffix = "-${hostArch}"
@@ -442,9 +447,24 @@ if (Os.isFamily(Os.FAMILY_MAC)) {
         }
     }
 
+    // jpackage seals the bundle with an ad-hoc signature; rewriting
+    // Info.plist and dropping MacDirLauncher into Contents/MacOS above
+    // invalidates that seal, so `spctl -a` rejects the result as
+    // "directory or signature have been modified". Re-sign ad-hoc so
+    // the bundle is internally consistent. Users still see Gatekeeper
+    // on first launch (no Developer ID), but a single
+    // `xattr -dr com.apple.quarantine PcGen.app` is then enough —
+    // no `codesign --force --deep` round-trip required.
+    tasks.register("codesignMacJpackage", Exec) {
+        dependsOn tasks.named("patchMacJpackage")
+        def appBundleDir = layout.buildDirectory.dir("jpackage/PcGen.app")
+        commandLine "codesign", "--force", "--deep", "--sign", "-",
+                appBundleDir.get().asFile.absolutePath
+    }
+
     // jpackage packages the image at build/jpackage/PcGen.app — make sure the
     // data folders and the patched plist+launcher are in place before it runs.
-    tasks.named("jpackage") { dependsOn tasks.named("patchMacJpackage") }
+    tasks.named("jpackage") { dependsOn tasks.named("codesignMacJpackage") }
 
     tasks.register("fullJpackage") {
         dependsOn tasks.named("jpackage")

@@ -39,7 +39,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
+class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 {
 
 	static SpellstatToken token = new SpellstatToken();
@@ -80,7 +80,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidNotAStat()
+	void testInvalidNotAStat()
 	{
 		if (parse("NAN"))
 		{
@@ -93,7 +93,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidMultipleStatComma()
+	void testInvalidMultipleStatComma()
 	{
 		if (parse("STR,INT"))
 		{
@@ -106,7 +106,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidMultipleStatBar()
+	void testInvalidMultipleStatBar()
 	{
 		if (parse("STR|INT"))
 		{
@@ -119,7 +119,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidMultipleStatDot()
+	void testInvalidMultipleStatDot()
 	{
 		if (parse("STR.INT"))
 		{
@@ -132,19 +132,19 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testRoundRobinStat() throws PersistenceLayerException
+	void testRoundRobinStat() throws PersistenceLayerException
 	{
 		runRoundRobin("STR");
 	}
 
 	@Test
-	public void testRoundRobinSpell() throws PersistenceLayerException
+	void testRoundRobinSpell() throws PersistenceLayerException
 	{
 		runRoundRobin("SPELL");
 	}
 
 	@Test
-	public void testRoundRobinOther() throws PersistenceLayerException
+	void testRoundRobinOther() throws PersistenceLayerException
 	{
 		runRoundRobin("OTHER");
 	}
@@ -168,7 +168,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testOverwriteStrSpell()
+	void testOverwriteStrSpell()
 	{
 		parse("STR");
 		validateUnparsed(primaryContext, primaryProf, "STR");
@@ -178,7 +178,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testOverwriteStrOther()
+	void testOverwriteStrOther()
 	{
 		parse("STR");
 		validateUnparsed(primaryContext, primaryProf, "STR");
@@ -188,7 +188,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testOverwriteSpellOther()
+	void testOverwriteSpellOther()
 	{
 		parse("SPELL");
 		validateUnparsed(primaryContext, primaryProf, "SPELL");
@@ -198,7 +198,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testOverwriteSpellStr()
+	void testOverwriteSpellStr()
 	{
 		parse("SPELL");
 		validateUnparsed(primaryContext, primaryProf, "SPELL");
@@ -208,7 +208,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testOverwriteOtherStr()
+	void testOverwriteOtherStr()
 	{
 		parse("OTHER");
 		validateUnparsed(primaryContext, primaryProf, "OTHER");
@@ -218,7 +218,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testOverwriteOtherSpell()
+	void testOverwriteOtherSpell()
 	{
 		parse("OTHER");
 		validateUnparsed(primaryContext, primaryProf, "OTHER");
@@ -228,7 +228,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseNull()
+	void testUnparseNull()
 	{
 		primaryProf.put(getObjectKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
@@ -241,7 +241,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFailHas()
+	void testUnparseGenericsFailHas()
 	{
 		ObjectKey objectKey = ObjectKey.USE_SPELL_SPELL_STAT;
 		primaryProf.put(objectKey, new Object());
@@ -257,7 +257,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseSpell()
+	void testUnparseSpell()
 	{
 		primaryProf.put(ObjectKey.USE_SPELL_SPELL_STAT, true);
 		expectSingle(getToken().unparse(primaryContext, primaryProf), "SPELL");
@@ -296,7 +296,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFailCaster()
+	void testUnparseGenericsFailCaster()
 	{
 		primaryProf.put(ObjectKey.USE_SPELL_SPELL_STAT, false);
 		ObjectKey objectKey = ObjectKey.CASTER_WITHOUT_SPELL_STAT;
@@ -313,14 +313,14 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseIncompleteSpell()
+	void testUnparseIncompleteSpell()
 	{
 		primaryProf.put(ObjectKey.USE_SPELL_SPELL_STAT, false);
 		assertBadUnparse();
 	}
 
 	@Test
-	public void testUnparseOther()
+	void testUnparseOther()
 	{
 		primaryProf.put(ObjectKey.USE_SPELL_SPELL_STAT, false);
 		primaryProf.put(ObjectKey.CASTER_WITHOUT_SPELL_STAT, true);
@@ -328,7 +328,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseIncompleteOther()
+	void testUnparseIncompleteOther()
 	{
 		primaryProf.put(ObjectKey.USE_SPELL_SPELL_STAT, false);
 		primaryProf.put(ObjectKey.CASTER_WITHOUT_SPELL_STAT, false);
@@ -336,7 +336,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseLegal()
+	void testUnparseLegal()
 	{
 		primaryProf.put(ObjectKey.USE_SPELL_SPELL_STAT, false);
 		primaryProf.put(ObjectKey.CASTER_WITHOUT_SPELL_STAT, false);
@@ -347,7 +347,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFailStat()
+	void testUnparseGenericsFailStat()
 	{
 		ObjectKey objectKey = getObjectKey();
 		primaryProf.put(objectKey, new Object());

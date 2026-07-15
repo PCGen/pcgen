@@ -30,7 +30,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
-public class UnencumberedmoveLstTest extends AbstractGlobalTokenTestCase
+class UnencumberedmoveLstTest extends AbstractGlobalTokenTestCase
 {
 
 	static CDOMPrimaryToken<CDOMObject> token = new UnencumberedmoveLst();
@@ -61,145 +61,145 @@ public class UnencumberedmoveLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidInputPipeOnly()
+	void testInvalidInputPipeOnly()
 	{
 		assertFalse(parse("|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputRandomString()
+	void testInvalidInputRandomString()
 	{
 		assertFalse(parse("String"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEndPipe()
+	void testInvalidInputEndPipe()
 	{
 		assertFalse(parse("HeavyLoad|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputStartPipe()
+	void testInvalidInputStartPipe()
 	{
 		assertFalse(parse("|HeavyLoad"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoublePipe()
+	void testInvalidInputDoublePipe()
 	{
 		assertFalse(parse("HeavyLoad||HeavyArmor"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoubleLoad()
+	void testInvalidInputDoubleLoad()
 	{
 		assertFalse(parse("HeavyLoad|MediumLoad"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoubleLoad2()
+	void testInvalidInputDoubleLoad2()
 	{
 		assertFalse(parse("MediumLoad|HeavyLoad"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoubleLoad3()
+	void testInvalidInputDoubleLoad3()
 	{
 		assertFalse(parse("HeavyLoad|Overload"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoubleLoad4()
+	void testInvalidInputDoubleLoad4()
 	{
 		assertFalse(parse("HeavyLoad|LightLoad"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoubleArmor()
+	void testInvalidInputDoubleArmor()
 	{
 		assertFalse(parse("MediumArmor|HeavyArmor"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoubleArmor2()
+	void testInvalidInputDoubleArmor2()
 	{
 		assertFalse(parse("HeavyArmor|MediumArmor"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoubleArmor3()
+	void testInvalidInputDoubleArmor3()
 	{
 		assertFalse(parse("MediumArmor|LightArmor"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidInputDoubleArmor()
+	void testValidInputDoubleArmor()
 	{
 		assertTrue(parse("LightArmor"));
 	}
 
 	@Test
-	public void testRoundRobinLightLoad() throws PersistenceLayerException
+	void testRoundRobinLightLoad() throws PersistenceLayerException
 	{
 		runRoundRobin("LightLoad");
 	}
 
 	@Test
-	public void testRoundRobinLightLight() throws PersistenceLayerException
+	void testRoundRobinLightLight() throws PersistenceLayerException
 	{
 		runRoundRobin("LightLoad|LightArmor");
 	}
 
 	@Test
-	public void testRoundRobinMediumLight() throws PersistenceLayerException
+	void testRoundRobinMediumLight() throws PersistenceLayerException
 	{
 		runRoundRobin("MediumLoad|LightArmor");
 	}
 
 	@Test
-	public void testRoundRobinLightMedium() throws PersistenceLayerException
+	void testRoundRobinLightMedium() throws PersistenceLayerException
 	{
 		runRoundRobin("LightLoad|MediumArmor");
 	}
 
 	@Test
-	public void testRoundRobinArmor() throws PersistenceLayerException
+	void testRoundRobinArmor() throws PersistenceLayerException
 	{
 		runRoundRobin("HeavyArmor");
 	}
 
 	@Test
-	public void testRoundRobinMediumLoad() throws PersistenceLayerException
+	void testRoundRobinMediumLoad() throws PersistenceLayerException
 	{
 		runRoundRobin("MediumLoad");
 	}
 
 	@Test
-	public void testRoundRobinOverload() throws PersistenceLayerException
+	void testRoundRobinOverload() throws PersistenceLayerException
 	{
 		runRoundRobin("Overload");
 	}
 
 	@Test
-	public void testRoundRobinHeavyLoad() throws PersistenceLayerException
+	void testRoundRobinHeavyLoad() throws PersistenceLayerException
 	{
 		runRoundRobin("HeavyLoad");
 	}
 
 	@Test
-	public void testRoundRobinLoadArmor() throws PersistenceLayerException
+	void testRoundRobinLoadArmor() throws PersistenceLayerException
 	{
 		runRoundRobin("HeavyLoad|MediumArmor");
 	}

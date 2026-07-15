@@ -39,7 +39,7 @@ import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 import util.TestURI;
 
-public class RaceFavClassTest extends AbstractTokenModelTest
+class RaceFavClassTest extends AbstractTokenModelTest
 {
 
 	private static FavclassToken token = new FavclassToken();
@@ -61,7 +61,7 @@ public class RaceFavClassTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testDirect()
+	void testDirect()
 	{
 		Race source = create(Race.class, "Source");
 		ParseResult result = token.parseToken(context, source, "Favorite");
@@ -80,7 +80,7 @@ public class RaceFavClassTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testList()
+	void testList()
 	{
 		Race source = create(Race.class, "Source");
 		ParseResult result = token.parseToken(context, source, "%LIST");

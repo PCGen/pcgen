@@ -30,7 +30,7 @@ import org.junit.jupiter.api.Test;
  * Tests PREKIT parsing
  */
 @SuppressWarnings("nls")
-public class PreKitParserTest extends EnUsLocaleDependentTestCase
+class PreKitParserTest extends EnUsLocaleDependentTestCase
 {
 
 	
@@ -40,7 +40,7 @@ public class PreKitParserTest extends EnUsLocaleDependentTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testParse() throws PersistenceLayerException
+	void testParse() throws PersistenceLayerException
 	{
 		PreKitParser parser = new PreKitParser();
 
@@ -59,7 +59,7 @@ public class PreKitParserTest extends EnUsLocaleDependentTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testParseNegated() throws PersistenceLayerException
+	void testParseNegated() throws PersistenceLayerException
 	{
 		PreKitParser parser = new PreKitParser();
 

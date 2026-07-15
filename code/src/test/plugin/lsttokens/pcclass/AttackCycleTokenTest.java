@@ -33,7 +33,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
 
-public class AttackCycleTokenTest extends AbstractCDOMTokenTestCase<PCClass>
+class AttackCycleTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 {
 
 	static AttackcycleToken token = new AttackcycleToken();
@@ -58,123 +58,123 @@ public class AttackCycleTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputEmpty()
+	void testInvalidInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoCycle()
+	void testInvalidInputNoCycle()
 	{
 		assertFalse(parse("BAB"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptyCycle()
+	void testInvalidInputEmptyCycle()
 	{
 		assertFalse(parse("BAB|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptyType()
+	void testInvalidInputEmptyType()
 	{
 		assertFalse(parse("|4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOpenStart()
+	void testInvalidInputOpenStart()
 	{
 		assertFalse(parse("|BAB|3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOpenEnd()
+	void testInvalidInputOpenEnd()
 	{
 		assertFalse(parse("BAB|4|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNaN()
+	void testInvalidInputNaN()
 	{
 		assertFalse(parse("BAB|x"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNegative()
+	void testInvalidInputNegative()
 	{
 		assertFalse(parse("BAB|-2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputZero()
+	void testInvalidInputZero()
 	{
 		assertFalse(parse("BAB|0"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoublePipeTypeOne()
+	void testInvalidInputDoublePipeTypeOne()
 	{
 		assertFalse(parse("BAB||5"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoublePipeTypeTwo()
+	void testInvalidInputDoublePipeTypeTwo()
 	{
 		assertFalse(parse("BAB|5||UAB|5"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoublePipeTypeThree()
+	void testInvalidInputDoublePipeTypeThree()
 	{
 		assertFalse(parse("BAB|5|UAB||4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputGAB()
+	void testInvalidInputGAB()
 	{
 		assertFalse(parse("GAB|5"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputGABSecond()
+	void testInvalidInputGABSecond()
 	{
 		assertFalse(parse("BAB|4|GAB|5"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testRoundRobinBab() throws PersistenceLayerException
+	void testRoundRobinBab() throws PersistenceLayerException
 	{
 		runRoundRobin("BAB|3");
 	}
 
 	@Test
-	public void testRoundRobinRab() throws PersistenceLayerException
+	void testRoundRobinRab() throws PersistenceLayerException
 	{
 		runRoundRobin("RAB|4");
 	}
 
 	@Test
-	public void testRoundRobinUab() throws PersistenceLayerException
+	void testRoundRobinUab() throws PersistenceLayerException
 	{
 		runRoundRobin("UAB|5");
 	}
 
 	@Test
-	public void testRoundRobinMixed() throws PersistenceLayerException
+	void testRoundRobinMixed() throws PersistenceLayerException
 	{
 		runRoundRobin("BAB|3|RAB|4|UAB|5");
 	}
@@ -198,35 +198,35 @@ public class AttackCycleTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseNull()
+	void testUnparseNull()
 	{
 		primaryProf.addToMapFor(MapKey.ATTACK_CYCLE, AttackType.MELEE, null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseLegal()
+	void testUnparseLegal()
 	{
 		primaryProf.addToMapFor(MapKey.ATTACK_CYCLE, AttackType.MELEE, 1);
 		expectSingle(getToken().unparse(primaryContext, primaryProf), "BAB|1");
 	}
 
 	@Test
-	public void testUnparseNegative()
+	void testUnparseNegative()
 	{
 		primaryProf.addToMapFor(MapKey.ATTACK_CYCLE, AttackType.MELEE, -2);
 		assertBadUnparse();
 	}
 
 	@Test
-	public void testUnparseZero()
+	void testUnparseZero()
 	{
 		primaryProf.addToMapFor(MapKey.ATTACK_CYCLE, AttackType.MELEE, 0);
 		assertBadUnparse();
 	}
 
 	@Test
-	public void testUnparseMultiple()
+	void testUnparseMultiple()
 	{
 		primaryProf.addToMapFor(MapKey.ATTACK_CYCLE, AttackType.MELEE, 1);
 		primaryProf.addToMapFor(MapKey.ATTACK_CYCLE, AttackType.RANGED, 2);
@@ -234,7 +234,7 @@ public class AttackCycleTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseGrappleNoMelee()
+	void testUnparseGrappleNoMelee()
 	{
 		primaryProf.addToMapFor(MapKey.ATTACK_CYCLE, AttackType.GRAPPLE, 1);
 		assertBadUnparse();
@@ -242,7 +242,7 @@ public class AttackCycleTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFailValue()
+	void testUnparseGenericsFailValue()
 	{
 		MapKey mapKey = MapKey.ATTACK_CYCLE;
 		primaryProf.addToMapFor(mapKey, AttackType.MELEE, "STR");
@@ -259,7 +259,7 @@ public class AttackCycleTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFailKey()
+	void testUnparseGenericsFailKey()
 	{
 		MapKey mapKey = MapKey.ATTACK_CYCLE;
 		primaryProf.addToMapFor(mapKey, "STR", 1);

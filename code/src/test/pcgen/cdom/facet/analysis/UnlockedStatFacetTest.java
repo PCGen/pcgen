@@ -30,7 +30,7 @@ import pcgen.core.Race;
 
 import org.junit.jupiter.api.BeforeEach;
 
-public class UnlockedStatFacetTest extends
+class UnlockedStatFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, PCStat>
 {
 

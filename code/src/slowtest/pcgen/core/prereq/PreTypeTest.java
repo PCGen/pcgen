@@ -29,14 +29,14 @@ import plugin.pretokens.test.PreTypeTester;
 
 import org.junit.jupiter.api.Test;
 
-public class PreTypeTest extends AbstractCharacterTestCase
+class PreTypeTest extends AbstractCharacterTestCase
 {
 	/**
 	 * Ensure a character with a template correctly passes
 	 * PRETEMPLATE
 	 */
 	@Test
-	public void test996803_1()
+	void test996803_1()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -60,7 +60,7 @@ public class PreTypeTest extends AbstractCharacterTestCase
 	 * PRETEMPLATE
 	 */
 	@Test
-	public void test996803_2()
+	void test996803_2()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -80,7 +80,7 @@ public class PreTypeTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void test996803_3()
+	void test996803_3()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -95,7 +95,7 @@ public class PreTypeTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void test996803_4()
+	void test996803_4()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -115,7 +115,7 @@ public class PreTypeTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testKindHandled()
+	void testKindHandled()
 	{
 		final PreTypeTester preType = new PreTypeTester();
 

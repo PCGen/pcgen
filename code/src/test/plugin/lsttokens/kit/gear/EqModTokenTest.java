@@ -30,7 +30,7 @@ import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
 import org.junit.jupiter.api.Test;
 
-public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
+class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 {
 
 	static EqmodToken token = new EqmodToken();
@@ -83,55 +83,55 @@ public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 	// }
 
 	@Test
-	public void testInvalidEmptyAssociation()
+	void testInvalidEmptyAssociation()
 	{
 		assertFalse(parse("EQMOD2|"));
 	}
 
 	@Test
-	public void testInvalidTrailingAssociation()
+	void testInvalidTrailingAssociation()
 	{
 		assertFalse(parse("EQMOD2|Assoc|"));
 	}
 
 	@Test
-	public void testInvalidEmptyModAssociation()
+	void testInvalidEmptyModAssociation()
 	{
 		assertFalse(parse("|Assoc|Assoc2"));
 	}
 
 	@Test
-	public void testInvalidEmptySecondModAssociation()
+	void testInvalidEmptySecondModAssociation()
 	{
 		assertFalse(parse("MOD1.|Assoc|Assoc2"));
 	}
 
 	@Test
-	public void testInvalidEmptySecondModAfterAssociation()
+	void testInvalidEmptySecondModAfterAssociation()
 	{
 		assertFalse(parse("MOD1|ModAssoc.|Assoc|Assoc2"));
 	}
 
 	@Test
-	public void testInvalidEmptyComplexAssociation()
+	void testInvalidEmptyComplexAssociation()
 	{
 		assertFalse(parse("MOD1|ModAssoc[]"));
 	}
 
 	@Test
-	public void testInvalidNoOpenBracketComplexAssociation()
+	void testInvalidNoOpenBracketComplexAssociation()
 	{
 		assertFalse(parse("MOD1|ModAssoc Assoc]"));
 	}
 
 	@Test
-	public void testInvalidTwoOpenBracketComplexAssociation()
+	void testInvalidTwoOpenBracketComplexAssociation()
 	{
 		assertFalse(parse("MOD1|ModAssoc[[Assoc]"));
 	}
 
 	@Test
-	public void testInvalidDoubleBarAssociation()
+	void testInvalidDoubleBarAssociation()
 	{
 		assertFalse(parse("EQMOD2|Assoc||Assoc2"));
 	}
@@ -163,7 +163,7 @@ public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 	// }
 
 	@Test
-	public void testRoundRobinComplexMultipleAssociation()
+	void testRoundRobinComplexMultipleAssociation()
 			throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(EquipmentModifier.class,
@@ -174,33 +174,33 @@ public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 	}
 
 	@Test
-	public void testInvalidInputEmptyString()
+	void testInvalidInputEmptyString()
 	{
 		assertFalse(parse(""));
 	}
 
 	@Test
-	public void testInvalidInputJoinOnly()
+	void testInvalidInputJoinOnly()
 	{
 		assertFalse(parse(Character.toString(getJoinCharacter())));
 	}
 
 	@Test
-	public void testInvalidInputString()
+	void testInvalidInputString()
 	{
 		assertTrue(parse("String"));
 		assertConstructionError();
 	}
 
 	@Test
-	public void testInvalidInputType()
+	void testInvalidInputType()
 	{
 		assertTrue(parse("TestType"));
 		assertConstructionError();
 	}
 
 	@Test
-	public void testInvalidInputJoinedComma()
+	void testInvalidInputJoinedComma()
 	{
 		if (getJoinCharacter() != ',')
 		{
@@ -237,7 +237,7 @@ public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 	// }
 
 	@Test
-	public void testInvalidInputJoinedDot()
+	void testInvalidInputJoinedDot()
 	{
 		if (getJoinCharacter() != '.')
 		{
@@ -249,7 +249,7 @@ public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 	}
 
 	@Test
-	public void testInvalidInputAny()
+	void testInvalidInputAny()
 	{
 		try
 		{
@@ -266,7 +266,7 @@ public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 	}
 
 	@Test
-	public void testInvalidInputCheckType()
+	void testInvalidInputCheckType()
 	{
 		try
 		{
@@ -284,21 +284,21 @@ public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 	}
 
 	@Test
-	public void testInvalidListEnd()
+	void testInvalidListEnd()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("TestWP1" + getJoinCharacter()));
 	}
 
 	@Test
-	public void testInvalidListStart()
+	void testInvalidListStart()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse(getJoinCharacter() + "TestWP1"));
 	}
 
 	@Test
-	public void testInvalidListDoubleJoin()
+	void testInvalidListDoubleJoin()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -307,7 +307,7 @@ public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 	}
 
 	@Test
-	public void testInvalidInputCheckMult()
+	void testInvalidInputCheckMult()
 	{
 		// Explicitly do NOT build TestWP2
 		construct(primaryContext, "TestWP1");
@@ -316,7 +316,7 @@ public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 	}
 
 	@Test
-	public void testValidInputs()
+	void testValidInputs()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -325,7 +325,7 @@ public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 	}
 
 	@Test
-	public void testRoundRobinOne() throws PersistenceLayerException
+	void testRoundRobinOne() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -335,7 +335,7 @@ public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 	}
 
 	@Test
-	public void testRoundRobinThree() throws PersistenceLayerException
+	void testRoundRobinThree() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -348,7 +348,7 @@ public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 	}
 
 	@Test
-	public void testInputInvalidAddsBasicNoSideEffect()
+	void testInputInvalidAddsBasicNoSideEffect()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");

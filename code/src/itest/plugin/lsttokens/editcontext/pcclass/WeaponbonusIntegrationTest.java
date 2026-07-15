@@ -29,9 +29,8 @@ import plugin.lsttokens.pcclass.WeaponbonusToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
-public class WeaponbonusIntegrationTest extends
+class WeaponbonusIntegrationTest extends
 		AbstractListIntegrationTestCase<PCClass, WeaponProf>
 {
 

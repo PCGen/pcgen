@@ -27,7 +27,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class SpellResTokenTest extends AbstractTypeSafeListTestCase<Spell, String>
+class SpellResTokenTest extends AbstractTypeSafeListTestCase<Spell, String>
 {
 
 	static SpellresToken token = new SpellresToken();
@@ -52,13 +52,13 @@ public class SpellResTokenTest extends AbstractTypeSafeListTestCase<Spell, Strin
 	}
 
 	@Test
-	public void testRoundRobinDisplay() throws PersistenceLayerException
+	void testRoundRobinDisplay() throws PersistenceLayerException
 	{
 		runRoundRobin("YES");
 	}
 
 	@Test
-	public void testRoundRobinExport() throws PersistenceLayerException
+	void testRoundRobinExport() throws PersistenceLayerException
 	{
 		runRoundRobin("NO");
 	}

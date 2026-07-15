@@ -41,7 +41,7 @@ import org.junit.jupiter.api.Test;
  * {@code PreDeityTest} tests that the PREDEITY tag is
  * working correctly.
  */
-public class PreDeityTest extends AbstractCharacterTestCase
+class PreDeityTest extends AbstractCharacterTestCase
 {
 	private Deity deity;
 
@@ -51,7 +51,7 @@ public class PreDeityTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testBoolean() throws PersistenceLayerException
+	void testBoolean() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -88,7 +88,7 @@ public class PreDeityTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testFormat() throws PersistenceLayerException
+	void testFormat() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -134,7 +134,7 @@ public class PreDeityTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testName() throws PersistenceLayerException
+	void testName() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -165,7 +165,7 @@ public class PreDeityTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testNewFormat() throws PersistenceLayerException
+	void testNewFormat() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -210,7 +210,7 @@ public class PreDeityTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException 
 	 */
 	@Test
-	public void testPantheon() throws PersistenceLayerException
+	void testPantheon() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 

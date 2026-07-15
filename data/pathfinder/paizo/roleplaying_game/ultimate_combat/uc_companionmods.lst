@@ -58,28 +58,28 @@ FOLLOWER:FeatheredCompanionLvl=20	TYPE:Animal Companion	HD:1																				
 
 ###Block: Empyreal Companion
 # Class of the Master		Type				Hit Dice	Spell Res.		Ability																											Auto Armor Prof				Define							Define Stat				Bonus Ability Pool					Stat bonus			Modify VAR															Main Race Type		Template
-FOLLOWER:EmpyrealCompanion=1	TYPE:Special Mount																																		AUTO:ARMORPROF|ARMORTYPE=Barding	DEFINE:MasterLevel|0					DEFINESTAT:MINVALUE|INT|6													BONUS:VAR|MasterLevel|1													RACETYPE:Animal
-FOLLOWER:EmpyrealCompanion=1	TYPE:Special Mount						ABILITY:Special Ability|AUTOMATIC|Companion ~ Link
-FOLLOWER:EmpyrealCompanion=1	TYPE:Special Mount						ABILITY:Special Ability|AUTOMATIC|Companion ~ Share Spells
-FOLLOWER:EmpyrealCompanion=2	TYPE:Special Mount	HD:1																																																																BONUS:VAR|MasterLevel|1
-FOLLOWER:EmpyrealCompanion=3	TYPE:Special Mount						ABILITY:Special Ability|AUTOMATIC|Companion ~ Evasion																																															BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1
-FOLLOWER:EmpyrealCompanion=4	TYPE:Special Mount	HD:1																																																				BONUS:ABILITYPOOL|Companion Stat Increase|1					BONUS:VAR|MasterLevel|1
-FOLLOWER:EmpyrealCompanion=5	TYPE:Special Mount	HD:1																																																																BONUS:VAR|MasterLevel|1
-FOLLOWER:EmpyrealCompanion=6	TYPE:Special Mount	HD:1					ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion																																														BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1
-FOLLOWER:EmpyrealCompanion=7	TYPE:Special Mount																																																																	BONUS:VAR|MasterLevel|1
-FOLLOWER:EmpyrealCompanion=8	TYPE:Special Mount	HD:1																																																																BONUS:VAR|MasterLevel|1													RACETYPE:Magical Beast	TEMPLATE:Celestial Creature
-FOLLOWER:EmpyrealCompanion=9	TYPE:Special Mount	HD:1					ABILITY:Special Ability|AUTOMATIC|Companion ~ Multiattack																																						BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1
-FOLLOWER:EmpyrealCompanion=10	TYPE:Special Mount	HD:1																																																																BONUS:VAR|MasterLevel|1
-FOLLOWER:EmpyrealCompanion=11	TYPE:Special Mount																																																																	BONUS:VAR|MasterLevel|1
-FOLLOWER:EmpyrealCompanion=12	TYPE:Special Mount	HD:1					ABILITY:Special Ability|AUTOMATIC|Empyreal Creature Flight																																														BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1
-FOLLOWER:EmpyrealCompanion=13	TYPE:Special Mount	HD:1																																																																BONUS:VAR|MasterLevel|1
-FOLLOWER:EmpyrealCompanion=14	TYPE:Special Mount	HD:1																																																				BONUS:ABILITYPOOL|Companion Stat Increase|1					BONUS:VAR|MasterLevel|1
-FOLLOWER:EmpyrealCompanion=15	TYPE:Special Mount			SR:MasterLevel+11																																																								BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1
-FOLLOWER:EmpyrealCompanion=16	TYPE:Special Mount	HD:1					ABILITY:Special Ability|AUTOMATIC|Improved Evasion																																																			BONUS:VAR|MasterLevel|1
-FOLLOWER:EmpyrealCompanion=17	TYPE:Special Mount	HD:1																																																																BONUS:VAR|MasterLevel|1
-FOLLOWER:EmpyrealCompanion=18	TYPE:Special Mount	HD:1																																																												BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1
-FOLLOWER:EmpyrealCompanion=19	TYPE:Special Mount																																																																	BONUS:VAR|MasterLevel|1
-FOLLOWER:EmpyrealCompanion=20	TYPE:Special Mount	HD:1																																																				BONUS:ABILITYPOOL|Companion Stat Increase|1					BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=1	TYPE:Empyreal Companion																																		AUTO:ARMORPROF|ARMORTYPE=Barding	DEFINE:MasterLevel|0					DEFINESTAT:MINVALUE|INT|6													BONUS:VAR|MasterLevel|1													RACETYPE:Animal
+FOLLOWER:EmpyrealCompanion=1	TYPE:Empyreal Companion						ABILITY:Special Ability|AUTOMATIC|Companion ~ Link
+FOLLOWER:EmpyrealCompanion=1	TYPE:Empyreal Companion						ABILITY:Special Ability|AUTOMATIC|Companion ~ Share Spells
+FOLLOWER:EmpyrealCompanion=2	TYPE:Empyreal Companion	HD:1																																																																BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=3	TYPE:Empyreal Companion						ABILITY:Special Ability|AUTOMATIC|Companion ~ Evasion																																															BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=4	TYPE:Empyreal Companion	HD:1																																																				BONUS:ABILITYPOOL|Companion Stat Increase|1					BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=5	TYPE:Empyreal Companion	HD:1																																																																BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=6	TYPE:Empyreal Companion	HD:1					ABILITY:Special Ability|AUTOMATIC|Companion ~ Devotion																																														BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=7	TYPE:Empyreal Companion																																																																	BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=8	TYPE:Empyreal Companion	HD:1																																																																BONUS:VAR|MasterLevel|1													RACETYPE:Magical Beast	TEMPLATE:Celestial Creature
+FOLLOWER:EmpyrealCompanion=9	TYPE:Empyreal Companion	HD:1					ABILITY:Special Ability|AUTOMATIC|Companion ~ Multiattack																																						BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=10	TYPE:Empyreal Companion	HD:1																																																																BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=11	TYPE:Empyreal Companion																																																																	BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=12	TYPE:Empyreal Companion	HD:1					ABILITY:Special Ability|AUTOMATIC|Empyreal Creature Flight																																														BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=13	TYPE:Empyreal Companion	HD:1																																																																BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=14	TYPE:Empyreal Companion	HD:1																																																				BONUS:ABILITYPOOL|Companion Stat Increase|1					BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=15	TYPE:Empyreal Companion			SR:MasterLevel+11																																																								BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=16	TYPE:Empyreal Companion	HD:1					ABILITY:Special Ability|AUTOMATIC|Improved Evasion																																																			BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=17	TYPE:Empyreal Companion	HD:1																																																																BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=18	TYPE:Empyreal Companion	HD:1																																																												BONUS:STAT|STR,DEX|1	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=19	TYPE:Empyreal Companion																																																																	BONUS:VAR|MasterLevel|1
+FOLLOWER:EmpyrealCompanion=20	TYPE:Empyreal Companion	HD:1																																																				BONUS:ABILITYPOOL|Companion Stat Increase|1					BONUS:VAR|MasterLevel|1
 
 
 

@@ -25,7 +25,7 @@ import plugin.lsttokens.deity.DomainsToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class DomainsIntegrationTest extends
+class DomainsIntegrationTest extends
 		AbstractListIntegrationTestCase<Deity, Domain>
 {
 

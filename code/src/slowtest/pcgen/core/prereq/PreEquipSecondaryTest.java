@@ -43,14 +43,14 @@ import org.junit.jupiter.api.Test;
  * {@code PreEquipSecondaryTest} tests that the PREEQUIPSECONDARY tag is
  * working correctly.
  */
-public class PreEquipSecondaryTest extends AbstractCharacterTestCase
+class PreEquipSecondaryTest extends AbstractCharacterTestCase
 {
 
 	/*
 	 * Class under test for int passes(Prerequisite, PlayerCharacter)
 	 */
 	@Test
-	public void testPassesPrerequisitePlayerCharacter()
+	void testPassesPrerequisitePlayerCharacter()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -86,7 +86,7 @@ public class PreEquipSecondaryTest extends AbstractCharacterTestCase
 	 * Test equipment type tests.
 	 */
 	@Test
-	public void testType()
+	void testType()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -122,7 +122,7 @@ public class PreEquipSecondaryTest extends AbstractCharacterTestCase
 	 * Test wield category tests.
 	 */
 	@Test
-	public void testWield()
+	void testWield()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -185,7 +185,7 @@ public class PreEquipSecondaryTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testNotEquipped() throws PersistenceLayerException
+	void testNotEquipped() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 

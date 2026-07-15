@@ -25,7 +25,7 @@ import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
 import plugin.lsttokens.template.WeaponbonusToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class WeaponbonusIntegrationTest extends
+class WeaponbonusIntegrationTest extends
 		AbstractListIntegrationTestCase<PCTemplate, WeaponProf>
 {
 

@@ -30,7 +30,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class TemplateLstTest extends
+class TemplateLstTest extends
 		AbstractGlobalListTokenTestCase<PCTemplate>
 {
 
@@ -98,21 +98,21 @@ public class TemplateLstTest extends
 	}
 
 	@Test
-	public void testChooseInvalidInputString()
+	void testChooseInvalidInputString()
 	{
 		assertTrue(parse("CHOOSE:String"));
 		assertConstructionError();
 	}
 
 	@Test
-	public void testChooseInvalidInputType()
+	void testChooseInvalidInputType()
 	{
 		assertTrue(parse("CHOOSE:TestType"));
 		assertConstructionError();
 	}
 
 	@Test
-	public void testChooseInvalidInputJoinedComma()
+	void testChooseInvalidInputJoinedComma()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -121,7 +121,7 @@ public class TemplateLstTest extends
 	}
 
 	@Test
-	public void testChooseInvalidInputJoinedDot()
+	void testChooseInvalidInputJoinedDot()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -130,7 +130,7 @@ public class TemplateLstTest extends
 	}
 
 	@Test
-	public void testChooseInvalidListEnd()
+	void testChooseInvalidListEnd()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("CHOOSE:TestWP1" + getJoinCharacter()));
@@ -138,7 +138,7 @@ public class TemplateLstTest extends
 	}
 
 	@Test
-	public void testChooseInvalidChooseRemove()
+	void testChooseInvalidChooseRemove()
 	{
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse("CHOOSE:" + "TestWP1.REMOVE"));
@@ -146,7 +146,7 @@ public class TemplateLstTest extends
 	}
 
 	@Test
-	public void testChooseInvalidAddChoiceRemove()
+	void testChooseInvalidAddChoiceRemove()
 	{
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse("ADDCHOICE:" + "TestWP1.REMOVE"));
@@ -154,7 +154,7 @@ public class TemplateLstTest extends
 	}
 
 	@Test
-	public void testChooseInvalidListStart()
+	void testChooseInvalidListStart()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("CHOOSE:" + getJoinCharacter() + "TestWP1"));
@@ -162,7 +162,7 @@ public class TemplateLstTest extends
 	}
 
 	@Test
-	public void testChooseInvalidListDoubleJoin()
+	void testChooseInvalidListDoubleJoin()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -172,7 +172,7 @@ public class TemplateLstTest extends
 	}
 
 	@Test
-	public void testChooseInvalidInputCheckMult()
+	void testChooseInvalidInputCheckMult()
 	{
 		// Explicitly do NOT build testChooseWP2
 		construct(primaryContext, "TestWP1");
@@ -181,7 +181,7 @@ public class TemplateLstTest extends
 	}
 
 	@Test
-	public void testChooseValidInputs()
+	void testChooseValidInputs()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -191,7 +191,7 @@ public class TemplateLstTest extends
 	}
 
 	@Test
-	public void testChooseRoundRobinOne() throws PersistenceLayerException
+	void testChooseRoundRobinOne() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -201,7 +201,7 @@ public class TemplateLstTest extends
 	}
 
 	@Test
-	public void testParseStuffList()
+	void testParseStuffList()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -212,13 +212,13 @@ public class TemplateLstTest extends
 	}
 
 	@Test
-	public void testRoundRobinList() throws PersistenceLayerException
+	void testRoundRobinList() throws PersistenceLayerException
 	{
 		runRoundRobin("%LIST");
 	}
 
 	@Test
-	public void testChooseRoundRobinThree() throws PersistenceLayerException
+	void testChooseRoundRobinThree() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -231,21 +231,21 @@ public class TemplateLstTest extends
 	}
 
 	@Test
-	public void testChooseInvalidInputAddString()
+	void testChooseInvalidInputAddString()
 	{
 		assertTrue(parse("ADDCHOICE:String"));
 		assertConstructionError();
 	}
 
 	@Test
-	public void testChooseInvalidInputAddType()
+	void testChooseInvalidInputAddType()
 	{
 		assertTrue(parse("ADDCHOICE:TestType"));
 		assertConstructionError();
 	}
 
 	@Test
-	public void testChooseInvalidInputAddJoinedComma()
+	void testChooseInvalidInputAddJoinedComma()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -254,7 +254,7 @@ public class TemplateLstTest extends
 	}
 
 	@Test
-	public void testChooseInvalidInputAddJoinedDot()
+	void testChooseInvalidInputAddJoinedDot()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -263,7 +263,7 @@ public class TemplateLstTest extends
 	}
 
 	@Test
-	public void testChooseInvalidAddListEnd()
+	void testChooseInvalidAddListEnd()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("ADDCHOICE:TestWP1" + getJoinCharacter()));
@@ -271,7 +271,7 @@ public class TemplateLstTest extends
 	}
 
 	@Test
-	public void testChooseInvalidAddListStart()
+	void testChooseInvalidAddListStart()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("ADDCHOICE:" + getJoinCharacter() + "TestWP1"));
@@ -279,7 +279,7 @@ public class TemplateLstTest extends
 	}
 
 	@Test
-	public void testChooseInvalidAddListDoubleJoin()
+	void testChooseInvalidAddListDoubleJoin()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -289,7 +289,7 @@ public class TemplateLstTest extends
 	}
 
 	@Test
-	public void testChooseInvalidAddInputCheckMult()
+	void testChooseInvalidAddInputCheckMult()
 	{
 		// Explicitly do NOT build testChooseWP2
 		construct(primaryContext, "TestWP1");
@@ -326,14 +326,14 @@ public class TemplateLstTest extends
 	//
 
 	@Test
-	public void testRemoveInvalidInputString()
+	void testRemoveInvalidInputString()
 	{
 		assertTrue(parse("String.REMOVE"));
 		assertConstructionError();
 	}
 
 	@Test
-	public void testRemoveInvalidInputJoinedComma()
+	void testRemoveInvalidInputJoinedComma()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -342,7 +342,7 @@ public class TemplateLstTest extends
 	}
 
 	@Test
-	public void testRemoveInvalidInputJoinedDot()
+	void testRemoveInvalidInputJoinedDot()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -351,7 +351,7 @@ public class TemplateLstTest extends
 	}
 
 	@Test
-	public void testRemoveInvalidListEnd()
+	void testRemoveInvalidListEnd()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("TestWP1.REMOVE" + getJoinCharacter()));
@@ -359,7 +359,7 @@ public class TemplateLstTest extends
 	}
 
 	@Test
-	public void testRemoveInvalidListStart()
+	void testRemoveInvalidListStart()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse(getJoinCharacter() + "TestWP1.REMOVE"));
@@ -367,7 +367,7 @@ public class TemplateLstTest extends
 	}
 
 	@Test
-	public void testRemoveInvalidListDoubleJoin()
+	void testRemoveInvalidListDoubleJoin()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -377,7 +377,7 @@ public class TemplateLstTest extends
 	}
 
 	@Test
-	public void testRemoveInvalidInputCheckMult()
+	void testRemoveInvalidInputCheckMult()
 	{
 		// Explicitly do NOT build testChooseWP2
 		construct(primaryContext, "TestWP1");
@@ -386,7 +386,7 @@ public class TemplateLstTest extends
 	}
 
 	@Test
-	public void testRemoveRoundRobinOne() throws PersistenceLayerException
+	void testRemoveRoundRobinOne() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -396,7 +396,7 @@ public class TemplateLstTest extends
 	}
 
 	@Test
-	public void testRemoveRoundRobinThree() throws PersistenceLayerException
+	void testRemoveRoundRobinThree() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");

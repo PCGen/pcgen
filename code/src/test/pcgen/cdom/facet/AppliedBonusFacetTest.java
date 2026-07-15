@@ -32,7 +32,7 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
-public class AppliedBonusFacetTest extends AbstractListFacetTest<BonusObj>
+class AppliedBonusFacetTest extends AbstractListFacetTest<BonusObj>
 {
 	private AppliedBonusFacet facet = new AppliedBonusFacet();
 	private LoadContext context;

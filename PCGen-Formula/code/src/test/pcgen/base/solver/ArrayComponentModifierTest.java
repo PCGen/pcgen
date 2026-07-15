@@ -31,10 +31,10 @@ import pcgen.base.solver.testsupport.AbstractModifier;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
 import pcgen.base.testsupport.TestUtilities;
 
-public class ArrayComponentModifierTest extends AbstractFormulaTestCase
+class ArrayComponentModifierTest extends AbstractFormulaTestCase
 {
 	@Test
-	public void testConstructor()
+	void testConstructor()
 	{
 		Modifier<Number> cm = AbstractModifier.setNumber(3, 100);
 		assertThrows(NullPointerException.class, () -> new ArrayComponentModifier<>(null, 5, cm));
@@ -43,7 +43,7 @@ public class ArrayComponentModifierTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGetUserPriority()
+	void testGetUserPriority()
 	{
 		Modifier<Number> cm = AbstractModifier.setNumber(3, 100);
 		ArrayComponentModifier<Number> acm = new ArrayComponentModifier<>(TestUtilities.NUMBER_ARRAY_MANAGER, 5, cm);
@@ -51,7 +51,7 @@ public class ArrayComponentModifierTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGetVariableFormat()
+	void testGetVariableFormat()
 	{
 		Modifier<Number> cm = AbstractModifier.setNumber(3, 100);
 		ArrayComponentModifier<Number> acm = new ArrayComponentModifier<>(TestUtilities.NUMBER_ARRAY_MANAGER, 5, cm);
@@ -60,7 +60,7 @@ public class ArrayComponentModifierTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGetIdentification()
+	void testGetIdentification()
 	{
 		Modifier<Number> cm = AbstractModifier.setNumber(3, 100);
 		ArrayComponentModifier<Number> acm = new ArrayComponentModifier<>(TestUtilities.NUMBER_ARRAY_MANAGER, 5, cm);
@@ -68,7 +68,7 @@ public class ArrayComponentModifierTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGetInstructions()
+	void testGetInstructions()
 	{
 		Modifier<Number> cm = AbstractModifier.setNumber(3, 100);
 		ArrayComponentModifier<Number> acm = new ArrayComponentModifier<>(TestUtilities.NUMBER_ARRAY_MANAGER, 5, cm);
@@ -76,7 +76,7 @@ public class ArrayComponentModifierTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testProcess()
+	void testProcess()
 	{
 		Modifier<Number> cm = AbstractModifier.setNumber(8, 100);
 		ArrayComponentModifier<Number> acm = new ArrayComponentModifier<>(TestUtilities.NUMBER_ARRAY_MANAGER, 5, cm);
@@ -90,7 +90,7 @@ public class ArrayComponentModifierTest extends AbstractFormulaTestCase
 
 
 	@Test
-	public void testProcessOutOfBounds()
+	void testProcessOutOfBounds()
 	{
 		Modifier<Number> cm = AbstractModifier.setNumber(77, 100);
 		ArrayComponentModifier<Number> acm = new ArrayComponentModifier<>(TestUtilities.NUMBER_ARRAY_MANAGER, 5, cm);

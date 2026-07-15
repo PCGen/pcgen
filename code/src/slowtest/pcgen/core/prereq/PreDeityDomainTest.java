@@ -41,7 +41,7 @@ import org.junit.jupiter.api.Test;
  * {@code PreDeityDomainTest} tests that the PREDEITYDOMAIN tag is
  * working correctly.
  */
-public class PreDeityDomainTest extends AbstractCharacterTestCase
+class PreDeityDomainTest extends AbstractCharacterTestCase
 {
 	private Deity deity;
 
@@ -51,7 +51,7 @@ public class PreDeityDomainTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testSingle() throws PersistenceLayerException
+	void testSingle() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -78,7 +78,7 @@ public class PreDeityDomainTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testMultiple() throws Exception
+	void testMultiple() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 

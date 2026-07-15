@@ -29,7 +29,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
 
-public class QualityTokenTest extends AbstractCDOMTokenTestCase<Equipment>
+class QualityTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 {
 	static QualityToken token = new QualityToken();
 	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
@@ -53,74 +53,74 @@ public class QualityTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testInvalidNoPipe()
+	void testInvalidNoPipe()
 	{
 		assertFalse(parse("NoPipe"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTwoPipe()
+	void testInvalidTwoPipe()
 	{
 		assertFalse(parse("One|Two|Three"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidDoublePipe()
+	void testInvalidDoublePipe()
 	{
 		assertFalse(parse("Two||Pipe"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmpty()
+	void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidOnlyPipe()
+	void testInvalidOnlyPipe()
 	{
 		assertFalse(parse("|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyKey()
+	void testInvalidEmptyKey()
 	{
 		assertFalse(parse("|Value"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyValue()
+	void testInvalidEmptyValue()
 	{
 		assertFalse(parse("Key|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		runRoundRobin("QualityName|QualityValue");
 	}
 
 	@Test
-	public void testRoundRobinSpaces() throws PersistenceLayerException
+	void testRoundRobinSpaces() throws PersistenceLayerException
 	{
 		runRoundRobin("Quality Name|Quality Value");
 	}
 
 	@Test
-	public void testRoundRobinInternational() throws PersistenceLayerException
+	void testRoundRobinInternational() throws PersistenceLayerException
 	{
 		runRoundRobin("Niederösterreich Quality|Niederösterreich");
 	}
 
 	@Test
-	public void testRoundRobinHyphen() throws PersistenceLayerException
+	void testRoundRobinHyphen() throws PersistenceLayerException
 	{
 		runRoundRobin("Languedoc-Roussillon Quality|Languedoc-Roussillon");
 	}

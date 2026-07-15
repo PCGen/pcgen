@@ -43,7 +43,7 @@ import org.junit.jupiter.api.Test;
  * {@code StatTokenTest} tests the functioning of the STAT token.
  */
 
-public class StatTokenTest extends AbstractCharacterTestCase
+class StatTokenTest extends AbstractCharacterTestCase
 {
 
 	private Equipment boots;

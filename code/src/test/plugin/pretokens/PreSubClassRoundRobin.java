@@ -23,7 +23,7 @@ import plugin.pretokens.writer.PreSubClassWriter;
 
 import org.junit.jupiter.api.BeforeEach;
 
-public class PreSubClassRoundRobin extends AbstractBasicRoundRobin
+class PreSubClassRoundRobin extends AbstractBasicRoundRobin
 {
 	@BeforeEach
 	@Override

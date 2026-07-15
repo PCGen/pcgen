@@ -32,7 +32,7 @@ import org.junit.jupiter.api.BeforeEach;
 import tokencontent.testsupport.AbstractContentTokenTest;
 import util.TestURI;
 
-public class GlobalVisionTest extends AbstractContentTokenTest
+class GlobalVisionTest extends AbstractContentTokenTest
 {
 
 	private static VisionLst token = new VisionLst();

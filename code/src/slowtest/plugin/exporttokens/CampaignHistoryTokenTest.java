@@ -37,7 +37,7 @@ import org.junit.jupiter.api.Test;
  *
  *
  */
-public class CampaignHistoryTokenTest  extends AbstractCharacterTestCase
+class CampaignHistoryTokenTest  extends AbstractCharacterTestCase
 {
 
 	private ChronicleEntry visibleEntry;
@@ -65,7 +65,7 @@ public class CampaignHistoryTokenTest  extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testFieldChoice() throws IOException
+	void testFieldChoice() throws IOException
 	{
 		FileAccess.setCurrentOutputFilter("xml");
 		PlayerCharacter character = getCharacter();
@@ -83,7 +83,7 @@ public class CampaignHistoryTokenTest  extends AbstractCharacterTestCase
 
 
 	@Test
-	public void testVisibility() throws IOException
+	void testVisibility() throws IOException
 	{
 		FileAccess.setCurrentOutputFilter("xml");
 		PlayerCharacter character = getCharacter();

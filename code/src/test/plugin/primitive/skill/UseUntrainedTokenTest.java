@@ -33,7 +33,7 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 
 import org.junit.jupiter.api.BeforeEach;
 
-public class UseUntrainedTokenTest extends
+class UseUntrainedTokenTest extends
 		AbstractPrimitiveTokenTestCase<CDOMObject, Skill>
 {
 	private static final SkillToken SUBTOKEN = new SkillToken();

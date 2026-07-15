@@ -28,11 +28,11 @@ import org.junit.jupiter.api.Test;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.testsupport.TestUtilities;
 
-public class NumberDivideTest
+class NumberDivideTest
 {
 
 	@Test
-	public void testOperator()
+	void testOperator()
 	{
 		NumberDivide op = new NumberDivide();
 		assertNotNull(op.getOperator());
@@ -40,7 +40,7 @@ public class NumberDivideTest
 	}
 
 	@Test
-	public void testAbstractEvaluateNulls()
+	void testAbstractEvaluateNulls()
 	{
 		NumberDivide op = new NumberDivide();
 		try
@@ -70,7 +70,7 @@ public class NumberDivideTest
 	}
 
 	@Test
-	public void testAbstractEvaluateMismatch()
+	void testAbstractEvaluateMismatch()
 	{
 		NumberDivide op = new NumberDivide();
 		assertTrue(op.abstractEvaluate(FormatUtilities.BOOLEAN_CLASS, TestUtilities.INTEGER_CLASS, null).isEmpty());
@@ -78,7 +78,7 @@ public class NumberDivideTest
 	}
 
 	@Test
-	public void testAbstractEvaluateLegal()
+	void testAbstractEvaluateLegal()
 	{
 		NumberDivide op = new NumberDivide();
 		assertEquals(FormatUtilities.NUMBER_CLASS,
@@ -97,7 +97,7 @@ public class NumberDivideTest
 	}
 
 	@Test
-	public void testEvaluateFailNull()
+	void testEvaluateFailNull()
 	{
 		NumberDivide op = new NumberDivide();
 		assertThrows(NullPointerException.class, () -> op.evaluate(null, null));
@@ -106,7 +106,7 @@ public class NumberDivideTest
 	}
 
 	@Test
-	public void testEvaluateMismatch()
+	void testEvaluateMismatch()
 	{
 		NumberDivide op = new NumberDivide();
 		assertThrows(ClassCastException.class, () -> op.evaluate(true, Double.valueOf(4.5)));
@@ -114,7 +114,7 @@ public class NumberDivideTest
 	}
 
 	@Test
-	public void testEvaluateLegal()
+	void testEvaluateLegal()
 	{
 		NumberDivide op = new NumberDivide();
 		assertEquals(Double.valueOf(2/1.3),

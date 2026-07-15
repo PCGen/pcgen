@@ -42,7 +42,7 @@ import org.junit.jupiter.api.Test;
  * {@code PreHPTest} tests that the PREHP tag is
  * working correctly.
  */
-public class PreHPTest extends AbstractCharacterTestCase
+class PreHPTest extends AbstractCharacterTestCase
 {
 	PCClass myClass = new PCClass();
 
@@ -52,7 +52,7 @@ public class PreHPTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testHP() throws PersistenceLayerException
+	void testHP() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		LoadContext context = Globals.getContext();

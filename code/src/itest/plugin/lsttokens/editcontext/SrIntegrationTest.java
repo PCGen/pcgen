@@ -30,7 +30,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class SrIntegrationTest extends
+class SrIntegrationTest extends
 		AbstractFormulaIntegrationTestCase<CDOMObject>
 {
 
@@ -62,7 +62,7 @@ public class SrIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinSimpleClear() throws PersistenceLayerException
+	void testRoundRobinSimpleClear() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -72,7 +72,7 @@ public class SrIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinClearMod() throws PersistenceLayerException
+	void testRoundRobinClearMod() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -82,7 +82,7 @@ public class SrIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinIdenticalClear() throws PersistenceLayerException
+	void testRoundRobinIdenticalClear() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -92,7 +92,7 @@ public class SrIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoSetClear() throws PersistenceLayerException
+	void testRoundRobinNoSetClear() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -102,7 +102,7 @@ public class SrIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoResetClear() throws PersistenceLayerException
+	void testRoundRobinNoResetClear() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();

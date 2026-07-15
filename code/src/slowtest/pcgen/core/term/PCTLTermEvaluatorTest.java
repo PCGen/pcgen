@@ -47,7 +47,7 @@ import org.junit.jupiter.api.Test;
  * 
  * 
  */
-public class PCTLTermEvaluatorTest extends AbstractCharacterTestCase
+class PCTLTermEvaluatorTest extends AbstractCharacterTestCase
 {
 	private Race bugbearRace;
 	private PCClass humanoidClass;
@@ -91,7 +91,7 @@ public class PCTLTermEvaluatorTest extends AbstractCharacterTestCase
 	 * Check that TL works with a monster style class. 
 	 */
 	@Test
-	public void testResolveTlMonster()
+	void testResolveTlMonster()
 	{
 		PCTLTermEvaluator tlEval = new PCTLTermEvaluator("TL");
 		

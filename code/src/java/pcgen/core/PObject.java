@@ -45,7 +45,7 @@ import pcgen.system.PCGenSettings;
  * This is the base class for several objects in the PCGen database.
  */
 public class PObject extends CDOMObject
-		implements Cloneable, Serializable, Comparable<Object>, KeyedListContainer, QualifyingObject
+		implements Serializable, Comparable<Object>, KeyedListContainer, QualifyingObject
 {
 
 	private HiddenTypeFacet hiddenTypeFacet = FacetLibrary.getFacet(HiddenTypeFacet.class);

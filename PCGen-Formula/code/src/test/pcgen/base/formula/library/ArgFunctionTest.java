@@ -39,7 +39,7 @@ import pcgen.base.formula.visitor.ReconstructionVisitor;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
 import pcgen.base.testsupport.TestUtilities;
 
-public class ArgFunctionTest extends AbstractFormulaTestCase
+class ArgFunctionTest extends AbstractFormulaTestCase
 {
 
 	private ArgumentDependencyManager argManager;
@@ -81,7 +81,7 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidWrongArg()
+	void testInvalidWrongArg()
 	{
 		String formula = "arg()";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -92,7 +92,7 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNoArg()
+	void testNoArg()
 	{
 		String formula = "4";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -107,7 +107,7 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidTooHigh()
+	void testInvalidTooHigh()
 	{
 		String formula = "arg(4)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -115,7 +115,7 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidTooLow()
+	void testInvalidTooLow()
 	{
 		String formula = "arg(-1)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -123,7 +123,7 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidDouble()
+	void testInvalidDouble()
 	{
 		String formula = "arg(1.5)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -131,7 +131,7 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidNaN()
+	void testInvalidNaN()
 	{
 		String formula = "arg(\"string\")";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -139,7 +139,7 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testArgZero()
+	void testArgZero()
 	{
 		String formula = "arg(0)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -154,7 +154,7 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testArgOne()
+	void testArgOne()
 	{
 		String formula = "arg(1)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -180,7 +180,7 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testComplex()
+	void testComplex()
 	{
 		String formula = "arg(2)";
 		SimpleNode node = TestUtilities.doParse(formula);

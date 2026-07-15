@@ -37,7 +37,7 @@ class FileHelperTest
 	 * Test the relative paths.
 	 */
 	@Test
-	public void testRelativePaths()
+	void testRelativePaths()
 	{
 		final File base = new File("/one/two/three/four/foo.txt");
 
@@ -50,7 +50,7 @@ class FileHelperTest
 	 * Test relative paths but back one (../)
 	 */
 	@Test
-	public void testRelativePathBack1()
+	void testRelativePathBack1()
 	{
 		final File base = new File("/one/two/three/four/foo.txt");
 
@@ -64,7 +64,7 @@ class FileHelperTest
 	 * Test relative path back two (../../)
 	 */
 	@Test
-	public void testRelativePathBack2()
+	void testRelativePathBack2()
 	{
 		final File base = new File("/one/two/three/four/foo.txt");
 
@@ -77,7 +77,7 @@ class FileHelperTest
 	 * Test relative path one ahead (./foobar)
 	 */
 	@Test
-	public void testRelativePathAhead1()
+	void testRelativePathAhead1()
 	{
 		final File base = new File("/one/two/three/four/foo.txt");
 
@@ -91,7 +91,7 @@ class FileHelperTest
 	 * Test relative path one ahead (./foobar/foobar)
 	 */
 	@Test
-	public void testRelativePathAhead2()
+	void testRelativePathAhead2()
 	{
 		final File base = new File("/one/two/three/four/foo.txt");
 
@@ -106,7 +106,7 @@ class FileHelperTest
 	 * Test relative path different branch.
 	 */
 	@Test
-	public void testRelativePathDifferentBranch()
+	void testRelativePathDifferentBranch()
 	{
 		final File base = new File("/one/two/three/four/foo.txt");
 
@@ -121,7 +121,7 @@ class FileHelperTest
 	 * Test relative path, unrelated.
 	 */
 	@Test
-	public void testRelativePathUnrelated()
+	void testRelativePathUnrelated()
 	{
 		final File base = new File("/one/two/three/four/foo.txt");
 
@@ -140,7 +140,7 @@ class FileHelperTest
 	 * Note the tests only run on Windows machines.
 	 */
 	@Test
-	public void testWindowsDriveSame()
+	void testWindowsDriveSame()
 	{
 		final File base = new File("C:\\Temp\\foo.txt"); 
 		final File sameDir = new File("C:\\Temp\\bar\\baz.txt");
@@ -157,7 +157,7 @@ class FileHelperTest
 	 * Note the tests only run on Windows machines.
 	 */
 	@Test
-	public void testWindowsDriveDifferent()
+	void testWindowsDriveDifferent()
 	{
 		final File base = new File("C:\\Temp\\foo.txt"); 
 		final File sameDir = new File("D:\\Temp\\bar.txt");

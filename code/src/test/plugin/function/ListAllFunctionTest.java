@@ -40,7 +40,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Test listAll() function in the new formula system
  */
-public class ListAllFunctionTest extends AbstractFormulaTestCase
+class ListAllFunctionTest extends AbstractFormulaTestCase
 {
 
 	@BeforeEach
@@ -55,7 +55,7 @@ public class ListAllFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidWrongArg()
+	void testInvalidWrongArg()
 	{
 		String formula = "listAll()";
 		SimpleNode node = doParse(formula);
@@ -66,7 +66,7 @@ public class ListAllFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidWrongFormat1()
+	void testInvalidWrongFormat1()
 	{
 		String formula = "listAll(\"SKILL\",3)";
 		SimpleNode node = doParse(formula);
@@ -74,7 +74,7 @@ public class ListAllFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidWrongFormat2()
+	void testInvalidWrongFormat2()
 	{
 		String formula = "listAll(\"SKILL\",\"STUFF\")";
 		SimpleNode node = doParse(formula);
@@ -85,7 +85,7 @@ public class ListAllFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidWrongFormat3()
+	void testInvalidWrongFormat3()
 	{
 		String formula = "listAll(\"NOTAFORMAT\",\"DISPLAY\")";
 		SimpleNode node = doParse(formula);
@@ -96,7 +96,7 @@ public class ListAllFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testValid()
+	void testValid()
 	{
 		String formula = "listAll(\"SKILL\")";
 		SimpleNode node = doParse(formula);
@@ -110,7 +110,7 @@ public class ListAllFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testRoundRobin()
+	void testRoundRobin()
 	{
 		String formula = "listAll(\"SKILL\")";
 		SimpleNode node = doParse(formula);
@@ -120,7 +120,7 @@ public class ListAllFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testBasic()
+	void testBasic()
 	{
 		String formula = "listAll(\"SKILL\")";
 		SimpleNode node = doParse(formula);

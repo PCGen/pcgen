@@ -48,7 +48,7 @@ import org.junit.jupiter.api.Test;
  * {@code PreShieldProfTest} tests that the PREPROFWITHSHIELD tag is
  * working correctly.
  */
-public class PreShieldProfTest extends AbstractCharacterTestCase
+class PreShieldProfTest extends AbstractCharacterTestCase
 {
 	/**
 	 * Test with a simple shield proficiency.
@@ -56,7 +56,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 	 * @throws Exception the exception
 	 */
 	@Test
-	public void testOneOption() throws Exception
+	void testOneOption() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -93,7 +93,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 	 * @throws Exception the exception
 	 */
 	@Test
-	public void testMultiple() throws Exception
+	void testMultiple() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -131,7 +131,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 	 * @throws Exception the exception
 	 */
 	@Test
-	public void testType() throws Exception
+	void testType() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 		Globals.getContext().getReferenceContext().constructCDOMObject(Equipment.class,
@@ -160,7 +160,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 	 * @throws Exception the exception
 	 */
 	@Test
-	public void testInverse() throws Exception
+	void testInverse() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -199,7 +199,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 	 * @throws Exception the exception
 	 */
 	@Test
-	public void testShieldProfAddedWithAutoShieldProf() throws Exception
+	void testShieldProfAddedWithAutoShieldProf() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -236,7 +236,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 	 * @throws Exception the exception
 	 */
 	@Test
-	public void testWithFeatThatGrantsBonus() throws Exception
+	void testWithFeatThatGrantsBonus() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 		

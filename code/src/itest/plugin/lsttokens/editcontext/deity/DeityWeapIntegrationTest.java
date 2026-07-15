@@ -25,7 +25,7 @@ import plugin.lsttokens.deity.DeityweapToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class DeityWeapIntegrationTest extends
+class DeityWeapIntegrationTest extends
 		AbstractListIntegrationTestCase<Deity, WeaponProf>
 {
 

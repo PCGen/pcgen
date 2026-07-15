@@ -33,7 +33,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
 
-public class KitLstTest extends AbstractGlobalTokenTestCase
+class KitLstTest extends AbstractGlobalTokenTestCase
 {
 
 	static CDOMPrimaryToken<CDOMObject> token = new KitLst();
@@ -64,35 +64,35 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidInputNoNumber()
+	void testInvalidInputNoNumber()
 	{
 		assertFalse(parse("TestType"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputMissingNumber()
+	void testInvalidInputMissingNumber()
 	{
 		assertFalse(parse("|TestType"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOnlyNumber()
+	void testInvalidInputOnlyNumber()
 	{
 		assertFalse(parse("2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputMissingItem()
+	void testInvalidInputMissingItem()
 	{
 		assertFalse(parse("2|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoublePipe()
+	void testInvalidInputDoublePipe()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -101,7 +101,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidInputJoinedComma()
+	void testInvalidInputJoinedComma()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -112,7 +112,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidInputJoinedDot()
+	void testInvalidInputJoinedDot()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -123,7 +123,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidListEnd()
+	void testInvalidListEnd()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("1|TestWP1|"));
@@ -131,7 +131,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidListStart()
+	void testInvalidListStart()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("1||TestWP1"));
@@ -139,7 +139,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidNaNCount()
+	void testInvalidNaNCount()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("Count|TestWP1"));
@@ -147,7 +147,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidZeroCount()
+	void testInvalidZeroCount()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("0|TestWP1"));
@@ -155,7 +155,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidNegativeCount()
+	void testInvalidNegativeCount()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("-4|TestWP1"));
@@ -163,7 +163,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidListDoubleJoin()
+	void testInvalidListDoubleJoin()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -172,7 +172,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidInputCheckMult()
+	void testInvalidInputCheckMult()
 	{
 		// Explicitly do NOT build TestWP2
 		construct(primaryContext, "TestWP1");
@@ -181,7 +181,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testRoundRobinOne() throws PersistenceLayerException
+	void testRoundRobinOne() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -189,7 +189,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testRoundRobinThree() throws PersistenceLayerException
+	void testRoundRobinThree() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -201,7 +201,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testRoundRobinThreeDupe() throws PersistenceLayerException
+	void testRoundRobinThreeDupe() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP3");
@@ -211,7 +211,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testRoundRobinTwoCountThree() throws PersistenceLayerException
+	void testRoundRobinTwoCountThree() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -228,7 +228,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInputInvalidAddsAllNoSideEffect()
+	void testInputInvalidAddsAllNoSideEffect()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -248,7 +248,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidInputAllItem()
+	void testInvalidInputAllItem()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("1|ALL" + getJoinCharacter() + "TestWP1"));
@@ -256,7 +256,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidInputItemAll()
+	void testInvalidInputItemAll()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("1|TestWP1" + getJoinCharacter() + "ALL"));

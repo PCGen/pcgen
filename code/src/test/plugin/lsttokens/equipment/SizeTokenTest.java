@@ -38,7 +38,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class SizeTokenTest extends AbstractCDOMTokenTestCase<Equipment>
+class SizeTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 {
 
 	static SizeToken token = new SizeToken();
@@ -79,7 +79,7 @@ public class SizeTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testInvalidNotASize()
+	void testInvalidNotASize()
 	{
 		if (token.parseToken(primaryContext, primaryProf, "W").passed())
 		{
@@ -92,13 +92,13 @@ public class SizeTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testRoundRobinS() throws PersistenceLayerException
+	void testRoundRobinS() throws PersistenceLayerException
 	{
 		runRoundRobin("S");
 	}
 
 	@Test
-	public void testRoundRobinM() throws PersistenceLayerException
+	void testRoundRobinM() throws PersistenceLayerException
 	{
 		runRoundRobin("M");
 	}
@@ -122,14 +122,14 @@ public class SizeTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testUnparseNull()
+	void testUnparseNull()
 	{
 		primaryProf.put(ObjectKey.BASESIZE, null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseLegal()
+	void testUnparseLegal()
 	{
 		primaryProf.put(ObjectKey.BASESIZE, CDOMDirectSingleRef.getRef(ps));
 		expectSingle(getToken().unparse(primaryContext, primaryProf), ps
@@ -138,7 +138,7 @@ public class SizeTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail()
+	void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = ObjectKey.BASESIZE;
 		primaryProf.put(objectKey, new Object());

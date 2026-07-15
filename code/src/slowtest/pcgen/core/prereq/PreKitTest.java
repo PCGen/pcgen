@@ -39,7 +39,7 @@ class PreKitTest extends AbstractCharacterTestCase
 	 * PREKIT
 	 */
 	@Test
-	public void testKitPresence()
+	void testKitPresence()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -62,7 +62,7 @@ class PreKitTest extends AbstractCharacterTestCase
 	 * passes !PRETEMPLATE
 	 */
 	@Test
-	public void testKitAbsence()
+	void testKitAbsence()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -81,7 +81,7 @@ class PreKitTest extends AbstractCharacterTestCase
 	 * required kit correctly passes !PREKIT
 	 */
 	@Test
-	public void testSpecificKitAbsent()
+	void testSpecificKitAbsent()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -104,7 +104,7 @@ class PreKitTest extends AbstractCharacterTestCase
 	 * !PREKIT
 	 */
 	@Test
-	public void testNotAbsent()
+	void testNotAbsent()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -127,7 +127,7 @@ class PreKitTest extends AbstractCharacterTestCase
 	 * a wildcard test
 	 */
 	@Test
-	public void testWildcard()
+	void testWildcard()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -150,7 +150,7 @@ class PreKitTest extends AbstractCharacterTestCase
 	 * error message
 	 */
 	@Test
-	public void testBadOperand()
+	void testBadOperand()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -165,7 +165,7 @@ class PreKitTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testKindHandled()
+	void testKindHandled()
 	{
 		final PreKitTester preKit = new PreKitTester();
 

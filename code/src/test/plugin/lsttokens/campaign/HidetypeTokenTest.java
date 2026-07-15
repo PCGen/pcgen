@@ -27,7 +27,7 @@ import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
-public class HidetypeTokenTest extends AbstractCDOMTokenTestCase<Campaign>
+class HidetypeTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 {
 	static HidetypeToken token = new HidetypeToken();
 	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<>();
@@ -51,68 +51,68 @@ public class HidetypeTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testInvalidNoPipe()
+	void testInvalidNoPipe()
 	{
 		assertFalse(parse("NoPipe"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTwoPipe()
+	void testInvalidTwoPipe()
 	{
 		assertFalse(parse("One|Two|Three"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidDoublePipe()
+	void testInvalidDoublePipe()
 	{
 		assertFalse(parse("Two||Pipe"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmpty()
+	void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidOnlyPipe()
+	void testInvalidOnlyPipe()
 	{
 		assertFalse(parse("|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyKey()
+	void testInvalidEmptyKey()
 	{
 		assertFalse(parse("|Value"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyValue()
+	void testInvalidEmptyValue()
 	{
 		assertFalse(parse("SKILL|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testRoundRobinSkill() throws PersistenceLayerException
+	void testRoundRobinSkill() throws PersistenceLayerException
 	{
 		runRoundRobin("SKILL|QualityValue");
 	}
 
 	@Test
-	public void testRoundRobinEquip() throws PersistenceLayerException
+	void testRoundRobinEquip() throws PersistenceLayerException
 	{
 		runRoundRobin("EQUIP|Quality Value");
 	}
 
 	@Test
-	public void testRoundRobinFeat() throws PersistenceLayerException
+	void testRoundRobinFeat() throws PersistenceLayerException
 	{
 		runRoundRobin("FEAT|Niederösterreich|Finger Lakes");
 	}

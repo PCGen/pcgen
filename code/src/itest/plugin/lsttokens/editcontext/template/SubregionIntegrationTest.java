@@ -25,7 +25,7 @@ import plugin.lsttokens.editcontext.testsupport.AbstractStringIntegrationTestCas
 import plugin.lsttokens.template.SubregionToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class SubregionIntegrationTest
+class SubregionIntegrationTest
 		extends AbstractStringIntegrationTestCase<PCTemplate>
 {
 

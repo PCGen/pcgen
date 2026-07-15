@@ -39,7 +39,7 @@ import pcgen.util.TestHelper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class PreSizeTest extends AbstractCharacterTestCase
+class PreSizeTest extends AbstractCharacterTestCase
 {
 	Race race = new Race();
 	Equipment eq1;
@@ -65,7 +65,7 @@ public class PreSizeTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testEquipmentPreSize() throws Exception
+	void testEquipmentPreSize() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 		Globals.getContext().getReferenceContext().resolveReferences(null);

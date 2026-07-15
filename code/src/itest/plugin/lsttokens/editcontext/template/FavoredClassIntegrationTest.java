@@ -34,7 +34,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class FavoredClassIntegrationTest extends
+class FavoredClassIntegrationTest extends
 		AbstractListIntegrationTestCase<PCTemplate, PCClass>
 {
 
@@ -109,7 +109,7 @@ public class FavoredClassIntegrationTest extends
 
 
 	@Test
-	public void testRoundRobinSimpleCategorized() throws PersistenceLayerException
+	void testRoundRobinSimpleCategorized() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		construct(primaryContext, "TestWP1");

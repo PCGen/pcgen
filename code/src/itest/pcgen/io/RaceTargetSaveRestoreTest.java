@@ -37,7 +37,7 @@ import plugin.lsttokens.skill.ExclusiveToken;
 
 import org.junit.jupiter.api.Test;
 
-public class RaceTargetSaveRestoreTest extends
+class RaceTargetSaveRestoreTest extends
 		AbstractGlobalTargetedSaveRestoreTest<Race>
 {
 
@@ -66,7 +66,7 @@ public class RaceTargetSaveRestoreTest extends
 	}
 
 	@Test
-	public void testRaceMonCSkill()
+	void testRaceMonCSkill()
 	{
 		PCClass monclass = create(PCClass.class, "MonClass");
 		new TypeLst().parseToken(context, monclass, "Monster");
@@ -108,7 +108,7 @@ public class RaceTargetSaveRestoreTest extends
 	}
 
 	@Test
-	public void testRaceFavClass()
+	void testRaceFavClass()
 	{
 		PCClass monclass = create(PCClass.class, "MonClass");
 		new TypeLst().parseToken(context, monclass, "Monster");

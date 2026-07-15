@@ -32,7 +32,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import util.TestURI;
 
-public class SelectableTokenIntegrationTest
+class SelectableTokenIntegrationTest
 {
 
 	private static final String PROP_1 = "Property";
@@ -46,14 +46,14 @@ public class SelectableTokenIntegrationTest
 	protected static CampaignSourceEntry testCampaign;
 
 	@BeforeAll
-	public static void classSetUp()
+	static void classSetUp()
 	{
 		testCampaign =
 				new CampaignSourceEntry(new Campaign(), TestURI.getURI());
 	}
 
 	@BeforeEach
-	public void setUp()
+	void setUp()
 	{
 		TokenRegistration.clearTokens();
 		TokenRegistration.register(TOKEN);
@@ -78,7 +78,7 @@ public class SelectableTokenIntegrationTest
 	}
 
 	@Test
-	public void testValidStringYes()
+	void testValidStringYes()
 	{
 		assertNull(cd.getSelectable());
 		assertTrue(TOKEN.parseToken(context, cd, "YES").passed());

@@ -3803,6 +3803,28 @@ BIO
 	<ability_objects>
 		<!-- Visible Normal "Special Ability" Ability Objects -->
 		<ability_object>
+			<name>Bonus Hit Point (6x)</name>
+			<description></description>
+			<type>FAVOREDCLASSBONUS.SPECIALQUALITY</type>
+			<associated>,,,,,</associated>
+			<count>6</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bonus Skill Rank (Handle Animal, Knowledge (Dungeoneering), Knowledge (Engineering), Knowledge (Geography), Knowledge (Local), Sense Motive)</name>
+			<description></description>
+			<type>FAVOREDCLASSBONUS.SPECIALQUALITY</type>
+			<associated>Handle Animal,Knowledge (Dungeoneering),Knowledge (Engineering),Knowledge (Geography),Knowledge (Local),Sense Motive</associated>
+			<count>6</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>Brigand</name>
 			<description>You hail from the River Kingdoms or the more lawless reaches of Brevoy. Life has been hard for you. Perhaps your parents and siblings were crooks and con artists, or maybe your rough, lonely life lead you to fall in with thieves and worse. You know how to ambush travelers, bully traders, avoid the law, and camp where no one might find you. Recently, you&#39;ve run into some trouble, either with the law or with other bandits, and you&#39;re looking to get away to somewhere no one would ever think to look for you. An expedition into the rugged wilderness seems like a perfect way to lie low until the trouble blows over. You gain a +1 trait bonus on Bluff, Diplomacy, Intimidate, and Sense Motive checks when dealing with brigands, thieves, bandits, and their ilk.</description>
 			<type>TRAIT.CAMPAIGNTRAIT</type>
@@ -4024,28 +4046,6 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<!-- Hidden Normal "Special Ability" Ability Objects -->
-		<ability_object>
-			<name>Bonus Hit Point (6x)</name>
-			<description></description>
-			<type>FAVOREDCLASSBONUS</type>
-			<associated>,,,,,</associated>
-			<count>6</count>
-			<auto>F</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Bonus Skill Rank (Handle Animal, Knowledge (Dungeoneering), Knowledge (Engineering), Knowledge (Geography), Knowledge (Local), Sense Motive)</name>
-			<description></description>
-			<type>FAVOREDCLASSBONUS</type>
-			<associated>Handle Animal,Knowledge (Dungeoneering),Knowledge (Engineering),Knowledge (Geography),Knowledge (Local),Sense Motive</associated>
-			<count>6</count>
-			<auto>F</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
 		<ability_object>
 			<name>Improved Evasion</name>
 			<description>This works like Evasion, except that while you still take no damage on a successful Reflex saving throw against attacks, you henceforth take only half damage on a failed save. If you are helpless, you do not gain the benefit of Improved Evasion.</description>

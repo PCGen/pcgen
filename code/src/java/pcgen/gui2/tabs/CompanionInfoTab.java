@@ -812,7 +812,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 
 	}
 
-	private static class CompanionsModel extends AbstractTreeTableModel implements TreeTableModel
+	private static class CompanionsModel extends AbstractTreeTableModel
 	{
 
 		private final CompanionSupportFacade support;

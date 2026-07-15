@@ -36,11 +36,6 @@ import pcgen.cdom.base.Constants;
 public final class Region implements TypeSafeConstant, Comparable<Region>
 {
 	/**
-	 * A "None" region for universal use.
-	 */
-	public static final Region NONE = new Region(Constants.NONE);
-
-	/**
 	 * This Map contains the mappings from Strings to the Type Safe Constant
 	 */
 	private static CaseInsensitiveMap<Region> typeMap;
@@ -48,7 +43,15 @@ public final class Region implements TypeSafeConstant, Comparable<Region>
 	/**
 	 * This is used to provide a unique ordinal to each constant in this class
 	 */
-	private static int ordinalCount = 0;
+	private static int ordinalCount;
+
+	/**
+	 * A "None" region for universal use.
+	 *
+	 * Declared after the mutable counters above so the constructor sees a
+	 * defined `ordinalCount` — silences SpotBugs SI_INSTANCE_BEFORE_FINALS_ASSIGNED.
+	 */
+	public static final Region NONE = new Region(Constants.NONE);
 
 	/**
 	 * The name of this Constant
@@ -99,13 +102,7 @@ public final class Region implements TypeSafeConstant, Comparable<Region>
 	public static Region getConstant(String name)
 	{
 		initializeTypeMap();
-		Region region = typeMap.get(name);
-		if (region == null)
-		{
-			region = new Region(name);
-			typeMap.put(name, region);
-		}
-		return region;
+		return typeMap.computeIfAbsent(name, k -> new Region(name));
 	}
 
 	/**

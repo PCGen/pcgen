@@ -36,7 +36,7 @@ class PreVariableParserTest extends EnUsLocaleDependentTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testNotEqual() throws PersistenceLayerException
+	void testNotEqual() throws PersistenceLayerException
 	{
 		PreVariableParser parser = new PreVariableParser();
 

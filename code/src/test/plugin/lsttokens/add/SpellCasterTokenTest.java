@@ -27,7 +27,7 @@ import plugin.lsttokens.testsupport.AbstractAddTokenTestCase;
 
 import org.junit.jupiter.api.Test;
 
-public class SpellCasterTokenTest extends
+class SpellCasterTokenTest extends
 		AbstractAddTokenTestCase<PCClass>
 {
 
@@ -65,7 +65,7 @@ public class SpellCasterTokenTest extends
 
 
 	@Test
-	public void testRoundRobinArcane() throws PersistenceLayerException
+	void testRoundRobinArcane() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -73,7 +73,7 @@ public class SpellCasterTokenTest extends
 	}
 
 	@Test
-	public void testRoundRobinDivine() throws PersistenceLayerException
+	void testRoundRobinDivine() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -81,7 +81,7 @@ public class SpellCasterTokenTest extends
 	}
 
 	@Test
-	public void testRoundRobinPsionic() throws PersistenceLayerException
+	void testRoundRobinPsionic() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -89,7 +89,7 @@ public class SpellCasterTokenTest extends
 	}
 
 	@Test
-	public void testRoundRobinThreeSpellType() throws PersistenceLayerException
+	void testRoundRobinThreeSpellType() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -98,7 +98,7 @@ public class SpellCasterTokenTest extends
 	}
 
 	@Test
-	public void testInvalidInputAnySpellType()
+	void testInvalidInputAnySpellType()
 	{
 		if (isAllLegal())
 		{
@@ -109,7 +109,7 @@ public class SpellCasterTokenTest extends
 	}
 
 	@Test
-	public void testInvalidInputSpellTypeAny()
+	void testInvalidInputSpellTypeAny()
 	{
 		if (isAllLegal())
 		{

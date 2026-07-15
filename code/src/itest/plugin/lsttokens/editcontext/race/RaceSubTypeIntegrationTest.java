@@ -25,7 +25,7 @@ import plugin.lsttokens.editcontext.testsupport.AbstractTypeSafeListIntegrationT
 import plugin.lsttokens.race.RacesubtypeToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class RaceSubTypeIntegrationTest extends
+class RaceSubTypeIntegrationTest extends
 		AbstractTypeSafeListIntegrationTestCase<Race>
 {
 

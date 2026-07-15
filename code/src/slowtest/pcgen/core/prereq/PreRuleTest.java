@@ -36,7 +36,7 @@ import org.junit.jupiter.api.Test;
  * prereq tester.
  */
 @SuppressWarnings("nls")
-public class PreRuleTest extends AbstractCharacterTestCase
+class PreRuleTest extends AbstractCharacterTestCase
 {
 	@BeforeEach
 	@Override
@@ -52,7 +52,7 @@ public class PreRuleTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testRule() throws Exception
+	void testRule() throws Exception
 	{
 		// if ruleEnabled is launch before disabled, the disabled assert are wrong.
 		ruleDisabled();

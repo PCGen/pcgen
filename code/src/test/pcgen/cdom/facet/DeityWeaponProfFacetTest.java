@@ -28,7 +28,7 @@ import pcgen.core.WeaponProf;
 
 import org.junit.jupiter.api.BeforeEach;
 
-public class DeityWeaponProfFacetTest extends
+class DeityWeaponProfFacetTest extends
 		AbstractExtractingFacetTest<Deity, WeaponProf>
 {
 	private static int n = 0;

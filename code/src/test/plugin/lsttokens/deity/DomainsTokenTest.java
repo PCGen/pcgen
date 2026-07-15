@@ -47,7 +47,7 @@ import plugin.pretokens.writer.PreLevelWriter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class DomainsTokenTest extends
+class DomainsTokenTest extends
 		AbstractListContextTokenTestCase<Deity, Domain>
 {
 	static DomainsToken token = new DomainsToken();
@@ -125,14 +125,14 @@ public class DomainsTokenTest extends
 	}
 
 	@Test
-	public void testInvalidClearDotPre()
+	void testInvalidClearDotPre()
 	{
 		assertFalse(parse(".CLEAR.TestWP1|PRELEVEL:MIN=4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidClearPre()
+	void testInvalidClearPre()
 	{
 		assertFalse(parse(".CLEAR|PRELEVEL:MIN=4"));
 		assertNoSideEffects();
@@ -147,14 +147,14 @@ public class DomainsTokenTest extends
 	}
 
 	@Test
-	public void testInvalidOnlyPre()
+	void testInvalidOnlyPre()
 	{
 		assertFalse(parse("!PRELEVEL:3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmbeddedNotPre()
+	void testInvalidEmbeddedNotPre()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -163,7 +163,7 @@ public class DomainsTokenTest extends
 	}
 
 	@Test
-	public void testInvalidBadPre()
+	void testInvalidBadPre()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -172,7 +172,7 @@ public class DomainsTokenTest extends
 	}
 
 	@Test
-	public void testInvalidNotBadPre()
+	void testInvalidNotBadPre()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -181,7 +181,7 @@ public class DomainsTokenTest extends
 	}
 
 	@Test
-	public void testInvalidEmbeddedPre()
+	void testInvalidEmbeddedPre()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -190,7 +190,7 @@ public class DomainsTokenTest extends
 	}
 
 	@Test
-	public void testRoundRobinPre() throws PersistenceLayerException
+	void testRoundRobinPre() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -200,7 +200,7 @@ public class DomainsTokenTest extends
 	}
 
 	@Test
-	public void testRoundRobinBasic() throws PersistenceLayerException
+	void testRoundRobinBasic() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -210,7 +210,7 @@ public class DomainsTokenTest extends
 	}
 
 	@Test
-	public void testRoundRobinNotPre() throws PersistenceLayerException
+	void testRoundRobinNotPre() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -220,7 +220,7 @@ public class DomainsTokenTest extends
 	}
 
 	@Test
-	public void testRoundRobinDoublePre() throws PersistenceLayerException
+	void testRoundRobinDoublePre() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -230,7 +230,7 @@ public class DomainsTokenTest extends
 	}
 
 	@Test
-	public void testRoundRobinDupeTwoPrereqs() throws PersistenceLayerException
+	void testRoundRobinDupeTwoPrereqs() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -239,7 +239,7 @@ public class DomainsTokenTest extends
 	}
 
 	@Test
-	public void testRoundRobinTwoPrereqs() throws PersistenceLayerException
+	void testRoundRobinTwoPrereqs() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -250,7 +250,7 @@ public class DomainsTokenTest extends
 	}
 
 	@Test
-	public void testRoundRobinUnparseDirect()
+	void testRoundRobinUnparseDirect()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");

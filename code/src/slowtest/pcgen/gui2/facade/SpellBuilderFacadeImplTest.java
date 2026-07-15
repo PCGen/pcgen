@@ -43,7 +43,7 @@ import org.junit.jupiter.api.Test;
  * 
  * 
  */
-public class SpellBuilderFacadeImplTest extends AbstractCharacterTestCase
+class SpellBuilderFacadeImplTest extends AbstractCharacterTestCase
 {
 
 	private MockDataSetFacade dataset;
@@ -100,7 +100,7 @@ public class SpellBuilderFacadeImplTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testEmptyChoice()
+	void testEmptyChoice()
 	{
 		SpellBuilderFacadeImpl spellBuilder = createSpellBuilder();
 		ListFacade<InfoFacade> classes = spellBuilder.getClasses();
@@ -117,7 +117,7 @@ public class SpellBuilderFacadeImplTest extends AbstractCharacterTestCase
 	 * Verify that the selection of spells based on class and level is working correctly. 
 	 */
 	@Test
-	public void testClassLevel()
+	void testClassLevel()
 	{
 		SpellBuilderFacadeImpl spellBuilder = createSpellBuilder();
 		spellBuilder.setClass(wizardCls);

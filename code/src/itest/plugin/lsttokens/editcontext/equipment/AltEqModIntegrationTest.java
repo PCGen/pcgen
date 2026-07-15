@@ -21,7 +21,7 @@ import pcgen.core.Equipment;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.equipment.AlteqmodToken;
 
-public class AltEqModIntegrationTest extends AbstractEqModIntegrationTestCase
+class AltEqModIntegrationTest extends AbstractEqModIntegrationTestCase
 {
 
 	private static AlteqmodToken token = new AlteqmodToken();
@@ -31,4 +31,5 @@ public class AltEqModIntegrationTest extends AbstractEqModIntegrationTestCase
 	{
 		return token;
 	}
+
 }

@@ -54,7 +54,7 @@ import org.junit.jupiter.api.Test;
  * Equipment Test
  */
 @SuppressWarnings("nls")
-public class EquipmentTest extends AbstractCharacterTestCase
+class EquipmentTest extends AbstractCharacterTestCase
 {
 
 	private Equipment eq = null;
@@ -121,7 +121,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	 ****************************************************************************/
 
 	@Test
-	public void testcreateKeyForAutoResize001()
+	void testcreateKeyForAutoResize001()
 	{
 		assertThat(this.eq.getKeyName(), Matchers.is(equalTo(ORIGINAL_KEY)));
 	}
@@ -130,7 +130,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	 * Try lower case letter for size
 	 */
 	@Test
-	public void testcreateKeyForAutoResize002()
+	void testcreateKeyForAutoResize002()
 	{
 		SizeAdjustment newSize = small;
 		
@@ -145,7 +145,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	 * Try upper case word for size
 	 */
 	@Test
-	public void testcreateKeyForAutoResize003()
+	void testcreateKeyForAutoResize003()
 	{
 		SizeAdjustment newSize = colossal;
 
@@ -158,14 +158,14 @@ public class EquipmentTest extends AbstractCharacterTestCase
 
 	/** Try empty new size */
 	@Test
-	public void testcreateKeyForAutoResize004()
+	void testcreateKeyForAutoResize004()
 	{
 		assertThat(this.eq.createKeyForAutoResize(null), Matchers.is(equalTo((ORIGINAL_KEY))));
 	}
 
 	/** Ensure that second customisation will work correctly */
 	@Test
-	public void testcreateKeyForAutoResize005()
+	void testcreateKeyForAutoResize005()
 	{
 		SizeAdjustment newSize = fine;
 
@@ -186,7 +186,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 
 	/** Try nonsense abbreviation for Size */
 	@Test
-	public void testcreateKeyForAutoResize006()
+	void testcreateKeyForAutoResize006()
 	{
 		String unExpectedKey = Constants.AUTO_RESIZE_PREFIX + "X" + ORIGINAL_KEY;
 
@@ -200,28 +200,28 @@ public class EquipmentTest extends AbstractCharacterTestCase
 
 	/** Test with Size that exists and is formatted correctly */
 	@Test
-	public void testcreateNameForAutoResize002()
+	void testcreateNameForAutoResize002()
 	{
 		assertThat(this.eq.createNameForAutoResize(large), Matchers.is(equalTo(("Dummy (Large)"))));
 	}
 
 	/** Test with Abbreviation for Size that exists */
 	@Test
-	public void testcreateNameForAutoResize003()
+	void testcreateNameForAutoResize003()
 	{
 		assertThat(this.eq.createNameForAutoResize(fine), Matchers.is(equalTo(("Dummy (Fine)"))));
 	}
 
 	/** Test with Nonexistant size */
 	@Test
-	public void testcreateNameForAutoResize004()
+	void testcreateNameForAutoResize004()
 	{
 		assertThat(this.eq.createNameForAutoResize(null), Matchers.is(equalTo(("Dummy"))));
 	}
 
 	/** Test that size is replaced correctly */
 	@Test
-	public void testcreateNameForAutoResize005()
+	void testcreateNameForAutoResize005()
 	{
 		String newKey = eq.createKeyForAutoResize(large);
 		CDOMDirectSingleRef<SizeAdjustment> largeRef = CDOMDirectSingleRef.getRef(large);
@@ -244,7 +244,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 
 	/** Test that size is replaced correctly */
 	@Test
-	public void testcreateNameForAutoResize006()
+	void testcreateNameForAutoResize006()
 	{
 		String newKey = eq.createKeyForAutoResize(large);
 		CDOMDirectSingleRef<SizeAdjustment> largeRef = CDOMDirectSingleRef.getRef(large);
@@ -268,7 +268,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 
 	/** Test that size is replaced correctly */
 	@Test
-	public void testcreateNameForAutoResize007()
+	void testcreateNameForAutoResize007()
 	{
 		String newKey = eq.createKeyForAutoResize(large);
 		CDOMDirectSingleRef<SizeAdjustment> largeRef = CDOMDirectSingleRef.getRef(large);
@@ -290,7 +290,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 
 	/** Test that size is replaced correctly */
 	@Test
-	public void testcreateNameForAutoResize008()
+	void testcreateNameForAutoResize008()
 	{
 		String newKey = eq.createKeyForAutoResize(large);
 		CDOMDirectSingleRef<SizeAdjustment> largeRef = CDOMDirectSingleRef.getRef(large);
@@ -311,7 +311,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testResizeItem()
+	void testResizeItem()
 	{
 		// Make it a weapon
 		eq.getEquipmentHead(1).put(StringKey.DAMAGE, "1d6");
@@ -361,7 +361,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	 * item included, so a limited representation of the object is expected to be output. 
 	 */
 	@Test
-	public void testCustomEquipRoundRobin()
+	void testCustomEquipRoundRobin()
 	{
 		EquipmentModifier eqMod = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 			EquipmentModifier.class, "PLUS1W");
@@ -383,7 +383,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	 * item included, so an exact replica of the object is expected to be output. 
 	 */
 	@Test
-	public void testCustomEquipRoundRobinWithBase()
+	void testCustomEquipRoundRobinWithBase()
 	{
 		EquipmentModifier eqMod = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 			EquipmentModifier.class, "PLUS1W");
@@ -406,7 +406,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	 * Validate naming items using the +1 modifier 
 	 */
 	@Test
-	public void testGetItemNameFromModifiersPlus1()
+	void testGetItemNameFromModifiersPlus1()
 	{
 		EquipmentModifier eqMod = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 			EquipmentModifier.class, "PLUS1W");
@@ -425,7 +425,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	 * Validate naming items using the masterwork equip modifier
 	 */
 	@Test
-	public void testGetItemNameFromModifiersMasterwork()
+	void testGetItemNameFromModifiersMasterwork()
 	{
 		EquipmentModifier eqMod = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 			EquipmentModifier.class, "MWORKW");
@@ -445,7 +445,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	 * @throws Exception 
 	 */
 	@Test
-	public void testGetItemNameFromModifiersNothing() throws Exception
+	void testGetItemNameFromModifiersNothing() throws Exception
 	{
 		GenericLoader<EquipmentModifier> loader =
 				new GenericLoader<>(EquipmentModifier.class);
@@ -503,7 +503,7 @@ assertNotNull(eqMod, "Eqmod should be present");
 	 * Validate the processing of the getCost function. 
 	 */
 	@Test
-	public void testGetCost()
+	void testGetCost()
 	{
 		EquipmentModifier eqMod = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 			EquipmentModifier.class, "MWORKW");
@@ -533,7 +533,7 @@ assertNotNull(eqMod, "Eqmod should be present");
 	 * @throws PersistenceLayerException  if there is a problem with the LST syntax
 	 */
 	@Test
-	public void testGetCostWithHeadPlus() throws PersistenceLayerException
+	void testGetCostWithHeadPlus() throws PersistenceLayerException
 	{
 		GenericLoader<EquipmentModifier> loader =
 				new GenericLoader<>(EquipmentModifier.class);
@@ -597,7 +597,7 @@ assertNotNull(eqMod, "Eqmod should be present");
 	 * use of a null character.
 	 */
 	@Test
-	public void testNameItemFromModifiers()
+	void testNameItemFromModifiers()
 	{
 		String name = eq.nameItemFromModifiers(null);
 		assertEquals("Dummy", name);
@@ -619,7 +619,7 @@ assertNotNull(eqMod, "Eqmod should be present");
 	 * Verify that isPreType is working correctly for eqmods.
 	 */
 	@Test
-	public void testIsPreTypeEqMod()
+	void testIsPreTypeEqMod()
 	{
 		EquipmentModifier eqMod = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 			EquipmentModifier.class, "PLUS1W");
@@ -640,7 +640,7 @@ assertNotNull(eqMod, "Eqmod should be present");
 	 * EquipmentModifiers must have a parent in order to be rendered to an output sheet
 	 */
 	@Test
-	public void testAddEqModifierSetsEquipmentAsParentOfTheModifier()
+	void testAddEqModifierSetsEquipmentAsParentOfTheModifier()
 	{
 		EquipmentModifier eqMod = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 				EquipmentModifier.class, "PLUS1W");

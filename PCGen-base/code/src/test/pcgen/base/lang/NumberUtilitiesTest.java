@@ -29,71 +29,71 @@ import pcgen.testsupport.TestSupport;
 /**
  * Test the NumberUtilities class
  */
-public class NumberUtilitiesTest
+class NumberUtilitiesTest
 {
 
 	@Test
-	public void testConstructor()
+	void testConstructor()
 	{
 		TestSupport.invokePrivateConstructor(NumberUtilities.class);
 	}
 
 	@Test
-	public void testGetNumberNull()
+	void testGetNumberNull()
 	{
 		assertThrows(NullPointerException.class, () -> NumberUtilities.getNumber(null));
 	}
 
 	@Test
-	public void testGetNumberBad()
+	void testGetNumberBad()
 	{
 		assertThrows(NumberFormatException.class, () -> NumberUtilities.getNumber("1..5"));
 	}
 
 	@Test
-	public void testGetPreciseNumberNull()
+	void testGetPreciseNumberNull()
 	{
 		assertThrows(NullPointerException.class, () -> NumberUtilities.getPreciseNumber(null));
 	}
 
 	@Test
-	public void testInteger()
+	void testInteger()
 	{
 		assertEquals(1, NumberUtilities.getNumber("1"));
 	}
 
 	@Test
-	public void testLargeInteger()
+	void testLargeInteger()
 	{
 		assertEquals(Double.valueOf("3141592653"), NumberUtilities.getNumber("3141592653"));
 	}
 
 	@Test
-	public void testDouble()
+	void testDouble()
 	{
 		assertEquals(1.5, NumberUtilities.getNumber("1.5"));
 	}
 
 	@Test
-	public void testPreciseInteger()
+	void testPreciseInteger()
 	{
 		assertEquals(1, NumberUtilities.getPreciseNumber("1"));
 	}
 
 	@Test
-	public void testPreciseDouble()
+	void testPreciseDouble()
 	{
 		assertEquals(new BigDecimal("1.5"), NumberUtilities.getPreciseNumber("1.5"));
 	}
 
 	@Test
-	public void testPreciseLargeInteger()
+	void testPreciseLargeInteger()
 	{
 		assertEquals(new BigDecimal("3141592653"), NumberUtilities.getPreciseNumber("3141592653"));
 	}
 
 	@Test
-	public void testAdd()
+	void testAdd()
 	{
 		assertEquals(Integer.valueOf(6), NumberUtilities.add(3, 3));
 		assertEquals(Integer.valueOf(5), NumberUtilities.add(3, 2));
@@ -103,7 +103,7 @@ public class NumberUtilitiesTest
 	}
 
 	@Test
-	public void testSubtract()
+	void testSubtract()
 	{
 		assertEquals(Integer.valueOf(0), NumberUtilities.subtract(3, 3));
 		assertEquals(Integer.valueOf(1), NumberUtilities.subtract(3, 2));
@@ -113,7 +113,7 @@ public class NumberUtilitiesTest
 	}
 
 	@Test
-	public void testMax()
+	void testMax()
 	{
 		assertEquals(Integer.valueOf(3), NumberUtilities.max(3, 3));
 		assertEquals(Integer.valueOf(3), NumberUtilities.max(3, 2));
@@ -123,7 +123,7 @@ public class NumberUtilitiesTest
 	}
 
 	@Test
-	public void testMin()
+	void testMin()
 	{
 		assertEquals(Integer.valueOf(3), NumberUtilities.min(3, 3));
 		assertEquals(Integer.valueOf(2), NumberUtilities.min(2, 3));
@@ -133,7 +133,7 @@ public class NumberUtilitiesTest
 	}
 
 	@Test
-	public void testDivide()
+	void testDivide()
 	{
 		assertEquals(Integer.valueOf(1), NumberUtilities.divide(3, 3));
 		//Gets out of integer
@@ -148,7 +148,7 @@ public class NumberUtilitiesTest
 	}
 
 	@Test
-	public void testMultiply()
+	void testMultiply()
 	{
 		assertEquals(Integer.valueOf(9), NumberUtilities.multiply(3, 3));
 		assertEquals(Integer.valueOf(6), NumberUtilities.multiply(3, 2));

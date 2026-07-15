@@ -30,21 +30,21 @@ import org.junit.jupiter.api.Test;
 /**
  * Verify the function of the OutputNameFormatting class.
  */
-public class OutputNameFormattingTest
+class OutputNameFormattingTest
 {
 	private static final String NAME = "Companion (Race (Subtype))";
 
 	private PObject testObj;
 
 	@BeforeEach
-	public void setUp() throws Exception
+	void setUp() throws Exception
 	{
 		testObj = new PObject();
 		testObj.setName(NAME);
 	}
 
 	@AfterEach
-	public void tearDown()
+	void tearDown()
 	{
 		testObj = null;
 	}
@@ -54,7 +54,7 @@ public class OutputNameFormattingTest
 	 * Check that a default output name will work correctly.
 	 */
 	@Test
-	public final void testGetOutputNameDisplay()
+	final void testGetOutputNameDisplay()
 	{
 		assertEquals(NAME, OutputNameFormatting.getOutputName(testObj), "Expected unmodified name");
 	}
@@ -64,7 +64,7 @@ public class OutputNameFormattingTest
 	 * Check that the [BASE] macro in output name will work correctly.
 	 */
 	@Test
-	public final void testGetOutputNameBase()
+	final void testGetOutputNameBase()
 	{
 		testObj.put(StringKey.OUTPUT_NAME, "[BASE]");
 		assertEquals(
@@ -86,7 +86,7 @@ public class OutputNameFormattingTest
 	 * Check that the [NAME] macro in output name will work correctly.
 	 */
 	@Test
-	public final void testGetOutputNameName()
+	final void testGetOutputNameName()
 	{
 		testObj.put(StringKey.OUTPUT_NAME, "[NAME]");
 		assertEquals(

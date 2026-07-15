@@ -874,7 +874,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	}
 
 	private class AvailableTreeViewModel extends CachedDataView<EquipmentFacade>
-			implements TreeViewModel<EquipmentFacade>, DataView<EquipmentFacade>
+			implements TreeViewModel<EquipmentFacade>
 	{
 
 		private final ListFacade<? extends TreeView<EquipmentFacade>> treeviews =

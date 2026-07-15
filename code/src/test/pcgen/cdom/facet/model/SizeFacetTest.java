@@ -107,14 +107,14 @@ class SizeFacetTest
 	}
 
 	@Test
-	public void testReachUnsetDefault()
+	void testReachUnsetDefault()
 	{
 		assertEquals(2, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 		assertEquals(2, facet.racialSizeInt(id));
 	}
 
 	@Test
-	public void testWithNothingInRaceDefaultsTo2()
+	void testWithNothingInRaceDefaultsTo2()
 	{
 		rfacet.set(id, new Race());
 		facet.update(id);
@@ -127,7 +127,7 @@ class SizeFacetTest
 	}
 
 	@Test
-	public void testAvoidPollution()
+	void testAvoidPollution()
 	{
 		Race r = new Race();
 		r.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(3));
@@ -138,7 +138,7 @@ class SizeFacetTest
 	}
 
 	@Test
-	public void testGetFromRace()
+	void testGetFromRace()
 	{
 		Race r = new Race();
 		r.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(3));
@@ -148,7 +148,7 @@ class SizeFacetTest
 	}
 
 	@Test
-	public void testGetFromTemplateLowerOverridesDefault()
+	void testGetFromTemplateLowerOverridesDefault()
 	{
 		rfacet.set(id, new Race());
 		PCTemplate t1 = new PCTemplate();
@@ -162,7 +162,7 @@ class SizeFacetTest
 	}
 
 	@Test
-	public void testGetFromTemplateHigherOverridesDefault()
+	void testGetFromTemplateHigherOverridesDefault()
 	{
 		rfacet.set(id, new Race());
 		PCTemplate t1 = new PCTemplate();
@@ -176,7 +176,7 @@ class SizeFacetTest
 	}
 
 	@Test
-	public void testGetFromTemplateLowerOverridesRace()
+	void testGetFromTemplateLowerOverridesRace()
 	{
 		Race r = new Race();
 		r.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(3));
@@ -192,7 +192,7 @@ class SizeFacetTest
 	}
 
 	@Test
-	public void testGetFromTemplateHigherOverridesRace()
+	void testGetFromTemplateHigherOverridesRace()
 	{
 		Race r = new Race();
 		r.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(3));
@@ -208,7 +208,7 @@ class SizeFacetTest
 	}
 
 	@Test
-	public void testGetFromTemplateSecondOverrides()
+	void testGetFromTemplateSecondOverrides()
 	{
 		Race r = new Race();
 		r.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(1));
@@ -232,7 +232,7 @@ class SizeFacetTest
 	}
 
 	@Test
-	public void testGetWithBonus()
+	void testGetWithBonus()
 	{
 		Race r = new Race();
 		r.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(1));
@@ -267,7 +267,7 @@ class SizeFacetTest
 	}
 
 	@Test
-	public void testGetWithLevelProgression()
+	void testGetWithLevelProgression()
 	{
 		Race r = new Race();
 		r.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(1));
@@ -310,7 +310,7 @@ class SizeFacetTest
 	}
 
 	@Test
-	public void testGetObjectWithBonus()
+	void testGetObjectWithBonus()
 	{
 		assertEquals(m, facet.get(id));
 		facet.update(id);
@@ -359,7 +359,7 @@ class SizeFacetTest
 	}
 
 	@Test
-	public void testGetAbbWithBonus()
+	void testGetAbbWithBonus()
 	{
 		assertEquals("M", facet.getSizeAbb(id));
 		facet.update(id);
@@ -408,7 +408,7 @@ class SizeFacetTest
 	}
 
 	@Test
-	public void testGetObjectWithLevelProgression()
+	void testGetObjectWithLevelProgression()
 	{
 		Race r = new Race();
 		r.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(1));
@@ -451,7 +451,7 @@ class SizeFacetTest
 	}
 
 	@Test
-	public void testGetAbbWithLevelProgression()
+	void testGetAbbWithLevelProgression()
 	{
 		Race r = new Race();
 		r.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(1));
@@ -494,7 +494,7 @@ class SizeFacetTest
 	}
 
 	@Test
-	public void testGetWithNegativeBonus()
+	void testGetWithNegativeBonus()
 	{
 		assertEquals(2, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 		assertEquals(2, facet.racialSizeInt(id));
@@ -541,7 +541,7 @@ class SizeFacetTest
 	 * Verify the function of the sizesAdvanced method.
 	 */
 	@Test
-	public void testSizesAdvanced()
+	void testSizesAdvanced()
 	{
 		Race race = new Race();
 		race.setName("Test Race");

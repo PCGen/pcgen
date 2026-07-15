@@ -61,7 +61,7 @@ import org.junit.jupiter.api.Test;
 import util.FormatSupport;
 import util.TestURI;
 
-public class FaceTokenTest
+class FaceTokenTest
 {
 
 	private static FaceToken token = new FaceToken();
@@ -78,7 +78,7 @@ public class FaceTokenTest
 	private int expectedPrimaryMessageCount = 0;
 
 	@BeforeAll
-	public static void classSetUp()
+	static void classSetUp()
 	{
 		testCampaign = new CampaignSourceEntry(new Campaign(), TestURI.getURI());
 	}
@@ -94,7 +94,7 @@ public class FaceTokenTest
 	}
 
 	@AfterEach
-	public void tearDown()
+	void tearDown()
 	{
 		TokenRegistration.clearTokens();
 		primaryContext = null;
@@ -105,7 +105,7 @@ public class FaceTokenTest
 	}
 	
 	@AfterAll
-	public static void classTearDown()
+	static void classTearDown()
 	{
 		token = null;
 		loader = null;
@@ -129,7 +129,7 @@ public class FaceTokenTest
 	}
 
 	@Test
-	public void testInvalidInputs()
+	void testInvalidInputs()
 	{
 		// no invalid item should set or reset the value
 		assertEquals(0, primaryProf.getModifierArray().length);
@@ -181,19 +181,19 @@ public class FaceTokenTest
 		assertEquals(0, primaryProf.getModifierArray().length);
 	}
 	@Test
-	public void testRoundRobinOne() throws PersistenceLayerException
+	void testRoundRobinOne() throws PersistenceLayerException
 	{
 		runRoundRobin("1");
 	}
 
 	@Test
-	public void testRoundRobinZero() throws PersistenceLayerException
+	void testRoundRobinZero() throws PersistenceLayerException
 	{
 		runRoundRobin("0");
 	}
 
 	@Test
-	public void testRoundRobinZeroX() throws PersistenceLayerException
+	void testRoundRobinZeroX() throws PersistenceLayerException
 	{
 		runRoundRobin("0,5");
 	}
@@ -208,7 +208,7 @@ public class FaceTokenTest
 	// }
 
 	@Test
-	public void testRoundRobinDecimal() throws PersistenceLayerException
+	void testRoundRobinDecimal() throws PersistenceLayerException
 	{
 		runRoundRobin("5.1,6.3");
 	}
@@ -406,13 +406,13 @@ public class FaceTokenTest
 	}
 
 	@Test
-	public void testNoStackTraceOnNull()
+	void testNoStackTraceOnNull()
 	{
 		assertDoesNotThrow(() -> getToken().parseToken(primaryContext, primaryProf, null));
 	}
 
 	@Test
-	public void testOverwrite()
+	void testOverwrite()
 	{
 		assertTrue(parse(getLegalValue()));
 		validateUnparsed(primaryContext, primaryProf, getLegalValue());
@@ -422,7 +422,7 @@ public class FaceTokenTest
 	}
 
 	@Test
-	public void testCleanup()
+	void testCleanup()
 	{
 		String s = new String(getLegalValue());
 		WeakReference<String> wr = new WeakReference<>(s);
@@ -459,7 +459,7 @@ public class FaceTokenTest
 	}
 
 	@Test
-	public void testAvoidContext()
+	void testAvoidContext()
 	{
 		RuntimeLoadContext context = new RuntimeLoadContext(
 			RuntimeReferenceContext.createRuntimeReferenceContext(),

@@ -46,7 +46,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import util.TestURI;
 
-public class FactSetDefTokenTest
+class FactSetDefTokenTest
 {
 
 	private static FactSetDefToken token = new FactSetDefToken();
@@ -56,14 +56,14 @@ public class FactSetDefTokenTest
 	private LoadContext context;
 
 	@BeforeAll
-	public static void classSetUp()
+	static void classSetUp()
 	{
 		testCampaign =
 				new CampaignSourceEntry(new Campaign(), TestURI.getURI());
 	}
 
 	@BeforeEach
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		TokenRegistration.clearTokens();
 		TokenRegistration.register(token);
@@ -71,7 +71,7 @@ public class FactSetDefTokenTest
 	}
 
 	@AfterEach
-	public void tearDown()
+	void tearDown()
 	{
 		TokenRegistration.clearTokens();
 		context = null;
@@ -79,7 +79,7 @@ public class FactSetDefTokenTest
 	}
 
 	@AfterAll
-	public static void classTearDown()
+	static void classTearDown()
 	{
 		token = null;
 		testCampaign = null;
@@ -97,49 +97,49 @@ public class FactSetDefTokenTest
 	}
 
 	@Test
-	public void testInvalidInputNullString()
+	void testInvalidInputNullString()
 	{
 		assertFalse(token.parseToken(context, fd, null).passed());
 	}
 
 	@Test
-	public void testInvalidInputEmptyString()
+	void testInvalidInputEmptyString()
 	{
 		assertFalse(token.parseToken(context, fd, "").passed());
 	}
 
 	@Test
-	public void testInvalidInputNoPipe()
+	void testInvalidInputNoPipe()
 	{
 		assertFalse(token.parseToken(context, fd, "SKILL").passed());
 	}
 
 	@Test
-	public void testInvalidInputTrailingPipe()
+	void testInvalidInputTrailingPipe()
 	{
 		assertFalse(token.parseToken(context, fd, "SKILL|").passed());
 	}
 
 	@Test
-	public void testInvalidInputLeadingPipe()
+	void testInvalidInputLeadingPipe()
 	{
 		assertFalse(token.parseToken(context, fd, "|Possibility").passed());
 	}
 
 	@Test
-	public void testInvalidInputDoublePipe()
+	void testInvalidInputDoublePipe()
 	{
 		assertFalse(token.parseToken(context, fd, "SKILL||Possibility").passed());
 	}
 
 	@Test
-	public void testInvalidInputDoublePipe2()
+	void testInvalidInputDoublePipe2()
 	{
 		assertFalse(token.parseToken(context, fd, "SKILL|Possibility|Exception").passed());
 	}
 
 	@Test
-	public void testValidStringString()
+	void testValidStringString()
 	{
 		assertNull(fd.getFactSetName());
 		assertNull(fd.getUsableLocation());
@@ -155,7 +155,7 @@ public class FactSetDefTokenTest
 	}
 
 	@Test
-	public void testValidStringNo()
+	void testValidStringNo()
 	{
 		assertNull(fd.getFactSetName());
 		assertNull(fd.getUsableLocation());

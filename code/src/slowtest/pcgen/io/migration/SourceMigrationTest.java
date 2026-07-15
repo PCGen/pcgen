@@ -31,13 +31,13 @@ import org.junit.jupiter.api.Test;
 /**
  * SourceMigrationTest checks the function of SourceMigration.
  */
-public class SourceMigrationTest
+class SourceMigrationTest
 {
 	
 	private String gameMode;
 
 	@BeforeEach
-	public void setUp() throws Exception
+	void setUp() throws Exception
 	{
 		gameMode = SettingsHandler.getGameAsProperty().get().getName();
 		MigrationRule sourceRule = new MigrationRule(ObjectType.SOURCE, "OldKey1");
@@ -61,7 +61,7 @@ public class SourceMigrationTest
 	}
 
 	@AfterEach
-	public void tearDown() throws Exception
+	void tearDown() throws Exception
 	{
 		SystemCollections.clearMigrationRuleMap();
 		gameMode = null;
@@ -71,7 +71,7 @@ public class SourceMigrationTest
 	 * Test that rules for max version only are applied correctly.  
 	 */
 	@Test
-	public void testMaxVer()
+	void testMaxVer()
 	{
 		assertEquals("NewKey1", SourceMigration.getNewSourceKey("OldKey1", new int[]{6, 0, 0}, gameMode));
 		assertEquals("OldKey1", SourceMigration.getNewSourceKey("OldKey1", new int[]{6, 0, 2}, gameMode));
@@ -81,7 +81,7 @@ public class SourceMigrationTest
 	 * Test that rules for version ranges are applied correctly.  
 	 */
 	@Test
-	public void testMinMaxVer()
+	void testMinMaxVer()
 	{
 		assertEquals("LateNewKey", SourceMigration.getNewSourceKey("OldKey2", new int[]{6, 0, 0}, gameMode));
 		assertEquals("OldKey2", SourceMigration.getNewSourceKey("OldKey2", new int[]{6, 0, 2}, gameMode));
@@ -96,7 +96,7 @@ public class SourceMigrationTest
 	 * Check that migration rules for other game modes don't affect each other.  
 	 */
 	@Test
-	public void testNoCrossGameMode()
+	void testNoCrossGameMode()
 	{
 		assertEquals("OldKey3", SourceMigration.getNewSourceKey("OldKey3", new int[]{6, 0, 0}, gameMode));
 		assertEquals("OldKey3", SourceMigration.getNewSourceKey("OldKey3", new int[]{5, 17, 0}, gameMode));
@@ -106,7 +106,7 @@ public class SourceMigrationTest
 	 * Test that matches are case insensitive.  
 	 */
 	@Test
-	public void testCaseInsensitive()
+	void testCaseInsensitive()
 	{
 		assertEquals("NewKey1", SourceMigration.getNewSourceKey("OldKEY1", new int[]{6, 0, 0}, gameMode));
 	}

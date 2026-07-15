@@ -31,7 +31,7 @@ import pcgen.core.Skill;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class SkillRankFacetTest
+class SkillRankFacetTest
 {
 	private CharID id;
 	private CharID altid;
@@ -57,7 +57,7 @@ public class SkillRankFacetTest
 
 	}
 	@BeforeEach
-	public void setUp() throws Exception
+	void setUp() throws Exception
 	{
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
@@ -81,19 +81,19 @@ public class SkillRankFacetTest
 	}
 
 	@Test
-	public void testRankUnsetZero()
+	void testRankUnsetZero()
 	{
 		assertEquals(0.0f, facet.getRank(id, s1), 0.01);
 	}
 
 	@Test
-	public void testUnsetEmpty()
+	void testUnsetEmpty()
 	{
 		assertNull(facet.get(id, s1, cl1));
 	}
 
 	@Test
-	public void testAddCharIDNull()
+	void testAddCharIDNull()
 	{
 		assertThrows(NullPointerException.class, () -> facet.set(null, s1, cl1, 4.0));
 		testRankUnsetZero();
@@ -102,7 +102,7 @@ public class SkillRankFacetTest
 	}
 
 	@Test
-	public void testAddSkillNull()
+	void testAddSkillNull()
 	{
 		assertThrows(NullPointerException.class, () -> facet.set(id, null, cl1, 4.0));
 		testRankUnsetZero();
@@ -111,7 +111,7 @@ public class SkillRankFacetTest
 	}
 
 	@Test
-	public void testAddClassNull()
+	void testAddClassNull()
 	{
 		testRankUnsetZero();
 		testUnsetEmpty();
@@ -123,7 +123,7 @@ public class SkillRankFacetTest
 	}
 
 	@Test
-	public void testAddSingleGet()
+	void testAddSingleGet()
 	{
 		testRankUnsetZero();
 		testUnsetEmpty();
@@ -135,7 +135,7 @@ public class SkillRankFacetTest
 	}
 
 	@Test
-	public void testAddTwiceGet()
+	void testAddTwiceGet()
 	{
 		testRankUnsetZero();
 		testUnsetEmpty();
@@ -149,7 +149,7 @@ public class SkillRankFacetTest
 	}
 
 	@Test
-	public void testAddRankEvent()
+	void testAddRankEvent()
 	{
 		testRankUnsetZero();
 		testUnsetEmpty();
@@ -169,7 +169,7 @@ public class SkillRankFacetTest
 	}
 
 	@Test
-	public void testRemoveRankEvent()
+	void testRemoveRankEvent()
 	{
 		testRankUnsetZero();
 		testUnsetEmpty();
@@ -190,7 +190,7 @@ public class SkillRankFacetTest
 	}
 
 	@Test
-	public void testRemoveNonEvent()
+	void testRemoveNonEvent()
 	{
 		testRankUnsetZero();
 		testUnsetEmpty();
@@ -202,7 +202,7 @@ public class SkillRankFacetTest
 	}
 
 	@Test
-	public void testRemoveUseless()
+	void testRemoveUseless()
 	{
 		testRankUnsetZero();
 		testUnsetEmpty();
@@ -216,7 +216,7 @@ public class SkillRankFacetTest
 	}
 
 	@Test
-	public void testRemoveUselessTwo()
+	void testRemoveUselessTwo()
 	{
 		testRankUnsetZero();
 		testUnsetEmpty();
@@ -230,7 +230,7 @@ public class SkillRankFacetTest
 	}
 
 	@Test
-	public void testRemoveCharIDNull()
+	void testRemoveCharIDNull()
 	{
 		assertThrows(NullPointerException.class, () -> facet.remove(null, s1, cl1));
 		testRankUnsetZero();
@@ -239,7 +239,7 @@ public class SkillRankFacetTest
 	}
 
 	@Test
-	public void testRemoveSkillNull()
+	void testRemoveSkillNull()
 	{
 		assertThrows(NullPointerException.class, () -> facet.remove(id, null, cl1));
 		testRankUnsetZero();
@@ -248,7 +248,7 @@ public class SkillRankFacetTest
 	}
 
 	@Test
-	public void testRemoveClassNull()
+	void testRemoveClassNull()
 	{
 		testRankUnsetZero();
 		testUnsetEmpty();
@@ -273,7 +273,7 @@ public class SkillRankFacetTest
 	 */
 
 	@Test
-	public void testCopyContents()
+	void testCopyContents()
 	{
 		facet.set(id, s1, cl1, 4);
 		facet.set(id, s2, cl2, 2);
@@ -285,7 +285,7 @@ public class SkillRankFacetTest
 	}
 
 	@Test
-	public void testEmptyCopyContents()
+	void testEmptyCopyContents()
 	{
 		facet.copyContents(id, altid);
 		assertEquals(0.0f, facet.getRank(altid, s1), 0.01);

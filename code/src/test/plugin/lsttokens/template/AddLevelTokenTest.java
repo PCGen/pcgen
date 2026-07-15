@@ -42,7 +42,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
 
-public class AddLevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
+class AddLevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 {
 	static AddLevelToken token = new AddLevelToken();
 	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
@@ -66,56 +66,56 @@ public class AddLevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 
 	@Test
-	public void testInvalidInputNoPipe()
+	void testInvalidInputNoPipe()
 	{
 		assertFalse(parse("Fighter:3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoClass()
+	void testInvalidInputNoClass()
 	{
 		assertFalse(parse("|3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoLevelCount()
+	void testInvalidInputNoLevelCount()
 	{
 		assertFalse(parse("Fighter|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputTwoPipes()
+	void testInvalidInputTwoPipes()
 	{
 		assertFalse(parse("Fighter|3|3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNegativeLevelCount()
+	void testInvalidInputNegativeLevelCount()
 	{
 		assertFalse(parse("Fighter|-5"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputZeroLevelCount()
+	void testInvalidInputZeroLevelCount()
 	{
 		assertFalse(parse("Fighter|0"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNotAClass()
+	void testInvalidInputNotAClass()
 	{
 		assertTrue(parse("NotAClass|3"));
 		assertConstructionError();
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
@@ -123,7 +123,7 @@ public class AddLevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 
 	@Test
-	public void testRoundRobinFormula() throws PersistenceLayerException
+	void testRoundRobinFormula() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
@@ -131,7 +131,7 @@ public class AddLevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 
 	@Test
-	public void testRoundRobinHardFormula() throws PersistenceLayerException
+	void testRoundRobinHardFormula() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
@@ -139,7 +139,7 @@ public class AddLevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 	
 	@Test
-	public void testRoundRobinMultiple() throws PersistenceLayerException
+	void testRoundRobinMultiple() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Thief");
@@ -161,14 +161,14 @@ public class AddLevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 
 	@Test
-	public void testUnparseNull()
+	void testUnparseNull()
 	{
 		primaryProf.removeListFor(ListKey.ADD_LEVEL);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseSingle()
+	void testUnparseSingle()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		CDOMSingleRef<PCClass> cl = primaryContext.getReferenceContext().getCDOMReference(
@@ -202,7 +202,7 @@ public class AddLevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	//	}
 
 	@Test
-	public void testUnparseNullInList()
+	void testUnparseNullInList()
 	{
 		primaryProf.addToListFor(ListKey.ADD_LEVEL, null);
 		try
@@ -217,7 +217,7 @@ public class AddLevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 
 	@Test
-	public void testUnparseMultiple()
+	void testUnparseMultiple()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Cleric");
@@ -239,7 +239,7 @@ public class AddLevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail()
+	void testUnparseGenericsFail()
 	{
 		ListKey objectKey = ListKey.ADD_LEVEL;
 		primaryProf.addToListFor(objectKey, new Object());

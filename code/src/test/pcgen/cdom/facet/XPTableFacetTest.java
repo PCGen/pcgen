@@ -29,7 +29,7 @@ import pcgen.core.XPTable;
 
 import org.junit.jupiter.api.Test;
 
-public class XPTableFacetTest extends AbstractItemFacetTest<XPTable>
+class XPTableFacetTest extends AbstractItemFacetTest<XPTable>
 {
 
 	private final XPTableFacet facet = new XPTableFacet();
@@ -51,7 +51,7 @@ public class XPTableFacetTest extends AbstractItemFacetTest<XPTable>
 	}
 	
 	@Test
-	public void testGetLevelInfoNegLevel()
+	void testGetLevelInfoNegLevel()
 	{
 		XPTable t1 = getItem();
 		CharID id = getCharID();
@@ -60,7 +60,7 @@ public class XPTableFacetTest extends AbstractItemFacetTest<XPTable>
 	}
 
 	@Test
-	public void testGetLevelInfoZeroLevel()
+	void testGetLevelInfoZeroLevel()
 	{
 		XPTable t1 = getItem();
 		CharID id = getCharID();
@@ -69,14 +69,14 @@ public class XPTableFacetTest extends AbstractItemFacetTest<XPTable>
 	}
 
 	@Test
-	public void testGetLevelInfoNoTable()
+	void testGetLevelInfoNoTable()
 	{
 		CharID id = getCharID();
 		assertNull(facet.getLevelInfo(id, 1));
 	}
 	
 	@Test
-	public void testGetLevelInfoEmptyTable()
+	void testGetLevelInfoEmptyTable()
 	{
 		XPTable t1 = getItem();
 		CharID id = getCharID();
@@ -85,7 +85,7 @@ public class XPTableFacetTest extends AbstractItemFacetTest<XPTable>
 	}
 
 	@Test
-	public void testGetLevelInfo()
+	void testGetLevelInfo()
 	{
 		XPTable t1 = getItem();
 		LevelInfo li = new LevelInfo();
@@ -98,7 +98,7 @@ public class XPTableFacetTest extends AbstractItemFacetTest<XPTable>
 	}
 
 	@Test
-	public void testGetLevelInfoWrongLevel()
+	void testGetLevelInfoWrongLevel()
 	{
 		XPTable t1 = getItem();
 		LevelInfo li = new LevelInfo();
@@ -110,7 +110,7 @@ public class XPTableFacetTest extends AbstractItemFacetTest<XPTable>
 	}
 	
 	@Test
-	public void testGetLevelInfoLevel()
+	void testGetLevelInfoLevel()
 	{
 		XPTable t1 = getItem();
 		LevelInfo li = new LevelInfo();

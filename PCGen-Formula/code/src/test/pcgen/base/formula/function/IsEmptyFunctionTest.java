@@ -28,11 +28,11 @@ import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
 import pcgen.base.testsupport.TestUtilities;
 
-public class IsEmptyFunctionTest extends AbstractFormulaTestCase
+class IsEmptyFunctionTest extends AbstractFormulaTestCase
 {
 
 	@Test
-	public void testInvalidTooManyArg()
+	void testInvalidTooManyArg()
 	{
 		String formula = "isEmpty(2, 3)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -40,7 +40,7 @@ public class IsEmptyFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotValidString()
+	void testNotValidString()
 	{
 		String formula = "isEmpty(\"ab\")";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -48,7 +48,7 @@ public class IsEmptyFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotValidNoVar()
+	void testNotValidNoVar()
 	{
 		String formula = "isEmpty(ab)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -56,7 +56,7 @@ public class IsEmptyFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testEmptyArrayVar()
+	void testEmptyArrayVar()
 	{
 		setVariable(getNumberArrayVar("a"), TestUtilities.EMPTY_ARRAY);
 		String formula = "isEmpty(a)";
@@ -71,7 +71,7 @@ public class IsEmptyFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotEmptyArrayVar()
+	void testNotEmptyArrayVar()
 	{
 		setVariable(getNumberArrayVar("a"), new Number[]{1});
 		String formula = "isEmpty(a)";

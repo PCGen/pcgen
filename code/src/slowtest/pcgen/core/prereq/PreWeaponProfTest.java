@@ -50,7 +50,7 @@ import org.junit.jupiter.api.Test;
  * {@code PreWeaponProfTest} tests that the PREWEAPONPROF tag is
  * working correctly.
  */
-public class PreWeaponProfTest extends AbstractCharacterTestCase
+class PreWeaponProfTest extends AbstractCharacterTestCase
 {
 	/**
 	 * Test with a simple weapon proficiency.
@@ -58,7 +58,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testOneOption() throws PersistenceLayerException
+	void testOneOption() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -98,7 +98,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testMultiple() throws PersistenceLayerException
+	void testMultiple() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		PCTemplate pct = new PCTemplate();
@@ -138,7 +138,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testType() throws PersistenceLayerException
+	void testType() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		PCTemplate pctls = new PCTemplate();
@@ -179,7 +179,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testInverse() throws PersistenceLayerException
+	void testInverse() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		PCTemplate pct = new PCTemplate();
@@ -220,7 +220,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testWeaponProfAddedWithAutoWeaponProf() throws PersistenceLayerException
+	void testWeaponProfAddedWithAutoWeaponProf() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -264,7 +264,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testWithFeatThatGrantsBonus() throws PersistenceLayerException
+	void testWithFeatThatGrantsBonus() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		PCTemplate pctls = new PCTemplate();

@@ -49,7 +49,7 @@ import pcgen.base.testsupport.NaiveScopeManager;
 import pcgen.base.testsupport.SimpleVarScoped;
 import pcgen.base.testsupport.TestUtilities;
 
-public class SolverTest
+class SolverTest
 {
 	private EvaluationManager evalManager;
 	private ScopeInstance inst;
@@ -89,14 +89,14 @@ public class SolverTest
 	}
 
 	@Test
-	public void testIllegalConstruction()
+	void testIllegalConstruction()
 	{
 		assertThrows(NullPointerException.class, () -> new Solver<Number>(FormatUtilities.NUMBER_MANAGER, null));
 		assertThrows(NullPointerException.class, () -> new Solver<Number>(null, 4));
 	}
 
 	@Test
-	public void testIllegalAdd()
+	void testIllegalAdd()
 	{
 		Solver<Number> solver = new Solver<Number>(FormatUtilities.NUMBER_MANAGER, 6);
 		Modifier<Number> mod = AbstractModifier.add(1, 100);
@@ -106,7 +106,7 @@ public class SolverTest
 
 	@SuppressWarnings({"unchecked", "rawtypes"})
 	@Test
-	public void testIllegalAddGenericsViolation()
+	void testIllegalAddGenericsViolation()
 	{
 		Solver<Number> solver = new Solver<Number>(FormatUtilities.NUMBER_MANAGER, 6);
 		Modifier<String> badm = AbstractModifier.setString("");
@@ -115,7 +115,7 @@ public class SolverTest
 	}
 
 	@Test
-	public void testIllegalRemove()
+	void testIllegalRemove()
 	{
 		Solver<Number> solver = new Solver<Number>(FormatUtilities.NUMBER_MANAGER, 6);
 		Modifier<Number> mod = AbstractModifier.add(1, 100);
@@ -124,14 +124,14 @@ public class SolverTest
 	}
 
 	@Test
-	public void testIllegalRemoveFromSource()
+	void testIllegalRemoveFromSource()
 	{
 		Solver<Number> solver = new Solver<Number>(FormatUtilities.NUMBER_MANAGER, 6);
 		assertThrows(NullPointerException.class, () -> solver.removeFromSource(null));
 	}
 
 	@Test
-	public void testHarmless()
+	void testHarmless()
 	{
 		Modifier<Number> addm = AbstractModifier.add(1, 100);
 		Solver<Number> solver = new Solver<Number>(FormatUtilities.NUMBER_MANAGER, 6);
@@ -140,7 +140,7 @@ public class SolverTest
 	}
 
 	@Test
-	public void testRemoveFromSource()
+	void testRemoveFromSource()
 	{
 		Modifier<Number> addm = AbstractModifier.add(1, 100);
 		Modifier<Number> multm = AbstractModifier.multiply(2, 100);
@@ -162,7 +162,7 @@ public class SolverTest
 	}
 
 	@Test
-	public void testProcessSamePriority()
+	void testProcessSamePriority()
 	{
 		Modifier<Number> addm = AbstractModifier.add(1, 100);
 		Modifier<Number> multm = AbstractModifier.multiply(2, 100);
@@ -177,7 +177,7 @@ public class SolverTest
 	}
 
 	@Test
-	public void testProcessUserPriority1()
+	void testProcessUserPriority1()
 	{
 		//Will be ignored due to later set
 		Modifier<Number> addm = AbstractModifier.add(1, 100);
@@ -191,7 +191,7 @@ public class SolverTest
 	}
 
 	@Test
-	public void testProcessUserPriority2()
+	void testProcessUserPriority2()
 	{
 		Modifier<Number> addm = AbstractModifier.add(1, 100);
 		Modifier<Number> multm = AbstractModifier.multiply(2, 300);
@@ -202,7 +202,7 @@ public class SolverTest
 	}
 
 	@Test
-	public void testDiagnose()
+	void testDiagnose()
 	{
 		Modifier<Number> addm = AbstractModifier.add(1, 100);
 		Modifier<Number> setm = AbstractModifier.setNumber(4, 100);
@@ -244,7 +244,7 @@ public class SolverTest
 	}
 
 	@Test
-	public void testArrayMod()
+	void testArrayMod()
 	{
 		Solver<Number[]> solver = new Solver<Number[]>(TestUtilities.NUMBER_ARRAY_MANAGER, new Number[]{});
 		assertTrue(Arrays.equals(new Number[]{}, solver.process(evalManager)));
@@ -274,7 +274,7 @@ public class SolverTest
 	}
 
 	@Test
-	public void testArrayIndependenceAdd()
+	void testArrayIndependenceAdd()
 	{
 		Solver<Number[]> solver = new Solver<Number[]>(TestUtilities.NUMBER_ARRAY_MANAGER, new Number[]{});
 		assertTrue(Arrays.equals(new Number[]{}, solver.process(evalManager)));
@@ -302,7 +302,7 @@ public class SolverTest
 	}
 
 	@Test
-	public void testArrayIndependenceSource()
+	void testArrayIndependenceSource()
 	{
 		Modifier<Number> addm = AbstractModifier.add(1, 100);
 		Modifier<Number> multm = AbstractModifier.multiply(2, 100);

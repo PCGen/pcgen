@@ -31,7 +31,7 @@ import org.junit.jupiter.api.Test;
 /**
  * RaceMigrationTest checks the function of RaceMigration. 
  */
-public class RaceMigrationTest
+class RaceMigrationTest
 {
 	
 	private String gameMode;
@@ -61,7 +61,7 @@ public class RaceMigrationTest
 	}
 
 	@AfterEach
-	public void tearDown() throws Exception
+	void tearDown() throws Exception
 	{
 		SystemCollections.clearMigrationRuleMap();
 		gameMode = null;
@@ -71,7 +71,7 @@ public class RaceMigrationTest
 	 * Test that rules for max version only are applied correctly.  
 	 */
 	@Test
-	public void testMaxVer()
+	void testMaxVer()
 	{
 		assertEquals("NewKey1", RaceMigration.getNewRaceKey("OldKey1", new int[]{6, 0, 0}, gameMode));
 		assertEquals("OldKey1", RaceMigration.getNewRaceKey("OldKey1", new int[]{6, 0, 2}, gameMode));
@@ -81,7 +81,7 @@ public class RaceMigrationTest
 	 * Check that migration rules for other game modes don't affect each other.  
 	 */
 	@Test
-	public void testNoCrossGameMode()
+	void testNoCrossGameMode()
 	{
 		assertEquals("OldKey3", RaceMigration.getNewRaceKey("OldKey3", new int[]{6, 0, 0}, gameMode));
 		assertEquals("OldKey3", RaceMigration.getNewRaceKey("OldKey3", new int[]{5, 17, 0}, gameMode));
@@ -91,7 +91,7 @@ public class RaceMigrationTest
 	 * Test that matches are case insensitive.  
 	 */
 	@Test
-	public void testCaseInsensitive()
+	void testCaseInsensitive()
 	{
 		assertEquals("NewKey1", RaceMigration.getNewRaceKey("OldKEY1", new int[]{6, 0, 0}, gameMode));
 	}

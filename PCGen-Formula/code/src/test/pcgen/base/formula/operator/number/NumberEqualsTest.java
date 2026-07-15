@@ -28,11 +28,11 @@ import org.junit.jupiter.api.Test;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.testsupport.TestUtilities;
 
-public class NumberEqualsTest
+class NumberEqualsTest
 {
 
 	@Test
-	public void testOperator()
+	void testOperator()
 	{
 		NumberEquals op = new NumberEquals();
 		assertNotNull(op.getOperator());
@@ -40,7 +40,7 @@ public class NumberEqualsTest
 	}
 
 	@Test
-	public void testAbstractEvaluateNulls()
+	void testAbstractEvaluateNulls()
 	{
 		NumberEquals op = new NumberEquals();
 		try
@@ -70,7 +70,7 @@ public class NumberEqualsTest
 	}
 
 	@Test
-	public void testAbstractEvaluateMismatch()
+	void testAbstractEvaluateMismatch()
 	{
 		NumberEquals op = new NumberEquals();
 		assertTrue(op.abstractEvaluate(FormatUtilities.BOOLEAN_CLASS, TestUtilities.INTEGER_CLASS, null).isEmpty());
@@ -78,7 +78,7 @@ public class NumberEqualsTest
 	}
 
 	@Test
-	public void testAbstractEvaluateLegal()
+	void testAbstractEvaluateLegal()
 	{
 		NumberEquals op = new NumberEquals();
 		assertEquals(FormatUtilities.BOOLEAN_CLASS,
@@ -97,7 +97,7 @@ public class NumberEqualsTest
 	}
 
 	@Test
-	public void testEvaluateFailNull()
+	void testEvaluateFailNull()
 	{
 		NumberEquals op = new NumberEquals();
 		assertThrows(NullPointerException.class, () -> op.evaluate(null, null));
@@ -106,7 +106,7 @@ public class NumberEqualsTest
 	}
 
 	@Test
-	public void testEvaluateMismatch()
+	void testEvaluateMismatch()
 	{
 		NumberEquals op = new NumberEquals();
 		assertThrows(ClassCastException.class, () -> op.evaluate(true, Double.valueOf(4.5)));
@@ -114,7 +114,7 @@ public class NumberEqualsTest
 	}
 
 	@Test
-	public void testEvaluateLegal()
+	void testEvaluateLegal()
 	{
 		NumberEquals op = new NumberEquals();
 		assertEquals(Boolean.FALSE,

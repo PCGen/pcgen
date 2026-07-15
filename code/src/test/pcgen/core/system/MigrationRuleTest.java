@@ -41,7 +41,7 @@ class MigrationRuleTest
 	 * Test changeAppliesToVer when only a maxver is specified.
 	 */
 	@Test
-	public void testChangeAppliesToVerMaxOnly()
+	void testChangeAppliesToVerMaxOnly()
 	{
 		migrationRule.setMaxVer("6.0.1");
 
@@ -56,7 +56,7 @@ class MigrationRuleTest
 	 * Test changeAppliesToVer when a maxver and maxdev is specified.
 	 */
 	@Test
-	public void testChangeAppliesToVerMaxDev()
+	void testChangeAppliesToVerMaxDev()
 	{
 		migrationRule.setMaxVer("6.0.1");
 		migrationRule.setMaxDevVer("6.1.3");
@@ -72,7 +72,7 @@ class MigrationRuleTest
 	 * Test changeAppliesToVer when a maxver and minver is specified.
 	 */
 	@Test
-	public void testChangeAppliesToVerMinMax()
+	void testChangeAppliesToVerMinMax()
 	{
 		migrationRule.setMaxVer("6.0.1");
 		migrationRule.setMinVer("5.17.7");
@@ -89,7 +89,7 @@ class MigrationRuleTest
 	 * Test changeAppliesToVer when a maxver, minver and mindevver are specified.
 	 */
 	@Test
-	public void testChangeAppliesToVerMinDevMinMax()
+	void testChangeAppliesToVerMinDevMinMax()
 	{
 		migrationRule.setMaxVer("6.0.1");
 		migrationRule.setMinVer("5.16.4");

@@ -39,7 +39,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class KeystatTokenTest extends AbstractCDOMTokenTestCase<Skill>
+class KeystatTokenTest extends AbstractCDOMTokenTestCase<Skill>
 {
 
 	static KeystatToken token = new KeystatToken();
@@ -80,7 +80,7 @@ public class KeystatTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testInvalidNotAStat()
+	void testInvalidNotAStat()
 	{
 		if (parse("NAN"))
 		{
@@ -93,7 +93,7 @@ public class KeystatTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testInvalidMultipleStatComma()
+	void testInvalidMultipleStatComma()
 	{
 		if (parse("STR,INT"))
 		{
@@ -106,7 +106,7 @@ public class KeystatTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testInvalidMultipleStatBar()
+	void testInvalidMultipleStatBar()
 	{
 		if (parse("STR|INT"))
 		{
@@ -119,7 +119,7 @@ public class KeystatTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testInvalidMultipleStatDot()
+	void testInvalidMultipleStatDot()
 	{
 		if (parse("STR.INT"))
 		{
@@ -132,7 +132,7 @@ public class KeystatTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testRoundRobinDisplay() throws PersistenceLayerException
+	void testRoundRobinDisplay() throws PersistenceLayerException
 	{
 		runRoundRobin("STR");
 	}
@@ -150,7 +150,7 @@ public class KeystatTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testUnparseNull()
+	void testUnparseNull()
 	{
 		primaryProf.put(getObjectKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
@@ -162,7 +162,7 @@ public class KeystatTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testUnparseLegal()
+	void testUnparseLegal()
 	{
 		primaryProf.put(getObjectKey(), CDOMDirectSingleRef.getRef(ps));
 		expectSingle(getToken().unparse(primaryContext, primaryProf), ps.getKeyName());
@@ -170,7 +170,7 @@ public class KeystatTokenTest extends AbstractCDOMTokenTestCase<Skill>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail()
+	void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = getObjectKey();
 		primaryProf.put(objectKey, new Object());

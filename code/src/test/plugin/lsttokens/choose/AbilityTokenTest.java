@@ -38,7 +38,7 @@ import plugin.qualifier.ability.PCToken;
 
 import org.junit.jupiter.api.Test;
 
-public class AbilityTokenTest extends
+class AbilityTokenTest extends
 		AbstractChooseTokenTestCase<CDOMObject, Ability>
 {
 
@@ -137,7 +137,7 @@ public class AbilityTokenTest extends
 	}
 
 	@Test
-	public void testInvalidBadCategory()
+	void testInvalidBadCategory()
 	{
 		assertFalse(parse("ABILITY|BadCat|TYPE=Foo"));
 		assertNoSideEffects();

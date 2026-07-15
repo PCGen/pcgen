@@ -61,7 +61,7 @@ import org.junit.jupiter.api.Test;
  * 
  * 
  */
-public class CharacterLevelsFacadeImplTest extends AbstractJunit5CharacterTestCase
+class CharacterLevelsFacadeImplTest extends AbstractJunit5CharacterTestCase
 {
 	private UIDelegate delegate;
 	private TodoManager todoManager;
@@ -75,7 +75,7 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit5CharacterTestCa
 	
 
 	@BeforeEach
-	public void before() throws Exception
+	void before() throws Exception
 	{
 		delegate = new MockUIDelegate();
 		todoManager = new TodoManager();
@@ -128,7 +128,7 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit5CharacterTestCa
 	 * all classes.
 	 */
 	@Test
-	public void testFindNextLevelForSkillAllSameCost()
+	void testFindNextLevelForSkillAllSameCost()
 	{
 		// Set game mode skill cost to be the same for class and cross-slass
 		setGameSkillRankData(false);
@@ -248,7 +248,7 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit5CharacterTestCa
 	 * skills cost only 1. 
 	 */
 	@Test
-	public void testFindNextLevelForSkillCrossClass2Points()
+	void testFindNextLevelForSkillCrossClass2Points()
 	{
 		// Set game mode skill cost to be double for cross-class
 		setGameSkillRankData(true);
@@ -357,7 +357,7 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit5CharacterTestCa
 	 * skills cost only 1.
 	 */
 	@Test
-	public void testFindNextLevelForSkill35eMultiClass()
+	void testFindNextLevelForSkill35eMultiClass()
 	{
 		// Set game mode skill cost to be the double for cross-class
 		setGameSkillRankData(true);
@@ -401,7 +401,7 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit5CharacterTestCa
 	 * cross-class skills cost the same for all classes.
 	 */
 	@Test
-	public void testFindNextLevelForSkillAllSameCostRemove()
+	void testFindNextLevelForSkillAllSameCostRemove()
 	{
 		// Set game mode skill cost to be the same for class and cross-slass
 		setGameSkillRankData(false);
@@ -500,7 +500,7 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit5CharacterTestCa
 	 * SEVERE log record is produced.
 	 */
 	@Test
-	public void testGetSkillBreakdownAfterCloseCharacterDoesNotLogError()
+	void testGetSkillBreakdownAfterCloseCharacterDoesNotLogError()
 	{
 		setGameSkillRankData(false);
 

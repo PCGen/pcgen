@@ -25,7 +25,7 @@ import plugin.lsttokens.editcontext.testsupport.AbstractTypeSafeListIntegrationT
 import plugin.lsttokens.equipmentmodifier.ItypeToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class ItypeIntegrationTest extends
+class ItypeIntegrationTest extends
 		AbstractTypeSafeListIntegrationTestCase<EquipmentModifier>
 {
 

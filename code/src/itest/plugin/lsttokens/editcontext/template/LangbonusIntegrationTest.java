@@ -25,7 +25,7 @@ import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
 import plugin.lsttokens.template.LangbonusToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class LangbonusIntegrationTest extends
+class LangbonusIntegrationTest extends
 		AbstractListIntegrationTestCase<PCTemplate, Language>
 {
 

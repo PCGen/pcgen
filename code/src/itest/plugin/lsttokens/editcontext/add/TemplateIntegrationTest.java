@@ -31,9 +31,8 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
-public class TemplateIntegrationTest extends
+class TemplateIntegrationTest extends
 		AbstractListIntegrationTestCase<CDOMObject, PCTemplate>
 {
 

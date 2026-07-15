@@ -33,7 +33,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class SpellStatIntegrationTest extends
+class SpellStatIntegrationTest extends
 		AbstractIntegrationTestCase<PCClass>
 {
 
@@ -75,7 +75,7 @@ public class SpellStatIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinOne() throws PersistenceLayerException
+	void testRoundRobinOne() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -85,7 +85,7 @@ public class SpellStatIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoSet() throws PersistenceLayerException
+	void testRoundRobinNoSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -95,7 +95,7 @@ public class SpellStatIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoReset() throws PersistenceLayerException
+	void testRoundRobinNoReset() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -105,7 +105,7 @@ public class SpellStatIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinOneSpell() throws PersistenceLayerException
+	void testRoundRobinOneSpell() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -115,7 +115,7 @@ public class SpellStatIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinSpellNoSet() throws PersistenceLayerException
+	void testRoundRobinSpellNoSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -125,7 +125,7 @@ public class SpellStatIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinSpellNoReset() throws PersistenceLayerException
+	void testRoundRobinSpellNoReset() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();

@@ -39,14 +39,14 @@ import org.junit.jupiter.api.Test;
  * The Class {@code Gui2InfoFactoryTest} verifies the operation of the
  * Gui2InfoFactory class.
  */
-public class Gui2InfoFactoryTest extends AbstractCharacterTestCase
+class Gui2InfoFactoryTest extends AbstractCharacterTestCase
 {
 
 	/**
 	 * Test the getChoices method with text choices. 
 	 */
 	@Test
-	public void testGetChoices()
+	void testGetChoices()
 	{
 		PlayerCharacter pc = getCharacter();
 		Gui2InfoFactory ca = new Gui2InfoFactory(pc);
@@ -72,7 +72,7 @@ public class Gui2InfoFactoryTest extends AbstractCharacterTestCase
 	 * Verify getHTMLInfo for a temporary bonus.
 	 */
 	@Test
-	public void testGetHTMLInfoTempBonus()
+	void testGetHTMLInfoTempBonus()
 	{
 		PlayerCharacter pc = getCharacter();
 		Gui2InfoFactory infoFactory = new Gui2InfoFactory(pc);

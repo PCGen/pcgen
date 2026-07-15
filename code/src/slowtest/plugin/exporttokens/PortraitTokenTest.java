@@ -42,7 +42,7 @@ import pcgen.io.FileAccess;
  * The Class {@code PortraitTokenTest} checks the function of PortraitToken.
  */
 
-public class PortraitTokenTest extends AbstractCharacterTestCase
+class PortraitTokenTest extends AbstractCharacterTestCase
 {
 
 	private final PortraitToken portraitToken = new PortraitToken();
@@ -52,7 +52,7 @@ public class PortraitTokenTest extends AbstractCharacterTestCase
 	 * @throws Exception Not expected.
 	 */
 	@Test
-	public void testThumb() throws Exception
+	void testThumb() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();
 		pc.setName("PortraitTokenTest");
@@ -72,7 +72,7 @@ public class PortraitTokenTest extends AbstractCharacterTestCase
 	 * @throws Exception Not expected.
 	 */
 	@Test
-	public void testThumbScaling() throws Exception
+	void testThumbScaling() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();
 		pc.setName("PortraitTokenTest");
@@ -93,7 +93,7 @@ public class PortraitTokenTest extends AbstractCharacterTestCase
 	 * Check the generation of a thumbnail file for invalid conditions.
 	 */
 	@Test
-	public void testThumbInvalid()
+	void testThumbInvalid()
 	{
 		PlayerCharacter pc = getCharacter();
 		pc.setName("PortraitTokenTest");
@@ -121,7 +121,7 @@ public class PortraitTokenTest extends AbstractCharacterTestCase
 	 * @throws Exception Not expected.
 	 */
 	@Test
-	public void testNonEncodedURI() throws Exception
+	void testNonEncodedURI() throws Exception
 	{
 		var inputPortraitPath = FileSystems.getDefault()
 				.getPath("code", "src", "resources", "pcgen", "D&D 3.Xe", "portrait.png")

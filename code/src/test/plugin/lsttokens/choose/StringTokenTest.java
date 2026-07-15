@@ -46,7 +46,7 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
+class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 {
 
 	static ChooseLst token = new ChooseLst();
@@ -85,28 +85,28 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	}
 
 	@Test
-	public void testInvalidInputEmptyString()
+	void testInvalidInputEmptyString()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOnlySubToken()
+	void testInvalidInputOnlySubToken()
 	{
 		assertFalse(parse(getSubTokenName()));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOnlySubTokenPipe()
+	void testInvalidInputOnlySubTokenPipe()
 	{
 		assertFalse(parse(getSubTokenName() + '|'));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputJoinOnly()
+	void testInvalidInputJoinOnly()
 	{
 		assertFalse(parse(getSubTokenName() + "|,"));
 		assertNoSideEffects();
@@ -118,49 +118,49 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	}
 
 	@Test
-	public void testInvalidListEndPipe()
+	void testInvalidListEndPipe()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "TestWP1|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidListEndComma()
+	void testInvalidListEndComma()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "TestWP1,"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidListStartPipe()
+	void testInvalidListStartPipe()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "|TestWP1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidListStartComma()
+	void testInvalidListStartComma()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + ",TestWP1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidListDoubleJoinPipe()
+	void testInvalidListDoubleJoinPipe()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "TestWP2||TestWP1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidListDoubleJoinComma()
+	void testInvalidListDoubleJoinComma()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "TYPE=Foo,,!TYPE=Bar"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidInputs()
+	void testValidInputs()
 	{
 		assertTrue(parse(getSubTokenName() + '|' + "TestWP1"));
 		assertCleanConstruction();
@@ -169,25 +169,25 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	}
 
 	@Test
-	public void testRoundRobinOne() throws PersistenceLayerException
+	void testRoundRobinOne() throws PersistenceLayerException
 	{
 		runRoundRobin(getSubTokenName() + '|' + "TestWP1");
 	}
 
 	@Test
-	public void testRoundRobinParen() throws PersistenceLayerException
+	void testRoundRobinParen() throws PersistenceLayerException
 	{
 		runRoundRobin(getSubTokenName() + '|' + "TestWP1 (Test)");
 	}
 
 	@Test
-	public void testRoundRobinThree() throws PersistenceLayerException
+	void testRoundRobinThree() throws PersistenceLayerException
 	{
 		runRoundRobin(getSubTokenName() + '|' + "TestWP1|TestWP2|TestWP3");
 	}
 
 	@Test
-	public void testInputInvalidAddsBasicNoSideEffect()
+	void testInputInvalidAddsBasicNoSideEffect()
 	{
 		assertTrue(parse(getSubTokenName() + '|' + "TestWP1|TestWP2"));
 		assertTrue(parseSecondary(getSubTokenName() + '|' + "TestWP1|TestWP2"));
@@ -196,7 +196,7 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	}
 
 	@Test
-	public void testUnparseNull()
+	void testUnparseNull()
 	{
 		primaryProf.put(getObjectKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
@@ -208,7 +208,7 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	}
 
 	@Test
-	public void testUnparseLegal()
+	void testUnparseLegal()
 	{
 		assertGoodChoose("TestWP1|TestWP2");
 	}
@@ -235,7 +235,7 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail()
+	void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = getObjectKey();
 		primaryProf.put(objectKey, new Object());
@@ -269,7 +269,7 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	}
 
 	@Test
-	public void testInvalidInputNoBrackets()
+	void testInvalidInputNoBrackets()
 	{
 		assertFalse(parse("STRING|Sorry No [Brackets]"));
 		assertNoSideEffects();

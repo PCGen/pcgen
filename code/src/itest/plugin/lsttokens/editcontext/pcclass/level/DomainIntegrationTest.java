@@ -29,9 +29,8 @@ import plugin.lsttokens.pcclass.level.DomainToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
-public class DomainIntegrationTest extends
+class DomainIntegrationTest extends
 		AbstractListIntegrationTestCase<PCClassLevel, Domain>
 {
 

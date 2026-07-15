@@ -15,12 +15,12 @@ import org.junit.jupiter.api.Test;
 
 
 @SuppressWarnings("nls")
-public class PreSkillTotParserTest extends EnUsLocaleDependentTestCase
+class PreSkillTotParserTest extends EnUsLocaleDependentTestCase
 {
 	
 
 	@Test
-	public void test1() throws PersistenceLayerException
+	void test1() throws PersistenceLayerException
 	{
 		PreSkillTotalParser producer = new PreSkillTotalParser();
 
@@ -45,7 +45,7 @@ public class PreSkillTotParserTest extends EnUsLocaleDependentTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testNot() throws PersistenceLayerException
+	void testNot() throws PersistenceLayerException
 	{
 		PreSkillTotalParser producer = new PreSkillTotalParser();
 
@@ -64,7 +64,7 @@ public class PreSkillTotParserTest extends EnUsLocaleDependentTestCase
 	}
 
 	@Test
-	public void testTypeKnowledge() throws Exception
+	void testTypeKnowledge() throws Exception
 	{
 		PreSkillTotalParser producer = new PreSkillTotalParser();
 

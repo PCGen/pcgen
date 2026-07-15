@@ -32,7 +32,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class VariableFacetTest
+class VariableFacetTest
 {
 
 	private VariableFacet facet = new VariableFacet();
@@ -40,7 +40,7 @@ public class VariableFacetTest
 	private CharID altid;
 
 	@BeforeEach
-	public void setUp() throws Exception
+	void setUp() throws Exception
 	{
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
@@ -48,7 +48,7 @@ public class VariableFacetTest
 	}
 
 	@AfterEach
-	public void tearDown()
+	void tearDown()
 	{
 		id = null;
 		altid = null;
@@ -56,7 +56,7 @@ public class VariableFacetTest
 	}
 
 	@Test
-	public void testAddEmptyObject()
+	void testAddEmptyObject()
 	{
 		Object source = new Object();
 		CDOMObject t1 = new PCTemplate();
@@ -69,7 +69,7 @@ public class VariableFacetTest
 	}
 
 	@Test
-	public void testAddSimple()
+	void testAddSimple()
 	{
 		Object source = new Object();
 		CDOMObject t1 = new PCTemplate();
@@ -85,7 +85,7 @@ public class VariableFacetTest
 	}
 
 	@Test
-	public void testAddSameTwice()
+	void testAddSameTwice()
 	{
 		Object source = new Object();
 		CDOMObject t1 = new PCTemplate();
@@ -110,7 +110,7 @@ public class VariableFacetTest
 	}
 
 	@Test
-	public void testAddSameTwo()
+	void testAddSameTwo()
 	{
 		Object source = new Object();
 		CDOMObject t1 = new PCTemplate();
@@ -129,7 +129,7 @@ public class VariableFacetTest
 	}
 
 	@Test
-	public void testAddRemove()
+	void testAddRemove()
 	{
 		Object source = new Object();
 		CDOMObject t1 = new PCTemplate();
@@ -156,7 +156,7 @@ public class VariableFacetTest
 	}
 
 	@Test
-	public void testUselessRemove()
+	void testUselessRemove()
 	{
 		Object source = new Object();
 		CDOMObject t1 = new PCTemplate();
@@ -169,7 +169,7 @@ public class VariableFacetTest
 	}
 
 	@Test
-	public void testAddRemove1First()
+	void testAddRemove1First()
 	{
 		Object source = new Object();
 		CDOMObject t1 = new PCTemplate();
@@ -204,7 +204,7 @@ public class VariableFacetTest
 	}
 
 	@Test
-	public void testAddRemove2First()
+	void testAddRemove2First()
 	{
 		Object source = new Object();
 		CDOMObject t1 = new PCTemplate();

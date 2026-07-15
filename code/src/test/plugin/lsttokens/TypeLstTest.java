@@ -34,7 +34,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class TypeLstTest extends AbstractGlobalTypeSafeListTestCase
+class TypeLstTest extends AbstractGlobalTypeSafeListTestCase
 {
 
 	static TypeLst token = new TypeLst();
@@ -95,7 +95,7 @@ public class TypeLstTest extends AbstractGlobalTypeSafeListTestCase
 	}
 
 	@Test
-	public void testReplacementRemove()
+	void testReplacementRemove()
 	{
 		String[] unparsed;
 		assertTrue(parse("REMOVE.TestWP1"));
@@ -116,7 +116,7 @@ public class TypeLstTest extends AbstractGlobalTypeSafeListTestCase
 	}
 
 	@Test
-	public void testReplacementRemoveTwo()
+	void testReplacementRemoveTwo()
 	{
 		String[] unparsed;
 		assertTrue(parse("TestWP1"));
@@ -130,49 +130,49 @@ public class TypeLstTest extends AbstractGlobalTypeSafeListTestCase
 	}
 
 	@Test
-	public void testInputInvalidRemoveNoTrailing()
+	void testInputInvalidRemoveNoTrailing()
 	{
 		assertFalse(parse("TestWP1.REMOVE"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInputInvalidAddNoTrailing()
+	void testInputInvalidAddNoTrailing()
 	{
 		assertFalse(parse("TestWP1.ADD"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInputInvalidAddRemove()
+	void testInputInvalidAddRemove()
 	{
 		assertFalse(parse("TestWP1.ADD.REMOVE.TestWP2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInputInvalidRemoveAdd()
+	void testInputInvalidRemoveAdd()
 	{
 		assertFalse(parse("TestWP1.REMOVE.ADD.TestWP2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInputInvalidEmbeddedClear()
+	void testInputInvalidEmbeddedClear()
 	{
 		assertFalse(parse("TestWP1.CLEAR.TestWP2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInputInvalidDotClearDot()
+	void testInputInvalidDotClearDot()
 	{
 		assertFalse(parse(".CLEAR."));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInputInvalidDotClearStuff()
+	void testInputInvalidDotClearStuff()
 	{
 		assertFalse(parse(".CLEARSTUFF"));
 		assertNoSideEffects();

@@ -38,7 +38,7 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class AbbTokenTest extends AbstractCDOMTokenTestCase<SizeAdjustment>
+class AbbTokenTest extends AbstractCDOMTokenTestCase<SizeAdjustment>
 {
 	static AbbToken token = new AbbToken();
 	static KeyLst keyToken = new KeyLst();
@@ -72,14 +72,14 @@ public class AbbTokenTest extends AbstractCDOMTokenTestCase<SizeAdjustment>
 	}
 
 	@Test
-	public void testInvalidInputEmpty()
+	void testInvalidInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidInputs()
+	void testValidInputs()
 	{
 		assertTrue(parse("Niederösterreich"));
 		assertEquals("Niederösterreich", primaryProf.get(StringKey.ABB_KR));
@@ -94,7 +94,7 @@ public class AbbTokenTest extends AbstractCDOMTokenTestCase<SizeAdjustment>
 	}
 
 	@Test
-	public void testReplacementInputs()
+	void testReplacementInputs()
 	{
 		String[] unparsed;
 		assertTrue(parse("Start"));
@@ -104,31 +104,31 @@ public class AbbTokenTest extends AbstractCDOMTokenTestCase<SizeAdjustment>
 	}
 
 	@Test
-	public void testRoundRobinBase() throws PersistenceLayerException
+	void testRoundRobinBase() throws PersistenceLayerException
 	{
 		runRoundRobin("Rheinhessen");
 	}
 
 	@Test
-	public void testRoundRobinWithSpace() throws PersistenceLayerException
+	void testRoundRobinWithSpace() throws PersistenceLayerException
 	{
 		runRoundRobin("Finger Lakes");
 	}
 
 	@Test
-	public void testRoundRobinNonEnglishAndN() throws PersistenceLayerException
+	void testRoundRobinNonEnglishAndN() throws PersistenceLayerException
 	{
 		runRoundRobin("Niederösterreich");
 	}
 
 	@Test
-	public void testRoundRobinHyphen() throws PersistenceLayerException
+	void testRoundRobinHyphen() throws PersistenceLayerException
 	{
 		runRoundRobin("Languedoc-Roussillon");
 	}
 
 	@Test
-	public void testRoundRobinY() throws PersistenceLayerException
+	void testRoundRobinY() throws PersistenceLayerException
 	{
 		runRoundRobin("Yarra Valley");
 	}
@@ -152,13 +152,13 @@ public class AbbTokenTest extends AbstractCDOMTokenTestCase<SizeAdjustment>
 	}
 
 	@Test
-	public void testUnparseLegal()
+	void testUnparseLegal()
 	{
 		expectSingle(setAndUnparse(getLegalValue()), getLegalValue());
 	}
 
 	@Test
-	public void testUnparseNull()
+	void testUnparseNull()
 	{
 		primaryProf.put(getStringKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));

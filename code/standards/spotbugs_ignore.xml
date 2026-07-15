@@ -38,6 +38,22 @@
     <Bug pattern="UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR" />
   </Match>
   <Match>
+    <!-- Facet events extend java.util.EventObject (Serializable) but hold
+         runtime identifiers (CharID, VariableID, references to mutable
+         domain objects). Nothing in pcgen actually serializes these events
+         - the contract is inherited from EventObject, not used. Marking
+         each field transient would be ceremony for a code path that never
+         executes; suppressing keeps the events honest about being runtime
+         constructs. See PR #7625's comment for the broader rationale: the
+         cdom layer is wired by shared reference, not by value-copy. -->
+    <Or>
+      <Package name="~pcgen[.]cdom[.]facet.*"/>
+      <Package name="~pcgen[.]cdom[.]formula.*"/>
+      <Package name="~pcgen[.]cdom[.]reference.*"/>
+    </Or>
+    <Bug pattern="SE_BAD_FIELD"/>
+  </Match>
+  <Match>
     <!-- CDOM is intentionally wired by shared reference: Spring-injected
          facet singletons, identity-based domain references (CNAbility,
          ClassSource, Selection, …), and lazy CDOMRef resolvers. Defensive

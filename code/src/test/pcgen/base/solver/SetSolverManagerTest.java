@@ -99,7 +99,7 @@ class SetSolverManagerTest
 	}
 
 	@Test
-	public void testProcessDependentSet()
+	void testProcessDependentSet()
 	{
 		PCGenScope globalScope = context.getVariableContext().getScope(GlobalPCScope.GLOBAL_SCOPE_NAME);
 		sl.assertLegalVariableID("Regions", globalScope, arrayManager);
@@ -146,7 +146,7 @@ class SetSolverManagerTest
 	}
 
 	@Test
-	public void testProcessDynamicSet()
+	void testProcessDynamicSet()
 	{
 		VariableContext variableContext = context.getVariableContext();
 		PCGenScope globalScope = variableContext.getScope(GlobalPCScope.GLOBAL_SCOPE_NAME);

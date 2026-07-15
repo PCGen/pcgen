@@ -29,9 +29,8 @@ import plugin.lsttokens.pcclass.KnownspellsToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
-public class KnownSpellsIntegrationTest extends
+class KnownSpellsIntegrationTest extends
 		AbstractListIntegrationTestCase<PCClass, Spell>
 {
 

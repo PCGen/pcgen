@@ -32,13 +32,13 @@ import tokenmodel.testsupport.AbstractTokenModelTest;
 import util.TestURI;
 
 
-public class TemplateAddLevelTest extends AbstractTokenModelTest
+class TemplateAddLevelTest extends AbstractTokenModelTest
 {
 
 	private static AddLevelToken token = new AddLevelToken();
 
 	@Test
-	public void testSimple()
+	void testSimple()
 	{
 		PCTemplate source = create(PCTemplate.class, "Source");
 		create(PCClass.class, "Granted");

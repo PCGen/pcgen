@@ -26,10 +26,10 @@ import org.junit.jupiter.api.Test;
 /**
  * Test a 3e 1st lvl Half-Elf Bard 
  */
-public class pcGenGUIBrdJoeTest extends PcgenFtlTestCase
+class pcGenGUIBrdJoeTest extends PcgenFtlTestCase
 {
 	@Test
-	public void testBrdJoe() throws Exception
+	void testBrdJoe() throws Exception
 	{
 		runTest("3e_BrdJoe");
 	}

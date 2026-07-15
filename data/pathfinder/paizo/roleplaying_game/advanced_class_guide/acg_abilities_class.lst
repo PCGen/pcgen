@@ -1776,6 +1776,12 @@ CATEGORY=Special Ability|Skald ~ Versatile Performance.MOD																						
 CATEGORY=Special Ability|Skald ~ Versatile Performance.MOD																																																																																																																																																						BONUS:ABILITYPOOL|Skald Versatile Performance|-1|PREVARGTEQ:SkaldLVL,12|PREVAREQ:Skald_CF_VersatilePerformance12,1
 CATEGORY=Special Ability|Skald ~ Versatile Performance.MOD																																																																																																																																																						BONUS:ABILITYPOOL|Skald Versatile Performance|-1|PREVARGTEQ:SkaldLVL,17|PREVAREQ:Skald_CF_VersatilePerformance17,1
 
+###Block: Temp Bonus
+CATEGORY=Special Ability|Skald ~ Inspired Rage.MOD	TEMPBONUS:PC|COMBAT|AC|-1	TEMPBONUS:PC|VAR|Raging|1	TEMPBONUS:PC|SAVE|Will|SkaldInspiredRageWillBonus	TEMPBONUS:PC|STAT|STR|SkaldInspiredRageStrConBonus	TEMPBONUS:PC|STAT|CON|SkaldInspiredRageStrConBonus		TEMPBONUS:PC|VAR|CMD|-1
+
+###Block: Temp Bonus (Others)
+Inspired Rage (Others)	KEY:Temp Bonus ~ Inspired Rage ~ Temp Bonus (Others)		CATEGORY:Internal	VISIBLE:NO			SOURCEPAGE:p.50	TEMPBONUS:ANYPC|COMBAT|AC|-1	TEMPBONUS:ANYPC|SAVE|Will|1+(%CHOICE/4)*1	TEMPBONUS:ANYPC|STAT|STR|2+floor(%CHOICE/8)*2	TEMPBONUS:ANYPC|STAT|CON|2+floor(%CHOICE/8)*2		TEMPBONUS:ANYPC|VAR|CMD|-1	TEMPVALUE:MIN=1|MAX=20|TITLE=Level of Skald
+
 # ==============================
 # Slayer Class features
 # ==============================

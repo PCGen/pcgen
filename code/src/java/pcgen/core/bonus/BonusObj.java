@@ -38,7 +38,7 @@ import pcgen.rules.context.LoadContext;
  * {@code BonusObj}
  *
  **/
-public abstract class BonusObj extends ConcretePrereqObject implements Serializable, Cloneable, QualifyingObject
+public abstract class BonusObj extends ConcretePrereqObject implements Serializable, QualifyingObject
 {
 	private List<Object> bonusInfo = new ArrayList<>();
 	private Map<String, String> dependMap = new HashMap<>();

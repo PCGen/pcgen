@@ -39,7 +39,7 @@ import plugin.pretokens.writer.PreVariableWriter;
 import org.junit.jupiter.api.Test;
 import util.GameModeSupport;
 
-public class WieldTokenTest extends AbstractCDOMTokenTestCase<Equipment>
+class WieldTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 {
 	static WieldToken token = new WieldToken();
 	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
@@ -78,7 +78,7 @@ public class WieldTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testBadInput()
+	void testBadInput()
 	{
 		try
 		{
@@ -92,26 +92,26 @@ public class WieldTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testBadInputEmpty()
+	void testBadInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testRoundRobinLight() throws PersistenceLayerException
+	void testRoundRobinLight() throws PersistenceLayerException
 	{
 		runRoundRobin("Light");
 	}
 
 	@Test
-	public void testRoundRobinOneHanded() throws PersistenceLayerException
+	void testRoundRobinOneHanded() throws PersistenceLayerException
 	{
 		runRoundRobin("OneHanded");
 	}
 
 	@Test
-	public void testRoundRobinTwoHanded() throws PersistenceLayerException
+	void testRoundRobinTwoHanded() throws PersistenceLayerException
 	{
 		runRoundRobin("TwoHanded");
 	}
@@ -135,7 +135,7 @@ public class WieldTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testUnparseNull()
+	void testUnparseNull()
 	{
 		primaryProf.put(getObjectKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
@@ -147,7 +147,7 @@ public class WieldTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testUnparseLegal()
+	void testUnparseLegal()
 	{
 		primaryProf.put(getObjectKey(), primaryContext.getReferenceContext()
 				.silentlyGetConstructedCDOMObject(WieldCategory.class,
@@ -158,7 +158,7 @@ public class WieldTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail()
+	void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = getObjectKey();
 		primaryProf.put(objectKey, new Object());

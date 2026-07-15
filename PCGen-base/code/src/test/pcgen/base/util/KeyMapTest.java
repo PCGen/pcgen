@@ -32,7 +32,7 @@ import org.junit.jupiter.api.Test;
 
 import pcgen.testsupport.TestSupport;
 
-public class KeyMapTest
+class KeyMapTest
 {
 
 	public void populate(KeyMap<Double> km)
@@ -42,7 +42,7 @@ public class KeyMapTest
 	}
 
 	@Test
-	public void testEmptyClear()
+	void testEmptyClear()
 	{
 		KeyMap<Double> km = new KeyMap<>();
 		assertEquals(0, km.size());
@@ -57,7 +57,7 @@ public class KeyMapTest
 	}
 
 	@Test
-	public void testPutGetBad()
+	void testPutGetBad()
 	{
 		KeyMap<Double> km = new KeyMap<>();
 		assertThrows(NullPointerException.class, () -> km.put(null, Double.valueOf(5.4)));
@@ -65,7 +65,7 @@ public class KeyMapTest
 	}
 
 	@Test
-	public void testPutGetExact()
+	void testPutGetExact()
 	{
 		KeyMap<Double> km = new KeyMap<>();
 		populate(km);
@@ -92,7 +92,7 @@ public class KeyMapTest
 	}
 
 	@Test
-	public void testOverwriteKey()
+	void testOverwriteKey()
 	{
 		KeyMap<Double> km = new KeyMap<>();
 		populate(km);
@@ -105,7 +105,7 @@ public class KeyMapTest
 	}
 
 	@Test
-	public void testOverwriteValue()
+	void testOverwriteValue()
 	{
 		KeyMap<Double> km = new KeyMap<>();
 		populate(km);
@@ -118,7 +118,7 @@ public class KeyMapTest
 	}
 
 	@Test
-	public void testOverwriteMix()
+	void testOverwriteMix()
 	{
 		KeyMap<Double> km = new KeyMap<>();
 		populate(km);
@@ -132,7 +132,7 @@ public class KeyMapTest
 	}
 
 	@Test
-	public void testContainsKey()
+	void testContainsKey()
 	{
 		KeyMap<Double> km = new KeyMap<>();
 		populate(km);
@@ -142,7 +142,7 @@ public class KeyMapTest
 	}
 
 	@Test
-	public void testContainsValue()
+	void testContainsValue()
 	{
 		KeyMap<Double> km = new KeyMap<>();
 		populate(km);
@@ -154,7 +154,7 @@ public class KeyMapTest
 	}
 
 	@Test
-	public void testKeySet()
+	void testKeySet()
 	{
 		KeyMap<Double> km = new KeyMap<>();
 		Set<String> s = km.keySet();
@@ -187,7 +187,7 @@ public class KeyMapTest
 	}
 
 	@Test
-	public void testKeyValues()
+	void testKeyValues()
 	{
 		KeyMap<Double> km = new KeyMap<>();
 		Collection<Double> s = km.keySortedValues();

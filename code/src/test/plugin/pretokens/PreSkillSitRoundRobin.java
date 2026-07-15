@@ -23,7 +23,7 @@ import plugin.pretokens.writer.PreSkillSitWriter;
 
 import org.junit.jupiter.api.BeforeEach;
 
-public class PreSkillSitRoundRobin extends AbstractRankedRoundRobin
+class PreSkillSitRoundRobin extends AbstractRankedRoundRobin
 {
 	@BeforeEach
 	@Override

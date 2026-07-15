@@ -55,14 +55,14 @@ class VisibleTokenTest
 	private static CampaignSourceEntry testCampaign;
 
 	@BeforeAll
-	public static void classSetUp()
+	static void classSetUp()
 	{
 		testCampaign =
 				new CampaignSourceEntry(new Campaign(), TestURI.getURI());
 	}
 
 	@BeforeEach
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		TokenRegistration.clearTokens();
 		TokenRegistration.register(token);
@@ -81,19 +81,19 @@ class VisibleTokenTest
 	}
 
 	@Test
-	public void testInvalidInputNullString()
+	void testInvalidInputNullString()
 	{
 		assertFalse(token.parseToken(context, cd, null).passed());
 	}
 
 	@Test
-	public void testInvalidInputEmptyString()
+	void testInvalidInputEmptyString()
 	{
 		assertFalse(token.parseToken(context, cd, "").passed());
 	}
 
 	@Test
-	public void testValidStringYes()
+	void testValidStringYes()
 	{
 		assertNull(cd.getVisibility());
 		assertTrue(token.parseToken(context, cd, "YES").passed());
@@ -104,7 +104,7 @@ class VisibleTokenTest
 	}
 
 	@Test
-	public void testValidStringNo()
+	void testValidStringNo()
 	{
 		assertNull(cd.getVisibility());
 		assertTrue(token.parseToken(context, cd, "NO").passed());
@@ -115,7 +115,7 @@ class VisibleTokenTest
 	}
 
 	@Test
-	public void testValidStringDisplay()
+	void testValidStringDisplay()
 	{
 		assertNull(cd.getVisibility());
 		assertTrue(token.parseToken(context, cd, "DISPLAY").passed());
@@ -126,7 +126,7 @@ class VisibleTokenTest
 	}
 
 	@Test
-	public void testValidStringExport()
+	void testValidStringExport()
 	{
 		assertNull(cd.getVisibility());
 		assertTrue(token.parseToken(context, cd, "EXPORT").passed());

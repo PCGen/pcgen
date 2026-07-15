@@ -33,7 +33,7 @@ import plugin.lsttokens.skill.ExclusiveToken;
 
 import org.junit.jupiter.api.Test;
 
-public class DomainTargetSaveRestoreTest extends
+class DomainTargetSaveRestoreTest extends
 		AbstractGlobalTargetedSaveRestoreTest<Domain>
 {
 
@@ -70,7 +70,7 @@ public class DomainTargetSaveRestoreTest extends
 	}
 
 	@Test
-	public void testDomainCSkill()
+	void testDomainCSkill()
 	{
 		Skill granted = create(Skill.class, "Granted");
 		new ExclusiveToken().parseToken(context, granted, "Yes");
@@ -97,7 +97,7 @@ public class DomainTargetSaveRestoreTest extends
 	}
 
 	@Test
-	public void testDomainCCSkill()
+	void testDomainCCSkill()
 	{
 		Skill granted = create(Skill.class, "Granted");
 		new ExclusiveToken().parseToken(context, granted, "Yes");

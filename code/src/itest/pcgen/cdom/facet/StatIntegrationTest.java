@@ -44,7 +44,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class StatIntegrationTest
+class StatIntegrationTest
 {
 	/*
 	 * NOTE: This is not literal unit testing - it is leveraging the existing
@@ -65,7 +65,7 @@ public class StatIntegrationTest
 	private final Object tsource = new Object();
 
 	@BeforeEach
-	public void setUp() throws Exception
+	void setUp() throws Exception
 	{
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
@@ -94,7 +94,7 @@ public class StatIntegrationTest
 	}
 
 	@Test
-	public void testNonAbilityUnset()
+	void testNonAbilityUnset()
 	{
 		assertFalse(nonAbilityFacet.isNonAbility(id, stat1));
 		assertFalse(nonAbilityFacet.isNonAbility(id, stat2));
@@ -103,7 +103,7 @@ public class StatIntegrationTest
 	}
 
 	@Test
-	public void testLockUnset()
+	void testLockUnset()
 	{
 		assertNull(lockFacet.getLockedStat(id, stat1));
 		assertNull(lockFacet.getLockedStat(id, stat2));
@@ -114,7 +114,7 @@ public class StatIntegrationTest
 	 * StatFacet actually contains the stat values.
 	 */
 	@Test
-	public void testLockUnsetConditional()
+	void testLockUnsetConditional()
 	{
 		if (!unlockedFacet.contains(id, stat1))
 		{
@@ -127,7 +127,7 @@ public class StatIntegrationTest
 	}
 
 	@Test
-	public void testWithNothingInRace()
+	void testWithNothingInRace()
 	{
 		Race r = new Race();
 		rfacet.set(id, r);
@@ -136,7 +136,7 @@ public class StatIntegrationTest
 	}
 
 	@Test
-	public void testLockNonAbilityInRace()
+	void testLockNonAbilityInRace()
 	{
 		Race r = new Race();
 		causeLockNonAbility(r, stat1);
@@ -151,7 +151,7 @@ public class StatIntegrationTest
 	}
 
 	@Test
-	public void testLockInRace()
+	void testLockInRace()
 	{
 		Race r = new Race();
 		causeLock(r, stat1, 14);
@@ -166,7 +166,7 @@ public class StatIntegrationTest
 	}
 
 	@Test
-	public void testUnlockOverrideNonAbilityLockSimple()
+	void testUnlockOverrideNonAbilityLockSimple()
 	{
 		Race r1 = new Race();
 		causeLockNonAbility(r1, stat2);
@@ -177,7 +177,7 @@ public class StatIntegrationTest
 	}
 
 	@Test
-	public void testUnlockOverrideLockSimple()
+	void testUnlockOverrideLockSimple()
 	{
 		Race r1 = new Race();
 		causeLock(r1, stat2, 14);
@@ -188,7 +188,7 @@ public class StatIntegrationTest
 	}
 
 	@Test
-	public void testUnlockInnocent()
+	void testUnlockInnocent()
 	{
 		CDOMObject r1 = new Race();
 		causeUnlock(r1, stat2);
@@ -197,7 +197,7 @@ public class StatIntegrationTest
 	}
 
 	@Test
-	public void testLockNonAbilityInTemplate()
+	void testLockNonAbilityInTemplate()
 	{
 		Race r = new Race();
 		rfacet.set(id, r);
@@ -215,7 +215,7 @@ public class StatIntegrationTest
 	}
 
 	@Test
-	public void testLockComplex()
+	void testLockComplex()
 	{
 		Race r = new Race();
 		causeLock(r, stat1, 14);
@@ -237,7 +237,7 @@ public class StatIntegrationTest
 	}
 
 	@Test
-	public void testNonStatToStatOverrideNonAbilityLockComplex()
+	void testNonStatToStatOverrideNonAbilityLockComplex()
 	{
 		testNonAbilityUnset();
 		Race r = new Race();
@@ -251,7 +251,7 @@ public class StatIntegrationTest
 	}
 
 	@Test
-	public void testUnlockOverrideLockComplex()
+	void testUnlockOverrideLockComplex()
 	{
 		testNonAbilityUnset();
 		Race r = new Race();
@@ -265,7 +265,7 @@ public class StatIntegrationTest
 	}
 
 	@Test
-	public void testUnlockNotOverrideNonAbilityLockComplex()
+	void testUnlockNotOverrideNonAbilityLockComplex()
 	{
 		testNonAbilityUnset();
 		Race r = new Race();

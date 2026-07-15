@@ -30,7 +30,7 @@ import org.junit.jupiter.api.Test;
 class PreVisionParserTest extends EnUsLocaleDependentTestCase
 {
 	@Test
-	public void testMultiplePasses() throws PersistenceLayerException
+	void testMultiplePasses() throws PersistenceLayerException
 	{
 		PreVisionParser parser = new PreVisionParser();
 

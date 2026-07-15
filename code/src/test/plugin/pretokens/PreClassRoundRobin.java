@@ -29,7 +29,7 @@ import plugin.pretokens.writer.PreClassWriter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class PreClassRoundRobin extends AbstractRankedRoundRobin
+class PreClassRoundRobin extends AbstractRankedRoundRobin
 {
 	@BeforeEach
 	@Override
@@ -59,19 +59,19 @@ public class PreClassRoundRobin extends AbstractRankedRoundRobin
 	}
 
 	@Test
-	public void testSpellcaster()
+	void testSpellcaster()
 	{
 		runRoundRobin("PRECLASS:1,SPELLCASTER=2");
 	}
 
 	@Test
-	public void testSpellcasterTyped()
+	void testSpellcasterTyped()
 	{
 		runRoundRobin("PRECLASS:1,SPELLCASTER.Arcane=2");
 	}
 
 	@Test
-	public void testNestedInvalid()
+	void testNestedInvalid()
 	{
 		try
 		{

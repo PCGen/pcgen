@@ -37,7 +37,7 @@ import org.junit.jupiter.api.Test;
  * 
  */
 
-public class CharacterFacadeImplTest extends AbstractCharacterTestCase
+class CharacterFacadeImplTest extends AbstractCharacterTestCase
 {
 
 	private MockDataSetFacade dataset;
@@ -47,7 +47,7 @@ public class CharacterFacadeImplTest extends AbstractCharacterTestCase
 	 * Check the default equipment set created by CharacterFacadeImpl. 
 	 */
 	@Test
-	public void testDefaultEquipSet()
+	void testDefaultEquipSet()
 	{
 		PlayerCharacter pc = new PlayerCharacter();
 		CharacterFacadeImpl charFacade =

@@ -60,7 +60,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 /**
  * The Class {@code DataLoadTest} checks each basic source for errors on load.
  */
-public class DataLoadTest implements PCGenTaskListener
+class DataLoadTest implements PCGenTaskListener
 {
 	/** The name of our dummy config file. */
 	private static final String TEST_CONFIG_FILE = "config.ini.junit";

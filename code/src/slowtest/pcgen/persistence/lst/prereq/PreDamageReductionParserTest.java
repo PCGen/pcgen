@@ -31,11 +31,11 @@ import org.junit.jupiter.api.Test;
 
 
 @SuppressWarnings("nls")
-public class PreDamageReductionParserTest extends EnUsLocaleDependentTestCase
+class PreDamageReductionParserTest extends EnUsLocaleDependentTestCase
 {
 	
 	@Test
-	public void testMultipleFails()
+	void testMultipleFails()
 	{
 		PreDamageReductionParser parser = new PreDamageReductionParser();
 
@@ -53,7 +53,7 @@ public class PreDamageReductionParserTest extends EnUsLocaleDependentTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testMultiplePasses() throws PersistenceLayerException
+	void testMultiplePasses() throws PersistenceLayerException
 	{
 		PreDamageReductionParser parser = new PreDamageReductionParser();
 
@@ -74,7 +74,7 @@ public class PreDamageReductionParserTest extends EnUsLocaleDependentTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testNoValue() throws PersistenceLayerException
+	void testNoValue() throws PersistenceLayerException
 	{
 		PreDamageReductionParser parser = new PreDamageReductionParser();
 

@@ -32,7 +32,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
-public class AddTokenTest extends AbstractGlobalTokenTestCase
+class AddTokenTest extends AbstractGlobalTokenTestCase
 {
 
 	static CDOMPrimaryToken<CDOMObject> token = new AddLst();
@@ -63,27 +63,27 @@ public class AddTokenTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidEmpty()
+	void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidClearLevel()
+	void testInvalidClearLevel()
 	{
 		assertFalse(parse(".CLEAR.LEVEL1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidClear()
+	void testValidClear()
 	{
 		assertTrue(parse(Constants.LST_DOT_CLEAR));
 	}
 
 	@Test
-	public void testInvalidLevelNonClearLevel()
+	void testInvalidLevelNonClearLevel()
 	{
 		primaryProf = new PCClassLevel();
 		primaryProf.put(IntegerKey.LEVEL, 1);
@@ -94,7 +94,7 @@ public class AddTokenTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidLevelClearWrongLevel()
+	void testInvalidLevelClearWrongLevel()
 	{
 		primaryProf = new PCClassLevel();
 		primaryProf.put(IntegerKey.LEVEL, 1);
@@ -105,7 +105,7 @@ public class AddTokenTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidLevelClearLevelNaN()
+	void testInvalidLevelClearLevelNaN()
 	{
 		primaryProf = new PCClassLevel();
 		primaryProf.put(IntegerKey.LEVEL, 1);
@@ -116,7 +116,7 @@ public class AddTokenTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testValidClearLevel()
+	void testValidClearLevel()
 	{
 		primaryProf = new PCClassLevel();
 		primaryProf.put(IntegerKey.LEVEL, 1);

@@ -11,10 +11,10 @@ import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import org.junit.jupiter.api.Test;
 import pcgen.system.ConfigurationSettings;
 
-public class RecursiveFileFinderTest {
+class RecursiveFileFinderTest {
 
 	@Test
-	public void parseMainPCCDir(){
+	void parseMainPCCDir(){
 		List<URI> files = new LinkedList<>();
 		new RecursiveFileFinder().findFiles(new File(ConfigurationSettings.getPccFilesDir()), files);
 
@@ -22,7 +22,7 @@ public class RecursiveFileFinderTest {
 	}
 
 	@Test
-	public void fakeFile(){
+	void fakeFile(){
 		List<URI> files = new LinkedList<>();
 		new RecursiveFileFinder().findFiles(new File("FakeFile"), files);
 

@@ -15,6 +15,8 @@
  */
 package pcgen.base.formula.function;
 
+import java.lang.System.Logger;
+import java.lang.System.Logger.Level;
 import java.util.Arrays;
 import java.util.Optional;
 
@@ -29,8 +31,6 @@ import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.EvaluateVisitor;
 import pcgen.base.formula.visitor.SemanticsVisitor;
 import pcgen.base.formula.visitor.StaticVisitor;
-import pcgen.base.logging.Logging;
-import pcgen.base.logging.Severity;
 import pcgen.base.util.FormatManager;
 
 /**
@@ -38,6 +38,9 @@ import pcgen.base.util.FormatManager;
  */
 public class GetOptionalFunction implements FormulaFunction
 {
+
+	private static final Logger LOG =
+			System.getLogger(GetOptionalFunction.class.getName());
 
 	@Override
 	public String getFunctionName()
@@ -83,7 +86,7 @@ public class GetOptionalFunction implements FormulaFunction
 					manager.get(EvaluationManager.ASSERTED);
 			if (asserted.isEmpty())
 			{
-				Logging.log(Severity.WARNING,
+				LOG.log(Level.WARNING,
 					() -> "Evaluation called on invalid formula: '"
 						+ "<Optional Not Present>"
 						+ "', no asserted format available to determine default, "
@@ -96,7 +99,7 @@ public class GetOptionalFunction implements FormulaFunction
 			Optional<FormatManager<?>> underlying =
 					optionalFormat.getComponentManager();
 			Class<?> managedClass = asserted.get().getManagedClass();
-			Logging.log(Severity.WARNING,
+			LOG.log(Level.WARNING,
 				() -> "Evaluation called on invalid formula: '"
 					+ "<Optional Not Present>" + "', assuming default for "
 					+ managedClass.getSimpleName());

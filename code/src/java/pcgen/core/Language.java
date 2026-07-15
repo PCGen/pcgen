@@ -28,7 +28,7 @@ import pcgen.core.utils.ShowMessageDelegate;
 /**
  * {@code Language}.
  */
-public final class Language extends PObject implements Comparable<Object>, Ungranted, Cloneable
+public final class Language extends PObject implements Ungranted
 {
 	public static final CDOMReference<LanguageList> STARTING_LIST;
 

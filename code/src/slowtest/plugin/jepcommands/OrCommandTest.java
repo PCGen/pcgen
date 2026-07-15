@@ -30,7 +30,7 @@ import org.nfunk.jep.function.PostfixMathCommandI;
 /**
  * {@code OrCommandTest} tests the functioning of the jep or plugin
  */
-public class OrCommandTest
+class OrCommandTest
 {
     private static void runOr(final Stack stack, final PostfixMathCommandI pCommand)
     {
@@ -45,7 +45,7 @@ public class OrCommandTest
 
     /* Test the case where the first operand is true */
     @Test
-    public void testOr01()
+    void testOr01()
     {
         final PostfixMathCommandI   c = new OrCommand();
         final Stack<Object>         s = new Stack<>();
@@ -64,7 +64,7 @@ public class OrCommandTest
 
     /* Test the case where the first operand is false, but the second is true */
     @Test
-    public void testOr02()
+    void testOr02()
     {
         final PostfixMathCommandI   c = new OrCommand();
         final Stack<Double>         s = new Stack<>();
@@ -83,7 +83,7 @@ public class OrCommandTest
 
     /* Test the case where the first two operands are false*/
     @Test
-    public void testOr03()
+    void testOr03()
     {
         final PostfixMathCommandI   c = new OrCommand();
         final Stack<Boolean>        s = new Stack<>();
@@ -103,7 +103,7 @@ public class OrCommandTest
 
     /* Test the case where false and zero are skipped */
     @Test
-    public void testOr04()
+    void testOr04()
     {
         final PostfixMathCommandI   c = new OrCommand();
         final Stack<Object>         s = new Stack<>();
@@ -123,7 +123,7 @@ public class OrCommandTest
 
     /* Test the case where false and zero are skipped */
     @Test
-    public void testOr05()
+    void testOr05()
     {
         final PostfixMathCommandI   c = new OrCommand();
         final Stack<Object>         s = new Stack<>();

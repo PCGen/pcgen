@@ -30,7 +30,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class CompanionListIntegrationTest extends
+class CompanionListIntegrationTest extends
 		AbstractListIntegrationTestCase<CDOMObject, Race>
 {
 
@@ -111,7 +111,7 @@ public class CompanionListIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinDiffAdjustment() throws PersistenceLayerException
+	void testRoundRobinDiffAdjustment() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP2");
 		construct(secondaryContext, "TestWP2");

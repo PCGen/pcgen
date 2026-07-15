@@ -32,7 +32,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
-public class ForwardrefTokenTest extends AbstractCDOMTokenTestCase<Campaign>
+class ForwardrefTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 {
 
 	static CDOMPrimaryToken<Campaign> token = new ForwardRefToken();
@@ -57,98 +57,98 @@ public class ForwardrefTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testInvalidEmpty()
+	void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTypeOnly()
+	void testInvalidTypeOnly()
 	{
 		assertFalse(parse("SPELL"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTypeBarOnly()
+	void testInvalidTypeBarOnly()
 	{
 		assertFalse(parse("SPELL|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyType()
+	void testInvalidEmptyType()
 	{
 		assertFalse(parse("|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBadType()
+	void testInvalidBadType()
 	{
 		assertFalse(parse("CAMPAIGN|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBadLeadingComma()
+	void testInvalidBadLeadingComma()
 	{
 		assertFalse(parse("SPELL|,Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBadTrailingComma()
+	void testInvalidBadTrailingComma()
 	{
 		assertFalse(parse("SPELL|Fireball,"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBadDoubleComma()
+	void testInvalidBadDoubleComma()
 	{
 		assertFalse(parse("SPELL|Fireball,,LightningBolt"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidCatTypeNoEqual()
+	void testInvalidCatTypeNoEqual()
 	{
 		assertFalse(parse("ABILITY|Abil"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNonCatTypeEquals()
+	void testInvalidNonCatTypeEquals()
 	{
 		assertFalse(parse("SPELL=Arcane|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidDoubleEquals()
+	void testInvalidDoubleEquals()
 	{
 		assertFalse(parse("ABILITY=FEAT=Mutation|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidSpellbookAndSpellBarOnly()
+	void testInvalidSpellbookAndSpellBarOnly()
 	{
 		assertFalse(parse("SPELL|Fireball|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidSpellBarStarting()
+	void testInvalidSpellBarStarting()
 	{
 		assertFalse(parse("SPELL||Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testRoundRobinJustSpell() throws PersistenceLayerException
+	void testRoundRobinJustSpell() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
 		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
@@ -156,7 +156,7 @@ public class ForwardrefTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testRoundRobinJustAbility() throws PersistenceLayerException
+	void testRoundRobinJustAbility() throws PersistenceLayerException
 	{
 		AbilityCategory newCatp =
 				primaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class, "NEWCAT");
@@ -168,7 +168,7 @@ public class ForwardrefTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testRoundRobinTwoSpell() throws PersistenceLayerException
+	void testRoundRobinTwoSpell() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
 		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
@@ -178,7 +178,7 @@ public class ForwardrefTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testRoundRobinAbilitySpell() throws PersistenceLayerException
+	void testRoundRobinAbilitySpell() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Lightning Bolt");
 		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Lightning Bolt");
@@ -192,7 +192,7 @@ public class ForwardrefTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testRoundRobinFeatSpell()
+	void testRoundRobinFeatSpell()
 			throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Lightning Bolt");

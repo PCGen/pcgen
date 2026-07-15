@@ -30,7 +30,7 @@ import org.junit.jupiter.api.Test;
 /**
  * {@code SpaceTokenTest} - Unit test for the SPACE output token
  */
-public class SpaceTokenTest extends AbstractCharacterTestCase
+class SpaceTokenTest extends AbstractCharacterTestCase
 {
 	@BeforeEach
 	@Override
@@ -50,7 +50,7 @@ public class SpaceTokenTest extends AbstractCharacterTestCase
 	 * Test the SPACE token.
 	 */
 	@Test
-	public void testSpaceToken()
+	void testSpaceToken()
 	{
 		SpaceToken token = new SpaceToken();
 		assertEquals(" ", token.getToken("SPACE", (CharacterDisplay) null, null));

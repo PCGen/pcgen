@@ -34,11 +34,11 @@ import pcgen.base.formula.visitor.ReconstructionVisitor;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
 import pcgen.base.testsupport.TestUtilities;
 
-public class IfFunctionTest extends AbstractFormulaTestCase
+class IfFunctionTest extends AbstractFormulaTestCase
 {
 
 	@Test
-	public void testInvalidTooFewArg()
+	void testInvalidTooFewArg()
 	{
 		String formula = "if(2)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -49,7 +49,7 @@ public class IfFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidNotBool()
+	void testInvalidNotBool()
 	{
 		String formula = "if(2,4,5)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -57,7 +57,7 @@ public class IfFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidMMTarget()
+	void testInvalidMMTarget()
 	{
 		String formula = "if(2>0,4,5<6)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -65,7 +65,7 @@ public class IfFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidTrue()
+	void testInvalidTrue()
 	{
 		String formula = "if(2>0,if(-0),5)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -73,7 +73,7 @@ public class IfFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidFalse()
+	void testInvalidFalse()
 	{
 		String formula = "if(2>0,4,if(4))";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -81,7 +81,7 @@ public class IfFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotValidNoVar()
+	void testNotValidNoVar()
 	{
 		String formula = "if(ab,4,5)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -89,7 +89,7 @@ public class IfFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testIntegerPositive()
+	void testIntegerPositive()
 	{
 		String formula = "if(1>0,2,3)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -102,7 +102,7 @@ public class IfFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testIntegerNegative()
+	void testIntegerNegative()
 	{
 		String formula = "if(-2<0,3,-4)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -115,7 +115,7 @@ public class IfFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDoublePositive()
+	void testDoublePositive()
 	{
 		String formula = "if(0.3>0,7.8,5.6)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -128,7 +128,7 @@ public class IfFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDoubleNegative()
+	void testDoubleNegative()
 	{
 		String formula = "if(-0.4<0,-3.4,-5.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -141,7 +141,7 @@ public class IfFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testZero()
+	void testZero()
 	{
 		String formula = "if(0==5,8.3,-3.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -154,7 +154,7 @@ public class IfFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDoubleZero()
+	void testDoubleZero()
 	{
 		String formula = "if(0.0==6.7,8.3,-3.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -167,7 +167,7 @@ public class IfFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNaryLeadingSpace()
+	void testNaryLeadingSpace()
 	{
 		String formula = "if( 4.6>0,-3.3,8)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -177,7 +177,7 @@ public class IfFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNaryTrailingSpace()
+	void testNaryTrailingSpace()
 	{
 		String formula = "if(4.6>0,-3.3,8 )";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -187,7 +187,7 @@ public class IfFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNarySeparatingSpace()
+	void testNarySeparatingSpace()
 	{
 		String formula = "if(4.6>0 , -3.3 , 8)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -197,7 +197,7 @@ public class IfFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNaryFunctionSeparatingSpace()
+	void testNaryFunctionSeparatingSpace()
 	{
 		String formula = "if (4.6>0,-3.3,8)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -209,7 +209,7 @@ public class IfFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testVar()
+	void testVar()
 	{
 		setVariable(getVariable("a"), 5);
 		String formula = "if(4.6>0,a,8.1)";
@@ -224,7 +224,7 @@ public class IfFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testManyVar()
+	void testManyVar()
 	{
 		setVariable(getVariable("a"), -5);
 		setVariable(getVariable("b"), 5.1);
@@ -247,7 +247,7 @@ public class IfFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testVariable1()
+	void testVariable1()
 	{
 		assertLegalVariable("a", "Global", FormatUtilities.BOOLEAN_MANAGER);
 		@SuppressWarnings("unchecked")
@@ -265,7 +265,7 @@ public class IfFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testVariable2()
+	void testVariable2()
 	{
 		setVariable(getVariable("a"), 5);
 		String formula = "if(4<5, a, 3.4)";
@@ -279,7 +279,7 @@ public class IfFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testVariable3()
+	void testVariable3()
 	{
 		setVariable(getVariable("a"), 5);
 		String formula = "if(4<3, 3.4, a)";

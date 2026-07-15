@@ -30,7 +30,7 @@ import org.junit.jupiter.api.Test;
 class PreRuleParserTest extends EnUsLocaleDependentTestCase
 {
 	@Test
-	public void testPositive() throws PersistenceLayerException
+	void testPositive() throws PersistenceLayerException
 	{
 		PreRuleParser parser = new PreRuleParser();
 		Prerequisite prereq = parser.parse("RULE", "1,DISPLAYTYPETRAITS", false, false);
@@ -43,7 +43,7 @@ class PreRuleParserTest extends EnUsLocaleDependentTestCase
 
 
 	@Test
-	public void testNegative() throws PersistenceLayerException
+	void testNegative() throws PersistenceLayerException
 	{
 		PreRuleParser parser = new PreRuleParser();
 		Prerequisite prereq = parser.parse("RULE", "1,DISPLAYTYPETRAITS", true, false);

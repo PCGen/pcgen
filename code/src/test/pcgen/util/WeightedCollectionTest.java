@@ -43,21 +43,21 @@ class WeightedCollectionTest
 {
 
 	@Test
-	public void testBadIntConstructor()
+	void testBadIntConstructor()
 	{
 		assertThrows(IllegalArgumentException.class,
 				() -> new WeightedCollection<Integer>(-5));
 	}
 
 	@Test
-	public void testBadCollectionConstructor()
+	void testBadCollectionConstructor()
 	{
 		assertThrows(NullPointerException.class,
 				() -> new WeightedCollection<>((Collection<Integer>) null));
 	}
 
 	@Test
-	public void testCollectionConstructorSemantics()
+	void testCollectionConstructorSemantics()
 	{
 		Collection<Integer> c = new ArrayList<>();
 		assertTrue(c.add(TestConstants.I1));
@@ -72,7 +72,7 @@ class WeightedCollectionTest
 	}
 
 	@Test
-	public void testSize()
+	void testSize()
 	{
 		WeightedCollection<Integer> wc = new WeightedCollection<>();
 		assertTrue(wc.add(TestConstants.I1));
@@ -102,35 +102,35 @@ class WeightedCollectionTest
 	}
 
 	@Test
-	public void testBadAddNegative()
+	void testBadAddNegative()
 	{
 		WeightedCollection<Integer> wc = new WeightedCollection<>();
 		assertThrows(IllegalArgumentException.class, () -> wc.add(4, -3));
 	}
 
 	@Test
-	public void testBadAddZero()
+	void testBadAddZero()
 	{
 		WeightedCollection<Integer> wc = new WeightedCollection<>();
 		assertFalse(wc.add(4, 0));
 	}
 
 	@Test
-	public void testBadAddAllNegative()
+	void testBadAddAllNegative()
 	{
 		WeightedCollection<Integer> wc = new WeightedCollection<>();
 		assertThrows(IllegalArgumentException.class, () -> wc.addAll(Arrays.asList(3, 4, 5), -3));
 	}
 
 	@Test
-	public void testBadAddAllZero()
+	void testBadAddAllZero()
 	{
 		WeightedCollection<Integer> wc = new WeightedCollection<>();
 		assertFalse(wc.addAll(Arrays.asList(3, 4, 5), 0));
 	}
 
 	@Test
-	public void testSimple()
+	void testSimple()
 	{
 		WeightedCollection<Integer> wc = new WeightedCollection<>();
 		assertTrue(wc.isEmpty());
@@ -194,7 +194,7 @@ class WeightedCollectionTest
 	}
 
 	@Test
-	public void testBadEquals()
+	void testBadEquals()
 	{
 		WeightedCollection<Integer> wc = new WeightedCollection<>();
 		assertNotNull(wc);
@@ -202,7 +202,7 @@ class WeightedCollectionTest
 	}
 
 	@Test
-	public void testEquals()
+	void testEquals()
 	{
 		WeightedCollection<Integer> wc = new WeightedCollection<>();
 		assertTrue(wc.add(2, 5));
@@ -238,7 +238,7 @@ class WeightedCollectionTest
 	}
 
 	@Test
-	public void testToString()
+	void testToString()
 	{
 		WeightedCollection<Integer> wc = new WeightedCollection<>();
 		assertEquals("WeightedCollection: []", wc.toString());
@@ -251,7 +251,7 @@ class WeightedCollectionTest
 	}
 
 	@Test
-	public void testEmptyIterator()
+	void testEmptyIterator()
 	{
 		WeightedCollection<Integer> wc = new WeightedCollection<>();
 		Iterator<Integer> emptyit = wc.unweightedIterator();
@@ -260,7 +260,7 @@ class WeightedCollectionTest
 	}
 	
 	@Test
-	public void testUnweightedHasNextIterator()
+	void testUnweightedHasNextIterator()
 	{
 		WeightedCollection<Integer> wc = new WeightedCollection<>();
 		assertTrue(wc.add(TestConstants.I1));
@@ -294,7 +294,7 @@ class WeightedCollectionTest
 	}
 
 	@Test
-	public void testUnweightedNextIterator()
+	void testUnweightedNextIterator()
 	{
 		WeightedCollection<Integer> wc = new WeightedCollection<>();
 		assertTrue(wc.add(TestConstants.I1));
@@ -323,7 +323,7 @@ class WeightedCollectionTest
 	}
 
 	@Test
-	public void testWeightedHasNextIterator()
+	void testWeightedHasNextIterator()
 	{
 		WeightedCollection<Integer> wc = new WeightedCollection<>();
 		assertTrue(wc.add(TestConstants.I1));
@@ -362,7 +362,7 @@ class WeightedCollectionTest
 	}
 
 	@Test
-	public void testWeightedNextIterator()
+	void testWeightedNextIterator()
 	{
 		WeightedCollection<Integer> wc = new WeightedCollection<>();
 		assertTrue(wc.add(TestConstants.I1));
@@ -394,7 +394,7 @@ class WeightedCollectionTest
 	}
 
 	@Test
-	public void testBadWeightedRemove()
+	void testBadWeightedRemove()
 	{
 		WeightedCollection<Integer> wc = new WeightedCollection<>();
 		Iterator<Integer> it = wc.iterator();
@@ -402,7 +402,7 @@ class WeightedCollectionTest
 	}
 
 	@Test
-	public void testBadUnweightedRemove()
+	void testBadUnweightedRemove()
 	{
 		WeightedCollection<Integer> wc = new WeightedCollection<>();
 		Iterator<Integer> it = wc.unweightedIterator();
@@ -410,14 +410,14 @@ class WeightedCollectionTest
 	}
 
 	@Test
-	public void testBadGetRandomValue()
+	void testBadGetRandomValue()
 	{
 		WeightedCollection<Integer> wc = new WeightedCollection<>();
 		assertThrows(IndexOutOfBoundsException.class, () -> wc.getRandomValue());
 	}
 
 	@Test
-	public void testGetRandomValue()
+	void testGetRandomValue()
 	{
 		WeightedCollection<Integer> wc = new WeightedCollection<>();
 		wc.add(1);
@@ -431,7 +431,7 @@ class WeightedCollectionTest
 	}
 
 	@Test
-	public void testGetWeight()
+	void testGetWeight()
 	{
 		WeightedCollection<Integer> wc = new WeightedCollection<>();
 		assertTrue(wc.isEmpty());
@@ -454,7 +454,7 @@ class WeightedCollectionTest
 	}
 
 	@Test
-	public void testNullComparatorConstructor()
+	void testNullComparatorConstructor()
 	{
 		WeightedCollection<Integer> wc = new WeightedCollection<>();
 		WeightedCollection<String> swc = new WeightedCollection<>((Comparator<String>) null);
@@ -526,7 +526,7 @@ class WeightedCollectionTest
 	}
 
 	@Test
-	public void testInsensitiveComparatorConstructor()
+	void testInsensitiveComparatorConstructor()
 	{
 		WeightedCollection<Integer> wc = new WeightedCollection<>();
 		WeightedCollection<String> swc = new WeightedCollection<>(String.CASE_INSENSITIVE_ORDER);
@@ -589,7 +589,7 @@ class WeightedCollectionTest
 	}
 
 	@Test
-	public void testComparatorEquals()
+	void testComparatorEquals()
 	{
 		WeightedCollection<Integer> wc = new WeightedCollection<>();
 		WeightedCollection<String> iwc = new WeightedCollection<>(String.CASE_INSENSITIVE_ORDER);
@@ -611,7 +611,7 @@ class WeightedCollectionTest
 	}
 
 	@Test
-	public void testArchitectureProof()
+	void testArchitectureProof()
 	{
 		TreeSet<String> ciSet = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
 		TreeSet<String> csSet = new TreeSet<>(String::compareTo);

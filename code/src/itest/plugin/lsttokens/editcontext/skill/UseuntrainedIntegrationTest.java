@@ -28,7 +28,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class UseuntrainedIntegrationTest extends
+class UseuntrainedIntegrationTest extends
 		AbstractIntegrationTestCase<Skill>
 {
 
@@ -54,7 +54,7 @@ public class UseuntrainedIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -64,7 +64,7 @@ public class UseuntrainedIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinRemove() throws PersistenceLayerException
+	void testRoundRobinRemove() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -74,7 +74,7 @@ public class UseuntrainedIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoSet() throws PersistenceLayerException
+	void testRoundRobinNoSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -84,7 +84,7 @@ public class UseuntrainedIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoReset() throws PersistenceLayerException
+	void testRoundRobinNoReset() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -94,7 +94,7 @@ public class UseuntrainedIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinYesSet() throws PersistenceLayerException
+	void testRoundRobinYesSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -104,7 +104,7 @@ public class UseuntrainedIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinYesReset() throws PersistenceLayerException
+	void testRoundRobinYesReset() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();

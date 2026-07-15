@@ -29,7 +29,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class MonCSkillIntegrationTest extends
+class MonCSkillIntegrationTest extends
 		AbstractListIntegrationTestCase<Race, Skill>
 {
 
@@ -97,7 +97,7 @@ public class MonCSkillIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinDotClearDotList() throws PersistenceLayerException
+	void testRoundRobinDotClearDotList() throws PersistenceLayerException
 	{
 		if (isClearDotLegal())
 		{

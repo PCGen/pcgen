@@ -23,7 +23,7 @@ import plugin.pretokens.writer.PreEquipSecondaryWriter;
 
 import org.junit.jupiter.api.BeforeEach;
 
-public class PreEquipSecondaryRoundRobin extends AbstractEquipmentRoundRobin
+class PreEquipSecondaryRoundRobin extends AbstractEquipmentRoundRobin
 {
 
 	@BeforeEach

@@ -46,7 +46,7 @@ import tokenmodel.testsupport.AssocCheck;
 import tokenmodel.testsupport.NoAssociations;
 import util.TestURI;
 
-public class AddAbilityVirtualTest extends AbstractAddListTokenTest<Ability>
+class AddAbilityVirtualTest extends AbstractAddListTokenTest<Ability>
 {
 
 	private static final AbilityToken ADD_ABILITY_TOKEN = new AbilityToken();
@@ -151,7 +151,7 @@ public class AddAbilityVirtualTest extends AbstractAddListTokenTest<Ability>
 	}
 
 	@Test
-	public void testMult()
+	void testMult()
 	{
 		TokenRegistration.register(new NoChoiceToken());
 		TokenRegistration.register(new StackToken());

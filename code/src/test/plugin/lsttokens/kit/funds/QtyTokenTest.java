@@ -25,7 +25,7 @@ import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
 import org.junit.jupiter.api.Test;
 
-public class QtyTokenTest extends AbstractKitTokenTestCase<KitFunds>
+class QtyTokenTest extends AbstractKitTokenTestCase<KitFunds>
 {
 
 	static QtyToken token = new QtyToken();
@@ -51,13 +51,13 @@ public class QtyTokenTest extends AbstractKitTokenTestCase<KitFunds>
 	}
 
 	@Test
-	public void testRoundRobinNumber() throws PersistenceLayerException
+	void testRoundRobinNumber() throws PersistenceLayerException
 	{
 		runRoundRobin("3");
 	}
 
 	@Test
-	public void testRoundRobinFormula() throws PersistenceLayerException
+	void testRoundRobinFormula() throws PersistenceLayerException
 	{
 		runRoundRobin("Formula");
 	}

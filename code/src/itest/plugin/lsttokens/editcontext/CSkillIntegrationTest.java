@@ -30,7 +30,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class CSkillIntegrationTest extends
+class CSkillIntegrationTest extends
 		AbstractListIntegrationTestCase<CDOMObject, Skill>
 {
 
@@ -98,7 +98,7 @@ public class CSkillIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinAddList() throws PersistenceLayerException
+	void testRoundRobinAddList() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -110,7 +110,7 @@ public class CSkillIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinDotClearDotList()
+	void testRoundRobinDotClearDotList()
 			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
@@ -125,7 +125,7 @@ public class CSkillIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinStartList() throws PersistenceLayerException
+	void testRoundRobinStartList() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP2");
 		construct(secondaryContext, "TestWP2");

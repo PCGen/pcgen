@@ -28,17 +28,17 @@ import pcgen.testsupport.TestSupport;
 /**
  * Test the MessageFormatUtilities class
  */
-public class MessageFormatUtilitiesTest
+class MessageFormatUtilitiesTest
 {
 
 	@Test
-	public void testConstructor()
+	void testConstructor()
 	{
 		TestSupport.invokePrivateConstructor(MessageFormatUtilities.class);
 	}
 
 	@Test
-	public void testNulls()
+	void testNulls()
 	{
 		MessageFormat mf = new MessageFormat("Hello");
 		assertEquals(0, MessageFormatUtilities.getRequriedArgumentCount(mf));

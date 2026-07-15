@@ -32,7 +32,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class FollowersIntegrationTest extends
+class FollowersIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>
 {
 	private static FollowersLst token = new FollowersLst();
@@ -57,7 +57,7 @@ public class FollowersIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		primaryContext.getReferenceContext().constructCDOMObject(CompanionList.class, "Follower");
@@ -70,7 +70,7 @@ public class FollowersIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinRemove() throws PersistenceLayerException
+	void testRoundRobinRemove() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		primaryContext.getReferenceContext().constructCDOMObject(CompanionList.class, "Follower");
@@ -85,7 +85,7 @@ public class FollowersIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoSet() throws PersistenceLayerException
+	void testRoundRobinNoSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		primaryContext.getReferenceContext().constructCDOMObject(CompanionList.class, "Follower");
@@ -98,7 +98,7 @@ public class FollowersIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoReset() throws PersistenceLayerException
+	void testRoundRobinNoReset() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		primaryContext.getReferenceContext().constructCDOMObject(CompanionList.class, "Follower");

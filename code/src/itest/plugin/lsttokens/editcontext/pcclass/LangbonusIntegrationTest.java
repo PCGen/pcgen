@@ -29,9 +29,8 @@ import plugin.lsttokens.pcclass.LangbonusToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
-public class LangbonusIntegrationTest extends
+class LangbonusIntegrationTest extends
 		AbstractListIntegrationTestCase<PCClass, Language>
 {
 

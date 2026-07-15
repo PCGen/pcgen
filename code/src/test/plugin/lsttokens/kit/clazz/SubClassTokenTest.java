@@ -32,7 +32,7 @@ import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class SubClassTokenTest extends AbstractKitTokenTestCase<KitClass>
+class SubClassTokenTest extends AbstractKitTokenTestCase<KitClass>
 {
 
 	static SubclassToken token = new SubclassToken();
@@ -71,14 +71,14 @@ public class SubClassTokenTest extends AbstractKitTokenTestCase<KitClass>
 	}
 
 	@Test
-	public void testInvalidInputEmptyCount()
+	void testInvalidInputEmptyCount()
 	{
 		assertTrue(parse("Fireball"));
 		assertConstructionError();
 	}
 
 	@Test
-	public void testInvalidInputOnlyOne()
+	void testInvalidInputOnlyOne()
 	{
 		SubClassCategory cat = SubClassCategory.getConstant("Wizard");
 		constructCategorized(primaryContext, cat, "Fireball");
@@ -90,7 +90,7 @@ public class SubClassTokenTest extends AbstractKitTokenTestCase<KitClass>
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		SubClassCategory cat = SubClassCategory.getConstant("Wizard");
 		constructCategorized(primaryContext, cat, "Fireball");

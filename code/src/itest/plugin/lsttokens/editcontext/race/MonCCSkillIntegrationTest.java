@@ -25,7 +25,7 @@ import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
 import plugin.lsttokens.race.MonccskillToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class MonCCSkillIntegrationTest extends
+class MonCCSkillIntegrationTest extends
 		AbstractListIntegrationTestCase<Race, Skill>
 {
 

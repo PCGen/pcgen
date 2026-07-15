@@ -30,7 +30,7 @@ import pcgen.core.Race;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 
-public class HasAnyFavoredClassFacetTest extends
+class HasAnyFavoredClassFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, Boolean>
 {
 	private HasAnyFavoredClassFacet facet = new HasAnyFavoredClassFacet();

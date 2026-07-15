@@ -26,10 +26,10 @@ import org.junit.jupiter.api.Test;
 /**
  * Tests a 3e 2nd level Elf Cleric Law and Protection domains.
  */
-public class pcGenGUICleElfTest extends PcgenFtlTestCase
+class pcGenGUICleElfTest extends PcgenFtlTestCase
 {
 	@Test
-	public void testCleElf() throws Exception
+	void testCleElf() throws Exception
 	{
 		runTest("3e_CleElf");
 	}

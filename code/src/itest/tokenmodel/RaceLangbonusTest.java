@@ -34,7 +34,7 @@ import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 import util.TestURI;
 
-public class RaceLangbonusTest extends AbstractTokenModelTest
+class RaceLangbonusTest extends AbstractTokenModelTest
 {
 
 	private static LangbonusToken token = new LangbonusToken();
@@ -42,7 +42,7 @@ public class RaceLangbonusTest extends AbstractTokenModelTest
 	protected StartingLanguageFacet startingLanguageFacet;
 	
 	@Test
-	public void testSimple()
+	void testSimple()
 	{
 		Race source = create(Race.class, "Source");
 		Language granted = create(Language.class, "Granted");

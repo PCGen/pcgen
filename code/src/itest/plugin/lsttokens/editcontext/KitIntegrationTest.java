@@ -26,7 +26,7 @@ import plugin.lsttokens.KitLst;
 import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class KitIntegrationTest extends
+class KitIntegrationTest extends
 		AbstractListIntegrationTestCase<CDOMObject, Kit>
 {
 

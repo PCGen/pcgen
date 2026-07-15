@@ -120,7 +120,6 @@
 	<!-- C -->
 	<bean id="calcBonusFacet" class="pcgen.cdom.facet.CalcBonusFacet">
 		<property name="raceFacet" ref="raceFacet"/>
-		<property name="templateFacet" ref="templateFacet"/>
 	</bean>
 	<bean id="campaignFacet" class="pcgen.cdom.facet.input.CampaignFacet">
 		<property name="expandedCampaignFacet" ref="expandedCampaignFacet"/>

@@ -35,7 +35,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
 
-public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
+class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 {
 
 	static HdToken token = new HdToken();
@@ -61,14 +61,14 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputUnset()
+	void testInvalidInputUnset()
 	{
 		testInvalidInputs(null);
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputSet()
+	void testInvalidInputSet()
 	{
 		int con = 3;
 		assertTrue(parse(Integer.toString(con)));
@@ -111,7 +111,7 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testValidInputs()
+	void testValidInputs()
 	{
 		assertTrue(parse("5"));
 		assertEquals(new HitDie(5), primaryProf.get(ObjectKey.LEVEL_HITDIE));
@@ -120,7 +120,7 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testReplacementInputs()
+	void testReplacementInputs()
 	{
 		assertTrue(parse("5"));
 		assertTrue(parse("1"));
@@ -129,13 +129,13 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testRoundRobinOne() throws PersistenceLayerException
+	void testRoundRobinOne() throws PersistenceLayerException
 	{
 		runRoundRobin("1");
 	}
 
 	@Test
-	public void testRoundRobinFive() throws PersistenceLayerException
+	void testRoundRobinFive() throws PersistenceLayerException
 	{
 		runRoundRobin("5");
 	}
@@ -159,14 +159,14 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseNull()
+	void testUnparseNull()
 	{
 		primaryProf.put(ObjectKey.LEVEL_HITDIE, null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseLegal()
+	void testUnparseLegal()
 	{
 		primaryProf.put(ObjectKey.LEVEL_HITDIE, new HitDie(1));
 		expectSingle(getToken().unparse(primaryContext, primaryProf), "1");
@@ -174,7 +174,7 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail()
+	void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = ObjectKey.LEVEL_HITDIE;
 		primaryProf.put(objectKey, new Object());
@@ -190,7 +190,7 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseNegativeLevel()
+	void testUnparseNegativeLevel()
 	{
 		try
 		{
@@ -204,7 +204,7 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseZero()
+	void testUnparseZero()
 	{
 		try
 		{

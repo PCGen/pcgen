@@ -51,7 +51,7 @@ import org.junit.jupiter.api.BeforeEach;
 import tokencontent.testsupport.AbstractContentTokenTest;
 import util.TestURI;
 
-public class GlobalSpellKnownTest extends AbstractContentTokenTest
+class GlobalSpellKnownTest extends AbstractContentTokenTest
 {
 
 	private static final CDOMToken<CDOMObject> token = new SpellknownLst();

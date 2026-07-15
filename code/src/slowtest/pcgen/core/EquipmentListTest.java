@@ -34,20 +34,20 @@ import org.junit.jupiter.api.Test;
 /**
  * {@code EquipmentListTest} checks the functionality of the EquipmentList class.
  */
-public class EquipmentListTest
+class EquipmentListTest
 {
 
 	private Equipment eq = null;
 	private static final String ORIGINAL_KEY = "OrigKey";
 
 	@BeforeAll
-	public static void beforeClass()
+	static void beforeClass()
 	{
 		TestHelper.makeSizeAdjustments();
 	}
 
 	@BeforeEach
-	public void setUp() throws Exception
+	void setUp() throws Exception
 	{
 		this.eq = new Equipment();
 		this.eq.setName("Dummy");
@@ -65,7 +65,7 @@ public class EquipmentListTest
 	 * test the getEquipmentOfType method
 	 */
 	@Test
-	public void testGetEquipmentOfType()
+	void testGetEquipmentOfType()
 	{
 		Globals.getContext().getReferenceContext().importObject(eq);
 

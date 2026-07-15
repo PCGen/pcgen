@@ -33,13 +33,13 @@ import org.junit.jupiter.api.Test;
  * {@code PreItemTest} tests that the PREITEM tag is
  * working correctly.
  */
-public class PreItemTest extends AbstractCharacterTestCase
+class PreItemTest extends AbstractCharacterTestCase
 {
 	/*
 	 * Class under test for int passes(Prerequisite, PlayerCharacter)
 	 */
 	@Test
-	public void testPassesPrerequisitePlayerCharacter()
+	void testPassesPrerequisitePlayerCharacter()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -74,7 +74,7 @@ public class PreItemTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testType() throws PersistenceLayerException
+	void testType() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 

@@ -34,11 +34,11 @@ import pcgen.base.testsupport.AbstractFormulaTestCase;
 import pcgen.base.testsupport.TestUtilities;
 import pcgen.base.util.FormatManager;
 
-public class ValueFunctionTest extends AbstractFormulaTestCase
+class ValueFunctionTest extends AbstractFormulaTestCase
 {
 
 	@Test
-	public void testInvalidTooManyArg()
+	void testInvalidTooManyArg()
 	{
 		String formula = "value(3)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -46,7 +46,7 @@ public class ValueFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidNoInputFormat()
+	void testInvalidNoInputFormat()
 	{
 		String formula = "value()";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -54,7 +54,7 @@ public class ValueFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testIntegerPositive()
+	void testIntegerPositive()
 	{
 		String formula = "value()";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -78,7 +78,7 @@ public class ValueFunctionTest extends AbstractFormulaTestCase
 
 
 	@Test
-	public void testWeirdUsage()
+	void testWeirdUsage()
 	{
 		String formula = "if(4==value(),5,6)";
 		SimpleNode node = TestUtilities.doParse(formula);

@@ -29,7 +29,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class SubraceIntegrationTest extends
+class SubraceIntegrationTest extends
 		AbstractTypeSafeIntegrationTestCase<PCTemplate>
 {
 
@@ -67,7 +67,7 @@ public class SubraceIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinSpecialCaseOne() throws PersistenceLayerException
+	void testRoundRobinSpecialCaseOne() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -77,7 +77,7 @@ public class SubraceIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinSpecialCaseTwo() throws PersistenceLayerException
+	void testRoundRobinSpecialCaseTwo() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -87,7 +87,7 @@ public class SubraceIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinSpecialNoSet() throws PersistenceLayerException
+	void testRoundRobinSpecialNoSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -97,7 +97,7 @@ public class SubraceIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinSpecialNoReset() throws PersistenceLayerException
+	void testRoundRobinSpecialNoReset() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();

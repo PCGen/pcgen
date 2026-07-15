@@ -32,7 +32,7 @@ import pcgen.base.graph.base.DirectionalGraph;
 /**
  * Test the DirectionalListMapGraph class
  */
-public class DirectionalListMapGraphTest extends AbstractDirectionalMapGraphTest
+class DirectionalListMapGraphTest extends AbstractDirectionalMapGraphTest
 {
 
 	//TODO Need to test .equals behavior on nodes and edges
@@ -62,7 +62,7 @@ public class DirectionalListMapGraphTest extends AbstractDirectionalMapGraphTest
 	}
 
 	@Test
-	public void testGetInternalizedNode()
+	void testGetInternalizedNode()
 	{
 		Integer node = new Integer(1);
 		Integer node2 = new Integer(2);

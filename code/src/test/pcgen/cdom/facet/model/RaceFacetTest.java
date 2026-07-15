@@ -25,7 +25,7 @@ import pcgen.core.Race;
 
 import org.junit.jupiter.api.Test;
 
-public class RaceFacetTest extends AbstractItemFacetTest<Race>
+class RaceFacetTest extends AbstractItemFacetTest<Race>
 {
 
 	private final RaceFacet facet = new RaceFacet();
@@ -47,7 +47,7 @@ public class RaceFacetTest extends AbstractItemFacetTest<Race>
 	}
 
 	@Test
-	public void testEmptyRemoval()
+	void testEmptyRemoval()
 	{
 		TestFacetListener newL = new TestFacetListener();
 		// Useless Removal

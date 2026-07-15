@@ -44,7 +44,7 @@ import org.junit.jupiter.api.Test;
 /**
  * {@code VisionTokenTest} tests the function of the VISION token.
  */
-public class VisionTokenTest extends AbstractCharacterTestCase
+class VisionTokenTest extends AbstractCharacterTestCase
 {
 	private PCTemplate darkvisionT;
 	private PCTemplate lowlightT;
@@ -114,7 +114,7 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 	 * Test the list output of the vision tag.
 	 */
 	@Test
-	public void testList()
+	void testList()
 	{
 		PlayerCharacter pc = getCharacter();
 		assertEquals("", new VisionToken().getToken(
@@ -135,7 +135,7 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 	 * Test the output of individual vision entries.
 	 */
 	@Test
-	public void testPositional()
+	void testPositional()
 	{
 		PlayerCharacter pc = getCharacter();
 		assertEquals("", new VisionToken().getToken(
@@ -168,7 +168,7 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 	 * Test the list output of the vision tag with metric units.
 	 */
 	@Test
-	public void testListMetric()
+	void testListMetric()
 	{
 		PlayerCharacter pc = getCharacter();
 		pc.addTemplate(darkvisionT);

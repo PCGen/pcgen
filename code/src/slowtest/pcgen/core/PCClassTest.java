@@ -71,7 +71,7 @@ import org.junit.jupiter.api.Test;
 import util.TestURI;
 
 
-public class PCClassTest extends AbstractCharacterTestCase
+class PCClassTest extends AbstractCharacterTestCase
 {
 	private PCClass humanoidClass;
 	private Race bugbearRace;

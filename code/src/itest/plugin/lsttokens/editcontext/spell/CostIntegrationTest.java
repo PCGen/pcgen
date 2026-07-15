@@ -29,7 +29,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class CostIntegrationTest extends AbstractIntegrationTestCase<Spell>
+class CostIntegrationTest extends AbstractIntegrationTestCase<Spell>
 {
 	private static CostToken token = new CostToken();
 	private static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
@@ -53,7 +53,7 @@ public class CostIntegrationTest extends AbstractIntegrationTestCase<Spell>
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -63,7 +63,7 @@ public class CostIntegrationTest extends AbstractIntegrationTestCase<Spell>
 	}
 
 	@Test
-	public void testRoundRobinRemovePre() throws PersistenceLayerException
+	void testRoundRobinRemovePre() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -73,7 +73,7 @@ public class CostIntegrationTest extends AbstractIntegrationTestCase<Spell>
 	}
 
 	@Test
-	public void testRoundRobinModPre() throws PersistenceLayerException
+	void testRoundRobinModPre() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -83,7 +83,7 @@ public class CostIntegrationTest extends AbstractIntegrationTestCase<Spell>
 	}
 
 	@Test
-	public void testRoundRobinNoSet() throws PersistenceLayerException
+	void testRoundRobinNoSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -93,7 +93,7 @@ public class CostIntegrationTest extends AbstractIntegrationTestCase<Spell>
 	}
 
 	@Test
-	public void testRoundRobinNoReset() throws PersistenceLayerException
+	void testRoundRobinNoReset() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -103,7 +103,7 @@ public class CostIntegrationTest extends AbstractIntegrationTestCase<Spell>
 	}
 
 	@Test
-	public void testRoundRobinDotClear() throws PersistenceLayerException
+	void testRoundRobinDotClear() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -113,7 +113,7 @@ public class CostIntegrationTest extends AbstractIntegrationTestCase<Spell>
 	}
 
 	@Test
-	public void testRoundRobinDotClearSet() throws PersistenceLayerException
+	void testRoundRobinDotClearSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();

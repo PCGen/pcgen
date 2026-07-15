@@ -27,7 +27,7 @@ import plugin.pretokens.parser.PreTypeParser;
 
 import org.junit.jupiter.api.Test;
 
-public class PreTypeParserTest extends EnUsLocaleDependentTestCase
+class PreTypeParserTest extends EnUsLocaleDependentTestCase
 {
 	
 	/**
@@ -36,7 +36,7 @@ public class PreTypeParserTest extends EnUsLocaleDependentTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testNewStyle() throws PersistenceLayerException
+	void testNewStyle() throws PersistenceLayerException
 	{
 		PreTypeParser producer = new PreTypeParser();
 
@@ -61,7 +61,7 @@ public class PreTypeParserTest extends EnUsLocaleDependentTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testNewStyle2() throws PersistenceLayerException
+	void testNewStyle2() throws PersistenceLayerException
 	{
 		PreTypeParser producer = new PreTypeParser();
 

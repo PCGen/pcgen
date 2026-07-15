@@ -38,7 +38,7 @@ import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 import util.TestURI;
 
-public class TemplateFavoredClassTest extends AbstractTokenModelTest
+class TemplateFavoredClassTest extends AbstractTokenModelTest
 {
 
 	private static FavoredclassToken token = new FavoredclassToken();
@@ -58,7 +58,7 @@ public class TemplateFavoredClassTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testDirect()
+	void testDirect()
 	{
 		PCTemplate source = create(PCTemplate.class, "Source");
 		ParseResult result = token.parseToken(context, source, "Favorite");
@@ -77,7 +77,7 @@ public class TemplateFavoredClassTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testList()
+	void testList()
 	{
 		PCTemplate source = create(PCTemplate.class, "Source");
 		ParseResult result = token.parseToken(context, source, "%LIST");

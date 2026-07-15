@@ -25,7 +25,7 @@ import plugin.lsttokens.editcontext.testsupport.AbstractTypeSafeIntegrationTestC
 import plugin.lsttokens.template.RegionToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class RegionIntegrationTest extends
+class RegionIntegrationTest extends
 		AbstractTypeSafeIntegrationTestCase<PCTemplate>
 {
 
@@ -61,4 +61,5 @@ public class RegionIntegrationTest extends
 	{
 		return false;
 	}
+
 }

@@ -32,11 +32,11 @@ import pcgen.base.formula.visitor.ReconstructionVisitor;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
 import pcgen.base.testsupport.TestUtilities;
 
-public class MaxFunctionTest extends AbstractFormulaTestCase
+class MaxFunctionTest extends AbstractFormulaTestCase
 {
 
 	@Test
-	public void testInvalidTooFewArg()
+	void testInvalidTooFewArg()
 	{
 		String formula = "max(2)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -44,7 +44,7 @@ public class MaxFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotValidString()
+	void testNotValidString()
 	{
 		String formula = "max(2, \"ab\")";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -52,7 +52,7 @@ public class MaxFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidWrongType()
+	void testInvalidWrongType()
 	{
 		String formula = "max(2,4<5)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -60,7 +60,7 @@ public class MaxFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotValidNoVar()
+	void testNotValidNoVar()
 	{
 		String formula = "max(ab,4,5)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -68,7 +68,7 @@ public class MaxFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testIntegerPositive()
+	void testIntegerPositive()
 	{
 		String formula = "max(1,2)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -81,7 +81,7 @@ public class MaxFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testIntegerNegative()
+	void testIntegerNegative()
 	{
 		String formula = "max(-2,3)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -94,7 +94,7 @@ public class MaxFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDoublePositive()
+	void testDoublePositive()
 	{
 		String formula = "max(3.3,7.8)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -107,7 +107,7 @@ public class MaxFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDoubleNegative()
+	void testDoubleNegative()
 	{
 		String formula = "max(-3.4,-5.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -120,7 +120,7 @@ public class MaxFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNary()
+	void testNary()
 	{
 		String formula = "max(4.6,8.3,-3.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -133,7 +133,7 @@ public class MaxFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNaryLeadingSpace()
+	void testNaryLeadingSpace()
 	{
 		String formula = "max( 4.6,8.2,-3.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -143,7 +143,7 @@ public class MaxFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNaryTrailingSpace()
+	void testNaryTrailingSpace()
 	{
 		String formula = "max(4.6,8.2,-3.3 )";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -153,7 +153,7 @@ public class MaxFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNarySeparatingSpace()
+	void testNarySeparatingSpace()
 	{
 		String formula = "max(4.6 , 8.4 , -3.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -163,7 +163,7 @@ public class MaxFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNaryFunctionSeparatingSpace()
+	void testNaryFunctionSeparatingSpace()
 	{
 		String formula = "max (4.6,8.11,-3.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -175,7 +175,7 @@ public class MaxFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testVar()
+	void testVar()
 	{
 		setVariable(getVariable("a"), 5);
 		String formula = "max(4.6,a,-3.3)";
@@ -190,7 +190,7 @@ public class MaxFunctionTest extends AbstractFormulaTestCase
 	}
 	
 	@Test
-	public void testVariable()
+	void testVariable()
 	{
 		setVariable(getVariable("a"), 5);
 		String formula = "max(a, 3.4)";

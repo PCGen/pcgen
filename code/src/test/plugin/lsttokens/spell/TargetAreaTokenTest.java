@@ -29,7 +29,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class TargetAreaTokenTest extends AbstractStringTokenTestCase<Spell>
+class TargetAreaTokenTest extends AbstractStringTokenTestCase<Spell>
 {
 
 	static TargetareaToken token = new TargetareaToken();
@@ -66,13 +66,13 @@ public class TargetAreaTokenTest extends AbstractStringTokenTestCase<Spell>
 	}
 
 	@Test
-	public void testGoodParentheses()
+	void testGoodParentheses()
 	{
 		assertTrue(parse("(first)"));
 	}
 	
 	@Test
-	public void testBadParentheses()
+	void testBadParentheses()
 	{
 		assertFalse(parse("(first"), "Missing end paren should have been flagged.");
 		assertFalse(parse("first)"), "Missing start paren should have been flagged.");

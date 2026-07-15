@@ -48,7 +48,7 @@ import org.junit.jupiter.api.Test;
  * 
  */
 
-public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
+class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 {
 
 	private Domain sunDomain;
@@ -100,7 +100,7 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 	 * @throws Exception If an error occurs.
 	 */
 	@Test
-	public void testDomainSpell() throws Exception
+	void testDomainSpell() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();
 		setPCStat(pc, cha, 15);
@@ -120,7 +120,7 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 	 * @throws Exception If an error occurs.
 	 */
 	@Test
-	public void testPcClassSpell() throws Exception
+	void testPcClassSpell() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();
 		pc.incrementClassLevel(1, divineClass);

@@ -32,7 +32,7 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 
 import org.junit.jupiter.api.BeforeEach;
 
-public class RaceTypeTokenTest extends
+class RaceTypeTokenTest extends
 		AbstractPrimitiveTokenTestCase<CDOMObject, Race>
 {
 

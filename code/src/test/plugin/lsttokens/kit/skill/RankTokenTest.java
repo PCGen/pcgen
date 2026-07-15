@@ -27,7 +27,7 @@ import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
 import org.junit.jupiter.api.Test;
 
-public class RankTokenTest extends AbstractKitTokenTestCase<KitSkill>
+class RankTokenTest extends AbstractKitTokenTestCase<KitSkill>
 {
 
 	static RankToken token = new RankToken();
@@ -53,19 +53,19 @@ public class RankTokenTest extends AbstractKitTokenTestCase<KitSkill>
 	}
 
 	@Test
-	public void testRoundRobinNumber() throws PersistenceLayerException
+	void testRoundRobinNumber() throws PersistenceLayerException
 	{
 		runRoundRobin("3");
 	}
 
 	@Test
-	public void testRoundRobinDecimal() throws PersistenceLayerException
+	void testRoundRobinDecimal() throws PersistenceLayerException
 	{
 		runRoundRobin("3.5");
 	}
 
 	@Test
-	public void testInvalidInputFormula()
+	void testInvalidInputFormula()
 	{
 		assertFalse(parse("FormulaProhibited"));
 	}
@@ -77,7 +77,7 @@ public class RankTokenTest extends AbstractKitTokenTestCase<KitSkill>
 //	}
 
 	@Test
-	public void testInvalidInputNegative()
+	void testInvalidInputNegative()
 	{
 		assertFalse(parse("-1"));
 	}

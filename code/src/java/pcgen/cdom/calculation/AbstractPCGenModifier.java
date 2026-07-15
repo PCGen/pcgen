@@ -21,6 +21,8 @@ import java.util.Collections;
 import pcgen.base.util.Indirect;
 import pcgen.cdom.formula.AssociationUtilities;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
 /**
  * An AbstractPCGenModifier is a FormulaModifier that supports generalized management of
  * references.
@@ -39,11 +41,13 @@ public abstract class AbstractPCGenModifier<T> implements FormulaModifier<T>
 
 	/**
 	 * The object references referred to by the embedded AbstractPCGenModifier.
-	 * 
+	 *
 	 * NOTE: DO NOT DELETE THIS EVEN THOUGH IT APPEARS UNUSED. Its use is holding the
 	 * references so that they are not garbage collected.
 	 */
 	@SuppressWarnings("unused")
+	@SuppressFBWarnings(value = "URF_UNREAD_FIELD",
+		justification = "Strong reference retained to prevent GC of underlying Indirects.")
 	private Collection<Indirect<?>> references;
 
 	protected int getUserPriority()

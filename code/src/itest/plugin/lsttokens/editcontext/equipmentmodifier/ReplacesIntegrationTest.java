@@ -24,7 +24,7 @@ import plugin.lsttokens.editcontext.testsupport.AbstractTypeSafeListIntegrationT
 import plugin.lsttokens.equipmentmodifier.ReplacesToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class ReplacesIntegrationTest extends
+class ReplacesIntegrationTest extends
 		AbstractTypeSafeListIntegrationTestCase<EquipmentModifier>
 {
 

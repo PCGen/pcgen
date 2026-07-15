@@ -35,7 +35,7 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 
 import org.junit.jupiter.api.BeforeEach;
 
-public class TypeTokenTest extends
+class TypeTokenTest extends
 		AbstractPrimitiveTokenTestCase<CDOMObject, WeaponProf>
 {
 

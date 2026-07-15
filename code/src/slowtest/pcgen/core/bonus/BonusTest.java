@@ -51,13 +51,13 @@ import org.junit.jupiter.api.Test;
  */
 
 @SuppressWarnings("nls")
-public class BonusTest extends AbstractCharacterTestCase
+class BonusTest extends AbstractCharacterTestCase
 {
 	/**
 	 * Test the skill pre reqs.
 	 */
 	@Test
-	public void testSkillPrereq()
+	void testSkillPrereq()
 	{
 		LoadContext context = Globals.getContext();
 
@@ -102,7 +102,7 @@ public class BonusTest extends AbstractCharacterTestCase
 	 * abilities and equipment.
 	 */
 	@Test
-	public void testVarBonus()
+	void testVarBonus()
 	{
 		LoadContext context = Globals.getContext();
 
@@ -170,7 +170,7 @@ public class BonusTest extends AbstractCharacterTestCase
 	 * Test the buildDepends method of BonusObj. 
 	 */
 	@Test
-	public void testBuildDepends()
+	void testBuildDepends()
 	{
 		BonusObj maxDexStr = new Var();
 		maxDexStr.setValue("VAR|NegLevels|max(STR,DEX)-STR");
@@ -208,7 +208,7 @@ public class BonusTest extends AbstractCharacterTestCase
 	 * bonuses value will work.
 	 */
 	@Test
-	public void testBonuswithLISTValue()
+	void testBonuswithLISTValue()
 	{
 		finishLoad();
 		final PlayerCharacter character = getCharacter();
@@ -238,7 +238,7 @@ public class BonusTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testBonuswithLISTValueTwoAssoc()
+	void testBonuswithLISTValueTwoAssoc()
 	{
 		finishLoad();
 		final PlayerCharacter character = getCharacter();
@@ -277,7 +277,7 @@ public class BonusTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testBonuswithLISTValueTwoAssocInfoList()
+	void testBonuswithLISTValueTwoAssocInfoList()
 	{
 		finishLoad();
 		final PlayerCharacter character = getCharacter();
@@ -322,7 +322,7 @@ public class BonusTest extends AbstractCharacterTestCase
 	 * bonuses value will work.
 	 */
 	@Test
-	public void testSpellKnownBonusWithLISTValue()
+	void testSpellKnownBonusWithLISTValue()
 	{
 		LoadContext context = Globals.getContext();
 		context.getReferenceContext().constructNowIfNecessary(PCClass.class, "Wizard");

@@ -36,7 +36,7 @@ import plugin.pretokens.writer.PreLevelWriter;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-public class RepeatLevelIntegrationTest extends
+class RepeatLevelIntegrationTest extends
 		AbstractIntegrationTestCase<PCTemplate>
 {
 
@@ -45,7 +45,7 @@ public class RepeatLevelIntegrationTest extends
             new CDOMTokenLoader<>();
 
 	@BeforeAll
-	public static void ltClassSetUp() throws PersistenceLayerException
+	static void ltClassSetUp() throws PersistenceLayerException
 	{
 		TokenRegistration.register(new PreLevelParser());
 		TokenRegistration.register(new PreLevelWriter());
@@ -74,7 +74,7 @@ public class RepeatLevelIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();

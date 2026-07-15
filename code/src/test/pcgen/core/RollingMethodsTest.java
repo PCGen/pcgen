@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
  * The Class {@code RollingMethodsTest} check that the Rollingmethods class is functioning
  * correctly.
  */
-public class RollingMethodsTest
+class RollingMethodsTest
 {
 
 	static final int SIDES = 6;
@@ -24,7 +24,7 @@ public class RollingMethodsTest
 	static final long SEED = -5450594;
 
 	@Test
-	public final void testRoll()
+	final void testRoll()
 	{
 		final Random random = new Random(SEED);
 		RandomUtil.setRandomGenerator(random);
@@ -48,7 +48,7 @@ public class RollingMethodsTest
 	}
 
 	@Test
-	public final void testTopRoll()
+	final void testTopRoll()
 	{
 		final Random random = new Random(SEED);
 		RandomUtil.setRandomGenerator(random);
@@ -83,7 +83,7 @@ public class RollingMethodsTest
 	}
 
 	@Test
-	public final void testRerollRoll()
+	final void testRerollRoll()
 	{
 		final Random random = new Random(SEED);
 		RandomUtil.setRandomGenerator(random);

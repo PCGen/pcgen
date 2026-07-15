@@ -27,17 +27,17 @@ import org.junit.jupiter.api.Test;
 /**
  * Test the CaseInsensitiveString class
  */
-public class CaseInsensitiveStringTest
+class CaseInsensitiveStringTest
 {
 
 	@Test
-	public void testNullConstructor()
+	void testNullConstructor()
 	{
 		assertThrows(NullPointerException.class, () -> new CaseInsensitiveString(null));
 	}
 	
 	@Test
-	public void testIdentical()
+	void testIdentical()
 	{
 		CaseInsensitiveString cis1 = new CaseInsensitiveString("Foo");
 		CaseInsensitiveString cis2 = new CaseInsensitiveString("Foo");
@@ -47,7 +47,7 @@ public class CaseInsensitiveStringTest
 	}
 
 	@Test
-	public void testMixedCase()
+	void testMixedCase()
 	{
 		CaseInsensitiveString cis1 = new CaseInsensitiveString("FooGoo");
 		CaseInsensitiveString cis2 = new CaseInsensitiveString("fOoGOO");
@@ -57,7 +57,7 @@ public class CaseInsensitiveStringTest
 	}
 
 	@Test
-	public void testMixedCaseNotFirstLetter()
+	void testMixedCaseNotFirstLetter()
 	{
 		CaseInsensitiveString cis1 = new CaseInsensitiveString("FoO");
 		CaseInsensitiveString cis2 = new CaseInsensitiveString("Foo");
@@ -67,7 +67,7 @@ public class CaseInsensitiveStringTest
 	}
 
 	@Test
-	public void testSpace()
+	void testSpace()
 	{
 		CaseInsensitiveString cis1 = new CaseInsensitiveString("Foo");
 		CaseInsensitiveString cis2 = new CaseInsensitiveString("Foo ");
@@ -76,7 +76,7 @@ public class CaseInsensitiveStringTest
 	}
 
 	@Test
-	public void testDifferent()
+	void testDifferent()
 	{
 		CaseInsensitiveString cis1 = new CaseInsensitiveString("Foo");
 		CaseInsensitiveString cis2 = new CaseInsensitiveString("Foe");
@@ -86,7 +86,7 @@ public class CaseInsensitiveStringTest
 
 	@SuppressWarnings("unlikely-arg-type")
 	@Test
-	public void testString()
+	void testString()
 	{
 		CaseInsensitiveString cis1 = new CaseInsensitiveString("Foo");
 		//Should fail both ways
@@ -95,7 +95,7 @@ public class CaseInsensitiveStringTest
 	}
 
 	@Test
-	public void testToString()
+	void testToString()
 	{
 		CaseInsensitiveString cis1 = new CaseInsensitiveString("Foo");
 		assertEquals("Foo", cis1.toString());

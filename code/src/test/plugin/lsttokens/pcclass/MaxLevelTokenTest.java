@@ -27,7 +27,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class MaxLevelTokenTest extends AbstractIntegerTokenTestCase<PCClass>
+class MaxLevelTokenTest extends AbstractIntegerTokenTestCase<PCClass>
 {
 
 	static MaxlevelToken token = new MaxlevelToken();
@@ -52,7 +52,7 @@ public class MaxLevelTokenTest extends AbstractIntegerTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testRoundRobinNoLimit() throws PersistenceLayerException
+	void testRoundRobinNoLimit() throws PersistenceLayerException
 	{
 		runRoundRobin("NOLIMIT");
 	}

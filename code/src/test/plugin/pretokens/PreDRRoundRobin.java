@@ -23,7 +23,7 @@ import plugin.pretokens.writer.PreDamageReductionWriter;
 
 import org.junit.jupiter.api.BeforeEach;
 
-public class PreDRRoundRobin extends AbstractRankedRoundRobin
+class PreDRRoundRobin extends AbstractRankedRoundRobin
 {
 	@BeforeEach
 	@Override
