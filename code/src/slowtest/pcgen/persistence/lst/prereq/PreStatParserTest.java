@@ -47,7 +47,7 @@ class PreStatParserTest extends EnUsLocaleDependentTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testDex9() throws PersistenceLayerException
+	void testDex9() throws PersistenceLayerException
 	{
 		PreStatParser producer = new PreStatParser();
 
@@ -68,7 +68,7 @@ class PreStatParserTest extends EnUsLocaleDependentTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testDex9a() throws PersistenceLayerException
+	void testDex9a() throws PersistenceLayerException
 	{
 		PreParserFactory parser = PreParserFactory.getInstance();
 		Prerequisite prereq = parser.parse("PRESTAT:1,DEX=9");
@@ -84,7 +84,7 @@ class PreStatParserTest extends EnUsLocaleDependentTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testDex9Str13() throws PersistenceLayerException
+	void testDex9Str13() throws PersistenceLayerException
 	{
 		PreStatParser producer = new PreStatParser();
 
@@ -105,7 +105,7 @@ class PreStatParserTest extends EnUsLocaleDependentTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testDexEqual9() throws PersistenceLayerException
+	void testDexEqual9() throws PersistenceLayerException
 	{
 		PreStatParser producer = new PreStatParser();
 
@@ -126,7 +126,7 @@ class PreStatParserTest extends EnUsLocaleDependentTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testDexNegative() throws PersistenceLayerException
+	void testDexNegative() throws PersistenceLayerException
 	{
 		PreStatParser producer = new PreStatParser();
 
@@ -144,7 +144,7 @@ class PreStatParserTest extends EnUsLocaleDependentTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testEmpty() throws PersistenceLayerException
+	void testEmpty() throws PersistenceLayerException
 	{
 		PreStatParser producer = new PreStatParser();
 

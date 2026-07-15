@@ -25,66 +25,66 @@ import org.junit.jupiter.api.Test;
 /**
  * Test the OrderedPair class
  */
-public class OrderedPairTest
+class OrderedPairTest
 {
 	@Test
-	public void testConstructorXNull()
+	void testConstructorXNull()
 	{
 		assertThrows(NullPointerException.class, () -> new OrderedPair(null, 4));
 	}
 
 	@Test
-	public void testConstructorYNull()
+	void testConstructorYNull()
 	{
 		assertThrows(NullPointerException.class, () -> new OrderedPair(4, null));
 	}
 
 	@Test
-	public void testValueOfNull()
+	void testValueOfNull()
 	{
 		assertThrows(NullPointerException.class, () -> OrderedPair.valueOf(null));
 	}
 
 	@Test
-	public void testValueOfNotNumeric()
+	void testValueOfNotNumeric()
 	{
 		assertThrows(IllegalArgumentException.class, () -> OrderedPair.valueOf("SomeString"));
 	}
 
 	@Test
-	public void testValueOfTooManyCommas()
+	void testValueOfTooManyCommas()
 	{
 		assertThrows(IllegalArgumentException.class, () -> OrderedPair.valueOf("1,3,4"));
 	}
 
 	@Test
-	public void testValueOfNoTrailingNumber()
+	void testValueOfNoTrailingNumber()
 	{
 		assertThrows(IllegalArgumentException.class, () -> OrderedPair.valueOf("1,"));
 	}
 
 	@Test
-	public void testValueOfNoLeadingNumber()
+	void testValueOfNoLeadingNumber()
 	{
 		assertThrows(IllegalArgumentException.class, () -> OrderedPair.valueOf(",4"));
 	}
 
 	@Test
-	public void testValueOfBadFirstNumber()
+	void testValueOfBadFirstNumber()
 	{
 		assertThrows(IllegalArgumentException.class, () -> OrderedPair.valueOf("x,4"));
 		assertThrows(IllegalArgumentException.class, () -> OrderedPair.valueOf("3-0,4"));
 	}
 
 	@Test
-	public void testValueOfBadSecondNumber()
+	void testValueOfBadSecondNumber()
 	{
 		assertThrows(IllegalArgumentException.class, () -> OrderedPair.valueOf("5,x"));
 		assertThrows(IllegalArgumentException.class, () -> OrderedPair.valueOf("5,5..6"));
 	}
 
 	@Test
-	public void testValueOf()
+	void testValueOf()
 	{
 		OrderedPair op = OrderedPair.valueOf("4,6");
 		assertEquals(Integer.valueOf(4), op.getPreciseX());
@@ -93,7 +93,7 @@ public class OrderedPairTest
 	}
 
 	@Test
-	public void testEquals()
+	void testEquals()
 	{
 		OrderedPair op1 = OrderedPair.valueOf("4,6");
 		OrderedPair op2 = OrderedPair.valueOf("4,6.0");

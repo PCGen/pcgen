@@ -34,7 +34,7 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 
 import org.junit.jupiter.api.BeforeEach;
 
-public class ClassListTokenTest extends
+class ClassListTokenTest extends
 		AbstractPrimitiveTokenTestCase<CDOMObject, ClassSpellList>
 {
 	private static final SpellsToken SUBTOKEN = new SpellsToken();

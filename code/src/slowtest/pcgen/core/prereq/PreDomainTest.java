@@ -43,7 +43,7 @@ import org.junit.jupiter.api.Test;
  * {@code PreDomainTest} tests that the PREDOMAIN tag is
  * working correctly.
  */
-public class PreDomainTest extends AbstractCharacterTestCase
+class PreDomainTest extends AbstractCharacterTestCase
 {
 	private Deity deity;
 
@@ -53,7 +53,7 @@ public class PreDomainTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testDeity() throws PersistenceLayerException
+	void testDeity() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -86,7 +86,7 @@ public class PreDomainTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException 
 	 */
 	@Test
-	public void testMultiple() throws PersistenceLayerException
+	void testMultiple() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		PCClass cl = new PCClass();
@@ -131,7 +131,7 @@ public class PreDomainTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException 
 	 */
 	@Test
-	public void testAny() throws PersistenceLayerException
+	void testAny() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		PCClass cl = new PCClass();

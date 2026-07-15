@@ -41,7 +41,7 @@ class TempBonusTest extends AbstractCharacterTestCase
 {
 
 	@Test
-	public void testPCTemporaryBonus()
+	void testPCTemporaryBonus()
 	{
 		LoadContext context = Globals.getContext();
 		BonusObj bonus = Bonus.newBonus(context, "WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement");
@@ -63,7 +63,7 @@ class TempBonusTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testANYPCTemporaryBonus()
+	void testANYPCTemporaryBonus()
 	{
 		LoadContext context = Globals.getContext();
 		BonusObj bonus = Bonus.newBonus(context, "WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement");
@@ -85,7 +85,7 @@ class TempBonusTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testEquipmentTemporaryBonus()
+	void testEquipmentTemporaryBonus()
 	{
 		PlayerCharacter character = getCharacter();
 		LoadContext context = Globals.getContext();
@@ -112,7 +112,7 @@ class TempBonusTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testMultipleEquipmentTemporaryBonus()
+	void testMultipleEquipmentTemporaryBonus()
 	{
 		PlayerCharacter character = getCharacter();
 		LoadContext context = Globals.getContext();

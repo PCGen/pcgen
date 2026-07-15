@@ -28,11 +28,11 @@ import org.junit.jupiter.api.Test;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.testsupport.TestUtilities;
 
-public class NumberMultiplyTest
+class NumberMultiplyTest
 {
 
 	@Test
-	public void testOperator()
+	void testOperator()
 	{
 		NumberMultiply op = new NumberMultiply();
 		assertNotNull(op.getOperator());
@@ -40,7 +40,7 @@ public class NumberMultiplyTest
 	}
 
 	@Test
-	public void testAbstractEvaluateNulls()
+	void testAbstractEvaluateNulls()
 	{
 		NumberMultiply op = new NumberMultiply();
 		try
@@ -70,7 +70,7 @@ public class NumberMultiplyTest
 	}
 
 	@Test
-	public void testAbstractEvaluateMismatch()
+	void testAbstractEvaluateMismatch()
 	{
 		NumberMultiply op = new NumberMultiply();
 		assertTrue(op.abstractEvaluate(FormatUtilities.BOOLEAN_CLASS, TestUtilities.INTEGER_CLASS, null).isEmpty());
@@ -78,7 +78,7 @@ public class NumberMultiplyTest
 	}
 
 	@Test
-	public void testAbstractEvaluateLegal()
+	void testAbstractEvaluateLegal()
 	{
 		NumberMultiply op = new NumberMultiply();
 		assertEquals(FormatUtilities.NUMBER_CLASS,
@@ -97,7 +97,7 @@ public class NumberMultiplyTest
 	}
 
 	@Test
-	public void testEvaluateFailNull()
+	void testEvaluateFailNull()
 	{
 		NumberMultiply op = new NumberMultiply();
 		assertThrows(NullPointerException.class, () -> op.evaluate(null, null));
@@ -106,7 +106,7 @@ public class NumberMultiplyTest
 	}
 
 	@Test
-	public void testEvaluateMismatch()
+	void testEvaluateMismatch()
 	{
 		NumberMultiply op = new NumberMultiply();
 		assertThrows(ClassCastException.class, () -> op.evaluate(true, Double.valueOf(4.5)));
@@ -114,7 +114,7 @@ public class NumberMultiplyTest
 	}
 
 	@Test
-	public void testEvaluateLegal()
+	void testEvaluateLegal()
 	{
 		NumberMultiply op = new NumberMultiply();
 		assertEquals(Double.valueOf(2.6),

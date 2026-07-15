@@ -36,7 +36,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
 
-public class ChoiceTokenTest extends AbstractCDOMTokenTestCase<SubClass>
+class ChoiceTokenTest extends AbstractCDOMTokenTestCase<SubClass>
 {
 
 	static ChoiceToken token = new ChoiceToken();
@@ -61,90 +61,90 @@ public class ChoiceTokenTest extends AbstractCDOMTokenTestCase<SubClass>
 	}
 
 	@Test
-	public void testInvalidInputEmpty()
+	void testInvalidInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOnlyType()
+	void testInvalidInputOnlyType()
 	{
 		assertFalse(parse("SCHOOL"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoValue()
+	void testInvalidInputNoValue()
 	{
 		assertFalse(parse("SCHOOL|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoType()
+	void testInvalidInputNoType()
 	{
 		assertFalse(parse("|Good"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputLeadingPipe()
+	void testInvalidInputLeadingPipe()
 	{
 		assertFalse(parse("|SCHOOL|Good"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputTrailingPipe()
+	void testInvalidInputTrailingPipe()
 	{
 		assertFalse(parse("SCHOOL|Good|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoublPipe()
+	void testInvalidInputDoublPipe()
 	{
 		assertFalse(parse("SCHOOL||Good"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputTripleContent()
+	void testInvalidInputTripleContent()
 	{
 		assertFalse(parse("SCHOOL|Bad|Good"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNotAType()
+	void testInvalidInputNotAType()
 	{
 		assertFalse(parse("NOTATYPE|Good"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputIllegalType()
+	void testInvalidInputIllegalType()
 	{
 		assertFalse(parse("ALIGNMENT|LawfulGood"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testRoundRobinDescriptorSimple()
+	void testRoundRobinDescriptorSimple()
 			throws PersistenceLayerException
 	{
 		runRoundRobin("DESCRIPTOR|Fire");
 	}
 
 	@Test
-	public void testRoundRobinSchoolSimple() throws PersistenceLayerException
+	void testRoundRobinSchoolSimple() throws PersistenceLayerException
 	{
 		runRoundRobin("SCHOOL|Evocation");
 	}
 
 	@Test
-	public void testRoundRobinSubSchoolSimple()
+	void testRoundRobinSubSchoolSimple()
 			throws PersistenceLayerException
 	{
 		runRoundRobin("SUBSCHOOL|Subsch");
@@ -163,7 +163,7 @@ public class ChoiceTokenTest extends AbstractCDOMTokenTestCase<SubClass>
 	}
 
 	@Test
-	public void testUnparseNull()
+	void testUnparseNull()
 	{
 		primaryProf.put(getObjectKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
@@ -175,7 +175,7 @@ public class ChoiceTokenTest extends AbstractCDOMTokenTestCase<SubClass>
 	}
 
 	@Test
-	public void testUnparseLegalSchool()
+	void testUnparseLegalSchool()
 	{
 		SpellProhibitor o = getConstant(ProhibitedSpellType.SCHOOL, "Public");
 		primaryProf.put(getObjectKey(), o);
@@ -183,7 +183,7 @@ public class ChoiceTokenTest extends AbstractCDOMTokenTestCase<SubClass>
 	}
 
 	@Test
-	public void testUnparseLegalSubSchool()
+	void testUnparseLegalSubSchool()
 	{
 		SpellProhibitor o = getConstant(ProhibitedSpellType.SUBSCHOOL, "Elementary");
 		primaryProf.put(getObjectKey(), o);
@@ -191,7 +191,7 @@ public class ChoiceTokenTest extends AbstractCDOMTokenTestCase<SubClass>
 	}
 
 	@Test
-	public void testUnparseLegalDescriptor()
+	void testUnparseLegalDescriptor()
 	{
 		SpellProhibitor o = getConstant(ProhibitedSpellType.DESCRIPTOR, "Fire");
 		primaryProf.put(getObjectKey(), o);
@@ -208,7 +208,7 @@ public class ChoiceTokenTest extends AbstractCDOMTokenTestCase<SubClass>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail()
+	void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = getObjectKey();
 		primaryProf.put(objectKey, new Object());

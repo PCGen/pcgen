@@ -37,7 +37,7 @@ import pcgen.testsupport.NoZeroArgConstructorMap;
 import pcgen.testsupport.StrangeMap;
 import pcgen.testsupport.TestSupport;
 
-public class TripleKeyMapToListTest
+class TripleKeyMapToListTest
 {
 
 	public void populate(TripleKeyMapToList<Integer, Double, Long, Character> tkm)
@@ -55,7 +55,7 @@ public class TripleKeyMapToListTest
 	}
 
 	@Test
-	public void testPutGet()
+	void testPutGet()
 	{
 		TripleKeyMapToList<Integer, Double, Long, Character> tkm =
 				new TripleKeyMapToList<>();
@@ -108,7 +108,7 @@ public class TripleKeyMapToListTest
 	}
 
 	@Test
-	public void testContainsKey()
+	void testContainsKey()
 	{
 		TripleKeyMapToList<Integer, Double, Long, Character> tkm =
 				new TripleKeyMapToList<>();
@@ -127,7 +127,7 @@ public class TripleKeyMapToListTest
 	}
 
 	@Test
-	public void testRemoveListFor()
+	void testRemoveListFor()
 	{
 		TripleKeyMapToList<Integer, Double, Long, Character> tkm =
 				new TripleKeyMapToList<>();
@@ -163,7 +163,7 @@ public class TripleKeyMapToListTest
 	}
 
 	@Test
-	public void testRemoveListsFor()
+	void testRemoveListsFor()
 	{
 		TripleKeyMapToList<Integer, Double, Long, Character> tkm =
 				new TripleKeyMapToList<>();
@@ -187,7 +187,7 @@ public class TripleKeyMapToListTest
 	}
 
 	@Test
-	public void testGetKeySet()
+	void testGetKeySet()
 	{
 		TripleKeyMapToList<Integer, Double, Long, Character> tkm =
 				new TripleKeyMapToList<>();
@@ -214,7 +214,7 @@ public class TripleKeyMapToListTest
 	}
 
 	@Test
-	public void testGetSecondaryKeySet()
+	void testGetSecondaryKeySet()
 	{
 		TripleKeyMapToList<Integer, Double, Long, Character> tkm =
 				new TripleKeyMapToList<>();
@@ -252,7 +252,7 @@ public class TripleKeyMapToListTest
 	}
 
 	@Test
-	public void testClearIsEmpty()
+	void testClearIsEmpty()
 	{
 		TripleKeyMapToList<Integer, Double, Long, Character> tkm =
 				new TripleKeyMapToList<>();
@@ -291,7 +291,7 @@ public class TripleKeyMapToListTest
 	}
 
 	@Test
-	public void testAddAllToListFor()
+	void testAddAllToListFor()
 	{
 		TripleKeyMapToList<Integer, Double, Long, Character> tkm =
 				new TripleKeyMapToList<>();
@@ -318,7 +318,7 @@ public class TripleKeyMapToListTest
 	}
 
 	@Test
-	public void testNullInConstructor()
+	void testNullInConstructor()
 	{
 		assertThrows(NullPointerException.class, () -> new TripleKeyMapToList<>(null, HashMap.class, HashMap.class));
 		assertThrows(NullPointerException.class, () -> new TripleKeyMapToList<>(HashMap.class, null, HashMap.class));
@@ -326,7 +326,7 @@ public class TripleKeyMapToListTest
 	}
 
 	@Test
-	public void testBadClassInConstructor()
+	void testBadClassInConstructor()
 	{
 		assertThrows(IllegalArgumentException.class,
 			() -> new TripleKeyMapToList<>(StrangeMap.class, HashMap.class, HashMap.class));
@@ -337,7 +337,7 @@ public class TripleKeyMapToListTest
 	}
 
 	@Test
-	public void testBadClassInConstructor2()
+	void testBadClassInConstructor2()
 	{
 		assertThrows(IllegalArgumentException.class,
 			() -> new TripleKeyMapToList<>(NoPublicZeroArgConstructorMap.class,
@@ -352,14 +352,14 @@ public class TripleKeyMapToListTest
 
 	@Test
 	@SuppressWarnings("unused")
-	public void testGoodConstructor()
+	void testGoodConstructor()
 	{
 		new TripleKeyMapToList<>(HashMap.class, HashMap.class,
 			IdentityHashMap.class);
 	}
 
 	@Test
-	public void testBadClassInConstructor3()
+	void testBadClassInConstructor3()
 	{
 		assertThrows(IllegalArgumentException.class,
 			() -> new TripleKeyMapToList<>(NoZeroArgConstructorMap.class,
@@ -373,7 +373,7 @@ public class TripleKeyMapToListTest
 	}
 
 	@Test
-	public void testGetTertiaryKeySet()
+	void testGetTertiaryKeySet()
 	{
 		TripleKeyMapToList<Integer, Double, Long, Character> tkm =
 				new TripleKeyMapToList<>();

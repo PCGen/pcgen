@@ -23,7 +23,7 @@ import plugin.pretokens.writer.PreTypeWriter;
 
 import org.junit.jupiter.api.BeforeEach;
 
-public class PreTypeRoundRobin extends AbstractBasicRoundRobin
+class PreTypeRoundRobin extends AbstractBasicRoundRobin
 {
 
 	@BeforeEach

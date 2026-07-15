@@ -38,7 +38,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
 
-public class GenderLockTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
+class GenderLockTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 {
 
 	static GenderlockToken token = new GenderlockToken();
@@ -63,14 +63,14 @@ public class GenderLockTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 
 	@Test
-	public void testInvalidInputString()
+	void testInvalidInputString()
 	{
 		internalTestInvalidInputString(null);
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputStringSet()
+	void testInvalidInputStringSet()
 	{
 		assertTrue(parse("Male"));
 		assertTrue(parseSecondary("Male"));
@@ -97,7 +97,7 @@ public class GenderLockTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 
 	@Test
-	public void testValidInputs()
+	void testValidInputs()
 	{
 		assertTrue(parse("Male"));
 		assertEquals(Gender.Male, primaryProf.get(ObjectKey.GENDER_LOCK));
@@ -108,7 +108,7 @@ public class GenderLockTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 
 	@Test
-	public void testRoundRobinMale() throws PersistenceLayerException
+	void testRoundRobinMale() throws PersistenceLayerException
 	{
 		LocaleDependentTestCase.before(Locale.US);
 		runRoundRobin("Male");
@@ -116,7 +116,7 @@ public class GenderLockTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 
 	@Test
-	public void testRoundRobinMaleI18N() throws PersistenceLayerException
+	void testRoundRobinMaleI18N() throws PersistenceLayerException
 	{
 		LocaleDependentTestCase.before(Locale.FRENCH);
 		runRoundRobin("Male");
@@ -124,7 +124,7 @@ public class GenderLockTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 
 	@Test
-	public void testRoundRobinFemale() throws PersistenceLayerException
+	void testRoundRobinFemale() throws PersistenceLayerException
 	{
 		LocaleDependentTestCase.before(Locale.US);
 		runRoundRobin("Female");
@@ -132,7 +132,7 @@ public class GenderLockTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 	
 	@Test
-	public void testRoundRobinFemaleI18N() throws PersistenceLayerException
+	void testRoundRobinFemaleI18N() throws PersistenceLayerException
 	{
 		LocaleDependentTestCase.before(Locale.FRENCH);
 		runRoundRobin("Female");
@@ -140,7 +140,7 @@ public class GenderLockTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 
 	@Test
-	public void testRoundRobinNeuter() throws PersistenceLayerException
+	void testRoundRobinNeuter() throws PersistenceLayerException
 	{
 		LocaleDependentTestCase.before(Locale.US);
 		runRoundRobin("Neuter");
@@ -148,7 +148,7 @@ public class GenderLockTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 	
 	@Test
-	public void testRoundRobinNeuterI18N() throws PersistenceLayerException
+	void testRoundRobinNeuterI18N() throws PersistenceLayerException
 	{
 		LocaleDependentTestCase.before(Locale.FRENCH);
 		runRoundRobin("Neuter");
@@ -169,14 +169,14 @@ public class GenderLockTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 
 
 	@Test
-	public void testUnparseNull()
+	void testUnparseNull()
 	{
 		primaryProf.put(ObjectKey.GENDER_LOCK, null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseLegal()
+	void testUnparseLegal()
 	{
 		primaryProf.put(ObjectKey.GENDER_LOCK, Gender.Male);
 		LocaleDependentTestCase.before(Locale.US);
@@ -189,7 +189,7 @@ public class GenderLockTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail()
+	void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = ObjectKey.GENDER_LOCK;
 		primaryProf.put(objectKey, new Object());

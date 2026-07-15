@@ -45,7 +45,7 @@ import plugin.pretokens.writer.PreSubClassWriter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
+class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 {
 
 	static ClassesToken token = new ClassesToken();
@@ -87,161 +87,161 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	@Test
-	public void testInvalidInputEmpty()
+	void testInvalidInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputClassOnly()
+	void testInvalidInputClassOnly()
 	{
 		assertFalse(parse("Wizard"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputLevelOnly()
+	void testInvalidInputLevelOnly()
 	{
 		assertFalse(parse("3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputChainClassOnly()
+	void testInvalidInputChainClassOnly()
 	{
 		assertFalse(parse("Wizard=3|Sorcerer"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoubleEquals()
+	void testInvalidInputDoubleEquals()
 	{
 		assertFalse(parse("Wizard==4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputBadLevel()
+	void testInvalidInputBadLevel()
 	{
 		assertFalse(parse("Wizard=Sorcerer"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNegativeLevel()
+	void testInvalidInputNegativeLevel()
 	{
 		assertFalse(parse("Wizard=-4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputLeadingBar()
+	void testInvalidInputLeadingBar()
 	{
 		assertFalse(parse("|Wizard=4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputTrailingBar()
+	void testInvalidInputTrailingBar()
 	{
 		assertFalse(parse("Wizard=4|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoublePipe()
+	void testInvalidInputDoublePipe()
 	{
 		assertFalse(parse("Wizard=3||Sorcerer=4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoubleComma()
+	void testInvalidInputDoubleComma()
 	{
 		assertFalse(parse("Wizard,,Sorcerer=4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputLeadingComma()
+	void testInvalidInputLeadingComma()
 	{
 		assertFalse(parse(",Wizard=4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputTrailingEquals()
+	void testInvalidInputTrailingEquals()
 	{
 		assertFalse(parse("Wizard=4="));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoubleSet()
+	void testInvalidInputDoubleSet()
 	{
 		assertFalse(parse("Wizard=4=3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputTrailingComma()
+	void testInvalidInputTrailingComma()
 	{
 		assertFalse(parse("Wizard,=4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptyType()
+	void testInvalidInputEmptyType()
 	{
 		assertFalse(parse("TYPE.=4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptyPrerequisite()
+	void testInvalidInputEmptyPrerequisite()
 	{
 		assertFalse(parse("Wizard=4[]"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOpenEndedPrerequisite()
+	void testInvalidInputOpenEndedPrerequisite()
 	{
 		assertFalse(parse("Wizard=4[PRERACE:1,Human"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNegativePrerequisite()
+	void testInvalidInputNegativePrerequisite()
 	{
 		assertFalse(parse("Wizard=-1[PRERACE:1,Human]"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNegativePre()
+	void testInvalidInputNegativePre()
 	{
 		assertFalse(parse("Wizard=-1[PRERACE:1,Human]"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputBadPrerequisite()
+	void testInvalidInputBadPrerequisite()
 	{
 		assertFalse(parse("Fire=4[PREFOO:1,Human]"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNotClass()
+	void testInvalidInputNotClass()
 	{
 		assertTrue(parse("Wizard=4"));
 		assertConstructionError();
 	}
 
 	@Test
-	public void testInvalidInputNotClassCompound()
+	void testInvalidInputNotClassCompound()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Wizard");
 		secondaryContext.getReferenceContext()
@@ -251,14 +251,14 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	@Test
-	public void testValidInputClearAll()
+	void testValidInputClearAll()
 	{
 		assertTrue(parse(Constants.LST_DOT_CLEAR_ALL));
 		assertCleanConstruction();
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Wizard");
@@ -268,7 +268,7 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	@Test
-	public void testRoundRobinPrereq() throws PersistenceLayerException
+	void testRoundRobinPrereq() throws PersistenceLayerException
 	{
 		assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Wizard");
@@ -278,7 +278,7 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	@Test
-	public void testRoundRobinType() throws PersistenceLayerException
+	void testRoundRobinType() throws PersistenceLayerException
 	{
 		assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Wizard");
@@ -295,7 +295,7 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	@Test
-	public void testRoundRobinComma() throws PersistenceLayerException
+	void testRoundRobinComma() throws PersistenceLayerException
 	{
 		assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Wizard");
@@ -309,7 +309,7 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	@Test
-	public void testRoundRobinPipe() throws PersistenceLayerException
+	void testRoundRobinPipe() throws PersistenceLayerException
 	{
 		assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Wizard");
@@ -323,7 +323,7 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	@Test
-	public void testRoundRobinCommaPipe() throws PersistenceLayerException
+	void testRoundRobinCommaPipe() throws PersistenceLayerException
 	{
 		assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Wizard");
@@ -367,7 +367,7 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	@Test
-	public void testRoundRobinAll() throws PersistenceLayerException
+	void testRoundRobinAll() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Wizard");
 		secondaryContext.getReferenceContext()
@@ -376,7 +376,7 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	@Test
-	public void testInvalidRoundRobinMixedPrereqs()
+	void testInvalidRoundRobinMixedPrereqs()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Wizard");
 		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Cleric");
@@ -392,7 +392,7 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	@Test
-	public void testReplacementInputs()
+	void testReplacementInputs()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Wizard");
 		secondaryContext.getReferenceContext()
@@ -410,7 +410,7 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	@Test
-	public void testReplacementTypeDot()
+	void testReplacementTypeDot()
 	{
 		String[] unparsed;
 		assertTrue(parse("TYPE.Arcane=1"));
@@ -437,7 +437,7 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	}
 
 	@Test
-	public void testClearPrereqInvalid()
+	void testClearPrereqInvalid()
 	{
 		assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, "Wizard");

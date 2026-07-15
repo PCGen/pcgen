@@ -37,7 +37,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
 
-public class MonsterClassTokenTest extends AbstractCDOMTokenTestCase<Race>
+class MonsterClassTokenTest extends AbstractCDOMTokenTestCase<Race>
 {
 
 	static MonsterclassToken token = new MonsterclassToken();
@@ -62,49 +62,49 @@ public class MonsterClassTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testInvalidNoColon()
+	void testInvalidNoColon()
 	{
 		assertFalse(parse("Fighter"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTwoColon()
+	void testInvalidTwoColon()
 	{
 		assertFalse(parse("Fighter:4:1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidLevelNegative()
+	void testInvalidLevelNegative()
 	{
 		assertFalse(parse("Fighter:-4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidLevelZero()
+	void testInvalidLevelZero()
 	{
 		assertFalse(parse("Fighter:0"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidLevelNaN()
+	void testInvalidLevelNaN()
 	{
 		assertFalse(parse("Fighter:Level"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testBadClass()
+	void testBadClass()
 	{
 		assertTrue(parse("Fighter:4"));
 		assertConstructionError();
 	}
 
 	@Test
-	public void testSimple() throws PersistenceLayerException
+	void testSimple() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
@@ -130,14 +130,14 @@ public class MonsterClassTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testUnparseNull()
+	void testUnparseNull()
 	{
 		primaryProf.put(ObjectKey.MONSTER_CLASS, null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseSingle()
+	void testUnparseSingle()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		CDOMSingleRef<PCClass> cl = primaryContext.getReferenceContext().getCDOMReference(
@@ -171,7 +171,7 @@ public class MonsterClassTokenTest extends AbstractCDOMTokenTestCase<Race>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail()
+	void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = ObjectKey.MONSTER_CLASS;
 		primaryProf.put(objectKey, new Object());

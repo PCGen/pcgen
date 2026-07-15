@@ -46,7 +46,7 @@ class IconTokenTest
 	}
 
 	@Test
-	public void testValidSyntax() throws Exception
+	void testValidSyntax() throws Exception
 	{
 		GameMode gameMode = SettingsHandler.getGameAsProperty().get();
 		assertNull(gameMode
@@ -72,7 +72,7 @@ class IconTokenTest
 	}
 
 	@Test
-	public void testInValidSyntax() throws Exception
+	void testInValidSyntax() throws Exception
 	{
 		GameMode gameMode = SettingsHandler.getGameAsProperty().get();
 		EquipIconLstToken token = new IconToken();

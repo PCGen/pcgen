@@ -45,7 +45,7 @@ import plugin.pretokens.writer.PreLevelWriter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class StartFeatsTokenTest extends AbstractCDOMTokenTestCase<Race>
+class StartFeatsTokenTest extends AbstractCDOMTokenTestCase<Race>
 {
 
 	PreHDParser prehd = new PreHDParser();
@@ -103,40 +103,40 @@ public class StartFeatsTokenTest extends AbstractCDOMTokenTestCase<Race>
 	// }
 
 	@Test
-	public void testInvalidEquation()
+	void testInvalidEquation()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "1+2").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidString()
+	void testInvalidString()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "String").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidDecimal()
+	void testInvalidDecimal()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "4.0").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testRoundRobinOne() throws PersistenceLayerException
+	void testRoundRobinOne() throws PersistenceLayerException
 	{
 		runRoundRobin("1");
 	}
 
 	@Test
-	public void testRoundRobinOneTwice() throws PersistenceLayerException
+	void testRoundRobinOneTwice() throws PersistenceLayerException
 	{
 		runRoundRobin("1", "1");
 	}
 
 	@Test
-	public void testRoundRobinFive() throws PersistenceLayerException
+	void testRoundRobinFive() throws PersistenceLayerException
 	{
 		runRoundRobin("5");
 	}
@@ -160,7 +160,7 @@ public class StartFeatsTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testUnparseOne() throws PersistenceLayerException
+	void testUnparseOne() throws PersistenceLayerException
 	{
 		expectSingle(setAndUnparse(1), Integer.toString(1));
 	}
@@ -182,7 +182,7 @@ public class StartFeatsTokenTest extends AbstractCDOMTokenTestCase<Race>
 	// }
 
 	@Test
-	public void testUnparseNull()
+	void testUnparseNull()
 	{
 		primaryProf.addToListFor(ListKey.BONUS, null);
 		try

@@ -31,10 +31,10 @@ import pcgen.base.formula.visitor.ReconstructionVisitor;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
 import pcgen.base.testsupport.TestUtilities;
 
-public class FormulaVariableTest extends AbstractFormulaTestCase
+class FormulaVariableTest extends AbstractFormulaTestCase
 {
 	@Test
-	public void testSimpleVariablePositive()
+	void testSimpleVariablePositive()
 	{
 		String formula = "a";
 		setVariable(getVariable(formula), 5);
@@ -53,7 +53,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testSimpleVariableNegative()
+	void testSimpleVariableNegative()
 	{
 		String formula = "a";
 		setVariable(getVariable(formula), -7);
@@ -72,7 +72,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testSimpleVariableDouble()
+	void testSimpleVariableDouble()
 	{
 		String formula = "a";
 		setVariable(getVariable(formula), -7.3);
@@ -91,7 +91,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testAddVariableVariable()
+	void testAddVariableVariable()
 	{
 		String formula = "a+b";
 		setVariable(getVariable("a"), 3);
@@ -108,7 +108,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testAddVariableVariableDouble()
+	void testAddVariableVariableDouble()
 	{
 		String formula = "a+b";
 		setVariable(getVariable("a"), 3.2);
@@ -125,7 +125,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testAddMultiple()
+	void testAddMultiple()
 	{
 		String formula = "a+b+c";
 		setVariable(getVariable("a"), 3.2);
@@ -143,7 +143,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testSubtractInteger()
+	void testSubtractInteger()
 	{
 		String formula = "a-3";
 		setVariable(getVariable("a"), 3.2);
@@ -163,7 +163,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testSubtractVariableVariable()
+	void testSubtractVariableVariable()
 	{
 		String formula = "a-b";
 		setVariable(getVariable("a"), 3.2);
@@ -180,7 +180,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testEqualVariableDifferentVariable()
+	void testEqualVariableDifferentVariable()
 	{
 		String formula = "a==b";
 		setVariable(getVariable("a"), 3.2);
@@ -197,7 +197,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testEqualVariableDifferentType()
+	void testEqualVariableDifferentType()
 	{
 		String formula = "a==b";
 		setVariable(getVariable("a"), 3.2);
@@ -208,7 +208,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testEqualZeroVariableZeroVariable()
+	void testEqualZeroVariableZeroVariable()
 	{
 		String formula = "a==b";
 		setVariable(getVariable("a"), 0.0);
@@ -225,7 +225,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testEqualVariableEqualVariable()
+	void testEqualVariableEqualVariable()
 	{
 		String formula = "a==b";
 		setVariable(getVariable("a"), -2.1);
@@ -252,7 +252,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 	//TODO Exp
 
 	@Test
-	public void testParens()
+	void testParens()
 	{
 		String formula = "a*(b+c)";
 		setVariable(getVariable("a"), 2);
@@ -269,7 +269,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testExtraParens()
+	void testExtraParens()
 	{
 		String formula = "((a/(((b-c)))))";
 		setVariable(getVariable("a"), 3);
@@ -362,7 +362,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testBooleanNegation()
+	void testBooleanNegation()
 	{
 		String formula = "!a";
 		setVariable(getBooleanVariable("a"), Boolean.FALSE);

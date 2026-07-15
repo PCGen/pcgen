@@ -41,14 +41,14 @@ import org.junit.jupiter.api.Test;
  * {@code PreEquipTwoWeaponTest} tests that the PREEQUIPTWOWEAPON tag is
  * working correctly.
  */
-public class PreEquipTwoWeaponTest extends AbstractCharacterTestCase
+class PreEquipTwoWeaponTest extends AbstractCharacterTestCase
 {
 
 	/*
 	 * Class under test for int passes(Prerequisite, PlayerCharacter)
 	 */
 	@Test
-	public void testPassesPrerequisitePlayerCharacter()
+	void testPassesPrerequisitePlayerCharacter()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -84,7 +84,7 @@ public class PreEquipTwoWeaponTest extends AbstractCharacterTestCase
 	 * Test equipment type tests.
 	 */
 	@Test
-	public void testType()
+	void testType()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -120,7 +120,7 @@ public class PreEquipTwoWeaponTest extends AbstractCharacterTestCase
 	 * Test wield category tests.
 	 */
 	@Test
-	public void testWield()
+	void testWield()
 	{
 		final PlayerCharacter character = getCharacter();
 

@@ -20,7 +20,7 @@ import org.junit.jupiter.api.Test;
  * and Comments
  */
 @SuppressWarnings("nls")
-public class PreMoveParserTest extends EnUsLocaleDependentTestCase
+class PreMoveParserTest extends EnUsLocaleDependentTestCase
 {
 	
 	/**
@@ -29,7 +29,7 @@ public class PreMoveParserTest extends EnUsLocaleDependentTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testFly1() throws PersistenceLayerException
+	void testFly1() throws PersistenceLayerException
 	{
 		PreMoveParser parser = new PreMoveParser();
 		Prerequisite prereq = parser.parse("MOVE", "1,Fly=1", false, false);
@@ -46,7 +46,7 @@ public class PreMoveParserTest extends EnUsLocaleDependentTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testFlyAndWalk() throws PersistenceLayerException
+	void testFlyAndWalk() throws PersistenceLayerException
 	{
 		PreMoveParser parser = new PreMoveParser();
 		Prerequisite prereq =
@@ -67,7 +67,7 @@ public class PreMoveParserTest extends EnUsLocaleDependentTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testNotFly1() throws PersistenceLayerException
+	void testNotFly1() throws PersistenceLayerException
 	{
 		PreMoveParser parser = new PreMoveParser();
 		Prerequisite prereq = parser.parse("MOVE", "1,Fly=1", true, false);
@@ -84,7 +84,7 @@ public class PreMoveParserTest extends EnUsLocaleDependentTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testNotFlyAndWalk() throws PersistenceLayerException
+	void testNotFlyAndWalk() throws PersistenceLayerException
 	{
 		PreMoveParser parser = new PreMoveParser();
 		Prerequisite prereq =

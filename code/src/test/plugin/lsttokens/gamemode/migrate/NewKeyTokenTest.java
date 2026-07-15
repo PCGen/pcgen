@@ -52,7 +52,7 @@ class NewKeyTokenTest
 	 * Test method for {@link NewKeyToken#parse(MigrationRule, String, String)}.
 	 */
 	@Test
-	public void testParseValidKey()
+	void testParseValidKey()
 	{
 		assertTrue(token.parse(migrationRule, "ValidKey", gameModeName), "Parse should have been successful");
 		assertEquals("ValidKey", migrationRule.getNewKey(), "Newkey");
@@ -65,7 +65,7 @@ class NewKeyTokenTest
 	 * Test that invalid characters get rejected and the new key field is not set. 
 	 */
 	@Test
-	public void testParseInvalidKeyEquip()
+	void testParseInvalidKeyEquip()
 	{
 		String invalidChars = ",|\\:;.%*=[]";
 		for (char invalid : invalidChars.toCharArray())
@@ -105,7 +105,7 @@ class NewKeyTokenTest
 	 * Test that invalid characters get rejected and the new key field is not set. 
 	 */
 	@Test
-	public void testParseInvalidKeySource()
+	void testParseInvalidKeySource()
 	{
 		String invalidChars = "|\\;%*=[]";
 		for (char invalid : invalidChars.toCharArray())
@@ -143,7 +143,7 @@ class NewKeyTokenTest
 	
 	
 	@Test
-	public void testParseValidKeySource()
+	void testParseValidKeySource()
 	{
 		String validChars = ",:.";
 		for (char valid : validChars.toCharArray())

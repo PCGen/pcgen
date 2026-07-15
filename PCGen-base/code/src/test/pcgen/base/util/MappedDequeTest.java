@@ -24,7 +24,7 @@ import org.junit.jupiter.api.Test;
 
 import pcgen.testsupport.TestSupport;
 
-public class MappedDequeTest
+class MappedDequeTest
 {
 
 	private TypedKey<Character> key1 = new TypedKey<>();
@@ -33,7 +33,7 @@ public class MappedDequeTest
 	private TypedKey<Character> key4 = new TypedKey<>(TestSupport.CONST_F);
 
 	@Test
-	public void testNonNullKey()
+	void testNonNullKey()
 	{
 		MappedDeque deque = new MappedDeque();
 		assertThrows(NullPointerException.class, () -> deque.peek(null));
@@ -45,7 +45,7 @@ public class MappedDequeTest
 	}
 
 	@Test
-	public void testPushPopPeek()
+	void testPushPopPeek()
 	{
 		MappedDeque deque = new MappedDeque();
 		assertNull(deque.peek(key1));
@@ -78,7 +78,7 @@ public class MappedDequeTest
 	}
 
 	@Test
-	public void testSet()
+	void testSet()
 	{
 		MappedDeque deque = new MappedDeque();
 		assertNull(deque.peek(key1));
@@ -120,7 +120,7 @@ public class MappedDequeTest
 	}
 
 	@Test
-	public void testPop()
+	void testPop()
 	{
 		MappedDeque deque = new MappedDeque();
 		assertNull(key1.getDefaultValue());

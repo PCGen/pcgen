@@ -41,7 +41,7 @@ import org.junit.jupiter.api.Test;
 import tokencontent.testsupport.AbstractContentTokenTest;
 import util.TestURI;
 
-public class GlobalCcSkillTest extends AbstractContentTokenTest
+class GlobalCcSkillTest extends AbstractContentTokenTest
 {
 
 	private static CcskillLst token = new CcskillLst();
@@ -75,7 +75,7 @@ public class GlobalCcSkillTest extends AbstractContentTokenTest
 	}
 
 	@Test
-	public void testList()
+	void testList()
 	{
 		PCTemplate source = create(PCTemplate.class, "Source");
 		ParseResult result = token.parseToken(context, source, "LIST");

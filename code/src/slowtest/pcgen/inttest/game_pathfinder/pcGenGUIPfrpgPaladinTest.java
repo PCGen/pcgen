@@ -25,10 +25,10 @@ import org.junit.jupiter.api.Test;
  * Tests loading and exporting a pathfinder paladin.
  * See the PCG file for details
  */
-public class pcGenGUIPfrpgPaladinTest extends PcgenFtlTestCase
+class pcGenGUIPfrpgPaladinTest extends PcgenFtlTestCase
 {
 	@Test
-	public void testCode() throws Exception
+	void testCode() throws Exception
 	{
 		runTest("pf_Paladin");
 	}

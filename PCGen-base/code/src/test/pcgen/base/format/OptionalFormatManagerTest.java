@@ -31,16 +31,16 @@ import pcgen.base.util.SimpleValueStore;
 /**
  * Test the OptionalFormatManager class
  */
-public class OptionalFormatManagerTest
+class OptionalFormatManagerTest
 {
 	@Test
-	public void testConstructor()
+	void testConstructor()
 	{
 		assertThrows(NullPointerException.class, () -> new OptionalFormatManager<>(null));
 	}
 
 	@Test
-	public void testConvertFailNotNumeric()
+	void testConvertFailNotNumeric()
 	{
 		OptionalFormatManager<Number> manager =
 				new OptionalFormatManager<>(new NumberManager());
@@ -48,7 +48,7 @@ public class OptionalFormatManagerTest
 	}
 
 	@Test
-	public void testUnconvertFailNull()
+	void testUnconvertFailNull()
 	{
 		OptionalFormatManager<Number> manager =
 				new OptionalFormatManager<>(new NumberManager());
@@ -57,7 +57,7 @@ public class OptionalFormatManagerTest
 
 	@Test
 	@SuppressWarnings({"rawtypes", "unchecked"})
-	public void testUnconvertFailObject()
+	void testUnconvertFailObject()
 	{
 		//Yes generics are being violated in order to do this test
 		FormatManager formatManager = new OptionalFormatManager<>(new NumberManager());
@@ -66,7 +66,7 @@ public class OptionalFormatManagerTest
 
 	@Test
 	@SuppressWarnings({"rawtypes", "unchecked"})
-	public void testUnconvertFailUnderlying()
+	void testUnconvertFailUnderlying()
 	{
 		//Yes generics are being violated in order to do this test
 		FormatManager formatManager = new OptionalFormatManager<>(new NumberManager());
@@ -74,7 +74,7 @@ public class OptionalFormatManagerTest
 	}
 
 	@Test
-	public void testConvertIndirectFailNotOptional()
+	void testConvertIndirectFailNotOptional()
 	{
 		OptionalFormatManager<Number> manager =
 				new OptionalFormatManager<>(new NumberManager());
@@ -82,7 +82,7 @@ public class OptionalFormatManagerTest
 	}
 
 	@Test
-	public void testConvertEmpty()
+	void testConvertEmpty()
 	{
 		OptionalFormatManager<Number> manager =
 				new OptionalFormatManager<>(new NumberManager());
@@ -91,7 +91,7 @@ public class OptionalFormatManagerTest
 	}
 
 	@Test
-	public void testConvertIndirectEmpty()
+	void testConvertIndirectEmpty()
 	{
 		OptionalFormatManager<Number> manager =
 				new OptionalFormatManager<>(new NumberManager());
@@ -100,7 +100,7 @@ public class OptionalFormatManagerTest
 	}
 
 	@Test
-	public void testConvert()
+	void testConvert()
 	{
 		OptionalFormatManager<Number> manager =
 				new OptionalFormatManager<>(new NumberManager());
@@ -110,7 +110,7 @@ public class OptionalFormatManagerTest
 	}
 
 	@Test
-	public void testUnconvert()
+	void testUnconvert()
 	{
 		OptionalFormatManager<Number> manager =
 				new OptionalFormatManager<>(new NumberManager());
@@ -121,7 +121,7 @@ public class OptionalFormatManagerTest
 	}
 
 	@Test
-	public void testConvertIndirect()
+	void testConvertIndirect()
 	{
 		OptionalFormatManager<Number> manager =
 				new OptionalFormatManager<>(new NumberManager());
@@ -135,7 +135,7 @@ public class OptionalFormatManagerTest
 	}
 
 	@Test
-	public void testGetIdentifier()
+	void testGetIdentifier()
 	{
 		OptionalFormatManager<Number> manager =
 				new OptionalFormatManager<>(new NumberManager());
@@ -143,7 +143,7 @@ public class OptionalFormatManagerTest
 	}
 
 	@Test
-	public void testManagedClass()
+	void testManagedClass()
 	{
 		OptionalFormatManager<Number> manager =
 				new OptionalFormatManager<>(new NumberManager());
@@ -151,7 +151,7 @@ public class OptionalFormatManagerTest
 	}
 
 	@Test
-	public void testHashCodeEquals()
+	void testHashCodeEquals()
 	{
 		OptionalFormatManager<Number> manager =
 				new OptionalFormatManager<>(new NumberManager());
@@ -164,7 +164,7 @@ public class OptionalFormatManagerTest
 	}
 
 	@Test
-	public void testGetComponent()
+	void testGetComponent()
 	{
 		OptionalFormatManager<Number> manager =
 				new OptionalFormatManager<>(new NumberManager());
@@ -172,7 +172,7 @@ public class OptionalFormatManagerTest
 	}
 
 	@Test
-	public void testIsDirect()
+	void testIsDirect()
 	{
 		OptionalFormatManager<Number> manager =
 				new OptionalFormatManager<>(new NumberManager());
@@ -229,7 +229,7 @@ public class OptionalFormatManagerTest
 	}
 
 	@Test
-	public void testInitializeFrom()
+	void testInitializeFrom()
 	{
 		OptionalFormatManager<Number> manager =
 				new OptionalFormatManager<>(new NumberManager());
@@ -239,7 +239,7 @@ public class OptionalFormatManagerTest
 
 
 	@Test
-	public void testEquals()
+	void testEquals()
 	{
 		OptionalFormatManager<Number> manager1 =
 				new OptionalFormatManager<>(new NumberManager());

@@ -27,7 +27,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class DomainsIntegrationTest extends
+class DomainsIntegrationTest extends
 		AbstractListIntegrationTestCase<Deity, Domain>
 {
 
@@ -71,7 +71,7 @@ public class DomainsIntegrationTest extends
 	}
 
 	@Test
-	public void dummyTest()
+	void dummyTest()
 	{
 		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}

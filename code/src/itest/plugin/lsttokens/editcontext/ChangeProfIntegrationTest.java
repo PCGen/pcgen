@@ -32,7 +32,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class ChangeProfIntegrationTest extends
+class ChangeProfIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>
 {
 	private static ChangeprofLst token = new ChangeprofLst();
@@ -57,7 +57,7 @@ public class ChangeProfIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		primaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "Hammer");
@@ -71,7 +71,7 @@ public class ChangeProfIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinRemove() throws PersistenceLayerException
+	void testRoundRobinRemove() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		primaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "Hammer");
@@ -85,7 +85,7 @@ public class ChangeProfIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoSet() throws PersistenceLayerException
+	void testRoundRobinNoSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		primaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "Hammer");
@@ -99,7 +99,7 @@ public class ChangeProfIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoReset() throws PersistenceLayerException
+	void testRoundRobinNoReset() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		primaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "Hammer");

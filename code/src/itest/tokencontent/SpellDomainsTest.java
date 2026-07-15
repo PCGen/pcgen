@@ -44,7 +44,7 @@ import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 import util.TestURI;
 
-public class SpellDomainsTest extends AbstractTokenModelTest
+class SpellDomainsTest extends AbstractTokenModelTest
 {
 
 	private static DomainsToken token = new DomainsToken();
@@ -69,7 +69,7 @@ public class SpellDomainsTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testDirect()
+	void testDirect()
 	{
 		ParseResult result = token.parseToken(context, sp, "Source=1");
 		if (result != ParseResult.SUCCESS)

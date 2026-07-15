@@ -31,7 +31,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.BeforeEach;
 
-public class StatIntegrationTest extends
+class StatIntegrationTest extends
 		AbstractItemIntegrationTestCase<Spell, PCStat>
 {
 

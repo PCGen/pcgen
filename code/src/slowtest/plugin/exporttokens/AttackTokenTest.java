@@ -38,7 +38,7 @@ import org.junit.jupiter.api.Test;
  * {@code ACTokenTest} tests the function of the AC token and
  * thus the calculations of armor class.  
  */
-public class AttackTokenTest extends AbstractCharacterTestCase
+class AttackTokenTest extends AbstractCharacterTestCase
 {
 	PCClass myClass = new PCClass();
 
@@ -78,7 +78,7 @@ public class AttackTokenTest extends AbstractCharacterTestCase
 	 * Test the character's attack calcs with no bonus.
 	 */
 	@Test
-	public void testBase()
+	void testBase()
 	{
 		assertEquals("+2", new AttackToken()
 			.getToken("ATTACK.MELEE.TOTAL", getCharacter(), null), "Total melee attack no bonus");
@@ -91,7 +91,7 @@ public class AttackTokenTest extends AbstractCharacterTestCase
 	 * Test the character's attack calcs with a bonus.
 	 */
 	@Test
-	public void testIterative()
+	void testIterative()
 	{
 		getCharacter().incrementClassLevel(1, myClass, true);
 		getCharacter().calcActiveBonuses();

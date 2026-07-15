@@ -41,7 +41,7 @@ import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 import util.TestURI;
 
-public class PCClassLevelCSkillTest extends AbstractTokenModelTest
+class PCClassLevelCSkillTest extends AbstractTokenModelTest
 {
 
 	private static CskillToken token = new CskillToken();
@@ -62,7 +62,7 @@ public class PCClassLevelCSkillTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testDirect()
+	void testDirect()
 	{
 		PCClassLevel pcl = dragon.getOriginalClassLevel(1);
 		ParseResult result = token.parseToken(context, pcl, "MySkill");

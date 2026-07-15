@@ -32,7 +32,7 @@ import org.junit.jupiter.api.Test;
  * Pins the Double.compare semantics in TotalSkillRankFacet.set()
  * after the SpotBugs FE_FLOATING_POINT_EQUALITY fix (PR #7628).
  */
-public class TotalSkillRankFacetTest
+class TotalSkillRankFacetTest
 {
 	private CharID id;
 	private final TotalSkillRankFacet facet = new TotalSkillRankFacet();
@@ -64,7 +64,7 @@ public class TotalSkillRankFacetTest
 
 	/** Setting the same Double value twice stores once and fires once. */
 	@Test
-	public void sameValueIsNotReapplied()
+	void sameValueIsNotReapplied()
 	{
 		facet.set(id, skill, 3.0d);
 		assertEquals(1, listener.eventCount, "first set should fire");
@@ -76,7 +76,7 @@ public class TotalSkillRankFacetTest
 
 	/** Setting a different Double value fires again with old/new values. */
 	@Test
-	public void changedValueIsReapplied()
+	void changedValueIsReapplied()
 	{
 		facet.set(id, skill, 3.0d);
 		assertEquals(1, listener.eventCount);

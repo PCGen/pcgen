@@ -29,7 +29,7 @@ import org.junit.jupiter.api.Test;
 
 
 @SuppressWarnings("nls")
-public class PreCheckParserTest extends EnUsLocaleDependentTestCase
+class PreCheckParserTest extends EnUsLocaleDependentTestCase
 {
 	
 	/**
@@ -38,7 +38,7 @@ public class PreCheckParserTest extends EnUsLocaleDependentTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testBaseFort4Will7() throws PersistenceLayerException
+	void testBaseFort4Will7() throws PersistenceLayerException
 	{
 		PreCheckParser parser = new PreCheckParser();
 
@@ -62,7 +62,7 @@ public class PreCheckParserTest extends EnUsLocaleDependentTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testBaseWill7() throws PersistenceLayerException
+	void testBaseWill7() throws PersistenceLayerException
 	{
 		PreCheckParser parser = new PreCheckParser();
 
@@ -81,7 +81,7 @@ public class PreCheckParserTest extends EnUsLocaleDependentTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testFort3() throws PersistenceLayerException
+	void testFort3() throws PersistenceLayerException
 	{
 		PreCheckParser parser = new PreCheckParser();
 

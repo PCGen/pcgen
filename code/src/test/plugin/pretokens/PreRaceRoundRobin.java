@@ -24,7 +24,7 @@ import plugin.pretokens.writer.PreRaceWriter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class PreRaceRoundRobin extends AbstractBasicRoundRobin
+class PreRaceRoundRobin extends AbstractBasicRoundRobin
 {
 	@BeforeEach
 	@Override
@@ -48,56 +48,56 @@ public class PreRaceRoundRobin extends AbstractBasicRoundRobin
 	}
 
 	@Test
-	public void testRaceType()
+	void testRaceType()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":1,RACETYPE=Foo");
 	}
 
 	@Test
-	public void testRaceTypeCount()
+	void testRaceTypeCount()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":2,RACETYPE=Foo");
 	}
 
 	@Test
-	public void testMultipleRaceType()
+	void testMultipleRaceType()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":1,RACETYPE=Bar,RACETYPE=Foo");
 	}
 
 	@Test
-	public void testRaceTypeComplex()
+	void testRaceTypeComplex()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":3,Foo,RACETYPE=Foo.Bar");
 	}
 
 	@Test
-	public void testRaceSubType()
+	void testRaceSubType()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":1,RACESUBTYPE=Foo");
 	}
 
 	@Test
-	public void testRaceSubTypeCount()
+	void testRaceSubTypeCount()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":2,RACESUBTYPE=Foo");
 	}
 
 	@Test
-	public void testMultipleRaceSubType()
+	void testMultipleRaceSubType()
 	{
 		runRoundRobin("PRE" + getBaseString()
 				+ ":1,RACESUBTYPE=Bar,RACESUBTYPE=Foo");
 	}
 
 	@Test
-	public void testRaceSubTypeComplex()
+	void testRaceSubTypeComplex()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":3,Foo,RACESUBTYPE=Bar");
 	}
 
 	@Test
-	public void testNegateItem()
+	void testNegateItem()
 	{
 		AbstractPreRoundRobin.runSimpleRoundRobin("PRE" + getBaseString() + ":1,Foo,[TYPE=Bar]",
 				"PREMULT:2,[PRE" + getBaseString() + ":1,Foo],[!PRE"
@@ -105,7 +105,7 @@ public class PreRaceRoundRobin extends AbstractBasicRoundRobin
 	}
 
 	@Test
-	public void testNegateItemRaceType()
+	void testNegateItemRaceType()
 	{
 		AbstractPreRoundRobin.runSimpleRoundRobin("PRE" + getBaseString()
 				+ ":1,Foo,[RACETYPE=Bar]", "PREMULT:2,[PRE" + getBaseString()
@@ -113,7 +113,7 @@ public class PreRaceRoundRobin extends AbstractBasicRoundRobin
 	}
 
 	@Test
-	public void testNegateItemRaceSubType()
+	void testNegateItemRaceSubType()
 	{
 		AbstractPreRoundRobin.runSimpleRoundRobin("PRE" + getBaseString()
 				+ ":1,Foo,[RACESUBTYPE=Bar]", "PREMULT:2,[PRE"

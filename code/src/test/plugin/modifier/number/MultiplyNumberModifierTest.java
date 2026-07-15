@@ -30,13 +30,13 @@ import plugin.modifier.testsupport.EvalManagerUtilities;
 
 import org.junit.jupiter.api.Test;
 
-public class MultiplyNumberModifierTest
+class MultiplyNumberModifierTest
 {
 
 	private final FormatManager<Number> numManager = new NumberManager();
 
 	@Test
-	public void testInvalidConstruction()
+	void testInvalidConstruction()
 	{
 		try
 		{
@@ -51,147 +51,147 @@ public class MultiplyNumberModifierTest
 	}
 
 	@Test
-	public void testProcessNegative1()
+	void testProcessNegative1()
 	{
 		BasicCalculation modifier = new MultiplyModifierFactory();
 		assertEquals(6, modifier.process(-2, -3));
 	}
 
 	@Test
-	public void testProcessNegative2()
+	void testProcessNegative2()
 	{
 		BasicCalculation modifier = new MultiplyModifierFactory();
 		assertEquals(8, modifier.process(-4, -2));
 	}
 
 	@Test
-	public void testProcessPositive1()
+	void testProcessPositive1()
 	{
 		BasicCalculation modifier = new MultiplyModifierFactory();
 		assertEquals(6, modifier.process(2, 3));
 	}
 
 	@Test
-	public void testProcessPositive2()
+	void testProcessPositive2()
 	{
 		BasicCalculation modifier = new MultiplyModifierFactory();
 		assertEquals(12, modifier.process(4, 3));
 	}
 
 	@Test
-	public void testProcessZero1()
+	void testProcessZero1()
 	{
 		BasicCalculation modifier = new MultiplyModifierFactory();
 		assertEquals(0, modifier.process(0, 3));
 	}
 
 	@Test
-	public void testProcessZero2()
+	void testProcessZero2()
 	{
 		BasicCalculation modifier = new MultiplyModifierFactory();
 		assertEquals(0, modifier.process(4, 0));
 	}
 
 	@Test
-	public void testProcessZero3()
+	void testProcessZero3()
 	{
 		BasicCalculation modifier = new MultiplyModifierFactory();
 		assertEquals(0, modifier.process(0, -3));
 	}
 
 	@Test
-	public void testProcessZero4()
+	void testProcessZero4()
 	{
 		BasicCalculation modifier = new MultiplyModifierFactory();
 		assertEquals(0, modifier.process(-4, 0));
 	}
 
 	@Test
-	public void testProcessMixed1()
+	void testProcessMixed1()
 	{
 		BasicCalculation modifier = new MultiplyModifierFactory();
 		assertEquals(-35, modifier.process(5, -7));
 	}
 
 	@Test
-	public void testProcessMixed2()
+	void testProcessMixed2()
 	{
 		BasicCalculation modifier = new MultiplyModifierFactory();
 		assertEquals(-12, modifier.process(-4, 3));
 	}
 
 	@Test
-	public void testProcessDoubleNegative1()
+	void testProcessDoubleNegative1()
 	{
 		BasicCalculation modifier = new MultiplyModifierFactory();
 		assertEquals(3.57, modifier.process(-2.1, -1.7));
 	}
 
 	@Test
-	public void testProcessDoubleNegative2()
+	void testProcessDoubleNegative2()
 	{
 		BasicCalculation modifier = new MultiplyModifierFactory();
 		assertEquals(4.16, modifier.process(-2.6, -1.6));
 	}
 
 	@Test
-	public void testProcessDoublePositive1()
+	void testProcessDoublePositive1()
 	{
 		BasicCalculation modifier = new MultiplyModifierFactory();
 		assertEquals(9.1, modifier.process(2.6, 3.5));
 	}
 
 	@Test
-	public void testProcessDoublePositive2()
+	void testProcessDoublePositive2()
 	{
 		BasicCalculation modifier = new MultiplyModifierFactory();
 		assertEquals(5.89, modifier.process(1.9, 3.1));
 	}
 
 	@Test
-	public void testProcessDoubleZero1()
+	void testProcessDoubleZero1()
 	{
 		BasicCalculation modifier = new MultiplyModifierFactory();
 		assertEquals(0.0, modifier.process(0.0, 3.1));
 	}
 
 	@Test
-	public void testProcessDoubleZero2()
+	void testProcessDoubleZero2()
 	{
 		BasicCalculation modifier = new MultiplyModifierFactory();
 		assertEquals(0.0, modifier.process(4.2, 0.0));
 	}
 
 	@Test
-	public void testProcessDoubleZero3()
+	void testProcessDoubleZero3()
 	{
 		BasicCalculation modifier = new MultiplyModifierFactory();
 		assertEquals(-0.0, modifier.process(0.0, -3.4));
 	}
 
 	@Test
-	public void testProcessDoubleZero4()
+	void testProcessDoubleZero4()
 	{
 		BasicCalculation modifier = new MultiplyModifierFactory();
 		assertEquals(-0.0, modifier.process(-4.3, 0.0));
 	}
 
 	@Test
-	public void testProcessDoubleMixed1()
+	void testProcessDoubleMixed1()
 	{
 		BasicCalculation modifier = new MultiplyModifierFactory();
 		assertEquals(-38.16, modifier.process(5.3, -7.2));
 	}
 
 	@Test
-	public void testProcessDoubleMixed2()
+	void testProcessDoubleMixed2()
 	{
 		BasicCalculation modifier = new MultiplyModifierFactory();
 		assertEquals(-3.08, modifier.process(-2.2, 1.4));
 	}
 
 	@Test
-	public void testGetModifier()
+	void testGetModifier()
 	{
 		MultiplyModifierFactory factory = new MultiplyModifierFactory();
 		FormulaModifier<Number> modifier =

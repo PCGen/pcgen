@@ -45,7 +45,7 @@ import org.junit.jupiter.api.Test;
  * 
  * 
  */
-public class SkillCostDisplayTest extends AbstractCharacterTestCase
+class SkillCostDisplayTest extends AbstractCharacterTestCase
 {
 
 	private PCClass pcClass;
@@ -117,7 +117,7 @@ public class SkillCostDisplayTest extends AbstractCharacterTestCase
 	 * bonus feats.
 	 */
 	@Test
-	public void testGetModifierExplanation()
+	void testGetModifierExplanation()
 	{
 		bluff =
 				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(

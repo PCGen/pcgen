@@ -46,7 +46,7 @@ class CampaignSourceEntryTest
 	 * Test method for {@link pcgen.persistence.lst.CampaignSourceEntry#parseSuffix(String, URI, String)}
 	 */
 	@Test
-	public void testParseSuffix()
+	void testParseSuffix()
 	{
 		String value = "Full tag contents goes here";
 
@@ -109,7 +109,7 @@ class CampaignSourceEntryTest
 	 * Test method for {@link pcgen.persistence.lst.CampaignSourceEntry#parseSuffix(String, URI, String)}
 	 */
 	@Test
-	public void testParseSuffixInvalid()
+	void testParseSuffixInvalid()
 	{
 		String value = "Full tag contents goes here";
 
@@ -139,7 +139,7 @@ class CampaignSourceEntryTest
 	 * Test method for {@link pcgen.persistence.lst.CampaignSourceEntry#parseSuffix(String, URI, String)}
 	 */
 	@Test
-	public void testParseSuffixInlineBracket()
+	void testParseSuffixInlineBracket()
 	{
 		String value = "Full tag contents goes here";
 

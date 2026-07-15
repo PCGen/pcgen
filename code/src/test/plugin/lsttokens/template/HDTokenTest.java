@@ -40,7 +40,7 @@ import plugin.pretokens.writer.PreHDWriter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class HDTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
+class HDTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 {
 
 	static HdToken token = new HdToken();
@@ -80,119 +80,119 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 
 	@Test
-	public void testInvalidInputHDonly()
+	void testInvalidInputHDonly()
 	{
 		assertFalse(parse("3+"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputPipe()
+	void testInvalidInputPipe()
 	{
 		assertFalse(parse("3+|SR|3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOneColon()
+	void testInvalidInputOneColon()
 	{
 		assertFalse(parse("3+:SR|2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptyHD()
+	void testInvalidInputEmptyHD()
 	{
 		assertFalse(parse(":DR:3/+1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptySubtype()
+	void testInvalidInputEmptySubtype()
 	{
 		assertFalse(parse("4+::3/+1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptyDR()
+	void testInvalidInputEmptyDR()
 	{
 		assertFalse(parse("3+:DR:"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptyDRNoColon()
+	void testInvalidInputEmptyDRNoColon()
 	{
 		assertFalse(parse("3+:DR"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoSlashDR()
+	void testInvalidInputNoSlashDR()
 	{
 		assertFalse(parse("3+:DR:1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputTwoSlashDR()
+	void testInvalidInputTwoSlashDR()
 	{
 		assertFalse(parse("3+:DR:1/3/+4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNegativeLegs()
+	void testInvalidInputNegativeLegs()
 	{
 		assertFalse(parse("3+:LEGS:-4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptySR()
+	void testInvalidInputEmptySR()
 	{
 		assertFalse(parse("3+:SR:"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptySA()
+	void testInvalidInputEmptySA()
 	{
 		assertFalse(parse("3+:SAB:"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptyCR()
+	void testInvalidInputEmptyCR()
 	{
 		assertFalse(parse("3+:CR:"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptySRNoColon()
+	void testInvalidInputEmptySRNoColon()
 	{
 		assertFalse(parse("3+:SR"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptySANoColon()
+	void testInvalidInputEmptySANoColon()
 	{
 		assertFalse(parse("3+:SAB"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptyCRNoColon()
+	void testInvalidInputEmptyCRNoColon()
 	{
 		assertFalse(parse("3+:CR"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoAbbrs()
+	void testInvalidInputNoAbbrs()
 	{
 		assertFalse(parse("3+:C:3"));
 		assertFalse(parse("3+:D:1/+2"));
@@ -204,151 +204,151 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 
 	@Test
-	public void testInvalidInputBadClear()
+	void testInvalidInputBadClear()
 	{
 		assertFalse(parse(".CLEARSTUFF"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoSpecificClear()
+	void testInvalidInputNoSpecificClear()
 	{
 		assertFalse(parse(".CLEAR.3+:CR:3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputBadHDRangePlus()
+	void testInvalidInputBadHDRangePlus()
 	{
 		assertFalse(parse("+3:SAB:Special Abil"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputBadHDRangeMult()
+	void testInvalidInputBadHDRangeMult()
 	{
 		assertFalse(parse("*3:SAB:Special Abil"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputBadHDRangeTwoDash()
+	void testInvalidInputBadHDRangeTwoDash()
 	{
 		assertFalse(parse("1--3:SAB:Special Abil"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputBadHDRangeEndDash()
+	void testInvalidInputBadHDRangeEndDash()
 	{
 		assertFalse(parse("4-:SAB:Special Abil"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputBadHDRangeUpTo()
+	void testInvalidInputBadHDRangeUpTo()
 	{
 		assertFalse(parse("-4:SAB:Special Abil"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBadTemplateToken()
+	void testInvalidBadTemplateToken()
 	{
 		assertFalse(parse("5:CR:x"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testRoundRobinRangeDR() throws PersistenceLayerException
+	void testRoundRobinRangeDR() throws PersistenceLayerException
 	{
 		runRoundRobin("2-5:DR:1/+3");
 	}
 
 	@Test
-	public void testRoundRobinRangeSRNumber() throws PersistenceLayerException
+	void testRoundRobinRangeSRNumber() throws PersistenceLayerException
 	{
 		runRoundRobin("3-5:SR:25");
 	}
 
 	@Test
-	public void testRoundRobinRangeSRFormula() throws PersistenceLayerException
+	void testRoundRobinRangeSRFormula() throws PersistenceLayerException
 	{
 		runRoundRobin("3-6:SR:Formula");
 	}
 
 	@Test
-	public void testRoundRobinRangeSA() throws PersistenceLayerException
+	void testRoundRobinRangeSA() throws PersistenceLayerException
 	{
 		runRoundRobin("5-7:SAB:Special Ability, Man!");
 	}
 
 	@Test
-	public void testRoundRobinRangeCRNumber() throws PersistenceLayerException
+	void testRoundRobinRangeCRNumber() throws PersistenceLayerException
 	{
 		runRoundRobin("4-11:CR:3");
 	}
 
 	@Test
-	public void testRoundRobinRangeCRNegative() throws PersistenceLayerException
+	void testRoundRobinRangeCRNegative() throws PersistenceLayerException
 	{
 		runRoundRobin("4-9:CR:-2");
 	}
 
 	@Test
-	public void testRoundRobinSameHD() throws PersistenceLayerException
+	void testRoundRobinSameHD() throws PersistenceLayerException
 	{
 		runRoundRobin("4-4:CR:2");
 	}
 
 	@Test
-	public void testRoundRobinMinimumDR() throws PersistenceLayerException
+	void testRoundRobinMinimumDR() throws PersistenceLayerException
 	{
 		runRoundRobin("2+:DR:1/+3");
 	}
 
 	@Test
-	public void testRoundRobinMinimumSRNumber()
+	void testRoundRobinMinimumSRNumber()
 			throws PersistenceLayerException
 	{
 		runRoundRobin("3+:SR:25");
 	}
 
 	@Test
-	public void testRoundRobinMinimumSRFormula()
+	void testRoundRobinMinimumSRFormula()
 			throws PersistenceLayerException
 	{
 		runRoundRobin("3+:SR:Formula");
 	}
 
 	@Test
-	public void testRoundRobinMinimumSA() throws PersistenceLayerException
+	void testRoundRobinMinimumSA() throws PersistenceLayerException
 	{
 		runRoundRobin("5+:SAB:Special Ability, Man!");
 	}
 
 	@Test
-	public void testRoundRobinMinimumCRNumber()
+	void testRoundRobinMinimumCRNumber()
 			throws PersistenceLayerException
 	{
 		runRoundRobin("4+:CR:3");
 	}
 
 	@Test
-	public void testRoundRobinMinimumCRNegative()
+	void testRoundRobinMinimumCRNegative()
 			throws PersistenceLayerException
 	{
 		runRoundRobin("4+:CR:-5");
 	}
 
 	@Test
-	public void testRoundRobinMultiple() throws PersistenceLayerException
+	void testRoundRobinMultiple() throws PersistenceLayerException
 	{
 		runRoundRobin("4+:CR:-3", "5+:SAB:Special Ability, Man!");
 	}
 
 	@Test
-	public void testRoundRobinMultipleSame() throws PersistenceLayerException
+	void testRoundRobinMultipleSame() throws PersistenceLayerException
 	{
 		runRoundRobin("4+:CR:-1", "4+:SAB:Special Ability, Man!");
 	}
@@ -366,7 +366,7 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 
 	@Test
-	public void testParseClear()
+	void testParseClear()
 	{
 		assertTrue(parse(Constants.LST_DOT_CLEAR));
 		assertCleanConstruction();

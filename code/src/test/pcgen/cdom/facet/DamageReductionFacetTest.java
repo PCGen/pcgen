@@ -43,7 +43,7 @@ import org.junit.jupiter.api.Test;
  * This class tests the handling of DRs in PCGen
  */
 @SuppressWarnings("nls")
-public class DamageReductionFacetTest extends
+class DamageReductionFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, DamageReduction>
 {
 	private final DamageReductionFacet facet = new DamageReductionFacet();
@@ -73,7 +73,7 @@ public class DamageReductionFacetTest extends
 	 * Test the retrieval of the DR String
 	 */
 	@Test
-	public void testGetDRString()
+	void testGetDRString()
 	{
 		DamageReductionFacet drFacet = new DamageReductionFacet();
 		drFacet.setPrerequisiteFacet(new PrerequisiteFacet());

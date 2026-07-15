@@ -29,7 +29,7 @@ import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
 import org.junit.jupiter.api.Test;
 
-public class FreeTokenTest extends AbstractKitTokenTestCase<KitSkill>
+class FreeTokenTest extends AbstractKitTokenTestCase<KitSkill>
 {
 
 	static FreeToken token = new FreeToken();
@@ -55,13 +55,13 @@ public class FreeTokenTest extends AbstractKitTokenTestCase<KitSkill>
 	}
 
 	@Test
-	public void testInvalidInputString()
+	void testInvalidInputString()
 	{
 		internalTestInvalidInputString(null);
 	}
 
 	@Test
-	public void testInvalidInputStringSet()
+	void testInvalidInputStringSet()
 	{
 		assertTrue(parse("YES"));
 		assertTrue(parseSecondary("YES"));
@@ -87,7 +87,7 @@ public class FreeTokenTest extends AbstractKitTokenTestCase<KitSkill>
 	}
 
 	@Test
-	public void testValidInputs()
+	void testValidInputs()
 	{
 		assertTrue(parse("YES"));
 		assertEquals(Boolean.TRUE, getValue());
@@ -113,13 +113,13 @@ public class FreeTokenTest extends AbstractKitTokenTestCase<KitSkill>
 	}
 
 	@Test
-	public void testRoundRobinYes() throws PersistenceLayerException
+	void testRoundRobinYes() throws PersistenceLayerException
 	{
 		runRoundRobin("YES");
 	}
 
 	@Test
-	public void testRoundRobinNo() throws PersistenceLayerException
+	void testRoundRobinNo() throws PersistenceLayerException
 	{
 		runRoundRobin("NO");
 	}

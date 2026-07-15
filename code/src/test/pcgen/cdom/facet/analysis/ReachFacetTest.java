@@ -36,7 +36,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class ReachFacetTest
+class ReachFacetTest
 {
 	/*
 	 * NOTE: This is not literal unit testing - it is leveraging the existing
@@ -53,7 +53,7 @@ public class ReachFacetTest
 	private Map<CharID, Double> bonusInfo;
 
 	@BeforeEach
-	public void setUp() throws Exception
+	void setUp() throws Exception
 	{
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
@@ -65,7 +65,7 @@ public class ReachFacetTest
 	}
 
 	@AfterEach
-	public void tearDown()
+	void tearDown()
 	{
 		id = null;
 		altid = null;
@@ -76,13 +76,13 @@ public class ReachFacetTest
 	}
 
 	@Test
-	public void testReachUnsetZero()
+	void testReachUnsetZero()
 	{
 		assertEquals(0, facet.getReach(id));
 	}
 
 	@Test
-	public void testWithNothingInRaceDefaultsTo5()
+	void testWithNothingInRaceDefaultsTo5()
 	{
 		rfacet.set(id, new Race());
 		assertEquals(5, facet.getReach(id));
@@ -91,7 +91,7 @@ public class ReachFacetTest
 	}
 
 	@Test
-	public void testAvoidPollution()
+	void testAvoidPollution()
 	{
 		Race r = new Race();
 		r.put(IntegerKey.REACH, 5);
@@ -100,7 +100,7 @@ public class ReachFacetTest
 	}
 
 	@Test
-	public void testGetFromRace()
+	void testGetFromRace()
 	{
 		Race r = new Race();
 		r.put(IntegerKey.REACH, 5);
@@ -109,7 +109,7 @@ public class ReachFacetTest
 	}
 
 	@Test
-	public void testGetFromTemplateLowerOverridesDefault()
+	void testGetFromTemplateLowerOverridesDefault()
 	{
 		rfacet.set(id, new Race());
 		PCTemplate t = new PCTemplate();
@@ -121,7 +121,7 @@ public class ReachFacetTest
 	}
 
 	@Test
-	public void testGetFromTemplateHigherOverridesDefault()
+	void testGetFromTemplateHigherOverridesDefault()
 	{
 		rfacet.set(id, new Race());
 		PCTemplate t = new PCTemplate();
@@ -133,7 +133,7 @@ public class ReachFacetTest
 	}
 
 	@Test
-	public void testGetFromTemplateLowerOverridesRace()
+	void testGetFromTemplateLowerOverridesRace()
 	{
 		Race r = new Race();
 		r.put(IntegerKey.REACH, 5);
@@ -147,7 +147,7 @@ public class ReachFacetTest
 	}
 
 	@Test
-	public void testGetFromTemplateHigherOverridesRace()
+	void testGetFromTemplateHigherOverridesRace()
 	{
 		Race r = new Race();
 		r.put(IntegerKey.REACH, 5);
@@ -161,7 +161,7 @@ public class ReachFacetTest
 	}
 
 	@Test
-	public void testGetFromTemplateSecondOverrides()
+	void testGetFromTemplateSecondOverrides()
 	{
 		Race r = new Race();
 		r.put(IntegerKey.REACH, 5);
@@ -182,7 +182,7 @@ public class ReachFacetTest
 	}
 
 	@Test
-	public void testGetWithBonus()
+	void testGetWithBonus()
 	{
 		Race r = new Race();
 		r.put(IntegerKey.REACH, 5);

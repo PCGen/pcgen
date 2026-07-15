@@ -35,7 +35,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 @ExtendWith(PCGenTestEnvironment.class)
-public class PreReqHandlerTest
+class PreReqHandlerTest
 {
 
 	/**
@@ -59,7 +59,7 @@ public class PreReqHandlerTest
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testToHtml() throws PersistenceLayerException
+	void testToHtml() throws PersistenceLayerException
 	{
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		final List<Prerequisite> list = new ArrayList<>();

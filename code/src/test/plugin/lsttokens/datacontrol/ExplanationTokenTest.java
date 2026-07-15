@@ -44,7 +44,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import util.TestURI;
 
-public class ExplanationTokenTest
+class ExplanationTokenTest
 {
 
 	private static ExplanationToken token = new ExplanationToken();
@@ -54,14 +54,14 @@ public class ExplanationTokenTest
 	private LoadContext context;
 
 	@BeforeAll
-	public static void classSetUp()
+	static void classSetUp()
 	{
 		testCampaign =
 				new CampaignSourceEntry(new Campaign(), TestURI.getURI());
 	}
 
 	@BeforeEach
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		TokenRegistration.clearTokens();
 		TokenRegistration.register(token);
@@ -69,7 +69,7 @@ public class ExplanationTokenTest
 	}
 
 	@AfterEach
-	public void tearDown()
+	void tearDown()
 	{
 		TokenRegistration.clearTokens();
 		context = null;
@@ -77,7 +77,7 @@ public class ExplanationTokenTest
 	}
 
 	@AfterAll
-	public static void classTearDown()
+	static void classTearDown()
 	{
 		token = null;
 		testCampaign = null;
@@ -95,19 +95,19 @@ public class ExplanationTokenTest
 	}
 
 	@Test
-	public void testInvalidInputNullString()
+	void testInvalidInputNullString()
 	{
 		Assertions.assertFalse(token.parseToken(context, cd, null).passed());
 	}
 
 	@Test
-	public void testInvalidInputEmptyString()
+	void testInvalidInputEmptyString()
 	{
 		Assertions.assertFalse(token.parseToken(context, cd, "").passed());
 	}
 
 	@Test
-	public void testValidStringYes()
+	void testValidStringYes()
 	{
 		assertNull(cd.getExplanation());
 		assertTrue(token.parseToken(context, cd, "YES").passed());
@@ -120,7 +120,7 @@ public class ExplanationTokenTest
 	}
 
 	@Test
-	public void testValidStringNo()
+	void testValidStringNo()
 	{
 		assertNull(cd.getExplanation());
 		String str = "Wow! Some String?!?";

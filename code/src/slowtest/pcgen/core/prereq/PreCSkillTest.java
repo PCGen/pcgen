@@ -41,7 +41,7 @@ import org.junit.jupiter.api.Test;
  * {@code PreCSkillTest} tests that the PRECSKILL tag is
  * working correctly.
  */
-public class PreCSkillTest extends AbstractCharacterTestCase
+class PreCSkillTest extends AbstractCharacterTestCase
 {
 	PCClass myClass = new PCClass();
 	private Skill spy1;
@@ -55,7 +55,7 @@ public class PreCSkillTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testCSkill() throws PersistenceLayerException
+	void testCSkill() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, myClass, true);
@@ -113,7 +113,7 @@ public class PreCSkillTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testCSkillServesAs() throws Exception
+	void testCSkillServesAs() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, myClass, true);

@@ -34,7 +34,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class LocalAddedSkillCostFacetTest
+class LocalAddedSkillCostFacetTest
 {
 	private CharID id;
 	private CharID altid;
@@ -46,7 +46,7 @@ public class LocalAddedSkillCostFacetTest
 	private PCClass class3;
 
 	@BeforeEach
-	public void setUp() throws Exception
+	void setUp() throws Exception
 	{
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
@@ -60,7 +60,7 @@ public class LocalAddedSkillCostFacetTest
 	}
 
 	@AfterEach
-	public void tearDown()
+	void tearDown()
 	{
 		id = null;
 		altid = null;
@@ -72,7 +72,7 @@ public class LocalAddedSkillCostFacetTest
 	}
 
 	@Test
-	public void testAddNullID()
+	void testAddNullID()
 	{
 		try
 		{
@@ -86,7 +86,7 @@ public class LocalAddedSkillCostFacetTest
 	}
 
 	@Test
-	public void testAddNullClass()
+	void testAddNullClass()
 	{
 		try
 		{
@@ -100,7 +100,7 @@ public class LocalAddedSkillCostFacetTest
 	}
 
 	@Test
-	public void testAddNullSkill()
+	void testAddNullSkill()
 	{
 		try
 		{
@@ -114,7 +114,7 @@ public class LocalAddedSkillCostFacetTest
 	}
 
 	@Test
-	public void testAddNullCost()
+	void testAddNullCost()
 	{
 		try
 		{
@@ -128,7 +128,7 @@ public class LocalAddedSkillCostFacetTest
 	}
 
 	@Test
-	public void testAddNullSource()
+	void testAddNullSource()
 	{
 		Skill t1 = getObject();
 		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, t1));
@@ -142,7 +142,7 @@ public class LocalAddedSkillCostFacetTest
 	}
 
 	@Test
-	public void testAddContains()
+	void testAddContains()
 	{
 		Skill t1 = getObject();
 		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, t1));
@@ -156,7 +156,7 @@ public class LocalAddedSkillCostFacetTest
 	}
 
 	@Test
-	public void testEmpty()
+	void testEmpty()
 	{
 		Skill t1 = getObject();
 		for (SkillCost sc : SkillCost.values())
@@ -166,7 +166,7 @@ public class LocalAddedSkillCostFacetTest
 	}
 
 	@Test
-	public void testAddTwoSources()
+	void testAddTwoSources()
 	{
 		Skill t1 = getObject();
 		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, t1));
@@ -186,7 +186,7 @@ public class LocalAddedSkillCostFacetTest
 	}
 
 	@Test
-	public void testAddTwoClasses()
+	void testAddTwoClasses()
 	{
 		Skill t1 = getObject();
 		Skill t2 = getObject();
@@ -212,7 +212,7 @@ public class LocalAddedSkillCostFacetTest
 	}
 
 	@Test
-	public void testAddMultGet()
+	void testAddMultGet()
 	{
 		Skill t1 = getObject();
 		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, t1));
@@ -233,7 +233,7 @@ public class LocalAddedSkillCostFacetTest
 	}
 
 	@Test
-	public void testRemoveNullID()
+	void testRemoveNullID()
 	{
 		try
 		{
@@ -247,7 +247,7 @@ public class LocalAddedSkillCostFacetTest
 	}
 
 	@Test
-	public void testRemoveNullClass()
+	void testRemoveNullClass()
 	{
 		try
 		{
@@ -261,7 +261,7 @@ public class LocalAddedSkillCostFacetTest
 	}
 
 	@Test
-	public void testRemoveNullSkill()
+	void testRemoveNullSkill()
 	{
 		try
 		{
@@ -275,7 +275,7 @@ public class LocalAddedSkillCostFacetTest
 	}
 
 	@Test
-	public void testRemoveNullCost()
+	void testRemoveNullCost()
 	{
 		try
 		{
@@ -289,14 +289,14 @@ public class LocalAddedSkillCostFacetTest
 	}
 
 	@Test
-	public void testRemoveUseless()
+	void testRemoveUseless()
 	{
 		//Just don't throw an exception
 		getFacet().remove(id, class1, SkillCost.CLASS, getAltObject(), source1);
 	}
 
 	@Test
-	public void testRemoveUselessSkill()
+	void testRemoveUselessSkill()
 	{
 		Skill t1 = getObject();
 		getFacet().add(id, class1, SkillCost.CLASS, t1, source1);
@@ -305,7 +305,7 @@ public class LocalAddedSkillCostFacetTest
 	}
 
 	@Test
-	public void testRemoveUselessCost()
+	void testRemoveUselessCost()
 	{
 		Skill t1 = getObject();
 		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, t1));
@@ -322,7 +322,7 @@ public class LocalAddedSkillCostFacetTest
 	}
 
 	@Test
-	public void testRemoveUselessClass()
+	void testRemoveUselessClass()
 	{
 		Skill t1 = getObject();
 		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, t1));
@@ -342,7 +342,7 @@ public class LocalAddedSkillCostFacetTest
 	}
 
 	@Test
-	public void testRemoveUselessSource()
+	void testRemoveUselessSource()
 	{
 		Skill t1 = getObject();
 		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, t1));
@@ -355,7 +355,7 @@ public class LocalAddedSkillCostFacetTest
 	}
 
 	@Test
-	public void testRemoveSecondSource()
+	void testRemoveSecondSource()
 	{
 		Skill t1 = getObject();
 		PCClass source2 = new PCClass();
@@ -368,7 +368,7 @@ public class LocalAddedSkillCostFacetTest
 	}
 
 	@Test
-	public void testRemoveDiffCost()
+	void testRemoveDiffCost()
 	{
 		Skill t1 = getObject();
 		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, t1));
@@ -379,7 +379,7 @@ public class LocalAddedSkillCostFacetTest
 	}
 
 	@Test
-	public void testAddSingleRemove()
+	void testAddSingleRemove()
 	{
 		Skill t1 = getObject();
 		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, t1));
@@ -390,7 +390,7 @@ public class LocalAddedSkillCostFacetTest
 	}
 
 	@Test
-	public void testAddSingleTwiceRemove()
+	void testAddSingleTwiceRemove()
 	{
 		Skill t1 = getObject();
 		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, t1));
@@ -404,7 +404,7 @@ public class LocalAddedSkillCostFacetTest
 	}
 
 	@Test
-	public void testAddMultCostRemove()
+	void testAddMultCostRemove()
 	{
 		Skill t1 = getObject();
 		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, t1));
@@ -424,7 +424,7 @@ public class LocalAddedSkillCostFacetTest
 	}
 
 	@Test
-	public void testAddMultSourceRemove()
+	void testAddMultSourceRemove()
 	{
 		Skill t1 = getObject();
 		Skill t2 = getAltObject();
@@ -441,14 +441,14 @@ public class LocalAddedSkillCostFacetTest
 	}
 
 	@Test
-	public void testCopyContentsNone()
+	void testCopyContentsNone()
 	{
 		//Just no exceptions...
 		getFacet().copyContents(altid, id);
 	}
 
 	@Test
-	public void testCopyContents()
+	void testCopyContents()
 	{
 		Skill t1 = getObject();
 		Skill t2 = getAltObject();

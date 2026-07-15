@@ -30,16 +30,16 @@ import org.junit.jupiter.api.Test;
 /**
  * Test the ParsingSeparator class
  */
-public class ParsingSeparatorTest
+class ParsingSeparatorTest
 {
 	@Test
-	public void testConstructor()
+	void testConstructor()
 	{
 		assertThrows(NullPointerException.class, () -> new ParsingSeparator(null, ','));
 	}
 
 	@Test
-	public void testEmpty()
+	void testEmpty()
 	{
 		ParsingSeparator separator = new ParsingSeparator("", ',');
 		assertFalse(separator.hasNext());
@@ -95,7 +95,7 @@ public class ParsingSeparatorTest
 	}
 
 	@Test
-	public void testMismatchedOpen()
+	void testMismatchedOpen()
 	{
 		ParsingSeparator separator = new ParsingSeparator("a,b(c,d", ',');
 		separator.addGroupingPair('(', ')');
@@ -114,7 +114,7 @@ public class ParsingSeparatorTest
 	}
 
 	@Test
-	public void testMismatchedClosed()
+	void testMismatchedClosed()
 	{
 		ParsingSeparator separator = new ParsingSeparator("a,b)c,d", ',');
 		separator.addGroupingPair('(', ')');
@@ -133,7 +133,7 @@ public class ParsingSeparatorTest
 	}
 
 	@Test
-	public void testMismatchedOffset()
+	void testMismatchedOffset()
 	{
 		ParsingSeparator separator = new ParsingSeparator("a,b(c,[d)]", ',');
 		separator.addGroupingPair('(', ')');
@@ -153,7 +153,7 @@ public class ParsingSeparatorTest
 	}
 
 	@Test
-	public void testSimple()
+	void testSimple()
 	{
 		ParsingSeparator separator = new ParsingSeparator("a,b(c,d)", ',');
 		separator.addGroupingPair('(', ')');
@@ -174,7 +174,7 @@ public class ParsingSeparatorTest
 	}
 
 	@Test
-	public void testQuotes()
+	void testQuotes()
 	{
 		ParsingSeparator separator = new ParsingSeparator("a,b\"c,d\"", ',');
 		separator.addGroupingPair('"', '"');
@@ -195,7 +195,7 @@ public class ParsingSeparatorTest
 	}
 
 	@Test
-	public void testQuotesComplex()
+	void testQuotesComplex()
 	{
 		ParsingSeparator separator =
 				new ParsingSeparator("a,b\"c,d\",e,f\"g\"", ',');
@@ -221,7 +221,7 @@ public class ParsingSeparatorTest
 	}
 
 	@Test
-	public void testQuotesEmbedded()
+	void testQuotesEmbedded()
 	{
 		ParsingSeparator separator =
 				new ParsingSeparator("a,b\"c,(d\",e,f\")g\",h", ',');
@@ -246,7 +246,7 @@ public class ParsingSeparatorTest
 	}
 
 	@Test
-	public void testParenEmbedded()
+	void testParenEmbedded()
 	{
 		ParsingSeparator separator =
 				new ParsingSeparator("a,b(c,[d,(e),f]g)h,ijk", ',');
@@ -271,7 +271,7 @@ public class ParsingSeparatorTest
 	}
 
 	@Test
-	public void testParenStart()
+	void testParenStart()
 	{
 		ParsingSeparator separator =
 				new ParsingSeparator("(a),b(c,[d,(e),f]g)h,ijk", ',');
@@ -296,7 +296,7 @@ public class ParsingSeparatorTest
 	}
 
 	@Test
-	public void testParenEnd()
+	void testParenEnd()
 	{
 		ParsingSeparator separator =
 				new ParsingSeparator("a,b(c,[d,(e),f]g)(h,ijk)", ',');
@@ -319,7 +319,7 @@ public class ParsingSeparatorTest
 	}
 
 	@Test
-	public void testBlankEnd()
+	void testBlankEnd()
 	{
 		ParsingSeparator separator =
 				new ParsingSeparator("a,b(c,[d,(e),f]g)(h,ijk),", ',');
@@ -344,7 +344,7 @@ public class ParsingSeparatorTest
 	}
 
 	@Test
-	public void testAddGroupingPair()
+	void testAddGroupingPair()
 	{
 		ParsingSeparator separator =
 				new ParsingSeparator("a,b\"c,d\",e,f\"g\"", ',');
@@ -414,7 +414,7 @@ public class ParsingSeparatorTest
 	}
 	
 	@Test
-	public void testRemove()
+	void testRemove()
 	{
 		ParsingSeparator separator = new ParsingSeparator("a,b\"c,d\"", ',');
 		separator.addGroupingPair('"', '"');

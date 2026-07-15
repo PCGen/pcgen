@@ -33,7 +33,7 @@ import org.junit.jupiter.api.BeforeEach;
 import tokencontent.testsupport.AbstractContentTokenTest;
 import util.TestURI;
 
-public class GlobalDrTest extends AbstractContentTokenTest
+class GlobalDrTest extends AbstractContentTokenTest
 {
 
 	private static DrLst token = new DrLst();

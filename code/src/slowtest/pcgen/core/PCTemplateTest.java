@@ -49,7 +49,7 @@ import org.junit.jupiter.api.Test;
 /**
  * {@code PCTemplateTest} tests the fucntion of the PCTemplate class.
  */
-public class PCTemplateTest extends AbstractCharacterTestCase
+class PCTemplateTest extends AbstractCharacterTestCase
 {
 	private PCClass testClass;
 	private GenericLoader<PCTemplate> loader = new GenericLoader<>(PCTemplate.class);
@@ -60,7 +60,7 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 	 * @throws MalformedURLException 
 	 */
 	@Test
-	public void testAddAbility() throws PersistenceLayerException, MalformedURLException
+	void testAddAbility() throws PersistenceLayerException, MalformedURLException
 	{
 		LoadContext context = Globals.getContext();
 		// Create some abilities to be added
@@ -126,7 +126,7 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 	 * @throws MalformedURLException 
 	 */
 	@Test
-	public void testAddFeatAbility() throws PersistenceLayerException, MalformedURLException
+	void testAddFeatAbility() throws PersistenceLayerException, MalformedURLException
 	{
 		LoadContext context = Globals.getContext();
 		// Create some abilities to be added
@@ -192,7 +192,7 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 	 * @throws MalformedURLException 
 	 */
 	@Test
-	public void testAddLevelAbility() throws PersistenceLayerException, MalformedURLException
+	void testAddLevelAbility() throws PersistenceLayerException, MalformedURLException
 	{
 		LoadContext context = Globals.getContext();
 		
@@ -280,7 +280,7 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 	 * @throws MalformedURLException 
 	 */
 	@Test
-	public void testAddLevelFeatAbility() throws PersistenceLayerException, MalformedURLException
+	void testAddLevelFeatAbility() throws PersistenceLayerException, MalformedURLException
 	{
 		// Create some abilities to be added
 		LoadContext context = Globals.getContext();

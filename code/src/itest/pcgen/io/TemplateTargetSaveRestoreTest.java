@@ -29,7 +29,7 @@ import plugin.lsttokens.template.FavoredclassToken;
 
 import org.junit.jupiter.api.Test;
 
-public class TemplateTargetSaveRestoreTest extends
+class TemplateTargetSaveRestoreTest extends
 		AbstractGlobalTargetedSaveRestoreTest<PCTemplate>
 {
 
@@ -58,7 +58,7 @@ public class TemplateTargetSaveRestoreTest extends
 	}
 
 	@Test
-	public void testTemplateFavoredClass()
+	void testTemplateFavoredClass()
 	{
 		PCClass monclass = create(PCClass.class, "MonClass");
 		new TypeLst().parseToken(context, monclass, "Monster");

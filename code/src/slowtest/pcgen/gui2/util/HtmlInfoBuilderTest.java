@@ -30,13 +30,13 @@ import org.junit.jupiter.api.Test;
 /**
  * {@code InfoLabelTextBuilderTest} tests the HtmlInfoBuilder.
  */
-public class HtmlInfoBuilderTest
+class HtmlInfoBuilderTest
 {
 	/**
 	 * Test adding a string.
 	 */
 	@Test
-	public void testAppendString()
+	void testAppendString()
 	{
 		HtmlInfoBuilder b = new HtmlInfoBuilder();
 		
@@ -49,7 +49,7 @@ public class HtmlInfoBuilderTest
 	 * Test adding a simple element with a key and a value.
 	 */
 	@Test
-	public void testAppendElement()
+	void testAppendElement()
 	{
 		HtmlInfoBuilder b = new HtmlInfoBuilder();
 		
@@ -62,7 +62,7 @@ public class HtmlInfoBuilderTest
 	 * Test adding an element that gets its key from the language properties.
 	 */
 	@Test
-	public void testAppendI18nElement()
+	void testAppendI18nElement()
 	{
 		HtmlInfoBuilder b = new HtmlInfoBuilder();
 		LocaleDependentTestCase.before(Locale.US);
@@ -75,7 +75,7 @@ public class HtmlInfoBuilderTest
 	 * Test building a string with some different options.
 	 */
 	@Test
-	public void testAppendComplex()
+	void testAppendComplex()
 	{
 		HtmlInfoBuilder b = new HtmlInfoBuilder("Character");
 		

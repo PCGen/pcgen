@@ -35,7 +35,7 @@ import org.junit.jupiter.api.BeforeEach;
 import tokencontent.testsupport.AbstractContentTokenTest;
 import util.TestURI;
 
-public class GlobalCompanionListTest extends AbstractContentTokenTest
+class GlobalCompanionListTest extends AbstractContentTokenTest
 {
 
 	private static CompanionListLst token = new CompanionListLst();

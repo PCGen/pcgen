@@ -28,17 +28,17 @@ import org.junit.jupiter.api.Test;
 
 import pcgen.testsupport.TestSupport;
 
-public class ArrayUtilitiesTest
+class ArrayUtilitiesTest
 {
 
 	@Test
-	public void testConstructor()
+	void testConstructor()
 	{
 		TestSupport.invokePrivateConstructor(ArrayUtilities.class);
 	}
 
 	@Test
-	public void testMerge()
+	void testMerge()
 	{
 		Class<Integer> arrayClass = Integer.class;
 		Integer[] first = null;
@@ -60,7 +60,7 @@ public class ArrayUtilitiesTest
 	}
 
 	@Test
-	public void testDifferenceBad()
+	void testDifferenceBad()
 	{
 		assertThrows(NullPointerException.class, () -> ArrayUtilities.calculateDifference(null, null));
 		assertThrows(NullPointerException.class, () -> ArrayUtilities.calculateDifference(new Integer[]{}, null));
@@ -68,7 +68,7 @@ public class ArrayUtilitiesTest
 	}
 
 	@Test
-	public void testDifferenceEmpty()
+	void testDifferenceEmpty()
 	{
 		Integer[] first = new Integer[]{};
 		Integer[] second = new Integer[]{};
@@ -79,7 +79,7 @@ public class ArrayUtilitiesTest
 	}
 
 	@Test
-	public void testDifferenceOnlyRemove()
+	void testDifferenceOnlyRemove()
 	{
 		Integer[] first = new Integer[]{TestSupport.I3, TestSupport.I4};
 		Integer[] second = new Integer[]{};
@@ -93,7 +93,7 @@ public class ArrayUtilitiesTest
 	}
 
 	@Test
-	public void testDifferenceOnlyAdd()
+	void testDifferenceOnlyAdd()
 	{
 		Integer[] first = new Integer[]{};
 		Integer[] second = new Integer[]{TestSupport.I5, TestSupport.I6};
@@ -107,7 +107,7 @@ public class ArrayUtilitiesTest
 	}
 
 	@Test
-	public void testDifferenceFull()
+	void testDifferenceFull()
 	{
 		/*
 		 * Specifically use new Integer for tests - IGNORE ANY CODE VALIDATION TOOLS.
@@ -129,7 +129,7 @@ public class ArrayUtilitiesTest
 	}
 
 	@Test
-	public void testIdentityNull()
+	void testIdentityNull()
 	{
 		Integer[] first = null;
 		Integer[] second = null;
@@ -144,7 +144,7 @@ public class ArrayUtilitiesTest
 	}
 
 	@Test
-	public void testIdentityEmpty()
+	void testIdentityEmpty()
 	{
 		Integer[] first = new Integer[]{};
 		Integer[] second = new Integer[]{};
@@ -155,7 +155,7 @@ public class ArrayUtilitiesTest
 	}
 
 	@Test
-	public void testIdentityOnlyRemove()
+	void testIdentityOnlyRemove()
 	{
 		Integer[] first = new Integer[]{TestSupport.I3, TestSupport.I4};
 		Integer[] second = new Integer[]{};
@@ -169,7 +169,7 @@ public class ArrayUtilitiesTest
 	}
 
 	@Test
-	public void testIdentityOnlyRemoveNull()
+	void testIdentityOnlyRemoveNull()
 	{
 		Integer[] first = new Integer[]{TestSupport.I3, TestSupport.I4};
 		Integer[] second = null;
@@ -183,7 +183,7 @@ public class ArrayUtilitiesTest
 	}
 
 	@Test
-	public void testIdentityOnlyAdd()
+	void testIdentityOnlyAdd()
 	{
 		Integer[] first = new Integer[]{};
 		Integer[] second = new Integer[]{TestSupport.I5, TestSupport.I6};
@@ -197,7 +197,7 @@ public class ArrayUtilitiesTest
 	}
 
 	@Test
-	public void testIdentityOnlyAddNull()
+	void testIdentityOnlyAddNull()
 	{
 		Integer[] first = null;
 		Integer[] second = new Integer[]{TestSupport.I5, TestSupport.I6};
@@ -211,7 +211,7 @@ public class ArrayUtilitiesTest
 	}
 
 	@Test
-	public void testIdentityFull()
+	void testIdentityFull()
 	{
 		/*
 		 * Specifically use new Integer for tests - IGNORE ANY CODE VALIDATION TOOLS.
@@ -236,7 +236,7 @@ public class ArrayUtilitiesTest
 	}
 	
 	@Test
-	public void testUsingArray()
+	void testUsingArray()
 	{
 		Integer[] startingArray = new Integer[4];
 		IntFunction<Integer[]> function = ArrayUtilities.usingArray(startingArray);
@@ -256,7 +256,7 @@ public class ArrayUtilitiesTest
 	}
 
 	@Test
-	public void testPrependOnCopy()
+	void testPrependOnCopy()
 	{
 		Integer[] array = null;
 		array = ArrayUtilities.prependOnCopy(4, array, Integer.class);
@@ -271,7 +271,7 @@ public class ArrayUtilitiesTest
 	}
 
 	@Test
-	public void testPrependOnCopyObject()
+	void testPrependOnCopyObject()
 	{
 		Object[] array = null;
 		Object no = new Object();
@@ -287,7 +287,7 @@ public class ArrayUtilitiesTest
 	}
 
 	@Test
-	public void testAddOnCopy()
+	void testAddOnCopy()
 	{
 		Integer[] array = null;
 		array = ArrayUtilities.addOnCopy(array, 4, Integer.class);
@@ -302,7 +302,7 @@ public class ArrayUtilitiesTest
 	}
 
 	@Test
-	public void testAddOnCopyObject()
+	void testAddOnCopyObject()
 	{
 		Object[] array = null;
 		Object no = new Object();
@@ -318,7 +318,7 @@ public class ArrayUtilitiesTest
 	}
 
 	@Test
-	public void testAddOnCopyNumber()
+	void testAddOnCopyNumber()
 	{
 		Integer[] array = null;
 		array = ArrayUtilities.addOnCopy(array, 0, 4, Integer.class);
@@ -333,7 +333,7 @@ public class ArrayUtilitiesTest
 	}
 
 	@Test
-	public void testAddOnCopyObjectNumber()
+	void testAddOnCopyObjectNumber()
 	{
 		Object[] array = null;
 		Object no = new Object();
@@ -349,7 +349,7 @@ public class ArrayUtilitiesTest
 	}
 
 	@Test
-	public void testRemoveOnCopy()
+	void testRemoveOnCopy()
 	{
 		Object[] array = new Object[]{4, 2, 3};
 		array = ArrayUtilities.removeOnCopy(array, 1);
@@ -364,7 +364,7 @@ public class ArrayUtilitiesTest
 	}
 
 	@Test
-	public void testRemoveOnCopyObject()
+	void testRemoveOnCopyObject()
 	{
 		Object no = new Object();
 		Object[] array = new Object[]{no, 2, 3};

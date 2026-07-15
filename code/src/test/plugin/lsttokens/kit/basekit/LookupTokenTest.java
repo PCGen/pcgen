@@ -28,7 +28,7 @@ import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
 import org.junit.jupiter.api.Test;
 
-public class LookupTokenTest extends AbstractKitTokenTestCase<BaseKit>
+class LookupTokenTest extends AbstractKitTokenTestCase<BaseKit>
 {
 
 	static OptionToken token = new OptionToken();
@@ -54,31 +54,31 @@ public class LookupTokenTest extends AbstractKitTokenTestCase<BaseKit>
 	}
 
 	@Test
-	public void testInvalidInputTrailing()
+	void testInvalidInputTrailing()
 	{
 		assertFalse(parse("Formula,"));
 	}
 
 	@Test
-	public void testInvalidInputStarting()
+	void testInvalidInputStarting()
 	{
 		assertFalse(parse(",45"));
 	}
 
 	@Test
-	public void testInvalidInputDouble()
+	void testInvalidInputDouble()
 	{
 		assertFalse(parse("Start,,45"));
 	}
 
 	@Test
-	public void testInvalidInputFormulaComplex() throws PersistenceLayerException
+	void testInvalidInputFormulaComplex() throws PersistenceLayerException
 	{
 		runRoundRobin("if(var(\"SIZE==3||SIZE==4\"),5,10)");
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		runRoundRobin("MinFormula,34");
 	}

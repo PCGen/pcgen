@@ -42,7 +42,7 @@ import plugin.pretokens.writer.PreRaceWriter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class CompanionListLstTest extends AbstractGlobalTokenTestCase
+class CompanionListLstTest extends AbstractGlobalTokenTestCase
 {
 
 	static CDOMPrimaryToken<CDOMObject> token = new CompanionListLst();
@@ -89,105 +89,105 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidEmpty()
+	void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidListNameOnly()
+	void testInvalidListNameOnly()
 	{
 		assertFalse(parse("Familiar"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidListNameBarOnly()
+	void testInvalidListNameBarOnly()
 	{
 		assertFalse(parse("Familiar|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyListName()
+	void testInvalidEmptyListName()
 	{
 		assertFalse(parse("|Lion"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTypeRaceBarOnly()
+	void testInvalidTypeRaceBarOnly()
 	{
 		assertFalse(parse("Familiar|Lion|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTypeRaceTypeEmpty()
+	void testInvalidTypeRaceTypeEmpty()
 	{
 		assertFalse(parse("Familiar|RACETYPE="));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidRaceCommaStarting()
+	void testInvalidRaceCommaStarting()
 	{
 		assertFalse(parse("Familiar|,Lion"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidRaceCommaEnding()
+	void testInvalidRaceCommaEnding()
 	{
 		assertFalse(parse("Familiar|Lion,"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidRaceDoubleComma()
+	void testInvalidRaceDoubleComma()
 	{
 		assertFalse(parse("Familiar|Lion,,Tiger"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidRacePipe()
+	void testInvalidRacePipe()
 	{
 		assertFalse(parse("Familiar|Lion|Tiger"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidSpellEmbeddedPre()
+	void testInvalidSpellEmbeddedPre()
 	{
 		assertFalse(parse("Familiar|Lion|PRERACE:1,Human|Tiger"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNonSensicalAnyLast()
+	void testInvalidNonSensicalAnyLast()
 	{
 		assertFalse(parse("Familiar|Tiger,Any"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNonSensicalAnyFirst()
+	void testInvalidNonSensicalAnyFirst()
 	{
 		assertFalse(parse("Familiar|Any,Lion"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmbeddedFA()
+	void testInvalidEmbeddedFA()
 	{
 		assertFalse(parse("Familiar|FOLLOWERADJUSTMENT:-4|Lion"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidOnlyFOLLOWERADJUSTMENT()
+	void testInvalidOnlyFOLLOWERADJUSTMENT()
 	{
 		boolean parse = parse("Familiar|FOLLOWERADJUSTMENT:-3");
 		if (parse)
@@ -201,49 +201,49 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidMultipleFOLLOWERADJUSTMENT()
+	void testInvalidMultipleFOLLOWERADJUSTMENT()
 	{
 		assertFalse(parse("Familiar|Lion|FOLLOWERADJUSTMENT:-2|FOLLOWERADJUSTMENT:-3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidOnlyFOLLOWERADJUSTMENTBar()
+	void testInvalidOnlyFOLLOWERADJUSTMENTBar()
 	{
 		assertFalse(parse("Familiar|FOLLOWERADJUSTMENT:-3|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyTimes()
+	void testInvalidEmptyTimes()
 	{
 		assertFalse(parse("Familiar||Lion"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBadFA()
+	void testInvalidBadFA()
 	{
 		assertFalse(parse("Familiar|Lion|FOLLOWERADJUSTMENT:"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidFANaN()
+	void testInvalidFANaN()
 	{
 		assertFalse(parse("Familiar|Lion|FOLLOWERADJUSTMENT:-T"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidFADecimal()
+	void testInvalidFADecimal()
 	{
 		assertFalse(parse("Familiar|Lion|FOLLOWERADJUSTMENT:-4.5"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidOnlyPre()
+	void testInvalidOnlyPre()
 	{
 		try
 		{
@@ -265,7 +265,7 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testRoundRobinJustRace() throws PersistenceLayerException
+	void testRoundRobinJustRace() throws PersistenceLayerException
 	{
 		construct(Race.class, "Lion");
 		construct(CompanionList.class, "Familiar");
@@ -279,7 +279,7 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testRoundRobinTwoRace() throws PersistenceLayerException
+	void testRoundRobinTwoRace() throws PersistenceLayerException
 	{
 		construct(CompanionList.class, "Familiar");
 		construct(Race.class, "Lion");
@@ -288,7 +288,7 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testRoundRobinAnyRace() throws PersistenceLayerException
+	void testRoundRobinAnyRace() throws PersistenceLayerException
 	{
 		construct(CompanionList.class, "Familiar");
 		construct(Race.class, "Lion");
@@ -297,7 +297,7 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testRoundRobinTwoWithRacetype() throws PersistenceLayerException
+	void testRoundRobinTwoWithRacetype() throws PersistenceLayerException
 	{
 		construct(CompanionList.class, "Familiar");
 		construct(Race.class, "Lion");
@@ -306,7 +306,7 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testRoundRobinFA() throws PersistenceLayerException
+	void testRoundRobinFA() throws PersistenceLayerException
 	{
 		construct(CompanionList.class, "Familiar");
 		construct(Race.class, "Lion");
@@ -314,7 +314,7 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testRoundRobinThreeFA() throws PersistenceLayerException
+	void testRoundRobinThreeFA() throws PersistenceLayerException
 	{
 		construct(CompanionList.class, "Familiar");
 		construct(Race.class, "Bear");
@@ -326,7 +326,7 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testRoundRobinTwoType() throws PersistenceLayerException
+	void testRoundRobinTwoType() throws PersistenceLayerException
 	{
 		construct(CompanionList.class, "Familiar");
 		construct(CompanionList.class, "Companion");
@@ -337,7 +337,7 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testRoundRobinComplex() throws PersistenceLayerException
+	void testRoundRobinComplex() throws PersistenceLayerException
 	{
 		construct(CompanionList.class, "Familiar");
 		construct(Race.class, "Lion");
@@ -346,7 +346,7 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testRoundRobinTwoPRE() throws PersistenceLayerException
+	void testRoundRobinTwoPRE() throws PersistenceLayerException
 	{
 		construct(CompanionList.class, "Familiar");
 		construct(Race.class, "Lion");
@@ -356,7 +356,7 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testRoundRobinDupePre() throws PersistenceLayerException
+	void testRoundRobinDupePre() throws PersistenceLayerException
 	{
 		construct(CompanionList.class, "Familiar");
 		construct(Race.class, "Tiger");
@@ -366,7 +366,7 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testRoundRobinDupePreDiffFA() throws PersistenceLayerException
+	void testRoundRobinDupePreDiffFA() throws PersistenceLayerException
 	{
 		construct(CompanionList.class, "Familiar");
 		construct(Race.class, "Tiger");
@@ -376,7 +376,7 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testRoundRobinReal() throws PersistenceLayerException
+	void testRoundRobinReal() throws PersistenceLayerException
 	{
 		construct(CompanionList.class, "Psicrystal");
 		construct(Race.class, "Psicrystal (Single Minded)");

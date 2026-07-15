@@ -37,7 +37,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class PreSkillTest extends AbstractCharacterTestCase
+class PreSkillTest extends AbstractCharacterTestCase
 {
 	private Skill balance = null;
 	private Skill knowledge = null;
@@ -229,7 +229,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testKnowedgeWrongSubType()
+	void testKnowedgeWrongSubType()
 	{
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("skill");
@@ -244,7 +244,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testPass()
+	void testPass()
 	{
 		final PlayerCharacter character = getCharacter();
 

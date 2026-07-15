@@ -44,7 +44,7 @@ import plugin.lsttokens.testsupport.AbstractAddTokenTestCase;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
+class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 {
 
 	static ClassSkillsToken subtoken = new ClassSkillsToken();
@@ -90,7 +90,7 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testRoundRobinTrained() throws PersistenceLayerException
+	void testRoundRobinTrained() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -98,7 +98,7 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testRoundRobinUntrained() throws PersistenceLayerException
+	void testRoundRobinUntrained() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -106,7 +106,7 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testRoundRobinExclusive() throws PersistenceLayerException
+	void testRoundRobinExclusive() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -114,7 +114,7 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testRoundRobinNonExclusive() throws PersistenceLayerException
+	void testRoundRobinNonExclusive() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -122,7 +122,7 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testRoundRobinAutorank() throws PersistenceLayerException
+	void testRoundRobinAutorank() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -130,28 +130,28 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testInvalidInputAutoRankNoRank()
+	void testInvalidInputAutoRankNoRank()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "NONEXCLUSIVE,AUTORANK="));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputAutoRankNegativeRank()
+	void testInvalidInputAutoRankNegativeRank()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "NONEXCLUSIVE,AUTORANK=-3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputAutoRankZeroRank()
+	void testInvalidInputAutoRankZeroRank()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "NONEXCLUSIVE,AUTORANK=0"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputAutoRankDuplicated()
+	void testInvalidInputAutoRankDuplicated()
 	{
 		assertFalse(parse(getSubTokenName() + '|'
 				+ "NONEXCLUSIVE,AUTORANK=3,AUTORANK=2"));
@@ -159,7 +159,7 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testInvalidInputOnlyAutoRank()
+	void testInvalidInputOnlyAutoRank()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "AUTORANK=3"));
 		assertNoSideEffects();
@@ -179,7 +179,7 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testUnparseSingleRanked()
+	void testUnparseSingleRanked()
 	{
 		List<CDOMReference<Skill>> refs = new ArrayList<>();
 		addSingleRef(refs, "TestWP1");
@@ -195,7 +195,7 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testUnparseUntrained()
+	void testUnparseUntrained()
 	{
 		List<CDOMReference<Skill>> refs = new ArrayList<>();
 		ObjectMatchingReference<Skill, Boolean> omr = new ObjectMatchingReference<>(
@@ -215,7 +215,7 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testUnparseTrained()
+	void testUnparseTrained()
 	{
 		List<CDOMReference<Skill>> refs = new ArrayList<>();
 		ObjectMatchingReference<Skill, Boolean> omr = new ObjectMatchingReference<>(
@@ -235,7 +235,7 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testUnparseExclusive()
+	void testUnparseExclusive()
 	{
 		List<CDOMReference<Skill>> refs = new ArrayList<>();
 		ObjectMatchingReference<Skill, Boolean> omr = new ObjectMatchingReference<>(
@@ -255,7 +255,7 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testUnparseNonExclusive()
+	void testUnparseNonExclusive()
 	{
 		List<CDOMReference<Skill>> refs = new ArrayList<>();
 		ObjectMatchingReference<Skill, Boolean> omr = new ObjectMatchingReference<>(

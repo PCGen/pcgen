@@ -36,7 +36,7 @@ import plugin.function.testsupport.TestUtilities;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class InputFunctionTest extends AbstractFormulaTestCase
+class InputFunctionTest extends AbstractFormulaTestCase
 {
 
 	private ScopeFacet scopeFacet = FacetLibrary.getFacet(ScopeFacet.class);
@@ -60,7 +60,7 @@ public class InputFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidTooFewArg()
+	void testInvalidTooFewArg()
 	{
 		String formula = "input()";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -71,7 +71,7 @@ public class InputFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidNotString()
+	void testInvalidNotString()
 	{
 		String formula = "input(2)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -79,7 +79,7 @@ public class InputFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotValidNoVar()
+	void testNotValidNoVar()
 	{
 		String formula = "input(ab)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -87,7 +87,7 @@ public class InputFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotValidNoChannel()
+	void testNotValidNoChannel()
 	{
 		String formula = "input(\"notvalid\")";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -95,7 +95,7 @@ public class InputFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testGlobalChannelStrength()
+	void testGlobalChannelStrength()
 	{
 		ScopeInstance globalInstance = scopeFacet.getGlobalScope(id);
 		context.getVariableContext().assertLegalVariableID(ChannelUtilities.createVarName("STR"),

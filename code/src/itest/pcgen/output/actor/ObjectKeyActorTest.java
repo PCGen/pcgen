@@ -38,14 +38,14 @@ class ObjectKeyActorTest extends AbstractOutputTestCase
 	private static final RaceFacet DF = new RaceFacet();
 
 	@BeforeAll
-	public static void classSetUp()
+	static void classSetUp()
 	{
 		OutputDB.reset();
 		DF.init();
 	}
 
 	@Test
-	public void testBasicObjectKeyActor()
+	void testBasicObjectKeyActor()
 	{
 		Race d = new Race();
 		d.setName("Bob");
@@ -59,7 +59,7 @@ class ObjectKeyActorTest extends AbstractOutputTestCase
 	}
 
 	@Test
-	public void testWrappedObjectKeyActor()
+	void testWrappedObjectKeyActor()
 	{
 		Race d = new Race();
 		d.setName("Bob");

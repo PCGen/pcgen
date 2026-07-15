@@ -29,11 +29,11 @@ import pcgen.base.testsupport.TestUtilities;
 import pcgen.base.util.FormatManager;
 
 
-public class GetOptionalFunctionTest extends AbstractFormulaTestCase
+class GetOptionalFunctionTest extends AbstractFormulaTestCase
 {
 
 	@Test
-	public void testInvalidTooManyArg()
+	void testInvalidTooManyArg()
 	{
 		FormatManager<Optional<Number>> formatManager = getOptionalFormatManager();
 		setVariable(getOptionalVariable("a"), Optional.of(3));
@@ -44,7 +44,7 @@ public class GetOptionalFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotValidString()
+	void testNotValidString()
 	{
 		FormatManager<Optional<Number>> formatManager = getOptionalFormatManager();
 		String formula = "getOptional(\"ab\")";
@@ -53,7 +53,7 @@ public class GetOptionalFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotValidNoVar()
+	void testNotValidNoVar()
 	{
 		FormatManager<Optional<Number>> formatManager = getOptionalFormatManager();
 		String formula = "getOptional(ab)";
@@ -62,7 +62,7 @@ public class GetOptionalFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testVariable()
+	void testVariable()
 	{
 		FormatManager<Optional<Number>> formatManager = getOptionalFormatManager();
 		setVariable(getOptionalVariable("a"), Optional.of(3));
@@ -78,7 +78,7 @@ public class GetOptionalFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNullVariable()
+	void testNullVariable()
 	{
 		FormatManager<Optional<Number>> formatManager = getOptionalFormatManager();
 		setVariable(getOptionalVariable("a"), Optional.empty());

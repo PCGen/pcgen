@@ -24,7 +24,7 @@ import plugin.pretokens.writer.PreDeityDomainWriter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class PreDeityDomainRoundRobin extends AbstractBasicRoundRobin
+class PreDeityDomainRoundRobin extends AbstractBasicRoundRobin
 {
 	@BeforeEach
 	@Override
@@ -48,31 +48,31 @@ public class PreDeityDomainRoundRobin extends AbstractBasicRoundRobin
 	}
 
 	@Test
-	public void testY()
+	void testY()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":1,Y");
 	}
 
 	@Test
-	public void testN()
+	void testN()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":1,N");
 	}
 
 	@Test
-	public void testPantheon()
+	void testPantheon()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":1,PANTHEON.Foo");
 	}
 
 	@Test
-	public void testMultiplePantheon()
+	void testMultiplePantheon()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":1,PANTHEON.Bar,PANTHEON.Foo");
 	}
 
 	@Test
-	public void testPantheonComplex()
+	void testPantheonComplex()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":3,Foo,PANTHEON.Bar");
 	}

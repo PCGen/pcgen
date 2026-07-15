@@ -25,12 +25,12 @@ import org.junit.jupiter.api.Test;
  * Pins the equals(null) contract for CompanionList after the
  * SpotBugs NP_EQUALS fix (PR #7628).
  */
-public class CompanionListEqualsNullTest
+class CompanionListEqualsNullTest
 {
 
 	/** equals(null) returns false instead of throwing NPE. */
 	@Test
-	public void equalsNullReturnsFalseNotNPE()
+	void equalsNullReturnsFalseNotNPE()
 	{
 		CompanionList list = new CompanionList();
 		list.setName("Test");

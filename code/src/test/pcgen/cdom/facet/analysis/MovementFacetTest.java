@@ -31,7 +31,7 @@ import pcgen.core.SimpleMovement;
 
 import org.junit.jupiter.api.BeforeEach;
 
-public class MovementFacetTest extends
+class MovementFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, SimpleMovement>
 {
 

@@ -38,13 +38,13 @@ import org.junit.jupiter.api.Test;
  * {@code PreArmorTypeTest} tests that the PREARMORTYPE tag is
  * working correctly.
  */
-public class PreArmorTypeTest extends AbstractCharacterTestCase
+class PreArmorTypeTest extends AbstractCharacterTestCase
 {
 	/*
 	 * Class under test for int passes(Prerequisite, PlayerCharacter)
 	 */
 	@Test
-	public void testPassesPrerequisitePlayerCharacter()
+	void testPassesPrerequisitePlayerCharacter()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -91,7 +91,7 @@ public class PreArmorTypeTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testType() throws PersistenceLayerException
+	void testType() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -137,7 +137,7 @@ public class PreArmorTypeTest extends AbstractCharacterTestCase
 	 * Test LIST.
 	 */
 	@Test
-	public void testList()
+	void testList()
 	{
 		final PlayerCharacter character = getCharacter();
 

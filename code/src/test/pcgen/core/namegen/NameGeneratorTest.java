@@ -31,7 +31,7 @@ import org.junit.jupiter.api.Test;
  * Behavioural tests for {@link NameGenerator} driven by the bundled
  * {@code plugins/Random Names} dataset.
  */
-public class NameGeneratorTest
+class NameGeneratorTest
 {
 	private static final File DATA_DIR =
 			new File(System.getProperty("user.dir"), "plugins/Random Names");
@@ -39,13 +39,13 @@ public class NameGeneratorTest
 	private static NameGenerator generator;
 
 	@BeforeAll
-	public static void loadOnce() throws IOException
+	static void loadOnce() throws IOException
 	{
 		generator = new NameGenerator(DATA_DIR);
 	}
 
 	@Test
-	public void getCategoriesHidesInternalBuckets()
+	void getCategoriesHidesInternalBuckets()
 	{
 		List<String> categories = generator.getCategories();
 		assertFalse(categories.isEmpty());
@@ -58,13 +58,13 @@ public class NameGeneratorTest
 	}
 
 	@Test
-	public void getTitlesForUnknownCategoryReturnsEmpty()
+	void getTitlesForUnknownCategoryReturnsEmpty()
 	{
 		assertTrue(generator.getTitlesFor("definitely-not-a-category").isEmpty());
 	}
 
 	@Test
-	public void getTitlesForFantasyElvenIsNonEmptyAndSorted()
+	void getTitlesForFantasyElvenIsNonEmptyAndSorted()
 	{
 		List<String> titles = generator.getTitlesFor("Fantasy: Elven");
 		assertFalse(titles.isEmpty(), "Fantasy: Elven should have titles");
@@ -72,7 +72,7 @@ public class NameGeneratorTest
 	}
 
 	@Test
-	public void getGendersForCanonicalOrder()
+	void getGendersForCanonicalOrder()
 	{
 		List<String> genders = generator.getGendersFor("Fantasy: Elven", "Middle Earth Elf");
 		assertFalse(genders.isEmpty());
@@ -84,7 +84,7 @@ public class NameGeneratorTest
 	}
 
 	@Test
-	public void getCatalogResolvesKnownTriple()
+	void getCatalogResolvesKnownTriple()
 	{
 		RuleSet rs = generator.getCatalog("Fantasy: Elven", "Middle Earth Elf", "Male");
 		assertNotNull(rs, "Fantasy: Elven / Middle Earth Elf / Male should resolve");
@@ -93,7 +93,7 @@ public class NameGeneratorTest
 	}
 
 	@Test
-	public void getCatalogReturnsNullForUnknownTriple()
+	void getCatalogReturnsNullForUnknownTriple()
 	{
 		assertNull(generator.getCatalog("Fantasy: Elven", "Middle Earth Elf", "Nonexistent"));
 		assertNull(generator.getCatalog("Fantasy: Elven", "no-such-title", "Male"));
@@ -101,7 +101,7 @@ public class NameGeneratorTest
 	}
 
 	@Test
-	public void generateProducesNonEmptyNameRepeatedly() throws Exception
+	void generateProducesNonEmptyNameRepeatedly() throws Exception
 	{
 		RuleSet rs = generator.getCatalog("Fantasy: Elven", "Middle Earth Elf", "Male");
 		assertNotNull(rs);
@@ -114,7 +114,7 @@ public class NameGeneratorTest
 	}
 
 	@Test
-	public void generateWithRuleAlwaysUsesGivenRule() throws Exception
+	void generateWithRuleAlwaysUsesGivenRule() throws Exception
 	{
 		RuleSet rs = generator.getCatalog("Fantasy: Elven", "Middle Earth Elf", "Male");
 		List<Rule> rules = generator.getRulesFor(rs);
@@ -128,7 +128,7 @@ public class NameGeneratorTest
 	}
 
 	@Test
-	public void mixedContentValueExcludesSubvalueText() throws Exception
+	void mixedContentValueExcludesSubvalueText() throws Exception
 	{
 		// In gaelic.xml, <VALUE>Donn<SUBVALUE type="meaning">brown,
 		// brown-haired</SUBVALUE></VALUE>: the value text must be just

@@ -51,7 +51,7 @@ class NewCategoryTokenTest
 	 * Test method for {@link NewCategoryToken#parse(MigrationRule, String, String)}.
 	 */
 	@Test
-	public void testParseValidCat()
+	void testParseValidCat()
 	{
 		assertTrue(token.parse(migrationRule, "ValidCat", gameModeName), "Parse should have been successful");
 		assertEquals("ValidCat", migrationRule.getNewCategory(), "New category");
@@ -64,7 +64,7 @@ class NewCategoryTokenTest
 	 * Test that invalid characters get rejected and the new category field is not set. 
 	 */
 	@Test
-	public void testParseInvalidCat()
+	void testParseInvalidCat()
 	{
 		String invalidChars = ",|\\:;.%*=[]";
 		for (char invalid : invalidChars.toCharArray())

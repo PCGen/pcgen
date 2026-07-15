@@ -28,10 +28,10 @@ import org.junit.jupiter.api.Test;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.testsupport.TestUtilities;
 
-public class NumberLessThanTest
+class NumberLessThanTest
 {
 	@Test
-	public void testOperator()
+	void testOperator()
 	{
 		NumberLessThan op = new NumberLessThan();
 		assertNotNull(op.getOperator());
@@ -39,7 +39,7 @@ public class NumberLessThanTest
 	}
 
 	@Test
-	public void testAbstractEvaluateNulls()
+	void testAbstractEvaluateNulls()
 	{
 		NumberLessThan op = new NumberLessThan();
 		try
@@ -69,7 +69,7 @@ public class NumberLessThanTest
 	}
 
 	@Test
-	public void testAbstractEvaluateMismatch()
+	void testAbstractEvaluateMismatch()
 	{
 		NumberLessThan op = new NumberLessThan();
 		assertTrue(op.abstractEvaluate(FormatUtilities.BOOLEAN_CLASS, TestUtilities.INTEGER_CLASS, null).isEmpty());
@@ -77,7 +77,7 @@ public class NumberLessThanTest
 	}
 
 	@Test
-	public void testAbstractEvaluateLegal()
+	void testAbstractEvaluateLegal()
 	{
 		NumberLessThan op = new NumberLessThan();
 		assertEquals(FormatUtilities.BOOLEAN_CLASS,
@@ -96,7 +96,7 @@ public class NumberLessThanTest
 	}
 
 	@Test
-	public void testEvaluateFailNull()
+	void testEvaluateFailNull()
 	{
 		NumberLessThan op = new NumberLessThan();
 		assertThrows(NullPointerException.class, () -> op.evaluate(null, null));
@@ -105,7 +105,7 @@ public class NumberLessThanTest
 	}
 
 	@Test
-	public void testEvaluateMismatch()
+	void testEvaluateMismatch()
 	{
 		NumberLessThan op = new NumberLessThan();
 		assertThrows(ClassCastException.class, () -> op.evaluate(true, Double.valueOf(4.5)));
@@ -113,7 +113,7 @@ public class NumberLessThanTest
 	}
 
 	@Test
-	public void testEvaluateLegal()
+	void testEvaluateLegal()
 	{
 		NumberLessThan op = new NumberLessThan();
 		assertEquals(Boolean.FALSE,

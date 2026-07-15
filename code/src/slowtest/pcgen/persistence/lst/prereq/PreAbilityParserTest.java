@@ -35,11 +35,11 @@ import org.junit.jupiter.api.Test;
  * PREABILITY parser.
  */
 @SuppressWarnings("nls")
-public class PreAbilityParserTest extends EnUsLocaleDependentTestCase
+class PreAbilityParserTest extends EnUsLocaleDependentTestCase
 {
 
 	@Test
-	public void testCategoryInterpretation() throws Exception
+	void testCategoryInterpretation() throws Exception
 	{
 
 		PreAbilityParser parser = new PreAbilityParser();
@@ -78,7 +78,7 @@ public class PreAbilityParserTest extends EnUsLocaleDependentTestCase
 
 	
 	@Test
-	public void testSingleEntry() throws Exception
+	void testSingleEntry() throws Exception
 	{
 
 		PreAbilityParser parser = new PreAbilityParser();
@@ -90,7 +90,7 @@ public class PreAbilityParserTest extends EnUsLocaleDependentTestCase
 
 	
 	@Test
-	public void testNegates() throws Exception
+	void testNegates() throws Exception
 	{
 		PreAbilityParser parser = new PreAbilityParser();
 		Prerequisite prereq = parser.parse("ability", "1,Sneak Attack,[Alertness]", false, false);
@@ -104,7 +104,7 @@ public class PreAbilityParserTest extends EnUsLocaleDependentTestCase
 
 	
 	@Test
-	public void testNoKey() throws Exception
+	void testNoKey() throws Exception
 	{
 
 		PreAbilityParser parser = new PreAbilityParser();
@@ -118,7 +118,7 @@ public class PreAbilityParserTest extends EnUsLocaleDependentTestCase
 	 * Test that an error is produced if two categories are specified.
 	 */
 	@Test
-	public void testTwoCategories()
+	void testTwoCategories()
 	{
 		PreAbilityParser parser = new PreAbilityParser();
 		assertThrows(PersistenceLayerException.class,
@@ -130,7 +130,7 @@ public class PreAbilityParserTest extends EnUsLocaleDependentTestCase
 	 * Test that an error is produced if separators are incorrect.
 	 */
 	@Test
-	public void testInvalidSeparators()
+	void testInvalidSeparators()
 	{
 		PreAbilityParser parser = new PreAbilityParser();
 		assertThrows(PersistenceLayerException.class,
@@ -141,7 +141,7 @@ public class PreAbilityParserTest extends EnUsLocaleDependentTestCase
 	 * Test that an error is produced if separators are incorrect.
 	 */
 	@Test
-	public void testInvalidCharacter()
+	void testInvalidCharacter()
 	{
 		PreAbilityParser parser = new PreAbilityParser();
 		assertThrows(PersistenceLayerException.class,
@@ -149,7 +149,7 @@ public class PreAbilityParserTest extends EnUsLocaleDependentTestCase
 	}
 	
 	@BeforeEach
-	public void setUp() throws Exception
+	void setUp() throws Exception
 	{
 		Globals.setUseGUI(false);
 		Globals.emptyLists();

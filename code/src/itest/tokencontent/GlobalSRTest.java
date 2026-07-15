@@ -31,7 +31,7 @@ import org.junit.jupiter.api.BeforeEach;
 import tokencontent.testsupport.AbstractContentTokenTest;
 import util.TestURI;
 
-public class GlobalSRTest extends AbstractContentTokenTest
+class GlobalSRTest extends AbstractContentTokenTest
 {
 
 	private static SrLst token = new SrLst();

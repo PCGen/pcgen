@@ -36,7 +36,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class DefineStatLstTest extends AbstractGlobalTokenTestCase
+class DefineStatLstTest extends AbstractGlobalTokenTestCase
 {
 
 	static DefineStatLst token = new DefineStatLst();
@@ -78,113 +78,113 @@ public class DefineStatLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidInputEmpty()
+	void testInvalidInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputUnlockArg()
+	void testInvalidInputUnlockArg()
 	{
 		assertFalse(parse("UNLOCK.STR|3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoResult()
+	void testInvalidInputNoResult()
 	{
 		assertFalse(parse("Medium"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptyFormula()
+	void testInvalidInputEmptyFormula()
 	{
 		assertFalse(parse("Medium|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptyVariable()
+	void testInvalidInputEmptyVariable()
 	{
 		assertFalse(parse("|Medium"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoubleSeparator()
+	void testInvalidInputDoubleSeparator()
 	{
 		assertFalse(parse("LOCK||STR|7"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoublePipe()
+	void testInvalidInputDoublePipe()
 	{
 		assertFalse(parse("Light||Medium"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputTwoPipe()
+	void testInvalidInputTwoPipe()
 	{
 		assertFalse(parse("Light|Medium|Heavy"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidStatLock()
+	void testInvalidStatLock()
 	{
 		assertTrue(parse("LOCK|Foo|7"));
 		assertFalse(primaryContext.getReferenceContext().resolveReferences(null));
 	}
 
 	@Test
-	public void testRoundRobinFormula() throws PersistenceLayerException
+	void testRoundRobinFormula() throws PersistenceLayerException
 	{
 		runRoundRobin("LOCK|STR|1+2");
 	}
 
 	@Test
-	public void testRoundRobinJEPPipe() throws PersistenceLayerException
+	void testRoundRobinJEPPipe() throws PersistenceLayerException
 	{
 		runRoundRobin("LOCK|STR|if(var(\"SIZE==3||SIZE==4\"),5,0)");
 	}
 
 	@Test
-	public void testRoundRobinLock() throws PersistenceLayerException
+	void testRoundRobinLock() throws PersistenceLayerException
 	{
 		runRoundRobin("LOCK|STR|10");
 	}
 
 	@Test
-	public void testRoundRobinUnlock() throws PersistenceLayerException
+	void testRoundRobinUnlock() throws PersistenceLayerException
 	{
 		runRoundRobin("UNLOCK|STR");
 	}
 
 	@Test
-	public void testRoundRobinNonStat() throws PersistenceLayerException
+	void testRoundRobinNonStat() throws PersistenceLayerException
 	{
 		runRoundRobin("NONSTAT|STR");
 	}
 
 	
 	@Test
-	public void testRoundRobinStat() throws PersistenceLayerException
+	void testRoundRobinStat() throws PersistenceLayerException
 	{
 		runRoundRobin("STAT|STR");
 	}
 
 	@Test
-	public void testRoundRobinMinValue() throws PersistenceLayerException
+	void testRoundRobinMinValue() throws PersistenceLayerException
 	{
 		runRoundRobin("MINVALUE|STR|3");
 	}
 
 	@Test
-	public void testRoundRobinMaxValue() throws PersistenceLayerException
+	void testRoundRobinMaxValue() throws PersistenceLayerException
 	{
 		runRoundRobin("MAXVALUE|STR|3");
 	}

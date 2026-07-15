@@ -32,11 +32,11 @@ import pcgen.base.formula.visitor.ReconstructionVisitor;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
 import pcgen.base.testsupport.TestUtilities;
 
-public class FloorFunctionTest extends AbstractFormulaTestCase
+class FloorFunctionTest extends AbstractFormulaTestCase
 {
 
 	@Test
-	public void testInvalidTooManyArg()
+	void testInvalidTooManyArg()
 	{
 		String formula = "floor(2, 3)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -44,7 +44,7 @@ public class FloorFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotValidString()
+	void testNotValidString()
 	{
 		String formula = "floor(\"ab\")";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -52,7 +52,7 @@ public class FloorFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotValidNoVar()
+	void testNotValidNoVar()
 	{
 		String formula = "floor(ab)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -60,7 +60,7 @@ public class FloorFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testIntegerPositive()
+	void testIntegerPositive()
 	{
 		String formula = "floor(1)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -73,7 +73,7 @@ public class FloorFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testIntegerNegative()
+	void testIntegerNegative()
 	{
 		String formula = "floor(-2)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -86,7 +86,7 @@ public class FloorFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDoublePositive()
+	void testDoublePositive()
 	{
 		String formula = "floor(6.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -99,7 +99,7 @@ public class FloorFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDoubleNegative()
+	void testDoubleNegative()
 	{
 		String formula = "floor(-5.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -112,7 +112,7 @@ public class FloorFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDoubleNegativeLeadingSpace()
+	void testDoubleNegativeLeadingSpace()
 	{
 		String formula = "floor( -5.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -122,7 +122,7 @@ public class FloorFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDoubleNegativeTrailingSpace()
+	void testDoubleNegativeTrailingSpace()
 	{
 		String formula = "floor(-5.3 )";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -132,7 +132,7 @@ public class FloorFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDoubleNegativeSeparatingSpace()
+	void testDoubleNegativeSeparatingSpace()
 	{
 		String formula = "floor (-5.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -142,7 +142,7 @@ public class FloorFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testVariable()
+	void testVariable()
 	{
 		setVariable(getVariable("a"), 5.3);
 		String formula = "floor(a)";

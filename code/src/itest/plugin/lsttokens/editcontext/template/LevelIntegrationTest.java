@@ -37,7 +37,7 @@ import plugin.pretokens.writer.PreLevelWriter;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-public class LevelIntegrationTest extends
+class LevelIntegrationTest extends
 		AbstractIntegrationTestCase<PCTemplate>
 {
 
@@ -46,7 +46,7 @@ public class LevelIntegrationTest extends
             new CDOMTokenLoader<>();
 
 	@BeforeAll
-	public static void ltClassSetUp() throws PersistenceLayerException
+	static void ltClassSetUp() throws PersistenceLayerException
 	{
 		TokenRegistration.register(new PreLevelParser());
 		TokenRegistration.register(new PreLevelWriter());
@@ -75,7 +75,7 @@ public class LevelIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -85,7 +85,7 @@ public class LevelIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinSimpleClear() throws PersistenceLayerException
+	void testRoundRobinSimpleClear() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -95,7 +95,7 @@ public class LevelIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinClearNoSet() throws PersistenceLayerException
+	void testRoundRobinClearNoSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -105,7 +105,7 @@ public class LevelIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinClearNoReset() throws PersistenceLayerException
+	void testRoundRobinClearNoReset() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();

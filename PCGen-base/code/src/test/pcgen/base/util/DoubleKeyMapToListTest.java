@@ -37,7 +37,7 @@ import pcgen.testsupport.NoZeroArgConstructorMap;
 import pcgen.testsupport.StrangeMap;
 import pcgen.testsupport.TestSupport;
 
-public class DoubleKeyMapToListTest
+class DoubleKeyMapToListTest
 {
 
 	public void populate(DoubleKeyMapToList<Integer, Double, Character> dkm)
@@ -55,41 +55,41 @@ public class DoubleKeyMapToListTest
 
 	@Test
 	@SuppressWarnings("unused")
-	public void testGoodConstructor()
+	void testGoodConstructor()
 	{
 		new DoubleKeyMapToList<>(HashMap.class, IdentityHashMap.class);
 	}
 
 	@Test
-	public void testNullInConstructor()
+	void testNullInConstructor()
 	{
 		assertThrows(NullPointerException.class, () -> new DoubleKeyMapToList<>(null, HashMap.class));
 		assertThrows(NullPointerException.class, () -> new DoubleKeyMapToList<>(HashMap.class, null));
 	}
 
 	@Test
-	public void testBadClassInConstructor()
+	void testBadClassInConstructor()
 	{
 		assertThrows(IllegalArgumentException.class, () -> new DoubleKeyMapToList<>(StrangeMap.class, HashMap.class));
 		assertThrows(IllegalArgumentException.class, () -> new DoubleKeyMapToList<>(HashMap.class, StrangeMap.class));
 	}
 
 	@Test
-	public void testBadClassInConstructor2()
+	void testBadClassInConstructor2()
 	{
 		assertThrows(IllegalArgumentException.class, () -> new DoubleKeyMapToList<>(NoPublicZeroArgConstructorMap.class, HashMap.class));
 		assertThrows(IllegalArgumentException.class, () -> new DoubleKeyMapToList<>(HashMap.class, NoPublicZeroArgConstructorMap.class));
 	}
 
 	@Test
-	public void testBadClassInConstructor3()
+	void testBadClassInConstructor3()
 	{
 		assertThrows(IllegalArgumentException.class, () -> new DoubleKeyMapToList<>(NoZeroArgConstructorMap.class, HashMap.class));
 		assertThrows(IllegalArgumentException.class, () -> new DoubleKeyMapToList<>(HashMap.class, NoZeroArgConstructorMap.class));
 	}
 
 	@Test
-	public void testPutGet()
+	void testPutGet()
 	{
 		DoubleKeyMapToList<Integer, Double, Character> dkm =
 				new DoubleKeyMapToList<>();
@@ -143,7 +143,7 @@ public class DoubleKeyMapToListTest
 	}
 
 	@Test
-	public void testContainsKey()
+	void testContainsKey()
 	{
 		DoubleKeyMapToList<Integer, Double, Character> dkm =
 				new DoubleKeyMapToList<>();
@@ -161,7 +161,7 @@ public class DoubleKeyMapToListTest
 	}
 
 	@Test
-	public void testRemoveListFor()
+	void testRemoveListFor()
 	{
 		DoubleKeyMapToList<Integer, Double, Character> dkm =
 				new DoubleKeyMapToList<>();
@@ -197,7 +197,7 @@ public class DoubleKeyMapToListTest
 	}
 
 	@Test
-	public void testRemoveListsFor()
+	void testRemoveListsFor()
 	{
 		DoubleKeyMapToList<Integer, Double, Character> dkm =
 				new DoubleKeyMapToList<>();
@@ -223,7 +223,7 @@ public class DoubleKeyMapToListTest
 	}
 
 	@Test
-	public void testRemoveFromListFor()
+	void testRemoveFromListFor()
 	{
 		DoubleKeyMapToList<Integer, Double, Character> dkm =
 				new DoubleKeyMapToList<>();
@@ -286,7 +286,7 @@ public class DoubleKeyMapToListTest
 	}
 
 	@Test
-	public void testContainsInList()
+	void testContainsInList()
 	{
 		DoubleKeyMapToList<Integer, Double, Character> dkm =
 				new DoubleKeyMapToList<>();
@@ -319,7 +319,7 @@ public class DoubleKeyMapToListTest
 	}
 
 	@Test
-	public void testGetKeySet()
+	void testGetKeySet()
 	{
 		DoubleKeyMapToList<Integer, Double, Character> dkm =
 				new DoubleKeyMapToList<>();
@@ -345,7 +345,7 @@ public class DoubleKeyMapToListTest
 	}
 
 	@Test
-	public void testGetSecondaryKeySet()
+	void testGetSecondaryKeySet()
 	{
 		DoubleKeyMapToList<Integer, Double, Character> dkm =
 				new DoubleKeyMapToList<>();
@@ -383,7 +383,7 @@ public class DoubleKeyMapToListTest
 	}
 
 	@Test
-	public void testClearIsEmpty()
+	void testClearIsEmpty()
 	{
 		DoubleKeyMapToList<Integer, Double, Character> dkm =
 				new DoubleKeyMapToList<>();
@@ -416,7 +416,7 @@ public class DoubleKeyMapToListTest
 	}
 
 	@Test
-	public void testInstanceBehavior()
+	void testInstanceBehavior()
 	{
 		DoubleKeyMapToList<Integer, Double, Character> dkm =
 				new DoubleKeyMapToList<>();
@@ -446,7 +446,7 @@ public class DoubleKeyMapToListTest
 	}
 
 	@Test
-	public void testAddAllToListFor()
+	void testAddAllToListFor()
 	{
 		DoubleKeyMapToList<Integer, Double, Character> dkm =
 				new DoubleKeyMapToList<>();
@@ -474,7 +474,7 @@ public class DoubleKeyMapToListTest
 	}
 
 	@Test
-	public void testAddAll()
+	void testAddAll()
 	{
 		DoubleKeyMapToList<Integer, Double, Character> dkm =
 				new DoubleKeyMapToList<>();
@@ -501,7 +501,7 @@ public class DoubleKeyMapToListTest
 	}
 
 	@Test
-	public void testClone()
+	void testClone()
 	{
 		DoubleKeyMapToList<Integer, Double, Character> dkm =
 				new DoubleKeyMapToList<>();

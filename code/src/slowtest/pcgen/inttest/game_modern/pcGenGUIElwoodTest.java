@@ -28,10 +28,10 @@ import org.junit.jupiter.api.Test;
  * Tests a Modern Fast Hero 3/Infiltrator 3.
  * See the PCG file for details
  */
-public class pcGenGUIElwoodTest extends PcgenFtlTestCase
+class pcGenGUIElwoodTest extends PcgenFtlTestCase
 {
 	@Test
-	public void testElwood() throws Exception
+	void testElwood() throws Exception
 	{
 		runTest("msrd_Elwood");
 	}

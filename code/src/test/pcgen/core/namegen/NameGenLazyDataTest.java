@@ -25,13 +25,13 @@ import org.junit.jupiter.api.Test;
  * relevant file plus its transitive references, and that the observable
  * outputs match the eager loader's.
  */
-public class NameGenLazyDataTest
+class NameGenLazyDataTest
 {
 	private static final File DATA_DIR =
 			new File(System.getProperty("user.dir"), "plugins/Random Names");
 
 	@Test
-	public void preScanFindsCategoriesWithoutParsingFiles() throws Exception
+	void preScanFindsCategoriesWithoutParsingFiles() throws Exception
 	{
 		NameGenLazyData lazy = NameGenLazyData.open(DATA_DIR);
 		// open() does the StAX index scan but should never trigger a full
@@ -43,7 +43,7 @@ public class NameGenLazyDataTest
 	}
 
 	@Test
-	public void selectingCategoryParsesOnlyOwningFiles() throws Exception
+	void selectingCategoryParsesOnlyOwningFiles() throws Exception
 	{
 		NameGenerator generator = new NameGenerator(DATA_DIR);
 		List<String> categories = generator.getCategories();
@@ -67,7 +67,7 @@ public class NameGenLazyDataTest
 	}
 
 	@Test
-	public void lazyAndEagerProduceSameCategoryListing() throws Exception
+	void lazyAndEagerProduceSameCategoryListing() throws Exception
 	{
 		NameGenData eager = NameGenDataLoader.load(DATA_DIR);
 		NameGenLazyData lazy = NameGenLazyData.open(DATA_DIR);
@@ -77,7 +77,7 @@ public class NameGenLazyDataTest
 	}
 
 	@Test
-	public void getDataMaterialisesEverything() throws Exception
+	void getDataMaterialisesEverything() throws Exception
 	{
 		// getData() is documented as forcing a full eager materialisation
 		// for tests. After calling it the rulesets() / lists() maps should

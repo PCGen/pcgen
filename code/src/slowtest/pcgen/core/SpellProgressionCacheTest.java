@@ -16,25 +16,25 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class SpellProgressionCacheTest
+class SpellProgressionCacheTest
 {
 
 	public SpellProgressionCache spi;
 
 	@BeforeEach
-	public void setUp() throws Exception
+	void setUp() throws Exception
 	{
 		spi = new SpellProgressionCache();
 	}
 
 	@AfterEach
-	public void tearDown() throws Exception
+	void tearDown() throws Exception
 	{
 		spi = null;
 	}
 
 	@Test
-	public void testKnown()
+	void testKnown()
 	{
 		// Test it starts out empty
 		assertFalse(spi.hasKnownProgression());
@@ -110,7 +110,7 @@ public class SpellProgressionCacheTest
 	}
 
 	@Test
-	public void testSetKnownErrors()
+	void testSetKnownErrors()
 	{
 		List<Formula> l = new ArrayList<>();
 		try
@@ -163,7 +163,7 @@ public class SpellProgressionCacheTest
 	}
 
 	@Test
-	public void testSpecialtyKnown()
+	void testSpecialtyKnown()
 	{
 		// Test it starts out empty
 		assertFalse(spi.hasSpecialtyKnownProgression());
@@ -237,7 +237,7 @@ public class SpellProgressionCacheTest
 	}
 
 	@Test
-	public void testSetSpecialtyKnownErrors()
+	void testSetSpecialtyKnownErrors()
 	{
 		List<Formula> l = new ArrayList<>();
 		try
@@ -290,7 +290,7 @@ public class SpellProgressionCacheTest
 	}
 
 	@Test
-	public void testCast()
+	void testCast()
 	{
 		// Test it starts out empty
 		assertFalse(spi.hasCastProgression());
@@ -366,7 +366,7 @@ public class SpellProgressionCacheTest
 	}
 
 	@Test
-	public void testSetCastErrors()
+	void testSetCastErrors()
 	{
 		List<Formula> l = new ArrayList<>();
 		try
@@ -419,7 +419,7 @@ public class SpellProgressionCacheTest
 	}
 
 	@Test
-	public void testGetMinLevelForSpellLevel()
+	void testGetMinLevelForSpellLevel()
 	{
 		// Works for known
 		List<Formula> l = new ArrayList<>();
@@ -486,7 +486,7 @@ public class SpellProgressionCacheTest
 	}
 
 	@Test
-	public void testMaxSpellLevelForClassLevel()
+	void testMaxSpellLevelForClassLevel()
 	{
 		// Works for known
 		List<Formula> l = new ArrayList<>();
@@ -551,7 +551,7 @@ public class SpellProgressionCacheTest
 	}
 
 	@Test
-	public void testAvoidCrossPollution()
+	void testAvoidCrossPollution()
 	{
 		assertFalse(spi.hasKnownProgression());
 		assertFalse(spi.hasCastProgression());
@@ -585,7 +585,7 @@ public class SpellProgressionCacheTest
 	}
 
 	@Test
-	public void testClone()
+	void testClone()
 	{
 		List<Formula> l = new ArrayList<>();
 		l.add(FormulaFactory.getFormulaFor("22"));

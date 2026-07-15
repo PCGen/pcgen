@@ -29,7 +29,7 @@ import org.junit.jupiter.api.TestFactory;
  * rules ultimately produce empty strings (all-zero weights, empty
  * referenced lists, malformed rule structure).
  */
-public class NameGenDataIntegrityTest
+class NameGenDataIntegrityTest
 {
 	private static final File DATA_DIR =
 			new File(System.getProperty("user.dir"), "plugins/Random Names");
@@ -37,7 +37,7 @@ public class NameGenDataIntegrityTest
 	private static final int GENERATIONS_PER_RULESET = 5;
 
 	@TestFactory
-	public Stream<DynamicTest> everyFinalRuleSetProducesNonEmptyName() throws Exception
+	Stream<DynamicTest> everyFinalRuleSetProducesNonEmptyName() throws Exception
 	{
 		// Force a full eager load so the @TestFactory body has access to
 		// every parsed ruleset without paying the lazy parse cost per test.

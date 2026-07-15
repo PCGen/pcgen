@@ -30,7 +30,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
 
-public class ChargesTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifier>
+class ChargesTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifier>
 {
 
 	static ChargesToken token = new ChargesToken();
@@ -55,69 +55,69 @@ public class ChargesTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 	}
 
 	@Test
-	public void testInvalidEmpty()
+	void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNoPipe()
+	void testInvalidNoPipe()
 	{
 		assertFalse(parse("4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTwoPipe()
+	void testInvalidTwoPipe()
 	{
 		assertFalse(parse("4|5|6"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidMinNaN()
+	void testInvalidMinNaN()
 	{
 		assertFalse(parse("String|4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidMaxNaN()
+	void testInvalidMaxNaN()
 	{
 		assertFalse(parse("3|Str"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidMinNegative()
+	void testInvalidMinNegative()
 	{
 		assertFalse(parse("-4|5"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidMaxNegative()
+	void testInvalidMaxNegative()
 	{
 		assertFalse(parse("6|-7"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidMaxLTMin()
+	void testInvalidMaxLTMin()
 	{
 		assertFalse(parse("7|3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		runRoundRobin("4|10");
 	}
 
 	@Test
-	public void testRoundRobinMatching() throws PersistenceLayerException
+	void testRoundRobinMatching() throws PersistenceLayerException
 	{
 		runRoundRobin("10|10");
 	}
@@ -141,7 +141,7 @@ public class ChargesTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 	}
 
 	@Test
-	public void testUnparseMinNull()
+	void testUnparseMinNull()
 	{
 		primaryProf.put(IntegerKey.MIN_CHARGES, null);
 		primaryProf.put(IntegerKey.MAX_CHARGES, 1);
@@ -149,7 +149,7 @@ public class ChargesTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 	}
 
 	@Test
-	public void testUnparseMaxNull()
+	void testUnparseMaxNull()
 	{
 		primaryProf.put(IntegerKey.MIN_CHARGES, 1);
 		primaryProf.put(IntegerKey.MAX_CHARGES, null);
@@ -157,43 +157,43 @@ public class ChargesTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 	}
 
 	@Test
-	public void testUnparseNormal()
+	void testUnparseNormal()
 	{
 		expectSingle(setAndUnparse(5, 10), "5|10");
 	}
 
 	@Test
-	public void testUnparseEqual()
+	void testUnparseEqual()
 	{
 		expectSingle(setAndUnparse(5, 5), "5|5");
 	}
 
 	@Test
-	public void testUnparseZeroMin()
+	void testUnparseZeroMin()
 	{
 		expectSingle(setAndUnparse(0, 5), "0|5");
 	}
 
 	@Test
-	public void testUnparseZeroMinMax()
+	void testUnparseZeroMinMax()
 	{
 		expectSingle(setAndUnparse(0, 0), "0|0");
 	}
 
 	@Test
-	public void testUnparseMaxLTMin()
+	void testUnparseMaxLTMin()
 	{
 		assertNull(setAndUnparse(10, 5));
 	}
 
 	@Test
-	public void testUnparseNegativeMin()
+	void testUnparseNegativeMin()
 	{
 		assertNull(setAndUnparse(-5, 10));
 	}
 
 	@Test
-	public void testUnparseNegativeMax()
+	void testUnparseNegativeMax()
 	{
 		assertNull(setAndUnparse(5, -10));
 	}

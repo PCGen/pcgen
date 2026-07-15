@@ -41,7 +41,7 @@ import plugin.pretokens.writer.PreRaceWriter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class SpellKnownIntegrationTest extends
+class SpellKnownIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>
 {
 	private static SpellknownLst token = new SpellknownLst();
@@ -82,7 +82,7 @@ public class SpellKnownIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
 		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
@@ -102,7 +102,7 @@ public class SpellKnownIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoSet() throws PersistenceLayerException
+	void testRoundRobinNoSet() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
 		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
@@ -115,7 +115,7 @@ public class SpellKnownIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoReset() throws PersistenceLayerException
+	void testRoundRobinNoReset() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
 		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");

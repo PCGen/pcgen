@@ -35,7 +35,7 @@ class ExportUtilitiesTest
 	 * Test method for {@link pcgen.io.ExportUtilities#getOutputExtension(java.lang.String, boolean)}.
 	 */
 	@Test
-	public void testGetOutputExtensionNonPdf()
+	void testGetOutputExtensionNonPdf()
 	{
 		assertEquals("html",
 			ExportUtilities.getOutputExtension("foo.html", false), "Incorrect non pdf extension"
@@ -77,7 +77,7 @@ class ExportUtilitiesTest
 	 * Test method for {@link pcgen.io.ExportUtilities#getOutputExtension(java.lang.String, boolean)}.
 	 */
 	@Test
-	public void testGetOutputExtensionPdf()
+	void testGetOutputExtensionPdf()
 	{
 		assertEquals("pdf",
 			ExportUtilities.getOutputExtension("foo.xslt", true), "Incorrect pdf extension"
@@ -91,7 +91,7 @@ class ExportUtilitiesTest
 	 * Test method for {@link pcgen.io.ExportUtilities#isPdfTemplate(java.io.File)}.
 	 */
 	@Test
-	public void testIsPdfTemplateFile()
+	void testIsPdfTemplateFile()
 	{
 		assertFalse(
 				ExportUtilities.isPdfTemplate(new File("foo.html")),
@@ -140,7 +140,7 @@ class ExportUtilitiesTest
 	 * Test method for {@link pcgen.io.ExportUtilities#isPdfTemplate(java.lang.String)}.
 	 */
 	@Test
-	public void testIsPdfTemplateString()
+	void testIsPdfTemplateString()
 	{
 		assertFalse(ExportUtilities.isPdfTemplate("foo.html"), "Should not be PDF");
 		assertFalse(ExportUtilities.isPdfTemplate("foo.htm"), "Should not be PDF");

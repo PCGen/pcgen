@@ -29,10 +29,10 @@ import org.junit.jupiter.api.Test;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.testsupport.TestUtilities;
 
-public class ArrayNotEqualTest
+class ArrayNotEqualTest
 {
 	@Test
-	public void testOperator()
+	void testOperator()
 	{
 		ArrayNotEqual op = new ArrayNotEqual();
 		assertNotNull(op.getOperator());
@@ -40,7 +40,7 @@ public class ArrayNotEqualTest
 	}
 
 	@Test
-	public void testAbstractEvaluateNulls()
+	void testAbstractEvaluateNulls()
 	{
 		ArrayNotEqual op = new ArrayNotEqual();
 		try
@@ -70,7 +70,7 @@ public class ArrayNotEqualTest
 	}
 
 	@Test
-	public void testAbstractEvaluateMismatch()
+	void testAbstractEvaluateMismatch()
 	{
 		ArrayNotEqual op = new ArrayNotEqual();
 		assertTrue(op.abstractEvaluate(TestUtilities.NUMBER_ARRAY_CLASS, TestUtilities.BOOLEAN_ARRAY_CLASS,
@@ -84,7 +84,7 @@ public class ArrayNotEqualTest
 	}
 
 	@Test
-	public void testAbstractEvaluateLegal()
+	void testAbstractEvaluateLegal()
 	{
 		ArrayNotEqual op = new ArrayNotEqual();
 		assertEquals(FormatUtilities.BOOLEAN_CLASS, op.abstractEvaluate(TestUtilities.NUMBER_ARRAY_CLASS,
@@ -100,7 +100,7 @@ public class ArrayNotEqualTest
 	}
 
 	@Test
-	public void testEvaluateFailNull()
+	void testEvaluateFailNull()
 	{
 		ArrayNotEqual op = new ArrayNotEqual();
 		assertThrows(NullPointerException.class, () -> op.evaluate(null, null));
@@ -110,7 +110,7 @@ public class ArrayNotEqualTest
 	}
 
 	@Test
-	public void testEvaluateLegalArrayArray()
+	void testEvaluateLegalArrayArray()
 	{
 		ArrayNotEqual op = new ArrayNotEqual();
 		Number[] iArray = new Number[]{1, 2};

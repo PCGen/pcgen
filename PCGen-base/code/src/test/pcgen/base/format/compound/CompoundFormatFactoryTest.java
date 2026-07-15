@@ -31,10 +31,10 @@ import pcgen.testsupport.TestSupport;
 /**
  * Test the CompoundFormatFactory class
  */
-public class CompoundFormatFactoryTest
+class CompoundFormatFactoryTest
 {
 	@Test
-	public void testBuild()
+	void testBuild()
 	{
 		SimpleFormatManagerLibrary library = new SimpleFormatManagerLibrary();
 		library.addFormatManager(FormatUtilities.NUMBER_MANAGER);
@@ -45,7 +45,7 @@ public class CompoundFormatFactoryTest
 	}
 
 	@Test
-	public void testBuildNoFormat()
+	void testBuildNoFormat()
 	{
 		SimpleFormatManagerLibrary library = new SimpleFormatManagerLibrary();
 		library.addFormatManager(FormatUtilities.BOOLEAN_MANAGER);
@@ -55,7 +55,7 @@ public class CompoundFormatFactoryTest
 	}
 
 	@Test
-	public void testBuildBadSyntax()
+	void testBuildBadSyntax()
 	{
 		SimpleFormatManagerLibrary library = new SimpleFormatManagerLibrary();
 		library.addFormatManager(FormatUtilities.BOOLEAN_MANAGER);

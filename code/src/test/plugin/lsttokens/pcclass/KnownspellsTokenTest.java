@@ -36,7 +36,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class KnownspellsTokenTest extends AbstractListInputTokenTestCase<PCClass, Spell>
+class KnownspellsTokenTest extends AbstractListInputTokenTestCase<PCClass, Spell>
 {
 
 	static KnownspellsToken token = new KnownspellsToken();
@@ -85,7 +85,7 @@ public class KnownspellsTokenTest extends AbstractListInputTokenTestCase<PCClass
 	}
 
 	@Test
-	public void testInvalidInputEmpty()
+	void testInvalidInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
@@ -105,14 +105,14 @@ public class KnownspellsTokenTest extends AbstractListInputTokenTestCase<PCClass
 	}
 
 	@Test
-	public void testInvalidInputTwoType()
+	void testInvalidInputTwoType()
 	{
 		assertFalse(parse("TYPE=TestWP1,TYPE=TestWP2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputSpellAndType()
+	void testInvalidInputSpellAndType()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("TestWP1,TYPE=TestWP2"));
@@ -120,49 +120,49 @@ public class KnownspellsTokenTest extends AbstractListInputTokenTestCase<PCClass
 	}
 
 	@Test
-	public void testInvalidInputLevelEmpty()
+	void testInvalidInputLevelEmpty()
 	{
 		assertFalse(parse("LEVEL="));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputLevelNaN()
+	void testInvalidInputLevelNaN()
 	{
 		assertFalse(parse("LEVEL=One"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputLevelDouble()
+	void testInvalidInputLevelDouble()
 	{
 		assertFalse(parse("LEVEL=1.0"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputStart()
+	void testInvalidInputStart()
 	{
 		assertFalse(parse(",LEVEL=2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEnd()
+	void testInvalidInputEnd()
 	{
 		assertFalse(parse("LEVEL=2,"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNegative()
+	void testInvalidInputNegative()
 	{
 		assertFalse(parse("LEVEL=-2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDouble()
+	void testInvalidInputDouble()
 	{
 		if (isTypeLegal())
 		{
@@ -172,14 +172,14 @@ public class KnownspellsTokenTest extends AbstractListInputTokenTestCase<PCClass
 	}
 
 	@Test
-	public void testInvalidInputTwoLevel()
+	void testInvalidInputTwoLevel()
 	{
 		assertFalse(parse("LEVEL=1,LEVEL=2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testRoundRobinWithLevel() throws PersistenceLayerException
+	void testRoundRobinWithLevel() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -187,7 +187,7 @@ public class KnownspellsTokenTest extends AbstractListInputTokenTestCase<PCClass
 	}
 
 	@Test
-	public void testRoundRobinLevels() throws PersistenceLayerException
+	void testRoundRobinLevels() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -195,7 +195,7 @@ public class KnownspellsTokenTest extends AbstractListInputTokenTestCase<PCClass
 	}
 
 	@Test
-	public void testRoundRobinComplex() throws PersistenceLayerException
+	void testRoundRobinComplex() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -213,7 +213,7 @@ public class KnownspellsTokenTest extends AbstractListInputTokenTestCase<PCClass
 	}
 
 	@Test
-	public void testRoundRobinTypeLevel() throws PersistenceLayerException
+	void testRoundRobinTypeLevel() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -229,7 +229,7 @@ public class KnownspellsTokenTest extends AbstractListInputTokenTestCase<PCClass
 	}
 
 	@Test
-	public void testRoundRobinTestEqualThreeLevel()
+	void testRoundRobinTestEqualThreeLevel()
 			throws PersistenceLayerException
 	{
 		if (isTypeLegal())
@@ -271,7 +271,7 @@ public class KnownspellsTokenTest extends AbstractListInputTokenTestCase<PCClass
 	}
 
 	@Test
-	public void testUnparseOne()
+	void testUnparseOne()
 	{
 		Spell fireball = primaryContext.getReferenceContext().constructCDOMObject(Spell.class,
 				"Fireball");
@@ -283,7 +283,7 @@ public class KnownspellsTokenTest extends AbstractListInputTokenTestCase<PCClass
 	}
 
 	@Test
-	public void testUnparseMultiple()
+	void testUnparseMultiple()
 	{
 		Spell fireball = primaryContext.getReferenceContext().constructCDOMObject(Spell.class,
 				"Fireball");
@@ -300,7 +300,7 @@ public class KnownspellsTokenTest extends AbstractListInputTokenTestCase<PCClass
 	}
 
 	@Test
-	public void testUnparseLevel()
+	void testUnparseLevel()
 	{
 		CDOMGroupRef<Spell> all = primaryContext.getReferenceContext()
 				.getCDOMAllReference(Spell.class);
@@ -311,7 +311,7 @@ public class KnownspellsTokenTest extends AbstractListInputTokenTestCase<PCClass
 	}
 
 	@Test
-	public void testUnparseNegativeLevel()
+	void testUnparseNegativeLevel()
 	{
 		try
 		{
@@ -328,7 +328,7 @@ public class KnownspellsTokenTest extends AbstractListInputTokenTestCase<PCClass
 	}
 
 	@Test
-	public void testUnparseTypeLevel()
+	void testUnparseTypeLevel()
 	{
 		CDOMGroupRef<Spell> cool = primaryContext.getReferenceContext().getCDOMTypeReference(
 				Spell.class, "Cool");
@@ -339,7 +339,7 @@ public class KnownspellsTokenTest extends AbstractListInputTokenTestCase<PCClass
 	}
 
 	@Test
-	public void testUnparseMultTypeLevel()
+	void testUnparseMultTypeLevel()
 	{
 		CDOMGroupRef<Spell> cool = primaryContext.getReferenceContext().getCDOMTypeReference(
 				Spell.class, "Cool");
@@ -354,7 +354,7 @@ public class KnownspellsTokenTest extends AbstractListInputTokenTestCase<PCClass
 	}
 
 	@Test
-	public void testUnparseNull()
+	void testUnparseNull()
 	{
 		primaryProf.addToListFor(ListKey.KNOWN_SPELLS, null);
 		try

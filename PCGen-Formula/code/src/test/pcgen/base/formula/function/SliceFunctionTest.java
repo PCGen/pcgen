@@ -29,11 +29,11 @@ import pcgen.base.formula.visitor.ReconstructionVisitor;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
 import pcgen.base.testsupport.TestUtilities;
 
-public class SliceFunctionTest extends AbstractFormulaTestCase
+class SliceFunctionTest extends AbstractFormulaTestCase
 {
 
 	@Test
-	public void testInvalidTooManyArg()
+	void testInvalidTooManyArg()
 	{
 		String formula = "slice(a, 2, 3, 4)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -41,7 +41,7 @@ public class SliceFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidTooFewArg()
+	void testInvalidTooFewArg()
 	{
 		String formula = "slice(a)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -49,7 +49,7 @@ public class SliceFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotValidString()
+	void testNotValidString()
 	{
 		String formula = "slice(\"ab\")";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -57,7 +57,7 @@ public class SliceFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotValidNoVar()
+	void testNotValidNoVar()
 	{
 		String formula = "slice(ab, 0, 1)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -65,7 +65,7 @@ public class SliceFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testSingleItem()
+	void testSingleItem()
 	{
 		Number[] array = {1, 2, 3, 4, 5, 6, 7};
 		setVariable(getNumberArrayVar("ab"), array);
@@ -80,7 +80,7 @@ public class SliceFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testBoundedSlice()
+	void testBoundedSlice()
 	{
 		Number[] array = {1, 2, 3, 4, 5, 6, 7};
 		setVariable(getNumberArrayVar("ab"), array);
@@ -95,7 +95,7 @@ public class SliceFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testUnboundedSlice()
+	void testUnboundedSlice()
 	{
 		Number[] array = {1, 2, 3, 4, 5, 6, 7};
 		setVariable(getNumberArrayVar("ab"), array);
@@ -110,7 +110,7 @@ public class SliceFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNegativeStart()
+	void testNegativeStart()
 	{
 		Number[] array = {1, 2, 3, 4, 5, 6, 7};
 		setVariable(getNumberArrayVar("ab"), array);
@@ -120,7 +120,7 @@ public class SliceFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalid()
+	void testInvalid()
 	{
 		Number[] array = {1, 2, 3, 4, 5, 6, 7};
 		setVariable(getNumberArrayVar("ab"), array);
@@ -130,7 +130,7 @@ public class SliceFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testWastedEmpty()
+	void testWastedEmpty()
 	{
 		Number[] array = {1, 2, 3, 4, 5, 6, 7};
 		setVariable(getNumberArrayVar("ab"), array);
@@ -140,7 +140,7 @@ public class SliceFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNonIntegerStart()
+	void testNonIntegerStart()
 	{
 		Number[] array = {1, 2, 3, 4, 5, 6, 7};
 		setVariable(getNumberArrayVar("ab"), array);
@@ -150,7 +150,7 @@ public class SliceFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNonIntegerEnd()
+	void testNonIntegerEnd()
 	{
 		Number[] array = {1, 2, 3, 4, 5, 6, 7};
 		setVariable(getNumberArrayVar("ab"), array);

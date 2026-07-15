@@ -24,7 +24,7 @@ import org.junit.jupiter.api.Test;
 
 import pcgen.testsupport.TestSupport;
 
-public class HashMapToInstanceListTest extends HashMapToListTest
+class HashMapToInstanceListTest extends HashMapToListTest
 {
 
 	@Override

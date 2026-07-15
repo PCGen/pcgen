@@ -41,7 +41,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class MonCSkillTokenTest extends
+class MonCSkillTokenTest extends
 		AbstractListContextTokenTestCase<Race, Skill>
 {
 	static MoncskillToken token = new MoncskillToken();
@@ -115,13 +115,13 @@ public class MonCSkillTokenTest extends
 	}
 
 	@Test
-	public void testRoundRobinList() throws PersistenceLayerException
+	void testRoundRobinList() throws PersistenceLayerException
 	{
 		runRoundRobin("LIST");
 	}
 
 	@Test
-	public void testRoundRobinPattern() throws PersistenceLayerException
+	void testRoundRobinPattern() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -129,27 +129,27 @@ public class MonCSkillTokenTest extends
 	}
 
 	@Test
-	public void testValidInputClearList()
+	void testValidInputClearList()
 	{
 		assertTrue(parse(".CLEAR.LIST"));
 	}
 
 	@Test
-	public void testInvalidInputAllList()
+	void testInvalidInputAllList()
 	{
 		assertFalse(parse("ALL" + getJoinCharacter() + "LIST"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputAllPattern()
+	void testInvalidInputAllPattern()
 	{
 		assertFalse(parse("ALL" + getJoinCharacter() + "Pattern%"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testRoundRobinThreePattern() throws PersistenceLayerException
+	void testRoundRobinThreePattern() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");

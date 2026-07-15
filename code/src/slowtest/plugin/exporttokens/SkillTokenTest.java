@@ -52,7 +52,7 @@ import org.junit.jupiter.api.Test;
  */
 
 @SuppressWarnings("nls")
-public class SkillTokenTest extends AbstractCharacterTestCase
+class SkillTokenTest extends AbstractCharacterTestCase
 {
 	private Skill balance = null;
 	private Skill[] knowledge = null;
@@ -161,7 +161,7 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 	 * Test the SKILL token.
 	 */
 	@Test
-	public void testSkillToken()
+	void testSkillToken()
 	{
 		PlayerCharacter character = getCharacter();
 
@@ -204,7 +204,7 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 	 * Test the SKILLLEVEL token.
 	 */
 	@Test
-	public void testSkillLevelToken()
+	void testSkillLevelToken()
 	{
 		PlayerCharacter character = getCharacter();
 
@@ -219,7 +219,7 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 	 * Test the SKILLSUBSET token.
 	 */
 	@Test
-	public void testSkillSubsetToken()
+	void testSkillSubsetToken()
 	{
 		PlayerCharacter character = getCharacter();
 
@@ -236,7 +236,7 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 	 * Test the SKILLTYPE token.
 	 */
 	@Test
-	public void testSkillTypeToken()
+	void testSkillTypeToken()
 	{
 		PlayerCharacter character = getCharacter();
 

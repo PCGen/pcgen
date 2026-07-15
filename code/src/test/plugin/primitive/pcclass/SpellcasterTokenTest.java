@@ -33,7 +33,7 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 
 import org.junit.jupiter.api.BeforeEach;
 
-public class SpellcasterTokenTest extends
+class SpellcasterTokenTest extends
 		AbstractPrimitiveTokenTestCase<CDOMObject, PCClass>
 {
 

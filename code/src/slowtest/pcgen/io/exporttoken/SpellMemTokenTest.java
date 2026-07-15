@@ -46,7 +46,7 @@ import org.junit.jupiter.api.Test;
  * Verify the correct functioning of the SPELLMEM token.
  */
 
-public class SpellMemTokenTest extends AbstractCharacterTestCase
+class SpellMemTokenTest extends AbstractCharacterTestCase
 {
 	private PCClass arcaneClass = null;
 	private PCClass divineClass = null;
@@ -114,7 +114,7 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 	 * retrieved correctly.
 	 */
 	@Test
-	public void testSpontaneousCasterKnown()
+	void testSpontaneousCasterKnown()
 	{
 		PlayerCharacter character = getCharacter();
 		String spellBook = "Travel";
@@ -148,7 +148,7 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 	 * books.
 	 */
 	@Test
-	public void testPreparedCaster()
+	void testPreparedCaster()
 	{
 		PlayerCharacter character = getCharacter();
 		String spellBook = "Travel";

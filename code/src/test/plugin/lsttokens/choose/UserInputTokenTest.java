@@ -32,7 +32,7 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 
 import org.junit.jupiter.api.BeforeEach;
 
-public class UserInputTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
+class UserInputTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 {
 
 	static ChooseLst token = new ChooseLst();

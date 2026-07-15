@@ -49,7 +49,7 @@ import org.junit.jupiter.api.Test;
  * 
  * 
  */
-public class SpellLevelTest extends AbstractCharacterTestCase
+class SpellLevelTest extends AbstractCharacterTestCase
 {
 
 	private static KnownSpellFacet listManagerFacet = FacetLibrary
@@ -60,7 +60,7 @@ public class SpellLevelTest extends AbstractCharacterTestCase
 	 * @throws Exception 
 	 */
 	@Test
-	public void testGetPCBasedBonusKnownSpells() throws Exception
+	void testGetPCBasedBonusKnownSpells() throws Exception
 	{
 		LoadContext context = Globals.getContext();
 		CampaignSourceEntry source;

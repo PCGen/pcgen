@@ -26,10 +26,10 @@ import org.junit.jupiter.api.Test;
 import pcgen.base.testsupport.GlobalVarScoped;
 import pcgen.base.testsupport.SimpleVarScoped;
 
-public class SimpleScopeInstanceTest
+class SimpleScopeInstanceTest
 {
 	@Test
-	public void testConstructor()
+	void testConstructor()
 	{
 		GlobalVarScoped gvs = new GlobalVarScoped("Global");
 		SimpleImplementedScope implementedScope = new SimpleImplementedScope("Global", true);
@@ -53,7 +53,7 @@ public class SimpleScopeInstanceTest
 	}
 
 	@Test
-	public void testIsValid()
+	void testIsValid()
 	{
 		GlobalVarScoped gvs = new GlobalVarScoped("Global");
 		SimpleImplementedScope implementedScope = new SimpleImplementedScope("Global", true);

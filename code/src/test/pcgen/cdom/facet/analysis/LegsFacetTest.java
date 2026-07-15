@@ -31,7 +31,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class LegsFacetTest
+class LegsFacetTest
 {
 	/*
 	 * NOTE: This is not literal unit testing - it is leveraging the existing
@@ -47,7 +47,7 @@ public class LegsFacetTest
 	private TemplateFacet tfacet = new TemplateFacet();
 
 	@BeforeEach
-	public void setUp() throws Exception
+	void setUp() throws Exception
 	{
 		facet = new LegsFacet();
 		facet.setRaceFacet(rfacet);
@@ -58,7 +58,7 @@ public class LegsFacetTest
 	}
 
 	@AfterEach
-	public void tearDown()
+	void tearDown()
 	{
 		id = null;
 		altid = null;
@@ -68,20 +68,20 @@ public class LegsFacetTest
 	}
 
 	@Test
-	public void testRaceTypeUnsetNull()
+	void testRaceTypeUnsetNull()
 	{
 		assertEquals(0, facet.getLegs(id));
 	}
 
 	@Test
-	public void testWithNothingInRaceDefault2()
+	void testWithNothingInRaceDefault2()
 	{
 		rfacet.set(id, new Race());
 		assertEquals(2, facet.getLegs(id));
 	}
 
 	@Test
-	public void testAvoidPollution()
+	void testAvoidPollution()
 	{
 		Race r = new Race();
 		r.put(IntegerKey.LEGS, 5);
@@ -90,7 +90,7 @@ public class LegsFacetTest
 	}
 
 	@Test
-	public void testGetFromRace()
+	void testGetFromRace()
 	{
 		Race r = new Race();
 		r.put(IntegerKey.LEGS, 5);
@@ -101,7 +101,7 @@ public class LegsFacetTest
 	}
 
 	@Test
-	public void testGetFromTemplate()
+	void testGetFromTemplate()
 	{
 		rfacet.set(id, new Race());
 		PCTemplate t = new PCTemplate();
@@ -113,7 +113,7 @@ public class LegsFacetTest
 	}
 
 	@Test
-	public void testGetFromTemplateSecondOverrides()
+	void testGetFromTemplateSecondOverrides()
 	{
 		Race r = new Race();
 		r.put(IntegerKey.LEGS, 5);

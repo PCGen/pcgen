@@ -32,13 +32,13 @@ import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 import util.TestURI;
 
-public class RaceMonsterClassTest extends AbstractTokenModelTest
+class RaceMonsterClassTest extends AbstractTokenModelTest
 {
 
 	private static MonsterclassToken token = new MonsterclassToken();
 
 	@Test
-	public void testSimple()
+	void testSimple()
 	{
 		TokenRegistration.register(plugin.bonustokens.Feat.class);
 		Race source = create(Race.class, "Source");

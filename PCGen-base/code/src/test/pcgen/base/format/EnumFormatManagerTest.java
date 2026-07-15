@@ -27,12 +27,12 @@ import pcgen.base.util.SimpleValueStore;
 /**
  * Test the EnumFormatManager class
  */
-public class EnumFormatManagerTest
+class EnumFormatManagerTest
 {
 
 	@SuppressWarnings({"rawtypes", "unchecked", "cast"})
 	@Test
-	public void testFailBadSubFormat()
+	void testFailBadSubFormat()
 	{
 		assertThrows(NullPointerException.class, () -> new EnumFormatManager<>(TestEnum.class, null));
 		assertThrows(IllegalArgumentException.class, () -> new EnumFormatManager<>(TestEnum.class, ""));
@@ -41,7 +41,7 @@ public class EnumFormatManagerTest
 	}
 
 	@Test
-	public void testConvert()
+	void testConvert()
 	{
 		FormatManager<TestEnum> manager = new EnumFormatManager<>(TestEnum.class, "TestEnum");
 		assertThrows(NullPointerException.class, () -> manager.convert(null));
@@ -51,14 +51,14 @@ public class EnumFormatManagerTest
 	}
 
 	@Test
-	public void testGetIdentifier()
+	void testGetIdentifier()
 	{
 		FormatManager<TestEnum> manager = new EnumFormatManager<>(TestEnum.class, "TestEnum");
 		assertEquals("TestEnum", manager.getIdentifierType());
 	}
 
 	@Test
-	public void testHashCodeEquals()
+	void testHashCodeEquals()
 	{
 		FormatManager<TestEnum> manager = new EnumFormatManager<>(TestEnum.class, "TestEnum");
 		assertEquals(new EnumFormatManager<>(TestEnum.class, "TestEnum").hashCode(), manager.hashCode());
@@ -68,21 +68,21 @@ public class EnumFormatManagerTest
 	}
 
 	@Test
-	public void testGetComponent()
+	void testGetComponent()
 	{
 		FormatManager<TestEnum> manager = new EnumFormatManager<>(TestEnum.class, "TestEnum");
 		assertTrue(manager.getComponentManager().isEmpty());
 	}
 
 	@Test
-	public void testIsDirect()
+	void testIsDirect()
 	{
 		FormatManager<TestEnum> manager = new EnumFormatManager<>(TestEnum.class, "TestEnum");
 		assertTrue(manager.isDirect());
 	}
 
 	@Test
-	public void testInitializeFrom()
+	void testInitializeFrom()
 	{
 		FormatManager<TestEnum> manager = new EnumFormatManager<>(TestEnum.class, "TestEnum");
 		SimpleValueStore valueStore = new SimpleValueStore();

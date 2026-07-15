@@ -37,7 +37,7 @@ import org.junit.jupiter.api.Test;
  * {@code PreLangTest} tests that the PRELANG tag is
  * working correctly.
  */
-public class PreLangTest extends AbstractCharacterTestCase
+class PreLangTest extends AbstractCharacterTestCase
 {
 	final Language elven = new Language();
 	final Language dwarven = new Language();
@@ -49,7 +49,7 @@ public class PreLangTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testLang() throws PersistenceLayerException
+	void testLang() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		character.addAutoLanguage(elven, elven);

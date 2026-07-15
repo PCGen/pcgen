@@ -33,7 +33,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Test the DefaultHyperEdge class
  */
-public class DefaultHyperEdgeTest
+class DefaultHyperEdgeTest
 {
 
 	private DefaultHyperEdge<Integer> edge1, edge2, edge3, edge4, edge5, edge6;
@@ -83,7 +83,7 @@ public class DefaultHyperEdgeTest
 	}
 
 	@Test
-	public void testDefaultHyperEdge()
+	void testDefaultHyperEdge()
 	{
 		assertThrows(NullPointerException.class, () -> new DefaultHyperEdge<Integer>(null));
 		assertThrows(IllegalArgumentException.class, () -> new DefaultHyperEdge<>(Arrays.asList(new Integer[]{})));
@@ -91,7 +91,7 @@ public class DefaultHyperEdgeTest
 	}
 
 	@Test
-	public void testGetNodeAt()
+	void testGetNodeAt()
 	{
 		assertEquals(node6, edge3.getNodeAt(0));
 		assertEquals(node4, edge3.getNodeAt(1));
@@ -101,7 +101,7 @@ public class DefaultHyperEdgeTest
 	}
 
 	@Test
-	public void testGetAdjacentNodes()
+	void testGetAdjacentNodes()
 	{
 		List<Integer> l = edge3.getAdjacentNodes();
 		assertEquals(3, l.size());
@@ -114,7 +114,7 @@ public class DefaultHyperEdgeTest
 	}
 
 	@Test
-	public void testGetAdjacentNodeCount()
+	void testGetAdjacentNodeCount()
 	{
 		assertEquals(3, edge1.getAdjacentNodeCount());
 		assertEquals(2, edge2.getAdjacentNodeCount());
@@ -125,7 +125,7 @@ public class DefaultHyperEdgeTest
 	}
 
 	@Test
-	public void testIsAdjacentEdge()
+	void testIsAdjacentEdge()
 	{
 		assertTrue(edge1.isAdjacentNode(node3));
 		assertTrue(edge1.isAdjacentNode(node4));
@@ -134,7 +134,7 @@ public class DefaultHyperEdgeTest
 	}
 
 	@Test
-	public void testCreateReplacementEdge()
+	void testCreateReplacementEdge()
 	{
 		assertThrows(NullPointerException.class, () -> edge1.createReplacementEdge(null));
 		assertThrows(IllegalArgumentException.class, () -> edge1.createReplacementEdge(new ArrayList<>()));

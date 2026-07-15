@@ -53,7 +53,7 @@ import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
 
-public class DynamicSolverManagerTest extends AbstractSolverManagerTest
+class DynamicSolverManagerTest extends AbstractSolverManagerTest
 {
 	private SolverSystem manager;
 
@@ -88,7 +88,7 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 	}
 
 	@Test
-	public void testDynamic()
+	void testDynamic()
 	{
 		ScopeInstance source = getGlobalScopeInst();
 
@@ -302,7 +302,7 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 	}
 	
 	@Test
-	public void testAnother()
+	void testAnother()
 	{
 		LimbManager limbManager = new LimbManager();
 		getValueStore().addSolverFormat(limbManager,

@@ -48,7 +48,7 @@ import org.junit.jupiter.api.Test;
  * {@code AbilityTokenTest} tests the functioning of the ABILITY
  * token processing code. 
  */
-public class AbilityTokenTest extends AbstractCharacterTestCase
+class AbilityTokenTest extends AbstractCharacterTestCase
 {
 	@BeforeEach
 	@Override
@@ -110,7 +110,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 	 * Tests the aspect subtoken of ABILITY without a specific aspect.
 	 */
 	@Test
-	public void testAspect()
+	void testAspect()
 	{
 		AbilityToken tok = new AbilityToken();
 		ExportHandler eh = ExportHandler.createExportHandler(null);
@@ -125,7 +125,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 	 * Tests the ASPECTCOUNT subtoken of ABILITY.
 	 */
 	@Test
-	public void testAspectCount()
+	void testAspectCount()
 	{
 		AbilityToken tok = new AbilityToken();
 		ExportHandler eh = ExportHandler.createExportHandler(null);
@@ -139,7 +139,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 	 * Tests the ASPECT subtoken of ABILITY with an aspect specified.
 	 */
 	@Test
-	public void testSingleAspect()
+	void testSingleAspect()
 	{
 		AbilityToken tok = new AbilityToken();
 		ExportHandler eh = ExportHandler.createExportHandler(null);
@@ -164,7 +164,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 	 * Tests the ASPECT subtoken of ABILITY with an invalid aspect specified.
 	 */
 	@Test
-	public void testNonExistantSingleAspect()
+	void testNonExistantSingleAspect()
 	{
 		AbilityToken tok = new AbilityToken();
 		ExportHandler eh = ExportHandler.createExportHandler(null);
@@ -185,7 +185,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 	 * Tests the HASASPECT subtoken of ABILITY.
 	 */
 	@Test
-	public void testHasAspect()
+	void testHasAspect()
 	{
 		AbilityToken tok = new AbilityToken();
 		ExportHandler eh = ExportHandler.createExportHandler(null);
@@ -207,7 +207,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 	 * Tests the name subtoken of ABILITY.
 	 */
 	@Test
-	public void testName()
+	void testName()
 	{
 		AbilityToken tok = new AbilityToken();
 		ExportHandler eh = ExportHandler.createExportHandler(null);
@@ -225,7 +225,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 	 * Tests the key subtoken of ABILITY.
 	 */
 	@Test
-	public void testKey()
+	void testKey()
 	{
 		AbilityToken tok = new AbilityToken();
 		ExportHandler eh = ExportHandler.createExportHandler(null);
@@ -244,7 +244,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 	 * Tests the associated subtoken of ABILITY.
 	 */
 	@Test
-	public void testAssociated()
+	void testAssociated()
 	{
 		AbilityToken tok = new AbilityToken();
 		ExportHandler eh = ExportHandler.createExportHandler(null);
@@ -264,7 +264,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 	 * Tests the ASSOCIATEDCOUNT subtoken of ABILITY.
 	 */
 	@Test
-	public void testAssociatedCount()
+	void testAssociatedCount()
 	{
 		AbilityToken tok = new AbilityToken();
 		ExportHandler eh = ExportHandler.createExportHandler(null);

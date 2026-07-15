@@ -31,7 +31,7 @@ class PatternFilterTest
 {
 
 	@Test
-	public void testHtmlFilterStringSingleLine() throws Exception
+	void testHtmlFilterStringSingleLine() throws Exception
 	{
 		OutputFilter filter = new PatternFilter("foo.htm");
 		String testString = "foo\r\nbar";
@@ -42,7 +42,7 @@ class PatternFilterTest
 	}
 
 	@Test
-	public void testHtmlFilterStringMultiLine() throws Exception
+	void testHtmlFilterStringMultiLine() throws Exception
 	{
 		OutputFilter filter = new PatternFilter("foo.htm");
 		String testString = "foo\r\nbar\nbaz";
@@ -51,7 +51,7 @@ class PatternFilterTest
 	}
 
 	@Test
-	public void testHtmlFilterStringComplex() throws Exception
+	void testHtmlFilterStringComplex() throws Exception
 	{
 		String testString =
 				"Mirror Image&nl;       blindness/deafness, \u2028alter self, cacophoneus call, ";
@@ -63,7 +63,7 @@ class PatternFilterTest
 	}
 
 	@Test
-	public void testPdfFilterStringComplex() throws Exception
+	void testPdfFilterStringComplex() throws Exception
 	{
 		String testString =
 				"Mirror Image&nl;       blindness/deafness, \u2028alter self, cacophoneus call, ";
@@ -76,7 +76,7 @@ class PatternFilterTest
 	}
 
 	@Test
-	public void testXmlFilterStringComplex() throws Exception
+	void testXmlFilterStringComplex() throws Exception
 	{
 		String testString =
 				"Mirror Image&nl;       blindness/deafness, \u2028alter self, cacophoneus call, ";
@@ -89,7 +89,7 @@ class PatternFilterTest
 	}
 
 	@Test
-	public void testTxtFilterStringComplex() throws Exception
+	void testTxtFilterStringComplex() throws Exception
 	{
 		String testString =
 				"Mirror Image&nl;       blindness/deafness, \u2028alter self, cacophoneus call, ";

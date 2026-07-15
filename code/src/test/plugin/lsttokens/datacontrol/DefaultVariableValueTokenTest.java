@@ -42,7 +42,7 @@ import plugin.modifier.number.SetModifierFactory;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-public class DefaultVariableValueTokenTest extends
+class DefaultVariableValueTokenTest extends
 		AbstractTokenTestCase<DefaultVarValue>
 {
 
@@ -68,62 +68,62 @@ public class DefaultVariableValueTokenTest extends
 	}
 
 	@Test
-	public void testInvalidInputNullString()
+	void testInvalidInputNullString()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, null)
 			.passed());
 	}
 
 	@Test
-	public void testInvalidInputEmptyString()
+	void testInvalidInputEmptyString()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "").passed());
 	}
 
 	@Test
-	public void testInvalidInputNotAType()
+	void testInvalidInputNotAType()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "BADTYPE|45")
 			.passed());
 	}
 
 	@Test
-	public void testInvalidInputEmptyType()
+	void testInvalidInputEmptyType()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "|3")
 			.passed());
 	}
 
 	@Test
-	public void testInvalidTypeValue()
+	void testInvalidTypeValue()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "NUMBER|3r")
 			.passed());
 	}
 
 	@Test
-	public void testInvalidInputDoublePipe()
+	void testInvalidInputDoublePipe()
 	{
 		assertFalse(token
 			.parseToken(primaryContext, primaryProf, "STRING||Def").passed());
 	}
 
 	@Test
-	public void testInvalidInputTooManyArgs()
+	void testInvalidInputTooManyArgs()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf,
 			"STRING|Def|Abc").passed());
 	}
 
 	@Test
-	public void testInvalidDefaultEmptyNumber()
+	void testInvalidDefaultEmptyNumber()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "NUMBER|")
 			.passed());
 	}
 
 	@Test
-	public void testValidDefultEmptyString()
+	void testValidDefultEmptyString()
 	{
 		assertTrue(token.parseToken(primaryContext, primaryProf, "STRING|")
 			.passed());
@@ -134,7 +134,7 @@ public class DefaultVariableValueTokenTest extends
 	}
 
 	@Test
-	public void testValidStringNo()
+	void testValidStringNo()
 	{
 		ParseResult pr =
 				token

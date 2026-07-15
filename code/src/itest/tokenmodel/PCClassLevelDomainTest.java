@@ -33,13 +33,13 @@ import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 import util.TestURI;
 
-public class PCClassLevelDomainTest extends AbstractTokenModelTest
+class PCClassLevelDomainTest extends AbstractTokenModelTest
 {
 
 	private static DomainToken token = new DomainToken();
 
 	@Test
-	public void testSimple()
+	void testSimple()
 	{
 		PCClass source = create(PCClass.class, "Source");
 		PCClassLevel pcl = source.getOriginalClassLevel(2);

@@ -39,7 +39,7 @@ class TableLoaderTest
 	}
 
 	@Test
-	public void testNoNames()
+	void testNoNames()
 	{
 		try
 		{
@@ -53,7 +53,7 @@ class TableLoaderTest
 	}
 
 	@Test
-	public void testNoFormats()
+	void testNoFormats()
 	{
 		try
 		{
@@ -68,7 +68,7 @@ class TableLoaderTest
 	}
 
 	@Test
-	public void testNoData()
+	void testNoData()
 	{
 		try
 		{
@@ -83,7 +83,7 @@ class TableLoaderTest
 	}
 
 	@Test
-	public void testTwoStartAtData()
+	void testTwoStartAtData()
 	{
 		try
 		{
@@ -98,7 +98,7 @@ class TableLoaderTest
 	}
 
 	@Test
-	public void testTwoStartAtFormat()
+	void testTwoStartAtFormat()
 	{
 		try
 		{
@@ -113,7 +113,7 @@ class TableLoaderTest
 	}
 
 	@Test
-	public void testTwoStart()
+	void testTwoStart()
 	{
 		try
 		{
@@ -127,7 +127,7 @@ class TableLoaderTest
 	}
 
 	@Test
-	public void testNoEnd()
+	void testNoEnd()
 	{
 		try
 		{
@@ -141,7 +141,7 @@ class TableLoaderTest
 	}
 
 	@Test
-	public void testNoStart()
+	void testNoStart()
 	{
 		try
 		{
@@ -155,7 +155,7 @@ class TableLoaderTest
 	}
 
 	@Test
-	public void testResetOnEnd()
+	void testResetOnEnd()
 	{
 		try
 		{
@@ -170,7 +170,7 @@ class TableLoaderTest
 	}
 
 	@Test
-	public void testBadEnd()
+	void testBadEnd()
 	{
 		try
 		{
@@ -185,7 +185,7 @@ class TableLoaderTest
 	}
 
 	@Test
-	public void testBadStart()
+	void testBadStart()
 	{
 		try
 		{
@@ -200,7 +200,7 @@ class TableLoaderTest
 	}
 
 	@Test
-	public void testSkippedName()
+	void testSkippedName()
 	{
 		try
 		{
@@ -215,7 +215,7 @@ class TableLoaderTest
 	}
 
 	@Test
-	public void testMissingName()
+	void testMissingName()
 	{
 		try
 		{
@@ -230,7 +230,7 @@ class TableLoaderTest
 	}
 
 	@Test
-	public void testMissingName2()
+	void testMissingName2()
 	{
 		try
 		{
@@ -246,7 +246,7 @@ class TableLoaderTest
 	}
 
 	@Test
-	public void testSkippedFormat()
+	void testSkippedFormat()
 	{
 		try
 		{
@@ -261,7 +261,7 @@ class TableLoaderTest
 	}
 
 	@Test
-	public void testMissingFormat()
+	void testMissingFormat()
 	{
 		try
 		{
@@ -276,7 +276,7 @@ class TableLoaderTest
 	}
 
 	@Test
-	public void testMissingFormat2()
+	void testMissingFormat2()
 	{
 		try
 		{
@@ -292,7 +292,7 @@ class TableLoaderTest
 	}
 
 	@Test
-	public void testTooMuchData()
+	void testTooMuchData()
 	{
 		try
 		{
@@ -307,7 +307,7 @@ class TableLoaderTest
 	}
 
 	@Test
-	public void testBadFormat()
+	void testBadFormat()
 	{
 		try
 		{
@@ -322,7 +322,7 @@ class TableLoaderTest
 	}
 
 	@Test
-	public void testDataIncorrectFormat()
+	void testDataIncorrectFormat()
 	{
 		try
 		{
@@ -340,7 +340,7 @@ class TableLoaderTest
 	//TODO Blank Data at end of row?
 
 	@Test
-	public void testBasic()
+	void testBasic()
 	{
 		try
 		{
@@ -375,7 +375,7 @@ class TableLoaderTest
 	}
 
 	@Test
-	public void testIndependence()
+	void testIndependence()
 	{
 		try
 		{
@@ -411,7 +411,7 @@ class TableLoaderTest
 	}
 
 	@Test
-	public void testDuplicateIndependence()
+	void testDuplicateIndependence()
 	{
 		try
 		{
@@ -451,7 +451,7 @@ class TableLoaderTest
 	}
 
 	@Test
-	public void testMismatchedFormat()
+	void testMismatchedFormat()
 	{
 		try
 		{

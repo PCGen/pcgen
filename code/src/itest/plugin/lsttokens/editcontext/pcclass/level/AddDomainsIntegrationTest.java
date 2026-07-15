@@ -32,7 +32,7 @@ import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.pcclass.level.AdddomainsToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class AddDomainsIntegrationTest extends
+class AddDomainsIntegrationTest extends
 		AbstractListIntegrationTestCase<PCClassLevel, Domain>
 {
 
@@ -84,7 +84,7 @@ public class AddDomainsIntegrationTest extends
 	}
 
 	@Test
-	public void dummyTest()
+	void dummyTest()
 	{
 		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
@@ -114,7 +114,7 @@ public class AddDomainsIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinAddBracketPrereq()
+	void testRoundRobinAddBracketPrereq()
 			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
@@ -127,7 +127,7 @@ public class AddDomainsIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinRemoveBracketPrereq()
+	void testRoundRobinRemoveBracketPrereq()
 			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");

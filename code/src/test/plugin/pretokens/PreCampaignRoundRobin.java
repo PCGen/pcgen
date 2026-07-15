@@ -30,7 +30,7 @@ import org.junit.jupiter.api.Test;
  * 
  * 
  */
-public class PreCampaignRoundRobin extends AbstractBasicRoundRobin
+class PreCampaignRoundRobin extends AbstractBasicRoundRobin
 {
 	@BeforeEach
 	@Override
@@ -54,7 +54,7 @@ public class PreCampaignRoundRobin extends AbstractBasicRoundRobin
 	}
 
 	@Test
-	public void testNegateItem()
+	void testNegateItem()
 	{
 		AbstractPreRoundRobin.runSimpleRoundRobin("PRE" + getBaseString() + ":1,Foo,[TYPE=Bar]",
 				"PREMULT:2,[PRE" + getBaseString() + ":1,Foo],[!PRE"

@@ -35,7 +35,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class RaceSubtypeTokenTest extends
+class RaceSubtypeTokenTest extends
 		AbstractTypeSafeListTestCase<PCTemplate, RaceSubType>
 {
 
@@ -79,7 +79,7 @@ public class RaceSubtypeTokenTest extends
 	}
 
 	@Test
-	public void testValidRemoveInputSimple()
+	void testValidRemoveInputSimple()
 	{
 		List<?> coll;
 		assertTrue(parse(".REMOVE.Rheinhessen"));
@@ -89,7 +89,7 @@ public class RaceSubtypeTokenTest extends
 	}
 
 	@Test
-	public void testValidRemoveInputNonEnglish()
+	void testValidRemoveInputNonEnglish()
 	{
 		List<?> coll;
 		assertTrue(parse(".REMOVE.Niederösterreich"));
@@ -99,7 +99,7 @@ public class RaceSubtypeTokenTest extends
 	}
 
 	@Test
-	public void testValidRemoveInputSpace()
+	void testValidRemoveInputSpace()
 	{
 		List<?> coll;
 		assertTrue(parse(".REMOVE.Finger Lakes"));
@@ -109,7 +109,7 @@ public class RaceSubtypeTokenTest extends
 	}
 
 	@Test
-	public void testValidRemoveInputHyphen()
+	void testValidRemoveInputHyphen()
 	{
 		List<?> coll;
 		assertTrue(parse(".REMOVE.Languedoc-Roussillon"));
@@ -119,7 +119,7 @@ public class RaceSubtypeTokenTest extends
 	}
 
 	@Test
-	public void testValidRemoveInputList()
+	void testValidRemoveInputList()
 	{
 		List<?> coll;
 		assertTrue(parse(".REMOVE.Niederösterreich" + getJoinCharacter()
@@ -131,7 +131,7 @@ public class RaceSubtypeTokenTest extends
 	}
 
 	@Test
-	public void testValidInputMultRemoveList()
+	void testValidInputMultRemoveList()
 	{
 		List<?> coll;
 		assertTrue(parse(".REMOVE.Niederösterreich" + getJoinCharacter()
@@ -147,7 +147,7 @@ public class RaceSubtypeTokenTest extends
 	}
 
 	@Test
-	public void testInvalidRemoveEmpty()
+	void testInvalidRemoveEmpty()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCTemplate.class, "TestWP1");
 		assertFalse(parse(".REMOVE."));
@@ -155,7 +155,7 @@ public class RaceSubtypeTokenTest extends
 	}
 
 	@Test
-	public void testInvalidRemoveListEnd()
+	void testInvalidRemoveListEnd()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCTemplate.class, "TestWP1");
 		assertFalse(parse("TestWP1" + getJoinCharacter() + ".REMOVE."));
@@ -163,7 +163,7 @@ public class RaceSubtypeTokenTest extends
 	}
 
 	@Test
-	public void testInvalidRemoveListStart()
+	void testInvalidRemoveListStart()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCTemplate.class, "TestWP1");
 		assertFalse(parse(".REMOVE." + getJoinCharacter() + "TestWP1"));
@@ -171,7 +171,7 @@ public class RaceSubtypeTokenTest extends
 	}
 
 	@Test
-	public void testInvalidRemoveListDoubleJoin()
+	void testInvalidRemoveListDoubleJoin()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCTemplate.class, "TestWP1");
 		primaryContext.getReferenceContext().constructCDOMObject(PCTemplate.class, "TestWP2");
@@ -181,47 +181,47 @@ public class RaceSubtypeTokenTest extends
 	}
 
 	@Test
-	public void testRemoveRoundRobinBase() throws PersistenceLayerException
+	void testRemoveRoundRobinBase() throws PersistenceLayerException
 	{
 		runRoundRobin(".REMOVE.Rheinhessen");
 	}
 
 	@Test
-	public void testRemoveRoundRobinWithSpace()
+	void testRemoveRoundRobinWithSpace()
 			throws PersistenceLayerException
 	{
 		runRoundRobin(".REMOVE.Finger Lakes");
 	}
 
 	@Test
-	public void testRemoveRoundRobinNonEnglish()
+	void testRemoveRoundRobinNonEnglish()
 			throws PersistenceLayerException
 	{
 		runRoundRobin(".REMOVE.Niederösterreich");
 	}
 
 	@Test
-	public void testRemoveRoundRobinHyphen() throws PersistenceLayerException
+	void testRemoveRoundRobinHyphen() throws PersistenceLayerException
 	{
 		runRoundRobin(".REMOVE.Languedoc-Roussillon");
 	}
 
 	@Test
-	public void testRemoveRoundRobinThree() throws PersistenceLayerException
+	void testRemoveRoundRobinThree() throws PersistenceLayerException
 	{
 		runRoundRobin(".REMOVE.TestWP1" + getJoinCharacter()
 				+ ".REMOVE.TestWP2" + getJoinCharacter() + ".REMOVE.TestWP3");
 	}
 
 	@Test
-	public void testMixRoundRobinThree() throws PersistenceLayerException
+	void testMixRoundRobinThree() throws PersistenceLayerException
 	{
 		runRoundRobin(".REMOVE.TestWP3" + getJoinCharacter() + "TestWP1"
 				+ getJoinCharacter() + "TestWP2");
 	}
 
 	@Test
-	public void testMixRoundRobinWithSpace() throws PersistenceLayerException
+	void testMixRoundRobinWithSpace() throws PersistenceLayerException
 	{
 		runRoundRobin(".REMOVE.Finger Lakes" + getJoinCharacter()
 				+ "Languedoc-Roussillon");
@@ -246,7 +246,7 @@ public class RaceSubtypeTokenTest extends
 	}
 
 	@Test
-	public void testOverwriteRemove()
+	void testOverwriteRemove()
 	{
 		parse(".REMOVE.TestWP2");
 		validateUnparsed(primaryContext, primaryProf, ".REMOVE.TestWP2");
@@ -256,7 +256,7 @@ public class RaceSubtypeTokenTest extends
 	}
 
 	@Test
-	public void testOverwriteWithRemove()
+	void testOverwriteWithRemove()
 	{
 		parse("TestWP1");
 		validateUnparsed(primaryContext, primaryProf, "TestWP1");
@@ -266,7 +266,7 @@ public class RaceSubtypeTokenTest extends
 	}
 
 	@Test
-	public void testUnparseRemoveSingle()
+	void testUnparseRemoveSingle()
 	{
 		getUnparseTarget().addToListFor(ListKey.REMOVED_RACESUBTYPE,
 				getConstant(getLegalValue()));
@@ -275,7 +275,7 @@ public class RaceSubtypeTokenTest extends
 	}
 
 	@Test
-	public void testUnparseNullInRemoveList()
+	void testUnparseNullInRemoveList()
 	{
 		getUnparseTarget().addToListFor(ListKey.REMOVED_RACESUBTYPE, null);
 		try
@@ -290,7 +290,7 @@ public class RaceSubtypeTokenTest extends
 	}
 
 	@Test
-	public void testUnparseRemoveMultiple()
+	void testUnparseRemoveMultiple()
 	{
 		getUnparseTarget().addToListFor(ListKey.REMOVED_RACESUBTYPE,
 				getConstant(getLegalValue()));
@@ -302,7 +302,7 @@ public class RaceSubtypeTokenTest extends
 	}
 
 	@Test
-	public void testUnparseMixedMultiple()
+	void testUnparseMixedMultiple()
 	{
 		getUnparseTarget().addToListFor(getListKey(),
 				getConstant(getLegalValue()));

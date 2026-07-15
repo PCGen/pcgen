@@ -50,14 +50,14 @@ import org.junit.jupiter.api.Test;
  * This class tests the handling of DESC fields in PCGen
  */
 @SuppressWarnings("nls")
-public class DescriptionTest extends AbstractCharacterTestCase
+class DescriptionTest extends AbstractCharacterTestCase
 {
 
 	/**
 	 * Tests outputting an empty description.
 	 */
 	@Test
-	public void testEmptyDesc()
+	void testEmptyDesc()
 	{
 		final Ability dummy =
 				TestHelper.makeAbility("dummy", BuildUtilities.getFeatCat(), "Foo");
@@ -71,7 +71,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	 * Tests outputting a simple description.
 	 */
 	@Test
-	public void testSimpleDesc()
+	void testSimpleDesc()
 	{
 		final Ability dummy =
 				TestHelper.makeAbility("dummy", BuildUtilities.getFeatCat(), "Foo");
@@ -88,7 +88,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testPreReqs() throws PersistenceLayerException
+	void testPreReqs() throws PersistenceLayerException
 	{
 		final Ability dummy =
 				TestHelper.makeAbility("dummy", BuildUtilities.getFeatCat(), "Foo");
@@ -115,7 +115,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	 * Tests a simple string replacement.
 	 */
 	@Test
-	public void testSimpleReplacement()
+	void testSimpleReplacement()
 	{
 		final Ability dummy =
 				TestHelper.makeAbility("dummy", BuildUtilities.getFeatCat(), "Foo");
@@ -130,7 +130,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	 * Test name replacement
 	 */
 	@Test
-	public void testSimpleNameReplacement()
+	void testSimpleNameReplacement()
 	{
 		final PCTemplate pobj = new PCTemplate();
 		pobj.setName("PObject");
@@ -145,7 +145,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	 * Tests simple variable replacement
 	 */
 	@Test
-	public void testSimpleVariableReplacement()
+	void testSimpleVariableReplacement()
 	{
 		final Race dummy = new Race();
 		dummy.put(VariableKey.getConstant("TestVar"), FormulaFactory
@@ -164,7 +164,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	 * Tests simple replacement of %CHOICE
 	 */
 	@Test
-	public void testSimpleChoiceReplacement()
+	void testSimpleChoiceReplacement()
 	{
 		final PCTemplate pobj = new PCTemplate();
 		Globals.getContext().unconditionallyProcess(pobj, "CHOOSE", "LANG|ALL");
@@ -184,7 +184,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	 * Tests simple %LIST replacement.
 	 */
 	@Test
-	public void testSimpleListReplacement()
+	void testSimpleListReplacement()
 	{
 		final Domain pobj = new Domain();
 		Globals.getContext().unconditionallyProcess(pobj, "CHOOSE", "LANG|ALL");
@@ -205,7 +205,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	 * Test a replacement with missing variables.
 	 */
 	@Test
-	public void testEmptyReplacement()
+	void testEmptyReplacement()
 	{
 		final Deity pobj = new Deity();
 		final Description desc = new Description("%1");
@@ -217,7 +217,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	 * Test having extra variables present
 	 */
 	@Test
-	public void testExtraVariables()
+	void testExtraVariables()
 	{
 		final Race pobj = new Race();
 		Globals.getContext().unconditionallyProcess(pobj, "CHOOSE", "LANG|ALL");
@@ -237,7 +237,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 	 * Test complex replacements.
 	 */
 	@Test
-	public void testComplexVariableReplacement()
+	void testComplexVariableReplacement()
 	{
 		final Ability dummy = BuildUtilities.getFeatCat().newInstance();
 		dummy.setKeyName("Dummy");

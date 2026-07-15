@@ -33,7 +33,7 @@ import org.junit.jupiter.api.Test;
  * {@code PreHandsTest} tests that the PREHANDS tag is
  * working correctly.
  */
-public class PreHandsTest extends AbstractCharacterTestCase
+class PreHandsTest extends AbstractCharacterTestCase
 {
 	/**
 	 * Test the PREHANDS code.
@@ -41,7 +41,7 @@ public class PreHandsTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testHands() throws PersistenceLayerException
+	void testHands() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		Race race = new Race();

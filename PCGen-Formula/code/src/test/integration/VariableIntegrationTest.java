@@ -62,7 +62,7 @@ import pcgen.base.solver.SupplierValueStore;
 import pcgen.base.solver.testsupport.AbstractModifier;
 import pcgen.base.testsupport.GlobalVarScoped;
 
-public class VariableIntegrationTest
+class VariableIntegrationTest
 {
 
 
@@ -136,7 +136,7 @@ public class VariableIntegrationTest
 	}
 
 	@Test
-	public void testAddRemoveBackStoreFirst()
+	void testAddRemoveBackStoreFirst()
 	{
 		GlobalVarScoped gvs = new GlobalVarScoped("Global");
 		GlobalVarScoped svs = new GlobalVarScoped("Static");
@@ -203,7 +203,7 @@ public class VariableIntegrationTest
 	}
 
 	@Test
-	public void testAddRemoveOutOfOrder()
+	void testAddRemoveOutOfOrder()
 	{
 		GlobalVarScoped gvs = new GlobalVarScoped("Global");
 		GlobalVarScoped svs = new GlobalVarScoped("Static");

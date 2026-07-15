@@ -45,7 +45,7 @@ import org.junit.jupiter.api.Test;
  * A collection of tests to validate the functioning of the core BioSet class.
  */
 @SuppressWarnings("nls")
-public class BioSetTest extends AbstractCharacterTestCase
+class BioSetTest extends AbstractCharacterTestCase
 {
 	private static final String[] BIO_SET_DATA =
 			{
@@ -88,7 +88,7 @@ public class BioSetTest extends AbstractCharacterTestCase
 	 * is functioning properly.
 	 */
 	@Test
-	public void testRandomize()
+	void testRandomize()
 	{
 		final int[] BASE_AGE = {15, 35, 53, 70};
 		final int[] MAX_AGE = {34, 52, 69, 110};
@@ -136,7 +136,7 @@ public class BioSetTest extends AbstractCharacterTestCase
 	 * Test the age set
 	 */
 	@Test
-	public void testAgeSet()
+	void testAgeSet()
 	{
 		final PlayerCharacter pc = getCharacter();
 		CharacterDisplay display = pc.getDisplay();

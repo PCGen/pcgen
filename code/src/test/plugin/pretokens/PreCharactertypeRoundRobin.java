@@ -24,7 +24,7 @@ import plugin.pretokens.writer.PreCharactertypeWriter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class PreCharactertypeRoundRobin extends AbstractBasicRoundRobin
+class PreCharactertypeRoundRobin extends AbstractBasicRoundRobin
 {
 	@BeforeEach
 	@Override
@@ -48,7 +48,7 @@ public class PreCharactertypeRoundRobin extends AbstractBasicRoundRobin
 	}
 
 	@Test
-	public void testAny()
+	void testAny()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":1,Any");
 	}

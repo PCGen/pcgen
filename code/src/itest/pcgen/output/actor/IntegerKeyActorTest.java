@@ -40,7 +40,7 @@ class IntegerKeyActorTest extends AbstractOutputTestCase
 	}
 
 	@Test
-	public void testIntegerKeyActor()
+	void testIntegerKeyActor()
 	{
 		Race d = new Race();
 		d.setName("Bob");

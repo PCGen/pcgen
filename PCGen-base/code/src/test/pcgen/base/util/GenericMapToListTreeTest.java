@@ -35,7 +35,7 @@ import pcgen.testsupport.TestSupport;
 /**
  * Test GenericMapToList using a TreeMap as the underlying Map
  */
-public class GenericMapToListTreeTest
+class GenericMapToListTreeTest
 {
 
 	public void populate(GenericMapToList<Integer, Character> dkm)
@@ -50,7 +50,7 @@ public class GenericMapToListTreeTest
 	}
 
 	@Test
-	public void testInitializeListFor()
+	void testInitializeListFor()
 	{
 		GenericMapToList<Integer, Character> dkm =
 				GenericMapToList.getMapToList(TreeMap.class);
@@ -62,7 +62,7 @@ public class GenericMapToListTreeTest
 	}
 
 	@Test
-	public void testPutNull()
+	void testPutNull()
 	{
 		GenericMapToList<Integer, Character> dkm =
 				GenericMapToList.getMapToList(TreeMap.class);
@@ -70,7 +70,7 @@ public class GenericMapToListTreeTest
 	}
 
 	@Test
-	public void testPutGet()
+	void testPutGet()
 	{
 		GenericMapToList<Integer, Character> dkm =
 				GenericMapToList.getMapToList(TreeMap.class);
@@ -129,7 +129,7 @@ public class GenericMapToListTreeTest
 	}
 
 	@Test
-	public void testContainsKey()
+	void testContainsKey()
 	{
 		GenericMapToList<Integer, Character> dkm =
 				GenericMapToList.getMapToList(TreeMap.class);
@@ -144,7 +144,7 @@ public class GenericMapToListTreeTest
 	}
 
 	@Test
-	public void testRemoveListFor()
+	void testRemoveListFor()
 	{
 		GenericMapToList<Integer, Character> dkm =
 				GenericMapToList.getMapToList(TreeMap.class);
@@ -165,7 +165,7 @@ public class GenericMapToListTreeTest
 	}
 
 	@Test
-	public void testRemoveFromListFor()
+	void testRemoveFromListFor()
 	{
 		GenericMapToList<Integer, Character> dkm =
 				GenericMapToList.getMapToList(TreeMap.class);
@@ -206,7 +206,7 @@ public class GenericMapToListTreeTest
 	}
 
 	@Test
-	public void testContainsInList()
+	void testContainsInList()
 	{
 		GenericMapToList<Integer, Character> dkm =
 				GenericMapToList.getMapToList(TreeMap.class);
@@ -228,7 +228,7 @@ public class GenericMapToListTreeTest
 	}
 
 	@Test
-	public void testGetKeySet()
+	void testGetKeySet()
 	{
 		GenericMapToList<Integer, Character> dkm =
 				GenericMapToList.getMapToList(TreeMap.class);
@@ -252,7 +252,7 @@ public class GenericMapToListTreeTest
 	}
 
 	@Test
-	public void testClearIsEmpty()
+	void testClearIsEmpty()
 	{
 		GenericMapToList<Integer, Character> dkm =
 				GenericMapToList.getMapToList(TreeMap.class);
@@ -279,7 +279,7 @@ public class GenericMapToListTreeTest
 	}
 
 	@Test
-	public void testEmptyAddAll()
+	void testEmptyAddAll()
 	{
 		GenericMapToList<Integer, Character> dkm =
 				GenericMapToList.getMapToList(TreeMap.class);
@@ -290,7 +290,7 @@ public class GenericMapToListTreeTest
 	}
 
 	@Test
-	public void testAddAll()
+	void testAddAll()
 	{
 		GenericMapToList<Integer, Character> dkm =
 				GenericMapToList.getMapToList(TreeMap.class);
@@ -315,7 +315,7 @@ public class GenericMapToListTreeTest
 	}
 
 	@Test
-	public void testInstanceBehavior()
+	void testInstanceBehavior()
 	{
 		GenericMapToList<Integer, Character> dkm =
 				GenericMapToList.getMapToList(TreeMap.class);
@@ -346,7 +346,7 @@ public class GenericMapToListTreeTest
 	}
 
 	@Test
-	public void testAddAllLists()
+	void testAddAllLists()
 	{
 		GenericMapToList<Integer, Character> dkm =
 				GenericMapToList.getMapToList(TreeMap.class);

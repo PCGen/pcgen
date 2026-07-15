@@ -33,7 +33,7 @@ import pcgen.util.enumeration.VisionType;
 
 import org.junit.jupiter.api.BeforeEach;
 
-public class VisionFacetTest extends
+class VisionFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, QualifiedObject<Vision>>
 {
 

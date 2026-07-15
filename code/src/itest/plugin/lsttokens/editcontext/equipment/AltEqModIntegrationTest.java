@@ -23,7 +23,7 @@ import plugin.lsttokens.equipment.AlteqmodToken;
 
 import org.junit.jupiter.api.Test;
 
-public class AltEqModIntegrationTest extends AbstractEqModIntegrationTestCase
+class AltEqModIntegrationTest extends AbstractEqModIntegrationTestCase
 {
 
 	private static AlteqmodToken token = new AlteqmodToken();
@@ -35,7 +35,7 @@ public class AltEqModIntegrationTest extends AbstractEqModIntegrationTestCase
 	}
 
 	@Test
-	public void dummyTest()
+	void dummyTest()
 	{
 		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}

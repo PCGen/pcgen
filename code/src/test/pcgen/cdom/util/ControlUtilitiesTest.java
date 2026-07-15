@@ -33,7 +33,7 @@ class ControlUtilitiesTest
 {
 
 	@Test
-	public void testGetControlTokenString()
+	void testGetControlTokenString()
 	{
 		LoadContext context = new RuntimeLoadContext(
 			RuntimeReferenceContext.createRuntimeReferenceContext(),
@@ -48,7 +48,7 @@ class ControlUtilitiesTest
 	}
 
 	@Test
-	public void testGetControlTokenControl()
+	void testGetControlTokenControl()
 	{
 		LoadContext context = new RuntimeLoadContext(
 			RuntimeReferenceContext.createRuntimeReferenceContext(),

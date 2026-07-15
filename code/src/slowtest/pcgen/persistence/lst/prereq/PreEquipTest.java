@@ -31,10 +31,10 @@ import plugin.pretokens.parser.PreEquipParser;
 import org.junit.jupiter.api.Test;
 
 @SuppressWarnings("nls")
-public class PreEquipTest extends EnUsLocaleDependentTestCase
+class PreEquipTest extends EnUsLocaleDependentTestCase
 {
 	@Test
-	public void test1() throws Exception
+	void test1() throws Exception
 	{
 		PreEquipParser parser = new PreEquipParser();
 		// "|!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy";

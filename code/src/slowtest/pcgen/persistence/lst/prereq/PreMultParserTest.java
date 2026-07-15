@@ -45,7 +45,7 @@ class PreMultParserTest extends EnUsLocaleDependentTestCase
 	}
 
 	@Test
-	public void testFeat1() throws Exception
+	void testFeat1() throws Exception
 	{
 		PreMultParser parser = new PreMultParser();
 
@@ -66,7 +66,7 @@ class PreMultParserTest extends EnUsLocaleDependentTestCase
 	}
 
 	@Test
-	public void testUnbalancedBracket()
+	void testUnbalancedBracket()
 	{
 		PreMultParser parser = new PreMultParser();
 

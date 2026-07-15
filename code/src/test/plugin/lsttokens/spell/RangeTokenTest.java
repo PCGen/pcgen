@@ -31,7 +31,7 @@ import plugin.lsttokens.testsupport.AbstractTypeSafeListTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
-public class RangeTokenTest extends AbstractTypeSafeListTestCase<Spell, String>
+class RangeTokenTest extends AbstractTypeSafeListTestCase<Spell, String>
 {
 
 	static RangeToken token = new RangeToken();
@@ -92,7 +92,7 @@ public class RangeTokenTest extends AbstractTypeSafeListTestCase<Spell, String>
 	}
 
 	@Test
-	public void testGoodParentheses()
+	void testGoodParentheses()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Rheinhessen");
 		List<?> coll;
@@ -104,7 +104,7 @@ public class RangeTokenTest extends AbstractTypeSafeListTestCase<Spell, String>
 	}
 
 	@Test
-	public void testBadParentheses()
+	void testBadParentheses()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Rheinhessen");
 		assertFalse(parse("(first"), "Missing end paren should have been flagged.");

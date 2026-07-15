@@ -33,7 +33,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class QualifyIntegrationTest extends
+class QualifyIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>
 {
 	private static QualifyToken token = new QualifyToken();
@@ -58,7 +58,7 @@ public class QualifyIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		BuildUtilities.buildAbility(primaryContext, BuildUtilities.getFeatCat(), "My Feat");
@@ -72,7 +72,7 @@ public class QualifyIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinRemove() throws PersistenceLayerException
+	void testRoundRobinRemove() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
@@ -86,7 +86,7 @@ public class QualifyIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoSet() throws PersistenceLayerException
+	void testRoundRobinNoSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		AbilityCategory pac = primaryContext.getReferenceContext().constructCDOMObject(
@@ -102,7 +102,7 @@ public class QualifyIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoReset() throws PersistenceLayerException
+	void testRoundRobinNoReset() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		AbilityCategory pac = primaryContext.getReferenceContext().constructCDOMObject(

@@ -34,7 +34,7 @@ import pcgen.base.graph.base.Graph;
 /**
  * Test the SimpleListMapGraph class
  */
-public class SimpleListMapGraphTest extends
+class SimpleListMapGraphTest extends
 		AbstractGraphTestCase<Edge<Integer>>
 {
 
@@ -75,7 +75,7 @@ public class SimpleListMapGraphTest extends
 	}
 
 	@Test
-	public void testGetInternalizedNode()
+	void testGetInternalizedNode()
 	{
 		Integer node = new Integer(1);
 		Integer node2 = new Integer(2);

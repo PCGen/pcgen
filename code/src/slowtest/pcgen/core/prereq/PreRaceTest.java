@@ -35,13 +35,13 @@ import org.junit.jupiter.api.Test;
 
 
 @SuppressWarnings("nls")
-public class PreRaceTest extends AbstractCharacterTestCase
+class PreRaceTest extends AbstractCharacterTestCase
 {
 	/**
 	 * Test to ensure that we return false when races don't match.
 	 */
 	@Test
-	public void testFail()
+	void testFail()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -64,7 +64,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	 * Test to make sure we return false when race is equal but NOT is specified.
 	 */
 	@Test
-	public void testNeqFails()
+	void testNeqFails()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -87,7 +87,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	 * Test to make sure that NOT returns true if races don't match.
 	 */
 	@Test
-	public void testNeqPasses()
+	void testNeqPasses()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -110,7 +110,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	 * Test to make sure that we return true when races are equal.
 	 */
 	@Test
-	public void testPass()
+	void testPass()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -132,7 +132,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	 * Test to make sure that we return true when races are equal using ServesAs.
 	 */
 	@Test
-	public void testPassServesAsName()
+	void testPassServesAsName()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -159,7 +159,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testRaceTypeEq()
+	void testRaceTypeEq()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -179,7 +179,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testRaceTypeNeq()
+	void testRaceTypeNeq()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -206,7 +206,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	 * Test to make sure that we return true when races RACESUBTYPE are equal using ServesAs.
 	 */
 	@Test
-	public void testPassServesAsRaceSubType()
+	void testPassServesAsRaceSubType()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -266,7 +266,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	 * Test to make sure that we return true when races RACETYPE are equal using ServesAs.
 	 */
 	@Test
-	public void testPassServesAsRaceType()
+	void testPassServesAsRaceType()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -310,7 +310,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	 * Test to make sure that we return true when races TYPE are equal.
 	 */
 	@Test
-	public void testPassServesAsType()
+	void testPassServesAsType()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -353,7 +353,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	 * correctly with SERVESAS
 	 */
 	@Test
-	public void testPassServesAsNameWildcard()
+	void testPassServesAsNameWildcard()
 	{
 		final PlayerCharacter character = getCharacter();
 

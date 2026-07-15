@@ -35,7 +35,7 @@ class PreStatTest extends AbstractCharacterTestCase
 	 * Ensure a PRESTAT for a positive value works correctly.
 	 */
 	@Test
-	public void testPrePositive()
+	void testPrePositive()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -59,7 +59,7 @@ class PreStatTest extends AbstractCharacterTestCase
 	 * Ensure a PRESTAT for zero works correctly.
 	 */
 	@Test
-	public void testPreZero()
+	void testPreZero()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -83,7 +83,7 @@ class PreStatTest extends AbstractCharacterTestCase
 	 * Ensure a PRESTAT for a negative value works correctly.
 	 */
 	@Test
-	public void testPreNegative()
+	void testPreNegative()
 	{
 		final PlayerCharacter character = getCharacter();
 

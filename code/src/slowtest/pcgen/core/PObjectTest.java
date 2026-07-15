@@ -59,13 +59,13 @@ import org.junit.jupiter.api.Test;
  * Test the PObject class.
  */
 @SuppressWarnings("nls")
-public class PObjectTest extends AbstractCharacterTestCase
+class PObjectTest extends AbstractCharacterTestCase
 {
 	/**
 	 * Test DR.
 	 */
 	@Test
-	public void testDR()
+	void testDR()
 	{
 		Race race = new Race();
 		LoadContext context = Globals.getContext();
@@ -107,7 +107,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testGetPCCText() throws PersistenceLayerException
+	void testGetPCCText() throws PersistenceLayerException
 	{
 		OrderedPairManager opManager = new OrderedPairManager();
 		LoadContext context = Globals.getContext();
@@ -156,7 +156,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 	 * Test the function of adding a bonus each time an associated value is chosen.
 	 */
 	@Test
-	public void testAssociatedBonus()
+	void testAssociatedBonus()
 	{
 		Ability pObj = new Ability();
 		pObj.setCDOMCategory(BuildUtilities.getFeatCat());
@@ -196,7 +196,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 	 * @throws Exception 
 	 */
 	@Test
-	public void testNoChoiceBonus() throws Exception
+	void testNoChoiceBonus() throws Exception
 	{
 		CampaignSourceEntry source;
 		try
@@ -238,7 +238,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 	 * @throws Exception 
 	 */
 	@Test
-	public void testNoSubsChoiceBonus() throws Exception
+	void testNoSubsChoiceBonus() throws Exception
 	{
 		CampaignSourceEntry source;
 		try
@@ -276,7 +276,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 	 * Tests description handling
 	 */
 	@Test
-	public void testDescription()
+	void testDescription()
 	{
 		final Description desc1 = new Description("Description 1.");
 		final Race pobj = new Race();
@@ -307,7 +307,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException 
 	 */
 	@Test
-	public void testAddAbility() throws PersistenceLayerException
+	void testAddAbility() throws PersistenceLayerException
 	{
 		// Create some abilities to be added
 		LoadContext context = Globals.getContext();

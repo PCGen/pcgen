@@ -32,7 +32,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
 
-public class MoveCloneLstTest extends AbstractGlobalTokenTestCase
+class MoveCloneLstTest extends AbstractGlobalTokenTestCase
 {
 	static CDOMPrimaryToken<CDOMObject> token = new MovecloneLst();
 	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
@@ -62,63 +62,63 @@ public class MoveCloneLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidInputEmpty()
+	void testInvalidInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOneItem()
+	void testInvalidInputOneItem()
 	{
 		assertFalse(parse("Walk"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoSecondValue()
+	void testInvalidInputNoSecondValue()
 	{
 		assertFalse(parse("Walk,"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoValue()
+	void testInvalidInputNoValue()
 	{
 		assertFalse(parse("Walk,Fly,"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOnlyValue()
+	void testInvalidInputOnlyValue()
 	{
 		assertFalse(parse(",30"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputMissingSecondValue()
+	void testInvalidInputMissingSecondValue()
 	{
 		assertFalse(parse("Walk,,*2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputThreeComma()
+	void testInvalidInputThreeComma()
 	{
 		assertFalse(parse("Walk,0,Fly,30"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoBase()
+	void testInvalidInputNoBase()
 	{
 		assertFalse(parse(",Fly,30"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOutOfOrder()
+	void testInvalidInputOutOfOrder()
 	{
 		try
 		{
@@ -132,42 +132,42 @@ public class MoveCloneLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidInputNegativeMultiply()
+	void testInvalidInputNegativeMultiply()
 	{
 		assertFalse(parse("Walk,Fly,*-3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNegativeDivide()
+	void testInvalidInputNegativeDivide()
 	{
 		assertFalse(parse("Walk,Fly,/-3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputZeroDivide()
+	void testInvalidInputZeroDivide()
 	{
 		assertFalse(parse("Walk,Fly,/0"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputMixedSigns()
+	void testInvalidInputMixedSigns()
 	{
 		assertFalse(parse("Walk,Fly,+-3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidMultiple()
+	void testInvalidMultiple()
 	{
 		assertFalse(parse("Walk,Fly,*3,Walk,Crawl,/2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNaNMovement()
+	void testInvalidInputNaNMovement()
 	{
 		try
 		{
@@ -181,55 +181,55 @@ public class MoveCloneLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testValidPositive()
+	void testValidPositive()
 	{
 		assertTrue(parse("Walk,Fly,30"));
 	}
 
 	@Test
-	public void testValidZero()
+	void testValidZero()
 	{
 		assertTrue(parse("Walk,Fly,0"));
 	}
 
 	@Test
-	public void testValidPlusZero()
+	void testValidPlusZero()
 	{
 		assertTrue(parse("Walk,Fly,+0"));
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		runRoundRobin("Walk,Fly,30");
 	}
 
 	@Test
-	public void testRoundRobinDupe() throws PersistenceLayerException
+	void testRoundRobinDupe() throws PersistenceLayerException
 	{
 		runRoundRobin("Walk,Fly,30", "Walk,Fly,30");
 	}
 
 	@Test
-	public void testRoundRobinMultiply() throws PersistenceLayerException
+	void testRoundRobinMultiply() throws PersistenceLayerException
 	{
 		runRoundRobin("Walk,Fly,*2");
 	}
 
 	@Test
-	public void testRoundRobinMultiplyDecimal() throws PersistenceLayerException
+	void testRoundRobinMultiplyDecimal() throws PersistenceLayerException
 	{
 		runRoundRobin("Walk,Fly,*2.5");
 	}
 
 	@Test
-	public void testRoundRobinDivide() throws PersistenceLayerException
+	void testRoundRobinDivide() throws PersistenceLayerException
 	{
 		runRoundRobin("Walk,Fly,/4");
 	}
 
 	@Test
-	public void testRoundRobinSubtract() throws PersistenceLayerException
+	void testRoundRobinSubtract() throws PersistenceLayerException
 	{
 		runRoundRobin("Walk,Fly,-20");
 	}

@@ -33,7 +33,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
 
-public class ExClassTokenTest extends AbstractCDOMTokenTestCase<PCClass>
+class ExClassTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 {
 
 	static ExclassToken token = new ExclassToken();
@@ -59,14 +59,14 @@ public class ExClassTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidEmpty()
+	void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testRoundRobinBase() throws PersistenceLayerException
+	void testRoundRobinBase() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Rheinhessen");
 		secondaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Rheinhessen");
@@ -74,7 +74,7 @@ public class ExClassTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testRoundRobinWithSpace() throws PersistenceLayerException
+	void testRoundRobinWithSpace() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Finger Lakes");
 		secondaryContext.getReferenceContext()
@@ -83,7 +83,7 @@ public class ExClassTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testRoundRobinNonEnglishAndN() throws PersistenceLayerException
+	void testRoundRobinNonEnglishAndN() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
 			"Niederösterreich");
@@ -93,7 +93,7 @@ public class ExClassTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testRoundRobinHyphen() throws PersistenceLayerException
+	void testRoundRobinHyphen() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
 			"Languedoc-Roussillon");
@@ -103,7 +103,7 @@ public class ExClassTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testRoundRobinY() throws PersistenceLayerException
+	void testRoundRobinY() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Yarra Valley");
 		secondaryContext.getReferenceContext()
@@ -130,7 +130,7 @@ public class ExClassTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseNull()
+	void testUnparseNull()
 	{
 		primaryProf.put(getObjectKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
@@ -142,7 +142,7 @@ public class ExClassTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseLegal()
+	void testUnparseLegal()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, getLegalValue());
 		CDOMSingleRef<PCClass> cl = primaryContext.getReferenceContext().getCDOMReference(
@@ -153,7 +153,7 @@ public class ExClassTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail()
+	void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = getObjectKey();
 		primaryProf.put(objectKey, new Object());

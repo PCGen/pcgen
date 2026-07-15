@@ -36,7 +36,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
 
-public class SourceDateLstTest extends AbstractGlobalTokenTestCase
+class SourceDateLstTest extends AbstractGlobalTokenTestCase
 {
 
 	static SourcedateLst token = new SourcedateLst();
@@ -48,7 +48,7 @@ public class SourceDateLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidInputEmpty()
+	void testInvalidInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNull(primaryProf.get(getKey()));
@@ -56,7 +56,7 @@ public class SourceDateLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testValidInputs()
+	void testValidInputs()
 	{
 		assertTrue(parse("2011-09"));
 		assertEquals("September 1, 2011", token.unparse(primaryContext, primaryProf)[0]);
@@ -70,7 +70,7 @@ public class SourceDateLstTest extends AbstractGlobalTokenTestCase
 //	}
 
 	@Test
-	public void testRoundRobinWithSpace() throws PersistenceLayerException
+	void testRoundRobinWithSpace() throws PersistenceLayerException
 	{
 		runRoundRobin("January 24, 2010");
 	}
@@ -88,7 +88,7 @@ public class SourceDateLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testUnparseNull()
+	void testUnparseNull()
 	{
 		primaryProf.put(getKey(), null);
 		assertNull(getWriteToken().unparse(primaryContext, primaryProf));
