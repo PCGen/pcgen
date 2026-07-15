@@ -66,7 +66,7 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 public abstract class AbstractReferenceManufacturer<T extends Loadable> implements ReferenceManufacturer<T>
 {
 
-	private boolean isResolved = false;
+	private volatile boolean isResolved = false;
 
 	private final ManufacturableFactory<T> factory;
 
