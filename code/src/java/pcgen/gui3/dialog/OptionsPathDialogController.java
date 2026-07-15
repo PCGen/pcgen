@@ -76,14 +76,11 @@ public class OptionsPathDialogController
 					selectButton.setDisable(!select.isSelected());
 				}));
 
-		if (!SystemUtils.IS_OS_MAC_OSX)
-		{
-			macUserDir.setVisible(false);
-		}
-		if (!SystemUtils.IS_OS_UNIX)
-		{
-			freedesktop.setVisible(false);
-		}
+		// macUserDir - macOS, freedesktop - Unix. setManaged mirrors setVisible to avoid an empty gap.
+		macUserDir.setVisible(SystemUtils.IS_OS_MAC_OSX);
+		macUserDir.setManaged(SystemUtils.IS_OS_MAC_OSX);
+		freedesktop.setVisible(SystemUtils.IS_OS_UNIX);
+		freedesktop.setManaged(SystemUtils.IS_OS_UNIX);
 
 		directoryGroup.selectedToggleProperty().addListener((observable, oldValue, newValue)  -> {
 			Logging.debugPrint("toggle changed " + observable);
