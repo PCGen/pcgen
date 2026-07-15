@@ -46,7 +46,7 @@ import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 import util.TestURI;
 
-public class DomainCcSkillTest extends AbstractTokenModelTest
+class DomainCcSkillTest extends AbstractTokenModelTest
 {
 
 	private static CcskillToken token = new CcskillToken();
@@ -72,7 +72,7 @@ public class DomainCcSkillTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testDirect()
+	void testDirect()
 	{
 		Domain source = create(Domain.class, "Source");
 		ParseResult result = token.parseToken(context, source, "MySkill");
@@ -94,7 +94,7 @@ public class DomainCcSkillTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testList()
+	void testList()
 	{
 		Domain source = create(Domain.class, "Source");
 		ParseResult result = token.parseToken(context, source, "LIST");

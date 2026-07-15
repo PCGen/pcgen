@@ -39,7 +39,7 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class ModifyLstTest extends AbstractGlobalTokenTestCase
+class ModifyLstTest extends AbstractGlobalTokenTestCase
 {
 	private static ModifyLst token = new ModifyLst();
 	private static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
@@ -78,138 +78,138 @@ public class ModifyLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidInputEmpty()
+	void testInvalidInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOneItem()
+	void testInvalidInputOneItem()
 	{
 		assertFalse(parse("MyVar"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputTwoArgs()
+	void testInvalidInputTwoArgs()
 	{
 		assertFalse(parse("MyVar|ADD"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoublePipe()
+	void testInvalidInputDoublePipe()
 	{
 		assertFalse(parse("MyVar||ADD|3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoValue()
+	void testInvalidInputNoValue()
 	{
 		assertFalse(parse("MyVar|ADD|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoVar()
+	void testInvalidInputNoVar()
 	{
 		assertFalse(parse("ADD|3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoModifier()
+	void testInvalidInputNoModifier()
 	{
 		assertFalse(parse("MyVar||3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputInvalidVarName()
+	void testInvalidInputInvalidVarName()
 	{
 		assertFalse(parse("IllegalVar|ADD|3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputInvalidMod()
+	void testInvalidInputInvalidMod()
 	{
 		assertFalse(parse("MyVar|TRUFFLE|3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputInvalidNoPriority()
+	void testInvalidInputInvalidNoPriority()
 	{
 		assertFalse(parse("MyVar|ADD|3|PRIORITY="));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputInvalidNegativePriority()
+	void testInvalidInputInvalidNegativePriority()
 	{
 		assertFalse(parse("MyVar|ADD|3|PRIORITY=-1000"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputInvalidNonNumberPriority()
+	void testInvalidInputInvalidNonNumberPriority()
 	{
 		assertFalse(parse("MyVar|ADD|3|PRIORITY=String"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputInvalidTooManyArgs()
+	void testInvalidInputInvalidTooManyArgs()
 	{
 		assertFalse(parse("MyVar|ADD|3|PRIORITY=3|Yes"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputInvalidIllegalSourceVar()
+	void testInvalidInputInvalidIllegalSourceVar()
 	{
 		assertFalse(parse("MyVar|ADD|IllegalVar"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputInvalidNotPriority1()
+	void testInvalidInputInvalidNotPriority1()
 	{
 		assertFalse(parse("MyVar|ADD|3|OTHER=3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputInvalidNotPriority2()
+	void testInvalidInputInvalidNotPriority2()
 	{
 		assertFalse(parse("MyVar|ADD|3|OTHERSTRING=3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputBadVar()
+	void testInvalidInputBadVar()
 	{
 		assertFalse(parse("4|ADD|3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testRoundRobinAdd() throws PersistenceLayerException
+	void testRoundRobinAdd() throws PersistenceLayerException
 	{
 		runRoundRobin("MyVar|ADD|3");
 	}
 
 	@Test
-	public void testRoundRobinMultiply() throws PersistenceLayerException
+	void testRoundRobinMultiply() throws PersistenceLayerException
 	{
 		runRoundRobin("MyVar|MULTIPLY|OtherVar");
 	}
 
 	@Test
-	public void testRoundRobinPriority() throws PersistenceLayerException
+	void testRoundRobinPriority() throws PersistenceLayerException
 	{
 		runRoundRobin("MyVar|ADD|3|PRIORITY=1090");
 	}

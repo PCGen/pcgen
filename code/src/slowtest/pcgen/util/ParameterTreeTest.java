@@ -35,7 +35,7 @@ class ParameterTreeTest
 	 * Test method for {@link pcgen.util.ParameterTree#ParameterTree(java.lang.String)}.
 	 */
 	@Test
-	public final void testParameterTree()
+	final void testParameterTree()
 	{
         final ParameterTree t1 = new ParameterTree("Test Node1");
         assertEquals("Test Node1", t1.getContents(), "New ParameterTree has correct contents");
@@ -50,7 +50,7 @@ class ParameterTreeTest
 	}
 
 	@Test
-	public final void testMakeTree1() throws ParseException
+	final void testMakeTree1() throws ParseException
 	{
 		final String s = "TYPE=Foo";
 		final Matcher mat = ParameterTree.pat.matcher(s);
@@ -60,7 +60,7 @@ class ParameterTreeTest
 	}
 
 	@Test
-	public final void testMakeTree2() throws ParseException
+	final void testMakeTree2() throws ParseException
 	{
 		final String s = "(TYPE=Foo)";
 		final Matcher mat = ParameterTree.pat.matcher(s);
@@ -71,7 +71,7 @@ class ParameterTreeTest
 	}
 
 	@Test
-	public final void testMakeTree3() throws ParseException
+	final void testMakeTree3() throws ParseException
 	{
 		final String s = "((TYPE=Foo))";
 		final Matcher mat = ParameterTree.pat.matcher(s);
@@ -81,7 +81,7 @@ class ParameterTreeTest
 	}
 
 	@Test
-	public final void testMakeTree4() throws ParseException
+	final void testMakeTree4() throws ParseException
 	{
 		final String s = "TYPE=Foo[or]TYPE=Bar";
 		final Matcher mat = ParameterTree.pat.matcher(s);
@@ -107,7 +107,7 @@ class ParameterTreeTest
 
 
 	@Test
-	public final void testMakeTree5() throws ParseException
+	final void testMakeTree5() throws ParseException
 	{
 		final String s = "(TYPE=Foo[or]TYPE=Bar)";
 		final Matcher mat = ParameterTree.pat.matcher(s);
@@ -132,7 +132,7 @@ class ParameterTreeTest
 	}
 
 	@Test
-	public final void testMakeTree6() throws ParseException
+	final void testMakeTree6() throws ParseException
 	{
 		final String s = "(TYPE=Foo[or]TYPE=Bar[and]String3)";
 		final Matcher mat = ParameterTree.pat.matcher(s);
@@ -166,7 +166,7 @@ class ParameterTreeTest
 	}
 
 	@Test
-	public final void testMakeTree7() throws ParseException
+	final void testMakeTree7() throws ParseException
 	{
 //		verbose = true;
 //		Logging.errorPrint("\n\n --- Start Test Make tree 7 --- \n\n");
@@ -211,7 +211,7 @@ class ParameterTreeTest
 
 
 	@Test
-	public final void testMakeTree8() throws ParseException
+	final void testMakeTree8() throws ParseException
 	{
 //		verbose = true;
 //		Logging.errorPrint("\n\n --- Start Test Make tree 8 --- \n\n");
@@ -267,7 +267,7 @@ class ParameterTreeTest
 	}
 
 	@Test
-	public final void testMakeTree9() throws ParseException
+	final void testMakeTree9() throws ParseException
 	{
 		final String s = "TYPE=Foo[or]((CATEGORY=FEAT[or]NATURE=AUTO[or]CATEGORY=SA)[and]TYPE=Bar)";
 		final Matcher mat = ParameterTree.pat.matcher(s);

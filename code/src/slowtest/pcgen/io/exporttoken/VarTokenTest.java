@@ -33,7 +33,7 @@ import org.junit.jupiter.api.Test;
  * {@code VarTokenTest} tests the functioning of the VAR
  * token processing code. 
  */
-public class VarTokenTest extends AbstractCharacterTestCase
+class VarTokenTest extends AbstractCharacterTestCase
 {
 	@BeforeEach
     @Override
@@ -57,7 +57,7 @@ public class VarTokenTest extends AbstractCharacterTestCase
 	 * Test the output for positive numbers with fractions.
 	 */
 	@Test
-	public void testPositiveFractOutput()
+	void testPositiveFractOutput()
 	{
 		assertEquals("100.35", new VarToken().getToken("VAR.Pos",
 			getCharacter(), null), "VAR.Pos");
@@ -81,7 +81,7 @@ public class VarTokenTest extends AbstractCharacterTestCase
 	 * Test the output for negative numbers with fractions.
 	 */
 	@Test
-	public void testNegativeFractOutput()
+	void testNegativeFractOutput()
 	{
 		assertEquals("-555.55", new VarToken().getToken("VAR.Neg",
 			getCharacter(), null), "VAR.Neg");
@@ -105,7 +105,7 @@ public class VarTokenTest extends AbstractCharacterTestCase
 	 * Test the output for positive numbers without fractions.
 	 */
 	@Test
-	public void testPositiveIntOutput()
+	void testPositiveIntOutput()
 	{
 		assertEquals("105.0", new VarToken().getToken(
 			"VAR.PosInt", getCharacter(), null), "VAR.PosInt");
@@ -129,7 +129,7 @@ public class VarTokenTest extends AbstractCharacterTestCase
 	 * Test the output for negative numbers without fractions.
 	 */
 	@Test
-	public void testNegativeIntOutput()
+	void testNegativeIntOutput()
 	{
 		assertEquals("-560.0", new VarToken().getToken(
 			"VAR.NegInt", getCharacter(), null), "VAR.NegInt");

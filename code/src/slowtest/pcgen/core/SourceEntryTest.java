@@ -32,13 +32,13 @@ import org.junit.jupiter.api.Test;
 /**
  * {@code SourceEntryTest} verifies the function of the SourceEntry class.
  */
-public class SourceEntryTest
+class SourceEntryTest
 {
 
 	private Campaign campaign;
 	
 	@BeforeEach
-	public void setUp() throws Exception
+	void setUp() throws Exception
 	{
 
 		campaign = new Campaign();
@@ -52,7 +52,7 @@ public class SourceEntryTest
 	}
 
 	@AfterEach
-	public void tearDown() throws Exception
+	void tearDown() throws Exception
 	{
 		campaign = null;
 	}
@@ -62,7 +62,7 @@ public class SourceEntryTest
 	 * {@link SourceFormat#getFormattedString(CDOMObject, SourceFormat, boolean)}.
 	 */
 	@Test
-	public void testGetFormattedString()
+	void testGetFormattedString()
 	{
 		campaign.put(StringKey.SOURCE_PAGE, "42");
 		assertEquals("PubWeb - http://website", SourceFormat

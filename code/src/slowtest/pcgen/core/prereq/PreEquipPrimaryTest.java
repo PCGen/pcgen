@@ -41,14 +41,14 @@ import org.junit.jupiter.api.Test;
  * {@code PreEquipPrimaryTest} tests that the PREEQUIPPRIMARY tag is
  * working correctly.
  */
-public class PreEquipPrimaryTest extends AbstractCharacterTestCase
+class PreEquipPrimaryTest extends AbstractCharacterTestCase
 {
 
 	/*
 	 * Class under test for int passes(Prerequisite, PlayerCharacter)
 	 */
 	@Test
-	public void testPassesPrerequisitePlayerCharacter()
+	void testPassesPrerequisitePlayerCharacter()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -84,7 +84,7 @@ public class PreEquipPrimaryTest extends AbstractCharacterTestCase
 	 * Test equipment type tests.
 	 */
 	@Test
-	public void testType()
+	void testType()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -120,7 +120,7 @@ public class PreEquipPrimaryTest extends AbstractCharacterTestCase
 	 * Test wield category tests.
 	 */
 	@Test
-	public void testWield()
+	void testWield()
 	{
 		final PlayerCharacter character = getCharacter();
 

@@ -40,7 +40,7 @@ import plugin.pretokens.writer.PreLevelWriter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class LevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
+class LevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 {
 
 	static LevelToken token = new LevelToken();
@@ -80,112 +80,112 @@ public class LevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 
 	@Test
-	public void testInvalidInputHDonly()
+	void testInvalidInputHDonly()
 	{
 		assertFalse(parse("3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputPipe()
+	void testInvalidInputPipe()
 	{
 		assertFalse(parse("3|SR|3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOneColon()
+	void testInvalidInputOneColon()
 	{
 		assertFalse(parse("3:SR|2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptyHD()
+	void testInvalidInputEmptyHD()
 	{
 		assertFalse(parse(":DR:3/+1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptySubtype()
+	void testInvalidInputEmptySubtype()
 	{
 		assertFalse(parse("4::3/+1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptyDR()
+	void testInvalidInputEmptyDR()
 	{
 		assertFalse(parse("3:DR:"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptyDRNoColon()
+	void testInvalidInputEmptyDRNoColon()
 	{
 		assertFalse(parse("3:DR"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoSlashDR()
+	void testInvalidInputNoSlashDR()
 	{
 		assertFalse(parse("3:DR:1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputTwoSlashDR()
+	void testInvalidInputTwoSlashDR()
 	{
 		assertFalse(parse("3+:DR:1/3/+4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptySR()
+	void testInvalidInputEmptySR()
 	{
 		assertFalse(parse("3:SR:"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptySA()
+	void testInvalidInputEmptySA()
 	{
 		assertFalse(parse("3:SAB:"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptyCR()
+	void testInvalidInputEmptyCR()
 	{
 		assertFalse(parse("3:CR:"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptySRNoColon()
+	void testInvalidInputEmptySRNoColon()
 	{
 		assertFalse(parse("3:SR"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptySANoColon()
+	void testInvalidInputEmptySANoColon()
 	{
 		assertFalse(parse("3:SAB"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptyCRNoColon()
+	void testInvalidInputEmptyCRNoColon()
 	{
 		assertFalse(parse("3:CR"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoAbbrs()
+	void testInvalidInputNoAbbrs()
 	{
 		assertFalse(parse("3:C:3"));
 		assertFalse(parse("3:D:1/+2"));
@@ -197,119 +197,119 @@ public class LevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 
 	@Test
-	public void testInvalidInputBadClear()
+	void testInvalidInputBadClear()
 	{
 		assertFalse(parse(".CLEARSTUFF"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoSpecificClear()
+	void testInvalidInputNoSpecificClear()
 	{
 		assertFalse(parse(".CLEAR.3:CR:3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputBadHDRangePlus()
+	void testInvalidInputBadHDRangePlus()
 	{
 		assertFalse(parse("+3:SAB:Special Abil"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputBadHDRangeMult()
+	void testInvalidInputBadHDRangeMult()
 	{
 		assertFalse(parse("*3:SAB:Special Abil"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputBadHDRangeTwoDash()
+	void testInvalidInputBadHDRangeTwoDash()
 	{
 		assertFalse(parse("1-3:SAB:Special Abil"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputBadHDRangeEndDash()
+	void testInvalidInputBadHDRangeEndDash()
 	{
 		assertFalse(parse("4-:SAB:Special Abil"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputBadHDRangeEndPlus()
+	void testInvalidInputBadHDRangeEndPlus()
 	{
 		assertFalse(parse("4+:SAB:Special Abil"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputBadHDRangeUpTo()
+	void testInvalidInputBadHDRangeUpTo()
 	{
 		assertFalse(parse("-4:SAB:Special Abil"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBadTemplateToken()
+	void testInvalidBadTemplateToken()
 	{
 		assertFalse(parse("5:CR:x"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testRoundRobinDR() throws PersistenceLayerException
+	void testRoundRobinDR() throws PersistenceLayerException
 	{
 		runRoundRobin("2:DR:1/+3");
 	}
 
 	@Test
-	public void testRoundRobinSRNumber() throws PersistenceLayerException
+	void testRoundRobinSRNumber() throws PersistenceLayerException
 	{
 		runRoundRobin("3:SR:25");
 	}
 
 	@Test
-	public void testRoundRobinSRFormula() throws PersistenceLayerException
+	void testRoundRobinSRFormula() throws PersistenceLayerException
 	{
 		runRoundRobin("3:SR:Formula");
 	}
 
 	@Test
-	public void testRoundRobinSA() throws PersistenceLayerException
+	void testRoundRobinSA() throws PersistenceLayerException
 	{
 		runRoundRobin("5:SAB:Special Ability, Man!");
 	}
 
 	@Test
-	public void testRoundRobinCRNumber() throws PersistenceLayerException
+	void testRoundRobinCRNumber() throws PersistenceLayerException
 	{
 		runRoundRobin("4:CR:3");
 	}
 
 	@Test
-	public void testRoundRobinCRNegative() throws PersistenceLayerException
+	void testRoundRobinCRNegative() throws PersistenceLayerException
 	{
 		runRoundRobin("4:CR:-1");
 	}
 
 	@Test
-	public void testRoundRobinMultiple() throws PersistenceLayerException
+	void testRoundRobinMultiple() throws PersistenceLayerException
 	{
 		runRoundRobin("3:SR:Formula", "4:CR:-4");
 	}
 
 	@Test
-	public void testRoundRobinMultipleDifferent()
+	void testRoundRobinMultipleDifferent()
 		throws PersistenceLayerException
 	{
 		runRoundRobin("4:CR:-5", "6:SAB:Special Ability, Man!");
 	}
 
 	@Test
-	public void testRoundRobinMultipleSame() throws PersistenceLayerException
+	void testRoundRobinMultipleSame() throws PersistenceLayerException
 	{
 		runRoundRobin("4:CR:-6", "4:SAB:Special Ability, Man!");
 	}
@@ -327,7 +327,7 @@ public class LevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 
 	@Test
-	public void testParseClear()
+	void testParseClear()
 	{
 		assertTrue(parse(Constants.LST_DOT_CLEAR));
 		assertCleanConstruction();

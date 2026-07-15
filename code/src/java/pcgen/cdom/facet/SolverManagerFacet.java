@@ -50,7 +50,7 @@ public class SolverManagerFacet extends AbstractItemFacet<CharID, SolverManager>
 	public <T> boolean addModifier(CharID id, VarModifier<T> vm, VarScoped thisValue, Modifier<T> modifier,
 		ScopeInstance source)
 	{
-		VariableContext varContext = loadContextFacet.get(id.getDatasetID()).get().getVariableContext();
+		VariableContext varContext = loadContextFacet.getLoadContext(id.getDatasetID()).getVariableContext();
 		ScopeInstance scope = resolveScope(id, vm, thisValue, varContext);
 		VariableID<T> varID = (VariableID<T>) varContext.getVariableID(scope, vm.getVarName());
 		SolverManager sm = get(id);
@@ -65,7 +65,7 @@ public class SolverManagerFacet extends AbstractItemFacet<CharID, SolverManager>
 	public <T> void removeModifier(CharID id, VarModifier<T> vm, VarScoped thisValue, Modifier<T> modifier,
 		ScopeInstance source)
 	{
-		VariableContext varContext = loadContextFacet.get(id.getDatasetID()).get().getVariableContext();
+		VariableContext varContext = loadContextFacet.getLoadContext(id.getDatasetID()).getVariableContext();
 		ScopeInstance scope = resolveScope(id, vm, thisValue, varContext);
 		VariableID<T> varID = (VariableID<T>) varContext.getVariableID(scope, vm.getVarName());
 		SolverManager sm = get(id);

@@ -42,7 +42,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import util.TestURI;
 
-public class ValueTokenTest
+class ValueTokenTest
 {
 
 	private static ValueToken token = new ValueToken();
@@ -52,14 +52,14 @@ public class ValueTokenTest
 	private LoadContext context;
 
 	@BeforeAll
-	public static void classSetUp()
+	static void classSetUp()
 	{
 		testCampaign =
 				new CampaignSourceEntry(new Campaign(), TestURI.getURI());
 	}
 
 	@BeforeEach
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		TokenRegistration.clearTokens();
 		TokenRegistration.register(token);
@@ -67,7 +67,7 @@ public class ValueTokenTest
 	}
 
 	@AfterEach
-	public void tearDown()
+	void tearDown()
 	{
 		TokenRegistration.clearTokens();
 		context = null;
@@ -75,7 +75,7 @@ public class ValueTokenTest
 	}
 
 	@AfterAll
-	public static void classTearDown()
+	static void classTearDown()
 	{
 		token = null;
 		testCampaign = null;
@@ -94,13 +94,13 @@ public class ValueTokenTest
 	}
 
 	@Test
-	public void testInvalidInputNullString()
+	void testInvalidInputNullString()
 	{
 		assertFalse(token.parseToken(context, function, null).passed());
 	}
 
 	@Test
-	public void testInvalidInputEmptyString()
+	void testInvalidInputEmptyString()
 	{
 		try
 		{
@@ -113,7 +113,7 @@ public class ValueTokenTest
 	}
 
 	@Test
-	public void testInvalidFormula()
+	void testInvalidFormula()
 	{
 		try
 		{
@@ -126,7 +126,7 @@ public class ValueTokenTest
 	}
 
 	@Test
-	public void testInvalidNonMatchingDefine()
+	void testInvalidNonMatchingDefine()
 	{
 		assertTrue(token.parseToken(context, function, "3+4").passed());
 		try
@@ -140,14 +140,14 @@ public class ValueTokenTest
 	}
 
 	@Test
-	public void testInvalidAllowMatchingDefine()
+	void testInvalidAllowMatchingDefine()
 	{
 		assertTrue(token.parseToken(context, function, "3+4").passed());
 		assertTrue(token.parseToken(context, function, "3+4").passed());
 	}
 
 	@Test
-	public void testValidStringString()
+	void testValidStringString()
 	{
 		assertTrue(token.parseToken(context, function, "2+3").passed());
 		String[] unparsed = token.unparse(context, function);
@@ -157,7 +157,7 @@ public class ValueTokenTest
 	}
 
 	@Test
-	public void testValidStringNo()
+	void testValidStringNo()
 	{
 		assertTrue(token.parseToken(context, function, "3-4").passed());
 		String[] unparsed = token.unparse(context, function);

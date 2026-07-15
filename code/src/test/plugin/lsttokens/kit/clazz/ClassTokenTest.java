@@ -28,7 +28,7 @@ import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
 import org.junit.jupiter.api.Test;
 
-public class ClassTokenTest extends AbstractKitTokenTestCase<KitClass>
+class ClassTokenTest extends AbstractKitTokenTestCase<KitClass>
 {
 
 	static ClassToken token = new ClassToken();
@@ -54,14 +54,14 @@ public class ClassTokenTest extends AbstractKitTokenTestCase<KitClass>
 	}
 
 	@Test
-	public void testInvalidInputEmptyCount()
+	void testInvalidInputEmptyCount()
 	{
 		assertTrue(parse("Fireball"));
 		assertConstructionError();
 	}
 
 	@Test
-	public void testInvalidInputOnlyOne()
+	void testInvalidInputOnlyOne()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fireball");
 		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fireball");
@@ -72,7 +72,7 @@ public class ClassTokenTest extends AbstractKitTokenTestCase<KitClass>
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fireball");
 		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fireball");

@@ -26,10 +26,10 @@ import pcgen.base.graph.inst.SimpleListMapGraph;
 /**
  * Test the NodeChangeEvent class
  */
-public class NodeChangeEventTest
+class NodeChangeEventTest
 {
 	@Test
-	public void testEdgeChangeEvent()
+	void testEdgeChangeEvent()
 	{
 		assertThrows(IllegalArgumentException.class, () -> new NodeChangeEvent<>(null, new Object(),
 					NodeChangeEvent.NODE_ADDED

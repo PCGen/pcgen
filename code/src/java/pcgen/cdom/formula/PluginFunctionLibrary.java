@@ -28,28 +28,28 @@ import pcgen.util.Logging;
 public final class PluginFunctionLibrary implements PluginLoader
 {
 
-	private static PluginFunctionLibrary instance = null;
-
-	private List<FormulaFunction> list = new ArrayList<>();
+	private final List<FormulaFunction> list = new ArrayList<>();
 
 	private PluginFunctionLibrary()
 	{
-		// Don't instantiate utility class
+		// Singleton; use getInstance().
+	}
+
+	/** Lazy holder — JVM class-init guarantees single, thread-safe publication. */
+	private static final class Holder
+	{
+		static final PluginFunctionLibrary INSTANCE = new PluginFunctionLibrary();
 	}
 
 	public static PluginFunctionLibrary getInstance()
 	{
-		if (instance == null)
-		{
-			instance = new PluginFunctionLibrary();
-		}
-		return instance;
+		return Holder.INSTANCE;
 	}
 
 	@Override
-	public void loadPlugin(Class<?> clazz) throws Exception
+	public void loadPlugin(Class<?> clazz) throws ReflectiveOperationException
 	{
-		Object token = clazz.newInstance();
+		Object token = clazz.getDeclaredConstructor().newInstance();
 		if (token instanceof FormulaFunction tok)
 		{
 			FormulaFunction existing = existingFunction(tok.getFunctionName());
@@ -90,10 +90,7 @@ public final class PluginFunctionLibrary implements PluginLoader
 
 	public static void clear()
 	{
-		if (instance != null)
-		{
-			instance.list.clear();
-		}
+		Holder.INSTANCE.list.clear();
 	}
 
 }

@@ -56,7 +56,7 @@ class CNAbilitySelectionUtilitiesTest
 	//TODO Tear Down
 
 	@Test
-	public void testDifferentCategory()
+	void testDifferentCategory()
 	{
 		CNAbility nomultCNA = CNAbilityFactory.getCNAbility(feat, Nature.NORMAL, nomult);
 		Ability trickster = new Ability();
@@ -70,7 +70,7 @@ class CNAbilitySelectionUtilitiesTest
 	}
 
 	@Test
-	public void testDifferentAbility()
+	void testDifferentAbility()
 	{
 		CNAbility nomultCNA = CNAbilityFactory.getCNAbility(feat, Nature.NORMAL, nomult);
 		CNAbility othernomultCNA =
@@ -81,7 +81,7 @@ class CNAbilitySelectionUtilitiesTest
 	}
 
 	@Test
-	public void testDifferentNature()
+	void testDifferentNature()
 	{
 		CNAbility normal = CNAbilityFactory.getCNAbility(feat, Nature.NORMAL, nomult);
 		CNAbility virtual = CNAbilityFactory.getCNAbility(feat, Nature.VIRTUAL, nomult);
@@ -91,7 +91,7 @@ class CNAbilitySelectionUtilitiesTest
 	}
 
 	@Test
-	public void testDetectSameParentCategory()
+	void testDetectSameParentCategory()
 	{
 		CNAbility n1 = CNAbilityFactory.getCNAbility(feat, Nature.NORMAL, nomult);
 		CNAbility n2 = CNAbilityFactory.getCNAbility(fighterfeat, Nature.NORMAL, nomult);
@@ -104,7 +104,7 @@ class CNAbilitySelectionUtilitiesTest
 	}
 
 	@Test
-	public void testDetectSameSelection()
+	void testDetectSameSelection()
 	{
 		CNAbility n1 = CNAbilityFactory.getCNAbility(feat, Nature.NORMAL, multyes);
 		CNAbility n2 = CNAbilityFactory.getCNAbility(feat, Nature.NORMAL, multyes);
@@ -114,7 +114,7 @@ class CNAbilitySelectionUtilitiesTest
 	}
 
 	@Test
-	public void testDifferentSelection()
+	void testDifferentSelection()
 	{
 		CNAbility n1 = CNAbilityFactory.getCNAbility(feat, Nature.NORMAL, multyes);
 		CNAbility n2 = CNAbilityFactory.getCNAbility(feat, Nature.NORMAL, multyes);
@@ -124,7 +124,7 @@ class CNAbilitySelectionUtilitiesTest
 	}
 
 	@Test
-	public void testDifferentSelectionAndNature()
+	void testDifferentSelectionAndNature()
 	{
 		CNAbility normal = CNAbilityFactory.getCNAbility(feat, Nature.NORMAL, multyes);
 		CNAbility virtual = CNAbilityFactory.getCNAbility(feat, Nature.VIRTUAL, multyes);
@@ -134,7 +134,7 @@ class CNAbilitySelectionUtilitiesTest
 	}
 
 	@Test
-	public void testDifferentSelectionStack()
+	void testDifferentSelectionStack()
 	{
 		CNAbility n1 = CNAbilityFactory.getCNAbility(feat, Nature.NORMAL, stackyes);
 		CNAbility n2 = CNAbilityFactory.getCNAbility(feat, Nature.NORMAL, stackyes);
@@ -144,7 +144,7 @@ class CNAbilitySelectionUtilitiesTest
 	}
 
 	@Test
-	public void testStack()
+	void testStack()
 	{
 		CNAbility n1 = CNAbilityFactory.getCNAbility(feat, Nature.NORMAL, stackyes);
 		CNAbility n2 = CNAbilityFactory.getCNAbility(feat, Nature.NORMAL, stackyes);

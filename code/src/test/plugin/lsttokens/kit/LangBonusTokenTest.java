@@ -29,7 +29,7 @@ import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
 import org.junit.jupiter.api.Test;
 
-public class LangBonusTokenTest extends AbstractKitTokenTestCase<KitLangBonus>
+class LangBonusTokenTest extends AbstractKitTokenTestCase<KitLangBonus>
 {
 
 	static LangBonusToken token = new LangBonusToken();
@@ -55,14 +55,14 @@ public class LangBonusTokenTest extends AbstractKitTokenTestCase<KitLangBonus>
 	}
 
 	@Test
-	public void testInvalidInputEmptyCount()
+	void testInvalidInputEmptyCount()
 	{
 		assertTrue(parse("Fireball"));
 		assertConstructionError();
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(Language.class, "Fireball");
 		secondaryContext.getReferenceContext().constructCDOMObject(Language.class, "Fireball");
@@ -70,7 +70,7 @@ public class LangBonusTokenTest extends AbstractKitTokenTestCase<KitLangBonus>
 	}
 
 	@Test
-	public void testRoundRobinTwo() throws PersistenceLayerException
+	void testRoundRobinTwo() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(Language.class, "Fireball");
 		secondaryContext.getReferenceContext().constructCDOMObject(Language.class, "Fireball");
@@ -80,7 +80,7 @@ public class LangBonusTokenTest extends AbstractKitTokenTestCase<KitLangBonus>
 	}
 
 	@Test
-	public void testInvalidListEnd()
+	void testInvalidListEnd()
 	{
 		assertFalse(parse("TestWP1" + getJoinCharacter()));
 	}
@@ -91,13 +91,13 @@ public class LangBonusTokenTest extends AbstractKitTokenTestCase<KitLangBonus>
 	}
 
 	@Test
-	public void testInvalidListStart()
+	void testInvalidListStart()
 	{
 		assertFalse(parse(getJoinCharacter() + "TestWP1"));
 	}
 
 	@Test
-	public void testInvalidListDoubleJoin()
+	void testInvalidListDoubleJoin()
 	{
 		assertFalse(parse("TestWP2" + getJoinCharacter() + getJoinCharacter()
 				+ "TestWP1"));

@@ -32,7 +32,7 @@ import org.junit.jupiter.api.BeforeEach;
 import tokencontent.testsupport.AbstractContentTokenTest;
 import util.TestURI;
 
-public class GlobalMoveCloneTest extends AbstractContentTokenTest
+class GlobalMoveCloneTest extends AbstractContentTokenTest
 {
 
 	private static MovecloneLst token = new MovecloneLst();

@@ -38,7 +38,7 @@ import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 import util.TestURI;
 
-public class SkillClassesTest extends AbstractTokenModelTest
+class SkillClassesTest extends AbstractTokenModelTest
 {
 
 	private static ClassesToken token = new ClassesToken();
@@ -59,7 +59,7 @@ public class SkillClassesTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testDirect()
+	void testDirect()
 	{
 		ParseResult result = token.parseToken(context, sk, "Dragon");
 		if (result != ParseResult.SUCCESS)

@@ -25,12 +25,12 @@ import org.junit.jupiter.api.Test;
  * Pins the equals(null) contract for AbstractCategory subclasses
  * after the SpotBugs NP_EQUALS fix (PR #7628).
  */
-public class AbstractCategoryEqualsNullTest
+class AbstractCategoryEqualsNullTest
 {
 
 	/** equals(null) returns false instead of throwing NPE. */
 	@Test
-	public void equalsNullReturnsFalseNotNPE()
+	void equalsNullReturnsFalseNotNPE()
 	{
 		DynamicCategory category = new DynamicCategory();
 		category.setName("Movement");

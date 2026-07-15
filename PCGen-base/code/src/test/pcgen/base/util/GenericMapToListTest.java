@@ -33,22 +33,22 @@ import pcgen.testsupport.StrangeMap;
  * @see GenericMapToListIdentityHashTest
  * @see GenericMapToListTreeTest
  */
-public class GenericMapToListTest
+class GenericMapToListTest
 {
 	@Test
-	public void testConstructorNoZeroArg()
+	void testConstructorNoZeroArg()
 	{
 		assertThrows(ReflectiveOperationException.class, () -> new GenericMapToList<>(NoZeroArgConstructorMap.class));
 	}
 
 	@Test
-	public void testConstructorPrivate()
+	void testConstructorPrivate()
 	{
 		assertThrows(NoSuchMethodException.class, () -> new GenericMapToList<>(NoPublicZeroArgConstructorMap.class));
 	}
 
 	@Test
-	public void testBadClassInConstructor()
+	void testBadClassInConstructor()
 	{
 		assertThrows(NoSuchMethodException.class, () -> new GenericMapToList<>(StrangeMap.class));
 	}

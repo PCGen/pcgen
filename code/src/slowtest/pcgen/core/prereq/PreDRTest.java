@@ -36,7 +36,7 @@ import org.junit.jupiter.api.Test;
  * {@code PreDRTest} tests that the PREDR tag is
  * working correctly.
  */
-public class PreDRTest extends AbstractCharacterTestCase
+class PreDRTest extends AbstractCharacterTestCase
 {
 	private Race race = new Race();
 	private DamageReduction drPlus1;
@@ -47,7 +47,7 @@ public class PreDRTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testDR() throws PersistenceLayerException
+	void testDR() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		character.setRace(race);
@@ -84,7 +84,7 @@ public class PreDRTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testMultiOr() throws PersistenceLayerException
+	void testMultiOr() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		character.setRace(race);
@@ -116,7 +116,7 @@ public class PreDRTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testMultiAnd() throws Exception
+	void testMultiAnd() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 		character.setRace(race);

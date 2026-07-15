@@ -34,7 +34,7 @@ import plugin.pretokens.writer.PreRaceWriter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class ProhibitSpellIntegrationTest extends
+class ProhibitSpellIntegrationTest extends
 		AbstractIntegrationTestCase<PCClass>
 {
 
@@ -73,7 +73,7 @@ public class ProhibitSpellIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -83,7 +83,7 @@ public class ProhibitSpellIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinRemove() throws PersistenceLayerException
+	void testRoundRobinRemove() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -93,7 +93,7 @@ public class ProhibitSpellIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinAdd() throws PersistenceLayerException
+	void testRoundRobinAdd() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -103,7 +103,7 @@ public class ProhibitSpellIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoSet() throws PersistenceLayerException
+	void testRoundRobinNoSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -113,7 +113,7 @@ public class ProhibitSpellIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoReset() throws PersistenceLayerException
+	void testRoundRobinNoReset() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -123,7 +123,7 @@ public class ProhibitSpellIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinAddPrereq() throws PersistenceLayerException
+	void testRoundRobinAddPrereq() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -133,7 +133,7 @@ public class ProhibitSpellIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinRemovePrereq() throws PersistenceLayerException
+	void testRoundRobinRemovePrereq() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();

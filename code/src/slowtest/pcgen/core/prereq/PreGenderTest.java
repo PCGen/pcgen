@@ -32,7 +32,7 @@ import org.junit.jupiter.api.Test;
  * {@code PreGenderTest} tests that the PREGENDER tag is
  * working correctly.
  */
-public class PreGenderTest extends AbstractCharacterTestCase
+class PreGenderTest extends AbstractCharacterTestCase
 {
 	/**
 	 * Test the PREGENDER code.
@@ -40,7 +40,7 @@ public class PreGenderTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testGender() throws PersistenceLayerException
+	void testGender() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		character.setGender(Gender.Male);

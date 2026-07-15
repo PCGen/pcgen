@@ -31,7 +31,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
 
-public class MoveLstTest extends AbstractGlobalTokenTestCase
+class MoveLstTest extends AbstractGlobalTokenTestCase
 {
 	static CDOMPrimaryToken<CDOMObject> token = new MoveLst();
 	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
@@ -68,75 +68,75 @@ public class MoveLstTest extends AbstractGlobalTokenTestCase
 //	}
 
 	@Test
-	public void testInvalidInputEmpty()
+	void testInvalidInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOneItem()
+	void testInvalidInputOneItem()
 	{
 		assertFalse(parse("Normal"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoValue()
+	void testInvalidInputNoValue()
 	{
 		assertFalse(parse("Normal,"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOnlyValue()
+	void testInvalidInputOnlyValue()
 	{
 		assertFalse(parse(",30"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputTwoComma()
+	void testInvalidInputTwoComma()
 	{
 		assertFalse(parse("Normal,,30"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputThreeItems()
+	void testInvalidInputThreeItems()
 	{
 		assertFalse(parse("Normal,30,Darkvision"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNegativeMovement()
+	void testInvalidInputNegativeMovement()
 	{
 		assertFalse(parse("Normal,-30"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNaNMovement()
+	void testInvalidInputNaNMovement()
 	{
 		assertFalse(parse("Normal,Foo"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		runRoundRobin("Walk,30");
 	}
 
 	@Test
-	public void testRoundRobinZero() throws PersistenceLayerException
+	void testRoundRobinZero() throws PersistenceLayerException
 	{
 		runRoundRobin("Darkvision,0");
 	}
 
 	@Test
-	public void testRoundRobinMultiple() throws PersistenceLayerException
+	void testRoundRobinMultiple() throws PersistenceLayerException
 	{
 		runRoundRobin("Darkvision,0,Walk,30");
 	}

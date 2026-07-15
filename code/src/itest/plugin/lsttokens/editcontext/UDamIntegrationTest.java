@@ -32,7 +32,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class UDamIntegrationTest extends
+class UDamIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>
 {
 	private static UdamLst token = new UdamLst();
@@ -57,7 +57,7 @@ public class UDamIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -67,7 +67,7 @@ public class UDamIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoSet() throws PersistenceLayerException
+	void testRoundRobinNoSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -77,7 +77,7 @@ public class UDamIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoReset() throws PersistenceLayerException
+	void testRoundRobinNoReset() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -87,7 +87,7 @@ public class UDamIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinClearBase() throws PersistenceLayerException
+	void testRoundRobinClearBase() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -97,7 +97,7 @@ public class UDamIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinClearMod() throws PersistenceLayerException
+	void testRoundRobinClearMod() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -107,7 +107,7 @@ public class UDamIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinClearBoth() throws PersistenceLayerException
+	void testRoundRobinClearBoth() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -117,7 +117,7 @@ public class UDamIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinClearNoSet() throws PersistenceLayerException
+	void testRoundRobinClearNoSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -127,7 +127,7 @@ public class UDamIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinClearNoReset() throws PersistenceLayerException
+	void testRoundRobinClearNoReset() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();

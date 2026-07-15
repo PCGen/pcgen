@@ -41,7 +41,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
 
-public class HitDieTokenTest extends AbstractCDOMTokenTestCase<Race>
+class HitDieTokenTest extends AbstractCDOMTokenTestCase<Race>
 {
 
 	static HitdieToken token = new HitdieToken();
@@ -66,278 +66,278 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testInvalidInputTooManyLimits()
+	void testInvalidInputTooManyLimits()
 	{
 		assertFalse(parse("15|CLASS=Fighter|CLASS.TYPE=Base"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNotALimit()
+	void testInvalidInputNotALimit()
 	{
 		assertFalse(parse("15|PRECLASS:1,Fighter"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptyLimit()
+	void testInvalidInputEmptyLimit()
 	{
 		assertFalse(parse("15|CLASS="));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptyTypeLimit()
+	void testInvalidInputEmptyTypeLimit()
 	{
 		assertFalse(parse("15|CLASS.TYPE="));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputStartDotTypeLimit()
+	void testInvalidInputStartDotTypeLimit()
 	{
 		assertFalse(parse("15|CLASS.TYPE=.Strange"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEndDotTypeLimit()
+	void testInvalidInputEndDotTypeLimit()
 	{
 		assertFalse(parse("15|CLASS.TYPE=Strange."));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoubleDotTypeLimit()
+	void testInvalidInputDoubleDotTypeLimit()
 	{
 		assertFalse(parse("15|CLASS.TYPE=Prestige..Strange"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidInputDivideNegative()
+	void testValidInputDivideNegative()
 	{
 		assertFalse(parse("%/-2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidInputDivideZero()
+	void testValidInputDivideZero()
 	{
 		assertFalse(parse("%/0"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidInputDivide()
+	void testValidInputDivide()
 	{
 		assertTrue(parse("%/4"));
 	}
 
 	@Test
-	public void testInvalidInputAddNegative()
+	void testInvalidInputAddNegative()
 	{
 		assertFalse(parse("%+-3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputAddZero()
+	void testInvalidInputAddZero()
 	{
 		assertFalse(parse("%+0"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidInputAdd()
+	void testValidInputAdd()
 	{
 		assertTrue(parse("%+4"));
 	}
 
 	@Test
-	public void testInvalidInputMultiplyNegative()
+	void testInvalidInputMultiplyNegative()
 	{
 		assertFalse(parse("%*-3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputMultiplyZero()
+	void testInvalidInputMultiplyZero()
 	{
 		assertFalse(parse("%*0"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidInputMultiply()
+	void testValidInputMultiply()
 	{
 		assertTrue(parse("%*4"));
 	}
 
 	@Test
-	public void testInvalidInputSubtractNegative()
+	void testInvalidInputSubtractNegative()
 	{
 		assertFalse(parse("%--3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputSubtractZero()
+	void testInvalidInputSubtractZero()
 	{
 		assertFalse(parse("%-0"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidInputSubtract()
+	void testValidInputSubtract()
 	{
 		assertTrue(parse("%-4"));
 	}
 
 	@Test
-	public void testInvalidInputUpNegative()
+	void testInvalidInputUpNegative()
 	{
 		assertFalse(parse("%up-3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputUpZero()
+	void testInvalidInputUpZero()
 	{
 		assertFalse(parse("%up0"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidInputUp()
+	void testValidInputUp()
 	{
 		assertTrue(parse("%up4"));
 	}
 
 	@Test
-	public void testInvalidInputUpTooBig()
+	void testInvalidInputUpTooBig()
 	{
 		assertFalse(parse("%up5"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputUpReallyTooBig()
+	void testInvalidInputUpReallyTooBig()
 	{
 		assertFalse(parse("%up15"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputHUpNegative()
+	void testInvalidInputHUpNegative()
 	{
 		assertFalse(parse("%Hup-3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputHUpZero()
+	void testInvalidInputHUpZero()
 	{
 		assertFalse(parse("%Hup0"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidInputHUp()
+	void testValidInputHUp()
 	{
 		assertTrue(parse("%Hup4"));
 	}
 
 	@Test
-	public void testInvalidInputDownNegative()
+	void testInvalidInputDownNegative()
 	{
 		assertFalse(parse("%down-3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDownZero()
+	void testInvalidInputDownZero()
 	{
 		assertFalse(parse("%down0"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidInputDown()
+	void testValidInputDown()
 	{
 		assertTrue(parse("%down4"));
 	}
 
 	@Test
-	public void testInvalidInputHdownNegative()
+	void testInvalidInputHdownNegative()
 	{
 		assertFalse(parse("%Hdown-3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputHdownZero()
+	void testInvalidInputHdownZero()
 	{
 		assertFalse(parse("%Hdown0"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidInputHdown()
+	void testValidInputHdown()
 	{
 		assertTrue(parse("%Hdown4"));
 	}
 
 	@Test
-	public void testInvalidInputDownTooBig()
+	void testInvalidInputDownTooBig()
 	{
 		assertFalse(parse("%down5"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDownReallyTooBig()
+	void testInvalidInputDownReallyTooBig()
 	{
 		assertFalse(parse("%down15"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNegative()
+	void testInvalidInputNegative()
 	{
 		assertFalse(parse("-3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputZero()
+	void testInvalidInputZero()
 	{
 		assertFalse(parse("0"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDecimal()
+	void testInvalidInputDecimal()
 	{
 		assertFalse(parse("3.5"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputMisspell()
+	void testInvalidInputMisspell()
 	{
 		assertFalse(parse("%upn5"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testRoundRobinInteger() throws PersistenceLayerException
+	void testRoundRobinInteger() throws PersistenceLayerException
 	{
 		runRoundRobin("2");
 	}
 
 	@Test
-	public void testRoundRobinIntegerClass() throws PersistenceLayerException
+	void testRoundRobinIntegerClass() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
@@ -345,7 +345,7 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testRoundRobinIntegerType() throws PersistenceLayerException
+	void testRoundRobinIntegerType() throws PersistenceLayerException
 	{
 		PCClass a = primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		a.addToListFor(ListKey.TYPE, Type.getConstant("Base"));
@@ -355,13 +355,13 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testRoundRobinAdd() throws PersistenceLayerException
+	void testRoundRobinAdd() throws PersistenceLayerException
 	{
 		runRoundRobin("%+2");
 	}
 
 	@Test
-	public void testRoundRobinAddClass() throws PersistenceLayerException
+	void testRoundRobinAddClass() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
@@ -369,7 +369,7 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testRoundRobinAddType() throws PersistenceLayerException
+	void testRoundRobinAddType() throws PersistenceLayerException
 	{
 		PCClass a = primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		a.addToListFor(ListKey.TYPE, Type.getConstant("Base"));
@@ -379,13 +379,13 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testRoundRobinSubtract() throws PersistenceLayerException
+	void testRoundRobinSubtract() throws PersistenceLayerException
 	{
 		runRoundRobin("%-2");
 	}
 
 	@Test
-	public void testRoundRobinSubtractClass() throws PersistenceLayerException
+	void testRoundRobinSubtractClass() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
@@ -393,7 +393,7 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testRoundRobinSubtractType() throws PersistenceLayerException
+	void testRoundRobinSubtractType() throws PersistenceLayerException
 	{
 		PCClass a = primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		a.addToListFor(ListKey.TYPE, Type.getConstant("Base"));
@@ -403,13 +403,13 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testRoundRobinMultiply() throws PersistenceLayerException
+	void testRoundRobinMultiply() throws PersistenceLayerException
 	{
 		runRoundRobin("%*2");
 	}
 
 	@Test
-	public void testRoundRobinMultiplyClass() throws PersistenceLayerException
+	void testRoundRobinMultiplyClass() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
@@ -417,7 +417,7 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testRoundRobinMultiplyType() throws PersistenceLayerException
+	void testRoundRobinMultiplyType() throws PersistenceLayerException
 	{
 		PCClass a = primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		a.addToListFor(ListKey.TYPE, Type.getConstant("Base"));
@@ -427,13 +427,13 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testRoundRobinDivide() throws PersistenceLayerException
+	void testRoundRobinDivide() throws PersistenceLayerException
 	{
 		runRoundRobin("%/2");
 	}
 
 	@Test
-	public void testRoundRobinDivideClass() throws PersistenceLayerException
+	void testRoundRobinDivideClass() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
@@ -441,7 +441,7 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testRoundRobinDivideType() throws PersistenceLayerException
+	void testRoundRobinDivideType() throws PersistenceLayerException
 	{
 		PCClass a = primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		a.addToListFor(ListKey.TYPE, Type.getConstant("Base"));
@@ -451,13 +451,13 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testRoundRobinUp() throws PersistenceLayerException
+	void testRoundRobinUp() throws PersistenceLayerException
 	{
 		runRoundRobin("%up2");
 	}
 
 	@Test
-	public void testRoundRobinUpClass() throws PersistenceLayerException
+	void testRoundRobinUpClass() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
@@ -465,7 +465,7 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testRoundRobinUpType() throws PersistenceLayerException
+	void testRoundRobinUpType() throws PersistenceLayerException
 	{
 		PCClass a = primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		a.addToListFor(ListKey.TYPE, Type.getConstant("Base"));
@@ -475,13 +475,13 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testRoundRobinHup() throws PersistenceLayerException
+	void testRoundRobinHup() throws PersistenceLayerException
 	{
 		runRoundRobin("%Hup2");
 	}
 
 	@Test
-	public void testRoundRobinHupClass() throws PersistenceLayerException
+	void testRoundRobinHupClass() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
@@ -489,7 +489,7 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testRoundRobinHupType() throws PersistenceLayerException
+	void testRoundRobinHupType() throws PersistenceLayerException
 	{
 		PCClass a = primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		a.addToListFor(ListKey.TYPE, Type.getConstant("Base"));
@@ -499,13 +499,13 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testRoundRobinDown() throws PersistenceLayerException
+	void testRoundRobinDown() throws PersistenceLayerException
 	{
 		runRoundRobin("%down2");
 	}
 
 	@Test
-	public void testRoundRobinDownClass() throws PersistenceLayerException
+	void testRoundRobinDownClass() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
@@ -513,7 +513,7 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testRoundRobinDownType() throws PersistenceLayerException
+	void testRoundRobinDownType() throws PersistenceLayerException
 	{
 		PCClass a = primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		a.addToListFor(ListKey.TYPE, Type.getConstant("Base"));
@@ -523,13 +523,13 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testRoundRobinHdown() throws PersistenceLayerException
+	void testRoundRobinHdown() throws PersistenceLayerException
 	{
 		runRoundRobin("%Hdown2");
 	}
 
 	@Test
-	public void testRoundRobinHdownClass() throws PersistenceLayerException
+	void testRoundRobinHdownClass() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
@@ -537,7 +537,7 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testRoundRobinHdownType() throws PersistenceLayerException
+	void testRoundRobinHdownType() throws PersistenceLayerException
 	{
 		PCClass a = primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		a.addToListFor(ListKey.TYPE, Type.getConstant("Base"));
@@ -559,14 +559,14 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testUnparseNull()
+	void testUnparseNull()
 	{
 		primaryProf.put(ObjectKey.HITDIE, null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseLegal()
+	void testUnparseLegal()
 	{
 		primaryProf.put(ObjectKey.HITDIE, new HitDieLock(new HitDie(1)));
 		expectSingle(getToken().unparse(primaryContext, primaryProf), "1");
@@ -574,7 +574,7 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<Race>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail()
+	void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = ObjectKey.HITDIE;
 		primaryProf.put(objectKey, new Object());
@@ -596,7 +596,7 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testUnparseZeroSteps()
+	void testUnparseZeroSteps()
 	{
 		try
 		{
@@ -611,7 +611,7 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testUnparseNegativeLevel()
+	void testUnparseNegativeLevel()
 	{
 		try
 		{
@@ -625,7 +625,7 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testUnparseZeroDivide()
+	void testUnparseZeroDivide()
 	{
 		try
 		{

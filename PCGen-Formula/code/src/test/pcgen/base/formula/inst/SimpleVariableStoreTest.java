@@ -32,10 +32,10 @@ import pcgen.base.formula.base.VariableID;
 import pcgen.base.testsupport.GlobalVarScoped;
 import pcgen.base.testsupport.NaiveScopeManager;
 
-public class SimpleVariableStoreTest
+class SimpleVariableStoreTest
 {
 	@Test
-	public void testNulls()
+	void testNulls()
 	{
 		NaiveScopeManager scopeManager = new NaiveScopeManager();
 		ScopeInstanceFactory instanceFactory =
@@ -49,7 +49,7 @@ public class SimpleVariableStoreTest
 
 	@Test
 	@SuppressWarnings({"unchecked", "rawtypes"})
-	public void testGenericsViolation()
+	void testGenericsViolation()
 	{
 		NaiveScopeManager scopeManager = new NaiveScopeManager();
 		ScopeInstanceFactory instanceFactory =
@@ -62,7 +62,7 @@ public class SimpleVariableStoreTest
 	}
 
 	@Test
-	public void testGlobal()
+	void testGlobal()
 	{
 		NaiveScopeManager scopeManager = new NaiveScopeManager();
 		ScopeInstanceFactory instanceFactory =
@@ -80,7 +80,7 @@ public class SimpleVariableStoreTest
 	}
 
 	@Test
-	public void testIndependence()
+	void testIndependence()
 	{
 		NaiveScopeManager scopeManager = new NaiveScopeManager();
 		ScopeInstanceFactory instanceFactory =

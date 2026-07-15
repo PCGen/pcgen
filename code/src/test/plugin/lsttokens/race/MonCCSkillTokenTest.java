@@ -40,7 +40,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class MonCCSkillTokenTest extends
+class MonCCSkillTokenTest extends
 		AbstractListContextTokenTestCase<Race, Skill>
 {
 	static MonccskillToken token = new MonccskillToken();
@@ -114,7 +114,7 @@ public class MonCCSkillTokenTest extends
 	}
 
 	@Test
-	public void testRoundRobinPattern() throws PersistenceLayerException
+	void testRoundRobinPattern() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -122,7 +122,7 @@ public class MonCCSkillTokenTest extends
 	}
 
 	@Test
-	public void testRoundRobinThreePattern() throws PersistenceLayerException
+	void testRoundRobinThreePattern() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -130,7 +130,7 @@ public class MonCCSkillTokenTest extends
 	}
 
 	@Test
-	public void testInvalidInputAllPattern()
+	void testInvalidInputAllPattern()
 	{
 		assertFalse(parse("ALL" + getJoinCharacter() + "Pattern%"));
 		assertNoSideEffects();

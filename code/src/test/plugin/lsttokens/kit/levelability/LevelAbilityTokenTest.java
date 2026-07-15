@@ -29,7 +29,7 @@ import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 import org.junit.jupiter.api.Test;
 
 
-public class LevelAbilityTokenTest extends AbstractKitTokenTestCase<KitLevelAbility>
+class LevelAbilityTokenTest extends AbstractKitTokenTestCase<KitLevelAbility>
 {
 
 	static LevelAbilityToken token = new LevelAbilityToken();
@@ -55,19 +55,19 @@ public class LevelAbilityTokenTest extends AbstractKitTokenTestCase<KitLevelAbil
 	}
 
 	@Test
-	public void testInvalidInputEmptyPCClass()
+	void testInvalidInputEmptyPCClass()
 	{
 		assertFalse(parse("=2"));
 	}
 
 	@Test
-	public void testInvalidInputEmptyCount()
+	void testInvalidInputEmptyCount()
 	{
 		assertFalse(parse("Fireball="));
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fireball");
 		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fireball");

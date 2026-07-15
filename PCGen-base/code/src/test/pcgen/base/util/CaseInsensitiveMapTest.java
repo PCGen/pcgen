@@ -25,7 +25,7 @@ import org.junit.jupiter.api.Test;
 
 import pcgen.testsupport.TestSupport;
 
-public class CaseInsensitiveMapTest
+class CaseInsensitiveMapTest
 {
 
 	public void populate(CaseInsensitiveMap<Double> cim)
@@ -39,7 +39,7 @@ public class CaseInsensitiveMapTest
 	}
 
 	@Test
-	public void testPutGetExact()
+	void testPutGetExact()
 	{
 		CaseInsensitiveMap<Double> cim = new CaseInsensitiveMap<>();
 		populate(cim);
@@ -52,7 +52,7 @@ public class CaseInsensitiveMapTest
 	}
 
 	@Test
-	public void testPutGetDiffCase()
+	void testPutGetDiffCase()
 	{
 		CaseInsensitiveMap<Double> cim = new CaseInsensitiveMap<>();
 		populate(cim);
@@ -65,7 +65,7 @@ public class CaseInsensitiveMapTest
 	}
 
 	@Test
-	public void testContainsKey()
+	void testContainsKey()
 	{
 		CaseInsensitiveMap<Double> cim = new CaseInsensitiveMap<>();
 		populate(cim);
@@ -78,7 +78,7 @@ public class CaseInsensitiveMapTest
 	}
 
 	@Test
-	public void testRemove()
+	void testRemove()
 	{
 		CaseInsensitiveMap<Double> cim = new CaseInsensitiveMap<>();
 		populate(cim);

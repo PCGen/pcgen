@@ -35,7 +35,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class RaceTypeFacetTest
+class RaceTypeFacetTest
 {
 	private static final RaceType LAST_RACE_TYPE = RaceType
 			.getConstant("TestLastRaceType");
@@ -58,7 +58,7 @@ public class RaceTypeFacetTest
 	private CompanionModFacet cfacet = new CompanionModFacet();
 
 	@BeforeEach
-	public void setUp() throws Exception
+	void setUp() throws Exception
 	{
 		facet = new RaceTypeFacet();
 		facet.setRaceFacet(rfacet);
@@ -70,7 +70,7 @@ public class RaceTypeFacetTest
 	}
 
 	@AfterEach
-	public void tearDown()
+	void tearDown()
 	{
 		id = null;
 		altid = null;
@@ -81,20 +81,20 @@ public class RaceTypeFacetTest
 	}
 
 	@Test
-	public void testRaceTypeUnsetNull()
+	void testRaceTypeUnsetNull()
 	{
 		assertNull(facet.getRaceType(id));
 	}
 
 	@Test
-	public void testWithNothingInRace()
+	void testWithNothingInRace()
 	{
 		rfacet.set(id, new Race());
 		assertNull(facet.getRaceType(id));
 	}
 
 	@Test
-	public void testAvoidPollution()
+	void testAvoidPollution()
 	{
 		Race r = new Race();
 		r.put(ObjectKey.RACETYPE, TEST_RACE_TYPE);
@@ -103,7 +103,7 @@ public class RaceTypeFacetTest
 	}
 
 	@Test
-	public void testGetFromRace()
+	void testGetFromRace()
 	{
 		Race r = new Race();
 		r.put(ObjectKey.RACETYPE, TEST_RACE_TYPE);
@@ -114,7 +114,7 @@ public class RaceTypeFacetTest
 	}
 
 	@Test
-	public void testGetFromCMod()
+	void testGetFromCMod()
 	{
 		rfacet.set(id, new Race());
 		CompanionMod c = new CompanionMod();
@@ -126,7 +126,7 @@ public class RaceTypeFacetTest
 	}
 
 	@Test
-	public void testGetFromTemplate()
+	void testGetFromTemplate()
 	{
 		rfacet.set(id, new Race());
 		PCTemplate t = new PCTemplate();
@@ -138,7 +138,7 @@ public class RaceTypeFacetTest
 	}
 
 	@Test
-	public void testGetFromCModOverridesRace()
+	void testGetFromCModOverridesRace()
 	{
 		Race r = new Race();
 		r.put(ObjectKey.RACETYPE, TEST_RACE_TYPE);
@@ -153,7 +153,7 @@ public class RaceTypeFacetTest
 	}
 
 	@Test
-	public void testGetFromTemplateOverridesRaceandCMod()
+	void testGetFromTemplateOverridesRaceandCMod()
 	{
 		Race r = new Race();
 		r.put(ObjectKey.RACETYPE, TEST_RACE_TYPE);
@@ -174,7 +174,7 @@ public class RaceTypeFacetTest
 	}
 
 	@Test
-	public void testGetFromTemplateSecondOverrides()
+	void testGetFromTemplateSecondOverrides()
 	{
 		Race r = new Race();
 		r.put(ObjectKey.RACETYPE, TEST_RACE_TYPE);

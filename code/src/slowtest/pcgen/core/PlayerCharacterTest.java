@@ -79,7 +79,7 @@ import util.TestURI;
  * The Class {@code PlayerCharacterTest} is responsible for testing
  * that PlayerCharacter is working correctly.
  */
-public class PlayerCharacterTest extends AbstractCharacterTestCase
+class PlayerCharacterTest extends AbstractCharacterTestCase
 {
 	Race giantRace = null;
 	PCClass giantClass = null;
@@ -265,7 +265,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	
 
 	@Test
-	public void testGetBonusFeatsForNewLevel1() throws Exception
+	void testGetBonusFeatsForNewLevel1() throws Exception
 	{
 		readyToRun();
 		final PlayerCharacter character = new PlayerCharacter();
@@ -276,7 +276,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testGetBonusFeatsForNewLevel3() throws Exception
+	void testGetBonusFeatsForNewLevel3() throws Exception
 	{
 		readyToRun();
 		final PlayerCharacter character = new PlayerCharacter();
@@ -292,7 +292,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 * incremented instead.
 	 */
 	@Test
-	public void testGetMonsterBonusFeatsForNewLevel1()
+	void testGetMonsterBonusFeatsForNewLevel1()
 	{
 		readyToRun();
 		final PlayerCharacter character = new PlayerCharacter();
@@ -316,7 +316,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 * Test level per feat bonus to feats. 
 	 */
 	@Test
-	public void testGetNumFeatsFromLevels()
+	void testGetNumFeatsFromLevels()
 	{
 		readyToRun();
 		final PlayerCharacter pc = new PlayerCharacter();
@@ -349,7 +349,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 * leveltypes or within standard progression.
 	 */
 	@Test
-	public void testGetMonsterBonusFeatsForNewLevel2()
+	void testGetMonsterBonusFeatsForNewLevel2()
 	{
 		readyToRun();
 		final PlayerCharacter pc = new PlayerCharacter();
@@ -380,7 +380,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 * Tests getVariableValue.
 	 */
 	@Test
-	public void testGetVariableValue1()
+	void testGetVariableValue1()
 	{
 		readyToRun();
 		LoadContext context = Globals.getContext();
@@ -411,7 +411,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 * Tests getVariableValue for stat modifier.
 	 */
 	@Test
-	public void testGetVariableValueStatMod()
+	void testGetVariableValueStatMod()
 	{
 		readyToRun();
 		//Logging.setDebugMode(true);
@@ -429,7 +429,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testGetVariableValueStatModNew()
+	void testGetVariableValueStatModNew()
 	{
 		readyToRun();
 		//Logging.setDebugMode(true);
@@ -450,7 +450,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 * Test out the caching of variable values.
 	 */
 	@Test
-	public void testGetVariableCaching()
+	void testGetVariableCaching()
 	{
 		readyToRun();
 		final PlayerCharacter character = new PlayerCharacter();
@@ -479,7 +479,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 * close mode, only one instance of a feat with a sub-choice is added.
 	 */
 	@Test
-	public void testModFeat()
+	void testModFeat()
 	{
 		readyToRun();
 		final PlayerCharacter character = new PlayerCharacter();
@@ -508,7 +508,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 * Test that multiple exotic weapon proficiencies work correctly.
 	 */
 	@Test
-	public void testExoticWpnProf()
+	void testExoticWpnProf()
 	{
 		readyToRun();
 		PlayerCharacter character = new PlayerCharacter();
@@ -541,7 +541,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 * Tests CL variable.
 	 */
 	@Test
-	public void testGetClassVar()
+	void testGetClassVar()
 	{
 		readyToRun();
 		//Logging.setDebugMode(true);
@@ -633,7 +633,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 * each call retrieves the right set of skills.
 	 */
 	@Test
-	public void testSkillsVisibility()
+	void testSkillsVisibility()
 	{
 		readyToRun();
 		PlayerCharacter pc = getCharacter();
@@ -684,7 +684,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 * Tests adding a spell.
 	 */
 	@Test
-	public void testAddSpells()
+	void testAddSpells()
 	{
 		readyToRun();
 		final PlayerCharacter character = new PlayerCharacter();
@@ -796,7 +796,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 * memorizes spells.
 	 */
 	@Test
-	public void testAvailableSpellsMemorizedDivine()
+	void testAvailableSpellsMemorizedDivine()
 	{
 		readyToRun();
 		final PlayerCharacter character = new PlayerCharacter();
@@ -916,7 +916,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testIsNonAbility()
+	void testIsNonAbility()
 	{
 		readyToRun();
 		PlayerCharacter pc = getCharacter();
@@ -961,7 +961,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 * categories.
 	 */
 	@Test
-	public void testStackDifferentAbiltyCat()
+	void testStackDifferentAbiltyCat()
 	{
 		readyToRun();
 		PlayerCharacter pc = getCharacter();
@@ -998,7 +998,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 * Verify that bested abilities are processed correctly.
 	 */
 	@Test
-	public void testNestedAbilities()
+	void testNestedAbilities()
 	{
 		PlayerCharacter pc = getCharacter();
 		Ability resToAcid =
@@ -1034,7 +1034,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testGetPartialStatFor()
+	void testGetPartialStatFor()
 	{
 		readyToRun();
 		PlayerCharacter pc = getCharacter();
@@ -1072,7 +1072,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 * Validate the getAvailableFollowers function.
 	 */
 	@Test
-	public void testGetAvailableFollowers()
+	void testGetAvailableFollowers()
 	{
 		readyToRun();
 		Ability ab = TestHelper.makeAbility("Tester1", BuildUtilities.getFeatCat(), "Empty Container");
@@ -1123,7 +1123,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testGetAggregateAbilityList()
+	void testGetAggregateAbilityList()
 	{
 		Ability resToAcid =
 				TestHelper.makeAbility("Swelter",
@@ -1161,7 +1161,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 * Test the processing and order of operations of the adjustMoveRates method.
 	 */
 	@Test
-	public void testAdjustMoveRates()
+	void testAdjustMoveRates()
 	{
 		Ability quickFlySlowSwim =
 				TestHelper.makeAbility("quickFlySlowSwim", BuildUtilities.getFeatCat()
@@ -1217,7 +1217,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testMakeIntoExClass()
+	void testMakeIntoExClass()
 	{
 		// Prepare class and ex-class
 		LoadContext context = Globals.getContext();
@@ -1251,7 +1251,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testGetVariableCachingRollTopNode()
+	void testGetVariableCachingRollTopNode()
 	{
 		readyToRun();
 		final PlayerCharacter character = new PlayerCharacter();
@@ -1280,7 +1280,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 * skill pools.
 	 */
 	@Test
-	public void testCheckSkillModChangeNoBonus()
+	void testCheckSkillModChangeNoBonus()
 	{
 		readyToRun();
 		PlayerCharacter character = getCharacter();
@@ -1317,7 +1317,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 * Validate the checkSkillModChange correctly handles SKILLPOOL bonuses
 	 */
 	@Test
-	public void testCheckSkillModChangeWithBonus()
+	void testCheckSkillModChangeWithBonus()
 	{
 		readyToRun();
 		PlayerCharacter character = getCharacter();
@@ -1371,7 +1371,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 * TODO Testing at epic levels 21+ needs to be fixed.
 	 */
 	@Test
-	public void testbaseAttackBonusAndgetNumAttacks() throws Exception 
+	void testbaseAttackBonusAndgetNumAttacks() throws Exception 
 	{
 		readyToRun();
 		LoadContext context = Globals.getContext();

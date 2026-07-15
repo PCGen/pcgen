@@ -39,7 +39,7 @@ import org.junit.jupiter.api.Test;
  * character to be supplied. 
  * 
  */
-public class PCGVer2ParserCharacterTest extends AbstractCharacterTestCase
+class PCGVer2ParserCharacterTest extends AbstractCharacterTestCase
 {
 	@BeforeEach
 	@Override
@@ -63,7 +63,7 @@ public class PCGVer2ParserCharacterTest extends AbstractCharacterTestCase
 	 * @throws PCGParseException the PCG parse exception
 	 */
 	@Test
-	public void testRaceAddSpellcaster() throws PCGParseException
+	void testRaceAddSpellcaster() throws PCGParseException
 	{
 		LoadContext context = Globals.getContext();
 		Race rakshasha =

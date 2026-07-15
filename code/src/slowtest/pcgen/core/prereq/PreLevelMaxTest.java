@@ -42,7 +42,7 @@ import org.junit.jupiter.api.Test;
  * {@code PreLevelMaxTest} tests that the PRELEVELMAX tag is
  * working correctly.
  */
-public class PreLevelMaxTest extends AbstractCharacterTestCase
+class PreLevelMaxTest extends AbstractCharacterTestCase
 {
 	private PCClass myClass = new PCClass();
 	private Race race = new Race();
@@ -53,7 +53,7 @@ public class PreLevelMaxTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testLevel() throws PersistenceLayerException
+	void testLevel() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, myClass, true);
@@ -80,7 +80,7 @@ public class PreLevelMaxTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testHD() throws PersistenceLayerException
+	void testHD() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(2, myClass, true);
@@ -108,7 +108,7 @@ public class PreLevelMaxTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testPCLevel() throws PersistenceLayerException
+	void testPCLevel() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		LoadContext context = Globals.getContext();

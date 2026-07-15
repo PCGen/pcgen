@@ -31,7 +31,7 @@ import org.junit.jupiter.api.BeforeEach;
 import tokencontent.testsupport.AbstractContentTokenTest;
 import util.TestURI;
 
-public class GlobalSABTest extends AbstractContentTokenTest
+class GlobalSABTest extends AbstractContentTokenTest
 {
 
 	private static SabLst token = new SabLst();

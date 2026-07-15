@@ -23,7 +23,7 @@ import plugin.pretokens.writer.PreSpellSchoolWriter;
 
 import org.junit.jupiter.api.BeforeEach;
 
-public class PreSpellSchoolRoundRobin extends AbstractRankedRoundRobin
+class PreSpellSchoolRoundRobin extends AbstractRankedRoundRobin
 {
 	@BeforeEach
 	@Override

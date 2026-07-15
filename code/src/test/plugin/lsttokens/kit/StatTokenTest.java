@@ -32,7 +32,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class StatTokenTest extends AbstractKitTokenTestCase<KitStat>
+class StatTokenTest extends AbstractKitTokenTestCase<KitStat>
 {
 
 	static StatToken token = new StatToken();
@@ -73,27 +73,27 @@ public class StatTokenTest extends AbstractKitTokenTestCase<KitStat>
 	}
 
 	@Test
-	public void testInvalidInputEmptyValue()
+	void testInvalidInputEmptyValue()
 	{
 		assertFalse(parse("STR="));
 	}
 
 	@Test
-	public void testInvalidInputEmptyStat()
+	void testInvalidInputEmptyStat()
 	{
 		assertFalse(parse("=2"));
 	}
 
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		runRoundRobin("STR=2");
 	}
 
 
 	@Test
-	public void testRoundRobinTwo() throws PersistenceLayerException
+	void testRoundRobinTwo() throws PersistenceLayerException
 	{
 		runRoundRobin("INT=Wizard|STR=2");
 	}

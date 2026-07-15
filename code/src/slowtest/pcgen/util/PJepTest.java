@@ -33,10 +33,10 @@ import org.nfunk.jep.SymbolTable;
 /**
  * Tests {@link PJEP}.
  */
-public class PJepTest extends AbstractCharacterTestCase
+class PJepTest extends AbstractCharacterTestCase
 {
 	@Test
-	public void testMin()
+	void testMin()
 	{
 		final PJEP jep = new PJEP();
 
@@ -47,7 +47,7 @@ public class PJepTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testMax1()
+	void testMax1()
 	{
 		final PJEP jep = new PJEP();
 
@@ -58,7 +58,7 @@ public class PJepTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testMax2()
+	void testMax2()
 	{
 		final PJEP jep = new PJEP();
 
@@ -69,7 +69,7 @@ public class PJepTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testFloor1()
+	void testFloor1()
 	{
 		final PJEP jep = new PJEP();
 
@@ -80,7 +80,7 @@ public class PJepTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testFloor2()
+	void testFloor2()
 	{
 		final PJEP jep = new PJEP();
 
@@ -91,7 +91,7 @@ public class PJepTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testCeil1()
+	void testCeil1()
 	{
 		final PJEP jep = new PJEP();
 
@@ -102,7 +102,7 @@ public class PJepTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testCeil2()
+	void testCeil2()
 	{
 		final PJEP jep = new PJEP();
 
@@ -113,7 +113,7 @@ public class PJepTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testIf()
+	void testIf()
 	{
 		final PJEP jep = new PJEP();
 
@@ -124,7 +124,7 @@ public class PJepTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testIf2()
+	void testIf2()
 	{
 		final PJEP jep = new PJEP();
 
@@ -135,7 +135,7 @@ public class PJepTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testIf3()
+	void testIf3()
 	{
 		final PJEP jep = new PJEP();
 
@@ -146,7 +146,7 @@ public class PJepTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testIf4()
+	void testIf4()
 	{
 		final PJEP jep = new PJEP();
 
@@ -157,7 +157,7 @@ public class PJepTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testIf5()
+	void testIf5()
 	{
 		final PJEP jep = new PJEP();
 
@@ -168,7 +168,7 @@ public class PJepTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testIf6()
+	void testIf6()
 	{
 		final PJEP jep = new PJEP();
 
@@ -179,7 +179,7 @@ public class PJepTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testIf7()
+	void testIf7()
 	{
 		final PJEP jep = new PJEP();
 
@@ -190,7 +190,7 @@ public class PJepTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testIf8()
+	void testIf8()
 	{
 		final PJEP jep = new PJEP();
 
@@ -203,7 +203,7 @@ public class PJepTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testIf9()
+	void testIf9()
 	{
 		final PJEP jep = new PJEP();
 
@@ -222,7 +222,7 @@ public class PJepTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testIf10()
+	void testIf10()
 	{
 		final PJEP jep = new PJEP();
 
@@ -234,7 +234,7 @@ public class PJepTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testIf11()
+	void testIf11()
 	{
 		final PJEP jep = new PJEP();
 
@@ -246,7 +246,7 @@ public class PJepTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testIf12()
+	void testIf12()
 	{
 		final PJEP jep = new PJEP();
 
@@ -263,7 +263,7 @@ public class PJepTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testJepIf()
+	void testJepIf()
 	{
 		final PlayerCharacter character = new PlayerCharacter();
 		Float val;

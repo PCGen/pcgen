@@ -30,7 +30,7 @@ import plugin.bonustokens.Combat;
 
 import org.junit.jupiter.api.BeforeEach;
 
-public class AddedBonusFacetTest extends AbstractSourcedListFacetTest<BonusObj>
+class AddedBonusFacetTest extends AbstractSourcedListFacetTest<BonusObj>
 {
 
 	private AddedBonusFacet facet = new AddedBonusFacet();

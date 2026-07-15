@@ -32,11 +32,11 @@ import pcgen.base.formula.visitor.ReconstructionVisitor;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
 import pcgen.base.testsupport.TestUtilities;
 
-public class MinFunctionTest extends AbstractFormulaTestCase
+class MinFunctionTest extends AbstractFormulaTestCase
 {
 
 	@Test
-	public void testInvalidTooFewArg()
+	void testInvalidTooFewArg()
 	{
 		String formula = "min(2)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -44,7 +44,7 @@ public class MinFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotValidString()
+	void testNotValidString()
 	{
 		String formula = "min(2, \"ab\")";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -52,7 +52,7 @@ public class MinFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNotValidNoVar()
+	void testNotValidNoVar()
 	{
 		String formula = "min(ab,4,5)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -60,7 +60,7 @@ public class MinFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testIntegerPositive()
+	void testIntegerPositive()
 	{
 		String formula = "min(1,2)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -73,7 +73,7 @@ public class MinFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testIntegerNegative()
+	void testIntegerNegative()
 	{
 		String formula = "min(-2,3)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -86,7 +86,7 @@ public class MinFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDoublePositive()
+	void testDoublePositive()
 	{
 		String formula = "min(3.3,7.8)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -99,7 +99,7 @@ public class MinFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDoubleNegative()
+	void testDoubleNegative()
 	{
 		String formula = "min(-3.4,-2.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -112,7 +112,7 @@ public class MinFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNary()
+	void testNary()
 	{
 		String formula = "min(4.6,8,-3.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -125,7 +125,7 @@ public class MinFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNaryLeadingSpace()
+	void testNaryLeadingSpace()
 	{
 		String formula = "min( 4.6,8,-3.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -135,7 +135,7 @@ public class MinFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNaryTrailingSpace()
+	void testNaryTrailingSpace()
 	{
 		String formula = "min(4.6,8,-3.3 )";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -145,7 +145,7 @@ public class MinFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNarySeparatingSpace()
+	void testNarySeparatingSpace()
 	{
 		String formula = "min(4.6 , 8 , -3.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -155,7 +155,7 @@ public class MinFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNaryFunctionSeparatingSpace()
+	void testNaryFunctionSeparatingSpace()
 	{
 		String formula = "min (4.6,8,-3.3)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -165,7 +165,7 @@ public class MinFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testVariable()
+	void testVariable()
 	{
 		setVariable(getVariable("a"), 5);
 		String formula = "min(a, 7.4)";

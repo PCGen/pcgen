@@ -35,7 +35,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
 
-public class VisibleTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifier>
+class VisibleTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifier>
 {
 
 	static VisibleToken token = new VisibleToken();
@@ -60,7 +60,7 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 	}
 
 	@Test
-	public void testInvalidOutput()
+	void testInvalidOutput()
 	{
 		assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryProf.put(ObjectKey.VISIBILITY, Visibility.OUTPUT_ONLY);
@@ -69,7 +69,7 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 	}
 
 	@Test
-	public void testInvalidInputString()
+	void testInvalidInputString()
 	{
 		internalTestInvalidInputString(null);
 		assertNoSideEffects();
@@ -77,7 +77,7 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 	}
 
 	@Test
-	public void testInvalidInputStringSet()
+	void testInvalidInputStringSet()
 	{
 		assertTrue(parse("QUALIFY"));
 		assertTrue(parseSecondary("QUALIFY"));
@@ -104,7 +104,7 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 	}
 
 	@Test
-	public void testValidInputs()
+	void testValidInputs()
 	{
 		assertTrue(parse("NO"));
 		assertEquals(Visibility.HIDDEN, primaryProf.get(ObjectKey.VISIBILITY));
@@ -115,19 +115,19 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 	}
 
 	@Test
-	public void testRoundRobinYes() throws PersistenceLayerException
+	void testRoundRobinYes() throws PersistenceLayerException
 	{
 		runRoundRobin("YES");
 	}
 
 	@Test
-	public void testRoundRobinQualify() throws PersistenceLayerException
+	void testRoundRobinQualify() throws PersistenceLayerException
 	{
 		runRoundRobin("QUALIFY");
 	}
 
 	@Test
-	public void testRoundRobinNo() throws PersistenceLayerException
+	void testRoundRobinNo() throws PersistenceLayerException
 	{
 		runRoundRobin("NO");
 	}
@@ -151,7 +151,7 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 	}
 
 	@Test
-	public void testUnparseNull()
+	void testUnparseNull()
 	{
 		primaryProf.put(getObjectKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
@@ -163,14 +163,14 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 	}
 
 	@Test
-	public void testUnparseLegal()
+	void testUnparseLegal()
 	{
 		primaryProf.put(getObjectKey(), Visibility.DEFAULT);
 		expectSingle(getToken().unparse(primaryContext, primaryProf), Visibility.DEFAULT.getLSTFormat());
 	}
 
 	@Test
-	public void testUnparseIllegal()
+	void testUnparseIllegal()
 	{
 		primaryProf.put(getObjectKey(), Visibility.OUTPUT_ONLY);
 		assertBadUnparse();
@@ -178,7 +178,7 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail()
+	void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = getObjectKey();
 		primaryProf.put(objectKey, new Object());

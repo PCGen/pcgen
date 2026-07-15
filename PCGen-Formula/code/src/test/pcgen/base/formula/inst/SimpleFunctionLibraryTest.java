@@ -36,25 +36,25 @@ import pcgen.base.formula.visitor.SemanticsVisitor;
 import pcgen.base.formula.visitor.StaticVisitor;
 import pcgen.base.util.FormatManager;
 
-public class SimpleFunctionLibraryTest
+class SimpleFunctionLibraryTest
 {
 
 	@Test
-	public void testInvalidNull()
+	void testInvalidNull()
 	{
 		SimpleFunctionLibrary library = new SimpleFunctionLibrary();
 		assertThrows(NullPointerException.class, () -> library.addFunction(null));
 	}
 
 	@Test
-	public void testInvalidNullName()
+	void testInvalidNullName()
 	{
 		SimpleFunctionLibrary library = new SimpleFunctionLibrary();
 		assertThrows(NullPointerException.class, () -> library.addFunction(getPseudoFunction(null)));
 	}
 
 	@Test
-	public void testSimpleFunctionSetGet()
+	void testSimpleFunctionSetGet()
 	{
 		SimpleFunctionLibrary library = new SimpleFunctionLibrary();
 		FormulaFunction abs = getPseudoFunction("Abs");
@@ -66,7 +66,7 @@ public class SimpleFunctionLibraryTest
 	}
 
 	@Test
-	public void testInvalidDupeNameSimpleFunction()
+	void testInvalidDupeNameSimpleFunction()
 	{
 		SimpleFunctionLibrary library = new SimpleFunctionLibrary();
 		FormulaFunction abs = getPseudoFunction("Abs");

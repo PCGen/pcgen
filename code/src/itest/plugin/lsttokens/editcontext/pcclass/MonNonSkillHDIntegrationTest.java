@@ -30,7 +30,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.BeforeEach;
 
-public class MonNonSkillHDIntegrationTest extends
+class MonNonSkillHDIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<PCClass>
 {
 

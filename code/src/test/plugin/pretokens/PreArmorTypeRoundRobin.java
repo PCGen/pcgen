@@ -24,7 +24,7 @@ import plugin.pretokens.writer.PreArmorTypeWriter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class PreArmorTypeRoundRobin extends AbstractBasicRoundRobin
+class PreArmorTypeRoundRobin extends AbstractBasicRoundRobin
 {
 	@BeforeEach
 	@Override
@@ -48,7 +48,7 @@ public class PreArmorTypeRoundRobin extends AbstractBasicRoundRobin
 	}
 
 	@Test
-	public void testList()
+	void testList()
 	{
 		this.runRoundRobin("PREARMORTYPE:1,LIST");
 	}

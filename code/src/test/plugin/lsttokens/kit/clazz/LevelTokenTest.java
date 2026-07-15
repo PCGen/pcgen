@@ -25,7 +25,7 @@ import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
 import org.junit.jupiter.api.Test;
 
-public class LevelTokenTest extends AbstractKitTokenTestCase<KitClass>
+class LevelTokenTest extends AbstractKitTokenTestCase<KitClass>
 {
 
 	static LevelToken token = new LevelToken();
@@ -51,13 +51,13 @@ public class LevelTokenTest extends AbstractKitTokenTestCase<KitClass>
 	}
 
 	@Test
-	public void testRoundRobinNumber() throws PersistenceLayerException
+	void testRoundRobinNumber() throws PersistenceLayerException
 	{
 		runRoundRobin("3");
 	}
 
 	@Test
-	public void testRoundRobinFormula() throws PersistenceLayerException
+	void testRoundRobinFormula() throws PersistenceLayerException
 	{
 		runRoundRobin("Formula");
 	}

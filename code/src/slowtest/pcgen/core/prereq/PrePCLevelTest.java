@@ -40,7 +40,7 @@ import org.junit.jupiter.api.Test;
  * {@code PREPCLEVELTest} tests that the PREPCLEVEL tag is
  * working correctly.
  */
-public class PrePCLevelTest extends AbstractCharacterTestCase
+class PrePCLevelTest extends AbstractCharacterTestCase
 {
 	private PCClass myClass = new PCClass();
 	private Race race = new Race();
@@ -51,7 +51,7 @@ public class PrePCLevelTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testLevel() throws PersistenceLayerException
+	void testLevel() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, myClass, true);
@@ -98,7 +98,7 @@ public class PrePCLevelTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testHD() throws PersistenceLayerException
+	void testHD() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(2, myClass, true);
@@ -160,7 +160,7 @@ public class PrePCLevelTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testPCLevel() throws PersistenceLayerException
+	void testPCLevel() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		LoadContext context = Globals.getContext();

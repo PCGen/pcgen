@@ -65,7 +65,7 @@ class PluginBuildTest
 	 * calls in {@code plugins.gradle}.
 	 */
 	@Test
-	public void everyPluginPackageHasACorrespondingJar() throws IOException
+	void everyPluginPackageHasACorrespondingJar() throws IOException
 	{
 		Set<String> packagedCategories = Set.of(
 				"bonustokens", "converter", "exporttokens", "function",
@@ -89,7 +89,7 @@ class PluginBuildTest
 	 * Check for the presence of all Bonus token parsing plugins.
 	 */
 	@Test
-	public void testBonusPlugins() throws IOException
+	void testBonusPlugins() throws IOException
 	{
 		Path sourceFolder = Paths.get("code/src/java/plugin/bonustokens");
 		Path jar = Paths.get("plugins/bonusplugins.jar");
@@ -100,7 +100,7 @@ class PluginBuildTest
 	 * Check for the presence of all Converter plugins.
 	 */
 	@Test
-	public void testConverterPlugins() throws IOException
+	void testConverterPlugins() throws IOException
 	{
 		Path sourceFolder = Paths.get("code/src/java/plugin/converter");
 		Path jar = Paths.get("plugins/converterplugins.jar");
@@ -111,7 +111,7 @@ class PluginBuildTest
 	 * Check for the presence of all Export Token plugins.
 	 */
 	@Test
-	public void testExportTokensPlugins() throws IOException
+	void testExportTokensPlugins() throws IOException
 	{
 		Path sourceFolder = Paths.get("code/src/java/plugin/exporttokens");
 		Path jar = Paths.get("plugins/exportplugins.jar");
@@ -122,7 +122,7 @@ class PluginBuildTest
 	 * Check for the presence of all Function plugins.
 	 */
 	@Test
-	public void testFunctionPlugins() throws IOException
+	void testFunctionPlugins() throws IOException
 	{
 		Path sourceFolder = Paths.get("code/src/java/plugin/function");
 		Path jar = Paths.get("plugins/functionplugins.jar");
@@ -133,7 +133,7 @@ class PluginBuildTest
 	 * Check for the presence of all Grouping plugins.
 	 */
 	@Test
-	public void testGroupingPlugins() throws IOException
+	void testGroupingPlugins() throws IOException
 	{
 		Path sourceFolder = Paths.get("code/src/java/plugin/grouping");
 		Path jar = Paths.get("plugins/groupingplugins.jar");
@@ -144,7 +144,7 @@ class PluginBuildTest
 	 * Check for the presence of all JEP Commands plugins.
 	 */
 	@Test
-	public void testJepCommandsPlugins() throws IOException
+	void testJepCommandsPlugins() throws IOException
 	{
 		Path sourceFolder = Paths.get("code/src/java/plugin/jepcommands");
 		Path jar = Paths.get("plugins/jepcommandsplugins.jar");
@@ -155,7 +155,7 @@ class PluginBuildTest
 	 * Check for the presence of all LST token parsing plugins.
 	 */
 	@Test
-	public void testLstPlugins() throws IOException
+	void testLstPlugins() throws IOException
 	{
 		Path sourceFolder = Paths.get("code/src/java/plugin/lsttokens");
 		Path jar = Paths.get("plugins/lstplugins.jar");
@@ -166,7 +166,7 @@ class PluginBuildTest
 	 * Check for the presence of all Modifier plugins.
 	 */
 	@Test
-	public void testModifierPlugins() throws IOException
+	void testModifierPlugins() throws IOException
 	{
 		Path sourceFolder = Paths.get("code/src/java/plugin/modifier");
 		Path jar = Paths.get("plugins/modifierplugins.jar");
@@ -177,7 +177,7 @@ class PluginBuildTest
 	 * Check for the presence of all PRE tokens plugins.
 	 */
 	@Test
-	public void testPreTokensPlugins() throws IOException
+	void testPreTokensPlugins() throws IOException
 	{
 		Path sourceFolder = Paths.get("code/src/java/plugin/pretokens");
 		Path jar = Paths.get("plugins/preplugins.jar");
@@ -188,7 +188,7 @@ class PluginBuildTest
 	 * Check for the presence of all Primitive plugins.
 	 */
 	@Test
-	public void testPrimitivePlugins() throws IOException
+	void testPrimitivePlugins() throws IOException
 	{
 		Path sourceFolder = Paths.get("code/src/java/plugin/primitive");
 		Path jar = Paths.get("plugins/primitiveplugins.jar");
@@ -199,7 +199,7 @@ class PluginBuildTest
 	 * Check for the presence of all Qualifier plugins.
 	 */
 	@Test
-	public void testQualifierPlugins() throws IOException
+	void testQualifierPlugins() throws IOException
 	{
 		Path sourceFolder = Paths.get("code/src/java/plugin/qualifier");
 		Path jar = Paths.get("plugins/qualifierplugins.jar");

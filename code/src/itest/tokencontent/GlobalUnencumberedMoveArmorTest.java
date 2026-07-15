@@ -31,7 +31,7 @@ import org.junit.jupiter.api.BeforeEach;
 import tokencontent.testsupport.AbstractContentTokenTest;
 import util.TestURI;
 
-public class GlobalUnencumberedMoveArmorTest extends AbstractContentTokenTest
+class GlobalUnencumberedMoveArmorTest extends AbstractContentTokenTest
 {
 
 	private static UnencumberedmoveLst token = new UnencumberedmoveLst();

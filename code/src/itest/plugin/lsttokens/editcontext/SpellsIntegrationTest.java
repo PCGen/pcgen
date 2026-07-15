@@ -41,7 +41,7 @@ import plugin.pretokens.writer.PreRaceWriter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class SpellsIntegrationTest extends
+class SpellsIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>
 {
 	private static SpellsLst token = new SpellsLst();
@@ -86,7 +86,7 @@ public class SpellsIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -96,7 +96,7 @@ public class SpellsIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoSet() throws PersistenceLayerException
+	void testRoundRobinNoSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -106,7 +106,7 @@ public class SpellsIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoReset() throws PersistenceLayerException
+	void testRoundRobinNoReset() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -119,7 +119,7 @@ public class SpellsIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinClearSet() throws PersistenceLayerException
+	void testRoundRobinClearSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -129,7 +129,7 @@ public class SpellsIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinClearBase() throws PersistenceLayerException
+	void testRoundRobinClearBase() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -139,7 +139,7 @@ public class SpellsIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinClearMod() throws PersistenceLayerException
+	void testRoundRobinClearMod() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -149,7 +149,7 @@ public class SpellsIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinClearBoth() throws PersistenceLayerException
+	void testRoundRobinClearBoth() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -159,7 +159,7 @@ public class SpellsIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoSetClear() throws PersistenceLayerException
+	void testRoundRobinNoSetClear() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -169,7 +169,7 @@ public class SpellsIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoResetClear() throws PersistenceLayerException
+	void testRoundRobinNoResetClear() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();

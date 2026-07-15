@@ -30,6 +30,8 @@ import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.util.enumeration.Load;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
 /**
  * UnencumberedLoadFacet is a Facet that tracks the Load objects for
  * Unencumbered movement that have been locked on a Player Character.
@@ -111,6 +113,8 @@ public class UnencumberedLoadFacet extends AbstractSourcedListFacet<CharID, Load
 	 * @return The best Load value to avoid encumberance from Load for the
 	 *         Player Character identified by the given CharID.
 	 */
+	@SuppressFBWarnings(value = "BC_UNCONFIRMED_CAST_OF_RETURN_VALUE",
+		justification = "Facet's own cache; getComponentMap() always returns TreeMap<Load, Set<Object>>")
 	public Load getBestLoad(CharID id)
 	{
 		TreeMap<Load, Set<Object>> map = (TreeMap<Load, Set<Object>>) getCachedMap(id);

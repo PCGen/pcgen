@@ -10,7 +10,7 @@ class ClassTypeTest
 	 * test clone.
 	 */
 	@Test
-	public void testClone()
+	void testClone()
 	{
 		final ClassType expected = new ClassType();
 		final ClassType actual = expected.clone();

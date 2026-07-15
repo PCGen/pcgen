@@ -33,7 +33,7 @@ import org.junit.jupiter.api.Test;
 import tokencontent.testsupport.AbstractContentTokenTest;
 import util.TestURI;
 
-public class GlobalUdamTest extends AbstractContentTokenTest
+class GlobalUdamTest extends AbstractContentTokenTest
 {
 
 	private static UdamLst token = new UdamLst();

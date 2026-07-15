@@ -43,7 +43,7 @@ import pcgen.base.testsupport.SimpleVarScoped;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
 
-public class VariableManagerTest
+class VariableManagerTest
 {
 
 	private ScopeInstanceFactory instanceFactory;
@@ -73,7 +73,7 @@ public class VariableManagerTest
 	}
 
 	@Test
-	public void testNullConstructor()
+	void testNullConstructor()
 	{
 		assertThrows(NullPointerException.class, () -> new VariableManager(null, scopeManager, instanceFactory, valueStore));
 		assertThrows(NullPointerException.class, () -> new VariableManager(scopeManager, null, instanceFactory, valueStore));
@@ -82,7 +82,7 @@ public class VariableManagerTest
 	}
 
 	@Test
-	public void testAssertVariableFail()
+	void testAssertVariableFail()
 	{
 		ImplementedScope globalImplementedScope = getGlobalImpl();
 		assertThrows(NullPointerException.class, () -> variableLibrary.assertLegalVariableID(null, globalImplementedScope, FormatUtilities.NUMBER_MANAGER));
@@ -106,7 +106,7 @@ public class VariableManagerTest
 	}
 
 	@Test
-	public void testAssertVariable()
+	void testAssertVariable()
 	{
 		scopeManager.registerScope("Global", "Global.Spell");
 		scopeManager.registerScope("Global", "Global.Equipment");
@@ -141,7 +141,7 @@ public class VariableManagerTest
 	}
 
 	@Test
-	public void testIsLegalVIDFail()
+	void testIsLegalVIDFail()
 	{
 		ImplementedScope globalImplementedScope = getGlobalImpl();
 
@@ -158,7 +158,7 @@ public class VariableManagerTest
 	}
 
 	@Test
-	public void testIsLegalVID()
+	void testIsLegalVID()
 	{
 		scopeManager.registerScope("Global", "Global.Spell");
 		scopeManager.registerScope("Global", "Global.Equipment");
@@ -197,7 +197,7 @@ public class VariableManagerTest
 	}
 
 	@Test
-	public void testGetVIDFail()
+	void testGetVIDFail()
 	{
 		GlobalVarScoped gvs = new GlobalVarScoped("Global");
 
@@ -222,7 +222,7 @@ public class VariableManagerTest
 	}
 
 	@Test
-	public void testGetVID()
+	void testGetVID()
 	{
 		GlobalVarScoped gvs = new GlobalVarScoped("Global");
 
@@ -275,7 +275,7 @@ public class VariableManagerTest
 	}
 
 	@Test
-	public void testGetVariableFormat()
+	void testGetVariableFormat()
 	{
 		scopeManager.registerScope("Global", "Global.Equipment");
 		ImplementedScope globalImplementedScope = scopeManager.getImplementedScope("Global");
@@ -306,7 +306,7 @@ public class VariableManagerTest
 	}
 
 	@Test
-	public void testProveReuse()
+	void testProveReuse()
 	{
 		GlobalVarScoped gvs = new GlobalVarScoped("Global");
 		scopeManager.registerScope("Global", "Global.Ability");
@@ -337,7 +337,7 @@ public class VariableManagerTest
 	}
 
 	@Test
-	public void testOrderOfOps()
+	void testOrderOfOps()
 	{
 		ImplementedScope globalImplementedScope = getGlobalImpl();
 

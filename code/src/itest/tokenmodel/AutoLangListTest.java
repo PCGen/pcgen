@@ -40,11 +40,11 @@ import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 import util.TestURI;
 
-public class AutoLangListTest extends AbstractTokenModelTest
+class AutoLangListTest extends AbstractTokenModelTest
 {
 
 	@Test
-	public void testFromAbility()
+	void testFromAbility()
 	{
 		Ability source = BuildUtilities.buildFeat(context, "Source");
 		ParseResult result =
@@ -69,7 +69,7 @@ public class AutoLangListTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testFromRace()
+	void testFromRace()
 	{
 		Race source = create(Race.class, "Source");
 		Language granted = createGrantedObject();
@@ -84,7 +84,7 @@ public class AutoLangListTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testFromTemplate()
+	void testFromTemplate()
 	{
 		PCTemplate source = create(PCTemplate.class, "Source");
 		Language granted = createGrantedObject();

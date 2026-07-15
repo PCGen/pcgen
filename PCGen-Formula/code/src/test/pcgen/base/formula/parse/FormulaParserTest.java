@@ -23,7 +23,7 @@ import java.io.StringReader;
 
 import org.junit.jupiter.api.Test;
 
-public class FormulaParserTest
+class FormulaParserTest
 {
 
 	private SimpleNode doTest(String formula) throws ParseException
@@ -32,7 +32,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testIntegerPositive()
+	void testIntegerPositive()
 	{
 		try
 		{
@@ -45,7 +45,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testIntegerZero()
+	void testIntegerZero()
 	{
 		try
 		{
@@ -58,7 +58,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testIntegerNegative()
+	void testIntegerNegative()
 	{
 		try
 		{
@@ -71,7 +71,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testDoubleOne()
+	void testDoubleOne()
 	{
 		try
 		{
@@ -84,7 +84,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testDoublePositive()
+	void testDoublePositive()
 	{
 		try
 		{
@@ -97,7 +97,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testDoubleNegative()
+	void testDoubleNegative()
 	{
 		try
 		{
@@ -110,7 +110,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testDoubleNegativeNoLeading()
+	void testDoubleNegativeNoLeading()
 	{
 		try
 		{
@@ -123,7 +123,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testDoublePositiveNoLeading()
+	void testDoublePositiveNoLeading()
 	{
 		try
 		{
@@ -136,7 +136,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testDoublePositiveNoTrailing()
+	void testDoublePositiveNoTrailing()
 	{
 		/*
 		 * Note: This "cannot" fail, but is intended to demonstrate that the
@@ -154,7 +154,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testDoubleNegativeNoTrailing()
+	void testDoubleNegativeNoTrailing()
 	{
 		/*
 		 * Note: This "cannot" fail, but is intended to demonstrate that the
@@ -172,7 +172,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testAdd()
+	void testAdd()
 	{
 		try
 		{
@@ -185,7 +185,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testAddNoLeading()
+	void testAddNoLeading()
 	{
 		try
 		{
@@ -199,7 +199,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testAddNoTrailing()
+	void testAddNoTrailing()
 	{
 		try
 		{
@@ -213,7 +213,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testAddNegative()
+	void testAddNegative()
 	{
 		try
 		{
@@ -226,7 +226,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testAddMultiple()
+	void testAddMultiple()
 	{
 		try
 		{
@@ -251,7 +251,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testSubtractNoTrailing()
+	void testSubtractNoTrailing()
 	{
 		try
 		{
@@ -265,7 +265,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testSubtractNegative()
+	void testSubtractNegative()
 	{
 		try
 		{
@@ -278,7 +278,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testSubtractFromNegative()
+	void testSubtractFromNegative()
 	{
 		try
 		{
@@ -291,7 +291,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testSubtractMultiple()
+	void testSubtractMultiple()
 	{
 		try
 		{
@@ -316,7 +316,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testAndNoLeading()
+	void testAndNoLeading()
 	{
 		try
 		{
@@ -330,7 +330,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testAndNoTrailing()
+	void testAndNoTrailing()
 	{
 		try
 		{
@@ -344,7 +344,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testAndNegative()
+	void testAndNegative()
 	{
 		try
 		{
@@ -357,7 +357,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testAndFromNegative()
+	void testAndFromNegative()
 	{
 		try
 		{
@@ -370,7 +370,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testAndMultiple()
+	void testAndMultiple()
 	{
 		try
 		{
@@ -395,7 +395,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testOrNoLeading()
+	void testOrNoLeading()
 	{
 		try
 		{
@@ -409,7 +409,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testOrNoTrailing()
+	void testOrNoTrailing()
 	{
 		try
 		{
@@ -423,7 +423,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testOrNegative()
+	void testOrNegative()
 	{
 		try
 		{
@@ -436,7 +436,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testOrFromNegative()
+	void testOrFromNegative()
 	{
 		try
 		{
@@ -449,7 +449,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testOrMultiple()
+	void testOrMultiple()
 	{
 		try
 		{
@@ -474,7 +474,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testEqualNoLeading()
+	void testEqualNoLeading()
 	{
 		try
 		{
@@ -488,7 +488,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testEqualNoTrailing()
+	void testEqualNoTrailing()
 	{
 		try
 		{
@@ -502,7 +502,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testEqualNegative()
+	void testEqualNegative()
 	{
 		try
 		{
@@ -515,7 +515,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testEqualFromNegative()
+	void testEqualFromNegative()
 	{
 		try
 		{
@@ -528,7 +528,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testEqualMultiple()
+	void testEqualMultiple()
 	{
 		try
 		{
@@ -553,7 +553,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testNotEqualNoLeading()
+	void testNotEqualNoLeading()
 	{
 		try
 		{
@@ -567,7 +567,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testNotEqualNoTrailing()
+	void testNotEqualNoTrailing()
 	{
 		try
 		{
@@ -581,7 +581,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testNotEqualNegative()
+	void testNotEqualNegative()
 	{
 		try
 		{
@@ -594,7 +594,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testNotEqualFromNegative()
+	void testNotEqualFromNegative()
 	{
 		try
 		{
@@ -607,7 +607,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testNotEqualMultiple()
+	void testNotEqualMultiple()
 	{
 		try
 		{
@@ -620,7 +620,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testLessThan()
+	void testLessThan()
 	{
 		try
 		{
@@ -633,7 +633,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testLessThanNoLeading()
+	void testLessThanNoLeading()
 	{
 		try
 		{
@@ -647,7 +647,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testLessThanNoTrailing()
+	void testLessThanNoTrailing()
 	{
 		try
 		{
@@ -661,7 +661,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testLessThanNegative()
+	void testLessThanNegative()
 	{
 		try
 		{
@@ -674,7 +674,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testLessThanFromNegative()
+	void testLessThanFromNegative()
 	{
 		try
 		{
@@ -687,7 +687,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testLessThanMultiple()
+	void testLessThanMultiple()
 	{
 		try
 		{
@@ -700,7 +700,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testGreaterThan()
+	void testGreaterThan()
 	{
 		try
 		{
@@ -713,7 +713,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testGreaterThanNoLeading()
+	void testGreaterThanNoLeading()
 	{
 		try
 		{
@@ -727,7 +727,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testGreaterThanNoTrailing()
+	void testGreaterThanNoTrailing()
 	{
 		try
 		{
@@ -741,7 +741,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testGreaterThanNegative()
+	void testGreaterThanNegative()
 	{
 		try
 		{
@@ -754,7 +754,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testGreaterThanFromNegative()
+	void testGreaterThanFromNegative()
 	{
 		try
 		{
@@ -767,7 +767,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testGreaterThanMultiple()
+	void testGreaterThanMultiple()
 	{
 		try
 		{
@@ -780,7 +780,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testLessThanOrEqualTo()
+	void testLessThanOrEqualTo()
 	{
 		try
 		{
@@ -793,7 +793,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testLessThanOrEqualToNoLeading()
+	void testLessThanOrEqualToNoLeading()
 	{
 		try
 		{
@@ -807,7 +807,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testLessThanOrEqualToNoTrailing()
+	void testLessThanOrEqualToNoTrailing()
 	{
 		try
 		{
@@ -821,7 +821,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testLessThanOrEqualToNegative()
+	void testLessThanOrEqualToNegative()
 	{
 		try
 		{
@@ -834,7 +834,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testLessThanOrEqualToFromNegative()
+	void testLessThanOrEqualToFromNegative()
 	{
 		try
 		{
@@ -847,7 +847,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testLessThanOrEqualToMultiple()
+	void testLessThanOrEqualToMultiple()
 	{
 		try
 		{
@@ -860,7 +860,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testGreaterThanOrEqualTo()
+	void testGreaterThanOrEqualTo()
 	{
 		try
 		{
@@ -873,7 +873,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testGreaterThanOrEqualToNoLeading()
+	void testGreaterThanOrEqualToNoLeading()
 	{
 		try
 		{
@@ -887,7 +887,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testGreaterThanOrEqualToNoTrailing()
+	void testGreaterThanOrEqualToNoTrailing()
 	{
 		try
 		{
@@ -901,7 +901,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testGreaterThanOrEqualToNegative()
+	void testGreaterThanOrEqualToNegative()
 	{
 		try
 		{
@@ -914,7 +914,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testGreaterThanOrEqualToFromNegative()
+	void testGreaterThanOrEqualToFromNegative()
 	{
 		try
 		{
@@ -927,7 +927,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testGreaterThanOrEqualToMultiple()
+	void testGreaterThanOrEqualToMultiple()
 	{
 		try
 		{
@@ -940,7 +940,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testMultiply()
+	void testMultiply()
 	{
 		try
 		{
@@ -953,7 +953,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testMultiplyNoLeading()
+	void testMultiplyNoLeading()
 	{
 		try
 		{
@@ -967,7 +967,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testMultiplyNoTrailing()
+	void testMultiplyNoTrailing()
 	{
 		try
 		{
@@ -981,7 +981,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testMultiplyNegative()
+	void testMultiplyNegative()
 	{
 		try
 		{
@@ -994,7 +994,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testMultiplyMultiple()
+	void testMultiplyMultiple()
 	{
 		try
 		{
@@ -1007,7 +1007,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testDivide()
+	void testDivide()
 	{
 		try
 		{
@@ -1020,7 +1020,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testDivideNoLeading()
+	void testDivideNoLeading()
 	{
 		try
 		{
@@ -1034,7 +1034,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testDivideNoTrailing()
+	void testDivideNoTrailing()
 	{
 		try
 		{
@@ -1048,7 +1048,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testDivideNegative()
+	void testDivideNegative()
 	{
 		try
 		{
@@ -1061,7 +1061,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testDivideMultiple()
+	void testDivideMultiple()
 	{
 		try
 		{
@@ -1074,7 +1074,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testRemainder()
+	void testRemainder()
 	{
 		try
 		{
@@ -1087,7 +1087,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testRemainderNoLeading()
+	void testRemainderNoLeading()
 	{
 		try
 		{
@@ -1101,7 +1101,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testRemainderNoTrailing()
+	void testRemainderNoTrailing()
 	{
 		try
 		{
@@ -1115,7 +1115,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testRemainderNegative()
+	void testRemainderNegative()
 	{
 		try
 		{
@@ -1128,7 +1128,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testRemainderMultiple()
+	void testRemainderMultiple()
 	{
 		try
 		{
@@ -1141,7 +1141,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testExponent()
+	void testExponent()
 	{
 		try
 		{
@@ -1154,7 +1154,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testExponentNoLeading()
+	void testExponentNoLeading()
 	{
 		try
 		{
@@ -1168,7 +1168,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testExponentNoTrailing()
+	void testExponentNoTrailing()
 	{
 		try
 		{
@@ -1196,7 +1196,7 @@ public class FormulaParserTest
 	//	}
 
 	@Test
-	public void testExponentMultiple()
+	void testExponentMultiple()
 	{
 		try
 		{
@@ -1209,7 +1209,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testEmptyParens()
+	void testEmptyParens()
 	{
 		try
 		{
@@ -1223,7 +1223,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testParens()
+	void testParens()
 	{
 		try
 		{
@@ -1236,7 +1236,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testExtraParens()
+	void testExtraParens()
 	{
 		try
 		{
@@ -1249,7 +1249,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testMismatchedParenEnd()
+	void testMismatchedParenEnd()
 	{
 		try
 		{
@@ -1263,7 +1263,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testMismatchedParenStart()
+	void testMismatchedParenStart()
 	{
 		try
 		{
@@ -1277,7 +1277,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testMismatchedParenStartWrap()
+	void testMismatchedParenStartWrap()
 	{
 		try
 		{
@@ -1291,7 +1291,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testMismatchedParenEndWrap()
+	void testMismatchedParenEndWrap()
 	{
 		try
 		{
@@ -1305,7 +1305,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testDoubleSign()
+	void testDoubleSign()
 	{
 		try
 		{
@@ -1319,7 +1319,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testDoubleSign2()
+	void testDoubleSign2()
 	{
 		try
 		{
@@ -1333,7 +1333,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testDoubleSign3()
+	void testDoubleSign3()
 	{
 		try
 		{
@@ -1347,7 +1347,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testDoubleSign4()
+	void testDoubleSign4()
 	{
 		try
 		{
@@ -1361,7 +1361,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testDoubleSign5()
+	void testDoubleSign5()
 	{
 		try
 		{
@@ -1375,7 +1375,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testDoubleSign6()
+	void testDoubleSign6()
 	{
 		try
 		{
@@ -1389,7 +1389,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testDoubleSign7()
+	void testDoubleSign7()
 	{
 		try
 		{
@@ -1403,7 +1403,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testDoubleSign8()
+	void testDoubleSign8()
 	{
 		try
 		{
@@ -1417,7 +1417,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testDoubleSign9()
+	void testDoubleSign9()
 	{
 		try
 		{
@@ -1431,7 +1431,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testDoubleSign10()
+	void testDoubleSign10()
 	{
 		try
 		{
@@ -1445,7 +1445,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testVariable()
+	void testVariable()
 	{
 		try
 		{
@@ -1458,7 +1458,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testNotValidOutsideParens()
+	void testNotValidOutsideParens()
 	{
 		try
 		{
@@ -1472,7 +1472,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testVariable2()
+	void testVariable2()
 	{
 		try
 		{
@@ -1485,7 +1485,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testVariableAdd()
+	void testVariableAdd()
 	{
 		try
 		{
@@ -1498,7 +1498,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testDotVariable()
+	void testDotVariable()
 	{
 		try
 		{
@@ -1511,7 +1511,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testEmptyParenFunction()
+	void testEmptyParenFunction()
 	{
 		try
 		{
@@ -1524,7 +1524,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testParenFunctionWithVariables()
+	void testParenFunctionWithVariables()
 	{
 		try
 		{
@@ -1537,7 +1537,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testParenFunctionLeadingComma()
+	void testParenFunctionLeadingComma()
 	{
 		try
 		{
@@ -1551,7 +1551,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testParenFunctionTrailingComma()
+	void testParenFunctionTrailingComma()
 	{
 		try
 		{
@@ -1565,7 +1565,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testParenFunctionDoubleComma()
+	void testParenFunctionDoubleComma()
 	{
 		try
 		{
@@ -1579,7 +1579,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testEmptyBracketFunction()
+	void testEmptyBracketFunction()
 	{
 		try
 		{
@@ -1593,7 +1593,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testBracketFunctionWithDotVariable()
+	void testBracketFunctionWithDotVariable()
 	{
 		try
 		{
@@ -1606,7 +1606,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testBracketFunctionWithVariables()
+	void testBracketFunctionWithVariables()
 	{
 		try
 		{
@@ -1620,7 +1620,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testBracketFunctionLeadingComma()
+	void testBracketFunctionLeadingComma()
 	{
 		try
 		{
@@ -1634,7 +1634,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testBracketFunctionTrailingComma()
+	void testBracketFunctionTrailingComma()
 	{
 		try
 		{
@@ -1648,7 +1648,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testTooMayChildren()
+	void testTooMayChildren()
 	{
 		try
 		{
@@ -1662,7 +1662,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testBracketFunctionDoubleComma()
+	void testBracketFunctionDoubleComma()
 	{
 		try
 		{
@@ -1676,7 +1676,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testSpaceInVar()
+	void testSpaceInVar()
 	{
 		try
 		{
@@ -1695,7 +1695,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testSpaceInParenFunction()
+	void testSpaceInParenFunction()
 	{
 		try
 		{
@@ -1714,7 +1714,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testSpaceInBracketFunction()
+	void testSpaceInBracketFunction()
 	{
 		try
 		{
@@ -1733,7 +1733,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testFormulaQuotedString()
+	void testFormulaQuotedString()
 	{
 		try
 		{
@@ -1746,7 +1746,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testQuotedStringWithSpaces()
+	void testQuotedStringWithSpaces()
 	{
 		try
 		{
@@ -1759,7 +1759,7 @@ public class FormulaParserTest
 	}
 
 	@Test
-	public void testQuotedString()
+	void testQuotedString()
 	{
 		try
 		{

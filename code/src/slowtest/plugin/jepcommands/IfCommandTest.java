@@ -45,7 +45,7 @@ class IfCommandTest
 
     /* Test the case where the condition is a zero double */
     @Test
-    public void testIf01() throws ParseException
+    void testIf01() throws ParseException
     {
         final PostfixMathCommandI   c = new IfCommand();
         final Stack<Double>         s = new Stack<>();
@@ -63,7 +63,7 @@ class IfCommandTest
 
     /* Test the case where the condition is a non zero double */
     @Test
-    public void testIf02()
+    void testIf02()
     {
         final PostfixMathCommandI   c = new IfCommand();
         final Stack<Double>         s = new Stack<>();
@@ -81,7 +81,7 @@ class IfCommandTest
 
     /* Test the case where the condition is a false boolean */
     @Test
-    public void testIf03()
+    void testIf03()
     {
         final PostfixMathCommandI   c = new IfCommand();
         final Stack<Boolean>         s = new Stack<>();
@@ -99,7 +99,7 @@ class IfCommandTest
 
     /* Test the case where the condition is a true boolean */
     @Test
-    public void testIf04()
+    void testIf04()
     {
         final PostfixMathCommandI   c = new IfCommand();
         final Stack<Boolean>         s = new Stack<>();

@@ -29,10 +29,10 @@ import org.junit.jupiter.api.Test;
  * See PCG file for details.
  */
 
-public class pcGenGUISWizSamTest extends PcgenFtlTestCase
+class pcGenGUISWizSamTest extends PcgenFtlTestCase
 {
 	@Test
-	public void testSWizSam() throws IOException
+	void testSWizSam() throws IOException
 	{
 		runTest("3e_SWizSam");
 	}

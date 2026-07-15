@@ -38,7 +38,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 import org.junit.jupiter.api.Test;
 import util.TestURI;
 
-public class LicenseTokenTest extends AbstractCDOMTokenTestCase<Campaign>
+class LicenseTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 {
 
 	static LicenseToken token = new LicenseToken();
@@ -68,7 +68,7 @@ public class LicenseTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testValidInputSimple()
+	void testValidInputSimple()
 	{
 		ListKey<?> listKey = getListKey();
 		if (listKey != null)
@@ -83,7 +83,7 @@ public class LicenseTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testValidInputNonEnglish()
+	void testValidInputNonEnglish()
 	{
 		ListKey<?> listKey = getListKey();
 		if (listKey != null)
@@ -98,7 +98,7 @@ public class LicenseTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testValidInputSpace()
+	void testValidInputSpace()
 	{
 		ListKey<?> listKey = getListKey();
 		if (listKey != null)
@@ -113,7 +113,7 @@ public class LicenseTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testValidInputHyphen()
+	void testValidInputHyphen()
 	{
 		ListKey<?> listKey = getListKey();
 		if (listKey != null)
@@ -128,7 +128,7 @@ public class LicenseTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testValidInputY()
+	void testValidInputY()
 	{
 		ListKey<?> listKey = getListKey();
 		if (listKey != null)
@@ -143,7 +143,7 @@ public class LicenseTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testValidInputList()
+	void testValidInputList()
 	{
 		ListKey<?> listKey = getListKey();
 		if (listKey != null)
@@ -160,7 +160,7 @@ public class LicenseTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testValidInputMultList()
+	void testValidInputMultList()
 	{
 		ListKey<?> listKey = getListKey();
 		if (listKey != null)
@@ -181,7 +181,7 @@ public class LicenseTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testInvalidListEmpty()
+	void testInvalidListEmpty()
 	{
 		assertFalse(parse(""));
 		assertNull(primaryProf.getListFor(getListKey()));
@@ -189,7 +189,7 @@ public class LicenseTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testInvalidEmpty()
+	void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNull(primaryProf.getListFor(getListKey()));
@@ -197,49 +197,49 @@ public class LicenseTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testRoundRobinBase() throws PersistenceLayerException
+	void testRoundRobinBase() throws PersistenceLayerException
 	{
 		runRoundRobin("Rheinhessen");
 	}
 
 	@Test
-	public void testRoundRobinWithSpace() throws PersistenceLayerException
+	void testRoundRobinWithSpace() throws PersistenceLayerException
 	{
 		runRoundRobin("Finger Lakes");
 	}
 
 	@Test
-	public void testRoundRobinNonEnglishAndN() throws PersistenceLayerException
+	void testRoundRobinNonEnglishAndN() throws PersistenceLayerException
 	{
 		runRoundRobin("Niederösterreich");
 	}
 
 	@Test
-	public void testRoundRobinHyphen() throws PersistenceLayerException
+	void testRoundRobinHyphen() throws PersistenceLayerException
 	{
 		runRoundRobin("Languedoc-Roussillon");
 	}
 
 	@Test
-	public void testRoundRobinY() throws PersistenceLayerException
+	void testRoundRobinY() throws PersistenceLayerException
 	{
 		runRoundRobin("Yarra Valley");
 	}
 
 	@Test
-	public void testRoundRobinThree() throws PersistenceLayerException
+	void testRoundRobinThree() throws PersistenceLayerException
 	{
 		runRoundRobin("Languedoc-Roussillon", "Rheinhessen", "Yarra Valley");
 	}
 
 	@Test
-	public void testRoundRobinThreeDupe() throws PersistenceLayerException
+	void testRoundRobinThreeDupe() throws PersistenceLayerException
 	{
 		runRoundRobin("Languedoc-Roussillon", "Rheinhessen", "Rheinhessen");
 	}
 
 	@Test
-	public void testInvalidListFileEmpty()
+	void testInvalidListFileEmpty()
 	{
 		assertFalse(parse("FILE="));
 		assertNull(primaryProf.getListFor(getListKey()));
@@ -247,7 +247,7 @@ public class LicenseTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testInvalidFileEmpty()
+	void testInvalidFileEmpty()
 	{
 		assertFalse(parse("FILE="));
 		assertNull(primaryProf.getListFor(getListKey()));
@@ -255,7 +255,7 @@ public class LicenseTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testInvalidNotACSE()
+	void testInvalidNotACSE()
 	{
 		assertFalse(parse("FILE=Not|aCSE"));
 		assertNull(primaryProf.getListFor(getListKey()));
@@ -263,45 +263,45 @@ public class LicenseTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testRoundRobinFileBase() throws PersistenceLayerException
+	void testRoundRobinFileBase() throws PersistenceLayerException
 	{
 		runRoundRobin("FILE=@data/Rheinhessen");
 	}
 
 	@Test
-	public void testRoundRobinFileURL() throws PersistenceLayerException
+	void testRoundRobinFileURL() throws PersistenceLayerException
 	{
 		runRoundRobin("FILE=http://pcgen.sourceforge.net/Finger%20Lakes");
 	}
 
 	@Test
-	public void testRoundRobinNonEnglishAndNFile()
+	void testRoundRobinNonEnglishAndNFile()
 			throws PersistenceLayerException
 	{
 		runRoundRobin("FILE=@data/Niederösterreich");
 	}
 
 	@Test
-	public void testRoundRobinHyphenFile() throws PersistenceLayerException
+	void testRoundRobinHyphenFile() throws PersistenceLayerException
 	{
 		runRoundRobin("FILE=@data/Languedoc-Roussillon");
 	}
 
 	@Test
-	public void testRoundRobinYFile() throws PersistenceLayerException
+	void testRoundRobinYFile() throws PersistenceLayerException
 	{
 		runRoundRobin("FILE=@data/Yarra Valley");
 	}
 
 	@Test
-	public void testRoundRobinThreeFile() throws PersistenceLayerException
+	void testRoundRobinThreeFile() throws PersistenceLayerException
 	{
 		runRoundRobin("FILE=@data/Languedoc-Roussillon",
 				"FILE=@data/Rheinhessen", "FILE=@data/Yarra Valley");
 	}
 
 	@Test
-	public void testRoundRobinThreeFileDupe() throws PersistenceLayerException
+	void testRoundRobinThreeFileDupe() throws PersistenceLayerException
 	{
 		runRoundRobin("FILE=@data/Languedoc-Roussillon",
 				"FILE=@data/Rheinhessen", "FILE=@data/Rheinhessen");

@@ -48,7 +48,7 @@ import pcgen.util.TestHelper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class CompanionSupportFacadeImplTest extends AbstractCharacterTestCase
+class CompanionSupportFacadeImplTest extends AbstractCharacterTestCase
 {
 
 	private MockUIDelegate uiDelegate;
@@ -86,7 +86,7 @@ public class CompanionSupportFacadeImplTest extends AbstractCharacterTestCase
 	 * Test method for {@link pcgen.gui2.facade.CompanionSupportFacadeImpl#addCompanion(CharacterFacade, String)}
 	 */
 	@Test
-	public void testAddCompanion()
+	void testAddCompanion()
 	{
 		PlayerCharacter master = getCharacter();
 		master.setRace(masterRace);

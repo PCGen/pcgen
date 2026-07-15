@@ -29,7 +29,7 @@ import pcgen.core.Race;
 
 import org.junit.jupiter.api.BeforeEach;
 
-public class NaturalWeaponFacetTest extends
+class NaturalWeaponFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, Equipment>
 {
 

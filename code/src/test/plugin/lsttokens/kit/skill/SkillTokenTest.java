@@ -31,7 +31,7 @@ import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
 import org.junit.jupiter.api.Test;
 
-public class SkillTokenTest extends AbstractKitTokenTestCase<KitSkill>
+class SkillTokenTest extends AbstractKitTokenTestCase<KitSkill>
 {
 
 	static SkillToken token = new SkillToken();
@@ -57,14 +57,14 @@ public class SkillTokenTest extends AbstractKitTokenTestCase<KitSkill>
 	}
 
 	@Test
-	public void testInvalidInputEmptyCount()
+	void testInvalidInputEmptyCount()
 	{
 		assertTrue(parse("Fireball"));
 		assertConstructionError();
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(Skill.class, "Fireball");
 		secondaryContext.getReferenceContext().constructCDOMObject(Skill.class, "Fireball");
@@ -72,25 +72,25 @@ public class SkillTokenTest extends AbstractKitTokenTestCase<KitSkill>
 	}
 
 	@Test
-	public void testInvalidInputEmptyType()
+	void testInvalidInputEmptyType()
 	{
 		assertFalse(parse("TYPE="));
 	}
 
 	@Test
-	public void testInvalidInputTrailingType()
+	void testInvalidInputTrailingType()
 	{
 		assertFalse(parse("TYPE=One."));
 	}
 
 	@Test
-	public void testInvalidInputDoubleType()
+	void testInvalidInputDoubleType()
 	{
 		assertFalse(parse("TYPE=One..Two"));
 	}
 
 	@Test
-	public void testRoundRobinType() throws PersistenceLayerException
+	void testRoundRobinType() throws PersistenceLayerException
 	{
 		Skill a = primaryContext.getReferenceContext().constructCDOMObject(Skill.class,
 				"Fireball");

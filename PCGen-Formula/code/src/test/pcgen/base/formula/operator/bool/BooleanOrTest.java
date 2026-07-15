@@ -28,10 +28,10 @@ import org.junit.jupiter.api.Test;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.testsupport.TestUtilities;
 
-public class BooleanOrTest
+class BooleanOrTest
 {
 	@Test
-	public void testOperator()
+	void testOperator()
 	{
 		BooleanOr op = new BooleanOr();
 		assertNotNull(op.getOperator());
@@ -39,7 +39,7 @@ public class BooleanOrTest
 	}
 
 	@Test
-	public void testAbstractEvaluateNulls()
+	void testAbstractEvaluateNulls()
 	{
 		BooleanOr op = new BooleanOr();
 		try
@@ -69,7 +69,7 @@ public class BooleanOrTest
 	}
 
 	@Test
-	public void testAbstractEvaluateMismatch()
+	void testAbstractEvaluateMismatch()
 	{
 		BooleanOr op = new BooleanOr();
 		assertTrue(op.abstractEvaluate(FormatUtilities.BOOLEAN_CLASS, TestUtilities.INTEGER_CLASS, null).isEmpty());
@@ -77,7 +77,7 @@ public class BooleanOrTest
 	}
 
 	@Test
-	public void testAbstractEvaluateLegal()
+	void testAbstractEvaluateLegal()
 	{
 		BooleanOr op = new BooleanOr();
 		assertEquals(FormatUtilities.BOOLEAN_CLASS,
@@ -85,7 +85,7 @@ public class BooleanOrTest
 	}
 
 	@Test
-	public void testEvaluateFailNull()
+	void testEvaluateFailNull()
 	{
 		BooleanOr op = new BooleanOr();
 		assertThrows(NullPointerException.class, () -> op.evaluate(null, null));
@@ -94,7 +94,7 @@ public class BooleanOrTest
 	}
 
 	@Test
-	public void testEvaluateMismatch()
+	void testEvaluateMismatch()
 	{
 		BooleanOr op = new BooleanOr();
 		assertThrows(ClassCastException.class, () -> op.evaluate(Boolean.TRUE, Double.valueOf(4.5)));
@@ -102,7 +102,7 @@ public class BooleanOrTest
 	}
 
 	@Test
-	public void testEvaluateLegal()
+	void testEvaluateLegal()
 	{
 		BooleanOr op = new BooleanOr();
 		assertEquals(Boolean.TRUE, op.evaluate(Boolean.TRUE, Boolean.TRUE));

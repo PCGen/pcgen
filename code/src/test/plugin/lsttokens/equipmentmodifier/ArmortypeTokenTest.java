@@ -39,7 +39,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
 
-public class ArmortypeTokenTest extends
+class ArmortypeTokenTest extends
 		AbstractCDOMTokenTestCase<EquipmentModifier>
 {
 
@@ -65,55 +65,55 @@ public class ArmortypeTokenTest extends
 	}
 
 	@Test
-	public void testInvalidInputEmpty()
+	void testInvalidInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoResult()
+	void testInvalidInputNoResult()
 	{
 		assertFalse(parse("Medium"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptyResult()
+	void testInvalidInputEmptyResult()
 	{
 		assertFalse(parse("Medium|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptySource()
+	void testInvalidInputEmptySource()
 	{
 		assertFalse(parse("|Medium"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoublePipe()
+	void testInvalidInputDoublePipe()
 	{
 		assertFalse(parse("Light||Medium"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputTwoPipe()
+	void testInvalidInputTwoPipe()
 	{
 		assertFalse(parse("Light|Medium|Heavy"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testRoundRobinLightMedium() throws PersistenceLayerException
+	void testRoundRobinLightMedium() throws PersistenceLayerException
 	{
 		runRoundRobin("Light|Medium");
 	}
 
 	@Test
-	public void testRoundRobinMediumLight() throws PersistenceLayerException
+	void testRoundRobinMediumLight() throws PersistenceLayerException
 	{
 		runRoundRobin("Medium|Light");
 	}
@@ -137,14 +137,14 @@ public class ArmortypeTokenTest extends
 	}
 
 	@Test
-	public void testUnparseNull()
+	void testUnparseNull()
 	{
 		primaryProf.removeListFor(ListKey.ARMORTYPE);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseSingle()
+	void testUnparseSingle()
 	{
 		primaryProf.addToListFor(ListKey.ARMORTYPE, new ChangeArmorType(
 				"Light", "Medium"));
@@ -153,7 +153,7 @@ public class ArmortypeTokenTest extends
 	}
 
 	@Test
-	public void testUnparseNullInList()
+	void testUnparseNullInList()
 	{
 		primaryProf.addToListFor(ListKey.ARMORTYPE, null);
 		try
@@ -168,7 +168,7 @@ public class ArmortypeTokenTest extends
 	}
 
 	@Test
-	public void testUnparseMultiple()
+	void testUnparseMultiple()
 	{
 		primaryProf.addToListFor(ListKey.ARMORTYPE, new ChangeArmorType(
 				"Medium", "Light"));
@@ -184,7 +184,7 @@ public class ArmortypeTokenTest extends
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail()
+	void testUnparseGenericsFail()
 	{
 		ListKey objectKey = ListKey.ARMORTYPE;
 		primaryProf.addToListFor(objectKey, new Object());
@@ -200,7 +200,7 @@ public class ArmortypeTokenTest extends
 	}
 
 	@Test
-	public void testUnparseNullSource()
+	void testUnparseNullSource()
 	{
 		try
 		{
@@ -215,7 +215,7 @@ public class ArmortypeTokenTest extends
 	}
 
 	@Test
-	public void testUnparseNullTarget()
+	void testUnparseNullTarget()
 	{
 		try
 		{

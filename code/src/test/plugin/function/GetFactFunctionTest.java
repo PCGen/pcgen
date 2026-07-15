@@ -49,7 +49,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import util.FormatSupport;
 
-public class GetFactFunctionTest extends AbstractFormulaTestCase
+class GetFactFunctionTest extends AbstractFormulaTestCase
 {
 
 	private static final StringManager STRING_MANAGER = new StringManager();
@@ -69,7 +69,7 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidWrongArgCount()
+	void testInvalidWrongArgCount()
 	{
 		String formula = "getFact(\"SKILL\")";
 		SimpleNode node = doParse(formula);
@@ -80,7 +80,7 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidWrongArgType()
+	void testInvalidWrongArgType()
 	{
 		PCGenScope skillScope = context.getVariableContext().getScope("PC.SKILL");
 		getVariableLibrary().assertLegalVariableID("LocalVar", skillScope, numberManager);
@@ -95,7 +95,7 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidWrongFormat1()
+	void testInvalidWrongFormat1()
 	{
 		String formula = "getFact(3,\"SkillKey\",3)";
 		SimpleNode node = doParse(formula);
@@ -103,7 +103,7 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidWrongFormat2()
+	void testInvalidWrongFormat2()
 	{
 		String formula = "getFact(\"SKILL\",3,3)";
 		SimpleNode node = doParse(formula);
@@ -114,7 +114,7 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidWrongFormat3()
+	void testInvalidWrongFormat3()
 	{
 		String formula =
 				"getFact(\"SKILL\", \"SkillKey\",\"Stuff\")";
@@ -127,7 +127,7 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testBasic()
+	void testBasic()
 	{
 		FactDefinition<?, String> fd = new FactDefinition<>();
 		fd.setName("SKILL Stuff");
@@ -157,7 +157,7 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testDynamic()
+	void testDynamic()
 	{
 		VariableLibrary vl = getVariableLibrary();
 		PCGenScope globalScope =

@@ -67,7 +67,7 @@ import org.junit.jupiter.api.Test;
  */
 
 @SuppressWarnings("nls")
-public class ExportHandlerTest extends AbstractCharacterTestCase
+class ExportHandlerTest extends AbstractCharacterTestCase
 {
 	private Skill balance = null;
 	private Skill[] knowledge = null;
@@ -203,7 +203,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
 	@Test
-	public void testWpnLoop() throws IOException
+	void testWpnLoop() throws IOException
 	{
 		PlayerCharacter character = getCharacter();
 
@@ -225,7 +225,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
 	@Test
-	public void testEqtypeLoop() throws IOException
+	void testEqtypeLoop() throws IOException
 	{
 		PlayerCharacter character = getCharacter();
 		final String gemLoop =
@@ -245,7 +245,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testJepIif() throws IOException
+	void testJepIif() throws IOException
 	{
 		PlayerCharacter character = getCharacter();
 		assertEquals(1.0f, (float)character
@@ -257,7 +257,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testFor() throws IOException
+	void testFor() throws IOException
 	{
 		PlayerCharacter pc = getCharacter();
 		Ability dummyFeat1 = new Ability();
@@ -332,7 +332,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testForNoMoreItems() throws IOException
+	void testForNoMoreItems() throws IOException
 	{
 		PlayerCharacter pc = getCharacter();
 		assertEquals("SF",
@@ -352,7 +352,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testExpressionOutput() throws IOException
+	void testExpressionOutput() throws IOException
 	{
 		LoadContext context = Globals.getContext();
 		Ability dummyFeat = new Ability();
@@ -428,7 +428,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testPartyFor() throws IOException
+	void testPartyFor() throws IOException
 	{
 		String outputToken =
 		"   <combatants>\n"

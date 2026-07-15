@@ -28,7 +28,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 import org.junit.jupiter.api.Test;
 
-public class ModsIntegrationTest extends AbstractIntegrationTestCase<Equipment>
+class ModsIntegrationTest extends AbstractIntegrationTestCase<Equipment>
 {
 	private static ModsToken token = new ModsToken();
 	private static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
@@ -52,7 +52,7 @@ public class ModsIntegrationTest extends AbstractIntegrationTestCase<Equipment>
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -62,7 +62,7 @@ public class ModsIntegrationTest extends AbstractIntegrationTestCase<Equipment>
 	}
 
 	@Test
-	public void testRoundRobinRemove() throws PersistenceLayerException
+	void testRoundRobinRemove() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -72,7 +72,7 @@ public class ModsIntegrationTest extends AbstractIntegrationTestCase<Equipment>
 	}
 
 	@Test
-	public void testRoundRobinNoSet() throws PersistenceLayerException
+	void testRoundRobinNoSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -82,7 +82,7 @@ public class ModsIntegrationTest extends AbstractIntegrationTestCase<Equipment>
 	}
 
 	@Test
-	public void testRoundRobinNoReset() throws PersistenceLayerException
+	void testRoundRobinNoReset() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -92,7 +92,7 @@ public class ModsIntegrationTest extends AbstractIntegrationTestCase<Equipment>
 	}
 
 	@Test
-	public void testRoundRobinYesSet() throws PersistenceLayerException
+	void testRoundRobinYesSet() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -102,7 +102,7 @@ public class ModsIntegrationTest extends AbstractIntegrationTestCase<Equipment>
 	}
 
 	@Test
-	public void testRoundRobinYesReset() throws PersistenceLayerException
+	void testRoundRobinYesReset() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();

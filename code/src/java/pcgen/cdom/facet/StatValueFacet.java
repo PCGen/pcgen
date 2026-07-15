@@ -35,6 +35,8 @@ import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.output.channel.ChannelUtilities;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
 /**
  * StatValueFacet stores the values of PCStat objects (such as Strength is 18) for a
  * Player Character.
@@ -201,6 +203,8 @@ public class StatValueFacet extends AbstractScopeFacet<CharID, PCStat, Number>
 		return ControlUtilities.getControlToken(Globals.getContext(), CControl.STATINPUT);
 	}
 
+	@SuppressFBWarnings(value = "DCN_NULLPOINTER_EXCEPTION",
+		justification = "NPE is caught to translate into an IllegalArgumentException with a clearer error message when a CHANNEL is undefined")
 	private VariableID<Number> getVarID(CharID id, PCStat stat, String channelName)
 	{
 		String varName = ChannelUtilities.createVarName(channelName);

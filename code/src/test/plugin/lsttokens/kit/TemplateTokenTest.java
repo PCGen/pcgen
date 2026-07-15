@@ -26,7 +26,7 @@ import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
 import org.junit.jupiter.api.Test;
 
-public class TemplateTokenTest extends AbstractKitTokenTestCase<KitTemplate>
+class TemplateTokenTest extends AbstractKitTokenTestCase<KitTemplate>
 {
 
 	static TemplateToken token = new TemplateToken();
@@ -52,7 +52,7 @@ public class TemplateTokenTest extends AbstractKitTokenTestCase<KitTemplate>
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCTemplate.class, "Fireball");
 		secondaryContext.getReferenceContext().constructCDOMObject(PCTemplate.class, "Fireball");
@@ -60,7 +60,7 @@ public class TemplateTokenTest extends AbstractKitTokenTestCase<KitTemplate>
 	}
 
 	@Test
-	public void testRoundRobinSub() throws PersistenceLayerException
+	void testRoundRobinSub() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCTemplate.class, "Fireball");
 		secondaryContext.getReferenceContext().constructCDOMObject(PCTemplate.class, "Fireball");

@@ -33,6 +33,8 @@ import pcgen.base.util.FormatManager;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
 /**
  * FormulaFactory is a utility class which creates Formula objects based on the
  * input provided
@@ -324,6 +326,8 @@ public final class FormulaFactory
 	 *            The expression to be interpreted by the formula parser
 	 * @return The NEPFormula representing the given expression
 	 */
+	@SuppressFBWarnings(value = "DCN_NULLPOINTER_EXCEPTION",
+		justification = "NPE is a deliberate signal that the expression is not a simple constant; control falls through to the slower parse path")
 	public static <T> NEPFormula<T> getNEPFormulaFor(FormatManager<T> fmtManager, String expression)
 	{
 		if (expression == null || expression.isEmpty())

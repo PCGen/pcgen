@@ -28,7 +28,7 @@ import pcgen.base.graph.base.Graph;
 /**
  * Test the SimpleListGraph class
  */
-public class SimpleListGraphTest extends AbstractGraphTestCase<Edge<Integer>>
+class SimpleListGraphTest extends AbstractGraphTestCase<Edge<Integer>>
 {
 
 	private Graph<Integer, Edge<Integer>> strategy;

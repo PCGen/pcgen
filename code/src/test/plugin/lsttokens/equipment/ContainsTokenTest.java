@@ -29,7 +29,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
 
-public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
+class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 {
 
 	static ContainsToken token = new ContainsToken();
@@ -54,105 +54,105 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testInvalidInputEmpty()
+	void testInvalidInputEmpty()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNaN()
+	void testInvalidInputNaN()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "X4").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputReducingFirstNaN()
+	void testInvalidInputReducingFirstNaN()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "X4%60").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputReducingSecondNaN()
+	void testInvalidInputReducingSecondNaN()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "50%X4").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputSplatReducing()
+	void testInvalidInputSplatReducing()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "*50%40").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputTwoPercent()
+	void testInvalidInputTwoPercent()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "50%40%30").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputTrailingSplat()
+	void testInvalidInputTrailingSplat()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "4*").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmbeddedSplat()
+	void testInvalidInputEmbeddedSplat()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "5*4").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNaNTyped()
+	void testInvalidInputNaNTyped()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "X4|Any=25").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputReducingFirstNaNTyped()
+	void testInvalidInputReducingFirstNaNTyped()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "X4%60|Any=25").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputReducingSecondNaNTyped()
+	void testInvalidInputReducingSecondNaNTyped()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "50%X4|Any=25").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputSplatReducingTyped()
+	void testInvalidInputSplatReducingTyped()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "*50%40|Any=25").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputTwoPercentTyped()
+	void testInvalidInputTwoPercentTyped()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "50%40%30|Any=25").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputTrailingSplatTyped()
+	void testInvalidInputTrailingSplatTyped()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "4*|Any=25").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmbeddedSplatTyped()
+	void testInvalidInputEmbeddedSplatTyped()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "5*4|Any=25").passed());
 		assertNoSideEffects();
@@ -165,28 +165,28 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testInvalidCapacityNoTypeQuantity()
+	void testInvalidCapacityNoTypeQuantity()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "5|Any=").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidCapacityZeroQuantity()
+	void testInvalidCapacityZeroQuantity()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "5|Cookies=0").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidCapacityNegativeQuantity()
+	void testInvalidCapacityNegativeQuantity()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "5|Cookies=-10").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidCapacityTypeQuantityNaN()
+	void testInvalidCapacityTypeQuantityNaN()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "5|Any=4X").passed());
 		assertNoSideEffects();
@@ -199,63 +199,63 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testInvalidCapacityTypeLeadingDoublePipe()
+	void testInvalidCapacityTypeLeadingDoublePipe()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "5||Any=4").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testNegativeWeightCapacity()
+	void testNegativeWeightCapacity()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "-5|Any=4").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidCapacityTypeTrailingPipe()
+	void testInvalidCapacityTypeTrailingPipe()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "5|Any=4|").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidCapacityTypeDoubleEquals()
+	void testInvalidCapacityTypeDoubleEquals()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "5|Any=4=3").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidCapacityTypeMiddlePipe()
+	void testInvalidCapacityTypeMiddlePipe()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "5|Cookies=4||Crackers=3").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidWeightlessNoTypeQuantity()
+	void testInvalidWeightlessNoTypeQuantity()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "*5|Any=").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidWeightlessZeroQuantity()
+	void testInvalidWeightlessZeroQuantity()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "*5|Cookies=0").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidWeightlessNegativeQuantity()
+	void testInvalidWeightlessNegativeQuantity()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "*5|Cookies=-10").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidWeightlessTypeQuantityNaN()
+	void testInvalidWeightlessTypeQuantityNaN()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "*5|Any=4X").passed());
 		assertNoSideEffects();
@@ -268,42 +268,42 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testInvalidWeightlessTypeLeadingDoublePipe()
+	void testInvalidWeightlessTypeLeadingDoublePipe()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "*5||Any=4").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidWeightlessTypeTrailingPipe()
+	void testInvalidWeightlessTypeTrailingPipe()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "*5|Any=4|").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidWeightlessTypeDoubleEquals()
+	void testInvalidWeightlessTypeDoubleEquals()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "*5|Any=4=3").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidWeightlessTypeMiddlePipe()
+	void testInvalidWeightlessTypeMiddlePipe()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "*5|Cookies=4||Crackers=3").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidReducedNoTypeQuantity()
+	void testInvalidReducedNoTypeQuantity()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "40%30|Any=").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidReducedTypeQuantityNaN()
+	void testInvalidReducedTypeQuantityNaN()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "40%30|Any=4X").passed());
 		assertNoSideEffects();
@@ -316,28 +316,28 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testInvalidReducedTypeLeadingDoublePipe()
+	void testInvalidReducedTypeLeadingDoublePipe()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "40%30||Any=4").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidReducedTypeTrailingPipe()
+	void testInvalidReducedTypeTrailingPipe()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "40%30|Any=4|").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidReducedZeroQuantity()
+	void testInvalidReducedZeroQuantity()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "40%30|Cookies=0").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidReducedNegativeQuantity()
+	void testInvalidReducedNegativeQuantity()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf,
 			"40%30|Cookies=-10").passed());
@@ -345,14 +345,14 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testInvalidReducedTypeDoubleEquals()
+	void testInvalidReducedTypeDoubleEquals()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "40%30|Any=4=3").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidReducedTypeMiddlePipe()
+	void testInvalidReducedTypeMiddlePipe()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf,
 			"40%30|Cookies=4||Crackers=3").passed());
@@ -360,92 +360,92 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		this.runRoundRobin("500");
 	}
 
 	@Test
-	public void testRoundRobinSimpleWeightless()
+	void testRoundRobinSimpleWeightless()
 		throws PersistenceLayerException
 	{
 		this.runRoundRobin("*500");
 	}
 
 	@Test
-	public void testRoundRobinSimpleReducing() throws PersistenceLayerException
+	void testRoundRobinSimpleReducing() throws PersistenceLayerException
 	{
 		this.runRoundRobin("50%40");
 	}
 
 	@Test
-	public void testRoundRobinTypeLimited() throws PersistenceLayerException
+	void testRoundRobinTypeLimited() throws PersistenceLayerException
 	{
 		this.runRoundRobin("50|Cookies");
 	}
 
 	@Test
-	public void testRoundRobinTypeLimitMix() throws PersistenceLayerException
+	void testRoundRobinTypeLimitMix() throws PersistenceLayerException
 	{
 		this.runRoundRobin("5|Cookies=4|Crackers");
 	}
 
 	@Test
-	public void testRoundRobinWeightlessTypeLimitMix()
+	void testRoundRobinWeightlessTypeLimitMix()
 		throws PersistenceLayerException
 	{
 		this.runRoundRobin("*15|Cookies=4|Crackers");
 	}
 
 	@Test
-	public void testRoundRobinLimitedReducing()
+	void testRoundRobinLimitedReducing()
 		throws PersistenceLayerException
 	{
 		this.runRoundRobin("50%30|Any=25");
 	}
 
 	@Test
-	public void testRoundRobinCountLimitedReducing()
+	void testRoundRobinCountLimitedReducing()
 		throws PersistenceLayerException
 	{
 		this.runRoundRobin("25%UNLIM|Any=100");
 	}
 
 	@Test
-	public void testRoundRobinCountLimitedCursedAdding()
+	void testRoundRobinCountLimitedCursedAdding()
 		throws PersistenceLayerException
 	{
 		this.runRoundRobin("-35%UNLIM|Any=100");
 	}
 
 	@Test
-	public void testRoundRobinTypeQuantityLimited()
+	void testRoundRobinTypeQuantityLimited()
 		throws PersistenceLayerException
 	{
 		this.runRoundRobin("500|Potions=100");
 	}
 
 	@Test
-	public void testRoundRobinTypeUnlimited() throws PersistenceLayerException
+	void testRoundRobinTypeUnlimited() throws PersistenceLayerException
 	{
 		this.runRoundRobin("UNLIM");
 	}
 
 	@Test
-	public void testRoundRobinTypeCountLimited()
+	void testRoundRobinTypeCountLimited()
 		throws PersistenceLayerException
 	{
 		this.runRoundRobin("UNLIM|Any=100");
 	}
 
 	@Test
-	public void testRoundRobinSubUnlimited() throws PersistenceLayerException
+	void testRoundRobinSubUnlimited() throws PersistenceLayerException
 	{
 		this.runRoundRobin("3150|Any");
 	}
 
 	@Test
-	public void testRoundRobinTypeMultipleWeightUnlimited()
+	void testRoundRobinTypeMultipleWeightUnlimited()
 		throws PersistenceLayerException
 	{
 		this.runRoundRobin("UNLIM|Total=10|Paper=10|Scroll=10");

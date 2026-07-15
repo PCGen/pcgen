@@ -22,13 +22,18 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.facet.model.RaceFacet;
-import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PlayerCharacter;
 
 /**
  * CalcBonusFacet is a Facet that triggers when an object is added in order to
  * trigger the global Bonus value recalculation.
- * 
+ *
+ * Note: only registers on {@code raceFacet} today. The original 2012 design
+ * also listened to {@code TemplateFacet} and {@code DeityFacet}, but those
+ * recalcs were redundant and got moved to explicit callers (commits
+ * d9a5fcaed3 in 2013 for templates, 73c336821d for deities). New template
+ * mutation paths must call {@link PlayerCharacter#calcActiveBonuses()}
+ * themselves; {@link PlayerCharacter#addTemplate} already does.
  */
 public class CalcBonusFacet implements DataFacetChangeListener<CharID, CDOMObject>
 {
@@ -36,8 +41,6 @@ public class CalcBonusFacet implements DataFacetChangeListener<CharID, CDOMObjec
 			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	private RaceFacet raceFacet;
-
-	private TemplateFacet templateFacet;
 
 	/**
 	 * Globally recalculates Bonus values for a Player Character.
@@ -82,20 +85,14 @@ public class CalcBonusFacet implements DataFacetChangeListener<CharID, CDOMObjec
 		this.raceFacet = raceFacet;
 	}
 
-	public void setTemplateFacet(TemplateFacet templateFacet)
-	{
-		this.templateFacet = templateFacet;
-	}
-
 	/**
 	 * Initializes the connections for CalcBonusFacet to other facets.
-	 * 
+	 *
 	 * This method is automatically called by the Spring framework during
 	 * initialization of the CalcBonusFacet.
 	 */
 	public void init()
 	{
 		raceFacet.addDataFacetChangeListener(5000, this);
-		//templateFacet.addDataFacetChangeListener(5000, this);
 	}
 }

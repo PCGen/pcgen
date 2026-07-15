@@ -27,7 +27,7 @@ import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
 import org.junit.jupiter.api.Test;
 
-public class CountTokenTest extends AbstractKitTokenTestCase<KitProf>
+class CountTokenTest extends AbstractKitTokenTestCase<KitProf>
 {
 
 	static CountToken token = new CountToken();
@@ -53,31 +53,31 @@ public class CountTokenTest extends AbstractKitTokenTestCase<KitProf>
 	}
 
 	@Test
-	public void testRoundRobinNumber() throws PersistenceLayerException
+	void testRoundRobinNumber() throws PersistenceLayerException
 	{
 		runRoundRobin("3");
 	}
 
 	@Test
-	public void testInvalidInputFormula()
+	void testInvalidInputFormula()
 	{
 		assertFalse(parse("FormulaProhibited"));
 	}
 
 	@Test
-	public void testInvalidInputZero()
+	void testInvalidInputZero()
 	{
 		assertFalse(parse("0"));
 	}
 
 	@Test
-	public void testInvalidInputNegative()
+	void testInvalidInputNegative()
 	{
 		assertFalse(parse("-1"));
 	}
 
 	@Test
-	public void testInvalidInputDecimal()
+	void testInvalidInputDecimal()
 	{
 		assertFalse(parse("1.5"));
 	}

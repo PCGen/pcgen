@@ -48,7 +48,7 @@ import org.junit.jupiter.api.Test;
  * {@code ACTokenTest} tests the function of the AC token and
  * thus the calculations of armor class.  
  */
-public class ACTokenTest extends AbstractCharacterTestCase
+class ACTokenTest extends AbstractCharacterTestCase
 {
 
 	private EquipmentModifier masterwork;
@@ -154,7 +154,7 @@ public class ACTokenTest extends AbstractCharacterTestCase
 	 * Test the character's AC calcs with no armor.
 	 */
 	@Test
-	public void testBase()
+	void testBase()
 	{
 		assertEquals("12", new ACToken().getToken(
 			"AC.Total", getCharacter(), null), "Total AC no armor");
@@ -170,7 +170,7 @@ public class ACTokenTest extends AbstractCharacterTestCase
 	 * Test the character's AC calcs with armor with no equip mods applied.
 	 */
 	@Test
-	public void testNonMagic()
+	void testNonMagic()
 	{
 		PlayerCharacter character = getCharacter();
 		EquipSet es =
@@ -194,7 +194,7 @@ public class ACTokenTest extends AbstractCharacterTestCase
 	 * Test the character's AC calcs with armor with equipmods applied, including magic.
 	 */
 	@Test
-	public void testMagic()
+	void testMagic()
 	{
 		PlayerCharacter character = getCharacter();
 		chainShirt.addEqModifiers("MWORKA.PLUS1A", true);

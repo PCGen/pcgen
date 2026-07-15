@@ -37,7 +37,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import org.junit.jupiter.api.Test;
 
 
-public class PCBooleanFunctionTest extends AbstractJunit5CharacterTestCase
+class PCBooleanFunctionTest extends AbstractJunit5CharacterTestCase
 {
 
 	private Ability fooFeat;
@@ -61,7 +61,7 @@ public class PCBooleanFunctionTest extends AbstractJunit5CharacterTestCase
 	 * @throws Exception 
 	 */
 	@Test
-	public void testExec() throws Exception
+	void testExec() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();
 		ExportHandler eh = ExportHandler.createExportHandler(new File(""));

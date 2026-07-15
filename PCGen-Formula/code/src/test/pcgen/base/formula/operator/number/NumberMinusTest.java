@@ -28,10 +28,10 @@ import org.junit.jupiter.api.Test;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.testsupport.TestUtilities;
 
-public class NumberMinusTest
+class NumberMinusTest
 {
 	@Test
-	public void testOperator()
+	void testOperator()
 	{
 		NumberMinus op = new NumberMinus();
 		assertNotNull(op.getOperator());
@@ -39,7 +39,7 @@ public class NumberMinusTest
 	}
 
 	@Test
-	public void testAbstractEvaluateNulls()
+	void testAbstractEvaluateNulls()
 	{
 		NumberMinus op = new NumberMinus();
 		try
@@ -53,14 +53,14 @@ public class NumberMinusTest
 	}
 
 	@Test
-	public void testAbstractEvaluateMismatch()
+	void testAbstractEvaluateMismatch()
 	{
 		NumberMinus op = new NumberMinus();
 		assertTrue(op.abstractEvaluate(Boolean.class).isEmpty());
 	}
 
 	@Test
-	public void testAbstractEvaluateLegal()
+	void testAbstractEvaluateLegal()
 	{
 		NumberMinus op = new NumberMinus();
 		assertEquals(FormatUtilities.NUMBER_CLASS, op.abstractEvaluate(FormatUtilities.NUMBER_CLASS).get().getManagedClass());
@@ -70,21 +70,21 @@ public class NumberMinusTest
 	}
 
 	@Test
-	public void testEvaluateFailNull()
+	void testEvaluateFailNull()
 	{
 		NumberMinus op = new NumberMinus();
 		assertThrows(NullPointerException.class, () -> op.evaluate(null));
 	}
 
 	@Test
-	public void testEvaluateMismatch()
+	void testEvaluateMismatch()
 	{
 		NumberMinus op = new NumberMinus();
 		assertThrows(ClassCastException.class, () -> op.evaluate(true));
 	}
 
 	@Test
-	public void testEvaluateLegal()
+	void testEvaluateLegal()
 	{
 		NumberMinus op = new NumberMinus();
 		assertEquals(Integer.valueOf(-2), op.evaluate(Integer.valueOf(2)));

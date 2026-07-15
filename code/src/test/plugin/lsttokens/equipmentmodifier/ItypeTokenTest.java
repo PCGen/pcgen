@@ -31,7 +31,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
 
-public class ItypeTokenTest extends
+class ItypeTokenTest extends
 		AbstractTypeSafeListTestCase<EquipmentModifier, Type>
 {
 
@@ -117,7 +117,7 @@ public class ItypeTokenTest extends
 
 
 	@Test
-	public void testInvalidInputDouble()
+	void testInvalidInputDouble()
 	{
 		assertFalse(parse("Double"));
 		assertNoSideEffects();

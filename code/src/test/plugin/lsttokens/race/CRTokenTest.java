@@ -35,7 +35,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
 
-public class CRTokenTest extends AbstractCDOMTokenTestCase<Race>
+class CRTokenTest extends AbstractCDOMTokenTestCase<Race>
 {
 
 	static CrToken token = new CrToken();
@@ -60,7 +60,7 @@ public class CRTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testBadInputNegative()
+	void testBadInputNegative()
 	{
 		try
 		{
@@ -75,7 +75,7 @@ public class CRTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testBadInputNonFloat()
+	void testBadInputNonFloat()
 	{
 		try
 		{
@@ -90,13 +90,13 @@ public class CRTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testRoundRobinZero() throws PersistenceLayerException
+	void testRoundRobinZero() throws PersistenceLayerException
 	{
 		runRoundRobin("0");
 	}
 
 	@Test
-	public void testRoundRobinFraction() throws PersistenceLayerException
+	void testRoundRobinFraction() throws PersistenceLayerException
 	{
 		runRoundRobin("1/3");
 	}
@@ -122,7 +122,7 @@ public class CRTokenTest extends AbstractCDOMTokenTestCase<Race>
 	// }
 	//
 	@Test
-	public void testRoundRobinFive() throws PersistenceLayerException
+	void testRoundRobinFive() throws PersistenceLayerException
 	{
 		runRoundRobin("5");
 	}
@@ -152,7 +152,7 @@ public class CRTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testUnparseOne()
+	void testUnparseOne()
 	{
 		ChallengeRating cr = new ChallengeRating(FormulaFactory.ONE);
 		primaryProf.put(ObjectKey.CHALLENGE_RATING, cr);
@@ -160,7 +160,7 @@ public class CRTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testUnparseFraction()
+	void testUnparseFraction()
 	{
 		ChallengeRating cr = new ChallengeRating(FormulaFactory.getFormulaFor("1/2"));
 		primaryProf.put(ObjectKey.CHALLENGE_RATING, cr);
@@ -168,7 +168,7 @@ public class CRTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testUnparseNull()
+	void testUnparseNull()
 	{
 		primaryProf.put(ObjectKey.CHALLENGE_RATING, null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
@@ -176,7 +176,7 @@ public class CRTokenTest extends AbstractCDOMTokenTestCase<Race>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail()
+	void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = ObjectKey.CHALLENGE_RATING;
 		primaryProf.put(objectKey, new Object());

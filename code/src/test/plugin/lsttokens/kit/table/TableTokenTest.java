@@ -25,7 +25,7 @@ import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
 import org.junit.jupiter.api.Test;
 
-public class TableTokenTest extends AbstractKitTokenTestCase<KitTable>
+class TableTokenTest extends AbstractKitTokenTestCase<KitTable>
 {
 
 	static TableToken token = new TableToken();
@@ -51,7 +51,7 @@ public class TableTokenTest extends AbstractKitTokenTestCase<KitTable>
 	}
 
 	@Test
-	public void testRoundRobinName() throws PersistenceLayerException
+	void testRoundRobinName() throws PersistenceLayerException
 	{
 		runRoundRobin("Table Name");
 	}

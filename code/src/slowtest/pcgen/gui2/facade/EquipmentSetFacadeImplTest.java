@@ -36,7 +36,7 @@ import org.junit.jupiter.api.Test;
  * <br/>
  * 
  */
-public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
+class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 {
 	/* Equipment names constants */
 	private static final String QUARTERSTAFF = "Quarterstaff";
@@ -62,7 +62,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	 * Check that EquipmentSetFacadeImpl can be initialised with an empty dataset.  
 	 */
 	@Test
-	public void testEmptyInit()
+	void testEmptyInit()
 	{
 		EquipSet es = new EquipSet("0.1", "Unit Test Equip");
 		EquipmentSetFacadeImpl esfi = 
@@ -79,7 +79,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	 * containing equipment.  
 	 */
 	@Test
-	public void testInitWithEquipment()
+	void testInitWithEquipment()
 	{
 		PlayerCharacter pc = getCharacter();
 		EquipSet es = new EquipSet("0.1", "Unit Test Equip");
@@ -132,7 +132,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	 * containing equipment hides and shows the correct weapon slots.  
 	 */
 	@Test
-	public void testSlotManagementOnInitWithEquipment()
+	void testSlotManagementOnInitWithEquipment()
 	{
 		PlayerCharacter pc = getCharacter();
 		EquipSet es = new EquipSet("0.1", "Unit Test Equip");
@@ -178,7 +178,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	 * Check that EquipmentSetFacadeImpl can manage addition and removal of equipment.
 	 */
 	@Test
-	public void testAddRemove()
+	void testAddRemove()
 	{
 		EquipSet es = new EquipSet("0.1", "Unit Test Equip");
 		CharacterFacadeImpl charFacade =
@@ -230,7 +230,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	 * Test the creation of phantom slots, looking at types and quantities particularly.  
 	 */
 	@Test
-	public void testSlotCreation()
+	void testSlotCreation()
 	{
 		EquipSet es = new EquipSet("0.1", "Unit Test Equip");
 		EquipmentSetFacadeImpl esfi =
@@ -310,7 +310,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	 * Verify the getRequiredLoc method. 
 	 */
 	@Test
-	public void testGetRequiredLoc()
+	void testGetRequiredLoc()
 	{
 		EquipSet es = new EquipSet("0.1", "Unit Test Equip");
 		EquipmentSetFacadeImpl esfi =
@@ -345,7 +345,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	 * Check that EquipmentSetFacadeImpl can move an equipment item up the list.
 	 */
 	@Test
-	public void testMoveEquipmentUp()
+	void testMoveEquipmentUp()
 	{
 		EquipmentSetFacadeImpl esfi = prepareEquipmentSet();
 		ListFacade<EquipNode> nodeList = esfi.getNodes();
@@ -371,7 +371,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	 * Check that EquipmentSetFacadeImpl can move an equipment item down the list.
 	 */
 	@Test
-	public void testMoveEquipmentDown()
+	void testMoveEquipmentDown()
 	{
 		EquipmentSetFacadeImpl esfi = prepareEquipmentSet();
 		ListFacade<EquipNode> nodeList = esfi.getNodes();

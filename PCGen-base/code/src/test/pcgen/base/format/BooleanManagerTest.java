@@ -30,29 +30,29 @@ import pcgen.base.util.SimpleValueStore;
 /**
  * Test the BooleanManager class
  */
-public class BooleanManagerTest
+class BooleanManagerTest
 {
 	@Test
-	public void testConvertFailNull()
+	void testConvertFailNull()
 	{
 		assertThrows(IllegalArgumentException.class, () -> FormatUtilities.BOOLEAN_MANAGER.convert(null));
 	}
 
 	@Test
-	public void testConvertFailNotBoolean()
+	void testConvertFailNotBoolean()
 	{
 		assertThrows(IllegalArgumentException.class, () -> FormatUtilities.BOOLEAN_MANAGER.convert("SomeString"));
 	}
 
 	@Test
-	public void testUnconvertFailNull()
+	void testUnconvertFailNull()
 	{
 		assertThrows(NullPointerException.class, () -> FormatUtilities.BOOLEAN_MANAGER.unconvert(null));
 	}
 
 	@Test
 	@SuppressWarnings({"rawtypes", "unchecked"})
-	public void testUnconvertFailObject()
+	void testUnconvertFailObject()
 	{
 		//Yes generics are being violated in order to do this test
 		FormatManager formatManager = FormatUtilities.BOOLEAN_MANAGER;
@@ -60,19 +60,19 @@ public class BooleanManagerTest
 	}
 
 	@Test
-	public void testConvertIndirectFailNull()
+	void testConvertIndirectFailNull()
 	{
 		assertThrows(IllegalArgumentException.class, () -> FormatUtilities.BOOLEAN_MANAGER.convertIndirect(null));
 	}
 
 	@Test
-	public void testConvertIndirectFailNotBoolean()
+	void testConvertIndirectFailNotBoolean()
 	{
 		assertThrows(IllegalArgumentException.class, () -> FormatUtilities.BOOLEAN_MANAGER.convertIndirect("SomeString"));
 	}
 
 	@Test
-	public void testConvert()
+	void testConvert()
 	{
 		assertEquals(Boolean.TRUE, FormatUtilities.BOOLEAN_MANAGER.convert("true"));
 		assertEquals(Boolean.FALSE, FormatUtilities.BOOLEAN_MANAGER.convert("false"));
@@ -80,27 +80,27 @@ public class BooleanManagerTest
 	}
 
 	@Test
-	public void testUnconvert()
+	void testUnconvert()
 	{
 		assertEquals("true", FormatUtilities.BOOLEAN_MANAGER.unconvert(Boolean.TRUE));
 		assertEquals("false", FormatUtilities.BOOLEAN_MANAGER.unconvert(Boolean.FALSE));
 	}
 
 	@Test
-	public void testConvertIndirect()
+	void testConvertIndirect()
 	{
 		assertEquals(Boolean.TRUE, FormatUtilities.BOOLEAN_MANAGER.convertIndirect("true").get());
 		assertEquals(Boolean.FALSE, FormatUtilities.BOOLEAN_MANAGER.convertIndirect("false").get());
 	}
 
 	@Test
-	public void testGetIdentifier()
+	void testGetIdentifier()
 	{
 		assertEquals("BOOLEAN", FormatUtilities.BOOLEAN_MANAGER.getIdentifierType());
 	}
 
 	@Test
-	public void testHashCodeEquals()
+	void testHashCodeEquals()
 	{
 		assertEquals(new BooleanManager().hashCode(), FormatUtilities.BOOLEAN_MANAGER.hashCode());
 		assertFalse(FormatUtilities.BOOLEAN_MANAGER.equals(new Object()));
@@ -109,19 +109,19 @@ public class BooleanManagerTest
 	}
 
 	@Test
-	public void testGetComponent()
+	void testGetComponent()
 	{
 		assertTrue(FormatUtilities.BOOLEAN_MANAGER.getComponentManager().isEmpty());
 	}
 
 	@Test
-	public void testIsDirect()
+	void testIsDirect()
 	{
 		assertTrue(FormatUtilities.BOOLEAN_MANAGER.isDirect());
 	}
 
 	@Test
-	public void testInitializeFrom()
+	void testInitializeFrom()
 	{
 		SimpleValueStore valueStore = new SimpleValueStore();
 		valueStore.addValueFor(FormatUtilities.BOOLEAN_MANAGER.getIdentifierType(), Boolean.FALSE);

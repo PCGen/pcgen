@@ -25,7 +25,7 @@ import plugin.lsttokens.testsupport.AbstractAddTokenTestCase;
 
 import org.junit.jupiter.api.Test;
 
-public class EquipTokenTest extends
+class EquipTokenTest extends
 		AbstractAddTokenTestCase<Equipment>
 {
 
@@ -56,7 +56,7 @@ public class EquipTokenTest extends
 	}
 
 	@Test
-	public void testRoundRobinDupe() throws PersistenceLayerException
+	void testRoundRobinDupe() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");

@@ -27,7 +27,7 @@ import org.junit.jupiter.api.BeforeEach;
  * {@code PreAgeSetRoundRobin} verifies that preageset tags can be
  * read and written.
  */
-public class PreAgeSetRoundRobin extends AbstractBasicRoundRobin
+class PreAgeSetRoundRobin extends AbstractBasicRoundRobin
 {
 	@BeforeEach
 	@Override

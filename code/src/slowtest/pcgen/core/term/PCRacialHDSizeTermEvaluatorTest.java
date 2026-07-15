@@ -49,7 +49,7 @@ import org.junit.jupiter.api.Test;
  * 
  * 
  */
-public class PCRacialHDSizeTermEvaluatorTest extends AbstractCharacterTestCase
+class PCRacialHDSizeTermEvaluatorTest extends AbstractCharacterTestCase
 {
 	PCClass humanoidClass;
 	PCClass pcClass;
@@ -105,7 +105,7 @@ public class PCRacialHDSizeTermEvaluatorTest extends AbstractCharacterTestCase
 	 * Check for creature with racial HD but no class levels
 	 */
 	@Test
-	public void testBugbearWithNoClassLevels()
+	void testBugbearWithNoClassLevels()
 	{
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(bugbearRace);
@@ -116,7 +116,7 @@ public class PCRacialHDSizeTermEvaluatorTest extends AbstractCharacterTestCase
 	 * Check for creature with racial HD and class levels
 	 */
 	@Test
-	public void testBugbearWithClassLevels()
+	void testBugbearWithClassLevels()
 	{
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(bugbearRace);
@@ -128,7 +128,7 @@ public class PCRacialHDSizeTermEvaluatorTest extends AbstractCharacterTestCase
 	 * Check for creature with no racial HD
 	 */
 	@Test
-	public void testHuman()
+	void testHuman()
 	{
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(humanRace);

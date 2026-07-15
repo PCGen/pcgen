@@ -31,7 +31,7 @@ import pcgen.testsupport.TestSupport;
 /**
  * Test the EdgeUtilities class
  */
-public class EdgeUtilitiesTest
+class EdgeUtilitiesTest
 {
 
 	private DefaultHyperEdge<Integer> edge1;
@@ -57,13 +57,13 @@ public class EdgeUtilitiesTest
 	}
 
 	@Test
-	public void testConstructor()
+	void testConstructor()
 	{
 		TestSupport.invokePrivateConstructor(EdgeUtilities.class);
 	}
 	
 	@Test
-	public void testGetNodeAt()
+	void testGetNodeAt()
 	{
 		Function<Edge<Integer>, Integer> get0 = EdgeUtilities.getNode(0);
 		assertEquals(node2, get0.apply(edge1));

@@ -41,14 +41,14 @@ import org.junit.jupiter.api.Test;
 /**
  * The Class {@code LoadContextTest} checks the function of the LoadCOntext class.
  */
-public class LoadContextTest
+class LoadContextTest
 {
 
 	/**
 	 * Test CloneInMasterListsSimple
 	 */
 	@Test
-	public final void testCloneInMasterListsSimple()
+	final void testCloneInMasterListsSimple()
 	{
 		Spell testSpell = TestHelper.makeSpell("LoadContextTest");
 		Spell newSpell = Globals.getContext().performCopy(testSpell, "New Spell");
@@ -61,7 +61,7 @@ public class LoadContextTest
 	 * are copied over. 
 	 */
 	@Test
-	public final void testCloneInMasterListsAssoc()
+	final void testCloneInMasterListsAssoc()
 	{
 		final LoadContext context = Globals.getContext();
 		FactKey.getConstant("ClassType", new StringManager());

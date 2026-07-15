@@ -35,7 +35,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class DefineStatIntegrationTest extends
+class DefineStatIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>
 {
 	private static DefineStatLst token = new DefineStatLst();
@@ -75,7 +75,7 @@ public class DefineStatIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinSimpleLock() throws PersistenceLayerException
+	void testRoundRobinSimpleLock() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -85,7 +85,7 @@ public class DefineStatIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinRemoveLock() throws PersistenceLayerException
+	void testRoundRobinRemoveLock() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -95,7 +95,7 @@ public class DefineStatIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoSetLock() throws PersistenceLayerException
+	void testRoundRobinNoSetLock() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -105,7 +105,7 @@ public class DefineStatIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoResetLock() throws PersistenceLayerException
+	void testRoundRobinNoResetLock() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -115,7 +115,7 @@ public class DefineStatIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinSimpleUnLock() throws PersistenceLayerException
+	void testRoundRobinSimpleUnLock() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -125,7 +125,7 @@ public class DefineStatIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinRemoveUnLock() throws PersistenceLayerException
+	void testRoundRobinRemoveUnLock() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -135,7 +135,7 @@ public class DefineStatIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoSetUnLock() throws PersistenceLayerException
+	void testRoundRobinNoSetUnLock() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -145,7 +145,7 @@ public class DefineStatIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinNoResetUnLock() throws PersistenceLayerException
+	void testRoundRobinNoResetUnLock() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -155,7 +155,7 @@ public class DefineStatIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinSimpleLockUnlock() throws PersistenceLayerException
+	void testRoundRobinSimpleLockUnlock() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
@@ -165,7 +165,7 @@ public class DefineStatIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinAddRemoveLock() throws PersistenceLayerException
+	void testRoundRobinAddRemoveLock() throws PersistenceLayerException
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();

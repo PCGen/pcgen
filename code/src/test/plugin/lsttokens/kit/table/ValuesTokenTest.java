@@ -34,7 +34,7 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class ValuesTokenTest extends AbstractKitTokenTestCase<KitTable>
+class ValuesTokenTest extends AbstractKitTokenTestCase<KitTable>
 {
 
 	static ValuesToken token = new ValuesToken();
@@ -98,37 +98,37 @@ public class ValuesTokenTest extends AbstractKitTokenTestCase<KitTable>
 	// }
 
 	@Test
-	public void testInvalidEmptyRange()
+	void testInvalidEmptyRange()
 	{
 		assertFalse(parse("EQMOD:EQMOD2|"));
 	}
 
 	@Test
-	public void testInvalidRangeTwo()
+	void testInvalidRangeTwo()
 	{
 		assertFalse(parse("EQMOD:MOD1|3,"));
 	}
 
 	@Test
-	public void testInvalidRangeOne()
+	void testInvalidRangeOne()
 	{
 		assertFalse(parse("EQMOD:MOD1|,3"));
 	}
 
 	@Test
-	public void testInvalidEqModDot()
+	void testInvalidEqModDot()
 	{
 		assertFalse(parse("EQMOD:MOD1.|5,7"));
 	}
 
 	@Test
-	public void testInvalidEqModOdd()
+	void testInvalidEqModOdd()
 	{
 		assertFalse(parse("EQMOD:MOD1|5,7|EQMOD:MOD2"));
 	}
 
 	@Test
-	public void testInvalidDotEqMod()
+	void testInvalidDotEqMod()
 	{
 		assertFalse(parse("EQMOD:.MOD1|5,7"));
 	}
@@ -155,13 +155,13 @@ public class ValuesTokenTest extends AbstractKitTokenTestCase<KitTable>
 	// }
 
 	@Test
-	public void testInvalidDoubleComma()
+	void testInvalidDoubleComma()
 	{
 		assertFalse(parse("EQMOD:EQMOD2|5,,8"));
 	}
 
 	@Test
-	public void testRoundRobinOnlyAssociation()
+	void testRoundRobinOnlyAssociation()
 			throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(EquipmentModifier.class,
@@ -172,7 +172,7 @@ public class ValuesTokenTest extends AbstractKitTokenTestCase<KitTable>
 	}
 
 	@Test
-	public void testRoundRobinComplex() throws PersistenceLayerException
+	void testRoundRobinComplex() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(EquipmentModifier.class,
 				"EQMOD2");
@@ -184,7 +184,7 @@ public class ValuesTokenTest extends AbstractKitTokenTestCase<KitTable>
 	}
 
 	@Test
-	public void testRoundRobinFormulaComplex() throws PersistenceLayerException
+	void testRoundRobinFormulaComplex() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(EquipmentModifier.class,
 				"EQMOD2");
@@ -214,13 +214,13 @@ public class ValuesTokenTest extends AbstractKitTokenTestCase<KitTable>
 	// }
 
 	@Test
-	public void testInvalidInputString()
+	void testInvalidInputString()
 	{
 		assertFalse(parse("String"));
 	}
 
 	@Test
-	public void testInvalidInputStringColon()
+	void testInvalidInputStringColon()
 	{
 		assertFalse(parse("String:Strung"));
 	}

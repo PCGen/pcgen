@@ -21,10 +21,10 @@ import org.junit.jupiter.api.Test;
 /**
  * Tests PREVISION token
  */
-public class PreVisionTest extends AbstractCharacterTestCase
+class PreVisionTest extends AbstractCharacterTestCase
 {
 	@Test
-	public void testVision2Pass()
+	void testVision2Pass()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -54,7 +54,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 
 
 	@Test
-	public void testVisionFail()
+	void testVisionFail()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -76,7 +76,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testVisionPass()
+	void testVisionPass()
 	{
 		final PlayerCharacter character = getCharacter();
 		final PCTemplate template = new PCTemplate();
@@ -99,7 +99,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 
 
 	@Test
-	public void testVisionPresentTen()
+	void testVisionPresentTen()
 	{
 		final PlayerCharacter character = getCharacter();
 		final PCTemplate template = new PCTemplate();
@@ -125,7 +125,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testVisionNotPresentTen()
+	void testVisionNotPresentTen()
 	{
 		final PlayerCharacter character = getCharacter();
 		final PCTemplate template = new PCTemplate();
@@ -151,7 +151,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testVisionPresentZero()
+	void testVisionPresentZero()
 	{
 		final PlayerCharacter character = getCharacter();
 		final PCTemplate template = new PCTemplate();
@@ -176,7 +176,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testVisionNotPresentZero()
+	void testVisionNotPresentZero()
 	{
 		final PlayerCharacter character = getCharacter();
 		final PCTemplate template = new PCTemplate();
@@ -202,7 +202,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testVisionZeroTen()
+	void testVisionZeroTen()
 	{
 		final PlayerCharacter character = getCharacter();
 		final PCTemplate template = new PCTemplate();
@@ -227,7 +227,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testVisionNotZeroTen()
+	void testVisionNotZeroTen()
 	{
 		final PlayerCharacter character = getCharacter();
 		final PCTemplate template = new PCTemplate();
@@ -253,7 +253,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testVisionZeroZero()
+	void testVisionZeroZero()
 	{
 		final PlayerCharacter character = getCharacter();
 		final PCTemplate template = new PCTemplate();
@@ -278,7 +278,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testVisionNotZeroZero()
+	void testVisionNotZeroZero()
 	{
 		final PlayerCharacter character = getCharacter();
 		final PCTemplate template = new PCTemplate();

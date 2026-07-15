@@ -37,7 +37,7 @@ import plugin.pretokens.writer.PreRaceWriter;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-public class SabLstTest extends AbstractGlobalTokenTestCase
+class SabLstTest extends AbstractGlobalTokenTestCase
 {
 	static CDOMPrimaryToken<CDOMObject> token = new SabLst();
 	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
@@ -83,93 +83,93 @@ public class SabLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidDoublePipe()
+	void testInvalidDoublePipe()
 	{
 		assertFalse(parse("SA Number %||VarF"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEndingPipe()
+	void testInvalidEndingPipe()
 	{
 		assertFalse(parse("SA Number|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidStartingPipe()
+	void testInvalidStartingPipe()
 	{
 		assertFalse(parse("|Var"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidVarAfterPre()
+	void testInvalidVarAfterPre()
 	{
 		assertFalse(parse("SA % plus %|Var|PRECLASS:1,Fighter|Var2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidDotClear()
+	void testInvalidDotClear()
 	{
 		assertFalse(parse("SA % plus %|Var|.CLEAR|Var2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidOnlyPre()
+	void testInvalidOnlyPre()
 	{
 		assertFalse(parse("PRECLASS:1,Fighter"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidClearPre()
+	void testInvalidClearPre()
 	{
 		assertFalse(parse(".CLEAR|PRERACE:1,Dwarf"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidClearSabPre()
+	void testInvalidClearSabPre()
 	{
 		assertFalse(parse(".CLEAR|SabText|PRERACE:1,Dwarf"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testRoundRobinBase() throws PersistenceLayerException
+	void testRoundRobinBase() throws PersistenceLayerException
 	{
 		runRoundRobin("SA Number One");
 	}
 
 	@Test
-	public void testRoundRobinVariable() throws PersistenceLayerException
+	void testRoundRobinVariable() throws PersistenceLayerException
 	{
 		runRoundRobin("SA Number %|Variab");
 	}
 
 	@Test
-	public void testRoundRobinPre() throws PersistenceLayerException
+	void testRoundRobinPre() throws PersistenceLayerException
 	{
 		runRoundRobin("SA Number One|PRECLASS:1,Fighter=1");
 	}
 
 	@Test
-	public void testRoundRobinDoublePre() throws PersistenceLayerException
+	void testRoundRobinDoublePre() throws PersistenceLayerException
 	{
 		runRoundRobin("SA Number One|PRECLASS:1,Fighter=1|PRERACE:1,Human");
 	}
 
 	@Test
-	public void testRoundRobinVarDoublePre() throws PersistenceLayerException
+	void testRoundRobinVarDoublePre() throws PersistenceLayerException
 	{
 		runRoundRobin("SA Number % before %|Var|TwoVar|PRECLASS:1,Fighter=1|PRERACE:1,Human");
 	}
 
 	@Test
-	public void testRoundRobinCompound() throws PersistenceLayerException
+	void testRoundRobinCompound() throws PersistenceLayerException
 	{
 		runRoundRobin(
 			"SA Number % before %|Var|TwoVar|PRECLASS:1,Fighter=1|PRERACE:1,Human",

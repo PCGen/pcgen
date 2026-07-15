@@ -23,7 +23,7 @@ import plugin.lsttokens.equipment.EqmodToken;
 
 import org.junit.jupiter.api.Test;
 
-public class EqmodIntegrationTest extends AbstractEqModIntegrationTestCase
+class EqmodIntegrationTest extends AbstractEqModIntegrationTestCase
 {
 
 	private static EqmodToken token = new EqmodToken();
@@ -35,7 +35,7 @@ public class EqmodIntegrationTest extends AbstractEqModIntegrationTestCase
 	}
 
 	@Test
-	public void dummyTest()
+	void dummyTest()
 	{
 		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}

@@ -33,7 +33,7 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 
 import org.junit.jupiter.api.BeforeEach;
 
-public class DeityWeaponTokenTest extends
+class DeityWeaponTokenTest extends
 		AbstractPrimitiveTokenTestCase<CDOMObject, WeaponProf>
 {
 

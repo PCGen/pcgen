@@ -282,7 +282,7 @@ public class EquipmentModels
 
 	}
 
-	private static class EquippedTableModel extends EquipmentTableModel implements ReferenceListener<EquipmentSetFacade>
+	private static class EquippedTableModel extends EquipmentTableModel
 	{
 
 		EquippedTableModel(CharacterFacade character)
@@ -303,7 +303,7 @@ public class EquipmentModels
 
 	}
 
-	private static class EquippedTableRootModel extends EquipmentTableModel implements ReferenceListener<EquipmentSetFacade>
+	private static class EquippedTableRootModel extends EquipmentTableModel
 	{
 
 		EquippedTableRootModel(CharacterFacade character)

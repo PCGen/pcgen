@@ -34,7 +34,7 @@ import plugin.pretokens.writer.PreRaceWriter;
 
 import org.junit.jupiter.api.BeforeEach;
 
-public class MonSkillIntegrationTest extends
+class MonSkillIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<PCClass>
 {
 

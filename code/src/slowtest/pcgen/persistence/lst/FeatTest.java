@@ -27,19 +27,19 @@ import org.junit.jupiter.api.Test;
  * JUnit testcases for {@code pcgen.core.Feat}.
  */
 @ExtendWith(PCGenTestEnvironment.class)
-public class FeatTest
+class FeatTest
 {
 	/**
 	 * Sets up the test case by loading the system plugins.
 	 */
 	@BeforeEach
-	public void setUp() throws Exception
+	void setUp() throws Exception
 	{
 		Globals.getContext().getReferenceContext().importObject(BuildUtilities.getFeatCat());
 	}
 
 	@AfterEach
-	public void tearDown()
+	void tearDown()
 	{
 		SettingsHandler.getGameAsProperty().get().clearLoadContext();
 		TokenRegistration.clearTokens();
@@ -51,7 +51,7 @@ public class FeatTest
 	 * @throws PersistenceLayerException   if there is a problem with the LST syntax
 	 */
 	@Test
-	public void testAlertness() throws PersistenceLayerException
+	void testAlertness() throws PersistenceLayerException
 	{
 		Ability alertnessFeat;
 		FeatLoader featLoader = new FeatLoader();
@@ -81,7 +81,7 @@ public class FeatTest
 	 * @throws PersistenceLayerException   if there is a problem with the LST syntax
 	 */
 	@Test
-	public void testAmbidexterity() throws PersistenceLayerException
+	void testAmbidexterity() throws PersistenceLayerException
 	{
 		FeatLoader featLoader = new FeatLoader();
 		CampaignSourceEntry source;
@@ -110,7 +110,7 @@ public class FeatTest
 	 * @throws PersistenceLayerException  if there is a problem with the LST syntax
 	 */
 	@Test
-	public void testSimpleWeapon() throws PersistenceLayerException
+	void testSimpleWeapon() throws PersistenceLayerException
 	{
 		FeatLoader featLoader = new FeatLoader();
 		CampaignSourceEntry source;

@@ -85,7 +85,7 @@ class MapKeyMapTest
 	 * Test retrieval of items from the map
 	 */
 	@Test
-	public void testGet()
+	void testGet()
 	{
 		assertEquals(breedAspect, mapKeyMap
 			.get(MapKey.ASPECT, breedKey).get(0), "Retrieve 3rd item by both keys");
@@ -99,7 +99,7 @@ class MapKeyMapTest
 	 * Test loading the map with another map.
 	 */
 	@Test
-	public void testPutAll()
+	void testPutAll()
 	{
 		MapKeyMap newMap = new MapKeyMap();
 
@@ -117,7 +117,7 @@ class MapKeyMapTest
 	 * Test adding an entry to the map overwriting an existing entry.
 	 */
 	@Test
-	public void testAddToMapFor()
+	void testAddToMapFor()
 	{
 		assertEquals(ageAspect, mapKeyMap
 			.get(MapKey.ASPECT, ageKey).get(0), "Validate initial value of age");
@@ -133,7 +133,7 @@ class MapKeyMapTest
 	 * Test removing items from the list.
 	 */
 	@Test
-	public void testRemoveFromListFor()
+	void testRemoveFromListFor()
 	{
 		assertEquals(breedAspect, mapKeyMap
 			.get(MapKey.ASPECT, breedKey).get(0), "Validate initial value of breed");
@@ -150,7 +150,7 @@ class MapKeyMapTest
 	 * not a pointer to the master set in the MapKeyMap.
 	 */
 	@Test
-	public void testGetKeySet()
+	void testGetKeySet()
 	{
 		Set<MapKey<?, ?>> keySet = mapKeyMap.getKeySet();
 
@@ -174,7 +174,7 @@ class MapKeyMapTest
 	 * removing items on it. 
 	 */
 	@Test
-	public void testContainsMapFor()
+	void testContainsMapFor()
 	{
 		assertTrue(mapKeyMap.containsMapFor(MapKey.ASPECT), "Should have ASPECT");
 		assertFalse(mapKeyMap.containsMapFor(MapKey.PROPERTY), "Should not have TEST");
@@ -199,7 +199,7 @@ class MapKeyMapTest
 	 * Test the removal of a map by key.
 	 */
 	@Test
-	public void testRemoveMapFor()
+	void testRemoveMapFor()
 	{
 		assertTrue(mapKeyMap
 			.containsMapFor(MapKey.ASPECT), "Should have ASPECT");

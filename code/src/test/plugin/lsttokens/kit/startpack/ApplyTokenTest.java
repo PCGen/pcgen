@@ -33,7 +33,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
 
-public class ApplyTokenTest extends AbstractCDOMTokenTestCase<Kit>
+class ApplyTokenTest extends AbstractCDOMTokenTestCase<Kit>
 {
 
 	static ApplyToken token = new ApplyToken();
@@ -59,13 +59,13 @@ public class ApplyTokenTest extends AbstractCDOMTokenTestCase<Kit>
 	}
 
 	@Test
-	public void testInvalidInputString()
+	void testInvalidInputString()
 	{
 		internalTestInvalidInputString(null);
 	}
 
 	@Test
-	public void testInvalidInputStringSet()
+	void testInvalidInputStringSet()
 	{
 		assertTrue(parse("INSTANT"));
 		assertTrue(parseSecondary("INSTANT"));
@@ -91,7 +91,7 @@ public class ApplyTokenTest extends AbstractCDOMTokenTestCase<Kit>
 	}
 
 	@Test
-	public void testValidInputs()
+	void testValidInputs()
 	{
 		assertTrue(parse("INSTANT"));
 		assertEquals(KitApply.INSTANT, primaryProf.get(ObjectKey.APPLY_MODE));
@@ -100,13 +100,13 @@ public class ApplyTokenTest extends AbstractCDOMTokenTestCase<Kit>
 	}
 
 	@Test
-	public void testRoundRobinPermanent() throws PersistenceLayerException
+	void testRoundRobinPermanent() throws PersistenceLayerException
 	{
 		runRoundRobin("PERMANENT");
 	}
 
 	@Test
-	public void testRoundRobinInstant() throws PersistenceLayerException
+	void testRoundRobinInstant() throws PersistenceLayerException
 	{
 		runRoundRobin("INSTANT");
 	}

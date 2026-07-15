@@ -34,7 +34,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
 
-public class ChangeProfLstTest extends AbstractGlobalTokenTestCase
+class ChangeProfLstTest extends AbstractGlobalTokenTestCase
 {
 
 	static CDOMPrimaryToken<CDOMObject> token = new ChangeprofLst();
@@ -65,91 +65,91 @@ public class ChangeProfLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidEmpty()
+	void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidSourceOnly()
+	void testInvalidSourceOnly()
 	{
 		assertFalse(parse("Hammer"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidSourceEqualOnly()
+	void testInvalidSourceEqualOnly()
 	{
 		assertFalse(parse("Hammer="));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidSourceEqualOnlyTypeTwo()
+	void testInvalidSourceEqualOnlyTypeTwo()
 	{
 		assertFalse(parse("Hammer=Martial|Pipe="));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptySource()
+	void testInvalidEmptySource()
 	{
 		assertFalse(parse("=Martial"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTwoEquals()
+	void testInvalidTwoEquals()
 	{
 		assertFalse(parse("Hammer==Martial"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTwoEqualsTypeTwo()
+	void testInvalidTwoEqualsTypeTwo()
 	{
 		assertFalse(parse("Hammer=TYPE.Heavy=Martial"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBarEnding()
+	void testInvalidBarEnding()
 	{
 		assertFalse(parse("Hammer=Martial|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBarStarting()
+	void testInvalidBarStarting()
 	{
 		assertFalse(parse("|Hammer=Martial"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidDoublePipe()
+	void testInvalidDoublePipe()
 	{
 		assertFalse(parse("Hammer=Martial||Pipe=Exotic"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidReversed()
+	void testInvalidReversed()
 	{
 		assertTrue(parse("Martial=Hammer"));
 		assertConstructionError();
 	}
 
 	@Test
-	public void testInvalidResultPrimitive()
+	void testInvalidResultPrimitive()
 	{
 		assertTrue(parse("Hammer=Pipe"));
 		assertConstructionError();
 	}
 
 	@Test
-	public void testInvalidResultType()
+	void testInvalidResultType()
 	{
 		try
 		{
@@ -163,7 +163,7 @@ public class ChangeProfLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testRoundRobinSimple() throws PersistenceLayerException
+	void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "Hammer");
 		secondaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "Hammer");
@@ -175,7 +175,7 @@ public class ChangeProfLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testRoundRobinTwo() throws PersistenceLayerException
+	void testRoundRobinTwo() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "Hammer");
 		secondaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "Hammer");
@@ -189,7 +189,7 @@ public class ChangeProfLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testRoundRobinType() throws PersistenceLayerException
+	void testRoundRobinType() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "Hammer");
 		secondaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "Hammer");
@@ -205,7 +205,7 @@ public class ChangeProfLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testRoundRobinTwoResult() throws PersistenceLayerException
+	void testRoundRobinTwoResult() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "Hammer");
 		secondaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "Hammer");
@@ -223,7 +223,7 @@ public class ChangeProfLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testRoundRobinComplex() throws PersistenceLayerException
+	void testRoundRobinComplex() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "Hammer");
 		secondaryContext.getReferenceContext().constructCDOMObject(WeaponProf.class, "Hammer");

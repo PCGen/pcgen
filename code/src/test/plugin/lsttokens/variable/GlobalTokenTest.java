@@ -33,7 +33,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
 
-public class GlobalTokenTest extends AbstractTokenTestCase<DatasetVariable>
+class GlobalTokenTest extends AbstractTokenTestCase<DatasetVariable>
 {
 
 	private static GlobalToken token = new GlobalToken();
@@ -65,7 +65,7 @@ public class GlobalTokenTest extends AbstractTokenTestCase<DatasetVariable>
 	}
 
 	@Test
-	public void testDisplayNameProhibited()
+	void testDisplayNameProhibited()
 	{
 		DatasetVariable dv = new DatasetVariable();
 		dv.setName("FirstName");
@@ -75,61 +75,61 @@ public class GlobalTokenTest extends AbstractTokenTestCase<DatasetVariable>
 	}
 
 	@Test
-	public void testInvalidBadName()
+	void testInvalidBadName()
 	{
 		assertFalse(parse("Bad-Name"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidBasic()
+	void testValidBasic()
 	{
 		assertTrue(parse("IsANumberVar"));
 	}
 
 	@Test
-	public void testValidFormatted()
+	void testValidFormatted()
 	{
 		assertTrue(parse("NUMBER=IsANumberVar"));
 	}
 
 	@Test
-	public void testInvalidDoubleEqual()
+	void testInvalidDoubleEqual()
 	{
 		assertFalse(parse("STRING==Pipe"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmpty()
+	void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidOnlyEqual()
+	void testInvalidOnlyEqual()
 	{
 		assertFalse(parse("="));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyFormat()
+	void testInvalidEmptyFormat()
 	{
 		assertFalse(parse("=Value"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyVarName()
+	void testInvalidEmptyVarName()
 	{
 		assertFalse(parse("NUMBER="));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidDupeVarName()
+	void testInvalidDupeVarName()
 	{
 		DatasetVariable dv = new DatasetVariable();
 		ParseResult pr = token.parseToken(primaryContext, dv, "MyVar");
@@ -139,27 +139,27 @@ public class GlobalTokenTest extends AbstractTokenTestCase<DatasetVariable>
 	}
 
 	@Test
-	public void testInvalidBadFormat()
+	void testInvalidBadFormat()
 	{
 		assertFalse(parse("BADFORMAT=Illegal"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidName()
+	void testInvalidName()
 	{
 		assertFalse(parse("NUMBER=Illegal Name!"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testRoundRobinDefault() throws PersistenceLayerException
+	void testRoundRobinDefault() throws PersistenceLayerException
 	{
 		runRoundRobin("IsANumberVar");
 	}
 
 	@Test
-	public void testRoundRobinFormatted() throws PersistenceLayerException
+	void testRoundRobinFormatted() throws PersistenceLayerException
 	{
 		runRoundRobin("STRING=StringVar");
 	}

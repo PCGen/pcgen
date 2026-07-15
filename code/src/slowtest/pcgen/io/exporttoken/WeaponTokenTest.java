@@ -71,7 +71,7 @@ import org.junit.jupiter.api.Test;
  * WEAPON token is working correctly.
  */
 
-public class WeaponTokenTest extends AbstractCharacterTestCase
+class WeaponTokenTest extends AbstractCharacterTestCase
 {
 	private Equipment dblWpn = null;
 	private Equipment bastardSword = null;
@@ -397,7 +397,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	 * tags are checked.
 	 */
 	@Test
-	public void testDoubleWeapon()
+	void testDoubleWeapon()
 	{
 		PlayerCharacter character = getCharacter();
 
@@ -515,7 +515,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	 * creature.
 	 */
 	@Test
-	public void testEnhancedDoubleWeapon()
+	void testEnhancedDoubleWeapon()
 	{
 		PlayerCharacter character = getCharacter();
 
@@ -542,7 +542,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	 * the exotic weapon proficiency.
 	 */
 	@Test
-	public void testBastardSword()
+	void testBastardSword()
 	{
 		PlayerCharacter character = getCharacter();
 		assertEquals(
@@ -574,7 +574,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	 * included in the data prepared, so are not included in the calculations.
 	 */
 	@Test
-	public void testLargeLongSword()
+	void testLargeLongSword()
 	{
 		PlayerCharacter character = getCharacter();
 		assertEquals("KEY_LONGSWORD", largeSword
@@ -603,7 +603,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	 * included in the data prepared, so are not included in the calculations.
 	 */
 	@Test
-	public void testLargeWpnBonus()
+	void testLargeWpnBonus()
 	{
 		PlayerCharacter character = getCharacter();
 		LoadContext context = Globals.getContext();
@@ -661,7 +661,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	 * Test natural weapons
 	 */
 	@Test
-	public void testNaturalWeapon()
+	void testNaturalWeapon()
 	{
 		PlayerCharacter character = getCharacter();
 		assertEquals("SillyBite", bite
@@ -689,7 +689,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	 * and temporary bonuses.
 	 */
 	@Test
-	public void testWpnFinesse()
+	void testWpnFinesse()
 	{
 		PlayerCharacter character = getCharacter();
 		assertEquals("KEY_LONGSWORD", fineSword
@@ -739,7 +739,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testWpnReach()
+	void testWpnReach()
 	{
 		LoadContext context = Globals.getContext();
 		PlayerCharacter character = getCharacter();
@@ -790,7 +790,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	 * test the AMUNITION count sub token
 	 */
 	@Test
-	public void testAmmunition()
+	void testAmmunition()
 	{
 		PlayerCharacter character = getCharacter();
 		character.addEquipment(largeSword);
@@ -835,7 +835,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	 * Test a two handed weapon that is equipped.
 	 */
 	@Test
-	public void testTwohandedEquipped()
+	void testTwohandedEquipped()
 	{
 		PlayerCharacter character = getCharacter();
 		character.addEquipment(longSpear);
@@ -861,7 +861,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	 * Test a two handed weapon that is not equipped.
 	 */
 	@Test
-	public void testTwohandedNotequipped()
+	void testTwohandedNotequipped()
 	{
 		PlayerCharacter character = getCharacter();
 		character.addEquipment(fineSword);
@@ -899,7 +899,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	 * Check the FEATHIT and FEATDAMAGE weapon subtokens.
 	 */
 	@Test
-	public void testFeatBonus()
+	void testFeatBonus()
 	{
 		PlayerCharacter character = getCharacter();
 		WeaponToken token = new WeaponToken();
@@ -927,7 +927,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	 * Check the TEMPLATEHIT and TEMPLATEDAMAGE weapon subtokens.
 	 */
 	@Test
-	public void testTemplateBonus()
+	void testTemplateBonus()
 	{
 		PlayerCharacter character = getCharacter();
 		WeaponToken token = new WeaponToken();

@@ -22,18 +22,18 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-public class ShadowingScopeManagerTest
+class ShadowingScopeManagerTest
 {
 
 	@Test
-	public void testNullRegister()
+	void testNullRegister()
 	{
 		ShadowingScopeManager scopeManager = new ShadowingScopeManager();
 		assertThrows(NullPointerException.class, () -> scopeManager.registerGlobalScope(null));
 	}
 
 	@Test
-	public void testBadRegister()
+	void testBadRegister()
 	{
 		ShadowingScopeManager scopeManager = new ShadowingScopeManager();
 		//Fail because globalScope is not yet registered
@@ -45,7 +45,7 @@ public class ShadowingScopeManagerTest
 	}
 	
 	@Test
-	public void testDupeOkay()
+	void testDupeOkay()
 	{
 		ShadowingScopeManager scopeManager = new ShadowingScopeManager();
 		scopeManager.registerGlobalScope("Global");

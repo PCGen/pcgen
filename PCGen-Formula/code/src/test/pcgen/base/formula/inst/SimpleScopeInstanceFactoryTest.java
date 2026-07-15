@@ -32,7 +32,7 @@ import pcgen.base.testsupport.GlobalVarScoped;
 import pcgen.base.testsupport.NaiveScopeManager;
 import pcgen.base.testsupport.SimpleVarScoped;
 
-public class SimpleScopeInstanceFactoryTest
+class SimpleScopeInstanceFactoryTest
 {
 
 	private ScopeInstanceFactory factory;
@@ -60,13 +60,13 @@ public class SimpleScopeInstanceFactoryTest
 	}
 
 	@Test
-	public void testConstructor()
+	void testConstructor()
 	{
 		assertThrows(NullPointerException.class, () -> new SimpleScopeInstanceFactory(null));
 	}
 
 	@Test
-	public void testGetGlobalInstance()
+	void testGetGlobalInstance()
 	{
 		ScopeInstance globalInst = factory.get("Global", gvs);
 		assertTrue(globalInst.getImplementedScope().drawsFrom().isEmpty());
@@ -75,7 +75,7 @@ public class SimpleScopeInstanceFactoryTest
 	}
 
 	@Test
-	public void testGet()
+	void testGet()
 	{
 		ScopeInstance gsi = factory.get("Global", gvs);
 		assertTrue(gsi.getImplementedScope().drawsFrom().isEmpty());

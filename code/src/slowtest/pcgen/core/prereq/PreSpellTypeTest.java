@@ -32,7 +32,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class PreSpellTypeTest extends AbstractCharacterTestCase
+class PreSpellTypeTest extends AbstractCharacterTestCase
 {
 
 	private PCClass wiz;
@@ -89,7 +89,7 @@ public class PreSpellTypeTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testSimpleType() throws Exception
+	void testSimpleType() throws Exception
 	{
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("SPELLTYPE");
@@ -109,7 +109,7 @@ public class PreSpellTypeTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testTwoType() throws Exception
+	void testTwoType() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -125,7 +125,7 @@ public class PreSpellTypeTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testTwoClassType() throws Exception
+	void testTwoClassType() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -148,7 +148,7 @@ public class PreSpellTypeTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testNotSimpleType() throws Exception
+	void testNotSimpleType() throws Exception
 	{
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("SPELLTYPE");
@@ -168,7 +168,7 @@ public class PreSpellTypeTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testNotTwoType() throws Exception
+	void testNotTwoType() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -184,7 +184,7 @@ public class PreSpellTypeTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testNotTwoClassType() throws Exception
+	void testNotTwoClassType() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 

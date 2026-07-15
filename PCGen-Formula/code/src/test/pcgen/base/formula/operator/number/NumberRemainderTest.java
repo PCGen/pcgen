@@ -28,11 +28,11 @@ import org.junit.jupiter.api.Test;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.testsupport.TestUtilities;
 
-public class NumberRemainderTest
+class NumberRemainderTest
 {
 
 	@Test
-	public void testOperator()
+	void testOperator()
 	{
 		NumberRemainder op = new NumberRemainder();
 		assertNotNull(op.getOperator());
@@ -40,7 +40,7 @@ public class NumberRemainderTest
 	}
 
 	@Test
-	public void testAbstractEvaluateNulls()
+	void testAbstractEvaluateNulls()
 	{
 		NumberRemainder op = new NumberRemainder();
 		try
@@ -70,7 +70,7 @@ public class NumberRemainderTest
 	}
 
 	@Test
-	public void testAbstractEvaluateMismatch()
+	void testAbstractEvaluateMismatch()
 	{
 		NumberRemainder op = new NumberRemainder();
 		assertTrue(op.abstractEvaluate(FormatUtilities.BOOLEAN_CLASS, TestUtilities.INTEGER_CLASS, null).isEmpty());
@@ -78,7 +78,7 @@ public class NumberRemainderTest
 	}
 
 	@Test
-	public void testAbstractEvaluateLegal()
+	void testAbstractEvaluateLegal()
 	{
 		NumberRemainder op = new NumberRemainder();
 		assertEquals(FormatUtilities.NUMBER_CLASS,
@@ -97,7 +97,7 @@ public class NumberRemainderTest
 	}
 
 	@Test
-	public void testEvaluateFailNull()
+	void testEvaluateFailNull()
 	{
 		NumberRemainder op = new NumberRemainder();
 		assertThrows(NullPointerException.class, () -> op.evaluate(null, null));
@@ -106,7 +106,7 @@ public class NumberRemainderTest
 	}
 
 	@Test
-	public void testEvaluateMismatch()
+	void testEvaluateMismatch()
 	{
 		NumberRemainder op = new NumberRemainder();
 		assertThrows(ClassCastException.class, () -> op.evaluate(true, Double.valueOf(4.5)));
@@ -114,7 +114,7 @@ public class NumberRemainderTest
 	}
 
 	@Test
-	public void testEvaluateLegal()
+	void testEvaluateLegal()
 	{
 		NumberRemainder op = new NumberRemainder();
 		assertEquals(Double.valueOf(0.7),

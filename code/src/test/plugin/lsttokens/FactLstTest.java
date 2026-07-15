@@ -41,7 +41,7 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class FactLstTest extends AbstractGlobalTokenTestCase
+class FactLstTest extends AbstractGlobalTokenTestCase
 {
 	private static FactLst token = new FactLst();
 	private static CDOMTokenLoader<Domain> loader = new CDOMTokenLoader<>();
@@ -79,14 +79,14 @@ public class FactLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidInputOnlyNumber()
+	void testInvalidInputOnlyNumber()
 	{
 		assertFalse(parse("Possibility"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNotAFact()
+	void testInvalidInputNotAFact()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("NaN|TestWP1"));
@@ -94,14 +94,14 @@ public class FactLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidNoTarget()
+	void testInvalidNoTarget()
 	{
 		assertFalse(parse("Possibility|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNoFact()
+	void testInvalidNoFact()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("|TestWP1"));
@@ -109,7 +109,7 @@ public class FactLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidDoublePipe()
+	void testInvalidDoublePipe()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("Possibility||TestWP1"));
@@ -117,7 +117,7 @@ public class FactLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidInputStrange()
+	void testInvalidInputStrange()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -126,7 +126,7 @@ public class FactLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidEnd()
+	void testInvalidEnd()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("Possibility|TestWP1|"));
@@ -134,7 +134,7 @@ public class FactLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidTooManyPipes()
+	void testInvalidTooManyPipes()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -143,7 +143,7 @@ public class FactLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidDoubleJoin()
+	void testInvalidDoubleJoin()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("Possibility||TestWP1"));
@@ -151,7 +151,7 @@ public class FactLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testValidInputs()
+	void testValidInputs()
 	{
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse("Possibility|TestWP1"));
@@ -159,7 +159,7 @@ public class FactLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testRoundRobinOne() throws PersistenceLayerException
+	void testRoundRobinOne() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");

@@ -37,7 +37,7 @@ import plugin.pretokens.writer.PreRaceWriter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class ProhibitedTokenTest extends AbstractCDOMTokenTestCase<PCClass>
+class ProhibitedTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 {
 
 	private static final ProhibitedToken token = new ProhibitedToken();
@@ -78,42 +78,42 @@ public class ProhibitedTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputEmpty()
+	void testInvalidInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputLeadingComma()
+	void testInvalidInputLeadingComma()
 	{
 		assertFalse(parse(",Good"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputTrailingComma()
+	void testInvalidInputTrailingComma()
 	{
 		assertFalse(parse("Fireball,"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoubleCommaSeparator()
+	void testInvalidInputDoubleCommaSeparator()
 	{
 		assertFalse(parse("Fireball,,Lightning Bolt"));
 		assertNoSideEffects();
 	}
 	
 	@Test
-	public void testRoundRobinDescriptorSimple()
+	void testRoundRobinDescriptorSimple()
 			throws PersistenceLayerException
 	{
 		runRoundRobin("Fire");
 	}
 
 	@Test
-	public void testRoundRobinDescriptorAnd() throws PersistenceLayerException
+	void testRoundRobinDescriptorAnd() throws PersistenceLayerException
 	{
 		runRoundRobin("Fear,Fire");
 	}

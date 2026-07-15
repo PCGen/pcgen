@@ -40,19 +40,19 @@ import org.junit.jupiter.api.Test;
  * MigrationLoaderTest checks the function of the MigrationLoader class.
  */
 @ExtendWith(PCGenTestEnvironment.class)
-public class MigrationLoaderTest
+class MigrationLoaderTest
 {
 	MigrationLoader migrationLoader = new MigrationLoader();
 	URI sourceURI;
 	
 	@BeforeEach
-	public void setUp() throws Exception
+	void setUp() throws Exception
 	{
 		sourceURI = new URI("http://www.pcgen.org");
 	}
 	
 	@Test
-	public void testParseFirstTokenValidSource()
+	void testParseFirstTokenValidSource()
 	{
 		MigrationRule migrationRule = migrationLoader.parseFirstToken("SOURCE:Old Key", "", sourceURI);
 		assertNotNull(migrationRule);
@@ -62,7 +62,7 @@ public class MigrationLoaderTest
 	}
 	
 	@Test
-	public void testParseFirstTokenValidAbility()
+	void testParseFirstTokenValidAbility()
 	{
 		MigrationRule migrationRule = migrationLoader.parseFirstToken("ABILITY:OldCat|Old Key", "", sourceURI);
 		assertNotNull(migrationRule, "Should have been able to parse valid ability");
@@ -72,7 +72,7 @@ public class MigrationLoaderTest
 	}
 	
 	@Test
-	public void testParseFirstTokenValidEquipment()
+	void testParseFirstTokenValidEquipment()
 	{
 		MigrationRule migrationRule = migrationLoader.parseFirstToken("EQUIPMENT:Old Key", "", sourceURI);
 		assertNotNull(migrationRule);
@@ -82,7 +82,7 @@ public class MigrationLoaderTest
 	}
 	
 	@Test
-	public void testParseFirstTokenValidRace()
+	void testParseFirstTokenValidRace()
 	{
 		MigrationRule migrationRule = migrationLoader.parseFirstToken("RACE:Old Key", "", sourceURI);
 		assertNotNull(migrationRule);
@@ -92,7 +92,7 @@ public class MigrationLoaderTest
 	}
 	
 	@Test
-	public void testParseFirstTokenInValidObjType()
+	void testParseFirstTokenInValidObjType()
 	{
 		MigrationRule migrationRule = migrationLoader.parseFirstToken("FOO:Old Key", "", sourceURI);
 		assertNull(migrationRule);
@@ -102,7 +102,7 @@ public class MigrationLoaderTest
 	 * Check that these invalid characters are rejected in a source key |;.%*=[]
 	 */
 	@Test
-	public void testParseFirstTokenInValidCharsInSourceKey()
+	void testParseFirstTokenInValidCharsInSourceKey()
 	{
 		String invalidChars = "|;%*=[]";
 		for (char invalid : invalidChars.toCharArray())
@@ -113,7 +113,7 @@ public class MigrationLoaderTest
 	}
 	
 	@Test
-	public void testParseFirstTokenValidCharsInSourceKey()
+	void testParseFirstTokenValidCharsInSourceKey()
 	{
 		String sourceKey = "Paizo - Second Darkness, Chapter 6: Descent into Midnight.";
 		MigrationRule migrationRule = migrationLoader.parseFirstToken("SOURCE:" + sourceKey, "", sourceURI);
@@ -125,7 +125,7 @@ public class MigrationLoaderTest
 	 * Check that these invalid characters are rejected in a category ,\\|\\:;.%*=[]
 	 */
 	@Test
-	public void testParseFirstTokenInValidCharsInAbilityCategory()
+	void testParseFirstTokenInValidCharsInAbilityCategory()
 	{
 		String invalidChars = ",|\\:;%*=[]";
 		for (char invalid : invalidChars.toCharArray())
@@ -139,7 +139,7 @@ public class MigrationLoaderTest
 	 * Check that these invalid characters are rejected in a key ,\\|\\:;.%*=[]
 	 */
 	@Test
-	public void testParseFirstTokenInValidCharsInAbilityKey()
+	void testParseFirstTokenInValidCharsInAbilityKey()
 	{
 		String invalidChars = ",|\\:;%*=[]";
 		for (char invalid : invalidChars.toCharArray())
@@ -150,7 +150,7 @@ public class MigrationLoaderTest
 	}
 
 	@Test
-	public void testParseAbilityLine() throws Exception
+	void testParseAbilityLine() throws Exception
 	{
 		String abilityMigration = "ABILITY:Special Ability|Animal Fury	NEWKEY:Animal Fury ~ Rage Power	"
 									+ "MAXVER:6.00.00	MAXDEVVER:6.01.01";
@@ -178,7 +178,7 @@ public class MigrationLoaderTest
 	}
 
 	@Test
-	public void testParseSourceLine() throws Exception
+	void testParseSourceLine() throws Exception
 	{
 		String sourceMigration = "SOURCE:Bob's Magic Store	NEWKEY:XYZ - Bobs Magic Store	MAXVER:5.17.10";
 		migrationLoader.parseLine(null, sourceMigration, new URI("http://UNIT_TEST_CASE"));
@@ -204,7 +204,7 @@ public class MigrationLoaderTest
 	}
 
 	@Test
-	public void testParseInvalidSourceLine() throws Exception
+	void testParseInvalidSourceLine() throws Exception
 	{
 		String sourceMigration = "SOURCE:Bob's Magic Store	NEWKEY:XYZ - Bobs Magic Store";
 		migrationLoader.parseLine(null, sourceMigration, new URI("http://UNIT_TEST_CASE"));

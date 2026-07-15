@@ -45,7 +45,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class AbilityTokenTest extends AbstractCharacterUsingTestCase
+class AbilityTokenTest extends AbstractCharacterUsingTestCase
 {
 
 	private static final LstToken ADD_TOKEN = new AddLst();
@@ -74,7 +74,7 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 	}
 
 	@Test
-	public void testEncodeChoice()
+	void testEncodeChoice()
 	{
 		Ability item = BuildUtilities.buildFeat(context, "ItemName");
 		CNAbilitySelection as = new CNAbilitySelection(CNAbilityFactory
@@ -84,7 +84,7 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 	}
 
 	@Test
-	public void testDecodeChoice()
+	void testDecodeChoice()
 	{
 		assertThrows(IllegalArgumentException.class, () -> PCA
 			.decodeChoice(context, "CATEGORY=FEAT|NATURE=NORMAL|ItemName"));
@@ -97,7 +97,7 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 
 
 	@Test
-	public void testWithChoose()
+	void testWithChoose()
 	{
 		setUpPC();
 		//Need to make sure we use the character related context

@@ -82,7 +82,7 @@ public final class BioSetLoaderTest
 	private BioSetLoader loader;
 
     @BeforeEach
-    public void setUp() throws Exception
+    void setUp() throws Exception
 	{
 
 		loader = new BioSetLoader();
@@ -90,7 +90,7 @@ public final class BioSetLoaderTest
 	}
 
     @AfterEach
-    public void tearDown() throws Exception
+    void tearDown() throws Exception
 	{
 		SettingsHandler.getGameAsProperty().get().getBioSet().clearUserMap();
 	}
@@ -116,7 +116,7 @@ public final class BioSetLoaderTest
 	 * BioSetLoader is functioning properly.
 	 */
 	@Test
-	public void testParseLine()
+	void testParseLine()
 	{
 		final String[] TEST_TAGS =
 				{"HAIR", "EYES", "SKINTONE", "AGEDIEROLL", "CLASS",
@@ -185,7 +185,7 @@ public final class BioSetLoaderTest
 	 * @throws Exception  If a problem occurs when loading the data
 	 */
 	@Test
-	public void testParseSecondBioSetGood() throws Exception
+	void testParseSecondBioSetGood() throws Exception
 	{
 		assertEquals("REGION:None\n\n", SettingsHandler
 				.getGameAsProperty().get().getBioSet().getBaseRegionPCCText("Ogre"), "No ogre bio details expected before load");
@@ -217,7 +217,7 @@ public final class BioSetLoaderTest
 	 * @throws Exception  If a problem occurs when loading the data
 	 */
 	@Test
-	public void testParseSecondBioSetBadName() throws Exception
+	void testParseSecondBioSetBadName() throws Exception
 	{
 		assertEquals("REGION:None\n\n", SettingsHandler
 				.getGameAsProperty().get().getBioSet().getBaseRegionPCCText("Ogre"), "No ogre bio details expected before load");

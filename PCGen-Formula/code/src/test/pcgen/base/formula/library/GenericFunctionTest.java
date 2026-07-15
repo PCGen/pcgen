@@ -37,7 +37,7 @@ import pcgen.base.formula.visitor.ReconstructionVisitor;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
 import pcgen.base.testsupport.TestUtilities;
 
-public class GenericFunctionTest extends AbstractFormulaTestCase
+class GenericFunctionTest extends AbstractFormulaTestCase
 {
 
 	private ArgumentDependencyManager argManager;
@@ -74,7 +74,7 @@ public class GenericFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidWrongArgTooFew()
+	void testInvalidWrongArgTooFew()
 	{
 		String formula = "d20Mod()";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -82,7 +82,7 @@ public class GenericFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidWrongArgTooMany()
+	void testInvalidWrongArgTooMany()
 	{
 		String formula = "d20Mod(2, 3)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -90,7 +90,7 @@ public class GenericFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidWrongArg()
+	void testInvalidWrongArg()
 	{
 		String formula2 = "floor((14-10)/2)";
 		SimpleNode node2 = TestUtilities.doParse(formula2);
@@ -101,7 +101,7 @@ public class GenericFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testNoArgs()
+	void testNoArgs()
 	{
 		String formula = "noargs()";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -119,7 +119,7 @@ public class GenericFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testInvalidNaN()
+	void testInvalidNaN()
 	{
 		String formula = "d20Mod(\"string\")";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -127,7 +127,7 @@ public class GenericFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testArgOne()
+	void testArgOne()
 	{
 		String formula = "d20Mod(14)";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -145,7 +145,7 @@ public class GenericFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testComplex()
+	void testComplex()
 	{
 		String formula = "d20Mod(4+abs(-12))";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -163,7 +163,7 @@ public class GenericFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testEmbedded1()
+	void testEmbedded1()
 	{
 		String formula = "d20Mod(embed(14,10))";
 		SimpleNode node = TestUtilities.doParse(formula);
@@ -181,7 +181,7 @@ public class GenericFunctionTest extends AbstractFormulaTestCase
 	}
 
 	@Test
-	public void testEmbedded2()
+	void testEmbedded2()
 	{
 		String formula = "embed(14,d20Mod(14))";
 		SimpleNode node = TestUtilities.doParse(formula);

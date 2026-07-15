@@ -44,7 +44,7 @@ import plugin.pretokens.writer.PreRaceWriter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class DomainTokenTest extends AbstractListInputTokenTestCase<PCClass, Domain>
+class DomainTokenTest extends AbstractListInputTokenTestCase<PCClass, Domain>
 {
 
 	static DomainToken token = new DomainToken();
@@ -123,7 +123,7 @@ public class DomainTokenTest extends AbstractListInputTokenTestCase<PCClass, Dom
 	}
 
 	@Test
-	public void testInvalidEmptyPre()
+	void testInvalidEmptyPre()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("TestWP1|"));
@@ -131,7 +131,7 @@ public class DomainTokenTest extends AbstractListInputTokenTestCase<PCClass, Dom
 	}
 
 	@Test
-	public void testInvalidTrailingAfterPre()
+	void testInvalidTrailingAfterPre()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -140,7 +140,7 @@ public class DomainTokenTest extends AbstractListInputTokenTestCase<PCClass, Dom
 	}
 
 	@Test
-	public void testRoundRobinOnePre() throws PersistenceLayerException
+	void testRoundRobinOnePre() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -148,7 +148,7 @@ public class DomainTokenTest extends AbstractListInputTokenTestCase<PCClass, Dom
 	}
 
 	@Test
-	public void testRoundRobinThreeWithPre() throws PersistenceLayerException
+	void testRoundRobinThreeWithPre() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -161,7 +161,7 @@ public class DomainTokenTest extends AbstractListInputTokenTestCase<PCClass, Dom
 	}
 
 	@Test
-	public void testInvalidInputBadPrerequisite()
+	void testInvalidInputBadPrerequisite()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -170,14 +170,14 @@ public class DomainTokenTest extends AbstractListInputTokenTestCase<PCClass, Dom
 	}
 
 	@Test
-	public void testUnparseNull()
+	void testUnparseNull()
 	{
 		primaryProf.removeListFor(ListKey.DOMAIN);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseSingle()
+	void testUnparseSingle()
 	{
 		Domain wp1 = construct(primaryContext, "TestWP1");
 		primaryProf.addToListFor(ListKey.DOMAIN, buildQO(wp1));
@@ -186,7 +186,7 @@ public class DomainTokenTest extends AbstractListInputTokenTestCase<PCClass, Dom
 	}
 
 	@Test
-	public void testUnparseNullInList()
+	void testUnparseNullInList()
 	{
 		primaryProf.addToListFor(ListKey.DOMAIN, null);
 		try
@@ -201,7 +201,7 @@ public class DomainTokenTest extends AbstractListInputTokenTestCase<PCClass, Dom
 	}
 
 	@Test
-	public void testUnparseMultiple()
+	void testUnparseMultiple()
 	{
 		Domain wp1 = construct(primaryContext, getLegalValue());
 		primaryProf.addToListFor(ListKey.DOMAIN, buildQO(wp1));
@@ -214,7 +214,7 @@ public class DomainTokenTest extends AbstractListInputTokenTestCase<PCClass, Dom
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail()
+	void testUnparseGenericsFail()
 	{
 		ListKey objectKey = ListKey.DOMAIN;
 		primaryProf.addToListFor(objectKey, new Object());
@@ -230,7 +230,7 @@ public class DomainTokenTest extends AbstractListInputTokenTestCase<PCClass, Dom
 	}
 	
 	@Test
-	public void testUnparseSinglePre() throws PersistenceLayerException
+	void testUnparseSinglePre() throws PersistenceLayerException
 	{
 		Domain wp1 = construct(primaryContext, "TestWP1");
 		CDOMDirectSingleRef<Domain> ref = CDOMDirectSingleRef.getRef(wp1);

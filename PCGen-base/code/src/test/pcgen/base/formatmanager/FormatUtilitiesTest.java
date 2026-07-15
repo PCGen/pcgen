@@ -30,17 +30,17 @@ import pcgen.testsupport.TestSupport;
 /**
  * Test the FormatUtilites class
  */
-public class FormatUtilitiesTest
+class FormatUtilitiesTest
 {
 
 	@Test
-	public void testConstructor()
+	void testConstructor()
 	{
 		TestSupport.invokePrivateConstructor(FormatUtilities.class);
 	}
 
 	@Test
-	public void testIsValid()
+	void testIsValid()
 	{
 		NumberManager numberManager = new NumberManager();
 		assertEquals(numberManager, FormatUtilities.ifValid(numberManager));

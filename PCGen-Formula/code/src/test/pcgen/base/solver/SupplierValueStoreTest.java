@@ -26,11 +26,11 @@ import org.junit.jupiter.api.Test;
 
 import pcgen.base.formatmanager.FormatUtilities;
 
-public class SupplierValueStoreTest
+class SupplierValueStoreTest
 {
 
 	@Test
-	public void testIllegalGetDefault()
+	void testIllegalGetDefault()
 	{
 		SupplierValueStore svs = new SupplierValueStore();
 		assertThrows(NullPointerException.class, () -> svs.getValueFor(null));
@@ -39,7 +39,7 @@ public class SupplierValueStoreTest
 
 	@SuppressWarnings({"unchecked", "rawtypes"})
 	@Test
-	public void testIllegalAddSolverFormatGenerics()
+	void testIllegalAddSolverFormatGenerics()
 	{
 		SupplierValueStore svs = new SupplierValueStore();
 		Supplier<Number> setNumber = () -> 9;
@@ -50,7 +50,7 @@ public class SupplierValueStoreTest
 	}
 
 	@Test
-	public void testIllegalAddSolverFormatDouble()
+	void testIllegalAddSolverFormatDouble()
 	{
 		SupplierValueStore svs = new SupplierValueStore();
 		svs.addSolverFormat(FormatUtilities.NUMBER_MANAGER, () -> 108);
@@ -58,7 +58,7 @@ public class SupplierValueStoreTest
 	}
 
 	@Test
-	public void testAddSolverFormat()
+	void testAddSolverFormat()
 	{
 		SupplierValueStore svs = new SupplierValueStore();
 		assertThrows(NullPointerException.class, () -> svs.addSolverFormat(null, () -> 9));

@@ -8,10 +8,10 @@ import org.junit.jupiter.api.Test;
 /**
  * See PCG file for details. 
  */
-public class pcGenGUILaurenTest extends PcgenFtlTestCase
+class pcGenGUILaurenTest extends PcgenFtlTestCase
 {
 	@Test
-	public void testLauren() throws Exception
+	void testLauren() throws Exception
 	{
 		runTest("35e_Lauren");
 	}

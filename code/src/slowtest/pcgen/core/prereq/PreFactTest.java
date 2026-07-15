@@ -36,7 +36,7 @@ import org.junit.jupiter.api.Test;
  * {@code PreFactTest} tests that the PREFACT tag is
  * working correctly.
  */
-public class PreFactTest extends AbstractCharacterTestCase
+class PreFactTest extends AbstractCharacterTestCase
 {
 
 	@BeforeEach
@@ -55,7 +55,7 @@ public class PreFactTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testFact() throws PersistenceLayerException
+	void testFact() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		Race race = new Race();

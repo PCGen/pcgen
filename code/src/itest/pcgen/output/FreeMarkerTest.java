@@ -33,7 +33,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class FreeMarkerTest extends AbstractOutputTestCase
+class FreeMarkerTest extends AbstractOutputTestCase
 {
 	private static final CheckFacet CF = new CheckFacet();
 
@@ -48,14 +48,14 @@ public class FreeMarkerTest extends AbstractOutputTestCase
 	}
 
 	@BeforeAll
-	public static void classSetUp()
+	static void classSetUp()
 	{
 		OutputDB.reset();
 		CF.init();
 	}
 
 	@Test
-	public void testBasic()
+	void testBasic()
 	{
 		createChecks();
 		processThroughFreeMarker("<#list checks as obj>" + "${obj.shortname}"
@@ -63,7 +63,7 @@ public class FreeMarkerTest extends AbstractOutputTestCase
 	}
 
 	@Test
-	public void testNested()
+	void testNested()
 	{
 		createChecks();
 		String macro = "<#macro getKeyed objlist key>" + "<#list objlist as obj>"

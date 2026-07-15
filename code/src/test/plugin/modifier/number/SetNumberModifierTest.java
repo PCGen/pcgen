@@ -38,14 +38,14 @@ import util.FormatSupport;
 import org.junit.jupiter.api.Test;
 
 
-public class SetNumberModifierTest
+class SetNumberModifierTest
 {
 
 	private final PCGenScope varScope = new GlobalPCScope();
 	FormatManager<Number> numManager = new NumberManager();
 
 	@Test
-	public void testInvalidConstruction()
+	void testInvalidConstruction()
 	{
 		try
 		{
@@ -60,147 +60,147 @@ public class SetNumberModifierTest
 	}
 
 	@Test
-	public void testProcessNegative1()
+	void testProcessNegative1()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
 		assertEquals(-3, modifier.process(-2, -3));
 	}
 
 	@Test
-	public void testProcessNegative2()
+	void testProcessNegative2()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
 		assertEquals(-2, modifier.process(-4, -2));
 	}
 
 	@Test
-	public void testProcessPositive1()
+	void testProcessPositive1()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
 		assertEquals(3, modifier.process(2, 3));
 	}
 
 	@Test
-	public void testProcessPositive2()
+	void testProcessPositive2()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
 		assertEquals(3, modifier.process(4, 3));
 	}
 
 	@Test
-	public void testProcessZero1()
+	void testProcessZero1()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
 		assertEquals(3, modifier.process(0, 3));
 	}
 
 	@Test
-	public void testProcessZero2()
+	void testProcessZero2()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
 		assertEquals(0, modifier.process(4, 0));
 	}
 
 	@Test
-	public void testProcessZero3()
+	void testProcessZero3()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
 		assertEquals(-3, modifier.process(0, -3));
 	}
 
 	@Test
-	public void testProcessZero4()
+	void testProcessZero4()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
 		assertEquals(0, modifier.process(-4, 0));
 	}
 
 	@Test
-	public void testProcessMixed1()
+	void testProcessMixed1()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
 		assertEquals(-7, modifier.process(5, -7));
 	}
 
 	@Test
-	public void testProcessMixed2()
+	void testProcessMixed2()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
 		assertEquals(3, modifier.process(-4, 3));
 	}
 
 	@Test
-	public void testProcessDoubleNegative1()
+	void testProcessDoubleNegative1()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
 		assertEquals(-3.4, modifier.process(-2.3, -3.4));
 	}
 
 	@Test
-	public void testProcessDoubleNegative2()
+	void testProcessDoubleNegative2()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
 		assertEquals(-2.4, modifier.process(-4.3, -2.4));
 	}
 
 	@Test
-	public void testProcessDoublePositive1()
+	void testProcessDoublePositive1()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
 		assertEquals(3.5, modifier.process(2.6, 3.5));
 	}
 
 	@Test
-	public void testProcessDoublePositive2()
+	void testProcessDoublePositive2()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
 		assertEquals(3.1, modifier.process(4.4, 3.1));
 	}
 
 	@Test
-	public void testProcessDoubleZero1()
+	void testProcessDoubleZero1()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
 		assertEquals(3.1, modifier.process(0.0, 3.1));
 	}
 
 	@Test
-	public void testProcessDoubleZero2()
+	void testProcessDoubleZero2()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
 		assertEquals(0.0, modifier.process(4.2, 0.0));
 	}
 
 	@Test
-	public void testProcessDoubleZero3()
+	void testProcessDoubleZero3()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
 		assertEquals(-3.4, modifier.process(0.0, -3.4));
 	}
 
 	@Test
-	public void testProcessDoubleZero4()
+	void testProcessDoubleZero4()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
 		assertEquals(0.0, modifier.process(-4.3, 0.0));
 	}
 
 	@Test
-	public void testProcessDoubleMixed1()
+	void testProcessDoubleMixed1()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
 		assertEquals(-7.2, modifier.process(5.3, -7.2));
 	}
 
 	@Test
-	public void testProcessDoubleMixed2()
+	void testProcessDoubleMixed2()
 	{
 		SetModifierFactory modifier = new SetModifierFactory();
 		assertEquals(3.1, modifier.process(-4.2, 3.1));
 	}
 
 	@Test
-	public void testGetModifier()
+	void testGetModifier()
 	{
 		SetModifierFactory factory = new SetModifierFactory();
 		FormulaModifier<Number> modifier =
@@ -212,7 +212,7 @@ public class SetNumberModifierTest
 	}
 
 	@Test
-	public void testGetFormulaModifier()
+	void testGetFormulaModifier()
 	{
 		LoadContext context = new RuntimeLoadContext(
 			RuntimeReferenceContext.createRuntimeReferenceContext(),
