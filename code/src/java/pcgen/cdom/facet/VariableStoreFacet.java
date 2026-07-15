@@ -40,7 +40,7 @@ public class VariableStoreFacet extends AbstractItemFacet<CharID, MonitorableVar
 		T value = get(id).get(varID);
 		if (value == null)
 		{
-			return loadContextFacet.get(id.getDatasetID()).get().getVariableContext()
+			return loadContextFacet.getLoadContext(id.getDatasetID()).getVariableContext()
 				.getDefaultValue(varID.getFormatManager());
 		}
 		return value;
