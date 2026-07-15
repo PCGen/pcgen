@@ -25,7 +25,7 @@ import pcgen.cdom.base.SortKeyRequired;
 import pcgen.cdom.enumeration.StringKey;
 
 public final class PCStat extends PObject
-		implements NonInteractive, SortKeyRequired, VarScoped
+		implements NonInteractive, SortKeyRequired
 {
 	/*
 	 * This is what the UI displays for the CHOOSE:PCSTAT.

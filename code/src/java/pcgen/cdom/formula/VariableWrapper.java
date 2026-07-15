@@ -30,7 +30,7 @@ import pcgen.facade.util.ReferenceFacade;
  *            The Format of the information contained in this VariableWrapper
  */
 public final class VariableWrapper<T> extends AbstractReferenceFacade<T>
-		implements VariableListener<T>, ReferenceFacade<T>
+		implements VariableListener<T>
 {
 
 	/**

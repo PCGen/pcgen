@@ -29,7 +29,7 @@ import pcgen.core.bonus.BonusObj;
  * {@code SizeAdjustment}.
  *
  */
-public final class SizeAdjustment extends PObject implements VarScoped
+public final class SizeAdjustment extends PObject
 {
 	/**
 	 * Activates (checks PrereqToUse) and returns list of BonusObj's
