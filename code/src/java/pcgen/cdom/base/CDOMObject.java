@@ -66,6 +66,8 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.BonusActivation;
 import pcgen.core.bonus.BonusObj;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
 public abstract class CDOMObject extends ConcretePrereqObject
 		implements BonusContainer, Loadable, Reducible, PCGenScoped, VarHolder
 {
@@ -1031,6 +1033,10 @@ public abstract class CDOMObject extends ConcretePrereqObject
 		}
 	}
 
+	@SuppressFBWarnings(value = "MC_OVERRIDABLE_METHOD_CALL_IN_CLONE",
+		justification = "ownBonuses is intentionally overridable: PCClass overrides it to "
+			+ "recursively re-own bonuses on its PCClassLevel children. The override only "
+			+ "reads the clone's BONUS list, which super.clone() already populated.")
 	@Override
 	public CDOMObject clone() throws CloneNotSupportedException
 	{

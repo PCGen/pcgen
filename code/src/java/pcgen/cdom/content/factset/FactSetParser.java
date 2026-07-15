@@ -33,6 +33,8 @@ import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
+
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
@@ -120,6 +122,9 @@ public class FactSetParser<T extends CDOMObject, F> extends AbstractTokenWithSep
 		return "FACTSET";
 	}
 
+	@SuppressFBWarnings(value = "PZLA_PREFER_ZERO_LENGTH_ARRAYS",
+		justification = "null signals 'unparse errored'; empty array signals 'no output'. "
+			+ "Same convention as TemplateFeatToken.unparse.")
 	@Override
 	public String[] unparse(LoadContext context, T obj)
 	{
