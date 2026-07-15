@@ -114,7 +114,6 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 						&& lvlInfo.getClassLevel() == classLevel.getSafe(IntegerKey.LEVEL))
 					{
 						pc.checkSkillModChangeForLevel(pcClass, lvlInfo, classLevel, levelIndex);
-						levelIndex++;
 						break;
 					}
 				}

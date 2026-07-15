@@ -24,6 +24,8 @@ import pcgen.base.enumeration.TypeSafeConstant;
 import pcgen.cdom.base.PCGenIdentifier;
 import pcgen.cdom.facet.base.AbstractStorageFacet;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
 /**
  * 
  * This Class is a Type Safe Constant. It is designed to hold a unique Character
@@ -54,6 +56,8 @@ public final class CharID implements TypeSafeConstant, PCGenIdentifier
 	 * now code that no longer has any PlayerCharacter reference).
 	 */
 	@SuppressWarnings("unused")
+	@SuppressFBWarnings(value = "URF_UNREAD_FIELD",
+		justification = "Held as a debugger-visible view of this CharID's facet cache.")
 	private Map<Class<?>, Object> myFacetCache;
 
 	private CharID(DataSetID dsid)
