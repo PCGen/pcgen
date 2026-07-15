@@ -33,7 +33,7 @@ import pcgen.core.AbilityCategory;
 import pcgen.core.SettingsHandler;
 import pcgen.rules.context.LoadContext;
 
-public class CNAbilitySelection extends ConcretePrereqObject implements QualifyingObject, Reducible
+public final class CNAbilitySelection extends ConcretePrereqObject implements QualifyingObject, Reducible
 {
 
 	private final CNAbility cna;
