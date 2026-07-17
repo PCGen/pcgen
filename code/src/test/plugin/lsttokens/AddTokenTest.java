@@ -31,6 +31,7 @@ import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 class AddTokenTest extends AbstractGlobalTokenTestCase
 {
@@ -147,9 +148,10 @@ class AddTokenTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Override
+	@Test
+	@Disabled("Can't be done, nothing ever unparses")
 	public void testOverwrite()
 	{
-		// Can't be done, nothing ever unparses
 	}
 
 }
