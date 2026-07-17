@@ -61,6 +61,8 @@ public final class PCGenSettings extends PropertyContext
 	public static final String PCP_SAVE_PATH = "pcgen.files.parties";
 	public static final String CHAR_PORTRAITS_PATH = "pcgen.files.portaits";
 	public static final String BACKUP_PCG_PATH = "pcgen.files.characters.backup";
+	/** Last folder used in the character Open/Save chooser; remembers across launches. */
+	public static final String LAST_CHARACTER_PATH = "pcgen.files.characters.lastUsed";
 	public static final String SELECTED_SPELL_SHEET_PATH = "pcgen.files.selectedSpellOutputSheet";
 	public static final String RECENT_CHARACTERS = "recentCharacters";
 	public static final String RECENT_PARTIES = "recentParties";
@@ -84,18 +86,37 @@ public final class PCGenSettings extends PropertyContext
 	private PCGenSettings()
 	{
 		super("options.ini");
-		setProperty(PCG_SAVE_PATH,
-			(ConfigurationSettings.getUserDir() + "/characters").replace('/', File.separatorChar));
-		setProperty(PCP_SAVE_PATH,
-			(ConfigurationSettings.getUserDir() + "/characters").replace('/', File.separatorChar));
-		setProperty(CHAR_PORTRAITS_PATH,
-			(ConfigurationSettings.getUserDir() + "/characters").replace('/', File.separatorChar));
-		setProperty(BACKUP_PCG_PATH,
-			(ConfigurationSettings.getUserDir() + "/characters").replace('/', File.separatorChar));
+		String defaultCharsDir = defaultCharactersDir();
+		setProperty(PCG_SAVE_PATH, defaultCharsDir);
+		setProperty(PCP_SAVE_PATH, defaultCharsDir);
+		setProperty(CHAR_PORTRAITS_PATH, defaultCharsDir);
+		setProperty(BACKUP_PCG_PATH, defaultCharsDir);
 		setProperty(VENDOR_DATA_DIR, "@vendordata");
 		setProperty(HOMEBREW_DATA_DIR, "@homebrewdata");
 		setProperty(CUSTOM_DATA_DIR, "@data/customsources".replace('/', File.separatorChar));
 		OutputDB.registerBooleanPreference(OPTION_SHOW_OUTPUT_NAME_FOR_OTHER_ITEMS, false);
+	}
+
+	/**
+	 * Default characters/portraits/backups dir, rooted in the user's home so it
+	 * stays writable when PCGen is installed under Program Files.
+	 */
+	static String defaultCharactersDir()
+	{
+		String root = SystemUtils.USER_HOME;
+		if (SystemUtils.IS_OS_WINDOWS)
+		{
+			String userProfile = System.getenv("USERPROFILE");
+			if (userProfile != null && !userProfile.isEmpty())
+			{
+				File documents = new File(userProfile, "Documents");
+				if (documents.isDirectory())
+				{
+					root = documents.getAbsolutePath();
+				}
+			}
+		}
+		return root + File.separator + "PCGen" + File.separator + "characters";
 	}
 
 	@Override
