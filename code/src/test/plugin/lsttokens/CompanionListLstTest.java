@@ -19,11 +19,15 @@ package plugin.lsttokens;
 
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.net.URISyntaxException;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Loadable;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.list.CompanionList;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
@@ -41,6 +45,8 @@ import plugin.pretokens.writer.PreRaceWriter;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 class CompanionListLstTest extends AbstractGlobalTokenTestCase
 {
@@ -88,101 +94,48 @@ class CompanionListLstTest extends AbstractGlobalTokenTestCase
 		return token;
 	}
 
-	@Test
-	void testInvalidEmpty()
+	@ParameterizedTest(name = "{0}")
+	@CsvSource(delimiter = '|', quoteCharacter = '"', value = {
+			"testInvalidEmpty                    | ''",
+			"testInvalidListNameOnly             | Familiar",
+			"testInvalidListNameBarOnly          | Familiar|",
+			"testInvalidEmptyListName            | |Lion",
+			"testInvalidTypeRaceBarOnly          | Familiar|Lion|",
+			"testInvalidTypeRaceTypeEmpty        | Familiar|RACETYPE=",
+			"testInvalidNonSensicalAnyType       | Familiar|ANY,TYPE=Foo",
+			"testInvalidRaceCommaStarting        | Familiar|,Lion",
+			"testInvalidRaceCommaEnding          | Familiar|Lion,",
+			"testInvalidRaceDoubleComma          | Familiar|Lion,,Tiger",
+			"testInvalidRacePipe                 | Familiar|Lion|Tiger",
+			"testInvalidSpellEmbeddedPre         | Familiar|Lion|PRERACE:1,Human|Tiger",
+			"testInvalidNonSensicalAnyLast       | Familiar|Tiger,Any",
+			"testInvalidNonSensicalAnyFirst      | Familiar|Any,Lion",
+			"testInvalidEmbeddedFA               | Familiar|FOLLOWERADJUSTMENT:-4|Lion",
+			"testInvalidMultipleFOLLOWERADJUSTMENT| Familiar|Lion|FOLLOWERADJUSTMENT:-2|FOLLOWERADJUSTMENT:-3",
+			"testInvalidOnlyFOLLOWERADJUSTMENTBar | Familiar|FOLLOWERADJUSTMENT:-3|",
+			"testInvalidEmptyTimes                | Familiar||Lion",
+			"testInvalidBadFA                     | Familiar|Lion|FOLLOWERADJUSTMENT:",
+			"testInvalidFANaN                     | Familiar|Lion|FOLLOWERADJUSTMENT:-T",
+			"testInvalidFADecimal                 | Familiar|Lion|FOLLOWERADJUSTMENT:-4.5",
+	})
+	void testInvalidParse(String label, String value)
 	{
-		assertFalse(parse(""));
+		assertFalse(parse(value), label + ": expected parse to fail for input <" + value + ">");
+		assertNull(getWriteToken().unparse(primaryContext, primaryProf), label + ": no partial state should have been committed");
 		assertNoSideEffects();
 	}
 
-	@Test
-	void testInvalidListNameOnly()
+	@ParameterizedTest(name = "{1}: {0}")
+	@CsvSource({
+			"'Familiar|TYPE=',         Empty TYPE= payload should fail to parse",
+			"'Familiar|TYPE=Foo.',     Trailing dot in TYPE= should fail to parse",
+			"'Familiar|TYPE=.Foo',     Leading dot in TYPE= should fail to parse",
+			"'Familiar|TYPE=Foo..Bar', Empty inner segment in TYPE= should fail to parse",
+	})
+	void testInvalidTypeClause(String value, String reason)
 	{
-		assertFalse(parse("Familiar"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	void testInvalidListNameBarOnly()
-	{
-		assertFalse(parse("Familiar|"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	void testInvalidEmptyListName()
-	{
-		assertFalse(parse("|Lion"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	void testInvalidTypeRaceBarOnly()
-	{
-		assertFalse(parse("Familiar|Lion|"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	void testInvalidTypeRaceTypeEmpty()
-	{
-		assertFalse(parse("Familiar|RACETYPE="));
-		assertNoSideEffects();
-	}
-
-	@Test
-	void testInvalidRaceCommaStarting()
-	{
-		assertFalse(parse("Familiar|,Lion"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	void testInvalidRaceCommaEnding()
-	{
-		assertFalse(parse("Familiar|Lion,"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	void testInvalidRaceDoubleComma()
-	{
-		assertFalse(parse("Familiar|Lion,,Tiger"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	void testInvalidRacePipe()
-	{
-		assertFalse(parse("Familiar|Lion|Tiger"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	void testInvalidSpellEmbeddedPre()
-	{
-		assertFalse(parse("Familiar|Lion|PRERACE:1,Human|Tiger"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	void testInvalidNonSensicalAnyLast()
-	{
-		assertFalse(parse("Familiar|Tiger,Any"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	void testInvalidNonSensicalAnyFirst()
-	{
-		assertFalse(parse("Familiar|Any,Lion"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	void testInvalidEmbeddedFA()
-	{
-		assertFalse(parse("Familiar|FOLLOWERADJUSTMENT:-4|Lion"));
+		assertFalse(parse(value), reason);
+		assertNull(getWriteToken().unparse(primaryContext, primaryProf));
 		assertNoSideEffects();
 	}
 
@@ -201,48 +154,6 @@ class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	void testInvalidMultipleFOLLOWERADJUSTMENT()
-	{
-		assertFalse(parse("Familiar|Lion|FOLLOWERADJUSTMENT:-2|FOLLOWERADJUSTMENT:-3"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	void testInvalidOnlyFOLLOWERADJUSTMENTBar()
-	{
-		assertFalse(parse("Familiar|FOLLOWERADJUSTMENT:-3|"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	void testInvalidEmptyTimes()
-	{
-		assertFalse(parse("Familiar||Lion"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	void testInvalidBadFA()
-	{
-		assertFalse(parse("Familiar|Lion|FOLLOWERADJUSTMENT:"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	void testInvalidFANaN()
-	{
-		assertFalse(parse("Familiar|Lion|FOLLOWERADJUSTMENT:-T"));
-		assertNoSideEffects();
-	}
-
-	@Test
-	void testInvalidFADecimal()
-	{
-		assertFalse(parse("Familiar|Lion|FOLLOWERADJUSTMENT:-4.5"));
-		assertNoSideEffects();
-	}
-
-	@Test
 	void testInvalidOnlyPre()
 	{
 		try
@@ -257,19 +168,31 @@ class CompanionListLstTest extends AbstractGlobalTokenTestCase
 				assertNoSideEffects();
 			}
 		}
-		catch (IllegalArgumentException iae)
+		catch (IllegalArgumentException _)
 		{
 			assertNoSideEffects();
 			// This is ok too
 		}
 	}
 
-	@Test
-	void testRoundRobinJustRace() throws PersistenceLayerException
+	// Tab-delimited so the pipe-heavy LST inputs need no CSV escaping.
+	@ParameterizedTest(name = "{0}")
+	@CsvSource(delimiter = '\t', value = {
+			"testRoundRobinJustRace         \tLion       \tFamiliar|Lion",
+			"testRoundRobinTwoRace          \tLion,Tiger \tFamiliar|Lion,Tiger",
+			"testRoundRobinAnyRace          \tLion,Tiger \tFamiliar|ANY",
+			"testRoundRobinTwoWithRacetype  \tLion,Tiger \tFamiliar|Lion,RACETYPE=Clawed",
+			"testRoundRobinFA               \tLion       \tFamiliar|Lion|FOLLOWERADJUSTMENT:-4",
+	})
+	void testRoundRobinSimple(String label, String racesCsv, String input) throws PersistenceLayerException
 	{
-		construct(Race.class, "Lion");
 		construct(CompanionList.class, "Familiar");
-		runRoundRobin("Familiar|Lion");
+		for (String r : racesCsv.split(","))
+		{
+			construct(Race.class, r.trim());
+		}
+		runRoundRobin(input);
+		assertNotNull(getWriteToken().unparse(primaryContext, primaryProf), label);
 	}
 
 	private <T extends Loadable> void construct(Class<T> cl, String name)
@@ -279,38 +202,58 @@ class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	void testRoundRobinTwoRace() throws PersistenceLayerException
+	void testRoundRobinType() throws PersistenceLayerException
 	{
 		construct(CompanionList.class, "Familiar");
-		construct(Race.class, "Lion");
-		construct(Race.class, "Tiger");
-		runRoundRobin("Familiar|Lion,Tiger");
+		Race primary = primaryContext.getReferenceContext().constructCDOMObject(Race.class, "Lion");
+		primary.addToListFor(ListKey.TYPE, Type.getConstant("Animal"));
+		Race secondary = secondaryContext.getReferenceContext().constructCDOMObject(Race.class, "Lion");
+		secondary.addToListFor(ListKey.TYPE, Type.getConstant("Animal"));
+		runRoundRobin("Familiar|TYPE=Animal");
+		assertNotNull(getWriteToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	void testRoundRobinAnyRace() throws PersistenceLayerException
+	void testRoundRobinTypeCompound() throws PersistenceLayerException
 	{
 		construct(CompanionList.class, "Familiar");
-		construct(Race.class, "Lion");
-		construct(Race.class, "Tiger");
-		runRoundRobin("Familiar|ANY");
+		Race primary = primaryContext.getReferenceContext().constructCDOMObject(Race.class, "Lion");
+		primary.addToListFor(ListKey.TYPE, Type.getConstant("Animal"));
+		primary.addToListFor(ListKey.TYPE, Type.getConstant("Magical"));
+		Race secondary = secondaryContext.getReferenceContext().constructCDOMObject(Race.class, "Lion");
+		secondary.addToListFor(ListKey.TYPE, Type.getConstant("Animal"));
+		secondary.addToListFor(ListKey.TYPE, Type.getConstant("Magical"));
+		runRoundRobin("Familiar|TYPE=Animal.Magical");
+		assertNotNull(getWriteToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	void testRoundRobinTwoWithRacetype() throws PersistenceLayerException
+	void testRoundRobinMultipleType() throws PersistenceLayerException
 	{
 		construct(CompanionList.class, "Familiar");
-		construct(Race.class, "Lion");
-		construct(Race.class, "Tiger");
-		runRoundRobin("Familiar|Lion,RACETYPE=Clawed");
+		Race primaryLion = primaryContext.getReferenceContext().constructCDOMObject(Race.class, "Lion");
+		primaryLion.addToListFor(ListKey.TYPE, Type.getConstant("Animal"));
+		Race primarySpider = primaryContext.getReferenceContext().constructCDOMObject(Race.class, "Spider");
+		primarySpider.addToListFor(ListKey.TYPE, Type.getConstant("Vermin"));
+		Race secondaryLion = secondaryContext.getReferenceContext().constructCDOMObject(Race.class, "Lion");
+		secondaryLion.addToListFor(ListKey.TYPE, Type.getConstant("Animal"));
+		Race secondarySpider = secondaryContext.getReferenceContext().constructCDOMObject(Race.class, "Spider");
+		secondarySpider.addToListFor(ListKey.TYPE, Type.getConstant("Vermin"));
+		runRoundRobin("Familiar|TYPE=Animal,TYPE=Vermin");
+		assertNotNull(getWriteToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	void testRoundRobinFA() throws PersistenceLayerException
+	void testRoundRobinMixedClauses() throws PersistenceLayerException
 	{
 		construct(CompanionList.class, "Familiar");
-		construct(Race.class, "Lion");
-		runRoundRobin("Familiar|Lion|FOLLOWERADJUSTMENT:-4");
+		construct(Race.class, "Cat");
+		Race primary = primaryContext.getReferenceContext().constructCDOMObject(Race.class, "MyCompanionRace");
+		primary.addToListFor(ListKey.TYPE, Type.getConstant("MyCompanion"));
+		Race secondary = secondaryContext.getReferenceContext().constructCDOMObject(Race.class, "MyCompanionRace");
+		secondary.addToListFor(ListKey.TYPE, Type.getConstant("MyCompanion"));
+		runRoundRobin("Familiar|Cat,TYPE=MyCompanion,RACESUBTYPE=Fire,RACETYPE=Animal|FOLLOWERADJUSTMENT:-3");
+		assertNotNull(getWriteToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
@@ -323,6 +266,7 @@ class CompanionListLstTest extends AbstractGlobalTokenTestCase
 		runRoundRobin("Familiar|Bear|FOLLOWERADJUSTMENT:-6",
 				"Familiar|Lion|FOLLOWERADJUSTMENT:-4",
 				"Familiar|Tiger|FOLLOWERADJUSTMENT:-5");
+		assertNotNull(getWriteToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
@@ -334,6 +278,7 @@ class CompanionListLstTest extends AbstractGlobalTokenTestCase
 		construct(Race.class, "Tiger");
 		runRoundRobin("Companion|Lion|FOLLOWERADJUSTMENT:-5",
 				"Familiar|Tiger|FOLLOWERADJUSTMENT:-5");
+		assertNotNull(getWriteToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
@@ -343,6 +288,7 @@ class CompanionListLstTest extends AbstractGlobalTokenTestCase
 		construct(Race.class, "Lion");
 		construct(Race.class, "Tiger");
 		runRoundRobin("Familiar|Lion,Tiger|FOLLOWERADJUSTMENT:-3|!PRECLASS:1,Cleric=1|PRERACE:1,Human");
+		assertNotNull(getWriteToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
@@ -353,6 +299,7 @@ class CompanionListLstTest extends AbstractGlobalTokenTestCase
 		construct(Race.class, "Tiger");
 		runRoundRobin("Familiar|Lion|FOLLOWERADJUSTMENT:-5",
 				"Familiar|Tiger|FOLLOWERADJUSTMENT:-5|PRERACE:1,Human");
+		assertNotNull(getWriteToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
@@ -363,6 +310,7 @@ class CompanionListLstTest extends AbstractGlobalTokenTestCase
 		runRoundRobin(
 				"Familiar|Tiger|FOLLOWERADJUSTMENT:-5|PRECLASS:1,Cleric=1",
 				"Familiar|Tiger|FOLLOWERADJUSTMENT:-5|PRERACE:1,Human");
+		assertNotNull(getWriteToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
@@ -373,6 +321,7 @@ class CompanionListLstTest extends AbstractGlobalTokenTestCase
 		runRoundRobin(
 				"Familiar|Tiger|FOLLOWERADJUSTMENT:-3|PRECLASS:1,Cleric=1",
 				"Familiar|Tiger|FOLLOWERADJUSTMENT:-5|PRERACE:1,Human");
+		assertNotNull(getWriteToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
@@ -399,6 +348,7 @@ class CompanionListLstTest extends AbstractGlobalTokenTestCase
 			+ "Psicrystal (Hero),Psicrystal (Liar),Psicrystal (Meticulous),Psicrystal (Nimble),Psicrystal (Observant),"
 			+ "Psicrystal (Poised),Psicrystal (Resolved),Psicrystal (Sage),Psicrystal (Single Minded),"
 			+ "Psicrystal (Sneaky),Psicrystal (Sympathetic)");
+		assertNotNull(getWriteToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Override
@@ -418,17 +368,4 @@ class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	{
 		return ConsolidationRule.SEPARATE;
 	}
-
-//	private void buildCompanionMod(String type)
-//	{
-//		String mod = "isAMod";
-//		ReferenceContext ref1 = primaryContext.ref;
-//		ReferenceContext ref2 = secondaryContext.ref;
-//		CompanionList cl1 = ref1.silentlyGetConstructedCDOMObject(CompanionList.class, type);
-//		CompanionList cl2 = ref2.silentlyGetConstructedCDOMObject(CompanionList.class, type);
-//		CompanionMod cm1 = ref1.constructCDOMObject(CompanionMod.class, mod);
-//		CompanionMod cm2 = ref2.constructCDOMObject(CompanionMod.class, mod);
-//		ref1.reassociateCategory(cl1, cm1);
-//		ref1.reassociateCategory(cl2, cm2);
-//	}
 }
