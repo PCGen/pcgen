@@ -25,8 +25,6 @@ import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
 import plugin.lsttokens.template.WeaponbonusToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-import org.junit.jupiter.api.Test;
-
 class WeaponbonusIntegrationTest extends
 		AbstractListIntegrationTestCase<PCTemplate, WeaponProf>
 {
@@ -68,12 +66,6 @@ class WeaponbonusIntegrationTest extends
 	public char getJoinCharacter()
 	{
 		return '|';
-	}
-
-	@Test
-	void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override

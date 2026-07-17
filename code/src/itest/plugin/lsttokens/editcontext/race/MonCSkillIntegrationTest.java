@@ -72,12 +72,6 @@ class MonCSkillIntegrationTest extends
 		return '|';
 	}
 
-	@Test
-	void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
 	@Override
 	public boolean isClearDotLegal()
 	{

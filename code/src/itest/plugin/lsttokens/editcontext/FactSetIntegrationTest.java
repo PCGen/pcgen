@@ -92,12 +92,6 @@ class FactSetIntegrationTest extends
 	}
 
 	@Test
-	void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
-	@Test
 	void testRoundRobinOne() throws PersistenceLayerException
 	{
 		verifyCleanStart();

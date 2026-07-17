@@ -21,8 +21,6 @@ import pcgen.core.Equipment;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.equipment.EqmodToken;
 
-import org.junit.jupiter.api.Test;
-
 class EqmodIntegrationTest extends AbstractEqModIntegrationTestCase
 {
 
@@ -34,9 +32,4 @@ class EqmodIntegrationTest extends AbstractEqModIntegrationTestCase
 		return token;
 	}
 
-	@Test
-	void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
 }

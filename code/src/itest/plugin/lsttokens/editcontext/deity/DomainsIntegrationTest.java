@@ -25,8 +25,6 @@ import plugin.lsttokens.deity.DomainsToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-import org.junit.jupiter.api.Test;
-
 class DomainsIntegrationTest extends
 		AbstractListIntegrationTestCase<Deity, Domain>
 {
@@ -68,12 +66,6 @@ class DomainsIntegrationTest extends
 	public char getJoinCharacter()
 	{
 		return ',';
-	}
-
-	@Test
-	void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override
