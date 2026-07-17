@@ -84,6 +84,14 @@ public final class CharacterManager
 	 */
 	public static CharacterFacade createNewCharacter(UIDelegate delegate, DataSetFacade dataset)
 	{
+		if (dataset == null)
+		{
+			Logging.errorPrint("Unable to create character: data sources failed to load (see earlier errors)");
+			delegate.showErrorMessage(LanguageBundle.getString("in_cmCreateErrorTitle"),
+				LanguageBundle.getFormattedString("in_cmCreateErrorMessage",
+					"data sources failed to load - see earlier errors in the log"));
+			return null;
+		}
 		@SuppressWarnings("rawtypes")
 		List campaigns = ListFacades.wrap(dataset.getCampaigns());
 		try
@@ -169,6 +177,14 @@ public final class CharacterManager
     private static PlayerCharacter openPcInternal(File file, UIDelegate delegate, DataSetFacade dataset,
 		boolean blockLoadedMessage)
 	{
+		if (dataset == null)
+		{
+			Logging.errorPrint("Unable to load character " + file + ": data sources failed to load (see earlier errors)");
+			delegate.showErrorMessage(LanguageBundle.getString("in_cmLoadErrorTitle"),
+				LanguageBundle.getFormattedString("in_cmLoadErrorMessage",
+					file, "data sources failed to load - see earlier errors in the log"));
+			return null;
+		}
 		@SuppressWarnings("rawtypes")
 		List campaigns = ListFacades.wrap(dataset.getCampaigns());
 		try

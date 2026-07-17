@@ -27,6 +27,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Observable;
+import java.util.Optional;
 import java.util.Set;
 
 import pcgen.cdom.base.CDOMObject;
@@ -281,7 +282,15 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 		String aString;
 		try
 		{
-			aString = LstFileLoader.readFromURI(uri).get();
+			// readFromURI returns Optional.empty() when it logs a non-fatal IO/decode error
+			// (e.g. a non-UTF-8 .lst). Skip the file rather than aborting the whole load.
+			Optional<String> read = LstFileLoader.readFromURI(uri);
+			if (read.isEmpty())
+			{
+				setChanged();
+				return;
+			}
+			aString = read.get();
 		}
 		catch (PersistenceLayerException ple)
 		{

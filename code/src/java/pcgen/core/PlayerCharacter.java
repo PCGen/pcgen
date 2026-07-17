@@ -228,6 +228,7 @@ import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.ChooseActivation;
 import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.RaceUtilities;
+import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.SpellCountCalc;
@@ -542,6 +543,20 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	public PlayerCharacter(Collection<Campaign> loadedCampaigns)
 	{
 		LoadContext context = Globals.getContext();
+		// Fail fast on a half-loaded dataset: without a SizeAdjustment flagged
+		// ISDEFAULTSIZE:YES, damage scaling, equipment sizing and the size facet
+		// would all NPE deep in facet wiring.
+		if (SizeUtilities.getDefaultSizeAdjustment() == null)
+		{
+			String gameModeName = SettingsHandler.getGameAsProperty().get().getName();
+			Logging.errorPrint("Game mode '" + gameModeName
+				+ "' has no default size: no SizeAdjustment was loaded with ISDEFAULTSIZE:YES."
+				+ " Sizes are typically defined in a *__sizes.lst file inside the gamemode's"
+				+ " Core Rules data source (e.g. data/pathfinder/.../core_essentials/ce__sizes.lst)."
+				+ " Exactly one size in that file must be flagged ISDEFAULTSIZE:YES.");
+			throw new IllegalStateException("Game mode '" + gameModeName
+				+ "' has no default size. Check earlier log errors for the missing data source.");
+		}
 		id = CharID.getID(context.getDataSetID());
 		AbstractReferenceContext refContext = context.getReferenceContext();
 		controller = refContext.constructNowIfNecessary(CodeControl.class, "Controller");
