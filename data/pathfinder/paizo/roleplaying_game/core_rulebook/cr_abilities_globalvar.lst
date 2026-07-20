@@ -404,6 +404,8 @@ CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Drui
 
 ###Block:
 # Ability Name			Define							Modify VAR
+CATEGORY=Class|Fighter.MOD	DEFINE:FighterProfsAltered|0
+
 CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_ClassSkills|0
 CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_BonusFeats|0
 CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_Bravery|0
@@ -448,6 +450,8 @@ CATEGORY=Class|Fighter.MOD									BONUS:VAR|Fighter_CF_MediumArmorProficiency|1
 CATEGORY=Class|Fighter.MOD									BONUS:VAR|Fighter_CF_HeavyArmorProficiency|1|PREFACT:1,ABILITIES,Fighter_CF_HeavyArmorProficiency=true
 CATEGORY=Class|Fighter.MOD									BONUS:VAR|Fighter_CF_ShieldProficiency|1|PREFACT:1,ABILITIES,Fighter_CF_ShieldProficiency=true
 
+#COMMENT: Using this to flag alterations for the prof output of the fighter.
+CATEGORY=Class|Fighter.MOD									BONUS:VAR|FighterProfsAltered|1|PREMULT:1,[PREVAREQ:Fighter_CF_ArmorProficiencies,1],[PREVAREQ:Fighter_CF_Proficiencies,1],[PREVAREQ:Fighter_CF_LightArmorProficiency,1],[PREVAREQ:Fighter_CF_MediumArmorProficiency,1],[PREVAREQ:Fighter_CF_HeavyArmorProficiency,1],[PREVAREQ:Fighter_CF_TowerShieldProficiency,1],[PREVAREQ:Fighter_CF_ShieldProficiency,1]
 
 CATEGORY=Class|Fighter.MOD									BONUS:VAR|Fighter_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_ClassSkills=True
 CATEGORY=Class|Fighter.MOD									BONUS:VAR|Fighter_CF_BonusFeats|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_BonusFeats=True
