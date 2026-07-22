@@ -21,6 +21,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Objects;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import pcgen.base.enumeration.TypeSafeConstant;
 import pcgen.base.util.CaseInsensitiveMap;
 
@@ -155,15 +156,11 @@ public final class DisplayLocation implements TypeSafeConstant, Comparable<Displ
 	}
 
 	@Override
+	@SuppressFBWarnings(value = "EQ_COMPARETO_USE_OBJECT_EQUALS",
+		justification = "Singleton-by-construction via getConstant intern map; "
+			+ "no .equals() callers, not used as a collection key. Identity equality is correct here.")
 	public int compareTo(DisplayLocation type)
 	{
-		/*
-		 * Note: Some tools will report a problem here because Type implements
-		 * compareTo, but does not implement custom implementations of hashCode
-		 * or equals(). Because this is intended as a TypeSafeConstant, and Type
-		 * has a private constructor, it is unnecessary to implement a custom
-		 * hashCode or equals.
-		 */
 		return fieldName.compareTo(type.fieldName);
 	}
 	
