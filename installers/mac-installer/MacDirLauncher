@@ -1,6 +1,0 @@
-#!/bin/bash
-
-DIR="${0%/*}"
-cd "$DIR/../app"
-
-"$DIR/PcGen"
