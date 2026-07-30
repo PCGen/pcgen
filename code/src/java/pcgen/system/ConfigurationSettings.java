@@ -19,6 +19,11 @@
 package pcgen.system;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Objects;
+import java.util.stream.Stream;
 
 import org.apache.commons.lang3.SystemUtils;
 
@@ -161,25 +166,69 @@ public final class ConfigurationSettings extends PropertyContext
 		return expandRelativePath(getSystemProperty(key));
 	}
 
+	/**
+	 * The directory PCGen's bundled data (@data, @plugins, …) is resolved
+	 * against. It must be found independently of the process working directory,
+	 * because a packaged (jpackage) launcher starts with an arbitrary cwd — a
+	 * Finder/double-click launch on macOS gives user.dir=/ — and PCGen is a
+	 * linked module in the bundled runtime, so it has no jar location to key off.
+	 *
+	 * The one location the JVM always reports accurately is java.home (the
+	 * runtime image). In a jpackage bundle the app payload sits next to that
+	 * runtime at an OS-specific offset (Contents/app vs lib/app vs app), so we
+	 * walk up from java.home and return the first ancestor — or immediate child
+	 * of an ancestor — that actually contains PCGen's data (the "data" +
+	 * "system" folders). Falls back to user.dir for dev/IDE runs where the
+	 * runtime is a full JDK elsewhere. See issue #7678.
+	 */
+	private static String getInstallRoot()
+	{
+		String javaHome = SystemUtils.JAVA_HOME;
+		if (javaHome == null)
+		{
+			return SystemUtils.USER_DIR;
+		}
+		return Stream.iterate(Path.of(javaHome), Objects::nonNull, Path::getParent)
+				.flatMap(dir -> Stream.concat(Stream.of(dir), listDirectories(dir)))
+				.filter(ConfigurationSettings::looksLikeInstallRoot)
+				.findFirst()
+				.map(Path::toString)
+				.orElse(SystemUtils.USER_DIR);
+	}
+
+	private static Stream<Path> listDirectories(Path dir)
+	{
+		try (Stream<Path> children = Files.list(dir))
+		{
+			// Collect eagerly: the stream must outlive this try-with-resources.
+			return children.filter(Files::isDirectory).toList().stream();
+		}
+		catch (IOException _)
+		{
+			return Stream.empty();
+		}
+	}
+
+	private static boolean looksLikeInstallRoot(Path dir)
+	{
+		return Files.isDirectory(dir.resolve("data")) && Files.isDirectory(dir.resolve("system"));
+	}
+
 	private static String expandRelativePath(String path)
 	{
-		// TODO: a dirty hack for Mac bundles only
-		if (SystemUtils.USER_DIR.endsWith("MacOS") && path.startsWith("@"))
+		if (path.startsWith("@"))
 		{
-			path = SystemUtils.USER_DIR + File.separator + ".." + File.separator + "app" + File.separator + path.substring(1);
-		}
-		else if (path.startsWith("@"))
-		{
-			path = SystemUtils.USER_DIR + File.separator + path.substring(1);
+			path = getInstallRoot() + File.separator + path.substring(1);
 		}
 		return path;
 	}
 
 	private static String unexpandRelativePath(String path)
 	{
-		if (path.startsWith(SystemUtils.USER_DIR + File.separator))
+		String root = getInstallRoot();
+		if (path.startsWith(root + File.separator))
 		{
-			path = '@' + path.substring(SystemUtils.USER_DIR.length() + 1);
+			path = '@' + path.substring(root.length() + 1);
 		}
 		return path;
 	}
