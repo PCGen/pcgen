@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 import org.apache.commons.lang3.SystemUtils;
@@ -183,17 +184,28 @@ public final class ConfigurationSettings extends PropertyContext
 	 */
 	private static String getInstallRoot()
 	{
-		String javaHome = SystemUtils.JAVA_HOME;
+		return findInstallRoot(SystemUtils.JAVA_HOME)
+				.map(Path::toString)
+				.orElse(SystemUtils.USER_DIR);
+	}
+
+	/**
+	 * Walk up from {@code javaHome} and return the first ancestor — or immediate
+	 * child of an ancestor — that holds PCGen's bundled data (the "data" +
+	 * "system" folders), or empty if none is found (the caller then falls back
+	 * to user.dir). Package-private and parameterised on {@code javaHome} so it
+	 * can be exercised without touching real system properties.
+	 */
+	static Optional<Path> findInstallRoot(String javaHome)
+	{
 		if (javaHome == null)
 		{
-			return SystemUtils.USER_DIR;
+			return Optional.empty();
 		}
 		return Stream.iterate(Path.of(javaHome), Objects::nonNull, Path::getParent)
 				.flatMap(dir -> Stream.concat(Stream.of(dir), listDirectories(dir)))
 				.filter(ConfigurationSettings::looksLikeInstallRoot)
-				.findFirst()
-				.map(Path::toString)
-				.orElse(SystemUtils.USER_DIR);
+				.findFirst();
 	}
 
 	private static Stream<Path> listDirectories(Path dir)
