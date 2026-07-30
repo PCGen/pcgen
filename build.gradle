@@ -316,6 +316,9 @@ def hostJdkExt = (hostOs == "windows") ? "zip" : "tar.gz"
 def hostJfxOsPackage = (hostOs == "mac") ? "osx" : hostOs
 def hostJfxArchSuffix = "-${hostArch}"
 
+// Assets staged here (dir named "app") are fed to jpackage via --app-content.
+def jpackageStageDir = layout.buildDirectory.dir("jpackageStage/app")
+
 jlink {
     options = ['--strip-debug', '--no-header-files', '--no-man-pages']
     addExtraDependencies('javafx')
@@ -405,6 +408,9 @@ jlink {
 
         installerOptions = opts
         imageName = "PcGen"
+
+        // Embed runtime assets via --app-content so jpackage builds and signs the whole image.
+        imageOptions = ['--app-content', jpackageStageDir.get().asFile.absolutePath]
     }
 }
 
@@ -440,75 +446,26 @@ tasks.named("jlink") {
     tasks.named(taskName) { dependsOn "extractJdk" }
 }
 
+// Stage runtime assets into a PCGen-owned "app" dir; jpackage embeds them via --app-content.
 tasks.register("assembleJpackageImage", Copy) {
-    dependsOn tasks.named("jpackageImage"), tasks.named("installDist")
+    dependsOn tasks.named("installDist")
     includeEmptyDirs = false
     from layout.buildDirectory.dir("install/pcgen")
     exclude "**/*.exe"
     exclude "**/*.bat"
     exclude "pcgen"
     exclude "**/lib/**"
-    if (Os.isFamily(Os.FAMILY_MAC)) {
-        into layout.buildDirectory.dir("jpackage/PcGen.app/Contents/app")
-    } else {
-        into layout.buildDirectory.dir("jpackage/PcGen")
-    }
-    // jpackageImage wipes the output dir on rebuild; always re-copy
-    outputs.upToDateWhen { false }
+    into jpackageStageDir
 }
 
-if (Os.isFamily(Os.FAMILY_MAC)) {
-    tasks.register("patchMacJpackage", Copy) {
-        dependsOn tasks.named("assembleJpackageImage")
-        from layout.projectDirectory.dir("installers/mac-installer")
-        include "MacDirLauncher"
-        filePermissions {
-            unix(0755)
-        }
-        into layout.buildDirectory.dir("jpackage/PcGen.app/Contents/MacOS")
-        def plistFile = layout.buildDirectory.file("jpackage/PcGen.app/Contents/Info.plist")
-        doLast {
-            def plist = plistFile.get().asFile
-            def content = plist.text
-            content = content.replace(
-                "<key>CFBundleExecutable</key>\n  <string>PcGen</string>",
-                "<key>CFBundleExecutable</key>\n  <string>MacDirLauncher</string>")
-            plist.text = content
-        }
-    }
+// jpackage reads --app-content at image build, so stage the assets first.
+tasks.named("jpackageImage") {
+    dependsOn tasks.named("assembleJpackageImage")
+}
 
-    // jpackage seals the bundle with an ad-hoc signature; rewriting
-    // Info.plist and dropping MacDirLauncher into Contents/MacOS above
-    // invalidates that seal, so `spctl -a` rejects the result as
-    // "directory or signature have been modified". Re-sign ad-hoc so
-    // the bundle is internally consistent. Users still see Gatekeeper
-    // on first launch (no Developer ID), but a single
-    // `xattr -dr com.apple.quarantine PcGen.app` is then enough —
-    // no `codesign --force --deep` round-trip required.
-    tasks.register("codesignMacJpackage", Exec) {
-        dependsOn tasks.named("patchMacJpackage")
-        def appBundleDir = layout.buildDirectory.dir("jpackage/PcGen.app")
-        commandLine "codesign", "--force", "--deep", "--sign", "-",
-                appBundleDir.get().asFile.absolutePath
-    }
-
-    // jpackage packages the image at build/jpackage/PcGen.app — make sure the
-    // data folders and the patched plist+launcher are in place before it runs.
-    tasks.named("jpackage") { dependsOn tasks.named("codesignMacJpackage") }
-
-    tasks.register("fullJpackage") {
-        dependsOn tasks.named("jpackage")
-        description = "Build the native application bundle with jpackage"
-    }
-} else {
-    // Same idea for Linux/Windows: jpackage reads build/jpackage/PcGen, which
-    // assembleJpackageImage populates with /data, /plugins, /preview, /outputsheets.
-    tasks.named("jpackage") { dependsOn tasks.named("assembleJpackageImage") }
-
-    tasks.register("fullJpackage") {
-        dependsOn tasks.named("jpackage")
-        description = "Build the native application bundle with jpackage"
-    }
+tasks.register("fullJpackage") {
+    dependsOn tasks.named("jpackage")
+    description = "Build the native application bundle with jpackage"
 }
 
 // Portable zip: same self-contained app the installer ships, but as an
@@ -516,9 +473,9 @@ if (Os.isFamily(Os.FAMILY_MAC)) {
 //
 // On macOS the bundle is packed with `ditto -c -k --keepParent` rather than
 // Gradle's Zip task: ditto preserves the 0755 exec bits on
-// Contents/MacOS/MacDirLauncher and Contents/MacOS/PcGen, plus symlinks,
-// xattrs, and code signatures. Plain Zip strips POSIX modes, leaving the
-// .app non-launchable after unzip ("application can't be opened").
+// Contents/MacOS/PcGen, plus symlinks, xattrs, and code signatures. Plain Zip
+// strips POSIX modes, leaving the .app non-launchable after unzip
+// ("application can't be opened").
 if (hostOs == "mac") {
     tasks.register("portableZip", Exec) {
         dependsOn tasks.named("fullJpackage")
