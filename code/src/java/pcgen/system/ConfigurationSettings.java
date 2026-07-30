@@ -287,7 +287,7 @@ public final class ConfigurationSettings extends PropertyContext
 
 	public static String getSettingsDirFromFilePath(String fType)
 	{
-		if ((fType == null) || (fType.length() < 1))
+		if ((fType == null) || fType.isEmpty())
 		{
 			// make sure we have a default
 			fType = getDefaultSettingsFilesPath();
@@ -298,7 +298,7 @@ public final class ConfigurationSettings extends PropertyContext
 			//Check to see if this path is one of the standard path types
 			path = SettingsFilesPath.valueOf(fType).getSettingsDir();
 		}
-		catch (IllegalArgumentException ex)
+		catch (IllegalArgumentException _)
 		{
 			//It must be a custom filepath
 			path = fType;
