@@ -144,7 +144,7 @@ public class IntegerEditor extends DefaultCellEditor
 			}
 			catch (ParseException exc)
 			{
-				System.err.println("getCellEditorValue: can't parse o: " + o);
+				pcgen.util.Logging.errorPrint("getCellEditorValue: can't parse o: " + o);
 				return null;
 			}
 		}

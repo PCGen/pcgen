@@ -5228,7 +5228,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 				Integer hp = getHP(frompcl);
 				if (hp == null)
 				{
-					System.err.println("Did not find HP for " + fromClass + ' ' + (i + 1) + ' ' + frompcl);
+					pcgen.util.Logging.errorPrint("Did not find HP for " + fromClass + ' ' + (i + 1) + ' ' + frompcl);
 				}
 				hpArray[i] = hp;
 			}
@@ -7453,12 +7453,12 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 * bookList.size(); ++bookIdx) { final String bookName = (String)
 	 * pc.getSpellBooks().get(bookIdx);
 	 *
-	 * System.err.println("=========="); System.err.println("Book:" + bookName);
+	 * pcgen.util.Logging.errorPrint("=========="); pcgen.util.Logging.errorPrint("Book:" + bookName);
 	 * final List casterList = pc.getSpellClassList(); for(int casterIdx = 0;
 	 * casterIdx < casterList.size(); ++casterIdx) { final PObject aCaster =
 	 * (PObject) casterList.get(casterIdx); final List spellList =
 	 * aCaster.getCharacterSpellList(); if (spellList == null) { continue; }
-	 * System.err.println("Class/Race:" + aCaster.getName());
+	 * pcgen.util.Logging.errorPrint("Class/Race:" + aCaster.getName());
 	 *
 	 * for (Iterator i = spellList.iterator(); i.hasNext();) { final
 	 * CharacterSpell cs = (CharacterSpell) i.next();
@@ -7466,7 +7466,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 * for (Iterator csi = cs.getInfoListIterator(); csi.hasNext();) { final
 	 * SpellInfo sInfo = (SpellInfo) csi.next(); if
 	 * (bookName.equals(sInfo.getBook())) {
-	 * System.err.println(cs.getSpell().getOutputName() + sInfo.toString() + "
+	 * pcgen.util.Logging.errorPrint(cs.getSpell().getOutputName() + sInfo.toString() + "
 	 * level:" + Integer.toString(sInfo.getActualLevel())); } } } } } }
 	 */
 

@@ -428,7 +428,7 @@ public final class Tips
 	@SuppressWarnings("UseOfSystemOutOrSystemErr")
 	private static void log(String string, Object... o)
 	{
-		System.out.println(MessageFormat.format(string, o));
+		pcgen.util.Logging.log(java.util.logging.Level.INFO, MessageFormat.format(string, o));
 	}
 
 	/**
@@ -440,7 +440,7 @@ public final class Tips
 	@SuppressWarnings({"PMD.AvoidPrintStackTrace", "UseOfSystemOutOrSystemErr"})
 	private static void logError(String string, Throwable e, Object... o)
 	{
-		System.err.println(MessageFormat.format(string, o));
+		pcgen.util.Logging.errorPrint(MessageFormat.format(string, o));
 		if (e != null)
 		{
 			e.printStackTrace();

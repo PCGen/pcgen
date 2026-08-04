@@ -134,7 +134,7 @@ public final class SolverViewFrame extends JFrame
 		else
 		{
 			//TODO Update a status bar
-			System.err.println(selectedScope.getName() + " does not have a variable: " + varNameText);
+			pcgen.util.Logging.errorPrint(selectedScope.getName() + " does not have a variable: " + varNameText);
 		}
 	}
 

@@ -42,7 +42,7 @@ public final class ShowMessageDelegate extends Observable
 		if (INSTANCE.countObservers() == 0 && messageWrapper.getMessage() != null
 			&& !messageWrapper.getMessage().toString().isEmpty())
 		{
-			System.out.println(messageWrapper.getTitle() + ": " + messageWrapper.getMessage());
+			pcgen.util.Logging.log(java.util.logging.Level.INFO, messageWrapper.getTitle() + ": " + messageWrapper.getMessage());
 		}
 	}
 

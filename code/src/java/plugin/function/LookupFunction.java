@@ -161,7 +161,7 @@ public class LookupFunction implements FormulaFunction
 		if (!dataTable.isColumn(columnName))
 		{
 			FormatManager<?> fmt = column.getFormatManager();
-			System.out.println("Lookup called on invalid column: '" + columnName + "' is not present on table '"
+			pcgen.util.Logging.errorPrint("Lookup called on invalid column: '" + columnName + "' is not present on table '"
 				+ dataTable.getName() + "' assuming default for " + fmt.getIdentifierType());
 			VariableLibrary varLib = manager.get(EvaluationManager.VARLIB);
 			return varLib.getDefault(fmt);
@@ -176,7 +176,7 @@ public class LookupFunction implements FormulaFunction
 		if (!dataTable.hasRow(lookupType, lookupValue))
 		{
 			FormatManager<?> fmt = column.getFormatManager();
-			System.out.println(
+			pcgen.util.Logging.errorPrint(
 				"Lookup called on invalid item: '" + lookupValue + "' is not present in the first row of table '"
 					+ dataTable.getName() + "' assuming default for " + fmt.getIdentifierType());
 			VariableLibrary varLib = manager.get(EvaluationManager.VARLIB);

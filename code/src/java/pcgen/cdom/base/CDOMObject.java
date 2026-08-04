@@ -830,45 +830,45 @@ public abstract class CDOMObject extends ConcretePrereqObject
 		}
 		if (integerChar == null ? cdo.integerChar != null : !integerChar.equals(cdo.integerChar))
 		{
-			// System.err.println("CDOM Inequality Integer");
-			// System.err.println(integerChar + " " + cdo.integerChar);
+			// pcgen.util.Logging.log(java.util.logging.Level.FINE, "CDOM Inequality Integer");
+			// pcgen.util.Logging.log(java.util.logging.Level.FINE, integerChar + " " + cdo.integerChar);
 			return false;
 		}
 		if (stringChar == null ? cdo.stringChar != null : !stringChar.equals(cdo.stringChar))
 		{
-			// System.err.println("CDOM Inequality String");
-			// System.err.println(stringChar + " " + cdo.stringChar);
+			// pcgen.util.Logging.log(java.util.logging.Level.FINE, "CDOM Inequality String");
+			// pcgen.util.Logging.log(java.util.logging.Level.FINE, stringChar + " " + cdo.stringChar);
 			return false;
 		}
 		if (formulaChar == null ? cdo.formulaChar != null : !formulaChar.equals(cdo.formulaChar))
 		{
-			// System.err.println("CDOM Inequality Formula");
-			// System.err.println(formulaChar + " " + cdo.formulaChar);
+			// pcgen.util.Logging.log(java.util.logging.Level.FINE, "CDOM Inequality Formula");
+			// pcgen.util.Logging.log(java.util.logging.Level.FINE, formulaChar + " " + cdo.formulaChar);
 			return false;
 		}
 		if (variableChar == null ? cdo.variableChar != null : !variableChar.equals(cdo.variableChar))
 		{
-			// System.err.println("CDOM Inequality Variable");
-			// System.err.println(variableChar + " " + cdo.variableChar);
+			// pcgen.util.Logging.log(java.util.logging.Level.FINE, "CDOM Inequality Variable");
+			// pcgen.util.Logging.log(java.util.logging.Level.FINE, variableChar + " " + cdo.variableChar);
 			return false;
 		}
 		if (objectChar == null ? cdo.objectChar != null : !objectChar.equals(cdo.objectChar))
 		{
-			// System.err.println("CDOM Inequality Object");
-			// System.err.println(objectChar + " " + cdo.objectChar);
+			// pcgen.util.Logging.log(java.util.logging.Level.FINE, "CDOM Inequality Object");
+			// pcgen.util.Logging.log(java.util.logging.Level.FINE, objectChar + " " + cdo.objectChar);
 			return false;
 		}
 		if (factChar == null ? cdo.factChar != null : !factChar.equals(cdo.factChar))
 		{
-			// System.err.println("CDOM Inequality Object");
-			// System.err.println(objectChar + " " + cdo.objectChar);
+			// pcgen.util.Logging.log(java.util.logging.Level.FINE, "CDOM Inequality Object");
+			// pcgen.util.Logging.log(java.util.logging.Level.FINE, objectChar + " " + cdo.objectChar);
 			return false;
 		}
 		if (listChar == null ? cdo.listChar != null : !listChar.equals(cdo.listChar))
 		{
-			//			 System.err.println("CDOM Inequality List");
-			//			 System.err.println(listChar + " " + cdo.listChar);
-			//			 System.err.println(listChar.getKeySet() + " "
+			//			 pcgen.util.Logging.log(java.util.logging.Level.FINE, "CDOM Inequality List");
+			//			 pcgen.util.Logging.log(java.util.logging.Level.FINE, listChar + " " + cdo.listChar);
+			//			 pcgen.util.Logging.log(java.util.logging.Level.FINE, listChar.getKeySet() + " "
 			//			 + cdo.listChar.getKeySet());
 			return false;
 		}

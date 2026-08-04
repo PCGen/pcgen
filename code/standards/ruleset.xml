@@ -33,7 +33,6 @@
         <!-- One to fix later as there are loads of these reported -->
         <exclude name="ReplaceVectorWithList" />
         <exclude name="NonExhaustiveSwitch"/>
-        <exclude name="SystemPrintln"/>
         <exclude name="UnusedAssignment"/>
         <exclude name="UnusedFormalParameter"/>
         <exclude name="UnusedPrivateField"/>

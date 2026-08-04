@@ -207,7 +207,7 @@ public final class Utility
 			String shortedString = "..." + str.substring(str.length() - i);
 
 			int width = fm.stringWidth(shortedString);
-			//System.out.println("testing '"+foo+"' = "+width);
+			//pcgen.util.Logging.log(java.util.logging.Level.FINE, "testing '"+foo+"' = "+width);
 			if (width < maxWidth)
 			{
 				return shortedString;

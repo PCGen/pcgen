@@ -312,11 +312,11 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		{
 			final Throwable e = (Exception) arg;
 			SwingUtilities.invokeLater(() -> addMessage(e.getMessage()));
-			System.out.println("Persistence Observer: ERROR: " + e.getMessage());
+			pcgen.util.Logging.errorPrint("Persistence Observer: ERROR: " + e.getMessage());
 		}
 		else
 		{
-			System.out.println("Persistence Observer: UNKNOWN: " + arg);
+			pcgen.util.Logging.errorPrint("Persistence Observer: UNKNOWN: " + arg);
 		}
 	}
 

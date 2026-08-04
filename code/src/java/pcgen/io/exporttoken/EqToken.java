@@ -131,7 +131,7 @@ public class EqToken extends Token
 		{
 			//			cacheHit++;
 			//			if (cacheHit%100==0) {
-			//				System.out.println("cacheHit"+cacheHit + ", cacheMiss="+cacheMiss);
+			//				pcgen.util.Logging.log(java.util.logging.Level.FINE, "cacheHit"+cacheHit + ", cacheMiss="+cacheMiss);
 			//			}
 
 			eqList = cachedList;

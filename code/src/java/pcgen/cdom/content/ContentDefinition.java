@@ -98,7 +98,7 @@ public abstract class ContentDefinition<T extends CDOMObject, F> extends UserCon
 	{
 		if (name==null)
 		{
-			System.out.println("display name should not be null!");
+			pcgen.util.Logging.errorPrint("display name should not be null!");
 			return;
 		}
 		displayName = name;

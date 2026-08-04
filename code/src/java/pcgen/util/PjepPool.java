@@ -49,7 +49,7 @@ public final class PjepPool
 
 	public synchronized PJEP aquire(final Object parent, String variableSource)
 	{
-		//System.out.println("aquireJep()");
+		//pcgen.util.Logging.log(java.util.logging.Level.FINE, "aquireJep()");
 		PJEP jep;
 		if (!freeStack.isEmpty())
 		{
@@ -58,7 +58,7 @@ public final class PjepPool
 		else
 		{
 			jep = new PJEP();
-			//System.err.println("aquirePJep() - creating new parser");
+			//pcgen.util.Logging.errorPrint("aquirePJep() - creating new parser");
 		}
 
 		usedList.add(jep);
@@ -70,14 +70,14 @@ public final class PjepPool
 
 	public synchronized void release(PJEP interp)
 	{
-		//System.out.println("releaseJep( " + interp + " )");
+		//pcgen.util.Logging.log(java.util.logging.Level.FINE, "releaseJep( " + interp + " )");
 		if (usedList.contains(interp))
 		{
 			usedList.remove(interp);
 		}
 		else
 		{
-			System.err.println("Tried to release a PJEP instance that we did not aquire...");
+			pcgen.util.Logging.errorPrint("Tried to release a PJEP instance that we did not aquire...");
 		}
 		interp.setParent(null);
 		freeStack.push(interp);
@@ -85,8 +85,8 @@ public final class PjepPool
 
 	public synchronized void dumpStats()
 	{
-		System.out.println("PJEP Pool: ");
-		System.out.println("    Currently Unused: " + freeStack.size());
-		System.out.println("    Currently Used  : " + usedList.size());
+		pcgen.util.Logging.log(java.util.logging.Level.FINE, "PJEP Pool: ");
+		pcgen.util.Logging.log(java.util.logging.Level.FINE, "    Currently Unused: " + freeStack.size());
+		pcgen.util.Logging.log(java.util.logging.Level.FINE, "    Currently Used  : " + usedList.size());
 	}
 }

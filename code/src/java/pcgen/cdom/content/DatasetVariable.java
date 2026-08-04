@@ -61,7 +61,7 @@ public class DatasetVariable extends UserContent
 	{
 		if (scope==null)
 		{
-			System.out.println("Scope should not be null!");
+			pcgen.util.Logging.errorPrint("Scope should not be null!");
 			return;
 		}
 		this.scope = scope;
@@ -113,7 +113,7 @@ public class DatasetVariable extends UserContent
 	{
 		if (format==null)
 		{
-			System.out.println("format should not be null!");
+			pcgen.util.Logging.errorPrint("format should not be null!");
 			return;
 		}
 		this.format = format;

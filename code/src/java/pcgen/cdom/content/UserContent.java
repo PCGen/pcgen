@@ -49,7 +49,7 @@ public abstract class UserContent implements Loadable
 	{
 		if (name==null)
 		{
-			System.out.println("Name cannot be null!");
+			pcgen.util.Logging.errorPrint("Name cannot be null!");
 			return;
 		}
 		this.name = name;
