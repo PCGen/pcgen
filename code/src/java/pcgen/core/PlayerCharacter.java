@@ -3745,6 +3745,25 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			return tallyCasterlevelBonuses(casterLev, false, bonuses);
 		}
 
+		// BONUS:CASTERLEVEL|ALLSPELLS|x applies to every spell of every casting
+		// class (both arcane and divine), like an effective caster level boost
+		// (e.g. Orange Prism Ioun Stone).
+		tStr = "ALLSPELLS";
+		tBonus = (int) getTotalBonusTo("CASTERLEVEL", tStr);
+		if (tBonus != 0) // Allow negative bonus to casterlevel (e.g. Moon Circlet)
+		{
+			tType = getSpellBonusType("CASTERLEVEL", tStr);
+			bonuses.add(new CasterLevelSpellBonus(tBonus, tType));
+		}
+		tStr += ".RESET";
+		tBonus = (int) getTotalBonusTo("CASTERLEVEL", tStr);
+		if (tBonus > 0)
+		{
+			replaceCasterLevel = true;
+			tType = getSpellBonusType("CASTERLEVEL", tStr);
+			bonuses.add(new CasterLevelSpellBonus(tBonus, tType));
+		}
+
 		if (!spellType.equals(Constants.NONE))
 		{
 			tStr = "TYPE." + spellType;

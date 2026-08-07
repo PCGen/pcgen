@@ -287,6 +287,72 @@ class PlayerCharacterTest extends AbstractCharacterTestCase
 	}
 
 	/**
+	 * BONUS:CASTERLEVEL|ALLSPELLS|x raises the effective caster level of every
+	 * spell of every casting class.
+	 */
+	@Test
+	void testCasterLevelAllSpellsBonus() throws Exception
+	{
+		readyToRun();
+
+		final Spell spell = new Spell();
+		spell.setName("Test Arcane Spell");
+		final CharacterSpell charSpell = new CharacterSpell(pcClass, spell);
+
+		// Without the bonus, effective caster level equals class level.
+		final PlayerCharacter baseChar = new PlayerCharacter();
+		baseChar.setRace(human);
+		baseChar.incrementClassLevel(3, pcClass, true);
+		baseChar.calcActiveBonuses();
+		final int base = baseChar.getTotalCasterLevelWithSpellBonus(charSpell, spell,
+			pcClass.getSpellType(), pcClass.getKeyName(), 3);
+		assertEquals(3, base, "Base effective caster level should equal class level");
+
+		// Grant BONUS:CASTERLEVEL|ALLSPELLS|3 via the race, then build a PC.
+		final BonusObj allSpells = Bonus.newBonus(Globals.getContext(), "CASTERLEVEL|ALLSPELLS|3");
+		human.addToListFor(ListKey.BONUS, allSpells);
+		human.ownBonuses(human);
+
+		final PlayerCharacter character = new PlayerCharacter();
+		character.setRace(human);
+		character.incrementClassLevel(3, pcClass, true);
+		character.calcActiveBonuses();
+
+		final int boosted = character.getTotalCasterLevelWithSpellBonus(charSpell, spell,
+			pcClass.getSpellType(), pcClass.getKeyName(), 3);
+		assertEquals(6, boosted,
+			"BONUS:CASTERLEVEL|ALLSPELLS|3 should add 3 to the spell's effective caster level");
+	}
+
+	/**
+	 * BONUS:CASTERLEVEL|ALLSPELLS with a negative value lowers effective caster
+	 * level (e.g. the Moon Circlet).
+	 */
+	@Test
+	void testCasterLevelAllSpellsNegativeBonus() throws Exception
+	{
+		readyToRun();
+
+		final BonusObj allSpells = Bonus.newBonus(Globals.getContext(), "CASTERLEVEL|ALLSPELLS|-2");
+		human.addToListFor(ListKey.BONUS, allSpells);
+		human.ownBonuses(human);
+
+		final PlayerCharacter character = new PlayerCharacter();
+		character.setRace(human);
+		character.incrementClassLevel(5, pcClass, true);
+		character.calcActiveBonuses();
+
+		final Spell spell = new Spell();
+		spell.setName("Test Arcane Spell Neg");
+		final CharacterSpell charSpell = new CharacterSpell(pcClass, spell);
+
+		final int result = character.getTotalCasterLevelWithSpellBonus(charSpell, spell,
+			pcClass.getSpellType(), pcClass.getKeyName(), 5);
+		assertEquals(3, result,
+			"A negative BONUS:CASTERLEVEL|ALLSPELLS should reduce the effective caster level");
+	}
+
+	/**
 	 * Test bonus monster feats where there default monster mode is off.
 	 * Note: As PCClass grants feats which do not exist, the feat pool gets 
 	 * incremented instead.
