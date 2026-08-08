@@ -59,6 +59,7 @@ import pcgen.core.display.CharacterDisplay;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.spell.Spell;
 import pcgen.core.system.LoadInfo;
+import pcgen.core.term.PCCasterLevelClassTermEvaluator;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.io.exporttoken.StatToken;
 import pcgen.persistence.lst.SimpleLoader;
@@ -287,6 +288,7 @@ class PlayerCharacterTest extends AbstractCharacterTestCase
 	}
 
 	/**
+	/**
 	 * BONUS:CASTERLEVEL|ALLSPELLS|x raises the effective caster level of every
 	 * spell of every casting class.
 	 */
@@ -353,8 +355,53 @@ class PlayerCharacterTest extends AbstractCharacterTestCase
 	}
 
 	/**
+	 * BONUS:PCLEVEL|TYPE.Arcane raises the caster level of every Arcane
+	 * spellcasting class (e.g. the "+1 Arcane Caster Level" GM Award).
+	 */
+	@Test
+	void testCasterLevelArcaneTypeBonus() throws Exception
+	{
+		readyToRun();
+
+		// Give the (Arcane, see setUp) class a fixed caster level of 3 so the
+		// evaluator has a nonzero base to add the TYPE bonus onto.
+		final PCClass arcaneClass = new PCClass();
+		arcaneClass.setName("ArcaneTypeClass");
+		BuildUtilities.setFact(arcaneClass, "SpellType", "Arcane");
+		arcaneClass.addToListFor(ListKey.BONUS,
+			Bonus.newBonus(Globals.getContext(), "CASTERLEVEL|ArcaneTypeClass|3"));
+		Globals.getContext().getReferenceContext().importObject(arcaneClass);
+
+		final Spell spell = new Spell();
+		spell.setName("Test Arcane Spell CL");
+		final CharacterSpell charSpell = new CharacterSpell(arcaneClass, spell);
+		final PCCasterLevelClassTermEvaluator eval = new PCCasterLevelClassTermEvaluator(
+			"CASTERLEVEL.CLASS." + arcaneClass.getKeyName(), arcaneClass.getKeyName());
+
+		// Baseline: fixed caster level 3, no PCLEVEL|TYPE bonus.
+		final PlayerCharacter baseChar = new PlayerCharacter();
+		baseChar.setRace(human);
+		baseChar.incrementClassLevel(1, arcaneClass, true);
+		baseChar.calcActiveBonuses();
+		assertEquals(3, eval.resolve(baseChar, charSpell).intValue(),
+			"Baseline caster level should be the class's fixed CASTERLEVEL of 3");
+
+		// Grant BONUS:PCLEVEL|TYPE.Arcane|1 via the race.
+		human.addToListFor(ListKey.BONUS, Bonus.newBonus(Globals.getContext(), "PCLEVEL|TYPE.Arcane|1"));
+		human.ownBonuses(human);
+
+		final PlayerCharacter character = new PlayerCharacter();
+		character.setRace(human);
+		character.incrementClassLevel(1, arcaneClass, true);
+		character.calcActiveBonuses();
+
+		assertEquals(4, eval.resolve(character, charSpell).intValue(),
+			"BONUS:PCLEVEL|TYPE.Arcane|1 should raise the Arcane class's caster level by 1 (3 + 1)");
+	}
+
+	/**
 	 * Test bonus monster feats where there default monster mode is off.
-	 * Note: As PCClass grants feats which do not exist, the feat pool gets 
+	 * Note: As PCClass grants feats which do not exist, the feat pool gets
 	 * incremented instead.
 	 */
 	@Test
