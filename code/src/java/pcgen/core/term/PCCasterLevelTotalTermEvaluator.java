@@ -52,11 +52,15 @@ public class PCCasterLevelTotalTermEvaluator extends BasePCTermEvaluator impleme
 			{
 				final String classKey = pcClass.getKeyName();
 
-				final int pcBonus = (int) pc.getTotalBonusTo("PCLEVEL", classKey);
+				String spellType = pcClass.getSpellType();
+
+				int pcBonus = (int) pc.getTotalBonusTo("PCLEVEL", classKey);
+				// BONUS:PCLEVEL|TYPE.<spellType> (e.g. the "+1 Arcane Caster
+				// Level" GM Award) applies to every class of that spell type,
+				// mirroring SpellSupportForPCClass.
+				pcBonus += (int) pc.getTotalBonusTo("PCLEVEL", "TYPE." + spellType);
 				final int castBonus = (int) pc.getTotalBonusTo("CASTERLEVEL", classKey);
 				final int iClass = (castBonus == 0) ? pc.getDisplay().getLevel(pcClass) : 0;
-
-				String spellType = pcClass.getSpellType();
 
 				iLev += pc.getTotalCasterLevelWithSpellBonus(aSpell, (aSpell == null) ? null : aSpell.getSpell(),
 					spellType, classKey, iClass + pcBonus);

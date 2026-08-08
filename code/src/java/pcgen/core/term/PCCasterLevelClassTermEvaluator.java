@@ -69,7 +69,15 @@ public class PCCasterLevelClassTermEvaluator extends BasePCTermEvaluator impleme
 		}
 
 		final double d1 = pc.getTotalBonusTo("PCLEVEL", varSource);
-		final int pcBonus = (int) d1;
+		int pcBonus = (int) d1;
+
+		// BONUS:PCLEVEL|TYPE.<spellType> (e.g. the "+1 Arcane Caster Level" GM
+		// Award) applies to every class of that spell type, mirroring the
+		// spells-known/per-day handling in SpellSupportForPCClass.
+		if (!spellType.equals(Constants.NONE))
+		{
+			pcBonus += (int) pc.getTotalBonusTo("PCLEVEL", "TYPE." + spellType);
+		}
 
 		// does the class have a Casterlevel?
 		final double d2 = pc.getTotalBonusTo("CASTERLEVEL", varSource);
