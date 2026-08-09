@@ -3698,6 +3698,14 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		return variableProcessor;
 	}
 
+	/**
+	 * Computes the caster level for a spell, or a class total when {@code aSpell}
+	 * is null, applying all matching CASTERLEVEL bonuses.
+	 *
+	 * @param acs    source of a fixed caster level; read only when {@code aSpell} is non-null
+	 * @param aSpell the spell being cast; {@code null} for a class-total query, which skips all per-spell bonuses
+	 * @return the effective caster level including bonuses
+	 */
 	public int getTotalCasterLevelWithSpellBonus(CharacterSpell acs, final Spell aSpell, final String spellType,
 												 final String classOrRace, final int casterLev)
 	{
@@ -3743,6 +3751,26 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		if (aSpell == null)
 		{
 			return tallyCasterlevelBonuses(casterLev, false, bonuses);
+		}
+
+		// BONUS:CASTERLEVEL|ALLSPELLS|x is a property of the spell being cast (every spell qualifies) regardless of
+		// tradition, so it belongs with the TYPE/SPELL/SCHOOL group below rather than the classOrRace block above,
+		// and must stay after the aSpell == null guard: a null spell is a total-caster-level query, not a per-spell
+		// one. Applied like an effective caster level boost (e.g. Orange Prism Ioun Stone).
+		tStr = "ALLSPELLS";
+		tBonus = (int) getTotalBonusTo("CASTERLEVEL", tStr);
+		if (tBonus != 0) // Allow negative bonus to casterlevel (e.g. Moon Circlet)
+		{
+			tType = getSpellBonusType("CASTERLEVEL", tStr);
+			bonuses.add(new CasterLevelSpellBonus(tBonus, tType));
+		}
+		tStr += ".RESET";
+		tBonus = (int) getTotalBonusTo("CASTERLEVEL", tStr);
+		if (tBonus > 0)
+		{
+			replaceCasterLevel = true;
+			tType = getSpellBonusType("CASTERLEVEL", tStr);
+			bonuses.add(new CasterLevelSpellBonus(tBonus, tType));
 		}
 
 		if (!spellType.equals(Constants.NONE))
