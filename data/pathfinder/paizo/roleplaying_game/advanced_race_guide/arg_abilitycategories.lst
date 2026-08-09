@@ -1,4 +1,4 @@
-#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# Sun Aug  9 12:42:58 2026 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 #SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
 # ORIGINAL ENTRY: Douglas Limmer
@@ -11,30 +11,33 @@ ABILITYCATEGORY:Vishkanya Perform Skill Bonus		VISIBLE:QUALIFY	EDITABLE:YES	EDIT
 ABILITYCATEGORY:Umbral Scion Spell				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Umbral Scion Spell		PLURAL:Umbral Scion Spells				DISPLAYLOCATION:Feats
 
 ###Block: Feats
-ABILITYCATEGORY:Elven Spirit Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Elven Magic			PLURAL:Elven Spirit Choices				DISPLAYLOCATION:Feats
+# Ability Category			Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI	Display Location
+ABILITYCATEGORY:Elven Spirit Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Elven Magic	PLURAL:Elven Spirit Choices	DISPLAYLOCATION:Feats
 
 ###Block: Core Races Racial Trait Categories
-# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location
-ABILITYCATEGORY:Elf Elemental Resistance		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Choice			TYPE:Elf Elemental Resistance		PLURAL:Elf Elemental Resistances		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Adoptive Parentage			VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Adoptive Parentage
-ABILITYCATEGORY:Heart of the... Trait		VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Heart of the... Trait
-ABILITYCATEGORY:Focused Study Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Choice			TYPE:Focused Study Choice		PLURAL:Focused Study Choices			DISPLAYLOCATION:Racial Abilities
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object			Type of Object			Plural description for UI		Display Location
+ABILITYCATEGORY:Elf Elemental Resistance	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Choice				TYPE:Elf Elemental Resistance	PLURAL:Elf Elemental Resistances	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Adoptive Parentage		VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Adoptive Parentage
+ABILITYCATEGORY:Heart of the... Trait	VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Heart of the... Trait
+ABILITYCATEGORY:Focused Study Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Choice				TYPE:Focused Study Choice	PLURAL:Focused Study Choices		DISPLAYLOCATION:Racial Abilities
 
 
-ABILITYCATEGORY:Heart of the Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Heart of the... Trait	TYPE:Heart of the Trait		PLURAL:Heart of the Traits			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Heart of the Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Heart of the... Trait	TYPE:Heart of the Trait		PLURAL:Heart of the Traits		DISPLAYLOCATION:Racial Abilities
 
 
 
 ###Block: Core Races Feat Categories
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location
 ABILITYCATEGORY:Multitalented Mastery Bonus	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MultitalentedMasteryBonus	PLURAL:Multitalented Mastery Bonuses	DISPLAYLOCATION:Racial Abilities
 
 
 ###Block: Featured Races Racial Trait Categories
-# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Specific choices list					Plural description for UI	Display Location
-ABILITYCATEGORY:Catfolk Curiosity				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Choice			TYPE:Catfolk Curiosity									PLURAL:Catfolk Curiosity	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Tengu Exotic Weapon Training Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Choice							ABILITYLIST:Tengu Exotic Weapon Training Choice						DISPLAYLOCATION:Racial Abilities
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object	Type of Object		Specific choices list					Plural description for UI	Display Location
+ABILITYCATEGORY:Catfolk Curiosity				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Choice		TYPE:Catfolk Curiosity									PLURAL:Catfolk Curiosity	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Tengu Exotic Weapon Training Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Choice						ABILITYLIST:Tengu Exotic Weapon Training Choice						DISPLAYLOCATION:Racial Abilities
 
 ###Block: Featured Races Feat Categories
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
 ABILITYCATEGORY:Angelic Flesh Option	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AngelicFleshOption		PLURAL:Angelic Flesh Options		DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Heavenly Radiance Option	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HeavenlyRadianceOption	PLURAL:Heavenly Radiance Options	DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Catfolk Exemplar Option	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:CatfolkExemplarOption	PLURAL:Catfolk Exemplar Options	DISPLAYLOCATION:Racial Abilities
@@ -42,14 +45,14 @@ ABILITYCATEGORY:Blood Drinker Type		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FR
 ABILITYCATEGORY:Orc Weapon Expertise	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OrcWeaponExpertise		PLURAL:Orc Weapon Expertise		DISPLAYLOCATION:Racial Abilities
 
 ###Block: Uncommon Races Racial Trait Ability Categories
-# Ability Category									Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Specific choices list				Plural description for UI		Display Location
-ABILITYCATEGORY:Duergar Dwarf Traits (Replaces Stability)			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Replaces Dwarf Stability															DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Duergar Dwarf Traits (Replaces Duergar Immunities)	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Replaces Dwarf Hardy															DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Mystic Past Life Class						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Samsaran Spell Casting Class														DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Mystic Past Life Base Int						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Choice			TYPE:Mystic Past Life Base Int														DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Mystic Past Life Base Wis						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Choice			TYPE:Mystic Past Life Base Wis														DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Mystic Past Life Base Cha						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Choice			TYPE:Mystic Past Life Base Cha														DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Mystic Past Life Add Spells					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Mystic Past Life Add Spells														DISPLAYLOCATION:Racial Abilities
+# Ability Category									Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Display Location
+ABILITYCATEGORY:Duergar Dwarf Traits (Replaces Stability)			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Replaces Dwarf Stability		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Duergar Dwarf Traits (Replaces Duergar Immunities)	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Replaces Dwarf Hardy		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Mystic Past Life Class						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Samsaran Spell Casting Class	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Mystic Past Life Base Int						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Choice			TYPE:Mystic Past Life Base Int	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Mystic Past Life Base Wis						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Choice			TYPE:Mystic Past Life Base Wis	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Mystic Past Life Base Cha						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Choice			TYPE:Mystic Past Life Base Cha	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Mystic Past Life Add Spells					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Mystic Past Life Add Spells	DISPLAYLOCATION:Racial Abilities
 
 ###Block: Uncommon Races Feat Categories
 # Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI	Display Location
@@ -57,111 +60,111 @@ ABILITYCATEGORY:Mother's Gift Option			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	
 ABILITYCATEGORY:Shaitan Binder Eidolon Stat Bonus	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ShaitanBinderEidolonStatBonus	PLURAL:Eidolon Stat Bonuses	DISPLAYLOCATION:Racial Abilities
 
 ###Block: Archetype ability categories
-# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object							Plural description for UI			Display Location
-ABILITYCATEGORY:Experimental Gunsmith Innovation	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ExperimentalGunsmithInnovation				PLURAL:Experimental Gunsmith Innovations	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Bonded Witch Bonded Item			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BondedWitchItemChoice					PLURAL:Bonded Witch Bonded Items		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Runeforger Option				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RuneforgerOption						PLURAL:Runeforger Options			DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Wave Warden Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WaveWardenBonusFeat					PLURAL:Wave Warden Bonus Feats		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Augmented Form Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AugmentedFormSelection					PLURAL:Augmented Form Selections		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Experimental Gunsmith Innovation	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ExperimentalGunsmithInnovation				PLURAL:Experimental Gunsmith Innovations	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Spell Binder Bonded Spell			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SpellBinderBondedSpell					PLURAL:Spell Binder Bonded Spells		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Swordmaster Trance				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SwordmasterTrance						PLURAL:Swordmaster Trances			DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Plant Bond Option				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PlantBondOption						PLURAL:Plant Bond Options			DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Augmented Form Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AugmentedFormSelection					PLURAL:Augmented Form Selections		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Native Cunning Option			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:NativeCunningOption					PLURAL:Native Cunning Options			DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Greater Brand					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GreaterBrand							PLURAL:Greater Brands				DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Sniper Training Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SniperTrainingChoice					PLURAL:Sniper Training Choices		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Bonded Spell Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BondedSpellChoice						PLURAL:Bonded Spell Choices			DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Canine Ferocity Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OOTPBonusFeat						PLURAL:Canine Ferocity Bonus Feats		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Elven Arcana Spell Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElvenArcanaSpellChoice					PLURAL:Elven Arcana Spell Choices		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Reincarnated Oracle Revelation		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ReincarnatedOracleRevelation.GeneralRevelation	PLURAL:Reincarnated Oracle Revelations	DISPLAYLOCATION:Class Abilities
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Base Pool number			Category of Object		Type of Object							Plural description for UI			Display Location
+ABILITYCATEGORY:Experimental Gunsmith Innovation	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:ExperimentalGunsmithInnovation				PLURAL:Experimental Gunsmith Innovations	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Bonded Witch Bonded Item			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:BondedWitchItemChoice					PLURAL:Bonded Witch Bonded Items		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Runeforger Option				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:RuneforgerOption						PLURAL:Runeforger Options			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Wave Warden Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:WaveWardenBonusFeat					PLURAL:Wave Warden Bonus Feats		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Augmented Form Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:AugmentedFormSelection					PLURAL:Augmented Form Selections		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Experimental Gunsmith Innovation	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:ExperimentalGunsmithInnovation				PLURAL:Experimental Gunsmith Innovations	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Spell Binder Bonded Spell			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:SpellBinderBondedSpell					PLURAL:Spell Binder Bonded Spells		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Swordmaster Trance				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:SwordmasterTrance						PLURAL:Swordmaster Trances			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Plant Bond Option				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:PlantBondOption						PLURAL:Plant Bond Options			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Augmented Form Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:AugmentedFormSelection					PLURAL:Augmented Form Selections		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Native Cunning Option			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:NativeCunningOption					PLURAL:Native Cunning Options			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Greater Brand					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:GreaterBrand							PLURAL:Greater Brands				DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Sniper Training Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:SniperTrainingChoice					PLURAL:Sniper Training Choices		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Bonded Spell Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:BondedSpellChoice						PLURAL:Bonded Spell Choices			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Canine Ferocity Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:OOTPBonusFeat						PLURAL:Canine Ferocity Bonus Feats		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Elven Arcana Spell Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:ElvenArcanaSpellChoice					PLURAL:Elven Arcana Spell Choices		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Reincarnated Oracle Revelation		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:ReincarnatedOracleRevelation.GeneralRevelation	PLURAL:Reincarnated Oracle Revelations	DISPLAYLOCATION:Class Abilities
 
 
-ABILITYCATEGORY:Paladin Energy Resistance			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Internal			TYPE:PaladinFavoredEnergyResistance																DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Druid Energy Resistance			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Internal			TYPE:DruidFavoredEnergyResistance																DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Sorcerer Energy Resistance		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Internal			TYPE:SorcererFavoredEnergyResistance															DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Paladin Energy Resistance			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO							CATEGORY:Internal			TYPE:PaladinFavoredEnergyResistance											DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Druid Energy Resistance			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO							CATEGORY:Internal			TYPE:DruidFavoredEnergyResistance											DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Sorcerer Energy Resistance		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO							CATEGORY:Internal			TYPE:SorcererFavoredEnergyResistance										DISPLAYLOCATION:Class Features
 
-ABILITYCATEGORY:Far Traveler Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:Far Traveler Selection											PLURAL:Far Traveler Selections	DISPLAYLOCATION:Class Features
-
-
+ABILITYCATEGORY:Far Traveler Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:Far Traveler Selection					PLURAL:Far Traveler Selections		DISPLAYLOCATION:Class Features
 
 
-ABILITYCATEGORY:Oracle Non-Proficient Weapon Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						POOL:Pool_OracleNonProficient		CATEGORY:Internal			TYPE:Oracle NWP																			DISPLAYLOCATION:Class Features
+
+
+ABILITYCATEGORY:Oracle Non-Proficient Weapon Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						POOL:Pool_OracleNonProficient	CATEGORY:Internal			TYPE:Oracle NWP														DISPLAYLOCATION:Class Features
 
 
 ###Block: Race Builder Design
-# Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Base Pool number			Category of Object		Type of Object								Specific choices list													Plural description for UI	Display Location
-ABILITYCATEGORY:Race Builder Design					VISIBLE:NO		EDITABLE:YES	EDITPOOL:NO											CATEGORY:Internal			TYPE:Race Builder Design
+# Ability Category							Visible		Editable?		Change Pool?	Base Pool number			Category of Object		Type of Object								Specific choices list													Display Location
+ABILITYCATEGORY:Race Builder Design					VISIBLE:NO		EDITABLE:YES	EDITPOOL:NO							CATEGORY:Internal			TYPE:Race Builder Design
 
-ABILITYCATEGORY:Race Name						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Special Ability	TYPE:RaceName																													DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Race Languages					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Special Ability	TYPE:Language																													DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Name						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Special Ability	TYPE:RaceName																								DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Languages					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Special Ability	TYPE:Language																								DISPLAYLOCATION:Race Builder Design
 
 
-ABILITYCATEGORY:Racial Traits						VISIBLE:NO		EDITABLE:YES	EDITPOOL:NO											CATEGORY:Racial Traits
+ABILITYCATEGORY:Racial Traits						VISIBLE:NO		EDITABLE:YES	EDITPOOL:NO							CATEGORY:Racial Traits
 
-ABILITYCATEGORY:Race Starting Points				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Internal			TYPE:Race Builder Design																											DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Race Type						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						POOL:ARG_RaceBuilderPoints	CATEGORY:Racial Traits		TYPE:RaceTypeQuality																												DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Race Size						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						POOL:ARG_RaceBuilderPoints	CATEGORY:Racial Traits		TYPE:RaceSizeQuality																												DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Race Speed						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						POOL:ARG_RaceBuilderPoints	CATEGORY:Racial Traits		TYPE:RaceSpeedQuality																												DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Race Stat						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						POOL:ARG_RaceBuilderPoints	CATEGORY:Racial Traits		TYPE:RaceStatAbility																												DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Starting Points				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Internal			TYPE:Race Builder Design																						DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Type						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Racial Traits		TYPE:RaceTypeQuality																							DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Size						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Racial Traits		TYPE:RaceSizeQuality																							DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Speed						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Racial Traits		TYPE:RaceSpeedQuality																							DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Stat						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Racial Traits		TYPE:RaceStatAbility																							DISPLAYLOCATION:Race Builder Design
 
 #DefenseTrait
 
-ABILITYCATEGORY:Builder							VISIBLE:NO		EDITABLE:YES	EDITPOOL:NO											CATEGORY:Builder
+ABILITYCATEGORY:Builder							VISIBLE:NO		EDITABLE:YES	EDITPOOL:NO							CATEGORY:Builder
 
-ABILITYCATEGORY:+2 Ability Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Builder			TYPE:AbilityScoreBoost2																												DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:+4 Ability Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Builder			TYPE:AbilityScoreBoost4																												DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:-2 Ability Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Builder			TYPE:AbilityScoreNegative2																											DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:-4 Ability Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Builder			TYPE:AbilityScoreNegative4																											DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:+2 Ability Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Builder			TYPE:AbilityScoreBoost2																							DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:+4 Ability Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Builder			TYPE:AbilityScoreBoost4																							DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:-2 Ability Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Builder			TYPE:AbilityScoreNegative2																						DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:-4 Ability Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Builder			TYPE:AbilityScoreNegative4																						DISPLAYLOCATION:Race Builder Design
 #
-ABILITYCATEGORY:+2 Physical Ability Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Builder			TYPE:AbilityScoreBoostPhysical2																										DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:+2 Mental Ability Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Builder			TYPE:AbilityScoreBoostMental2																											DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:+2 Physical Ability Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Builder			TYPE:AbilityScoreBoostPhysical2																					DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:+2 Mental Ability Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Builder			TYPE:AbilityScoreBoostMental2																						DISPLAYLOCATION:Race Builder Design
 
-ABILITYCATEGORY:+4 Physical Ability Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Builder			TYPE:AbilityScoreBoostPhysical4																										DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:+4 Mental Ability Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Builder			TYPE:AbilityScoreBoostMental4																											DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:+4 Physical Ability Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Builder			TYPE:AbilityScoreBoostPhysical4																					DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:+4 Mental Ability Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Builder			TYPE:AbilityScoreBoostMental4																						DISPLAYLOCATION:Race Builder Design
 
-ABILITYCATEGORY:-2 Physical Ability Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Builder			TYPE:AbilityScoreNegativePhysical2																										DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:-2 Mental Ability Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Builder			TYPE:AbilityScoreNegativeMental2																										DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:-2 Physical Ability Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Builder			TYPE:AbilityScoreNegativePhysical2																					DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:-2 Mental Ability Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Builder			TYPE:AbilityScoreNegativeMental2																					DISPLAYLOCATION:Race Builder Design
 
-ABILITYCATEGORY:-4 Physical Ability Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Builder			TYPE:AbilityScoreNegativePhysical4																										DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:-4 Mental Ability Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Builder			TYPE:AbilityScoreNegativeMental4																										DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:-4 Physical Ability Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Builder			TYPE:AbilityScoreNegativePhysical4																					DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:-4 Mental Ability Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Builder			TYPE:AbilityScoreNegativeMental4																					DISPLAYLOCATION:Race Builder Design
 
 # Sets
-ABILITYCATEGORY:Advanced Ability Score Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Internal			TYPE:AdvancedAbilityScoreSelection																										DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Greater Weakness Ability Score Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Internal			TYPE:GreaterWeaknessAbilityScoreSelection																									DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Mixed Weakness Ability Score Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Internal			TYPE:MixedWeaknessAbilityScoreSelection																									DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Paragon Ability Score Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Internal			TYPE:ParagonAbilityScoreSelection																										DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Specialized Ability Score Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Internal			TYPE:SpecializedAbilityScoreSelection																									DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Advanced Ability Score Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Internal			TYPE:AdvancedAbilityScoreSelection																					DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Greater Weakness Ability Score Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Internal			TYPE:GreaterWeaknessAbilityScoreSelection																				DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Mixed Weakness Ability Score Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Internal			TYPE:MixedWeaknessAbilityScoreSelection																				DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Paragon Ability Score Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Internal			TYPE:ParagonAbilityScoreSelection																					DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Specialized Ability Score Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Internal			TYPE:SpecializedAbilityScoreSelection																				DISPLAYLOCATION:Race Builder Design
 
 # Bonus Languages
-ABILITYCATEGORY:Race Builder Bonus Race Languages		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Internal			TYPE:RaceBuilderBonusLang																											DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Builder Bonus Race Languages		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Internal			TYPE:RaceBuilderBonusLang																						DISPLAYLOCATION:Race Builder Design
 # Additional Languages
-ABILITYCATEGORY:Language						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Internal			TYPE:RaceBuilderLang																												DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Language						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Internal			TYPE:RaceBuilderLang																							DISPLAYLOCATION:Race Builder Design
 
 # Race Builder Traits
-ABILITYCATEGORY:Race Trait Ability Score				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderAdvancedAbilityScoreTrait																									DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Race Trait Defense					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderDefenseTrait.BuilderAdvancedDefenseTrait																							DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Race Trait Feat and Skill				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderFeatSkillTrait.BuilderAdvancedFeatSkillTrait																						DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Race Trait Magical					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderMagicalTrait.BuilderAdvancedMagicalTrait																							DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Race Trait Senses					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderSensesTrait																												DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Race Trait Movement					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderMovementTrait																											DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Race Trait Offense					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderOffenseTrait																											DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Race Trait Weakness					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderWeaknessTrait																											DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Race Trait Other					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderOtherTrait																												DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Race Language Qualities				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:LanguageQuality																												DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Trait Ability Score				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderAdvancedAbilityScoreTrait																				DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Trait Defense					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderDefenseTrait.BuilderAdvancedDefenseTrait																		DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Trait Feat and Skill				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderFeatSkillTrait.BuilderAdvancedFeatSkillTrait																	DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Trait Magical					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderMagicalTrait.BuilderAdvancedMagicalTrait																		DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Trait Senses					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderSensesTrait																							DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Trait Movement					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderMovementTrait																						DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Trait Offense					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderOffenseTrait																						DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Trait Weakness					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderWeaknessTrait																						DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Trait Other					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:BuilderOtherTrait																							DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Language Qualities				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:ARG_RaceBuilderPoints	CATEGORY:Special Ability	TYPE:LanguageQuality																							DISPLAYLOCATION:Race Builder Design
 
-ABILITYCATEGORY:Weapon Familiarity					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Special Ability	TYPE:Weapon Familiarity																												DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Hatred							VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Internal			TYPE:Hatred																														DISPLAYLOCATION:Race Builder Design
-ABILITYCATEGORY:Race Builder Skill Bonus				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Internal			TYPE:Race Builder Skill Bonus																											DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Weapon Familiarity					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Special Ability	TYPE:Weapon Familiarity																							DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Hatred							VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Internal			TYPE:Hatred																									DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Builder Skill Bonus				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Internal			TYPE:Race Builder Skill Bonus																						DISPLAYLOCATION:Race Builder Design
 
-ABILITYCATEGORY:Race Builder Energy Resistance			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Internal			TYPE:BuilderEnergyResistanceChoice																										DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Race Builder Energy Resistance			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Internal			TYPE:BuilderEnergyResistanceChoice																					DISPLAYLOCATION:Race Builder Design
 
-ABILITYCATEGORY:Canine Ferocity Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Feat													ABILITYLIST:Mounted Combat|Ride-By Attack|Skill Focus (Ride)|Spirited Charge|Trample|Unseat						DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Canine Ferocity Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Feat													ABILITYLIST:Mounted Combat|Ride-By Attack|Skill Focus (Ride)|Spirited Charge|Trample|Unseat	DISPLAYLOCATION:Feats
 
-ABILITYCATEGORY:Humanoid Subrace					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Special Ability	TYPE:Humanoid Subrace																												DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Humanoid Subrace					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Special Ability	TYPE:Humanoid Subrace																							DISPLAYLOCATION:Race Builder Design
 
 
-ABILITYCATEGORY:Outsider Plane Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO											CATEGORY:Internal			TYPE:Outsider Plane Choice																											DISPLAYLOCATION:Race Builder Design
+ABILITYCATEGORY:Outsider Plane Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Internal			TYPE:Outsider Plane Choice																						DISPLAYLOCATION:Race Builder Design
 
 ###Block: Racial Subtypes (aka Backgrounds)
 # Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Specific choices list			Plural description for UI		Display Location
@@ -175,5 +178,5 @@ ABILITYCATEGORY:Human Racial Subtype	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	F
 
 
 ###Block: Builder Support
-# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object						Specific choices list						Display Location
-ABILITYCATEGORY:Builder Racial Trait ~ Natural Attack	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:Builder Racial Trait ~ Natural Attack										DISPLAYLOCATION:Race Builder Design
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object	Type of Object						Display Location
+ABILITYCATEGORY:Builder Racial Trait ~ Natural Attack	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:Builder Racial Trait ~ Natural Attack	DISPLAYLOCATION:Race Builder Design

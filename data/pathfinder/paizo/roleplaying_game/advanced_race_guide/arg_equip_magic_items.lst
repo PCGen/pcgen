@@ -1,4 +1,4 @@
-#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# Sun Aug  9 12:42:58 2026 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Sun Jan 25 18:47:12 2015 -- reformated by prettylst.pl v1.51 (build 25712)
 SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
 # ORIGINAL ENTRY: Andrew Maitland
@@ -90,4 +90,4 @@ Trapmaker's Sack														TYPE:Magic.Wondrous						COST:20000	WT:2										
 Wound Paste															TYPE:Magic.Wondrous.Consumable				COST:50	WT:0.5																					SOURCEPAGE:p.125																																																																																																								SPROP:Acts as a stabilize spell when slathered on a dying creature. Contains 5 doses.
 
 #
-Darksire Amulet.MOD	BONUS:VAR|Tiefling_FiendishResistance_Bonus|5|PRERACE:1,Tiefling	BONUS:SITUATION|Diplomacy=influence evil outsiders|4|TYPE=Insight
+Darksire Amulet.MOD																																																																																				BONUS:SITUATION|Diplomacy=influence evil outsiders|4|TYPE=Insight																													BONUS:VAR|Tiefling_FiendishResistance_Bonus|5|PRERACE:1,Tiefling

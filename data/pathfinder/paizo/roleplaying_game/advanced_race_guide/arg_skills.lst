@@ -1,6 +1,8 @@
+# Sun Aug  9 12:42:58 2026 -- reformated by PCGen PrettyLST v6.08.00
 SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
 
 ###Block: Situational Modifiers
+# Skill Name	Situational Skill
 Acrobatics.MOD	SITUATION:in slippery conditions
 Acrobatics.MOD	SITUATION:to cross narrow ledges
 Acrobatics.MOD	SITUATION:to move on narrow surfaces and uneven ground

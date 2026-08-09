@@ -1,4 +1,4 @@
-#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# Sun Aug  9 12:42:58 2026 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 ###Block: Elven Special Materials
 # Modifier Name		Unique Key							Naming Option		Type										Cost		Visible		Type granted	Keys to replace												Source Page		Required Type									Bonus Equip Mods		Bonus Armor Mods													Special Property
@@ -16,7 +16,7 @@ Wyroot(3 Life Points)	KEY:Material ~ Wyroot / 3 Life Points		NAMEOPT:TEXT=Wyroot
 Purifier Celestial	KEY:Special Quality ~ Purifier Celestial Armor ~ Archetype	TYPE:Armor	COST:0	VISIBLE:QUALIFY	ITYPE:Purifier Celestial	SOURCEPAGE:p.86	PREABILITY:1,CATEGORY=Archetype,Oracle Archetype ~ Purifier	BONUS:EQM|WEIGHTDIV|2|PREABILITY:1,CATEGORY=Special Ability,Celestial Armor ~ Purifier	SPROP:No benefit.|!PREABILITY:1,CATEGORY=Special Ability,Celestial Armor ~ Purifier	SPROP:The purifier's armor takes on a golden or silvery sheen and becomes light as a feather.|PREABILITY:1,CATEGORY=Special Ability,Celestial Armor ~ Purifier
 
 ###Block: Hobgoblin weapon abilities
-# Modifier Name	Unique Key						Type				Plus		Visible		Source Page		Required Type						Special Property
+# Modifier Name	Unique Key						Type				Plus		Visible		Source Page		Required Type							Special Property
 Cruel			KEY:Special Ability ~ Cruel ~ Weapon	TYPE:Weapon.Ammunition	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.124	PRETYPE:1,WeaponEnhancement					SPROP:When the wielder strikes a creature that is frightened, shaken, or panicked, that creature becomes sickened for 1 round. When the wielder uses the weapon to knock unconscious or kill a creature, he gains 5 temporary hit points that last for 10 minutes.
 Deadly		KEY:Special Ability ~ Deadly ~ Weapon	TYPE:Weapon.Ammunition	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.124	PRETYPE:1,WeaponEnhancement	PRETYPE:1,Nonlethal	SPROP:This special ability can only be placed on weapons that normally deal nonlethal damage, such as whips and saps. All damage a deadly weapon deals is lethal damage. A whip (or similar weapon that cannot damage creatures with armor or natural armor bonuses) with this special ability deals damage even to creatures with armor or natural armor. On command, the weapon suppresses this ability until told to resume it.
 
