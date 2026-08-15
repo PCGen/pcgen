@@ -52,7 +52,7 @@ We could possibly rely on the system locale, but that's a bigger decision.
             <VBox>
                 <HBox>
                     <TextField fx:id="dirSelection" editable="false" disable="true" HBox.hgrow="always"/>
-                    <Button fx:id="selectButton" text="..." onAction="#doChooser" />
+                    <Button fx:id="selectButton" text="..." onAction="#doChooser" disable="true"/>
                 </HBox>
                 <Button text="OK" onAction="#onConfirm" />
             </VBox>
