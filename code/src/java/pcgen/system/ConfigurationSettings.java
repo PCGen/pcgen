@@ -180,13 +180,35 @@ public final class ConfigurationSettings extends PropertyContext
 	 * walk up from java.home and return the first ancestor — or immediate child
 	 * of an ancestor — that actually contains PCGen's data (the "data" +
 	 * "system" folders). Falls back to user.dir for dev/IDE runs where the
-	 * runtime is a full JDK elsewhere. See issue #7678.
+	 * runtime is a full JDK elsewhere.
 	 */
 	private static String getInstallRoot()
 	{
+		return installRootPath().toString();
+	}
+
+	/** The resolved install-root directory (java.home walk, else user.dir). */
+	private static Path installRootPath()
+	{
 		return findInstallRoot(SystemUtils.JAVA_HOME)
-				.map(Path::toString)
-				.orElse(SystemUtils.USER_DIR);
+				.orElseGet(() -> Path.of(SystemUtils.USER_DIR));
+	}
+
+	/**
+	 * Whether the install root is writable — true for a portable/dev copy, false
+	 * for an installed app (read-only DMG or a sealed bundle in /Applications).
+	 * Disables the "PCGen Dir" settings option, which would otherwise fail silently
+	 * at save time (mkdirs under a read-only root).
+	 */
+	public static boolean isInstallRootWritable()
+	{
+		return isWritableDir(installRootPath());
+	}
+
+	/** Package-private seam so the writability check can be unit-tested. */
+	static boolean isWritableDir(Path dir)
+	{
+		return (dir != null) && Files.isDirectory(dir) && Files.isWritable(dir);
 	}
 
 	/**
@@ -270,7 +292,7 @@ public final class ConfigurationSettings extends PropertyContext
 					return SystemUtils.USER_HOME + File.separator + '.' + APPLICATION; // $NON-NLS-1$
 				case pcgen:
 					// Install dir, resolved from java.home like @-paths — not user.dir,
-					// which is / for a packaged/Finder launch (gave "//settings"). See issue #7678.
+					// which is / for a packaged/Finder launch (gave "//settings").
 					return getInstallRoot() + File.separator + "settings"; // $NON-NLS-1$
 				case mac_user:
 					return SystemUtils.USER_HOME + "/Library/Preferences/" + APPLICATION; // $NON-NLS-1$

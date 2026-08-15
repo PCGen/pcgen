@@ -40,6 +40,9 @@ public class OptionsPathDialogController
 	private final OptionsPathDialogModel model = new OptionsPathDialogModel();
 
 	@FXML
+	private RadioButton pcgenDir;
+
+	@FXML
 	private RadioButton freedesktop;
 
 	@FXML
@@ -77,6 +80,16 @@ public class OptionsPathDialogController
 		freedesktop.setVisible(SystemUtils.IS_OS_UNIX);
 		freedesktop.setManaged(SystemUtils.IS_OS_UNIX);
 
+		// "PCGen Dir" stores settings under the install dir, which only works on a
+		// portable/dev copy — an installed app (read-only DMG or sealed /Applications
+		// bundle) cannot be written to, so saving would fail silently. Disable it when
+		// the install root is not writable.
+		if (!ConfigurationSettings.isInstallRootWritable())
+		{
+			pcgenDir.setDisable(true);
+			pcgenDir.setText(pcgenDir.getText() + " (not writable)");
+		}
+
 		directoryGroup.selectedToggleProperty().addListener((observable, _, newValue)  -> {
 			Logging.debugPrint("toggle changed " + observable);
 			if (newValue.getUserData() != null)
@@ -108,7 +121,7 @@ public class OptionsPathDialogController
 		{
 			// The prefilled path (e.g. <install>/settings) may not exist yet, and
 			// JavaFX's DirectoryChooser silently refuses to open when initialDirectory
-			// is missing. Walk up to the nearest existing ancestor. See issue #7678.
+			// is missing. Walk up to the nearest existing ancestor.
 			File dir = new File(modelDirectory);
 			while ((dir != null) && !dir.isDirectory())
 			{

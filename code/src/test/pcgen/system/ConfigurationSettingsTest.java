@@ -18,8 +18,11 @@
 package pcgen.system;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -31,7 +34,6 @@ import org.junit.jupiter.api.io.TempDir;
 /**
  * Tests {@link ConfigurationSettings#findInstallRoot(String)} — how PCGen
  * locates its bundled data from java.home across the jpackage bundle layouts.
- * See issue #7678.
  */
 class ConfigurationSettingsTest
 {
@@ -120,5 +122,31 @@ class ConfigurationSettingsTest
 		Optional<Path> found = ConfigurationSettings.findInstallRoot(javaHome.toString());
 
 		assertTrue(found.isEmpty());
+	}
+
+	@Test
+	void isWritableDir_should_beTrue_when_dirIsWritable(@TempDir Path dir)
+	{
+		// A portable/dev install root: an ordinary writable directory.
+		assertTrue(ConfigurationSettings.isWritableDir(dir));
+	}
+
+	@Test
+	void isWritableDir_should_beFalse_when_dirIsReadOnly(@TempDir Path parent) throws IOException
+	{
+		// An installed app's root (read-only DMG / sealed bundle).
+		Path readOnly = Files.createDirectory(parent.resolve("install"));
+		File asFile = readOnly.toFile();
+		assumeTrue(asFile.setWritable(false) && !Files.isWritable(readOnly),
+				"filesystem/user ignores the read-only bit (e.g. running as root)");
+
+		assertFalse(ConfigurationSettings.isWritableDir(readOnly));
+	}
+
+	@Test
+	void isWritableDir_should_beFalse_when_dirDoesNotExist(@TempDir Path parent)
+	{
+		// The install root must be an existing directory, not just a path.
+		assertFalse(ConfigurationSettings.isWritableDir(parent.resolve("missing")));
 	}
 }
