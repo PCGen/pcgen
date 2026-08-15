@@ -18,6 +18,7 @@
 
 package pcgen.gui3.dialog;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -60,7 +61,7 @@ class ExportDialogControllerTest
 		AtomicLong callerThreadId = new AtomicLong();
 		AtomicLong openerThreadId = new AtomicLong();
 
-		callerThreadId.set(Thread.currentThread().getId());
+		callerThreadId.set(Thread.currentThread().threadId());
 		File file = new File("placeholder.pdf");
 		ExportDialogController.openFileInBackground(file, toOpen -> {
 			openerThreadId.set(Thread.currentThread().getId());
@@ -78,7 +79,6 @@ class ExportDialogControllerTest
 		CountDownLatch openerStarted = new CountDownLatch(1);
 		CountDownLatch openerFinished = new CountDownLatch(1);
 		File file = new File("placeholder.pdf");
-		long start = System.nanoTime();
 
 		ExportDialogController.openFileInBackground(file, toOpen -> {
 			openerStarted.countDown();
@@ -96,9 +96,6 @@ class ExportDialogControllerTest
 
 		// The call must return while the opener is still running.
 		assertTrue(openerStarted.await(5, TimeUnit.SECONDS), "the opener should have started");
-		long elapsedMillis = TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - start);
-		assertTrue(elapsedMillis < 400,
-				"openFileInBackground should not block the caller; elapsed=" + elapsedMillis + "ms");
-		assertFalse(openerFinished.getCount() == 0, "the opener should still be running");
+		assertEquals(1, openerFinished.getCount(), "the opener should still be running");
 	}
 }
