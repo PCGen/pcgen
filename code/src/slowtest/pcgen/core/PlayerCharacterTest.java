@@ -400,6 +400,90 @@ class PlayerCharacterTest extends AbstractCharacterTestCase
 	}
 
 	/**
+	 * BONUS:CASTERLEVEL|TYPE.Arcane raises caster level ONLY, while
+	 * BONUS:PCLEVEL|TYPE.Arcane raises BOTH caster level and spell progression
+	 * (highest castable spell level), per globalfilesbonus.html. A
+	 * caster-level-only award belongs on CASTERLEVEL; the fix must nonetheless
+	 * honor PCLEVEL, which the shipped GM Award data uses.
+	 */
+	@Test
+	void testCasterLevelVsPcLevelProgression() throws Exception
+	{
+		final LoadContext context = Globals.getContext();
+
+		// An arcane caster with a fixed CASTERLEVEL of 5 (so the caster-level
+		// evaluator has a solid base) whose CAST progression grants 2nd-level
+		// spells only at class level 2 -- so cast@2 == 0 at level 1 is the
+		// observable "spell progression" signal that a +1 effective level flips.
+		final PCClass caster = new PCClass();
+		caster.setName("VerifyCaster");
+		BuildUtilities.setFact(caster, "SpellType", "Arcane");
+		context.unconditionallyProcess(caster, "SPELLSTAT", "CHA");
+		caster.put(ObjectKey.SPELLBOOK, false);
+		caster.put(ObjectKey.MEMORIZE_SPELLS, false);
+		caster.addToListFor(ListKey.BONUS, Bonus.newBonus(context, "CASTERLEVEL|VerifyCaster|5"));
+		context.unconditionallyProcess(caster.getOriginalClassLevel(1), "CAST", "3,1");
+		context.unconditionallyProcess(caster.getOriginalClassLevel(2), "CAST", "3,2,1");
+		context.getReferenceContext().importObject(caster);
+		readyToRun();
+
+		final String sbook = Globals.getDefaultSpellBook();
+		final Spell spell = new Spell();
+		spell.setName("Verify Arcane Spell");
+		final CharacterSpell charSpell = new CharacterSpell(caster, spell);
+		final PCCasterLevelClassTermEvaluator eval = new PCCasterLevelClassTermEvaluator(
+			"CASTERLEVEL.CLASS." + caster.getKeyName(), caster.getKeyName());
+
+		final int baseCl = measureCasterLevel(caster, eval, charSpell);
+		final int baseCast2 = measureCastAtLevel2(caster, sbook);
+
+		// --- CASTERLEVEL|TYPE.Arcane|1 : expect CL +1, progression UNCHANGED ---
+		final BonusObj clBonus = Bonus.newBonus(context, "CASTERLEVEL|TYPE.Arcane|1");
+		human.addToListFor(ListKey.BONUS, clBonus);
+		human.ownBonuses(human);
+		final int clCl = measureCasterLevel(caster, eval, charSpell);
+		final int clCast2 = measureCastAtLevel2(caster, sbook);
+		human.removeFromListFor(ListKey.BONUS, clBonus);
+		human.ownBonuses(human);
+
+		// --- PCLEVEL|TYPE.Arcane|1 : expect CL +1 AND progression +1 ---
+		final BonusObj pcBonus = Bonus.newBonus(context, "PCLEVEL|TYPE.Arcane|1");
+		human.addToListFor(ListKey.BONUS, pcBonus);
+		human.ownBonuses(human);
+		final int pcCl = measureCasterLevel(caster, eval, charSpell);
+		final int pcCast2 = measureCastAtLevel2(caster, sbook);
+		human.removeFromListFor(ListKey.BONUS, pcBonus);
+		human.ownBonuses(human);
+
+		// CASTERLEVEL: caster level rose by 1, spell progression did NOT change.
+		assertEquals(baseCl + 1, clCl, "CASTERLEVEL|TYPE.Arcane should raise caster level by 1");
+		assertEquals(baseCast2, clCast2, "CASTERLEVEL|TYPE.Arcane must NOT change spell progression");
+
+		// PCLEVEL: caster level rose by 1 AND spell progression increased.
+		assertEquals(baseCl + 1, pcCl, "PCLEVEL|TYPE.Arcane should raise caster level by 1");
+		assertTrue(pcCast2 > baseCast2, "PCLEVEL|TYPE.Arcane also raises spell progression");
+	}
+
+	private int measureCasterLevel(PCClass caster, PCCasterLevelClassTermEvaluator eval, CharacterSpell charSpell)
+	{
+		final PlayerCharacter pc = new PlayerCharacter();
+		pc.setRace(human);
+		pc.incrementClassLevel(1, caster, true);
+		pc.calcActiveBonuses();
+		return eval.resolve(pc, charSpell).intValue();
+	}
+
+	private int measureCastAtLevel2(PCClass caster, String sbook)
+	{
+		final PlayerCharacter pc = new PlayerCharacter();
+		pc.setRace(human);
+		pc.incrementClassLevel(1, caster, true);
+		pc.calcActiveBonuses();
+		final PCClass held = pc.getClassKeyed(caster.getKeyName());
+		return pc.getSpellSupport(held).getCastForLevel(2, sbook, true, false, pc);
+	}
+
+	/**
 	 * Test bonus monster feats where there default monster mode is off.
 	 * Note: As PCClass grants feats which do not exist, the feat pool gets
 	 * incremented instead.
