@@ -36,6 +36,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.PartyFacade;
 import pcgen.gui2.UIPropertyContext;
+import pcgen.gui3.GuiUtility;
 import pcgen.io.ExportUtilities;
 import pcgen.system.BatchExporter;
 import pcgen.system.CharacterManager;
@@ -171,7 +172,55 @@ public class ExportDialogController
 		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 		alert.setContentText("Do you want to open " + file.getName() + '?');
 		Optional<ButtonType> result = alert.showAndWait();
-		return result.isPresent() && !result.get().equals(ButtonType.NO);
+		return shouldOpenFile(result);
+	}
+
+	/**
+	 * A CONFIRMATION alert only produces {@link ButtonType#OK} or
+	 * {@link ButtonType#CANCEL}, so only OK should trigger opening the file.
+	 *
+	 * @param result the button the user pressed
+	 * @return true only if the user pressed OK
+	 */
+	static boolean shouldOpenFile(Optional<ButtonType> result)
+	{
+		return result.isPresent() && result.get() == ButtonType.OK;
+	}
+
+	@FunctionalInterface
+	interface FileOpener
+	{
+		void open(File file) throws IOException;
+	}
+
+	/**
+	 * Open the file off the JavaFX Application Thread. Opening a file can
+	 * block for a long time (e.g. the JDK's X11 gnome_url_show deadlock on
+	 * Linux), so it must not run on the UI thread.
+	 *
+	 * @param file   the file to open
+	 * @param opener the platform call that opens the file
+	 */
+	static void openFileInBackground(File file, FileOpener opener)
+	{
+		new Thread(() -> {
+			try
+			{
+				opener.open(file);
+			}
+			catch (IOException ex)
+			{
+				String message = "Failed to open " + file.getName();
+				GuiUtility.runOnJavaFXThreadNow(() -> {
+					Alert error = new Alert(Alert.AlertType.ERROR);
+					error.setTitle("Cannot Open " + file.getName());
+					error.setContentText(message);
+					error.show();
+					return null;
+				});
+				Logging.errorPrint(message, ex);
+			}
+		}).start();
 	}
 
 	private static void doOpenFile(File file)
@@ -184,19 +233,7 @@ public class ExportDialogController
 			error.show();
 			return;
 		}
-		try
-		{
-			Desktop.getDesktop().open(file);
-		}
-		catch (IOException ex)
-		{
-			String message = "Failed to open " + file.getName();
-			Alert error = new Alert(Alert.AlertType.ERROR);
-			error.setTitle("Cannot Open " + file.getName());
-			error.setContentText(message);
-			error.show();
-			Logging.errorPrint(message, ex);
-		}
+		openFileInBackground(file, Desktop.getDesktop()::open);
 	}
 
 	private void doExportSingleCharacter(String sheetFilterPath, URI template, boolean isPDF)
