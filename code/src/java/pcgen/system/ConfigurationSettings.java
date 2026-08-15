@@ -269,7 +269,9 @@ public final class ConfigurationSettings extends PropertyContext
 				case user:
 					return SystemUtils.USER_HOME + File.separator + '.' + APPLICATION; // $NON-NLS-1$
 				case pcgen:
-					return SystemUtils.USER_DIR + File.separator + "settings"; // $NON-NLS-1$
+					// Install dir, resolved from java.home like @-paths — not user.dir,
+					// which is / for a packaged/Finder launch (gave "//settings"). See issue #7678.
+					return getInstallRoot() + File.separator + "settings"; // $NON-NLS-1$
 				case mac_user:
 					return SystemUtils.USER_HOME + "/Library/Preferences/" + APPLICATION; // $NON-NLS-1$
 				case FD_USER:
