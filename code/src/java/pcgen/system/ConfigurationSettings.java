@@ -153,9 +153,9 @@ public final class ConfigurationSettings extends PropertyContext
 		return getInstance().getProperty(key);
 	}
 
-	public static Object setSystemProperty(String key, String value)
+	public static void setSystemProperty(String key, String value)
 	{
-		return getInstance().setProperty(key, value);
+		getInstance().setProperty(key, value);
 	}
 
 	private static String getDirectory(String key)
