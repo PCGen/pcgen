@@ -19,6 +19,12 @@
 package pcgen.system;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.stream.Stream;
 
 import org.apache.commons.lang3.SystemUtils;
 
@@ -147,9 +153,9 @@ public final class ConfigurationSettings extends PropertyContext
 		return getInstance().getProperty(key);
 	}
 
-	public static Object setSystemProperty(String key, String value)
+	public static void setSystemProperty(String key, String value)
 	{
-		return getInstance().setProperty(key, value);
+		getInstance().setProperty(key, value);
 	}
 
 	private static String getDirectory(String key)
@@ -161,25 +167,107 @@ public final class ConfigurationSettings extends PropertyContext
 		return expandRelativePath(getSystemProperty(key));
 	}
 
+	/**
+	 * The directory PCGen's bundled data (@data, @plugins, …) is resolved against,
+	 * found via {@link #findInstallRoot} from java.home rather than the process
+	 * working directory (a packaged/Finder launch gives user.dir=/).
+	 */
+	private static String getInstallRoot()
+	{
+		return installRootPath().toString();
+	}
+
+	/** The resolved install-root directory (java.home walk, else user.dir). */
+	private static Path installRootPath()
+	{
+		return findInstallRoot(SystemUtils.JAVA_HOME)
+				.orElseGet(() -> Path.of(SystemUtils.USER_DIR));
+	}
+
+	/**
+	 * Whether the install root is writable — true for a portable/dev copy, false
+	 * for an installed app (read-only DMG or a sealed bundle in /Applications).
+	 * Disables the "PCGen Dir" settings option, which would otherwise fail silently
+	 * at save time (mkdirs under a read-only root).
+	 */
+	public static boolean isInstallRootWritable()
+	{
+		return isWritableDir(installRootPath());
+	}
+
+	/** Package-private seam so the writability check can be unit-tested. */
+	static boolean isWritableDir(Path dir)
+	{
+		return (dir != null) && Files.isDirectory(dir) && Files.isWritable(dir);
+	}
+
+	/**
+	 * The nearest existing directory at or above {@code path}, or empty if none
+	 * exists up the chain. Lets a directory chooser start at a real directory
+	 * when the prefilled path does not exist yet.
+	 */
+	public static Optional<Path> nearestExistingDir(String path)
+	{
+		Path dir = (path == null) ? null : Path.of(path);
+		while ((dir != null) && !Files.isDirectory(dir))
+		{
+			dir = dir.getParent();
+		}
+		return Optional.ofNullable(dir);
+	}
+
+	/**
+	 * Walk up from {@code javaHome} and return the first ancestor — or immediate
+	 * child of an ancestor — that holds PCGen's bundled data (the "data" +
+	 * "system" folders), or empty if none is found (the caller then falls back
+	 * to user.dir). Package-private and parameterised on {@code javaHome} so it
+	 * can be exercised without touching real system properties.
+	 */
+	static Optional<Path> findInstallRoot(String javaHome)
+	{
+		if (javaHome == null)
+		{
+			return Optional.empty();
+		}
+		return Stream.iterate(Path.of(javaHome), Objects::nonNull, Path::getParent)
+				.flatMap(dir -> Stream.concat(Stream.of(dir), listDirectories(dir)))
+				.filter(ConfigurationSettings::looksLikeInstallRoot)
+				.findFirst();
+	}
+
+	private static Stream<Path> listDirectories(Path dir)
+	{
+		try (Stream<Path> children = Files.list(dir))
+		{
+			// Collect eagerly: the stream must outlive this try-with-resources.
+			return children.filter(Files::isDirectory).toList().stream();
+		}
+		catch (IOException _)
+		{
+			return Stream.empty();
+		}
+	}
+
+	private static boolean looksLikeInstallRoot(Path dir)
+	{
+		return Files.isDirectory(dir.resolve("data")) && Files.isDirectory(dir.resolve("system"));
+	}
+
 	private static String expandRelativePath(String path)
 	{
-		// TODO: a dirty hack for Mac bundles only
-		if (SystemUtils.USER_DIR.endsWith("MacOS") && path.startsWith("@"))
+		if (path.startsWith("@"))
 		{
-			path = SystemUtils.USER_DIR + File.separator + ".." + File.separator + "app" + File.separator + path.substring(1);
-		}
-		else if (path.startsWith("@"))
-		{
-			path = SystemUtils.USER_DIR + File.separator + path.substring(1);
+			path = getInstallRoot() + File.separator + path.substring(1);
 		}
 		return path;
 	}
 
 	private static String unexpandRelativePath(String path)
 	{
-		if (path.startsWith(SystemUtils.USER_DIR + File.separator))
+		String root = getInstallRoot();
+		if (path.startsWith(root + File.separator))
 		{
-			path = '@' + path.substring(SystemUtils.USER_DIR.length() + 1);
+			path = '@' + path.substring(root.length() + 1);
 		}
 		return path;
 	}
@@ -208,7 +296,9 @@ public final class ConfigurationSettings extends PropertyContext
 				case user:
 					return SystemUtils.USER_HOME + File.separator + '.' + APPLICATION; // $NON-NLS-1$
 				case pcgen:
-					return SystemUtils.USER_DIR + File.separator + "settings"; // $NON-NLS-1$
+					// Install dir, resolved from java.home like @-paths — not user.dir,
+					// which is / for a packaged/Finder launch (gave "//settings").
+					return getInstallRoot() + File.separator + "settings"; // $NON-NLS-1$
 				case mac_user:
 					return SystemUtils.USER_HOME + "/Library/Preferences/" + APPLICATION; // $NON-NLS-1$
 				case FD_USER:
@@ -226,7 +316,7 @@ public final class ConfigurationSettings extends PropertyContext
 
 	public static String getSettingsDirFromFilePath(String fType)
 	{
-		if ((fType == null) || (fType.length() < 1))
+		if ((fType == null) || fType.isEmpty())
 		{
 			// make sure we have a default
 			fType = getDefaultSettingsFilesPath();
@@ -237,7 +327,7 @@ public final class ConfigurationSettings extends PropertyContext
 			//Check to see if this path is one of the standard path types
 			path = SettingsFilesPath.valueOf(fType).getSettingsDir();
 		}
-		catch (IllegalArgumentException ex)
+		catch (IllegalArgumentException _)
 		{
 			//It must be a custom filepath
 			path = fType;

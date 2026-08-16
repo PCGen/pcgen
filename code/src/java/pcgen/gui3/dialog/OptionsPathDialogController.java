@@ -19,6 +19,7 @@
 package pcgen.gui3.dialog;
 
 import java.io.File;
+import java.nio.file.Path;
 import java.util.Optional;
 
 import pcgen.system.ConfigurationSettings;
@@ -38,6 +39,9 @@ import org.apache.commons.lang3.SystemUtils;
 public class OptionsPathDialogController
 {
 	private final OptionsPathDialogModel model = new OptionsPathDialogModel();
+
+	@FXML
+	private RadioButton pcgenDir;
 
 	@FXML
 	private RadioButton freedesktop;
@@ -77,6 +81,13 @@ public class OptionsPathDialogController
 		freedesktop.setVisible(SystemUtils.IS_OS_UNIX);
 		freedesktop.setManaged(SystemUtils.IS_OS_UNIX);
 
+		// "PCGen Dir" stores settings under the install dir. If the folder isn't writable (Mac, .dmg), disable the option.
+		if (!ConfigurationSettings.isInstallRootWritable())
+		{
+			pcgenDir.setDisable(true);
+			pcgenDir.setText(pcgenDir.getText() + " (not writable)");
+		}
+
 		directoryGroup.selectedToggleProperty().addListener((observable, _, newValue)  -> {
 			Logging.debugPrint("toggle changed " + observable);
 			if (newValue.getUserData() != null)
@@ -104,9 +115,13 @@ public class OptionsPathDialogController
 	{
 		DirectoryChooser directoryChooser = new DirectoryChooser();
 		String modelDirectory = model.directoryProperty().getValue();
-		if (!modelDirectory.isBlank())
+		if ((modelDirectory != null) && !modelDirectory.isBlank())
 		{
-			directoryChooser.setInitialDirectory(new File(model.directoryProperty().getValue()));
+			// The prefilled path (e.g. <install>/settings) may not exist yet, and JavaFX's DirectoryChooser silently
+			// refuses to open when initialDirectory is missing.
+			ConfigurationSettings.nearestExistingDir(modelDirectory)
+					.map(Path::toFile)
+					.ifPresent(directoryChooser::setInitialDirectory);
 		}
 
 		File dir = directoryChooser.showDialog(optionsPathDialogScene.getWindow());

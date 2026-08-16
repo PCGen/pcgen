@@ -177,9 +177,9 @@ public final class PCGenSettings extends PropertyContext
 		return getInstance().getProperty(key);
 	}
 
-	private static Object setSystemProperty(String key, String value)
+	private static void setSystemProperty(String key, String value)
 	{
-		return getInstance().setProperty(key, value);
+		getInstance().setProperty(key, value);
 	}
 
 	private static String getDirectory(String key)
