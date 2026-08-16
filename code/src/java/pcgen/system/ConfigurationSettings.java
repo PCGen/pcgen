@@ -212,6 +212,21 @@ public final class ConfigurationSettings extends PropertyContext
 	}
 
 	/**
+	 * The nearest existing directory at or above {@code path}, or null if none
+	 * exists up the chain. Lets a directory chooser start at a real directory
+	 * when the prefilled path does not exist yet.
+	 */
+	public static File nearestExistingDir(String path)
+	{
+		File dir = (path == null) ? null : new File(path);
+		while ((dir != null) && !dir.isDirectory())
+		{
+			dir = dir.getParentFile();
+		}
+		return dir;
+	}
+
+	/**
 	 * Walk up from {@code javaHome} and return the first ancestor — or immediate
 	 * child of an ancestor — that holds PCGen's bundled data (the "data" +
 	 * "system" folders), or empty if none is found (the caller then falls back

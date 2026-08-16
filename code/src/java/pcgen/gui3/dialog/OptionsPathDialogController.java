@@ -80,10 +80,7 @@ public class OptionsPathDialogController
 		freedesktop.setVisible(SystemUtils.IS_OS_UNIX);
 		freedesktop.setManaged(SystemUtils.IS_OS_UNIX);
 
-		// "PCGen Dir" stores settings under the install dir, which only works on a
-		// portable/dev copy — an installed app (read-only DMG or sealed /Applications
-		// bundle) cannot be written to, so saving would fail silently. Disable it when
-		// the install root is not writable.
+		// "PCGen Dir" stores settings under the install dir. If the folder isn't writable (Mac, .dmg), disable the option.
 		if (!ConfigurationSettings.isInstallRootWritable())
 		{
 			pcgenDir.setDisable(true);
@@ -121,15 +118,11 @@ public class OptionsPathDialogController
 		{
 			// The prefilled path (e.g. <install>/settings) may not exist yet, and
 			// JavaFX's DirectoryChooser silently refuses to open when initialDirectory
-			// is missing. Walk up to the nearest existing ancestor.
-			File dir = new File(modelDirectory);
-			while ((dir != null) && !dir.isDirectory())
+			// is missing. Start at the nearest existing ancestor instead.
+			File initialDir = ConfigurationSettings.nearestExistingDir(modelDirectory);
+			if (initialDir != null)
 			{
-				dir = dir.getParentFile();
-			}
-			if (dir != null)
-			{
-				directoryChooser.setInitialDirectory(dir);
+				directoryChooser.setInitialDirectory(initialDir);
 			}
 		}
 
