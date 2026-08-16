@@ -212,18 +212,18 @@ public final class ConfigurationSettings extends PropertyContext
 	}
 
 	/**
-	 * The nearest existing directory at or above {@code path}, or null if none
+	 * The nearest existing directory at or above {@code path}, or empty if none
 	 * exists up the chain. Lets a directory chooser start at a real directory
 	 * when the prefilled path does not exist yet.
 	 */
-	public static File nearestExistingDir(String path)
+	public static Optional<Path> nearestExistingDir(String path)
 	{
-		File dir = (path == null) ? null : new File(path);
-		while ((dir != null) && !dir.isDirectory())
+		Path dir = (path == null) ? null : Path.of(path);
+		while ((dir != null) && !Files.isDirectory(dir))
 		{
-			dir = dir.getParentFile();
+			dir = dir.getParent();
 		}
-		return dir;
+		return Optional.ofNullable(dir);
 	}
 
 	/**

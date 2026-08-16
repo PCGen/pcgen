@@ -19,6 +19,7 @@
 package pcgen.gui3.dialog;
 
 import java.io.File;
+import java.nio.file.Path;
 import java.util.Optional;
 
 import pcgen.system.ConfigurationSettings;
@@ -116,14 +117,11 @@ public class OptionsPathDialogController
 		String modelDirectory = model.directoryProperty().getValue();
 		if ((modelDirectory != null) && !modelDirectory.isBlank())
 		{
-			// The prefilled path (e.g. <install>/settings) may not exist yet, and
-			// JavaFX's DirectoryChooser silently refuses to open when initialDirectory
-			// is missing. Start at the nearest existing ancestor instead.
-			File initialDir = ConfigurationSettings.nearestExistingDir(modelDirectory);
-			if (initialDir != null)
-			{
-				directoryChooser.setInitialDirectory(initialDir);
-			}
+			// The prefilled path (e.g. <install>/settings) may not exist yet, and JavaFX's DirectoryChooser silently
+			// refuses to open when initialDirectory is missing.
+			ConfigurationSettings.nearestExistingDir(modelDirectory)
+					.map(Path::toFile)
+					.ifPresent(directoryChooser::setInitialDirectory);
 		}
 
 		File dir = directoryChooser.showDialog(optionsPathDialogScene.getWindow());

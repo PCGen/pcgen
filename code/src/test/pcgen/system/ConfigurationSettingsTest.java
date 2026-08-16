@@ -19,7 +19,6 @@ package pcgen.system;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
@@ -154,7 +153,7 @@ class ConfigurationSettingsTest
 	@Test
 	void nearestExistingDir_should_returnItself_when_dirExists(@TempDir Path dir)
 	{
-		assertEquals(dir.toFile(), ConfigurationSettings.nearestExistingDir(dir.toString()));
+		assertEquals(Optional.of(dir), ConfigurationSettings.nearestExistingDir(dir.toString()));
 	}
 
 	@Test
@@ -162,19 +161,19 @@ class ConfigurationSettingsTest
 	{
 		// e.g. <install>/settings where "settings" has not been created yet.
 		Path missingLeaf = parent.resolve("settings");
-		assertEquals(parent.toFile(), ConfigurationSettings.nearestExistingDir(missingLeaf.toString()));
+		assertEquals(Optional.of(parent), ConfigurationSettings.nearestExistingDir(missingLeaf.toString()));
 	}
 
 	@Test
 	void nearestExistingDir_should_walkUpSeveralLevels_when_deepPathMissing(@TempDir Path parent)
 	{
 		Path deepMissing = parent.resolve("a/b/c");
-		assertEquals(parent.toFile(), ConfigurationSettings.nearestExistingDir(deepMissing.toString()));
+		assertEquals(Optional.of(parent), ConfigurationSettings.nearestExistingDir(deepMissing.toString()));
 	}
 
 	@Test
-	void nearestExistingDir_should_beNull_when_pathIsNull()
+	void nearestExistingDir_should_beEmpty_when_pathIsNull()
 	{
-		assertNull(ConfigurationSettings.nearestExistingDir(null));
+		assertTrue(ConfigurationSettings.nearestExistingDir(null).isEmpty());
 	}
 }
