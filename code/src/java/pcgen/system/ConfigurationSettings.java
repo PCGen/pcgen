@@ -168,19 +168,9 @@ public final class ConfigurationSettings extends PropertyContext
 	}
 
 	/**
-	 * The directory PCGen's bundled data (@data, @plugins, …) is resolved
-	 * against. It must be found independently of the process working directory,
-	 * because a packaged (jpackage) launcher starts with an arbitrary cwd — a
-	 * Finder/double-click launch on macOS gives user.dir=/ — and PCGen is a
-	 * linked module in the bundled runtime, so it has no jar location to key off.
-	 *
-	 * The one location the JVM always reports accurately is java.home (the
-	 * runtime image). In a jpackage bundle the app payload sits next to that
-	 * runtime at an OS-specific offset (Contents/app vs lib/app vs app), so we
-	 * walk up from java.home and return the first ancestor — or immediate child
-	 * of an ancestor — that actually contains PCGen's data (the "data" +
-	 * "system" folders). Falls back to user.dir for dev/IDE runs where the
-	 * runtime is a full JDK elsewhere.
+	 * The directory PCGen's bundled data (@data, @plugins, …) is resolved against,
+	 * found via {@link #findInstallRoot} from java.home rather than the process
+	 * working directory (a packaged/Finder launch gives user.dir=/).
 	 */
 	private static String getInstallRoot()
 	{
