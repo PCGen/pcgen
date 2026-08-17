@@ -248,6 +248,16 @@ create a run configuration using Gradle and have the command be `run`. This shou
 If you want to debug in Intellij, using the `Main` configuration and run it in debug mode.
 You can change the Java version to whatever version is supported, and you have installed.
 
+#### JavaFX / graphics toolkit fails to start on Linux
+
+If PCGen exits at startup with an error `UnsatisfiedLinkError: no glassgtk3 in java.library.path`, it means that JavaFX
+cannot find the linked file `libgthread-2.0.so.0`. To solve it, the missing package must be installed:
+
+- **openSUSE Tumbleweed:** `sudo zypper install libgthread-2_0-0`
+- **Other distributions:** install the glib package that provides `libgthread-2.0.so.0` (the exact package name varies).
+
+If instead the error is `Unable to open DISPLAY`, run PCGen from a graphical desktop session rather than a remote/SSH shell.
+
 
 [PCGen]: https://github.com/PCGen/pcgen
 [JIRA]: https://pcgenorg.atlassian.net
