@@ -353,7 +353,7 @@ public abstract class ExportHandler
 			@Override
 			public void loadPlugin(Class<?> clazz) throws Exception
 			{
-				Token pl = (Token) clazz.newInstance();
+				Token pl = (Token) clazz.getDeclaredConstructor().newInstance();
 				addToTokenMap(pl);
 			}
 

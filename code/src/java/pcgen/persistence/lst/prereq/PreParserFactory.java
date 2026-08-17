@@ -43,7 +43,7 @@ public final class PreParserFactory implements PluginLoader
 	@Override
 	public void loadPlugin(Class<?> clazz) throws Exception
 	{
-		register((PrerequisiteParserInterface) clazz.newInstance());
+		register((PrerequisiteParserInterface) clazz.getDeclaredConstructor().newInstance());
 	}
 
 	@SuppressWarnings("unchecked")

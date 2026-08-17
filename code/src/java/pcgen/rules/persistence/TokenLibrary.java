@@ -372,7 +372,7 @@ public final class TokenLibrary implements PluginLoader
 			addBonusClass(clazz);
 		}
 
-		Object token = clazz.newInstance();
+		Object token = clazz.getDeclaredConstructor().newInstance();
 		if (LstToken.class.isAssignableFrom(clazz) || PrerequisiteParserInterface.class.isAssignableFrom(clazz))
 		{
 			addToTokenMap(token);

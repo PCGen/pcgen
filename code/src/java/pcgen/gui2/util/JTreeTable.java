@@ -785,7 +785,7 @@ public class JTreeTable extends JTableEx
 						MouseEvent me = (MouseEvent) e;
 						int column = JTreeTable.this.columnAtPoint(me.getPoint());
 						Rectangle cell = JTreeTable.this.getCellRect(0, column, true);
-						MouseEvent newME = new MouseEvent(tree, me.getID(), me.getWhen(), me.getModifiers(), me.getX(),
+						MouseEvent newME = new MouseEvent(tree, me.getID(), me.getWhen(), me.getModifiersEx(), me.getX(),
 							me.getY(), me.getClickCount(), me.isPopupTrigger());
 						//we translate the event into the tree's coordinate system
 						newME.translatePoint(-cell.x, 0);

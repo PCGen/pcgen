@@ -93,7 +93,7 @@ public final class PrerequisiteTestFactory implements PluginLoader
 	@Override
 	public void loadPlugin(Class<?> clazz) throws Exception
 	{
-		register((PrerequisiteTest) clazz.newInstance());
+		register((PrerequisiteTest) clazz.getDeclaredConstructor().newInstance());
 	}
 
 	@Override

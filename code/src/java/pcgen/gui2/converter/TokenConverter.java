@@ -75,7 +75,7 @@ public final class TokenConverter
 			@Override
 			public void loadPlugin(Class<?> clazz) throws Exception
 			{
-				addToTokenMap((TokenProcessorPlugin) clazz.newInstance());
+				addToTokenMap((TokenProcessorPlugin) clazz.getDeclaredConstructor().newInstance());
 			}
 
 			@Override
