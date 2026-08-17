@@ -19,8 +19,15 @@
 package pcgen.system;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Optional;
+import java.util.logging.Level;
 
 import pcgen.output.publish.OutputDB;
+import pcgen.util.Logging;
 
 import org.apache.commons.lang3.SystemUtils;
 
@@ -60,6 +67,9 @@ public final class PCGenSettings extends PropertyContext
 	 * that build user-facing paths.
 	 */
 	public static final String USER_DIR_NAME = "PCGen";
+
+	/** freedesktop.org user-directories key holding the user's documents folder. */
+	private static final String XDG_DOCUMENTS_DIR = "XDG_DOCUMENTS_DIR";
 
 	/**
 	 * The key for the path to the character files.
@@ -105,8 +115,9 @@ public final class PCGenSettings extends PropertyContext
 	}
 
 	/**
-	 * Default characters/portraits/backups dir, rooted in the user's home so it
-	 * stays writable when PCGen is installed under Program Files.
+	 * Default characters/portraits/backups dir, rooted in the user's documents
+	 * folder where the platform defines one, and otherwise in the user's home,
+	 * so it stays writable when PCGen is installed under Program Files.
 	 */
 	static String defaultCharactersDir()
 	{
@@ -123,7 +134,114 @@ public final class PCGenSettings extends PropertyContext
 				}
 			}
 		}
+		else if (SystemUtils.IS_OS_UNIX && !SystemUtils.IS_OS_MAC_OSX)
+		{
+			// macOS is also "unix" but keeps its own convention, hence the exclusion.
+			root = freedesktopDocumentsDir().orElse(root);
+		}
 		return root + File.separator + USER_DIR_NAME + File.separator + "characters";
+	}
+
+	/**
+	 * Resolves the freedesktop.org documents folder so character files land where
+	 * the user browses. Uses the XDG <em>user-directories</em> convention (not the
+	 * base-dir spec): exported {@code XDG_DOCUMENTS_DIR} wins, else {@code user-dirs.dirs}
+	 * is read directly ({@code xdg-user-dir} may not be installed).
+	 *
+	 * @return the documents folder, or empty if it cannot be resolved or does
+	 *         not exist
+	 */
+	private static Optional<String> freedesktopDocumentsDir()
+	{
+		String exported = System.getenv(XDG_DOCUMENTS_DIR);
+		if ((exported != null) && !exported.isEmpty())
+		{
+			return existingDirectory(exported);
+		}
+
+		String configHome = System.getenv("XDG_CONFIG_HOME");
+		if ((configHome == null) || configHome.isEmpty())
+		{
+			configHome = SystemUtils.USER_HOME + File.separator + ".config";
+		}
+		return documentsDirFromUserDirs(Path.of(configHome, "user-dirs.dirs"), SystemUtils.USER_HOME)
+				.flatMap(PCGenSettings::existingDirectory);
+	}
+
+	/**
+	 * Extracts {@code XDG_DOCUMENTS_DIR} from a {@code user-dirs.dirs} file,
+	 * dequoting the value and expanding a leading {@code $HOME}. Later entries win,
+	 * matching how a shell sources the file.
+	 *
+	 * @param userDirsFile the {@code user-dirs.dirs} file to read
+	 * @param home the value to substitute for {@code $HOME}
+	 * @return the configured documents folder, or empty if absent or unreadable
+	 */
+	static Optional<String> documentsDirFromUserDirs(Path userDirsFile, String home)
+	{
+		if (!Files.isRegularFile(userDirsFile))
+		{
+			return Optional.empty();
+		}
+
+		try
+		{
+			String found = null;
+			for (String line : Files.readAllLines(userDirsFile, StandardCharsets.UTF_8))
+			{
+				String trimmed = line.trim();
+				if (trimmed.startsWith("#") || !trimmed.startsWith(XDG_DOCUMENTS_DIR + '='))
+				{
+					continue;
+				}
+				String value = dequote(trimmed.substring(trimmed.indexOf('=') + 1).trim());
+				if (!value.isEmpty())
+				{
+					found = expandHome(value, home);
+				}
+			}
+			return Optional.ofNullable(found);
+		}
+		catch (IOException | RuntimeException e)
+		{
+			Logging.log(Level.WARNING, "Could not read " + userDirsFile, e);
+			return Optional.empty();
+		}
+	}
+
+	/** Strips one layer of matching single or double quotes. */
+	private static String dequote(String value)
+	{
+		if ((value.length() >= 2) && ((value.charAt(0) == '"') || (value.charAt(0) == '\''))
+				&& (value.charAt(value.length() - 1) == value.charAt(0)))
+		{
+			return value.substring(1, value.length() - 1);
+		}
+		return value;
+	}
+
+	/** Expands a leading {@code $HOME} or <code>${HOME}</code> reference. */
+	private static String expandHome(String value, String home)
+	{
+		if (value.startsWith("${HOME}"))
+		{
+			return home + value.substring("${HOME}".length());
+		}
+		if (value.startsWith("$HOME"))
+		{
+			return home + value.substring("$HOME".length());
+		}
+		return value;
+	}
+
+	/**
+	 * @param path a candidate directory
+	 * @return the absolute path if it is an existing directory, otherwise empty
+	 */
+	private static Optional<String> existingDirectory(String path)
+	{
+		Path dir = Path.of(path);
+		return Files.isDirectory(dir) ? Optional.of(dir.toAbsolutePath().toString()) : Optional.empty();
 	}
 
 	@Override
