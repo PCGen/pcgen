@@ -80,26 +80,24 @@ public final class GraphicsStartupError
 	 */
 	public static String buildMessage(Kind kind, Throwable failure)
 	{
-		String cause = rootMessage(failure);
+		String cause = "Underlying error: " + rootMessage(failure);
+		String seeReadme = "See the Troubleshooting section of the PCGen README.";
 		return switch (kind)
 		{
-			case NATIVE_LIBRARY -> """
-					PCGen's graphical toolkit (JavaFX) failed to start.
-					It could not load a native graphics library. This is usually a missing system package.
-					Underlying error:\s""" + cause + """
-
-					See the Troubleshooting section of the PCGen README for platform-specific fixes.""";
-			case NO_DISPLAY -> """
-					PCGen's graphical toolkit (JavaFX) could not open a display.
-					Run PCGen from a graphical desktop session, not a remote/SSH shell.
-					Underlying error:\s""" + cause + """
-
-					See the Troubleshooting section of the PCGen README.""";
-			case GENERIC -> """
-					PCGen's graphical toolkit (JavaFX) failed to start.
-					Underlying error:\s""" + cause + """
-
-					See the Troubleshooting section of the PCGen README.""";
+			case NATIVE_LIBRARY -> String.join("\n",
+					"PCGen's graphical toolkit (JavaFX) failed to start.",
+					"It could not load a native graphics library. This is usually a missing system package.",
+					cause,
+					"See the Troubleshooting section of the PCGen README for platform-specific fixes.");
+			case NO_DISPLAY -> String.join("\n",
+					"PCGen's graphical toolkit (JavaFX) could not open a display.",
+					"Run PCGen from a graphical desktop session, not a remote/SSH shell.",
+					cause,
+					seeReadme);
+			case GENERIC -> String.join("\n",
+					"PCGen's graphical toolkit (JavaFX) failed to start.",
+					cause,
+					seeReadme);
 		};
 	}
 
