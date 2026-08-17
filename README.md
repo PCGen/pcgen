@@ -250,24 +250,13 @@ You can change the Java version to whatever version is supported, and you have i
 
 #### JavaFX / graphics toolkit fails to start on Linux
 
-If PCGen exits at startup reporting that the graphical toolkit (JavaFX) could not
-load a native graphics library — for example `UnsatisfiedLinkError: no glassgtk3 in
-java.library.path` — the native library is usually present but a *system* library it
-depends on is missing.
-
-The bundled JavaFX `libglassgtk3.so` links against `libgthread-2.0.so.0`. Recent glib
-releases no longer ship that standalone stub, so the loader fails and the JVM reports
-the misleading "not in java.library.path". Install the package that provides the stub:
+If PCGen exits at startup with an error `UnsatisfiedLinkError: no glassgtk3 in java.library.path`, it means that JavaFX
+cannot find the linked file `libgthread-2.0.so.0`. To solve it, the missing package must be installed:
 
 - **openSUSE Tumbleweed:** `sudo zypper install libgthread-2_0-0`
-- **Other distributions:** install the glib package that provides `libgthread-2.0.so.0`
-  (the exact package name varies).
+- **Other distributions:** install the glib package that provides `libgthread-2.0.so.0` (the exact package name varies).
 
-Note that having GTK 3 itself installed is not enough — the missing piece is the
-transitive `libgthread` dependency.
-
-If instead the error is `Unable to open DISPLAY`, run PCGen from a graphical desktop
-session rather than a remote/SSH shell.
+If instead the error is `Unable to open DISPLAY`, run PCGen from a graphical desktop session rather than a remote/SSH shell.
 
 
 [PCGen]: https://github.com/PCGen/pcgen

@@ -94,15 +94,14 @@ public final class RandomNameDialog
 		JFXPanel fxPanel;
 		try
 		{
-			// First JavaFX bootstrap for the --name-generator CLI path. Guard it so
-			// a toolkit-init failure yields an honest message rather than the raw
-			// uncaught stack trace. reportAndExit does not return.
+			// First JavaFX bootstrap for the --name-generator CLI path. Guard it to intercept a message
+			// and display it in the log.
 			fxPanel = new JFXPanel();
 		}
 		catch (RuntimeException | LinkageError toolkitFailure)
 		{
 			GraphicsStartupError.reportAndExit(toolkitFailure);
-			return; // unreachable: reportAndExit exits, but satisfies definite assignment
+			return; // unreachable, because reportAndExit exits
 		}
 		dialog.setContentPane(fxPanel);
 

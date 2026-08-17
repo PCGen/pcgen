@@ -188,9 +188,7 @@ public final class Main
 
 		try
 		{
-			// First JavaFX bootstrap on a configured install (no OptionsPathDialog
-			// shown). Guard it so a toolkit-init failure yields an honest message
-			// instead of the raw uncaught stack trace. reportAndExit does not return.
+			// If JavaFX cannot be initialized, show a user-friendly message
 			new JFXPanel();
 		}
 		catch (RuntimeException | LinkageError toolkitFailure)

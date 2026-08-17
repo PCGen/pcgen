@@ -205,7 +205,7 @@ public class PanelFromResource<T> implements Controllable<T>
 		try
 		{
 			Platform.startup(() -> {
-				// The toolkit is considered initialised the moment this Runnable
+				// The toolkit is considered initialized the moment this Runnable
 				// is queued onto the FX application thread; we have no work to
 				// perform here ourselves.
 			});
@@ -218,9 +218,7 @@ public class PanelFromResource<T> implements Controllable<T>
 		}
 		catch (RuntimeException | LinkageError toolkitFailure)
 		{
-			// The toolkit could not start (e.g. a native library failed to load,
-			// or no display is available). Report an honest, actionable message
-			// instead of the misleading raw stack trace, then exit. Does not return.
+			// Cannot run JavaFX, report a user-friendly message
 			GraphicsStartupError.reportAndExit(toolkitFailure);
 		}
 		Platform.setImplicitExit(false);
