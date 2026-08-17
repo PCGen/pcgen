@@ -85,8 +85,7 @@ public final class GraphicsStartupError
 		{
 			case NATIVE_LIBRARY -> """
 					PCGen's graphical toolkit (JavaFX) failed to start.
-					It could not load a native graphics library. This is usually a missing \
-					system package, not a PCGen problem.
+					It could not load a native graphics library. This is usually a missing system package.
 					Underlying error:\s""" + cause + """
 
 					See the Troubleshooting section of the PCGen README for platform-specific fixes.""";
