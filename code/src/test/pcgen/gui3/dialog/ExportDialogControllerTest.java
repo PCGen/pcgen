@@ -64,7 +64,7 @@ class ExportDialogControllerTest
 		callerThreadId.set(Thread.currentThread().threadId());
 		File file = new File("placeholder.pdf");
 		ExportDialogController.openFileInBackground(file, toOpen -> {
-			openerThreadId.set(Thread.currentThread().getId());
+			openerThreadId.set(Thread.currentThread().threadId());
 			opened.countDown();
 		});
 

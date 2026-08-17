@@ -37,7 +37,7 @@ import pcgen.facade.core.InfoFacade;
 import pcgen.gui2.tools.Icons;
 import pcgen.system.LanguageBundle;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Strings;
 
 /**
  * A text search filtering bar including the title, the text field and a clear 
@@ -105,9 +105,9 @@ public class SearchFilterPanel extends JPanel
 			abbStr = ((Campaign) element).get(StringKey.SOURCE_SHORT);
 		}
 		final String searchText = searchField.getText();
-		return StringUtils.containsIgnoreCase(element.toString(), searchText)
-			|| StringUtils.containsIgnoreCase(typeStr, searchText)
-			|| StringUtils.containsIgnoreCase(abbStr, searchText);
+		return Strings.CI.contains(element.toString(), searchText)
+			|| Strings.CI.contains(typeStr, searchText)
+			|| Strings.CI.contains(abbStr, searchText);
 	}
 
 	@Override
