@@ -279,7 +279,11 @@ jar {
         attributes 'Implementation-Title': 'PCGen',
                 'Implementation-Version': archiveVersion,
                 'Main-Class': 'pcgen.system.Main',
-                'Class-Path': configurations.runtimeClasspath.collect { " libs/${it.name} " }.join('')
+                // Resolve the classpath lazily (Provider) so a toolchain miss fails at
+                // execution, not configuration, and can't be frozen into the config cache.
+                'Class-Path': configurations.runtimeClasspath.elements.map { files ->
+                    files.collect { " libs/${it.asFile.name} " }.join('')
+                }
     }
 
     exclude 'META-INF/*.SF', 'META-INF/*.DSA', 'META-INF/*.RSA', 'META-INF/*.EC'
@@ -509,7 +513,9 @@ tasks.register("converterJar", Jar) {
         attributes 'Implementation-Title': 'PCGen Data Converter',
                    'Implementation-Version': archiveVersion,
                    'Main-Class': 'pcgen.gui2.converter.PCGenDataConvert',
-                   'Class-Path': 'pcgen.jar' + configurations.runtimeClasspath.collect { " libs/${it.name} " }.join('')
+                   'Class-Path': configurations.runtimeClasspath.elements.map { files ->
+                       'pcgen.jar' + files.collect { " libs/${it.asFile.name} " }.join('')
+                   }
     }
 
     archiveClassifier.set('batch-convert')
@@ -825,14 +831,18 @@ tasks.withType(JavaCompile).configureEach {
     options.release = project.ext.javaVersion
 
     def modsLibPath = layout.projectDirectory.dir("mods/lib").asFile.absolutePath
-    def depJars = configurations.runtimeClasspath.files.findAll {
-        !it.name.startsWith('javafx-')
-    }.collect { it.absolutePath }.join(File.pathSeparator)
-    def compileOnlyJars = configurations.compileClasspath.files.findAll {
-        it.name.contains('annotations') || it.name.contains('spotbugs')
-    }.collect { it.absolutePath }.join(File.pathSeparator)
+    // Resolve lazily: an eager read here forces the toolchain lookup, whose failure would be frozen into the config cache.
+    def runtimeFiles = configurations.runtimeClasspath.incoming.files
+    def compileFiles = configurations.compileClasspath.incoming.files
 
     doFirst {
+        def depJars = runtimeFiles.findAll {
+            !it.name.startsWith('javafx-')
+        }.collect { it.absolutePath }.join(File.pathSeparator)
+        def compileOnlyJars = compileFiles.findAll {
+            it.name.contains('annotations') || it.name.contains('spotbugs')
+        }.collect { it.absolutePath }.join(File.pathSeparator)
+
         if (name.toLowerCase().contains("test")) {
             options.compilerArgs << "--module-path" << modsLibPath
             options.compilerArgs << "--add-modules" << "javafx.controls,javafx.web,javafx.swing,javafx.fxml,javafx.graphics"
