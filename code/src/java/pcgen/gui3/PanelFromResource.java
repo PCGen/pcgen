@@ -216,6 +216,13 @@ public class PanelFromResource<T> implements Controllable<T>
 					"JavaFX toolkit was already initialised before PanelFromResource bootstrap; continuing.",
 					alreadyStarted);
 		}
+		catch (RuntimeException | LinkageError toolkitFailure)
+		{
+			// The toolkit could not start (e.g. a native library failed to load,
+			// or no display is available). Report an honest, actionable message
+			// instead of the misleading raw stack trace, then exit. Does not return.
+			GraphicsStartupError.reportAndExit(toolkitFailure);
+		}
 		Platform.setImplicitExit(false);
 	}
 }

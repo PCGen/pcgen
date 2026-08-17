@@ -25,6 +25,7 @@ import java.util.concurrent.CountDownLatch;
 import javax.swing.JDialog;
 import javax.swing.SwingUtilities;
 
+import pcgen.gui3.GraphicsStartupError;
 import pcgen.gui3.GuiAssertions;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
@@ -90,7 +91,19 @@ public final class RandomNameDialog
 
 		JDialog dialog = new JDialog(owner, LanguageBundle.getString("in_rndNameTitle"),
 				Dialog.ModalityType.APPLICATION_MODAL);
-		JFXPanel fxPanel = new JFXPanel();
+		JFXPanel fxPanel;
+		try
+		{
+			// First JavaFX bootstrap for the --name-generator CLI path. Guard it so
+			// a toolkit-init failure yields an honest message rather than the raw
+			// uncaught stack trace. reportAndExit does not return.
+			fxPanel = new JFXPanel();
+		}
+		catch (RuntimeException | LinkageError toolkitFailure)
+		{
+			GraphicsStartupError.reportAndExit(toolkitFailure);
+			return; // unreachable: reportAndExit exits, but satisfies definite assignment
+		}
 		dialog.setContentPane(fxPanel);
 
 		CountDownLatch sceneReady = new CountDownLatch(1);

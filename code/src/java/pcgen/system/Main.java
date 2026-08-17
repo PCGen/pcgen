@@ -40,6 +40,7 @@ import pcgen.facade.core.UIDelegate;
 import pcgen.gui2.PCGenUIManager;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.converter.TokenConverter;
+import pcgen.gui3.GraphicsStartupError;
 import pcgen.gui3.PanelFromResource;
 import pcgen.gui3.namegen.RandomNameDialog;
 import pcgen.gui3.dialog.OptionsPathDialogController;
@@ -185,7 +186,17 @@ public final class Main
 		loadProperties(true);
 		initPrintPreviewFonts();
 
-		new JFXPanel();
+		try
+		{
+			// First JavaFX bootstrap on a configured install (no OptionsPathDialog
+			// shown). Guard it so a toolkit-init failure yields an honest message
+			// instead of the raw uncaught stack trace. reportAndExit does not return.
+			new JFXPanel();
+		}
+		catch (RuntimeException | LinkageError toolkitFailure)
+		{
+			GraphicsStartupError.reportAndExit(toolkitFailure);
+		}
 
 		PCGenPreloader splash = new PCGenPreloader();
 		runBootstrapTasks(splash);
