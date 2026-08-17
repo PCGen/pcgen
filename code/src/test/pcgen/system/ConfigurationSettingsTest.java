@@ -124,6 +124,77 @@ class ConfigurationSettingsTest
 		assertTrue(found.isEmpty());
 	}
 
+	/**
+	 * Regression guard: the search used to inspect every child of every ancestor
+	 * all the way to the filesystem root, so any unrelated directory holding
+	 * data+system was adopted as the install root. A stray PCGen checkout sitting
+	 * beside the temp directory was enough to break unrelated runs.
+	 */
+	@Test
+	void findInstallRoot_should_ignoreUnrelatedSibling_when_notNamedApp(@TempDir Path parent) throws IOException
+	{
+		makeInstallRoot(parent.resolve("some-other-checkout"));
+		Path javaHome = Files.createDirectories(parent.resolve("runtime"));
+
+		Optional<Path> found = ConfigurationSettings.findInstallRoot(javaHome.toString());
+
+		assertTrue(found.isEmpty(),
+				"An arbitrary sibling directory must not be mistaken for the install root, but got: " + found);
+	}
+
+	/** The bundled layout is specifically an "app" directory beside "runtime". */
+	@Test
+	void findInstallRoot_should_findAppSibling_when_bothSiblingsExist(@TempDir Path parent) throws IOException
+	{
+		makeInstallRoot(parent.resolve("decoy"));
+		Path app = makeInstallRoot(parent.resolve("app"));
+		Path javaHome = Files.createDirectories(parent.resolve("runtime"));
+
+		Optional<Path> found = ConfigurationSettings.findInstallRoot(javaHome.toString());
+
+		assertEquals(app.toRealPath(), found.orElseThrow().toRealPath());
+	}
+
+	/** A symlinked java.home must resolve against the real tree, since getParent is lexical. */
+	@Test
+	void findInstallRoot_should_followSymlinkedJavaHome(@TempDir Path base) throws IOException
+	{
+		Path image = Files.createDirectories(base.resolve("image"));
+		Path app = makeInstallRoot(image.resolve("app"));
+		Path realRuntime = Files.createDirectories(image.resolve("runtime"));
+		Path link = base.resolve("link-to-runtime");
+		assumeTrue(createSymlink(link, realRuntime), "filesystem does not support symlinks");
+
+		Optional<Path> found = ConfigurationSettings.findInstallRoot(link.toString());
+
+		assertEquals(app.toRealPath(), found.orElseThrow().toRealPath());
+	}
+
+	/** The climb must stop rather than run to the filesystem root. */
+	@Test
+	void findInstallRoot_should_beEmpty_when_markersAreTooFarAbove(@TempDir Path root) throws IOException
+	{
+		makeInstallRoot(root);
+		Path javaHome = Files.createDirectories(root.resolve("a/b/c/d/e/f/g/h"));
+
+		Optional<Path> found = ConfigurationSettings.findInstallRoot(javaHome.toString());
+
+		assertTrue(found.isEmpty(), "The search must be bounded, but reached: " + found);
+	}
+
+	private static boolean createSymlink(Path link, Path target)
+	{
+		try
+		{
+			Files.createSymbolicLink(link, target);
+			return true;
+		}
+		catch (IOException | UnsupportedOperationException _)
+		{
+			return false;
+		}
+	}
+
 	@Test
 	void isWritableDir_should_beTrue_when_dirIsWritable(@TempDir Path dir)
 	{

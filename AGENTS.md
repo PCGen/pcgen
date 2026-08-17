@@ -118,6 +118,7 @@ Conventions/gotchas observed:
 - Plugins are built from compiled classes into plugin jars via tasks in code/gradle/plugins.gradle; main jar depends on `jarAllPlugins`.
 - Some ivy/maven repos are over HTTP (`allowInsecureProtocol true`). Do not change without coordinating with maintainers.
 - Gradle configuration cache is enabled — tasks that are not compatible should declare `notCompatibleWithConfigurationCache(...)`.
+- `ConfigurationSettings.findInstallRoot` locates bundled data by climbing from `java.home`. It deliberately only accepts an ancestor itself or that ancestor's `app` subdirectory (the jpackage layout), canonicalizes the start path so symlinked runtimes resolve against the real tree, bounds the climb, and memoises the result. Do not widen it back to scanning every child of every ancestor: that walked to `/` and adopted any unrelated directory containing `data` + `system`, so a stray checkout under `/tmp` silently hijacked the install root and broke unrelated unit tests.
 
 ## Build/Release Flow
 
