@@ -55,6 +55,13 @@ public final class PCGenSettings extends PropertyContext
 	public static final String OPTION_SKILL_FILTER = "skillsOutputFilter";
 	public static final String OPTION_GENERATE_TEMP_FILE_WITH_PDF = "generateTempFileWithPdf";
 	/**
+	 * Name of the PCGen folder created in the user's home or documents
+	 * directory. Defined once so the spelling cannot drift between the places
+	 * that build user-facing paths.
+	 */
+	public static final String USER_DIR_NAME = "PCGen";
+
+	/**
 	 * The key for the path to the character files.
 	 */
 	public static final String PCG_SAVE_PATH = "pcgen.files.characters";
@@ -116,7 +123,7 @@ public final class PCGenSettings extends PropertyContext
 				}
 			}
 		}
-		return root + File.separator + "PCGen" + File.separator + "characters";
+		return root + File.separator + USER_DIR_NAME + File.separator + "characters";
 	}
 
 	@Override

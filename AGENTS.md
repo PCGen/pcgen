@@ -116,11 +116,16 @@ Conventions/gotchas observed:
 - Logging goes through `pcgen.util.Logging`; `Logging.errorPrint(...)` is the idiom for SEVERE (`Logging.ERROR == Level.SEVERE`), not `Logging.log(Level.SEVERE, ...)`.
 - `logging.properties` (repo root) configures java.util.logging and is what wires up `SourceLogFormatter` and the `LoggingRecorder`.
 - `SourceLogFormatter` takes its timestamp from `record.getInstant()` (local time with offset) and prints the originating thread as `name#id`.
+- `Main.shutdown(boolean)` isolates every cleanup step via `runCleanupStep` and calls `GracefulExit.exit` from a `finally`. Keep it that way: the main window is already disposed when it runs, so an escaping exception leaves a windowless JVM alive with settings unsaved. Inside `shutdown`, pass **lambdas** rather than method references — a bound method reference dereferences its receiver, and a static one resolves its class, at reference-creation time, i.e. outside the guard.
+- `GracefulExit.getExitFunction()` pairs with `registerExitFunction` so callers/tests can save and restore the exit behaviour.
+- User-facing paths use the single `PCGenSettings.USER_DIR_NAME` constant (`"PCGen"`); don't re-spell the folder name inline. Note the codebase still has unrelated `~/.pcgen` and `~/Library/Preferences/pcgen` locations in `Globals`, and is not XDG-compliant on Linux.
+- Create directory trees with `Files.createDirectories`/`mkdirs`, not `mkdir` — the default character save dir is two levels deep (`<home>/PCGen/characters`) and its parent is absent on a first run.
 - Java version and JavaFX are tightly coupled to `project.ext.javaVersion` (25). Tests and run tasks add the needed JavaFX modules explicitly.
 - Source sets are nonstandard (itest, slowtest, testcommon); when adding new tests, place them in the correct source set to be picked up by the corresponding Gradle task.
 - Plugins are built from compiled classes into plugin jars via tasks in code/gradle/plugins.gradle; main jar depends on `jarAllPlugins`.
 - Some ivy/maven repos are over HTTP (`allowInsecureProtocol true`). Do not change without coordinating with maintainers.
 - Gradle configuration cache is enabled — tasks that are not compatible should declare `notCompatibleWithConfigurationCache(...)`.
+- `./gradlew run` puts the **exploded** `build/classes/java/main` on the classpath, not a jar. Renaming, cleaning or rebuilding the project directory while the app is running yanks not-yet-loaded classes out from under the live JVM, surfacing as a puzzling `NoClassDefFoundError` for whichever class happens to load next. Not a code bug — don't chase it as one.
 
 ## Build/Release Flow
 
@@ -190,6 +195,7 @@ Conventions/gotchas observed:
 | Purpose                         | Path                                                        |
 |---------------------------------|-------------------------------------------------------------|
 | Main entry point                | code/src/java/pcgen/system/Main.java                        |
+| Main/shutdown tests             | code/src/test/pcgen/system/MainTest.java                    |
 | CLI parsing                     | code/src/java/pcgen/system/CommandLineArguments.java        |
 | CLI tests                       | code/src/test/pcgen/system/CommandLineArgumentsTest.java    |
 | GracefulExit                    | code/src/java/pcgen/util/GracefulExit.java                  |

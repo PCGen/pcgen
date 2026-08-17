@@ -37,7 +37,7 @@ class PCGenSettingsTest
 
 		assertTrue(dir.startsWith(SystemUtils.USER_HOME),
 				"Expected default characters dir to live under USER_HOME but was: " + dir);
-		assertTrue(dir.endsWith(File.separator + "PCGen" + File.separator + "characters"),
+		assertTrue(dir.endsWith(File.separator + PCGenSettings.USER_DIR_NAME + File.separator + "characters"),
 				"Expected default characters dir to end with PCGen/characters but was: " + dir);
 	}
 
