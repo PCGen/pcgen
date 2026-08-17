@@ -14,7 +14,6 @@
 package pcgen.gui3;
 
 import java.awt.GraphicsEnvironment;
-import java.util.Locale;
 
 import javax.swing.JOptionPane;
 
@@ -22,10 +21,8 @@ import pcgen.util.GracefulExit;
 import pcgen.util.Logging;
 
 /**
- * Turns a JavaFX toolkit-initialisation failure into an honest, actionable
- * message instead of the misleading raw stack trace. See the design rationale
- * in the Troubleshooting section of the README (issue: JavaFX links against
- * {@code libgthread-2.0.so.0}, which recent glib no longer ships as a stub).
+ * Turns a JavaFX toolkit-initialization failure into a user-readable message.
+ * More details are described in the Troubleshooting section of the README.
  */
 public final class GraphicsStartupError
 {
