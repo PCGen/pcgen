@@ -59,7 +59,7 @@ public class IfCommand extends PCGenCommand
 	public void run(final Stack stack) throws ParseException
 	{
 		// Check if stack is null
-		if (null == stack)
+		if (stack == null)
 		{
 			throw new ParseException("Stack argument null");
 		}

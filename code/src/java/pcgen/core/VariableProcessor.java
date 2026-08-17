@@ -126,7 +126,7 @@ public abstract class VariableProcessor
 	{
 		Float result = getJepOnlyVariableValue(aSpell, varString, src, spellLevelTemp);
 
-		if (null == result)
+		if (result == null)
 		{
 			result = processBrokenParser(aSpell, varString, src, spellLevelTemp);
 
@@ -258,7 +258,7 @@ public abstract class VariableProcessor
 					|| "LT".equals(cString))
 				{
 					// Truncate final . character
-					val1 = getVariableValue(aSpell, bString.substring(0, bString.length() - 1), src, spellLevelTemp); 
+					val1 = getVariableValue(aSpell, bString.substring(0, bString.length() - 1), src, spellLevelTemp);
 					aTok.nextToken(); // discard next . character
 					bString = new StringBuilder();
 
@@ -274,7 +274,7 @@ public abstract class VariableProcessor
 				else if ("THEN".equals(cString))
 				{
 					// Truncate final . character
-					val2 = getVariableValue(aSpell, bString.substring(0, bString.length() - 1), src, spellLevelTemp); 
+					val2 = getVariableValue(aSpell, bString.substring(0, bString.length() - 1), src, spellLevelTemp);
 					aTok.nextToken(); // discard next . character
 					bString = new StringBuilder();
 				}
@@ -518,15 +518,15 @@ public abstract class VariableProcessor
 	 * Get a value for the term as evaluated in the context of the PC that
 	 * owns this VariableEvaluator (getPc()) the term itself and the source
 	 * of the term e.g. RACE:Halfling.  If the term is CASTERLEVEL the
-	 * Spell parameter is also used, if not it is ignored and may be null.  
-	 * 
+	 * Spell parameter is also used, if not it is ignored and may be null.
+	 *
 	 * @param term
 	 *          The string to be evaluated
 	 * @param src
 	 *          The source of the term
 	 * @param spell
 	 *          A spell which is only used if the term is related to CASTERLEVEL
-	 * 
+	 *
 	 * @return a Float value for this term
 	 */
 	public Float lookupVariable(String term, String src, CharacterSpell spell)

@@ -291,7 +291,7 @@ public final class Main
             boolean succeeded = savepath_dir.mkdir();
             if (!succeeded)
             {
-                Logging.log(Level.SEVERE, "Unable to create PCG_SAVE_PATH " + savepath_dir);
+                Logging.errorPrint("Unable to create PCG_SAVE_PATH " + savepath_dir);
             }
 		}
 	}

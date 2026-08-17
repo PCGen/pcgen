@@ -323,7 +323,7 @@ public final class FopTask implements Runnable
 			}
 			else if (severity == EventSeverity.ERROR || severity == EventSeverity.FATAL)
 			{
-				Logging.log(Logging.ERROR, msg);
+				Logging.errorPrint(msg);
 			}
 			else
 			{

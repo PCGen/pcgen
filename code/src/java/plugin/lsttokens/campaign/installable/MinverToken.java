@@ -43,7 +43,7 @@ public class MinverToken implements InstallLstToken
 	{
 		if (!(campaign instanceof InstallableCampaign ic))
 		{
-			Logging.log(Logging.ERROR, "Campaign " + campaign.getDisplayName() + " is not an installable campaign.");
+			Logging.errorPrint("Campaign " + campaign.getDisplayName() + " is not an installable campaign.");
 			return false;
 		}
 		ic.put(StringKey.MINVER, value != null ? value.trim() : "");

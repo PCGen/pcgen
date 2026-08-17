@@ -113,6 +113,9 @@ Batch export path exists in Main.startupWithoutGUI(). Tests demonstrate usage in
 
 Conventions/gotchas observed:
 - Use `GracefulExit.exit` instead of `System.exit` (Checkstyle enforces via RegexpMultiline).
+- Logging goes through `pcgen.util.Logging`; `Logging.errorPrint(...)` is the idiom for SEVERE (`Logging.ERROR == Level.SEVERE`), not `Logging.log(Level.SEVERE, ...)`.
+- `logging.properties` (repo root) configures java.util.logging and is what wires up `SourceLogFormatter` and the `LoggingRecorder`.
+- `SourceLogFormatter` takes its timestamp from `record.getInstant()` (local time with offset) and prints the originating thread as `name#id`.
 - Java version and JavaFX are tightly coupled to `project.ext.javaVersion` (25). Tests and run tasks add the needed JavaFX modules explicitly.
 - Source sets are nonstandard (itest, slowtest, testcommon); when adding new tests, place them in the correct source set to be picked up by the corresponding Gradle task.
 - Plugins are built from compiled classes into plugin jars via tasks in code/gradle/plugins.gradle; main jar depends on `jarAllPlugins`.
