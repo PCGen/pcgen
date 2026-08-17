@@ -28,11 +28,13 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
+import java.util.stream.Stream;
 
 import pcgen.core.SettingsHandler;
 import pcgen.rules.context.LoadContext;
@@ -73,23 +75,29 @@ public final class Logging
 	private static Logger pcgenLogger = Logger.getLogger("pcgen");
 	private static Logger pluginLogger = Logger.getLogger("plugin");
 
+	/** System property java.util.logging consults for its configuration file. */
+	private static final String CONFIG_FILE_PROPERTY = "java.util.logging.config.file";
+
+	/** Name of PCGen's java.util.logging configuration file. */
+	private static final String LOGGING_PROPERTIES = "logging.properties";
+
+	/** Directory jpackage places beside {@code runtime} to hold bundled resources. */
+	private static final String BUNDLE_APP_DIR = "app";
+
+	/** Directory levels searched upwards from java.home for the configuration file. */
+	private static final int MAX_ANCESTORS = 6;
+
 	/**
 	 * Do any required initialization of the Logger.
 	 */
 	static
 	{
 		// Set a default configuration file if none was specified.
-		Properties p = System.getProperties();
-		File propsFile = new File(SystemUtils.USER_DIR + File.separator + "logging.properties");
-		if (!propsFile.exists())
+		if (System.getProperty(CONFIG_FILE_PROPERTY) == null)
 		{
-			propsFile = new File("logging.properties");
+			findLoggingConfig(SystemUtils.USER_DIR, SystemUtils.JAVA_HOME)
+					.ifPresent(f -> System.setProperty(CONFIG_FILE_PROPERTY, f.getAbsolutePath()));
 		}
-		if (propsFile.exists() && null == p.get("java.util.logging.config.file"))
-		{
-			p.put("java.util.logging.config.file", propsFile.getAbsolutePath());
-		}
-		//System.out.println("Using log settings from " + propsFile.getAbsolutePath());
 
 		// Get Java Logging to read in the config.
 		try
@@ -101,6 +109,46 @@ public final class Logging
 			System.err.println("Failed to read logging configuration. Error was:");
 			e.printStackTrace();
 		}
+	}
+
+	/**
+	 * Locates {@code logging.properties}.
+	 * <p>
+	 * The working directory is tried first, which covers development and
+	 * portable runs. It cannot be the only candidate though: a packaged launch
+	 * (jpackage, or opening the app from Finder) leaves the working directory as
+	 * {@code /}, so the file was never found and PCGen silently fell back to the
+	 * JDK's default logging configuration — losing this formatter, the
+	 * {@code pcgen.log} recorder and therefore the contents of the Debug dialog.
+	 * The install directory is derived from java.home for that case, mirroring
+	 * how the bundled data directories are resolved.
+	 *
+	 * @param userDir the working directory, may be null
+	 * @param javaHome the runtime's home directory, may be null
+	 * @return the configuration file, or empty if there is none to be found
+	 */
+	static Optional<File> findLoggingConfig(String userDir, String javaHome)
+	{
+		return candidateConfigDirs(userDir, javaHome)
+				.map(dir -> new File(dir, LOGGING_PROPERTIES))
+				.filter(File::isFile)
+				.findFirst();
+	}
+
+	private static Stream<File> candidateConfigDirs(String userDir, String javaHome)
+	{
+		Stream<File> workingDir = (userDir == null) ? Stream.empty() : Stream.of(new File(userDir));
+		if (javaHome == null)
+		{
+			return workingDir;
+		}
+		// java.home sits at <install>/runtime or, on macOS,
+		// <install>/runtime/Contents/Home, with the resources in a sibling "app".
+		Stream<File> installDirs = Stream
+				.iterate(new File(javaHome).getAbsoluteFile(), Objects::nonNull, File::getParentFile)
+				.limit(MAX_ANCESTORS)
+				.flatMap(dir -> Stream.of(dir, new File(dir, BUNDLE_APP_DIR)));
+		return Stream.concat(workingDir, installDirs);
 	}
 
 	private Logging()
