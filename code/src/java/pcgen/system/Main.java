@@ -23,6 +23,8 @@ import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.Locale;
 import java.util.Optional;
@@ -147,9 +149,8 @@ public final class Main
 		String aPath = System.getProperty("pcgen.config"); //$NON-NLS-1$
 		if (aPath != null)
 		{
-			File testPath = new File(aPath);
 			// Then make sure it's an existing folder
-			if (testPath.exists() && testPath.isDirectory())
+			if (Files.isDirectory(Path.of(aPath)))
 			{
 				return aPath;
 			}
@@ -228,19 +229,9 @@ public final class Main
 				ConfigurationSettings.getOutputSheetsDir()
 		};
 		String missingDirs = Arrays.stream(neededDirs)
-				.map(File::new)
-				.filter(Predicate.not(File::exists))
-				.map(dir -> {
-					try
-					{
-						return dir.getCanonicalPath();
-					}
-					catch (IOException e)
-					{
-						Logging.errorPrint("Unable to find canonical path for " + dir);
-						return dir.getPath();
-					}
-				})
+				.map(Path::of)
+				.filter(Predicate.not(Files::exists))
+				.map(dir -> dir.toAbsolutePath().normalize())
 				.map(path -> "  " + path)
 				.collect(Collectors.joining("\n"));
 
@@ -282,17 +273,32 @@ public final class Main
 		defaultFactory.registerPropertyContext(UIPropertyContext.getInstance());
 		defaultFactory.registerPropertyContext(LegacySettings.getInstance());
 		defaultFactory.loadPropertyContexts();
-		//Make savepath directory if it doesn't exist
-		String savepath = settingscontext.getProperty(PCGenSettings.PCG_SAVE_PATH);
-		File savepath_dir = new File(savepath);
-		if (!savepath_dir.exists() && !savepath_dir.isDirectory())
+		//Make savepath directory (and any missing parents) if it doesn't exist
+		ensureSavePathExists(settingscontext.getProperty(PCGenSettings.PCG_SAVE_PATH));
+	}
+
+	/**
+	 * Ensure the character save directory exists, creating any missing parent
+	 * directories. The default save path lives under {@code ~/PCGen/characters},
+	 * whose parent may not exist on a fresh install, so parents must be created
+	 * too.
+	 *
+	 * @param savePath the configured PCG_SAVE_PATH
+	 * @return whether the directory exists after this call
+	 */
+	static boolean ensureSavePathExists(String savePath)
+	{
+		Path savePathDir = Path.of(savePath);
+		try
 		{
-            Logging.log(Level.INFO, "Making directory " + savepath_dir);
-            boolean succeeded = savepath_dir.mkdir();
-            if (!succeeded)
-            {
-                Logging.errorPrint("Unable to create PCG_SAVE_PATH " + savepath_dir);
-            }
+			// createDirectories creates missing parents and is a no-op if it already exists.
+			Files.createDirectories(savePathDir);
+			return true;
+		}
+		catch (IOException e)
+		{
+			Logging.errorPrint("Unable to create PCG_SAVE_PATH " + savePathDir, e);
+			return false;
 		}
 	}
 
@@ -390,14 +396,13 @@ public final class Main
 	private static void initPrintPreviewFonts()
 	{
 		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-		String fontDir = ConfigurationSettings.getOutputSheetsDir() + File.separator + "fonts" + File.separator
-			+ "NotoSans" + File.separator;
+		Path fontDir = Path.of(ConfigurationSettings.getOutputSheetsDir(), "fonts", "NotoSans");
 		try
 		{
-			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File(fontDir + "NotoSans-Regular.ttf")));
-			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File(fontDir + "NotoSans-Bold.ttf")));
-			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File(fontDir + "NotoSans-Italic.ttf")));
-			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File(fontDir + "NotoSans-BoldItalic.ttf")));
+			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, fontDir.resolve("NotoSans-Regular.ttf").toFile()));
+			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, fontDir.resolve("NotoSans-Bold.ttf").toFile()));
+			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, fontDir.resolve("NotoSans-Italic.ttf").toFile()));
+			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, fontDir.resolve("NotoSans-BoldItalic.ttf").toFile()));
 		}
 		catch (IOException | FontFormatException ex)
 		{
