@@ -35,19 +35,22 @@ import pcgen.gui2.util.treeview.TreeView;
 import pcgen.gui2.util.treeview.TreeViewPath;
 import pcgen.gui2.util.treeview.TreeViewTableModel;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 /**
- * Regression test for #7703: the tree column editor re-dispatches mouse events
- * to the embedded {@link JTree} so it can toggle expand/collapse handles. The
- * synthetic event must preserve the source's extended modifiers and button, or
- * BasicTreeUI stops recognising the click and the tree can no longer be expanded.
+ * Verifies that clicking a {@link JTreeTable} row can expand or collapse it:
+ * the tree column editor must re-dispatch the mouse event to the embedded
+ * {@link JTree} with the button and extended modifiers intact, so BasicTreeUI
+ * recognises the click and toggles the node. Covers both a single click and a
+ * double click on the row.
  */
 class JTreeTableEditorEventForwardingTest
 {
 
-	@Test
-	void editorForwardsExtendedModifiersAndButtonUnchangedToTree()
+	@ParameterizedTest
+	@ValueSource(ints = {1, 2})
+	void editorForwardsClickToTreeIntact(int clickCount)
 	{
 		TreeViewTableModel<String> model = new TreeViewTableModel<>(new SingleColumnDataView());
 		model.setSelectedTreeView(new FlatTreeView());
@@ -70,10 +73,9 @@ class JTreeTableEditorEventForwardingTest
 		TableCellEditor editor = table.getCellEditor(0, 0);
 
 		// A plain left-button press: extended modifiers carry BUTTON1_DOWN_MASK,
-		// which is exactly the value the pre-fix code misrouted through the
-		// legacy `modifiers` constructor parameter.
+		// and the button is BUTTON1. Both must reach the tree for it to toggle.
 		MouseEvent press = new MouseEvent(table, MouseEvent.MOUSE_PRESSED, 0L,
-			MouseEvent.BUTTON1_DOWN_MASK, 10, 5, 1, false, MouseEvent.BUTTON1);
+			MouseEvent.BUTTON1_DOWN_MASK, 10, 5, clickCount, false, MouseEvent.BUTTON1);
 
 		editor.isCellEditable(press);
 
@@ -81,11 +83,11 @@ class JTreeTableEditorEventForwardingTest
 		assertNotNull(seen, "editor should re-dispatch a mouse event to the tree");
 		assertAll(
 			() -> assertEquals(MouseEvent.BUTTON1_DOWN_MASK, seen.getModifiersEx(),
-				"extended modifiers must survive the round-trip"),
+				"extended modifiers must reach the tree"),
 			() -> assertEquals(MouseEvent.BUTTON1, seen.getButton(),
-				"button must survive the round-trip"),
+				"button must reach the tree"),
 			() -> assertEquals(press.getID(), seen.getID(), "event id must be preserved"),
-			() -> assertEquals(press.getClickCount(), seen.getClickCount(), "click count must be preserved")
+			() -> assertEquals(clickCount, seen.getClickCount(), "click count must be preserved")
 		);
 	}
 
