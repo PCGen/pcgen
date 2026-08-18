@@ -18,6 +18,6 @@
 
 #memoryTable {
     -fx-fixed-cell-size: 24px;
-    /* two rows + a header */
-    -fx-max-height: 72;
+    /* header + two 24px data rows; header needs ~28px or its text clips */
+    -fx-max-height: 80;
 }

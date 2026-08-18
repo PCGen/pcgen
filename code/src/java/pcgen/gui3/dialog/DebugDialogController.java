@@ -101,14 +101,18 @@ public class DebugDialogController
 			usage = MEMORY_BEAN.getNonHeapMemoryUsage();
 		}
 		final NumberFormat format = new DecimalFormat("###,###,###");
+		// getMax() is -1 when the pool has no defined maximum (common for
+		// non-heap); guard it so Max and % Used don't render as 0 / a huge
+		// negative number.
+		final long max = usage.getMax();
 		return switch (columnIndex)
 				{
 					case 0 -> (rowIndex == 0) ? "Heap" : "Non-Heap";
 					case 1 -> format.format(usage.getInit() / MEGABYTE);
 					case 2 -> format.format(usage.getUsed() / MEGABYTE);
 					case 3 -> format.format(usage.getCommitted() / MEGABYTE);
-					case 4 -> format.format(usage.getMax() / MEGABYTE);
-					case 5 -> String.valueOf(100 * (usage.getUsed() / usage.getMax()));
+					case 4 -> (max < 0) ? "n/a" : format.format(max / MEGABYTE);
+					case 5 -> (max <= 0) ? "n/a" : Math.round(100.0 * usage.getUsed() / max) + "%";
 					default -> throw new IllegalStateException("Unexpected column index: " + columnIndex);
 				};
 	}
