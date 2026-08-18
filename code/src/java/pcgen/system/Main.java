@@ -149,9 +149,8 @@ public final class Main
 		String aPath = System.getProperty("pcgen.config"); //$NON-NLS-1$
 		if (aPath != null)
 		{
-			File testPath = new File(aPath);
 			// Then make sure it's an existing folder
-			if (testPath.exists() && testPath.isDirectory())
+			if (Files.isDirectory(Path.of(aPath)))
 			{
 				return aPath;
 			}
@@ -230,19 +229,9 @@ public final class Main
 				ConfigurationSettings.getOutputSheetsDir()
 		};
 		String missingDirs = Arrays.stream(neededDirs)
-				.map(File::new)
-				.filter(Predicate.not(File::exists))
-				.map(dir -> {
-					try
-					{
-						return dir.getCanonicalPath();
-					}
-					catch (IOException e)
-					{
-						Logging.errorPrint("Unable to find canonical path for " + dir);
-						return dir.getPath();
-					}
-				})
+				.map(Path::of)
+				.filter(Predicate.not(Files::exists))
+				.map(dir -> dir.toAbsolutePath().normalize())
 				.map(path -> "  " + path)
 				.collect(Collectors.joining("\n"));
 
@@ -407,14 +396,13 @@ public final class Main
 	private static void initPrintPreviewFonts()
 	{
 		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-		String fontDir = ConfigurationSettings.getOutputSheetsDir() + File.separator + "fonts" + File.separator
-			+ "NotoSans" + File.separator;
+		Path fontDir = Path.of(ConfigurationSettings.getOutputSheetsDir(), "fonts", "NotoSans");
 		try
 		{
-			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File(fontDir + "NotoSans-Regular.ttf")));
-			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File(fontDir + "NotoSans-Bold.ttf")));
-			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File(fontDir + "NotoSans-Italic.ttf")));
-			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File(fontDir + "NotoSans-BoldItalic.ttf")));
+			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, fontDir.resolve("NotoSans-Regular.ttf").toFile()));
+			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, fontDir.resolve("NotoSans-Bold.ttf").toFile()));
+			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, fontDir.resolve("NotoSans-Italic.ttf").toFile()));
+			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, fontDir.resolve("NotoSans-BoldItalic.ttf").toFile()));
 		}
 		catch (IOException | FontFormatException ex)
 		{
