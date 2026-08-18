@@ -24,6 +24,7 @@ import java.net.URI;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.text.MessageFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -87,6 +88,9 @@ public final class Logging
 
 	/** Directory levels searched upwards from java.home for the configuration file. */
 	private static final int MAX_ANCESTORS = 6;
+
+	/** Appends the source of a logged issue: {@code <message> (Source: <uri>)}. */
+	private static final String SOURCE_FORMAT = "{0} (Source: {1})";
 
 	/**
 	 * Do any required initialization of the Logger.
@@ -312,7 +316,7 @@ public final class Logging
 		{
 			if (context != null && context.getSourceURI() != null)
 			{
-				l.log(LST_WARNING, s + " (Source: " + context.getSourceURI() + " )");
+				l.log(LST_WARNING, MessageFormat.format(SOURCE_FORMAT, s, context.getSourceURI()));
 			}
 			else
 			{
@@ -333,7 +337,7 @@ public final class Logging
 		{
 			if (context != null && context.getSourceURI() != null)
 			{
-				l.log(lvl, " (Source: " + context.getSourceURI() + " )");
+				l.log(lvl, MessageFormat.format(SOURCE_FORMAT, "", context.getSourceURI()));
 			}
 			else
 			{
@@ -354,7 +358,7 @@ public final class Logging
 		{
 			if (sourceUri != null)
 			{
-				l.log(lvl, " (Source: " + sourceUri + ')');
+				l.log(lvl, MessageFormat.format(SOURCE_FORMAT, "", sourceUri));
 			}
 			else
 			{
@@ -402,7 +406,7 @@ public final class Logging
 		{
 			if (context != null && context.getSourceURI() != null)
 			{
-				l.log(ERROR, s + " (Source: " + context.getSourceURI() + " )");
+				l.log(ERROR, MessageFormat.format(SOURCE_FORMAT, s, context.getSourceURI()));
 			}
 			else
 			{
@@ -424,7 +428,7 @@ public final class Logging
 		{
 			if (sourceURI != null)
 			{
-				l.log(ERROR, s + " (Source: " + sourceURI + " )");
+				l.log(ERROR, MessageFormat.format(SOURCE_FORMAT, s, sourceURI));
 			}
 			else
 			{
