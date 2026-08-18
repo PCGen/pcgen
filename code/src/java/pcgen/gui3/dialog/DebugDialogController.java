@@ -50,6 +50,16 @@ public class DebugDialogController
 {
 
 	private static final MemoryMXBean MEMORY_BEAN = ManagementFactory.getMemoryMXBean();
+
+	/** Data rows shown: heap and non-heap. */
+	private static final int MEMORY_ROWS = 2;
+
+	/** Fixed row height; keeps the table height deterministic for the maxHeight cap. */
+	private static final double ROW_HEIGHT = 24.0;
+
+	/** Allowance for the table's top/bottom borders on top of header + rows. */
+	private static final double HEADER_BORDER_PAD = 4.0;
+
 	@FXML
 	private TableView<Map<String, String>> memoryTable;
 
@@ -63,6 +73,14 @@ public class DebugDialogController
 	void initialize()
 	{
 		memoryTable.setItems(memoryTableData);
+		// Cap the table to its data rows plus the header (one row tall) so it
+		// doesn't pad with empty rows. maxHeight is derived from the row height
+		// rather than a fixed pixel total, so it adapts if the cell size changes.
+		memoryTable.setFixedCellSize(ROW_HEIGHT);
+		// Header + data rows + a small allowance for the table's borders, so the
+		// content fits exactly without a scrollbar or trailing empty rows.
+		memoryTable.maxHeightProperty()
+				.bind(memoryTable.fixedCellSizeProperty().multiply(MEMORY_ROWS + 1).add(HEADER_BORDER_PAD));
 		setMemoryTableData();
 		logText.setText(LoggingRecorder.getLogs());
 		Logging.registerHandler(new LogHandler());
@@ -72,7 +90,7 @@ public class DebugDialogController
 	{
 		// posible optimization: get the rows rather than clear and re-add
 		memoryTableData.clear();
-		for (int row = 0; row < 2; ++row)
+		for (int row = 0; row < MEMORY_ROWS; ++row)
 		{
 			Map<String, String> dataRow = new HashMap<>();
 			for (int column = 0; column < memoryTable.getColumns().size(); column++)
@@ -89,26 +107,37 @@ public class DebugDialogController
 
 	private static String getMemoryTableValue(int rowIndex, int columnIndex)
 	{
-		final long MEGABYTE = 1024 * 1024;
+		MemoryUsage usage = (rowIndex == 0) ? MEMORY_BEAN.getHeapMemoryUsage() : MEMORY_BEAN.getNonHeapMemoryUsage();
+		String label = (rowIndex == 0) ? "Heap" : "Non-Heap";
+		return formatMemoryCell(columnIndex, label, usage);
+	}
 
-		MemoryUsage usage;
-		if (rowIndex == 0)
-		{
-			usage = MEMORY_BEAN.getHeapMemoryUsage();
-		}
-		else
-		{
-			usage = MEMORY_BEAN.getNonHeapMemoryUsage();
-		}
+	/**
+	 * Formats one memory-table cell. Package-private and free of any live
+	 * {@link MemoryMXBean} access so the number handling can be unit-tested by
+	 * passing synthetic {@link MemoryUsage} values.
+	 *
+	 * @param columnIndex the column (0 label, 1 init, 2 used, 3 committed, 4 max, 5 % used)
+	 * @param label       the row label to render for column 0
+	 * @param usage       the memory usage for the row
+	 * @return the rendered cell text
+	 */
+	static String formatMemoryCell(int columnIndex, String label, MemoryUsage usage)
+	{
+		final long MEGABYTE = 1024 * 1024;
 		final NumberFormat format = new DecimalFormat("###,###,###");
+		// getMax() is -1 when the pool has no defined maximum (common for
+		// non-heap); guard it so Max and % Used don't render as 0 / a huge
+		// negative number.
+		final long max = usage.getMax();
 		return switch (columnIndex)
 				{
-					case 0 -> (rowIndex == 0) ? "Heap" : "Non-Heap";
+					case 0 -> label;
 					case 1 -> format.format(usage.getInit() / MEGABYTE);
 					case 2 -> format.format(usage.getUsed() / MEGABYTE);
 					case 3 -> format.format(usage.getCommitted() / MEGABYTE);
-					case 4 -> format.format(usage.getMax() / MEGABYTE);
-					case 5 -> String.valueOf(100 * (usage.getUsed() / usage.getMax()));
+					case 4 -> (max < 0) ? "n/a" : format.format(max / MEGABYTE);
+					case 5 -> (max <= 0) ? "n/a" : Math.round(100.0 * usage.getUsed() / max) + "%";
 					default -> throw new IllegalStateException("Unexpected column index: " + columnIndex);
 				};
 	}
@@ -160,8 +189,11 @@ public class DebugDialogController
 	private void runGC(final ActionEvent actionEvent)
 	{
 		MEMORY_BEAN.gc();
-		Logging.log(Logging.INFO, MessageFormat.format("Memory used after manual GC, Heap: {0}, Non heap: {1}",
-				MEMORY_BEAN.getHeapMemoryUsage().getUsed(), MEMORY_BEAN.getNonHeapMemoryUsage().getUsed()));
+		setMemoryTableData();
+		final long megabyte = 1024 * 1024;
+		Logging.log(Logging.INFO, MessageFormat.format("Memory used after manual GC, Heap: {0} MB, Non heap: {1} MB",
+				MEMORY_BEAN.getHeapMemoryUsage().getUsed() / megabyte,
+				MEMORY_BEAN.getNonHeapMemoryUsage().getUsed() / megabyte));
 	}
 	void shutdown()
 	{

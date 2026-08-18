@@ -22,6 +22,7 @@ import java.util.regex.Pattern;
 
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.formula.scope.PCGenScope;
+import pcgen.util.Logging;
 
 /**
  * A DatasetVariable is a variable within the new formula system, as defined by
@@ -61,7 +62,7 @@ public class DatasetVariable extends UserContent
 	{
 		if (scope==null)
 		{
-			System.out.println("Scope should not be null!");
+			Logging.errorPrint("Scope should not be null!");
 			return;
 		}
 		this.scope = scope;
@@ -113,7 +114,7 @@ public class DatasetVariable extends UserContent
 	{
 		if (format==null)
 		{
-			System.out.println("format should not be null!");
+			Logging.errorPrint("format should not be null!");
 			return;
 		}
 		this.format = format;

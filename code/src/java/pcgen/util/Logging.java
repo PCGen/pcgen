@@ -77,6 +77,12 @@ public final class Logging
 	private static Logger pcgenLogger = Logger.getLogger("pcgen");
 	private static Logger pluginLogger = Logger.getLogger("plugin");
 
+	/** Walks the stack lazily to name loggers after the calling class. */
+	private static final StackWalker WALKER = StackWalker.getInstance();
+
+	/** This facade's own class name, skipped when inferring the caller. */
+	private static final String CLASS_NAME = Logging.class.getName();
+
 	/** System property java.util.logging consults for its configuration file. */
 	private static final String CONFIG_FILE_PROPERTY = "java.util.logging.config.file";
 
@@ -544,35 +550,17 @@ public final class Logging
 	 *
 	 * @return An instance of Logger that deals with the specified name.
 	 */
-	private static java.util.logging.Logger getLogger()
+	private static Logger getLogger()
 	{
-		StackTraceElement[] stack = new Throwable().getStackTrace();
-		StackTraceElement caller = null;
-
-		for (int i = 1; i < stack.length; i++) //1 to skip this method
-		{
-			if (!"pcgen.util.Logging".equals(stack[i].getClassName()))
-			{
-				caller = stack[i];
-				break;
-			}
-		}
-		// name The name of the logger
-		String name = (caller == null) ? "<null>" : caller.getClassName();
-
-		Logger l = null;
-		final int maxRetries = 15;
-		int retries = 0;
-		while (l == null && retries < maxRetries)
-		{
-			l = java.util.logging.Logger.getLogger(name);
-			retries++;
-		}
-		if (l == null)
-		{
-			System.err.println("Unable to get logger for " + name + " after " + retries + " atempts.");
-		}
-		return l;
+		// Walk lazily to the first frame outside this facade instead of
+		// materialising a whole stack trace on every log call.
+		String name = WALKER.walk(frames -> frames
+				.map(StackWalker.StackFrame::getClassName)
+				.filter(className -> !CLASS_NAME.equals(className))
+				.findFirst())
+				.orElse("<null>");
+		// Logger.getLogger never returns null; it creates the logger if absent.
+		return Logger.getLogger(name);
 	}
 
 	/**

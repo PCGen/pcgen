@@ -18,6 +18,9 @@
 package pcgen.core.utils;
 
 import java.util.Observable;
+import java.util.logging.Level;
+
+import pcgen.util.Logging;
 
 /**
  * This is a facade for gui objects in the core code.
@@ -42,8 +45,21 @@ public final class ShowMessageDelegate extends Observable
 		if (INSTANCE.countObservers() == 0 && messageWrapper.getMessage() != null
 			&& !messageWrapper.getMessage().toString().isEmpty())
 		{
-			System.out.println(messageWrapper.getTitle() + ": " + messageWrapper.getMessage());
+			// No GUI is attached (headless/batch): log the message at the level
+			// matching its type so it still reaches the user and the log file.
+			Logging.log(toLoggingLevel(messageWrapper.getMessageType()),
+					messageWrapper.getTitle() + ": " + messageWrapper.getMessage());
 		}
+	}
+
+	private static Level toLoggingLevel(final MessageType messageType)
+	{
+		return switch (messageType)
+				{
+					case ERROR -> Logging.ERROR;
+					case WARNING -> Logging.WARNING;
+					case INFORMATION, QUESTION -> Logging.INFO;
+				};
 	}
 
 	/**

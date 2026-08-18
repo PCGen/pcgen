@@ -24,8 +24,8 @@
 <Scene xmlns="http://javafx.com/javafx/25.0.1"
        xmlns:fx="http://javafx.com/fxml"
        fx:controller="pcgen.gui3.dialog.DebugDialogController">
-    <VBox>
-        <BorderPane>
+    <VBox fillWidth="true">
+        <BorderPane VBox.vgrow="ALWAYS">
             <center>
                 <TextArea BorderPane.alignment="CENTER" fx:id="logText" editable="false"/>
             </center>
@@ -36,9 +36,12 @@
                         onAction="#clearLogs"/>
             </bottom>
         </BorderPane>
-        <BorderPane>
+        <BorderPane VBox.vgrow="NEVER">
             <center>
                 <TableView fx:id="memoryTable" BorderPane.alignment="CENTER" id="memoryTable">
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                    </columnResizePolicy>
                     <columns>
                         <TableColumn id="memoryType" text="">
                             <cellValueFactory>

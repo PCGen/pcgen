@@ -89,7 +89,7 @@ public class ObjectInjector
         File outFile = new File(getNewOutputName(uri).getParentFile(), fileName);
         if (outFile.exists())
         {
-            System.err.println("Won't overwrite: " + outFile);
+            Logging.log(Logging.WARNING, "Won't overwrite: " + outFile);
         }
         return outFile;
     }

@@ -21,6 +21,7 @@ import java.net.URI;
 import java.util.Objects;
 
 import pcgen.cdom.base.Loadable;
+import pcgen.util.Logging;
 
 /**
  * A UserContent manages common functions for user defined content within PCGen.
@@ -49,7 +50,7 @@ public abstract class UserContent implements Loadable
 	{
 		if (name==null)
 		{
-			System.out.println("Name cannot be null!");
+			Logging.errorPrint("Name cannot be null!");
 			return;
 		}
 		this.name = name;

@@ -21,6 +21,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
+import pcgen.util.Logging;
+
 public final class PjepPool
 {
 	private Stack<PJEP> freeStack = new Stack<>();
@@ -77,16 +79,9 @@ public final class PjepPool
 		}
 		else
 		{
-			System.err.println("Tried to release a PJEP instance that we did not aquire...");
+			Logging.errorPrint("Tried to release a PJEP instance that we did not aquire...");
 		}
 		interp.setParent(null);
 		freeStack.push(interp);
-	}
-
-	public synchronized void dumpStats()
-	{
-		System.out.println("PJEP Pool: ");
-		System.out.println("    Currently Unused: " + freeStack.size());
-		System.out.println("    Currently Used  : " + usedList.size());
 	}
 }

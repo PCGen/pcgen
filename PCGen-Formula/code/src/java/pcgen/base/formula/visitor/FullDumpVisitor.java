@@ -17,6 +17,8 @@
  */
 package pcgen.base.formula.visitor;
 
+import java.util.logging.Logger;
+
 import pcgen.base.formula.parse.ASTArithmetic;
 import pcgen.base.formula.parse.ASTEquality;
 import pcgen.base.formula.parse.ASTExpon;
@@ -48,6 +50,8 @@ import pcgen.base.formula.parse.SimpleNode;
 @SuppressWarnings("PMD.TooManyMethods")
 public class FullDumpVisitor implements FormulaParserVisitor
 {
+
+	private static final Logger LOGGER = Logger.getLogger(FullDumpVisitor.class.getName());
 
 	/**
 	 * An embedded ReconstructionVisitor used to reconstruct the formula, as the
@@ -163,7 +167,7 @@ public class FullDumpVisitor implements FormulaParserVisitor
 	 * type, the operation that it represents and a reconstruction of the
 	 * subtree of nodes beneath it. For leaf nodes, they just print out their
 	 * type and their text.
-	 * 
+	 *
 	 * @param node
 	 *            The starting node for the dump
 	 * @param data
@@ -172,20 +176,21 @@ public class FullDumpVisitor implements FormulaParserVisitor
 	 *            structure through indentation.
 	 * @return null (assists other methods in this class)
 	 */
-	@SuppressWarnings("PMD.SystemPrintln")
 	private Object dump(SimpleNode node, Object data)
 	{
-		System.err.print(data);
-		System.err.print(FormulaParserTreeConstants.jjtNodeName[node.getId()]);
+		StringBuilder line = new StringBuilder();
+		line.append(data);
+		line.append(FormulaParserTreeConstants.jjtNodeName[node.getId()]);
 		Operator operator = node.getOperator();
 		if (operator != null)
 		{
-			System.err.print(" ");
-			System.err.print(operator.getSymbol());
+			line.append(' ');
+			line.append(operator.getSymbol());
 		}
 		Object rvr = node.jjtAccept(reconVisitor, new StringBuilder(1000));
-		System.err.print(": ");
-		System.err.println(rvr);
+		line.append(": ");
+		line.append(rvr);
+		LOGGER.fine(line.toString());
 		node.childrenAccept(this, data + " ");
 		return null;
 	}
