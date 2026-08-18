@@ -49,7 +49,7 @@ public class ConsoleUIDelegate implements UIDelegate
 	@Override
 	public void showErrorMessage(String title, String message)
 	{
-		Logging.log(Logging.ERROR, title + " - " + message);
+		Logging.errorPrint(title + " - " + message);
 	}
 
 	@Override

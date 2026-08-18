@@ -29,7 +29,7 @@ import org.nfunk.jep.ParseException;
  * <p>
  * Or class; extends PostfixMathCommand. This class accepts two or more
  * agruments. Each may be a boolean or a number interpreted as a boolean.
- * Returns a logical or of the operands. 
+ * Returns a logical or of the operands.
  * </p>
  * <p>
  * So, given or(x,y,z), x or y or z is returned
@@ -69,7 +69,7 @@ public class OrCommand extends PCGenCommand
 		checkStack(inStack);
 
 		// Check if stack is null
-		if (null == inStack)
+		if (inStack == null)
 		{
 			throw new ParseException("Stack argument null");
 		}

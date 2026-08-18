@@ -108,14 +108,14 @@ public final class KitLevelAbility extends BaseKit
 		if (classKeyed == null)
 		{
 			//Error?
-			Logging.log(Logging.ERROR, "Character should have the class: " + theClass.getKeyName() + ".");
+			Logging.errorPrint("Character should have the class: " + theClass.getKeyName() + ".");
 		}
 		//Look for ADD in class
 		List<PersistentTransitionChoice<?>> adds = theClass.getListFor(ListKey.ADD);
 		if (adds == null)
 		{
 			//Error?
-			Logging.log(Logging.ERROR, "The class should have returned a list but returned null.");
+			Logging.errorPrint("The class should have returned a list but returned null.");
 		}
 		for (PersistentTransitionChoice<?> ch : adds)
 		{
