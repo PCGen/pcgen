@@ -117,16 +117,9 @@ public final class Logging
 	}
 
 	/**
-	 * Locates {@code logging.properties}.
-	 * <p>
-	 * The working directory is tried first, which covers development and
-	 * portable runs. It cannot be the only candidate though: a packaged launch
-	 * (jpackage, or opening the app from Finder) leaves the working directory as
-	 * {@code /}, so the file was never found and PCGen silently fell back to the
-	 * JDK's default logging configuration — losing this formatter, the
-	 * {@code pcgen.log} recorder and therefore the contents of the Debug dialog.
-	 * The install directory is derived from java.home for that case, mirroring
-	 * how the bundled data directories are resolved.
+	 * Locates {@code logging.properties}: working directory first, then the
+	 * install directory derived from java.home for packaged launches (where the
+	 * working directory is {@code /}).
 	 *
 	 * @param userDir the working directory, may be null
 	 * @param javaHome the runtime's home directory, may be null
@@ -147,8 +140,9 @@ public final class Logging
 		{
 			return workingDir;
 		}
-		// java.home sits at <install>/runtime or, on macOS,
-		// <install>/runtime/Contents/Home, with the resources in a sibling "app".
+		// Walk up from java.home checking each dir and its "app" sibling, which
+		// covers every jpackage layout; macOS (<install>/runtime/Contents/Home)
+		// is the deepest and sets MAX_ANCESTORS.
 		Stream<Path> installDirs = Stream
 				.iterate(Path.of(javaHome).toAbsolutePath(), Objects::nonNull, Path::getParent)
 				.limit(MAX_ANCESTORS)
