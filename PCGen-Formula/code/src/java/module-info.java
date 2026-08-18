@@ -1,5 +1,6 @@
 module pcgen.formula {
     requires transitive pcgen.base;
+    requires java.logging;
 
     exports pcgen.base.formula;
     exports pcgen.base.formula.analysis;

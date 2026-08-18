@@ -17,6 +17,8 @@
  */
 package pcgen.base.formula.visitor;
 
+import java.util.logging.Logger;
+
 import pcgen.base.formula.parse.ASTArithmetic;
 import pcgen.base.formula.parse.ASTEquality;
 import pcgen.base.formula.parse.ASTExpon;
@@ -45,6 +47,8 @@ import pcgen.base.formula.parse.SimpleNode;
 @SuppressWarnings("PMD.TooManyMethods")
 public class SimpleDumpVisitor implements FormulaParserVisitor
 {
+
+	private static final Logger LOGGER = Logger.getLogger(SimpleDumpVisitor.class.getName());
 
 	@Override
 	public Object visit(SimpleNode node, Object data)
@@ -149,34 +153,34 @@ public class SimpleDumpVisitor implements FormulaParserVisitor
 	}
 
 	/**
-	 * Dumps a text representation of the given node to standard error,
-	 * indenting each child by one additional space (data represents the prefix
-	 * printed before each line).
-	 * 
+	 * Dumps a text representation of the given node to the log, indenting each
+	 * child by one additional space (data represents the prefix printed before
+	 * each line).
+	 *
 	 * @param node
-	 *            The node to be dumped to standard error
+	 *            The node to be dumped
 	 * @param data
 	 *            The prefix printed before each line (indentation level)
 	 * @return null (assists other methods in this class)
 	 */
-	@SuppressWarnings("PMD.SystemPrintln")
 	private Object dump(SimpleNode node, Object data)
 	{
-		System.err.print(data);
-		System.err.print(FormulaParserTreeConstants.jjtNodeName[node.getId()]);
+		StringBuilder line = new StringBuilder();
+		line.append(data);
+		line.append(FormulaParserTreeConstants.jjtNodeName[node.getId()]);
 		Operator operator = node.getOperator();
 		if (operator != null)
 		{
-			System.err.print(" ");
-			System.err.print(operator);
+			line.append(' ');
+			line.append(operator);
 		}
 
 		if (node.getText() != null)
 		{
-			System.err.print(" ");
-			System.err.print(node.getText());
+			line.append(' ');
+			line.append(node.getText());
 		}
-		System.err.println();
+		LOGGER.fine(line.toString());
 		node.childrenAccept(this, data + " ");
 		return null;
 	}
