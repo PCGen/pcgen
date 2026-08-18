@@ -23,6 +23,8 @@ import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.Locale;
 import java.util.Optional;
@@ -282,17 +284,32 @@ public final class Main
 		defaultFactory.registerPropertyContext(UIPropertyContext.getInstance());
 		defaultFactory.registerPropertyContext(LegacySettings.getInstance());
 		defaultFactory.loadPropertyContexts();
-		//Make savepath directory if it doesn't exist
-		String savepath = settingscontext.getProperty(PCGenSettings.PCG_SAVE_PATH);
-		File savepath_dir = new File(savepath);
-		if (!savepath_dir.exists() && !savepath_dir.isDirectory())
+		//Make savepath directory (and any missing parents) if it doesn't exist
+		ensureSavePathExists(settingscontext.getProperty(PCGenSettings.PCG_SAVE_PATH));
+	}
+
+	/**
+	 * Ensure the character save directory exists, creating any missing parent
+	 * directories. The default save path lives under {@code ~/PCGen/characters},
+	 * whose parent may not exist on a fresh install, so parents must be created
+	 * too.
+	 *
+	 * @param savePath the configured PCG_SAVE_PATH
+	 * @return whether the directory exists after this call
+	 */
+	static boolean ensureSavePathExists(String savePath)
+	{
+		Path savePathDir = Path.of(savePath);
+		try
 		{
-            Logging.log(Level.INFO, "Making directory " + savepath_dir);
-            boolean succeeded = savepath_dir.mkdir();
-            if (!succeeded)
-            {
-                Logging.errorPrint("Unable to create PCG_SAVE_PATH " + savepath_dir);
-            }
+			// createDirectories creates missing parents and is a no-op if it already exists.
+			Files.createDirectories(savePathDir);
+			return true;
+		}
+		catch (IOException e)
+		{
+			Logging.errorPrint("Unable to create PCG_SAVE_PATH " + savePathDir, e);
+			return false;
 		}
 	}
 
