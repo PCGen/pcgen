@@ -238,6 +238,7 @@ Conventions/gotchas observed:
 - The `testcommon` source set extends test configurations — changes to test dependencies are automatically available there.
 - Release tag must match `gradle.properties` version exactly (CI validates this).
 - Never re-attach a `Scene` loaded into a `JFXPanel` onto a standalone `Stage`. The embedded scene peer stays bound to the JFXPanel's host and the orphaned `EmbeddedScene` will eventually fire `setPixelScaleFactors` against a null `sceneState`, throwing an NPE in `GlassScene#updateSceneState` on macOS HiDPI displays. Use `PanelFromResource` for top-level dialogs and reserve `JFXPanelFromResource` for Swing embedding only.
+- `ConfigurationSettings.findInstallRoot` must only accept an ancestor or its `app` subdirectory (the jpackage layout), with a bounded climb. Do not widen it to scan every child of every ancestor — that walked to `/` and let a stray `data`+`system` directory (e.g. a checkout under `/tmp`) hijack the install root. See the method Javadoc.
 
 ## Maintainer/Issue Tracking Context
 
