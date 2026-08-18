@@ -46,14 +46,13 @@ class SourceLogFormatterTest
 
 		String line = formatter.format(record);
 
-		String expected = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
+		String expected = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS")
 				.withZone(ZoneId.systemDefault())
 				.format(loggedAt);
 		assertTrue(line.startsWith(expected),
 				"Expected the line to start with the record's own instant " + expected + " but was: " + line);
 	}
 
-	/** The offset disambiguates PCGen's output against system logs. */
 	@Test
 	void includesLevelAndMessage()
 	{

@@ -35,13 +35,8 @@ public final class SourceLogFormatter extends Formatter
 	private static final char SEPERATOR = ' ';
 	private static final Pattern JAVA_EXT_PATTERN = Pattern.compile("\\.java");
 
-	/**
-	 * Local time with an explicit offset. The offset matters when correlating
-	 * PCGen's output with system logs: the timestamp used to be printed as bare
-	 * UTC, which silently differs from the wall clock everywhere but London.
-	 */
 	private static final DateTimeFormatter TIMESTAMP =
-			DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSXXX").withZone(ZoneId.systemDefault());
+			DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS").withZone(ZoneId.systemDefault());
 
 	private static final StackWalker WALKER = StackWalker.getInstance();
 
