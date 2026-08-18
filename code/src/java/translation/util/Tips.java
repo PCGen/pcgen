@@ -35,6 +35,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import pcgen.util.Logging;
+
 /**
  * This class allows the generation of a PO Template file from the tips.txt files,
  * and also generate translated tips ({@code tips_XX.txt}) from a PO file
@@ -420,30 +422,33 @@ public final class Tips
 	/* Logging methods. */
 
 	/**
-	 * Log a message to the standard output
+	 * Log an informational message.
 	 * @param string message pattern
 	 * @param o arguments
 	 * @see MessageFormat#format(String, Object...)
 	 */
-	@SuppressWarnings("UseOfSystemOutOrSystemErr")
 	private static void log(String string, Object... o)
 	{
-		System.out.println(MessageFormat.format(string, o));
+		Logging.log(Logging.INFO, MessageFormat.format(string, o));
 	}
 
 	/**
-	 * Log a message to the error output
+	 * Log an error message, including the stack trace when a cause is supplied.
 	 * @param string message pattern
+	 * @param e the cause, may be {@code null}
 	 * @param o arguments
 	 * @see MessageFormat#format(String, Object...)
 	 */
-	@SuppressWarnings({"PMD.AvoidPrintStackTrace", "UseOfSystemOutOrSystemErr"})
 	private static void logError(String string, Throwable e, Object... o)
 	{
-		System.err.println(MessageFormat.format(string, o));
-		if (e != null)
+		String message = MessageFormat.format(string, o);
+		if (e == null)
 		{
-			e.printStackTrace();
+			Logging.errorPrint(message);
+		}
+		else
+		{
+			Logging.errorPrint(message, e);
 		}
 	}
 }
