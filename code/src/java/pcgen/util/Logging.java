@@ -18,11 +18,12 @@
 package pcgen.util;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.URI;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -96,7 +97,7 @@ public final class Logging
 		if (System.getProperty(CONFIG_FILE_PROPERTY) == null)
 		{
 			findLoggingConfig(SystemUtils.USER_DIR, SystemUtils.JAVA_HOME)
-					.ifPresent(f -> System.setProperty(CONFIG_FILE_PROPERTY, f.getAbsolutePath()));
+					.ifPresent(p -> System.setProperty(CONFIG_FILE_PROPERTY, p.toAbsolutePath().toString()));
 		}
 
 		// Get Java Logging to read in the config.
@@ -127,27 +128,27 @@ public final class Logging
 	 * @param javaHome the runtime's home directory, may be null
 	 * @return the configuration file, or empty if there is none to be found
 	 */
-	static Optional<File> findLoggingConfig(String userDir, String javaHome)
+	static Optional<Path> findLoggingConfig(String userDir, String javaHome)
 	{
 		return candidateConfigDirs(userDir, javaHome)
-				.map(dir -> new File(dir, LOGGING_PROPERTIES))
-				.filter(File::isFile)
+				.map(dir -> dir.resolve(LOGGING_PROPERTIES))
+				.filter(Files::isRegularFile)
 				.findFirst();
 	}
 
-	private static Stream<File> candidateConfigDirs(String userDir, String javaHome)
+	private static Stream<Path> candidateConfigDirs(String userDir, String javaHome)
 	{
-		Stream<File> workingDir = (userDir == null) ? Stream.empty() : Stream.of(new File(userDir));
+		Stream<Path> workingDir = (userDir == null) ? Stream.empty() : Stream.of(Path.of(userDir));
 		if (javaHome == null)
 		{
 			return workingDir;
 		}
 		// java.home sits at <install>/runtime or, on macOS,
 		// <install>/runtime/Contents/Home, with the resources in a sibling "app".
-		Stream<File> installDirs = Stream
-				.iterate(new File(javaHome).getAbsoluteFile(), Objects::nonNull, File::getParentFile)
+		Stream<Path> installDirs = Stream
+				.iterate(Path.of(javaHome).toAbsolutePath(), Objects::nonNull, Path::getParent)
 				.limit(MAX_ANCESTORS)
-				.flatMap(dir -> Stream.of(dir, new File(dir, BUNDLE_APP_DIR)));
+				.flatMap(dir -> Stream.of(dir, dir.resolve(BUNDLE_APP_DIR)));
 		return Stream.concat(workingDir, installDirs);
 	}
 

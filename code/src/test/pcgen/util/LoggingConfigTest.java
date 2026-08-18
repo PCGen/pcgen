@@ -16,7 +16,6 @@ package pcgen.util;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -41,9 +40,9 @@ class LoggingConfigTest
 		return file;
 	}
 
-	private static void assertFound(Path expected, Optional<File> found) throws IOException
+	private static void assertFound(Path expected, Optional<Path> found) throws IOException
 	{
-		assertEquals(expected.toFile().getCanonicalFile(), found.orElseThrow().getCanonicalFile());
+		assertEquals(expected.toRealPath(), found.orElseThrow().toRealPath());
 	}
 
 	@Test
