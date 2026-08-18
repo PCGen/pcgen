@@ -197,7 +197,7 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 			GuiAssertions.assertIsNotJavaFXThread();
 			if (character==null)
 			{
-			    System.out.println("Not expecting a null character in CharacterSheetInfoTab BoxHandler");
+			    Logging.errorPrint("Not expecting a null character in CharacterSheetInfoTab BoxHandler");
             }
 			this.character = character;
 			// This is the model for ComboBox

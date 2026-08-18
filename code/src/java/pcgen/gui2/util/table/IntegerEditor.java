@@ -48,6 +48,8 @@ import javax.swing.SwingUtilities;
 import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.NumberFormatter;
 
+import pcgen.util.Logging;
+
 /**
  * Implements a cell editor that uses a formatted text field
  * to edit Integer values.
@@ -144,7 +146,7 @@ public class IntegerEditor extends DefaultCellEditor
 			}
 			catch (ParseException exc)
 			{
-				System.err.println("getCellEditorValue: can't parse o: " + o);
+				Logging.errorPrint("getCellEditorValue: can't parse o: " + o);
 				return null;
 			}
 		}

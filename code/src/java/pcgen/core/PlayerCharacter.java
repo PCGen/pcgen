@@ -5256,7 +5256,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 				Integer hp = getHP(frompcl);
 				if (hp == null)
 				{
-					System.err.println("Did not find HP for " + fromClass + ' ' + (i + 1) + ' ' + frompcl);
+					Logging.errorPrint("Did not find HP for " + fromClass + ' ' + (i + 1) + ' ' + frompcl);
 				}
 				hpArray[i] = hp;
 			}

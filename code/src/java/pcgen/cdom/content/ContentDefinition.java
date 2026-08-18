@@ -24,6 +24,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.rules.context.LoadContext;
+import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
 
@@ -98,7 +99,7 @@ public abstract class ContentDefinition<T extends CDOMObject, F> extends UserCon
 	{
 		if (name==null)
 		{
-			System.out.println("display name should not be null!");
+			Logging.errorPrint("display name should not be null!");
 			return;
 		}
 		displayName = name;

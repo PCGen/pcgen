@@ -55,6 +55,7 @@ import pcgen.gui2.tools.Utility;
 import pcgen.rules.context.LoadContext;
 import pcgen.system.CharacterManager;
 import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
 
 public final class SolverViewFrame extends JFrame
 {
@@ -134,7 +135,7 @@ public final class SolverViewFrame extends JFrame
 		else
 		{
 			//TODO Update a status bar
-			System.err.println(selectedScope.getName() + " does not have a variable: " + varNameText);
+			Logging.errorPrint(selectedScope.getName() + " does not have a variable: " + varNameText);
 		}
 	}
 
