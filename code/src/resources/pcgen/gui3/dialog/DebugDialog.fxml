@@ -39,6 +39,9 @@
         <BorderPane VBox.vgrow="NEVER">
             <center>
                 <TableView fx:id="memoryTable" BorderPane.alignment="CENTER" id="memoryTable">
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                    </columnResizePolicy>
                     <columns>
                         <TableColumn id="memoryType" text="">
                             <cellValueFactory>

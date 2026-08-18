@@ -15,9 +15,3 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-
-#memoryTable {
-    -fx-fixed-cell-size: 24px;
-    /* header + two 24px data rows; header needs ~28px or its text clips */
-    -fx-max-height: 80;
-}
