@@ -84,11 +84,4 @@ public final class PjepPool
 		interp.setParent(null);
 		freeStack.push(interp);
 	}
-
-	public synchronized void dumpStats()
-	{
-		System.out.println("PJEP Pool: ");
-		System.out.println("    Currently Unused: " + freeStack.size());
-		System.out.println("    Currently Used  : " + usedList.size());
-	}
 }
