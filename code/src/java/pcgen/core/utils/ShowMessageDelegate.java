@@ -54,15 +54,12 @@ public final class ShowMessageDelegate extends Observable
 
 	private static Level toLoggingLevel(final MessageType messageType)
 	{
-		if (messageType == MessageType.ERROR)
-		{
-			return Logging.ERROR;
-		}
-		if (messageType == MessageType.WARNING)
-		{
-			return Logging.WARNING;
-		}
-		return Logging.INFO;
+		return switch (messageType)
+				{
+					case ERROR -> Logging.ERROR;
+					case WARNING -> Logging.WARNING;
+					case INFORMATION, QUESTION -> Logging.INFO;
+				};
 	}
 
 	/**

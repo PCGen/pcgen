@@ -20,24 +20,24 @@ package pcgen.core.utils;
 /**
  * Types of messages
  */
-public final class MessageType
+public enum MessageType
 {
 
-	/** Singleton instance of Information message */
-	public static final MessageType INFORMATION = new MessageType("Information"); //$NON-NLS-1$
+	/** Information message */
+	INFORMATION("Information"),
 
-	/** Singleton instance of Warning message */
-	public static final MessageType WARNING = new MessageType("Warning"); //$NON-NLS-1$
+	/** Warning message */
+	WARNING("Warning"),
 
-	/** Singleton instance of Error message */
-	public static final MessageType ERROR = new MessageType("Error"); //$NON-NLS-1$
+	/** Error message */
+	ERROR("Error"),
 
-	/** Singleton instance of Question message */
-	public static final MessageType QUESTION = new MessageType("Question"); //$NON-NLS-1$
+	/** Question message */
+	QUESTION("Question");
 
 	private final String name;
 
-	private MessageType(final String name)
+	MessageType(final String name)
 	{
 		this.name = name;
 	}
@@ -46,19 +46,6 @@ public final class MessageType
 	public String toString()
 	{
 		return name;
-	}
-
-	// Prevent subclasses from overriding Object.equals
-	@Override
-	public boolean equals(final Object that)
-	{
-		return super.equals(that);
-	}
-
-	@Override
-	public int hashCode()
-	{
-		return super.hashCode();
 	}
 
 }
