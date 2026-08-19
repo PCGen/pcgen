@@ -18,9 +18,13 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Optional;
 
 import org.apache.commons.lang3.SystemUtils;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
@@ -37,7 +41,7 @@ class PCGenSettingsTest
 
 		assertTrue(dir.startsWith(SystemUtils.USER_HOME),
 				"Expected default characters dir to live under USER_HOME but was: " + dir);
-		assertTrue(dir.endsWith(File.separator + "PCGen" + File.separator + "characters"),
+		assertTrue(dir.endsWith(File.separator + PCGenSettings.USER_DIR_NAME + File.separator + "characters"),
 				"Expected default characters dir to end with PCGen/characters but was: " + dir);
 	}
 
@@ -84,6 +88,104 @@ class PCGenSettingsTest
 		TestableSettings()
 		{
 			super("options.ini");
+		}
+	}
+
+	/**
+	 * Character files are user documents, so on freedesktop systems they belong
+	 * under the configured documents folder rather than a bare {@code $HOME}
+	 * entry. The file is parsed directly because {@code xdg-user-dir} may not be
+	 * installed.
+	 */
+	@Nested
+	class DocumentsDirFromUserDirs
+	{
+		private static final String HOME = "/home/tester";
+
+		private Path write(Path dir, String content) throws IOException
+		{
+			Path file = dir.resolve("user-dirs.dirs");
+			Files.writeString(file, content);
+			return file;
+		}
+
+		@Test
+		void expandsQuotedHomeReference(@TempDir Path dir) throws IOException
+		{
+			Path file = write(dir, """
+					XDG_DESKTOP_DIR="$HOME/Desktop"
+					XDG_DOCUMENTS_DIR="$HOME/Documents"
+					""");
+
+			assertEquals(Optional.of(HOME + "/Documents"),
+					PCGenSettings.documentsDirFromUserDirs(file, HOME));
+		}
+
+		@Test
+		void expandsBracedHomeReference(@TempDir Path dir) throws IOException
+		{
+			Path file = write(dir, "XDG_DOCUMENTS_DIR=\"${HOME}/Dokumente\"\n");
+
+			assertEquals(Optional.of(HOME + "/Dokumente"),
+					PCGenSettings.documentsDirFromUserDirs(file, HOME));
+		}
+
+		@Test
+		void acceptsUnquotedAbsolutePath(@TempDir Path dir) throws IOException
+		{
+			Path file = write(dir, "XDG_DOCUMENTS_DIR=/mnt/shared/docs\n");
+
+			assertEquals(Optional.of("/mnt/shared/docs"),
+					PCGenSettings.documentsDirFromUserDirs(file, HOME));
+		}
+
+		@Test
+		void ignoresCommentedEntries(@TempDir Path dir) throws IOException
+		{
+			Path file = write(dir, """
+					# XDG_DOCUMENTS_DIR="$HOME/Commented"
+					XDG_DOCUMENTS_DIR="$HOME/Real"
+					""");
+
+			assertEquals(Optional.of(HOME + "/Real"),
+					PCGenSettings.documentsDirFromUserDirs(file, HOME));
+		}
+
+		/** The file is sourced by a shell, so a later assignment overwrites an earlier one. */
+		@Test
+		void lastEntryWins(@TempDir Path dir) throws IOException
+		{
+			Path file = write(dir, """
+					XDG_DOCUMENTS_DIR="$HOME/First"
+					XDG_DOCUMENTS_DIR="$HOME/Second"
+					""");
+
+			assertEquals(Optional.of(HOME + "/Second"),
+					PCGenSettings.documentsDirFromUserDirs(file, HOME));
+		}
+
+		@Test
+		void returnsEmptyWhenKeyAbsent(@TempDir Path dir) throws IOException
+		{
+			Path file = write(dir, "XDG_MUSIC_DIR=\"$HOME/Music\"\n");
+
+			assertEquals(Optional.empty(), PCGenSettings.documentsDirFromUserDirs(file, HOME));
+		}
+
+		@Test
+		void returnsEmptyWhenFileMissing(@TempDir Path dir)
+		{
+			assertEquals(Optional.empty(),
+					PCGenSettings.documentsDirFromUserDirs(dir.resolve("absent.dirs"), HOME));
+		}
+
+		/** A key that merely shares the prefix must not be mistaken for the documents entry. */
+		@Test
+		void doesNotMatchSimilarlyNamedKeys(@TempDir Path dir) throws IOException
+		{
+			Path file = write(dir, "XDG_DOCUMENTS_DIR_EXTRA=\"$HOME/Nope\"\n");
+
+			assertEquals(Optional.empty(), PCGenSettings.documentsDirFromUserDirs(file, HOME));
 		}
 	}
 }

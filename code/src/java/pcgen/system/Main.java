@@ -378,19 +378,56 @@ public final class Main
 		return result;
 	}
 
+	/**
+	 * Shuts PCGen down, saving settings and cleaning up temporary files before
+	 * terminating the JVM. Each cleanup step is isolated so that one failure
+	 * cannot prevent the others from running or leave the JVM alive.
+	 *
+	 * @param success whether PCGen is exiting normally
+	 */
 	public static void shutdown(boolean success)
 	{
-		configFactory.savePropertyContexts();
-		BatchExporter.removeTemporaryFiles();
-		PropertyContextFactory.getDefaultFactory().savePropertyContexts();
-
-		// Need to (possibly) write customEquipment.lst
-		if (PCGenSettings.OPTIONS_CONTEXT.getBoolean(PCGenSettings.OPTION_SAVE_CUSTOM_EQUIPMENT))
+		try
 		{
-			CustomData.writeCustomItems();
-		}
+			// Lambdas, not method references, so the target class is loaded only when the
+			// step body runs inside runCleanupStep's guard. A method reference resolves it
+			// eagerly here, where a failure (e.g. NoClassDefFoundError) would not be caught.
+			runCleanupStep("save configuration settings", () -> configFactory.savePropertyContexts());
+			runCleanupStep("remove temporary export files", () -> BatchExporter.removeTemporaryFiles());
+			runCleanupStep("save property contexts",
+					() -> PropertyContextFactory.getDefaultFactory().savePropertyContexts());
 
-		GracefulExit.exit(success ? 0 : 1);
+			// Need to (possibly) write customEquipment.lst
+			runCleanupStep("write custom equipment", () -> {
+				if (PCGenSettings.OPTIONS_CONTEXT.getBoolean(PCGenSettings.OPTION_SAVE_CUSTOM_EQUIPMENT))
+				{
+					CustomData.writeCustomItems();
+				}
+			});
+		}
+		finally
+		{
+			GracefulExit.exit(success ? 0 : 1);
+		}
+	}
+
+	/**
+	 * Runs a single shutdown cleanup step, logging and swallowing any failure so
+	 * that later steps and the exit itself still happen.
+	 *
+	 * @param description what the step does, used in the failure message
+	 * @param step the cleanup action to run
+	 */
+	private static void runCleanupStep(String description, Runnable step)
+	{
+		try
+		{
+			step.run();
+		}
+		catch (Throwable t)
+		{
+			Logging.errorPrint("Shutdown step failed, continuing: " + description, t);
+		}
 	}
 
 	private static void initPrintPreviewFonts()

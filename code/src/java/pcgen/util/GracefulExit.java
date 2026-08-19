@@ -129,6 +129,25 @@ public final class GracefulExit
 	}
 
 	/**
+	 * Returns the currently installed {@link ExitFunction}. Primarily useful for
+	 * callers that need to temporarily swap the exit behaviour and restore it
+	 * afterwards.
+	 *
+	 * @return the exit function currently in use
+	 */
+	public static ExitFunction getExitFunction()
+	{
+		lock.lock();
+		try
+		{
+			return exitFunction;
+		} finally
+		{
+			lock.unlock();
+		}
+	}
+
+	/**
 	 * Replaces the underlying {@link ExitFunction} (default {@link System#exit}).
 	 * Must not be called from within {@link #exit(int)}; throws
 	 * {@link IllegalStateException} otherwise.
