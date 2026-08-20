@@ -18,11 +18,7 @@
  */
 package pcgen.system;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.MissingResourceException;
-import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 
 import pcgen.io.ExportUtilities;
@@ -41,7 +37,6 @@ import org.apache.commons.lang3.StringUtils;
 public final class PCGenPropBundle
 {
 	private static ResourceBundle d_properties;
-	private static ResourceBundle autobuildProperties = null;
 
 	/*
 	 * This static initializer loads the resources from the PCGenProp resource bundle.
@@ -49,25 +44,6 @@ public final class PCGenPropBundle
 	static
 	{
 		d_properties = ResourceBundle.getBundle("pcgen.system.prop.PCGenProp");
-
-		try
-		{
-			File autobuildProps = new File("autobuild.properties");
-			if (autobuildProps.isFile() && autobuildProps.canRead())
-			{
-				FileInputStream fis = new FileInputStream(autobuildProps);
-				autobuildProperties = new PropertyResourceBundle(fis);
-			}
-		}
-		catch (MissingResourceException mre)
-		{
-			Logging.errorPrint("Failed to load autobuild.properties", mre);
-			autobuildProperties = null;
-		}
-		catch (IOException e)
-		{
-			Logging.errorPrint("autobuildProperties. failed", e);
-		}
 
 		//Safe as d_properties was constructed earlier in this block
 		try
@@ -207,50 +183,6 @@ public final class PCGenPropBundle
 		}
 
 		return result;
-	}
-
-	/**
-	 * Retrieve the build number of the autobuild in which this PCGen instance 
-	 * was built.
-	 * @return The build number, or blank if unknown. 
-	 */
-	public static String getAutobuildNumber()
-	{
-		final String buildNumKey = "BuildNumber";
-		if (autobuildProperties != null && autobuildProperties.containsKey(buildNumKey))
-		{
-			return autobuildProperties.getString(buildNumKey);
-		}
-		return "";
-	}
-
-	/**
-	 * Retrieve the date of the autobuild in which this PCGen instance was 
-	 * built.
-	 * @return The build date, or blank if unknown. 
-	 */
-	public static String getAutobuildDate()
-	{
-		final String buildTimeKey = "BuildTime";
-		if (autobuildProperties != null && autobuildProperties.containsKey(buildTimeKey))
-		{
-			return autobuildProperties.getString(buildTimeKey);
-		}
-		return "";
-	}
-
-	/**
-	 * @return A display formatted version of the autobuild details, or blank if unknown.
-	 */
-	static String getAutobuildString()
-	{
-		String autobuildNumber = getAutobuildNumber();
-		String autobuildDate = getAutobuildDate();
-		if (StringUtils.isNotBlank(autobuildNumber))
-		{
-			return " autobuild #" + autobuildNumber + " built on " + autobuildDate;
-		}
-		return "";
 	}
 
 }

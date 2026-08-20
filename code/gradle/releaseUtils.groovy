@@ -1,21 +1,5 @@
 import java.util.regex.Matcher
 
-void unSnapshotVersion() {
-	def version = project.version.toString()
-	def origVersion = version
-
-	if (version.contains('-SNAPSHOT')) {
-		project.ext.set('usesSnapshot', true)
-		project.ext.set('snapshotVersion', version)
-		version -= '-SNAPSHOT'
-		updateVersionProperty(version)
-	} else {
-		project.ext.set('usesSnapshot', false)
-	}
-	println "Updated version from ${origVersion} to ${version}"
-}
-
-
 void updateVersion() {
 	def version = project.version.toString()
 	String pattern = /(\d+)([^\d]*$)/
