@@ -16,6 +16,9 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 package translation.util;
+import pcgen.util.Logging;
+import pcgen.util.Logging;
+import pcgen.util.Logging;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -443,7 +446,7 @@ public final class Tips
 		pcgen.util.Logging.errorPrint(MessageFormat.format(string, o));
 		if (e != null)
 		{
-			e.printStackTrace();
+			Logging.error("Error occurred", e);
 		}
 	}
 }
