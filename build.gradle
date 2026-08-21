@@ -865,6 +865,7 @@ apply from: 'code/gradle/autobuild.gradle'    // depends on distribution.gradle
 apply from: 'code/gradle/reporting.gradle'
 apply from: 'code/gradle/release.gradle'
 apply from: 'code/gradle/plugins.gradle'
+apply from: 'code/gradle/benchmark.gradle'
 
 tasks.register("allTasks") {
     dependsOn build, slowtest, javadoc, allReports
