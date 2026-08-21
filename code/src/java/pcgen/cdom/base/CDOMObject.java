@@ -75,9 +75,9 @@ public abstract class CDOMObject extends ConcretePrereqObject
 
 	public static final Comparator<CDOMObject> P_OBJECT_COMP =
 			(o1, o2) -> o1.getKeyName().compareToIgnoreCase(o2.getKeyName());
+	// For single-threaded sorting it is safe and efficient to keep the Collator as a shared instance.
+	private static final Collator NAME_COLLATOR = Collator.getInstance();
 	public static final Comparator<CDOMObject> P_OBJECT_NAME_COMP = (o1, o2) -> {
-		final Collator collator = Collator.getInstance();
-
 		// Check sort keys first
 		String key1 = o1.get(StringKey.SORT_KEY);
 		if (key1 == null)
@@ -91,14 +91,14 @@ public abstract class CDOMObject extends ConcretePrereqObject
 		}
 		if (!key1.equals(key2))
 		{
-			return collator.compare(key1, key2);
+			return NAME_COLLATOR.compare(key1, key2);
 		}
 		if (!o1.getDisplayName().equals(o2.getDisplayName()))
 		{
-			return collator.compare(o1.getDisplayName(), o2.getDisplayName());
+			return NAME_COLLATOR.compare(o1.getDisplayName(), o2.getDisplayName());
 		}
 		// Fall back to keyname if the displayname is the same
-		return collator.compare(o1.getKeyName(), o2.getKeyName());
+		return NAME_COLLATOR.compare(o1.getKeyName(), o2.getKeyName());
 	};
 	/**
 	 * The source URI for this CDOMObject.
