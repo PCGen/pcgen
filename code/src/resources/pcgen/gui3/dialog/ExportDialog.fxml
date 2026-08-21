@@ -10,7 +10,7 @@
   *
   * This library is distributed in the hope that it will be useful,
   * but WITHOUT ANY WARRANTY; without even the implied warranty of
-  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.     See the GNU
+  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.      See the GNU
   * Lesser General Public License for more details.
   *
   * You should have received a copy of the GNU Lesser General Public
@@ -24,42 +24,52 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ProgressBar?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.Scene?>
+
 <Scene xmlns="http://javafx.com/javafx/25.0.1"
        xmlns:fx="http://javafx.com/fxml"
        fx:controller="pcgen.gui3.dialog.ExportDialogController">
     <AnchorPane>
-        <VBox>
-            <HBox>
-                <Label labelFor="$selectCharacterBox" text="Select Character" />
+        <!-- Added anchors so the layout grows with the window, and spacing for breathing room -->
+        <VBox spacing="15" AnchorPane.topAnchor="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+            
+            <!-- Added CENTER_LEFT alignment so labels and boxes align cleanly on the horizontal axis -->
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label labelFor="$selectCharacterBox" text="Select Character:" />
                 <ComboBox fx:id="selectCharacterBox" />
-                <Label labelFor="$exportSheetType" text="in_entireParty"/>
+                
+                <!-- Fixed literal text bug and corrected the labelFor target -->
+                <Label labelFor="$entireParty" text="Entire Party:"/>
                 <CheckBox fx:id="entireParty" />
-                <Label labelFor="$exportSheetType" text="export To"/>
+                
+                <Label labelFor="$exportSheetType" text="Export To:"/>
                 <ComboBox fx:id="exportSheetType" />
             </HBox>
-            <TitledPane text="%in_templates" collapsible="false" >
-                <ScrollPane fitToWidth="true">
-                    <ListView fx:id="templateSelect"/>
-                </ScrollPane>
+            
+            <!-- Added VBox.vgrow="ALWAYS" to ensure the list expands when the window is resized.
+                 Removed the redundant ScrollPane because ListView scrolls natively. -->
+            <TitledPane text="%in_templates" collapsible="false" VBox.vgrow="ALWAYS">
+                <ListView fx:id="templateSelect"/>
             </TitledPane>
+            
             <BorderPane>
                 <left>
-                    <ProgressBar fx:id="progress" progress="-1" visible="false" />
+                    <ProgressBar fx:id="progress" progress="-1" visible="false" BorderPane.alignment="CENTER" />
                 </left>
                 <right>
-                    <HBox>
+                    <!-- Added spacing and alignment to the action buttons -->
+                    <HBox spacing="10" alignment="CENTER_RIGHT">
                         <Button fx:id="doExport" text="%in_mnuFileExport" onAction="#doExport"/>
-                        <Button fx:id="doClose" text="%in_mnuClose"  onAction="#doOnClose" />
+                        <Button fx:id="doClose" text="%in_mnuClose" onAction="#doOnClose" />
                     </HBox>
                 </right>
             </BorderPane>
+            
         </VBox>
     </AnchorPane>
 </Scene>
