@@ -72,6 +72,12 @@ public class ClassSpellList extends CDOMListObject<Spell>
 		return true;
 	}
 
+	@Override
+	public boolean isType(Type type)
+	{
+		return (types != null) && types.contains(type);
+	}
+
 	public void addType(Type type)
 	{
 		if (types == null)

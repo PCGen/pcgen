@@ -19,8 +19,10 @@ package pcgen.cdom.base;
 
 import java.net.URI;
 
+import pcgen.cdom.enumeration.Type;
+
 /**
- * A Loadable is an object that PCGen can load from its persistent file storage (generally "LST" files). 
+ * A Loadable is an object that PCGen can load from its persistent file storage (generally "LST" files).
  */
 public interface Loadable extends Identified
 {
@@ -69,6 +71,21 @@ public interface Loadable extends Identified
 	 * @return true if the object is of the given type; false otherwise.
 	 */
 	public boolean isType(String type);
+
+	/**
+	 * Returns true if the object is of the given single {@link Type}. Fast-path
+	 * overload for callers holding an interned Type; the default delegates to
+	 * {@link #isType(String)} so implementers with special type semantics (e.g.
+	 * Equipment) stay correct without overriding.
+	 *
+	 * @param type
+	 *            The Type to check for
+	 * @return true if the object is of the given Type; false otherwise.
+	 */
+	public default boolean isType(Type type)
+	{
+		return isType(type.toString());
+	}
 
 	/**
 	 * Returns the ClassIdentity of this Loadable.

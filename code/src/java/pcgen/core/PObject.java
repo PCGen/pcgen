@@ -213,6 +213,7 @@ public class PObject extends CDOMObject
 	 *            The Type to check for
 	 * @return true if this object is of the given Type; false otherwise
 	 */
+	@Override
 	public boolean isType(final Type type)
 	{
 		return containsInList(ListKey.TYPE, type);

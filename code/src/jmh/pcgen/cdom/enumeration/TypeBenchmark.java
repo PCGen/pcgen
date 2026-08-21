@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.enumeration;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openjdk.jmh.annotations.Benchmark;
@@ -54,6 +56,13 @@ public class TypeBenchmark
 	private Type weapon;
 	private Type melee;
 
+	/** A small population of objects, mimicking resolveGroupReferences' object loop. */
+	private List<Ability> population;
+
+	/** A two-token group key, as stored in a manufacturer's typeReferences. */
+	private String[] groupTokens;
+	private Type[] internedGroupTokens;
+
 	@Setup
 	public void setUp()
 	{
@@ -63,6 +72,18 @@ public class TypeBenchmark
 		ability.addToListFor(ListKey.TYPE, weapon);
 		ability.addToListFor(ListKey.TYPE, melee);
 		ability.addToListFor(ListKey.TYPE, Type.getConstant("Standard"));
+
+		groupTokens = new String[]{"Weapon", "Melee"};
+		internedGroupTokens = new Type[]{weapon, melee};
+		population = new ArrayList<>();
+		for (int i = 0; i < 50; i++)
+		{
+			Ability a = new Ability();
+			a.addToListFor(ListKey.TYPE, weapon);
+			// Half match both tokens, half fail the second — exercises both branches.
+			a.addToListFor(ListKey.TYPE, (i % 2 == 0) ? melee : Type.getConstant("Ranged"));
+			population.add(a);
+		}
 	}
 
 	/** Interned-name lookup: the computeIfAbsent + CaseInsensitiveString hash/equals cost. */
@@ -105,6 +126,60 @@ public class TypeBenchmark
 	public boolean isTypeFast_multiToken()
 	{
 		return ability.isType(weapon) && ability.isType(melee);
+	}
+
+	/**
+	 * Old resolveGroupReferences inner loop: re-intern each String token per
+	 * object via isType(String).
+	 */
+	@Benchmark
+	public int groupResolve_stringPath()
+	{
+		int matches = 0;
+		for (Ability a : population)
+		{
+			boolean ok = true;
+			for (String token : groupTokens)
+			{
+				if (!a.isType(token))
+				{
+					ok = false;
+					break;
+				}
+			}
+			if (ok)
+			{
+				matches++;
+			}
+		}
+		return matches;
+	}
+
+	/**
+	 * New resolveGroupReferences inner loop: group tokens interned once, then
+	 * isType(Type) per object.
+	 */
+	@Benchmark
+	public int groupResolve_internedTypePath()
+	{
+		int matches = 0;
+		for (Ability a : population)
+		{
+			boolean ok = true;
+			for (Type token : internedGroupTokens)
+			{
+				if (!a.isType(token))
+				{
+					ok = false;
+					break;
+				}
+			}
+			if (ok)
+			{
+				matches++;
+			}
+		}
+		return matches;
 	}
 
 	/**
