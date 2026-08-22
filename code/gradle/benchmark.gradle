@@ -26,15 +26,10 @@ dependencies {
 tasks.register("benchmark", JavaExec) {
     group = 'verification'
     description = 'Runs the JMH micro-benchmarks (code/src/jmh).'
-    dependsOn tasks.named('jmhClasses'), extractJavaFXLocal
+    dependsOn tasks.named('jmhClasses')
     mainClass = 'org.openjdk.jmh.Main'
     classpath = sourceSets.jmh.runtimeClasspath
-    // Benchmarks exercise main-source classes, which need JavaFX on the module
-    // path at runtime (same reason the Test.configureEach block in build.gradle
-    // adds it).
     jvmArgs = [
             '-Djava.awt.headless=true',
-            "--module-path", layout.projectDirectory.dir("mods/lib").toString(),
-            "--add-modules", "javafx.controls,javafx.web,javafx.swing,javafx.fxml,javafx.graphics",
     ]
 }
