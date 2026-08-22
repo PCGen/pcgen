@@ -1,0 +1,9 @@
+# One saving throw per ability score, which is what 2024 has: there are
+# no Fortitude, Reflex or Will saves to model.
+
+Strength	SORTKEY:1	BONUS:SAVE|Strength|STR
+Dexterity	SORTKEY:2	BONUS:SAVE|Dexterity|DEX
+Constitution	SORTKEY:3	BONUS:SAVE|Constitution|CON
+Intelligence	SORTKEY:4	BONUS:SAVE|Intelligence|INT
+Wisdom	SORTKEY:5	BONUS:SAVE|Wisdom|WIS
+Charisma	SORTKEY:6	BONUS:SAVE|Charisma|CHA

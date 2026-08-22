@@ -1,0 +1,101 @@
+# What a proficiency is worth. AUTO:WEAPONPROF and CSKILL record that a
+# character is proficient; they compute nothing. These attach the
+# proficiency bonus to each save, weapon type and skill, and define the
+# bonus itself. Without them a character sheet prints +0 for everything.
+#
+# Also here, for the same reason -- machinery rather than content, hung
+# off the one ability every character has:
+#   the pools a player spends, declared so a category's POOL: always
+#   names a variable that exists;
+#   the languages, one selectable ability apiece, plus the Common every
+#   character knows;
+#   the one spell slot table a character has, however many classes cast;
+#   and what wearing armour untrained costs, which the equipment attaches.
+
+Default	CATEGORY:Internal	DEFINE:Proficiency_Bonus|0	BONUS:VAR|Proficiency_Bonus|(TL+7)/4|TYPE=Base|!PRERACE:1,TYPE=Monster	DEFINE:POOL_Origin_Feat|0	DEFINE:POOL_General_Feat|0	DEFINE:POOL_Fighting_Style_Feat|0	DEFINE:POOL_Epic_Boon_Feat|0	DEFINE:POOL_Background|0	DEFINE:POOL_Language_Selection|0	DEFINE:POOL_Expertise|0	AUTO:LANG|Common	BONUS:VAR|POOL_Language_Selection|2	BONUS:VAR|POOL_Background|1	ABILITY:SkillExport|AUTOMATIC|TYPE=SkillExport	DEFINE:DarkvisionRange|0	ABILITY:Special Ability|AUTOMATIC|Darkvision|PREVARGTEQ:DarkvisionRange,1	ABILITY:Internal|AUTOMATIC|Spellcaster Spell Slots	ABILITY:Internal|AUTOMATIC|First Level Proficiencies|PREPCLEVEL:MIN=1
+Darkvision	CATEGORY:Special Ability	TYPE:Vision	VISION:Darkvision (DarkvisionRange)
+First Level Proficiencies	CATEGORY:Internal	TEMPLATE:First Level
+Strength	KEY:Saving Throw ~ Strength	CATEGORY:Internal	BONUS:SAVE|BASE.Strength|Proficiency_Bonus|TYPE=Class
+Dexterity	KEY:Saving Throw ~ Dexterity	CATEGORY:Internal	BONUS:SAVE|BASE.Dexterity|Proficiency_Bonus|TYPE=Class
+Constitution	KEY:Saving Throw ~ Constitution	CATEGORY:Internal	BONUS:SAVE|BASE.Constitution|Proficiency_Bonus|TYPE=Class
+Intelligence	KEY:Saving Throw ~ Intelligence	CATEGORY:Internal	BONUS:SAVE|BASE.Intelligence|Proficiency_Bonus|TYPE=Class
+Wisdom	KEY:Saving Throw ~ Wisdom	CATEGORY:Internal	BONUS:SAVE|BASE.Wisdom|Proficiency_Bonus|TYPE=Class
+Charisma	KEY:Saving Throw ~ Charisma	CATEGORY:Internal	BONUS:SAVE|BASE.Charisma|Proficiency_Bonus|TYPE=Class
+Acrobatics	CATEGORY:Skill	TYPE:Skill Proficiency	BONUS:VAR|SkillProf_Acrobatics|Proficiency_Bonus|TYPE=Class	CSKILL:Acrobatics
+Animal Handling	CATEGORY:Skill	TYPE:Skill Proficiency	BONUS:VAR|SkillProf_Animal_Handling|Proficiency_Bonus|TYPE=Class	CSKILL:Animal Handling
+Arcana	CATEGORY:Skill	TYPE:Skill Proficiency	BONUS:VAR|SkillProf_Arcana|Proficiency_Bonus|TYPE=Class	CSKILL:Arcana
+Athletics	CATEGORY:Skill	TYPE:Skill Proficiency	BONUS:VAR|SkillProf_Athletics|Proficiency_Bonus|TYPE=Class	CSKILL:Athletics
+Deception	CATEGORY:Skill	TYPE:Skill Proficiency	BONUS:VAR|SkillProf_Deception|Proficiency_Bonus|TYPE=Class	CSKILL:Deception
+History	CATEGORY:Skill	TYPE:Skill Proficiency	BONUS:VAR|SkillProf_History|Proficiency_Bonus|TYPE=Class	CSKILL:History
+Insight	CATEGORY:Skill	TYPE:Skill Proficiency	BONUS:VAR|SkillProf_Insight|Proficiency_Bonus|TYPE=Class	CSKILL:Insight
+Intimidation	CATEGORY:Skill	TYPE:Skill Proficiency	BONUS:VAR|SkillProf_Intimidation|Proficiency_Bonus|TYPE=Class	CSKILL:Intimidation
+Investigation	CATEGORY:Skill	TYPE:Skill Proficiency	BONUS:VAR|SkillProf_Investigation|Proficiency_Bonus|TYPE=Class	CSKILL:Investigation
+Medicine	CATEGORY:Skill	TYPE:Skill Proficiency	BONUS:VAR|SkillProf_Medicine|Proficiency_Bonus|TYPE=Class	CSKILL:Medicine
+Nature	CATEGORY:Skill	TYPE:Skill Proficiency	BONUS:VAR|SkillProf_Nature|Proficiency_Bonus|TYPE=Class	CSKILL:Nature
+Perception	CATEGORY:Skill	TYPE:Skill Proficiency	BONUS:VAR|SkillProf_Perception|Proficiency_Bonus|TYPE=Class	CSKILL:Perception
+Performance	CATEGORY:Skill	TYPE:Skill Proficiency	BONUS:VAR|SkillProf_Performance|Proficiency_Bonus|TYPE=Class	CSKILL:Performance
+Persuasion	CATEGORY:Skill	TYPE:Skill Proficiency	BONUS:VAR|SkillProf_Persuasion|Proficiency_Bonus|TYPE=Class	CSKILL:Persuasion
+Religion	CATEGORY:Skill	TYPE:Skill Proficiency	BONUS:VAR|SkillProf_Religion|Proficiency_Bonus|TYPE=Class	CSKILL:Religion
+Sleight of Hand	CATEGORY:Skill	TYPE:Skill Proficiency	BONUS:VAR|SkillProf_Sleight_of_Hand|Proficiency_Bonus|TYPE=Class	CSKILL:Sleight of Hand
+Stealth	CATEGORY:Skill	TYPE:Skill Proficiency	BONUS:VAR|SkillProf_Stealth|Proficiency_Bonus|TYPE=Class	CSKILL:Stealth
+Survival	CATEGORY:Skill	TYPE:Skill Proficiency	BONUS:VAR|SkillProf_Survival|Proficiency_Bonus|TYPE=Class	CSKILL:Survival
+Acrobatics	CATEGORY:SkillExport	TYPE:SkillExport	VISIBLE:EXPORT	DEFINE:SKILL_Acrobatics|0	DEFINE:SkillProf_Acrobatics|0	DEFINE:SkillMisc_Acrobatics|0	BONUS:VAR|SKILL_Acrobatics|DEX+SkillProf_Acrobatics+SkillMisc_Acrobatics	ASPECT:KEYSTAT|DEX	ASPECT:AbilityMod|%1|DEX	ASPECT:Total|%1|SKILL_Acrobatics	ASPECT:ProfBonus|%1|SkillProf_Acrobatics	ASPECT:MiscBonus|%1|SkillMisc_Acrobatics
+Animal Handling	CATEGORY:SkillExport	TYPE:SkillExport	VISIBLE:EXPORT	DEFINE:SKILL_Animal_Handling|0	DEFINE:SkillProf_Animal_Handling|0	DEFINE:SkillMisc_Animal_Handling|0	BONUS:VAR|SKILL_Animal_Handling|WIS+SkillProf_Animal_Handling+SkillMisc_Animal_Handling	ASPECT:KEYSTAT|WIS	ASPECT:AbilityMod|%1|WIS	ASPECT:Total|%1|SKILL_Animal_Handling	ASPECT:ProfBonus|%1|SkillProf_Animal_Handling	ASPECT:MiscBonus|%1|SkillMisc_Animal_Handling
+Arcana	CATEGORY:SkillExport	TYPE:SkillExport	VISIBLE:EXPORT	DEFINE:SKILL_Arcana|0	DEFINE:SkillProf_Arcana|0	DEFINE:SkillMisc_Arcana|0	BONUS:VAR|SKILL_Arcana|INT+SkillProf_Arcana+SkillMisc_Arcana	ASPECT:KEYSTAT|INT	ASPECT:AbilityMod|%1|INT	ASPECT:Total|%1|SKILL_Arcana	ASPECT:ProfBonus|%1|SkillProf_Arcana	ASPECT:MiscBonus|%1|SkillMisc_Arcana
+Athletics	CATEGORY:SkillExport	TYPE:SkillExport	VISIBLE:EXPORT	DEFINE:SKILL_Athletics|0	DEFINE:SkillProf_Athletics|0	DEFINE:SkillMisc_Athletics|0	BONUS:VAR|SKILL_Athletics|STR+SkillProf_Athletics+SkillMisc_Athletics	ASPECT:KEYSTAT|STR	ASPECT:AbilityMod|%1|STR	ASPECT:Total|%1|SKILL_Athletics	ASPECT:ProfBonus|%1|SkillProf_Athletics	ASPECT:MiscBonus|%1|SkillMisc_Athletics
+Deception	CATEGORY:SkillExport	TYPE:SkillExport	VISIBLE:EXPORT	DEFINE:SKILL_Deception|0	DEFINE:SkillProf_Deception|0	DEFINE:SkillMisc_Deception|0	BONUS:VAR|SKILL_Deception|CHA+SkillProf_Deception+SkillMisc_Deception	ASPECT:KEYSTAT|CHA	ASPECT:AbilityMod|%1|CHA	ASPECT:Total|%1|SKILL_Deception	ASPECT:ProfBonus|%1|SkillProf_Deception	ASPECT:MiscBonus|%1|SkillMisc_Deception
+History	CATEGORY:SkillExport	TYPE:SkillExport	VISIBLE:EXPORT	DEFINE:SKILL_History|0	DEFINE:SkillProf_History|0	DEFINE:SkillMisc_History|0	BONUS:VAR|SKILL_History|INT+SkillProf_History+SkillMisc_History	ASPECT:KEYSTAT|INT	ASPECT:AbilityMod|%1|INT	ASPECT:Total|%1|SKILL_History	ASPECT:ProfBonus|%1|SkillProf_History	ASPECT:MiscBonus|%1|SkillMisc_History
+Insight	CATEGORY:SkillExport	TYPE:SkillExport	VISIBLE:EXPORT	DEFINE:SKILL_Insight|0	DEFINE:SkillProf_Insight|0	DEFINE:SkillMisc_Insight|0	BONUS:VAR|SKILL_Insight|WIS+SkillProf_Insight+SkillMisc_Insight	ASPECT:KEYSTAT|WIS	ASPECT:AbilityMod|%1|WIS	ASPECT:Total|%1|SKILL_Insight	ASPECT:ProfBonus|%1|SkillProf_Insight	ASPECT:MiscBonus|%1|SkillMisc_Insight
+Intimidation	CATEGORY:SkillExport	TYPE:SkillExport	VISIBLE:EXPORT	DEFINE:SKILL_Intimidation|0	DEFINE:SkillProf_Intimidation|0	DEFINE:SkillMisc_Intimidation|0	BONUS:VAR|SKILL_Intimidation|CHA+SkillProf_Intimidation+SkillMisc_Intimidation	ASPECT:KEYSTAT|CHA	ASPECT:AbilityMod|%1|CHA	ASPECT:Total|%1|SKILL_Intimidation	ASPECT:ProfBonus|%1|SkillProf_Intimidation	ASPECT:MiscBonus|%1|SkillMisc_Intimidation
+Investigation	CATEGORY:SkillExport	TYPE:SkillExport	VISIBLE:EXPORT	DEFINE:SKILL_Investigation|0	DEFINE:SkillProf_Investigation|0	DEFINE:SkillMisc_Investigation|0	BONUS:VAR|SKILL_Investigation|INT+SkillProf_Investigation+SkillMisc_Investigation	ASPECT:KEYSTAT|INT	ASPECT:AbilityMod|%1|INT	ASPECT:Total|%1|SKILL_Investigation	ASPECT:ProfBonus|%1|SkillProf_Investigation	ASPECT:MiscBonus|%1|SkillMisc_Investigation
+Medicine	CATEGORY:SkillExport	TYPE:SkillExport	VISIBLE:EXPORT	DEFINE:SKILL_Medicine|0	DEFINE:SkillProf_Medicine|0	DEFINE:SkillMisc_Medicine|0	BONUS:VAR|SKILL_Medicine|WIS+SkillProf_Medicine+SkillMisc_Medicine	ASPECT:KEYSTAT|WIS	ASPECT:AbilityMod|%1|WIS	ASPECT:Total|%1|SKILL_Medicine	ASPECT:ProfBonus|%1|SkillProf_Medicine	ASPECT:MiscBonus|%1|SkillMisc_Medicine
+Nature	CATEGORY:SkillExport	TYPE:SkillExport	VISIBLE:EXPORT	DEFINE:SKILL_Nature|0	DEFINE:SkillProf_Nature|0	DEFINE:SkillMisc_Nature|0	BONUS:VAR|SKILL_Nature|INT+SkillProf_Nature+SkillMisc_Nature	ASPECT:KEYSTAT|INT	ASPECT:AbilityMod|%1|INT	ASPECT:Total|%1|SKILL_Nature	ASPECT:ProfBonus|%1|SkillProf_Nature	ASPECT:MiscBonus|%1|SkillMisc_Nature
+Perception	CATEGORY:SkillExport	TYPE:SkillExport	VISIBLE:EXPORT	DEFINE:SKILL_Perception|0	DEFINE:SkillProf_Perception|0	DEFINE:SkillMisc_Perception|0	BONUS:VAR|SKILL_Perception|WIS+SkillProf_Perception+SkillMisc_Perception	ASPECT:KEYSTAT|WIS	ASPECT:AbilityMod|%1|WIS	ASPECT:Total|%1|SKILL_Perception	ASPECT:ProfBonus|%1|SkillProf_Perception	ASPECT:MiscBonus|%1|SkillMisc_Perception
+Performance	CATEGORY:SkillExport	TYPE:SkillExport	VISIBLE:EXPORT	DEFINE:SKILL_Performance|0	DEFINE:SkillProf_Performance|0	DEFINE:SkillMisc_Performance|0	BONUS:VAR|SKILL_Performance|CHA+SkillProf_Performance+SkillMisc_Performance	ASPECT:KEYSTAT|CHA	ASPECT:AbilityMod|%1|CHA	ASPECT:Total|%1|SKILL_Performance	ASPECT:ProfBonus|%1|SkillProf_Performance	ASPECT:MiscBonus|%1|SkillMisc_Performance
+Persuasion	CATEGORY:SkillExport	TYPE:SkillExport	VISIBLE:EXPORT	DEFINE:SKILL_Persuasion|0	DEFINE:SkillProf_Persuasion|0	DEFINE:SkillMisc_Persuasion|0	BONUS:VAR|SKILL_Persuasion|CHA+SkillProf_Persuasion+SkillMisc_Persuasion	ASPECT:KEYSTAT|CHA	ASPECT:AbilityMod|%1|CHA	ASPECT:Total|%1|SKILL_Persuasion	ASPECT:ProfBonus|%1|SkillProf_Persuasion	ASPECT:MiscBonus|%1|SkillMisc_Persuasion
+Religion	CATEGORY:SkillExport	TYPE:SkillExport	VISIBLE:EXPORT	DEFINE:SKILL_Religion|0	DEFINE:SkillProf_Religion|0	DEFINE:SkillMisc_Religion|0	BONUS:VAR|SKILL_Religion|INT+SkillProf_Religion+SkillMisc_Religion	ASPECT:KEYSTAT|INT	ASPECT:AbilityMod|%1|INT	ASPECT:Total|%1|SKILL_Religion	ASPECT:ProfBonus|%1|SkillProf_Religion	ASPECT:MiscBonus|%1|SkillMisc_Religion
+Sleight of Hand	CATEGORY:SkillExport	TYPE:SkillExport	VISIBLE:EXPORT	DEFINE:SKILL_Sleight_of_Hand|0	DEFINE:SkillProf_Sleight_of_Hand|0	DEFINE:SkillMisc_Sleight_of_Hand|0	BONUS:VAR|SKILL_Sleight_of_Hand|DEX+SkillProf_Sleight_of_Hand+SkillMisc_Sleight_of_Hand	ASPECT:KEYSTAT|DEX	ASPECT:AbilityMod|%1|DEX	ASPECT:Total|%1|SKILL_Sleight_of_Hand	ASPECT:ProfBonus|%1|SkillProf_Sleight_of_Hand	ASPECT:MiscBonus|%1|SkillMisc_Sleight_of_Hand
+Stealth	CATEGORY:SkillExport	TYPE:SkillExport	VISIBLE:EXPORT	DEFINE:SKILL_Stealth|0	DEFINE:SkillProf_Stealth|0	DEFINE:SkillMisc_Stealth|0	BONUS:VAR|SKILL_Stealth|DEX+SkillProf_Stealth+SkillMisc_Stealth	ASPECT:KEYSTAT|DEX	ASPECT:AbilityMod|%1|DEX	ASPECT:Total|%1|SKILL_Stealth	ASPECT:ProfBonus|%1|SkillProf_Stealth	ASPECT:MiscBonus|%1|SkillMisc_Stealth
+Survival	CATEGORY:SkillExport	TYPE:SkillExport	VISIBLE:EXPORT	DEFINE:SKILL_Survival|0	DEFINE:SkillProf_Survival|0	DEFINE:SkillMisc_Survival|0	BONUS:VAR|SKILL_Survival|WIS+SkillProf_Survival+SkillMisc_Survival	ASPECT:KEYSTAT|WIS	ASPECT:AbilityMod|%1|WIS	ASPECT:Total|%1|SKILL_Survival	ASPECT:ProfBonus|%1|SkillProf_Survival	ASPECT:MiscBonus|%1|SkillMisc_Survival
+Acrobatics	KEY:Expertise ~ Acrobatics	CATEGORY:Special Ability	TYPE:Expertise	PREABILITY:1,CATEGORY=Skill,Acrobatics	BONUS:VAR|SkillProf_Acrobatics|Proficiency_Bonus|TYPE=Expertise	DESC:Your Proficiency Bonus is doubled for Acrobatics checks.
+Animal Handling	KEY:Expertise ~ Animal Handling	CATEGORY:Special Ability	TYPE:Expertise	PREABILITY:1,CATEGORY=Skill,Animal Handling	BONUS:VAR|SkillProf_Animal_Handling|Proficiency_Bonus|TYPE=Expertise	DESC:Your Proficiency Bonus is doubled for Animal Handling checks.
+Arcana	KEY:Expertise ~ Arcana	CATEGORY:Special Ability	TYPE:Expertise	PREABILITY:1,CATEGORY=Skill,Arcana	BONUS:VAR|SkillProf_Arcana|Proficiency_Bonus|TYPE=Expertise	DESC:Your Proficiency Bonus is doubled for Arcana checks.
+Athletics	KEY:Expertise ~ Athletics	CATEGORY:Special Ability	TYPE:Expertise	PREABILITY:1,CATEGORY=Skill,Athletics	BONUS:VAR|SkillProf_Athletics|Proficiency_Bonus|TYPE=Expertise	DESC:Your Proficiency Bonus is doubled for Athletics checks.
+Deception	KEY:Expertise ~ Deception	CATEGORY:Special Ability	TYPE:Expertise	PREABILITY:1,CATEGORY=Skill,Deception	BONUS:VAR|SkillProf_Deception|Proficiency_Bonus|TYPE=Expertise	DESC:Your Proficiency Bonus is doubled for Deception checks.
+History	KEY:Expertise ~ History	CATEGORY:Special Ability	TYPE:Expertise	PREABILITY:1,CATEGORY=Skill,History	BONUS:VAR|SkillProf_History|Proficiency_Bonus|TYPE=Expertise	DESC:Your Proficiency Bonus is doubled for History checks.
+Insight	KEY:Expertise ~ Insight	CATEGORY:Special Ability	TYPE:Expertise	PREABILITY:1,CATEGORY=Skill,Insight	BONUS:VAR|SkillProf_Insight|Proficiency_Bonus|TYPE=Expertise	DESC:Your Proficiency Bonus is doubled for Insight checks.
+Intimidation	KEY:Expertise ~ Intimidation	CATEGORY:Special Ability	TYPE:Expertise	PREABILITY:1,CATEGORY=Skill,Intimidation	BONUS:VAR|SkillProf_Intimidation|Proficiency_Bonus|TYPE=Expertise	DESC:Your Proficiency Bonus is doubled for Intimidation checks.
+Investigation	KEY:Expertise ~ Investigation	CATEGORY:Special Ability	TYPE:Expertise	PREABILITY:1,CATEGORY=Skill,Investigation	BONUS:VAR|SkillProf_Investigation|Proficiency_Bonus|TYPE=Expertise	DESC:Your Proficiency Bonus is doubled for Investigation checks.
+Medicine	KEY:Expertise ~ Medicine	CATEGORY:Special Ability	TYPE:Expertise	PREABILITY:1,CATEGORY=Skill,Medicine	BONUS:VAR|SkillProf_Medicine|Proficiency_Bonus|TYPE=Expertise	DESC:Your Proficiency Bonus is doubled for Medicine checks.
+Nature	KEY:Expertise ~ Nature	CATEGORY:Special Ability	TYPE:Expertise	PREABILITY:1,CATEGORY=Skill,Nature	BONUS:VAR|SkillProf_Nature|Proficiency_Bonus|TYPE=Expertise	DESC:Your Proficiency Bonus is doubled for Nature checks.
+Perception	KEY:Expertise ~ Perception	CATEGORY:Special Ability	TYPE:Expertise	PREABILITY:1,CATEGORY=Skill,Perception	BONUS:VAR|SkillProf_Perception|Proficiency_Bonus|TYPE=Expertise	DESC:Your Proficiency Bonus is doubled for Perception checks.
+Performance	KEY:Expertise ~ Performance	CATEGORY:Special Ability	TYPE:Expertise	PREABILITY:1,CATEGORY=Skill,Performance	BONUS:VAR|SkillProf_Performance|Proficiency_Bonus|TYPE=Expertise	DESC:Your Proficiency Bonus is doubled for Performance checks.
+Persuasion	KEY:Expertise ~ Persuasion	CATEGORY:Special Ability	TYPE:Expertise	PREABILITY:1,CATEGORY=Skill,Persuasion	BONUS:VAR|SkillProf_Persuasion|Proficiency_Bonus|TYPE=Expertise	DESC:Your Proficiency Bonus is doubled for Persuasion checks.
+Religion	KEY:Expertise ~ Religion	CATEGORY:Special Ability	TYPE:Expertise	PREABILITY:1,CATEGORY=Skill,Religion	BONUS:VAR|SkillProf_Religion|Proficiency_Bonus|TYPE=Expertise	DESC:Your Proficiency Bonus is doubled for Religion checks.
+Sleight of Hand	KEY:Expertise ~ Sleight of Hand	CATEGORY:Special Ability	TYPE:Expertise	PREABILITY:1,CATEGORY=Skill,Sleight of Hand	BONUS:VAR|SkillProf_Sleight_of_Hand|Proficiency_Bonus|TYPE=Expertise	DESC:Your Proficiency Bonus is doubled for Sleight of Hand checks.
+Stealth	KEY:Expertise ~ Stealth	CATEGORY:Special Ability	TYPE:Expertise	PREABILITY:1,CATEGORY=Skill,Stealth	BONUS:VAR|SkillProf_Stealth|Proficiency_Bonus|TYPE=Expertise	DESC:Your Proficiency Bonus is doubled for Stealth checks.
+Survival	KEY:Expertise ~ Survival	CATEGORY:Special Ability	TYPE:Expertise	PREABILITY:1,CATEGORY=Skill,Survival	BONUS:VAR|SkillProf_Survival|Proficiency_Bonus|TYPE=Expertise	DESC:Your Proficiency Bonus is doubled for Survival checks.
+Common	CATEGORY:Language	TYPE:Language.Standard	AUTO:LANG|Common	DESC:Standard language.
+Common Sign Language	CATEGORY:Language	TYPE:Language.Standard	AUTO:LANG|Common Sign Language	DESC:Standard language.
+Draconic	CATEGORY:Language	TYPE:Language.Standard	AUTO:LANG|Draconic	DESC:Standard language.
+Dwarvish	CATEGORY:Language	TYPE:Language.Standard	AUTO:LANG|Dwarvish	DESC:Standard language.
+Elvish	CATEGORY:Language	TYPE:Language.Standard	AUTO:LANG|Elvish	DESC:Standard language.
+Giant	CATEGORY:Language	TYPE:Language.Standard	AUTO:LANG|Giant	DESC:Standard language.
+Gnomish	CATEGORY:Language	TYPE:Language.Standard	AUTO:LANG|Gnomish	DESC:Standard language.
+Goblin	CATEGORY:Language	TYPE:Language.Standard	AUTO:LANG|Goblin	DESC:Standard language.
+Halfling	CATEGORY:Language	TYPE:Language.Standard	AUTO:LANG|Halfling	DESC:Standard language.
+Orc	CATEGORY:Language	TYPE:Language.Standard	AUTO:LANG|Orc	DESC:Standard language.
+Abyssal	CATEGORY:Language	TYPE:Language.Rare	AUTO:LANG|Abyssal	DESC:Rare language. Usually learned from a special source.
+Primordial	CATEGORY:Language	TYPE:Language.Rare	AUTO:LANG|Primordial	DESC:Rare language. Usually learned from a special source.
+Celestial	CATEGORY:Language	TYPE:Language.Rare	AUTO:LANG|Celestial	DESC:Rare language. Usually learned from a special source.
+Sylvan	CATEGORY:Language	TYPE:Language.Rare	AUTO:LANG|Sylvan	DESC:Rare language. Usually learned from a special source.
+Deep Speech	CATEGORY:Language	TYPE:Language.Rare	AUTO:LANG|Deep Speech	DESC:Rare language. Usually learned from a special source.
+Thieves' Cant	CATEGORY:Language	TYPE:Language.Rare	AUTO:LANG|Thieves' Cant	DESC:Rare language. Usually learned from a special source.
+Druidic	CATEGORY:Language	TYPE:Language.Rare	AUTO:LANG|Druidic	DESC:Rare language. Usually learned from a special source.
+Undercommon	CATEGORY:Language	TYPE:Language.Rare	AUTO:LANG|Undercommon	DESC:Rare language. Usually learned from a special source.
+Infernal	CATEGORY:Language	TYPE:Language.Rare	AUTO:LANG|Infernal	DESC:Rare language. Usually learned from a special source.
+Spellcaster Spell Slots	CATEGORY:Internal	DEFINE:SpellCasterTotalLVL|0	DEFINE:SpellCasterClassCount|0	DEFINE:FullCasterLVL|0	DEFINE:HalfCasterLVL|0	DEFINE:SpellSlotsLVL0|0	DEFINE:SpellSlotsLVL1|0	DEFINE:SpellSlotsLVL2|0	DEFINE:SpellSlotsLVL3|0	DEFINE:SpellSlotsLVL4|0	DEFINE:SpellSlotsLVL5|0	DEFINE:SpellSlotsLVL6|0	DEFINE:SpellSlotsLVL7|0	DEFINE:SpellSlotsLVL8|0	DEFINE:SpellSlotsLVL9|0	ABILITY:Internal|AUTOMATIC|Caster Spell Slots ~ Full|PREMULT:1,[PREVARGTEQ:FullCasterLVL,1],[PREVARGTEQ:SpellCasterClassCount,2]	ABILITY:Internal|AUTOMATIC|Caster Spell Slots ~ Half|PREMULT:2,[PREVARLT:FullCasterLVL,1],[PREVARLT:SpellCasterClassCount,2]
+Caster Spell Slots ~ Full	CATEGORY:Internal	BONUS:VAR|SpellSlotsLVL1|(SpellCasterTotalLVL>=1)+(SpellCasterTotalLVL>=1)+(SpellCasterTotalLVL>=2)+(SpellCasterTotalLVL>=3)	BONUS:VAR|SpellSlotsLVL2|(SpellCasterTotalLVL>=3)+(SpellCasterTotalLVL>=3)+(SpellCasterTotalLVL>=4)	BONUS:VAR|SpellSlotsLVL3|(SpellCasterTotalLVL>=5)+(SpellCasterTotalLVL>=5)+(SpellCasterTotalLVL>=6)	BONUS:VAR|SpellSlotsLVL4|(SpellCasterTotalLVL>=7)+(SpellCasterTotalLVL>=8)+(SpellCasterTotalLVL>=9)	BONUS:VAR|SpellSlotsLVL5|(SpellCasterTotalLVL>=9)+(SpellCasterTotalLVL>=10)+(SpellCasterTotalLVL>=18)	BONUS:VAR|SpellSlotsLVL6|(SpellCasterTotalLVL>=11)+(SpellCasterTotalLVL>=19)	BONUS:VAR|SpellSlotsLVL7|(SpellCasterTotalLVL>=13)+(SpellCasterTotalLVL>=20)	BONUS:VAR|SpellSlotsLVL8|(SpellCasterTotalLVL>=15)	BONUS:VAR|SpellSlotsLVL9|(SpellCasterTotalLVL>=17)
+Caster Spell Slots ~ Half	CATEGORY:Internal	BONUS:VAR|SpellSlotsLVL1|(HalfCasterLVL>=1)+(HalfCasterLVL>=1)+(HalfCasterLVL>=3)+(HalfCasterLVL>=5)	BONUS:VAR|SpellSlotsLVL2|(HalfCasterLVL>=5)+(HalfCasterLVL>=5)+(HalfCasterLVL>=7)	BONUS:VAR|SpellSlotsLVL3|(HalfCasterLVL>=9)+(HalfCasterLVL>=9)+(HalfCasterLVL>=11)	BONUS:VAR|SpellSlotsLVL4|(HalfCasterLVL>=13)+(HalfCasterLVL>=15)+(HalfCasterLVL>=17)	BONUS:VAR|SpellSlotsLVL5|(HalfCasterLVL>=17)+(HalfCasterLVL>=19)
+Unproficient Armor	CATEGORY:Internal	ASPECT:SkillBonus|Armor - Disadvantage on Strength and Dexterity ability checks, saving throws and attack rolls, and you cannot cast spells.
+Skill Disadvantage ~ Stealth	CATEGORY:Internal	ASPECT:SkillBonus|Armor - Disadvantage on Stealth checks.

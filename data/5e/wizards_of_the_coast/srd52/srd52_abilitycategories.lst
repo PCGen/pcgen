@@ -1,0 +1,28 @@
+# Ability categories for the 2024 feat categories.
+#
+# The 2024 rules sort feats into Origin, General, Fighting Style and Epic Boon,
+# and instruct you to choose from a named category. Each category therefore
+# needs its own pool so a background can grant an Origin feat specifically
+# rather than any feat at all.
+#
+# POOL: is what makes that pool exist. Without it the pool is empty, PCGen does
+# not offer a category whose total pool is empty, and every feat in it is an
+# object that loads perfectly and can never be chosen -- which is what all 17
+# SRD feats and all 58 book feats were. The variable behind each pool is
+# declared on Default in the foundation file and raised by whatever grants the
+# feat: a background for an Origin feat, a class feature for the other three.
+
+ABILITYCATEGORY:Origin Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	POOL:POOL_Origin_Feat	CATEGORY:FEAT	TYPE:Origin	PLURAL:Origin Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:General Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	POOL:POOL_General_Feat	CATEGORY:FEAT	TYPE:General	PLURAL:General Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Fighting Style Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	POOL:POOL_Fighting_Style_Feat	CATEGORY:FEAT	TYPE:FightingStyle	PLURAL:Fighting Style Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Epic Boon Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	POOL:POOL_Epic_Boon_Feat	CATEGORY:FEAT	TYPE:EpicBoon	PLURAL:Epic Boon Feats	DISPLAYLOCATION:Feats
+
+# What a Magic Initiate variant is spent from: a pool per spell
+# list and kind, and one for the spellcasting ability it chooses.
+ABILITYCATEGORY:Magic Initiate (Cleric) Cantrip	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	POOL:POOL_Magic_Initiate_Cleric_Cantrip	CATEGORY:Internal	TYPE:MagicInitiateClericCantrip	PLURAL:Magic Initiate (Cleric) Cantrips	DISPLAYLOCATION:Character
+ABILITYCATEGORY:Magic Initiate (Cleric) Spell	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	POOL:POOL_Magic_Initiate_Cleric_Spell	CATEGORY:Internal	TYPE:MagicInitiateClericSpell	PLURAL:Magic Initiate (Cleric) Spells	DISPLAYLOCATION:Character
+ABILITYCATEGORY:Magic Initiate Spellcasting Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	POOL:POOL_Magic_Initiate_Spellcasting_Ability	CATEGORY:Internal	TYPE:MagicInitiateSpellcastingAbility	PLURAL:Magic Initiate Spellcasting Ability	DISPLAYLOCATION:Character
+ABILITYCATEGORY:Magic Initiate (Druid) Cantrip	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	POOL:POOL_Magic_Initiate_Druid_Cantrip	CATEGORY:Internal	TYPE:MagicInitiateDruidCantrip	PLURAL:Magic Initiate (Druid) Cantrips	DISPLAYLOCATION:Character
+ABILITYCATEGORY:Magic Initiate (Druid) Spell	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	POOL:POOL_Magic_Initiate_Druid_Spell	CATEGORY:Internal	TYPE:MagicInitiateDruidSpell	PLURAL:Magic Initiate (Druid) Spells	DISPLAYLOCATION:Character
+ABILITYCATEGORY:Magic Initiate (Wizard) Cantrip	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	POOL:POOL_Magic_Initiate_Wizard_Cantrip	CATEGORY:Internal	TYPE:MagicInitiateWizardCantrip	PLURAL:Magic Initiate (Wizard) Cantrips	DISPLAYLOCATION:Character
+ABILITYCATEGORY:Magic Initiate (Wizard) Spell	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	POOL:POOL_Magic_Initiate_Wizard_Spell	CATEGORY:Internal	TYPE:MagicInitiateWizardSpell	PLURAL:Magic Initiate (Wizard) Spells	DISPLAYLOCATION:Character

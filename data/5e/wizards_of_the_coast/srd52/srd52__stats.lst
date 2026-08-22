@@ -1,0 +1,32 @@
+# The six ability scores, and what PCGen computes from them.
+#
+# STATMOD is the 2024 modifier: (score - 10) / 2, rounded down, which is what
+# floor(SCORE/2)-5 says without a division that can go negative awkwardly.
+# MAXVALUE is 20 for a player character; the rules cap ability scores there and
+# every feat that raises one repeats the cap in its own text. It is not 20 for a
+# monster, and a flat 20 clamped the computed total rather than the editable
+# base -- the Balor read Strength 20 and a +5 modifier where the book prints 26
+# and +8, and 131 entries across the two creature files are affected, the worst
+# by ten points. So the cap is a variable and the monster races raise it, which
+# is PCGen's own idiom: srd5__stats.lst writes
+# DEFINESTAT:MAXVALUE|STR|max(20,StatCapSTR) and feeds StatCapSTR 20 or 50 from
+# the character type. The discriminator here is PRERACE:1,TYPE=Monster instead,
+# because these creatures are races applied to a character PCGen still calls a
+# PC -- the same test the Dexterity-to-Armor-Class bonus already uses.
+#
+# The BONUS lines are the ones the sheet cannot do without: Dexterity is the
+# base of Armor Class and of Initiative, Strength and Dexterity drive attack
+# and damage, Constitution drives hit points.
+#
+# Armor Class is 10 plus the Dexterity modifier, and the second half of that is
+# not optional: with the base alone an unarmoured character reads 10 whatever
+# their Dexterity, and Leather Armor reads 11. MODEQUIPMAXDEX is the cap the
+# equipped armour imposes -- absent for light armour, 2 for medium, 0 for
+# heavy -- so one expression covers all four weights and the unarmoured case.
+
+Strength	SORTKEY:1	ABB:STR	KEY:STR	STATMOD:floor(SCORE/2)-5	DEFINE:MAXLEVELSTAT=STR|9	DEFINE:StatCapSTR|0	BONUS:VAR|StatCapSTR|50|TYPE=Base|PRERACE:1,TYPE=Monster	BONUS:COMBAT|TOHIT.Weapon_Melee,DAMAGE.Weapon_Melee|STR|TYPE=Ability	DEFINE:LOADSCORE|0	BONUS:VAR|LOADSCORE|STRSCORE	ABILITY:Internal|AUTOMATIC|Default	DEFINESTAT:MAXVALUE|STR|max(20,StatCapSTR)
+Dexterity	SORTKEY:2	ABB:DEX	KEY:DEX	STATMOD:floor(SCORE/2)-5	DEFINE:MAXLEVELSTAT=DEX|9	DEFINE:StatCapDEX|0	BONUS:VAR|StatCapDEX|50|TYPE=Base|PRERACE:1,TYPE=Monster	BONUS:COMBAT|TOHIT.Weapon_Ranged,DAMAGE.Weapon_Ranged|DEX|TYPE=Ability	BONUS:COMBAT|TOHIT.Weapon_Finesse,DAMAGE.Weapon_Finesse|max(STR,DEX)|TYPE=Ability	BONUS:COMBAT|AC|10|TYPE=Base	BONUS:COMBAT|AC|min(DEX,MODEQUIPMAXDEX)|TYPE=Ability|!PRERACE:1,TYPE=Monster	BONUS:COMBAT|INITIATIVE|DEX	DEFINESTAT:MAXVALUE|DEX|max(20,StatCapDEX)
+Constitution	SORTKEY:3	ABB:CON	KEY:CON	STATMOD:floor(SCORE/2)-5	DEFINE:MAXLEVELSTAT=CON|9	DEFINE:StatCapCON|0	BONUS:VAR|StatCapCON|50|TYPE=Base|PRERACE:1,TYPE=Monster	BONUS:HP|BONUS|CON	DEFINESTAT:MAXVALUE|CON|max(20,StatCapCON)
+Intelligence	SORTKEY:4	ABB:INT	KEY:INT	STATMOD:floor(SCORE/2)-5	DEFINE:MAXLEVELSTAT=INT|9	DEFINE:StatCapINT|0	BONUS:VAR|StatCapINT|50|TYPE=Base|PRERACE:1,TYPE=Monster	DEFINESTAT:MAXVALUE|INT|max(20,StatCapINT)
+Wisdom	SORTKEY:5	ABB:WIS	KEY:WIS	STATMOD:floor(SCORE/2)-5	DEFINE:MAXLEVELSTAT=WIS|9	DEFINE:StatCapWIS|0	BONUS:VAR|StatCapWIS|50|TYPE=Base|PRERACE:1,TYPE=Monster	DEFINESTAT:MAXVALUE|WIS|max(20,StatCapWIS)
+Charisma	SORTKEY:6	ABB:CHA	KEY:CHA	STATMOD:floor(SCORE/2)-5	DEFINE:MAXLEVELSTAT=CHA|9	DEFINE:StatCapCHA|0	BONUS:VAR|StatCapCHA|50|TYPE=Base|PRERACE:1,TYPE=Monster	DEFINESTAT:MAXVALUE|CHA|max(20,StatCapCHA)

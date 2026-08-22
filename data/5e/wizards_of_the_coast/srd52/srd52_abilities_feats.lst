@@ -1,0 +1,118 @@
+# What the Magic Initiate pools are spent on: one object per spell
+# the named list holds, carrying the SPELLS: that puts it on the
+# sheet, and one per ability score the feat may cast from.
+
+CATEGORY=Internal|Default.MOD	DEFINE:POOL_Magic_Initiate_Cleric_Cantrip|0	DEFINE:POOL_Magic_Initiate_Cleric_Spell|0	DEFINE:POOL_Magic_Initiate_Spellcasting_Ability|0	DEFINE:POOL_Magic_Initiate_Druid_Cantrip|0	DEFINE:POOL_Magic_Initiate_Druid_Spell|0	DEFINE:POOL_Magic_Initiate_Wizard_Cantrip|0	DEFINE:POOL_Magic_Initiate_Wizard_Spell|0
+
+# Magic Initiate (Cleric) Cantrip
+Guidance	KEY:Magic Initiate (Cleric) Cantrip ~ Guidance	CATEGORY:Internal	TYPE:MagicInitiateClericCantrip	SPELLS:Magic Initiate|TIMES=ATWILL|CASTERLEVEL=1|Guidance,MagicInitiateSpellDC
+Light	KEY:Magic Initiate (Cleric) Cantrip ~ Light	CATEGORY:Internal	TYPE:MagicInitiateClericCantrip	SPELLS:Magic Initiate|TIMES=ATWILL|CASTERLEVEL=1|Light,MagicInitiateSpellDC
+Mending	KEY:Magic Initiate (Cleric) Cantrip ~ Mending	CATEGORY:Internal	TYPE:MagicInitiateClericCantrip	SPELLS:Magic Initiate|TIMES=ATWILL|CASTERLEVEL=1|Mending,MagicInitiateSpellDC
+Resistance	KEY:Magic Initiate (Cleric) Cantrip ~ Resistance	CATEGORY:Internal	TYPE:MagicInitiateClericCantrip	SPELLS:Magic Initiate|TIMES=ATWILL|CASTERLEVEL=1|Resistance,MagicInitiateSpellDC
+Sacred Flame	KEY:Magic Initiate (Cleric) Cantrip ~ Sacred Flame	CATEGORY:Internal	TYPE:MagicInitiateClericCantrip	SPELLS:Magic Initiate|TIMES=ATWILL|CASTERLEVEL=1|Sacred Flame,MagicInitiateSpellDC
+Spare the Dying	KEY:Magic Initiate (Cleric) Cantrip ~ Spare the Dying	CATEGORY:Internal	TYPE:MagicInitiateClericCantrip	SPELLS:Magic Initiate|TIMES=ATWILL|CASTERLEVEL=1|Spare the Dying,MagicInitiateSpellDC
+Thaumaturgy	KEY:Magic Initiate (Cleric) Cantrip ~ Thaumaturgy	CATEGORY:Internal	TYPE:MagicInitiateClericCantrip	SPELLS:Magic Initiate|TIMES=ATWILL|CASTERLEVEL=1|Thaumaturgy,MagicInitiateSpellDC
+
+# Magic Initiate (Cleric) Spell
+Bane	KEY:Magic Initiate (Cleric) Spell ~ Bane	CATEGORY:Internal	TYPE:MagicInitiateClericSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Bane,MagicInitiateSpellDC
+Bless	KEY:Magic Initiate (Cleric) Spell ~ Bless	CATEGORY:Internal	TYPE:MagicInitiateClericSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Bless,MagicInitiateSpellDC
+Command	KEY:Magic Initiate (Cleric) Spell ~ Command	CATEGORY:Internal	TYPE:MagicInitiateClericSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Command,MagicInitiateSpellDC
+Create or Destroy Water	KEY:Magic Initiate (Cleric) Spell ~ Create or Destroy Water	CATEGORY:Internal	TYPE:MagicInitiateClericSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Create or Destroy Water,MagicInitiateSpellDC
+Cure Wounds	KEY:Magic Initiate (Cleric) Spell ~ Cure Wounds	CATEGORY:Internal	TYPE:MagicInitiateClericSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Cure Wounds,MagicInitiateSpellDC
+Detect Evil and Good	KEY:Magic Initiate (Cleric) Spell ~ Detect Evil and Good	CATEGORY:Internal	TYPE:MagicInitiateClericSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Detect Evil and Good,MagicInitiateSpellDC
+Detect Magic	KEY:Magic Initiate (Cleric) Spell ~ Detect Magic	CATEGORY:Internal	TYPE:MagicInitiateClericSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Detect Magic,MagicInitiateSpellDC
+Detect Poison and Disease	KEY:Magic Initiate (Cleric) Spell ~ Detect Poison and Disease	CATEGORY:Internal	TYPE:MagicInitiateClericSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Detect Poison and Disease,MagicInitiateSpellDC
+Guiding Bolt	KEY:Magic Initiate (Cleric) Spell ~ Guiding Bolt	CATEGORY:Internal	TYPE:MagicInitiateClericSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Guiding Bolt,MagicInitiateSpellDC
+Healing Word	KEY:Magic Initiate (Cleric) Spell ~ Healing Word	CATEGORY:Internal	TYPE:MagicInitiateClericSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Healing Word,MagicInitiateSpellDC
+Inflict Wounds	KEY:Magic Initiate (Cleric) Spell ~ Inflict Wounds	CATEGORY:Internal	TYPE:MagicInitiateClericSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Inflict Wounds,MagicInitiateSpellDC
+Protection from Evil and Good	KEY:Magic Initiate (Cleric) Spell ~ Protection from Evil and Good	CATEGORY:Internal	TYPE:MagicInitiateClericSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Protection from Evil and Good,MagicInitiateSpellDC
+Purify Food and Drink	KEY:Magic Initiate (Cleric) Spell ~ Purify Food and Drink	CATEGORY:Internal	TYPE:MagicInitiateClericSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Purify Food and Drink,MagicInitiateSpellDC
+Sanctuary	KEY:Magic Initiate (Cleric) Spell ~ Sanctuary	CATEGORY:Internal	TYPE:MagicInitiateClericSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Sanctuary,MagicInitiateSpellDC
+Shield of Faith	KEY:Magic Initiate (Cleric) Spell ~ Shield of Faith	CATEGORY:Internal	TYPE:MagicInitiateClericSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Shield of Faith,MagicInitiateSpellDC
+
+# Magic Initiate Spellcasting Ability
+Intelligence	KEY:Magic Initiate Spellcasting Ability ~ Intelligence	CATEGORY:Internal	TYPE:MagicInitiateSpellcastingAbility	BONUS:VAR|MagicInitiateSpellDC|8+Proficiency_Bonus+INT
+Wisdom	KEY:Magic Initiate Spellcasting Ability ~ Wisdom	CATEGORY:Internal	TYPE:MagicInitiateSpellcastingAbility	BONUS:VAR|MagicInitiateSpellDC|8+Proficiency_Bonus+WIS
+Charisma	KEY:Magic Initiate Spellcasting Ability ~ Charisma	CATEGORY:Internal	TYPE:MagicInitiateSpellcastingAbility	BONUS:VAR|MagicInitiateSpellDC|8+Proficiency_Bonus+CHA
+
+# Magic Initiate (Druid) Cantrip
+Druidcraft	KEY:Magic Initiate (Druid) Cantrip ~ Druidcraft	CATEGORY:Internal	TYPE:MagicInitiateDruidCantrip	SPELLS:Magic Initiate|TIMES=ATWILL|CASTERLEVEL=1|Druidcraft,MagicInitiateSpellDC
+Elementalism	KEY:Magic Initiate (Druid) Cantrip ~ Elementalism	CATEGORY:Internal	TYPE:MagicInitiateDruidCantrip	SPELLS:Magic Initiate|TIMES=ATWILL|CASTERLEVEL=1|Elementalism,MagicInitiateSpellDC
+Guidance	KEY:Magic Initiate (Druid) Cantrip ~ Guidance	CATEGORY:Internal	TYPE:MagicInitiateDruidCantrip	SPELLS:Magic Initiate|TIMES=ATWILL|CASTERLEVEL=1|Guidance,MagicInitiateSpellDC
+Mending	KEY:Magic Initiate (Druid) Cantrip ~ Mending	CATEGORY:Internal	TYPE:MagicInitiateDruidCantrip	SPELLS:Magic Initiate|TIMES=ATWILL|CASTERLEVEL=1|Mending,MagicInitiateSpellDC
+Message	KEY:Magic Initiate (Druid) Cantrip ~ Message	CATEGORY:Internal	TYPE:MagicInitiateDruidCantrip	SPELLS:Magic Initiate|TIMES=ATWILL|CASTERLEVEL=1|Message,MagicInitiateSpellDC
+Poison Spray	KEY:Magic Initiate (Druid) Cantrip ~ Poison Spray	CATEGORY:Internal	TYPE:MagicInitiateDruidCantrip	SPELLS:Magic Initiate|TIMES=ATWILL|CASTERLEVEL=1|Poison Spray,MagicInitiateSpellDC
+Produce Flame	KEY:Magic Initiate (Druid) Cantrip ~ Produce Flame	CATEGORY:Internal	TYPE:MagicInitiateDruidCantrip	SPELLS:Magic Initiate|TIMES=ATWILL|CASTERLEVEL=1|Produce Flame,MagicInitiateSpellDC
+Resistance	KEY:Magic Initiate (Druid) Cantrip ~ Resistance	CATEGORY:Internal	TYPE:MagicInitiateDruidCantrip	SPELLS:Magic Initiate|TIMES=ATWILL|CASTERLEVEL=1|Resistance,MagicInitiateSpellDC
+Shillelagh	KEY:Magic Initiate (Druid) Cantrip ~ Shillelagh	CATEGORY:Internal	TYPE:MagicInitiateDruidCantrip	SPELLS:Magic Initiate|TIMES=ATWILL|CASTERLEVEL=1|Shillelagh,MagicInitiateSpellDC
+Spare the Dying	KEY:Magic Initiate (Druid) Cantrip ~ Spare the Dying	CATEGORY:Internal	TYPE:MagicInitiateDruidCantrip	SPELLS:Magic Initiate|TIMES=ATWILL|CASTERLEVEL=1|Spare the Dying,MagicInitiateSpellDC
+Starry Wisp	KEY:Magic Initiate (Druid) Cantrip ~ Starry Wisp	CATEGORY:Internal	TYPE:MagicInitiateDruidCantrip	SPELLS:Magic Initiate|TIMES=ATWILL|CASTERLEVEL=1|Starry Wisp,MagicInitiateSpellDC
+
+# Magic Initiate (Druid) Spell
+Animal Friendship	KEY:Magic Initiate (Druid) Spell ~ Animal Friendship	CATEGORY:Internal	TYPE:MagicInitiateDruidSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Animal Friendship,MagicInitiateSpellDC
+Charm Person	KEY:Magic Initiate (Druid) Spell ~ Charm Person	CATEGORY:Internal	TYPE:MagicInitiateDruidSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Charm Person,MagicInitiateSpellDC
+Create or Destroy Water	KEY:Magic Initiate (Druid) Spell ~ Create or Destroy Water	CATEGORY:Internal	TYPE:MagicInitiateDruidSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Create or Destroy Water,MagicInitiateSpellDC
+Cure Wounds	KEY:Magic Initiate (Druid) Spell ~ Cure Wounds	CATEGORY:Internal	TYPE:MagicInitiateDruidSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Cure Wounds,MagicInitiateSpellDC
+Detect Magic	KEY:Magic Initiate (Druid) Spell ~ Detect Magic	CATEGORY:Internal	TYPE:MagicInitiateDruidSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Detect Magic,MagicInitiateSpellDC
+Detect Poison and Disease	KEY:Magic Initiate (Druid) Spell ~ Detect Poison and Disease	CATEGORY:Internal	TYPE:MagicInitiateDruidSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Detect Poison and Disease,MagicInitiateSpellDC
+Entangle	KEY:Magic Initiate (Druid) Spell ~ Entangle	CATEGORY:Internal	TYPE:MagicInitiateDruidSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Entangle,MagicInitiateSpellDC
+Faerie Fire	KEY:Magic Initiate (Druid) Spell ~ Faerie Fire	CATEGORY:Internal	TYPE:MagicInitiateDruidSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Faerie Fire,MagicInitiateSpellDC
+Fog Cloud	KEY:Magic Initiate (Druid) Spell ~ Fog Cloud	CATEGORY:Internal	TYPE:MagicInitiateDruidSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Fog Cloud,MagicInitiateSpellDC
+Goodberry	KEY:Magic Initiate (Druid) Spell ~ Goodberry	CATEGORY:Internal	TYPE:MagicInitiateDruidSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Goodberry,MagicInitiateSpellDC
+Healing Word	KEY:Magic Initiate (Druid) Spell ~ Healing Word	CATEGORY:Internal	TYPE:MagicInitiateDruidSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Healing Word,MagicInitiateSpellDC
+Ice Knife	KEY:Magic Initiate (Druid) Spell ~ Ice Knife	CATEGORY:Internal	TYPE:MagicInitiateDruidSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Ice Knife,MagicInitiateSpellDC
+Jump	KEY:Magic Initiate (Druid) Spell ~ Jump	CATEGORY:Internal	TYPE:MagicInitiateDruidSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Jump,MagicInitiateSpellDC
+Longstrider	KEY:Magic Initiate (Druid) Spell ~ Longstrider	CATEGORY:Internal	TYPE:MagicInitiateDruidSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Longstrider,MagicInitiateSpellDC
+Protection from Evil and Good	KEY:Magic Initiate (Druid) Spell ~ Protection from Evil and Good	CATEGORY:Internal	TYPE:MagicInitiateDruidSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Protection from Evil and Good,MagicInitiateSpellDC
+Purify Food and Drink	KEY:Magic Initiate (Druid) Spell ~ Purify Food and Drink	CATEGORY:Internal	TYPE:MagicInitiateDruidSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Purify Food and Drink,MagicInitiateSpellDC
+Speak with Animals	KEY:Magic Initiate (Druid) Spell ~ Speak with Animals	CATEGORY:Internal	TYPE:MagicInitiateDruidSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Speak with Animals,MagicInitiateSpellDC
+Thunderwave	KEY:Magic Initiate (Druid) Spell ~ Thunderwave	CATEGORY:Internal	TYPE:MagicInitiateDruidSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Thunderwave,MagicInitiateSpellDC
+
+# Magic Initiate (Wizard) Cantrip
+Acid Splash	KEY:Magic Initiate (Wizard) Cantrip ~ Acid Splash	CATEGORY:Internal	TYPE:MagicInitiateWizardCantrip	SPELLS:Magic Initiate|TIMES=ATWILL|CASTERLEVEL=1|Acid Splash,MagicInitiateSpellDC
+Chill Touch	KEY:Magic Initiate (Wizard) Cantrip ~ Chill Touch	CATEGORY:Internal	TYPE:MagicInitiateWizardCantrip	SPELLS:Magic Initiate|TIMES=ATWILL|CASTERLEVEL=1|Chill Touch,MagicInitiateSpellDC
+Dancing Lights	KEY:Magic Initiate (Wizard) Cantrip ~ Dancing Lights	CATEGORY:Internal	TYPE:MagicInitiateWizardCantrip	SPELLS:Magic Initiate|TIMES=ATWILL|CASTERLEVEL=1|Dancing Lights,MagicInitiateSpellDC
+Elementalism	KEY:Magic Initiate (Wizard) Cantrip ~ Elementalism	CATEGORY:Internal	TYPE:MagicInitiateWizardCantrip	SPELLS:Magic Initiate|TIMES=ATWILL|CASTERLEVEL=1|Elementalism,MagicInitiateSpellDC
+Fire Bolt	KEY:Magic Initiate (Wizard) Cantrip ~ Fire Bolt	CATEGORY:Internal	TYPE:MagicInitiateWizardCantrip	SPELLS:Magic Initiate|TIMES=ATWILL|CASTERLEVEL=1|Fire Bolt,MagicInitiateSpellDC
+Light	KEY:Magic Initiate (Wizard) Cantrip ~ Light	CATEGORY:Internal	TYPE:MagicInitiateWizardCantrip	SPELLS:Magic Initiate|TIMES=ATWILL|CASTERLEVEL=1|Light,MagicInitiateSpellDC
+Mage Hand	KEY:Magic Initiate (Wizard) Cantrip ~ Mage Hand	CATEGORY:Internal	TYPE:MagicInitiateWizardCantrip	SPELLS:Magic Initiate|TIMES=ATWILL|CASTERLEVEL=1|Mage Hand,MagicInitiateSpellDC
+Mending	KEY:Magic Initiate (Wizard) Cantrip ~ Mending	CATEGORY:Internal	TYPE:MagicInitiateWizardCantrip	SPELLS:Magic Initiate|TIMES=ATWILL|CASTERLEVEL=1|Mending,MagicInitiateSpellDC
+Message	KEY:Magic Initiate (Wizard) Cantrip ~ Message	CATEGORY:Internal	TYPE:MagicInitiateWizardCantrip	SPELLS:Magic Initiate|TIMES=ATWILL|CASTERLEVEL=1|Message,MagicInitiateSpellDC
+Minor Illusion	KEY:Magic Initiate (Wizard) Cantrip ~ Minor Illusion	CATEGORY:Internal	TYPE:MagicInitiateWizardCantrip	SPELLS:Magic Initiate|TIMES=ATWILL|CASTERLEVEL=1|Minor Illusion,MagicInitiateSpellDC
+Poison Spray	KEY:Magic Initiate (Wizard) Cantrip ~ Poison Spray	CATEGORY:Internal	TYPE:MagicInitiateWizardCantrip	SPELLS:Magic Initiate|TIMES=ATWILL|CASTERLEVEL=1|Poison Spray,MagicInitiateSpellDC
+Prestidigitation	KEY:Magic Initiate (Wizard) Cantrip ~ Prestidigitation	CATEGORY:Internal	TYPE:MagicInitiateWizardCantrip	SPELLS:Magic Initiate|TIMES=ATWILL|CASTERLEVEL=1|Prestidigitation,MagicInitiateSpellDC
+Ray of Frost	KEY:Magic Initiate (Wizard) Cantrip ~ Ray of Frost	CATEGORY:Internal	TYPE:MagicInitiateWizardCantrip	SPELLS:Magic Initiate|TIMES=ATWILL|CASTERLEVEL=1|Ray of Frost,MagicInitiateSpellDC
+Shocking Grasp	KEY:Magic Initiate (Wizard) Cantrip ~ Shocking Grasp	CATEGORY:Internal	TYPE:MagicInitiateWizardCantrip	SPELLS:Magic Initiate|TIMES=ATWILL|CASTERLEVEL=1|Shocking Grasp,MagicInitiateSpellDC
+True Strike	KEY:Magic Initiate (Wizard) Cantrip ~ True Strike	CATEGORY:Internal	TYPE:MagicInitiateWizardCantrip	SPELLS:Magic Initiate|TIMES=ATWILL|CASTERLEVEL=1|True Strike,MagicInitiateSpellDC
+
+# Magic Initiate (Wizard) Spell
+Alarm	KEY:Magic Initiate (Wizard) Spell ~ Alarm	CATEGORY:Internal	TYPE:MagicInitiateWizardSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Alarm,MagicInitiateSpellDC
+Burning Hands	KEY:Magic Initiate (Wizard) Spell ~ Burning Hands	CATEGORY:Internal	TYPE:MagicInitiateWizardSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Burning Hands,MagicInitiateSpellDC
+Charm Person	KEY:Magic Initiate (Wizard) Spell ~ Charm Person	CATEGORY:Internal	TYPE:MagicInitiateWizardSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Charm Person,MagicInitiateSpellDC
+Chromatic Orb	KEY:Magic Initiate (Wizard) Spell ~ Chromatic Orb	CATEGORY:Internal	TYPE:MagicInitiateWizardSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Chromatic Orb,MagicInitiateSpellDC
+Color Spray	KEY:Magic Initiate (Wizard) Spell ~ Color Spray	CATEGORY:Internal	TYPE:MagicInitiateWizardSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Color Spray,MagicInitiateSpellDC
+Comprehend Languages	KEY:Magic Initiate (Wizard) Spell ~ Comprehend Languages	CATEGORY:Internal	TYPE:MagicInitiateWizardSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Comprehend Languages,MagicInitiateSpellDC
+Detect Magic	KEY:Magic Initiate (Wizard) Spell ~ Detect Magic	CATEGORY:Internal	TYPE:MagicInitiateWizardSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Detect Magic,MagicInitiateSpellDC
+Disguise Self	KEY:Magic Initiate (Wizard) Spell ~ Disguise Self	CATEGORY:Internal	TYPE:MagicInitiateWizardSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Disguise Self,MagicInitiateSpellDC
+Expeditious Retreat	KEY:Magic Initiate (Wizard) Spell ~ Expeditious Retreat	CATEGORY:Internal	TYPE:MagicInitiateWizardSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Expeditious Retreat,MagicInitiateSpellDC
+False Life	KEY:Magic Initiate (Wizard) Spell ~ False Life	CATEGORY:Internal	TYPE:MagicInitiateWizardSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|False Life,MagicInitiateSpellDC
+Feather Fall	KEY:Magic Initiate (Wizard) Spell ~ Feather Fall	CATEGORY:Internal	TYPE:MagicInitiateWizardSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Feather Fall,MagicInitiateSpellDC
+Find Familiar	KEY:Magic Initiate (Wizard) Spell ~ Find Familiar	CATEGORY:Internal	TYPE:MagicInitiateWizardSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Find Familiar,MagicInitiateSpellDC
+Floating Disk	KEY:Magic Initiate (Wizard) Spell ~ Floating Disk	CATEGORY:Internal	TYPE:MagicInitiateWizardSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Floating Disk,MagicInitiateSpellDC
+Fog Cloud	KEY:Magic Initiate (Wizard) Spell ~ Fog Cloud	CATEGORY:Internal	TYPE:MagicInitiateWizardSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Fog Cloud,MagicInitiateSpellDC
+Grease	KEY:Magic Initiate (Wizard) Spell ~ Grease	CATEGORY:Internal	TYPE:MagicInitiateWizardSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Grease,MagicInitiateSpellDC
+Hideous Laughter	KEY:Magic Initiate (Wizard) Spell ~ Hideous Laughter	CATEGORY:Internal	TYPE:MagicInitiateWizardSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Hideous Laughter,MagicInitiateSpellDC
+Ice Knife	KEY:Magic Initiate (Wizard) Spell ~ Ice Knife	CATEGORY:Internal	TYPE:MagicInitiateWizardSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Ice Knife,MagicInitiateSpellDC
+Identify	KEY:Magic Initiate (Wizard) Spell ~ Identify	CATEGORY:Internal	TYPE:MagicInitiateWizardSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Identify,MagicInitiateSpellDC
+Illusory Script	KEY:Magic Initiate (Wizard) Spell ~ Illusory Script	CATEGORY:Internal	TYPE:MagicInitiateWizardSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Illusory Script,MagicInitiateSpellDC
+Jump	KEY:Magic Initiate (Wizard) Spell ~ Jump	CATEGORY:Internal	TYPE:MagicInitiateWizardSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Jump,MagicInitiateSpellDC
+Longstrider	KEY:Magic Initiate (Wizard) Spell ~ Longstrider	CATEGORY:Internal	TYPE:MagicInitiateWizardSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Longstrider,MagicInitiateSpellDC
+Mage Armor	KEY:Magic Initiate (Wizard) Spell ~ Mage Armor	CATEGORY:Internal	TYPE:MagicInitiateWizardSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Mage Armor,MagicInitiateSpellDC
+Magic Missile	KEY:Magic Initiate (Wizard) Spell ~ Magic Missile	CATEGORY:Internal	TYPE:MagicInitiateWizardSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Magic Missile,MagicInitiateSpellDC
+Protection from Evil and Good	KEY:Magic Initiate (Wizard) Spell ~ Protection from Evil and Good	CATEGORY:Internal	TYPE:MagicInitiateWizardSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Protection from Evil and Good,MagicInitiateSpellDC
+Ray of Sickness	KEY:Magic Initiate (Wizard) Spell ~ Ray of Sickness	CATEGORY:Internal	TYPE:MagicInitiateWizardSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Ray of Sickness,MagicInitiateSpellDC
+Shield	KEY:Magic Initiate (Wizard) Spell ~ Shield	CATEGORY:Internal	TYPE:MagicInitiateWizardSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Shield,MagicInitiateSpellDC
+Silent Image	KEY:Magic Initiate (Wizard) Spell ~ Silent Image	CATEGORY:Internal	TYPE:MagicInitiateWizardSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Silent Image,MagicInitiateSpellDC
+Sleep	KEY:Magic Initiate (Wizard) Spell ~ Sleep	CATEGORY:Internal	TYPE:MagicInitiateWizardSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Sleep,MagicInitiateSpellDC
+Thunderwave	KEY:Magic Initiate (Wizard) Spell ~ Thunderwave	CATEGORY:Internal	TYPE:MagicInitiateWizardSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Thunderwave,MagicInitiateSpellDC
+Unseen Servant	KEY:Magic Initiate (Wizard) Spell ~ Unseen Servant	CATEGORY:Internal	TYPE:MagicInitiateWizardSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=1|Unseen Servant,MagicInitiateSpellDC

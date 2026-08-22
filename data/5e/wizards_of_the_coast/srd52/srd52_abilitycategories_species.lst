@@ -1,0 +1,10 @@
+# What a species trait that offers a choice is spent from.
+
+ABILITYCATEGORY:Elven Lineage	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	POOL:POOL_Elven_Lineage	CATEGORY:Special Ability	TYPE:ElvenLineage	PLURAL:Elven Lineages	DISPLAYLOCATION:Character
+ABILITYCATEGORY:Elven Lineage Spellcasting Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	POOL:POOL_Elven_Lineage_Spellcasting_Ability	CATEGORY:Internal	TYPE:ElvenLineageSpellcastingAbility	PLURAL:Elven Lineage Spellcasting Abilities	DISPLAYLOCATION:Character
+ABILITYCATEGORY:Fiendish Legacy	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	POOL:POOL_Fiendish_Legacy	CATEGORY:Special Ability	TYPE:FiendishLegacy	PLURAL:Fiendish Legacies	DISPLAYLOCATION:Character
+ABILITYCATEGORY:Fiendish Legacy Spellcasting Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	POOL:POOL_Fiendish_Legacy_Spellcasting_Ability	CATEGORY:Internal	TYPE:FiendishLegacySpellcastingAbility	PLURAL:Fiendish Legacy Spellcasting Abilities	DISPLAYLOCATION:Character
+ABILITYCATEGORY:Draconic Ancestry	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	POOL:POOL_Draconic_Ancestry	CATEGORY:Special Ability	TYPE:DraconicAncestry	PLURAL:Draconic Ancestries	DISPLAYLOCATION:Character
+ABILITYCATEGORY:Gnomish Lineage	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	POOL:POOL_Gnomish_Lineage	CATEGORY:Special Ability	TYPE:GnomishLineage	PLURAL:Gnomish Lineages	DISPLAYLOCATION:Character
+ABILITYCATEGORY:Gnomish Lineage Spellcasting Ability	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	POOL:POOL_Gnomish_Lineage_Spellcasting_Ability	CATEGORY:Internal	TYPE:GnomishLineageSpellcastingAbility	PLURAL:Gnomish Lineage Spellcasting Abilities	DISPLAYLOCATION:Character
+ABILITYCATEGORY:Giant Ancestry	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	POOL:POOL_Giant_Ancestry	CATEGORY:Special Ability	TYPE:GiantAncestry	PLURAL:Giant Ancestries	DISPLAYLOCATION:Character

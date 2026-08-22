@@ -1,0 +1,20 @@
+# One age category, and each species' printed height.
+#
+# The SRD 5.2 says one thing about age, on p.83: "Members of
+# most species live for about 80 years, with exceptions noted in
+# the text about the species." It prints no starting age, no
+# per-species lifespan and no weight, so none of those is here --
+# the 2024 revision dropped the tables 5.1 had, and they are not
+# this document's to borrow. Height it does print, once per
+# species, in the size line.
+
+AGESET:0|Adulthood
+RACENAME:Dragonborn	SEX:Male[BASEHT:59|HTDIEROLL:1d25]Female[BASEHT:59|HTDIEROLL:1d25]
+RACENAME:Dwarf	SEX:Male[BASEHT:47|HTDIEROLL:1d13]Female[BASEHT:47|HTDIEROLL:1d13]
+RACENAME:Elf	SEX:Male[BASEHT:59|HTDIEROLL:1d13]Female[BASEHT:59|HTDIEROLL:1d13]
+RACENAME:Gnome	SEX:Male[BASEHT:35|HTDIEROLL:1d13]Female[BASEHT:35|HTDIEROLL:1d13]
+RACENAME:Goliath	SEX:Male[BASEHT:83|HTDIEROLL:1d13]Female[BASEHT:83|HTDIEROLL:1d13]
+RACENAME:Halfling	SEX:Male[BASEHT:23|HTDIEROLL:1d13]Female[BASEHT:23|HTDIEROLL:1d13]
+RACENAME:Human	SEX:Male[BASEHT:47|HTDIEROLL:1d37]Female[BASEHT:47|HTDIEROLL:1d37]
+RACENAME:Orc	SEX:Male[BASEHT:71|HTDIEROLL:1d13]Female[BASEHT:71|HTDIEROLL:1d13]
+RACENAME:Tiefling	SEX:Male[BASEHT:47|HTDIEROLL:1d37]Female[BASEHT:47|HTDIEROLL:1d37]

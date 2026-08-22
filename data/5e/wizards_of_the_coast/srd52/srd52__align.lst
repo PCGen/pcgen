@@ -1,0 +1,15 @@
+# The 2024 rules give player characters no alignment mechanics, but stat
+# blocks still print one and the game mode still requires the axis to
+# exist with a default. Nothing in this dataset reads it.
+
+Lawful Good	SORTKEY:1a	ABB:LG	KEY:LG
+Neutral Good	SORTKEY:1b	ABB:NG	KEY:NG
+Chaotic Good	SORTKEY:1c	ABB:CG	KEY:CG
+Lawful Neutral	SORTKEY:2a	ABB:LN	KEY:LN
+Neutral	SORTKEY:2b	ABB:TN	KEY:TN
+Chaotic Neutral	SORTKEY:2c	ABB:CN	KEY:CN
+Lawful Evil	SORTKEY:3a	ABB:LE	KEY:LE
+Neutral Evil	SORTKEY:3b	ABB:NE	KEY:NE
+Chaotic Evil	SORTKEY:3c	ABB:CE	KEY:CE
+Unaligned	SORTKEY:4	ABB:UA	KEY:UA
+None	SORTKEY:5	ABB:None	KEY:None	VALIDFORDEITY:N	VALIDFORFOLLOWER:N

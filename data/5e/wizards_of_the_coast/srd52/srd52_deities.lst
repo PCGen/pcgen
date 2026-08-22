@@ -1,0 +1,4 @@
+# PCGen requires exactly one deity in the UNSELECTED group to stand for
+# 'none chosen'. The SRD has no deities, so this is the whole file.
+
+None	DESC:None	FACT:Symbol|None	GROUP:UNSELECTED

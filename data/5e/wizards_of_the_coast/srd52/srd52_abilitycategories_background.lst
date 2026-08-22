@@ -1,0 +1,14 @@
+# Ability category for 2024 backgrounds.
+#
+# A character takes exactly one background, and unlike the 2014 rules it now
+# carries ability score increases and an Origin feat.
+#
+# Which is why the pool matters here more than anywhere else. The category had
+# no POOL: and EDITPOOL:NO, so its pool was empty, PCGen does not offer a
+# category whose pool is empty, and the number could not be raised by hand
+# either: all four backgrounds loaded and none could be taken, and with them
+# went the ability score increases and the Origin feat the 2024 rules make the
+# background responsible for. The pool is one, from Default in the foundation
+# file, because a character has exactly one background.
+
+ABILITYCATEGORY:Background	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	POOL:POOL_Background	CATEGORY:Special Ability	TYPE:Background	PLURAL:Backgrounds	DISPLAYLOCATION:Character

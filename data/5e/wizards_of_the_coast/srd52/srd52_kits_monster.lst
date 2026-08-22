@@ -1,0 +1,1013 @@
+# What puts a creature's own attacks in its hands
+# rather than merely in its possession.
+
+STARTPACK:Aboleth Attacks	EQUIPBUY:0
+GEAR:Creature ~ Aboleth ~ Tentacle	LOCATION:Natural-Primary
+
+STARTPACK:Air Elemental Attacks	EQUIPBUY:0
+GEAR:Creature ~ Air Elemental ~ Thunderous Slam	LOCATION:Natural-Primary
+
+STARTPACK:Animated Armor Attacks	EQUIPBUY:0
+GEAR:Creature ~ Animated Armor ~ Slam	LOCATION:Natural-Primary
+
+STARTPACK:Animated Flying Sword Attacks	EQUIPBUY:0
+GEAR:Creature ~ Animated Flying Sword ~ Slash	LOCATION:Natural-Primary
+
+STARTPACK:Animated Rug of Smothering Attacks	EQUIPBUY:0
+GEAR:Creature ~ Animated Rug of Smothering ~ Smother	LOCATION:Natural-Primary
+
+STARTPACK:Ankheg Attacks	EQUIPBUY:0
+GEAR:Creature ~ Ankheg ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Assassin Attacks	EQUIPBUY:0
+GEAR:Creature ~ Assassin ~ Shortsword	LOCATION:Natural-Primary
+GEAR:Creature ~ Assassin ~ Light Crossbow	LOCATION:Natural-Primary
+
+STARTPACK:Awakened Tree Attacks	EQUIPBUY:0
+GEAR:Creature ~ Awakened Tree ~ Slam	LOCATION:Natural-Primary
+
+STARTPACK:Axe Beak Attacks	EQUIPBUY:0
+GEAR:Creature ~ Axe Beak ~ Beak	LOCATION:Natural-Primary
+
+STARTPACK:Azer Sentinel Attacks	EQUIPBUY:0
+GEAR:Creature ~ Azer Sentinel ~ Burning Hammer	LOCATION:Natural-Primary
+
+STARTPACK:Balor Attacks	EQUIPBUY:0
+GEAR:Creature ~ Balor ~ Flame Whip	LOCATION:Natural-Primary
+GEAR:Creature ~ Balor ~ Lightning Blade	LOCATION:Natural-Primary
+
+STARTPACK:Bandit Attacks	EQUIPBUY:0
+GEAR:Creature ~ Bandit ~ Scimitar	LOCATION:Natural-Primary
+GEAR:Creature ~ Bandit ~ Light Crossbow	LOCATION:Natural-Primary
+
+STARTPACK:Bandit Captain Attacks	EQUIPBUY:0
+GEAR:Creature ~ Bandit Captain ~ Scimitar	LOCATION:Natural-Primary
+GEAR:Creature ~ Bandit Captain ~ Pistol	LOCATION:Natural-Primary
+
+STARTPACK:Barbed Devil Attacks	EQUIPBUY:0
+GEAR:Creature ~ Barbed Devil ~ Claws	LOCATION:Natural-Primary
+GEAR:Creature ~ Barbed Devil ~ Tail	LOCATION:Natural-Primary
+GEAR:Creature ~ Barbed Devil ~ Hurl Flame	LOCATION:Natural-Primary
+
+STARTPACK:Basilisk Attacks	EQUIPBUY:0
+GEAR:Creature ~ Basilisk ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Bearded Devil Attacks	EQUIPBUY:0
+GEAR:Creature ~ Bearded Devil ~ Beard	LOCATION:Natural-Primary
+GEAR:Creature ~ Bearded Devil ~ Infernal Glaive	LOCATION:Natural-Primary
+
+STARTPACK:Behir Attacks	EQUIPBUY:0
+GEAR:Creature ~ Behir ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Berserker Attacks	EQUIPBUY:0
+GEAR:Creature ~ Berserker ~ Greataxe	LOCATION:Natural-Primary
+
+STARTPACK:Black Dragon Wyrmling Attacks	EQUIPBUY:0
+GEAR:Creature ~ Black Dragon Wyrmling ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Young Black Dragon Attacks	EQUIPBUY:0
+GEAR:Creature ~ Young Black Dragon ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Adult Black Dragon Attacks	EQUIPBUY:0
+GEAR:Creature ~ Adult Black Dragon ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Ancient Black Dragon Attacks	EQUIPBUY:0
+GEAR:Creature ~ Ancient Black Dragon ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Black Pudding Attacks	EQUIPBUY:0
+GEAR:Creature ~ Black Pudding ~ Dissolving Pseudopod	LOCATION:Natural-Primary
+
+STARTPACK:Blink Dog Attacks	EQUIPBUY:0
+GEAR:Creature ~ Blink Dog ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Blue Dragon Wyrmling Attacks	EQUIPBUY:0
+GEAR:Creature ~ Blue Dragon Wyrmling ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Young Blue Dragon Attacks	EQUIPBUY:0
+GEAR:Creature ~ Young Blue Dragon ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Adult Blue Dragon Attacks	EQUIPBUY:0
+GEAR:Creature ~ Adult Blue Dragon ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Ancient Blue Dragon Attacks	EQUIPBUY:0
+GEAR:Creature ~ Ancient Blue Dragon ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Bone Devil Attacks	EQUIPBUY:0
+GEAR:Creature ~ Bone Devil ~ Claw	LOCATION:Natural-Primary
+GEAR:Creature ~ Bone Devil ~ Infernal Sting	LOCATION:Natural-Primary
+
+STARTPACK:Brass Dragon Wyrmling Attacks	EQUIPBUY:0
+GEAR:Creature ~ Brass Dragon Wyrmling ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Young Brass Dragon Attacks	EQUIPBUY:0
+GEAR:Creature ~ Young Brass Dragon ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Adult Brass Dragon Attacks	EQUIPBUY:0
+GEAR:Creature ~ Adult Brass Dragon ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Ancient Brass Dragon Attacks	EQUIPBUY:0
+GEAR:Creature ~ Ancient Brass Dragon ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Bronze Dragon Wyrmling Attacks	EQUIPBUY:0
+GEAR:Creature ~ Bronze Dragon Wyrmling ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Young Bronze Dragon Attacks	EQUIPBUY:0
+GEAR:Creature ~ Young Bronze Dragon ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Adult Bronze Dragon Attacks	EQUIPBUY:0
+GEAR:Creature ~ Adult Bronze Dragon ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Ancient Bronze Dragon Attacks	EQUIPBUY:0
+GEAR:Creature ~ Ancient Bronze Dragon ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Bugbear Stalker Attacks	EQUIPBUY:0
+GEAR:Creature ~ Bugbear Stalker ~ Javelin	LOCATION:Natural-Primary
+GEAR:Creature ~ Bugbear Stalker ~ Morningstar	LOCATION:Natural-Primary
+
+STARTPACK:Bugbear Warrior Attacks	EQUIPBUY:0
+GEAR:Creature ~ Bugbear Warrior ~ Grab	LOCATION:Natural-Primary
+GEAR:Creature ~ Bugbear Warrior ~ Light Hammer	LOCATION:Natural-Primary
+
+STARTPACK:Bulette Attacks	EQUIPBUY:0
+GEAR:Creature ~ Bulette ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Centaur Trooper Attacks	EQUIPBUY:0
+GEAR:Creature ~ Centaur Trooper ~ Pike	LOCATION:Natural-Primary
+GEAR:Creature ~ Centaur Trooper ~ Longbow	LOCATION:Natural-Primary
+
+STARTPACK:Chain Devil Attacks	EQUIPBUY:0
+GEAR:Creature ~ Chain Devil ~ Chain	LOCATION:Natural-Primary
+
+STARTPACK:Chimera Attacks	EQUIPBUY:0
+GEAR:Creature ~ Chimera ~ Bite	LOCATION:Natural-Primary
+GEAR:Creature ~ Chimera ~ Claw	LOCATION:Natural-Primary
+GEAR:Creature ~ Chimera ~ Ram	LOCATION:Natural-Primary
+
+STARTPACK:Chuul Attacks	EQUIPBUY:0
+GEAR:Creature ~ Chuul ~ Pincer	LOCATION:Natural-Primary
+
+STARTPACK:Clay Golem Attacks	EQUIPBUY:0
+GEAR:Creature ~ Clay Golem ~ Slam	LOCATION:Natural-Primary
+
+STARTPACK:Cloaker Attacks	EQUIPBUY:0
+GEAR:Creature ~ Cloaker ~ Attach	LOCATION:Natural-Primary
+GEAR:Creature ~ Cloaker ~ Tail	LOCATION:Natural-Primary
+
+STARTPACK:Cloud Giant Attacks	EQUIPBUY:0
+GEAR:Creature ~ Cloud Giant ~ Thunderous Mace	LOCATION:Natural-Primary
+GEAR:Creature ~ Cloud Giant ~ Thundercloud	LOCATION:Natural-Primary
+
+STARTPACK:Cockatrice Attacks	EQUIPBUY:0
+GEAR:Creature ~ Cockatrice ~ Petrifying Bite	LOCATION:Natural-Primary
+
+STARTPACK:Commoner Attacks	EQUIPBUY:0
+GEAR:Creature ~ Commoner ~ Club	LOCATION:Natural-Primary
+
+STARTPACK:Copper Dragon Wyrmling Attacks	EQUIPBUY:0
+GEAR:Creature ~ Copper Dragon Wyrmling ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Young Copper Dragon Attacks	EQUIPBUY:0
+GEAR:Creature ~ Young Copper Dragon ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Adult Copper Dragon Attacks	EQUIPBUY:0
+GEAR:Creature ~ Adult Copper Dragon ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Ancient Copper Dragon Attacks	EQUIPBUY:0
+GEAR:Creature ~ Ancient Copper Dragon ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Couatl Attacks	EQUIPBUY:0
+GEAR:Creature ~ Couatl ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Swarm of Crawling Claws Attacks	EQUIPBUY:0
+GEAR:Creature ~ Swarm of Crawling Claws ~ Swarm of Grasping Hands	LOCATION:Natural-Primary
+
+STARTPACK:Cultist Attacks	EQUIPBUY:0
+GEAR:Creature ~ Cultist ~ Ritual Sickle	LOCATION:Natural-Primary
+
+STARTPACK:Cultist Fanatic Attacks	EQUIPBUY:0
+GEAR:Creature ~ Cultist Fanatic ~ Pact Blade	LOCATION:Natural-Primary
+
+STARTPACK:Darkmantle Attacks	EQUIPBUY:0
+GEAR:Creature ~ Darkmantle ~ Crush	LOCATION:Natural-Primary
+
+STARTPACK:Death Dog Attacks	EQUIPBUY:0
+GEAR:Creature ~ Death Dog ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Deva Attacks	EQUIPBUY:0
+GEAR:Creature ~ Deva ~ Holy Mace	LOCATION:Natural-Primary
+
+STARTPACK:Djinni Attacks	EQUIPBUY:0
+GEAR:Creature ~ Djinni ~ Storm Blade	LOCATION:Natural-Primary
+GEAR:Creature ~ Djinni ~ Storm Bolt	LOCATION:Natural-Primary
+
+STARTPACK:Doppelganger Attacks	EQUIPBUY:0
+GEAR:Creature ~ Doppelganger ~ Slam	LOCATION:Natural-Primary
+
+STARTPACK:Dragon Turtle Attacks	EQUIPBUY:0
+GEAR:Creature ~ Dragon Turtle ~ Bite	LOCATION:Natural-Primary
+GEAR:Creature ~ Dragon Turtle ~ Tail	LOCATION:Natural-Primary
+
+STARTPACK:Dretch Attacks	EQUIPBUY:0
+GEAR:Creature ~ Dretch ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Drider Attacks	EQUIPBUY:0
+GEAR:Creature ~ Drider ~ Foreleg	LOCATION:Natural-Primary
+GEAR:Creature ~ Drider ~ Poison Burst	LOCATION:Natural-Primary
+
+STARTPACK:Druid Attacks	EQUIPBUY:0
+GEAR:Creature ~ Druid ~ Vine Staff	LOCATION:Natural-Primary
+GEAR:Creature ~ Druid ~ Verdant Wisp	LOCATION:Natural-Primary
+
+STARTPACK:Dryad Attacks	EQUIPBUY:0
+GEAR:Creature ~ Dryad ~ Vine Lash	LOCATION:Natural-Primary
+GEAR:Creature ~ Dryad ~ Thorn Burst	LOCATION:Natural-Primary
+
+STARTPACK:Earth Elemental Attacks	EQUIPBUY:0
+GEAR:Creature ~ Earth Elemental ~ Slam	LOCATION:Natural-Primary
+GEAR:Creature ~ Earth Elemental ~ Rock Launch	LOCATION:Natural-Primary
+
+STARTPACK:Efreeti Attacks	EQUIPBUY:0
+GEAR:Creature ~ Efreeti ~ Heated Blade	LOCATION:Natural-Primary
+GEAR:Creature ~ Efreeti ~ Hurl Flame	LOCATION:Natural-Primary
+
+STARTPACK:Erinyes Attacks	EQUIPBUY:0
+GEAR:Creature ~ Erinyes ~ Withering Sword	LOCATION:Natural-Primary
+
+STARTPACK:Ettercap Attacks	EQUIPBUY:0
+GEAR:Creature ~ Ettercap ~ Bite	LOCATION:Natural-Primary
+GEAR:Creature ~ Ettercap ~ Claw	LOCATION:Natural-Primary
+
+STARTPACK:Ettin Attacks	EQUIPBUY:0
+GEAR:Creature ~ Ettin ~ Battleaxe	LOCATION:Natural-Primary
+GEAR:Creature ~ Ettin ~ Morningstar	LOCATION:Natural-Primary
+
+STARTPACK:Fire Elemental Attacks	EQUIPBUY:0
+GEAR:Creature ~ Fire Elemental ~ Burn	LOCATION:Natural-Primary
+
+STARTPACK:Fire Giant Attacks	EQUIPBUY:0
+GEAR:Creature ~ Fire Giant ~ Flame Sword	LOCATION:Natural-Primary
+GEAR:Creature ~ Fire Giant ~ Hammer Throw	LOCATION:Natural-Primary
+
+STARTPACK:Flesh Golem Attacks	EQUIPBUY:0
+GEAR:Creature ~ Flesh Golem ~ Slam	LOCATION:Natural-Primary
+
+STARTPACK:Frost Giant Attacks	EQUIPBUY:0
+GEAR:Creature ~ Frost Giant ~ Frost Axe	LOCATION:Natural-Primary
+GEAR:Creature ~ Frost Giant ~ Great Bow	LOCATION:Natural-Primary
+
+STARTPACK:Violet Fungus Attacks	EQUIPBUY:0
+GEAR:Creature ~ Violet Fungus ~ Rotting Touch	LOCATION:Natural-Primary
+
+STARTPACK:Gargoyle Attacks	EQUIPBUY:0
+GEAR:Creature ~ Gargoyle ~ Claw	LOCATION:Natural-Primary
+
+STARTPACK:Gelatinous Cube Attacks	EQUIPBUY:0
+GEAR:Creature ~ Gelatinous Cube ~ Pseudopod	LOCATION:Natural-Primary
+
+STARTPACK:Ghast Attacks	EQUIPBUY:0
+GEAR:Creature ~ Ghast ~ Bite	LOCATION:Natural-Primary
+GEAR:Creature ~ Ghast ~ Claw	LOCATION:Natural-Primary
+
+STARTPACK:Ghost Attacks	EQUIPBUY:0
+GEAR:Creature ~ Ghost ~ Withering Touch	LOCATION:Natural-Primary
+
+STARTPACK:Ghoul Attacks	EQUIPBUY:0
+GEAR:Creature ~ Ghoul ~ Bite	LOCATION:Natural-Primary
+GEAR:Creature ~ Ghoul ~ Claw	LOCATION:Natural-Primary
+
+STARTPACK:Gibbering Mouther Attacks	EQUIPBUY:0
+GEAR:Creature ~ Gibbering Mouther ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Glabrezu Attacks	EQUIPBUY:0
+GEAR:Creature ~ Glabrezu ~ Pincer	LOCATION:Natural-Primary
+
+STARTPACK:Gladiator Attacks	EQUIPBUY:0
+GEAR:Creature ~ Gladiator ~ Spear	LOCATION:Natural-Primary
+
+STARTPACK:Gnoll Warrior Attacks	EQUIPBUY:0
+GEAR:Creature ~ Gnoll Warrior ~ Rend	LOCATION:Natural-Primary
+GEAR:Creature ~ Gnoll Warrior ~ Bone Bow	LOCATION:Natural-Primary
+
+STARTPACK:Goblin Minion Attacks	EQUIPBUY:0
+GEAR:Creature ~ Goblin Minion ~ Dagger	LOCATION:Natural-Primary
+
+STARTPACK:Goblin Warrior Attacks	EQUIPBUY:0
+GEAR:Creature ~ Goblin Warrior ~ Scimitar	LOCATION:Natural-Primary
+GEAR:Creature ~ Goblin Warrior ~ Shortbow	LOCATION:Natural-Primary
+
+STARTPACK:Goblin Boss Attacks	EQUIPBUY:0
+GEAR:Creature ~ Goblin Boss ~ Scimitar	LOCATION:Natural-Primary
+GEAR:Creature ~ Goblin Boss ~ Shortbow	LOCATION:Natural-Primary
+
+STARTPACK:Gold Dragon Wyrmling Attacks	EQUIPBUY:0
+GEAR:Creature ~ Gold Dragon Wyrmling ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Young Gold Dragon Attacks	EQUIPBUY:0
+GEAR:Creature ~ Young Gold Dragon ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Adult Gold Dragon Attacks	EQUIPBUY:0
+GEAR:Creature ~ Adult Gold Dragon ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Ancient Gold Dragon Attacks	EQUIPBUY:0
+GEAR:Creature ~ Ancient Gold Dragon ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Gorgon Attacks	EQUIPBUY:0
+GEAR:Creature ~ Gorgon ~ Gore	LOCATION:Natural-Primary
+
+STARTPACK:Gray Ooze Attacks	EQUIPBUY:0
+GEAR:Creature ~ Gray Ooze ~ Pseudopod	LOCATION:Natural-Primary
+
+STARTPACK:Green Dragon Wyrmling Attacks	EQUIPBUY:0
+GEAR:Creature ~ Green Dragon Wyrmling ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Young Green Dragon Attacks	EQUIPBUY:0
+GEAR:Creature ~ Young Green Dragon ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Adult Green Dragon Attacks	EQUIPBUY:0
+GEAR:Creature ~ Adult Green Dragon ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Ancient Green Dragon Attacks	EQUIPBUY:0
+GEAR:Creature ~ Ancient Green Dragon ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Green Hag Attacks	EQUIPBUY:0
+GEAR:Creature ~ Green Hag ~ Claw	LOCATION:Natural-Primary
+
+STARTPACK:Grick Attacks	EQUIPBUY:0
+GEAR:Creature ~ Grick ~ Beak	LOCATION:Natural-Primary
+GEAR:Creature ~ Grick ~ Tentacles	LOCATION:Natural-Primary
+
+STARTPACK:Griffon Attacks	EQUIPBUY:0
+GEAR:Creature ~ Griffon ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Grimlock Attacks	EQUIPBUY:0
+GEAR:Creature ~ Grimlock ~ Bone Cudgel	LOCATION:Natural-Primary
+
+STARTPACK:Guardian Naga Attacks	EQUIPBUY:0
+GEAR:Creature ~ Guardian Naga ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Guard Attacks	EQUIPBUY:0
+GEAR:Creature ~ Guard ~ Spear	LOCATION:Natural-Primary
+
+STARTPACK:Guard Captain Attacks	EQUIPBUY:0
+GEAR:Creature ~ Guard Captain ~ Javelin	LOCATION:Natural-Primary
+GEAR:Creature ~ Guard Captain ~ Longsword	LOCATION:Natural-Primary
+
+STARTPACK:Half-Dragon Attacks	EQUIPBUY:0
+GEAR:Creature ~ Half-Dragon ~ Claw	LOCATION:Natural-Primary
+
+STARTPACK:Harpy Attacks	EQUIPBUY:0
+GEAR:Creature ~ Harpy ~ Claw	LOCATION:Natural-Primary
+
+STARTPACK:Hell Hound Attacks	EQUIPBUY:0
+GEAR:Creature ~ Hell Hound ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Hezrou Attacks	EQUIPBUY:0
+GEAR:Creature ~ Hezrou ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Hill Giant Attacks	EQUIPBUY:0
+GEAR:Creature ~ Hill Giant ~ Tree Club	LOCATION:Natural-Primary
+GEAR:Creature ~ Hill Giant ~ Trash Lob	LOCATION:Natural-Primary
+
+STARTPACK:Hippogriff Attacks	EQUIPBUY:0
+GEAR:Creature ~ Hippogriff ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Hobgoblin Warrior Attacks	EQUIPBUY:0
+GEAR:Creature ~ Hobgoblin Warrior ~ Longsword	LOCATION:Natural-Primary
+GEAR:Creature ~ Hobgoblin Warrior ~ Longbow	LOCATION:Natural-Primary
+
+STARTPACK:Hobgoblin Captain Attacks	EQUIPBUY:0
+GEAR:Creature ~ Hobgoblin Captain ~ Greatsword	LOCATION:Natural-Primary
+GEAR:Creature ~ Hobgoblin Captain ~ Longbow	LOCATION:Natural-Primary
+
+STARTPACK:Horned Devil Attacks	EQUIPBUY:0
+GEAR:Creature ~ Horned Devil ~ Searing Fork	LOCATION:Natural-Primary
+GEAR:Creature ~ Horned Devil ~ Hurl Flame	LOCATION:Natural-Primary
+
+STARTPACK:Hydra Attacks	EQUIPBUY:0
+GEAR:Creature ~ Hydra ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Ice Devil Attacks	EQUIPBUY:0
+GEAR:Creature ~ Ice Devil ~ Ice Spear	LOCATION:Natural-Primary
+GEAR:Creature ~ Ice Devil ~ Tail	LOCATION:Natural-Primary
+
+STARTPACK:Imp Attacks	EQUIPBUY:0
+GEAR:Creature ~ Imp ~ Sting	LOCATION:Natural-Primary
+
+STARTPACK:Incubus Attacks	EQUIPBUY:0
+GEAR:Creature ~ Incubus ~ Restless Touch	LOCATION:Natural-Primary
+
+STARTPACK:Invisible Stalker Attacks	EQUIPBUY:0
+GEAR:Creature ~ Invisible Stalker ~ Wind Swipe	LOCATION:Natural-Primary
+
+STARTPACK:Iron Golem Attacks	EQUIPBUY:0
+GEAR:Creature ~ Iron Golem ~ Bladed Arm	LOCATION:Natural-Primary
+GEAR:Creature ~ Iron Golem ~ Fiery Bolt	LOCATION:Natural-Primary
+
+STARTPACK:Knight Attacks	EQUIPBUY:0
+GEAR:Creature ~ Knight ~ Greatsword	LOCATION:Natural-Primary
+GEAR:Creature ~ Knight ~ Heavy Crossbow	LOCATION:Natural-Primary
+
+STARTPACK:Kobold Warrior Attacks	EQUIPBUY:0
+GEAR:Creature ~ Kobold Warrior ~ Dagger	LOCATION:Natural-Primary
+
+STARTPACK:Kraken Attacks	EQUIPBUY:0
+GEAR:Creature ~ Kraken ~ Tentacle	LOCATION:Natural-Primary
+
+STARTPACK:Lamia Attacks	EQUIPBUY:0
+GEAR:Creature ~ Lamia ~ Claw	LOCATION:Natural-Primary
+
+STARTPACK:Lemure Attacks	EQUIPBUY:0
+GEAR:Creature ~ Lemure ~ Vile Slime	LOCATION:Natural-Primary
+
+STARTPACK:Lich Attacks	EQUIPBUY:0
+GEAR:Creature ~ Lich ~ Eldritch Burst	LOCATION:Natural-Primary
+GEAR:Creature ~ Lich ~ Paralyzing Touch	LOCATION:Natural-Primary
+
+STARTPACK:Mage Attacks	EQUIPBUY:0
+GEAR:Creature ~ Mage ~ Arcane Burst	LOCATION:Natural-Primary
+
+STARTPACK:Archmage Attacks	EQUIPBUY:0
+GEAR:Creature ~ Archmage ~ Arcane Burst	LOCATION:Natural-Primary
+
+STARTPACK:Magmin Attacks	EQUIPBUY:0
+GEAR:Creature ~ Magmin ~ Touch	LOCATION:Natural-Primary
+
+STARTPACK:Manticore Attacks	EQUIPBUY:0
+GEAR:Creature ~ Manticore ~ Rend	LOCATION:Natural-Primary
+GEAR:Creature ~ Manticore ~ Tail Spike	LOCATION:Natural-Primary
+
+STARTPACK:Marilith Attacks	EQUIPBUY:0
+GEAR:Creature ~ Marilith ~ Pact Blade	LOCATION:Natural-Primary
+
+STARTPACK:Medusa Attacks	EQUIPBUY:0
+GEAR:Creature ~ Medusa ~ Claw	LOCATION:Natural-Primary
+GEAR:Creature ~ Medusa ~ Snake Hair	LOCATION:Natural-Primary
+GEAR:Creature ~ Medusa ~ Poison Ray	LOCATION:Natural-Primary
+
+STARTPACK:Dust Mephit Attacks	EQUIPBUY:0
+GEAR:Creature ~ Dust Mephit ~ Claw	LOCATION:Natural-Primary
+
+STARTPACK:Ice Mephit Attacks	EQUIPBUY:0
+GEAR:Creature ~ Ice Mephit ~ Claw	LOCATION:Natural-Primary
+
+STARTPACK:Magma Mephit Attacks	EQUIPBUY:0
+GEAR:Creature ~ Magma Mephit ~ Claw	LOCATION:Natural-Primary
+
+STARTPACK:Steam Mephit Attacks	EQUIPBUY:0
+GEAR:Creature ~ Steam Mephit ~ Claw	LOCATION:Natural-Primary
+
+STARTPACK:Merfolk Skirmisher Attacks	EQUIPBUY:0
+GEAR:Creature ~ Merfolk Skirmisher ~ Ocean Spear	LOCATION:Natural-Primary
+
+STARTPACK:Merrow Attacks	EQUIPBUY:0
+GEAR:Creature ~ Merrow ~ Bite	LOCATION:Natural-Primary
+GEAR:Creature ~ Merrow ~ Claw	LOCATION:Natural-Primary
+GEAR:Creature ~ Merrow ~ Harpoon	LOCATION:Natural-Primary
+
+STARTPACK:Mimic Attacks	EQUIPBUY:0
+GEAR:Creature ~ Mimic ~ Bite	LOCATION:Natural-Primary
+GEAR:Creature ~ Mimic ~ Pseudopod	LOCATION:Natural-Primary
+
+STARTPACK:Minotaur of Baphomet Attacks	EQUIPBUY:0
+GEAR:Creature ~ Minotaur of Baphomet ~ Abyssal Glaive	LOCATION:Natural-Primary
+GEAR:Creature ~ Minotaur of Baphomet ~ Gore (Recharge 5–6)	LOCATION:Natural-Primary
+
+STARTPACK:Mummy Attacks	EQUIPBUY:0
+GEAR:Creature ~ Mummy ~ Rotting Fist	LOCATION:Natural-Primary
+
+STARTPACK:Mummy Lord Attacks	EQUIPBUY:0
+GEAR:Creature ~ Mummy Lord ~ Rotting Fist	LOCATION:Natural-Primary
+GEAR:Creature ~ Mummy Lord ~ Channel Negative Energy	LOCATION:Natural-Primary
+
+STARTPACK:Nalfeshnee Attacks	EQUIPBUY:0
+GEAR:Creature ~ Nalfeshnee ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Night Hag Attacks	EQUIPBUY:0
+GEAR:Creature ~ Night Hag ~ Claw	LOCATION:Natural-Primary
+
+STARTPACK:Nightmare Attacks	EQUIPBUY:0
+GEAR:Creature ~ Nightmare ~ Hooves	LOCATION:Natural-Primary
+
+STARTPACK:Noble Attacks	EQUIPBUY:0
+GEAR:Creature ~ Noble ~ Rapier	LOCATION:Natural-Primary
+
+STARTPACK:Ochre Jelly Attacks	EQUIPBUY:0
+GEAR:Creature ~ Ochre Jelly ~ Pseudopod	LOCATION:Natural-Primary
+
+STARTPACK:Ogre Attacks	EQUIPBUY:0
+GEAR:Creature ~ Ogre ~ Greatclub	LOCATION:Natural-Primary
+GEAR:Creature ~ Ogre ~ Javelin	LOCATION:Natural-Primary
+
+STARTPACK:Oni Attacks	EQUIPBUY:0
+GEAR:Creature ~ Oni ~ Claw	LOCATION:Natural-Primary
+GEAR:Creature ~ Oni ~ Nightmare Ray	LOCATION:Natural-Primary
+
+STARTPACK:Otyugh Attacks	EQUIPBUY:0
+GEAR:Creature ~ Otyugh ~ Bite	LOCATION:Natural-Primary
+GEAR:Creature ~ Otyugh ~ Tentacle	LOCATION:Natural-Primary
+
+STARTPACK:Owlbear Attacks	EQUIPBUY:0
+GEAR:Creature ~ Owlbear ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Pegasus Attacks	EQUIPBUY:0
+GEAR:Creature ~ Pegasus ~ Hooves	LOCATION:Natural-Primary
+
+STARTPACK:Phase Spider Attacks	EQUIPBUY:0
+GEAR:Creature ~ Phase Spider ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Pirate Attacks	EQUIPBUY:0
+GEAR:Creature ~ Pirate ~ Dagger	LOCATION:Natural-Primary
+
+STARTPACK:Pirate Captain Attacks	EQUIPBUY:0
+GEAR:Creature ~ Pirate Captain ~ Rapier	LOCATION:Natural-Primary
+GEAR:Creature ~ Pirate Captain ~ Pistol	LOCATION:Natural-Primary
+
+STARTPACK:Pit Fiend Attacks	EQUIPBUY:0
+GEAR:Creature ~ Pit Fiend ~ Bite	LOCATION:Natural-Primary
+GEAR:Creature ~ Pit Fiend ~ Devilish Claw	LOCATION:Natural-Primary
+GEAR:Creature ~ Pit Fiend ~ Fiery Mace	LOCATION:Natural-Primary
+
+STARTPACK:Planetar Attacks	EQUIPBUY:0
+GEAR:Creature ~ Planetar ~ Radiant Sword	LOCATION:Natural-Primary
+
+STARTPACK:Priest Acolyte Attacks	EQUIPBUY:0
+GEAR:Creature ~ Priest Acolyte ~ Mace	LOCATION:Natural-Primary
+GEAR:Creature ~ Priest Acolyte ~ Radiant Flame	LOCATION:Natural-Primary
+
+STARTPACK:Priest Attacks	EQUIPBUY:0
+GEAR:Creature ~ Priest ~ Mace	LOCATION:Natural-Primary
+GEAR:Creature ~ Priest ~ Radiant Flame	LOCATION:Natural-Primary
+
+STARTPACK:Pseudodragon Attacks	EQUIPBUY:0
+GEAR:Creature ~ Pseudodragon ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Purple Worm Attacks	EQUIPBUY:0
+GEAR:Creature ~ Purple Worm ~ Bite	LOCATION:Natural-Primary
+GEAR:Creature ~ Purple Worm ~ Tail Stinger	LOCATION:Natural-Primary
+
+STARTPACK:Quasit Attacks	EQUIPBUY:0
+GEAR:Creature ~ Quasit ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Rakshasa Attacks	EQUIPBUY:0
+GEAR:Creature ~ Rakshasa ~ Cursed Touch	LOCATION:Natural-Primary
+
+STARTPACK:Red Dragon Wyrmling Attacks	EQUIPBUY:0
+GEAR:Creature ~ Red Dragon Wyrmling ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Young Red Dragon Attacks	EQUIPBUY:0
+GEAR:Creature ~ Young Red Dragon ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Adult Red Dragon Attacks	EQUIPBUY:0
+GEAR:Creature ~ Adult Red Dragon ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Ancient Red Dragon Attacks	EQUIPBUY:0
+GEAR:Creature ~ Ancient Red Dragon ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Remorhaz Attacks	EQUIPBUY:0
+GEAR:Creature ~ Remorhaz ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Roc Attacks	EQUIPBUY:0
+GEAR:Creature ~ Roc ~ Beak	LOCATION:Natural-Primary
+GEAR:Creature ~ Roc ~ Talons	LOCATION:Natural-Primary
+
+STARTPACK:Roper Attacks	EQUIPBUY:0
+GEAR:Creature ~ Roper ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Rust Monster Attacks	EQUIPBUY:0
+GEAR:Creature ~ Rust Monster ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Sahuagin Warrior Attacks	EQUIPBUY:0
+GEAR:Creature ~ Sahuagin Warrior ~ Claw	LOCATION:Natural-Primary
+
+STARTPACK:Salamander Attacks	EQUIPBUY:0
+GEAR:Creature ~ Salamander ~ Flame Spear	LOCATION:Natural-Primary
+
+STARTPACK:Satyr Attacks	EQUIPBUY:0
+GEAR:Creature ~ Satyr ~ Hooves	LOCATION:Natural-Primary
+
+STARTPACK:Scout Attacks	EQUIPBUY:0
+GEAR:Creature ~ Scout ~ Shortsword	LOCATION:Natural-Primary
+GEAR:Creature ~ Scout ~ Longbow	LOCATION:Natural-Primary
+
+STARTPACK:Sea Hag Attacks	EQUIPBUY:0
+GEAR:Creature ~ Sea Hag ~ Claw	LOCATION:Natural-Primary
+
+STARTPACK:Shadow Attacks	EQUIPBUY:0
+GEAR:Creature ~ Shadow ~ Draining Swipe	LOCATION:Natural-Primary
+
+STARTPACK:Shambling Mound Attacks	EQUIPBUY:0
+GEAR:Creature ~ Shambling Mound ~ Charged Tendril	LOCATION:Natural-Primary
+
+STARTPACK:Shield Guardian Attacks	EQUIPBUY:0
+GEAR:Creature ~ Shield Guardian ~ Fist	LOCATION:Natural-Primary
+
+STARTPACK:Silver Dragon Wyrmling Attacks	EQUIPBUY:0
+GEAR:Creature ~ Silver Dragon Wyrmling ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Young Silver Dragon Attacks	EQUIPBUY:0
+GEAR:Creature ~ Young Silver Dragon ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Adult Silver Dragon Attacks	EQUIPBUY:0
+GEAR:Creature ~ Adult Silver Dragon ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Ancient Silver Dragon Attacks	EQUIPBUY:0
+GEAR:Creature ~ Ancient Silver Dragon ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Skeleton Attacks	EQUIPBUY:0
+GEAR:Creature ~ Skeleton ~ Shortsword	LOCATION:Natural-Primary
+GEAR:Creature ~ Skeleton ~ Shortbow	LOCATION:Natural-Primary
+
+STARTPACK:Warhorse Skeleton Attacks	EQUIPBUY:0
+GEAR:Creature ~ Warhorse Skeleton ~ Hooves	LOCATION:Natural-Primary
+
+STARTPACK:Minotaur Skeleton Attacks	EQUIPBUY:0
+GEAR:Creature ~ Minotaur Skeleton ~ Gore	LOCATION:Natural-Primary
+GEAR:Creature ~ Minotaur Skeleton ~ Slam	LOCATION:Natural-Primary
+
+STARTPACK:Solar Attacks	EQUIPBUY:0
+GEAR:Creature ~ Solar ~ Flying Sword	LOCATION:Natural-Primary
+
+STARTPACK:Specter Attacks	EQUIPBUY:0
+GEAR:Creature ~ Specter ~ Life Drain	LOCATION:Natural-Primary
+
+STARTPACK:Sphinx of Wonder Attacks	EQUIPBUY:0
+GEAR:Creature ~ Sphinx of Wonder ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Sphinx of Lore Attacks	EQUIPBUY:0
+GEAR:Creature ~ Sphinx of Lore ~ Claw	LOCATION:Natural-Primary
+
+STARTPACK:Sphinx of Valor Attacks	EQUIPBUY:0
+GEAR:Creature ~ Sphinx of Valor ~ Claw	LOCATION:Natural-Primary
+
+STARTPACK:Spirit Naga Attacks	EQUIPBUY:0
+GEAR:Creature ~ Spirit Naga ~ Bite	LOCATION:Natural-Primary
+GEAR:Creature ~ Spirit Naga ~ Necrotic Ray	LOCATION:Natural-Primary
+
+STARTPACK:Sprite Attacks	EQUIPBUY:0
+GEAR:Creature ~ Sprite ~ Needle Sword	LOCATION:Natural-Primary
+
+STARTPACK:Spy Attacks	EQUIPBUY:0
+GEAR:Creature ~ Spy ~ Shortsword	LOCATION:Natural-Primary
+GEAR:Creature ~ Spy ~ Hand Crossbow	LOCATION:Natural-Primary
+
+STARTPACK:Stirge Attacks	EQUIPBUY:0
+GEAR:Creature ~ Stirge ~ Proboscis	LOCATION:Natural-Primary
+
+STARTPACK:Stone Giant Attacks	EQUIPBUY:0
+GEAR:Creature ~ Stone Giant ~ Stone Club	LOCATION:Natural-Primary
+GEAR:Creature ~ Stone Giant ~ Boulder	LOCATION:Natural-Primary
+
+STARTPACK:Stone Golem Attacks	EQUIPBUY:0
+GEAR:Creature ~ Stone Golem ~ Slam	LOCATION:Natural-Primary
+GEAR:Creature ~ Stone Golem ~ Force Bolt	LOCATION:Natural-Primary
+
+STARTPACK:Storm Giant Attacks	EQUIPBUY:0
+GEAR:Creature ~ Storm Giant ~ Storm Sword	LOCATION:Natural-Primary
+GEAR:Creature ~ Storm Giant ~ Thunderbolt	LOCATION:Natural-Primary
+
+STARTPACK:Succubus Attacks	EQUIPBUY:0
+GEAR:Creature ~ Succubus ~ Fiendish Touch	LOCATION:Natural-Primary
+
+STARTPACK:Tarrasque Attacks	EQUIPBUY:0
+GEAR:Creature ~ Tarrasque ~ Bite	LOCATION:Natural-Primary
+GEAR:Creature ~ Tarrasque ~ Claw	LOCATION:Natural-Primary
+GEAR:Creature ~ Tarrasque ~ Tail	LOCATION:Natural-Primary
+
+STARTPACK:Tough Attacks	EQUIPBUY:0
+GEAR:Creature ~ Tough ~ Mace	LOCATION:Natural-Primary
+GEAR:Creature ~ Tough ~ Heavy Crossbow	LOCATION:Natural-Primary
+
+STARTPACK:Tough Boss Attacks	EQUIPBUY:0
+GEAR:Creature ~ Tough Boss ~ Warhammer	LOCATION:Natural-Primary
+GEAR:Creature ~ Tough Boss ~ Heavy Crossbow	LOCATION:Natural-Primary
+
+STARTPACK:Treant Attacks	EQUIPBUY:0
+GEAR:Creature ~ Treant ~ Slam	LOCATION:Natural-Primary
+GEAR:Creature ~ Treant ~ Hail of Bark	LOCATION:Natural-Primary
+
+STARTPACK:Troll Attacks	EQUIPBUY:0
+GEAR:Creature ~ Troll ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Troll Limb Attacks	EQUIPBUY:0
+GEAR:Creature ~ Troll Limb ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Unicorn Attacks	EQUIPBUY:0
+GEAR:Creature ~ Unicorn ~ Hooves	LOCATION:Natural-Primary
+GEAR:Creature ~ Unicorn ~ Radiant Horn	LOCATION:Natural-Primary
+
+STARTPACK:Vampire Familiar Attacks	EQUIPBUY:0
+GEAR:Creature ~ Vampire Familiar ~ Umbral Dagger	LOCATION:Natural-Primary
+
+STARTPACK:Vampire Spawn Attacks	EQUIPBUY:0
+GEAR:Creature ~ Vampire Spawn ~ Claw	LOCATION:Natural-Primary
+
+STARTPACK:Vampire Attacks	EQUIPBUY:0
+GEAR:Creature ~ Vampire ~ Grave Strike (Vampire Form Only)	LOCATION:Natural-Primary
+
+STARTPACK:Vrock Attacks	EQUIPBUY:0
+GEAR:Creature ~ Vrock ~ Shred	LOCATION:Natural-Primary
+
+STARTPACK:Warrior Infantry Attacks	EQUIPBUY:0
+GEAR:Creature ~ Warrior Infantry ~ Spear	LOCATION:Natural-Primary
+
+STARTPACK:Warrior Veteran Attacks	EQUIPBUY:0
+GEAR:Creature ~ Warrior Veteran ~ Greatsword	LOCATION:Natural-Primary
+GEAR:Creature ~ Warrior Veteran ~ Heavy Crossbow	LOCATION:Natural-Primary
+
+STARTPACK:Water Elemental Attacks	EQUIPBUY:0
+GEAR:Creature ~ Water Elemental ~ Slam	LOCATION:Natural-Primary
+
+STARTPACK:Werebear Attacks	EQUIPBUY:0
+GEAR:Creature ~ Werebear ~ Bite (Bear or Hybrid Form Only)	LOCATION:Natural-Primary
+GEAR:Creature ~ Werebear ~ Handaxe (Humanoid or Hybrid Form Only)	LOCATION:Natural-Primary
+GEAR:Creature ~ Werebear ~ Rend (Bear or Hybrid Form Only)	LOCATION:Natural-Primary
+
+STARTPACK:Wereboar Attacks	EQUIPBUY:0
+GEAR:Creature ~ Wereboar ~ Gore (Boar or Hybrid Form Only)	LOCATION:Natural-Primary
+GEAR:Creature ~ Wereboar ~ Javelin (Humanoid or Hybrid Form Only)	LOCATION:Natural-Primary
+GEAR:Creature ~ Wereboar ~ Tusk (Boar or Hybrid Form Only)	LOCATION:Natural-Primary
+
+STARTPACK:Wererat Attacks	EQUIPBUY:0
+GEAR:Creature ~ Wererat ~ Bite (Rat or Hybrid Form Only)	LOCATION:Natural-Primary
+GEAR:Creature ~ Wererat ~ Scratch	LOCATION:Natural-Primary
+
+STARTPACK:Weretiger Attacks	EQUIPBUY:0
+GEAR:Creature ~ Weretiger ~ Bite (Tiger or Hybrid Form Only)	LOCATION:Natural-Primary
+GEAR:Creature ~ Weretiger ~ Scratch	LOCATION:Natural-Primary
+GEAR:Creature ~ Weretiger ~ Longbow (Humanoid or Hybrid Form Only)	LOCATION:Natural-Primary
+
+STARTPACK:Werewolf Attacks	EQUIPBUY:0
+GEAR:Creature ~ Werewolf ~ Bite (Wolf or Hybrid Form Only)	LOCATION:Natural-Primary
+GEAR:Creature ~ Werewolf ~ Scratch	LOCATION:Natural-Primary
+GEAR:Creature ~ Werewolf ~ Longbow (Humanoid or Hybrid Form Only)	LOCATION:Natural-Primary
+
+STARTPACK:White Dragon Wyrmling Attacks	EQUIPBUY:0
+GEAR:Creature ~ White Dragon Wyrmling ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Young White Dragon Attacks	EQUIPBUY:0
+GEAR:Creature ~ Young White Dragon ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Adult White Dragon Attacks	EQUIPBUY:0
+GEAR:Creature ~ Adult White Dragon ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Ancient White Dragon Attacks	EQUIPBUY:0
+GEAR:Creature ~ Ancient White Dragon ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Wight Attacks	EQUIPBUY:0
+GEAR:Creature ~ Wight ~ Necrotic Sword	LOCATION:Natural-Primary
+GEAR:Creature ~ Wight ~ Necrotic Bow	LOCATION:Natural-Primary
+
+STARTPACK:Will-o’-Wisp Attacks	EQUIPBUY:0
+GEAR:Creature ~ Will-o’-Wisp ~ Shock	LOCATION:Natural-Primary
+
+STARTPACK:Winter Wolf Attacks	EQUIPBUY:0
+GEAR:Creature ~ Winter Wolf ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Worg Attacks	EQUIPBUY:0
+GEAR:Creature ~ Worg ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Wraith Attacks	EQUIPBUY:0
+GEAR:Creature ~ Wraith ~ Life Drain	LOCATION:Natural-Primary
+
+STARTPACK:Wyvern Attacks	EQUIPBUY:0
+GEAR:Creature ~ Wyvern ~ Bite	LOCATION:Natural-Primary
+GEAR:Creature ~ Wyvern ~ Sting	LOCATION:Natural-Primary
+
+STARTPACK:Xorn Attacks	EQUIPBUY:0
+GEAR:Creature ~ Xorn ~ Bite	LOCATION:Natural-Primary
+GEAR:Creature ~ Xorn ~ Claw	LOCATION:Natural-Primary
+
+STARTPACK:Zombie Attacks	EQUIPBUY:0
+GEAR:Creature ~ Zombie ~ Slam	LOCATION:Natural-Primary
+
+STARTPACK:Ogre Zombie Attacks	EQUIPBUY:0
+GEAR:Creature ~ Ogre Zombie ~ Slam	LOCATION:Natural-Primary
+
+STARTPACK:Allosaurus Attacks	EQUIPBUY:0
+GEAR:Creature ~ Allosaurus ~ Bite	LOCATION:Natural-Primary
+GEAR:Creature ~ Allosaurus ~ Claws	LOCATION:Natural-Primary
+
+STARTPACK:Ankylosaurus Attacks	EQUIPBUY:0
+GEAR:Creature ~ Ankylosaurus ~ Tail	LOCATION:Natural-Primary
+
+STARTPACK:Ape Attacks	EQUIPBUY:0
+GEAR:Creature ~ Ape ~ Fist	LOCATION:Natural-Primary
+GEAR:Creature ~ Ape ~ Rock (Recharge 6)	LOCATION:Natural-Primary
+
+STARTPACK:Archelon Attacks	EQUIPBUY:0
+GEAR:Creature ~ Archelon ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Black Bear Attacks	EQUIPBUY:0
+GEAR:Creature ~ Black Bear ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Blood Hawk Attacks	EQUIPBUY:0
+GEAR:Creature ~ Blood Hawk ~ Beak	LOCATION:Natural-Primary
+
+STARTPACK:Boar Attacks	EQUIPBUY:0
+GEAR:Creature ~ Boar ~ Gore	LOCATION:Natural-Primary
+
+STARTPACK:Brown Bear Attacks	EQUIPBUY:0
+GEAR:Creature ~ Brown Bear ~ Bite	LOCATION:Natural-Primary
+GEAR:Creature ~ Brown Bear ~ Claw	LOCATION:Natural-Primary
+
+STARTPACK:Camel Attacks	EQUIPBUY:0
+GEAR:Creature ~ Camel ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Constrictor Snake Attacks	EQUIPBUY:0
+GEAR:Creature ~ Constrictor Snake ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Crocodile Attacks	EQUIPBUY:0
+GEAR:Creature ~ Crocodile ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Deer Attacks	EQUIPBUY:0
+GEAR:Creature ~ Deer ~ Ram	LOCATION:Natural-Primary
+
+STARTPACK:Dire Wolf Attacks	EQUIPBUY:0
+GEAR:Creature ~ Dire Wolf ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Draft Horse Attacks	EQUIPBUY:0
+GEAR:Creature ~ Draft Horse ~ Hooves	LOCATION:Natural-Primary
+
+STARTPACK:Eagle Attacks	EQUIPBUY:0
+GEAR:Creature ~ Eagle ~ Talons	LOCATION:Natural-Primary
+
+STARTPACK:Elephant Attacks	EQUIPBUY:0
+GEAR:Creature ~ Elephant ~ Gore	LOCATION:Natural-Primary
+
+STARTPACK:Elk Attacks	EQUIPBUY:0
+GEAR:Creature ~ Elk ~ Ram	LOCATION:Natural-Primary
+
+STARTPACK:Giant Ape Attacks	EQUIPBUY:0
+GEAR:Creature ~ Giant Ape ~ Fist	LOCATION:Natural-Primary
+
+STARTPACK:Giant Badger Attacks	EQUIPBUY:0
+GEAR:Creature ~ Giant Badger ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Giant Bat Attacks	EQUIPBUY:0
+GEAR:Creature ~ Giant Bat ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Giant Boar Attacks	EQUIPBUY:0
+GEAR:Creature ~ Giant Boar ~ Gore	LOCATION:Natural-Primary
+
+STARTPACK:Giant Centipede Attacks	EQUIPBUY:0
+GEAR:Creature ~ Giant Centipede ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Giant Constrictor Snake Attacks	EQUIPBUY:0
+GEAR:Creature ~ Giant Constrictor Snake ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Giant Crab Attacks	EQUIPBUY:0
+GEAR:Creature ~ Giant Crab ~ Claw	LOCATION:Natural-Primary
+
+STARTPACK:Giant Crocodile Attacks	EQUIPBUY:0
+GEAR:Creature ~ Giant Crocodile ~ Bite	LOCATION:Natural-Primary
+GEAR:Creature ~ Giant Crocodile ~ Tail	LOCATION:Natural-Primary
+
+STARTPACK:Giant Eagle Attacks	EQUIPBUY:0
+GEAR:Creature ~ Giant Eagle ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Giant Elk Attacks	EQUIPBUY:0
+GEAR:Creature ~ Giant Elk ~ Ram	LOCATION:Natural-Primary
+
+STARTPACK:Giant Frog Attacks	EQUIPBUY:0
+GEAR:Creature ~ Giant Frog ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Giant Goat Attacks	EQUIPBUY:0
+GEAR:Creature ~ Giant Goat ~ Ram	LOCATION:Natural-Primary
+
+STARTPACK:Giant Hyena Attacks	EQUIPBUY:0
+GEAR:Creature ~ Giant Hyena ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Giant Lizard Attacks	EQUIPBUY:0
+GEAR:Creature ~ Giant Lizard ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Giant Octopus Attacks	EQUIPBUY:0
+GEAR:Creature ~ Giant Octopus ~ Tentacles	LOCATION:Natural-Primary
+
+STARTPACK:Giant Owl Attacks	EQUIPBUY:0
+GEAR:Creature ~ Giant Owl ~ Talons	LOCATION:Natural-Primary
+
+STARTPACK:Giant Rat Attacks	EQUIPBUY:0
+GEAR:Creature ~ Giant Rat ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Giant Scorpion Attacks	EQUIPBUY:0
+GEAR:Creature ~ Giant Scorpion ~ Claw	LOCATION:Natural-Primary
+GEAR:Creature ~ Giant Scorpion ~ Sting	LOCATION:Natural-Primary
+
+STARTPACK:Giant Seahorse Attacks	EQUIPBUY:0
+GEAR:Creature ~ Giant Seahorse ~ Ram	LOCATION:Natural-Primary
+
+STARTPACK:Giant Shark Attacks	EQUIPBUY:0
+GEAR:Creature ~ Giant Shark ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Giant Spider Attacks	EQUIPBUY:0
+GEAR:Creature ~ Giant Spider ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Giant Toad Attacks	EQUIPBUY:0
+GEAR:Creature ~ Giant Toad ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Giant Venomous Snake Attacks	EQUIPBUY:0
+GEAR:Creature ~ Giant Venomous Snake ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Giant Vulture Attacks	EQUIPBUY:0
+GEAR:Creature ~ Giant Vulture ~ Gouge	LOCATION:Natural-Primary
+
+STARTPACK:Giant Wasp Attacks	EQUIPBUY:0
+GEAR:Creature ~ Giant Wasp ~ Sting	LOCATION:Natural-Primary
+
+STARTPACK:Giant Weasel Attacks	EQUIPBUY:0
+GEAR:Creature ~ Giant Weasel ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Giant Wolf Spider Attacks	EQUIPBUY:0
+GEAR:Creature ~ Giant Wolf Spider ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Hippopotamus Attacks	EQUIPBUY:0
+GEAR:Creature ~ Hippopotamus ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Hunter Shark Attacks	EQUIPBUY:0
+GEAR:Creature ~ Hunter Shark ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Hyena Attacks	EQUIPBUY:0
+GEAR:Creature ~ Hyena ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Killer Whale Attacks	EQUIPBUY:0
+GEAR:Creature ~ Killer Whale ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Lion Attacks	EQUIPBUY:0
+GEAR:Creature ~ Lion ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Mammoth Attacks	EQUIPBUY:0
+GEAR:Creature ~ Mammoth ~ Gore	LOCATION:Natural-Primary
+
+STARTPACK:Mastiff Attacks	EQUIPBUY:0
+GEAR:Creature ~ Mastiff ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Mule Attacks	EQUIPBUY:0
+GEAR:Creature ~ Mule ~ Hooves	LOCATION:Natural-Primary
+
+STARTPACK:Panther Attacks	EQUIPBUY:0
+GEAR:Creature ~ Panther ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Plesiosaurus Attacks	EQUIPBUY:0
+GEAR:Creature ~ Plesiosaurus ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Polar Bear Attacks	EQUIPBUY:0
+GEAR:Creature ~ Polar Bear ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Pony Attacks	EQUIPBUY:0
+GEAR:Creature ~ Pony ~ Hooves	LOCATION:Natural-Primary
+
+STARTPACK:Pteranodon Attacks	EQUIPBUY:0
+GEAR:Creature ~ Pteranodon ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Reef Shark Attacks	EQUIPBUY:0
+GEAR:Creature ~ Reef Shark ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Rhinoceros Attacks	EQUIPBUY:0
+GEAR:Creature ~ Rhinoceros ~ Gore	LOCATION:Natural-Primary
+
+STARTPACK:Riding Horse Attacks	EQUIPBUY:0
+GEAR:Creature ~ Riding Horse ~ Hooves	LOCATION:Natural-Primary
+
+STARTPACK:Saber-Toothed Tiger Attacks	EQUIPBUY:0
+GEAR:Creature ~ Saber-Toothed Tiger ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Swarm of Bats Attacks	EQUIPBUY:0
+GEAR:Creature ~ Swarm of Bats ~ Bites	LOCATION:Natural-Primary
+
+STARTPACK:Swarm of Insects Attacks	EQUIPBUY:0
+GEAR:Creature ~ Swarm of Insects ~ Bites	LOCATION:Natural-Primary
+
+STARTPACK:Swarm of Piranhas Attacks	EQUIPBUY:0
+GEAR:Creature ~ Swarm of Piranhas ~ Bites	LOCATION:Natural-Primary
+
+STARTPACK:Swarm of Rats Attacks	EQUIPBUY:0
+GEAR:Creature ~ Swarm of Rats ~ Bites	LOCATION:Natural-Primary
+
+STARTPACK:Swarm of Ravens Attacks	EQUIPBUY:0
+GEAR:Creature ~ Swarm of Ravens ~ Beaks	LOCATION:Natural-Primary
+
+STARTPACK:Swarm of Venomous Snakes Attacks	EQUIPBUY:0
+GEAR:Creature ~ Swarm of Venomous Snakes ~ Bites	LOCATION:Natural-Primary
+
+STARTPACK:Tiger Attacks	EQUIPBUY:0
+GEAR:Creature ~ Tiger ~ Rend	LOCATION:Natural-Primary
+
+STARTPACK:Triceratops Attacks	EQUIPBUY:0
+GEAR:Creature ~ Triceratops ~ Gore	LOCATION:Natural-Primary
+
+STARTPACK:Tyrannosaurus Rex Attacks	EQUIPBUY:0
+GEAR:Creature ~ Tyrannosaurus Rex ~ Bite	LOCATION:Natural-Primary
+GEAR:Creature ~ Tyrannosaurus Rex ~ Tail	LOCATION:Natural-Primary
+
+STARTPACK:Venomous Snake Attacks	EQUIPBUY:0
+GEAR:Creature ~ Venomous Snake ~ Bite	LOCATION:Natural-Primary
+
+STARTPACK:Vulture Attacks	EQUIPBUY:0
+GEAR:Creature ~ Vulture ~ Beak	LOCATION:Natural-Primary
+
+STARTPACK:Warhorse Attacks	EQUIPBUY:0
+GEAR:Creature ~ Warhorse ~ Hooves	LOCATION:Natural-Primary
+
+STARTPACK:Wolf Attacks	EQUIPBUY:0
+GEAR:Creature ~ Wolf ~ Bite	LOCATION:Natural-Primary
+

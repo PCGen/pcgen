@@ -1,0 +1,423 @@
+# The progression tables, read by position rather than reading order.
+
+
+# Barbarian
+CLASS:Barbarian	HD:12	TYPE:PC.BASE	MAXLEVEL:20	SOURCEPAGE:SRD 5.2.1, p.28	FACT:Abb|Brb	STARTSKILLPTS:0	DEFINE:BarbarianLVL|0	BONUS:VAR|BarbarianLVL|CL
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
+1	ABILITY:Special Ability|AUTOMATIC|Barbarian Multiclass Training|!PRETEMPLATE:1,Barbarian First Level
+1	ABILITY:Special Ability|AUTOMATIC|Barbarian ~ Core Traits|Barbarian ~ Starting Equipment|PRETEMPLATE:1,Barbarian First Level
+1	ABILITY:Special Ability|AUTOMATIC|Barbarian ~ Rage|Barbarian ~ Unarmored Defense|Barbarian ~ Weapon Mastery
+2	ABILITY:Special Ability|AUTOMATIC|Barbarian ~ Danger Sense|Barbarian ~ Reckless Attack
+3	ABILITY:Special Ability|AUTOMATIC|Barbarian ~ Barbarian Subclass|Barbarian ~ Primal Knowledge
+4	ABILITY:Special Ability|AUTOMATIC|Barbarian ~ Ability Score Improvement
+5	ABILITY:Special Ability|AUTOMATIC|Barbarian ~ Extra Attack|Barbarian ~ Fast Movement
+7	ABILITY:Special Ability|AUTOMATIC|Barbarian ~ Feral Instinct|Barbarian ~ Instinctive Pounce
+8	ABILITY:Special Ability|AUTOMATIC|Barbarian ~ Ability Score Improvement
+9	ABILITY:Special Ability|AUTOMATIC|Barbarian ~ Brutal Strike
+11	ABILITY:Special Ability|AUTOMATIC|Barbarian ~ Relentless Rage
+12	ABILITY:Special Ability|AUTOMATIC|Barbarian ~ Ability Score Improvement
+13	ABILITY:Special Ability|AUTOMATIC|Barbarian ~ Improved Brutal Strike
+15	ABILITY:Special Ability|AUTOMATIC|Barbarian ~ Persistent Rage
+16	ABILITY:Special Ability|AUTOMATIC|Barbarian ~ Ability Score Improvement
+17	ABILITY:Special Ability|AUTOMATIC|Barbarian ~ Improved Brutal Strike (Level 17)
+18	ABILITY:Special Ability|AUTOMATIC|Barbarian ~ Indomitable Might
+19	ABILITY:Special Ability|AUTOMATIC|Barbarian ~ Epic Boon
+20	ABILITY:Special Ability|AUTOMATIC|Barbarian ~ Primal Champion
+
+# Bard
+CLASS:Bard	HD:8	TYPE:PC.BASE	MAXLEVEL:20	SOURCEPAGE:SRD 5.2.1, p.31	FACT:Abb|Brd	STARTSKILLPTS:0	DEFINE:BardLVL|0	BONUS:VAR|BardLVL|CL	BONUS:VAR|SpellCasterTotalLVL|BardLVL	BONUS:VAR|FullCasterLVL|BardLVL	BONUS:VAR|SpellCasterClassCount|1	FACT:SpellType|Arcane
+CLASS:Bard	SPELLSTAT:CHA	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Bard|CL
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
+1	ABILITY:Special Ability|AUTOMATIC|Bard Multiclass Training|!PRETEMPLATE:1,Bard First Level
+1	ABILITY:Class|AUTOMATIC|Bard Multiclass Skill|!PRETEMPLATE:1,Bard First Level
+1	ABILITY:Special Ability|AUTOMATIC|Bard ~ Core Traits|Bard ~ Tool Proficiencies|Bard ~ Starting Equipment|PRETEMPLATE:1,Bard First Level
+1	ABILITY:Special Ability|AUTOMATIC|Bard ~ Bardic Inspiration|Bard ~ Spellcasting
+2	ABILITY:Special Ability|AUTOMATIC|Bard ~ Expertise|Bard ~ Jack of All Trades
+3	ABILITY:Special Ability|AUTOMATIC|Bard ~ Bard Subclass
+4	ABILITY:Special Ability|AUTOMATIC|Bard ~ Ability Score Improvement
+5	ABILITY:Special Ability|AUTOMATIC|Bard ~ Font of Inspiration
+7	ABILITY:Special Ability|AUTOMATIC|Bard ~ Countercharm
+8	ABILITY:Special Ability|AUTOMATIC|Bard ~ Ability Score Improvement
+9	ABILITY:Special Ability|AUTOMATIC|Bard ~ Expertise
+10	ABILITY:Special Ability|AUTOMATIC|Bard ~ Magical Secrets
+12	ABILITY:Special Ability|AUTOMATIC|Bard ~ Ability Score Improvement
+16	ABILITY:Special Ability|AUTOMATIC|Bard ~ Ability Score Improvement
+18	ABILITY:Special Ability|AUTOMATIC|Bard ~ Superior Inspiration
+19	ABILITY:Special Ability|AUTOMATIC|Bard ~ Epic Boon
+20	ABILITY:Special Ability|AUTOMATIC|Bard ~ Words of Creation
+1	CAST:99,SpellSlotsLVL1
+2	CAST:99,SpellSlotsLVL1
+3	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2
+4	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2
+5	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3
+6	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3
+7	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4
+8	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4
+9	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5
+10	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5
+11	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6
+12	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6
+13	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6,SpellSlotsLVL7
+14	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6,SpellSlotsLVL7
+15	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6,SpellSlotsLVL7,SpellSlotsLVL8
+16	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6,SpellSlotsLVL7,SpellSlotsLVL8
+17	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6,SpellSlotsLVL7,SpellSlotsLVL8,SpellSlotsLVL9
+18	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6,SpellSlotsLVL7,SpellSlotsLVL8,SpellSlotsLVL9
+19	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6,SpellSlotsLVL7,SpellSlotsLVL8,SpellSlotsLVL9
+20	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6,SpellSlotsLVL7,SpellSlotsLVL8,SpellSlotsLVL9
+
+# Cleric
+CLASS:Cleric	HD:8	TYPE:PC.BASE	MAXLEVEL:20	SOURCEPAGE:SRD 5.2.1, p.36	FACT:Abb|Cle	STARTSKILLPTS:0	DEFINE:ClericLVL|0	BONUS:VAR|ClericLVL|CL	BONUS:VAR|SpellCasterTotalLVL|ClericLVL	BONUS:VAR|FullCasterLVL|ClericLVL	BONUS:VAR|SpellCasterClassCount|1	FACT:SpellType|Divine
+CLASS:Cleric	SPELLSTAT:WIS	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Cleric|CL
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
+1	ABILITY:Special Ability|AUTOMATIC|Cleric Multiclass Training|!PRETEMPLATE:1,Cleric First Level
+1	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Core Traits|Cleric ~ Starting Equipment|PRETEMPLATE:1,Cleric First Level
+1	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Spellcasting|Cleric ~ Divine Order
+2	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Channel Divinity
+3	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Cleric Subclass
+4	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Ability Score Improvement
+5	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Sear Undead
+7	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Blessed Strikes
+8	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Ability Score Improvement
+10	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Divine Intervention
+12	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Ability Score Improvement
+14	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Improved Blessed Strikes
+16	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Ability Score Improvement
+19	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Epic Boon
+20	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Greater Divine Intervention
+1	CAST:99,SpellSlotsLVL1
+2	CAST:99,SpellSlotsLVL1
+3	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2
+4	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2
+5	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3
+6	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3
+7	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4
+8	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4
+9	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5
+10	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5
+11	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6
+12	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6
+13	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6,SpellSlotsLVL7
+14	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6,SpellSlotsLVL7
+15	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6,SpellSlotsLVL7,SpellSlotsLVL8
+16	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6,SpellSlotsLVL7,SpellSlotsLVL8
+17	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6,SpellSlotsLVL7,SpellSlotsLVL8,SpellSlotsLVL9
+18	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6,SpellSlotsLVL7,SpellSlotsLVL8,SpellSlotsLVL9
+19	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6,SpellSlotsLVL7,SpellSlotsLVL8,SpellSlotsLVL9
+20	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6,SpellSlotsLVL7,SpellSlotsLVL8,SpellSlotsLVL9
+
+# Druid
+CLASS:Druid	HD:8	TYPE:PC.BASE	MAXLEVEL:20	SOURCEPAGE:SRD 5.2.1, p.41	FACT:Abb|Dru	STARTSKILLPTS:0	DEFINE:DruidLVL|0	BONUS:VAR|DruidLVL|CL	BONUS:VAR|SpellCasterTotalLVL|DruidLVL	BONUS:VAR|FullCasterLVL|DruidLVL	BONUS:VAR|SpellCasterClassCount|1	FACT:SpellType|Divine
+CLASS:Druid	SPELLSTAT:WIS	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Druid|CL
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
+1	ABILITY:Special Ability|AUTOMATIC|Druid Multiclass Training|!PRETEMPLATE:1,Druid First Level
+1	ABILITY:Special Ability|AUTOMATIC|Druid ~ Core Traits|Druid ~ Tool Proficiencies|Druid ~ Starting Equipment|PRETEMPLATE:1,Druid First Level
+1	ABILITY:Special Ability|AUTOMATIC|Druid ~ Spellcasting|Druid ~ Druidic|Druid ~ Primal Order
+2	ABILITY:Special Ability|AUTOMATIC|Druid ~ Wild Shape|Druid ~ Wild Companion
+3	ABILITY:Special Ability|AUTOMATIC|Druid ~ Druid Subclass
+4	ABILITY:Special Ability|AUTOMATIC|Druid ~ Ability Score Improvement
+5	ABILITY:Special Ability|AUTOMATIC|Druid ~ Wild Resurgence
+7	ABILITY:Special Ability|AUTOMATIC|Druid ~ Elemental Fury
+8	ABILITY:Special Ability|AUTOMATIC|Druid ~ Ability Score Improvement
+12	ABILITY:Special Ability|AUTOMATIC|Druid ~ Ability Score Improvement
+15	ABILITY:Special Ability|AUTOMATIC|Druid ~ Improved Elemental Fury
+16	ABILITY:Special Ability|AUTOMATIC|Druid ~ Ability Score Improvement
+18	ABILITY:Special Ability|AUTOMATIC|Druid ~ Beast Spells
+19	ABILITY:Special Ability|AUTOMATIC|Druid ~ Epic Boon
+20	ABILITY:Special Ability|AUTOMATIC|Druid ~ Archdruid
+1	CAST:99,SpellSlotsLVL1
+2	CAST:99,SpellSlotsLVL1
+3	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2
+4	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2
+5	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3
+6	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3
+7	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4
+8	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4
+9	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5
+10	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5
+11	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6
+12	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6
+13	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6,SpellSlotsLVL7
+14	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6,SpellSlotsLVL7
+15	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6,SpellSlotsLVL7,SpellSlotsLVL8
+16	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6,SpellSlotsLVL7,SpellSlotsLVL8
+17	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6,SpellSlotsLVL7,SpellSlotsLVL8,SpellSlotsLVL9
+18	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6,SpellSlotsLVL7,SpellSlotsLVL8,SpellSlotsLVL9
+19	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6,SpellSlotsLVL7,SpellSlotsLVL8,SpellSlotsLVL9
+20	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6,SpellSlotsLVL7,SpellSlotsLVL8,SpellSlotsLVL9
+
+# Fighter
+CLASS:Fighter	HD:10	TYPE:PC.BASE	MAXLEVEL:20	SOURCEPAGE:SRD 5.2.1, p.47	FACT:Abb|Fig	STARTSKILLPTS:0	DEFINE:FighterLVL|0	BONUS:VAR|FighterLVL|CL
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
+1	ABILITY:Special Ability|AUTOMATIC|Fighter Multiclass Training|!PRETEMPLATE:1,Fighter First Level
+1	ABILITY:Special Ability|AUTOMATIC|Fighter ~ Core Traits|Fighter ~ Starting Equipment|PRETEMPLATE:1,Fighter First Level
+1	ABILITY:Special Ability|AUTOMATIC|Fighter ~ Fighting Style|Fighter ~ Second Wind|Fighter ~ Weapon Mastery
+2	ABILITY:Special Ability|AUTOMATIC|Fighter ~ Action Surge|Fighter ~ Tactical Mind
+3	ABILITY:Special Ability|AUTOMATIC|Fighter ~ Fighter Subclass
+4	ABILITY:Special Ability|AUTOMATIC|Fighter ~ Ability Score Improvement
+5	ABILITY:Special Ability|AUTOMATIC|Fighter ~ Extra Attack|Fighter ~ Tactical Shift
+6	ABILITY:Special Ability|AUTOMATIC|Fighter ~ Ability Score Improvement
+8	ABILITY:Special Ability|AUTOMATIC|Fighter ~ Ability Score Improvement
+9	ABILITY:Special Ability|AUTOMATIC|Fighter ~ Indomitable|Fighter ~ Tactical Master
+11	ABILITY:Special Ability|AUTOMATIC|Fighter ~ Two Extra Attacks
+12	ABILITY:Special Ability|AUTOMATIC|Fighter ~ Ability Score Improvement
+13	ABILITY:Special Ability|AUTOMATIC|Fighter ~ Indomitable|Fighter ~ Studied Attacks
+14	ABILITY:Special Ability|AUTOMATIC|Fighter ~ Ability Score Improvement
+16	ABILITY:Special Ability|AUTOMATIC|Fighter ~ Ability Score Improvement
+17	ABILITY:Special Ability|AUTOMATIC|Fighter ~ Action Surge|Fighter ~ Indomitable
+19	ABILITY:Special Ability|AUTOMATIC|Fighter ~ Epic Boon
+20	ABILITY:Special Ability|AUTOMATIC|Fighter ~ Three Extra Attacks
+
+# Monk
+CLASS:Monk	HD:8	TYPE:PC.BASE	MAXLEVEL:20	SOURCEPAGE:SRD 5.2.1, p.49	FACT:Abb|Mon	STARTSKILLPTS:0	DEFINE:MonkLVL|0	BONUS:VAR|MonkLVL|CL
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
+1	ABILITY:Special Ability|AUTOMATIC|Monk Multiclass Training|!PRETEMPLATE:1,Monk First Level
+1	ABILITY:Special Ability|AUTOMATIC|Monk ~ Core Traits|Monk ~ Tool Proficiencies|Monk ~ Starting Equipment|PRETEMPLATE:1,Monk First Level
+1	ABILITY:Special Ability|AUTOMATIC|Monk ~ Martial Arts|Monk ~ Unarmored Defense
+2	ABILITY:Special Ability|AUTOMATIC|Monk ~ Monk’s Focus|Monk ~ Unarmored Movement|Monk ~ Uncanny Metabolism
+3	ABILITY:Special Ability|AUTOMATIC|Monk ~ Deflect Attacks|Monk ~ Monk Subclass
+4	ABILITY:Special Ability|AUTOMATIC|Monk ~ Ability Score Improvement|Monk ~ Slow Fall
+5	ABILITY:Special Ability|AUTOMATIC|Monk ~ Extra Attack|Monk ~ Stunning Strike
+6	ABILITY:Special Ability|AUTOMATIC|Monk ~ Empowered Strikes
+7	ABILITY:Special Ability|AUTOMATIC|Monk ~ Evasion
+8	ABILITY:Special Ability|AUTOMATIC|Monk ~ Ability Score Improvement
+9	ABILITY:Special Ability|AUTOMATIC|Monk ~ Acrobatic Movement
+10	ABILITY:Special Ability|AUTOMATIC|Monk ~ Heightened Focus|Monk ~ Self-Restoration
+12	ABILITY:Special Ability|AUTOMATIC|Monk ~ Ability Score Improvement
+13	ABILITY:Special Ability|AUTOMATIC|Monk ~ Deflect Energy
+14	ABILITY:Special Ability|AUTOMATIC|Monk ~ Disciplined Survivor
+15	ABILITY:Special Ability|AUTOMATIC|Monk ~ Perfect Focus
+16	ABILITY:Special Ability|AUTOMATIC|Monk ~ Ability Score Improvement
+18	ABILITY:Special Ability|AUTOMATIC|Monk ~ Superior Defense
+19	ABILITY:Special Ability|AUTOMATIC|Monk ~ Epic Boon
+20	ABILITY:Special Ability|AUTOMATIC|Monk ~ Body and Mind
+
+# Paladin
+CLASS:Paladin	HD:10	TYPE:PC.BASE	MAXLEVEL:20	SOURCEPAGE:SRD 5.2.1, p.53	FACT:Abb|Pal	STARTSKILLPTS:0	DEFINE:PaladinLVL|0	BONUS:VAR|PaladinLVL|CL	BONUS:VAR|SpellCasterTotalLVL|PaladinLVL/2	BONUS:VAR|HalfCasterLVL|PaladinLVL	BONUS:VAR|SpellCasterClassCount|1	FACT:SpellType|Divine
+CLASS:Paladin	SPELLSTAT:CHA	MEMORIZE:YES	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	BONUS:CASTERLEVEL|Paladin|CL
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
+1	ABILITY:Special Ability|AUTOMATIC|Paladin Multiclass Training|!PRETEMPLATE:1,Paladin First Level
+1	ABILITY:Special Ability|AUTOMATIC|Paladin ~ Core Traits|Paladin ~ Starting Equipment|PRETEMPLATE:1,Paladin First Level
+1	ABILITY:Special Ability|AUTOMATIC|Paladin ~ Lay On Hands|Paladin ~ Spellcasting|Paladin ~ Weapon Mastery
+2	ABILITY:Special Ability|AUTOMATIC|Paladin ~ Fighting Style|Paladin ~ Paladin’s Smite
+3	ABILITY:Special Ability|AUTOMATIC|Paladin ~ Channel Divinity|Paladin ~ Paladin Subclass
+4	ABILITY:Special Ability|AUTOMATIC|Paladin ~ Ability Score Improvement
+5	ABILITY:Special Ability|AUTOMATIC|Paladin ~ Extra Attack|Paladin ~ Faithful Steed
+6	ABILITY:Special Ability|AUTOMATIC|Paladin ~ Aura of Protection
+8	ABILITY:Special Ability|AUTOMATIC|Paladin ~ Ability Score Improvement
+9	ABILITY:Special Ability|AUTOMATIC|Paladin ~ Abjure Foes
+10	ABILITY:Special Ability|AUTOMATIC|Paladin ~ Aura of Courage
+11	ABILITY:Special Ability|AUTOMATIC|Paladin ~ Radiant Strikes
+12	ABILITY:Special Ability|AUTOMATIC|Paladin ~ Ability Score Improvement
+14	ABILITY:Special Ability|AUTOMATIC|Paladin ~ Restoring Touch
+16	ABILITY:Special Ability|AUTOMATIC|Paladin ~ Ability Score Improvement
+18	ABILITY:Special Ability|AUTOMATIC|Paladin ~ Aura Expansion
+19	ABILITY:Special Ability|AUTOMATIC|Paladin ~ Epic Boon
+1	CAST:0,SpellSlotsLVL1
+2	CAST:0,SpellSlotsLVL1
+3	CAST:0,SpellSlotsLVL1
+4	CAST:0,SpellSlotsLVL1
+5	CAST:0,SpellSlotsLVL1,SpellSlotsLVL2
+6	CAST:0,SpellSlotsLVL1,SpellSlotsLVL2
+7	CAST:0,SpellSlotsLVL1,SpellSlotsLVL2
+8	CAST:0,SpellSlotsLVL1,SpellSlotsLVL2
+9	CAST:0,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3
+10	CAST:0,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3
+11	CAST:0,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3
+12	CAST:0,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3
+13	CAST:0,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4
+14	CAST:0,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4
+15	CAST:0,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4
+16	CAST:0,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4
+17	CAST:0,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5
+18	CAST:0,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5
+19	CAST:0,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5
+20	CAST:0,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5
+
+# Ranger
+CLASS:Ranger	HD:10	TYPE:PC.BASE	MAXLEVEL:20	SOURCEPAGE:SRD 5.2.1, p.57	FACT:Abb|Ran	STARTSKILLPTS:0	DEFINE:RangerLVL|0	BONUS:VAR|RangerLVL|CL	BONUS:VAR|SpellCasterTotalLVL|RangerLVL/2	BONUS:VAR|HalfCasterLVL|RangerLVL	BONUS:VAR|SpellCasterClassCount|1	FACT:SpellType|Divine
+CLASS:Ranger	SPELLSTAT:WIS	MEMORIZE:YES	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	BONUS:CASTERLEVEL|Ranger|CL
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
+1	ABILITY:Special Ability|AUTOMATIC|Ranger Multiclass Training|!PRETEMPLATE:1,Ranger First Level
+1	ABILITY:Class|AUTOMATIC|Ranger Multiclass Skill|!PRETEMPLATE:1,Ranger First Level
+1	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Core Traits|Ranger ~ Starting Equipment|PRETEMPLATE:1,Ranger First Level
+1	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Spellcasting|Ranger ~ Favored Enemy|Ranger ~ Weapon Mastery
+2	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Deft Explorer|Ranger ~ Fighting Style
+3	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Ranger Subclass
+4	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Ability Score Improvement
+5	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Extra Attack
+6	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Roving
+8	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Ability Score Improvement
+9	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Expertise
+10	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Tireless
+12	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Ability Score Improvement
+13	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Relentless Hunter
+14	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Nature’s Veil
+16	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Ability Score Improvement
+17	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Precise Hunter
+18	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Feral Senses
+19	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Epic Boon
+20	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Foe Slayer
+1	CAST:0,SpellSlotsLVL1
+2	CAST:0,SpellSlotsLVL1
+3	CAST:0,SpellSlotsLVL1
+4	CAST:0,SpellSlotsLVL1
+5	CAST:0,SpellSlotsLVL1,SpellSlotsLVL2
+6	CAST:0,SpellSlotsLVL1,SpellSlotsLVL2
+7	CAST:0,SpellSlotsLVL1,SpellSlotsLVL2
+8	CAST:0,SpellSlotsLVL1,SpellSlotsLVL2
+9	CAST:0,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3
+10	CAST:0,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3
+11	CAST:0,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3
+12	CAST:0,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3
+13	CAST:0,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4
+14	CAST:0,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4
+15	CAST:0,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4
+16	CAST:0,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4
+17	CAST:0,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5
+18	CAST:0,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5
+19	CAST:0,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5
+20	CAST:0,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5
+
+# Rogue
+CLASS:Rogue	HD:8	TYPE:PC.BASE	MAXLEVEL:20	SOURCEPAGE:SRD 5.2.1, p.61	FACT:Abb|Rog	STARTSKILLPTS:0	DEFINE:RogueLVL|0	BONUS:VAR|RogueLVL|CL
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
+1	ABILITY:Special Ability|AUTOMATIC|Rogue Multiclass Training|!PRETEMPLATE:1,Rogue First Level
+1	ABILITY:Class|AUTOMATIC|Rogue Multiclass Skill|!PRETEMPLATE:1,Rogue First Level
+1	ABILITY:Special Ability|AUTOMATIC|Rogue ~ Core Traits|Rogue ~ Tool Proficiencies|Rogue ~ Starting Equipment|PRETEMPLATE:1,Rogue First Level
+1	ABILITY:Special Ability|AUTOMATIC|Rogue ~ Expertise|Rogue ~ Sneak Attack|Rogue ~ Thieves’ Cant|Rogue ~ Weapon Mastery
+2	ABILITY:Special Ability|AUTOMATIC|Rogue ~ Cunning Action
+3	ABILITY:Special Ability|AUTOMATIC|Rogue ~ Rogue Subclass|Rogue ~ Steady Aim
+4	ABILITY:Special Ability|AUTOMATIC|Rogue ~ Ability Score Improvement
+5	ABILITY:Special Ability|AUTOMATIC|Rogue ~ Cunning Strike|Rogue ~ Uncanny Dodge
+6	ABILITY:Special Ability|AUTOMATIC|Rogue ~ Expertise
+7	ABILITY:Special Ability|AUTOMATIC|Rogue ~ Evasion|Rogue ~ Reliable Talent
+8	ABILITY:Special Ability|AUTOMATIC|Rogue ~ Ability Score Improvement
+10	ABILITY:Special Ability|AUTOMATIC|Rogue ~ Ability Score Improvement
+11	ABILITY:Special Ability|AUTOMATIC|Rogue ~ Improved Cunning Strike
+12	ABILITY:Special Ability|AUTOMATIC|Rogue ~ Ability Score Improvement
+14	ABILITY:Special Ability|AUTOMATIC|Rogue ~ Devious Strikes
+15	ABILITY:Special Ability|AUTOMATIC|Rogue ~ Slippery Mind
+16	ABILITY:Special Ability|AUTOMATIC|Rogue ~ Ability Score Improvement
+18	ABILITY:Special Ability|AUTOMATIC|Rogue ~ Elusive
+19	ABILITY:Special Ability|AUTOMATIC|Rogue ~ Epic Boon
+20	ABILITY:Special Ability|AUTOMATIC|Rogue ~ Stroke of Luck
+
+# Sorcerer
+CLASS:Sorcerer	HD:6	TYPE:PC.BASE	MAXLEVEL:20	SOURCEPAGE:SRD 5.2.1, p.64	FACT:Abb|Sor	STARTSKILLPTS:0	DEFINE:SorcererLVL|0	BONUS:VAR|SorcererLVL|CL	BONUS:VAR|SpellCasterTotalLVL|SorcererLVL	BONUS:VAR|FullCasterLVL|SorcererLVL	BONUS:VAR|SpellCasterClassCount|1	FACT:SpellType|Arcane
+CLASS:Sorcerer	SPELLSTAT:CHA	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Sorcerer|CL
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
+1	ABILITY:Special Ability|AUTOMATIC|Sorcerer Multiclass Training|!PRETEMPLATE:1,Sorcerer First Level
+1	ABILITY:Special Ability|AUTOMATIC|Sorcerer ~ Core Traits|Sorcerer ~ Starting Equipment|PRETEMPLATE:1,Sorcerer First Level
+1	ABILITY:Special Ability|AUTOMATIC|Sorcerer ~ Spellcasting|Sorcerer ~ Innate Sorcery
+2	ABILITY:Special Ability|AUTOMATIC|Sorcerer ~ Font of Magic|Sorcerer ~ Metamagic
+3	ABILITY:Special Ability|AUTOMATIC|Sorcerer ~ Sorcerer Subclass
+4	ABILITY:Special Ability|AUTOMATIC|Sorcerer ~ Ability Score Improvement
+5	ABILITY:Special Ability|AUTOMATIC|Sorcerer ~ Sorcerous Restoration
+7	ABILITY:Special Ability|AUTOMATIC|Sorcerer ~ Sorcery Incarnate
+8	ABILITY:Special Ability|AUTOMATIC|Sorcerer ~ Ability Score Improvement
+10	ABILITY:Special Ability|AUTOMATIC|Sorcerer ~ Metamagic
+12	ABILITY:Special Ability|AUTOMATIC|Sorcerer ~ Ability Score Improvement
+16	ABILITY:Special Ability|AUTOMATIC|Sorcerer ~ Ability Score Improvement
+17	ABILITY:Special Ability|AUTOMATIC|Sorcerer ~ Metamagic
+19	ABILITY:Special Ability|AUTOMATIC|Sorcerer ~ Epic Boon
+20	ABILITY:Special Ability|AUTOMATIC|Sorcerer ~ Arcane Apotheosis
+1	CAST:99,SpellSlotsLVL1
+2	CAST:99,SpellSlotsLVL1
+3	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2
+4	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2
+5	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3
+6	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3
+7	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4
+8	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4
+9	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5
+10	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5
+11	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6
+12	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6
+13	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6,SpellSlotsLVL7
+14	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6,SpellSlotsLVL7
+15	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6,SpellSlotsLVL7,SpellSlotsLVL8
+16	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6,SpellSlotsLVL7,SpellSlotsLVL8
+17	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6,SpellSlotsLVL7,SpellSlotsLVL8,SpellSlotsLVL9
+18	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6,SpellSlotsLVL7,SpellSlotsLVL8,SpellSlotsLVL9
+19	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6,SpellSlotsLVL7,SpellSlotsLVL8,SpellSlotsLVL9
+20	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6,SpellSlotsLVL7,SpellSlotsLVL8,SpellSlotsLVL9
+
+# Warlock
+CLASS:Warlock	HD:8	TYPE:PC.BASE	MAXLEVEL:20	SOURCEPAGE:SRD 5.2.1, p.70	FACT:Abb|War	STARTSKILLPTS:0	DEFINE:WarlockLVL|0	BONUS:VAR|WarlockLVL|CL	FACT:SpellType|Arcane
+CLASS:Warlock	SPELLSTAT:CHA	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	BONUS:CASTERLEVEL|Warlock|CL
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
+1	ABILITY:Special Ability|AUTOMATIC|Warlock Multiclass Training|!PRETEMPLATE:1,Warlock First Level
+1	ABILITY:Special Ability|AUTOMATIC|Warlock ~ Core Traits|Warlock ~ Starting Equipment|PRETEMPLATE:1,Warlock First Level
+1	ABILITY:Special Ability|AUTOMATIC|Warlock ~ Eldritch Invocations|Warlock ~ Pact Magic
+2	ABILITY:Special Ability|AUTOMATIC|Warlock ~ Magical Cunning
+3	ABILITY:Special Ability|AUTOMATIC|Warlock ~ Warlock Subclass
+4	ABILITY:Special Ability|AUTOMATIC|Warlock ~ Ability Score Improvement
+8	ABILITY:Special Ability|AUTOMATIC|Warlock ~ Ability Score Improvement
+9	ABILITY:Special Ability|AUTOMATIC|Warlock ~ Contact Patron
+11	ABILITY:Special Ability|AUTOMATIC|Warlock ~ Mystic Arcanum
+12	ABILITY:Special Ability|AUTOMATIC|Warlock ~ Ability Score Improvement
+13	ABILITY:Special Ability|AUTOMATIC|Warlock ~ Mystic Arcanum
+15	ABILITY:Special Ability|AUTOMATIC|Warlock ~ Mystic Arcanum
+16	ABILITY:Special Ability|AUTOMATIC|Warlock ~ Ability Score Improvement
+17	ABILITY:Special Ability|AUTOMATIC|Warlock ~ Mystic Arcanum
+19	ABILITY:Special Ability|AUTOMATIC|Warlock ~ Epic Boon
+20	ABILITY:Special Ability|AUTOMATIC|Warlock ~ Eldritch Master
+1	CAST:99,1
+2	CAST:99,2
+3	CAST:99,0,2
+4	CAST:99,0,2
+5	CAST:99,0,0,2
+6	CAST:99,0,0,2
+7	CAST:99,0,0,0,2
+8	CAST:99,0,0,0,2
+9	CAST:99,0,0,0,0,2
+10	CAST:99,0,0,0,0,2
+11	CAST:99,0,0,0,0,3
+12	CAST:99,0,0,0,0,3
+13	CAST:99,0,0,0,0,3
+14	CAST:99,0,0,0,0,3
+15	CAST:99,0,0,0,0,3
+16	CAST:99,0,0,0,0,3
+17	CAST:99,0,0,0,0,4
+18	CAST:99,0,0,0,0,4
+19	CAST:99,0,0,0,0,4
+20	CAST:99,0,0,0,0,4
+
+# Wizard
+CLASS:Wizard	HD:6	TYPE:PC.BASE	MAXLEVEL:20	SOURCEPAGE:SRD 5.2.1, p.77	FACT:Abb|Wiz	STARTSKILLPTS:0	DEFINE:WizardLVL|0	BONUS:VAR|WizardLVL|CL	BONUS:VAR|SpellCasterTotalLVL|WizardLVL	BONUS:VAR|FullCasterLVL|WizardLVL	BONUS:VAR|SpellCasterClassCount|1	FACT:SpellType|Arcane
+CLASS:Wizard	SPELLSTAT:INT	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Wizard|CL
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
+1	ABILITY:Special Ability|AUTOMATIC|Wizard Multiclass Training|!PRETEMPLATE:1,Wizard First Level
+1	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Core Traits|Wizard ~ Starting Equipment|PRETEMPLATE:1,Wizard First Level
+1	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Spellcasting|Wizard ~ Ritual Adept|Wizard ~ Arcane Recovery
+2	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Scholar
+3	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Wizard Subclass
+4	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Ability Score Improvement
+5	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Memorize Spell
+8	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Ability Score Improvement
+12	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Ability Score Improvement
+16	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Ability Score Improvement
+18	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Spell Mastery
+19	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Epic Boon
+20	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Signature Spells
+1	CAST:99,SpellSlotsLVL1
+2	CAST:99,SpellSlotsLVL1
+3	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2
+4	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2
+5	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3
+6	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3
+7	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4
+8	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4
+9	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5
+10	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5
+11	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6
+12	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6
+13	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6,SpellSlotsLVL7
+14	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6,SpellSlotsLVL7
+15	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6,SpellSlotsLVL7,SpellSlotsLVL8
+16	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6,SpellSlotsLVL7,SpellSlotsLVL8
+17	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6,SpellSlotsLVL7,SpellSlotsLVL8,SpellSlotsLVL9
+18	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6,SpellSlotsLVL7,SpellSlotsLVL8,SpellSlotsLVL9
+19	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6,SpellSlotsLVL7,SpellSlotsLVL8,SpellSlotsLVL9
+20	CAST:99,SpellSlotsLVL1,SpellSlotsLVL2,SpellSlotsLVL3,SpellSlotsLVL4,SpellSlotsLVL5,SpellSlotsLVL6,SpellSlotsLVL7,SpellSlotsLVL8,SpellSlotsLVL9

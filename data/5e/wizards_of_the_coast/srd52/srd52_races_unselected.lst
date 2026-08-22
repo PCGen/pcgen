@@ -1,0 +1,6 @@
+# The same requirement for races. Kept apart from the nine real species
+# because it is not one: it is the placeholder PCGen shows before a
+# species is chosen, and the species list is rebuilt from the
+# book's own nine, which would overwrite it.
+
+<none selected>	KEY:None Selected	GROUP:UNSELECTED	FACT:BaseSize|M	TYPE:Humanoid

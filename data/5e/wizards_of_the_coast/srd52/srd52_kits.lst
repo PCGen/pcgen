@@ -1,0 +1,491 @@
+# Starting equipment, as the bundle PCGen applies rather than the
+# sentence a player reads and then buys by hand. Two per entry,
+# because the book offers a choice and one kit cannot.
+
+STARTPACK:Barbarian Starting Equipment (A)	EQUIPBUY:0
+GEAR:Greataxe
+GEAR:Handaxe	QTY:4
+KIT:Explorer’s Pack Contents
+FUNDS:gp	QTY:15
+
+STARTPACK:Barbarian Starting Equipment (B)	EQUIPBUY:0
+FUNDS:gp	QTY:75
+
+STARTPACK:Bard Starting Equipment (A)	EQUIPBUY:0
+GEAR:Leather Armor
+GEAR:Dagger	QTY:2
+GEAR:Musical Instrument
+KIT:Entertainer’s Pack Contents
+FUNDS:gp	QTY:19
+
+STARTPACK:Bard Starting Equipment (B)	EQUIPBUY:0
+FUNDS:gp	QTY:90
+
+STARTPACK:Cleric Starting Equipment (A)	EQUIPBUY:0
+GEAR:Chain Shirt
+GEAR:Shield
+GEAR:Mace
+GEAR:Holy Symbol
+KIT:Priest’s Pack Contents
+FUNDS:gp	QTY:7
+
+STARTPACK:Cleric Starting Equipment (B)	EQUIPBUY:0
+FUNDS:gp	QTY:110
+
+STARTPACK:Druid Starting Equipment (A)	EQUIPBUY:0
+GEAR:Leather Armor
+GEAR:Shield
+GEAR:Sickle
+GEAR:Druidic Focus
+KIT:Explorer’s Pack Contents
+GEAR:Herbalism Kit
+FUNDS:gp	QTY:9
+
+STARTPACK:Druid Starting Equipment (B)	EQUIPBUY:0
+FUNDS:gp	QTY:50
+
+STARTPACK:Fighter Starting Equipment (A)	EQUIPBUY:0
+GEAR:Chain Mail
+GEAR:Greatsword
+GEAR:Flail
+GEAR:Javelin	QTY:8
+KIT:Dungeoneer’s Pack Contents
+FUNDS:gp	QTY:4
+
+STARTPACK:Fighter Starting Equipment (B)	EQUIPBUY:0
+GEAR:Studded Leather Armor
+GEAR:Scimitar
+GEAR:Shortsword
+GEAR:Longbow
+GEAR:Arrows (20)
+GEAR:Quiver
+KIT:Dungeoneer’s Pack Contents
+FUNDS:gp	QTY:11
+
+STARTPACK:Fighter Starting Equipment (C)	EQUIPBUY:0
+FUNDS:gp	QTY:155
+
+STARTPACK:Monk Starting Equipment (A)	EQUIPBUY:0
+GEAR:Spear
+GEAR:Dagger	QTY:5
+KIT:Explorer’s Pack Contents
+FUNDS:gp	QTY:11
+
+STARTPACK:Monk Starting Equipment (B)	EQUIPBUY:0
+FUNDS:gp	QTY:50
+
+STARTPACK:Paladin Starting Equipment (A)	EQUIPBUY:0
+GEAR:Chain Mail
+GEAR:Shield
+GEAR:Longsword
+GEAR:Javelin	QTY:6
+GEAR:Holy Symbol
+KIT:Priest’s Pack Contents
+FUNDS:gp	QTY:9
+
+STARTPACK:Paladin Starting Equipment (B)	EQUIPBUY:0
+FUNDS:gp	QTY:150
+
+STARTPACK:Ranger Starting Equipment (A)	EQUIPBUY:0
+GEAR:Studded Leather Armor
+GEAR:Scimitar
+GEAR:Shortsword
+GEAR:Longbow
+GEAR:Arrows (20)
+GEAR:Quiver
+GEAR:Druidic Focus
+KIT:Explorer’s Pack Contents
+FUNDS:gp	QTY:7
+
+STARTPACK:Ranger Starting Equipment (B)	EQUIPBUY:0
+FUNDS:gp	QTY:150
+
+STARTPACK:Rogue Starting Equipment (A)	EQUIPBUY:0
+GEAR:Leather Armor
+GEAR:Dagger	QTY:2
+GEAR:Shortsword
+GEAR:Shortbow
+GEAR:Arrows (20)
+GEAR:Quiver
+GEAR:Thieves’ Tools
+KIT:Burglar’s Pack Contents
+FUNDS:gp	QTY:8
+
+STARTPACK:Rogue Starting Equipment (B)	EQUIPBUY:0
+FUNDS:gp	QTY:100
+
+STARTPACK:Sorcerer Starting Equipment (A)	EQUIPBUY:0
+GEAR:Spear
+GEAR:Dagger	QTY:2
+GEAR:Arcane Focus
+KIT:Dungeoneer’s Pack Contents
+FUNDS:gp	QTY:28
+
+STARTPACK:Sorcerer Starting Equipment (B)	EQUIPBUY:0
+FUNDS:gp	QTY:50
+
+STARTPACK:Warlock Starting Equipment (A)	EQUIPBUY:0
+GEAR:Leather Armor
+GEAR:Sickle
+GEAR:Dagger	QTY:2
+GEAR:Arcane Focus
+GEAR:Book
+KIT:Scholar’s Pack Contents
+FUNDS:gp	QTY:15
+
+STARTPACK:Warlock Starting Equipment (B)	EQUIPBUY:0
+FUNDS:gp	QTY:100
+
+STARTPACK:Wizard Starting Equipment (A)	EQUIPBUY:0
+GEAR:Dagger	QTY:2
+GEAR:Arcane Focus
+GEAR:Robe
+KIT:Scholar’s Pack Contents
+FUNDS:gp	QTY:5
+
+STARTPACK:Wizard Starting Equipment (B)	EQUIPBUY:0
+FUNDS:gp	QTY:55
+
+STARTPACK:Acolyte Starting Equipment (A)	EQUIPBUY:0
+GEAR:Calligrapher’s Supplies
+GEAR:Book
+GEAR:Holy Symbol
+GEAR:Parchment	QTY:10
+GEAR:Robe
+FUNDS:gp	QTY:8
+
+STARTPACK:Acolyte Starting Equipment (B)	EQUIPBUY:0
+FUNDS:gp	QTY:50
+
+STARTPACK:Criminal Starting Equipment (A)	EQUIPBUY:0
+GEAR:Dagger	QTY:2
+GEAR:Thieves’ Tools
+GEAR:Crowbar
+GEAR:Pouch	QTY:2
+GEAR:Traveler’s Clothes
+FUNDS:gp	QTY:16
+
+STARTPACK:Criminal Starting Equipment (B)	EQUIPBUY:0
+FUNDS:gp	QTY:50
+
+STARTPACK:Sage Starting Equipment (A)	EQUIPBUY:0
+GEAR:Quarterstaff
+GEAR:Calligrapher’s Supplies
+GEAR:Book
+GEAR:Parchment	QTY:8
+GEAR:Robe
+FUNDS:gp	QTY:8
+
+STARTPACK:Sage Starting Equipment (B)	EQUIPBUY:0
+FUNDS:gp	QTY:50
+
+STARTPACK:Soldier Starting Equipment (A)	EQUIPBUY:0
+GEAR:Spear
+GEAR:Shortbow
+GEAR:Arrows (20)
+GEAR:Gaming Set
+GEAR:Healer’s Kit
+GEAR:Quiver
+GEAR:Traveler’s Clothes
+FUNDS:gp	QTY:14
+
+STARTPACK:Soldier Starting Equipment (B)	EQUIPBUY:0
+FUNDS:gp	QTY:50
+
+STARTPACK:Burglar’s Pack Contents	EQUIPBUY:0
+GEAR:Backpack
+GEAR:Ball Bearings
+GEAR:Bell
+GEAR:Candle	QTY:10
+GEAR:Crowbar
+GEAR:Hooded Lantern
+GEAR:Oil	QTY:7
+GEAR:Rations	QTY:5
+GEAR:Rope
+GEAR:Tinderbox
+GEAR:Waterskin
+
+STARTPACK:Diplomat’s Pack Contents	EQUIPBUY:0
+GEAR:Chest
+GEAR:Fine Clothes
+GEAR:Ink
+GEAR:Ink Pen	QTY:5
+GEAR:Lamp
+GEAR:Map or Scroll Case	QTY:2
+GEAR:Oil	QTY:4
+GEAR:Paper	QTY:5
+GEAR:Parchment	QTY:5
+GEAR:Perfume
+GEAR:Tinderbox
+
+STARTPACK:Dungeoneer’s Pack Contents	EQUIPBUY:0
+GEAR:Backpack
+GEAR:Caltrops
+GEAR:Crowbar
+GEAR:Oil	QTY:2
+GEAR:Rations	QTY:10
+GEAR:Rope
+GEAR:Tinderbox
+GEAR:Torch	QTY:10
+GEAR:Waterskin
+
+STARTPACK:Entertainer’s Pack Contents	EQUIPBUY:0
+GEAR:Backpack
+GEAR:Bedroll
+GEAR:Bell
+GEAR:Bullseye Lantern
+GEAR:Costume	QTY:3
+GEAR:Mirror
+GEAR:Oil	QTY:8
+GEAR:Rations	QTY:9
+GEAR:Tinderbox
+GEAR:Waterskin
+
+STARTPACK:Explorer’s Pack Contents	EQUIPBUY:0
+GEAR:Backpack
+GEAR:Bedroll
+GEAR:Oil	QTY:2
+GEAR:Rations	QTY:10
+GEAR:Rope
+GEAR:Tinderbox
+GEAR:Torch	QTY:10
+GEAR:Waterskin
+
+STARTPACK:Priest’s Pack Contents	EQUIPBUY:0
+GEAR:Backpack
+GEAR:Blanket
+GEAR:Holy Water
+GEAR:Lamp
+GEAR:Rations	QTY:7
+GEAR:Robe
+GEAR:Tinderbox
+
+STARTPACK:Scholar’s Pack Contents	EQUIPBUY:0
+GEAR:Backpack
+GEAR:Book
+GEAR:Ink
+GEAR:Ink Pen
+GEAR:Lamp
+GEAR:Oil	QTY:10
+GEAR:Parchment	QTY:10
+GEAR:Tinderbox
+
+STARTPACK:Assassin Gear	EQUIPBUY:0
+GEAR:Light Crossbow
+GEAR:Shortsword
+GEAR:Studded Leather Armor
+
+STARTPACK:Bandit Gear	EQUIPBUY:0
+GEAR:Leather Armor
+GEAR:Light Crossbow
+GEAR:Scimitar
+
+STARTPACK:Bandit Captain Gear	EQUIPBUY:0
+GEAR:Pistol
+GEAR:Scimitar
+GEAR:Studded Leather Armor
+
+STARTPACK:Berserker Gear	EQUIPBUY:0
+GEAR:Greataxe
+GEAR:Hide Armor
+
+STARTPACK:Bugbear Stalker Gear	EQUIPBUY:0
+GEAR:Chain Shirt
+GEAR:Javelin	QTY:6
+GEAR:Morningstar
+
+STARTPACK:Bugbear Warrior Gear	EQUIPBUY:0
+GEAR:Hide Armor
+GEAR:Light Hammer	QTY:3
+
+STARTPACK:Centaur Trooper Gear	EQUIPBUY:0
+GEAR:Breastplate
+GEAR:Longbow
+GEAR:Pike
+
+STARTPACK:Commoner Gear	EQUIPBUY:0
+GEAR:Club
+
+STARTPACK:Cultist Gear	EQUIPBUY:0
+GEAR:Leather Armor
+GEAR:Sickle
+
+STARTPACK:Cultist Fanatic Gear	EQUIPBUY:0
+GEAR:Holy Symbol
+GEAR:Leather Armor
+
+STARTPACK:Druid Gear	EQUIPBUY:0
+GEAR:Studded Leather Armor
+
+STARTPACK:Ettin Gear	EQUIPBUY:0
+GEAR:Battleaxe
+GEAR:Morningstar
+
+STARTPACK:Gladiator Gear	EQUIPBUY:0
+GEAR:Shield
+GEAR:Spear	QTY:3
+GEAR:Studded Leather Armor
+
+STARTPACK:Goblin Minion Gear	EQUIPBUY:0
+GEAR:Dagger	QTY:3
+
+STARTPACK:Goblin Warrior Gear	EQUIPBUY:0
+GEAR:Leather Armor
+GEAR:Scimitar
+GEAR:Shield
+GEAR:Shortbow
+
+STARTPACK:Goblin Boss Gear	EQUIPBUY:0
+GEAR:Chain Shirt
+GEAR:Scimitar
+GEAR:Shield
+GEAR:Shortbow
+
+STARTPACK:Guard Gear	EQUIPBUY:0
+GEAR:Chain Shirt
+GEAR:Shield
+GEAR:Spear
+
+STARTPACK:Guard Captain Gear	EQUIPBUY:0
+GEAR:Breastplate
+GEAR:Javelin	QTY:6
+GEAR:Longsword
+GEAR:Shield
+
+STARTPACK:Hobgoblin Warrior Gear	EQUIPBUY:0
+GEAR:Half Plate Armor
+GEAR:Longbow
+GEAR:Longsword
+GEAR:Shield
+
+STARTPACK:Hobgoblin Captain Gear	EQUIPBUY:0
+GEAR:Greatsword
+GEAR:Half Plate Armor
+GEAR:Longbow
+
+STARTPACK:Knight Gear	EQUIPBUY:0
+GEAR:Greatsword
+GEAR:Heavy Crossbow
+GEAR:Plate Armor
+
+STARTPACK:Kobold Warrior Gear	EQUIPBUY:0
+GEAR:Dagger	QTY:3
+
+STARTPACK:Lich Gear	EQUIPBUY:0
+GEAR:Component Pouch
+
+STARTPACK:Mage Gear	EQUIPBUY:0
+GEAR:Wand
+
+STARTPACK:Archmage Gear	EQUIPBUY:0
+GEAR:Wand
+
+STARTPACK:Noble Gear	EQUIPBUY:0
+GEAR:Breastplate
+GEAR:Rapier
+
+STARTPACK:Ogre Gear	EQUIPBUY:0
+GEAR:Greatclub
+GEAR:Javelin	QTY:3
+
+STARTPACK:Pirate Gear	EQUIPBUY:0
+GEAR:Dagger	QTY:6
+GEAR:Leather Armor
+
+STARTPACK:Pirate Captain Gear	EQUIPBUY:0
+GEAR:Pistol
+GEAR:Rapier
+
+STARTPACK:Priest Acolyte Gear	EQUIPBUY:0
+GEAR:Chain Shirt
+GEAR:Holy Symbol
+GEAR:Mace
+
+STARTPACK:Priest Gear	EQUIPBUY:0
+GEAR:Chain Shirt
+GEAR:Holy Symbol
+GEAR:Mace
+
+STARTPACK:Scout Gear	EQUIPBUY:0
+GEAR:Leather Armor
+GEAR:Longbow
+GEAR:Shortsword
+
+STARTPACK:Skeleton Gear	EQUIPBUY:0
+GEAR:Shortbow
+GEAR:Shortsword
+
+STARTPACK:Spy Gear	EQUIPBUY:0
+GEAR:Hand Crossbow
+GEAR:Shortsword
+GEAR:Thieves’ Tools
+
+STARTPACK:Tough Gear	EQUIPBUY:0
+GEAR:Heavy Crossbow
+GEAR:Leather Armor
+GEAR:Mace
+
+STARTPACK:Tough Boss Gear	EQUIPBUY:0
+GEAR:Chain Mail
+GEAR:Heavy Crossbow
+GEAR:Warhammer
+
+STARTPACK:Vampire Familiar Gear	EQUIPBUY:0
+GEAR:Dagger	QTY:10
+
+STARTPACK:Warrior Infantry Gear	EQUIPBUY:0
+GEAR:Chain Shirt
+GEAR:Spear
+
+STARTPACK:Warrior Veteran Gear	EQUIPBUY:0
+GEAR:Greatsword
+GEAR:Heavy Crossbow
+GEAR:Splint Armor
+
+STARTPACK:Werebear Gear	EQUIPBUY:0
+GEAR:Handaxe	QTY:4
+
+STARTPACK:Wereboar Gear	EQUIPBUY:0
+GEAR:Javelin	QTY:6
+
+STARTPACK:Wererat Gear	EQUIPBUY:0
+GEAR:Hand Crossbow
+
+STARTPACK:Weretiger Gear	EQUIPBUY:0
+GEAR:Longbow
+
+STARTPACK:Werewolf Gear	EQUIPBUY:0
+GEAR:Longbow
+
+STARTPACK:Wight Gear	EQUIPBUY:0
+GEAR:Studded Leather Armor
+
+STARTPACK:Chaotic Evil	VISIBLE:NO	APPLY:INSTANT
+ALIGN:CE
+
+STARTPACK:Chaotic Good	VISIBLE:NO	APPLY:INSTANT
+ALIGN:CG
+
+STARTPACK:Chaotic Neutral	VISIBLE:NO	APPLY:INSTANT
+ALIGN:CN
+
+STARTPACK:Lawful Evil	VISIBLE:NO	APPLY:INSTANT
+ALIGN:LE
+
+STARTPACK:Lawful Good	VISIBLE:NO	APPLY:INSTANT
+ALIGN:LG
+
+STARTPACK:Lawful Neutral	VISIBLE:NO	APPLY:INSTANT
+ALIGN:LN
+
+STARTPACK:Neutral Evil	VISIBLE:NO	APPLY:INSTANT
+ALIGN:NE
+
+STARTPACK:Neutral Good	VISIBLE:NO	APPLY:INSTANT
+ALIGN:NG
+
+STARTPACK:Neutral	VISIBLE:NO	APPLY:INSTANT
+ALIGN:TN
+
+STARTPACK:Unaligned	VISIBLE:NO	APPLY:INSTANT
+ALIGN:UA

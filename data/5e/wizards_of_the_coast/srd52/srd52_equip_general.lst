@@ -1,0 +1,294 @@
+# Adventuring gear. The table is set two lists to a page, so each row
+# holds two unrelated items; they are separated by position.
+
+Ink Pen	KEY:Ink Pen	TYPE:Goods	COST:0.02	WT:0	SOURCEPAGE:SRD 5.2.1, p.95
+Acid	KEY:Acid	TYPE:Goods	COST:25	WT:1	SOURCEPAGE:SRD 5.2.1, p.95
+Jug	KEY:Jug	TYPE:Goods	COST:0.02	WT:4	SOURCEPAGE:SRD 5.2.1, p.95
+Alchemist’s Fire	KEY:Alchemist’s Fire	TYPE:Goods	COST:50	WT:1	SOURCEPAGE:SRD 5.2.1, p.95
+Ladder	KEY:Ladder	TYPE:Goods	COST:0.1	WT:25	SOURCEPAGE:SRD 5.2.1, p.95
+Ammunition	KEY:Ammunition	TYPE:Goods	COST:0	WT:0	SPROP:Cost and weight vary; see the description.	SOURCEPAGE:SRD 5.2.1, p.95
+Lamp	KEY:Lamp	TYPE:Goods	COST:0.5	WT:1	SOURCEPAGE:SRD 5.2.1, p.95
+Antitoxin	KEY:Antitoxin	TYPE:Goods	COST:50	WT:0	SOURCEPAGE:SRD 5.2.1, p.95
+Lantern, Bullseye	KEY:Bullseye Lantern	TYPE:Goods	COST:10	WT:2	SOURCEPAGE:SRD 5.2.1, p.95
+Arcane Focus	KEY:Arcane Focus	TYPE:Goods	COST:0	WT:0	SPROP:Cost and weight vary; see the description.	SOURCEPAGE:SRD 5.2.1, p.95
+Lantern, Hooded	KEY:Hooded Lantern	TYPE:Goods	COST:5	WT:2	SOURCEPAGE:SRD 5.2.1, p.95
+Backpack	KEY:Backpack	TYPE:Goods	COST:2	WT:5	SOURCEPAGE:SRD 5.2.1, p.95
+Lock	KEY:Lock	TYPE:Goods	COST:10	WT:1	SOURCEPAGE:SRD 5.2.1, p.95
+Ball Bearings	KEY:Ball Bearings	TYPE:Goods	COST:1	WT:2	SOURCEPAGE:SRD 5.2.1, p.95
+Magnifying Glass	KEY:Magnifying Glass	TYPE:Goods	COST:100	WT:0	SOURCEPAGE:SRD 5.2.1, p.95
+Barrel	KEY:Barrel	TYPE:Goods	COST:2	WT:70	SOURCEPAGE:SRD 5.2.1, p.95
+Manacles	KEY:Manacles	TYPE:Goods	COST:2	WT:6	SOURCEPAGE:SRD 5.2.1, p.95
+Basket	KEY:Basket	TYPE:Goods	COST:0.4	WT:2	SOURCEPAGE:SRD 5.2.1, p.95
+Map	KEY:Map	TYPE:Goods	COST:1	WT:0	SOURCEPAGE:SRD 5.2.1, p.95
+Bedroll	KEY:Bedroll	TYPE:Goods	COST:1	WT:7	SOURCEPAGE:SRD 5.2.1, p.95
+Mirror	KEY:Mirror	TYPE:Goods	COST:5	WT:0.5	SOURCEPAGE:SRD 5.2.1, p.95
+Bell	KEY:Bell	TYPE:Goods	COST:1	WT:0	SOURCEPAGE:SRD 5.2.1, p.95
+Net	KEY:Net	TYPE:Goods	COST:1	WT:3	SOURCEPAGE:SRD 5.2.1, p.95
+Blanket	KEY:Blanket	TYPE:Goods	COST:0.5	WT:3	SOURCEPAGE:SRD 5.2.1, p.95
+Oil	KEY:Oil	TYPE:Goods	COST:0.1	WT:1	SOURCEPAGE:SRD 5.2.1, p.95
+Block and Tackle	KEY:Block and Tackle	TYPE:Goods	COST:1	WT:5	SOURCEPAGE:SRD 5.2.1, p.95
+Paper	KEY:Paper	TYPE:Goods	COST:0.2	WT:0	SOURCEPAGE:SRD 5.2.1, p.95
+Book	KEY:Book	TYPE:Goods	COST:25	WT:5	SOURCEPAGE:SRD 5.2.1, p.95
+Parchment	KEY:Parchment	TYPE:Goods	COST:0.1	WT:0	SOURCEPAGE:SRD 5.2.1, p.95
+Bottle, Glass	KEY:Glass Bottle	TYPE:Goods	COST:2	WT:2	SOURCEPAGE:SRD 5.2.1, p.95
+Perfume	KEY:Perfume	TYPE:Goods	COST:5	WT:0	SOURCEPAGE:SRD 5.2.1, p.95
+Bucket	KEY:Bucket	TYPE:Goods	COST:0.05	WT:2	SOURCEPAGE:SRD 5.2.1, p.95
+Poison, Basic	KEY:Basic Poison	TYPE:Goods	COST:100	WT:0	SOURCEPAGE:SRD 5.2.1, p.95
+Burglar’s Pack	KEY:Burglar’s Pack	TYPE:Goods	COST:16	WT:42	SOURCEPAGE:SRD 5.2.1, p.95
+Pole	KEY:Pole	TYPE:Goods	COST:0.05	WT:7	SOURCEPAGE:SRD 5.2.1, p.95
+Caltrops	KEY:Caltrops	TYPE:Goods	COST:1	WT:2	SOURCEPAGE:SRD 5.2.1, p.95
+Pot, Iron	KEY:Iron Pot	TYPE:Goods	COST:2	WT:10	SOURCEPAGE:SRD 5.2.1, p.95
+Candle	KEY:Candle	TYPE:Goods	COST:0.01	WT:0	SOURCEPAGE:SRD 5.2.1, p.95
+Potion of Healing	KEY:Potion of Healing	TYPE:Goods	COST:50	WT:0.5	SOURCEPAGE:SRD 5.2.1, p.95
+Case, Crossbow Bolt	KEY:Crossbow Bolt Case	TYPE:Goods	COST:1	WT:1	SOURCEPAGE:SRD 5.2.1, p.95
+Pouch	KEY:Pouch	TYPE:Goods	COST:0.5	WT:1	SOURCEPAGE:SRD 5.2.1, p.95
+Case, Map or Scroll	KEY:Map or Scroll Case	TYPE:Goods	COST:1	WT:1	SOURCEPAGE:SRD 5.2.1, p.95
+Priest’s Pack	KEY:Priest’s Pack	TYPE:Goods	COST:33	WT:29	SOURCEPAGE:SRD 5.2.1, p.95
+Chain	KEY:Chain	TYPE:Goods	COST:5	WT:10	SOURCEPAGE:SRD 5.2.1, p.95
+Quiver	KEY:Quiver	TYPE:Goods	COST:1	WT:1	SOURCEPAGE:SRD 5.2.1, p.95
+Chest	KEY:Chest	TYPE:Goods	COST:5	WT:25	SOURCEPAGE:SRD 5.2.1, p.95
+Ram, Portable	KEY:Portable Ram	TYPE:Goods	COST:4	WT:35	SOURCEPAGE:SRD 5.2.1, p.95
+Climber’s Kit	KEY:Climber’s Kit	TYPE:Goods	COST:25	WT:12	SOURCEPAGE:SRD 5.2.1, p.95
+Rations	KEY:Rations	TYPE:Goods	COST:0.5	WT:2	SOURCEPAGE:SRD 5.2.1, p.95
+Clothes, Fine	KEY:Fine Clothes	TYPE:Goods	COST:15	WT:6	SOURCEPAGE:SRD 5.2.1, p.95
+Robe	KEY:Robe	TYPE:Goods	COST:1	WT:4	SOURCEPAGE:SRD 5.2.1, p.95
+Clothes, Traveler’s	KEY:Traveler’s Clothes	TYPE:Goods	COST:2	WT:4	SOURCEPAGE:SRD 5.2.1, p.95
+Rope	KEY:Rope	TYPE:Goods	COST:1	WT:5	SOURCEPAGE:SRD 5.2.1, p.95
+Component Pouch	KEY:Component Pouch	TYPE:Goods	COST:25	WT:2	SOURCEPAGE:SRD 5.2.1, p.95
+Sack	KEY:Sack	TYPE:Goods	COST:0.01	WT:0.5	SOURCEPAGE:SRD 5.2.1, p.95
+Costume	KEY:Costume	TYPE:Goods	COST:5	WT:4	SOURCEPAGE:SRD 5.2.1, p.95
+Scholar’s Pack	KEY:Scholar’s Pack	TYPE:Goods	COST:40	WT:22	SOURCEPAGE:SRD 5.2.1, p.95
+Crowbar	KEY:Crowbar	TYPE:Goods	COST:2	WT:5	SOURCEPAGE:SRD 5.2.1, p.95
+Shovel	KEY:Shovel	TYPE:Goods	COST:2	WT:5	SOURCEPAGE:SRD 5.2.1, p.95
+Diplomat’s Pack	KEY:Diplomat’s Pack	TYPE:Goods	COST:39	WT:39	SOURCEPAGE:SRD 5.2.1, p.95
+Signal Whistle	KEY:Signal Whistle	TYPE:Goods	COST:0.05	WT:0	SOURCEPAGE:SRD 5.2.1, p.95
+Druidic Focus	KEY:Druidic Focus	TYPE:Goods	COST:0	WT:0	SPROP:Cost and weight vary; see the description.	SOURCEPAGE:SRD 5.2.1, p.95
+Dungeoneer’s Pack	KEY:Dungeoneer’s Pack	TYPE:Goods	COST:12	WT:55	SOURCEPAGE:SRD 5.2.1, p.95
+Entertainer’s Pack	KEY:Entertainer’s Pack	TYPE:Goods	COST:40	WT:58.5	SOURCEPAGE:SRD 5.2.1, p.95
+Spikes, Iron	KEY:Iron Spikes	TYPE:Goods	COST:1	WT:5	SOURCEPAGE:SRD 5.2.1, p.95
+Explorer’s Pack	KEY:Explorer’s Pack	TYPE:Goods	COST:10	WT:55	SOURCEPAGE:SRD 5.2.1, p.95
+Spyglass	KEY:Spyglass	TYPE:Goods	COST:1000	WT:1	SOURCEPAGE:SRD 5.2.1, p.95
+Flask	KEY:Flask	TYPE:Goods	COST:0.02	WT:1	SOURCEPAGE:SRD 5.2.1, p.95
+String	KEY:String	TYPE:Goods	COST:0.1	WT:0	SOURCEPAGE:SRD 5.2.1, p.95
+Grappling Hook	KEY:Grappling Hook	TYPE:Goods	COST:2	WT:4	SOURCEPAGE:SRD 5.2.1, p.95
+Tent	KEY:Tent	TYPE:Goods	COST:2	WT:20	SOURCEPAGE:SRD 5.2.1, p.95
+Healer’s Kit	KEY:Healer’s Kit	TYPE:Goods	COST:5	WT:3	SOURCEPAGE:SRD 5.2.1, p.95
+Tinderbox	KEY:Tinderbox	TYPE:Goods	COST:0.5	WT:1	SOURCEPAGE:SRD 5.2.1, p.95
+Holy Symbol	KEY:Holy Symbol	TYPE:Goods	COST:0	WT:0	SPROP:Cost and weight vary; see the description.	SOURCEPAGE:SRD 5.2.1, p.95
+Torch	KEY:Torch	TYPE:Goods	COST:0.01	WT:1	SOURCEPAGE:SRD 5.2.1, p.95
+Holy Water	KEY:Holy Water	TYPE:Goods	COST:25	WT:1	SOURCEPAGE:SRD 5.2.1, p.95
+Vial	KEY:Vial	TYPE:Goods	COST:1	WT:0	SOURCEPAGE:SRD 5.2.1, p.95
+Hunting Trap	KEY:Hunting Trap	TYPE:Goods	COST:5	WT:25	SOURCEPAGE:SRD 5.2.1, p.95
+Waterskin	KEY:Waterskin	TYPE:Goods	COST:0.2	WT:5	SOURCEPAGE:SRD 5.2.1, p.95
+Ink	KEY:Ink	TYPE:Goods	COST:10	WT:0	SOURCEPAGE:SRD 5.2.1, p.95
+Crystal	KEY:Crystal	TYPE:Goods	COST:10	WT:1	SOURCEPAGE:SRD 5.2.1, p.96
+Orb	KEY:Orb	TYPE:Goods	COST:20	WT:3	SOURCEPAGE:SRD 5.2.1, p.96
+Rod	KEY:Rod	TYPE:Goods	COST:10	WT:2	SOURCEPAGE:SRD 5.2.1, p.96
+Staff (also a Quarterstaff)	KEY:Staff (also a Quarterstaff)	TYPE:Goods	COST:5	WT:4	SOURCEPAGE:SRD 5.2.1, p.96
+Wand	KEY:Wand	TYPE:Goods	COST:10	WT:1	SOURCEPAGE:SRD 5.2.1, p.96
+Amulet (worn or held)	KEY:Amulet (worn or held)	TYPE:Goods	COST:5	WT:1	SOURCEPAGE:SRD 5.2.1, p.97
+Emblem (borne on fabric or a Shield)	KEY:Emblem (borne on fabric or a Shield)	TYPE:Goods	COST:5	WT:0	SOURCEPAGE:SRD 5.2.1, p.97
+Reliquary (held)	KEY:Reliquary (held)	TYPE:Goods	COST:5	WT:2	SOURCEPAGE:SRD 5.2.1, p.97
+Sprig of mistletoe	KEY:Sprig of mistletoe	TYPE:Goods	COST:1	WT:0	SOURCEPAGE:SRD 5.2.1, p.97
+Wooden staff (also a Quarterstaff)	KEY:Wooden staff (also a Quarterstaff)	TYPE:Goods	COST:5	WT:4	SOURCEPAGE:SRD 5.2.1, p.97
+Yew wand	KEY:Yew wand	TYPE:Goods	COST:10	WT:1	SOURCEPAGE:SRD 5.2.1, p.97
+Camel	KEY:Camel	TYPE:Goods	COST:50	WT:450	SOURCEPAGE:SRD 5.2.1, p.100
+Elephant	KEY:Elephant	TYPE:Goods	COST:200	WT:1320	SOURCEPAGE:SRD 5.2.1, p.100
+Horse, Draft	KEY:Draft Horse	TYPE:Goods	COST:50	WT:540	SOURCEPAGE:SRD 5.2.1, p.100
+Horse, Riding	KEY:Riding Horse	TYPE:Goods	COST:75	WT:480	SOURCEPAGE:SRD 5.2.1, p.100
+Mastiff	KEY:Mastiff	TYPE:Goods	COST:25	WT:195	SOURCEPAGE:SRD 5.2.1, p.100
+Mule	KEY:Mule	TYPE:Goods	COST:8	WT:420	SOURCEPAGE:SRD 5.2.1, p.100
+Pony	KEY:Pony	TYPE:Goods	COST:30	WT:225	SOURCEPAGE:SRD 5.2.1, p.100
+Warhorse	KEY:Warhorse	TYPE:Goods	COST:400	WT:540	SOURCEPAGE:SRD 5.2.1, p.100
+Carriage	KEY:Carriage	TYPE:Goods	COST:100	WT:600	SOURCEPAGE:SRD 5.2.1, p.100
+Cart	KEY:Cart	TYPE:Goods	COST:15	WT:200	SOURCEPAGE:SRD 5.2.1, p.100
+Chariot	KEY:Chariot	TYPE:Goods	COST:250	WT:100	SOURCEPAGE:SRD 5.2.1, p.100
+Feed per day	KEY:Feed per day	TYPE:Goods	COST:0.05	WT:10	SOURCEPAGE:SRD 5.2.1, p.100
+Exotic Saddle	KEY:Exotic Saddle	TYPE:Goods	COST:60	WT:40	SOURCEPAGE:SRD 5.2.1, p.100
+Military Saddle	KEY:Military Saddle	TYPE:Goods	COST:20	WT:30	SOURCEPAGE:SRD 5.2.1, p.100
+Riding Saddle	KEY:Riding Saddle	TYPE:Goods	COST:10	WT:25	SOURCEPAGE:SRD 5.2.1, p.100
+Sled	KEY:Sled	TYPE:Goods	COST:20	WT:300	SOURCEPAGE:SRD 5.2.1, p.100
+Stabling per day	KEY:Stabling per day	TYPE:Goods	COST:0.5	WT:0	SOURCEPAGE:SRD 5.2.1, p.100
+Wagon	KEY:Wagon	TYPE:Goods	COST:35	WT:400	SOURCEPAGE:SRD 5.2.1, p.100
+Assassin’s Blood	KEY:Assassin’s Blood	TYPE:Goods.Poison	COST:150	WT:0	SOURCEPAGE:SRD 5.2.1, p.197	DESC:Ingested Poison A creature subjected to Assassin’s Blood makes a DC 10 Constitution saving throw. On a failed save, the creature takes 6 (1d12) Poison damage and has the Poisoned condition for 24 hours. On a successful save, the creature takes half as much damage only.
+Burnt Othur Fumes	KEY:Burnt Othur Fumes	TYPE:Goods.Poison	COST:500	WT:0	SOURCEPAGE:SRD 5.2.1, p.197	DESC:Inhaled Poison A creature subjected to Burnt Othur Fumes must succeed on a DC 13 Constitution saving throw or take 10 (3d6) Poison damage, and it must repeat the save at the start of each of its turns. On each successive failed save, the creature takes 3 (1d6) Poison damage. After three successful saves, the poison ends.
+Crawler Mucus	KEY:Crawler Mucus	TYPE:Goods.Poison	COST:200	WT:0	SOURCEPAGE:SRD 5.2.1, p.197	DESC:Contact Poison A creature subjected to Crawler Mucus must succeed on a DC 13 Constitution saving throw or have the Poisoned condition for 1 minute. The creature also has the Paralyzed condition while Poisoned in this way. The creature repeats the save at the end of each of its turns, ending the effect on itself on a success.
+Essence of Ether	KEY:Essence of Ether	TYPE:Goods.Poison	COST:300	WT:0	SOURCEPAGE:SRD 5.2.1, p.197	DESC:Inhaled Poison A creature subjected to Essence of Ether must succeed on a DC 15 Constitution saving throw or have the Poisoned condition for 8 hours. The creature also has the Unconscious condition while Poisoned in this way. The creature wakes up if it takes damage or if another creature takes an action to shake it awake.
+Malice	KEY:Malice	TYPE:Goods.Poison	COST:250	WT:0	SOURCEPAGE:SRD 5.2.1, p.197	DESC:Inhaled Poison A creature subjected to Malice must succeed on a DC 15 Constitution saving throw or have the Poisoned condition for 1 hour. The creature also has the Blinded condition while Poisoned in this way.
+Midnight Tears	KEY:Midnight Tears	TYPE:Goods.Poison	COST:1500	WT:0	SOURCEPAGE:SRD 5.2.1, p.198	DESC:Ingested Poison A creature that ingests Midnight Tears suffers no effect until the stroke of midnight. Any effect that ends the Poisoned condition neutralizes this poison. If the poison hasn’t been neutralized before midnight, the creature makes a DC 17 Constitution saving throw, taking 31 (9d6) Poison damage on a failed save or half as much damage on a successful one.
+Oil of Taggit	KEY:Oil of Taggit	TYPE:Goods.Poison	COST:400	WT:0	SOURCEPAGE:SRD 5.2.1, p.198	DESC:Contact Poison A creature subjected to Oil of Taggit must succeed on a DC 13 Constitution saving throw or have the Poisoned condition for 24 hours. The creature also has the Unconscious condition while Poisoned in this way. It wakes up if it takes damage.
+Pale Tincture	KEY:Pale Tincture	TYPE:Goods.Poison	COST:250	WT:0	SOURCEPAGE:SRD 5.2.1, p.198	DESC:Ingested Poison A creature subjected to Pale Tincture must succeed on a DC 16 Constitution saving throw or take 3 (1d6) Poison damage and have the Poisoned condition. The Poisoned creature repeats the save every 24 hours, taking 3 (1d6) Poison damage on a failed save. The damage the poison deals can’t be healed by any means while the creature remains Poisoned. After seven successful saves against the poison, the creature is no longer Poisoned.
+Purple Worm Poison	KEY:Purple Worm Poison	TYPE:Goods.Poison	COST:2000	WT:0	SOURCEPAGE:SRD 5.2.1, p.198	DESC:Injury Poison A creature subjected to Purple Worm Poison makes a DC 21 Constitution saving throw, taking 35 (10d6) Poison damage on a failed save or half as much damage on a successful one.
+Serpent Venom	KEY:Serpent Venom	TYPE:Goods.Poison	COST:200	WT:0	SOURCEPAGE:SRD 5.2.1, p.198	DESC:Injury Poison A creature subjected to Serpent Venom must succeed on a DC 11 Constitution saving throw, taking 10 (3d6) Poison damage on a failed save or half as much damage on a successful one.
+Spider’s Sting	KEY:Spider’s Sting	TYPE:Goods.Poison	COST:200	WT:0	SOURCEPAGE:SRD 5.2.1, p.198	DESC:Injury Poison A creature subjected to Spider’s Sting must succeed on a DC 13 Constitution saving throw or have the Poisoned condition for 1 hour. If the creature fails the save by 5 or more, the creature also has the Unconscious condition while Poisoned in this way. The creature wakes up if it takes damage or if another creature takes an action to shake it awake.
+Torpor	KEY:Torpor	TYPE:Goods.Poison	COST:600	WT:0	SOURCEPAGE:SRD 5.2.1, p.198	DESC:Ingested Poison A creature subjected to Torpor poison must succeed on a DC 15 Constitution saving throw or have the Poisoned condition for 4d6 hours. The creature’s Speed is halved while the creature is Poisoned in this way.
+Truth Serum	KEY:Truth Serum	TYPE:Goods.Poison	COST:150	WT:0	SOURCEPAGE:SRD 5.2.1, p.198	DESC:Ingested Poison A creature subjected to Truth Serum must succeed on a DC 11 Constitution saving throw or have the Poisoned condition for 1 hour. The Poisoned creature can’t knowingly communicate a lie.
+Wyvern Poison	KEY:Wyvern Poison	TYPE:Goods.Poison	COST:1200	WT:0	SOURCEPAGE:SRD 5.2.1, p.198	DESC:Injury Poison A creature subjected to Wyvern Poison makes a DC 14 Constitution saving throw, taking 24 (7d6) Poison damage on a failed save or half as much damage on a successful one.
+Airship	KEY:Airship	TYPE:Goods.Vehicle	COST:40000	WT:0	SOURCEPAGE:SRD 5.2.1, p.101	DESC:Speed 8 mph; crew 10; passengers 20; cargo (tons) 1; AC 13; HP 300.
+Galley	KEY:Galley	TYPE:Goods.Vehicle	COST:30000	WT:0	SOURCEPAGE:SRD 5.2.1, p.101	DESC:Speed 4 mph; crew 80; cargo (tons) 150; AC 15; HP 500; damage threshold 20.
+Keelboat	KEY:Keelboat	TYPE:Goods.Vehicle	COST:3000	WT:0	SOURCEPAGE:SRD 5.2.1, p.101	DESC:Speed 1 mph; crew 1; passengers 6; cargo (tons) 1/2; AC 15; HP 100; damage threshold 10.
+Longship	KEY:Longship	TYPE:Goods.Vehicle	COST:10000	WT:0	SOURCEPAGE:SRD 5.2.1, p.101	DESC:Speed 3 mph; crew 40; passengers 150; cargo (tons) 10; AC 15; HP 300; damage threshold 15.
+Rowboat	KEY:Rowboat	TYPE:Goods.Vehicle	COST:50	WT:0	SOURCEPAGE:SRD 5.2.1, p.101	DESC:Speed 1.5 mph; crew 1; passengers 3; AC 11; HP 50.
+Sailing Ship	KEY:Sailing Ship	TYPE:Goods.Vehicle	COST:10000	WT:0	SOURCEPAGE:SRD 5.2.1, p.101	DESC:Speed 2 mph; crew 20; passengers 20; cargo (tons) 100; AC 15; HP 300; damage threshold 15.
+Warship	KEY:Warship	TYPE:Goods.Vehicle	COST:25000	WT:0	SOURCEPAGE:SRD 5.2.1, p.101	DESC:Speed 2.5 mph; crew 60; passengers 60; cargo (tons) 200; AC 15; HP 500; damage threshold 20.
+Arrows (20)	KEY:Arrows (20)	TYPE:Goods.Ammunition	COST:1	WT:1	SOURCEPAGE:SRD 5.2.1, p.96	DESC:Sold in bundles of 20. Typically stored in a Quiver, which must be bought separately.
+Bolts (20)	KEY:Bolts (20)	TYPE:Goods.Ammunition	COST:1	WT:1.5	SOURCEPAGE:SRD 5.2.1, p.96	DESC:Sold in bundles of 20. Typically stored in a Case, which must be bought separately.
+Bullets, Firearm (10)	KEY:Firearm Bullets (10)	TYPE:Goods.Ammunition	COST:3	WT:2	SOURCEPAGE:SRD 5.2.1, p.96	DESC:Sold in bundles of 10. Typically stored in a Pouch, which must be bought separately.
+Bullets, Sling (20)	KEY:Sling Bullets (20)	TYPE:Goods.Ammunition	COST:0.04	WT:1.5	SOURCEPAGE:SRD 5.2.1, p.96	DESC:Sold in bundles of 20. Typically stored in a Pouch, which must be bought separately.
+Needles (50)	KEY:Needles (50)	TYPE:Goods.Ammunition	COST:1	WT:1	SOURCEPAGE:SRD 5.2.1, p.96	DESC:Sold in bundles of 50. Typically stored in a Pouch, which must be bought separately.
+Ale (mug)	KEY:Ale (mug)	TYPE:Goods.Food	COST:0.04	WT:0	SOURCEPAGE:SRD 5.2.1, p.101
+Bread (loaf)	KEY:Bread (loaf)	TYPE:Goods.Food	COST:0.02	WT:0	SOURCEPAGE:SRD 5.2.1, p.101
+Cheese (wedge)	KEY:Cheese (wedge)	TYPE:Goods.Food	COST:0.1	WT:0	SOURCEPAGE:SRD 5.2.1, p.101
+Squalid Inn Stay per Day	KEY:Squalid Inn Stay per Day	TYPE:Goods.Food	COST:0.07	WT:0	SOURCEPAGE:SRD 5.2.1, p.101
+Poor Inn Stay per Day	KEY:Poor Inn Stay per Day	TYPE:Goods.Food	COST:0.1	WT:0	SOURCEPAGE:SRD 5.2.1, p.101
+Modest Inn Stay per Day	KEY:Modest Inn Stay per Day	TYPE:Goods.Food	COST:0.5	WT:0	SOURCEPAGE:SRD 5.2.1, p.101
+Comfortable Inn Stay per Day	KEY:Comfortable Inn Stay per Day	TYPE:Goods.Food	COST:0.8	WT:0	SOURCEPAGE:SRD 5.2.1, p.101
+Wealthy Inn Stay per Day	KEY:Wealthy Inn Stay per Day	TYPE:Goods.Food	COST:2	WT:0	SOURCEPAGE:SRD 5.2.1, p.101
+Aristocratic Inn Stay per Day	KEY:Aristocratic Inn Stay per Day	TYPE:Goods.Food	COST:4	WT:0	SOURCEPAGE:SRD 5.2.1, p.101
+Squalid Meal	KEY:Squalid Meal	TYPE:Goods.Food	COST:0.01	WT:0	SOURCEPAGE:SRD 5.2.1, p.101
+Poor Meal	KEY:Poor Meal	TYPE:Goods.Food	COST:0.02	WT:0	SOURCEPAGE:SRD 5.2.1, p.101
+Modest Meal	KEY:Modest Meal	TYPE:Goods.Food	COST:0.1	WT:0	SOURCEPAGE:SRD 5.2.1, p.101
+Comfortable Meal	KEY:Comfortable Meal	TYPE:Goods.Food	COST:0.2	WT:0	SOURCEPAGE:SRD 5.2.1, p.102
+Wealthy Meal	KEY:Wealthy Meal	TYPE:Goods.Food	COST:0.3	WT:0	SOURCEPAGE:SRD 5.2.1, p.102
+Aristocratic Meal	KEY:Aristocratic Meal	TYPE:Goods.Food	COST:0.6	WT:0	SOURCEPAGE:SRD 5.2.1, p.102
+Common Wine (bottle)	KEY:Common Wine (bottle)	TYPE:Goods.Food	COST:0.2	WT:0	SOURCEPAGE:SRD 5.2.1, p.102
+Fine Wine (bottle)	KEY:Fine Wine (bottle)	TYPE:Goods.Food	COST:10	WT:0	SOURCEPAGE:SRD 5.2.1, p.102
+Alchemist’s Supplies	KEY:Alchemist’s Supplies	TYPE:Goods.Tool	COST:50	WT:8	SOURCEPAGE:SRD 5.2.1, p.93	DESC:Ability: Intelligence Weight: 8 lb. Utilize: Identify a substance (DC 15), or start a fire (DC 15) Craft: Acid, Alchemist’s Fire, Component Pouch, Oil, Paper, Perfume
+Brewer’s Supplies	KEY:Brewer’s Supplies	TYPE:Goods.Tool	COST:20	WT:9	SOURCEPAGE:SRD 5.2.1, p.93	DESC:Ability: Intelligence Weight: 9 lb. Utilize: Detect poisoned drink (DC 15), or identify alcohol (DC 10) Craft: Antitoxin
+Calligrapher’s Supplies	KEY:Calligrapher’s Supplies	TYPE:Goods.Tool	COST:10	WT:5	SOURCEPAGE:SRD 5.2.1, p.93	DESC:Ability: Dexterity Weight: 5 lb. Utilize: Write text with impressive flourishes that guard against forgery (DC 15) Craft: Ink, Spell Scroll
+Carpenter’s Tools	KEY:Carpenter’s Tools	TYPE:Goods.Tool	COST:8	WT:6	SOURCEPAGE:SRD 5.2.1, p.93	DESC:Ability: Strength Weight: 6 lb. Utilize: Seal or pry open a door or container (DC 20) Craft: Club, Greatclub, Quarterstaff, Barrel, Chest, Ladder, Pole, Portable Ram, Torch
+Cartographer’s Tools	KEY:Cartographer’s Tools	TYPE:Goods.Tool	COST:15	WT:6	SOURCEPAGE:SRD 5.2.1, p.93	DESC:Ability: Wisdom Weight: 6 lb. Utilize: Draft a map of a small area (DC 15) Craft: Map
+Cobbler’s Tools	KEY:Cobbler’s Tools	TYPE:Goods.Tool	COST:5	WT:5	SOURCEPAGE:SRD 5.2.1, p.93	DESC:Ability: Dexterity Weight: 5 lb. Utilize: Modify footwear to give Advantage on the wearer’s next Dexterity (Acrobatics) check (DC 10) Craft: Climber’s Kit
+Cook’s Utensils	KEY:Cook’s Utensils	TYPE:Goods.Tool	COST:1	WT:8	SOURCEPAGE:SRD 5.2.1, p.93	DESC:Ability: Wisdom Weight: 8 lb. Utilize: Improve food’s flavor (DC 10), or detect spoiled or poisoned food (DC 15) Craft: Rations
+Glassblower’s Tools	KEY:Glassblower’s Tools	TYPE:Goods.Tool	COST:30	WT:5	SOURCEPAGE:SRD 5.2.1, p.93	DESC:Ability: Intelligence Weight: 5 lb. Utilize: Discern what a glass object held in the past 24 hours (DC 15) Craft: Glass Bottle, Magnifying Glass, Spyglass, Vial
+Jeweler’s Tools	KEY:Jeweler’s Tools	TYPE:Goods.Tool	COST:25	WT:2	SOURCEPAGE:SRD 5.2.1, p.93	DESC:Ability: Intelligence Weight: 2 lb. Utilize: Discern a gem’s value (DC 15) Craft: Arcane Focus, Holy Symbol
+Leatherworker’s Tools	KEY:Leatherworker’s Tools	TYPE:Goods.Tool	COST:5	WT:5	SOURCEPAGE:SRD 5.2.1, p.93	DESC:Ability: Dexterity Weight: 5 lb. Utilize: Add a design to a leather item (DC 10) Craft: Sling, Whip, Hide Armor, Leather Armor, Studded Leather Armor, Backpack, Crossbow Bolt Case, Map or Scroll Case, Parchment, Pouch, Quiver, Waterskin
+Mason’s Tools	KEY:Mason’s Tools	TYPE:Goods.Tool	COST:10	WT:8	SOURCEPAGE:SRD 5.2.1, p.93	DESC:Ability: Strength Weight: 8 lb. Utilize: Chisel a symbol or hole in stone (DC 10) Craft: Block and Tackle
+Painter’s Supplies	KEY:Painter’s Supplies	TYPE:Goods.Tool	COST:10	WT:5	SOURCEPAGE:SRD 5.2.1, p.93	DESC:Ability: Wisdom Weight: 5 lb. Utilize: Paint a recognizable image of something you’ve seen (DC 10) Craft: Druidic Focus, Holy Symbol
+Potter’s Tools	KEY:Potter’s Tools	TYPE:Goods.Tool	COST:10	WT:3	SOURCEPAGE:SRD 5.2.1, p.93	DESC:Ability: Intelligence Weight: 3 lb. Utilize: Discern what a ceramic object held in the past 24 hours (DC 15) Craft: Jug, Lamp
+Smith’s Tools	KEY:Smith’s Tools	TYPE:Goods.Tool	COST:20	WT:8	SOURCEPAGE:SRD 5.2.1, p.94	DESC:Ability: Strength Weight: 8 lb. Utilize: Pry open a door or container (DC 20) Craft: Any Melee weapon (except Club, Greatclub, Quarterstaff, and Whip), Medium armor (except Hide), Heavy armor, Ball Bearings, Bucket, Caltrops, Chain, Crowbar, Firearm Bullets, Grappling Hook, Iron Pot, Iron Spikes, Sling Bullets
+Tinker’s Tools	KEY:Tinker’s Tools	TYPE:Goods.Tool	COST:50	WT:10	SOURCEPAGE:SRD 5.2.1, p.94	DESC:Ability: Dexterity Weight: 10 lb. Utilize: Assemble a Tiny item composed of scrap, which falls apart in 1 minute (DC 20) Craft: Musket, Pistol, Bell, Bullseye Lantern, Flask, Hooded Lantern, Hunting Trap, Lock, Manacles, Mirror, Shovel, Signal Whistle, Tinderbox
+Weaver’s Tools	KEY:Weaver’s Tools	TYPE:Goods.Tool	COST:1	WT:5	SOURCEPAGE:SRD 5.2.1, p.94	DESC:Ability: Dexterity Weight: 5 lb. Utilize: Mend a tear in clothing (DC 10), or sew a Tiny design (DC 10) Craft: Padded Armor, Basket, Bedroll, Blanket, Fine Clothes, Net, Robe, Rope, Sack, String, Tent, Traveler’s Clothes
+Woodcarver’s Tools	KEY:Woodcarver’s Tools	TYPE:Goods.Tool	COST:1	WT:5	SOURCEPAGE:SRD 5.2.1, p.94	DESC:Ability: Dexterity Weight: 5 lb. Utilize: Carve a pattern in wood (DC 10) Craft: Club, Greatclub, Quarterstaff, Ranged weapons (except Pistol, Musket, and Sling), Arcane Focus, Arrows, Bolts, Druidic Focus, Ink Pen, Needles
+Disguise Kit	KEY:Disguise Kit	TYPE:Goods.Tool	COST:25	WT:3	SOURCEPAGE:SRD 5.2.1, p.94	DESC:Ability: Charisma Weight: 3 lb. Utilize: Apply makeup (DC 10) Craft: Costume
+Forgery Kit	KEY:Forgery Kit	TYPE:Goods.Tool	COST:15	WT:5	SOURCEPAGE:SRD 5.2.1, p.94	DESC:Ability: Dexterity Weight: 5 lb. Utilize: Mimic 10 or fewer words of someone else’s handwriting (DC 15), or duplicate a wax seal (DC 20)
+Gaming Set	KEY:Gaming Set	TYPE:Goods.Tool	COST:0	WT:0	SPROP:Cost and weight vary; see the description.	SOURCEPAGE:SRD 5.2.1, p.94	DESC:Ability: Wisdom Weight: — Utilize: Discern whether someone is cheating (DC 10), or win the game (DC 20) Variants: Dice (1 SP), dragonchess (1 GP), playing cards (5 SP), three-dragon ante (1 GP)
+Herbalism Kit	KEY:Herbalism Kit	TYPE:Goods.Tool	COST:5	WT:3	SOURCEPAGE:SRD 5.2.1, p.94	DESC:Ability: Intelligence Weight: 3 lb. Utilize: Identify a plant (DC 10) Craft: Antitoxin, Candle, Healer’s Kit, Potion of Healing
+Musical Instrument	KEY:Musical Instrument	TYPE:Goods.Tool	COST:0	WT:0	SPROP:Cost and weight vary; see the description.	SOURCEPAGE:SRD 5.2.1, p.94	DESC:Ability: Charisma Weight: Varies Utilize: Play a known tune (DC 10), or improvise a song (DC 15) Variants: Bagpipes (30 GP, 6 lb.), drum (6 GP, 3 lb.), dulcimer (25 GP, 10 lb.), flute (2 GP, 1 lb.), horn (3 GP, 2 lb.), lute (35 GP, 2 lb.), lyre (30 GP, 2 lb.), pan flute (12 GP, 2 lb.), shawm (2 GP, 1 lb.), viol (30 GP, 1 lb.)
+Navigator’s Tools	KEY:Navigator’s Tools	TYPE:Goods.Tool	COST:25	WT:2	SOURCEPAGE:SRD 5.2.1, p.94	DESC:Ability: Wisdom Weight: 2 lb. Utilize: Plot a course (DC 10), or determine position by stargazing (DC 15)
+Poisoner’s Kit	KEY:Poisoner’s Kit	TYPE:Goods.Tool	COST:50	WT:2	SOURCEPAGE:SRD 5.2.1, p.94	DESC:Ability: Intelligence Weight: 2 lb. Utilize: Detect a poisoned object (DC 10) Craft: Basic Poison
+Thieves’ Tools	KEY:Thieves’ Tools	TYPE:Goods.Tool	COST:25	WT:1	SOURCEPAGE:SRD 5.2.1, p.94	DESC:Ability: Dexterity Weight: 1 lb. Utilize: Pick a lock (DC 15), or disarm a trap (DC 15)
+Dice	KEY:Dice	TYPE:Goods.Tool	COST:0.1	WT:0	SOURCEPAGE:SRD 5.2.1, p.94	DESC:One of the Gaming Set variants.
+Dragonchess	KEY:Dragonchess	TYPE:Goods.Tool	COST:1	WT:0	SOURCEPAGE:SRD 5.2.1, p.94	DESC:One of the Gaming Set variants.
+Playing Cards	KEY:Playing Cards	TYPE:Goods.Tool	COST:0.5	WT:0	SOURCEPAGE:SRD 5.2.1, p.94	DESC:One of the Gaming Set variants.
+Three-Dragon Ante	KEY:Three-Dragon Ante	TYPE:Goods.Tool	COST:1	WT:0	SOURCEPAGE:SRD 5.2.1, p.94	DESC:One of the Gaming Set variants.
+Bagpipes	KEY:Bagpipes	TYPE:Goods.Tool	COST:30	WT:6	SOURCEPAGE:SRD 5.2.1, p.94	DESC:One of the Musical Instrument variants.
+Drum	KEY:Drum	TYPE:Goods.Tool	COST:6	WT:3	SOURCEPAGE:SRD 5.2.1, p.94	DESC:One of the Musical Instrument variants.
+Dulcimer	KEY:Dulcimer	TYPE:Goods.Tool	COST:25	WT:10	SOURCEPAGE:SRD 5.2.1, p.94	DESC:One of the Musical Instrument variants.
+Flute	KEY:Flute	TYPE:Goods.Tool	COST:2	WT:1	SOURCEPAGE:SRD 5.2.1, p.94	DESC:One of the Musical Instrument variants.
+Horn	KEY:Horn	TYPE:Goods.Tool	COST:3	WT:2	SOURCEPAGE:SRD 5.2.1, p.94	DESC:One of the Musical Instrument variants.
+Lute	KEY:Lute	TYPE:Goods.Tool	COST:35	WT:2	SOURCEPAGE:SRD 5.2.1, p.94	DESC:One of the Musical Instrument variants.
+Lyre	KEY:Lyre	TYPE:Goods.Tool	COST:30	WT:2	SOURCEPAGE:SRD 5.2.1, p.94	DESC:One of the Musical Instrument variants.
+Pan Flute	KEY:Pan Flute	TYPE:Goods.Tool	COST:12	WT:2	SOURCEPAGE:SRD 5.2.1, p.94	DESC:One of the Musical Instrument variants.
+Shawm	KEY:Shawm	TYPE:Goods.Tool	COST:2	WT:1	SOURCEPAGE:SRD 5.2.1, p.94	DESC:One of the Musical Instrument variants.
+Viol	KEY:Viol	TYPE:Goods.Tool	COST:30	WT:1	SOURCEPAGE:SRD 5.2.1, p.94	DESC:One of the Musical Instrument variants.
+Trinket 01	KEY:Trinket 01	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.26	DESC:A mummified goblin hand
+Trinket 02	KEY:Trinket 02	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.26	DESC:A crystal that faintly glows in moonlight
+Trinket 03	KEY:Trinket 03	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.26	DESC:A gold coin minted in an unknown land
+Trinket 04	KEY:Trinket 04	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.26	DESC:A diary written in a language you don’t know
+Trinket 05	KEY:Trinket 05	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.26	DESC:A brass ring that never tarnishes
+Trinket 06	KEY:Trinket 06	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.26	DESC:An old chess piece made from glass
+Trinket 07	KEY:Trinket 07	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.26	DESC:A pair of knucklebone dice, each with a skull symbol on the side that would normally show six pips
+Trinket 08	KEY:Trinket 08	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.26	DESC:A small idol depicting a nightmarish creature that gives you unsettling dreams when you sleep near it
+Trinket 09	KEY:Trinket 09	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.26	DESC:A lock of someone’s hair
+Trinket 10	KEY:Trinket 10	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.26	DESC:The deed for a parcel of land in a realm unknown to you
+Trinket 11	KEY:Trinket 11	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.26	DESC:A 1-ounce block made from an unknown material
+Trinket 12	KEY:Trinket 12	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.26	DESC:A small cloth doll skewered with needles
+Trinket 13	KEY:Trinket 13	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.26	DESC:A tooth from an unknown beast
+Trinket 14	KEY:Trinket 14	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.26	DESC:An enormous scale, perhaps from a dragon
+Trinket 15	KEY:Trinket 15	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.26	DESC:A bright-green feather
+Trinket 16	KEY:Trinket 16	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.26	DESC:An old divination card bearing your likeness
+Trinket 17	KEY:Trinket 17	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.26	DESC:A glass orb filled with moving smoke
+Trinket 18	KEY:Trinket 18	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.26	DESC:A 1-pound egg with a bright-red shell
+Trinket 19	KEY:Trinket 19	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.26	DESC:A pipe that blows bubbles
+Trinket 20	KEY:Trinket 20	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.26	DESC:A glass jar containing a bit of flesh floating in pickling fluid
+Trinket 21	KEY:Trinket 21	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.26	DESC:A gnome-crafted music box that plays a song you dimly remember from your childhood
+Trinket 22	KEY:Trinket 22	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.26	DESC:A wooden statuette of a smug halfling
+Trinket 23	KEY:Trinket 23	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.26	DESC:A brass orb etched with strange runes
+Trinket 24	KEY:Trinket 24	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.26	DESC:A multicolored stone disk
+Trinket 25	KEY:Trinket 25	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.26	DESC:A silver icon of a raven
+Trinket 26	KEY:Trinket 26	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.26	DESC:A bag containing forty-seven teeth, one of which is rotten
+Trinket 27	KEY:Trinket 27	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.26	DESC:A shard of obsidian that always feels warm to the touch
+Trinket 28	KEY:Trinket 28	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.26	DESC:A dragon’s talon strung on a leather necklace
+Trinket 29	KEY:Trinket 29	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.26	DESC:A pair of old socks
+Trinket 30	KEY:Trinket 30	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.26	DESC:A blank book whose pages refuse to hold ink, chalk, graphite, or any other marking
+Trinket 31	KEY:Trinket 31	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.26	DESC:A silver badge that is a five-pointed star
+Trinket 32	KEY:Trinket 32	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.26	DESC:A knife that belonged to a relative
+Trinket 33	KEY:Trinket 33	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.26	DESC:A glass vial filled with nail clippings
+Trinket 34	KEY:Trinket 34	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.26	DESC:A rectangular metal device with two tiny metal cups on one end that throws sparks when wet
+Trinket 35	KEY:Trinket 35	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A white, sequined glove sized for a human
+Trinket 36	KEY:Trinket 36	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A vest with one hundred tiny pockets
+Trinket 37	KEY:Trinket 37	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A weightless stone
+Trinket 38	KEY:Trinket 38	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A sketch of a goblin
+Trinket 39	KEY:Trinket 39	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:An empty glass vial that smells of perfume
+Trinket 40	KEY:Trinket 40	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A gemstone that looks like a lump of coal when examined by anyone but you
+Trinket 41	KEY:Trinket 41	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A scrap of cloth from an old banner
+Trinket 42	KEY:Trinket 42	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A rank insignia from a lost legionnaire
+Trinket 43	KEY:Trinket 43	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A silver bell without a clapper
+Trinket 44	KEY:Trinket 44	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A mechanical canary inside a lamp
+Trinket 45	KEY:Trinket 45	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A miniature chest carved to look like it has numerous feet on the bottom
+Trinket 46	KEY:Trinket 46	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A dead sprite inside a clear glass bottle
+Trinket 47	KEY:Trinket 47	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A metal can that has no opening but sounds as if it is filled with liquid, sand, spiders, or broken glass (your choice)
+Trinket 48	KEY:Trinket 48	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A glass orb filled with water, in which swims a clockwork goldfish
+Trinket 49	KEY:Trinket 49	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A silver spoon with an
+Trinket 50	KEY:Trinket 50	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A whistle made from gold-colored wood
+Trinket 51	KEY:Trinket 51	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A dead scarab beetle the size of your hand
+Trinket 52	KEY:Trinket 52	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:Two toy soldiers, one missing a head
+Trinket 53	KEY:Trinket 53	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A small box filled with different-sized buttons
+Trinket 54	KEY:Trinket 54	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A candle that can’t be lit
+Trinket 55	KEY:Trinket 55	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A miniature cage with no door
+Trinket 56	KEY:Trinket 56	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:An old key
+Trinket 57	KEY:Trinket 57	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:An indecipherable treasure map
+Trinket 58	KEY:Trinket 58	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A hilt from a broken sword
+Trinket 59	KEY:Trinket 59	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A rabbit’s foot
+Trinket 60	KEY:Trinket 60	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A glass eye
+Trinket 61	KEY:Trinket 61	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A cameo of a hideous person
+Trinket 62	KEY:Trinket 62	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A silver skull the size of a coin
+Trinket 63	KEY:Trinket 63	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:An alabaster mask
+Trinket 64	KEY:Trinket 64	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A cone of sticky black incense that stinks
+Trinket 65	KEY:Trinket 65	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A nightcap that gives you pleasant dreams when you wear it
+Trinket 66	KEY:Trinket 66	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A single caltrop made from bone
+Trinket 67	KEY:Trinket 67	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A gold monocle frame without the lens
+Trinket 68	KEY:Trinket 68	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A 1-inch cube, each side a different color
+Trinket 69	KEY:Trinket 69	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A crystal doorknob
+Trinket 70	KEY:Trinket 70	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A packet filled with pink dust
+Trinket 71	KEY:Trinket 71	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A fragment of a beautiful song, written as musical notes on two pieces of parchment
+Trinket 72	KEY:Trinket 72	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A silver teardrop earring containing a real teardrop
+Trinket 73	KEY:Trinket 73	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:An eggshell painted with scenes of misery in disturbing detail
+Trinket 74	KEY:Trinket 74	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A fan that, when unfolded, shows a sleepy cat
+Trinket 75	KEY:Trinket 75	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A set of bone pipes
+Trinket 76	KEY:Trinket 76	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A four-leaf clover pressed inside a book discussing manners and etiquette
+Trinket 77	KEY:Trinket 77	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A sheet of parchment upon which is drawn a mechanical contraption
+Trinket 78	KEY:Trinket 78	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:An ornate scabbard that fits no blade you have found
+Trinket 79	KEY:Trinket 79	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:An invitation to a party where a murder happened
+Trinket 80	KEY:Trinket 80	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A bronze pentacle with an etching of a rat’s head in its center
+Trinket 81	KEY:Trinket 81	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A purple handkerchief embroidered with the name of an archmage
+Trinket 82	KEY:Trinket 82	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:Half a floor plan for a temple, a castle, or another structure
+Trinket 83	KEY:Trinket 83	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A bit of folded cloth that, when unfolded, turns into a stylish cap
+Trinket 84	KEY:Trinket 84	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A receipt of deposit at a bank in a far-off city
+Trinket 85	KEY:Trinket 85	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A diary with seven missing pages
+Trinket 86	KEY:Trinket 86	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:An empty silver snuffbox bearing the inscription “dreams” on its lid
+Trinket 87	KEY:Trinket 87	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:An iron holy symbol devoted to an unknown god
+Trinket 88	KEY:Trinket 88	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A book about a legendary hero’s rise and fall, with the last chapter missing
+Trinket 89	KEY:Trinket 89	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A vial of dragon blood
+Trinket 90	KEY:Trinket 90	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:An ancient arrow of elven design
+Trinket 91	KEY:Trinket 91	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A needle that never bends
+Trinket 92	KEY:Trinket 92	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:An ornate brooch of dwarven design
+Trinket 93	KEY:Trinket 93	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:An empty wine bottle bearing a pretty label that says, “The Wizard of Wines Winery, Red Dragon Crush, 331422-W”
+Trinket 94	KEY:Trinket 94	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A mosaic tile with a multicolored, glazed surface
+Trinket 95	KEY:Trinket 95	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A petrified mouse
+Trinket 96	KEY:Trinket 96	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A black pirate flag adorned with a dragon’s skull and crossbones
+Trinket 97	KEY:Trinket 97	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A tiny mechanical crab or spider that moves about when it’s not being observed
+Trinket 98	KEY:Trinket 98	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A glass jar containing lard with a label that reads, “Griffon Grease”
+Trinket 99	KEY:Trinket 99	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A wooden box with a ceramic bottom that holds a living worm with a head on each end of its body
+Trinket 00	KEY:Trinket 00	TYPE:Goods.Trinket	COST:0	WT:0	SOURCEPAGE:SRD 5.2.1, p.27	DESC:A metal urn containing the ashes of a hero

@@ -1,0 +1,15 @@
+# One proficiency per suit, so a class granting Light armor training
+# has something to grant.
+
+Padded Armor	TYPE:LightArmor
+Leather Armor	TYPE:LightArmor
+Studded Leather Armor	TYPE:LightArmor
+Hide Armor	TYPE:MediumArmor
+Chain Shirt	TYPE:MediumArmor
+Scale Mail	TYPE:MediumArmor
+Breastplate	TYPE:MediumArmor
+Half Plate Armor	TYPE:MediumArmor
+Ring Mail	TYPE:HeavyArmor
+Chain Mail	TYPE:HeavyArmor
+Splint Armor	TYPE:HeavyArmor
+Plate Armor	TYPE:HeavyArmor

@@ -1,0 +1,23 @@
+# Read from the Standard and Rare Languages tables. Two are new in 2024 --
+# Common Sign Language and Thieves' Cant -- which is why this is parsed
+# from the page rather than carried over from the 2014 list.
+
+Common	TYPE:Spoken.Standard
+Common Sign Language	TYPE:Spoken.Standard
+Draconic	TYPE:Spoken.Standard
+Dwarvish	TYPE:Spoken.Standard
+Elvish	TYPE:Spoken.Standard
+Giant	TYPE:Spoken.Standard
+Gnomish	TYPE:Spoken.Standard
+Goblin	TYPE:Spoken.Standard
+Halfling	TYPE:Spoken.Standard
+Orc	TYPE:Spoken.Standard
+Abyssal	TYPE:Spoken.Rare
+Primordial	TYPE:Spoken.Rare
+Celestial	TYPE:Spoken.Rare
+Sylvan	TYPE:Spoken.Rare
+Deep Speech	TYPE:Spoken.Rare
+Thieves' Cant	TYPE:Spoken.Rare
+Druidic	TYPE:Spoken.Rare
+Undercommon	TYPE:Spoken.Rare
+Infernal	TYPE:Spoken.Rare

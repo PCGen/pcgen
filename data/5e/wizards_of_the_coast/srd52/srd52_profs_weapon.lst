@@ -1,0 +1,42 @@
+# Derived from the weapon file, so a weapon's PROFICIENCY always names a
+# proficiency that exists, and so a class trained in Martial weapons of one
+# property can name that property. Regenerate both together.
+
+Club	TYPE:Weapon.Simple.Melee.Light
+Dagger	TYPE:Weapon.Simple.Melee.Ranged.Finesse.Light.Thrown
+Greatclub	TYPE:Weapon.Simple.Melee
+Handaxe	TYPE:Weapon.Simple.Melee.Ranged.Light.Thrown
+Javelin	TYPE:Weapon.Simple.Melee.Ranged.Thrown
+Light Hammer	TYPE:Weapon.Simple.Melee.Ranged.Light.Thrown
+Mace	TYPE:Weapon.Simple.Melee
+Quarterstaff	TYPE:Weapon.Simple.Melee
+Sickle	TYPE:Weapon.Simple.Melee.Light
+Spear	TYPE:Weapon.Simple.Melee.Ranged.Thrown
+Dart	TYPE:Weapon.Simple.Ranged.Finesse.Thrown
+Light Crossbow	TYPE:Weapon.Simple.Ranged
+Shortbow	TYPE:Weapon.Simple.Ranged
+Sling	TYPE:Weapon.Simple.Ranged
+Battleaxe	TYPE:Weapon.Martial.Melee
+Flail	TYPE:Weapon.Martial.Melee
+Glaive	TYPE:Weapon.Martial.Melee.Heavy.Reach
+Greataxe	TYPE:Weapon.Martial.Melee.Heavy
+Greatsword	TYPE:Weapon.Martial.Melee.Heavy
+Halberd	TYPE:Weapon.Martial.Melee.Heavy.Reach
+Lance	TYPE:Weapon.Martial.Melee.Heavy.Reach
+Longsword	TYPE:Weapon.Martial.Melee
+Maul	TYPE:Weapon.Martial.Melee.Heavy
+Morningstar	TYPE:Weapon.Martial.Melee
+Pike	TYPE:Weapon.Martial.Melee.Heavy.Reach
+Rapier	TYPE:Weapon.Martial.Melee.Finesse
+Scimitar	TYPE:Weapon.Martial.Melee.Finesse.Light
+Shortsword	TYPE:Weapon.Martial.Melee.Finesse.Light
+Trident	TYPE:Weapon.Martial.Melee.Ranged.Thrown
+Warhammer	TYPE:Weapon.Martial.Melee
+War Pick	TYPE:Weapon.Martial.Melee
+Whip	TYPE:Weapon.Martial.Melee.Finesse.Reach
+Blowgun	TYPE:Weapon.Martial.Ranged
+Hand Crossbow	TYPE:Weapon.Martial.Ranged.Light
+Heavy Crossbow	TYPE:Weapon.Martial.Ranged.Heavy
+Longbow	TYPE:Weapon.Martial.Ranged.Heavy
+Musket	TYPE:Weapon.Martial.Ranged
+Pistol	TYPE:Weapon.Martial.Ranged

@@ -1,0 +1,24 @@
+# What a creature's Hit Dice are levels in. A stat block prints
+# 'HP 94 (9d10 + 45)', and those nine d10s are what make a Troll
+# a monster rather than a species carrying a Troll's ability
+# scores. One class per die size, because in the 2024 rules the
+# die follows the creature's size.
+
+CLASS:Monster Hit Die d4	HD:4	TYPE:Monster	MAXLEVEL:50	FACT:ClassType|Monster	VISIBLE:NO
+CLASS:Monster Hit Die d4	STARTSKILLPTS:0	MODTOSKILLS:NO
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
+CLASS:Monster Hit Die d6	HD:6	TYPE:Monster	MAXLEVEL:50	FACT:ClassType|Monster	VISIBLE:NO
+CLASS:Monster Hit Die d6	STARTSKILLPTS:0	MODTOSKILLS:NO
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
+CLASS:Monster Hit Die d8	HD:8	TYPE:Monster	MAXLEVEL:50	FACT:ClassType|Monster	VISIBLE:NO
+CLASS:Monster Hit Die d8	STARTSKILLPTS:0	MODTOSKILLS:NO
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
+CLASS:Monster Hit Die d10	HD:10	TYPE:Monster	MAXLEVEL:50	FACT:ClassType|Monster	VISIBLE:NO
+CLASS:Monster Hit Die d10	STARTSKILLPTS:0	MODTOSKILLS:NO
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
+CLASS:Monster Hit Die d12	HD:12	TYPE:Monster	MAXLEVEL:50	FACT:ClassType|Monster	VISIBLE:NO
+CLASS:Monster Hit Die d12	STARTSKILLPTS:0	MODTOSKILLS:NO
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
+CLASS:Monster Hit Die d20	HD:20	TYPE:Monster	MAXLEVEL:50	FACT:ClassType|Monster	VISIBLE:NO
+CLASS:Monster Hit Die d20	STARTSKILLPTS:0	MODTOSKILLS:NO
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
