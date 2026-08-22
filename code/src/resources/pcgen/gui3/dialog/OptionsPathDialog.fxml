@@ -10,7 +10,7 @@
   *
   * This library is distributed in the hope that it will be useful,
   * but WITHOUT ANY WARRANTY; without even the implied warranty of
-  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.     See the GNU
+  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.      See the GNU
   * Lesser General Public License for more details.
   *
   * You should have received a copy of the GNU Lesser General Public
@@ -18,48 +18,71 @@
   * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
   -->
 
-<!--
-This dialog can't really be localized, since we don't yet know which locale to use.
-We could possibly rely on the system locale, but that's a bigger decision.
--->
-<?import javafx.scene.layout.AnchorPane?><?import javafx.scene.layout.BorderPane?><?import javafx.scene.text.Text?><?import javafx.scene.control.ToggleGroup?><?import javafx.scene.control.Label?><?import javafx.scene.control.RadioButton?><?import javafx.scene.text.TextFlow?><?import java.net.URL?><?import javafx.scene.control.TextArea?><?import javafx.scene.control.TextField?><?import javafx.scene.layout.HBox?><?import javafx.scene.layout.VBox?><?import javafx.scene.control.ButtonBar?><?import javafx.scene.control.Button?><?import javafx.scene.Scene?><?import javafx.scene.layout.Region?><?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.text.TextFlow?>
+<?import java.net.URL?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.Scene?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.Pane?>
+
 <Scene xmlns="http://javafx.com/javafx"
        xmlns:fx="http://javafx.com/fxml"
        fx:controller="pcgen.gui3.dialog.OptionsPathDialogController"
        fx:id="optionsPathDialogScene">
-<AnchorPane>
-    <BorderPane id="selectDirectoryPane">
-        <top>
-            <HBox id="topRegion">
-                <Text text="Select a directory to store PCGen options in" />
-            </HBox>
-        </top>
-        <center>
-            <fx:define>
-                <ToggleGroup fx:id="directoryGroup" />
-            </fx:define>
-            <VBox>
-            <Text text="If you have an existing options.ini file, then select the directory containing that file"/>
-                <RadioButton toggleGroup="$directoryGroup" fx:id="pcgenDir" text="PCGen Dir: This is the directory that PCGen is installed into." userData="pcgen"/>
-                <RadioButton toggleGroup="$directoryGroup" fx:id="macUserDir" text="Mac User Dir" userData="user"/>
-                <RadioButton toggleGroup="$directoryGroup" fx:id="freedesktop" text="Freedesktop configuration sub-directory: Use for most Linux/BSD" userData="FD_USER">
-                </RadioButton>
-                <RadioButton toggleGroup="$directoryGroup" fx:id="homedir" text="Home Dir: This is your home directory" userData="mac_user"/>
-                <RadioButton toggleGroup="$directoryGroup" fx:id="select" text="Select a directory to use"/>
-            </VBox>
-        </center>
-        <bottom>
-            <VBox>
-                <HBox>
-                    <TextField fx:id="dirSelection" editable="false" disable="true" HBox.hgrow="always"/>
-                    <Button fx:id="selectButton" text="..." onAction="#doChooser" />
-                </HBox>
-                <Button text="OK" onAction="#onConfirm" />
-            </VBox>
-        </bottom>
-    </BorderPane>
-    <stylesheets>
-        <URL value="@OptionsPathDialog.css"/>
-    </stylesheets>
-</AnchorPane>
+    <AnchorPane>
+        <!-- Added anchors so the layout dynamically fills the window with a 15px margin -->
+        <BorderPane id="selectDirectoryPane" AnchorPane.topAnchor="15.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
+            
+            <top>
+                <!-- Grouped the instructional text logically with spacing and a bottom padding buffer -->
+                <VBox spacing="10" style="-fx-padding: 0 0 15 0;">
+                    <Text text="Select a directory to store PCGen options in:" style="-fx-font-weight: bold;"/>
+                    <Text text="If you have an existing options.ini file, then select the directory containing that file."/>
+                </VBox>
+            </top>
+            
+            <center>
+                <fx:define>
+                    <ToggleGroup fx:id="directoryGroup" />
+                </fx:define>
+                <!-- Added 10px of spacing so the radio buttons are no longer touching -->
+                <VBox spacing="10">
+                    <RadioButton toggleGroup="$directoryGroup" fx:id="pcgenDir" text="PCGen Dir: This is the directory that PCGen is installed into." userData="pcgen"/>
+                    <RadioButton toggleGroup="$directoryGroup" fx:id="macUserDir" text="Mac User Dir" userData="user"/>
+                    <RadioButton toggleGroup="$directoryGroup" fx:id="freedesktop" text="Freedesktop configuration sub-directory: Use for most Linux/BSD" userData="FD_USER"/>
+                    <RadioButton toggleGroup="$directoryGroup" fx:id="homedir" text="Home Dir: This is your home directory" userData="mac_user"/>
+                    <RadioButton toggleGroup="$directoryGroup" fx:id="select" text="Select a directory to use:"/>
+                </VBox>
+            </center>
+            
+            <bottom>
+                <!-- Separated the bottom controls from the center list using a top padding buffer -->
+                <VBox spacing="15" style="-fx-padding: 15 0 0 0;">
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <TextField fx:id="dirSelection" editable="false" disable="true" HBox.hgrow="ALWAYS"/>
+                        <Button fx:id="selectButton" text="..." onAction="#doChooser" />
+                    </HBox>
+                    <!-- Right-aligned the OK button for standard dialog UX -->
+                    <HBox alignment="CENTER_RIGHT">
+                        <Button text="OK" onAction="#onConfirm" prefWidth="80" />
+                    </HBox>
+                </VBox>
+            </bottom>
+            
+        </BorderPane>
+        <stylesheets>
+            <URL value="@OptionsPathDialog.css"/>
+        </stylesheets>
+    </AnchorPane>
 </Scene>
