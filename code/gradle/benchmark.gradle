@@ -1,0 +1,35 @@
+/* PCGen JMH micro-benchmarks. Defines the `jmh` source set (code/src/jmh),
+ * its JMH dependencies, and the `benchmark` task that runs them. Kept separate
+ * from build.gradle as it is a developer-only concern, not part of `build`.
+ * Called from the main build.gradle file.
+ *
+ * Usage: ./gradlew benchmark
+ *        ./gradlew benchmark --args='TypeBenchmark -f 1 -wi 3 -i 5 -prof gc'
+ */
+
+sourceSets {
+    jmh {
+        java {
+            srcDirs = ['code/src/jmh']
+        }
+        compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+        runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    }
+}
+
+// Declaring the jmh source set above auto-creates these configurations.
+dependencies {
+    jmhImplementation 'org.openjdk.jmh:jmh-core:1.37'
+    jmhAnnotationProcessor 'org.openjdk.jmh:jmh-generator-annprocess:1.37'
+}
+
+tasks.register("benchmark", JavaExec) {
+    group = 'verification'
+    description = 'Runs the JMH micro-benchmarks (code/src/jmh).'
+    dependsOn tasks.named('jmhClasses')
+    mainClass = 'org.openjdk.jmh.Main'
+    classpath = sourceSets.jmh.runtimeClasspath
+    jvmArgs = [
+            '-Djava.awt.headless=true',
+    ]
+}

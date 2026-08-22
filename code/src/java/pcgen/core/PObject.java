@@ -203,6 +203,22 @@ public class PObject extends CDOMObject
 		return true;
 	}
 
+	/**
+	 * Returns whether this object is of the given single {@link Type}. Fast path
+	 * for callers that already hold an interned Type: skips the uppercase,
+	 * tokenize and {@code Type.getConstant} intern that {@link #isType(String)}
+	 * must do.
+	 *
+	 * @param type
+	 *            The Type to check for
+	 * @return true if this object is of the given Type; false otherwise
+	 */
+	@Override
+	public boolean isType(final Type type)
+	{
+		return containsInList(ListKey.TYPE, type);
+	}
+
 	@Override
 	public String toString()
 	{

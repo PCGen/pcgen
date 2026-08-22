@@ -34,11 +34,11 @@ import pcgen.core.Skill;
  */
 public class ClassSkillList extends CDOMListObject<Skill>
 {
-	private Set<Type> types;
+	private final Set<Type> types = new HashSet<>();
 
 	/**
 	 * Returns the Skill Class object (Skill.class)
-	 * 
+	 *
 	 * @return the Skill Class object (Skill.class)
 	 */
 	@Override
@@ -53,7 +53,7 @@ public class ClassSkillList extends CDOMListObject<Skill>
 	@Override
 	public boolean isType(String type)
 	{
-		if ((type.isEmpty()) || (types == null))
+		if (type.isEmpty())
 		{
 			return false;
 		}
@@ -72,12 +72,14 @@ public class ClassSkillList extends CDOMListObject<Skill>
 		return true;
 	}
 
+	@Override
+	public boolean isType(Type type)
+	{
+		return types.contains(type);
+	}
+
 	public void addType(Type type)
 	{
-		if (types == null)
-		{
-			types = new HashSet<>();
-		}
 		types.add(type);
 	}
 

@@ -755,7 +755,7 @@ public class AbilityCategory
 			{
 				for (Type type : types)
 				{
-					if (ability.isType(type.toString()))
+					if (ability.isType(type))
 					{
 						use = true;
 						break;

@@ -124,18 +124,19 @@ public final class Comparators
 	private static final class TreeTableNodeComparator implements Comparator<Object>, Serializable
 	{
 
+		private static final Collator COLLATOR = Collator.getInstance();
+
 		@Override
 		public int compare(Object o1, Object o2)
 		{
 			String key1 = getSortKey(o1);
 			String key2 = getSortKey(o2);
-			final Collator collator = Collator.getInstance();
 
 			if (!key1.equals(key2))
 			{
-				return collator.compare(key1, key2);
+				return COLLATOR.compare(key1, key2);
 			}
-			return collator.compare(String.valueOf(o1), String.valueOf(o2));
+			return COLLATOR.compare(String.valueOf(o1), String.valueOf(o2));
 		}
 
 		private static String getSortKey(Object obj1)

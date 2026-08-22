@@ -21,6 +21,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -43,6 +44,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.content.RollMethod;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.inst.Dynamic;
 import pcgen.util.Logging;
 import pcgen.util.StringPClassUtil;
@@ -323,6 +325,21 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable> implemen
 
 	private boolean resolveGroupReferences()
 	{
+		/*
+		 * Intern each group key's tokens to Type constants once, before the
+		 * per-object loop, so the objects x groups x tokens matching below does
+		 * cheap Type lookups instead of re-interning strings each time.
+		 */
+		Map<FixedStringList, Type[]> internedKeys = new HashMap<>(typeReferences.size());
+		for (FixedStringList key : typeReferences.keySet())
+		{
+			Type[] types = new Type[key.size()];
+			for (int i = 0; i < types.length; i++)
+			{
+				types[i] = Type.getConstant(key.get(i));
+			}
+			internedKeys.put(key, types);
+		}
 		for (T obj : getAllObjects())
 		{
 			if (allRef != null)
@@ -335,7 +352,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable> implemen
 				if (trt != null)
 				{
 					boolean typeOkay = true;
-					for (String type : me.getKey())
+					for (Type type : internedKeys.get(me.getKey()))
 					{
 						if (!obj.isType(type))
 						{

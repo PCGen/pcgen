@@ -34,11 +34,11 @@ import pcgen.core.spell.Spell;
  */
 public class ClassSpellList extends CDOMListObject<Spell>
 {
-	private Set<Type> types;
+	private final Set<Type> types = new HashSet<>();
 
 	/**
 	 * Returns the Spell Class object (Spell.class)
-	 * 
+	 *
 	 * @return the Spell Class object (Spell.class)
 	 */
 	@Override
@@ -53,7 +53,7 @@ public class ClassSpellList extends CDOMListObject<Spell>
 	@Override
 	public boolean isType(String type)
 	{
-		if ((type.isEmpty()) || (types == null))
+		if (type.isEmpty())
 		{
 			return false;
 		}
@@ -72,12 +72,14 @@ public class ClassSpellList extends CDOMListObject<Spell>
 		return true;
 	}
 
+	@Override
+	public boolean isType(Type type)
+	{
+		return types.contains(type);
+	}
+
 	public void addType(Type type)
 	{
-		if (types == null)
-		{
-			types = new HashSet<>();
-		}
 		types.add(type);
 	}
 
