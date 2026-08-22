@@ -326,14 +326,9 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable> implemen
 	private boolean resolveGroupReferences()
 	{
 		/*
-		 * Intern each group key's tokens to Type constants once, up front, rather
-		 * than re-interning per object. getTypeReference guarantees every element
-		 * is a single, plain type token (no '.', '=', ',', '|'), so each maps to
-		 * exactly one Type.getConstant. This hoists the intern out of the
-		 * objects x groups x tokens inner loop (PObject.isType startup hot path).
-		 * isType(Type) is safe for every T: implementers with non-trivial type
-		 * semantics (e.g. Equipment) inherit Loadable's default, which delegates
-		 * back to isType(String).
+		 * Intern each group key's tokens to Type constants once, before the
+		 * per-object loop, so the objects x groups x tokens matching below does
+		 * cheap Type lookups instead of re-interning strings each time.
 		 */
 		Map<FixedStringList, Type[]> internedKeys = new HashMap<>(typeReferences.size());
 		for (FixedStringList key : typeReferences.keySet())
