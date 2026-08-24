@@ -40,14 +40,14 @@
 
             <!-- Added CENTER_LEFT alignment so labels and boxes align cleanly on the horizontal axis -->
             <HBox spacing="10" alignment="CENTER_LEFT">
-                <Label labelFor="$selectCharacterBox" text="Select Character:" />
+                <Label labelFor="$selectCharacterBox" text="%in_exportSelectCharacter" />
                 <ComboBox fx:id="selectCharacterBox" />
 
                 <!-- Fixed literal text bug and corrected the labelFor target -->
-                <Label labelFor="$entireParty" text="Entire Party:"/>
+                <Label labelFor="$entireParty" text="%in_exportEntireParty"/>
                 <CheckBox fx:id="entireParty" />
 
-                <Label labelFor="$exportSheetType" text="Export To:"/>
+                <Label labelFor="$exportSheetType" text="%in_exportTo"/>
                 <ComboBox fx:id="exportSheetType" />
             </HBox>
 
