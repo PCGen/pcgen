@@ -105,9 +105,7 @@ public class OptionsPathDialogController
 	}
 
 	/**
-	 * Stop the window shrinking below the root's FXML min size. JavaFX applies a
-	 * node's minWidth/minHeight to layout only, not to the Stage, so the window
-	 * must be given a matching minimum once it exists (see #7712).
+	 * Applies the FXML root's min size to the Stage, since JavaFX enforces a node's minWidth/minHeight in layout only, not on the window.
 	 */
 	private void clampWindowToRootMinSize()
 	{
@@ -115,9 +113,7 @@ public class OptionsPathDialogController
 		optionsPathDialogScene.windowProperty().addListener((_, _, window) -> {
 			if (window instanceof Stage stage)
 			{
-				// getWidth()/getHeight() are NaN until the stage is shown, so the
-				// decoration allowance (title bar, borders) can only be measured in
-				// onShown — the window and scene extents are both final by then.
+				// Measure the decoration allowance in onShown, once the window and scene extents are final (both are NaN beforehand).
 				stage.setOnShown(_ -> {
 					double horizontalDecoration = stage.getWidth() - optionsPathDialogScene.getWidth();
 					double verticalDecoration = stage.getHeight() - optionsPathDialogScene.getHeight();

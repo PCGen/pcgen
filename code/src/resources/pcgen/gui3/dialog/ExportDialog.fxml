@@ -35,15 +35,12 @@
        xmlns:fx="http://javafx.com/fxml"
        fx:controller="pcgen.gui3.dialog.ExportDialogController">
     <AnchorPane>
-        <!-- Added anchors so the layout grows with the window, and spacing for breathing room -->
-        <VBox spacing="15" AnchorPane.topAnchor="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+        <VBox spacing="6.0" AnchorPane.topAnchor="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
 
-            <!-- Added CENTER_LEFT alignment so labels and boxes align cleanly on the horizontal axis -->
-            <HBox spacing="10" alignment="CENTER_LEFT">
+            <HBox spacing="6.0" alignment="CENTER_LEFT">
                 <Label labelFor="$selectCharacterBox" text="%in_exportSelectCharacter" />
                 <ComboBox fx:id="selectCharacterBox" />
 
-                <!-- Fixed literal text bug and corrected the labelFor target -->
                 <Label labelFor="$entireParty" text="%in_exportEntireParty"/>
                 <CheckBox fx:id="entireParty" />
 
@@ -51,9 +48,7 @@
                 <ComboBox fx:id="exportSheetType" />
             </HBox>
 
-            <!-- vgrow + maxHeight let the pane consume the free vertical space so the
-                 buttons stay pinned at the bottom. Removed the redundant ScrollPane
-                 because ListView scrolls natively. -->
+            <!-- vgrow + maxHeight let the list consume free vertical space so the buttons stay pinned at the bottom. -->
             <TitledPane text="%in_templates" collapsible="false" VBox.vgrow="ALWAYS" maxHeight="Infinity">
                 <ListView fx:id="templateSelect"/>
             </TitledPane>
@@ -63,8 +58,7 @@
                     <ProgressBar fx:id="progress" progress="-1" visible="false" BorderPane.alignment="CENTER" />
                 </left>
                 <right>
-                    <!-- Added spacing and alignment to the action buttons -->
-                    <HBox spacing="10" alignment="CENTER_RIGHT">
+                    <HBox spacing="6.0" alignment="CENTER_RIGHT">
                         <Button fx:id="doExport" text="%in_mnuFileExport" onAction="#doExport"/>
                         <Button fx:id="doClose" text="%in_mnuClose" onAction="#doOnClose" />
                     </HBox>
