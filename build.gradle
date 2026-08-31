@@ -239,7 +239,7 @@ dependencies {
     }
     implementation 'net.sf.saxon:Saxon-HE:13.0'
     implementation 'org.scijava:jep:2.4.2'
-    implementation 'org.freemarker:freemarker:2.3.34'
+    implementation 'org.freemarker:freemarker:2.3.35'
     implementation 'net.sourceforge.argparse4j:argparse4j:0.9.0'
     implementation project(':PCGen-base')
     implementation project(':PCGen-Formula')
