@@ -43,7 +43,7 @@ against the default-locale LanguageBundle (see PanelFromResource#setResources).
             <RadioButton fx:id="pcgenDir" text="%in_optionsPathPcgenDir" toggleGroup="$directoryGroup" userData="pcgen" wrapText="true" />
             <RadioButton fx:id="macUserDir" text="%in_optionsPathMacUserDir" toggleGroup="$directoryGroup" userData="mac_user" wrapText="true" />
             <RadioButton fx:id="freedesktop" text="%in_optionsPathFreedesktop" toggleGroup="$directoryGroup" userData="FD_USER" wrapText="true" />
-            <RadioButton fx:id="homedir" text="%in_optionsPathHomeDir" toggleGroup="$directoryGroup" userData="user" wrapText="true" />
+            <RadioButton text="%in_optionsPathHomeDir" toggleGroup="$directoryGroup" userData="user" wrapText="true" />
             <RadioButton fx:id="select" text="%in_optionsPathSelect" toggleGroup="$directoryGroup" wrapText="true" />
             <HBox spacing="6.0">
                 <TextField fx:id="dirSelection" disable="true" editable="false" HBox.hgrow="always" />
