@@ -1,0 +1,5 @@
+host: localhost
+database: swen640
+user: swen640
+password: 901001302
+port: 5432

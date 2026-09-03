@@ -1,0 +1,13 @@
+psycopg2-binary
+PyYAML
+GitPython
+pytest
+requests
+scikit-learn>=1.0.0
+nltk>=3.6.0
+matplotlib>=3.5.0
+numpy>=1.21.0
+pandas>=1.3.0
+spacy>=3.0.0
+
+pygments
