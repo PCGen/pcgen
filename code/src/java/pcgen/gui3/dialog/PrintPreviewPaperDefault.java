@@ -42,6 +42,7 @@ final class PrintPreviewPaperDefault
 		return chooseDefault(persisted, Locale.getDefault().getCountry(), available);
 	}
 
+	/** Chooses a paper name by priority: persisted value if available, else Letter for US/CA or A4 elsewhere; null only if {@code available} is empty. */
 	static String chooseDefault(String persisted, String country, List<String> available)
 	{
 		if (available.isEmpty())

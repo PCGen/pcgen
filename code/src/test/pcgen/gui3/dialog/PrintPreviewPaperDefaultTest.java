@@ -40,7 +40,7 @@ class PrintPreviewPaperDefaultTest
 	@Test
 	void persistedValueMatchedCaseInsensitively()
 	{
-		assertEquals("Letter", PrintPreviewPaperDefault.chooseDefault("letter", "DE", PAPERS));
+		assertEquals("Letter", PrintPreviewPaperDefault.chooseDefault("letter", null, PAPERS));
 	}
 
 	@Test
@@ -65,6 +65,12 @@ class PrintPreviewPaperDefaultTest
 	void otherLocaleDefaultsToA4()
 	{
 		assertEquals("A4", PrintPreviewPaperDefault.chooseDefault(null, "FR", PAPERS));
+	}
+
+	@Test
+	void nullCountryDefaultsToA4()
+	{
+		assertEquals("A4", PrintPreviewPaperDefault.chooseDefault(null, null, PAPERS));
 	}
 
 	@Test
