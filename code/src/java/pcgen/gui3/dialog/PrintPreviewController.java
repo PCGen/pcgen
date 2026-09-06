@@ -27,6 +27,8 @@ import java.io.PipedOutputStream;
 import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.text.NumberFormat;
+import java.text.ParseException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
@@ -56,6 +58,7 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.util.StringConverter;
 
 import org.apache.fop.apps.FOUserAgent;
 import org.apache.fop.render.awt.AWTRenderer;
@@ -103,6 +106,7 @@ public class PrintPreviewController
 		populatePaperBox();
 		populateSheetBox();
 		zoomBox.setItems(FXCollections.observableArrayList(0.25, 0.50, 0.75, 1.00));
+		zoomBox.setConverter(new PercentConverter());
 		zoomBox.getSelectionModel().select(0.75);
 		zoomBox.getSelectionModel().selectedItemProperty().addListener((obs, old, now) -> {
 			if (now != null)
@@ -278,7 +282,7 @@ public class PrintPreviewController
 	@FXML
 	private void onZoomIn(final ActionEvent actionEvent)
 	{
-		zoom *= ZOOM_MULTIPLIER;
+		zoom = roundToPercent(zoom * ZOOM_MULTIPLIER);
 		zoomBox.getSelectionModel().clearSelection();
 		zoomBox.setValue(zoom);
 	}
@@ -286,9 +290,14 @@ public class PrintPreviewController
 	@FXML
 	private void onZoomOut(final ActionEvent actionEvent)
 	{
-		zoom /= ZOOM_MULTIPLIER;
+		zoom = roundToPercent(zoom / ZOOM_MULTIPLIER);
 		zoomBox.getSelectionModel().clearSelection();
 		zoomBox.setValue(zoom);
+	}
+
+	private static double roundToPercent(double value)
+	{
+		return Math.round(value * 100.0) / 100.0;
 	}
 
 	@FXML
@@ -323,5 +332,34 @@ public class PrintPreviewController
 	private void onCancel(final ActionEvent actionEvent)
 	{
 		cancelButton.getScene().getWindow().hide();
+	}
+
+	/** Shows the zoom factor as a percentage (0.75 &lt;-&gt; "75%") in the editable zoom combo. */
+	private static final class PercentConverter extends StringConverter<Double>
+	{
+		private final NumberFormat format = NumberFormat.getPercentInstance();
+
+		@Override
+		public String toString(Double value)
+		{
+			return value == null ? "" : format.format(value);
+		}
+
+		@Override
+		public Double fromString(String text)
+		{
+			if (text == null || text.isBlank())
+			{
+				return null;
+			}
+			try
+			{
+				return format.parse(text.strip()).doubleValue();
+			}
+			catch (final ParseException ex)
+			{
+				return null;
+			}
+		}
 	}
 }
