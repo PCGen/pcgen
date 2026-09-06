@@ -133,8 +133,14 @@ public class PrintPreviewController
 				Globals.selectPaper(now);
 			}
 		});
+		List<PrintPreviewPaperDefault.PaperOption> options = IntStream.range(0, Globals.getPaperCount())
+				.mapToObj(i -> new PrintPreviewPaperDefault.PaperOption(
+						Globals.getPaperInfo(i, PaperInfo.NAME),
+						PrintPreviewPaperDefault.parseDimensionToPoints(Globals.getPaperInfo(i, PaperInfo.WIDTH)),
+						PrintPreviewPaperDefault.parseDimensionToPoints(Globals.getPaperInfo(i, PaperInfo.HEIGHT))))
+				.toList();
 		String persisted = PCGenSettings.getInstance().getProperty(PCGenSettings.PAPERSIZE);
-		String chosen = PrintPreviewPaperDefault.chooseDefaultForCurrentLocale(persisted, paperNames);
+		String chosen = PrintPreviewPaperDefault.chooseDefaultForCurrentLocaleAndPrinter(persisted, paperNames, options);
 		if (chosen != null)
 		{
 			paperBox.getSelectionModel().select(chosen);
