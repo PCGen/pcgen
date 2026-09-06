@@ -17,6 +17,7 @@
  */
 package pcgen.gui3.dialog;
 
+import java.awt.image.BufferedImage;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
 import java.io.File;
@@ -102,7 +103,7 @@ public class PrintPreviewController
 		populatePaperBox();
 		populateSheetBox();
 		zoomBox.setItems(FXCollections.observableArrayList(0.25, 0.50, 0.75, 1.00));
-		zoomBox.getSelectionModel().select(Double.valueOf(0.75));
+		zoomBox.getSelectionModel().select(0.75);
 		zoomBox.getSelectionModel().selectedItemProperty().addListener((obs, old, now) -> {
 			if (now != null)
 			{
@@ -242,7 +243,7 @@ public class PrintPreviewController
 		}
 		try
 		{
-			java.awt.image.BufferedImage bufferedImage = renderer.getPageImage(pageIndex);
+			BufferedImage bufferedImage = renderer.getPageImage(pageIndex);
 			Image fxImage = SwingFXUtils.toFXImage(bufferedImage, null);
 			previewImage.setImage(fxImage);
 			applyZoom();
@@ -268,7 +269,6 @@ public class PrintPreviewController
 		zoom *= ZOOM_MULTIPLIER;
 		zoomBox.getSelectionModel().clearSelection();
 		zoomBox.setValue(zoom);
-		applyZoom();
 	}
 
 	@FXML
@@ -277,7 +277,6 @@ public class PrintPreviewController
 		zoom /= ZOOM_MULTIPLIER;
 		zoomBox.getSelectionModel().clearSelection();
 		zoomBox.setValue(zoom);
-		applyZoom();
 	}
 
 	@FXML
