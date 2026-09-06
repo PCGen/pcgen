@@ -34,7 +34,7 @@ import pcgen.facade.util.event.ReferenceListener;
 import pcgen.gui2.coreview.CoreViewFrame;
 import pcgen.gui2.dialog.DataInstaller;
 import pcgen.gui2.dialog.KitSelectionDialog;
-import pcgen.gui2.dialog.PrintPreviewDialog;
+import pcgen.gui3.dialog.PrintPreviewController;
 import pcgen.gui2.solverview.SolverViewFrame;
 import pcgen.gui2.tools.DesktopBrowserLauncher;
 import pcgen.gui2.tools.Icons;
@@ -634,7 +634,9 @@ public final class PCGenActionMap extends ActionMap
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			PrintPreviewDialog.showPrintPreviewDialog(frame);
+			PanelFromResource<PrintPreviewController> panel =
+					new PanelFromResource<>(PrintPreviewController.class, "PrintPreview.fxml");
+			panel.showAsStage(LanguageBundle.getString("in_mnuFilePrintPreview"));
 		}
 
 	}

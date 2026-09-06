@@ -24,7 +24,7 @@ import pcgen.facade.core.DataSetFacade;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.gui2.PCGenFrame;
 import pcgen.gui2.PCGenUIManager;
-import pcgen.gui2.dialog.PrintPreviewDialog;
+import pcgen.gui3.dialog.PrintPreviewController;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui3.PanelFromResource;
 import pcgen.gui3.behavior.EnabledOnlyWithCharacter;
@@ -131,7 +131,9 @@ public final class PCGenToolBar
 
 	private void onPrint(final ActionEvent actionEvent)
 	{
-		SwingUtilities.invokeLater(() -> PrintPreviewDialog.showPrintPreviewDialog(rootFrame));
+		PanelFromResource<PrintPreviewController> panel =
+				new PanelFromResource<>(PrintPreviewController.class, "PrintPreview.fxml");
+		panel.showAsStage(LanguageBundle.getString("in_mnuFilePrintPreview"));
 	}
 
 	private void onExport(final ActionEvent actionEvent)
