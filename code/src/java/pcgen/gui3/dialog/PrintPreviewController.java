@@ -17,13 +17,13 @@
  */
 package pcgen.gui3.dialog;
 
-import java.io.File;
+import java.io.IOException;
 import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import pcgen.cdom.base.Constants;
@@ -88,44 +88,41 @@ public class PrintPreviewController
 
 	private void populatePaperBox()
 	{
-		int paperCount = Globals.getPaperCount();
-		String[] names = new String[paperCount];
-		Arrays.setAll(names, i -> Globals.getPaperInfo(i, PaperInfo.NAME));
-		List<String> paperNames = List.of(names);
+		List<String> paperNames = IntStream.range(0, Globals.getPaperCount())
+		                                   .mapToObj(i -> Globals.getPaperInfo(i, PaperInfo.NAME))
+		                                   .toList();
 		paperBox.setItems(FXCollections.observableArrayList(paperNames));
 
-		String persisted = PCGenSettings.getInstance().getProperty(PCGenSettings.PAPERSIZE);
-		String chosen = PrintPreviewPaperDefault.chooseDefaultForCurrentLocale(persisted, paperNames);
-		if (chosen != null)
-		{
-			paperBox.getSelectionModel().select(chosen);
-			Globals.selectPaper(chosen);
-		}
 		paperBox.getSelectionModel().selectedItemProperty().addListener((obs, old, now) -> {
 			if (now != null)
 			{
 				Globals.selectPaper(now);
 			}
 		});
+		String persisted = PCGenSettings.getInstance().getProperty(PCGenSettings.PAPERSIZE);
+		String chosen = PrintPreviewPaperDefault.chooseDefaultForCurrentLocale(persisted, paperNames);
+		if (chosen != null)
+		{
+			paperBox.getSelectionModel().select(chosen);
+		}
 	}
 
 	private void populateSheetBox()
 	{
-		File dir = new File(ConfigurationSettings.getOutputSheetsDir());
-		URI osPath = dir.toURI();
-		Predicate<File> filter = f -> f.getParentFile().getName().equalsIgnoreCase("pdf")
-				&& !f.getName().endsWith(".fo")
-				&& f.getName().startsWith(Constants.CHARACTER_TEMPLATE_PREFIX);
-		try (Stream<Path> walk = Files.walk(dir.toPath()))
+		Path dir = Path.of(ConfigurationSettings.getOutputSheetsDir());
+		URI osPath = dir.toUri();
+		Predicate<Path> filter = p -> p.getParent().getFileName().toString().equalsIgnoreCase("pdf")
+				&& !p.getFileName().toString().endsWith(".fo")
+				&& p.getFileName().toString().startsWith(Constants.CHARACTER_TEMPLATE_PREFIX);
+		try (Stream<Path> walk = Files.walk(dir))
 		{
 			List<URI> templates = walk.filter(Files::isRegularFile)
-			                          .map(Path::toFile)
 			                          .filter(filter)
-			                          .map(f -> osPath.relativize(f.toURI()))
+			                          .map(p -> osPath.relativize(p.toUri()))
 			                          .toList();
 			sheetBox.setItems(FXCollections.observableArrayList(templates));
 		}
-		catch (final java.io.IOException ex)
+		catch (final IOException ex)
 		{
 			Logging.errorPrint("could not walk output sheets directory " + dir, ex);
 		}
