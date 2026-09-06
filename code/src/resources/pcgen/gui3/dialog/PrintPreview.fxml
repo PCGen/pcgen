@@ -58,8 +58,8 @@
                         <ComboBox fx:id="pageBox"/>
                         <Label labelFor="$zoomBox" text="%in_printPreview_zoom"/>
                         <ComboBox fx:id="zoomBox" editable="true"/>
-                        <Button fx:id="zoomInButton" onAction="#onZoomIn"/>
-                        <Button fx:id="zoomOutButton" onAction="#onZoomOut"/>
+                        <Button fx:id="zoomInButton" text="+" onAction="#onZoomIn"/>
+                        <Button fx:id="zoomOutButton" text="-" onAction="#onZoomOut"/>
                     </HBox>
                 </left>
                 <right>

@@ -144,7 +144,7 @@ public class PrintPreviewController
 	private void populateSheetBox()
 	{
 		Path dir = Path.of(ConfigurationSettings.getOutputSheetsDir());
-		URI osPath = dir.toUri();
+		URI osPath = outputSheetsUri();
 		Predicate<Path> filter = p -> p.getParent().getFileName().toString().equalsIgnoreCase("pdf")
 				&& !p.getFileName().toString().endsWith(".fo")
 				&& p.getFileName().toString().startsWith(Constants.CHARACTER_TEMPLATE_PREFIX);
@@ -177,6 +177,11 @@ public class PrintPreviewController
 		printButton.setDisable(!enable);
 	}
 
+	private static URI outputSheetsUri()
+	{
+		return new File(ConfigurationSettings.getOutputSheetsDir()).toURI();
+	}
+
 	private void loadPreview(URI template)
 	{
 		progress.setVisible(true);
@@ -188,7 +193,7 @@ public class PrintPreviewController
 			@Override
 			protected AWTRenderer call() throws Exception
 			{
-				URI osPath = new File(ConfigurationSettings.getOutputSheetsDir()).toURI();
+				URI osPath = outputSheetsUri();
 				File xsltFile = new File(osPath.resolve(template));
 				FOUserAgent userAgent = FopTask.getFactory().newFOUserAgent();
 				AWTRenderer awtRenderer = new AWTRenderer(userAgent, null, false, false);
@@ -228,6 +233,7 @@ public class PrintPreviewController
 		task.setOnFailed(evt -> {
 			progress.setVisible(false);
 			sheetBox.setDisable(false);
+			setEditGroupEnabled(renderer != null);
 			Logging.errorPrint("Could not load sheet", task.getException());
 		});
 		Thread worker = new Thread(task, "fop-preview-task");
