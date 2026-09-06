@@ -27,8 +27,6 @@ import java.io.PipedOutputStream;
 import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.text.NumberFormat;
-import java.text.ParseException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
@@ -58,7 +56,6 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.util.StringConverter;
 
 import org.apache.fop.apps.FOUserAgent;
 import org.apache.fop.render.awt.AWTRenderer;
@@ -76,12 +73,6 @@ public class PrintPreviewController
 	@FXML
 	private ComboBox<String> pageBox;
 	@FXML
-	private ComboBox<Double> zoomBox;
-	@FXML
-	private Button zoomInButton;
-	@FXML
-	private Button zoomOutButton;
-	@FXML
 	private Button printButton;
 	@FXML
 	private Button cancelButton;
@@ -94,8 +85,6 @@ public class PrintPreviewController
 
 	private CharacterFacade character;
 	private AWTRenderer renderer;
-	private double zoom = 0.75;
-	private static final double ZOOM_MULTIPLIER = Math.pow(2, 0.125);
 
 	@FXML
 	void initialize()
@@ -105,16 +94,8 @@ public class PrintPreviewController
 
 		populatePaperBox();
 		populateSheetBox();
-		zoomBox.setItems(FXCollections.observableArrayList(0.25, 0.50, 0.75, 1.00));
-		zoomBox.setConverter(new PercentConverter());
-		zoomBox.getSelectionModel().select(0.75);
-		zoomBox.getSelectionModel().selectedItemProperty().addListener((obs, old, now) -> {
-			if (now != null)
-			{
-				zoom = now;
-				applyZoom();
-			}
-		});
+		// Fit each rendered page to the visible width of the scroll pane; long pages scroll vertically.
+		previewImage.fitWidthProperty().bind(previewScroll.viewportBoundsProperty().map(bounds -> bounds.getWidth()));
 		pageBox.getSelectionModel().selectedIndexProperty().addListener((obs, old, now) -> {
 			if (now.intValue() >= 0)
 			{
@@ -181,9 +162,6 @@ public class PrintPreviewController
 	private void setEditGroupEnabled(boolean enable)
 	{
 		pageBox.setDisable(!enable);
-		zoomBox.setDisable(!enable);
-		zoomInButton.setDisable(!enable);
-		zoomOutButton.setDisable(!enable);
 		printButton.setDisable(!enable);
 	}
 
@@ -262,42 +240,11 @@ public class PrintPreviewController
 			BufferedImage bufferedImage = renderer.getPageImage(pageIndex);
 			Image fxImage = SwingFXUtils.toFXImage(bufferedImage, null);
 			previewImage.setImage(fxImage);
-			applyZoom();
 		}
 		catch (final org.apache.fop.apps.FOPException ex)
 		{
 			Logging.errorPrint("Could not render preview page " + pageIndex, ex);
 		}
-	}
-
-	private void applyZoom()
-	{
-		Image image = previewImage.getImage();
-		if (image != null)
-		{
-			previewImage.setFitWidth(image.getWidth() * zoom);
-		}
-	}
-
-	@FXML
-	private void onZoomIn(final ActionEvent actionEvent)
-	{
-		zoom = roundToPercent(zoom * ZOOM_MULTIPLIER);
-		zoomBox.getSelectionModel().clearSelection();
-		zoomBox.setValue(zoom);
-	}
-
-	@FXML
-	private void onZoomOut(final ActionEvent actionEvent)
-	{
-		zoom = roundToPercent(zoom / ZOOM_MULTIPLIER);
-		zoomBox.getSelectionModel().clearSelection();
-		zoomBox.setValue(zoom);
-	}
-
-	private static double roundToPercent(double value)
-	{
-		return Math.round(value * 100.0) / 100.0;
 	}
 
 	@FXML
@@ -332,34 +279,5 @@ public class PrintPreviewController
 	private void onCancel(final ActionEvent actionEvent)
 	{
 		cancelButton.getScene().getWindow().hide();
-	}
-
-	/** Shows the zoom factor as a percentage (0.75 &lt;-&gt; "75%") in the editable zoom combo. */
-	private static final class PercentConverter extends StringConverter<Double>
-	{
-		private final NumberFormat format = NumberFormat.getPercentInstance();
-
-		@Override
-		public String toString(Double value)
-		{
-			return value == null ? "" : format.format(value);
-		}
-
-		@Override
-		public Double fromString(String text)
-		{
-			if (text == null || text.isBlank())
-			{
-				return null;
-			}
-			try
-			{
-				return format.parse(text.strip()).doubleValue();
-			}
-			catch (final ParseException ex)
-			{
-				return null;
-			}
-		}
 	}
 }

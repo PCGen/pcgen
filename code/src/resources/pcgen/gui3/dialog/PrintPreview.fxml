@@ -45,7 +45,7 @@
             </HBox>
 
             <ScrollPane fx:id="previewScroll" VBox.vgrow="ALWAYS" prefViewportWidth="600"
-                        prefViewportHeight="800" pannable="true">
+                        prefViewportHeight="800" fitToWidth="true" pannable="true">
                 <ImageView fx:id="previewImage" preserveRatio="true"/>
             </ScrollPane>
 
@@ -56,10 +56,6 @@
                     <HBox spacing="6.0" alignment="CENTER_LEFT">
                         <Label labelFor="$pageBox" text="%in_printPreview_page"/>
                         <ComboBox fx:id="pageBox"/>
-                        <Label labelFor="$zoomBox" text="%in_printPreview_zoom"/>
-                        <ComboBox fx:id="zoomBox" editable="true"/>
-                        <Button fx:id="zoomInButton" text="+" onAction="#onZoomIn"/>
-                        <Button fx:id="zoomOutButton" text="-" onAction="#onZoomOut"/>
                     </HBox>
                 </left>
                 <right>
