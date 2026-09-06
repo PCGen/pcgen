@@ -44,6 +44,7 @@ import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 import pcgen.util.fop.FopTask;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.concurrent.Task;
 import javafx.embed.swing.SwingFXUtils;
@@ -56,6 +57,7 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Screen;
 
 import org.apache.fop.apps.FOUserAgent;
 import org.apache.fop.render.awt.AWTRenderer;
@@ -85,6 +87,7 @@ public class PrintPreviewController
 
 	private CharacterFacade character;
 	private AWTRenderer renderer;
+	private static final double BASE_DPI = 72.0;
 
 	@FXML
 	void initialize()
@@ -170,11 +173,28 @@ public class PrintPreviewController
 		return new File(ConfigurationSettings.getOutputSheetsDir()).toURI();
 	}
 
+	/**
+	 * The device pixel scale to render at (2.0 on a Retina display, 1.0 otherwise): the dialog's own
+	 * window if it is showing, else the primary screen, else 1.0. Must be called on the FX thread.
+	 */
+	private double currentOutputScale()
+	{
+		if (previewScroll.getScene() != null && previewScroll.getScene().getWindow() != null)
+		{
+			return previewScroll.getScene().getWindow().getOutputScaleX();
+		}
+		return Screen.getPrimary().getOutputScaleX();
+	}
+
 	private void loadPreview(URI template)
 	{
 		progress.setVisible(true);
 		sheetBox.setDisable(true);
 		setEditGroupEnabled(false);
+
+		// Read the display scale on the FX thread; render at that resolution so fitting the
+		// page to the pane downscales a high-res bitmap (crisp) instead of upscaling 72 DPI (blurry).
+		final double renderScale = currentOutputScale();
 
 		Task<AWTRenderer> task = new Task<>()
 		{
@@ -184,6 +204,7 @@ public class PrintPreviewController
 				URI osPath = outputSheetsUri();
 				File xsltFile = new File(osPath.resolve(template));
 				FOUserAgent userAgent = FopTask.getFactory().newFOUserAgent();
+				userAgent.setTargetResolution((float) (BASE_DPI * renderScale));
 				AWTRenderer awtRenderer = new AWTRenderer(userAgent, null, false, false);
 				try (PipedOutputStream out = new PipedOutputStream())
 				{
@@ -254,25 +275,37 @@ public class PrintPreviewController
 		{
 			return;
 		}
-		PrinterJob printerJob = PrinterJob.getPrinterJob();
-		printerJob.setPageable(renderer);
-		if (printerJob.printDialog())
-		{
+		// The AWT print dialog and PrinterJob.print() are modal/blocking native calls; running them on
+		// the JavaFX thread freezes the UI (and deadlocks on macOS). Do them on a background thread and
+		// marshal any UI back to the FX thread.
+		final AWTRenderer pageable = renderer;
+		final String characterName = character.getNameRef().get();
+		Thread printThread = new Thread(() -> {
+			PrinterJob printerJob = PrinterJob.getPrinterJob();
+			printerJob.setPageable(pageable);
+			if (!printerJob.printDialog())
+			{
+				return;
+			}
 			try
 			{
 				printerJob.print();
-				cancelButton.getScene().getWindow().hide();
+				Platform.runLater(() -> cancelButton.getScene().getWindow().hide());
 			}
 			catch (final PrinterException ex)
 			{
-				String message = "Could not print " + character.getNameRef().get();
+				String message = "Could not print " + characterName;
 				Logging.errorPrint(message, ex);
-				Alert alert = new Alert(Alert.AlertType.ERROR);
-				alert.setTitle(Constants.APPLICATION_NAME);
-				alert.setContentText(message);
-				alert.show();
+				Platform.runLater(() -> {
+					Alert alert = new Alert(Alert.AlertType.ERROR);
+					alert.setTitle(Constants.APPLICATION_NAME);
+					alert.setContentText(message);
+					alert.show();
+				});
 			}
-		}
+		}, "print-preview-print");
+		printThread.setDaemon(true);
+		printThread.start();
 	}
 
 	@FXML
