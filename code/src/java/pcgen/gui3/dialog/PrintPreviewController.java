@@ -309,31 +309,43 @@ public class PrintPreviewController
 		}
 		// The AWT print dialog and PrinterJob.print() are modal/blocking native calls; running them on
 		// the JavaFX thread freezes the UI (and deadlocks on macOS). Do them on a background thread and
-		// marshal any UI back to the FX thread.
+		// marshal any UI back to the FX thread. Disable the button meanwhile so a second press can't
+		// open a second print dialog over the same job.
+		printButton.setDisable(true);
 		final AWTRenderer pageable = renderer;
 		final String characterName = character.getNameRef().get();
 		Thread printThread = new Thread(() -> {
-			PrinterJob printerJob = PrinterJob.getPrinterJob();
-			printerJob.setPageable(pageable);
-			if (!printerJob.printDialog())
-			{
-				return;
-			}
 			try
 			{
-				printerJob.print();
-				Platform.runLater(() -> cancelButton.getScene().getWindow().hide());
+				PrinterJob printerJob = PrinterJob.getPrinterJob();
+				printerJob.setPageable(pageable);
+				if (!printerJob.printDialog())
+				{
+					Platform.runLater(() -> printButton.setDisable(false));
+					return;
+				}
+				try
+				{
+					printerJob.print();
+					Platform.runLater(() -> cancelButton.getScene().getWindow().hide());
+				}
+				catch (final PrinterException ex)
+				{
+					String message = LanguageBundle.getFormattedString("in_printPreview_printError", characterName);
+					Logging.errorPrint(message, ex);
+					Platform.runLater(() -> {
+						printButton.setDisable(false);
+						Alert alert = new Alert(Alert.AlertType.ERROR);
+						alert.setTitle(Constants.APPLICATION_NAME);
+						alert.setContentText(message);
+						alert.show();
+					});
+				}
 			}
-			catch (final PrinterException ex)
+			catch (final RuntimeException ex)
 			{
-				String message = "Could not print " + characterName;
-				Logging.errorPrint(message, ex);
-				Platform.runLater(() -> {
-					Alert alert = new Alert(Alert.AlertType.ERROR);
-					alert.setTitle(Constants.APPLICATION_NAME);
-					alert.setContentText(message);
-					alert.show();
-				});
+				Logging.errorPrint("Unexpected error printing " + characterName, ex);
+				Platform.runLater(() -> printButton.setDisable(false));
 			}
 		}, "print-preview-print");
 		printThread.setDaemon(true);
