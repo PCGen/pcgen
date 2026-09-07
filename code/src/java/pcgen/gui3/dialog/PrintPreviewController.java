@@ -200,7 +200,7 @@ public class PrintPreviewController
 
 	private static URI outputSheetsUri()
 	{
-		return new File(ConfigurationSettings.getOutputSheetsDir()).toURI();
+		return Path.of(ConfigurationSettings.getOutputSheetsDir()).toUri();
 	}
 
 	/**
@@ -233,7 +233,8 @@ public class PrintPreviewController
 			protected AWTRenderer call() throws Exception
 			{
 				URI osPath = outputSheetsUri();
-				File xsltFile = new File(osPath.resolve(template));
+				// FopTask requires a java.io.File, so resolve via NIO and convert only at that boundary.
+				File xsltFile = Path.of(osPath.resolve(template)).toFile();
 				FOUserAgent userAgent = FopTask.getFactory().newFOUserAgent();
 				userAgent.setTargetResolution((float) (BASE_DPI * renderScale));
 				AWTRenderer awtRenderer = new AWTRenderer(userAgent, null, false, false);
