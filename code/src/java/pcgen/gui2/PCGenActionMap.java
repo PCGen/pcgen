@@ -634,9 +634,7 @@ public final class PCGenActionMap extends ActionMap
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			PanelFromResource<PrintPreviewController> panel =
-					new PanelFromResource<>(PrintPreviewController.class, "PrintPreview.fxml");
-			panel.showAsStage(LanguageBundle.getString("in_mnuFilePrintPreview"));
+			PrintPreviewController.showDialog();
 		}
 
 	}

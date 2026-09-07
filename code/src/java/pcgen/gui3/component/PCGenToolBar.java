@@ -131,9 +131,7 @@ public final class PCGenToolBar
 
 	private void onPrint(final ActionEvent actionEvent)
 	{
-		PanelFromResource<PrintPreviewController> panel =
-				new PanelFromResource<>(PrintPreviewController.class, "PrintPreview.fxml");
-		panel.showAsStage(LanguageBundle.getString("in_mnuFilePrintPreview"));
+		PrintPreviewController.showDialog();
 	}
 
 	private void onExport(final ActionEvent actionEvent)

@@ -37,8 +37,10 @@ import pcgen.core.Globals;
 import pcgen.core.PaperInfo;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.gui2.PCGenFrame;
+import pcgen.gui3.PanelFromResource;
 import pcgen.system.BatchExporter;
 import pcgen.system.ConfigurationSettings;
+import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 import pcgen.util.fop.FopTask;
@@ -67,6 +69,14 @@ import org.apache.fop.render.awt.AWTRenderer;
  */
 public class PrintPreviewController
 {
+	/** Opens the print-preview dialog as a non-modal stage. Shared by the menu action and the toolbar. */
+	public static void showDialog()
+	{
+		PanelFromResource<PrintPreviewController> panel =
+				new PanelFromResource<>(PrintPreviewController.class, "PrintPreview.fxml");
+		panel.showAsStage(LanguageBundle.getString("in_mnuFilePrintPreview"));
+	}
+
 	@FXML
 	private ComboBox<URI> sheetBox;
 	@FXML
