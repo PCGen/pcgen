@@ -295,49 +295,64 @@ public class PrintPreviewController
 		{
 			return;
 		}
-		// The AWT print dialog and PrinterJob.print() are modal/blocking native calls; running them on
-		// the JavaFX thread freezes the UI (and deadlocks on macOS). Do them on a background thread and
-		// marshal any UI back to the FX thread. Disable the button meanwhile so a second press can't
-		// open a second print dialog over the same job.
+		// printDialog()/print() are blocking native AWT calls; run them off the JavaFX thread to avoid
+		// freezing (and, on macOS, deadlocking) the UI. Disable the button meanwhile so a second press
+		// can't open a second print dialog over the same job.
 		printButton.setDisable(true);
 		final AWTRenderer pageable = renderer;
 		final String characterName = character.getNameRef().get();
 		Thread printThread = new Thread(() -> {
-			try
-			{
-				PrinterJob printerJob = PrinterJob.getPrinterJob();
-				printerJob.setPageable(pageable);
-				if (!printerJob.printDialog())
-				{
-					Platform.runLater(() -> printButton.setDisable(false));
-					return;
-				}
-				try
-				{
-					printerJob.print();
-					Platform.runLater(() -> cancelButton.getScene().getWindow().hide());
-				}
-				catch (final PrinterException ex)
-				{
-					String message = LanguageBundle.getFormattedString("in_printPreview_printError", characterName);
-					Logging.errorPrint(message, ex);
-					Platform.runLater(() -> {
-						printButton.setDisable(false);
-						Alert alert = new Alert(Alert.AlertType.ERROR);
-						alert.setTitle(Constants.APPLICATION_NAME);
-						alert.setContentText(message);
-						alert.show();
-					});
-				}
-			}
-			catch (final RuntimeException ex)
-			{
-				Logging.errorPrint("Unexpected error printing " + characterName, ex);
-				Platform.runLater(() -> printButton.setDisable(false));
-			}
+			PrintOutcome outcome = doPrint(pageable, characterName);
+			Platform.runLater(() -> finishPrint(outcome));
 		}, "print-preview-print");
 		printThread.setDaemon(true);
 		printThread.start();
+	}
+
+	/** The result of a print attempt: whether the job printed, and any user-facing error message. */
+	private record PrintOutcome(boolean printed, String errorMessage) { }
+
+	/** Runs the blocking AWT print off the FX thread and reports the outcome (no UI work here). */
+	private static PrintOutcome doPrint(AWTRenderer pageable, String characterName)
+	{
+		try
+		{
+			PrinterJob printerJob = PrinterJob.getPrinterJob();
+			printerJob.setPageable(pageable);
+			if (!printerJob.printDialog())
+			{
+				return new PrintOutcome(false, null); // user cancelled the print dialog
+			}
+			printerJob.print();
+			return new PrintOutcome(true, null);
+		}
+		catch (final PrinterException | RuntimeException ex)
+		{
+			String message = LanguageBundle.getFormattedString("in_printPreview_printError", characterName);
+			Logging.errorPrint(message, ex);
+			return new PrintOutcome(false, message);
+		}
+	}
+
+	/**
+	 * Applies the print outcome on the FX thread: close the dialog on success, otherwise re-enable the
+	 * button and (for a real failure, not a user cancel) show an error alert.
+	 */
+	private void finishPrint(PrintOutcome outcome)
+	{
+		if (outcome.printed())
+		{
+			cancelButton.getScene().getWindow().hide();
+			return;
+		}
+		printButton.setDisable(false);
+		if (outcome.errorMessage() != null)
+		{
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setTitle(Constants.APPLICATION_NAME);
+			alert.setContentText(outcome.errorMessage());
+			alert.show();
+		}
 	}
 
 	@FXML
