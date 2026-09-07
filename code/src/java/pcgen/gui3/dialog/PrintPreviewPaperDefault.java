@@ -17,6 +17,8 @@
  */
 package pcgen.gui3.dialog;
 
+import java.awt.print.Paper;
+import java.awt.print.PrinterJob;
 import java.util.List;
 import java.util.Locale;
 
@@ -139,7 +141,7 @@ final class PrintPreviewPaperDefault
 		double h = 0;
 		try
 		{
-			java.awt.print.Paper paper = java.awt.print.PrinterJob.getPrinterJob().defaultPage().getPaper();
+			Paper paper = PrinterJob.getPrinterJob().defaultPage().getPaper();
 			w = paper.getWidth();
 			h = paper.getHeight();
 		}
