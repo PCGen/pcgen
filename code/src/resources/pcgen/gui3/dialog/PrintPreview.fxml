@@ -60,6 +60,7 @@
                 </left>
                 <right>
                     <HBox spacing="6.0" alignment="CENTER_RIGHT">
+                        <Button fx:id="refreshButton" text="%in_printPreview_refresh" onAction="#onRefresh"/>
                         <Button fx:id="printButton" text="%in_mnuFilePrint" onAction="#onPrint"/>
                         <Button fx:id="cancelButton" text="%in_cancel" onAction="#onCancel"/>
                     </HBox>

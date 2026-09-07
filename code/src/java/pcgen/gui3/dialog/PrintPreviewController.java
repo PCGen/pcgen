@@ -76,6 +76,8 @@ public class PrintPreviewController
 	@FXML
 	private Button printButton;
 	@FXML
+	private Button refreshButton;
+	@FXML
 	private Button cancelButton;
 	@FXML
 	private ScrollPane previewScroll;
@@ -86,6 +88,7 @@ public class PrintPreviewController
 
 	private CharacterFacade character;
 	private AWTRenderer renderer;
+	private URI currentTemplate;
 	private static final double BASE_DPI = 72.0;
 
 	@FXML
@@ -180,6 +183,7 @@ public class PrintPreviewController
 	{
 		pageBox.setDisable(!enable);
 		printButton.setDisable(!enable);
+		refreshButton.setDisable(!enable);
 	}
 
 	private static URI outputSheetsUri()
@@ -202,6 +206,7 @@ public class PrintPreviewController
 
 	private void loadPreview(URI template)
 	{
+		currentTemplate = template;
 		progress.setVisible(true);
 		sheetBox.setDisable(true);
 		setEditGroupEnabled(false);
@@ -320,6 +325,15 @@ public class PrintPreviewController
 		}, "print-preview-print");
 		printThread.setDaemon(true);
 		printThread.start();
+	}
+
+	@FXML
+	private void onRefresh(final ActionEvent actionEvent)
+	{
+		if (currentTemplate != null)
+		{
+			loadPreview(currentTemplate);
+		}
 	}
 
 	@FXML
