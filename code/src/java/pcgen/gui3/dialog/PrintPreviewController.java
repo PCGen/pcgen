@@ -29,7 +29,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Predicate;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -139,13 +138,10 @@ public class PrintPreviewController
 	{
 		Path dir = Path.of(ConfigurationSettings.getOutputSheetsDir());
 		URI osPath = outputSheetsUri();
-		Predicate<Path> filter = p -> p.getParent().getFileName().toString().equalsIgnoreCase("pdf")
-				&& !p.getFileName().toString().endsWith(".fo")
-				&& p.getFileName().toString().startsWith(Constants.CHARACTER_TEMPLATE_PREFIX);
 		try (Stream<Path> walk = Files.walk(dir))
 		{
 			List<URI> templates = walk.filter(Files::isRegularFile)
-			                          .filter(filter)
+			                          .filter(PrintPreviewController::isCharacterTemplate)
 			                          .map(p -> osPath.relativize(p.toUri()))
 			                          .toList();
 			sheetBox.setItems(FXCollections.observableArrayList(templates));
@@ -160,6 +156,24 @@ public class PrintPreviewController
 				loadPreview(now);
 			}
 		});
+	}
+
+	/**
+	 * A printable character-sheet template: a file directly under a {@code pdf} directory whose name
+	 * starts with the character-template prefix and is not an intermediate {@code .fo} file.
+	 */
+	static boolean isCharacterTemplate(Path path)
+	{
+		Path parent = path.getParent();
+		Path fileName = path.getFileName();
+		if (parent == null || fileName == null || parent.getFileName() == null)
+		{
+			return false;
+		}
+		String name = fileName.toString();
+		return parent.getFileName().toString().equalsIgnoreCase("pdf")
+				&& !name.endsWith(".fo")
+				&& name.startsWith(Constants.CHARACTER_TEMPLATE_PREFIX);
 	}
 
 	private void setEditGroupEnabled(boolean enable)
