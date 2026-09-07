@@ -20,10 +20,10 @@ package pcgen.gui3.dialog;
 import java.awt.image.BufferedImage;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
-import java.io.PipedInputStream;
-import java.io.PipedOutputStream;
 import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -238,22 +238,9 @@ public class PrintPreviewController
 				FOUserAgent userAgent = FopTask.getFactory().newFOUserAgent();
 				userAgent.setTargetResolution((float) (BASE_DPI * renderScale));
 				AWTRenderer awtRenderer = new AWTRenderer(userAgent, null, false, false);
-				try (PipedOutputStream out = new PipedOutputStream())
-				{
-					FopTask fopTask = FopTask.newFopTask(new PipedInputStream(out), xsltFile, awtRenderer);
-					Thread thread = new Thread(fopTask, "fop-preview");
-					thread.setDaemon(true);
-					thread.start();
-					BatchExporter.exportCharacter(character, out);
-					try
-					{
-						thread.join();
-					}
-					catch (final InterruptedException ex)
-					{
-						thread.interrupt();
-					}
-				}
+				ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+				BatchExporter.exportCharacter(character, buffer);
+				FopTask.newFopTask(new ByteArrayInputStream(buffer.toByteArray()), xsltFile, awtRenderer).run();
 				return awtRenderer;
 			}
 		};
