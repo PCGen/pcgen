@@ -111,10 +111,10 @@ public class PrintPreviewController
 		populateSheetBox();
 		// Fit each rendered page to the visible width of the scroll pane; long pages scroll vertically.
 		previewImage.fitWidthProperty().bind(previewScroll.viewportBoundsProperty().map(bounds -> bounds.getWidth()));
-		pageBox.getSelectionModel().selectedIndexProperty().addListener((obs, old, now) -> {
-			if (now.intValue() >= 0)
+		pageBox.getSelectionModel().selectedIndexProperty().subscribe(index -> {
+			if (index.intValue() >= 0)
 			{
-				showPage(now.intValue());
+				showPage(index.intValue());
 			}
 		});
 		setEditGroupEnabled(false);
@@ -127,10 +127,10 @@ public class PrintPreviewController
 		                                   .toList();
 		paperBox.setItems(FXCollections.observableArrayList(paperNames));
 
-		paperBox.getSelectionModel().selectedItemProperty().addListener((obs, old, now) -> {
-			if (now != null)
+		paperBox.getSelectionModel().selectedItemProperty().subscribe(paper -> {
+			if (paper != null)
 			{
-				Globals.selectPaper(now);
+				Globals.selectPaper(paper);
 			}
 		});
 		List<PrintPreviewPaperDefault.PaperOption> options = IntStream.range(0, Globals.getPaperCount())
@@ -163,10 +163,10 @@ public class PrintPreviewController
 		{
 			Logging.errorPrint("could not walk output sheets directory " + dir, ex);
 		}
-		sheetBox.getSelectionModel().selectedItemProperty().addListener((obs, old, now) -> {
-			if (now != null)
+		sheetBox.getSelectionModel().selectedItemProperty().subscribe(template -> {
+			if (template != null)
 			{
-				loadPreview(now);
+				loadPreview(template);
 			}
 		});
 	}
