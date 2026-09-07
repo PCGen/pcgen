@@ -61,6 +61,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Screen;
 
+import org.apache.fop.apps.FOPException;
 import org.apache.fop.apps.FOUserAgent;
 import org.apache.fop.render.awt.AWTRenderer;
 
@@ -281,7 +282,7 @@ public class PrintPreviewController
 			Image fxImage = SwingFXUtils.toFXImage(bufferedImage, null);
 			previewImage.setImage(fxImage);
 		}
-		catch (final org.apache.fop.apps.FOPException ex)
+		catch (final FOPException ex)
 		{
 			Logging.errorPrint("Could not render preview page " + pageIndex, ex);
 		}
