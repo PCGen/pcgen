@@ -66,8 +66,8 @@ import org.apache.fop.apps.FOUserAgent;
 import org.apache.fop.render.awt.AWTRenderer;
 
 /**
- * JavaFX print-preview dialog (CODE-2537): renders each character-sheet page to
- * an image and lets the user pick a page size defaulting from preferences/locale.
+ * JavaFX print-preview dialog: renders each character-sheet page to an image and lets the user
+ * pick a page size defaulting from preferences/locale.
  */
 public class PrintPreviewController
 {
@@ -174,10 +174,7 @@ public class PrintPreviewController
 		});
 	}
 
-	/**
-	 * A printable character-sheet template: a file directly under a {@code pdf} directory whose name
-	 * starts with the character-template prefix and is not an intermediate {@code .fo} file.
-	 */
+	/** True for a printable character sheet: a non-{@code .fo} file named with the template prefix, directly under a {@code pdf} dir. */
 	static boolean isCharacterTemplate(Path path)
 	{
 		Path parent = path.getParent();
@@ -204,10 +201,7 @@ public class PrintPreviewController
 		return Path.of(ConfigurationSettings.getOutputSheetsDir()).toUri();
 	}
 
-	/**
-	 * The device pixel scale to render at (2.0 on a Retina display, 1.0 otherwise): the dialog's own
-	 * window if it is showing, else the primary screen, else 1.0. Must be called on the FX thread.
-	 */
+	/** Device pixel scale to render at (2.0 on Retina, else 1.0): dialog window, else primary screen. Call on the FX thread. */
 	private double currentOutputScale()
 	{
 		if (previewScroll.getScene() != null && previewScroll.getScene().getWindow() != null)
@@ -224,8 +218,8 @@ public class PrintPreviewController
 		sheetBox.setDisable(true);
 		setEditGroupEnabled(false);
 
-		// Read the display scale on the FX thread; render at that resolution so fitting the
-		// page to the pane downscales a high-res bitmap (crisp) instead of upscaling 72 DPI (blurry).
+		// Render at the display scale (read on the FX thread) so fitting the page downscales a
+		// high-res bitmap rather than upscaling 72 DPI (which looks blurry).
 		final double renderScale = currentOutputScale();
 
 		Task<AWTRenderer> task = new Task<>()
@@ -296,9 +290,8 @@ public class PrintPreviewController
 		{
 			return;
 		}
-		// printDialog()/print() are blocking native AWT calls; run them off the JavaFX thread to avoid
-		// freezing (and, on macOS, deadlocking) the UI. Disable the button meanwhile so a second press
-		// can't open a second print dialog over the same job.
+		// printDialog()/print() block (and deadlock the UI on macOS) if run on the FX thread, so run
+		// them on a background thread. Disable the button meanwhile to prevent a second print dialog.
 		printButton.setDisable(true);
 		final AWTRenderer pageable = renderer;
 		final String characterName = character.getNameRef().get();
@@ -335,10 +328,7 @@ public class PrintPreviewController
 		}
 	}
 
-	/**
-	 * Applies the print outcome on the FX thread: close the dialog on success, otherwise re-enable the
-	 * button and (for a real failure, not a user cancel) show an error alert.
-	 */
+	/** On the FX thread: close the dialog on success, else re-enable the button and alert on a real failure. */
 	private void finishPrint(PrintOutcome outcome)
 	{
 		if (outcome.printed())
