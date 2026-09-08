@@ -272,7 +272,8 @@ public class PrintPreviewController
 
 	private void showPage(int pageIndex)
 	{
-		if (renderer == null)
+		// A Refresh can leave a stale selected index that is now past the (possibly shorter) page count.
+		if (renderer == null || pageIndex < 0 || pageIndex >= renderer.getNumberOfPages())
 		{
 			return;
 		}
