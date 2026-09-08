@@ -27,14 +27,19 @@ import org.apache.commons.lang3.StringUtils;
 import pcgen.util.Logging;
 
 /**
- * Chooses the default paper size for the print-preview dialog (CODE-2537):
- * persisted value wins; otherwise the default printer's paper size; otherwise
- * the OS locale decides Letter vs A4.
+ * Chooses the default paper size for the print-preview dialog: a persisted value wins, else the
+ * default printer's paper size, else the OS locale decides Letter (US/CA) vs A4.
  */
 final class PrintPreviewPaperDefault
 {
 	/** Maximum per-axis delta (in points) for a dimension match to be accepted. ~1.8 mm. */
 	private static final double DIMENSION_TOLERANCE_POINTS = 5.0;
+
+	// Nominal media sizes in 1/72-inch points, used to identify Letter/A4 by dimension (locale-proof).
+	private static final double LETTER_WIDTH_POINTS = 612.0;
+	private static final double LETTER_HEIGHT_POINTS = 792.0;
+	private static final double A4_WIDTH_POINTS = 595.28;
+	private static final double A4_HEIGHT_POINTS = 841.89;
 
 	private PrintPreviewPaperDefault()
 	{
@@ -118,20 +123,15 @@ final class PrintPreviewPaperDefault
 		return bestName;
 	}
 
-	/**
-	 * Convenience seam used by the controller: reads the JVM default locale's
-	 * country and delegates to {@link #chooseDefault(String, String, List)}.
-	 * Kept for callers that do not have printer information.
-	 */
+	/** Reads the JVM locale country and delegates. For callers without printer information. */
 	static String chooseDefaultForCurrentLocale(String persisted, List<String> available)
 	{
 		return chooseDefault(persisted, Locale.getDefault().getCountry(), available);
 	}
 
 	/**
-	 * Convenience used by the controller: reads the JVM locale country and the default
-	 * printer's paper size, then delegates to the dimension+locale chooser.
-	 * A headless environment or missing printer is fully handled — the dialog is never broken.
+	 * Reads the JVM locale country and the default printer's paper size, then delegates to the
+	 * dimension+locale chooser. A headless environment or missing printer is handled gracefully.
 	 */
 	static String chooseDefaultForCurrentLocaleAndPrinter(String persisted, List<String> availableNames,
 			List<PaperOption> options)
@@ -147,17 +147,16 @@ final class PrintPreviewPaperDefault
 		}
 		catch (final RuntimeException | Error ex)
 		{
-			// Headless / no printer / toolkit issue: fall through with 0 dims → dimension match skipped.
+			// No printer/headless: leave dims at 0 so the dimension match is skipped.
 			Logging.log(Logging.DEBUG, "No default printer paper available for print-preview default", ex);
 		}
 		return chooseDefault(persisted, country, w, h, availableNames, options);
 	}
 
 	/**
-	 * Chooses a paper name by priority: persisted value; then the default printer's
-	 * paper dimensions matched against {@code options}; then locale (Letter for US/CA,
-	 * A4 elsewhere); finally first available. Returns {@code null} only if {@code availableNames}
-	 * is empty.
+	 * Chooses a paper name by priority: persisted value, then printer dimensions matched against
+	 * {@code options}, then locale (Letter for US/CA, else A4), then first available. {@code null}
+	 * only if {@code availableNames} is empty.
 	 */
 	static String chooseDefault(String persisted, String country, double printerWidthPoints,
 			double printerHeightPoints, List<String> availableNames, List<PaperOption> options)
@@ -185,7 +184,7 @@ final class PrintPreviewPaperDefault
 			return printerMatch;
 		}
 		// 3. Locale fallback.
-		return localeDefault(country, availableNames);
+		return localeDefault(country, availableNames, options);
 	}
 
 	/** Chooses a paper name by priority: persisted value if available, else Letter for US/CA or A4 elsewhere; null only if {@code available} is empty. */
@@ -209,7 +208,24 @@ final class PrintPreviewPaperDefault
 		return localeDefault(country, available);
 	}
 
-	/** Applies the locale heuristic: Letter for US/CA, A4 elsewhere; first available as last resort. */
+	/**
+	 * Locale default by DIMENSION (Letter for US/CA, else A4), matched against {@code options} so it
+	 * is name/locale-proof. Falls back to the name-based match when dimensions are unusable.
+	 */
+	private static String localeDefault(String country, List<String> available, List<PaperOption> options)
+	{
+		boolean isLetterLocale = "US".equalsIgnoreCase(country) || "CA".equalsIgnoreCase(country);
+		double targetWidth = isLetterLocale ? LETTER_WIDTH_POINTS : A4_WIDTH_POINTS;
+		double targetHeight = isLetterLocale ? LETTER_HEIGHT_POINTS : A4_HEIGHT_POINTS;
+		String byDimension = matchByDimensions(targetWidth, targetHeight, options);
+		if (byDimension != null && available.contains(byDimension))
+		{
+			return byDimension;
+		}
+		return localeDefault(country, available);
+	}
+
+	/** Name-based locale default: Letter for US/CA, else A4; first available as last resort. */
 	private static String localeDefault(String country, List<String> available)
 	{
 		boolean isLetterLocale = "US".equalsIgnoreCase(country) || "CA".equalsIgnoreCase(country);

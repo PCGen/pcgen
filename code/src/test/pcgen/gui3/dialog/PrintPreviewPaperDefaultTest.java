@@ -94,9 +94,8 @@ class PrintPreviewPaperDefaultTest
 		assertEquals("A4", PrintPreviewPaperDefault.chooseDefault(null, "US", List.of("A4", "Legal")));
 	}
 
-	// The following two tests actually flip the JVM default locale (via the shared
-	// LocaleDependentTestCase helper) to verify chooseDefaultForCurrentLocale reads
-	// the OS country correctly — this is the CODE-2537 requirement to test 2 locales.
+	// These flip the JVM default locale (via LocaleDependentTestCase) to verify
+	// chooseDefaultForCurrentLocale reads the OS country correctly.
 
 	@Test
 	void currentLocaleUsDefaultsToLetter()
@@ -255,5 +254,33 @@ class PrintPreviewPaperDefaultTest
 		// Printer is 100×100 — no match → falls back to locale FR → A4
 		assertEquals("A4",
 				PrintPreviewPaperDefault.chooseDefault(null, "FR", 100.0, 100.0, List.of("A4", "Letter"), PAPER_OPTIONS));
+	}
+
+	// ── locale fallback resolves BY DIMENSION, not just by name ─────────────
+	// Papers can carry localized names (e.g. "in_PaperLetter"); the locale default must still find
+	// the right size by its dimensions. Without dimension matching these would pick the first option.
+
+	private static final List<PrintPreviewPaperDefault.PaperOption> LOCALIZED_OPTIONS = List.of(
+			new PrintPreviewPaperDefault.PaperOption("Papier A4", 595.28, 841.89),
+			new PrintPreviewPaperDefault.PaperOption("US Brief", 612.0, 792.0)
+	);
+	private static final List<String> LOCALIZED_NAMES = List.of("Papier A4", "US Brief");
+
+	@Test
+	void frLocaleMatchesA4ByDimensionWhenNameLacksA4()
+	{
+		// Name "Papier A4" contains "A4" incidentally, but "US Brief" does not contain "Letter";
+		// FR must resolve A4 by dimension, not accidentally return the first option.
+		assertEquals("Papier A4",
+				PrintPreviewPaperDefault.chooseDefault(null, "FR", 0.0, 0.0, LOCALIZED_NAMES, LOCALIZED_OPTIONS));
+	}
+
+	@Test
+	void usLocaleMatchesLetterByDimensionWhenNameLacksLetter()
+	{
+		// "US Brief" is Letter-sized but its name has no "Letter"; the name-only fallback would return
+		// the first option ("Papier A4"). Dimension matching must pick "US Brief".
+		assertEquals("US Brief",
+				PrintPreviewPaperDefault.chooseDefault(null, "US", 0.0, 0.0, LOCALIZED_NAMES, LOCALIZED_OPTIONS));
 	}
 }
