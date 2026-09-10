@@ -64,9 +64,6 @@ pcgen.jar
 /output/
 /build/
 /libs/
-output/
-build/
-libs/
 code/testsuite/output/
 .gradle/
 pcgen-batch-convert.jar
