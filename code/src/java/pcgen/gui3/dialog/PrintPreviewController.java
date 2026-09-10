@@ -124,9 +124,13 @@ public class PrintPreviewController
 
 	private void populatePaperBox()
 	{
-		List<String> paperNames = IntStream.range(0, Globals.getPaperCount())
-		                                   .mapToObj(i -> Globals.getPaperInfo(i, PaperInfo.NAME))
-		                                   .toList();
+		List<PrintPreviewPaperDefault.PaperOption> options = IntStream.range(0, Globals.getPaperCount())
+				.mapToObj(i -> new PrintPreviewPaperDefault.PaperOption(
+						Globals.getPaperInfo(i, PaperInfo.NAME),
+						PrintPreviewPaperDefault.parseDimensionToPoints(Globals.getPaperInfo(i, PaperInfo.WIDTH)),
+						PrintPreviewPaperDefault.parseDimensionToPoints(Globals.getPaperInfo(i, PaperInfo.HEIGHT))))
+				.toList();
+		List<String> paperNames = options.stream().map(PrintPreviewPaperDefault.PaperOption::name).toList();
 		paperBox.setItems(FXCollections.observableArrayList(paperNames));
 
 		paperBox.getSelectionModel().selectedItemProperty().subscribe(paper -> {
@@ -135,12 +139,6 @@ public class PrintPreviewController
 				Globals.selectPaper(paper);
 			}
 		});
-		List<PrintPreviewPaperDefault.PaperOption> options = IntStream.range(0, Globals.getPaperCount())
-				.mapToObj(i -> new PrintPreviewPaperDefault.PaperOption(
-						Globals.getPaperInfo(i, PaperInfo.NAME),
-						PrintPreviewPaperDefault.parseDimensionToPoints(Globals.getPaperInfo(i, PaperInfo.WIDTH)),
-						PrintPreviewPaperDefault.parseDimensionToPoints(Globals.getPaperInfo(i, PaperInfo.HEIGHT))))
-				.toList();
 		String persisted = PCGenSettings.getInstance().getProperty(PCGenSettings.PAPERSIZE);
 		String chosen = PrintPreviewPaperDefault.chooseDefaultForCurrentLocaleAndPrinter(persisted, paperNames, options);
 		if (chosen != null)
