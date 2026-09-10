@@ -80,6 +80,26 @@ public final class VariableUtilities
 	}
 
 	/**
+	 * Returns true if the given variable name is a legal global variable for the dataset
+	 * of the PlayerCharacter represented by the given CharID. A global variable may be
+	 * absent when the code control feature that would define it is disabled for the game
+	 * mode (e.g. Alignment or Deity in d20 Modern).
+	 *
+	 * @param id
+	 *            The CharID representing the PlayerCharacter that the variable is on
+	 * @param variableName
+	 *            The name of the variable to be checked
+	 * @return true if the variable is a legal global variable; false otherwise
+	 */
+	public static boolean isLegalGlobalVariable(CharID id, String variableName)
+	{
+		ScopeInstance globalInstance = SCOPE_FACET.getGlobalScope(id);
+		VariableContext varContext =
+				LOAD_CONTEXT_FACET.getLoadContext(id.getDatasetID()).getVariableContext();
+		return varContext.isLegalVariableID(globalInstance.getImplementedScope(), variableName);
+	}
+
+	/**
 	 * Defines a listener that should react to a change in a variable.
 	 * 
 	 * @param id

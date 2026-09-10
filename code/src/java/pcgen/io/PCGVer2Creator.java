@@ -632,8 +632,12 @@ public final class PCGVer2Creator
 		//
 		// Only save alignment if game mode supports it
 		//
+		if (!thePC.isFeatureEnabled(CControl.ALIGNMENTFEATURE))
+		{
+			return;
+		}
 		PCAlignment pcAlignment = AlignmentCompat.getCurrentAlignment(thePC.getCharID());
-		if (thePC.isFeatureEnabled(CControl.ALIGNMENTFEATURE) && pcAlignment != null)
+		if (pcAlignment != null)
 		{
 			buffer.append(IOConstants.TAG_ALIGNMENT).append(':');
 			buffer.append(pcAlignment.getKeyName());

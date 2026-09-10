@@ -1917,6 +1917,12 @@ public class CharacterFacadeImpl
 	 */
 	private void buildAvailableDomainsList()
 	{
+		// Domain facades are only initialised when the DomainFeature is enabled for the
+		// game mode (e.g. never in d20 Modern), so there is nothing to build otherwise.
+		if (!theCharacter.isFeatureEnabled(CControl.DOMAINFEATURE))
+		{
+			return;
+		}
 		List<QualifiedObject<Domain>> availDomainList = new ArrayList<>();
 		List<QualifiedObject<Domain>> selDomainList = new ArrayList<>();
 		Deity pcDeity = (Deity) ChannelUtilities.readControlledChannel(

@@ -49,16 +49,22 @@ public final class ChannelUtilities
 
 	/**
 	 * Reads a Global Channel with the given Channel name.
-	 * 
+	 *
 	 * @param id
 	 *            The CharID representing the PC on which the channel should be read
 	 * @param channelName
 	 *            The name of the channel to be read
 	 * @return The value of the channel with the given name on the PC represented by the
-	 *         given CharID
+	 *         given CharID, or null if the channel is not enabled for this game mode
 	 */
 	public static Object readGlobalChannel(CharID id, String channelName)
 	{
+		// The channel variable is absent when its controlling feature is disabled for the
+		// game mode (e.g. Alignment/Deity in d20 Modern); treat that as no value.
+		if (!VariableUtilities.isLegalGlobalVariable(id, createVarName(channelName)))
+		{
+			return null;
+		}
 		return RESULT_FACET.getValue(id, getChannelVariableID(id, channelName));
 	}
 
