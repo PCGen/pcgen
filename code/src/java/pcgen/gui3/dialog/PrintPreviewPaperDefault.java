@@ -123,12 +123,6 @@ final class PrintPreviewPaperDefault
 		return bestName;
 	}
 
-	/** Reads the JVM locale country and delegates. For callers without printer information. */
-	static String chooseDefaultForCurrentLocale(String persisted, List<String> available)
-	{
-		return chooseDefault(persisted, Locale.getDefault().getCountry(), available);
-	}
-
 	/**
 	 * Reads the JVM locale country and the default printer's paper size, then delegates to the
 	 * dimension+locale chooser. A headless environment or missing printer is handled gracefully.
@@ -185,27 +179,6 @@ final class PrintPreviewPaperDefault
 		}
 		// 3. Locale fallback.
 		return localeDefault(country, availableNames, options);
-	}
-
-	/** Chooses a paper name by priority: persisted value if available, else Letter for US/CA or A4 elsewhere; null only if {@code available} is empty. */
-	static String chooseDefault(String persisted, String country, List<String> available)
-	{
-		if (available.isEmpty())
-		{
-			return null;
-		}
-		if (StringUtils.isNotBlank(persisted))
-		{
-			String match = available.stream()
-			                        .filter(name -> name.equalsIgnoreCase(persisted.strip()))
-			                        .findFirst()
-			                        .orElse(null);
-			if (match != null)
-			{
-				return match;
-			}
-		}
-		return localeDefault(country, available);
 	}
 
 	/**

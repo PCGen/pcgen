@@ -18,9 +18,6 @@
 package pcgen.gui3.dialog;
 
 import java.util.List;
-import java.util.Locale;
-
-import pcgen.LocaleDependentTestCase;
 
 import org.junit.jupiter.api.Test;
 
@@ -30,101 +27,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class PrintPreviewPaperDefaultTest
 {
-	private static final List<String> PAPERS = List.of("A4", "A5", "Letter", "Legal");
-
-	// ── existing 12 tests (locale fallback) ────────────────────────────────
-
-	@Test
-	void persistedValueWinsWhenAvailable()
-	{
-		assertEquals("Legal", PrintPreviewPaperDefault.chooseDefault("Legal", "US", PAPERS));
-	}
-
-	@Test
-	void persistedValueMatchedCaseInsensitively()
-	{
-		assertEquals("Letter", PrintPreviewPaperDefault.chooseDefault("letter", null, PAPERS));
-	}
-
-	@Test
-	void blankPersistedFallsToLocale()
-	{
-		assertEquals("Letter", PrintPreviewPaperDefault.chooseDefault("  ", "US", PAPERS));
-	}
-
-	@Test
-	void usLocaleDefaultsToLetter()
-	{
-		assertEquals("Letter", PrintPreviewPaperDefault.chooseDefault(null, "US", PAPERS));
-	}
-
-	@Test
-	void canadaLocaleDefaultsToLetter()
-	{
-		assertEquals("Letter", PrintPreviewPaperDefault.chooseDefault(null, "CA", PAPERS));
-	}
-
-	@Test
-	void otherLocaleDefaultsToA4()
-	{
-		assertEquals("A4", PrintPreviewPaperDefault.chooseDefault(null, "FR", PAPERS));
-	}
-
-	@Test
-	void nullCountryDefaultsToA4()
-	{
-		assertEquals("A4", PrintPreviewPaperDefault.chooseDefault(null, null, PAPERS));
-	}
-
-	@Test
-	void persistedValueNotInListIsIgnored()
-	{
-		assertEquals("A4", PrintPreviewPaperDefault.chooseDefault("B5", "GB", PAPERS));
-	}
-
-	@Test
-	void emptyListReturnsNull()
-	{
-		assertNull(PrintPreviewPaperDefault.chooseDefault("A4", "US", List.of()));
-	}
-
-	@Test
-	void usWithoutLetterFallsBackToFirst()
-	{
-		assertEquals("A4", PrintPreviewPaperDefault.chooseDefault(null, "US", List.of("A4", "Legal")));
-	}
-
-	// These flip the JVM default locale (via LocaleDependentTestCase) to verify
-	// chooseDefaultForCurrentLocale reads the OS country correctly.
-
-	@Test
-	void currentLocaleUsDefaultsToLetter()
-	{
-		LocaleDependentTestCase.before(Locale.US);
-		try
-		{
-			assertEquals("Letter", PrintPreviewPaperDefault.chooseDefaultForCurrentLocale(null, PAPERS));
-		}
-		finally
-		{
-			LocaleDependentTestCase.after();
-		}
-	}
-
-	@Test
-	void currentLocaleFranceDefaultsToA4()
-	{
-		LocaleDependentTestCase.before(Locale.FRANCE);
-		try
-		{
-			assertEquals("A4", PrintPreviewPaperDefault.chooseDefaultForCurrentLocale(null, PAPERS));
-		}
-		finally
-		{
-			LocaleDependentTestCase.after();
-		}
-	}
-
 	// ── parseDimensionToPoints ──────────────────────────────────────────────
 
 	@Test
@@ -238,6 +140,32 @@ class PrintPreviewPaperDefaultTest
 		assertEquals("Legal",
 				PrintPreviewPaperDefault.chooseDefault("Legal", "US", 612.0, 792.0,
 						List.of("A4", "Letter", "Legal"), PAPER_OPTIONS));
+	}
+
+	@Test
+	void canadaLocaleFallsBackToLetter()
+	{
+		// No persisted value, no printer dims → CA is a Letter locale like US
+		assertEquals("Letter",
+				PrintPreviewPaperDefault.chooseDefault(null, "CA", 0.0, 0.0, List.of("A4", "Letter"), PAPER_OPTIONS));
+	}
+
+	@Test
+	void nullCountryFallsBackToA4()
+	{
+		// Unknown country → non-Letter locale → A4
+		assertEquals("A4",
+				PrintPreviewPaperDefault.chooseDefault(null, null, 0.0, 0.0, List.of("A4", "Letter"), PAPER_OPTIONS));
+	}
+
+	@Test
+	void localeWithoutMatchingSizeFallsBackToFirstAvailable()
+	{
+		// US locale but no Letter-sized option (by name or dimension) → first available as last resort
+		List<PrintPreviewPaperDefault.PaperOption> a4Only =
+				List.of(new PrintPreviewPaperDefault.PaperOption("A4", 595.28, 841.89));
+		assertEquals("A4",
+				PrintPreviewPaperDefault.chooseDefault(null, "US", 0.0, 0.0, List.of("A4"), a4Only));
 	}
 
 	@Test
