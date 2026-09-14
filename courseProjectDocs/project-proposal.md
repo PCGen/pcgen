@@ -15,6 +15,8 @@ We mainly selected PCGen as our target for testing because it's mostly written i
 Our project will generally consist of a thorough analysis of the PCGen application guided by the assignments of this course which will give us a comprehensive understanding of it and practical experience with the skills needed to perform analysis of unfamiliar codebases and their quality attributes.
 
 ## Key Quality Metrics
+
+### Metrics Overview
 For the initial assessment of the codebase in our first assignment and as a baseline for future work this semester, we plan to track both **maintainability**, **testability**, and **code structure** of the code.
 In the project slides, code structure and testability are both listed under maintainability, but I have other pre-prepared metrics for both maintainability and testability, alongside the code structure metrics. 
 
@@ -24,7 +26,7 @@ Each pillar has 3 factors that go into judging them. These factors are indivudal
 Each factor gets averaged with the other factors relevant to the pillar to produce scores. 
 
 
-### Maintainability
+#### Maintainability
 Maintainability is defined through three categories: file modification, refactor rate, and commit naming.
 
 **File Modification**
@@ -57,7 +59,7 @@ Maintainability is defined through three categories: file modification, refactor
     here. That's fine.
 ```
 
-### Testability
+#### Testability
 Testability is defined through three categories: test file presence, ci presence, and ci passing rate.
 Sometimes the code calls testability "correctness" instead, but it is the same thing here. 
 
@@ -85,7 +87,7 @@ Sometimes the code calls testability "correctness" instead, but it is the same t
     Exponential scoring because having an amount failing should be punished.
 ```
 
-### Code Structure
+#### Code Structure
 Structure is defined through three categories: File length(loc), function length, and comment density
 
 **File Length**
@@ -110,5 +112,36 @@ Structure is defined through three categories: File length(loc), function length
     Wordiness sucks, but not detailing important pieces is criminal. 
 ```
 
-### Further Metrics
+#### Further Metrics
 In the near future we also plan to evaluate Modularity as documentation on the PCGen website seems to value the ability to introduce and effectively work with systems and content that aren't strictly speaking built in. Plus, as this project is open-source, the intent is that people use it, work with it, and build from it.
+
+
+### Metric results
+Reminder, these are a score from 0 to 1. 
+
+- Maintainability score, aggregate: `0.6927704473607962` - Reasonable score, nothing really to speak of here
+  - File Modification: `1.0` - Perfect score tells us that there's no evidence of remodifying the same file to an egregious extent. 
+  Good to see, which means that commits are accurate and correct without much problems
+  - Refactor Rate: `0.600556240041572` - Middling score tells us that when a file is modified, sometimes a large portion of the 
+  file is rewritten completely, which may not be a sign that the code is particularly maintainable. More often than not, thi is fine though. 
+  - Commit Naming: `0.4777551020408166` - This tells us that sometimes, the commits can be rather wordy and could be trimmed
+  down just a tad. Looking at it, that tracks and there's a lot of wordy commits. 
+- Testability score. aggregate: `0.5687841169535516` - Rather mediocre, which means that there's probably something to be 
+noticed here. 
+  - Test File Presence: `0.03603230482501553` - That is _bad_. I grabbed the numbers, and we have 174 test files covering 
+  4829 source files, which is a _horrible_ rate. They really need to add testing for a lot of functionality, I highly doubt
+  that functionality is being tested in depth. Instead, I'd wager that theyre simply testing that the main functionality 
+  sees the correct outputs rather than an in depth test of all code(within reason)
+  - CI Presence: `1.0` - We have a working CI(or at least the original repo does). Full points, good to see
+  - CI Test Passing: `0.6703200460356393` - Tests are passing at a reasonable rate, some failures here and there throughout 
+  their CI runs, which are punished pretty heavily. 
+- Code Structure score. aggregate: `0.7911721385812912` - Pretty good score, means that we have well written code. Glad to see it.
+  - File Length: `0.9774686829922953` - This is a lines of code metric. It tells us that our files aren't too long. The 
+    metric cutoff for punishment is 400ish lines in a file. This means that all of our files give or take are going to be 
+    under 400 lines. 
+  - Function Length: `1.0` - Means we don't have any functions that are egregiously long. Good to see, and a relevant metric
+  for lines of code. 
+  - Comment Density: `0.39604773275157856` - This tells us that our files can be rather dense with comments over code. The 
+    threshold for punishment in either direction is sub 10% of the code is comments, and that over 33% of the code is comments.
+    I'm not sure which end is causing the low score, but it is telling that we either have poor documentation or overly wordy
+    documentation. I'm pretty sure I can guess which one, given that limited commenting is punished harsher than heavy commenting. 
