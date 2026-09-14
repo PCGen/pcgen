@@ -16,7 +16,7 @@ from src.da1_identifiers import build_file_identifier_dataset
 from src.db_utils import exec_sql_file
 from src.git_ingest import ingest_issues, ingest_pull_requests, ingest_ci
 from src.git_ingest_helpers import collect_github_issues, collect_github_pulls, collect_github_actions_runs
-from src.proj_analysis import run_full_pipeline_processing, run_full_pipeline_all_data
+from src.proj_analysis import run_full_pipeline_processing, run_full_pipeline_all_data, new_pipeline
 from src.qual_clean_helpers import ensure_columns, clean_issues_db, clean_prs_db, clean_commits_db
 from src import sampling_algorithms
 from src.srcml_runner import run_srcml_on_repo_file
@@ -25,7 +25,7 @@ from src import da2_vocabulary
 import os
 
 
-def cmd_predict(args) -> None:
+def cmd_predict(args, classification_report=None) -> None:
     """Train a commit-type classifier from DB data and write evaluation outputs.
 
     No network calls.  Reads commits, identifiers, and comments from the DB
@@ -315,8 +315,8 @@ def _mine_code_artifacts(repo_path: str, file_limit: int = None) -> None:
     # I left my laptop on overnight expecting the data to be done when I woke up, but found it stuck at 169/285 while
     # processing "54698 identifiers, 34530 comments from 14 files". I am quite annoyed as I just wasted a ton of time
     # before realizing I needed this check.
-    IDENTIFIER_THRESHOLD = 5000
-    COMMENT_THRESHOLD = 3000
+    IDENTIFIER_THRESHOLD = 500000
+    COMMENT_THRESHOLD = 300000
 
     for unit in units:
         rel_path = unit.get('filename', '')
@@ -505,6 +505,34 @@ def load_failed_repos(path):
     return repos
 
 
+def analyze_target_repo(args):
+    try:
+
+        fake_args = argparse.Namespace(
+            token=args.token,
+            owner_repo=args.repo,
+            max_commits=args.max_commits,
+            file_limit=args.file_limit,
+            ingest=True,
+        )
+        mineCode(fake_args)
+
+        id_count = db_utils.exec_get_one("SELECT COUNT(*) FROM code_identifiers")[0]
+        cm_count = db_utils.exec_get_one("SELECT COUNT(*) FROM code_comments")[0]
+        if id_count == 0 and cm_count == 0:
+            print(f"srcml presumably failed, intentionally throwing error")
+            raise Exception("srcml presumably failed")
+
+        scores = new_pipeline()
+        print(scores)
+
+    except Exception as e:
+        # if it's fried still toss it into the db so we know what didnt work right
+        print(e)
+        pass
+
+
+
 def project_pipeline(args):
     os.makedirs(args.output_dir, exist_ok=True)
     good_path = os.path.join(args.output_dir, "good_repo_results.csv")
@@ -682,6 +710,7 @@ def main(argv=None):
     analyzeparser = subparser.add_parser("analyze", help="Analyze Mode")
     pp = subparser.add_parser("predict", help="Train commit-type classifier and write evaluation outputs (M1)")
     proj = subparser.add_parser("proj-run", help="Run research project functions on processed data")
+    target = subparser.add_parser("target-run", help="Run research project functions on target repo")
 
     mineparser.add_argument("owner_repo", help="owner/repo (e.g. octocat/Hello-World) or local repo path")
     mineparser.add_argument("--token", help="GitHub token (or set GITHUB_TOKEN) for private repo cloning")
@@ -712,6 +741,12 @@ def main(argv=None):
                       help="How many commits to mine")
     proj.add_argument("--file-limit", type=int, default=100,
                       help="How many source files to parse")
+    
+    target.add_argument("--repo", help="Path to the target repo on github")
+    target.add_argument("--token", help="GitHub token (or set GITHUB_TOKEN) for private repo cloning")
+    target.add_argument("--max-commits", type=int, default=None, help="Stop after this many commits (optional)")
+    target.add_argument("--file-limit", type=int, default=100, help="How many files to look at in the repo")
+
 
     args = p.parse_args(argv)
 
@@ -723,6 +758,8 @@ def main(argv=None):
         cmd_predict(args)
     elif args.choice == "proj-run":
         project_pipeline(args)
+    elif args.choice == "target-run":
+        analyze_target_repo(args)
 
 
 if __name__ == "__main__":

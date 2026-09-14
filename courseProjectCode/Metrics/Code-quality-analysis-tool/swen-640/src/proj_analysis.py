@@ -72,6 +72,39 @@ def run_full_pipeline_all_data():
     }
 
 
+def new_pipeline():
+    file_length = file_length_check()
+    function_length = function_length_check()
+    density = comment_density_check()
+    structure = (file_length + function_length + density) / 3
+
+    test_file = test_file_check()
+    ci_presence = ci_presence_check()
+    ci_passing = ci_passing_check()
+    correctness_test = (test_file + ci_presence + ci_passing) / 3
+
+    file_modification = file_modification_check()
+    commit_naming = commit_naming_check()
+    refactor_rate = refactor_rate_check()
+    maintainability = (file_modification + commit_naming + refactor_rate) / 3
+
+    return {
+        "structure_score": structure,
+        "correctness_test_score": correctness_test,
+        "maintainability_score": maintainability,
+        # subscores
+        "file_length": file_length,
+        "function_length": function_length,
+        "density": density,
+        "test_file": test_file,
+        "ci_presence": ci_presence,
+        "ci_passing": ci_passing,
+        "file_modification": file_modification,
+        "commit_naming": commit_naming,
+        "refactor_rate": refactor_rate,
+    }
+
+
 def run_full_pipeline_processing():
     """
     Main pipeline. What am I doing here?
@@ -324,7 +357,7 @@ def test_file_check():
     source_count = len(file_path_data) - test_count
     if source_count == 0:
         return 1.0
-
+    print("test files: " + str(test_count) + " source files: " + str(source_count))
     # return ratio of test files : src files capped at 1:1(covers potential issues and more files would be weird)
     return min(test_count/(len(file_path_data)-test_count), 1.0)
 
@@ -758,3 +791,47 @@ def token_ratio_check():
         return 1.0
 
     return file_score / scored_files
+
+
+def comment_density_check():
+    """
+    Comment density defines how much of a given file is comments. If you have a 100 line file, and 50 lines are comments, not good.
+    The ideal range is defined here as over 10% and under 33%. Too many comments shouldn't be treated as harsh as barely having any.
+    Wordiness sucks, but not detailing important pieces is criminal.     :return:
+    """
+    file_length_path_data = exec_get_all("""SELECT file_path, file_line_count
+                                       FROM file_data""")
+
+    if not file_length_path_data:
+        return 1.0
+
+    density_score = 0
+    scored_files = 0
+
+    for length_path in file_length_path_data:
+        path, length = length_path
+
+        # skipping empty files
+        if length == 0:
+            continue
+
+        comment_num = exec_get_one("""SELECT COUNT(*) FROM code_comments WHERE file_path = %s""",
+                             (path,))[0]
+
+        density = comment_num/length
+        scored_files += 1
+
+        if density < 0.10:  # sub 10% comment rate, not useful to actually figure out whats going on
+            density_score += density / 0.10  # linear decrease
+        elif density >= 0.33:
+            # quadratic decay, high density bad
+            density_score += math.exp(-4 * (density - 0.33))
+        else:
+            # nominal
+            density_score += 1.0
+
+    if scored_files == 0:
+        return 1.0
+
+    return density_score / scored_files
+
