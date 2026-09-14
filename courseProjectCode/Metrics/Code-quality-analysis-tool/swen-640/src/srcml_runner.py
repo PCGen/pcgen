@@ -73,6 +73,49 @@ def run_srcml_on_repo_file(
     return run_srcml_on_text(text, filename_hint=file_path, srcml_path=srcml_path)
 
 
+def process_single_file(path, relative_path, srcml):
+    """
+    process file by file because we cant have nice things and this gets big enough memorywise that my system wont run srcml
+    :param path:
+    :param relative_path:
+    :param srcml:
+    :return:
+    """
+    fd_out, out_path = tempfile.mkstemp(suffix=".srcml")
+    os.close(fd_out)
+    try:
+        print("running srcml on: " + relative_path)
+
+        run_result = subprocess.run([srcml, path, "--filename", relative_path, "-o", out_path], capture_output=True, timeout=60)
+
+        if run_result.returncode != 0:  # some sort of error caught, ditch it
+            print("errored, moving on")
+            return relative_path, None, run_result.returncode
+
+        with open(out_path, "r", encoding="utf-8") as f:  # good
+            print("successful, moving on")
+            return relative_path, cleanup_srcml_fragment(f.read()), 0
+
+    except subprocess.TimeoutExpired:  # in case we run too long for one reason or another
+        print("timeout, moving on")
+        return relative_path, None, "file blew up, skip"
+    finally:
+        try:
+            os.remove(out_path)
+        except Exception:
+            pass
+
+
+def cleanup_srcml_fragment(srcml_string):
+    cleaned = srcml_string.lstrip()
+    if cleaned.startswith("<?xml"):  # ditch the nasty xml header getting in the way of reassembling the full thing
+        end = cleaned.find("?>")
+        if end != -1:
+            cleaned = cleaned[end + 2:]
+            return cleaned.lstrip()
+    return cleaned
+
+
 def run_srcml_on_directory(dir_path: str, srcml_path: Optional[str] = None) -> str:
     """Run srcML on an entire directory and return the combined XML as a string.
 
@@ -84,14 +127,32 @@ def run_srcml_on_directory(dir_path: str, srcml_path: Optional[str] = None) -> s
     Raises RuntimeError if the srcML binary is not found.
     """
     srcml = srcml_path or find_srcml_executable()
-    fd_out, out_path = tempfile.mkstemp(suffix=".srcml")
-    os.close(fd_out)
-    try:
-        subprocess.run([srcml, dir_path, "-o", out_path], check=True)
-        with open(out_path, "r", encoding="utf-8") as f:
-            return f.read()
-    finally:
-        try:
-            os.remove(out_path)
-        except Exception:
-            pass
+
+    files = []
+    relative_path = []
+    for root, dirs, filename in os.walk(dir_path):
+        for name in filename:
+            if name.endswith(".java"):
+                path = os.path.join(root, name)
+                files.append(path)
+                relative_path.append(os.path.relpath(path, dir_path).replace("\\", "/"))
+            else:
+                print("skipping non java file " + name)
+
+    srcml_outputs = []
+    failure_count = 0
+
+    for i in range(len(files)):
+        output = process_single_file(files[i], relative_path[i], srcml)
+        if output[1]:
+            srcml_outputs.append(output[1])
+        else:
+            failure_count += 1
+
+    print("failed " + str(failure_count) + " files")
+
+    return '<unit xmlns="http://www.srcML.org/srcML/src" xmlns:cpp="http://www.srcML.org/srcML/cpp" revision="1.0.0">' + "".join(srcml_outputs) + "</unit>"
+
+
+
+

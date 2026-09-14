@@ -203,7 +203,7 @@ def mine_history(repo_path: str = ".", max_commits: Optional[int] = None, record
         commits = list(repo.iter_commits("HEAD"))  # newest -> oldest
         commits.reverse()  # oldest -> newest
         count = 0
-        FILE_LIMIT = 2500
+        FILE_LIMIT = 5000
         for c in commits:
             file_count = c.stats.total["files"]
             if file_count > FILE_LIMIT:
