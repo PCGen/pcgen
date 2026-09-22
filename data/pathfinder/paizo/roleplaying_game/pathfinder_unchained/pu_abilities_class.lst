@@ -897,7 +897,7 @@ Fighter	KEY:Variant Multiclass ~ Fighter	CATEGORY:Feat	TYPE:Variant Multiclass	C
 	ABILITY:Special Ability|AUTOMATIC|Multiclass Fighter ~ Armor Training 2|PREVARGTEQ:TL,15
 	ABILITY:Special Ability|AUTOMATIC|Multiclass Fighter ~ Weapon Training 2|PREVARGTEQ:TL,19
 	BONUS:VAR|MulticlassFighter|1
-	
+
 Monk	KEY:Variant Multiclass ~ Monk	CATEGORY:Feat	TYPE:Variant Multiclass	COST:0	!PRECLASS:1,Monk=1	DESC:A character who chooses monk as his secondary class gains secondary class features.
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
@@ -988,7 +988,22 @@ Wizard	KEY:Variant Multiclass ~ Wizard	CATEGORY:Feat	TYPE:Variant Multiclass	COS
 	BONUS:ABILITYPOOL|Wizard Arcane Discovery|1|PREVARGTEQ:TL,15
 	ABILITY:Special Ability|AUTOMATIC|Wizard VM ~ Greater School Power|PREVARGTEQ:TL,19
 
-Alchemist	KEY:Variant Multiclass ~ Alchemist	CATEGORY:Feat	TYPE:Variant Multiclass	COST:0	!PRECLASS:1,Alchemist=1	DESC:A character who chooses alchemist as his secondary class gains secondary class features.
+Alchemist	KEY:Variant Multiclass ~ Alchemist	CATEGORY:Special Ability	TYPE:Variant Multiclass.SpecialQuality	!PRECLASS:1,Alchemist=1	DESC:A character who chooses alchemist as his secondary class gains secondary class features.
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,15
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,19
+	BONUS:SKILL|Craft (Alchemy)|TL|TYPE=Competence|PREVARGTEQ:TL,3
+	ABILITY:Special Ability|AUTOMATIC|Alchemy ~ Potions|PREVARGTEQ:TL,3
+	ABILITY:Special Ability|AUTOMATIC|Bombs|PREVARGTEQ:TL,7
+	BONUS:VAR|BombDice|(TL+1)/2|PREVARGTEQ:TL,7
+	BONUS:VAR|BombDamageBonus|INT|PREVARGTEQ:TL,7
+	BONUS:VAR|AlchemistBombTimes|INT+floor(TL/2)|PREVARGTEQ:TL,7
+	ABILITY:Special Ability|AUTOMATIC|Mutagen|PREVARGTEQ:TL,11
+	BONUS:VAR|MutagenDuration|10*TL|PREVARGTEQ:TL,11
+	ABILITY:Special Ability|AUTOMATIC|Poison Use|Swift Poisoning|PREVARGTEQ:TL,15
+	ABILITY:Special Ability|AUTOMATIC|Immunity to Poison|PREVARGTEQ:TL,19
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
@@ -1043,7 +1058,19 @@ Inquisitor	KEY:Variant Multiclass ~ Inquisitor	CATEGORY:Special Ability	TYPE:Var
 	BONUS:VAR|InquisitorJudgmentTimes|1|PREVARGTEQ:TL,15
 	ABILITY:Special Ability|AUTOMATIC|Second Judgment|PREVARGTEQ:TL,19
 	
-Magus	KEY:Variant Multiclass ~ Magus	CATEGORY:Feat	TYPE:Variant Multiclass	COST:0	!PRECLASS:1,Magus=1	DESC:A character who chooses magus as his secondary class gains secondary class features.
+Magus	KEY:Variant Multiclass ~ Magus	CATEGORY:Special Ability	TYPE:Variant Multiclass.SpecialQuality	!PRECLASS:1,Magus=1	DESC:A character who chooses magus as his secondary class gains secondary class features.
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,15
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,19
+	ABILITY:Special Ability|AUTOMATIC|Arcane Pool|PREVARGTEQ:TL,3
+	BONUS:VAR|ArcanePoolLVL|TL-2|PREVARGTEQ:TL,3
+	BONUS:ABILITYPOOL|Magus Arcana|1|PREVARGTEQ:TL,7
+	BONUS:VAR|MagusArcanaLVL|TL|PREVARGTEQ:TL,7
+	ABILITY:Special Ability|AUTOMATIC|Spellstrike|PREVARGTEQ:TL,11
+	BONUS:ABILITYPOOL|Magus Arcana|1|PREVARGTEQ:TL,15
+	BONUS:ABILITYPOOL|Magus Arcana|1|PREVARGTEQ:TL,19
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
@@ -1057,7 +1084,21 @@ Magus	KEY:Variant Multiclass ~ Magus	CATEGORY:Feat	TYPE:Variant Multiclass	COST:
 	BONUS:ABILITYPOOL|Magus Arcana|1|PREVARGTEQ:TL,15
 	BONUS:ABILITYPOOL|Magus Arcana|1|PREVARGTEQ:TL,19
 
-Oracle	KEY:Variant Multiclass ~ Oracle	CATEGORY:Feat	TYPE:Variant Multiclass	COST:0	!PRECLASS:1,Oracle=1	DESC:A character who chooses oracle as her secondary class gains secondary class features.
+Oracle	KEY:Variant Multiclass ~ Oracle	CATEGORY:Special Ability	TYPE:Variant Multiclass.SpecialQuality	!PRECLASS:1,Oracle=1	DESC:A character who chooses oracle as her secondary class gains secondary class features.
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,15
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,19
+	BONUS:ABILITYPOOL|Oracle Mystery|1|PREVARGTEQ:TL,1
+	BONUS:ABILITYPOOL|Oracle Curse|1|PREVARGTEQ:TL,1
+	BONUS:VAR|OracleCurseLVL|floor(TL/2)|PREVARGTEQ:TL,1
+	BONUS:ABILITYPOOL|Oracle Revelation|1|PREVARGTEQ:TL,3
+	BONUS:VAR|OracleRevelationLVL|max(1,TL-6)|PREVARGTEQ:TL,3
+	BONUS:ABILITYPOOL|Oracle Orison|1|PREVARGTEQ:TL,7
+	BONUS:VAR|OracleCurseLVL|5|PREVARGTEQ:TL,11
+	BONUS:ABILITYPOOL|Oracle Revelation|1|PREVARGTEQ:TL,15
+	BONUS:ABILITYPOOL|Oracle Revelation|1|PREVARGTEQ:TL,19
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
@@ -1073,7 +1114,20 @@ Oracle	KEY:Variant Multiclass ~ Oracle	CATEGORY:Feat	TYPE:Variant Multiclass	COS
 	BONUS:ABILITYPOOL|Oracle Revelation|1|PREVARGTEQ:TL,15
 	BONUS:ABILITYPOOL|Oracle Revelation|1|PREVARGTEQ:TL,19
 
-Summoner	KEY:Variant Multiclass ~ Summoner	CATEGORY:Feat	TYPE:Variant Multiclass	COST:0	!PRECLASS:1,Summoner=1	DESC:A character who chooses summoner as his secondary class gains secondary class features.
+Summoner	KEY:Variant Multiclass ~ Summoner	CATEGORY:Special Ability	TYPE:Variant Multiclass.SpecialQuality	!PRECLASS:1,Summoner=1	DESC:A character who chooses summoner as his secondary class gains secondary class features.
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,15
+	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,19
+	ABILITY:Special Ability|AUTOMATIC|Summoner ~ Summon Monster|PREVARGTEQ:TL,3
+	BONUS:VAR|SummonerSummonMonsterLVL|min((TL-1)/2,9)|PREVARGTEQ:TL,3
+	BONUS:VAR|SummonerSummonMonsterTimes|1|PREVARGTEQ:TL,3
+	ABILITY:Special Ability|AUTOMATIC|Companion ~ Eidolon|PREVARGTEQ:TL,7
+	BONUS:VAR|EidolonCompanionLVL|TL-4|PREVARGTEQ:TL,7
+	BONUS:VAR|SummonerSummonMonsterTimes|2|PREVARGTEQ:TL,11
+	ABILITY:Special Ability|AUTOMATIC|Shield Ally|PREVARGTEQ:TL,15
+	ABILITY:Special Ability|AUTOMATIC|Aspect|PREVARGTEQ:TL,19
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,3
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,7
 	BONUS:ABILITYPOOL|Feat|-1|PREVARGTEQ:TL,11
